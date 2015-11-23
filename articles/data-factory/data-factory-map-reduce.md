@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="11/09/2015" 
 	ms.author="spelluru"/>
 
 # Chamar Programas MapReduce da Data Factory
@@ -22,7 +22,7 @@ Este artigo descreve como invocar um programa **MapReduce** de um pipeline do Az
 ## Introdução 
 Um pipeline em uma fábrica de dados do Azure processa dados nos serviços de armazenamento vinculados utilizando serviços de computação vinculados. Ela contém uma sequência de atividades em que cada atividade executa uma operação de processamento específica. Este artigo descreve como usar a transformação MapReduce da Atividade do HDInsight.
  
-Consulte o artigo sobre [Pig](data-factory-pig-activity) e [Hive](data-factory-hive-activity.md) para obter detalhes sobre como executar os scripts Pig/Hive em um cluster do HDInsight de um pipeline da Azure Data Factory usando transformações Pig/Hive da Atividade do HDInsight.
+Consulte o artigo sobre [Pig](data-factory-pig-activity) e [Hive](data-factory-hive-activity.md) para obter detalhes sobre como executar os scripts Pig/Hive em um cluster do HDInsight baseado em Windows/Linux de um pipeline da Azure Data Factory usando transformações Pig/Hive da Atividade do HDInsight.
 
 ## JSON para atividade de HDInsight usando a transformação MapReduce 
 
@@ -102,4 +102,4 @@ Você pode baixar um exemplo para usar a Atividade de HDInsight com a transforma
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

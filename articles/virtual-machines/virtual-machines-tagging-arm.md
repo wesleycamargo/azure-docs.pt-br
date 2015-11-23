@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure-services"
-   ms.date="07/23/2015"
+   ms.date="11/10/2015"
    ms.author="dkshir;memccror"/>
 
 # Como marcar uma Máquina Virtual no Azure
@@ -88,7 +88,7 @@ Se sua Máquina Virtual já contiver marcas, você verá todas elas no seu recur
 
 Se desejar adicionar marcas por meio do PowerShell, você poderá usar o comando `Set-AzureResource`. Observe que, ao atualizar marcas pelo PowerShell, as marcas são atualizadas como um todo. Desse modo, se estiver adicionando uma marca a um recurso que já tenha marcas, você precisará incluir todas as marcas que deseja que sejam colocadas no recurso. Veja abaixo um exemplo de como adicionar mais marcas a um recurso usando cmdlets do PowerShell.
 
-Este primeiro cmdlet define todas as marcas colocadas em *MyWindowsVM* para a variável *tags* usando as funções `Get-AzureResource` e `Tags`.
+Este primeiro cmdlet define todas as marcas colocadas em *MyWindowsVM* para a variável *tags* usando as funções `Get-AzureResource` e `Tags`. Observe que o parâmetro `ApiVersion` é opcional; se não for especificado, a última versão de API do provedor de recursos é usada.
 
         PS C:\> $tags = (Get-AzureResource -Name MyWindowsVM -ResourceGroupName MyResourceGroup -ResourceType "Microsoft.Compute/virtualmachines" -ApiVersion 2015-05-01-preview).Tags
 
@@ -155,7 +155,7 @@ Agora que aplicamos marcas aos nossos recursos por meio do PowerShell, da CLI do
 
 ## Exibindo suas marcas nos detalhes de uso
 
-As marcas colocadas nos recursos de Computação, Rede e Armazenamento por meio do Gerenciador de Recursos do Azure serão populadas nos detalhes de uso no portal de cobrança.
+As marcas colocadas nos recursos de Computação, Rede e Armazenamento por meio do Gerenciador de Recursos do Azure serão populadas nos detalhes de uso no [portal de cobrança](https://account.windowsazure.com/).
 
 Clique em **Baixar detalhes de uso** para exibir os detalhes de uso na sua assinatura.
 
@@ -190,4 +190,4 @@ Ao analisar essas marcas juntamente com o uso, as organizações poderão adquir
 [Noções básicas de sua fatura do Azure]: ../billing-understand-your-bill.md
 [Obtenha informações sobre o consumo de recursos do Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

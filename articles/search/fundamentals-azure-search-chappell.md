@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introdução à Pesquisa do Azure | Microsoft Azure" 
+	pageTitle="Introdução à Pesquisa do Azure | Microsoft Azure | Serviço de pesquisa de nuvem hospedado" 
 	description="Saiba como a Pesquisa do Azure, um serviço de pesquisa de nuvem hospedado, pode ajudá-lo a criar aplicativos avançados de pesquisa." 
 	editor="monicar" 
 	manager="mblythe" 
@@ -42,4 +42,4 @@ Este artigo é uma visão geral da tecnologia e quais recursos e cenários que e
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">"Apresentando a Pesquisa do Azure" (em PDF)</a>
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">"Apresentando a Pesquisa do Azure" (no Microsoft Word)</a> 
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

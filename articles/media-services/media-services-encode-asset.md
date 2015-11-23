@@ -246,12 +246,16 @@ MP3 (MPEG-1 Audio Layer 3)|Não|Não|Sim
 Áudio do Windows Media|Não|Sim|Sim
 
 
+
+
 ##Roteiros de aprendizagem dos Serviços de Mídia
 
-Você pode exibir os roteiros de aprendizagem do AMS aqui:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Fornecer comentários
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 ##Artigos relacionados
 
@@ -261,4 +265,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

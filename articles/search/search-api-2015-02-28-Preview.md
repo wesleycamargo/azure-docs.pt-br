@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Versão da API REST do Serviço Azure Search 2015-02-28-Preview | Microsoft Azure"
+   pageTitle="Versão da API REST do Serviço Azure Search 2015-02-28-Preview | Microsoft Azure | Serviço de pesquisa de nuvem hospedado"
    description="A API REST do Serviço de Pesquisa do Azure Versão 2015-02-28-Preview inclui recursos experimentais, como a Sintaxe de Consulta Lucene e as pesquisas moreLikeThis."
    services="search"
    documentationCenter="na"
@@ -703,7 +703,7 @@ Um sugestor faz parte do índice. Apenas um sugestor pode existir na coleção d
 		  ]
 		}
 
-> [AZURE.NOTE] Se você usou a versão de visualização pública do Azure Search, `suggesters` substitui uma propriedade booliana antiga (`"suggestions": false`) que dava suporte apenas a sugestões de prefixo para cadeias de caracteres curtas (3-25 caracteres). Sua substituição, `suggesters`, dá suporte à correspondências infixas que localizam os termos correspondentes no início ou no meio do conteúdo do campo, com melhor tolerância para erros em cadeias de caracteres de pesquisa. Começando com a versão disponível, esta é a única implementação da API de sugestões. A propriedade mais antiga `suggestions` que foi introduzida na `api-version=2014-07-31-Preview` continua a funcionar nessa versão, mas não está operacional na versão `2015-02-28` ou posteriores da Pesquisa do Azure.
+> [AZURE.NOTE]Se você usou a versão de visualização pública do Azure Search, `suggesters` substitui uma propriedade booliana antiga (`"suggestions": false`) que dava suporte apenas a sugestões de prefixo para cadeias de caracteres curtas (3-25 caracteres). Sua substituição, `suggesters`, dá suporte à correspondências infixas que localizam os termos correspondentes no início ou no meio do conteúdo do campo, com melhor tolerância para erros em cadeias de caracteres de pesquisa. Começando com a versão disponível, esta é a única implementação da API de sugestões. A propriedade mais antiga `suggestions` que foi introduzida na `api-version=2014-07-31-Preview` continua a funcionar nessa versão, mas não está operacional na versão `2015-02-28` ou posteriores da Pesquisa do Azure.
 
 <a name="UpdateIndex"></a>
 ## Atualizar o índice
@@ -1176,31 +1176,31 @@ A **Pesquisa** aceita vários parâmetros que fornecem critérios de consulta e 
 
 `queryType=simple|full` (opcional, o padrão é `simple`) - quando definido como texto de pesquisa "simples", é interpretado usando uma linguagem de consulta simples que permite símbolos como +, * e "". As consultas são avaliadas em todos os campos pesquisáveis (ou nos campos indicados em `searchFields`) em cada documento por padrão. Quando o tipo de consulta for definido como `full`, o texto de pesquisa será interpretado usando a linguagem de consulta Lucene que permite pesquisas de campo específicos e ponderadas. Consulte [Sintaxe de consulta simples](https://msdn.microsoft.com/library/dn798920.aspx) e [Sintaxe de consulta Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx) para obter informações específicas sobre a sintaxe de pesquisa.
  
-> [AZURE.NOTE] A pesquisa do intervalo na linguagem de consulta Lucene não tem suporte a $filter, que oferece funcionalidade semelhante.
+> [AZURE.NOTE]A pesquisa do intervalo na linguagem de consulta Lucene não tem suporte a $filter, que oferece funcionalidade semelhante.
 
 `moreLikeThis=[key]` (opcional) **Importante:** esse recurso só está disponível na `2015-02-28-Preview`. Essa opção não pode ser usada em uma consulta que contém o parâmetro de pesquisa de texto `search=[string]`. O parâmetro `moreLikeThis` localiza os documentos que são semelhantes ao documento especificado pela chave do documento. Quando é feita uma solicitação de pesquisa com `moreLikeThis`, uma lista de termos de pesquisa é gerada com base na frequência e raridade dos termos no documento de origem. Esses termos são usados para fazer a solicitação. Por padrão, o conteúdo de todos os campos `searchable` será considerado, a menos que `searchFields` seja usado para restringir quais campos são pesquisados.
 
 `$skip=#` (opcional) ‒ o número de resultados da pesquisa a serem ignorados. Não pode ser superior a 100.000. Se você precisar examinar os documentos em sequência, mas não puder usar `$skip` devido a essa limitação, considere o uso de `$orderby` em uma chave totalmente ordenada e `$filter` com um intervalo de consulta em vez disso.
 
-> [AZURE.NOTE] Ao chamar **Pesquisa** usando POST, esse parâmetro será chamado de `skip` em vez de `$skip`.
+> [AZURE.NOTE]Ao chamar **Pesquisa** usando POST, esse parâmetro será chamado de `skip` em vez de `$skip`.
 
 `$top=#` (opcional) ‒ o número de resultados da pesquisa a serem recuperados. Isso pode ser usado em conjunto com `$skip` para implementar a paginação de cliente dos resultados da pesquisa.
 
-> [AZURE.NOTE] A Pesquisa do Azure usa a ***paginação de servidor*** para impedir que consultas recuperem documentos demais ao mesmo tempo. O tamanho da página padrão é 50, enquanto o tamanho máximo da página é 1000. Isso significa que, por padrão, **Pesquisa** retornará no máximo 50 resultados se você não especificar `$top`. Se houver mais de 50 resultados, a resposta inclui informações para recuperar a próxima página de no máximo 50 resultados (consulte `@odata.nextLink` e `@search.nextPageParameters` no [exemplo a seguir](#SearchResponse)). De maneira semelhante, se você especificar um valor maior que 1.000 para `$top` e houver mais de 1.000 resultados, somente os primeiros 1.000 resultados serão retornados, juntamente com informações para recuperar a próxima página de no máximo 1.000 resultados.
+> [AZURE.NOTE]A Pesquisa do Azure usa a ***paginação de servidor*** para impedir que consultas recuperem documentos demais ao mesmo tempo. O tamanho da página padrão é 50, enquanto o tamanho máximo da página é 1000. Isso significa que, por padrão, **Pesquisa** retornará no máximo 50 resultados se você não especificar `$top`. Se houver mais de 50 resultados, a resposta inclui informações para recuperar a próxima página de no máximo 50 resultados (consulte `@odata.nextLink` e `@search.nextPageParameters` no [exemplo a seguir](#SearchResponse)). De maneira semelhante, se você especificar um valor maior que 1.000 para `$top` e houver mais de 1.000 resultados, somente os primeiros 1.000 resultados serão retornados, juntamente com informações para recuperar a próxima página de no máximo 1.000 resultados.
 
-> [AZURE.NOTE] Ao chamar **Pesquisa** usando POST, esse parâmetro será chamado de `top` em vez de `$top`.
+> [AZURE.NOTE]Ao chamar **Pesquisa** usando POST, esse parâmetro será chamado de `top` em vez de `$top`.
 
 `$count=true|false` (opcional; o padrão é `false`) ‒ especifica se é necessário buscar a contagem total de resultados. A definição desse valor como `true` pode afetar o desempenho. Observe que a contagem retornada é uma aproximação.
 
-> [AZURE.NOTE] Ao chamar **Pesquisa** usando POST, esse parâmetro será chamado de `count` em vez de `$count`.
+> [AZURE.NOTE]Ao chamar **Pesquisa** usando POST, esse parâmetro será chamado de `count` em vez de `$count`.
 
 `$orderby=[string]` (opcional) ‒ uma lista de expressões separadas por vírgulas para classificar os resultados. Cada expressão pode ser um nome de campo ou uma chamada para a função `geo.distance()`. Cada expressão pode ser seguida de `asc` para indicar a ordem crescente e `desc` para indicar a ordem decrescente. O padrão é a ordem crescente. Os empates serão resolvidos pelas pontuações de correspondência de documentos. Se nenhum `$orderby` for especificado, a ordem de classificação padrão será decrescente de acordo com a pontuação de correspondência dos documentos. Há um limite de 32 cláusulas para `$orderby`.
 
-> [AZURE.NOTE] Ao chamar **Pesquisa** usando POST, esse parâmetro será chamado de `orderby` em vez de `$orderby`.
+> [AZURE.NOTE]Ao chamar **Pesquisa** usando POST, esse parâmetro será chamado de `orderby` em vez de `$orderby`.
 
 `$select=[string]` (opcional) ‒ uma lista de campos separados por vírgulas a serem recuperados. Se não for especificado, todos os campos marcados como recuperáveis no esquema serão incluídos. Você pode solicitar explicitamente todos os campos ao definir esse parâmetro como `*`.
 
-> [AZURE.NOTE] Ao chamar **Pesquisa** usando POST, esse parâmetro será chamado de `select` em vez de `$select`.
+> [AZURE.NOTE]Ao chamar **Pesquisa** usando POST, esse parâmetro será chamado de `select` em vez de `$select`.
 
 `facet=[string]` (zero ou mais) ‒ um campo de acordo com o qual o facetamento deve ser realizado. Opcionalmente, a cadeia de caracteres pode conter parâmetros para personalizar o facetamento expressado como pares separados por vírgulas `name:value`. Os parâmetros válidos são:
 
@@ -1218,33 +1218,33 @@ A **Pesquisa** aceita vários parâmetros que fornecem critérios de consulta e 
   - Por exemplo: `facet=lastRenovationDate,interval:year` produz uma classificação para cada ano em que os hotéis foram reformados.
 - **Observação**: `count` e `sort` podem ser combinados na mesma especificação de faceta, mas não podem ser combinados com `interval` ou `values`, e `interval` e `values` não podem ser combinados juntos.
 
-> [AZURE.NOTE] Ao chamar **Pesquisa** usando POST, esse parâmetro será chamado de `facets` em vez de `facet`. Além disso, especifique-o como uma matriz JSON de cadeias de caracteres em que cada cadeia é uma expressão de faceta separada.
+> [AZURE.NOTE]Ao chamar **Pesquisa** usando POST, esse parâmetro será chamado de `facets` em vez de `facet`. Além disso, especifique-o como uma matriz JSON de cadeias de caracteres em que cada cadeia é uma expressão de faceta separada.
 
 `$filter=[string]` (opcional) ‒ uma expressão de pesquisa estruturada na sintaxe de OData padrão. Consulte [Sintaxe de expressão OData](#ODataExpressionSyntax) para obter detalhes sobre o subconjunto da gramática de expressões OData ao qual o Azure Search dá suporte.
 
-> [AZURE.NOTE] Ao chamar **Pesquisa** usando POST, esse parâmetro será chamado de `filter` em vez de `$filter`.
+> [AZURE.NOTE]Ao chamar **Pesquisa** usando POST, esse parâmetro será chamado de `filter` em vez de `$filter`.
 
 `highlight=[string]` (opcional) ‒ realça um conjunto de nomes de campo separados por vírgulas usado para realçar ocorrências. Somente campos `searchable` podem ser usados para realçar ocorrências.
 
 `highlightPreTag=[string]` (opcional, o padrão é `<em>`) ‒ uma marca de cadeia de caracteres que é anexada ao início para realçar ocorrências. Deve ser definida com `highlightPostTag`.
 
-> [AZURE.NOTE] Ao chamar **Search** usando GET, caracteres reservados na URL devem ser codificados por percentual (por exemplo, %23, em vez de #).
+> [AZURE.NOTE]Ao chamar **Search** usando GET, caracteres reservados na URL devem ser codificados por percentual (por exemplo, %23, em vez de #).
 
 `highlightPostTag=[string]` (opcional, o padrão é `</em>`) ‒ uma marca de cadeia de caracteres que é anexada para realçar ocorrências. Deve ser definida com `highlightPreTag`.
 
-> [AZURE.NOTE] Ao chamar **Pesquisa** usando GET, caracteres reservados na URL deverão ser codificados por percentual (por exemplo, %23, em vez de #).
+> [AZURE.NOTE]Ao chamar **Pesquisa** usando GET, caracteres reservados na URL deverão ser codificados por percentual (por exemplo, %23, em vez de #).
 
 `scoringProfile=[string]` (opcional) ‒ o nome de um perfil de pontuação para avaliar pontuações de correspondência de documentos correspondentes para classificar os resultados.
 
 `scoringParameter=[string]` (zero ou mais) ‒ indica o valor de cada parâmetro definido em uma função de pontuação (por exemplo, `referencePointParameter`) usando o formato: nome:valor. Por exemplo, se o perfil de pontuação definir uma função com um parâmetro chamado "mylocation", a opção de cadeia de caracteres de consulta será &scoringParameter=mylocation:-122.2,44.8
 
-> [AZURE.NOTE] Ao chamar **Pesquisa** usando POST, esse parâmetro será chamado de `scoringParameters` em vez de `scoringParameter`. Além disso, especifique-o como uma matriz JSON de cadeias de caracteres em que cada cadeia é um par de nome:valor separado.
+> [AZURE.NOTE]Ao chamar **Pesquisa** usando POST, esse parâmetro será chamado de `scoringParameters` em vez de `scoringParameter`. Além disso, especifique-o como uma matriz JSON de cadeias de caracteres em que cada cadeia é um par de nome:valor separado.
 
 `minimumCoverage` (opcional, o padrão até 100)-um número entre 0 e 100, indicando a porcentagem do índice deve ser coberto por uma consulta de pesquisa, para que a consulta seja relatada como sucesso. Por padrão, o índice inteiro deve estar disponível ou `Search` retornará o código de status HTTP 503. Se você definir `minimumCoverage` e `Search` for bem-sucedido, retornará HTTP 200 e incluirá um valor de `@search.coverage` na resposta indicando a porcentagem do índice que foi incluído na consulta.
 
-> [AZURE.NOTE] Definir esse parâmetro para um valor inferior a 100 pode ser útil para garantir a disponibilidade de pesquisa até mesmo para serviços com apenas uma réplica. No entanto, não existe a garantia de que todos os documentos correspondentes estejam presentes nos resultados da pesquisa. Se rechamada da pesquisa é mais importante para o seu aplicativo do que a disponibilidade, é melhor deixar `minimumCoverage` em seu valor padrão de 100.
+> [AZURE.NOTE]Definir esse parâmetro para um valor inferior a 100 pode ser útil para garantir a disponibilidade de pesquisa até mesmo para serviços com apenas uma réplica. No entanto, não existe a garantia de que todos os documentos correspondentes estejam presentes nos resultados da pesquisa. Se rechamada da pesquisa é mais importante para o seu aplicativo do que a disponibilidade, é melhor deixar `minimumCoverage` em seu valor padrão de 100.
 
-`api-version=[string]` (obrigatório). A versão de visualização é `api-version=2015-02-28-Preview`. Consulte [Controle de versão de serviço de pesquisa](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obter detalhes e versões alternativas.
+`api-version=[string]` (obrigatório). A versão de visualização é `api-version=2015-02-28-Preview`. Consulte Controle de versão de serviço de pesquisa para obter detalhes e versões alternativas.
 
 Observação: para essa operação, o `api-version` é especificado como um parâmetro de consulta na URL, independentemente de você chamar **Pesquisa** com GET ou POST.
 
@@ -1636,11 +1636,11 @@ Além disso, a codificação de URL só é necessária ao se chamar a API REST d
 
 `highlightPreTag=[string]` (opcional) ‒ uma cadeia de caracteres de marca que é anexada no início para pesquisar ocorrências. Deve ser definida com `highlightPostTag`.
 
-> [AZURE.NOTE] Ao chamar **Suggestions** usando GET, os caracteres reservados na URL deverão ser codificados por percentual (por exemplo, %23, em vez de #).
+> [AZURE.NOTE]Ao chamar **Suggestions** usando GET, os caracteres reservados na URL deverão ser codificados por percentual (por exemplo, %23, em vez de #).
 
 `highlightPostTag=[string]` (opcional) ‒ uma cadeia de caracteres de marca que é anexada para pesquisar ocorrências. Deve ser definida com `highlightPreTag`.
 
-> [AZURE.NOTE] Ao chamar **Suggestions** usando GET, os caracteres reservados na URL deverão ser codificados por percentual (por exemplo, %23, em vez de #).
+> [AZURE.NOTE]Ao chamar **Suggestions** usando GET, os caracteres reservados na URL deverão ser codificados por percentual (por exemplo, %23, em vez de #).
 
 `suggesterName=[string]` ‒ o nome do sugestor conforme especificado na coleção `suggesters` que faz parte da definição do índice. Um `suggester` determina quais campos são examinados em busca de termos de consulta sugeridos. Consulte [Sugestores](#Suggesters) para obter detalhes.
 
@@ -1650,25 +1650,25 @@ Além disso, a codificação de URL só é necessária ao se chamar a API REST d
 
 `$top=#` (opcional, padrão = 5) ‒ o número de sugestões a serem recuperadas. Deve ser um número entre 1 e 100.
 
-> [AZURE.NOTE] Ao chamar **Suggestions** usando POST, esse parâmetro será chamado de `top` em vez de `$top`.
+> [AZURE.NOTE]Ao chamar **Suggestions** usando POST, esse parâmetro será chamado de `top` em vez de `$top`.
 
 `$filter=[string]` (opcional) par uma expressão que filtra os documentos considerados para sugestões.
 
-> [AZURE.NOTE] Ao chamar **Suggestions** usando POST, esse parâmetro será chamado de `filter` em vez de `$filter`.
+> [AZURE.NOTE]Ao chamar **Suggestions** usando POST, esse parâmetro será chamado de `filter` em vez de `$filter`.
 
 `$orderby=[string]` (opcional) ‒ uma lista de expressões separadas por vírgulas para classificar os resultados. Cada expressão pode ser um nome de campo ou uma chamada para a função `geo.distance()`. Cada expressão pode ser seguida de `asc` para indicar a ordem crescente e `desc` para indicar a ordem decrescente. O padrão é a ordem crescente. Há um limite de 32 cláusulas para `$orderby`.
 
-> [AZURE.NOTE] Ao chamar **Suggestions** usando POST, esse parâmetro será chamado de `orderby` em vez de `$orderby`.
+> [AZURE.NOTE]Ao chamar **Suggestions** usando POST, esse parâmetro será chamado de `orderby` em vez de `$orderby`.
 
 `$select=[string]` (opcional) ‒ uma lista de campos separados por vírgulas a serem recuperados. Se não for especificado, somente a chave do documento e o texto de sugestão serão retornados.
 
-> [AZURE.NOTE] Ao chamar **Suggestions** usando POST, esse parâmetro será chamado de `select` em vez de `$select`.
+> [AZURE.NOTE]Ao chamar **Suggestions** usando POST, esse parâmetro será chamado de `select` em vez de `$select`.
 
 `minimumCoverage` (opcional, o padrão é 80) - um número entre 0 e 100 que indica a porcentagem do índice que deve ser coberto por uma consulta de sugestões para que a consulta a seja relatada como sucesso. Por padrão, pelo menos 80% do índice deve estar disponível ou `Suggest` retornará o código de status HTTP 503. Se você definir `minimumCoverage` e `Suggest` for bem-sucedido, retornará HTTP 200 e incluirá um valor de `@search.coverage` na resposta indicando a porcentagem do índice que foi incluído na consulta.
 
-> [AZURE.NOTE] Definir esse parâmetro para um valor inferior a 100 pode ser útil para garantir a disponibilidade de pesquisa até mesmo para serviços com apenas uma réplica. No entanto, não há garantias de que todas as sugestões de correspondência estejam presentes nos resultados. Se a rechamada for mais importante para seu aplicativo do que a disponibilidade, é melhor não diminuir `minimumCoverage` para abaixo de seu valor padrão de 80.
+> [AZURE.NOTE]Definir esse parâmetro para um valor inferior a 100 pode ser útil para garantir a disponibilidade de pesquisa até mesmo para serviços com apenas uma réplica. No entanto, não há garantias de que todas as sugestões de correspondência estejam presentes nos resultados. Se a rechamada for mais importante para seu aplicativo do que a disponibilidade, é melhor não diminuir `minimumCoverage` para abaixo de seu valor padrão de 80.
 
-`api-version=[string]` (obrigatório). A versão de visualização é `api-version=2015-02-28-Preview`. Consulte [Controle de versão de serviço de pesquisa](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obter detalhes e versões alternativas.
+`api-version=[string]` (obrigatório). A versão de visualização é `api-version=2015-02-28-Preview`. Consulte Controle de versão de serviço de pesquisa para obter detalhes e versões alternativas.
 
 Observação: para essa operação, o `api-version` é especificado como um parâmetro de consulta na URL, independentemente de você chamar **Suggestions** com GET ou POST.
 
@@ -1742,4 +1742,4 @@ Recuperar cinco sugestões, em que a entrada de pesquisa parcial é 'lux'
       "suggesterName": "sg"
     }
 
-<!----HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

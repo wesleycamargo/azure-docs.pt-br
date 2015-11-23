@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/09/2015" 
 	ms.author="josephd"/>
 
 # Implantar um aplicativo de linha de negócios de alta disponibilidade no Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
-
 
 Este artigo contém links para as instruções passo a passo para implantar um aplicativo de linha de negócios de alta disponibilidade, apenas para intranet e baseado na Web com Grupos de Disponibilidade AlwaysOn do SQL Server nos Serviços de Infraestrutura do Azure. O aplicativo está hospedado nesses computadores:
 
@@ -69,4 +68,4 @@ Para iniciar a configuração dessa carga de trabalho, vá para [Fase 1: configu
 
 [Carga de trabalho de serviços de infraestrutura do Azure: farm do SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

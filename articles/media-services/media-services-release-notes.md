@@ -568,10 +568,12 @@ A seguinte funcionalidade era nova na versão de novembro do SDK.
 
 ##Roteiros de aprendizagem dos Serviços de Mídia
 
-Você pode exibir os roteiros de aprendizagem do AMS aqui:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Fornecer comentários
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 <!-- Anchors. -->
 
@@ -613,4 +615,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 [Manipulando notificações de trabalho dos Serviços de Mídia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

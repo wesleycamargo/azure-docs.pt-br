@@ -58,7 +58,7 @@ Um hub IoT recebe dados de telemetria dos coolers em um único ponto de extremid
 
 O hub IoT expõe os dados de telemetria que recebe através de um ponto de extremidade do grupo de consumidor.
 
-A instância do Hub IoT nesta solução pré-configurada corresponde ao **aplicativo de back-end IoT** em uma arquitetura da solução típica de IoT.
+A instância do Hub IoT nesta solução pré-configurada corresponde ao **Gateway de Nuvem** em uma arquitetura da solução de IoT típica.
 
 ### Stream Analytics do Azure
 
@@ -91,4 +91,4 @@ Explore estes recursos para saber mais sobre as soluções pré-configuradas de 
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [Stream Analytics do Azure]: https://azure.microsoft.com/services/stream-analytics/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

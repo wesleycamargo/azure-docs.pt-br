@@ -98,9 +98,30 @@ As transações de banco de dados elástico do BD SQL também oferecem suporte a
 
 Você pode automatizar a instalação e a implantação da versão e das bibliotecas .NET necessárias para as transações de banco de dados elástico no Azure (no SO convidado do seu serviço de nuvem). Para funções de trabalho no Azure, use as tarefas de inicialização. Os conceitos e as etapas estão documentados em [Instalar o .NET em uma Função do Serviço de Nuvem](https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/).
 
+Observe que o instalador do .NET 4.6.1 requer mais armazenamento temporário durante o processo de inicialização nos serviços de nuvem do Azure que o instalador para .NET 4.6. Para garantir uma instalação bem-sucedida, você precisa aumentar o armazenamento temporário para o serviço de nuvem do Azure no seu arquivo ServiceDefinition.csdef na seção LocalResources e nas configurações do ambiente de sua tarefa de inicialização, conforme mostrado no exemplo a seguir:
+
+	<LocalResources>
+	...
+		<LocalStorage name="TEMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
+		<LocalStorage name="TMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
+	</LocalResources>
+	<Startup>
+		<Task commandLine="install.cmd" executionContext="elevated" taskType="simple">
+			<Environment>
+		...
+				<Variable name="TEMP">
+					<RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TEMP']/@path" />
+				</Variable>
+				<Variable name="TMP">
+					<RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TMP']/@path" />
+				</Variable>
+			</Environment>
+		</Task>
+	</Startup>
+
 ## Monitorando o status da transação
 
-Use as DMVs (Exibições de Gerenciamento Dinâmico) no BD SQL para monitorar o status e o progresso das transações de banco de dados elástico em andamento. Todas as DMVs relacionadas com transações são relevantes para as transações distribuídas no BD SQL. Você pode encontrar a lista correspondente de DMVs aqui: [Transaction Related Dynamic Management Views and Functions (Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx).
+Use as DMVs (Exibições de Gerenciamento Dinâmico) no BD SQL para monitorar o status e o progresso das transações de banco de dados elástico em andamento. Todas as DMVs relacionadas com transações são relevantes para as transações distribuídas no BD SQL. Você pode encontrar a lista correspondente de DMVs aqui: [Funções e exibições de gerenciamento dinâmico relacionadas a transações (Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx).
  
 Estas DMVs são especialmente úteis:
 
@@ -124,4 +145,4 @@ Você ainda não está usando os recursos de banco de dados elástico nos seus a
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

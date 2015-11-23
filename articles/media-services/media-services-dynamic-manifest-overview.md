@@ -204,13 +204,15 @@ Para saber mais, confira [este blog](http://azure.microsoft.com/blog/azure-media
 
 ##Roteiros de aprendizagem dos Serviços de Mídia
 
-Você pode exibir os roteiros de aprendizagem do AMS aqui:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Fornecer comentários
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
-##Consulte também
+
+##Veja também
 
 [Visão geral do fornecimento de conteúdo a clientes](media-services-deliver-content-overview.md)
 
@@ -234,4 +236,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

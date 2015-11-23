@@ -108,7 +108,7 @@ O aplicativo Web permite que você:
 - Exiba o histórico de comandos de um dispositivo.
 
 ### Observando o comportamento da solução de nuvem
-Você pode exibir seus recursos provisionados acessando o [Portal de Gerenciamento do Azure](https://portal.azure.com) e navegando até o grupo de recursos com o nome da solução especificada.
+Você pode exibir seus recursos provisionados acessando o [portal de visualização do Azure](https://portal.azure.com) e navegando até o grupo de recursos com o nome da solução especificada.
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/azureportal_01.png)
 
@@ -144,4 +144,4 @@ Você pode desabilitar um dispositivo e depois que ele for desabilitado, poderá
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_08.png)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

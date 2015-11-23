@@ -960,4 +960,13 @@ Nesta seção você irá criar e configurar um projeto de aplicativo de console 
 
 Agora você pode usar um gerenciador de tráfego para rotear solicitações entre dois datacenters e, portanto, realizar o failover no caso de qualquer interrupção.
 
-<!---HONumber=Oct15_HO3-->
+
+##Roteiros de aprendizagem dos Serviços de Mídia
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##Fornecer comentários
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+<!---HONumber=Nov15_HO3-->

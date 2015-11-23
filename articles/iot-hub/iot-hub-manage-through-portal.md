@@ -1,6 +1,6 @@
 <properties
-	 pageTitle="Usar o portal do Azure para gerenciar Hub IoT | Microsoft Azure"
-	 description="Uma visão geral de como criar e gerenciar os Hubs IoT do Azure por meio do portal do Azure"
+	 pageTitle="Usar o portal de visualização do Azure para gerenciar o Hub IoT | Microsoft Azure"
+	 description="Uma visão geral de como criar e gerenciar os Hubs IoT do Azure por meio do portal de visualização do Azure"
 	 services="iot-hub"
 	 documentationCenter=""
 	 authors="nasing"
@@ -16,11 +16,11 @@
 	 ms.date="10/19/2015"
 	 ms.author="nasing"/>
 
-# Gerenciar Hubs IoT por meio do portal do Azure
+# Gerenciar Hubs IoT por meio do portal de visualização do Azure
 
 ## Introdução
 
-Este artigo descreve como começar a usar o Hub IoT do Azure por meio do portal do Azure, como localizar Hubs IoT e como criar e gerenciar Hubs IoT.
+Este artigo descreve como começar a usar o Hub IoT do Azure por meio do portal de visualização do Azure, como localizar Hubs IoT e como criar e gerenciar Hubs IoT.
 
 ## Onde encontrar Hubs IoT:
 
@@ -76,9 +76,9 @@ A opção de local oferece uma lista das regiões em que o Hub IoT é oferecido.
 
 ### Criar o Hub IoT
 
-Quando todas as etapas anteriores forem concluídas, o Hub IoT estará pronto para ser criado. Clique em **Criar** para iniciar o processo de back-end de criação desse Hub IoT com as opções específicas e o implantar no local especificado.
+Quando todas as etapas anteriores forem concluídas, o Hub IoT estará pronto para ser criado. Clique em **Criar** para iniciar o processo de back-end de criação desse Hub IoT com as opções específicas e implantá-lo no local especificado.
 
-Observe que pode levar alguns minutos para que o Hub IoT seja criado, já que a implantação de back-end é demorada nos servidores do local apropriado.
+Observe que pode levar alguns minutos para que o Hub IoT seja criado, já que a implantação de back-end demora a ocorrer naqueles servidores do local apropriado.
 
 ## Alterar as configurações do Hub IoT
 
@@ -153,4 +153,4 @@ Para saber mais sobre o Hub IoT do Azure, siga estes links:
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [O que é o Hub IoT do Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

@@ -26,7 +26,8 @@ A configuração é muito fácil, e você verá os resultados em minutos.
 
 Que tipo de aplicativo você tem?
 
-* [Aplicativo Web do Azure ‒ funções Web e de trabalho](app-insights-cloudservices.md)
+* [Aplicativo Web do Azure](insights-perf-analytics.md)
+* [Serviços de nuvem do Azure aplicativo - funções da Web e de trabalho](app-insights-cloudservices.md)
 * [Aplicativo Web no IIS na VM do Azure](../insights-perf-analytics.md)
 * [Aplicativo fora do Azure](app-insights-overview.md)
 
@@ -39,4 +40,4 @@ Que tipo de aplicativo você tem?
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

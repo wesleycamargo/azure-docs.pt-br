@@ -83,6 +83,8 @@ Outras soluções VPN de software devem funcionar com nosso gateway, contanto qu
 
 ## Conexões ponto a site
 
+Atualmente, conexões ponto a site estão disponíveis somente para o modelo de implantação clássico (também conhecido como Gerenciamento de Serviço). Estamos trabalhando em uma solução do tipo ponto a site para o modelo de implantação do Gerenciador de Recursos do Azure. Quando ela estiver disponível, essa página será atualizada.
+
 ### Quais sistemas operacionais posso usar com ponto a site?
 
 Há suporte para os seguintes sistemas operacionais:
@@ -97,7 +99,7 @@ Há suporte para os seguintes sistemas operacionais:
 
 ### Posso usar qualquer cliente de VPN de software para ponto a site que dê suporte a SSTP?
 
-Não. O suporte é limitado somente às versões do sistema operacional Windows listadas acima.
+Não. O suporte é limitado somente às versões do sistema operacional Windows listadas acima. O cliente Windows 10 está sendo verificado no momento.
 
 ### Quantos pontos de extremidade de cliente VPN posso ter em minha configuração ponto a site?
 
@@ -105,7 +107,7 @@ Damos suporte para até 128 clientes VPN para poderem se conectar a uma rede vir
 
 ### Posso usar minha própria CA de raiz de PKI interna para a conectividade ponto a site?
 
-No momento, somente os certificados raiz autoassinados têm suporte.
+Sim. Anteriormente, somente os certificados raiz autoassinados podiam ser usados. Você ainda pode carregar 20 certificados raiz.
 
 ### Posso atravessar proxies e firewalls usando o recurso de ponto a site?
 
@@ -234,7 +236,7 @@ Para o tráfego entre diferentes redes virtuais do Azure, o Azure cobra somente 
 
 Sim, isso é suportado. Para obter mais informações, consulte [Configurar conexões de VPN Site a Site e de Rota Expressa que coexistam](../expressroute/expressroute-coexist.md).
 
-## Conectividade e VMs
+## Conectividade entre locais e VMs
 
 ### Se minha máquina virtual estiver em uma rede virtual e eu tiver uma conexão entre locais, como devo me conectar à VM?
 
@@ -246,14 +248,15 @@ Se tiver uma rede virtual com conectividade entre locais configurada, você pode
 
 Não. Somente o tráfego com um destino IP contido em intervalos de endereços IP de rede Local virtual de rede especificado passará pelo gateway de rede virtual. O tráfego que tiver um destino IP localizado na rede virtual permanecerá na rede virtual. Outro tráfego é enviado pelo balanceador de carga para as redes públicas ou, se for usado o túnel forçado, enviado pelo gateway da VPN do Azure. Se você está solucionando problemas, é importante verificar se tem todos os intervalos listados em sua Rede Local que você deseja enviar pelo gateway. Verifique se os intervalos de endereços de Rede Local não correspondem a nenhum dos intervalos de endereços na rede virtual. Além disso, convém verificar se o servidor DNS que você está usando está resolvendo o nome para o endereço IP apropriado.
 
+
+## Perguntas frequentes sobre rede virtual
+
+Você exibe informações adicionais de rede virtual nas [Perguntas Frequentes sobre rede virtual](../virtual-network/virtual-networks-faq.md).
+
 ## Próximas etapas
 
-Exibir mais perguntas frequentes sobre redes para obter detalhes adicionais:
-
-- [Perguntas frequentes sobre rede virtual](../virtual-network/virtual-networks-faq.md)
-
-- [Perguntas Frequentes sobre Rota Expressa](../expressroute/expressroute-faqs.md)
+Você pode exibir mais informações sobre Gateways de VPN na [página de documentação do Gateway de VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/).
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

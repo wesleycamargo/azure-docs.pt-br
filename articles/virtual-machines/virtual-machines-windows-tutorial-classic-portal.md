@@ -43,7 +43,7 @@ Aqui está um passo a passo deste tutorial.
 
 Esta seção mostra como usar a opção **Da Galeria** no portal do Azure para criar a máquina virtual. Esta opção fornece mais escolhas de configuração que a opção **Criação rápida**. Por exemplo, se desejar entrar em uma máquina virtual em uma rede virtual, será necessário usar a opção **Da galeria**.
 
-> [AZURE.NOTE]Você também pode experimentar o [Portal de visualização do Azure](https://portal.azure.com), que é mais sofisticado e personalizável, para criar uma máquina virtual, usar o monitoramento e diagnóstico avançados, usar o armazenamento Premium e muito mais. As opções disponíveis para configurar uma máquina virtual nos dois portais se repetem, mas não são as mesmas. Por exemplo, use o portal de visualização para configurar uma máquina virtual com armazenamento Premium.
+> [AZURE.NOTE]Você também pode experimentar o portal de visualização do Azure, que é mais sofisticado e personalizável, para criar uma máquina virtual, usar o monitoramento e diagnóstico avançados, usar o armazenamento Premium e muito mais. As opções disponíveis para configurar uma máquina virtual nos dois portais se repetem, mas não são as mesmas. Por exemplo, use o portal de visualização do Azure para configurar uma máquina virtual com armazenamento Premium.
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
@@ -51,6 +51,6 @@ Esta seção mostra como usar a opção **Da Galeria** no portal do Azure para c
 
 - Faça logon na máquina virtual. Para obter instruções, consulte [Como fazer logon em uma máquina virtual que executa o Windows Server](virtual-machines-log-on-windows-server.md).
 
-- Anexe um disco para armazenar dados. Você pode anexar tanto discos vazios como discos que contenham dados. Para obter instruções, veja o [Tutorial: anexar um disco de dados](storage-windows-attach-disk.md).
+- Anexe um disco para armazenar dados. Você pode anexar tanto discos vazios como discos que contenham dados. Para obter instruções, consulte o [tutorial Anexar um disco de dados](storage-windows-attach-disk.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

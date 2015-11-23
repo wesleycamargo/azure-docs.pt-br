@@ -1,6 +1,6 @@
 <properties
-	pageTitle="O que é Hub de Eventos do Azure?"
-	description="Visão geral do Hub de Eventos do Azure."
+	pageTitle="O que são Hubs de Eventos do Azure | Microsoft Azure"
+	description="Visão geral dos Hubs de Eventos do Azure"
 	services="event-hubs"
 	documentationCenter=".net"
 	authors="nberdy"
@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="event-hubs"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
+	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="11/05/2015"
 	ms.author="sethm"/>
 
 # O que é Hub de Eventos do Azure?
@@ -30,7 +30,7 @@ Hub de Eventos é um serviço de processamento de eventos que fornece entrada a 
 
 Outros principais recursos de Hub de Eventos são acompanhamento de aplicativo em dispositivos móveis, informações de tráfego de farms da web, captura de eventos em jogos de console ou dados de telemetria coletados de máquinas industriais ou veículos conectados.
 
-Ao contrário de [tópicos e filas do Barramento de Serviço](../service-bus/service-bus-messaging-overview.md), o Hub de Eventos concentra-se em fornecer processamento de fluxo em escala. Os recursos do Hub de Eventos são diferentes de tópicos, no sentido de que têm uma forte tendência para alta produtividade e cenários de processamento de eventos. Como resultado, o Hub de Eventos não implementa alguns dos recursos de mensagens que estão disponíveis para [tópicos](service-bus/fundamentals-service-bus-hybrid-solutions.md#topics). Se você precisar desses recursos, os tópicos continuam sendo a melhor opção.
+Ao contrário de [tópicos e filas do Barramento de Serviço](../service-bus/service-bus-messaging-overview.md), o Hub de Eventos concentra-se em fornecer processamento de fluxo em escala. Os recursos do Hub de Eventos são diferentes de tópicos, no sentido de que têm uma forte tendência para alta produtividade e cenários de processamento de eventos. Como resultado, o Hub de Eventos não implementa alguns dos recursos de mensagens que estão disponíveis para [tópicos](../service-bus/service-bus-fundamentals-hybrid-solutions.md#topics). Se você precisar desses recursos, os tópicos continuam sendo a melhor opção.
 
 ## Próximas etapas
 
@@ -39,10 +39,10 @@ Para obter informações detalhadas sobre Hub de Eventos, consulte os tópicos a
 - [Visão geral de Hubs de Evento](event-hubs-overview.md)
 - [Guia de programação dos Hubs de Eventos](event-hubs-programming-guide.md)
 - [Perguntas frequentes sobre disponibilidade e suporte dos Hubs de Eventos](event-hubs-availability-and-support-faq.md)
-- Introdução a um [Tutorial de Hub de Eventos]
-- Um [aplicativo de exemplo completo que usa Hub de Eventos].
+- Introdução a um [Tutorial de Hub de Eventos][]
+- Um [aplicativo de exemplo completo que usa Hub de Eventos][].
 
-[Tutorial de Hub de Eventos]: service-bus-event-hubs-csharp-ephcs-getstarted.md
-[aplicativo de exemplo completo que usa Hub de Eventos]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
+[Tutorial de Hub de Eventos]: event-hubs-csharp-ephcs-getstarted.md
+[aplicativo de exemplo completo que usa Hub de Eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

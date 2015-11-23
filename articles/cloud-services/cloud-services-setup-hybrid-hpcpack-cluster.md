@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management,hpc-pack"/>
 
 <tags
 	ms.service="cloud-services"
@@ -17,7 +18,7 @@
 	ms.author="danlep"/>
 
 
-# Configure um cluster de computação híbrido com o Microsoft HPC Pack
+# Configurar um cluster de cálculo híbrido com o Microsoft HPC Pack
 Este tutorial lhe mostra como usar o Microsoft HPC Pack 2012 R2 e o Azure para instalar um pequeno cluster híbrido de computação de alto desempenho (HPC). O cluster consistirá em um nó de cabeça no local (um computador que execute o sistema operacional Windows Server e o HPC Pack) e alguns nós de computação implantados sob demanda como instâncias de função de trabalho em um serviço de nuvem do Azure. É possível executar trabalhos de computação no cluster híbrido.
 
 ![Cluster híbrido de HPC][Overview]
@@ -85,7 +86,7 @@ Primeiro instale o Microsoft HPC Pack em um computador local executando o Window
 	![Concluir][install_hpc7]
 
 ## Preparar a assinatura do Azure
-Use o [Portal de Gerenciamento do Azure](https://manage.windowsazure.com) para realizar as etapas a seguir com sua assinatura do Azure. Elas são necessárias para implantar posteriormente os nós do Azure no nó de cabeça local.
+Use o [Portal do Azure](https://manage.windowsazure.com) para realizar as etapas a seguir com sua assinatura do Azure. Elas são necessárias para implantar posteriormente os nós do Azure no nó de cabeça local.
 
 - Carregue um certificado de gerenciamento (necessário para proteger conexões entre o nó de cabeça e os serviços do Azure)
 
@@ -296,7 +297,7 @@ Depois de testar o cluster, você pode usar o Gerenciador de Cluster de HPC para
 
 	![Nós não implantados][stop_node4]
 
-4. Para confirmar que as instâncias de função não estão mais sendo executadas no Azure, no [portal clássico](https://manage.windowsazure.com), clique em **Serviços de Nuvem**, no nome do serviço de nuvem e em **Instâncias**. Nenhuma instância será implantada no ambiente de produção.
+4. Para confirmar que as instâncias de função não estão mais sendo executadas no Azure, no [portal](https://manage.windowsazure.com), clique em **Serviços de Nuvem**, no nome do serviço de nuvem e em **Instâncias**. Nenhuma instância será implantada no ambiente de produção.
 
 	![Nenhuma instância][view_instances2]
 
@@ -347,4 +348,4 @@ Depois de testar o cluster, você pode usar o Gerenciador de Cluster de HPC para
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

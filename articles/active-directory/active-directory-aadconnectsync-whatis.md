@@ -32,6 +32,7 @@ O que você deseja fazer em seguida?
 - Para uma visão geral de topologias e os cenários com suporte no Azure AD Connect Sync, consulte as [Topologias para o Azure AD Connect](active-directory-aadconnect-topologies.md).
 - Para saber mais sobre como implementar um filtro, consulte [Configurar filtragem](active-directory-aadconnectsync-configure-filtering.md).
 - Para saber mais sobre sincronização de senha, consulte [Implementar a sincronização de senha](active-directory-aadconnectsync-implement-password-synchronization.md).
+- Se você quiser compreender a configuração padrão do Azure AD Connect sync, consulte [Noções básicas sobre a configuração padrão](active-directory-aadconnectsync-understanding-default-configuration.md).
 - Para saber mais sobre os usuários e contatos no Azure AD Connect Sync, consulte [Noções básicas sobre usuários e contatos](active-directory-aadconnectsync-understanding-users-and-contacts.md).
 - Se você quiser alterar a configuração padrão, consulte as [Práticas recomendadas para alterar a configuração padrão](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
 - Se quiser saber mais sobre como operar o servidor de sincronização, confira [Considerações e tarefas operacionais](active-directory-aadconnectsync-operations.md)
@@ -40,13 +41,8 @@ O que você deseja fazer em seguida?
 - Para explorar as funções de provisionamento declarativo, confira [Referência de funções](active-directory-aadconnectsync-functions-reference.md)
 
 
-
-
 ## Recursos adicionais
 
-* [Inscrever-se no Azure como uma organização](sign-up-organization.md)
+* [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-
-<!--Image references-->
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

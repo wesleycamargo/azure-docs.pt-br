@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/14/2015" 
+	ms.date="11/12/2015" 
 	ms.author="jeffstok"/>
 
 # Noções básicas sobre saídas do Stream Analytics
@@ -143,6 +143,8 @@ Uma vez que a conta do Power BI foi autenticada, você pode configurar as propri
 | Nome da tabela | Forneça um nome de tabela sob o conjunto de dados da saída do Power BI. Atualmente, a saída do Power BI de trabalhos do Stream Analytics só podem ter uma tabela em um conjunto de dados. |
 | Nome do grupo | Para habilitar a compartilhar dados com outros usuários do Power BI, grave os dados em grupos. Você pode selecionar grupos dentro de sua conta do Power BI ou escolher "Meu espaço de trabalho" se você não deseja gravar em um grupo. Atualizar um grupo existente requer a renovação da autenticação do Power BI. |
 
+Para um guia passo a passo de configuração de uma saída do Power BI e do painel, consulte o artigo [Power BI e Stream Analytics do Azure](stream-analytics-power-bi-dashboard.md).
+
 > [AZURE.NOTE]Não crie explicitamente o conjunto de dados e a tabela no painel do Power BI. O conjunto de dados e a tabela serão preenchidos automaticamente quando o trabalho é iniciado e o trabalho começa a produzir a saída no Power BI. Observe que se a consulta de trabalho não gerar resultados, o conjunto de dados e a tabela não serão criados. Tenha em mente também que se o Power BI já tiver um conjunto de dados e uma tabela com o mesmo nome fornecido no trabalho do Stream Analytics, os dados existentes serão substituídos.
 
 ### Renovar a autorização do Power BI
@@ -157,7 +159,7 @@ Para resolver esse problema, pare seu trabalho em execução e vá para a saída
 
 ## Armazenamento de tabela
 
-O [armazenamento de Tabela do Azure](./articles/storage-introduction.md) oferece um armazenamento altamente disponível e massivamente escalonável, para que um aplicativo possa ser escalonado automaticamente para atender à demanda dos usuários. O Armazenamento de tabela é um repositório de chave/atributo NoSQL da Microsoft que pode ser utilizado por alguém com dados estruturados, com menos restrições no esquema. O armazenamento de Tabela do Azure pode ser usado para armazenar dados de persistência e para recuperação eficiente.
+O [armazenamento de tabela do Azure](./articles/storage-introduction.md) oferece armazenamento altamente disponível e altamente escalonável, para que um aplicativo possa ser dimensionado automaticamente para atender à demanda dos usuários. O Armazenamento de tabela é um repositório de chave/atributo NoSQL da Microsoft que pode ser utilizado por alguém com dados estruturados, com menos restrições no esquema. O armazenamento de Tabela do Azure pode ser usado para armazenar dados de persistência e para recuperação eficiente.
 
 A tabela a seguir lista os nomes de propriedade e sua descrição para a criação de uma saída da tabela.
 
@@ -265,4 +267,4 @@ Você foi apresentado ao Stream Analytics, um serviço gerenciado para análise 
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

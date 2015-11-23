@@ -13,137 +13,152 @@
 	ms.tgt_pltfrm="mobile" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/04/2015" 
 	ms.author="mahender"/>
 
-# Migrar Serviço Móvel do Azure para um Aplicativo Móvel do Serviço de Aplicativo do Azure
+# Migrar seu Serviço Móvel do Azure para o Serviço de Aplicativo 
 
-Este tópico mostra como migrar um aplicativo existente dos Serviços Móveis do Azure para um novo Aplicativo Móvel do Serviço de Aplicativo. Todos os aplicativos de Serviços Móveis existentes podem ser migrados facilmente para um novo Aplicativo Móvel do Serviço de Aplicativo. Durante a migração, o seu aplicativo de Serviços Móveis pode continuar a operar. Ao longo do tempo, o processo de migração se tornará ainda mais fácil, mas, para aqueles que desejem migrar hoje, as etapas a seguir podem ser usadas.
+Este tópico mostra como migrar um aplicativo existente dos Serviços Móveis do Azure para um novo Aplicativo Móvel do Serviço de Aplicativo. Todos os aplicativos de Serviços Móveis existentes podem ser migrados facilmente para um novo Aplicativo Móvel do Serviço de Aplicativo. Durante a migração, o seu aplicativo de Serviços Móveis pode continuar a operar.
 
->[AZURE.NOTE]As migrações atualmente só têm suporte para clientes que usam o back-end .NET dos Serviços Móveis. Aplicativos que usam o back-end Node. js precisarão permanecer nos Serviços Móveis no momento.
+>[AZURE.NOTE]Atualmente, os Serviços Móveis de back-end de .NET podem ser migrados usando uma migração manual de Serviço de Aplicativo. Uma experiência de migração completa para o Node. js e .NET estará disponível em breve. No entanto, se você executar uma migração manual, *não será possível* preservar o URL **service.azure mobile.net** existente.
 
-##<a name="understand"></a>Noções básicas sobre Aplicativos Móveis de Serviço de Aplicativo
+Quando um aplicativo é migrado para o serviço de aplicativo do Azure, ele tem acesso a todos os recursos do Serviço de Aplicativo e são cobrados de acordo com os [preços do Serviço de Aplicativo] e não com os preços dos Serviços Móveis.
+
+### <a name="why-host"></a>Por que hospedar no Serviço de Aplicativo?
+
+O Serviço de Aplicativo fornece um ambiente de hospedagem mais rico em recursos para seu aplicativo. Ao se hospedar no Serviço de Aplicativo, o serviço obterá acesso a slots de preparação, a domínios personalizados, a suporte ao Gerenciador de Tráfego e mais. Embora seja possível [migrar um serviço móvel para um aplicativo móvel no Serviço de Aplicativo], alguns clientes podem desejar tirar proveito desses recursos imediatamente, sem executar a atualização do SDK ainda.
+
+A principal limitação da hospedagem no Serviço de Aplicativo é que os trabalhos agendados no Serviços Móveis não são integrados e o Agendador do Azure deverá ser configurado para atingir as APIs personalizadas ou os recursos dos Trabalhos Web deverão ser habilitados..
+
+Para saber mais sobre os benefícios do Serviço de Aplicativo, consulte o tópico [Serviços Móveis versus Serviço de Aplicativo].
+
+##Migração vs. atualização
+
+[AZURE.INCLUDE [App-Service-Mobile-Migrate-VS-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
+
+  - Para projetos de servidor baseado em Node. js, o novo SDK [do Node de aplicativos móveis](https://github.com/Azure/azure-mobile-apps-node) oferece uma série de novos recursos. Por exemplo, você pode agora fazer desenvolvimento local e a depuração, usar qualquer versão do Node. js acima de 0,10 e personalizar com qualquer middleware Express. js.
+
+  - Para projetos de servidor baseado .NET, os novos [pacotes NuGet de SDK de aplicativos móveis](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) têm mais flexibilidade em dependências do NuGet, dão suporte a novos recursos de autenticação do serviço de aplicativo e compõe com qualquer projeto ASP.NET, inclusive o MVC. Para saber mais sobre a atualização, consulte [Atualizar seu serviço de celular do .NET existentes ao Serviço de Aplicativo](app-service-mobile-net-upgrading-from-mobile-services.md).
+
+
+##<a name="understand"></a>Noções básicas sobre Aplicativos Móveis do Serviço de Aplicativo 
 
 Os Aplicativos Móveis do Serviço de Aplicativo é uma nova maneira de compilar aplicativos móveis usando o Microsoft Azure. Você pode saber mais sobre os Aplicativos Móveis no tópico [O que são Aplicativos Móveis?]
 
 Em uma migração para Aplicativos Móveis, todas as funções existentes do aplicativo (e código) podem ser preservadas. Além disso, novos recursos estão disponíveis para o aplicativo. No modelo de Aplicativos Móveis, seu código é executado, na verdade, em um aplicativo Web (a nova versão dos Sites do Azure). Você tem controle total sobre o aplicativo Web e como ele funciona. Além disso, os recursos de aplicativos Web que estavam anteriormente indisponíveis para clientes de Serviços Móveis, como Gerenciador de Tráfego e Slots de Desenvolvimento, agora podem ser usados.
 
-O novo modelo também aborda uma das principais dificuldades de trabalhar com os Serviços Móveis. Agora, qualquer versão de qualquer pacote NuGet pode ser implantada sem se preocupar com conflitos de dependência. Mais sobre os benefícios de migração pode ser encontrada no tópico [Eu já uso sites e serviços móveis – como o Serviço de Aplicativo pode me ajudar?]
 
-##<a name="overview"></a>Visão geral da migração básica
-A maneira mais simples de migrar é criar uma nova instância de um Aplicativo Móvel do Serviço de Aplicativo. Em muitos casos, migrar será tão simples quanto alternar para o novo SDK do servidor e republicar seu código para um novo Aplicativo Móvel. Há, no entanto, alguns cenários que exigem alguma configuração adicional, como cenários avançados de autenticação e trabalhar com trabalhos agendados. Cada um deles é abordado nas seções a seguir.
+##Migração manual de para back-end .NET de Serviços Móveis
 
->[AZURE.NOTE]É recomendável que você leia e entenda o restante deste tópico completamente antes de iniciar a migração. Tome nota de todos os recursos que você usar que são descritos abaixo.
+Esse tópico mostra como hospedar um projeto de Serviços Móveis .NET no Serviço de Aplicativo do Azure. Um aplicativo hospedado dessa maneira pode usar todos os tutoriais de tempo de execução do .NET dos *Serviços Móveis*, embora seja necessário substituir qualquer URL usando o domínio azure-mobile.net com o domínio da instância do Serviço de Aplicativo.
 
-Você pode mover e testar seu código no seu ritmo. Quando o back-end do Aplicativo Móvel estiver pronto, você poderá liberar uma nova versão do seu aplicativo cliente. Neste ponto, você terá duas cópias do seu back-end do aplicativo em execução lado a lado. Você precisa certificar-se de que as correções de bug feitas sejam aplicadas a ambas. Finalmente, depois de os usuários atualizarem para a versão mais recente, você pode excluir o Serviço Móvel original.
+Um projeto de Serviços Móveis também pode ser hospedado em um [Ambiente de Serviço de Aplicativo]. Todo o conteúdo deste tópico ainda se aplica, mas o site terá o formato contoso.contosoase.p.azurewebsites.net em vez de contoso.azurewebsites.net.
 
-O conjunto completo de etapas para essa migração é o seguinte:
-
-1. Criar e configurar um novo aplicativo móvel
-2. Abordar quaisquer preocupações sobre autenticação
-3. Lançar uma nova versão do aplicativo cliente
-4. Excluir a instância original de Serviços Móveis
+>[AZURE.NOTE]Se você executar uma migração manual, *não será possível* preservar o URL **service.azure mobile.net** existente. Se você tiver clientes móveis que estão se conectando a essa URL, você deve usar a opção de migração automática ou manter seu serviço móvel em execução até que todos os clientes móveis atualizou para a nova URL.
 
 
-##<a name="mobile-app-version"></a>Configurar uma versão do Aplicativo Móvel do seu aplicativo
-A primeira etapa da migração é criar o recurso de Aplicativo Móvel que hospedará a nova versão do seu aplicativo. Você pode criar um novo aplicativo móvel em [Portal de Gerenciamento do Azure de visualização]. Você pode consultar o tópico [Criar um Aplicativo Móvel] para obter mais detalhes.
+### <a name="app-settings"></a>Configurações do aplicativo
+O Serviços Móveis exige que várias configurações de aplicativos estejam disponíveis no ambiente, que estão descritos nesta seção.
 
-Você provavelmente desejará usar o mesmo banco de dados e Hub de Notificação, como você fez nos Serviços Móveis. Você pode copiar esses valores da guia **Configurar** da seção de Serviços Móveis do [Portal de Gerenciamento do Azure]. Em **Cadeias de Conexão**, copie `MS_NotificationHubConnectionString` e `MS_TableConnectionString`. Navegue até o site do Aplicativo Móvel e selecione **Configurações**, **Configurações do Aplicativo** e adicione-as à seção **Cadeias de caracteres de conexão**, substituindo quaisquer valores existentes.
-
-Os aplicativos móveis fornecem um novo [SDK do Servidor de Aplicativos Móveis], que oferece praticamente a mesma funcionalidade que o tempo de execução de Serviços Móveis. Primeiro, você deve remover o NuGet de Serviços Móveis do seu projeto existente e, em vez dele, incluir o SDK do Servidor. Para essa migração, a maioria dos desenvolvedores desejam baixar e instalar o pacote `Microsoft.Azure.Mobile.Server.Quickstart`, pois ele irá receber todo o conjunto necessário. Em seguida, em WebApiConfig.cs, você pode substituir
-
-    // Use this class to set configuration options for your mobile service
-    ConfigOptions options = new ConfigOptions();
-    
-    // Use this class to set WebAPI configuration options
-    HttpConfiguration config = ServiceConfig.Initialize(new ConfigBuilder(options));
-
-por:
-
-    HttpConfiguration config = new HttpConfiguration();
-
-    new MobileAppConfiguration()
-	    .UseDefaultConfiguration()
-	    .ApplyTo(config);
+Para definir as configurações do aplicativo em seu aplicativo Web, primeiro entre no [Portal de Gerenciamento do Azure Preview]. Navegue até o aplicativo Web, móvel ou de API que deseja usar e selecione “Configurações” e “Configurações do Aplicativo”. Role para baixo até a seção "Configurações do aplicativo". Aqui você pode definir os pares chave-valor necessários.
+ 
+**MS\_MobileServiceName** deve ser definido como o nome do seu aplicativo. Por exemplo, se você estiver executando em um aplicativo com a URL contoso.azurewebsites.net, "contoso" será o valor correto.
+ 
+**MS\_MobileServiceDomainSuffix** deve ser definido como o nome do seu aplicativo Web. Por exemplo, se você estiver executando em um aplicativo com a URL contoso.azurewebsites.net, "azurewebsites.net" será o valor correto.
+ 
+**MS\_ApplicationKey** pode ser definida como qualquer valor, mas ele deve ser o mesmo valor usado pelo SDK do cliente. Um GUID é recomendado.
+ 
+**MS\_MasterKey** pode ser definida como qualquer valor, mas ele deve ser o mesmo valor usado por quaisquer APIs/clientes de administração. Um GUID é recomendado.
+ 
+Se um Aplicativo do Serviços Móveis existente estiver sendo movido, a chave mestra e a chave do aplicativo deverão ser obtidas na guia “Configurar” da seção Serviços Móveis do [Portal de Gerenciamento do Azure]. Selecione a ação "Gerenciar Chaves" na parte inferior e copie as chaves.
 
 
->[AZURE.NOTE]Se desejar saber mais sobre o novo SDK do servidor e como adicionar ou remover recursos do seu aplicativo, consulte o tópico [Como usar o SDK do servidor .NET].
+### <a name="client-sdk"></a>Como modificar o SDK do cliente
 
-Há algumas outras alterações entre os Serviços móveis e SDKs de aplicativos móveis, mas eles são fáceis de resolver. Ao longo do projeto, talvez seja necessário fazer algumas modificações usando as instruções, tarefa com a qual o Visual Studio poderá ajudar.
+No projeto do aplicativo cliente, modifique o construtor do objeto cliente do Serviços Móveis para aceitar a URL do novo aplicativo (por exemplo, `https://contoso.azurewebsites.net`) e a chave de aplicativo configurada anteriormente. A versão do SDK do cliente deve ser uma **versão do Serviços Móveis** e **não** deve ser atualizada. Para clientes iOS e Android, use as versões 2.x e, para o Windows/Xamarin, use a 1.3.2. Os clientes JavaScript devem usar a versão 1.2.7.
 
-Você precisa adicionar o atributo `[MobileAppController]` a todos os seus ApiControllers, simplesmente colocando esse decorador diretamente antes da definição de classe.
+### <a name="data"></a>Como habilitar os recursos de dados
 
-Não é mais um atributo `[AuthorizeLevel]` e você deve decorar, em vez disso, os controladores e os métodos com o atributo `[Authorize]` ASP.NET padrão. Lembre-se também que qualquer controlador que não tem um `[AuthorizeLevel]` não estará mais protegido por uma chave de aplicativo; ele será tratado como público. O novo SDK não usa mais uma Chave de aplicativo e a Chave mestra.
+Para trabalhar com as classes padrão do Entity Framework nos Serviços Móveis, são necessárias duas Configurações de Aplicativo adicionais.
+ 
+As cadeias de conexão são armazenadas na seção "Cadeias de conexão" da folha Configurações do Aplicativo, logo abaixo da seção **Configurações** do aplicativo. A cadeia de conexão para o seu banco de dados deve ser definida na chave **MS\_TableConnectionString**. Se um Aplicativo do Serviços Móveis existente estiver sendo movido, navegue até a seção “Cadeias de Conexão” da guia Configurar do portal de Serviços Móveis. Clique em "Mostrar Cadeias de Conexão" e copie o valor.
+ 
+Por padrão, o esquema a ser usado é **MS\_MobileServiceName**, mas isso pode ser substituído pela configuração **MS\_TableSchema**. Novamente em **Configurações de aplicativo**, defina **MS\_TableSchema** como o nome do esquema a ser usado. Se um Aplicativo do Serviços Móveis existente estiver sendo movido, um esquema já foi criado usando o Entity Framework - esse é o nome do Serviço Móvel, e não da instância do Serviço de Aplicativo que hospedará o código agora.
 
-Para envios por push, o item principal que você pode descobrir estar ausente no SDK do Servidor é a classe PushRegistrationHandler. Registros são tratados de forma ligeiramente diferente em aplicativos móveis, e registros sem marca registros são habilitados por padrão. Gerenciar as marcas pode ser feito por meio de APIs personalizados. Consulte o tópico [Adicionar notificações por push ao seu aplicativo móvel] para obter mais informações.
+### <a name="push"></a>Como habilitar os recursos de push
 
-Trabalhos agendados não são criados em aplicativos móveis, portanto, todos os trabalhos existentes que você tem no back-end do .NET precisam ser migrados individualmente. Uma opção é criar um [Trabalho Web] agendado no site de código do Aplicativo Móvel. Você também pode configurar um controlador que contenha o código de trabalho e configurar o [Agendador do Azure] para atingir o ponto de extremidade conforme o esperado.
+Para que o push funcione, o aplicativo Web adicionalmente precisará conhecer as informações sobre o hub de Notificação.
+ 
+Em "Cadeias de conexão", defina **MS\_NotificationHubConnectionString** com a cadeia de conexão DefaultFullSharedAccessSignature para o Hub de Notificação. Se um Aplicativo do Serviços Móveis existente estiver sendo movido, navegue até a seção “Cadeias de Conexão” da guia Configurar do portal de Serviços Móveis. Clique em "Mostrar Cadeias de Conexão" e copie o valor.
 
-O objeto `ApiServices` não faz parte do SDK. Para acessar configurações de Aplicativo móvel, você pode usar o seguinte:
+A configuração de aplicativo **MS\_NotificationHubName** deve ser definida como o nome do hub. Se um Aplicativo do Serviços Móveis existente estiver sendo movido, você poderá obter esse valor da guia de push no portal de Serviços Móveis. Os outros campos dessa guia são vinculados ao hub em si e não precisam ser copiados para lugar algum.
+ 
+### <a name="auth"></a>Como habilitar os recursos de auth
 
-    MobileAppSettingsDictionary settings = this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings(); 
+Os recursos de identidade também têm requisitos de configuração de aplicativo para os provedores individuais. Se um Aplicativo do Serviços Móveis existente estiver sendo movido, cada um dos campos da guia Identidade do portal de Serviços Móveis terá uma configuração de aplicativo correspondente.
+ 
+Conta da Microsoft
 
-Da mesma forma, o log agora é realizado usando a gravação de rastreamento padrão do ASP.NET:
+* **MS\_MicrosoftClientID**
 
-    ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
-    traceWriter.Info("Hello, World");  
+* **MS\_MicrosoftClientSecret**
 
-##<a name="authentication"></a>Considerações sobre autenticação
-Uma das maiores diferenças entre Aplicativos Móveis e Serviços Móveis é que agora o logon é tratado pelo Gateway de Serviço de Aplicativo no caso de Aplicativos Móveis, não o site que executa o código. Se o grupo de recursos ainda não tiver um, você pode provisionar um gateway navegando até seu Aplicativo móvel do Azure no portal de gerenciamento. Selecione **Configurações** e, em seguida, **Autenticação de usuário** na categoria **Móvel**. Clique em **Criar** para associar um gateway com o seu Aplicativo móvel.
+* **MS\_MicrosoftPackageSID**
+ 
+Facebook
 
-Além disso, a maioria dos aplicativos não exigirá qualquer ação adicional, mas há alguns cenários avançados que devem ser observados.
+* **MS\_FacebookAppID**
 
-A maioria dos aplicativos pode simplesmente usar um novo registro com o provedor de identidade de destino, e você pode aprender sobre a adição de identidade a um aplicativo do Serviço de Aplicativo seguindo o tutorial [Adicionar autenticação ao seu Aplicativo Móvel].
+* **MS\_FacebookAppSecret**
+ 
+Twitter
 
-Se seu aplicativo tiver dependências de IDs de usuário, como armazená-los em um banco de dados, é importante observar que as IDs de usuário entre os Serviços Móveis e Aplicativos Móveis do Serviço de Aplicativo são diferentes. No entanto, é possível obter a ID de usuário de Serviços Móveis em seu aplicativo do Aplicativo Móvel do Serviço de Aplicativo usando o seguinte (com o Facebook como um exemplo):
+* **MS\_TwitterConsumerKey**
 
-    MobileAppUser = (MobileAppUser) this.User;
-    FacebookCredentials creds = await user.GetIdentityAsync<FacebookCredentials>();
-    string mobileServicesUserId = creds.Provider + ":" + creds.UserId;
+* **MS\_TwitterConsumerSecret**
+ 
+Google
 
-Além disso, se você usar todas as dependências das IDs de usuário, é importante aproveitar o mesmo registro com um provedor de identidade, se possível. IDs de usuário normalmente têm o escopo para o registro do aplicativo que foi usado, portanto, introduzir um novo registro pode criar problemas com os dados de usuários correspondentes. Se o seu aplicativo precisar usar o mesmo registro do provedor de identidade por algum motivo, você pode usar as seguintes etapas:
+* **MS\_GoogleClientID**
 
-1. Copiar sobre a ID do cliente e as informações de conexão do segredo do cliente para cada provedor usado pelo seu aplicativo.
-2. Adicione os pontos de extremidade /signin-* do gateway como um URI de redirecionamento adicional para cada provedor. 
+* **MS\_GoogleClientSecret**
+ 
+AAD
 
->[AZURE.NOTE]Alguns provedores, como o Twitter e a Conta da Microsoft, não permitem que você especifique vários URIs de redirecionamento em domínios diferentes. Se seu aplicativo usar um desses provedores e assumir uma dependência de IDs de usuário, é recomendável não tentar migrar neste momento.
+* **MS\_AadClientID**
 
-##<a name="updating-clients"></a>Atualizando de clientes
-Quando você tiver um back-end do Aplicativo Móvel operacional, poderá atualizar seu aplicativo cliente para consumir o novo aplicativo móvel. Aplicativos Móveis também incluirão uma nova versão do cliente dos serviços móveis SDKs, o que permitirá aos desenvolvedores usufruir dos novos recursos de serviço de aplicativo. Quando você tiver uma versão do aplicativo móvel do seu back-end, poderá liberar uma nova versão do seu aplicativo cliente que aproveite a nova versão do SDK.
+* **MS\_AadTenants** -Observação: **MS\_AadTenants** é armazenado como uma lista separada por vírgulas dos domínios de locatário (os campos "Locatários Permitidos" no portal de Serviços Móveis).
 
-A principal mudança que será necessária no código do cliente é no construtor. Além da URL do seu site Aplicativo móvel, você precisa fornecer a URL do Gateway de Serviço de Aplicativo que hospeda suas configurações de autenticação:
+### <a name="publish"></a>Como publicar o projeto de Serviços Móveis
 
-    public static MobileServiceClient MobileService = new MobileServiceClient(
-        "https://contoso.azurewebsites.net", // URL of the Mobile App
-        "https://contoso-gateway.azurewebsites.net", // URL of the App Service Gateway
-        "" // Formerly app key. To be removed in future client SDK update
-    );
+1. No portal de Visualização, navegue até seu aplicativo e selecione "Obter perfil de publicação” na barra de comandos. Salve o perfil baixado no computador local.
+2. No Visual Studio, clique com o botão direito do mouse no projeto de servidor de Serviços Móveis e selecione “Publicar”. Na guia do perfil, escolha "Importar" e navegue até o perfil baixado.
+3. Clique em publicar para implantar o código no Serviço de Aplicativo.
 
-Isso permitirá que o cliente roteie solicitações para os componentes do aplicativo móvel. Você pode encontrar mais detalhes específicos à sua plataforma de destino usando o tópico [Criar um Aplicativo Móvel] adequado.
+Os logs são tratados por meio dos recursos de log do Serviço de Aplicativo padrão. Para saber mais sobre o log, consulte [Habilitar o log de diagnóstico no Serviço de Aplicativo do Azure].
 
-Na mesma atualização, você precisará ajustar qualquer chamada de registro de notificação por push feita. Há novas APIs que fazem melhorias no processo de registro (usando o Windows como um exemplo):
 
-    var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-    await MobileService.GetPush().Register(channel.Uri); 
-
-Consulte os tópicos [Adicionar notificações por ao seu aplicativo móvel] e [Enviar notificações por push multiplataforma] para obter detalhes específicos para a plataforma de destino.
-
-Depois que seus clientes tiverem a oportunidade de receber essas atualizações, você pode excluir a versão de serviços móveis do seu aplicativo. Neste ponto, você terá migrado completamente para um Aplicativo Móvel do Serviço de Aplicativo.
 
 <!-- URLs. -->
 
-[Portal de Gerenciamento do Azure de visualização]: https://portal.azure.com/
+[Portal de Gerenciamento do Azure Preview]: https://portal.azure.com/
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [O que são Aplicativos Móveis?]: app-service-mobile-value-prop.md
-[Eu já uso sites e serviços móveis – como o Serviço de Aplicativo pode me ajudar?]: /pt-BR/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
-[SDK do Servidor de Aplicativos Móveis]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[Criar um Aplicativo Móvel]: app-service-mobile-xamarin-ios-get-started.md
-[Adicionar notificações por ao seu aplicativo móvel]: app-service-mobile-xamarin-ios-get-started-push.md
-[Adicionar notificações por push ao seu aplicativo móvel]: app-service-mobile-xamarin-ios-get-started-push.md
-[Adicionar autenticação ao seu Aplicativo Móvel]: app-service-mobile-xamarin-ios-get-started-users.md
-[Agendador do Azure]: /pt-BR/documentation/services/scheduler/
-[Trabalho Web]: ../app-service-web/websites-webjobs-resources.md
-[Enviar notificações por push multiplataforma]: app-service-mobile-xamarin-ios-push-notifications-to-user.md
-[Como usar o SDK do servidor .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[I already use web sites and mobile services – how does App Service help me?]: /pt-BR/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
+[Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
+[Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
+[Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
+[Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
+[Azure Scheduler]: /pt-BR/documentation/services/scheduler/
+[Web Job]: ../app-service-web/websites-webjobs-resources.md
+[Send cross-platform push notifications]: app-service-mobile-xamarin-ios-push-notifications-to-user.md
+[How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=Nov15_HO1-->
+
+[Habilitar o log de diagnóstico no Serviço de Aplicativo do Azure]: web-sites-enable-diagnostic-log.md
+[preços do Serviço de Aplicativo]: https://azure.microsoft.com/pt-BR/pricing/details/app-service/
+[Ambiente de Serviço de Aplicativo]: app-service-app-service-environment-intro.md
+[Serviços Móveis versus Serviço de Aplicativo]: app-service-mobile-value-prop-migration-from-mobile-services-preview.md
+[migrar um serviço móvel para um aplicativo móvel no Serviço de Aplicativo]: app-service-mobile-dotnet-backend-migrating-from-mobile-services-preview.md
+
+<!---HONumber=Nov15_HO3-->

@@ -13,18 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="09/04/2015"
+   ms.date="11/06/2015"
    ms.author="maroche"/>
 
 # Notas de versão do Catálogo de Dados do Azure
 
-## Notas da versão de 4 de setembro de 2015 do Catálogo de Dados do Azure
 
-### O perfil de dados pode estar ausente em alguns ativos de dados registrados
+## Notas da versão de 6 de novembro de 2015 do Catálogo de Dados do Azure
 
-Ao registrar fontes de dados com a opção de criação de perfil de dados selecionada na ferramenta de registro de fonte de dados, as informações de perfil de dados podem não ser incluídas ao registrar as tabelas e modos de exibição do Oracle com caracteres de vários bytes em nomes de coluna.
+### Os usuários podem encontrar erros ao iniciar a ferramenta de registro da fonte de dados
 
-Essas restrições ocorrem devido a um problema conhecido na versão de 4 de setembro e serão tratadas em uma atualização futura do Catálogo de Dados do Azure.
+Ao iniciar a ferramenta de registro de fonte de dados **Catálogo de Dados do Azure** no portal **Catálogo de Dados do Azure**, os usuários que instalaram anteriormente uma versão anterior da ferramenta poderão receber esta mensagem: "O aplicativo não pode ser iniciado. Entre em contato com o fornecedor do aplicativo."
+
+Os usuários que recebem essa mensagem devem usar o painel de controle do Windows para remover o aplicativo "Catálogo de Dados do Azure" existente e, em seguida, inicie novamente a ferramenta do portal do **Catálogo de Dados do Azure**.
 
 ## Notas da versão de 13 de julho de 2015 do Catálogo de Dados do Azure
 
@@ -43,7 +44,7 @@ O suporte para fontes de dados do SQL Server Reporting Services (SSRS) na versã
 
 ### Abrindo ativos de dados no Excel
 
-Ao abrir ativos de dados no Microsoft Excel no portal do Catálogo de Dados do Azure, uma caixa de diálogo **Aviso de segurança do Microsoft Excel** pode ser exibida aos usuários. Esse é um comportamento padrão e esperado, e os usuários podem selecionar **Habilitar** para continuar.
+Ao abrir ativos de dados no Microsoft Excel no portal do **Catálogo de Dados do Azure**, uma caixa de diálogo **Aviso de segurança do Microsoft Excel** pode ser exibida aos usuários. Esse é um comportamento padrão e esperado, e os usuários podem selecionar **Habilitar** para continuar.
 
 Para obter mais informações, veja [Habilitar ou desabilitar alertas de segurança sobre links e arquivos de sites suspeitos](https://support.office.com/pt-BR/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
 
@@ -77,4 +78,4 @@ Para obter mais informações, consulte [Configurando políticas de autenticaç�
 
 Para localizar o arquivo RegistrationTool.exe.config, inicie a ferramenta de registro e, em seguida, abra o utilitário Gerenciador de Tarefas do Windows. Na guia Detalhes do Gerenciador de tarefas, clique com o botão direito em RegistrationTool.exe e escolha Abrir local do arquivo no menu pop-up.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

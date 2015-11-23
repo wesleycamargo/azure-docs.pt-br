@@ -193,7 +193,7 @@ O Hub IoT usa o seguinte conjunto de *permissões* para conceder acesso ao ponto
 
 As permissões são concedidas das seguintes maneiras:
 
-* **Políticas de acesso compartilhado no nível do Hub**. As *políticas de acesso compartilhado* podem conceder qualquer combinação das permissões listadas na seção anterior. Você pode definir políticas no [Portal de Gerenciamento do Azure][lnk-management-portal] ou programaticamente usando as [APIs do provedor de recursos do Hub IoT do Azure][lnk-resource-provider-apis]. Um hub IoT recém-criado tem as seguintes políticas padrão:
+* **Políticas de acesso compartilhado no nível do Hub**. As *políticas de acesso compartilhado* podem conceder qualquer combinação das permissões listadas na seção anterior. Você pode definir políticas no [Portal de Visualização do Azure][lnk-management-portal] ou programaticamente usando as [APIs do provedor de recursos do Hub IoT do Azure][lnk-resource-provider-apis]. Um hub IoT recém-criado tem as seguintes políticas padrão:
 
     - *iothubowner*: política com todas as permissões,
     - *service*: política com a permissão **ServiceConnect**,
@@ -352,7 +352,7 @@ Um Hub IoT expõe as seguintes propriedades para o controle de mensagens D2C.
 
 Além disso, de maneira semelhante aos Hubs de Eventos, o Hub IoT permite o gerenciamento de Grupos de consumidores no ponto de extremidade de recebimento do dispositivo para a nuvem.
 
-Você pode modificar todas essas propriedades usando o [portal do Azure][lnk-management-portal] ou programaticamente por meio do [Hub IoT do Azure - APIs do provedor de recursos][lnk-resource-provider-apis].
+Você pode modificar todas essas propriedades usando o [portal de visualização do Azure][lnk-management-portal] ou programaticamente por meio do [Hub IoT do Azure - APIs do provedor de recursos][lnk-resource-provider-apis].
 
 #### Propriedades anti-falsificação <a id="antispoofing"></a>
 
@@ -418,9 +418,8 @@ O corpo é uma matriz de registros serializada em JSON, cada um com as seguintes
 
 | Propriedade | Descrição |
 | -------- | ----------- |
-| EnqueuedTime | Carimbo de data e hora que indica quando ocorreu a saída da mensagem. Por exemplo, o dispositivo foi concluído ou a mensagem expirou. |
-| CorrelationId | **MessageId** da mensagem da nuvem para o dispositivo a qual essas informações de comentários pertencem. |
-| StatusCode | **0** se bem-sucedido, **1** se a mensagem expirou, **2** se a contagem de entrega máxima for ultrapassada, **3** se a mensagem tiver sido rejeitada. |
+| EnqueuedTimeUtc | Carimbo de data e hora que indica quando ocorreu a saída da mensagem. Por exemplo, o dispositivo foi concluído ou a mensagem expirou. |
+| OriginalMessageId | **MessageId** da mensagem da nuvem para o dispositivo a qual essas informações de comentários pertencem. |
 | Descrição | Valores de cadeia de caracteres para os resultados anteriores. |
 | DeviceId | **DeviceId** do dispositivo de destino da mensagem da nuvem para o dispositivo a qual pertence esses comentários. |
 | DeviceGenerationId | **DeviceGenerationId** do dispositivo de destino da mensagem da nuvem para o dispositivo a qual pertence esses comentários. |
@@ -431,9 +430,8 @@ O corpo é uma matriz de registros serializada em JSON, cada um com as seguintes
 
     [
         {
-            "CorrelationId": "0987654321",
-            "EnqueuedTime": "2015-07-28T16:24:48.789Z",
-            "StatusCode": "0",
+            "OriginalMessageId": "0987654321",
+            "EnqueuedTimeUtc": "2015-07-28T16:24:48.789Z",
             "Description": "Success",
             "DeviceId": "123",
             "DeviceGenerationId": "abcdefghijklmnopqrstuvwxyz"
@@ -493,7 +491,7 @@ Você viu uma visão geral do desenvolvimento para Hub IoT. Siga estes links par
 
 [Hubs de Eventos - Host Processador de Eventos]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
 
-[Portal de Visualização do Azure]: https://ms.portal.azure.com
+[Portal de Visualização do Azure]: https://portal.azure.com
 
 [img-summary]: ./media/iot-hub-devguide/summary.png
 [img-endpoints]: ./media/iot-hub-devguide/endpoints.png
@@ -534,4 +532,4 @@ Você viu uma visão geral do desenvolvimento para Hub IoT. Siga estes links par
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

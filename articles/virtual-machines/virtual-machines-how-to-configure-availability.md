@@ -37,9 +37,9 @@ Você pode escolher uma destas opções para colocar máquinas virtuais em um co
 
 Você pode usar comandos do Portal do Azure ou do Azure PowerShell para fazer isso.
 
-Para usar o portal:
+Para usar o portal do Azure:
 
-1. Se você ainda não fez isso, entre no [portal](http://manage.windowsazure.com).
+1. Se ainda não tiver feito isso, entre no portal do Azure.
 
 2. Na barra de comandos, clique em **Nova**.
 
@@ -72,9 +72,9 @@ Para usar comandos do Azure PowerShell para criar uma máquina virtual do Azure 
 
 ## <a id="addmachine"> </a>Opção 2: adicione uma máquina virtual já existente a um conjunto de disponibilidade##
 
-No Portal, é possível adicionar máquinas virtuais existentes a um conjunto de disponibilidade existente ou criar um novo conjunto para essas máquinas. (Lembre-se de que as máquinas virtuais no mesmo conjunto de disponibilidade devem pertencer ao mesmo serviço de nuvem). As etapas são praticamente as mesmas. Como o PowerShell do Azure é possível adicionar a máquina virtual a um conjunto de disponibilidade existente.
+No portal do Azure, é possível adicionar máquinas virtuais existentes a um conjunto de disponibilidade existente ou criar um novo conjunto para essas máquinas. (Lembre-se de que as máquinas virtuais no mesmo conjunto de disponibilidade devem pertencer ao mesmo serviço de nuvem). As etapas são praticamente as mesmas. Como o PowerShell do Azure é possível adicionar a máquina virtual a um conjunto de disponibilidade existente.
 
-1. Se você ainda não fez isso, entre no [portal](http://manage.windowsazure.com).
+1. Se ainda não tiver feito isso, entre no portal do Azure.
 
 2. Na barra de comandos, clique em **Máquinas Virtuais**.
 
@@ -112,4 +112,4 @@ Para usar os comandos do PowerShell do Azure, abra uma sessão do PowerShell do 
 [Visão geral da rede virtual]: virtual-networks-overview.md
 [Artigos para máquinas virtuais no Gerenciamento de Serviços]: virtual-machines-service-management-articles.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -62,7 +62,7 @@ Ao gerenciar logons e usuários no banco de dados SQL, há restrições.
 Para o logon principal no nível de servidor, as seguintes restrições se aplicam:
 
 - O usuário de banco de dados no banco de dados mestre correspondente para o logon principal no nível de servidor não pode ser alterado ou descartado. 
-- Embora o logon na entidade de segurança no nível do servidor não seja um membro das duas funções de banco de dados, **dbmanager** e **loginmanager**, no banco de dados **mestre**, ele tem todas as permissões concedidas para essas duas funções.
+- Embora o logon principal no nível de servidor não seja um membro das duas funções de banco de dados, **dbmanager** e **loginmanager**, no banco de dados **mestre**, ele tem todas as permissões concedidas para essas duas funções.
 
 > [AZURE.NOTE]Esse logon é criado durante o provisionamento do servidor e é semelhante ao logon **sa** em uma instância do SQL Server.
 
@@ -88,7 +88,7 @@ GO
 - Somente o logon na entidade de segurança no nível do servidor e os membros da função **dbmanager** do banco de dados no banco de dados **mestre** têm permissão para executar as instruções ``CREATE DATABASE`` e ``DROP DATABASE``.
 - Somente o logon na entidade de segurança no nível do servidor e os membros da função **loginmanager** do banco de dados no banco de dados **mestre** têm permissão para executar as instruções ``CREATE LOGIN``, ``ALTER LOGIN`` e ``DROP LOGIN``.
 - Para o ``CREATE/ALTER/DROP``, um usuário requer a permissão ``ALTER ANY USER`` no banco de dados.
-- Quando o proprietário de uma função de banco de dados tenta adicionar ou remover outro usuário de banco de dados de ou para essa função de banco de dados, pode ocorrer o seguinte erro: **O usuário ou a função “Nome” não existe neste banco de dados.** Esse erro ocorre porque o usuário não está visível para o proprietário. Para resolver esse problema, conceda ao proprietário da função a permissão ``VIEW DEFINITION`` no usuário. 
+- Quando o proprietário de uma função de banco de dados tenta adicionar ou remover outro usuário de banco de dados de ou para aquela função de banco de dados, pode ocorrer o seguinte erro: **usuário ou função 'Name' não existe neste banco de dados.** Esse erro ocorre porque o usuário não está visível para o proprietário. Para resolver esse problema, conceda ao proprietário da função a permissão ``VIEW DEFINITION`` no usuário. 
 
 Para obter mais informações sobre logons e usuários, veja [Gerenciando bancos de dados e logons no Banco de Dados SQL do Azure](sql-database-manage-logins.md).
 
@@ -96,7 +96,7 @@ Para obter mais informações sobre logons e usuários, veja [Gerenciando bancos
 
 Considere os seguintes pontos para tornar seus aplicativos de Banco de dados SQL do Azure menos vulneráveis a ameaças de segurança:
 
-- Use sempre as atualizações mais recentes: ao se conectar ao banco de dados SQL, sempre use a versão mais recente das ferramentas e bibliotecas para evitar vulnerabilidades de segurança. Para obter mais informações sobre quais ferramentas e bibliotecas têm suporte, veja [Limitações e diretrizes gerais do Banco de dados SQL do Azure](https://msdn.microsoft.com/library/azure/ee336245.aspx).
+- Use sempre as atualizações mais recentes: ao se conectar ao banco de dados SQL, sempre use a versão mais recente das ferramentas e bibliotecas para evitar vulnerabilidades de segurança.
 - Bloquear conexões de entrada na porta TCP 1433: somente conexões de saída na porta TCP 1433 são necessárias para os aplicativos que se comunicam com o banco de dados SQL. Se as comunicações de entrada não são necessárias em outros aplicativos no computador, certifique-se de que o firewall continue a bloquear conexões de entrada na porta TCP 1433.
 - Evite vulnerabilidades de injeção: para certificar-se de que seus aplicativos não tenham vulnerabilidades de injeção de SQL, use consultas parametrizadas onde possível. Além disso, certifique-se de revisar o código cuidadosamente e executar um teste de penetração antes de implantar seu aplicativo.
 
@@ -107,8 +107,6 @@ Considere os seguintes pontos para tornar seus aplicativos de Banco de dados SQL
 
 [Como definir as configurações de firewall (Banco de Dados SQL do Azure)](sql-database-configure-firewall-settings.md)
 
-[Limitações e diretrizes de gerais do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/ee336245.aspx)
-
 [Gerenciamento de bancos de dados e logons no Banco de Dados SQL do Azure](sql-database-manage-logins.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

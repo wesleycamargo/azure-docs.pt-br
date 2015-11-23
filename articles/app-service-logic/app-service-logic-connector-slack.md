@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Usando o Conector do Slack em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure"
 	description="Como criar e configurar o Conector do Slack ou o aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
-	authors="anuragdalmia" 
+	authors="rajeshramabathiran" 
 	manager="dwrede" 
 	editor="" 
 	services="app-service\logic" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2015"
-	ms.author="andalmia"/>
+	ms.date="11/11/2015"
+	ms.author="rajram"/>
 
 # Introdução ao Conector do Slack e à adição dele ao seu Aplicativo Lógico
 Conecte-se a canais de margem de atraso e poste mensagens para sua equipe. OS conectores podem ser usados em aplicativos lógicos como parte de um "fluxo de trabalho" para executar diferentes tarefas. Ao usar o conector de margem de atraso no fluxo de trabalho, você pode obter uma diversos cenários usando outros conectores. Por exemplo, você pode usar o [conector do Facebook](app-service-logic-connector-facebook.md) no fluxo de trabalho para postar uma mensagem em seu canal de margem de atraso.
@@ -99,4 +99,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [8]: ./media/app-service-logic-connector-slack/img8.PNG
 [9]: ./media/app-service-logic-connector-slack/img9.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

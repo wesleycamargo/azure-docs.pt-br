@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.date="11/06/2015" 
 	ms.author="awills"/>
 
 # Modelo de dados de exportação do Application Insights
@@ -120,43 +120,6 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 
     *Exemplos*<br/>www.fabrikam.com<br/>www.contoso.com<br/>bretwpc711.azurewebsites.net<br/>
 
-**urlData.port**
-
-    string <telemetrytype>.urldata.port      Max: 100
-* 
-    A porta do item de dados da URL, se ela for representada na URL completa. Caso contrário, será vazio. 
-
-    *Derivação:* consulte no apêndice a transformação de URL
-
-    *Exemplos*<br/> 80<br/>443
-
-**urlData.protocol**
-
-    string <telemetrytype>.urldata.protocol      Max: 100
-* 
-    O protocolo (HTTP, FTP etc.) do item de dados da URL 
-
-    *Derivação:* consulte no apêndice a transformação de URL
-
-    *Exemplos*<br/> http<br/>https
-
-**urlData.queryParameters.parameter**
-
-    string <telemetrytype>.urldata.queryparameters.parameter      Max: 100
-* 
-    Uma matriz dos nomes de parâmetro de consulta do item de dados da URL 
-
-    *Derivação:* consulte no apêndice a transformação de URL
-
-    *Exemplos*<br/> etc<br/>extraqs<br/>pagemode<br/>pagetype
-
-**urlData.queryParameters.value**
-
-    string <telemetrytype>.urldata.queryparameters.value      Max: 100
-* 
-    Uma matriz de valores de parâmetros de consulta analisados do item de dados da URL 
-
-    *Derivação:* consulte no apêndice a transformação de URL
 
 
 ## disponibilidade
@@ -531,15 +494,6 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 
     *Exemplos*<br/> 640<br/>800<br/>1080
 
-**userAgentString**
-
-    string context.device.useragent      Max: 1000
-* 
-    O useragent do navegador do cliente 
-
-    *Padrão:* se for null, é definido como o agente do usuário HTTP capturado no ponto de extremidade de coleta de dados
-
-    *Exemplos*<br/> Opera/9.80 (Windows NT 5.1) Presto/2.12.388 Versão/12.17<br/>Mozilla/5.0 (iPad; CPU OS 8\_3 como Mac OS X) AppleWebKit/600.1.4 (KHTML, como Gecko) Version/8.0 Mobile/12F69 Safari/600.1.4<br/>Chrome/37.0.2062.124 Safari/537.36<br/>Mozilla/4.0 (compatível; MSIE 7.0; Windows NT 6.1; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E)<br/>Safari/537.36<br/>+S89
 
 **aiAgentVersion**
 
@@ -581,17 +535,6 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 
     *Exemplos*<br/>Belarus<br/>Países Baixos<br/>Alemanha
 
-**latitude**
-
-    long context.location.point.lat      
-* 
-    *Exemplos*<br/> 53.9<br/>45.7788 
-
-**longitude**
-
-    long context.location.point.lon      
-* 
-    *Exemplos*<br/> 27.5667<br/>-119.529 
 
 **state**
 
@@ -1081,4 +1024,4 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 * [Exportação Contínua](app-insights-export-telemetry.md)
 * [Exemplos de código](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

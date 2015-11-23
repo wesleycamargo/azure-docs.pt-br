@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Estudo de caso do Desenvolvedor da Pesquisa do Azure: como a WhatToPedia criou um portal de mídia informativa no Microsoft Azure | Microsoft Azure" 
+	pageTitle="Estudo de caso do Desenvolvedor da Pesquisa do Azure: como a WhatToPedia criou um portal de mídia informativa no Microsoft Azure | Microsoft Azure | Serviço de pesquisa de nuvem hospedado" 
 	description="Saiba como criar um portal informativo e um mecanismo de metapesquisa usando a Pesquisa do Azure, um serviço de pesquisa hospedado na nuvem para desenvolvedores." 
 	services="search, sql-database,  storage, web-sites" 
 	documentationCenter="" 
@@ -421,4 +421,4 @@ O código a seguir cria o indexador mencionado na seção sobre a criação do p
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

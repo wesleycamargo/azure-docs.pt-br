@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="11/11/2015"
 	ms.author="genli"/>
 
 # Como adicionar ou alterar o Coadministrador, Administrador de Serviços e Administrador da Conta do Azure
@@ -39,7 +39,11 @@ O seguinte endereço de email pode ser adicionado como Coadministrador:
 * **Conta da Microsoft** (anteriormente Windows Live ID) </br> Você pode usar uma Conta da Microsoft para entrar em todos os produtos e serviços de nuvem da Microsoft orientados ao consumidor, como Outlook (Hotmail), Skype (MSN), OneDrive, Windows Phone e Xbox LIVE.
 * **Conta organizacional**</br> Uma conta organizacional é uma conta criada no Active Directory do Azure. O endereço de conta organizacional será semelhante ao seguinte: usuário@<your domain>.onmicrosoft.com
 
-**Observação** * Se você fizer logon com uma Conta da Microsoft, você poderá adicionar apenas outras Contas da Microsoft como Coadministrador. Essa é uma consideração sobre segurança para impedir que contas não organizacionais descubram se certas contas (por exemplo, janedoe@contoso.com) são contas válidas. * Se estiver conectado em uma conta organizacional, você poderá adicionar outras contas organizacionais em sua organização como Coadministrador. Por exemplo, o abby@contoso.com pode adicionar o bob@contoso.com como Administrador de Serviços ou Coadministrador, mas não pode adicionar o john@notcontoso.com. Os usuários conectados com contas organizacionais podem continuar a adicionar usuários da Conta da Microsoft como Administrador de Serviços ou Coadministrador. * Agora que é possível fazer logon no Azure com uma conta organizacional, estas são as alterações nos requisitos de conta do Administrador de Serviços e Coadministrador:
+**Observação**
+
+ * Se você fizer logon com uma Conta da Microsoft, você poderá adicionar apenas outras Contas da Microsoft como Coadministrador. Essa é uma consideração de segurança para impedir que contas não organizacionais descubram se certas contas (por exemplo, janedoe@contoso.com) são contas válidas.
+ * Se você estiver conectado a uma conta organizacional, você pode adicionar outras contas institucionais em sua organização como Coadministrador. Por exemplo, abby@contoso.com pode adicionar bob@contoso.com como Administrador de Serviços ou Coadministrador, mas não pode adicionar o john@notcontoso.com. Usuários conectados usando contas da organização podem continuar adicionando usuários da conta da Microsoft com Administradores ou Coadministradores de serviço.
+ * Agora que é possível fazer logon no Azure com uma conta organizacional, estas são as alterações de requisitos de conta de administrador de serviço e coadministrador:
 
 | Método de logon| Adicionar Conta da Microsoft como Coadministrador ou Administrador de Serviços? |Adicionar uma conta organizacional na mesma organização como Coadministrador ou Administrador de Serviços? |Adicionar uma conta organizacional em uma organização diferente como Coadministrador ou Administrador de Serviços?
 | ------------- | ------------- |---------------|---------------|
@@ -55,8 +59,8 @@ Somente o Administrador da Conta pode alterar o Administrador de Serviços de um
 
 4. Na caixa **ADMINISTRADOR DE SERVIÇOS**, digite o endereço de email do novo administrador de serviços. ![changeSA](./media/billing-add-change-azure-subscription-administrator/changeSA.png)
 
-## Alterar o Administrador da Conta (transferir a propriedade da conta do Azure para outra conta)
+## Altere o administrador da conta.
 
-Para transferir a propriedade da conta do Azure para outra Conta, veja [Transferindo uma assinatura do Azure](../billing-subscription-transfer.md).
+Para transferir a propriedade da conta do Azure para outra conta, consulte [Transferir uma assinatura do Azure](../billing-subscription-transfer.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

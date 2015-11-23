@@ -169,7 +169,7 @@ AND	[acs].[CalendarYear]				= [fis].[CalendarYear]
 ;
 ```
 
-Como o SQL Data Warehouse não oferece suporte a junções ANSI, você não pode copiar esse código sem alterá-lo um pouco.
+Como o SQL Data Warehouse não dá suporte a junções ANSI na cláusula FROM da instrução UPDATE, você não pode copiar esse código sem alterá-lo um pouco.
 
 Você pode usar uma combinação de um CTAS e uma junção implícita para substituir este código:
 
@@ -206,7 +206,7 @@ DROP TABLE CTAS_acs
 ```
 
 ## Substituição de junção ANSI para instruções delete
-Às vezes, a melhor abordagem para a exclusão de dados é usar CTAS. Em vez de excluir os dados, simplesmente selecione os dados que você deseja manter. Isso é especialmente verdadeiro para as instruções DELETE que usam a sintaxe da junção ansi pois isso não tem suporte no SQL Data Warehouse.
+Às vezes, a melhor abordagem para a exclusão de dados é usar CTAS. Em vez de excluir os dados, simplesmente selecione os dados que você deseja manter. Isso é especialmente verdadeiro para instruções DELETE que usam sintaxe de junção ansi, já que o SQL Data Warehouse não dá suporte a junções ANSI na cláusula FROM de uma instrução DELETE.
 
 Um exemplo de uma instrução DELETE convertida está disponível abaixo:
 
@@ -429,4 +429,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 
 <!--Other Web references-->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

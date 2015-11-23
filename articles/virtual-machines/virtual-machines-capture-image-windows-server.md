@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Capturar uma imagem de uma VM do Windows | Microsoft Azure"
-	description="Capture uma imagem de uma máquina virtual do Windows criada com o modelo de implantação clássico."
+	pageTitle="Capturar uma imagem de uma VM do Windows do Azure | Microsoft Azure"
+	description="Capture uma imagem de uma máquina virtual do Windows do Azure criada com o modelo de implantação clássico."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,15 +14,15 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="11/05/2015"
 	ms.author="cynthn"/>
 
-#Capture uma imagem de uma máquina virtual do Windows criada com o modelo de implantação clássico.
+#Capture uma imagem de uma máquina virtual do Windows do Azure criada com o modelo de implantação clássico.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
 
 
-Esse artigo mostra como capturar uma máquina virtual do Azure executando Windows para que você a use como uma imagem para criar outras máquinas virtuais. Essa imagem inclui o disco do sistema operacional e discos de dados anexados à máquina virtual. Ele não inclui as configurações da rede, então você precisará configurá-la quando criar as outras máquinas virtuais que usam o modelo.
+Esse artigo mostra como capturar uma máquina virtual do Azure executando Windows para que você a use como uma imagem para criar outras máquinas virtuais. Essa imagem inclui o disco do sistema operacional e discos de dados anexados à máquina virtual. Ele não inclui as configurações da rede, então você precisará configurá-la quando criar as outras máquinas virtuais que usam a imagem.
 
 O Azure armazena a imagem em **Minhas Imagens**. Esse é o mesmo local em que as imagens que você carregou são armazenadas. Para obter detalhes sobre imagens, consulte [Sobre as imagens de máquinas virtuais](virtual-machines-images.md).
 
@@ -30,12 +30,15 @@ O Azure armazena a imagem em **Minhas Imagens**. Esse é o mesmo local em que as
 
 Essas etapas assumem que você já criou uma máquina virtual do Azure e já configurou o sistema operacional, incluindo os anexos de discos de dados. Se você ainda não fez isso, consulte essas instruções:
 
-- [Criar uma máquina virtual personalizada executando Windows][]
-- [Como anexar um disco de dados à máquina virtual][]
+- [Criar uma máquina virtual de uma imagem](virtual-machines-create-custom.md)
+- [Como anexar um disco de dados à máquina virtual](storage-windows-attach-disk.md)
 
-> [AZURE.WARNING]Esse processo exclui a máquina virtual original depois que ela for capturada e não se destina como uma maneira de fazer backup de uma máquina virtual. Uma forma possível de fazer isso é o Backup do Azure, que está disponível como prévia em determinadas regiões. Para obter detalhes, consulte [Fazer backup de máquinas virtuais do Azure](../backup/backup-azure-vms.md). Existem outras soluções de parceiros certificados. Para descobrir o que está disponível no momento, pesquise no Azure Marketplace.
+> [AZURE.WARNING]Esse processo exclui a máquina virtual original depois de ela ser capturada.
 
-##Capturar a máquina virtual##
+Isso não é destinado a ser uma maneira de fazer backup de uma máquina virtual. Uma forma possível de fazer isso é o Backup do Azure, que está disponível como prévia em determinadas regiões. Para obter detalhes, consulte [Fazer backup de máquinas virtuais do Azure](../backup/backup-azure-vms.md). Existem outras soluções de parceiros certificados. Para descobrir o que está disponível no momento, pesquise no Azure Marketplace.
+
+
+##Capturar a máquina virtual
 
 1. No [Portal do Azure](http://manage.windowsazure.com), **conecte-se** à máquina virtual. Para obter instruções, consulte [Como entrar em uma máquina virtual que executa o Windows Server][].
 
@@ -71,11 +74,12 @@ Essas etapas assumem que você já criou uma máquina virtual do Azure e já con
 
  	![Captura de imagem bem-sucedida](./media/virtual-machines-capture-image-windows-server/VMCapturedImageAvailable.png)
 
-##Próximas etapas##
-A imagem está pronta para ser usada para criar máquinas virtuais. Para fazer isso, crie uma máquina virtual usando o item de menu **Da Galeria** e selecionando a imagem que você acabou de criar. Para obter instruções, consulte [Criar uma máquina virtual personalizada executando Windows][].
+##Próximas etapas
 
-[Criar uma máquina virtual personalizada executando Windows]: virtual-machines-windows-create-custom.md
-[Como anexar um disco de dados à máquina virtual]: storage-windows-attach-disk.md
+A imagem está pronta para ser usada para criar máquinas virtuais. Para fazer isso, crie uma máquina virtual usando o item de menu **Da Galeria** e selecionando a imagem que você acabou de criar. Para obter instruções, consulte [Criar uma máquina virtual de uma imagem](virtual-machines-create-custom.md).
+
+
+
 [Como entrar em uma máquina virtual que executa o Windows Server]: virtual-machines-log-on-windows-server.md
 [Como usar Sysprep: uma introdução]: http://technet.microsoft.com/library/bb457073.aspx
 [Run Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepCommand.png
@@ -86,4 +90,4 @@ A imagem está pronta para ser usada para criar máquinas virtuais. Para fazer i
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

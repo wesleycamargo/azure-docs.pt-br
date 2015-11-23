@@ -1,27 +1,24 @@
 <properties 
-	pageTitle="Como usar o AMQP 1.0 com o API do Barramento de Serviço em Java | Microsoft Azure" 
-	metakeywords="Java Messsage AMQP, Service Bus AMQP, download AMQP JMS library" 
-	description="Saiba como usar o Java Message Service (JMS) com o barramento de serviço do Azure e Advanced Message Queuing Protocol (AMQP) 1.0." 
-	authors="sethmanheim" 
-	documentationCenter="java" 
-	writer="sethm" 
+	pageTitle="Usar o AMQP 1.0 com a API do Barramento de Serviço em Java | Microsoft Azure" 
+	description="Saiba como usar o Java Message Service (JMS) com o Barramento de Serviço do Azure e AMQP (Advanced Message Queuing Protocol)"
+	services="service-bus"
+	documentationCenter="java"
+	authors="sethmanheim"  
 	manager="timlt" 
-	editor="" 
-	services="service-bus"/>
+	editor="" />
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="11/06/2015" 
 	ms.author="sethm"/>
-
 
 # Como usar a API do Serviço de Mensagem Java (JMS) com Barramento de Serviço e AMQP 1.0
 
-O Protocolo de Enfileiramento de Mensagens Avançadas (AMQP, Advanced Message Queuing Protocol) 1.0 é um protocolo de mensagens eficiente, confiável e conectado que pode ser usado para criar aplicativos de mensagens avançados entre plataformas. Suporte ao AMQP 1.0 foi adicionado ao Service Bus do Azure em outubro de 2012 e passou por transição para Disponibilidade Geral (GA) em maio de 2013.
+O AMQP (Protocolo de Enfileiramento de Mensagens Avançadas) 1.0 é um protocolo de mensagens eficiente, confiável e conectado que pode ser usado para criar aplicativos de mensagens robustos em plataformas cruzadas. Suporte ao AMQP 1.0 foi adicionado ao Service Bus do Azure em outubro de 2012 e passou por transição para Disponibilidade Geral (GA) em maio de 2013.
 
 A inclusão de AMQP 1.0 significa que agora você pode aproveitar o enfileiramento de mensagens e publicação/assinatura comunicação recursos de mensagem do Service Bus entre uma variedade de plataformas usando um protocolo binário eficiente. Além disso, você pode criar aplicativos compostos de componentes criados com o uso de uma mistura de linguagens, estruturas e sistemas operacionais.
 
@@ -29,7 +26,7 @@ Este Guia de Instruções explica como usar os recursos do sistema de mensagens 
 
 ## Introdução ao Barramento de serviço
 
-Este guia presume que você já tenha um namespace do Barramento de Serviço que contém uma fila denominada "queue1." Caso contrário, você pode criar o namespace e a fila usando o [Portal de Gerenciamento do Azure](http://manage.windowsazure.com) Para obter mais informações sobre como criar namespaces e filas do Service Bus, consulte [Como usar filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md).
+Este guia presume que você já tenha um namespace do Barramento de Serviço que contém uma fila denominada **queue1**. Caso contrário, você pode criar o namespace e a fila usando o [Portal do Azure](http://manage.windowsazure.com). Para obter mais informações sobre como criar namespaces e filas do Barramento de Serviço, consulte [Como usar filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md).
 
 ### Baixando a biblioteca do cliente do JMS do AMQP 1.0
 
@@ -61,7 +58,7 @@ connectionfactory.SBCF = amqps://[username]:[password]@[namespace].servicebus.wi
 queue.QUEUE = queue1
 ```
 
-#### Configurando o ConnectionFactory
+#### Configurar o ConnectionFactory
 
 A entrada usada para definir um **ConnectionFactory** no Provedor JNDI de arquivo de propriedades do Qpid tem o seguinte formato:
 
@@ -88,7 +85,7 @@ Onde **[namespace]**, **[username]** e **[password]** têm os seguintes signific
 
 > [AZURE.NOTE]você deve executar uma codificação de URL da senha manualmente. Um utilitário útil de codificação de URL está disponível em [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 
-#### Configurando destinos
+#### Configurar destinos
 
 A entrada usada para definir um destino no Provedor JNDI do arquivo de propriedades do Qpid tem o seguinte formato:
 
@@ -106,13 +103,13 @@ Onde **[jndi\_name]** e **[physical\_name]** têm os seguintes significados:
 - **[jndi\_name]**: o nome lógico do destino. Este é o nome que será resolvido no aplicativo Java usando o método IntialContext.lookup() do JNDI.
 - **[physical\_name]**: o nome da entidade do Barramento de Serviço para a qual o aplicativo envia ou recebe mensagens.
 
-> [AZURE.NOTE]ao receber de uma assinatura de tópico do Service Bus, o nome físico especificado na JNDI deve ser o nome do tópico. O nome da assinatura é fornecido quando a assinatura durável é criada no código do aplicativo JMS. O [Guia do Desenvolvedor do Service Bus do AMQP 1.0](http://msdn.microsoft.com/library/jj841071.aspx) fornece mais detalhes sobre como trabalhar com assinaturas de tópico do Service Bus a partir do JMS.
+> [AZURE.NOTE]ao receber de uma assinatura de tópico do Service Bus, o nome físico especificado na JNDI deve ser o nome do tópico. O nome da assinatura é fornecido quando a assinatura durável é criada no código do aplicativo JMS. O [Guia do desenvolvedor do AMQP 1.0 do Barramento de Serviço](service-bus-amqp-dotnet.md) fornece mais detalhes sobre como trabalhar com assinaturas de tópico do Barramento de Serviço por meio do JMS.
 
-### Escrevendo o aplicativo JMS
+### Escrever o aplicativo JMS
 
 Não existem APIs ou opções especiais obrigatórias ao usar o JMS com o Service Bus. No entanto, existem algumas restrições que serão abordadas posteriormente. Da mesma forma que ocorre com qualquer aplicativo JMS, a primeiro item necessário é a configuração do ambiente JNDI, para ser capaz de resolver um **ConnectionFactory** e destinos.
 
-#### Configurando o InitialContext de JNDI
+#### Configurar o InitialContext de JNDI
 
 O ambiente JNDI é configurado por meio da transmissão de uma tabela de hash com informações de configuração para o construtor da classe javax.naming.InitialContext. Os dois elementos necessários da tabela de hash são o nome da classe de Initial Context Factory e a URL do Provedor. O código a seguir mostra como configurar o ambiente JNDI para usar o Provedor JNDI com base em arquivo de propriedades do Qpid com um arquivo de propriedades chamado **servicebus.properties**.
 
@@ -222,7 +219,7 @@ O programa de exemplo a seguir envia TextMessages do JMS para uma fila do Barram
 	    }
 	}	
 
-### Executando o aplicativo
+### Executar o aplicativo
 
 Executar o aplicativo produz o seguinte resultado:
 
@@ -247,7 +244,7 @@ Este guia mostrou como enviar e receber mensagens de e para o Service Bus usando
 
 Usando a amostra do aplicativo JMS descrito acima e um aplicativo .NET similar retirado de um guia complementar, [Como usar o AMQP 1.0 com a API do .NET do Service Bus do .NET](service-bus-dotnet-advanced-message-queuing.md), é possível trocar mensagens entre o .NET e o Java.
 
-Para obter mais informações sobre os detalhes de mensagens em plataformas cruzadas usando o Service Bus e o AMQP 1.0, consulte o [Guia do Desenvolvedor do Service Bus e AMQP 1.0](http://msdn.microsoft.com/library/jj841071.aspx).
+Para obter mais informações sobre os detalhes de mensagens em plataformas cruzadas usando o Service Bus e o AMQP 1.0, consulte o [Guia do Desenvolvedor do Service Bus e AMQP 1.0](service-bus-amqp-dotnet.md).
 
 ### Do JMS para o .NET
 
@@ -325,14 +322,14 @@ As restrições a seguir ocorrem durante o uso do JMS sobre o AMQP 1.0 com o Ser
 
 Este guia de instruções explicou como usar os recursos de mensagens agenciadas do Service Bus (tópicos sobre filas e publicação/assinatura) do Java usando a API popular JMS e o AMQP 1.0.
 
-Você também pode usar o AMQP 1.0 do Service Bus de outras linguagens, incluindo .NET, C, Python e PHP. Os componentes criados com essas diferentes linguagens podem trocar mensagens de forma confiável e com total fidelidade usando o suporte do AMQP 1.0 no Service Bus. Para obter mais informações, consulte o [Guia do Desenvolvedor do AMQP 1.0 do Service Bus](http://msdn.microsoft.com/library/jj841071.aspx).
+Você também pode usar o AMQP 1.0 do Service Bus de outras linguagens, incluindo .NET, C, Python e PHP. Os componentes criados com essas diferentes linguagens podem trocar mensagens de forma confiável e com total fidelidade usando o suporte do AMQP 1.0 no Service Bus. Para obter mais informações, consulte o [Guia do Desenvolvedor do AMQP 1.0 do Service Bus](service-bus-amqp-dotnet.md).
 
 ## Próximas etapas
 
 * [Suporte para o AMQP 1.0 no Barramento de Serviço do Azure](service-bus-amqp-overview.md)
 * [Como usar os tópicos AMQP 1.0 com o Service Bus .NET API](service-bus-dotnet-advanced-message-queuing.md)
-* [Guia do desenvolvedor do AMQP 1.0 do Barramento de Serviço](http://msdn.microsoft.com/library/jj841071.aspx)
-* [Como usar as filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md)
+* [Guia do desenvolvedor do AMQP 1.0 do Barramento de Serviço](service-bus-amqp-dotnet.md)
+* [Como usar filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

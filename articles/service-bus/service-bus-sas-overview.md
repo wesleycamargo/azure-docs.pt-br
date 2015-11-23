@@ -38,7 +38,7 @@ As permissões disponíveis para uma política são bastante autoexplicativas:
 
 Depois de você criar a política, ela recebe uma *Chave primária* e uma *Chave secundária*. Essas chaves são criptograficamente fortes. Não as perca ou divulgue - elas sempre estarão disponíveis no portal. Você pode usar qualquer uma das chaves geradas e pode gerá-las novamente a qualquer momento. No entanto, se você gera novamente ou altera a chave primária da política, quaisquer Assinaturas de acesso compartilhado criadas por meio dela serão invalidadas.
 
-Quando você cria um namespace do Barramento de Serviço, é criada automaticamente uma política para todo o namespace chamada **RootManageSharedAccessKey**, e essa política tem todas as permissões. Você não faz logon como **raiz**. Portanto, não use esta política a menos que haja um motivo muito bom. Você pode criar políticas adicionais na guia **Configurar** para o namespace no Portal de Gerenciamento do Azure. É importante observar que um único nível de árvore no Barramento de Serviço (namespace, fila, Hub de eventos etc.) só pode ter até 12 políticas anexadas a ele.
+Quando você cria um namespace do Barramento de Serviço, é criada automaticamente uma política para todo o namespace chamada **RootManageSharedAccessKey**, e essa política tem todas as permissões. Você não faz logon como **raiz**. Portanto, não use esta política a menos que haja um motivo muito bom. Você pode criar políticas adicionais na guia **Configurar** para o namespace no [Portal do Azure](http://manage.windowsazure.com). É importante observar que um único nível de árvore no Barramento de Serviço (namespace, fila, Hub de eventos etc.) só pode ter até 12 políticas anexadas a ele.
 
 ## Assinatura de Acesso Compartilhado (token)
 
@@ -176,7 +176,7 @@ Authorization: SharedAccessSignature sr=https%3A%2F%2F<yournamespace>.servicebus
 ContentType: application/atom+xml;type=entry;charset=utf-8
 ``` 
 	
-Lembre-se de que isso funciona para tudo. Você pode criar uma SAS para uma fila, tópico, assinatura, Hub de eventos ou retransmissão. Se você usar identidades por editor para Hubs de Eventos, bastará acrescentar `/publishers/< publisherid>`.
+Lembre-se de que isso funciona para tudo. Você pode criar uma SAS para uma fila, tópico, assinatura, Hub de eventos ou retransmissão. Se você usar identidades por editor para Hubs de eventos, basta acrescentar `/publishers/< publisherid>`.
 
 Se você fornecer a um remetente ou um cliente um token SAS, eles não têm a chave diretamente e não podem reverter o hash para obtê-la. Dessa forma, você tem controle sobre o que eles podem acessar e por quanto tempo. É importante se lembrar de que se você alterar a chave primária da política, quaisquer Assinaturas de acesso compartilhado criadas por meio dela serão invalidadas.
 
@@ -255,4 +255,4 @@ Para obter mais informações sobre a autenticação do Barramento de Serviço, 
 
 Encontre mais exemplos de SAS no C# e no JavaScript [nesta postagem no blog](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

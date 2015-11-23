@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="11/10/2015"
 	ms.author="dastrock"/>
 
 # Visualização do modelo de aplicativo v2.0: protocolos — OAuth 2.0 e OpenID Connect
@@ -30,7 +30,7 @@ Mais detalhes sobre os diferentes tipos de token usados no modelo de aplicativo 
 ## Noções básicas
 Cada aplicativo que usa o modelo de aplicativo v2.0 precisará ser registrado em [apps.dev.microsoft.com](https://apps.dev.microsoft.com). O processo de registro de aplicativo vai coletar e atribuir alguns valores para seu aplicativo:
 
-- Uma **Id de aplicativo** que identifica exclusivamente o aplicativo
+- Uma **ID de aplicativo** que identifica exclusivamente o aplicativo
 - Um **URI de Redirecionamento** ou **Identificador de Pacote** que pode ser usado para direcionar as respostas de volta ao aplicativo
 - Alguns outros valores específicos de cenário. Para obter mais detalhes, saiba como [registrar um aplicativo](active-directory-v2-app-registration.md).
 
@@ -47,7 +47,7 @@ Em quase todos os fluxos do OAuth e OpenID Connect, há quatro partes envolvidas
 
 - O **Servidor de Autorização** é o ponto de extremidade v2.0. Ele é responsável por garantir a identidade do usuário, conceder e revogar o acesso a recursos e emitir tokens. Ele também é conhecido como o provedor de identidade; ele trata com segurança tudo que estiver relacionado às informações do usuário, seu acesso e as relações de confiança entre as partes de um fluxo.
 - O **Proprietário do Recurso** normalmente é o usuário final. Ele é a parte que possui os dados e tem o poder de permitir que terceiros acessem esses dados, ou recurso.
-- O **Cliente OAuth** é o seu aplicativo, identificado pela respectiva Id de Aplicativo. Geralmente é a parte com a qual usuário final interage e solicita tokens do servidor de autorização. O cliente deve receber permissão do proprietário do recurso para acessar o recurso.
+- O **Cliente OAuth** é o seu aplicativo, identificado pela respectiva ID de Aplicativo. Geralmente é a parte com a qual usuário final interage e solicita tokens do servidor de autorização. O cliente deve receber permissão do proprietário do recurso para acessar o recurso.
 - O **Servidor de Recurso** é onde o recurso ou os dados residem. Ele confia no Servidor de Autorização para autenticar e autorizar o Cliente OAuth com segurança, além de usar access\_tokens de portador para garantir que o acesso a um recurso possa ser concedido.
 
 ## Fluxo do código de autorização do OAuth2
@@ -475,4 +475,4 @@ O OAuth em Nome do Fluxo, ou concessão de credenciais portadoras do JWT, é des
 
 Atualmente, esse fluxo não tem suporte da visualização do modelo de aplicativo v2.0. Para ver como ele funciona no serviço AD do Azure disponível para o público em geral, consulte [este exemplo de código do AD do Azure](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

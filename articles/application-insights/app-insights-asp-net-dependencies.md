@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/05/2015" 
 	ms.author="awills"/>
 
 
@@ -44,7 +44,7 @@ O monitor de dependência pronto para uso atualmente relata chamadas para esses 
 * Java
  * Chamada para um banco de dados por meio de um driver [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), como MySQL, SQL Server, PostgreSQL ou SQLite.
 
-Você pode escrever suas próprias chamadas SDK para monitorar outras dependências usando a [API TrackDependency] (app-insights-api-custom-events-metrics.md#track-dependency).
+Você pode escrever suas próprias chamadas SDK para monitorar outras dependências usando o [API do TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
 
 
 ## Configurar monitoramento de dependência
@@ -202,4 +202,4 @@ Se quiser desativar o módulo padrão de acompanhamento de dependência, remova 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

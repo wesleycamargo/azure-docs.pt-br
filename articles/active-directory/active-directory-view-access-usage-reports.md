@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="11/10/2015"
 	ms.author="kenhoff;Justinha;curtand"/>
 
 # Exibir relatórios de acesso e uso
@@ -56,7 +56,7 @@ No Portal de Gerenciamento do Azure, os relatórios são categorizados das segui
 |	Atividade de provisionamento de conta |	Fornece um histórico de tentativas para provisionar contas a aplicativos externos. |
 |	Status de substituição de senha |	Fornece uma visão geral detalhada do status de substituição automática de senha de aplicativos SaaS. |
 |	Erros de provisionamento de conta |	Indica um impacto sobre o acesso dos usuários para aplicativos externos. |
-|	**Gerenciamento de direitos**
+|	**Rights management**
 |	Uso do RMS |	Fornece um resumo de uso do Rights Management |
 |	Usuários RMS mais ativos |	Lista os primeiros 1.000 usuários ativos que acessaram arquivos protegidos por RMS |
 |	Uso de dispositivo do RMS |	Lista dispositivos usados para acessar arquivos protegidos por RMS |
@@ -159,6 +159,10 @@ No Portal de Gerenciamento do Azure, os relatórios são categorizados das segui
 | :-------------     | :-------        |
 | Use este relatório quando desejar consultar o uso de todos os aplicativos SaaS em seu diretório. Este relatório está baseado no número de vezes que os usuários clicaram no aplicativo no Painel de Acesso. | Diretório > guia Relatórios |
 
+Este relatório inclui o sinal a assinatura em _todos_ os aplicativos que o diretório tiver acesso, incluindo aplicativos previamente integrados da Microsoft.
+
+Os aplicativos da Microsoft integrados incluem o Office 365, Sharepoint, o Portal de Gerenciamento do Azure e outros.
+
 ![Resumo de uso do aplicativo](./media/active-directory-view-access-usage-reports/applicationUsage.PNG)
 
 
@@ -239,7 +243,7 @@ Se você suspeitar que uma conta de usuário pode estar comprometida ou qualquer
 
 - Contate o usuário para verificar a atividade
 - Redefinir a senha do usuário
-- [Habilitar a Multi-Factor Authentication](http://go.microsoft.com/fwlink/?linkid=335774) para segurança adicional
+- [Habilitar a Multi-Factor Authentication](multi-factor-authentication-get-started.md) para segurança adicional
 
 ## Exibir ou baixar uma fatura
 
@@ -264,11 +268,11 @@ Se você estiver exibindo os relatórios de anomalias, perceba que você pode ig
 
 ## Notificações automáticas por email
 
-Para saber mais sobre as notificações de relatórios do Azure AD, confira [Notificações de relatórios do Active Directory do Azure](active-directory-reporting-notifications.md).
+Para obter mais informações sobre as notificações de relatórios do AD do Azure, verifique [Notificações de relatórios do Active Directory do Azure](active-directory-reporting-notifications.md).
 
 ## O que vem a seguir
 
 - [Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

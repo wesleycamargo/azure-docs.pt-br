@@ -46,26 +46,26 @@ Se você precisar criar os arquivos:
 
 	- Para Mac, visite o [site de Segurança de produtos da Apple](https://support.apple.com/HT201222) e escolha as atualizações adequadas, se for necessário.
 	- Para distribuições Linux com base em Debian, como Ubuntu, Debian, Mint etc:
-		
+
 			sudo apt-get update ssh-keygen
 			sudo apt-get update openssl
-			
+
 	- Para distribuições Linux com base em RPM, como CentOS e Oracle Linux:
-		
+
 			sudo yum update ssh-keygen
 			sudo yum update openssl
-			
+
 	- Para SLES e OpenSUSE
-		
+
 			sudo zypper update ssh-keygen
 			sudo zypper update openssl
-	
+
 2. Use **ssh-keygen** para criar arquivos de chave pública e privada de RSA de 2048 bits. Além disso, a menos que você tenha um local específico ou nomes específicos para os arquivos, aceite o local e o nome padrão de `~/.ssh/id_rsa`. O comando básico é:
 
 		ssh-keygen -t rsa -b 2048 
-	
+
 	Normalmente, sua implementação de **ssh-keygen** adiciona um comentário, geralmente o nome de usuário e o nome do host do computador. Você pode especificar um comentário usando a opção `-C`.
-	
+
 3. Criar um arquivo .pem de seu arquivo `~/.ssh/id_rsa` para que você possa trabalhar com o portal clássico. Use **openssl** da seguinte maneira:
 
 		openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem
@@ -125,7 +125,7 @@ O próximo exemplo mostra o uso do formato **ssh-rsa** com um modelo do Gerencia
 	data:    TemplateLink       : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 	data:    ContentVersion     : 1.0.0.0
 	data:    Name                   Type    Value
-	
+
 	data:    newStorageAccountName  String  testtestsshvmtemplate3
 	data:    adminUserName          String  ops
 	data:    sshKeyData             String  ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAkek3P6V3EhmD+xP+iKDZco9 user@macbookpro
@@ -157,7 +157,7 @@ Em seguida, você pode usar o arquivo .pem com o portal clássico ou com o modo 
 	+ Configuring certificate
 	+ Creating VM
 	info:    vm create command OK
-	
+
 
 ## Conectar-se à sua VM
 
@@ -166,11 +166,11 @@ O comando **ssh** usa um nome de usuário para fazer logon, endereço de rede do
 Um uso típico com a implantação do Gerenciador de Recursos pode parecer com o seguinte, se você tiver especificado apenas um subdomínio e um local de implantação:
 
 	ssh user@subdomain.westus.cloudapp.azure.com -p 22
-	
+
 ou, se você estiver se conectando a um serviço de nuvem de implantação clássica, o endereço usado teria esta aparência:
 
 	ssh user@subdomain.cloudapp.net -p 22
-	
+
 Como a forma do endereço pode mudar (você sempre pode usar o endereço IP ou talvez você tenha um nome de domínio personalizado atribuído), você precisará descobrir o endereço de sua VM do Azure.
 
 ### Descobrindo o endereço SSH de sua VM do Azure com implantações clássicas
@@ -266,27 +266,27 @@ Se você criou uma VM usando um arquivo .pem criado a partir de seu arquivo `~/.
 	Saving password to keychain failed
 	Identity added: /Users/rasquill/.ssh/id_rsa (/Users/rasquill/.ssh/id_rsa)
 	Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.19.0-28-generic x86_64)
-	
+
 	* Documentation:  https://help.ubuntu.com/
-	
+
 	System information as of Sat Oct 10 20:53:08 UTC 2015
-	
+
 	System load: 0.52              Memory usage: 5%   Processes:       80
 	Usage of /:  45.3% of 1.94GB   Swap usage:   0%   Users logged in: 0
-	
+
 	Graph this data and manage this system at:
 		https://landscape.canonical.com/
-	
+
 	Get cloud support with Ubuntu Advantage Cloud Guest:
 		http://www.ubuntu.com/business/services/cloud
-	
+
 	0 packages can be updated.
 	0 updates are security updates.
-	
+
 	The programs included with the Ubuntu system are free software;
 	the exact distribution terms for each program are described in the
 	individual files in /usr/share/doc/*/copyright.
-	
+
 	Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 	applicable law.
 
@@ -295,7 +295,7 @@ Se você criou uma VM usando um arquivo .pem criado a partir de seu arquivo `~/.
 Leia as sugestões em [Solucionando problemas de conexões SSH](virtual-machines-troubleshoot-ssh-connections.md) para ver se elas podem ajudar a resolver a situação.
 
 ## Próximas etapas
-
+ 
 Agora que você conectou-se à sua VM, atualize sua distribuição escolhida antes de continuar a usá-la.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

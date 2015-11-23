@@ -3,7 +3,7 @@
 	description="Descreve as primeiras etapas que você pode tomar depois de conectar seu projeto Cordova aos Serviços Móveis do Azure usando os Serviços Conectados do Visual Studio." 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="patshea123" 
+	authors="TomArcher" 
 	manager="douge" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="09/17/2015" 
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Introdução aos serviços móveis (Projetos Cordova)
 
@@ -94,4 +94,4 @@ Exclua uma linha em uma tabela de dados usando o método **del**. Chame o métod
 
 [Saiba mais sobre serviços móveis](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

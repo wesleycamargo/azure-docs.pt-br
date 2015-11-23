@@ -19,7 +19,7 @@ Para garantir que nenhuma mensagem seja reenviada fora da janela de eliminação
 ### Provisionar uma conta de Armazenamento do Azure e uma fila do Barramento de Serviço
 Para usar o [EventProcessorHost], você deverá ter uma conta de Armazenamento do Azure. Você pode usar uma já existente ou seguir as instruções em [Sobre o Armazenamento do Azure] para criar uma nova. Anote a cadeia de conexão da conta de armazenamento.
 
-Você também precisará uma fila do Barramento de Serviço para habilitar o processamento confiável de mensagens interativas. Você pode criar uma fila programaticamente com uma janela de eliminação de duplicação de 1 hora, como explicado em [Como usar filas do Barramento de Serviço][Service Bus Queue] ou usar o [Portal de Gerenciamento do Azure], seguindo estas etapas:
+Você também precisará uma fila do Barramento de Serviço para habilitar o processamento confiável de mensagens interativas. Você pode criar uma fila programaticamente com uma janela de eliminação de duplicação de 1 hora, como explicado em [Como usar filas do Barramento de Serviço][Service Bus Queue] ou usar o [portal do Azure], seguindo essas etapas:
 
 1. Clique em **NOVO** no canto inferior esquerdo, em **Serviços de Aplicativos**, em **Barramento de Serviço**, em **Fila**, em **Personalizado**, selecione o nome **d2ctutorial** e selecione uma janela de eliminação de duplicação de 1 hora.
 
@@ -301,11 +301,11 @@ Nesta seção, você escreverá um aplicativo de console do Windows que recebe m
 
 [Guia de programação de Hubs de Eventos]: ../event-hubs/event-hubs-programming-guide.md
 
-[Azure Preview Portal]: https://portal.azure.com/
+[Azure preview portal]: https://portal.azure.com/
 
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
-[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
+[portal do Azure]: https://manage.windowsazure.com/
 
 [Service Bus Queue]: ../service-bus/service-bus-dotnet-how-to-use-queues.md
 
@@ -324,4 +324,4 @@ Nesta seção, você escreverá um aplicativo de console do Windows que recebe m
 [31]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue3.png
 [32]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue4.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

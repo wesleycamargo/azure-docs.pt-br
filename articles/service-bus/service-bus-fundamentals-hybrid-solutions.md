@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/25/2015" 
+	ms.date="11/06/2015" 
 	ms.author="sethm"/>
 
 # Barramento de Serviço do Azure
@@ -21,7 +21,8 @@
 Se um aplicativo ou serviço é executado na nuvem ou no local, geralmente precisa interagir com outros aplicativos ou serviços. Para fornecer uma maneira amplamente úteis para fazer isso, o Azure oferece o Service Bus. Este artigo dá uma olhada essa tecnologia, que descreve o que é e por que você desejaria usá-lo.
 
 ## Conceitos fundamentais do barramento de serviço
-Situações diferentes pedem estilos diferentes de comunicação. Às vezes, permitindo que aplicativos de enviar e receber mensagens por meio de uma fila simple é a melhor solução. Em outras situações, uma fila comum não é suficiente; uma fila com um mecanismo de publicação e assinatura é melhor. E em alguns casos, tudo que realmente é preciso é uma conexão entre filas de aplicativos que não são necessárias. O Barramento de Serviço fornece todas as três opções, permitindo que os aplicativos interajam de várias maneiras diferentes.
+
+Situações diferentes pedem estilos diferentes de comunicação. Às vezes, permitindo que aplicativos de enviar e receber mensagens por meio de uma fila simple é a melhor solução. Em outras situações, uma fila comum não é suficiente; uma fila com um mecanismo de publicação e assinatura é melhor. Em alguns casos, tudo que realmente é preciso é uma conexão entre aplicativos; filas não são necessárias. O Barramento de Serviço fornece todas as três opções, permitindo que os aplicativos interajam de várias maneiras diferentes.
 
 O Service Bus é um serviço de nuvem de diversos clientes, o que significa que o serviço é compartilhado por vários usuários. Cada usuário, como um desenvolvedor de aplicativos, cria um *namespace*, em seguida, define os mecanismos de comunicação necessárias dentro desse namespace. A Figura 1 mostra isso.
 
@@ -56,13 +57,13 @@ Cada mensagem tem duas partes: um conjunto de propriedades, cada um sendo um par
 
 Um receptor pode ler uma mensagem por meio de uma fila do Barramento de Serviço de duas maneiras diferentes. A primeira opção, chamada *ReceiveAndDelete*, remove uma mensagem da fila e a exclui imediatamente. Isso é simples, mas se o receptor falhar antes de terminar de processar a mensagem, a mensagem será perdida. Porque ele é removido da fila, nenhum outro receptor pode acessá-lo.
 
-A segunda opção, *PeekLock*, é destinada a ajudar com esse problema. Como ReceiveAndDelete, uma leitura PeekLock remove uma mensagem da fila. Ela não exclui a mensagem, no entanto. Em vez disso, ela bloqueia a mensagem, tornando-a invisível para outros destinatários, e espera por um dos três eventos:
+A segunda opção, *PeekLock*, é destinada a ajudar com esse problema. Assim como **ReceiveAndDelete**, uma leitura **PeekLock** remove uma mensagem da fila. Ela não exclui a mensagem, no entanto. Em vez disso, ela bloqueia a mensagem, tornando-a invisível para outros destinatários, e espera por um dos três eventos:
 
-- Se o receptor processar a mensagem com êxito, ele a denominará como *Concluída* e a fila excluirá a mensagem. 
-- Se o receptor decidir que não é possível processar a mensagem com êxito, ele a denominará como *Abandonar*. A fila removerá, então, o bloqueio da mensagem e a tornará disponível para outros destinatários.
-- Se o receptor chama nenhuma delas dentro de um período de tempo configurável (por padrão, 60 segundos), a fila supõe que o receptor falhou. Nesse caso, ele se comporta como se o receptor tivesse chamado abandonar, disponibilizando a mensagem a outros destinatários.
+- Se o receptor processar a mensagem com êxito, ele a denominará como **Concluída** e a fila excluirá a mensagem. 
+- Se o receptor decidir que não é possível processar a mensagem com êxito, ele a denominará como **Abandonar**. A fila removerá, então, o bloqueio da mensagem e a tornará disponível para outros destinatários.
+- Se o receptor chama nenhuma delas dentro de um período de tempo configurável (por padrão, 60 segundos), a fila supõe que o receptor falhou. Nesse caso, ele se comporta como se o receptor tivesse chamado **Abandonar**, disponibilizando a mensagem a outros destinatários.
 
-Observe o que pode acontecer aqui: A mesma mensagem pode ser entregue duas vezes, talvez para dois destinatários diferentes. Aplicativos usando filas do Service Bus devem estar preparados para isso. Para facilitar a detecção de duplicidades, que cada mensagem tem uma propriedade MessageID exclusiva que, por padrão, permanece o mesmo, não importa como muitas vezes a mensagem é lida de uma fila.
+Observe o que pode acontecer aqui: A mesma mensagem pode ser entregue duas vezes, talvez para dois destinatários diferentes. Aplicativos usando filas do Service Bus devem estar preparados para isso. Para facilitar a detecção de duplicidades, cada mensagem tem uma propriedade **MessageID** exclusiva que, por padrão, permanece a mesma, independentemente de quantas vezes a mensagem é lida de uma fila.
 
 Filas são úteis em algumas situações. Eles permitem que os aplicativos se comuniquem mesmo quando ambos não são executados ao mesmo tempo, algo que é especialmente útil com lotes e aplicativos móveis. Uma fila com vários receptores também fornece balanceamento de carga automático, desde que as mensagens enviadas sejam distribuídas entre esses receptores.
 
@@ -74,13 +75,13 @@ Filas são úteis em algumas situações. Eles permitem que os aplicativos se co
  
 **Figura 3: Com base no filtro que um aplicativo de assinatura especifica, ele pode receber algumas ou todas as mensagens enviadas para um tópico do Barramento de Serviço.**
 
-Um tópico é semelhante em muitas formas a uma fila. Mensagens de envio de remetentes a um tópico da mesma maneira que eles enviam mensagens para uma fila e essas mensagens parecem como com filas. A grande diferença é que tópicos permitem que cada aplicativo receptor crie sua própria assinatura definindo um *filtro* Um assinante verá apenas as mensagens que correspondem ao filtro. Por exemplo, a Figura 3 mostra um remetente e um tópico com três assinantes, cada um com seu próprio filtro:
+Um tópico é semelhante em muitas formas a uma fila. Mensagens de envio de remetentes a um tópico da mesma maneira que eles enviam mensagens para uma fila e essas mensagens parecem como com filas. A grande diferença é que tópicos permitem que cada aplicativo receptor crie sua própria assinatura definindo um *filtro*. Um assinante verá apenas as mensagens que correspondem ao filtro. Por exemplo, a Figura 3 mostra um remetente e um tópico com três assinantes, cada um com seu próprio filtro:
 
 - Assinante 1 recebe apenas as mensagens que contêm a propriedade *vendedor = "&"*.
-- Assinante 2 recebe mensagens que contêm a propriedade *vendedor = "Ruby"* e/ou conter um *valor* propriedade cujo valor é maior que 100.000. Talvez o Ruby é o gerente de vendas e portanto ela deseja ver próprias vendas e todas as vendas grandes independentemente de quem toma-los.
+- Assinante 2 recebe mensagens que contêm a propriedade *vendedor = "Ruby"* e/ou conter um *valor* propriedade cujo valor é maior que 100.000. Talvez Ruby seja a gerente de vendas e, portanto, ela deseja ver próprias vendas e todas as vendas grandes independentemente de quem realizá-las.
 - Assinante 3 definiu seu filtro como *True*, que significa que ele recebe todas as mensagens. Por exemplo, esse aplicativo pode ser responsável por manter uma trilha de auditoria e, portanto, ele precisa ver todas as mensagens.
 
-Assim como acontece com filas, os assinantes de um tópico podem ler mensagens usando ReceiveAndDelete ou PeekLock. Ao contrário das filas, no entanto, uma única mensagem enviada a um tópico pode ser recebida por vários assinantes. Essa abordagem, conhecida como *publicar e assinar*, é útil sempre que vários aplicativos podem interessar as mesmas mensagens. Definindo o filtro à direita, cada assinante pode tocar na parte de fluxo de mensagens que precisa ver.
+Assim como acontece com filas, os assinantes de um tópico podem ler mensagens usando **ReceiveAndDelete** ou **PeekLock**. Ao contrário das filas, no entanto, uma única mensagem enviada a um tópico pode ser recebida por vários assinantes. Essa abordagem, conhecida como *publicar e assinar*, é útil sempre que vários aplicativos estejam interessados nas mesmas mensagens. Definindo o filtro à direita, cada assinante pode tocar na parte de fluxo de mensagens que precisa ver.
 
 ## Retransmissão
 
@@ -96,15 +97,15 @@ Suponha que você deseja conectar dois aplicativos locais, ambos em execução d
 
 Uma retransmissão do Service Bus fornece essa Ajuda. Para a comunicação bidirecional por meio de uma retransmissão, cada aplicativo estabelece uma conexão TCP de saída com o Service Bus e mantém aberta. Toda a comunicação entre os dois aplicativos percorrida por essas conexões. Porque cada conexão foi estabelecida de dentro do data center, o firewall permitirá o tráfego de entrada para cada aplicativo sem abrir novas portas. Essa abordagem também contorna o problema NAT, porque cada aplicativo tem um ponto de extremidade consistente em toda a comunicação. Trocando dados por meio de retransmissão, os aplicativos podem evitar os problemas que seriam caso contrário dificultam a comunicação.
 
-Para usar as retransmissões do Service Bus, aplicativos, se baseiam no Windows Communication Foundation (WCF). O Service Bus fornece ligações do WCF que tornam simples para aplicativos do Windows interagir por meio de retransmissões. Aplicativos que já usam o WCF podem normalmente apenas especificar uma dessas vinculações e conversar entre si através de uma retransmissão. Ao contrário das filas e dos tópicos, no entanto, usar as retransmissões de aplicativos não Windows, ao mesmo tempo possível, requer o algum esforço de programação; Não há bibliotecas padrão são fornecidas.
+Para usar retransmissões do Barramento de Serviço, aplicativos se baseiam no WCF (Windows Communication Foundation). O Service Bus fornece ligações do WCF que tornam simples para aplicativos do Windows interagir por meio de retransmissões. Aplicativos que já usam o WCF podem normalmente apenas especificar uma dessas vinculações e conversar entre si através de uma retransmissão. Ao contrário das filas e dos tópicos, no entanto, usar as retransmissões de aplicativos não Windows, ao mesmo tempo possível, requer o algum esforço de programação; Não há bibliotecas padrão são fornecidas.
 
-Ao contrário das filas e dos tópicos, aplicativos não criam explicitamente retransmissões. Em vez disso, quando um aplicativo que deseja receber mensagens estabelece uma conexão TCP com o Service Bus, uma retransmissão é criada automaticamente. Quando a conexão for interrompida, a retransmissão é excluída. Para permitir que um aplicativo encontre a retransmissão criada por um ouvinte específico, o barramento de serviço fornece um registro que permite que os aplicativos localizem uma retransmissão específica por nome.
+Ao contrário das filas e dos tópicos, aplicativos não criam explicitamente retransmissões. Em vez disso, quando um aplicativo que deseja receber mensagens estabelece uma conexão TCP com o Service Bus, uma retransmissão é criada automaticamente. Quando a conexão for interrompida, a retransmissão é excluída. Para permitir que um aplicativo encontre a retransmissão criada por um ouvinte específico, o Barramento de Serviço fornece um registro que permite que os aplicativos localizem uma retransmissão específica por nome.
 
 As retransmissões são a solução ideal quando você precisa direcionar a comunicação. Por exemplo, considere um sistema de reservas de viagens em execução em um data center local que deve ser acessado de outros computadores, dispositivos móveis e quiosques de check-in. Os aplicativos em execução em todos esses sistemas poderiam confiar nas retransmissões do Barramento de Serviço na nuvem para se comunicar, onde quer que eles estejam em execução.
 
 ## Hubs de Evento
 
-Hubs de Evento é um sistema de ingestão altamente escalável que pode processar milhões de eventos por segundo, permitindo que seu aplicativo processe e analise quantidades maciças de dados produzidos pelos dispositivos e aplicativos conectados. Por exemplo, você poderia usar um Hub de eventos para coletar dados de desempenho do mecanismo ao vivo de uma frota de carros. Depois de coletados em Hubs de Evento, você pode transformar e armazenar dados usando qualquer provedor de análise em tempo real ou cluster de armazenamento. Para obter mais informações sobre os Hubs de eventos, consulte a [Visão geral de Hubs de evento](../event-hubs-overview.md).
+Hubs de Evento é um sistema de ingestão altamente escalável que pode processar milhões de eventos por segundo, permitindo que seu aplicativo processe e analise quantidades maciças de dados produzidos pelos dispositivos e aplicativos conectados. Por exemplo, você poderia usar um Hub de eventos para coletar dados de desempenho do mecanismo ao vivo de uma frota de carros. Depois de coletados em Hubs de Evento, você pode transformar e armazenar dados usando qualquer provedor de análise em tempo real ou cluster de armazenamento. Para obter mais informações sobre os Hubs de eventos, consulte a [Visão geral de Hubs de evento](../event-hubs/event-hubs-overview.md).
 
 ## Resumo
 
@@ -114,20 +115,14 @@ A conexão de aplicativos sempre fez parte da criação de soluções completas 
 
 Agora que você aprendeu os conceitos básicos do barramento de serviço do Azure, siga estes links para obter mais informações.
 
-- Como usar [as filas do barramento de serviço](service-bus-dotnet-how-to-use-queues.md).
-- Como usar [os tópicos do barramento de serviço](service-bus-dotnet-how-to-use-topics-subscriptions.md).
-- Como usar [a retransmissão do barramento de serviço](service-bus-dotnet-how-to-use-relay.md).
-- Exemplos de barramento de serviço: consulte a visão geral sobre [MSDN][]. 
-
-[svc-bus]: ./media/fundamentals-service-bus-hybrid-solutions/SvcBus_01_architecture.png
-[queues]: ./media/fundamentals-service-bus-hybrid-solutions/SvcBus_02_queues.png
-[topics-subs]: ./media/fundamentals-service-bus-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
-[relay]: ./media/fundamentals-service-bus-hybrid-solutions/SvcBus_04_relay.png
-[MSDN]: https://msdn.microsoft.com/library/dn194201.aspx
+- Como usar [filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md)
+- Como usar [tópicos do Barramento de Serviço](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- Como usar a [retransmissão do Barramento de Serviço](service-bus-dotnet-how-to-use-relay.md)
+- [Exemplos do Barramento de Serviço](service-bus-samples.md)
 
 [1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png
 [2]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_02_queues.png
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

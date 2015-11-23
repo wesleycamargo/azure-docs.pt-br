@@ -48,7 +48,7 @@ Você pode anexar tanto discos vazios como discos que contenham dados. Em ambos 
 
 	OU
 
-	b) Use o comando `lsscsi` para descobrir a ID do dispositivo. O `lsscsi` pode ser instalado pelo `yum install lsscsi` (distribuições baseadas no Red Hat) ou pelo `apt-get install lsscsi` (distribuições baseadas no Debian). É possível encontrar o disco que está procurando pelo seu _lun_ ou **número de unidade lógica**. Por exemplo, o _lun_ dos discos que você anexou pode ser facilmente visto por meio do `azure vm disk list <virtual-machine>` como:
+	b) Use o comando `lsscsi` para descobrir a ID do dispositivo. `lsscsi` pode ser instalado por um `yum install lsscsi` (no Red Hat com base em distribuições) ou `apt-get install lsscsi` (no Debian com base em distribuições). É possível encontrar o disco que está procurando pelo seu _lun_ ou **número de unidade lógica**. Por exemplo, o _lun_ dos discos que você anexou pode ser facilmente visto por meio do `azure vm disk list <virtual-machine>` como:
 
 			~$ azure vm disk list ubuntuVMasm
 			info:    Executing command vm disk list
@@ -160,6 +160,7 @@ Você pode anexar tanto discos vazios como discos que contenham dados. Em ambos 
 
 	Se o comando `mount` produzir um erro, verifique se o arquivo /etc/fstab tem a sintaxe correta. Se as partições ou unidades de dados adicionais forem criadas será necessário inseri-las separadamente em/etc/fstab também.
 
+	Você precisará tornar a unidade gravável usando esses comandos: # cd /datadrive # sudo chmod go+w /datadrive
 
 >[AZURE.NOTE]Remover subsequentemente um disco de dados sem editar fstab pode fazer com que a VM falhe ao ser inicializada. Se esta for uma ocorrência comum, a maioria das distribuições fornecerá as opções fstab `nofail` e/ou `nobootwait`, que permitirão que o sistema se inicialize mesmo se a montagem do disco falhar no momento da inicialização. Consulte a documentação da distribuição para obter mais informações sobre esses parâmetros.
 
@@ -174,4 +175,4 @@ Você pode anexar tanto discos vazios como discos que contenham dados. Em ambos 
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-how-to-log-on.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

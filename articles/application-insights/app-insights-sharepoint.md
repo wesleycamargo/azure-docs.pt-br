@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="11/06/2015" 
 	ms.author="awills"/>
 
 # Monitorar um site do SharePoint com o Application Insights
@@ -83,15 +83,15 @@ Os primeiros eventos aparecerão na Pesquisa de Diagnóstico.
 
 Se você estiver esperando mais dados, clique em Atualizar depois de alguns segundos.
 
-Link de **análises de uso** para gráficos de usuários, sessões e exibições de página:
+Na folha visão geral, clique em **análises de uso** para ver gráficos de usuários, sessões e modos de exibição de página:
 
 ![](./media/app-insights-sharepoint/06-usage.png)
 
-Por exemplo, clique em Exibições de Página para ver mais detalhes:
+Clique em qualquer gráfico para ver mais detalhes - exibições de página por exemplo:
 
 ![](./media/app-insights-sharepoint/07-pages.png)
 
-Clique em Usuários para ver detalhes sobre novos usuários e suas localizações.
+Ou usuários:
 
 
 ![](./media/app-insights-sharepoint/08-users.png)
@@ -108,4 +108,4 @@ Clique em Usuários para ver detalhes sobre novos usuários e suas localizaçõe
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

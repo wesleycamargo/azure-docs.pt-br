@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="07/31/2015" 
+	ms.date="10/30/2015" 
 	ms.author="bradygaster"/>
 
 # Consumir um aplicativo de API do Azure usando HTML e JavaScript
@@ -141,7 +141,7 @@ O processo de habilitar CORS na API Web está documentado no artigo ASP.NET [Per
 
 ## Criando um aplicativo Web para consumir o aplicativo de API
 
-Nesta seção, você vai criar um novo aplicativo Web vazio, instalar e usar nele o AngularJS e associar um front-end de HTML simples para o aplicativo de API. Você implantará o aplicativo Web que realiza o consumo no serviço de aplicativo do Azure. O aplicativo da Web HTML associará e exibirá os dados recuperados do aplicativo de API e fornecerá aos usuários uma interface de usuário simples para a API de contatos.
+Nesta seção, você vai criar um novo aplicativo Web vazio, instalar e usar o AngularJS e associar um front-end de HTML simples para o aplicativo de API. Você implantará o aplicativo Web que realiza o consumo no serviço de aplicativo do Azure. O aplicativo da Web HTML associará e exibirá os dados recuperados do aplicativo de API e fornecerá aos usuários uma interface de usuário simples para a API de contatos.
 
 1. Clique com o botão direito do mouse na solução que você criou anteriormente em [Criar um Aplicativo de API](app-service-dotnet-create-api-app.md), então selecione **Adicionar -> Novo Projeto**
 
@@ -312,7 +312,7 @@ Nesta seção, você vai criar um novo aplicativo Web vazio, instalar e usar nel
 
 1, No código que você acabou de adicionar a index.html, substitua o número da porta na URL base (`http://localhost:1578`) pelo número de porta real para o projeto de API.
 
-	> **Note** Don't use the port number of the HTML client project. You can right-click the API project and click **Debug > Start New Instance** to get a browser window that shows the port number.
+>[AZURE.NOTE]**Observação** não use o número da porta do projeto do cliente HTML. É possível clicar com o botão direito do mouse no projeto de API e clicar em **Depurar > Iniciar Nova Instância** para ver uma janela de navegador que mostre o número da porta.
 
 1. Assegure que, quando você executar o cliente HTML, o projeto de aplicativo de API também esteja em execução; caso contrário, o HTML JavaScript não funcionará corretamente. Clique com o botão direito na solução e selecione **Propriedades**. Em seguida, defina ambos os projetos da Web como **Iniciar sem depuração**, e especifique que o projeto de API seja executado primeiro. 
 
@@ -371,4 +371,4 @@ Este exemplo demonstrou como você pode usar AngularJS como sua plataforma de Ja
 
 Este exemplo mostra o acesso não autenticado a um aplicativo de API. Para obter informações sobre a autenticação no Serviço de Aplicativo, consulte [Autenticação para aplicativos de API e aplicativos móveis](../app-service/app-service-authentication-overview.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

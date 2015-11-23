@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/17/2015"
+   ms.date="11/10/2015"
    ms.author="bwren" />
 
 # Execução de runbook na Automação do Azure
@@ -95,13 +95,13 @@ Os comandos de exemplo a seguir recuperam o último trabalho para um exemplo de 
 
 ## Fração justa
 
-Para compartilhar recursos entre todos os runbooks na nuvem, a Automação do Azure irá descarregar temporariamente qualquer trabalho depois de ser executado por 3 horas e reiniciá-lo de seu último [ponto de verificação](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints). Durante esse tempo, o trabalho mostrará o status Executando, aguardando recursos. Se o runbook não tiver nenhum ponto de verificação ou o trabalho não atingir o primeiro ponto de verificação antes de ser descarregado, ele será reiniciado desde o início.
+Para compartilhar recursos entre todos os runbooks na nuvem, a Automação do Azure vai descarregar temporariamente qualquer trabalho depois de ser executado por 3 horas. Os runbooks [Graphical](automation-runbook-types.md#graphical-runbooks) e [Fluxo de Trabalho do PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) serão retomados do seu último [ponto de verificação](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints). Durante esse tempo, o trabalho mostrará o status Executando, aguardando recursos. Se o runbook não tiver nenhum ponto de verificação ou o trabalho não atingir o primeiro ponto de verificação antes de ser descarregado, ele será reiniciado desde o início. Os runbooks de [PowerShell](automation-runbook-types.md#powershell-runbooks) são sempre reiniciados desde o início, já que não dão suporte a pontos de verificação.
 
 Se o runbook reiniciar a partir do mesmo ponto de verificação ou desde o início do runbook três vezes consecutivas, ele será encerrado com um status Falha, aguardando recursos. Isso serve para proteger contra runbooks em execução indefinidamente sem conclusão, já que não são capazes alcançar o próximo ponto de verificação sem serem descarregados novamente. Nesse caso, você receberá a exceção com falha abaixo.
 
-O trabalho não pode continuar a execução porque foi removido repetidamente do mesmo ponto de verificação. Verifique se o Runbook não executa operações demoradas sem persistir o estado.
+*O trabalho não pode continuar a execução porque foi removido repetidamente do mesmo ponto de verificação. Verifique se o Runbook não executa operações demoradas sem persistir o estado.*
 
-Quando você criar um runbook, verifique se o tempo para executar atividades entre dois pontos de verificação não ultrapassa 3 horas. Talvez seja necessário adicionar pontos de verificação ao seu runbook para que ele não atinja esse limite de 3 horas. Você também precisa dividir operações de longa execução. Por exemplo, o runbook pode executar uma reindexação em um grande banco de dados SQL. Se essa operação única não for concluída dentro do limite de fração justa, o trabalho será descarregado e reiniciado do princípio. Nesse caso, você deve dividir a operação de reindexação em várias etapas, como a reindexação de uma tabela de cada vez, e inserir um ponto de verificação após cada operação para que o trabalho possa continuar após a conclusão da última operação.
+Quando você criar um runbook, verifique se o tempo para executar atividades entre dois pontos de verificação não ultrapassa 3 horas. Talvez seja necessário adicionar pontos de verificação ao seu runbook para que não atinja esse limite de 3 horas ou acabar com as operações de execução. Por exemplo, o runbook pode executar uma reindexação em um grande banco de dados SQL. Se essa operação única não for concluída dentro do limite de fração justa, o trabalho será descarregado e reiniciado do princípio. Nesse caso, você deve dividir a operação de reindexação em várias etapas, como a reindexação de uma tabela de cada vez, e inserir um ponto de verificação após cada operação para que o trabalho possa continuar após a conclusão da última operação.
 
 
 
@@ -109,4 +109,4 @@ Quando você criar um runbook, verifique se o tempo para executar atividades ent
 
 - [Como iniciar um Runbook na Automação do Azure](automation-starting-a-runbook.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

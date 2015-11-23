@@ -36,7 +36,7 @@ Estes são métodos que é possível usar para criar um cluster de RDMA do Linux
 
 * **Scripts da CLI do Azure**: como mostrado nas etapas no restante deste artigo, use a [CLI (Interface de Linha de Comando) do Azure](../xplat-cli-install.md) para Mac, Linux e Windows para criar scripts de implantação de uma rede virtual e os outros componentes necessários para criar um cluster do Linux. A CLI no modo de implantação clássica (Gerenciamento de Serviços) cria os nós do cluster em série, de modo que se você estiver implantando muitos nós de computação, a implantação poderá demorar alguns minutos para ser concluída.
 
-* **Modelos do Gerenciador de Recursos do Azure**: ao criar um arquivo de modelo JSON simples do Gerenciador de Recursos do Azure e executar comandos da CLI do Azure para o Gerenciador de Recursos, ou ao usar o Portal de Visualização do Azure, implante várias VMs A8 e A9 do Linux, bem como defina redes virtuais, endereços IP estáticos, configurações de DNS e outros recursos para criar um cluster de cálculo que possa aproveitar a rede RDMA e executar cargas de trabalho MPI. É possível [criar seu próprio modelo](../resource-group-authoring-templates.md) ou verificar a [página Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/) para obter modelos com os quais a Microsoft ou a comunidade contribuíram para implantar a solução desejada. Os modelos do Gerenciador de Recursos geralmente fornecem a maneira mais rápida e confiável para implantar um cluster do Linux.
+* **Modelos do Gerenciador de Recursos do Azure**: ao criar um arquivo de modelo JSON simples do Gerenciador de Recursos do Azure e executar comandos da CLI do Azure para o Gerenciador de Recursos, ou ao usar o portal de visualização do Azure, implante várias VMs A8 e A9 do Linux, bem como defina redes virtuais, endereços IP estáticos, configurações de DNS e outros recursos para criar um cluster de cálculo que possa aproveitar a rede RDMA e executar cargas de trabalho MPI. É possível [criar seu próprio modelo](../resource-group-authoring-templates.md) ou verificar a [página Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/) para obter modelos com os quais a Microsoft ou a comunidade contribuíram para implantar a solução desejada. Os modelos do Gerenciador de Recursos geralmente fornecem a maneira mais rápida e confiável para implantar um cluster do Linux.
 
 ## Implantação no Gerenciamento de Serviços do Azure com scripts da CLI do Azure
 
@@ -370,4 +370,4 @@ Você verá uma saída semelhante à seguinte em um cluster ativo com dois nós.
 
 * Consulte a [Documentação do Intel MPI Library](https://software.intel.com/pt-BR/articles/intel-mpi-library-documentation/) para obter orientação sobre o Intel MPI.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

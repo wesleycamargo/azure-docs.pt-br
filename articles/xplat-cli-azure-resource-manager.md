@@ -204,10 +204,10 @@ Para exibir informações registradas em log sobre operações realizadas em um 
 ## Próximas etapas
 
 * Para obter informações sobre como trabalhar com o Gerenciador de Recursos do Azure usando o Azure PowerShell, veja [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md).
-* Para obter informações sobre como trabalhar com o Gerenciador de Recursos do Azure no Portal do Azure, veja [Usando grupos de recursos para gerenciar os recursos do Azure][psrm].
+* Para obter informações sobre como trabalhar com o Gerenciador de Recursos do Azure no Portal de visualização do Azure, consulte [Usando grupos de recursos para gerenciar os recursos do Azure][psrm].
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

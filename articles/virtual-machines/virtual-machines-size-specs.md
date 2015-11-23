@@ -60,6 +60,8 @@ As considerações a seguir podem ajudá-lo a escolher um tamanho:
 
 *   As séries Dv2 e D são ideais para aplicativos que exigem CPUs mais rápidas, melhor desempenho de disco local ou que têm uma maior demanda de memória. Elas oferecem uma combinação poderosa para vários aplicativos de nível empresarial.
 
+
+
 ## Limites gerais
 
 Esta tabela mostra os limites que se aplicam independentemente do tamanho da máquina virtual, para máquinas virtuais criadas usando o modelo de implantação do Gerenciamento de Serviços.
@@ -76,7 +78,7 @@ As tabelas a seguir mostram os tamanhos e as capacidades oferecidas.
 
 >[AZURE.NOTE]A capacidade de armazenamento é representada usando-se 1024^3 bytes como a unidade de medida para GB. Isso às vezes é chamado de gibibyte ou definição de base 2. Ao comparar tamanhos que usam diferentes sistemas de base, lembre-se de que os tamanhos de base 2 podem parecer menores do que os de base 10, mas para qualquer tamanho específico (por exemplo, 1 GB), um sistema de base 2 fornece mais capacidade do que um sistema de base 10, porque 1024^3 é maior que 1000^3.
 
-### Camada básica
+## Camada básica
 
 |Tamanho – Portal do Azure\\cmdlets e APIs|Núcleos de CPU|Memória|NICs (Máx.)|Tamanhos máx. de disco – máquina virtual|Máx. de discos de dados (1023 GB)|Máx. IOPS (300 por disco)|
 |---|---|---|---|---|---|---|
@@ -86,7 +88,7 @@ As tabelas a seguir mostram os tamanhos e as capacidades oferecidas.
 |A3\\Basic\_A3|4|7 GB|1|<p>SO = 1023 GB</p><p>Temporário = 120 GB</p>|8|8 x 300|
 |A4\\Basic\_A4|8|14 GB|1|<p>SO = 1023 GB</p><p>Temporário = 240 GB</p>|16|16 x 300|
 
-### Camada Standard: série A
+## Camada Standard: série A
 
 |Tamanho – Portal do Azure\\cmdlets e APIs|Núcleos de CPU|Memória|NICs (Máx.)|Tamanhos máx. de disco – máquina virtual|Máx. de discos de dados (1023 GB cada)|Máx. IOPS (500 por disco)|
 |---|---|---|---|---|---|---|
@@ -103,7 +105,7 @@ As tabelas a seguir mostram os tamanhos e as capacidades oferecidas.
 |A10\\mesmo|8|56 GB|2|<p><p>SO = 1.023 GB</p><p>Temporário = 382 GB</p><blockquote><p>Observação: para obter informações e considerações sobre o uso desse tamanho, veja <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Sobre as instâncias A8, A9, A10 e A11 de computação intensiva</a>.</p></blockquote>|16|16 x 500|
 |A11\\mesmo|16|112 GB|4|<p><p>SO = 1.023 GB</p><p>Temporário = 382 GB</p><blockquote><p>Observação: para obter informações e considerações sobre o uso desse tamanho, veja <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Sobre as instâncias A8, A9, A10 e A11 de computação intensiva</a>.</p></blockquote>|16|16 x 500|
 
-### Camada Standard: série D
+## Camada Standard: série D
 
 |Tamanho – Portal do Azure\\cmdlets e APIs|Núcleos de CPU|Memória|NICs (Máx.)|Tamanhos máx. de disco – máquina virtual|Máx. de discos de dados (1023 GB cada)|Máx. IOPS (500 por disco)|
 |---|---|---|---|---|---|---|
@@ -116,7 +118,7 @@ As tabelas a seguir mostram os tamanhos e as capacidades oferecidas.
 |Standard\_D13\\mesmo|8|56 GB|8|<p>SO = 1023 GB</p><p>Temporário (SSD) = 400 GB</p>|16|16 x 500|
 |Standard\_D14\\mesmo|16|112 GB|16|<p>SO = 1023 GB</p><p>Temporário (SSD) = 800 GB</p>|32|32 x 500|
 
-### Camada Standard: série Dv2
+## Camada Standard: série Dv2
 
 |Tamanho – Portal do Azure\\cmdlets e APIs|Núcleos de CPU|Memória|NICs (Máx.)|Tamanhos máx. de disco – máquina virtual|Máx. de discos de dados (1023 GB cada)|Máx. IOPS (500 por disco)|
 |---|---|---|---|---|---|---|
@@ -130,7 +132,7 @@ As tabelas a seguir mostram os tamanhos e as capacidades oferecidas.
 |Standard\_D13\_v2\\same|8|56 GB|8|<p>SO = 1023 GB</p><p>Temporário (SSD) = 400 GB</p>|16|16 x 500|
 |Standard\_D14\_v2\\same|16|112 GB|16|<p>SO = 1023 GB</p><p>Temporário (SSD) = 800 GB</p>|32|32 x 500|
 
-### Camada Standard: série DS*
+## Camada Standard: série DS*
 
 |Tamanho – Portal do Azure\\cmdlets e APIs|Núcleos de CPU|Memória|NICs (Máx.)|Tamanhos máx. de disco – máquina virtual|Máx. de discos de dados (1023 GB cada)|Tamanho do cache (GB)|Máx. de IOPS de disco &amp; largura de banda|
 |---|---|---|---|---|---|---|---|
@@ -145,7 +147,7 @@ As tabelas a seguir mostram os tamanhos e as capacidades oferecidas.
 
 **O máximo de operações de entrada/saída por segundo (IOPS) e de taxa de transferência (largura de banda) possível com uma VM da série DS é afetado pelo tamanho do disco. Para obter detalhes, consulte [Armazenamento Premium: armazenamento de alto desempenho para as cargas de trabalho das máquinas virtuais do Azure](../storage-premium-storage-preview-portal.md).
 
-### Camada Standard: série G
+## Camada Standard: série G
 
 |Tamanho – Portal do Azure\\cmdlets e APIs|Núcleos de CPU|Memória|NICs (Máx.)|Tamanhos máx. de disco – máquina virtual|Máx. de discos de dados (1023 GB cada)|Máx. IOPS (500 por disco)|
 |---|---|---|---|---|---|---|
@@ -155,7 +157,7 @@ As tabelas a seguir mostram os tamanhos e as capacidades oferecidas.
 |Standard\_G4\\mesmo|16|224 GB|8|<p>SO = 1023 GB</p><p>Disco SSD local = 3.072 GB</p>|32|32 x 500|
 |Standard\_G5\\mesmo|32|448 GB|16|<p>SO = 1023 GB</p><p>Disco SSD local = 6.144 GB</p>|64|<p>64 x 500</p>|
 
-### Camada Standard: Série GS
+## Camada Standard: Série GS
 
 |Tamanho – Portal do Azure\\cmdlets e APIs|Núcleos de CPU|Memória|NICs (Máx.)|Tamanhos máx. de disco – máquina virtual|Máx. de discos de dados (1023 GB cada)|Tamanho do cache (GB)|Máx. de IOPS de disco &amp; largura de banda|
 |---|---|---|---|---|---|---|---|
@@ -172,4 +174,4 @@ As tabelas a seguir mostram os tamanhos e as capacidades oferecidas.
 
 [Sobre as instâncias A8, A9, A10 e A11 com uso intensivo de computação](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

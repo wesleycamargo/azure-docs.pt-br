@@ -5,6 +5,8 @@ O DNS do Azure é um serviço de hospedagem para domínios DNS, fornecendo resol
 
 | Propriedade | Descrição | Valor de exemplo |
 |---|---|---|
+| Zonas DNS | Informações de zona de domínio para hospedar registros DNS de um domínio específico | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com",
+providers/Microsoft.Network/dnszones/contoso.com/A/www |
 | Zonas DNS | Informações de zona de domínio para hospedar registros DNS de um domínio específico | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com"
 
 
@@ -87,4 +89,4 @@ Leia a [documentação da API REST para zonas DNS](https://msdn.microsoft.com/li
 
 Leia a [documentação da API REST para conjuntos de registros DNS](https://msdn.microsoft.com/library/azure/mt130626.aspx) para obter mais informações.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -22,9 +22,7 @@ A classe StatefulServiceBase de Serviços Confiáveis com estado emite eventos [
 ## Eventos EventSource
 O nome do EventSource da classe StatefulServiceBase de Serviços Confiáveis com estado é "Microsoft-ServiceFabric-Services". Os eventos dessa origem de eventos aparecem na janela [Eventos de Diagnóstico](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) quando o serviço está sendo [depurado no Visual Studio](service-fabric-debugging-your-application.md).
 
-A Malha de Serviços também oferece a opção de direcionar esses eventos para o [Application Insights](http://azure.microsoft.com/services/application-insights/). Para obter mais informações sobre isso, consulte o artigo sobre [Instalação do Application Insights para a Malha de Serviços](service-fabric-diagnostics-application-insights-setup.md).
-
-Outros exemplos de ferramentas e tecnologias que ajudam a coletar e/ou visualizar eventos EventSource são [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Diagnóstico do Microsoft Azure](../cloud-services-dotnet-diagnostics.md) e [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
+Exemplos de ferramentas e tecnologias que ajudam a coletar e/ou visualizar eventos EventSource são [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Diagnóstico do Microsoft Azure](../cloud-services-dotnet-diagnostics.md) e [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ## Eventos
 
@@ -46,4 +44,4 @@ StatefulRunAsyncFailure é emitido sempre que a tarefa RunAsync() do serviço la
 
 StatefulRunAsyncSlowCancellation é emitido sempre que uma solicitação de cancelamento da tarefa RunAsync leva mais de 4 segundos. Quando um serviço leva muito tempo para concluir o cancelamento, ele afeta a capacidade de o serviço ser reiniciado rapidamente em outro nó e pode afetar a disponibilidade geral do serviço.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

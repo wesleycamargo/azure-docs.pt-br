@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="marketplace-publishing"
+   ms.service="marketplace"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -45,9 +45,9 @@ A **lista de distribuição** acima ou um **Grupo de Segurança** deve ser usada
 ### Descrição
 Este é o portal no qual os parceiros podem exibir em suas ofertas publicadas e preparadas no Marketplace (aplicável para VMS, modelos de solução e Serviços do Desenvolvedor com base no ARM)
 ### Identidade/conta usada
-Durante a preparação da oferta do portal de publicação uma ID de assinatura deve estar na lista de autorizados. A mesma assinatura [há um nome de usuário e a senha associada] precisa ser usado ao fazer logon para este portal para testar a oferta de preparação.
+Durante a preparação da oferta do portal de publicação uma ID de assinatura deve estar na lista branca. A mesma assinatura [há um nome de usuário e a senha associada] precisa ser usado ao fazer logon para este portal para testar a oferta de preparação.
 
 ## Consulte também
 - [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

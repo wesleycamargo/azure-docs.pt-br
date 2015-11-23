@@ -210,6 +210,10 @@ O [Suporte do Azure](http://azure.microsoft.com/support/options/) fornece opçõ
 [Orientação sobre padrões e práticas](https://wamsg.codeplex.com/) [Documentação online](https://msdn.microsoft.com/library/dn735912.aspx) [Livro eletrônico para download](https://www.microsoft.com/download/details.aspx?id=42629)
 
 
+##Fornecer comentários
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 ##Contrato de nível de serviço (SLA)
 
 - Para a Codificação dos Serviços de mídia, garantimos a disponibilidade de 99,9% de transações de API REST.
@@ -227,4 +231,4 @@ O [Suporte do Azure](http://azure.microsoft.com/support/options/) fornece opçõ
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

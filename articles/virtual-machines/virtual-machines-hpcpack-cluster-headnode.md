@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management"/>
+ tags="azure-service-management,hpc-pack"/>
 <tags
 ms.service="virtual-machines"
  ms.devlang="na"
@@ -58,7 +58,7 @@ A seguir estão as etapas de nível superior para criar uma VM do Azure para o n
 
     * Para obter prova de implantação do conceito, você pode pular essa etapa e promover posteriormente a VM do nó principal como controlador de domínio.
 
-3. No Portal de Gerenciamento ou no Portal de Visualização do Azure, crie uma VM clássica selecionando a imagem do Pacote HPC 2012 R2 no Azure Marketplace. (Consulte as etapas para o Portal de gerenciamento [aqui](virtual-machines-windows-tutorial-classic-portal.md).)
+3. No portal do Azure ou no portal de visualização do Azure, crie uma VM clássica selecionando a imagem do Pacote HPC 2012 R2 no Azure Marketplace. (Consulte as etapas para o portal do Azure [aqui](virtual-machines-windows-tutorial-classic-portal.md).)
 
     **Considerações**
 
@@ -102,4 +102,4 @@ A seguir estão as etapas de nível superior para criar uma VM do Azure para o n
 <!--Image references-->
 [headnode]: ./media/virtual-machines-hpcpack-cluster-headnode/headnode.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

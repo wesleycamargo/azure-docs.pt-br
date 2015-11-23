@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Conectando o Banco de Dados SQL do Azure à Pesquisa do Azure usando indexadores | Microsoft Azure" 
+	pageTitle="Conectando o Banco de Dados SQL do Azure à Pesquisa do Azure usando indexadores | Microsoft Azure | Serviço de pesquisa de nuvem hospedado" 
 	description="Saiba como extrair dados do Banco de Dados SQL do Azure para um índice de Pesquisa do Azure usando indexadores." 
 	services="search" 
 	documentationCenter="" 
@@ -279,4 +279,4 @@ R: Sim. O indexador é executado em um dos nós em seu serviço de pesquisa, e o
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

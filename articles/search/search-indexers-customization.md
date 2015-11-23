@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Personalização do indexador da Pesquisa do Azure | Microsoft Azure" 
+	pageTitle="Personalização de Indexador da Pesquisa do Azure | Microsoft Azure | Serviço de pesquisa de nuvem hospedado" 
 	description="Saiba como personalizar as configurações e políticas de indexadores na Pesquisa do Azure, um serviço de pesquisa de nuvem hospedado do Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -117,4 +117,4 @@ Mesmo se você optar por tolerar algumas falhas, as informações sobre quais do
 E isso é tudo por enquanto. Caso você tenha pensamentos ou sugestões para futuras ideias de conteúdo, envie um tweet para nós usando a hashtag #AzureSearch ou envie suas ideias pela nossa [página UserVoice](http://feedback.azure.com/forums/263029-azure-search).
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

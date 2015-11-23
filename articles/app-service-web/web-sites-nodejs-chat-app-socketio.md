@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="10/30/2015"
 	ms.author="mwasson"/>
 
 
@@ -69,7 +69,7 @@ Siga estas etapas para criar um aplicativo Web do Azure e habilitar a publicaç�
 
 > [AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Avaliação Gratuita do Azure</a>.
 
-1. Instalar a interface de linha de comando do Azure (CLI do Azure) e conecte-se à sua assinatura do Azure. Consulte [Instalar e configurar a CLI do Azure](xplat-cli).
+1. Instalar a interface de linha de comando do Azure (CLI do Azure) e conecte-se à sua assinatura do Azure. Consulte [Instalar e configurar a CLI do Azure](../xplat-cli).
 
 2. Se for a primeira vez que você configura um repositório no Azure, você precisa criar suas credenciais de logon. Na CLI do Azure, digite o seguinte comando:
 
@@ -119,7 +119,7 @@ Os aplicativos Socket.IO podem ser expandidos usando um __adaptador__ para distr
 
 ###Criar um cache Redis
 
-Executar as etapas no [Criar um cache no Cache Redis do Azure](http://go.microsoft.com/fwlink/p/?linkid=398592&clcid=0x409) para criar um novo cache.
+Executar as etapas no [Criar um cache no Cache Redis do Azure](https://azure.microsoft.com/pt-BR/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-a-cache) para criar um novo cache.
 
 > [AZURE.NOTE]Salvar __Nome do Host__ e __Chave primária__ para seu cache, já que estes serão necessários nas próximas etapas.
 
@@ -145,7 +145,7 @@ Executar as etapas no [Criar um cache no Cache Redis do Azure](http://go.microso
 
 	> [AZURE.NOTE]Embora o adaptador __socket.io-redis__ possa se comunicar diretamente com o Redis, a versão atual não dá suporte à autenticação requerida pelo cache Redis do Azure. Para que a conexão inicial seja criada usando o módulo __redis__, o cliente é passado ao adaptador __socket.io-redis__.
 	>
-	> Embora o Cache Redis do Azure dê suporte a conexões seguras usando a porta 6380, os módulos usados neste exemplo não dão suporte a conexões seguras a partir de 14/7/2014. O código acima usa, por padrão, a porta 6380 não segura.
+	> Embora o Cache Redis do Azure dê suporte a conexões seguras usando a porta 6380, os módulos usados neste exemplo não dão suporte a conexões seguras a partir de 14/7/2014. O código acima usa, por padrão, a porta 6379 não segura.
 
 3. Salvar o __app.js__ modificado
 
@@ -285,4 +285,4 @@ Para obter mais informações, consulte também o [Centro de desenvolvedores do 
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

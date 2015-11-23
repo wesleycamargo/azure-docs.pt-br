@@ -18,14 +18,14 @@
 	ms.author="dkshir"/>
 
 
-# Como capturar uma máquina virtual Linux para ser usada como um modelo
+# Como capturar uma máquina virtual clássica do Linux como uma imagem
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-linux-capture-image-resource-manager.md).
 
 
-Esse artigo mostra como capturar a máquina virtual do Azure executando Linux para que você a use como modelo para criar outras máquinas virtuais. O modelo inclui o disco do SO e os discos de dados anexados à máquina virtual. Isso não inclui a configuração da rede, então você precisará configurá-la quando você criar as outras máquinas virtuais que usam o modelo.
+Esse artigo mostra como capturar uma máquina virtual clássica do Azure executando Linux como uma imagem para criar outras máquinas virtuais. Essa imagem inclui o disco do SO e os discos de dados anexados à máquina virtual. Ele não inclui a configuração da rede, então você precisará configurá-la quando você criar as outras máquinas virtuais da imagem.
 
-O Azure trata esse modelo como uma imagem e o armazena em **Imagens**. Esse também é o local em que quaisquer imagens carregadas são armazenadas. Para saber mais sobre imagens, confira [Sobre imagens da máquina virtual no Azure][].
+O Azure armazena a imagem em **Imagens**. Esse também é o local em que quaisquer imagens carregadas são armazenadas. Para saber mais sobre imagens, confira [Sobre imagens da máquina virtual no Azure][].
 
 ## Antes de começar
 
@@ -51,7 +51,7 @@ Essas etapas pressupõem que você já criou uma máquina virtual do Azure usand
 	- Reinicia o nome de host para localdomain.localdomain
 	- Exclui a última conta de usuário provisionado (obtida em /var/lib/waagent) **e dados associados**.
 
-	>[AZURE.NOTE]O desprovisionamento exclui arquivos e dados em um esforço para "generalizar" a imagem. Execute esse comando apenas em máquinas virtuais que você deseje capturar como um novo modelo de imagem. Ele não garante que a imagem esteja sem nenhuma informação confidencial ou seja adequada para redistribuição a terceiros.
+	>[AZURE.NOTE]O desprovisionamento exclui arquivos e dados em um esforço para "generalizar" a imagem. Execute esse comando em uma máquina virtual que você deseje capturar como um novo modelo de imagem. Ele não garante que a imagem esteja sem nenhuma informação confidencial ou seja adequada para redistribuição a terceiros.
 
 
 3. Digite **y** para continuar. Você pode adicionar o parâmetro `-force` para evitar esta etapa de confirmação.
@@ -89,7 +89,7 @@ Essas etapas pressupõem que você já criou uma máquina virtual do Azure usand
 
 
 ## Próximas etapas
-A imagem está pronta para ser usada como modelo para criar uma nova máquina virtual. É possível usar o comando `azure vm create` da CLI do Azure e fornecer o nome da imagem que você acabou de criar. Veja [Usando a CLI do Azure com a API de Gerenciamento de Serviços](virtual-machines-command-line-tools.md) para obter detalhes sobre o comando. Como alternativa, é possível usar o [Portal de Gerenciamento][] para criar uma máquina virtual personalizada usando o método **Da Galeria** e selecionando a imagem que você acabou de criar. Consulte [Como criar uma máquina virtual personalizada][] para obter mais detalhes.
+A imagem está pronta para ser usada para criar máquinas virtuais. É possível usar o comando `azure vm create` da CLI do Azure e fornecer o nome da imagem que você acabou de criar. Consulte [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Serviços do Azure](virtual-machines-command-line-tools.md) para obter detalhes sobre o comando. Como alternativa, use o [Portal de Gerenciamento][] para criar uma máquina virtual personalizada usando o método **Da Galeria** e selecionando a imagem que você acabou de criar. Consulte [Como criar uma máquina virtual personalizada][] para obter mais detalhes.
 
 **Consulte também:** [Guia do usuário do agente Linux para o Azure](virtual-machines-linux-agent-user-guide.md)
 
@@ -100,4 +100,4 @@ A imagem está pronta para ser usada como modelo para criar uma nova máquina vi
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [Como criar uma máquina virtual que executa Linux]: virtual-machines-linux-tutorial.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

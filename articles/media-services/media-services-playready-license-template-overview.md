@@ -74,7 +74,7 @@ Esta é a classe de "nível superior" na hierarquia de modelo. O que significa q
 
 [PlayReadyPlayRight](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx) -essa classe representa o PlayRight de uma licença do PlayReady. Ele concede ao usuário a capacidade de reproduzir o conteúdo de acordo com as restrições de zero ou mais restrições configuradas na licença e no próprio PlayRight (de política específica de reprodução). Grande parte da política no PlayRight tem a ver com restrições de saída que controlam os tipos de saída nas quais o conteúdo pode ser reproduzido e todas as restrições que devem ser colocadas em vigor durante o uso de uma determinada saída. Por exemplo, se a DigitalVideoOnlyContentRestriction estiver habilitada, o tempo de execução de DRM só permitirá que o vídeo seja exibido em saídas digitais (saídas de vídeo analógicas não poderão passar o conteúdo).
 
->[AZURE.IMPORTANT]Esses tipos de restrições podem ser muito poderosos, mas também podem afetar a experiência do usuário. Se as proteções de saída são configuradas de maneira muito restritiva, o conteúdo pode ser impagável no caso de alguns clientes. Para obter mais informações, consulte o documento Regras de conformidade do PlayReady.
+>[AZURE.IMPORTANT]Esses tipos de restrições podem ser muito poderosos, mas também podem afetar a experiência do usuário. Se as proteções de saída são configuradas de maneira muito restritiva, o conteúdo pode ser impagável no caso de alguns clientes. Para obter mais informações, consulte o documento [Regras de conformidade do PlayReady](https://www.microsoft.com/playready/licensing/compliance/).
 
 Para obter um exemplo de quais níveis de proteção o suporte do Silverlight oferece, consulte: [Suporte do Silverlight para proteções de saída](http://go.microsoft.com/fwlink/?LinkId=617318).
 
@@ -302,11 +302,13 @@ Para obter um exemplo de quais níveis de proteção o suporte do Silverlight of
 	</xs:schema>
 
 
+
 ##Roteiros de aprendizagem dos Serviços de Mídia
 
-Você pode exibir os roteiros de aprendizagem do AMS aqui:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Fornecer comentários
 
-<!---HONumber=Oct15_HO3-->
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+<!---HONumber=Nov15_HO3-->

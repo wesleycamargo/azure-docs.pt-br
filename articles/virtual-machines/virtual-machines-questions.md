@@ -44,7 +44,7 @@ Uma conta de armazenamento do Azure fornece armazenamento para o disco do sistem
 
 ## Quais tipos de disco rígido virtual eu posso usar?
 
-O Azure dá suporte a discos rígidos virtuais fixos no formato VHD. Se desejar usar um disco no formato VHDX no Azure, converta-o usando o Gerenciador do Hyper-V ou o cmdlet [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656). Depois de fazer isso, use o cmdlet [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) (no modo de Gerenciamento de Serviços) para carregar o VHD em uma conta de armazenamento do Azure para que você possa usá-lo com máquinas virtuais. O cmdlet converte um VHD dinâmico em um VHD fixo, mas não converte VHDX em VHD.
+O Azure dá suporte a discos rígidos virtuais fixos no formato VHD. Se desejar usar um disco no formato VHDX no Azure, converta-o usando o Gerenciador do Hyper-V ou o cmdlet [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656). Depois de fazer isso, use o cmdlet [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) (no modo de Gerenciador de Serviços) para carregar o VHD para uma conta de armazenamento do Azure para que você possa usá-lo com máquinas virtuais. O cmdlet converte um VHD dinâmico em um VHD fixo, mas não converte VHDX em VHD.
 
 - Para obter instruções sobre o Linux, veja [Criando e carregando um disco rígido virtual que contém o sistema operacional Linux](virtual-machines-linux-create-upload-vhd.md).
 
@@ -58,7 +58,7 @@ De muitas formas, elas são semelhantes às VMs Hyper-V da "Geração 1", mas n�
 
 - O Azure não fornece acesso ao console para uma máquina virtual.
 - As VMs do Azure na maioria dos [tamanhos](virtual-machines-size-specs.md) têm apenas um adaptador de rede virtual, o que significa que elas também podem ter apenas um endereço IP externo. (Os tamanhos A8 e A9 usam um segundo adaptador de rede para comunicação de aplicativos entre instâncias em cenários limitados.)
-- As VMs do Azure não são compatíveis com recursos de VM do Hyper-V de geração 2. Para obter detalhes sobre esses recursos, veja [Especificações de máquina virtual do Hyper-V](http://technet.microsoft.com/library/dn592184.aspx).
+- As VMs do Azure não são compatíveis com recursos de VM do Hyper-V de geração 2. Para obter detalhes sobre esses recursos, consulte [Especificações de máquina virtual do Hyper-V](http://technet.microsoft.com/library/dn592184.aspx).
 
 ## Essas máquinas virtuais podem usar minha infraestrutura de rede local existente?
 
@@ -75,7 +75,7 @@ Você precisa estabelecer uma conexão remota para fazer logon na máquina virtu
 
 Se tiver problemas com a Área de Trabalho Remota ou o SSH, instale e use a extensão [VMAccess](http://go.microsoft.com/fwlink/p/?LinkId=396856) para ajudar a corrigir o problema. Para VMs Windows, as opções adicionais incluem:
 
-- No Portal de Visualização do Azure, localize a VM e clique em **Redefinir Acesso Remoto** na barra de comandos.
+- No portal de visualização do Azure, localize a VM e clique em **Redefinir Acesso Remoto** na barra de comandos.
 - Veja [Solucionar problemas de conexões da Área de Trabalho Remota a uma Máquina Virtual do Azure baseada em Windows](virtual-machines-troubleshoot-remote-desktop-connections.md).
 - Use a Comunicação Remota do Windows PowerShell para conectar-se à VM ou crie pontos de extremidade adicionais para outros recursos se conectarem à VM. Para obter detalhes, veja [Como instalar pontos de extremidade em uma máquina virtual](virtual-machines-set-up-endpoints.md).
 
@@ -104,7 +104,7 @@ Se você esqueceu o nome de usuário ou senha e instalou o agente de VM, você p
 
 Detalhes adicionais:
 
-- Para as imagens do Linux, se você usar o Portal de Gerenciamento, "azureuser" é fornecido como nome de usuário padrão, mas você pode alterar isso usando "Da Galeria" em vez de "Criação rápida" como a maneira de criar a máquina virtual. Usar "Da Galeria" também permite optar por usar uma senha, uma chave SSH ou ambas para fazer o logon. A conta de usuário é um usuário sem privilégios que tem acesso "sudo" para executar comandos privilegiados. A conta "raiz" está desabilitada.
+- Para as imagens do Linux, se você usar o portal do Azure, "azureuser" é fornecido como nome de usuário padrão, mas você pode alterar isso usando "Da Galeria" em vez de "Criação rápida" como a maneira de criar a máquina virtual. Usar "Da Galeria" também permite optar por usar uma senha, uma chave SSH ou ambas para fazer o logon. A conta de usuário é um usuário sem privilégios que tem acesso "sudo" para executar comandos privilegiados. A conta "raiz" está desabilitada.
 - Para imagens do Windows, você precisará fornecer um nome de usuário e uma senha ao criar a máquina virtual. A conta é adicionada ao grupo Administradores.
 
 ## O Azure pode executar antivírus nas minhas máquinas virtuais?
@@ -127,7 +127,7 @@ O Azure cobra um preço por hora com base no tamanho da VM e do sistema operacio
 
 Você será cobrado quando o status da VM for Em execução ou Parada, mas não será cobrado quando o status da VM for Parada (Desalocada). Para colocar uma VM no estado Parada (Desalocada), siga um destes procedimentos:
 
-- Feche ou exclua a VM no Portal de Gerenciamento.
+- Feche ou exclua a VM no portal do Azure.
 - Use o cmdlet Stop-AzureVM, disponível no módulo do Azure PowerShell.
 - Use a operação de Função de Desligamento na API REST do Gerenciamento de Serviços e especifique StoppedDeallocated para o elemento PostShutdownAction.
 
@@ -151,4 +151,4 @@ Para fornecer redundância, coloque duas ou mais VMs configuradas de forma semel
 
 [Diferentes maneiras de criar uma máquina virtual Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

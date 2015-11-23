@@ -5,15 +5,15 @@
    documentationCenter=""
    authors="BrucePerlerMS"
    manager="mbaldwin"
-   editor="mbaldwin" />
+   editor="bruceper" />
 <tags
    ms.service="key-vault"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/22/2015"
-   ms.author="mbaldwin" />
+   ms.date="11/06/2015"
+   ms.author="bruceper" />
 
 # Guia do desenvolvedor do Cofre da Chave do Azure
 
@@ -33,21 +33,11 @@ Operações em cofres de chave são autenticadas e autorizadas usando o Active D
 
 ## Programação para cofre da chave
 
-O sistema de gerenciamento de cofre da chave para programadores consiste em várias interfaces, com o REST como base. Este artigo na referência do REST oferece os conceitos fundamentais [Sobre chaves e segredos](https://msdn.microsoft.com/library/azure/dn903623.aspx)
+O sistema de gerenciamento de cofre da chave para programadores consiste em várias interfaces, com o REST como base. [Referência de API REST do Cofre da Chave](https://msdn.microsoft.com/library/azure/dn903609.aspx)
 
-### REST
-
-A API REST é a base de toda a interação com o Cofre da Chave através de programação.
-
-O Cofre da Chave tem seu próprio ponto de extremidade REST que é descrito na [Referência da API REST do Cofre da Chave](https://msdn.microsoft.com/library/azure/dn903609.aspx)
-
-### .NET
-
-A API do .NET é um conjunto de wrappers que permite a implementação por meio do modelo de programação C# sem precisar interagir diretamente com o ponto de extremidade REST. Aqui você pode encontrar a [referência da API do cliente .NET do Cofre da Chave do Azure](https://msdn.microsoft.com/library/azure/dn903301.aspx).
-
-### Node.js
-
-A API do Node.js é um conjunto de wrappers que permite a implementação por meio do modelo de programação sem precisar interagir diretamente com o ponto de extremidade REST. Aqui você pode encontrar o [SDK do Microsoft Azure para Node.js - Gerenciamento do Cofre da Chave](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/).
+|[![.NET](./media/key-vault-developers-guide/net.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+|:--:|:--:|
+|[.NET](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 
 ## Gerenciado os cofres da chave
 
@@ -67,5 +57,12 @@ Os artigos a seguir apresentam orientação específica da tarefa:
 ## Exemplos
 
 - Este download contém o aplicativo de exemplo HelloKeyVault e um exemplo de serviço Web do Azure. [Exemplos de código de Cofre da Chave do Azure](http://www.microsoft.com/download/details.aspx?id=45343)
+- Use este tutorial para ajudá-lo a saber como usar o cofre da chave do Azure por meio de um aplicativo Web no Azure. [Usar cofre da chave do Azure em um aplicativo Web](key-vault-use-from-web-application.md)
 
-<!---HONumber=Nov15_HO2-->
+## Bibliotecas de Suporte
+
+- A [Biblioteca Principal do Cofre da Chave do Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/1.0.0) fornece interfaces IKey e IKeyResolver para localizar chaves com base em identificadores e realizar operações com chaves.
+
+- [Extensões do Cofre da Chave do Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/1.0.0) fornece recursos estendidos para Cofre da Chave do Azure.
+
+<!---HONumber=Nov15_HO3-->

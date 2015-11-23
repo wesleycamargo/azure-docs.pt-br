@@ -31,11 +31,11 @@ Este artigo mostra como anexar discos novos e existentes em uma máquina virtual
 
 ## Localizar a máquina virtual
 
-1. Entre no [Portal de visualização](https://portal.azure.com).
+1. Entre no portal de visualização do Azure.
 
 2. No menu Hub, clique em **Procurar**.
 
-3. Na folha de pesquisa, role para baixo e clique em **Máquinas Virtuais**.
+3. Na folha de pesquisa, role para baixo e clique em **Máquinas virtuais**.
 
 	![Procurar máquinas virtuais](./media/virtual-machines-attach-disk-preview/search-blade-preview-portal.png)
 
@@ -90,4 +90,4 @@ Depois que o disco é adicionado, é necessário prepará-lo para uso em um sist
 
 [Sobre as contas de armazenamento do Azure]: ../storage-whatis-account/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

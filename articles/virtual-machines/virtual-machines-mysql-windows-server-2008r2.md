@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/10/2015"
+	ms.date="11/09/2015"
 	ms.author="cynthn"/>
 
 
@@ -59,8 +59,8 @@ Siga estas etapas para instalar, configurar e executar a versão de comunidade d
 1.	Depois de se conectar à máquina virtual usando a Área de Trabalho Remota, clique em **Internet Explorer** no menu Iniciar.
 2.	Selecione o botão **Ferramentas** no canto superior direito (o ícone de engrenagem) e clique em **Opções da Internet**. Clique na guia **Segurança**, clique no ícone **Sites Confiáveis** e, em seguida, no botão **Sites**. Adicione http://*.mysql.com à lista de sites confiáveis. Clique em **Fechar** e em **OK**.
 3.	Na barra de endereços do Internet Explorer, digite http://dev.mysql.com/downloads/mysql/.
-4.	Use o site do MySQL para localizar e baixar a versão mais recente do instalador do MySQL para Windows. Ao escolher o Instalador do MySQL, baixe a versão que tem o conjunto completo de arquivos (por exemplo, o mysql-instalador-comunidade-5.6.23.0.msi, com um tamanho do arquivo de 282,4 MB) e salve o arquivo do instalador na área de trabalho do Windows.
-5.	Na área de trabalho, clique duas vezes no arquivo do instalador para iniciar a instalação.
+4.	Use o site do MySQL para localizar e baixar a versão mais recente do instalador do MySQL para Windows. Ao escolher o Instalador do MySQL, baixe a versão que tem o conjunto completo de arquivos (por exemplo, o mysql-installer-community-5.6.23.0.msi, com um tamanho do arquivo de 282,4 MB) e salve o instalador.
+5.	Quando tiver terminado de baixar o instalador, clique em **Executar** para iniciar a instalação.
 6.	Na página **Contrato de Licença**, aceite o contrato de licença e clique em **Avançar**.
 7.	Na página **Escolhendo um Tipo de Instalação**, clique no tipo de instalação desejada e clique em **Avançar**. As etapas a seguir pressupõem a seleção do tipo de instalação **Somente servidor**.
 8.	Na página **Instalação**, clique em **Executar**. Quando a instalação for concluída, clique em **Avançar**.
@@ -91,6 +91,7 @@ Siga estas etapas para instalar, configurar e executar a versão de comunidade d
 
 19.	Você também pode configurar definições padrão de configuração do servidor, como os diretórios e unidades básicos e de dados, com entradas no arquivo C:\\Arquivos de Programas (x86)\\MySQL\\MySQL Server 5.6\\my-default.ini. Para obter mais informações, confira [5\.1.2 Padrões de configuração do servidor](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html).
 
+## Configurar pontos de extremidade
 
 Se quiser que o serviço do servidor MySQL esteja disponível para computadores cliente MySQL na Internet, você deverá configurar um ponto de extremidade para a porta TCP na qual o serviço MySQL Server escutará e criará uma regra adicional do Firewall do Windows. Essa é a porta TCP 3306, a menos que você tenha especificado uma porta diferente na página **Tipo e Rede** (etapa 10 do procedimento anterior).
 
@@ -106,9 +107,16 @@ Para configurar um ponto de extremidade para o serviço do servidor MySQL:
 4.	Se você estiver usando a porta TCP 3306 padrão do MySQL, clique em **MySQL** em **Nome** e clique na marca de seleção.
 5.	Se você estiver usando uma porta TCP diferente, digite um nome exclusivo em **Nome**. Selecione **TCP** no protocolo, digite o número da porta em **Porta Pública** e em **Porta Privada** e clique na marca de seleção.
 
-Para adicionar uma regra do Firewall do Windows que permite o tráfego MySQL da Internet, execute o comando a seguir em um prompt de comando do Windows PowerShell de nível de administrador no computador do servidor MySQL.
+## Adicionar uma regra do Firewall do Windows para permitir o tráfego do MySQL
+
+Para adicionar uma regra do Firewall do Windows que permite o tráfego MySQL da Internet, execute o comando a seguir em um prompt de comando elevado do Windows PowerShell na máquina virtual do servidor MySQL.
 
 	New-NetFirewallRule -DisplayName "MySQL56" -Direction Inbound –Protocol TCP –LocalPort 3306 -Action Allow -Profile Public
+
+
+	
+## Testar sua conexão remota
+
 
 Para testar sua conexão remota com o serviço do servidor MySQL em execução na máquina virtual do Azure, primeiro você deve determinar o nome DNS correspondente ao serviço de nuvem que contém a máquina virtual que executa o servidor MySQL.
 
@@ -130,4 +138,4 @@ Para testar sua conexão remota com o serviço do servidor MySQL em execução n
 
 Para obter informações sobre o MySQL, confira a [Documentação do MySQL](http://dev.mysql.com/doc/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="11/10/2015"
 	ms.author="dastrock"/>
 
 # Visualização do modelo de aplicativo v2.0: escopos, permissões e consentimento
@@ -116,4 +116,4 @@ Se o aplicativo não solicitar o escopo `offline_access`, ele não receberá ref
 
 Para obter mais informações sobre como obter e usar tokens de atualização, consulte a [referência ao protocolo do modelo de aplicativo v2.0](active-directory-v2-protocols.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

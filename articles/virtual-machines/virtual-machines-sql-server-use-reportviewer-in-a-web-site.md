@@ -83,7 +83,7 @@ No modo de processamento remoto, o controle ReportViewer usa os seguintes assemb
 
 1. Baixe e instale o pacote redistribuível do Microsoft Report Viewer 2012 Runtime seguindo as instruções especificadas acima.
 
-1. Crie a pasta <language> no projeto e copie nela os arquivos de assembly do recurso associado. Os arquivos de assembly do recurso a serem copiados são: **Microsoft.ReportViewer.Webforms.Resources.dll** e **Microsoft.ReportViewer.Common.Resources.dll**. Selecione os arquivos de assembly do recurso e, no painel Propriedades, defina **Copiar para Diretório de Saída** como "**Copiar sempre**".
+1. Crie a pasta <language> no projeto e copie nela os arquivos de assembly do recurso associado. Os arquivos de assembly do recurso a serem copiados são: **Microsoft.ReportViewer.Webforms.Resources.dll** e **Microsoft.ReportViewer.Common.Resources.dll**. Selecione os arquivos de assembly do recurso e, no painel Propriedades, defina **Copiar para o Diretório de Saída** como "**Copiar sempre**".
 
 1. Defina Culture e UICulture para o projeto Web. Para obter mais informações sobre como definir Cultura e Cultura de interface de usuário para uma página da Web ASP.NET, consulte [Como definir Cultura e Cultura de interface de usuário para globalização da página da Web ASP.NET](http://go.microsoft.com/fwlink/?LinkId=237461).
 
@@ -93,7 +93,7 @@ O ReportViewer precisa usar credenciais apropriadas para se autenticar no servid
 
 ## Publicar o aplicativo Web ASP.NET no Azure
 
-Para obter instruções sobre como publicar um aplicativo Web ASP.NET no Azure, consulte [Como Migrar e Publicar um Aplicativo Web no Azure do Visual Studio](https://msdn.microsoft.com/library/azure/hh420322.aspx) e [Introdução aos aplicativos Web e ao ASP.NET](../app-service-web/web-sites-dotnet-get-started.md).
+Para obter instruções sobre como publicar um aplicativo Web ASP.NET no Azure, consulte [Como Migrar e Publicar um Aplicativo Web no Azure do Visual Studio](../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) e [Introdução aos aplicativos Web e ao ASP.NET](../app-service-web/web-sites-dotnet-get-started.md).
 
 >[AZURE.IMPORTANT]Se o comando Adicionar Projeto de Implantação do Azure ou Adicionar Projeto de Serviço de Nuvem do Azure não aparecer no menu de atalho do Gerenciador de Soluções, talvez seja necessário alterar a estrutura de destino do projeto para o .NET Framework 4.
 >
@@ -109,4 +109,4 @@ Para obter instruções sobre como publicar um aplicativo Web ASP.NET no Azure, 
 
 [Controle de visualizador de relatórios do Reporting Services e máquina virtual do Microsoft Azure com base em servidores de relatórios](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

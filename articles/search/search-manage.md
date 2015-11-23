@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Gerencie o seu serviço de Pesquisa no Microsoft Azure | Microsoft Azure" 
+	pageTitle="Gerencie o seu serviço de Pesquisa no Microsoft Azure | Microsoft Azure | Serviço de pesquisa de nuvem hospedado" 
 	description="Gerenciar a Pesquisa do Azure, serviço de pesquisa de nuvem hospedado do Microsoft Azure" 
 	services="search" 
 	documentationCenter="" 
@@ -193,4 +193,4 @@ As funções fornecem controle de acesso depois da criação do serviço. Apenas
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

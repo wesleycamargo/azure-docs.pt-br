@@ -3,7 +3,7 @@
 	description="Descreve o que acontece após a conexão a uma conta de armazenamento do Azure em um projeto do ASP.NET 5 do Visual Studio usando os serviços conectados do Visual Studio"
 	services="storage"
 	documentationCenter=""
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # O que aconteceu com meu projeto do ASP.NET 5 (serviços conectados do Armazenamento do Azure do Visual Studio)?
 
@@ -47,4 +47,4 @@ No arquivo config.json do seu projeto, foi criado um elemento com a cadeia de co
 
 Para obter mais informações, veja [ASP.NET 5](http://www.asp.net/vnext).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

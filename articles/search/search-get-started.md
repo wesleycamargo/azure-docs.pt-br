@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introdução à Pesquisa do Azure | Microsoft Azure" 
+	pageTitle="Introdução à Pesquisa do Azure | Microsoft Azure | Serviço de pesquisa hospedado na nuvem" 
 	description="Comece a usar a Pesquisa do Azure, um serviço de pesquisa hospedado na nuvem do Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -378,4 +378,4 @@ Pronto para a próxima etapa? Os links a seguir levam você a materiais adiciona
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

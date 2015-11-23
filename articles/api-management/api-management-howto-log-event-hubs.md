@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="11/10/2015" 
 	ms.author="sdanie"/>
 
 # Como registrar eventos em log para Hubs de Eventos do Azure no Gerenciamento de API do Azure
 
 Hub de Eventos do Azure é um serviço de entrada de dados altamente escalonável que pode incluir milhões de eventos por segundo, para que você possa processar e analisar grandes quantidades de dados produzidos por seus aplicativos e dispositivos conectados. Hub de Eventos age como a "porta de entrada” para um pipeline de eventos e depois que os dados são coletados em um hub de eventos, ele pode ser transformado e armazenado usando qualquer provedor de análise em tempo real ou adaptadores de envio em lote/armazenamento. Hub de Eventos separa a produção de um fluxo de eventos do consumo desses eventos, para que os consumidores de eventos possam acessar os eventos em seu próprio cronograma.
+
+Este artigo é um complemento para o [integrar o Gerenciamento de API do Azure com vídeos dos Hubs de eventos](https://azure.microsoft.com/documentation/videos/integrate-azure-api-management-with-event-hubs/) e descreve como registrar eventos de Gerenciamento de API usando Hubs de eventos do Azure.
 
 ## Criar um Hub de Eventos do Azure
 
@@ -53,7 +55,7 @@ Para criar um agente de log, faça uma solicitação HTTP PUT usando o modelo de
     https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview
 
 -	Substitua `{your service}` pelo nome da sua instância do serviço de Gerenciamento de API.
--	Substitua `{new logger name}` pelo nome desejado para o novo agente de log. Você fará referência a esse nome quando configurar a política [log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
+-	Substitua `{new logger name}` pelo nome desejado para o novo agente. Você fará referência a esse nome quando configurar a política [log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
 
 Adicione os cabeçalhos a seguir à solicitação.
 
@@ -76,9 +78,9 @@ Especifique o corpo da solicitação usando o modelo a seguir.
 -	`description` fornece uma descrição opcional do agente e pode ser uma cadeia de caracteres de comprimento zero, se desejado.
 -	`credentials` contém `name` e `connectionString` do seu Hub de Eventos do Azure.
 
-Quando você fizer a solicitação, se o agente de log for criado, será retornado um código de status `201 Created`.
+Quando você fizer a solicitação, se o agente for criado, será retornado um código de status `201 Created`.
 
->[AZURE.NOTE]Para outros códigos de retorno possíveis e seus motivos, consulte [Criar um agente de log](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT). Para saber como executar outras operações como listar, atualizar e excluir, consulte a documentação de entidade do [Agente de Log](https://msdn.microsoft.com/library/azure/mt592020.aspx).
+>[AZURE.NOTE]Para outros códigos de retorno possíveis e seus motivos, consulte [Criar um agente](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT). Para saber como executar outras operações como listar, atualizar e excluir, consulte a documentação de entidade do [Agente de Log](https://msdn.microsoft.com/library/azure/mt592020.aspx).
 
 ## Configurar políticas log-to-eventhubs
 
@@ -112,6 +114,15 @@ Clique em **Salvar** para salvar a configuração da política atualizada. Assim
 	-	[Introdução aos Hubs de Eventos do Azure](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 	-	[Receber mensagens com EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
 	-	[Guia de programação dos Hubs de Eventos](../event-hubs/event-hubs-programming-guide.md)
+-	Saiba mais sobre a integração do Gerenciamento de API e Hubs de eventos
+	-	[Referência de entidade do agente](https://msdn.microsoft.com/library/azure/mt592020.aspx)
+	-	[referência de política de log ao hub de eventos](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
+	-	[Monitorar suas APIs com o Gerenciamento de API do Azure, Hubs de Eventos e Runscope](api-management-log-to-eventhub-sample.md)	
+
+## Assista a um passo a passo em vídeo
+
+> [AZURE.VIDEO integrate-azure-api-management-with-event-hubs]
+
 
 [publisher-portal]: ./media/api-management-howto-log-event-hubs/publisher-portal.png
 [create-event-hub]: ./media/api-management-howto-log-event-hubs/create-event-hub.png
@@ -122,4 +133,4 @@ Clique em **Salvar** para salvar a configuração da política atualizada. Assim
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

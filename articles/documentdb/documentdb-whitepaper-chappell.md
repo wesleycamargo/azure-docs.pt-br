@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.date="11/06/2015" 
 	ms.author="mimig"/>
 
 # Apresentando o DocumentDB - Um banco de dados NoSQL para Microsoft Azure 
@@ -31,4 +31,4 @@ Este white paper também explica o seguinte:
 **Download do PDF**: [Apresentando o Banco de Dados de Documentos ‒ um banco de dados NoSQL para o Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

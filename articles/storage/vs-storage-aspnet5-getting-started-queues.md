@@ -3,7 +3,7 @@
 	description="Como começar a usar o armazenamento de fila do Azure em um projeto ASP.NET 5 no Visual Studio"
 	services="storage"
 	documentationCenter=""
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Introdução ao armazenamento de fila e aos serviços conectados do Visual Studio (ASP.NET 5)
 
@@ -63,18 +63,18 @@ Para acessar filas em projetos do ASP.NET 5, você precisa incluir os itens a se
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-3. Obtenha um objeto **CloudQueueClient** para fazer referência a objetos de fila em sua conta de armazenamento.
+3. Obtenha um objeto **CloudQueueClient** para referenciar objetos de fila em sua conta de armazenamento.
 
 	    // Create the table client.
     	CloudQuecClient queueClient = storageAccount.CreateCloudTableClient();
 
-4. Obtenha um objeto **CloudQueue** para fazer referência a uma fila específica.
+4. Obtenha um objeto **CloudQueue** para referenciar uma fila específica.
 
     	// Get a reference to a table named "messageQueue"
 	    CloudTable messageQueue = queueClient.GetQueueReference("messageQueue");
 
 
-**OBSERVAÇÃO:** use todo esse código antes do código nos exemplos a seguir.
+**OBSERVAÇÃO:** use todos os códigos acima diante do código nos exemplos a seguir.
 
 ###Criar uma fila em código
 
@@ -185,4 +185,4 @@ Para excluir uma fila e todas as mensagens que ela contém, chame o método **De
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

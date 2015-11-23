@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="11/05/2015"
    ms.author="alkohli" />
 
 # Usar o serviço StorSimple Manager para monitorar seu dispositivo StorSimple 
@@ -47,29 +47,55 @@ A **utilização da capacidade** acompanha as métricas relacionadas à quantida
 
 É possível descrever as capacidades de armazenamento primária, de nuvem e do dispositivo da seguinte maneira:
 
-- A **utilização de capacidade do armazenamento principal** mostra a quantidade de dados gravados em volumes StorSimple antes de os dados passarem pela eliminação de duplicação e serem compactados. Os gráficos a seguintes mostram o uso da capacidade de armazenamento principal de um dispositivo StorSimple antes e depois de um instantâneo de nuvem ter sido capturado. Dado que são apenas dados de volume, um instantâneo de nuvem não deve alterar o armazenamento primário. Como você pode ver, o gráfico não mostra nenhuma diferença na utilização da capacidade primária como resultado de fazer um instantâneo da nuvem. Observe que o instantâneo de nuvem iniciou aproximadamente às 14h no dispositivo.
+###Utilização da capacidade de armazenamento primário
+ 
+Esses gráficos mostram a quantidade de dados gravados em volumes StorSimple antes desses dados passarem pela eliminação de duplicação e serem compactados. Você pode exibir a utilização de armazenamento primário por todos os volumes ou para um único volume.
 
-	![Utilização da capacidade primária antes do instantâneo da nuvem](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes2M.png)
+Quando você exibir os gráficos de utilização de capacidade de volume do armazenamento primário para todos os volumes em relação a cada um dos volumes individuais e somar os dados primários em ambos os casos, pode haver uma divergência entre os dois números. O total de dados primários em todos os volumes pode não se igualar à soma total dos dados primários dos volumes individuais. Isso pode ser por um dos seguintes motivos:
+
+- **Dados de instantâneo incluídos em todos os volumes**: os dados primários mostrados para todos os volumes são a soma dos dados primários para cada volume e os dados de instantâneos. Os dados primários mostrados para um determinado volume correspondem apenas à quantidade de dados alocados no volume (e não incluem os dados de instantâneo de volume correspondentes).
+
+	Isso também pode ser explicado pela seguinte equação:
+
+	*Dados primários (todos os volumes) = Soma de (Dados primários (volume i) + Tamanho dos dados de instantâneo (volume i))*
 	
-	![Utilização da capacidade primária após o instantâneo da nuvem](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes1M.png)
+	*em que Dados primários (volume i) = Tamanho dos dados primários alocados para o volume i*
+ 
+	Se os instantâneos são excluídos por meio do serviço, a exclusão é feita de forma assíncrona em segundo plano. Pode levar algum tempo para o tamanho dos dados do volume seja atualizado após a exclusão dos instantâneos.
+ 
+- **Volumes com monitoramento desabilitado incluídos em todos os volumes**: se você tiver volumes no dispositivo para os quais o monitoramento está desabilitado, os dados de monitoramento para esses volumes individuais não estarão disponíveis nos gráficos. No entanto, os dados de todos os volumes no gráfico incluirão os volumes para os quais o monitoramento está desativado.
+ 
+- **Volumes excluídos com backups associados dinamicamente incluídos em todos os volumes**: se volumes que contêm dados do instantâneo são excluídos mas os instantâneos associados ainda existem, você poderá ver uma divergência.
+
+- **Excluído volumes incluídos em todos os volumes**: em alguns casos, os volumes antigos podem existir mesmo que eles tenham sido excluídos. O efeito de exclusão não é visto e o dispositivo pode mostrar menos capacidade disponível. Você precisará contatar o Suporte da Microsoft para remover esses volumes.
+
+Os gráficos a seguintes mostram o uso da capacidade de armazenamento principal de um dispositivo StorSimple antes e depois de um instantâneo de nuvem ter sido capturado. Dado que são apenas dados de volume, um instantâneo de nuvem não deve alterar o armazenamento primário. Como você pode ver, o gráfico não mostra nenhuma diferença na utilização da capacidade primária como resultado de fazer um instantâneo da nuvem. Observe que o instantâneo de nuvem iniciou aproximadamente às 14h no dispositivo.
+
+![Utilização da capacidade primária antes do instantâneo da nuvem](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes2M.png)
+
+![Utilização da capacidade primária após o instantâneo da nuvem](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes1M.png)
 
 
-- A **Utilização da capacidade de armazenamento em nuvem** mostra a quantidade de armazenamento em nuvem usado. Esses dados passam pela eliminação de duplicação e são compactados. O valor inclui instantâneos de nuvem que podem conter dados que não serão refletidos em nenhum volume primário e são mantidos para fins de retenção obrigatória ou herança. Você pode comparar os valores de consumo de armazenamento de nuvem e principal para obter uma ideia da taxa de redução dos dados, embora o número não vá ser exato. Os gráficos a seguintes mostram o uso da capacidade de armazenamento em nuvem de um dispositivo StorSimple antes e depois da captura de um instantâneo de nuvem. O instantâneo de nuvem iniciou aproximadamente às 14h no dispositivo e você pode ver a captura de utilização da capacidade de nuvem ao mesmo tempo, aumentando de 5,73 MB para 4,04 GB.
+###Utilização da capacidade de armazenamento em nuvem
 
-	![Utilização da capacidade da nuvem antes do instantâneo da nuvem](./media/storsimple-monitor-device/StorSimple_CloudCapacityUtil_For_AllVolumeContainers2M.png)
+Esses gráficos mostram a quantidade de armazenamento em nuvem usado. Esses dados passam pela eliminação de duplicação e são compactados. O valor inclui instantâneos de nuvem que podem conter dados que não serão refletidos em nenhum volume primário e são mantidos para fins de retenção obrigatória ou herança. Você pode comparar os valores de consumo de armazenamento de nuvem e principal para obter uma ideia da taxa de redução dos dados, embora o número não vá ser exato. Os gráficos a seguintes mostram o uso da capacidade de armazenamento em nuvem de um dispositivo StorSimple antes e depois da captura de um instantâneo de nuvem. O instantâneo de nuvem iniciou aproximadamente às 14h no dispositivo e você pode ver a captura de utilização da capacidade de nuvem ao mesmo tempo, aumentando de 5,73 MB para 4,04 GB.
 
-	![Utilização da capacidade da nuvem após o instantâneo da nuvem](./media/storsimple-monitor-device/StorSimple_CloudCapacityUtil_For_AllVolumeContainers1M.png)
+![Utilização da capacidade da nuvem antes do instantâneo da nuvem](./media/storsimple-monitor-device/StorSimple_CloudCapacityUtil_For_AllVolumeContainers2M.png)
+
+![Utilização da capacidade da nuvem após o instantâneo da nuvem](./media/storsimple-monitor-device/StorSimple_CloudCapacityUtil_For_AllVolumeContainers1M.png)
 
 
-- A **Utilização de capacidade de armazenamento do dispositivo** mostra a utilização total para o dispositivo, que será maior do que a utilização do armazenamento principal porque inclui a camada SSD linear. Essa camada contém uma quantidade de dados que também existe nas outras camadas do dispositivo. A capacidade na camada SSD linear é alternada para que quando novos dados chegam, os dados antigos sejam movidos para a camada HDD (momento no qual eles passam por eliminação de duplicação e são compactados) e subsequentemente para a nuvem.
+###Utilização da capacidade de armazenamento do dispositivo
 
-	Ao longo do tempo, utilização da capacidade principal e utilização da capacidade do dispositivo provavelmente aumentarão juntas até que os dados comecem a ser organizados em camadas na nuvem. Nesse ponto, a utilização da capacidade do dispositivo provavelmente começará a atingir a estabilidade, mas a utilização da capacidade principal aumentará conforme mais dados forem gravados.
+esses gráficos mostram a utilização total para o dispositivo mostra a utilização total para o dispositivo, que será maior do que a utilização do armazenamento principal porque inclui a camada SSD linear. Essa camada contém uma quantidade de dados que também existe nas outras camadas do dispositivo. A capacidade na camada SSD linear é alternada para que quando novos dados chegam, os dados antigos sejam movidos para a camada HDD (momento no qual eles passam por eliminação de duplicação e são compactados) e subsequentemente para a nuvem.
 
-	Os gráficos a seguintes mostram o uso da capacidade de armazenamento principal de um dispositivo StorSimple antes e depois de um instantâneo de nuvem ter sido capturado. O instantâneo de nuvem iniciou às 14h e a utilização da capacidade do dispositivo começou a diminuir naquela hora. O uso da capacidade de armazenamento do dispositivo diminuiu de 11,58 GB para 7,48 GB. Isso indica que provavelmente os dados descompactados na camada SSD linear tiveram a duplicação eliminada e foram compactados e movidos para a camada de unidade de disco rígido. Observe que, se o dispositivo já tiver uma grande quantidade de dados nas camadas de SSD e unidade de disco rígido, você poderá não ver essa redução. Neste exemplo, o dispositivo tem uma pequena quantidade de dados.
+Ao longo do tempo, utilização da capacidade principal e utilização da capacidade do dispositivo provavelmente aumentarão juntas até que os dados comecem a ser organizados em camadas na nuvem. Nesse ponto, a utilização da capacidade do dispositivo provavelmente começará a atingir a estabilidade, mas a utilização da capacidade principal aumentará conforme mais dados forem gravados.
 
-	![Utilização da capacidade do dispositivo antes do instantâneo da nuvem](./media/storsimple-monitor-device/StorSimple_DeviceCapacityUtil2M.png)
+Os gráficos a seguintes mostram o uso da capacidade de armazenamento principal de um dispositivo StorSimple antes e depois de um instantâneo de nuvem ter sido capturado. O instantâneo de nuvem iniciou às 14h e a utilização da capacidade do dispositivo começou a diminuir naquela hora. O uso da capacidade de armazenamento do dispositivo diminuiu de 11,58 GB para 7,48 GB. Isso indica que provavelmente os dados descompactados na camada SSD linear tiveram a duplicação eliminada e foram compactados e movidos para a camada de unidade de disco rígido. Observe que, se o dispositivo já tiver uma grande quantidade de dados nas camadas de SSD e unidade de disco rígido, você poderá não ver essa redução. Neste exemplo, o dispositivo tem uma pequena quantidade de dados.
 
-	![Utilização da capacidade do dispositivo após o instantâneo da nuvem](./media/storsimple-monitor-device/StorSimple_DeviceCapacityUtil1M.png)
+![Utilização da capacidade do dispositivo antes do instantâneo da nuvem](./media/storsimple-monitor-device/StorSimple_DeviceCapacityUtil2M.png)
+
+![Utilização da capacidade do dispositivo após o instantâneo da nuvem](./media/storsimple-monitor-device/StorSimple_DeviceCapacityUtil1M.png)
 
 
 ## Taxa de transferência de rede
@@ -95,4 +121,4 @@ O **desempenho do dispositivo** acompanha métricas relacionadas ao desempenho d
 
 - Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->
