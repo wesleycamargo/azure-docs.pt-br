@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/09/2015" 
 	ms.author="josephd"/>
 
 # Carga de trabalho de aplicativo de linha de negócios fase 5: criar o grupo de disponibilidade e adicionar os bancos de dados do aplicativo
@@ -59,7 +59,7 @@ Use estas etapas para fazer backup de um banco de dados.
 3.	No painel esquerdo, expanda o nó **Banco de Dados**.
 4.	Clique com o botão direito no banco de dados que deseja armazenar em backup, aponte para **Tarefas**, e, em seguida, clique em **Fazer backup**.
 5.	Na seção **Destino**, clique em **Remover** para remover o caminho de arquivo padrão para o arquivo de backup.
-6.	Clique em **Adicionar**. Em **Nome do arquivo**, digite **\\[nomeDaMáquina]\\backup[nomeDoBancoDeDados].bak**, em que **nomeDaMáquina** é o nome do **computador do SQL Server** primário e **nomeDoBancoDeDados** é o nome do banco de dados. Clique em **OK** e em **OK** novamente após a mensagem avisando que o backup foi bem-sucedido.
+6.	Clique em **Adicionar**. Em **Nome do arquivo**, digite **\[nomeDaMáquina]\\backup[nomeDoBancoDeDados].bak**, em que **nomeDaMáquina** é o nome do **computador do SQL Server** primário e **nomeDoBancoDeDados** é o nome do banco de dados. Clique em **OK** e em **OK** novamente após a mensagem avisando que o backup foi bem-sucedido.
 7.	No painel esquerdo, clique com o botão direito do mouse em **[nomeDoBancoDeDados]**, aponte para **Tarefas** e clique em **Fazer Backup**.
 8.	Em **Tipo de backup**, selecione **Log de Transações** e clique em **OK** duas vezes.
 9.	Mantenha essa sessão de área de trabalho remota aberta.
@@ -72,7 +72,7 @@ Use estas etapas para restaurar um banco de dados.
 4.	No painel esquerdo, clique com botão direito em **Bancos de Dados** e clique em **Restaurar Banco de Dados**.
 5.	Na seção **Fonte**, selecione **Dispositivo** e clique no botão de reticências (...)
 6.	Em **Selecionar dispositivos de backup**, clique em **Adicionar**.
-7.	Em **Local do arquivo de backup**, digite **\\[nomeDaMáquina]\\backup**, pressione **Enter**, selecione **[nomeDoBancoDeDados].bak** e clique em **OK** duas vezes. Agora você deverá ver o backup completo e o backup do log na seção **Conjuntos de backup a serem restaurados**.
+7.	Em **Local do arquivo de backup**, digite **\[nomeDaMáquina]\\backup**, pressione **Enter**, selecione **[nomeDoBancoDeDados].bak** e clique em **OK** duas vezes. Agora você deverá ver o backup completo e o backup do log na seção **Conjuntos de backup a serem restaurados**.
 8.	Em **Selecionar uma página**, clique em **Opções**. Na seção **Opções de restauração**, em **Estado de recuperação**, selecione **RESTAURAR COM NORECOVERY** e, em seguida, clique em **OK**. 
 9.	Quando solicitado, clique em **OK**.
 
@@ -128,4 +128,4 @@ Depois de configurar o ouvinte, você precisa configurar todas as máquinas virt
 
 [Carga de trabalho de serviços de infraestrutura do Azure: farm do SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

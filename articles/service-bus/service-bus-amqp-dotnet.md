@@ -27,7 +27,7 @@ O suporte para o AMQP 1.0 está disponível na versão 2.1 ou posterior do SDK d
 
 Por padrão, a biblioteca de cliente do .NET do Barramento de Serviço se comunica com o serviço do Barramento de Serviço usando um protocolo dedicado baseado em SOAP. O uso do AMQP 1.0 em vez do protocolo padrão requer a configuração explícita na cadeia de conexão do Service Bus, conforme descrito na próxima seção. Além dessa alteração, o código do aplicativo permanece basicamente inalterado ao usar o AMQP 1.0.
 
-Na versão atual, existem alguns outros recursos da API que não são suportados com o uso do AMQP. Esses recursos não suportados são listados posteriormente na seção "Recursos não suportados e restrições". Algumas das definições de configuração avançadas também apresentam um significado diferente com o uso do AMQP.
+Na versão atual, existem alguns outros recursos da API que não são suportados com o uso do AMQP. Esses recursos sem suporte são listados posteriormente na seção [Recursos sem suporte, restrições e diferenças de comportamento](#unsupported-features-restrictions-and-behavioral-differences). Algumas das definições de configuração avançadas também apresentam um significado diferente com o uso do AMQP.
 
 ### Configuração usando App.config
 
@@ -168,6 +168,7 @@ As APIs .NET expõem diversas configurações que controlam o comportamento do p
 Está pronto(a) para saber mais? Visite os links a seguir:
 
 - [Visão geral do AMQP do Barramento de Serviço]
+- [Suporte a AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço]
 - [AMQP no Barramento de Serviço para Windows Server]
 
   [Como usar as Filas do Service Bus]: service-bus-dotnet-how-to-use-queues.md
@@ -199,6 +200,7 @@ Está pronto(a) para saber mais? Visite os links a seguir:
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 
 [Visão geral do AMQP do Barramento de Serviço]: service-bus-amqp-overview.md
+[Suporte a AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP no Barramento de Serviço para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

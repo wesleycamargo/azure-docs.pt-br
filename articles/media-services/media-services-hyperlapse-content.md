@@ -203,13 +203,14 @@ O método a seguir carrega um arquivo de mídia como um ativo e cria um trabalho
 
 
 
+##Roteiros de aprendizagem dos Serviços de Mídia
 
-## Roteiros de aprendizagem dos Serviços de Mídia
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-Você pode exibir os roteiros de aprendizagem do AMS aqui:
+##Fornecer comentários
 
-- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 
 
@@ -220,4 +221,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 
 <!-- URLs. -->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

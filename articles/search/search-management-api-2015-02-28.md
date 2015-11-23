@@ -1,4 +1,4 @@
-<properties pageTitle="API REST de Gerenciamento da Pesquisa do Azure versão 28/02/2015 | Microsoft Azure" description="API REST de Gerenciamento da Pesquisa do Azure: versão 2015-02-28" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
+<properties pageTitle="API REST de Gerenciamento da Pesquisa do Azure Versão 2015-02-28 | Microsoft Azure | Serviço de pesquisa de nuvem hospedado" description="API REST de Gerenciamento da Pesquisa do Azure: versão 2015-02-28" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
 <tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="11/04/2015" ms.author="heidist" />
 
@@ -812,4 +812,4 @@ O código de status de resposta será HTTP 200 (OK) se tiver êxito.
 
 Nenhum.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

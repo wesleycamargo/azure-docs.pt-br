@@ -13,10 +13,18 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/22/2015" 
+	ms.date="11/12/2015" 
 	ms.author="jeffstok"/>
 
 #Notas de versão do Stream Analytic da Microsoft
+
+## Notas de versão de 12/11/2015 do Stream Analytics ##
+
+Esta versão contém a seguinte atualização.
+
+Title | Descrição
+---|---
+Novo comportamento de SELECT | SELECT no Stream Analytics foi estendido para permitir * como um acessador de propriedade de um registro aninhado. Para obter mais informações, consulte [http://msdn.microsoft.com/library/mt622759.aspx](http://msdn.microsoft.com/library/mt622759.aspx "Tipos de dados complexos").
 
 ## Notas de versão de 22/10/2015 do Stream Analytics ##
 
@@ -26,7 +34,7 @@ Title | Descrição
 ---|---
 Recursos adicionais de linguagem de consulta | O Stream Analytics expandiu a linguagem de consulta, incluindo os seguintes recursos: [ABS](https://msdn.microsoft.com/library/azure/mt574054.aspx), [CEILING](https://msdn.microsoft.com/library/azure/mt605286.aspx), [EXP](https://msdn.microsoft.com/library/azure/mt605289.aspx), [FLOOR](https://msdn.microsoft.com/library/azure/mt605240.aspx), [POWER](https://msdn.microsoft.com/library/azure/mt605287.aspx), [SIGN](https://msdn.microsoft.com/library/azure/mt605290.aspx), [SQUARE](https://msdn.microsoft.com/library/azure/mt605288.aspx) e [SQRT](https://msdn.microsoft.com/library/azure/mt605238.aspx).
 Limitações de agregação removidas | Esta versão remove a limitação de 15 agregações em uma consulta. Agora não há um limite para o número de agregações por consulta.
-Acréscimo do recurso System.Timestamp a GROUP BY | Agora, a função [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) permite qualquer window\_type ou [System.Timestamp](https://msdn.microsoft.com/library/azure/mt598501.aspx).
+Acréscimo do recurso System.Timestamp a GROUP BY | Agora, a função [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) permite window\_type ou então [System.Timestamp](https://msdn.microsoft.com/library/azure/mt598501.aspx).
 Acréscimo de OFFSET para janelas com Cascata e Salto | Por padrão, janelas com [Cascata](https://msdn.microsoft.com/library/azure/dn835055.aspx) e [Salto](https://msdn.microsoft.com/library/azure/dn835041.aspx) são alinhadas com tempo zero (1/1/0001 12:00:00 AM UTC). O novo parâmetro (opcional) “offsetsize” permite especificar um deslocamento (ou alinhamento) personalizado.
 
 
@@ -116,4 +124,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

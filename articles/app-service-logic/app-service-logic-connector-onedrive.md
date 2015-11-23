@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Usando o Conector do OneDrive em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure"
 	description="Como criar e configurar o Conector do OneDrive ou o aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
-	authors="anuragdalmia"
+	authors="rajeshramabathiran"
 	manager="dwrede"
 	editor=""
 	services="app-service\logic"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2015"
-	ms.author="andalmia"/>
+	ms.date="11/11/2015"
+	ms.author="rajram"/>
 
 # Introdução ao Conector do OneDrive e à adição dele a seu Aplicativo Lógico
 Conecte-se ao seu OneDrive para carregar, baixar e excluir arquivos. Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados como parte do fluxo. Você pode adicionar o Conector do OneDrive a seu fluxo de trabalho de negócios e processar dados como parte desse fluxo de trabalho dentro de um Aplicativo Lógico.
@@ -26,13 +26,7 @@ Para usar o conector do OneDrive, primeiro você precisa criar uma instância do
 2.	Em "Tudo", pesquise "Conector do OneDrive".
 3.	Configure o Conector do OneDrive da seguinte maneira:
 
-	![][1]
-	- **Nome** - dê um nome para o Conector do OneDrive
-	- **Plano do Serviço de Aplicativo** - selecione ou crie um plano de serviço de aplicativo
-	- **Camada de preços** - escolha uma camada de preços para o conector
-	- **Grupo de recursos** - selecione ou crie um grupo de recursos onde o conector deve residir
-	- **Assinatura** - escolha uma assinatura na qual você deseja que esse conector seja criado
-	- **Local** - escolha o local geográfico onde quer que o conector seja implantado
+	![][1] - **Nome** - dê um nome para o Conector do OneDrive - **Plano do Serviço de Aplicativo** - selecione ou crie um plano de serviço de aplicativo - **Camada de preços** - escolha uma camada de preços para o conector - **Grupo de recursos** - selecione ou crie um grupo de recursos onde o conector deve residir - **Assinatura** - escolha uma assinatura na qual você deseja que esse conector seja criado - **Local** -escolha o local geográfico onde quer que o conector seja implantado
 
 4. Clique em Criar. Será criado um novo Conector do OneDrive.
 5. Após criar a instância do aplicativo de API, você pode criar um aplicativo lógico no mesmo grupo de recursos para usar o conector do OneDrive.
@@ -49,8 +43,7 @@ Depois que o aplicativo de API for criado, você poderá usar o Conector do OneD
 	![][2]
 4.	Você pode soltar o aplicativo de API do Conector do OneDrive no editor clicando em "Conector do OneDrive". Clique no botão Autorizar. Forneça suas credenciais de Microsoft (se não for conectado automaticamente). Clique em "Sim" para permitir o acesso.
 
-	![][3]
-	![][4]
+	![][3] ![][4]
 
 5.	Agora você pode usar o Conector do OneDrive no fluxo. Atualmente, os gatilhos não estão disponíveis no conector do OneDrive. As ações disponíveis são: Obter Arquivo, Carregar um Arquivo, Excluir Arquivos e Listar Arquivos.
 
@@ -82,7 +75,7 @@ Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho 
 
 Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
+Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar Aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-onedrive/img1.PNG
@@ -97,4 +90,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [Criar um novo aplicativo lógico]: app-service-logic-create-a-logic-app.md
 [Definição da API do OneDrive]: https://msdn.microsoft.com/library/dn974227.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

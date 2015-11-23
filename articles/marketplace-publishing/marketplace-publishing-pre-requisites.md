@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-  ms.service="marketplace-publishing"
+  ms.service="marketplace"
   ms.devlang="na"
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
@@ -32,7 +32,7 @@ Para obter instruções detalhadas sobre como registrar uma conta do vendedor co
 > O registro da empresa deve ser concluído para começar. No entanto, enquanto sua empresa funcionar nas informações de imposto e bancárias na conta do Painel do Vendedor, os desenvolvedores podem começar a trabalhar na criação da imagem de máquina virtual no [Portal de publicação](https://publish.windowsazure.com), deixando-os certificados e testando-os no Ambiente de Preparo do Azure. Você precisará de aprovação da conta do vendedor completa apenas para a etapa final da publicação da sua oferta no Marketplace.
 
 > Se você tiver perguntas com a conclusão do Registro do Vendedor, faça o logon no bilhete de Suporte, conforme abaixo:  
-1\. Contate o [Suporte](http://go.microsoft.com/fwlink?LinkId=272975) 2. Escolha o **Registro do Painel do Vendedor e a sua conta** 3. Escolha **Registrar-se em uma conta de desenvolvedor** 4. Escolha um método de **contato**
+1\. Contate o [Suporte](http://go.microsoft.com/fwlink?LinkId=272975) 2. Escolha o **Registro do Painel do Vendedor e sua conta** 3. Escolha **Registrar-se em uma conta de desenvolvedor** 4. Escolha um método de **contato**
 
 
 ## Adquira uma assinatura "pré-paga" do Azure
@@ -51,4 +51,4 @@ Em seguida, estão os pré-requisitos técnicos para cada tipo de oferta. Clique
 ## Consulte também
 - [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

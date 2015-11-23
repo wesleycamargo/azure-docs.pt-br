@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="marketplace-publishing"
+   ms.service="marketplace"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -32,16 +32,7 @@ Algumas etapas são compartilhadas entre os diferentes tipos de soluções. Isso
 
 **Antes de começar qualquer trabalho no Azure Marketplace, você deve ser pré-aprovado. Não aplicável para publicadores de serviço de dados.**
 
-|| Imagem da Máquina Virtual | Serviço de desenvolvedor | Serviço de dados | Modelo de solução |
-|---|---|---|---|---|
-| **Obter pré-aprovação** | [Certificado pelo Microsoft Azure][link-certification] | [Certificado pelo Microsoft Azure][link-certification] | n/a | [Certificado Pelo Microsoft Azure][link-certification] |
-| **Etapa 1. Registrar conta do vendedor** | [Conta do vendedor da Microsoft: criação e registro][link-accts] | [Conta do vendedor da Microsoft: criação e registro][link-accts] | [Conta do vendedor da Microsoft: criação e registro][link-accts] | [Conta do vendedor da Microsoft: criação e registro][link-accts] |
-|**Etapa 2. Criar sua oferta**| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)|
-|| [Pré-requisitos técnicos VM][link-single-vm-prereq] | Pré-requisitos técnico do serviço do desenvolvedor | Pré-requisitos técnicos de serviço de dados | [Pré-requisitos técnicos do modelo de solução](marketplace-publishing-solution-template-creation-prerequisites.md) |
-||[a imagem da VM publicando guia][link-single-vm] | Guia de publicação do serviço de desenvolvedor | Guia de publicação do modelo de solução | [Guia de publicação do modelo de solução](marketplace-publishing-solution-template-creation.md) |
-|| [Guia de conteúdo de Marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de Marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de Marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de Marketing do Azure Marketplace][link-pushstaging] |
-| **Etapa 3. Envie por push sua oferta para Preparação** | [Sua oferta VM na Preparação](marketplace-publishing-vm-image-test-in-staging.md) | Teste sua oferta de serviço do desenvolvedor na Preparação | Teste sua oferta de serviço de dados em Preparação | [Teste o seu Modelo de Solução em Preparação](marketplace-publishing-solution-template-test-in-staging.md) |
-| **Etapa 4. Implante sua oferta no Marketplace** | [Implante sua oferta no Marketplace][link-pushprod] | [Implante sua oferta no Marketplace][link-pushprod] | [Implante sua oferta no Marketplace][link-pushprod] | [Implante sua oferta no Marketplace][link-pushprod] |
+|| Imagem da Máquina Virtual | Serviço de desenvolvedor | Serviço de dados | Modelo de solução | |---|---|---|---|---| | **Obter pré-aprovação** | [Certificado pelo Microsoft Azure][link-certification] | [Certificado pelo Microsoft Azure][link-certification] | n/a | [Certificado Pelo Microsoft Azure][link-certification] | | **Etapa 1. Registrar conta do vendedor** | [Conta do vendedor da Microsoft: criação e registro][link-accts] | [Conta do vendedor da Microsoft: criação e registro][link-accts] | [Conta do vendedor da Microsoft: criação e registro][link-accts] | [Conta do vendedor da Microsoft: criação e registro][link-accts] | |**Etapa 2. Criar sua oferta**| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| | | [Pré-requisitos técnicos VM][link-single-vm-prereq] | Pré-requisitos técnico do serviço do desenvolvedor | Pré-requisitos técnicos de serviço de dados | [Pré-requisitos técnicos do modelo de solução](marketplace-publishing-solution-template-creation-prerequisites.md) | | |[a imagem da VM publicando guia][link-single-vm] | Guia de publicação do serviço de desenvolvedor | Guia de publicação do modelo de solução | [Guia de publicação do modelo de solução](marketplace-publishing-solution-template-creation.md) | | | [Guia de conteúdo de Marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de Marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de Marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de Marketing do Azure Marketplace][link-pushstaging] | | **Etapa 3. Envie por push sua oferta para Preparação** | [Sua oferta VM na Preparação](marketplace-publishing-vm-image-test-in-staging.md) | Teste sua oferta de serviço do desenvolvedor na Preparação | Teste sua oferta de serviço de dados em Preparação | [Teste o seu Modelo de Solução em Preparação](marketplace-publishing-solution-template-test-in-staging.md) | | **Etapa 4. Implante sua oferta no Marketplace** | [Implante sua oferta no Marketplace][link-pushprod] | [Implante sua oferta no Marketplace][link-pushprod] | [Implante sua oferta no Marketplace][link-pushprod] | [Implante sua oferta no Marketplace][link-pushprod] |
 
 ## Suporte
 - [Obtenha suporte como um Editor][suppt-general]
@@ -75,4 +66,4 @@ Algumas etapas são compartilhadas entre os diferentes tipos de soluções. Isso
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-pushprod]: marketplace-publishing-push-to-production.md
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

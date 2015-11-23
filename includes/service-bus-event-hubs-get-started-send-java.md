@@ -1,5 +1,6 @@
 ## Enviar mensagens ao Hub de Eventos
-Nesta seção, vamos escrever um aplicativo de console Java para enviar eventos ao seu Hub de Eventos. Usaremos o provedor JMS AMQP do [projeto Apache Qpid](http://qpid.apache.org/). Isso é semelhante a usar tópicos e filas do Barramento de Serviço com AMQP por meio de Java, como mostrado [aqui](../articles/service-bus/service-bus-java-how-to-use-jms-api-amqp.md). Para saber mais, consulte a [documentação do Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) e o [Serviço de Mensagens Java](http://www.oracle.com/technetwork/java/jms/index.html).
+
+Nesta seção, vamos escrever um aplicativo de console Java para enviar eventos ao seu Hub de Eventos. Usaremos o provedor JMS AMQP do [projeto Apache Qpid](http://qpid.apache.org/). Isso é semelhante a usar tópicos e filas do Barramento de Serviço com AMQP por meio de Java, como mostrado [aqui](../service-bus/service-bus-java-how-to-use-jms-api-amqp.md). Para saber mais, consulte a [documentação do Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) e o [Serviço de Mensagens Java](http://www.oracle.com/technetwork/java/jms/index.html).
 
 1. No Eclipse, instale o [Kit de Ferramentas do Azure para Eclipse](https://msdn.microsoft.com/library/azure/hh690946.aspx). Isso inclui as bibliotecas de cliente do AMQP, Qpid JMS.
 
@@ -88,11 +89,7 @@ Nesta seção, vamos escrever um aplicativo de console Java para enviar eventos 
 
 
 
-<!-- Links -->
-[Azure Management Portal]: https://manage.windowsazure.com/
-
-
 <!-- Images -->
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-java1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

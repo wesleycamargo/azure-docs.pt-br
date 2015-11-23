@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Transição da versão da api de visualização=2014* para a versão da api=2015*" 
+	pageTitle="Transição da versão da api de visualização=2014* para a versão da api=2015* | Microsoft Azure | Serviço de pesquisa de nuvem hospedado" 
 	description="Saiba mais sobre as alterações significativas e como migrar o código escrito na versão de visualização de 31-07-2014 ou na versão de visualização de 20-10-2014 para a Pesquisa do Azure, versão da api=28-02-2015." 
 	services="search" 
 	documentationCenter="" 
@@ -22,8 +22,8 @@ A Pesquisa do Azure é um serviço de pesquisa de nuvem hospedado do Microsoft A
 
 Como um cliente de visualização, você pode ter usado uma dessas versões mais antigas de visualização:
 
-- [2014-07-31-Preview](search-api-2014-07-31-preview.md)
-- [2014-10-20-Preview](search-api-2014-10-20-preview.md)
+- 2014-07-31-Preview
+- 2014-10-20-Preview
 
 Agora que a Pesquisa do Azure está disponível publicamente, recomendamos fazer a transição para versões mais recentes: 2015-02-28 é a versão oficial da API da versão disponível publicamente da Pesquisa do Azure. Esta versão está documentada no [MSDN](https://msdn.microsoft.com/library/azure/dn798933.aspx).
 
@@ -144,4 +144,4 @@ A versão de API `2015-02-28` está sob SLA. Use as opções de suporte e os lin
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

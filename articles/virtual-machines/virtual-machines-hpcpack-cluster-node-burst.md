@@ -1,5 +1,13 @@
-<properties pageTitle="Adicionar nós de “disparo contínuo” a um cluster HPC Pack | Microsoft Azure" description="Saiba como adicionar instâncias de função de trabalho em execução em um serviço de nuvem sob demanda como recursos de computação a um nó de cabeçalho do HPC Pack no Azure." services="virtual-machines" documentationCenter="" authors="dlepow" manager="timlt" editor="" tags="azure-service-management"/>
-<tags 
+<properties
+ pageTitle="Adicionar nós de disparo contínuo a um cluster de HPC Pack | Microsoft Azure"
+ description="Saiba como adicionar instâncias de função de trabalho em execução em um serviço de nuvem sob demanda como recursos de computação a um nó de cabeçalho do HPC Pack no Azure."
+ services="virtual-machines"
+ documentationCenter=""
+ authors="dlepow"
+ manager="timlt"
+ editor=""
+ tags="azure-service-management,hpc-pack"/>
+<tags
 ms.service="virtual-machines"
  ms.devlang="na"
  ms.topic="article"
@@ -33,7 +41,7 @@ Se desejar usar o tamanho de instância A8 ou A9 de uso intensivo de computaçã
 
 ## Etapa 1: criar um serviço de nuvem e uma conta de armazenamento para adicionar nós do Azure
 
-Use o Portal do Azure ou ferramentas equivalentes para configurar o seguinte, que é necessário para implantar seus nós do Azure:
+Use o portal do Azure ou ferramentas equivalentes para configurar o seguinte, que é necessário para implantar seus nós do Azure:
 
 * Um novo serviço de nuvem do Azure
 * Uma nova conta de armazenamento do Azure
@@ -80,4 +88,4 @@ Se você encontrar problemas ao implantar nós do Azure, veja [Solucionar proble
 <!--Image references-->
 [burst]: ./media/virtual-machines-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -1,10 +1,10 @@
 <properties
 	pageTitle="Armazenamento Premium: Armazenamento de Alto Desempenho para as Cargas de Trabalho da Máquina Virtual do Azure"
-	description="Saiba mais sobre o armazenamento Premium do Azure para discos. Saiba como criar uma conta de armazenamento Premium."
+	description="O Armazenamento Premium dá suporte ao disco de alto desempenho e baixa latência para cargas de trabalho que usam muita E/S em execução em máquinas virtuais do Azure. VMs série DS e GS do Azure dão suporte ao Armazenamento Premium."
 	services="storage"
 	documentationCenter=""
-	authors="tamram"
-	manager="carolz"
+	authors="ms-prkhad"
+	manager=""
 	editor="tysonn"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/06/2015"
+	ms.date="11/04/2015"
 	ms.author="tamram;selcint"/>
 
 
@@ -21,15 +21,13 @@
 
 ## Visão geral
 
-Bem-vindo aos **Discos do Armazenamento Premium do Azure** para máquinas virtuais mais rápidas.
+O Armazenamento Premium do Azure dá suporte de disco de alto desempenho e baixa latência para máquinas virtuais executando cargas de trabalho intensivas para entradas e saídas. Discos de VM (máquina virtual) que usam o armazenamento Premium armazenam dados em SSDs (unidades de estado sólido). Você pode migrar os discos de VM do seu aplicativo para o Armazenamento Premium do Azure para aproveitar a velocidade e o desempenho desses discos.
 
-Agora, com a introdução do Armazenamento Premium, o Microsoft Azure oferece dois tipos de armazenamento durável: **Armazenamento Premium** e **Armazenamento Padrão**. O Armazenamento Premium armazena dados utilizando a mais recente tecnologia de unidades de estado sólido (SSD), enquanto o armazenamento padrão armazena dados em unidades de disco rígido (HDD).
+Uma VM do Azure dá suporte à anexação vários discos de Armazenamento Premium, para que seus aplicativos possam ter até 64 TB de armazenamento por VM. Com o Armazenamento Premium, seus aplicativos podem atingir 80.000 IOPS (operações de entrada/saída por segundo) por VM e taxa de transferência de disco de 2.000 MB por segundo por VM com latências extremamente baixas para operações de leitura.
 
-O Armazenamento Premium oferece suporte de disco de alto desempenho e baixa latência para cargas de trabalho intensivas para entradas e saídas em execução nas máquinas virtuais do Azure. Você pode anexar vários discos de Armazenamento Premium a uma máquina virtual (VM). Com o Armazenamento Premium, seus aplicativos podem ter até 64 TB de armazenamento por VM e atingir 80.000 IOPS (operações de entrada/saída por segundo) por VM e taxa de transferência de disco de 2.000 MB por segundo por VM com latências extremamente baixas para operações de leitura.
+>[AZURE.NOTE]É recomendável migrar qualquer disco de máquina virtual que exija IOPS alta para o Armazenamento Premium do Azure para obter o melhor desempenho para o seu aplicativo. Se o disco não requer IOPS alta, você pode limitar os custos mantendo-a no armazenamento padrão, que armazena dados de disco da máquina virtual em HDDs (unidades de disco rígido) em vez de SSDs.
 
-Para começar com o Armazenamento Premium do Azure, visite a página [Introdução gratuita](http://azure.microsoft.com/pricing/free-trial/).
-
-Este artigo fornece uma visão geral detalhada do Armazenamento Premium do Azure.
+Para começar com o Armazenamento Premium do Azure, visite a página [Introdução gratuita](http://azure.microsoft.com/pricing/free-trial/). Para obter informações sobre como migrar as máquinas virtuais existentes para o Armazenamento Premium, consulte [Migrando para o Armazenamento Premium do Azure](storage-migration-to-premium-storage.md).
 
 ## Coisas importantes a saber sobre o Armazenamento Premium
 
@@ -60,6 +58,8 @@ Você pode usar o Armazenamento Premium para discos de uma das seguintes maneira
 - Criar uma nova série DS ou série GS de VM. Ao criar a VM, selecione uma conta de Armazenamento Premium criada anteriormente, crie uma nova ou deixe o Portal criar uma conta premium padrão.
 
 O Azure usa a conta de armazenamento como um contêiner para seu sistema operacional (SO) e discos de dados. Em outras palavras, se você cria uma VM do Azure da série DS ou série GS e seleciona uma conta de Armazenamento Premium do Azure, o sistema operacional e os discos de dados são armazenados nessa conta de armazenamento.
+
+Para obter informações sobre como migrar as máquinas virtuais existentes para o Armazenamento Premium, consulte [Migrando para o Armazenamento Premium do Azure](storage-migration-to-premium-storage.md).
 
 Para aproveitar os benefícios do Armazenamento Premium, crie uma conta de Armazenamento Premium usando primeiro um tipo de conta *Premium\_LRS*. Para fazer isso, você pode usar o [Portal de Visualização do Microsoft Azure](https://portal.azure.com/), o [PowerShell do Azure](../install-configure-powershell.md) ou a [ API REST do Serviço de Gerenciamento](http://msdn.microsoft.com/library/azure/ee460799.aspx). Para obter instruções detalhadas, consulte [Criação e uso da conta do Armazenamento Premium para discos](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
@@ -330,17 +330,14 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 
 ## Próximas etapas
 
-[Usando operações do serviço Blob com o Armazenamento Premium do Azure](http://go.microsoft.com/fwlink/?LinkId=521969)
-
-[Criar uma máquina virtual executando o Windows](../virtual-machines-windows-tutorial-azure-preview.md)
-
-[Tamanhos de máquinas virtuais e serviços de nuvem do Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
-
-[Documentação de armazenamento](http://azure.microsoft.com/documentation/services/storage/)
-
-[Referência do MSDN](http://msdn.microsoft.com/library/azure/gg433040.aspx)
+- [Usando operações do serviço Blob com o Armazenamento Premium do Azure](http://go.microsoft.com/fwlink/?LinkId=521969)
+- [Migrando para o Armazenamento Premium do Azure](storage-migration-to-premium-storage.md).
+- [Criar uma máquina virtual executando o Windows](../virtual-machines-windows-tutorial-azure-preview.md)
+- [Tamanhos de máquinas virtuais e serviços de nuvem do Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
+- [Documentação de armazenamento](http://azure.microsoft.com/documentation/services/storage/)
+- [Referência do MSDN](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

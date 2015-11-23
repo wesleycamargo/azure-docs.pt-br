@@ -75,8 +75,7 @@ O mesmo código de rastreamento que você adicionou ao aplicativo acima para dia
 ## Próximas etapas
 
 * [Introdução à integridade da Malha do Serviço](service-fabric-health-introduction.md)
-* [Configuração do Application Insights](service-fabric-diagnostics-application-insights-setup.md)
 * [Diagnóstico e monitoramento de desempenho de Atores da Malha do Serviço do Azure](service-fabric-reliable-actors-diagnostics.md)
 * [Diagnóstico de Serviços Confiáveis com estado](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -44,7 +44,9 @@ O tipo .NET do lado do cliente tipado correspondente é o seguinte:
 		public bool Complete { get; set; }
 	}
 
-Quando o esquema dinâmico está habilitado, os Serviços Móveis do Azure geram automaticamente novas colunas com base no objeto de solicitações de inserção ou atualização. Para obter mais informações, consulte [Esquema dinâmico](http://go.microsoft.com/fwlink/?LinkId=296271).
+Observe que o [JsonPropertyAttribute](http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm) é usado para definir o mapeamento entre o mapeamento de PropertyName entre o tipo de cliente e a tabela.
+
+Quando o esquema dinâmico está habilitado em um serviço móvel back-end do JavaScript, os Serviços Móveis do Azure geram automaticamente novas colunas com base no objeto em solicitações de inserção ou atualização. Para obter mais informações, consulte [Esquema dinâmico](http://go.microsoft.com/fwlink/?LinkId=296271). Em um serviço móvel back-end do .NET, a tabela é definida no modelo de dados do projeto.
 
 ##<a name="create-client"></a>Como criar o cliente dos Serviços Móveis
 
@@ -62,14 +64,14 @@ No código acima, substitua `AppUrl` e `AppKey` pela URL e pela chave do aplicat
 
 ##<a name="instantiating"></a>Como criar uma referência de tabela
 
-Todo o código que acessa ou modifica dados na tabela dos Serviços Móveis chama funções no objeto `MobileServiceTable`. Você obtém uma referência à tabela chamando a função [GetTable](http://msdn.microsoft.com/library/windowsazure/jj554275.aspx) em uma instância do `MobileServiceClient`.
+Todo o código que acessa ou modifica dados na tabela dos Serviços Móveis chama funções no objeto `MobileServiceTable`. Você obtém uma referência à tabela chamando o método [GetTable](https://msdn.microsoft.com/library/azure/jj554275.aspx) em uma instância do `MobileServiceClient`, conforme demonstrado a seguir:
 
     IMobileServiceTable<TodoItem> todoTable =
 		client.GetTable<TodoItem>();
 
-Esse é o modelo de serialização tipado. Consulte a discussão sobre o <a href="#untyped">modelo de serialização não tipado</a> abaixo.
+Esse é o modelo de serialização tipado; consulte a discussão sobre o [modelo de serialização não tipado](#untyped) abaixo.
 
-##<a name="querying"></a>Como consultar dados de um serviço móvel
+##<a name="querying"></a>Como consultar dados de um Serviço Móvel
 
 Esta seção descreve como emitir consultas para o serviço móvel, que inclui as seguintes funcionalidades:
 
@@ -426,7 +428,7 @@ Alguns controles no tempo de execução gerenciado dão suporte a uma interface 
 		lb.ItemsSource = items;
 
 
-Para usar a nova coleção nos aplicativos do Windows Phone 8 e do “Silverlight”, use os métodos da extensão `ToCollection` em `IMobileServiceTableQuery<T>` e `IMobileServiceTable<T>`. Para efetivamente carregar dados, chame `LoadMoreItemsAsync()`.
+Para usar a nova coleção nos aplicativos do Windows Phone 8 e do “Silverlight”, use os métodos de extensão `ToCollection` em `IMobileServiceTableQuery<T>` e `IMobileServiceTable<T>`. Para efetivamente carregar dados, chame `LoadMoreItemsAsync()`.
 
 	MobileServiceCollection<TodoItem, TodoItem> items = todoTable.Where(todoItem => todoItem.Complete==false).ToCollection();
 	await items.LoadMoreItemsAsync();
@@ -516,7 +518,7 @@ No formulário mais simplificado, você pode usar o fluxo de cliente conforme mo
 
 ####Entrada única usando a Conta da Microsoft com o Live SDK
 
-Para poder autenticar usuários, você deverá registrar seu aplicativo na Central de desenvolvedores da conta da Microsoft. Em seguida, você deve conectar esse registro ao serviço móvel. Conclua as etapas em [Registrar seu aplicativo para usar um logon de conta da Microsoft](mobile-services-how-to-register-microsoft-authentication.md) para criar um registro de conta da Microsoft e conectá-lo ao seu serviço móvel. Se você tiver as versões da Windows Store e do Windows Phone 8/Silverlight de seu aplicativo, registre a versão da Windows Store primeiro.
+Para poder autenticar usuários, você deverá registrar seu aplicativo na Central de desenvolvedores da conta da Microsoft. Em seguida, você deve conectar esse registro ao serviço móvel. Conclua as etapas do tópico [Registrar seu aplicativo para usar um logon de conta da Microsoft](mobile-services-how-to-register-microsoft-authentication.md) a fim de criar um registro de conta da Microsoft e conectá-lo ao seu serviço móvel. Se você tiver as versões da Windows Store e do Windows Phone 8/Silverlight de seu aplicativo, registre a versão da Windows Store primeiro.
 
 O código a seguir é autenticado usando o Live SDK e usa o token retornado para entrar em seu serviço móvel.
 
@@ -669,16 +671,19 @@ Para dar suporte ao seu cenário específico de aplicativo, convém personalizar
 		await table.InsertAsync(newItem);
 	}
 
-	public class MyHandler : DelegatingHandler
-	{
-		protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-		{
-			request.Headers.Add("x-my-header", "my value");
-			var response = awaitbase.SendAsync(request, cancellationToken);
-			response.StatusCode = HttpStatusCode.ServiceUnavailable;
-			return response;
-		}
-	}
+    public class MyHandler : DelegatingHandler
+    {
+        protected override async Task<HttpResponseMessage> 
+            SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+        {
+            // Add a custom header to the request.
+            request.Headers.Add("x-my-header", "my value");
+            var response = await base.SendAsync(request, cancellationToken);
+            // Set a differnt response status code.
+            response.StatusCode = HttpStatusCode.ServiceUnavailable;
+            return response;
+        }
+    }
 
 Este código adiciona um novo cabeçalho **x-my-header** na solicitação e define arbitrariamente o código de resposta como indisponível. Num cenário do mundo real, você definiria o código de status de resposta com base em alguma lógica personalizada exigida pelo seu aplicativo.
 
@@ -738,6 +743,7 @@ Essa propriedade converte todas as propriedades em letras minúsculas, durante a
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md/#Commands_to_manage_mobile_services
 [Tutorial de simultaneidade otimista]: mobile-services-windows-store-dotnet-handle-database-conflicts.md
+[MobileServiceClient]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
 
 [IncludeTotalCount]: http://msdn.microsoft.com/library/windowsazure/dn250560.aspx
 [Ignorar]: http://msdn.microsoft.com/library/windowsazure/dn250573.aspx
@@ -747,4 +753,4 @@ Essa propriedade converte todas as propriedades em letras minúsculas, durante a
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 [InvokeApiSync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

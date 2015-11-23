@@ -69,7 +69,7 @@ O módulo Azure lê as variáveis de ambiente AZURE\_SERVICEBUS\_NAMESPACE e AZU
 
 Para obter um exemplo de como definir as variáveis de ambiente em um arquivo de configuração para um Serviço de Nuvem do Azure, consulte [Serviço de Nuvem do Node.js com Armazenamento][].
 
-Para obter um exemplo de como definir variáveis de ambiente no portal de gerenciamento de um Site do Azure, consulte [Aplicativo Node.js na Web com armazenamento][].
+Para ver um exemplo de como definir variáveis de ambiente no portal do Azure para um Site do Azure, veja [Aplicativo Web do Node.js com armazenamento][].
 
 ## Criar um tópico
 
@@ -292,7 +292,7 @@ Caso o aplicativo falhe após o processamento da mensagem, mas antes que o méto
 
 ## Excluir tópicos e assinaturas
 
-Os tópicos e as assinaturas são persistentes e devem ser explicitamente excluídos por meio do portal de Gerenciamento do Azure ou de forma programática. O exemplo a seguir demonstra como excluir o tópico denominado `MyTopic`:
+Os tópicos e as assinaturas são persistentes e devem ser explicitamente excluídos por meio do portal do Azure ou de forma programática. O exemplo a seguir demonstra como excluir o tópico denominado `MyTopic`:
 
     serviceBusService.deleteTopic('MyTopic', function (error) {
         if (error) {
@@ -324,7 +324,7 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
   [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [Criar e implantar um aplicativo Node.js em um site do Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Serviço de Nuvem do Node.js com Armazenamento]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-  [Aplicativo Node.js na Web com armazenamento]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
+  [Aplicativo Web do Node.js com armazenamento]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

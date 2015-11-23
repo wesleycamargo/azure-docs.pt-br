@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="application-gateway"
    authors="joaoma"
-   manager="jdial"
+   manager="carmonm"
    editor="tysonn"/>
 <tags 
    ms.service="application-gateway"
@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="11/03/2015"
+   ms.date="11/09/2015"
    ms.author="joaoma"/>
 
 # O que é o Application Gateway?
@@ -52,9 +52,10 @@ O balanceamento de carga de camada 7 HTTP é útil para:
 
 O Application Gateway atualmente é oferecido em 3 tamanhos: Pequeno, Médio e Grande. Os tamanhos de instância pequenos são destinados a cenários de desenvolvimento e teste.
 
-Você pode criar até 10 gateways de aplicativo por assinatura e cada um deles pode ter até 10 instâncias. O balanceamento de carga do Application Gateway como um serviço gerenciado pelo Azure permite o provisionamento de um balanceador de carga de camada 7 por trás do balanceador de carga de software do Azure.
+Você pode criar até 50 application gateways por assinatura e cada um deles pode ter até 10 instâncias. O balanceamento de carga do Application Gateway como um serviço gerenciado pelo Azure permite o provisionamento de um balanceador de carga de camada 7 por trás do balanceador de carga de software do Azure.
 
 A tabela abaixo mostra uma taxa de transferência de desempenho médio para cada instância do Application Gateway:
+
 
 | Resposta de página de back-end | Pequena | Média | Grande|
 |---|---|---|---|
@@ -62,24 +63,25 @@ A tabela abaixo mostra uma taxa de transferência de desempenho médio para cada
 |100k | 35 Mbps | 100 Mbps| 200 Mbps |
 
 
->[AZURE.NOTE]Os números de desempenho também dependem da resposta HTTP do aplicativo Web ao Application Gateway.
+>[AZURE.NOTE]Essa é uma orientação aproximada para uma taxa de transferência de application gateway. A taxa de transferência real depende de diversos detalhes de ambiente, como o tamanho médio da página, o local das instâncias de back-end, o tempo de processamento para o servidor de uma página, para citar alguns.
 
-
-## Monitoramento
+## Monitoramento da integridade
  
-O Application Gateway monitora o status de integridade das instâncias de back-end usando portas de investigação, testando a resposta HTTP das seções HttpSettings do gateway periodicamente. A investigação espera uma resposta HTTP bem-sucedida no intervalo de códigos de resposta 200-390 e testa os endereços IP de back-end a cada 30 segundos para verificar a resposta HTTP.
 
-Quando uma resposta HTTP bem-sucedida é recebida, o endereço IP é marcado como íntegro. Se a investigação falhar, o endereço IP é removido de um pool de back-end íntegro e o tráfego para de fluir para esse servidor. A investigação de integridade continua a cada 30 segundos para a instância da Web com falha até ela ficar online novamente. Quando a instância da Web responde com êxito à investigação de integridade, ela é adicionada de volta ao pool de back-end íntegro e o tráfego começa a fluir para essa instância novamente.
+O Application Gateway do Azure monitora a integridade das instâncias de back-end a cada 30 segundos. Ele envia uma solicitação de investigação de integridade do HTTP para cada instância da porta configurada nos elementos de configuração *BackendHttpSettings*. A investigação de integridade espera uma resposta HTTP bem-sucedida com código de status de resposta no intervalo de 200 a 399.
+
+Quando é recebida uma resposta HTTP com êxito, o servidor back-end é marcado como íntegro e continua a receber tráfego do Application Gateway do Azure. Se a investigação falhar, o endereço IP é removido de um pool de back-end íntegro e o tráfego para de fluir para esse servidor. A investigação de integridade ainda continua a cada 30 segundos para a instância de back-end com falha para verificar o status de integridade atual. Quando a instância da back-end responde com êxito à investigação de integridade, ela é adicionada de volta como íntegro ao pool de back-end e o tráfego começa a fluir para essa instância novamente.
 
 ## Configurando e gerenciando
 
 É possível criar e gerenciar um application gateway usando as APIs REST e os cmdlets do PowerShell.
 
 
+
 ## Próximas etapas
 
 Criar um Application Gateway. Confira [Criar um Application Gateway](application-gateway-create-gateway.md).
 
-Configurar o descarregamento SSL. Veja [Configurar o descarregamento SSL com o Application Gateway](application-gateway-ssl.md).
+Configurar o descarregamento SSL. Confira [Configurar o descarregamento de SSL com o Application Gateway](application-gateway-ssl.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

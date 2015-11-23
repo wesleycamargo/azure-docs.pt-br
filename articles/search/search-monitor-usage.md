@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Monitorar uso e estatísticas em um serviço da Pesquisa do Azure | Microsoft Azure" 
+   pageTitle="Monitorar uso e estatísticas em um serviço da Pesquisa do Azure | Microsoft Azure | Serviço de pesquisa de nuvem hospedado" 
    description="Acompanhe o consumo de recursos e o tamanho de índice da Pesquisa do Azure, um serviço de pesquisa de nuvem hospedado do Microsoft Azure." 
    services="search" 
    documentationCenter="" 
@@ -57,4 +57,4 @@ Visite [Gerenciar o serviço de pesquisa no Microsoft Azure](search-manage.md) p
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

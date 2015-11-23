@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/28/2015"
+   ms.date="11/05/2015"
    ms.author="mwinkle"/>
 
 # Lista de pendências de documentação da Análise Azure Data Lake
@@ -24,10 +24,10 @@ Continuaremos adicionando nova documentação para dar suporte à Análise Azure
 
 Área |Tópico | Prioridade | Status | Atribuído a | Solicitado por 
 ------------- | ------------- | -------------- | -------------- | --------------- | --------------
-U-SQL | Consulta Distribuída | 1 | Em andamento | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | Consulta Distribuída | 1 | Em espera | [@edmacauley](https://github.com/edmacauley) | 
 U-SQL | Processando o JSON | 2 | Pendente | [@mumian](https://github.com/mumian) | [@mwinkle](https://github.com/mwinkle)
 O Barramento de | Interagindo com o Curl | 3 |Pendente |[@mumian](https://github.com/mumian)
-U-SQL | Tabelas particionadas |1 | Pendente | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | Tabelas particionadas |1 | Em andamento | [@edmacauley](https://github.com/edmacauley) | 
 U-SQL | Ajuste de desempenho | 2 | Pendente | [@MikeRys](https://github.com/mikerys) | 
 U-SQL | Guia do programador | 2 | Pendente | [@edmacauley](https://github.com/edmacauley) | 
 U-SQL | Introdução ao U-SQL de uma tela de fundo do T-SQL | 1 | Pendente | [@edmacauley](https://github.com/edmacauley) | [@MikeRys](https://github.com/mikerys)
@@ -53,4 +53,4 @@ Há algumas opções para fornecer comentários sobre a lista de pendências:
 * Enviar uma solicitação pull sobre este documento no [Repositório de Conteúdo do Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Enviar um email para [adlafeedback@microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

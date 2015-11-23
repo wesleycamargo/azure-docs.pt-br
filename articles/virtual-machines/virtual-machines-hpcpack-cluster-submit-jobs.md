@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-resource-manager,azure-service-management"/>
+ tags="azure-resource-manager,azure-service-management,hpc-pack"/>
 <tags
 ms.service="virtual-machines"
  ms.devlang="na"
@@ -156,14 +156,14 @@ Para verificar a configuração, tente executar trabalhos no cluster no Azure us
 
     O gerenciador de trabalhos do HPC abre e mostra uma lista de trabalhos no nó principal.
 
-**Usar o portal de trabalho baseado na Web no nó principal**
+**Para usar o portal da Web no nó de cabeçalho**
 
 1. Inicie um navegador da Web no computador cliente e digite o seguinte endereço: ```
     https://HeadNodeDnsName.cloudapp.net/HpcPortal
     ```
 2. Na caixa de diálogo de segurança, digite as credenciais de domínio do administrador de cluster HPC. (Você também pode adicionar outros usuários do cluster em funções diferentes. Para saber mais, consulte [Gerenciando Usuários de Cluster](https://technet.microsoft.com/library/ff919335.aspx).)
 
-    O portal abre no modo de exibição de lista de trabalho.
+    O portal da Web abre no modo de exibição de lista de trabalho.
 
 3. Para enviar um trabalho de exemplo que retorna a cadeia de caracteres "Olá, Mundo" do cluster, clique em **Novo trabalho** no painel de navegação esquerdo.
 
@@ -183,4 +183,4 @@ Para verificar a configuração, tente executar trabalhos no cluster no Azure us
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-hpcpack-cluster-submit-jobs/jobsubmit.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -9,7 +9,7 @@
    tags=""/>
 
 <tags
-   ms.service="marketplace-publishing"
+   ms.service="marketplace"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -32,7 +32,7 @@ Este artigo fornece instruções de como se tornar certificados Microsoft Azure.
 
 **Países de “origem de venda”**
 
-> [AZURE.WARNING]Para vender seus serviços no Microsoft Azure Marketplace, sua entidade registrada precisa estar dentro dos países aprovados para “origem de venda”. Essa restrição é por razões de pagamento e tributação. Vamos examinar expandir essa lista de países em um futuro próximo, portanto, fique ligado. Para obter a lista completa, consulte a seção 1b do documento no link [http://go.microsoft.com/fwlink/?LinkID=526833](http://go.microsoft.com/fwlink/?LinkID=526833).
+> [AZURE.WARNING]Para vender seus serviços no Microsoft Azure Marketplace, sua entidade registrada precisa estar dentro dos países aprovados para “origem de venda”. Essa restrição é por razões de pagamento e tributação. Estamos considerando a expansão dessa lista de países em um futuro próximo, portanto, fique atento. Para obter a lista completa, consulte a seção 1b do documento no link [http://go.microsoft.com/fwlink/?LinkID=526833](http://go.microsoft.com/fwlink/?LinkID=526833).
 
 ## Próxima etapa
 Depois que você recebeu aprovação prévia do programa de certificação do Microsoft Azure, você poderá ir para a **Etapa 1**, [Conta de Vendedor da Microsoft: Criação e Registro](marketplace-publishing-accounts-creation-registration.md).
@@ -40,4 +40,4 @@ Depois que você recebeu aprovação prévia do programa de certificação do Mi
 ## Consulte também
 - [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

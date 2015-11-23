@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução aos Hubs de Evento"
+	pageTitle="Introdução aos Hubs de eventos em C com Apache Storm | Microsoft Azure"
 	description="Siga este tutorial para começar a usar os Hubs de Eventos do Azure; enviar eventos em C; e receber eventos em um cluster do Apache Storm."
 	services="event-hubs"
 	documentationCenter=""
@@ -44,7 +44,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 	![][1]
 
-3. Digite um nome para seu Hub de Eventos, selecione a região desejada e clique em **Criar novo Hub de Eventos**.
+3. Digite um nome para o Hub de Evento, selecione a região desejada e clique em **Criar um novo Hub de Evento**.
 
 	![][2]
 
@@ -111,4 +111,4 @@ Os seguintes recursos estão disponíveis para o desenvolvimento de aplicativos 
 [Desenvolver aplicativos de processamento de dados de fluxo com SCP.NET e C# em Storm]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

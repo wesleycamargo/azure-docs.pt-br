@@ -3,7 +3,7 @@
    description="Depuração de um Serviço de Nuvem ou Máquina Virtual no Visual Studio"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="patshea123"
+   authors="TomArcher"
    manager="douge"
    editor="tlee" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
    ms.date="10/28/2015"
-   ms.author="patshea" />
+   ms.author="tarcher" />
 
 # Depurando um serviço de nuvem ou máquina virtual do Azure no Visual Studio
 
@@ -190,4 +190,4 @@ Os projetos ASP.NET do Visual Studio oferecem uma opção para criar uma máquin
 - Use o **Intellitrace** para coletar um log de chamadas e eventos de um servidor de liberação. Consulte [Depurando um serviço de nuvem publicado com o IntelliTrace e o Visual Studio](http://go.microsoft.com/fwlink/?LinkID=623016).
 - Use o **Diagnóstico do Azure** para registrar em log informações detalhadas do código em execução nas funções, estejam elas em execução no ambiente de desenvolvimento ou no Azure. Consulte [Coletando dados de log usando o Diagnóstico do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400450).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

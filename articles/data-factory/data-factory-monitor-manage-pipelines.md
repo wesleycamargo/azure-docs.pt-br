@@ -67,15 +67,66 @@ Clicar duas vezes em **PartitionedProductsUsageTable** no diagrama exibirá toda
 
 As fatias de conjunto de dados na data factory podem ter um dos seguintes status:
 
-Status | Substatus | Descrição
------- | ---------- | -----------
-Aguardando | ScheduledTime<br/>DatasetDependencies<br/>ComputeResources<br/>ConcurrencyLimit<br/>ActivityResume<br/>Tentar novamente<br/>Validação<br/>ValidationRetry | Aguardando que as pré-condições sejam atendidas antes da execução. Consulte o sub status para descobrir o que a fatia está aguardando.
-In-Progress | Iniciando<br/>Configurando<br/>Alocando Recursos<br/>Executando<br/>Validando | Atualmente, a atividade está sendo executada e produzindo/validando os dados para uma fatia específica.
-Falha | | Falha no processamento da fatia. Consulte os logs de erro para descobrir o que causou a falha
-Ready | | Êxito no processamento da fatia. A fatia está pronta para consumo.
-Skip | | Não processar essa fatia
+<table>
+<tr>
+	<th align="left">Estado</th><th align="left">Subestado</th><th align="left">Descrição</th>
+</tr>
+<tr>
+	<td rowspan="8">Aguardando</td><td>ScheduleTime</td><td>Não é o momento de a fatia executar.</td>
+</tr>
+<tr>
+<td>DatasetDependencies</td><td>As dependências de upstream não estão prontas.</td>
+</tr>
+<tr>
+<td>ComputeResources</td><td>Os recursos de computação não estão disponíveis.</td>
+</tr>
+<tr>
+<td>ConcurrencyLimit</td> <td>Todas as instâncias de atividade estão ocupadas executando outras fatias.</td>
+</tr>
+<tr>
+<td>ActivityResume</td><td>A atividade é pausada e não é possível executar as fatias até que seja retomada.</td>
+</tr>
+<tr>
+<td>Retry</td><td>A execução da atividade será repetida.</td>
+</tr>
+<tr>
+<td>Validação</td><td>A validação ainda não foi iniciada.</td>
+</tr>
+<tr>
+<td>ValidationRetry</td><td>Aguardando a validação ser repetida.</td>
+</tr>
+<tr>
+&lt;tr
+<td rowspan="2">InProgress</td><td>Validando</td><td>Validação em andamento.</td>
+</tr>
+<td></td>
+<td>A fatia está sendo processada.</td>
+</tr>
+<tr>
+<td rowspan="4">Falha</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
+</tr>
+<tr>
+<td>Cancelado</td><td>Cancelado por ação do usuário.</td>
+</tr>
+<tr>
+<td>Validação</td><td>A validação falhou.</td>
+</tr>
+<tr>
+<td></td><td>Falha ao gerar e/ou validar a fatia.</td>
+</tr>
+<td>Ready</td><td></td><td>A fatia está pronta para consumo.</td>
+</tr>
+<tr>
+<td>Ignorado</td><td></td><td>A fatia não está sendo processada.</td>
+</tr>
+<tr>
+<td>Nenhum</td><td></td><td>Uma fatia que costumava existir com um status diferente, mas foi redefinida.</td>
+</tr>
+</table>
 
-Você pode exibir os detalhes de uma fatia clicando em uma entrada de fatia na folha **Fatias Atualizadas Recentemente**.
+
+
+Você pode exibir os detalhes de uma fatia clicando em uma entrada de fatia na folha **Fatias atualizadas recentemente**.
 
 ![Detalhes da fatia](./media/data-factory-monitor-manage-pipelines/slice-details.png)
  
@@ -214,7 +265,7 @@ Se a execução da atividade falhar em um pipeline, o conjunto de dados produzid
 
 ### Usando o Portal do Azure
 
-Depois de solucionar problemas e depurar falhas em um pipeline, você pode executar as falhas novamente navegando até a fatia com erro e clicando no botão **Executar** na barra de comandos.
+Depois de solucionar problemas e depurar falhas em um pipeline, você pode executar novamente a falhas navegando até a fatia com erro e clicando no botão **Executar** na barra de comandos.
 
 ![Executar novamente uma fatia com falha](./media/data-factory-monitor-manage-pipelines/rerun-slice.png)
 
@@ -471,8 +522,4 @@ Você verá a seguinte mensagem após a implantação bem-sucedida:
 	Parameters        :
 	Outputs           
 
-
-## Enviar comentários
-Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-monitor-manage-pipelines.md).
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

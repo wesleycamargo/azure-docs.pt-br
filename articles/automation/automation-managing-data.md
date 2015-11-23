@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/08/2015"
+   ms.date="11/02/2015"
    ms.author="bwren;sngun" />
 
 # Gerenciando dados da Automação do Azure
@@ -34,6 +34,9 @@ A tabela a seguir resume a política de retenção para diferentes recursos.
 |Módulos|Removidos permanentemente 90 dias depois que o módulo é excluído por um usuário ou 90 dias depois que a conta que contém o módulo é excluída por um usuário.|
 |Runbooks|Removidos permanentemente 90 dias depois que o recurso é excluído por um usuário ou 90 dias depois que a conta que contém o recurso é excluída por um usuário.|
 |Trabalhos|Excluído e removidos permanentemente 90 dias após a última modificação. Isso pode ocorrer depois que o trabalho é concluído, interrompido ou suspenso.|
+|Arquivos de configurações/MOF de nó| A configuração de nó antigo é removida permanentemente 90 dias depois que uma nova configuração de nó é gerada.|
+|Nós DSC| Removido de forma permanente 90 dias após o nó é cancelar o registro da conta de automação usando o portal do Azure ou o [AzureRMAutomationDscNode Unregister](https://msdn.microsoft.com/library/mt603500.aspx) cmdlet do Windows PowerShell. Nós também permanentemente são removidos de 90 dias depois que a conta que contém que o nó é excluída por um usuário. |
+|Exibir nó| Removido de forma permanente 90 dias depois que um novo relatório é gerado para esse nó|
 
 A política de retenção se aplica a todos os usuários e, atualmente não, pode ser personalizada.
 
@@ -60,6 +63,11 @@ Não é possível recuperar o valor de variáveis criptografadas nem o campo de 
 
 Você não pode exportar certificados da Automação do Azure. Você deve garantir que todos os certificados estejam disponíveis fora do Azure.
 
+### Configurações DSC
+
+Você pode exportar suas configurações para arquivos de script usando o Portal de Gerenciamento do Azure ou o cmdlet [Export-AzureRmAutomationDscConfiguration](https://msdn.microsoft.com/library/mt603485.aspx) no Windows PowerShell. Essas configurações podem ser importadas e usadas em outra conta de automação.
+
+
 ##Replicação geográfica na Automação do Azure
 
 A replicação geográfica, padrão em contas da Automação do Azure, faz o backup de dados da conta em uma região geográfica diferente para obter redundância. Você pode escolher uma região primária durante a configuração de sua conta e, em seguida, uma região secundária é atribuída automaticamente a ela. Os dados secundários, copiados da região primária, são atualizados continuamente em caso de perda de dados.
@@ -76,4 +84,4 @@ A tabela a seguir mostra os emparelhamentos disponíveis das regiões primárias
 
 No evento improvável de os dados de uma região primária serem perdidos, a Microsoft tentará recuperá-los. Se não for possível recuperar os dados primários, o failover geográfico será executado e os clientes afetados receberão uma notificação em suas assinaturas.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="11/09/2015" 
 	ms.author="spelluru"/>
 
 # Atividade Pig
 
-A atividade Pig de HDInsight em um [pipeline](data-factory-create-pipelines.md) do Data Factory executa consultas de Pig em [seu próprio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) cluster HDInsight ou em um [sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Este artigo se baseia no artigo [atividades de transformação de dados](data-factory-data-transformation-activities.md), que apresenta uma visão geral de transformação de dados e as atividades de transformação para as quais há suporte.
+A atividade de Pig de HDInsight em um [pipeline](data-factory-create-pipelines.md) da Data Factory executa consultas de Pig em [seu próprio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou cluster [sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight baseado no Windows/Linux. Este artigo se baseia no artigo [atividades de transformação de dados](data-factory-data-transformation-activities.md), que apresenta uma visão geral de transformação de dados e as atividades de transformação para as quais há suporte.
 
 ## Sintaxe
 
@@ -186,9 +186,4 @@ Para usar os scripts Pig, faça o seguinte:
 		PigSampleOut = Foreach GroupProfile Generate PigSampleIn.ProfileID, SUM(PigSampleIn.Duration);		
 		Store PigSampleOut into '$Output' USING PigStorage (','); 
 
-
- 
-## Enviar comentários
-Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por meio de [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-pig-activity.md).
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

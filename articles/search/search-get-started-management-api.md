@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introdução à API REST de Gerenciamento da Pesquisa do Azure | Microsoft Azure" 
+	pageTitle="Introdução à API REST de Gerenciamento da Pesquisa do Azure | Microsoft Azure | Serviço de pesquisa de nuvem hospedado" 
 	description="Administrar o serviço hospedado de nuvem da Pesquisa do Azure usando uma API REST de Gerenciamento" 
 	services="search" 
 	documentationCenter="" 
@@ -204,4 +204,4 @@ Depois de ter concluído este tutorial, você pode querer saber mais sobre geren
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
 	manager="udayh"
-	editor="inhenk"/>
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="11/09/2015"
 	ms.author="maheshu"/>
 
 # Serviços de Domínio do Azure AD *(Visualização)* - Introdução
@@ -21,9 +21,10 @@
 ## Diretrizes para selecionar uma rede virtual do Azure
 Ao selecionar uma rede virtual para usar com os Serviços de Domínio do Azure AD, lembre-se das seguintes diretrizes:
 
-- Certifique-se de selecionar uma rede virtual em uma região que tem suporte pelos Serviços de Domínio do Azure AD. A lista atual de regiões do Azure com suporte está disponível na página [regiões](active-directory-ds-regions.md).
+- Certifique-se de selecionar uma rede virtual em uma região que tem suporte pelos Serviços de Domínio do Azure AD. A lista atual de regiões do Azure com suporte está disponível na página [regiões](https://azure.microsoft.com/regions/#services).
 - Se você planeja usar uma rede virtual existente, certifique-se de que se trata de uma rede virtual regional. Redes virtuais que usam o mecanismo de grupos de afinidade herdado não podem ser usadas com os Serviços de Domínio do Azure AD. Você precisará [migrar redes virtuais herdadas para redes virtuais regionais](../virtual-networks-migrate-to-regional-vnet.md).
 - Selecione a rede virtual que atualmente hospeda/hospedará máquinas virtuais que precisam de acesso aos Serviços de Domínio do Azure AD. Você não poderá mover os Serviços de Domínio para outra rede virtual posteriormente.
+- Não há suporte para serviços de domínio do AD do Azure com redes virtuais criadas usando o Gerenciador de recursos do Azure.
 
 
 ## Etapa 2: Criar uma rede virtual do Azure
@@ -55,4 +56,4 @@ Realize as seguintes etapas de configuração para criar uma rede virtual do Azu
 ---
 [**Próxima etapa - Habilitar os Serviços de Domínio do Azure AD.**](active-directory-ds-getting-started-enableaadds.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

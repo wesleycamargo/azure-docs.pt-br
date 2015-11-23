@@ -3,7 +3,7 @@
 	description="Descreve o que acontece após a adição do Armazenamento do Azure a um projeto do ASP.NET usando os serviços conectados do Visual Studio"
 	services="storage"
 	documentationCenter=""
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # O que aconteceu ao meu projeto do ASP.NET (serviço conectado do Armazenamento do Azure do Visual Studio)?
 
@@ -40,4 +40,4 @@ No arquivo web.config do seu projeto, foi criado um elemento com a cadeia de con
 
 Para obter mais informações, consulte [ASP.NET](http://www.asp.net).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

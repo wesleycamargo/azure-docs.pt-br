@@ -13,10 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="11/10/2015"
 	ms.author="billmath"/>
 
 # Perguntas frequentes do Azure Active Directory Connect
+
+## Instalação geral
+**P: a instalação funcionará se o Administrador Global do AD do Azure tem 2FA habilitado?**
+
+Instalação não funcionará neste caso. O Administrador Global que instalou o Azure AD Connect não pode ter MFA habilitado. Estamos cientes dessa limitação e isso dará suporte no futuro.
+
+**P: existe uma forma de instalar o Azure Connect AD autônomo?**
+
+Somente há suporte para instalar o Azure Connect AD usando o assistente de instalação. Não há suporte para uma instalação silenciosa e autônoma.
 
 ## Instalação do Express
 
@@ -26,7 +35,6 @@
 **P: Tenho um firewall, dispositivo de rede ou outra coisa que limita o tempo máximo que as conexões podem permanecer abertas na minha rede. Qual deve ser o limiar de tempo limite no lado do cliente ao usar o Azure Connect AD?**
 
 Todos os softwares de rede, dispositivos físicos ou qualquer outra coisa que limite o tempo máximo que as conexões podem permanecer abertas deve usar um limiar de pelo menos 5 minutos (300 segundos) para conectividade entre o servidor no qual o cliente do Azure AD Connect está instalado e o Active Directory do Azure. Isso também se aplica a todas as ferramentas de sincronização do Microsoft Identity lançadas anteriormente.
-
 
 **P: O que devo fazer se receber um email me pedindo para renovar o certificado do Office 365**
 
@@ -49,4 +57,4 @@ Use as diretrizes descritas no artigo [aqui](active-directory-aadconnect-o365-ce
 
 - Use este link para obter suporte por meio do Portal do Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

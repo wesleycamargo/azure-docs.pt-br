@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Limites de serviço na Pesquisa do Azure | Microsoft Azure"
+	pageTitle="Limites do serviço na Pesquisa do Azure | Microsoft Azure | Serviço de pesquisa de nuvem hospedado"
 	description="Os limites de serviço usados no planejamento de capacidade e os limites máximos em solicitações e respostas da Pesquisa do Azure, um serviço de pesquisa de nuvem hospedado."
 	services="search"
 	documentationCenter=""
@@ -133,4 +133,4 @@ As chaves de API são usadas para autenticação de serviço. Há dois tipos. Ch
 - Máximo de 1000 documentos retornados por página de resultados da pesquisa
 - Máximo de 100 sugestões retornadas por solicitação de Sugerir API
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

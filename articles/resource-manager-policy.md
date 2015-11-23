@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="11/02/2015"
+	ms.date="11/10/2015"
 	ms.author="gauravbh;tomfitz"/>
 
 # Usar a política para gerenciar recursos e controlar o acesso
@@ -24,13 +24,15 @@ Crie definições de política que descrevem as ações ou os recursos que são 
 
 Neste artigo, explicaremos a estrutura básica de linguagem de definição de política que você pode usar para criar políticas. Em seguida, descreveremos como você pode aplicar essas políticas em escopos diferentes e, por fim, mostraremos alguns exemplos sobre como você pode obter isso por meio da API REST.
 
+A política está disponível atualmente como uma visualização.
+
 ## Qual é a diferença dela em relação ao RBAC?
 
 Há algumas diferenças importantes entre a política e o controle de acesso baseado em função, mas a primeira coisa que é preciso entender é que as políticas e o RBAC funcionam juntos. Para poder usar a política, o usuário deve ser autenticado pelo RBAC. Ao contrário do RBAC, a política é um sistema de permissão padrão e negação explícita.
 
-O RBAC enfoca as ações que um **usuário** pode realizar em escopos diferentes. Por exemplo, um usuário específico é adicionado à função de colaborador de um grupo de recursos no escopo do desejado, para que o usuário possa fazer alterações a esse grupo de recursos.
+O RBAC concentra-se nas ações que um **usuário** pode realizar em escopos diferentes. Por exemplo, um usuário específico é adicionado à função de colaborador de um grupo de recursos no escopo do desejado, para que o usuário possa fazer alterações a esse grupo de recursos.
 
-A política enfoca as ações de **recurso** em vários escopos. Por exemplo, por meio de políticas, é possível controlar os tipos de recursos que podem ser provisionados ou restringir os locais em que os recursos podem ser provisionados.
+A política concentra-se nas ações de **recurso** em vários escopos. Por exemplo, por meio de políticas, é possível controlar os tipos de recursos que podem ser provisionados ou restringir os locais em que os recursos podem ser provisionados.
 
 ## Cenários comuns
 
@@ -48,7 +50,7 @@ A definição de política é criada usando JSON. Consiste em uma ou mais condi�
 
 Basicamente, uma política contém o seguinte:
 
-**Condição/Operadores lógicos:** contém um conjunto de condições que podem ser manipuladas por meio de um conjunto de operadores lógicos.
+**Condição/operadores lógicos/:** contém um conjunto de condições que podem ser manipuladas por meio de um conjunto de operadores lógicos.
 
 **Efeito:** descreve qual será o efeito quando a condição for satisfeita – negar ou auditar. Um efeito de auditoria emitirá um log de aviso de serviço de evento. Por exemplo, um administrador pode criar uma política que ocasiona uma auditoria se alguém criar uma VM grande e examinar os logs mais tarde.
 
@@ -93,9 +95,9 @@ As condições são formadas por meio do uso de campos e fontes. Um campo repres
 
 Há suporte para os seguintes campos e fontes:
 
-Campos: **nome**, **variante**, **tipo**, **local**, **marcas** e **marcas.***.
+Campos: **nome**, **forma**, **tipo**, **local**, **tags**, **tags.***.
 
-Fontes: **action**.
+Fontes: **ação**.
 
 Para obter mais informações sobre ações, veja [RBAC - Funções internas](active-directory/role-based-access-built-in-roles.md).
 
@@ -224,7 +226,7 @@ Com um corpo de solicitação semelhante ao seguinte:
     }
 
 
-Definição de política pode ser definida como um dos exemplos mostrados acima. Para a versão de API, use *2015-10-01-preview*. Para obter exemplos e mais detalhes, veja a [API REST para Definições de Política](https://msdn.microsoft.com/library/azure/mt588471.aspx).
+Definição de política pode ser definida como um dos exemplos mostrados acima. Para a versão de api, use a *2015-10-01-preview*. Para obter mais detalhes e exemplos, consulte a [API REST para Definições de Política](https://msdn.microsoft.com/library/azure/mt588471.aspx).
 
 ### Criar definição de política usando o PowerShell
 
@@ -256,7 +258,7 @@ Para criar uma nova atribuição de política, execute:
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-A {Atribuição da política} é o nome da atribuição da política. Para a versão de API, use *2015-10-01-preview*.
+A {Atribuição da política} é o nome da atribuição da política. Para a versão de api, use a *2015-10-01-preview*.
 
 Com um corpo de solicitação semelhante ao seguinte:
 
@@ -271,7 +273,7 @@ Com um corpo de solicitação semelhante ao seguinte:
       "name":"VMPolicyAssignment"
     }
 
-Para obter exemplos e mais detalhes, veja a [API REST para Atribuições de Política](https://msdn.microsoft.com/library/azure/mt588466.aspx).
+Para obter mais detalhes e exemplos, veja a [API REST para Atribuições de Política](https://msdn.microsoft.com/library/azure/mt588466.aspx).
 
 ### Atribuição de política usando o PowerShell
 
@@ -289,4 +291,4 @@ Você pode obter, alterar ou remover as definições de políticas por meio dos 
 
 Da mesma forma, você pode obter, alterar ou remover as atribuições da política por meio dos cmdlets Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment e Remove-AzureRmPolicyAssignment respectivamente.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

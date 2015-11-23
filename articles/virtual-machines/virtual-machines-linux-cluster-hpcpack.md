@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management"/>
+ tags="azure-service-management,hpc-pack"/>
 <tags
  ms.service="virtual-machines"
  ms.devlang="na"
@@ -96,7 +96,7 @@ Aqui estão as breves descrições dos elementos no arquivo de configuração.
 
     >[AZURE.NOTE]Como alternativa, você pode usar a ID da assinatura para especificar a assinatura que deseja usar. Consulte o arquivo Manual.rtf na pasta do script.
 
-* **StorageAccount** - todos os dados persistentes para o cluster HPC Pack serão armazenados na conta de armazenamento especificada (allvhdsje neste exemplo). Se a conta de armazenamento não existir, o script vai criá-la na região especificada em **Local**.
+* **StorageAccount** - Todos os dados persistentes para o cluster HPC Pack serão armazenados na conta de armazenamento especificada (allvhdsje neste exemplo). Se a conta de armazenamento não existir, o script vai criá-la na região especificada em **Local**.
 
 * **Local** - região do Azure onde você implantará o cluster HPC Pack (Leste do Japão neste exemplo).
 
@@ -286,7 +286,7 @@ A ferramenta **clusrun** do HPC Pack pode ser usada para executar comandos em n�
 * Criar um script de shell exibindo cada número de 1 a 10 durante um segundo em cada nó no cluster, executá-lo e mostrar imediatamente a saída dos nós.
 
     ```
-    > clusrun /interleaved echo "for i in {1..10}; do echo \\"\$i\\"; sleep 1; done" ^> script.sh; chmod +x script.sh; ./script.sh
+    > clusrun /interleaved echo "for i in {1..10}; do echo \"\$i\"; sleep 1; done" ^> script.sh; chmod +x script.sh; ./script.sh
     ```
 
 >[AZURE.NOTE]Talvez seja necessário usar determinados caracteres de escape em comandos **clusrun**. Conforme mostra este exemplo, use ^ em uma janela de comando para escapar o símbolo ">".
@@ -313,4 +313,4 @@ A ferramenta **clusrun** do HPC Pack pode ser usada para executar comandos em n�
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

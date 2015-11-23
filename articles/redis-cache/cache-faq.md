@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2015" 
+	ms.date="11/12/2015" 
 	ms.author="sdanie"/>
 
 # Perguntas frequentes sobre Cache Redis do Azure
@@ -47,9 +47,9 @@ Podemos tirar as seguintes conclusões desta tabela.
 -	Com o cluster Redis, a taxa de transferência aumenta linearmente à medida que o número de fragmentos (nós) no cluster aumenta. Por exemplo, se você criar um cluster P4 de 10 fragmentos, a taxa de transferência disponível será de 250 mil *10 = 2,5 milhões de RPS.
 -	A taxa de transferência tamanhos de chave maiores é mais alta na camada Premium quando comparada à camada Standard.
 
-| Camada de preços | Tamanho | Largura de banda disponível (Mbps) | Tamanho de chave de 1 KB |
+| Camada de preços | Tamanho | Largura de banda disponível | Tamanho de chave de 1 KB |
 |----------------------|--------|----------------------------|--------------------------------|
-| **Tamanhos de cache padrão** | &nbsp; | &nbsp; | **RPS (solicitações por segundo)** |
+| **Tamanhos de cache padrão** | &nbsp; | **(Mbps)** | **RPS (solicitações por segundo)** |
 | C0 | 250 MB | 5 | 600 |
 | C1 | 1 GB | 100 | 12\.200 |
 | C2 | 2,5 GB | 200 | 24\.000 |
@@ -220,4 +220,4 @@ Se você já for cliente do serviço de Cache gerenciado do Azure, pode continua
 ### Cache em Função
 Se você estiver hospedando um cache internamente usando Cache na função, pode continuar a fazer o mesmo. Como o Cache na função é um componente de software auto-hospedado e não um serviço hospedado da Microsoft, ele não oferece nenhum SLA. Usuários de Cache na função podem optar por migrar para o Cache Redis do Azure para aproveitar o avançado conjunto de recursos e obter um SLA.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

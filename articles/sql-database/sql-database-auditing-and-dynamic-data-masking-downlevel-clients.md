@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Suporte a clientes de versão anterior do Banco de Dados SQL para auditoria e Mascaramento dinâmico de dados | Microsoft Azure" 
-	description="Saiba mais sobre o Suporte a clientes de versão anterior do Banco de Dados SQL para auditoria e Mascaramento dinâmico de dados" 
+	pageTitle="Suporte a clientes de nível inferior do banco de dados SQL para Auditoria| Microsoft Azure" 
+	description="Saiba mais sobre suporte a clientes de nível inferior do Banco de Dados SQL para Auditoria." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="nadavhelfman" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="nadavhelfman"/>
+	ms.date="11/12/2015" 
+	ms.author="nadavhelfman; ronitr"/>
  
-# Banco de Dados SQL - Suporte a clientes de nível inferior para auditoria e Mascaramento dinâmico de dados 
+# Banco de Dados SQL - suporte a clientes de nível inferior para Auditoria
 
 
-A [Auditoria](sql-database-auditing-get-started.md) e o [Mascaramento de Dados Dinâmicos](sql-database-dynamic-data-masking-get-started.md) funcionam com clientes SQL que oferecem suporte a redirecionamento de TDS.
+A [Auditoria](sql-database-auditing-get-started.md) funciona automaticamente com clientes SQL que dão suporte ao redirecionamento de TDS.
 
 Qualquer cliente que implemente o protocolo TDS 7.4 também deve dar suporte a redirecionamento. As exceções incluem o JDBC 4.0, no qual o recurso de redirecionamento não tem suporte completo, e o Tedious para Node.JS, no qual o redirecionamento não foi implementado.
 
@@ -38,6 +38,4 @@ Uma lista parcial de "Clientes de versão anterior" inclui:
 
 **Comentário:** a modificação do FQDN do servidor acima pode ser útil também para aplicar uma política de Auditoria no Nível do SQL Server sem a necessidade de uma etapa de configuração em cada banco de dados (redução temporária).
 
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

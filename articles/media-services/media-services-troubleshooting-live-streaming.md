@@ -67,4 +67,12 @@ Esta seção fornece sugestões sobre como solucionar problemas relacionados aos
 	
 >[AZURE.NOTE]Se, depois de seguir as etapas de solução de problemas, você ainda não conseguir realizar a transmissão, envie um tíquete de suporte usando o Portal de Gerenciamento do Azure.
 
-<!---HONumber=Oct15_HO3-->
+##Roteiros de aprendizagem dos Serviços de Mídia
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##Fornecer comentários
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+<!---HONumber=Nov15_HO3-->

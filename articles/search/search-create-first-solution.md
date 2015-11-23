@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Crie sua primeira solução de pesquisa usando a Pesquisa do Azure | Microsoft Azure" 
+	pageTitle="Crie sua primeira solução de pesquisa usando a Pesquisa do Azure | Microsoft Azure | Serviço de pesquisa de nuvem hospedado" 
 	description="Crie sua primeira solução de pesquisa usando a Pesquisa do Azure, um serviço de pesquisa de nuvem hospedado do Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -206,4 +206,4 @@ Você também pode examinar a [API REST da Pesquisa do Azure](http://msdn.micros
 [11]: ./media/search-create-first-solution/AzureSearch_Create1_Suggestions.PNG
 [12]: ./media/search-create-first-solution/AzureSearch_Create1_CodeplexDownload.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

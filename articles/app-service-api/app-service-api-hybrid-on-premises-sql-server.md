@@ -361,7 +361,7 @@ A janela **Atividade do Serviço de Aplicativo do Azure** mostra o progresso da 
 
 4. Na folha **Aplicativos de API**, localize seu aplicativo de API e clique nele.
 
-5. A folha do seu aplicativo de API, clique no valor sob **Host de aplicativo de API**.
+5. Na folha do seu aplicativo de API, clique no valor em **Host de aplicativo de API**.
  
 	![Folha Aplicativo de API](./media/app-service-api-hybrid-on-premises-sql-server/api-app-blade-api-app-host.png)
 
@@ -430,4 +430,4 @@ Agora que a infraestrutura de conexão híbrida está concluída, é o momento d
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/09/2015"
+   ms.date="11/06/2015"
    ms.author="larryfr"/>
 
 # Usar o Pig com Hadoop no HDInsight
@@ -43,9 +43,11 @@ Para saber mais sobre o Pig Latin, confira o [Manual de referência do Pig Latin
 
 Para obter um exemplo de uso de UDF com o Hive, confira os seguinte documentos:
 
-* [Usando o Python com o Pig e o Hive no HDInsight](hdinsight-python.md)
+* [DataFu de uso com Pig no HDInsight](hdinsight-hadoop-use-pig-datafu-udf.md) -DataFu é uma coleção de útil UDFs mantida pela Apache
 
-* [Use o C# com o Hive e o Pig no HDInsight](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Use o Python com o Pig e o Hive no HDInsight](hdinsight-python.md)
+
+* [Use o C# com o Hive e com o Pig no HDInsight](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 
 ##<a id="data"></a>Sobre o aplicativo de amostra
 
@@ -144,4 +146,4 @@ Agora que você aprendeu a usar o Pig com o HDInsight, use os links abaixo para 
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

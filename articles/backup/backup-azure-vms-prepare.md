@@ -194,4 +194,4 @@ Se houver dúvidas ou algum recurso que você gostaria de ver incluído, [envie-
 - [Backup de máquinas virtuais](backup-azure-vms.md)
 - [Gerenciar o backup de máquinas virtuais](backup-azure-manage-vms.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução aos Hubs de Evento"
+	pageTitle="Introdução aos Hubs de eventos em C e C# | Microsoft Azure"
 	description="Siga este tutorial para começar a usar os Hubs de Eventos do Azure; enviar eventos em C; e receber eventos em C# usando o EventProcessorHost."
 	services="event-hubs"
 	documentationCenter=""
@@ -117,4 +117,4 @@ Agora que criou um aplicativo funcional que cria um Hub de Eventos e envia e rec
 [Escala horizontal do processamento de eventos com Hubs de Eventos]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [solução de mensagens na fila]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

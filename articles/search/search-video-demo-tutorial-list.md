@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Vídeos, exemplos e tutoriais na Pesquisa do Azure | Microsoft Azure"
+	pageTitle="Vídeos, exemplos e tutoriais na Pesquisa do Azure | Microsoft Azure | Serviço de pesquisa de nuvem hospedado"
 	description="Lista central de todos os vídeos, exemplos, demonstrações e tutoriais criados para a Pesquisa do Azure, um serviço de nuvem hospedado do Microsoft Azure."
 	services="search"
 	documentationCenter=""
@@ -95,4 +95,4 @@ No CodePlex, você pode encontrar vários exemplos publicados durante a visualiz
 - [**Exemplo de Sincronização do SQL Server com a Pesquisa do Azure**](http://sqlserver2azuresearch.codeplex.com/) é um aplicativo do console do Windows que carrega um conjunto de linhas do SQL Server de um banco de dados local incorporado.
 - [**Demonstração de Perfis de Pontuação**](https://azuresearchscoringprofiles.codeplex.com/) é um aplicativo do console do Windows que define, executa e atualiza um perfil de pontuação para ajustar os resultados da pesquisa.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

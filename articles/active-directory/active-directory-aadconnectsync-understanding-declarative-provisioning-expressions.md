@@ -13,36 +13,61 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
-	ms.author="markusvi"/>
+	ms.date="11/10/2015"
+	ms.author="markusvi;andkjell"/>
 
 
 # Azure AD Connect Sync: noções básicas sobre expressões de provisionamento declarativo
 
-O serviço Azure Active Directory Connect Synchronization (Azure AD Connect Sync) baseia-se no provisionamento declarativo introduzido pela primeira vez no Forefront Identity Manager 2010, para permitir que você implemente sua lógica de negócios de integração de identidade completa sem necessidade de escrever código.
+O Azure AD Connect Sync baseia-se no provisionamento declarativo introduzido pela primeira vez no Forefront Identity Manager 2010, para permitir que você implemente sua lógica de negócios de integração de identidade completa sem necessidade de escrever código compilado.
 
 Uma parte essencial do provisionamento declarativo é a linguagem de expressão usada nos fluxos de atributo. A linguagem usada é um subconjunto de VBA (Visual Basic® for Applications) da Microsoft. Essa linguagem é usada no Microsoft Office e os usuários com experiência em VBScript também a reconhecerão. A Linguagem de expressão de provisionamento declarativo está apenas usando funções e não é uma linguagem estruturada; não existem métodos nem instruções. Em vez disso, as funções serão aninhadas no fluxo do programa expresso.
 
-Para obter mais detalhes, consulte [Bem-vindo ao Visual Basic para referência de linguagem de aplicativos para Office 2013](https://msdn.microsoft.com/library/gg264383(v=office.15).aspx).
+Para obter mais detalhes, consulte [Bem-vindo ao Visual Basic para referência de linguagem de aplicativos para Office 2013](https://msdn.microsoft.com/library/gg264383.aspx).
 
 Os atributos são fortemente tipados. Uma função que espera que um atributo de cadeia de caracteres de valor único não aceite vários valores ou atributos de um tipo diferente. Ela também diferencia maiúsculas de minúsculas. Tanto nomes de funções quanto nomes de atributo devem ter a capitalização apropriada, ou um erro será gerado
 
-
-
-
-
 ## Identificadores e definições de idioma
 
-- Funções têm um nome seguido por argumentos entre colchetes angulares: NomeDaFunção(<<argument 1>>,<<argument N>>).
+- As funções têm um nome seguido por argumentos entre colchetes: NomeDaFunção (argumento 1, argumento N).
 - Os atributos são identificados por colchetes, [NomeDoAtributo]
 - Parâmetros são identificados por sinais de porcentagem: %NomeDoParâmetro%
-- Constantes de cadeia de caracteres ficam entre aspas: por exemplo, “Contoso”
+- Constantes de cadeia de caracteres ficam entre aspas: por exemplo, "Contoso" (observação: deve usar aspas normais "" e não as aspas "")
 - Valores numéricos são expressos sem aspas e espera-se que sejam de tipo decimal. Valores hexadecimais são prefixados com &H. Por exemplo 98052, &HFF
 - Valores boolianos são expressos com constantes: True, False.
 - Constantes internas são expressas com apenas seu nome: NULL, CRLF, IgnoreThisFlow
 
+### Funções
+Provisionamento declarativo para usar muitas funções para habilitar a possibilidade de transformar os valores de atributo. Podem ser aninhados para que o resultado de uma função seja passado para outra função.
 
-## Operadores
+As funções também podem operar sobre um atributo com vários valores. Nesse caso, a função será operar em cada valor individual e aplicar a mesma função para cada valor. Por exemplo `Trim([proxyAddresses])` faria um corte de todos os valores no atributo proxyAddress.
+
+A lista completa de funções pode ser encontrada em [referência de função](active-directory-aadconnectsync-functions-reference.md).
+
+### Parâmetros
+
+Um parâmetro é definido por um Connector ou por um administrador usando o PowerShell para defini-los. Geralmente, os parâmetros contêm valores que serão diferentes de sistema para sistema; por exemplo, o nome do domínio no qual o usuário está localizado. Eles podem ser usados em fluxos de atributo.
+
+O Active Directory Connector forneceu os seguintes parâmetros para Regras de Sincronização de entrada:
+
+| Nome do Parâmetro | Comentário |
+| --- | --- |
+| Domain.Netbios | O formato NetBIOS do domínio que está sendo importado no momento, por exemplo, FABRIKAMSALES |
+| Domain.FQDN | O formato FQDN do domínio que está sendo importado no momento, por exemplo, sales.fabrikam.com |
+| Domain.LDAP | O formato LDAP do domínio que está sendo importado no momento, por exemplo, DC=sales,DC=fabrikam,DC=com |
+| Forest.Netbios | O formato NetBIOS do domínio que está sendo importado no momento, por exemplo, FABRIKAMCORP |
+| Forest.FQDN | O formato FQDN do domínio que está sendo importado no momento, por exemplo, fabrikam.com |
+| Forest.LDAP | O formato LDAP do domínio que está sendo importado no momento, por exemplo, DC=fabrikam,DC=com |
+
+O sistema fornece o seguinte parâmetro usado para obter o identificador do conector em execução no momento:
+
+`Connector.ID`
+
+Um exemplo que preencherá o domínio de atributo metaverso com o nome netbios do domínio em que o usuário está localizado:
+
+`domain <- %Domain.Netbios%`
+
+### Operadores
 
 Os operadores a seguir podem ser usados:
 
@@ -52,31 +77,7 @@ Os operadores a seguir podem ser usados:
 - **Lógica**: && (e), || (ou)
 - **Ordem de avaliação**: ( )
 
-
-
-Os operadores são avaliados da esquerda para a direita. 2*(5+3) não é o mesmo que 2*5+3.<br> Os parênteses ( ) são usados para alterar a ordem de avaliação.
-
-
-
-
-
-## Parâmetros
-
-Um parâmetro é definido por um Connector ou por um administrador usando o PowerShell. Geralmente, os parâmetros contêm valores que serão diferentes de sistema para sistema; por exemplo, o nome do domínio no qual o usuário está localizado. Eles podem ser usados em fluxos de atributo.
-
-O Active Directory Connector forneceu os seguintes parâmetros para Regras de Sincronização de entrada:
-
-
-| Domain.Netbios | Domain.FQDN | Domain.LDAP | | Forest.Netbios | Forest.FQDN | Forest.LDAP |
-
-
-O sistema fornece o seguinte parâmetro:
-
-Connector.ID
-
-Um exemplo que preencherá o domínio de atributo metaverso com o nome netbios do domínio em que o usuário está localizado.
-
-domain <- %Domain.Netbios%
+Os operadores são avaliados da esquerda para a direita e têm a mesma prioridade de avaliação. Por exemplo, o * (multiplicador) não é avaliado antes - (subtração). 2*(5+3) não é o mesmo que 2*5+3. Os parênteses ( ) são usados para alterar a ordem de avaliação quando a ordem de avaliação da direita à esquerda não é apropriada.
 
 ## Cenários comuns
 
@@ -88,21 +89,19 @@ Atributos de cadeia de caracteres são definidos por padrão para serem indexáv
 
 ### Alterando o userPrincipalSuffix
 
-O atributo userPrincipalName no Active Directory não é sempre conhecido pelos usuários e pode não ser adequado como a ID de logon. O guia de instalação do AAD Sync permite escolher um atributo diferente, por exemplo, mail. Mas, em alguns casos, o atributo deve ser calculado. Por exemplo, a empresa Contoso tem dois diretórios AAD, um para produção e outro para testes. Eles querem que os usuários em seu locatário de teste apenas alterem o sufixo no logon ID.userPrincipalName <- Word([userPrincipalName],1,"@") & "@contosotest.com"
+O atributo userPrincipalName no Active Directory não é sempre conhecido pelos usuários e pode não ser adequado como a ID de logon. O guia de instalação do Azure AD Connect permite escolher um atributo diferente, por exemplo, email. Mas, em alguns casos, o atributo deve ser calculado. Por exemplo, a empresa Contoso tem dois diretórios do AD do Azure, um para produção e outro para testes. Eles querem que os usuários em seu locatário de teste apenas alteram o sufixo na ID de logon.
+
+`userPrincipalName <- Word([userPrincipalName],1,"@") & "@contosotest.com"`
 
 Nesta expressão, tomamos tudo à esquerda do primeiro símbolo “@” (Word) e concatenamos com uma cadeia de caracteres fixa.
-
-
-
-
 
 ### Converter um número de vários valores em um único valor
 
 Alguns atributos no Active Directory são compostos de vários valores no esquema, mesmo que pareçam de valor único nos Usuários e computadores do Active Directory. Um exemplo é o atributo de descrição.
 
+`description <- IIF(IsNullOrEmpty([description]),NULL,Left(Trim(Item([description],1)),448))`
+
 Nesta expressão, caso o atributo tenha um valor, podemos levar o primeiro item (Item) no atributo, remover espaços à direita e à esquerda (Trim, cortar) e, em seguida, manter os primeiros 448 caracteres (Left, à esquerda) na cadeia de caracteres.
-
-
 
 ## Conceito avançado
 
@@ -112,8 +111,6 @@ Para Regras de Sincronização de entrada, a constante **NULL** sempre deve ser 
 
 Há duas constantes diferentes a usar para Regras de Sincronização de saída: NULL e IgnoreThisFlow. Ambas indicam que o fluxo de atributo não tem nada com o que contribuir, mas a diferença é o que acontece quando não há outra regra que tenha, tampouco, algo com o que contribuir. Se houver um valor existente no diretório conectado, uma constante NULL preparará uma exclusão do atributo e o removerá, enquanto IgnoreThisFlow manterá o valor existente.
 
-
-
 #### ImportedValue
 
 A função ImportedValues é diferente de todas as outras funções, já que o nome de atributo deve ser colocado entre aspas, em vez de colchetes: ImportedValue("proxyAddresses").
@@ -122,8 +119,7 @@ Geralmente, durante a sincronização, um atributo usará o valor esperado, mesm
 
 Um exemplo disso pode ser encontrado na Regra de Sincronização de Entrada integrada no AD – Usuário Comum do Exchange no qual, no Exchange Híbrido, o valor adicionado pelo Exchange online só deverá ser sincronizado caso tenha sido confirmado que o valor foi exportado com êxito:
 
-
-`proxyAddresses <- RemoveDuplicates(Trim(ImportedValues(“proxyAddresses”)))`
+`proxyAddresses <- RemoveDuplicates(Trim(ImportedValues("proxyAddresses")))`
 
 Para obter uma lista completa de funções, consulte [Azure AD Connect Sync: referência de funções](active-directory-aadconnectsync-functions-reference.md)
 
@@ -135,4 +131,4 @@ Para obter uma lista completa de funções, consulte [Azure AD Connect Sync: ref
 
 <!--Image references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

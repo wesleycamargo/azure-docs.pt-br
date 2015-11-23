@@ -26,7 +26,7 @@ Este artigo mostra como usar o [portal de visualização do Azure](https://porta
 
 ## Criar uma conta do Batch
 
-1. Entre no [Portal de Visualização do Azure](https://portal.azure.com).
+1. Entre no [portal de visualização do Azure](https://portal.azure.com).
 
 2. Clique em **Novo** > **Computação** > **Serviço de Lote**.
 
@@ -34,15 +34,15 @@ Este artigo mostra como usar o [portal de visualização do Azure](https://porta
 
 3. Examine as informações e clique em **Criar**.
 
-4. Na folha **Nova Conta do Lote**, insira as seguintes informações:
+4. Na folha **Nova Conta em Lotes**, insira as seguintes informações:
 
 	a. Em **Nome da Conta**, insira um nome exclusivo a ser usado na URL da conta do Batch.
 
 	>[AZURE.NOTE]O nome da conta do Lote deve ser exclusivo no Azure, conter entre 3 e 24 caracteres e usar somente números e letras minúsculas.
 
-	b. Se você tiver mais de uma assinatura, clique em **Assinatura** para selecionar uma assinatura disponível em que a conta será criada.
+	b. Se você tiver mais de uma assinatura, clique em **Assinatura** para selecionar uma assinatura disponível onde a conta será criada.
 
-	c. Clique em **Grupo de recursos** para selecionar um grupo de recursos existente para a conta ou criar um novo.
+	c. Clique em **grupo de recursos** para selecionar um grupo de recursos existente para a conta ou criar um novo.
 
 	d. Em **Local**, selecione uma região do Azure na qual o Lote está disponível.
 
@@ -80,4 +80,4 @@ Para ver e gerenciar as chaves de acesso, clique no ícone da chave.
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

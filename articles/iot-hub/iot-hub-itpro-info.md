@@ -33,7 +33,7 @@ Depois de criar um hub IoT em uma região do Azure, o hub manterá o mesmo ender
 
 ## Hub IoT e segurança
 
-Somente os dispositivos registrados com um hub IoT têm permissão para se comunicar com esse hub IoT. Um dispositivo registrado deve ser concedido à permissão *DeviceConnect*. Um dispositivo identifica incluindo um token que encapsula a ID exclusiva de dispositivos em cada solicitação que faz, e o hub verifica a validade do token e se o dispositivo não está na lista de bloqueados (*DeviceConnect* permissão revogada).
+Somente os dispositivos registrados com um hub IoT têm permissão para se comunicar com esse hub IoT. Um dispositivo registrado deve ser concedido à permissão *DeviceConnect*. Um dispositivo identifica incluindo um token que encapsula a ID exclusiva de dispositivos em cada solicitação que faz, e o hub verifica a validade do token e se o dispositivo não está na lista negra (*DeviceConnect* permissão revogada).
 
 O acesso a outros pontos de extremidade de gerenciamento em um hub IoT também é controlado por meio de um conjunto de permissões: *iothubowner*, *serviço*, *registryRead*, e *registryReadWrite*. Qualquer aplicativo de gerenciamento de cliente que se conecta a um hub IoT deve incluir um token com as permissões apropriadas.
 
@@ -43,10 +43,10 @@ Este artigo contém informações específicas para os profissionais de TI e des
 
 - [O que é o Hub IoT do Azure?][lnk-iothub]
 - A seção ["Segurança" no guia do desenvolvedor do Hub IoT do Azure][lnk-devguide] fornece informações adicionais sobre os tokens e o sistema de permissão no Hub IoT.
-- [Gerenciar o Hub IoT através do portal do Azure][lnk-manage-portal] descreve como usar o portal do Azure para gerenciar seu hub IoT.
+- [Gerenciar IoT Hub por meio do portal de visualização do Azure][lnk-manage-portal] descreve como usar o portal de visualização do Azure para gerenciar seu hub IoT.
 
 [lnk-iothub]: iot-hub-what-is-iot-hub.md
 [lnk-devguide]: iot-hub-devguide.md#security
 [lnk-manage-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

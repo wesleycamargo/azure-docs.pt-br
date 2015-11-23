@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Diagnóstico e monitoramento de desempenho para Atores Confiáveis"
-   description="Este artigo descreve os recursos de diagnóstico e monitoramento de desempenho no tempo de execução dos Atores Confiáveis, incluindo os eventos e os contadores de desempenho emitidos por eles."
+   pageTitle="Diagnóstico e monitoramento de atores | Microsoft Azure"
+   description="Este artigo descreve os recursos de diagnóstico e monitoramento de desempenho no tempo de execução dos Reliable Actors do Service Fabric, incluindo os eventos e os contadores de desempenho emitidos por ele."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,18 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="10/15/2015"
    ms.author="abhisram"/>
 
 # Diagnóstico e monitoramento de desempenho para Atores Confiáveis
 O tempo de execução dos Atores Confiáveis emite eventos [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) e [contadores de desempenho](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx) que fornecem informações sobre como o tempo de execução está funcionando e que ajudam na solução de problemas e no monitoramento do desempenho.
 
 ## Eventos EventSource
-O nome EventSource do tempo de execução dos Atores Confiáveis é "Microsoft-ServiceFabric-Actors". Os eventos dessa origem de eventos aparecem na janela [Eventos de Diagnóstico](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) quando o aplicativo de ator está sendo [depurado no Visual Studio](service-fabric-debugging-your-application.md).
+O nome do provedor do EventSource do tempo de execução dos Reliable Actors é "Microsoft-ServiceFabric-Actors". Os eventos dessa origem de eventos aparecem na janela [Eventos de Diagnóstico](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) quando o aplicativo de ator está sendo [depurado no Visual Studio](service-fabric-debugging-your-application.md).
 
-A Malha do Serviço também oferece a opção de direcionar esses eventos para o [Application Insights](http://azure.microsoft.com/services/application-insights/). Para obter mais informações sobre isso, consulte o artigo sobre [Instalação do Application Insights para a Malha do Serviço](service-fabric-diagnostics-application-insights-setup.md).
-
-Outros exemplos de ferramentas e tecnologias que ajudam a coletar e/ou visualizar eventos EventSource são [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Diagnóstico do Azure](../cloud-services-dotnet-diagnostics.md), [Log de Semântica](https://msdn.microsoft.com/library/dn774980.aspx) e [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
+Exemplos de ferramentas e tecnologias que ajudam a coletar e/ou visualizar eventos EventSource são [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Diagnóstico do Azure](../cloud-services-dotnet-diagnostics.md), [Log de Semântica](https://msdn.microsoft.com/library/dn774980.aspx) e [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ### Palavras-chave
 Todos os eventos que pertencem ao EventSource dos Atores Confiáveis são associados a uma ou mais palavras-chave. Isso permite a filtragem dos eventos que são coletados. Os bits de palavras-chave são definidos a seguir:
@@ -155,4 +153,4 @@ O tempo de execução dos Atores Confiáveis emite os eventos a seguir relaciona
 |ActorActivated|5|Informativo|0x1|Um ator foi ativado.|
 |ActorDeactivated|6|Informativo|0x1|Um ator foi desativado.|
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

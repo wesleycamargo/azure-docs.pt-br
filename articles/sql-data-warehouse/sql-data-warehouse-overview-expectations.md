@@ -62,7 +62,7 @@ Com base nos dados de telemetria, estimamos a confiabilidade atual do SQL Data W
 
 ### Tempo de atividade do serviço
 
-Durante a visualização, o SQL Data Warehouse pode ter até 4 eventos de manutenção por mês para instalar correções críticas. Cada evento pode causar falhas de consulta por até 2 horas. O tempo dependerá do número de DWUs alocadas para o serviço. Nós tentaremos notificar sobre esses eventos com 48 horas de antecedência.
+Durante a visualização, o SQL Data Warehouse pode ter até 4 eventos de manutenção por mês para instalar correções críticas. Cada evento pode causar falhas de consulta por até 2 horas. O tempo dependerá do número de DWUs alocadas para o serviço.
 
 
 ## Próximas etapas
@@ -78,4 +78,4 @@ Durante a visualização, o SQL Data Warehouse pode ter até 4 eventos de manute
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

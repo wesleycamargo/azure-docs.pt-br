@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="11/11/2015" 
 	ms.author="genemi"/>
 
 
@@ -40,7 +40,6 @@ As informações mais recentes sobre os limites de recurso para o Banco de Dados
 O objetivo principal da V12 de Banco de dados SQL era melhorar a compatibilidade com o Microsoft SQL Server 2014. Entre outras áreas, a V12 atinge paridade com o SQL Server na importante área da programação. Por exemplo,
 
 
-- [Assemblies do Common Language Runtime (CLR)](http://msdn.microsoft.com/library/ms189524.aspx)
 - [Funções de Janela](http://msdn.microsoft.com/library/bb934097.aspx), com [OVER](http://msdn.microsoft.com/library/ms189461.aspx) 
 - [Índices XML](http://msdn.microsoft.com/library/bb934097.aspx) e [índices XML seletivos](http://msdn.microsoft.com/library/jj670104.aspx)
 - [Controle de alterações](http://msdn.microsoft.com/library/bb933875.aspx)
@@ -48,7 +47,7 @@ O objetivo principal da V12 de Banco de dados SQL era melhorar a compatibilidade
 - [Pesquisa de texto completo](http://msdn.microsoft.com/library/ms142571.aspx)
 
 
-Consulte [aqui](http://msdn.microsoft.com/library/azure/ee336281.aspx) para obter um pequeno conjunto de recursos ainda não tem suporte no Banco de dados SQL.
+Consulte [aqui](sql-database-transact-sql-information.md) para obter um pequeno conjunto de recursos ainda não tem suporte no Banco de dados SQL.
 
 
 ## Mais desempenho Premium, novos níveis de desempenho
@@ -92,7 +91,7 @@ A segurança é uma preocupação para qualquer pessoa que execute os seus negó
 
 - [Segurança em nível de linha](http://msdn.microsoft.com/library/dn765131.aspx) (RLS)
 - [Mascaramento de dados dinâmicos](sql-database-dynamic-data-masking-get-started.md)
-- [Bancos de dados independentes](http://msdn.microsoft.com/library/azure/ff394108.aspx)
+- [Bancos de dados independentes](http://msdn.microsoft.com/library/ff929188.aspx)
 - [Funções de aplicativo](http://msdn.microsoft.com/library/ms190998.aspx) gerenciado com GRANT, DENY, REVOKE
 - [Criptografia transparente de dados](http://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) (TDE)
 - [Conectar-se ao Banco de Dados SQL usando a autenticação do Active Directory do Azure](sql-database-aad-authentication.md)
@@ -113,7 +112,7 @@ A V12 oferece objetivos de ponto de recuperação (RPOs) significativamente apri
 | Replicação geográfica ativa | • RPO < 5 minutos.<br/>• ERT < 1 hora. | • RPO < 5 segundos.<br/>• ERT < 30 segundos. |
 
 
-Consulte [Continuidade de negócios do banco de dados SQL](http://msdn.microsoft.com/library/azure/hh852669.aspx) para obter mais informações.
+Consulte [Continuidade de negócios do banco de dados SQL](sql-database-business-continuity.md) para obter mais informações.
 
 
 ## Mais motivos para atualizar agora
@@ -162,4 +161,4 @@ Se você ainda não estiver usando a V12, pode atualizar o seu servidor lógico 
 
 [Termos de Uso Adicionais para Visualizações do Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

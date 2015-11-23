@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="11/04/2015"
 	ms.author="cynthn"/>
 
 # Sobre discos e VHDs para máquinas virtuais do Azure
@@ -22,19 +22,24 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
-Todas as máquinas virtuais no Azure são configuradas com pelo menos dois discos quando você cria a máquina virtual – um é um disco do sistema operacional e o outro é um disco local temporário, às vezes chamado de disco de recursos. O disco do sistema operacional é criado por meio de uma imagem, e o disco do sistema operacional e a imagem na verdade são VHDs (discos rígidos virtuais) armazenados em uma conta de armazenamento do Azure. Máquinas virtuais também podem ter discos de dados e eles também são armazenados em VHDs.
+
+Assim como qualquer outro computador, as máquinas virtuais do Azure usam os discos como locais onde armazenar um sistema operacional, aplicativos e dados. Todas as máquinas virtuais do Azure têm pelo menos dois discos - um disco do sistema operacional e um disco temporário. O disco do sistema operacional é criado por meio de uma imagem, e o disco do sistema operacional e a imagem na verdade são VHDs (discos rígidos virtuais) armazenados em uma conta de armazenamento do Azure. Máquinas virtuais também podem ter um ou mais discos de dados que também são armazenados em VHDs.
+
+## Disco do sistema operacional
+
+Cada máquina virtual tem um disco de sistema operacional anexado. Ele é registrado como uma unidade SATA e rotulado como a unidade C:. Este disco tem uma capacidade máxima de 1023 GB (Gigabytes). Quando o Azure cria um disco do sistema operacional, três cópias do disco são criadas para maior durabilidade. Além disso, se você configurar a máquina virtual para replicação geográfica, seu VHD também será replicado em sites diferentes, distantes mais de 400 milhas.
+
+##Disco temporário
+
+O disco temporário é criado automaticamente para você. Nas máquinas virtuais do Windows, esse disco é rotulado como unidade D:. Nas máquinas virtuais Linux, o disco normalmente é /dev/sdb e é formatado e montado em /mnt/resource pelo Agente Linux do Azure.
 
 >[AZURE.WARNING]Não armazene dados no disco temporário. Ele fornece armazenamento temporário para aplicativos e processos e destina-se apenas armazenar dados como arquivos de paginação ou de permuta. Para remapear este disco para uma máquina virtual do Windows, consulte [Alterar a letra da unidade de disco temporário do Windows](virtual-machines-windows-change-drive-letter.md).
 
-## Sobre discos
+## Disco de dados
 
-Assim como qualquer outro computador, as máquinas virtuais do Azure usam os discos como locais onde armazenar um sistema operacional, aplicativos e dados. Todas as máquinas virtuais do Azure têm pelo menos dois discos - um disco do sistema operacional e um disco temporário. Elas também podem ter um ou mais discos de dados.
+Um disco de dados é um VHD anexado a uma máquina virtual para armazenar dados de aplicativo ou outros dados que você precisa manter. Discos de dados são registrados como unidades SCSI e rotulados com a letra que você escolher. Cada disco de dados tem uma capacidade máxima de 1023 GB. O tamanho da máquina virtual determina quantos discos de dados você pode anexar a ele e o tipo de armazenamento que pode usar para hospedar os discos.
 
-- O **disco do sistema operacional** - Cada máquina virtual tem um disco de sistema operacional anexado. Ele é registrado como uma unidade SATA e rotulado como a unidade C:. Este disco tem uma capacidade máxima de 1023 GB (Gigabytes). Quando o Azure cria um disco do sistema operacional, três cópias do disco são criadas para maior durabilidade. Além disso, se você configurar a máquina virtual para replicação geográfica, seu VHD também será replicado em sites diferentes, distantes mais de 400 milhas.
-- O **disco temporário** é criado automaticamente para você. Nas máquinas virtuais do Windows, esse disco é rotulado como unidade D:. Nas máquinas virtuais Linux, o disco normalmente é /dev/sdb e é formatado e montado em /mnt/resource pelo Agente Linux do Azure.
-- Um **disco de dados** é um VHD anexado a uma máquina virtual para armazenar dados de aplicativo ou outros dados que você precisa manter. Discos de dados são registrados como unidades SCSI e rotulados com a letra que você escolher. Cada disco de dados tem uma capacidade máxima de 1023 GB. O tamanho da máquina virtual determina quantos discos de dados você pode anexar a ele e o tipo de armazenamento que pode usar para hospedar os discos.
-
-	Para obter mais detalhes sobre as capacidades de máquinas virtuais, consulte [Tamanhos das máquinas virtuais](virtual-machines-size-specs.md).
+	For more details about virtual machines capacities, see [Sizes for virtual machines](virtual-machines-size-specs.md).
 
 Quando você cria uma máquina virtual por meio de uma imagem, o Azure cria um disco do sistema operacional. Se você usar uma imagem que inclui discos de dados, o Azure também cria os discos de dados quando cria a máquina virtual. (Você pode usar uma imagem do Azure, de um parceiro ou uma que você mesmo fornecer.) Caso contrário, adicione discos de dados após criar a máquina virtual.
 
@@ -65,7 +70,8 @@ Máquinas virtuais Linux:
 Máquinas virtuais do Windows:
 
 -  [Anexar um disco e prepará-lo para uso](storage-windows-attach-disk.md)
+- [Alterar a letra da unidade do disco temporário do Windows](virtual-machines-windows-change-drive-letter.md)
 -  [Capturar uma máquina virtual do Windows](virtual-machines-capture-image-windows-server.md)
 -  [Desanexar um disco](storage-windows-detach-disk.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

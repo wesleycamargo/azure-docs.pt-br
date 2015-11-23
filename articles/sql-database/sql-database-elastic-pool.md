@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/08/2015" 
+	ms.date="11/10/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -49,20 +49,20 @@ Um conjunto avançado e eficaz de ferramentas de desenvolvedor para a implementa
 
 ## Recursos de continuidade de negócios para bancos de dados em um pool
 
-Atualmente em visualização, os bancos de dados elásticos dão suporte à maioria dos [recursos de continuidade de negócios](https://msdn.microsoft.com/library/azure/hh852669.aspx) disponíveis para bancos de dados únicos em servidores V12.
+Atualmente em visualização, os bancos de dados elásticos dão suporte à maioria dos [recursos de continuidade de negócios](sql-database-business-continuity.md) disponíveis para bancos de dados únicos em servidores V12.
 
-### Backup e restauração de bancos de dados ([Recuperação Pontual](https://msdn.microsoft.com/library/azure/hh852669.aspx#BKMK_PITR))
+### Backup e restauração de bancos de dados (Restauração Pontual)
 
 O sistema realiza backup automático dos bancos de dados em um pool de banco de dados elástico, e a política de retenção de backup é a mesma que a camada de serviços correspondente para bancos de dados únicos. Mais especificamente, um banco de dados elástico em um pool básico pode ser restaurado para qualquer ponto de restauração dentro dos últimos sete dias, um banco de dados elástico em um pool padrão pode ser restaurado para qualquer ponto de restauração dentro dos últimos 14 dias e um banco de dados elástico em um pool Premium pode ser restaurado para qualquer ponto de restauração dentro dos últimos 35 dias. Durante a visualização, os bancos de dados em um pool serão restaurados para um novo banco de dados no mesmo pool. Bancos de dados descartados sempre serão restaurados como um banco de dados autônomo fora do pool para o nível de desempenho mais baixo para essa camada de serviço. Por exemplo, um banco de dados elástico em um pool padrão que é descartado será restaurado como um banco de dados S0. Você pode executar operações de restauração de bancos de dados pelo Portal do Azure ou programaticamente usando a API REST. O suporte ao cmdlet do PowerShell será disponibilizado em breve.
 
-### [Restauração geográfica](https://msdn.microsoft.com/library/azure/hh852669.aspx#BKMK_GEO)
+### Restauração geográfica
 
 A Restauração Geográfica permite recuperar o banco de dados de um pool para um servidor em uma região diferente. Durante a visualização, para restaurar um banco de dados de um pool em um servidor diferente, o servidor de destino de ter um pool com o mesmo nome do pool de origem. Se necessário, crie um novo pool no servidor de destino e dê a ele o mesmo nome antes de restaurar o banco de dados. Caso o servidor de destino não contenha um pool com o mesmo nome, a operação de Restauração Geográfica falhará. Você pode executar operações de Restauração Geográfica usando o Portal do Azure ou a API REST. O suporte ao cmdlet do PowerShell será disponibilizado em breve.
 
 
-### [Replicação Geográfica](https://msdn.microsoft.com/library/azure/dn783447.aspx)
+### Replicação Geográfica
 
-Os bancos de dados que já tiverem o recurso de Replicação Geográfica habilitado podem ser movidos para dentro e para fora de um Pool de Banco de Dados Elástico e a replicação continuará a funcionar da mesma maneira. Você pode habilitar a Replicação Geográfica em um banco de dados que já está no pool, se o servidor de destino que você especificar tiver um pool com o mesmo nome do pool de origem.
+A replicação geográfica está disponível para qualquer banco de dados em um pool de banco de dados elástico Standard ou Premium. Um ou todos os bancos de dados em uma parceria de replicação geográfica podem ser em um pool de banco de dados elástico, contanto que as camadas de serviço sejam as mesmas. Você pode configurar a replicação geográfica para pools de bancos de dados elásticos usando o [Portal do Azure](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md) ou [Transact-SQL](sql-database-geo-replication-transact-sql.md).
 
 ### Importação e exportação
 
@@ -72,4 +72,4 @@ Os bancos de dados que já tiverem o recurso de Replicação Geográfica habilit
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como implementar a navegação facetada na Pesquisa do Azure | Microsoft Azure" 
+	pageTitle="Como implementar a navegação facetada na Pesquisa do Azure | Microsoft Azure | Serviço de pesquisa de nuvem hospedado" 
 	description="Navegação facetada adicionada aos aplicativos que são integrados à Pesquisa do Azure, um serviço de pesquisa hospedado na nuvem do Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -373,4 +373,4 @@ Para obter mais informações sobre princípios de design para navegação facet
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="07/20/2015" 
+	ms.date="11/09/2015" 
 	ms.author="andrela"/>
 
 
@@ -79,7 +79,7 @@ O exemplo de código:
 
 No Banco de Dados SQL, a propriedade [IDENTITY](http://msdn.microsoft.com/library/ms186775.aspx) e o objeto [SEQUENCE](http://msdn.microsoft.com/library/ff878058.aspx) podem ser usados para gerar automaticamente [valores de chave primária](http://msdn.microsoft.com/library/ms179610.aspx).
 
-Para usar o TinyTDS com o Azure, é recomendável que você execute várias `SET` instruções para alterar como a sessão atual lida com informações específicas. Instruções `SET` recomendadas são fornecidas no código de exemplo. Por exemplo, `SET ANSI_NULL_DFLT_ON` permitirá novas colunas criadas para permitir valores nulos, mesmo que o status de nulidade da coluna não seja declarado explicitamente.
+Para usar o TinyTDS com o Azure, é recomendável que você execute várias instruções `SET` para alterar o modo como a sessão atual lida com informações específicas. Instruções `SET` recomendadas são fornecidas no código de exemplo. Por exemplo, `SET ANSI_NULL_DFLT_ON` permitirá que novas colunas sejam criadas para permitir valores nulos, mesmo que o status de nulidade da coluna não seja declarado explicitamente.
 
 Para alinhar com o formato [datetime](http://msdn.microsoft.com/library/ms187819.aspx) do Microsoft SQL Server, use a função [strftime](http://ruby-doc.org/core-2.2.0/Time.html#method-i-strftime) a ser convertida para o formato de data e hora correspondente.
 
@@ -104,4 +104,4 @@ Para alinhar com o formato [datetime](http://msdn.microsoft.com/library/ms187819
     puts row
     end
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="O que é a Pesquisa do Azure"
+	pageTitle="O que é a Pesquisa do Azure | Microsoft Azure | Serviço de pesquisa de nuvem hospedado"
 	description="A Pesquisa do Azure é um serviço de pesquisa de nuvem hospedado. Saiba mais nesta visão geral técnica e resumo dos recursos."
 	services="search"
 	documentationCenter=""
@@ -131,4 +131,4 @@ Você também pode tentar estes tutoriais:
 
 [Como usar a Pesquisa do Azure no .NET](search-howto-dotnet-sdk.md) [Introdução ao .NET da Pesquisa do Azure](search-get-started-dotnet.md) [Pesquisa do Azure: tutoriais, demonstrações em vídeo e exemplos](search-video-demo-tutorial-list.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

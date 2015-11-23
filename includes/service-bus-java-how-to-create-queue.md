@@ -19,11 +19,11 @@ Para começar a usar filas do Barramento de Serviço no Azure, primeiro crie um 
 
 Para criar um namespace de serviço:
 
-1.  Faça logon no [Portal de Gerenciamento do Azure][].
+1.  Faça logon no [Portal do Azure][].
 
-2.  No painel de navegação esquerdo do Portal de Gerenciamento, clique em**Service Bus**.
+2.  No painel de navegação esquerdo do portal, clique em **Barramento de Serviço**.
 
-3.  No painel inferior do Portal de Gerenciamento, clique em **Criar**. ![](./media/service-bus-java-how-to-create-queue/sb-queues-03.png)
+3.  No painel inferior do portal, clique em **Criar**. ![](./media/service-bus-java-how-to-create-queue/sb-queues-03.png)
 
 4.  No diálogo **Adicionar um novo namespace**, digite um nome de namespace. O sistema imediatamente verifica para ver se o nome está disponível. ![](./media/service-bus-java-how-to-create-queue/sb-queues-04.png)
 
@@ -35,11 +35,11 @@ Para criar um namespace de serviço:
 
 	![](./media/service-bus-java-how-to-create-queue/getting-started-multi-tier-27.png)
 
-O namespace que você criou demora algum tempo para ser ativado, e então aparece no portal de gerenciamento. Aguarde até que o status do namespace seja **Ativo** para continuar.
+O namespace que você criou demora algum tempo para ser ativado, e então aparece no portal do Azure. Aguarde até que o status do namespace seja **Ativo** para continuar.
 
 ## Obter as credenciais de gerenciamento padrão do namespace
 
-A fim de executar operações de gerenciamento, como criar uma fila no novo namespace, obtenha as credenciais de gerenciamento para o namespace. Você pode obter essas credenciais no portal de gerenciamento do Azure.
+A fim de executar operações de gerenciamento, como criar uma fila no novo namespace, obtenha as credenciais de gerenciamento para o namespace. Você pode obter essas credenciais no portal do Azure.
 
 ###Para obter as credenciais de gerenciamento do portal
 
@@ -51,9 +51,8 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 
 4.  Anote a chave primária ou copie-a na área de transferência.
 
-  [Azure Management Portal]: http://manage.windowsazure.com
-  [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
+  [Portal do Azure]: http://manage.windowsazure.com
 
   [34]: ./media/service-bus-java-how-to-create-queue/VSProperties.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

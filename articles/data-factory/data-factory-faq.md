@@ -126,10 +126,6 @@ Se você estiver usando um cluster sob demanda que é criado pelo serviço Data 
 
 No exemplo acima, otherLinkedServiceName1 e otherLinkedServiceName2 representam serviços vinculados cujas definições contêm as credenciais de que o cluster HDInsight precisa para acessar contas de armazenamento alternativas.
 
-## Atividade de procedimento armazenado - Perguntas frequentes
-### Quais fontes de dados têm suporte pela atividade de procedimento armazenado?
-A atividade de procedimento armazenado dá suporte apenas ao Banco de Dados SQL do Azure no momento.
-
 ## Fatias - Perguntas frequentes
 
 ### Como executo novamente uma fatia?
@@ -181,4 +177,4 @@ Se você realmente desejar parar todas as execuções imediatamente, a única ma
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

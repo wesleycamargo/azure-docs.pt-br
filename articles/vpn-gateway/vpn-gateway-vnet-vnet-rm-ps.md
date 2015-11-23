@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Configurar uma conexão de rede virtual com rede virtual usando o PowerShell e o Gerenciador de Recursos do Azure | Microsoft Azure"
+   pageTitle="Configurar uma conexão de rede virtual para rede virtual usando o PowerShell e o Gerenciador de Recursos do Azure para redes virtuais na mesma assinatura| Microsoft Azure"
    description="Este artigo mostra como conectar redes virtuais em conjunto usando o PowerShell e o Gerenciador de Recursos do Azure"
    services="vpn-gateway"
    documentationCenter="na"
@@ -14,18 +14,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/20/2015"
+   ms.date="11/06/2015"
    ms.author="cherylmc"/>
 
-# Configurar uma conexão de rede virtual com rede virtual usando o PowerShell e o Gerenciador de Recursos do Azure
+# Configurar uma conexão VNet a VNet para redes virtuais na mesma assinatura usando o Gerenciador de recursos do Azure e o PowerShell
 
 > [AZURE.SELECTOR]
 - [Azure Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
-Este artigo o orientará pelas etapas usando o modelo de implantação do Gerenciador de Recursos. Você pode selecionar o artigo do modelo de implantação e da ferramenta de implantação usando as guias acima.
+Este artigo o orientará pelas etapas usando o modelo de implantação do Gerenciador de Recursos. Você pode selecionar o artigo do modelo de implantação e da ferramenta de implantação usando as guias acima. Neste momento, não temos uma solução para conexões de VNet a VNet para redes virtuais criadas usando o método de implantação do Gerenciador de recursos que residem em assinaturas diferentes. Atualmente, a equipe está trabalhando em uma solução e prevemos ter etapas prontas até o final do ano. Quando estiverem disponíveis, este artigo vai expor essas etapas. As etapas a seguir são para VNets que estão na mesma assinatura.
 
->[AZURE.NOTE]É importante saber que atualmente o Azure funciona com dois modelos de implantação: Gerenciador de Recursos e clássico. Antes de começar a configuração, entenda as ferramentas e os modelos de implantação. Para saber mais sobre os modelos de implantação, consulte [Modelos de implantação do Azure](../azure-classic-rm.md).
+Se suas redes virtuais foram criadas usando o modelo clássico de implantação, consulte [Criar uma conexão de VNet para VNet](virtual-networks-configure-vnet-to-vnet-connection.md). O modelo de implantação clássico dá suporte à conexão entre VNets que residem em assinaturas diferentes.
+
+Se você quiser conectar uma rede virtual que foi criada no modelo de implantação clássico a uma rede virtual criada usando o modelo do Gerenciador de Recursos do Azure, consulte [Conectando redes virtuais clássicas a novas redes virtuais](../virtual-network/virtual-networks-arm-asm-s2s.md).
+
+[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
 Conectar uma rede virtual a outra rede virtual é bastante semelhante a conectar uma rede virtual a um site local. Os dois tipos de conectividade usam um gateway de VPN para fornecer um túnel seguro usando IPsec/IKE. As redes virtuais que você conecta podem estar em diferentes regiões. Você pode até combinar a comunicação de rede virtual com rede virtual a configurações multissite. Isso permite estabelecer topologias de rede que combinam conectividade entre instalações com a conectividade entre redes virtuais, como mostrado no diagrama abaixo:
 
@@ -230,12 +234,15 @@ Neste momento, as conexões VPN criadas com o Gerenciador de Recursos não podem
 	  }
 	} 
 
+[AZURE.INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
+
 ## Conectando redes virtuais existentes
 
 Se já tiver criado redes virtuais no modo do Gerenciador de Recursos do Azure e desejar conectá-las, verifique o seguinte:
 
 - Você tem uma sub-rede de gateway de pelo menos /29 ou maior para cada rede virtual.
 - Os intervalos de endereços para suas redes virtuais não se sobrepõem.
+- Suas VNets estão na mesma assinatura.
 
 Se precisar adicionar sub-redes de gateway às redes virtuais, use o exemplo abaixo, substituindo os valores pelos seus próprios. Certifique-se de nomear a sub-rede de gateway como 'GatewaySubnet'. Se você usar outro nome, a configuração do VPN não funcionará conforme esperado.
 
@@ -251,6 +258,10 @@ Depois de verificar se suas sub-redes do gateway estão configuradas corretament
 
 Você pode adicionar máquinas virtuais às suas redes virtuais. [Criar uma máquina virtual](../virtual-machines/virtual-machines-windows-tutorial.md)
 
-Para saber mais sobre Gateways de VPN, consulte [Perguntas frequentes sobre o Gateway de VPN](vpn-gateway-faq.md).
+Para saber mais sobre Gateways de VPN, consulte [Perguntas frequentes sobre o Gateway de VPN](vpn-gateway-vpn-faq.md).
 
-<!---HONumber=Oct15_HO4-->
+Para obter informações da API REST, consulte [Referência de API REST do gateway de rede do Azure](https://msdn.microsoft.com/library/azure/mt163859.aspx).
+
+Para obter mais informações sobre redes virtuais, consulte [Visão geral da rede virtual](../virtual-network/virtual-networks-overview.md).
+
+<!---HONumber=Nov15_HO3-->

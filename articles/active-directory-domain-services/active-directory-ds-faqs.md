@@ -30,7 +30,7 @@ Consulte nosso [Guia de solução de problemas](active-directory-ds-troubleshoot
 Não. Você só pode criar um único domínio atendido pelos Serviços de Domínio do AD do Azure para um único diretório do AD do Azure.
 
 #### Posso disponibilizar os Serviços de Domínio do AD do Azure em várias redes virtuais na minha assinatura?
-O próprio serviço não oferece suporte diretamente para esse cenário. Os Serviços de Domínio do AD do Azure estão disponíveis em somente uma rede virtual por vez. No entanto, você pode configurar a conectividade entre várias redes virtuais para expor Serviços de Domínio do AD do Azure para outras redes virtuais. Este artigo descreve como você pode [conectar redes virtuais no Azure](../vpn-gateway/virtual-networks-configure-vnet-to-vnetconnection.md).
+O próprio serviço não oferece suporte diretamente para esse cenário. Os Serviços de Domínio do AD do Azure estão disponíveis em somente uma rede virtual por vez. No entanto, você pode configurar a conectividade entre várias redes virtuais para expor Serviços de Domínio do AD do Azure para outras redes virtuais. Este artigo descreve como você pode [conectar redes virtuais no Azure](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 #### Posso habilitar os Serviços de Domínio do AD do Azure usando o PowerShell?
 A implantação do PowerShell/automatizada dos Serviços de Domínio do AD do Azure não está disponível no momento.
@@ -68,4 +68,4 @@ Consulte nossa [página de regiões](active-directory-ds-regions.md) para ver um
 #### Quando os Serviços de Domínio do AD do Azure estão disponíveis completamente?
 Atualmente, não é possível compartilhar cronogramas para quando o serviço estará disponível.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

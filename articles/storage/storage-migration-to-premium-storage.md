@@ -1,10 +1,10 @@
 <properties
     pageTitle="Migrando para o Armazenamento Premium do Azure | Microsoft Azure"
-    description="Migre para o Armazenamento Premium do Azure para ter um alto desempenho, suporte a disco de baixa latência para cargas de trabalho com uso intenso de E/S em execução nas máquinas virtuais do Azure."
+    description="Migre as máquinas virtuais existentes para o Armazenamento Premium do Azure. O Armazenamento Premium dá suporte ao disco de alto desempenho e baixa latência para cargas de trabalho que usam muita E/S em execução em máquinas virtuais do Azure."
     services="storage"
     documentationCenter="na"
-    authors="tamram"
-    manager="adinah"
+    authors="ms-prkhad"
+    manager=""
     editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/23/2015"
+    ms.date="11/04/2015"
     ms.author="tamram"/>
 
 
@@ -21,17 +21,26 @@
 
 ## Visão geral
 
-O objetivo deste guia é ajudar novos usuários do Armazenamento Premium do Microsoft Azure a se preparar melhor para fazer uma transição sem problemas de seu sistema atual para o Armazenamento Premium. O guia aborda três dos principais componentes do processo: planejamento da migração para o Armazenamento Premium, migração de VHDs (discos rígidos virtuais) existentes para o Armazenamento Premium e criação de instâncias de máquina virtual do Azure no Armazenamento Premium.
+O Armazenamento Premium do Azure dá suporte de disco de alto desempenho e baixa latência para máquinas virtuais executando cargas de trabalho intensivas para entradas e saídas. Discos de VM (máquina virtual) que usam o armazenamento Premium armazenam dados em SSDs (unidades de estado sólido). Você pode migrar os discos de VM do seu aplicativo para o Armazenamento Premium do Azure para aproveitar a velocidade e o desempenho desses discos.
+
+Uma VM do Azure dá suporte à anexação vários discos de Armazenamento Premium, para que seus aplicativos possam ter até 64 TB de armazenamento por VM. Com o Armazenamento Premium, seus aplicativos podem atingir 80.000 IOPS (operações de entrada/saída por segundo) por VM e taxa de transferência de disco de 2.000 MB por segundo por VM com latências extremamente baixas para operações de leitura.
+
+>[AZURE.NOTE]É recomendável migrar qualquer disco de máquina virtual que exija IOPS alta para o Armazenamento Premium do Azure para obter o melhor desempenho para o seu aplicativo. Se o disco não requer IOPS alta, você pode limitar os custos mantendo-a no armazenamento padrão, que armazena dados de disco da máquina virtual em HDDs (unidades de disco rígido) em vez de SSDs.
+
+O objetivo deste guia é ajudar novos usuários do Armazenamento Premium do Azure a se preparar melhor para fazer uma transição sem problemas de seu sistema atual para o Armazenamento Premium. O guia aborda três dos principais componentes do processo: planejamento da migração para o Armazenamento Premium, migração de VHDs (discos rígidos virtuais) existentes para o Armazenamento Premium e criação de instâncias de máquina virtual do Azure no Armazenamento Premium.
 
 A conclusão do processo de migração em sua totalidade pode exigir ações adicionais antes e depois das etapas fornecidas neste guia. Exemplos incluem a configuração de redes virtuais ou pontos de extremidade ou alterações de código no próprio aplicativo. Essas ações são exclusivas para cada aplicativo e devem ser concluídas junto com as etapas fornecidas neste guia para fazer a transição completa para o Armazenamento Premium da maneira mais simples possível.
 
 Você pode encontrar uma visão geral de recursos do Armazenamento Premium em [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure](storage-premium-storage-preview-portal.md).
 
-Este guia é dividido em duas seções que abordam os dois seguintes cenários de migração: - [Migrar VMs de fora do Azure para o Armazenamento Premium do Azure](#migrating-vms-from-outside-azure-to-azure-premium-storage).- [Migrar VMs do Azure existentes para o Armazenamento Premium do Azure](#migrating-existing-azure-vms-to-azure-premium-storage).
+Este guia é dividido em duas seções que abordam os dois cenários de migração a seguir:
+
+- [Migrando VMs de fora do Azure para o Armazenamento Premium do Azure](#migrating-vms-from-outside-azure-to-azure-premium-storage).
+- [Migração de VMs do Azure existentes para o Armazenamento Premium do Azure](#migrating-existing-azure-vms-to-azure-premium-storage).
 
 Siga as etapas especificadas na seção relevante, dependendo do cenário.
 
-## Migrando VMs de fora do Azure para o Armazenamento Premium do Azure
+## Migrando VMs de outras plataformas para o Armazenamento Premium do Azure
 
 ### Pré-requisitos
 - Você também precisará de uma assinatura do Azure. Se não tiver, poderá criar uma assinatura de [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/) de um mês ou visitar [Preços do Azure](http://azure.microsoft.com/pricing/) para obter mais opções.
@@ -241,9 +250,9 @@ Use estes cmdlets do PowerShell para registrar seu VHD como um Disco de Dados do
 
 Copie e salve o nome desse novo Disco de Dados do Azure. No exemplo acima, é *DataDisk*.
 
-### Criar uma VM do Azure da série DS
+### Criar uma nova VM série DS ou série GS do Azure
 
-Assim que a imagem do sistema operacional ou o disco do sistema operacional for registrado, crie uma nova instância VM do Azure da série DS. Você usará a imagem do sistema operacional ou o nome de disco do sistema operacional registrado. Selecione o tipo de VM na camada de Armazenamento Premium. No exemplo abaixo, estamos usando o tamanho de VM *Standard\_DS2*. Você pode usar as mesmas etapas para criar uma VM da série GS.
+Assim que a imagem do sistema operacional ou o disco do sistema operacional for registrado, crie uma nova VM do Azure da série DS ou GS. Você usará a imagem do sistema operacional ou o nome de disco do sistema operacional registrado. Selecione o tipo de VM na camada de Armazenamento Premium. No exemplo abaixo, estamos usando o tamanho de VM *Standard\_DS2*.
 
 >[AZURE.NOTE]Atualize o tamanho do disco para assegurar que ele corresponda à sua capacidade, requisitos de desempenho e aos tamanhos de disco do Azure disponíveis.
 
@@ -668,4 +677,4 @@ Consulte também as fontes a seguir para saber mais sobre o Armazenamento do Azu
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

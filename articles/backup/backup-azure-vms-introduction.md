@@ -74,6 +74,7 @@ Para cada disco cujo backup está sendo feito, o Backup do Azure lê os blocos n
 Embora a maioria do tempo é gasto na leitura e cópia de dados, existem outras operações que contribuem para o tempo total gasto para fazer o backup de uma VM:
 
 - Tempo necessário para [instalar ou atualizar a extensão de backup](backup-azure-vms.md#offline-vms)
+- Hora do instantâneo - tempo levado para disparar um instantâneo. Instantâneos são disparados próximo ao horário de backup agendado.
 - Tempo de espera de fila: uma vez que o serviço de backup estiver processando backups de vários clientes, a operação de backup não será iniciada imediatamente. Em períodos de pico de carga, os tempos de espera podem se estender a até 8 horas devido ao número de backups sendo processados. No entanto, o tempo total de backup da VM será de menos de 24 horas para políticas de backup diárias.
 
 ## Como as instâncias protegidas são calculadas?
@@ -102,4 +103,4 @@ Se houver dúvidas ou algum recurso que você gostaria de ver incluído, [envie-
 - [Restaurar máquinas virtuais](backup-azure-restore-vms.md)
 - [Solucionar problemas de backup da VM](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -68,7 +68,10 @@ A tabela a seguir mostra as diferenças dos recursos de continuidade dos negóci
 
 Esses recursos são fornecidos para tratar dos cenários listados anteriormente. Consulte a seção [Projeto para continuidade dos negócios](sql-database-business-continuity-design.md) para obter orientação sobre como selecionar o recurso específico.
 
-###Ponto de restauração pontual
+> [AZURE.NOTE]\: Os valores ERT e RPO são metas de engenharia e fornecem apenas diretrizes. Eles não são parte do [SLA para o Banco de Dados SQL](https://azure.microsoft.com/support/legal/sla/sql-database/v1_0/)
+
+
+###Restauração Pontual
 
 Ponto de restauração pontual é projetado para retornar seu banco de dados para um ponto anterior no tempo. Ele usa os backups de banco de dados, backups incrementais e backups de log de transações que o serviço mantém automaticamente para cada banco de dados do usuário. Esse recurso está disponível para todas as camadas de serviço. Você pode voltar 7 dias com a básica, 14 dias com a padrão e 35 dias com a premium. Consulte [Recuperação de erro humano](sql-database-user-error-recovery.md) para obter detalhes sobre como usar o ponto de restauração pontual.
 
@@ -88,4 +91,4 @@ A replicação geográfica ativa está disponível para bancos de dados Premium.
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

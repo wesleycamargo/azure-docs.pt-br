@@ -60,7 +60,7 @@ A Análise Azure Data Lake é um serviço novo, criado para facilitar a análise
     
 - U-SQL e desenvolvimento
     - [Introdução à linguagem U-SQL da Análise Azure Data Lake](data-lake-analytics-u-sql-get-started.md)
-    - [Usar funções da janela do U-SQL para trabalhos da Análise do Azure Data Lake](data-lake-analytics-use-window-functions.md)
+    - [Usar funções da janela do U-SQL para trabalhos de Análise Azure Data Lake](data-lake-analytics-use-window-functions.md)
     - [Desenvolver operadores do U-SQL definidos pelo usuário para trabalhos da Análise Data Lake](data-lake-analtyics-u-sql-develop-user-defined-operators.md)
     
 - Gerenciamento
@@ -77,4 +77,4 @@ A Análise Azure Data Lake é um serviço novo, criado para facilitar a análise
     - [Enviar uma solicitação de recurso](http://aka.ms/adlafeedback)
     - [Obter ajuda nos fóruns](http://aka.ms/adlaforums)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

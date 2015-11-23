@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Visualização do AD B2C do Azure | Microsoft Azure"
+	pageTitle="Visualização do B2C do AD do Azure: usando o Graph API | Microsoft Azure"
 	description="Como chamar a Graph API para um locatário B2C usando uma identidade de aplicativo para automatizar o processo."
 	services="active-directory-b2c"
 	documentationCenter=".net"
@@ -222,7 +222,7 @@ Content-Length: 338
 {
 	// These properties are all required for creating consumer users.
 	 
-	"accountEnabled": false,                    // always set to false
+	"accountEnabled": true,
 	"alternativeSignInNamesInfo": [             // controls what identifier the user uses to sign into their account
 		{
 			"type": "emailAddress",             // can be 'emailAddress' or 'userName'
@@ -349,4 +349,4 @@ E pronto! Com o B2CGraphClient, agora você tem um aplicativo de serviço que po
 
 Se você tiver perguntas ou solicitações de ações que deseja executar com a Graph API no locatário B2C, entre em contato conosco. Deixe um comentário sobre o artigo ou um registre o problema no repositório GitHub de exemplos de código.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

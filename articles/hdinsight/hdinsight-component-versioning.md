@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="11/11/2015"
 	ms.author="jgao"/>
 
 
 #O que há de novo nas versões de cluster Hadoop fornecidas pelo HDInsight?
 
 ##Versões do HDInsight e componentes do Hadoop
-O HDInsight do Azure dá suporte a várias versões do cluster Hadoop que podem ser implantadas a qualquer momento. Cada opção de versão provisiona uma versão específica da distribuição de HDP (HortonWorks Data Platform) e um conjunto de componentes contidos nessa distribuição. As versões do componente associadas às versões do cluster HDInsight são detalhadas na tabela a seguir. Observe que a versão padrão do cluster usada pelo Azure HDInsight atualmente é a 3.1 e, a partir de 07/11/2014, baseada em HDP 2.1.7.
+O HDInsight do Azure dá suporte a várias versões do cluster Hadoop que podem ser implantadas a qualquer momento. Cada opção de versão cria uma versão específica da distribuição de HDP (HortonWorks Data Platform) e um conjunto de componentes contidos nessa distribuição. As versões do componente associadas às versões do cluster HDInsight são detalhadas na tabela a seguir. Observe que a versão padrão do cluster usada pelo Azure HDInsight atualmente é a 3.1 e, a partir de 07/11/2014, baseada em HDP 2.1.7.
 
 
 Componente|HDInsight versão 3.2|HDInsight versão 3.1 (padrão)|HDInsight versão 3,0|HDInsight versão 2.1
@@ -50,7 +50,7 @@ As versões de componente associadas às versões do cluster HDInsight podem ser
 
 Consulte [Notas de versão do HDInsight](hdinsight-release-notes.md) para ver notas de versão adicionais sobre as versões mais recentes do HDInsight.
 
-### Selecionar uma versão ao provisionar um cluster HDInsight
+### Selecionar uma versão ao criar um cluster HDInsight
 
 Ao criar um cluster por meio dos cmdlets do Windows PowerShell do HDInsight ou do SDK do .NET do HDInsight, você poderá escolher a versão para o cluster Hadoop HDInsight usando a caixa suspensa **Versão do HDInsight** da folha **Configuração Opcional** no portal de visualização do Azure.
 
@@ -66,7 +66,7 @@ Alguns dos principais recursos da plataforma HDInsight incluem:
 
 - **Storm** - O Storm no Azure HDInsight agora está disponível ao público geral, proporcionando uma maneira rápida e fácil de implantar análise em tempo real em apenas alguns cliques e dentro de minutos. O Apache Storm no HDInsight do Azure é um projeto de código-fonte aberto no ecossistema do Apache Hadoop que fornece acesso a uma plataforma de análise capaz de processar milhões de eventos de maneira confiável. Agora os usuários de Hadoop podem obter insights sobre como os eventos ocorrem, além de insights de eventos passados. A Microsoft também fornece integração interna com o Visual Studio, facilitando a interação do desenvolvedor com o Storm. Agora você pode desenvolver, implantar e depurar topologias Storm de dentro do Visual Studio.
 
-- **HDInsight no Linux** - O HDInsight do Azure fornece a opção de provisionar clusters do Hadoop que sejam executados em máquinas virtuais (VMs) Linux (Ubuntu). Você pode usar essa opção se estiver familiarizado com o Linux ou Unix, estiver migrando de uma solução Hadoop baseada em Linux existente ou desejar fácil integração com componentes do ecossistema do Hadoop criados para o Linux. Você pode provisionar um cluster HDInsight no Linux por meio de um computador cliente executando o Windows ou Linux usando o portal de visualização do Azure, a CLI do Azure ou o SDK do .NET HDInsight (somente Windows).
+- **HDInsight no Linux** - O HDInsight do Azure fornece a opção de criar clusters do Hadoop que sejam executados em máquinas virtuais (VMs) Linux (Ubuntu). Você pode usar essa opção se estiver familiarizado com o Linux ou Unix, estiver migrando de uma solução Hadoop baseada em Linux existente ou desejar fácil integração com componentes do ecossistema do Hadoop criados para o Linux. Você pode criar um cluster HDInsight no Linux por meio de um computador cliente executando o Windows ou Linux usando o portal de visualização do Azure, a CLI do Azure ou o SDK do .NET HDInsight (somente Windows).
 
 - **Tamanhos de VM adicionais** - clusters do HDInsight agora estão disponíveis em mais tipos e tamanhos de VM. Os clusters do HDInsight agora podem utilizar tamanhos de A2 a A7 criados para fins gerais; os nós da Série D têm SSDs (unidades de estado sólido) e processadores 60% mais rápidos; e tamanhos A8 e A9 com suporte para InfiniBand para rede rápida. Clientes Apache HBase no Azure HDInsight podem se beneficiar das configurações de memória maiores da série de D para aumentar o desempenho. Clientes do Storm Apache no Azure HDInsight também podem se beneficiar de memória adicional para carregar conjuntos de dados de referência maiores, bem como CPUs mais rápidas para taxa de transferência mais alta.
 
@@ -86,7 +86,7 @@ Alguns dos principais recursos da plataforma HDInsight incluem:
 
 - **Tez (HDInsight 3.1 e superiores apenas)** - Uma estrutura personalizável e de uso geral que cria tarefas simplificadas de processamento de dados em cargas de trabalho de pequena e grande escala no Hadoop. Ela oferece a capacidade de executar um DAG (gráfico acíclico direcionado) complexo de tarefas para um único trabalho, de modo que os projetos no ecossistema do Apache Hadoop, como Apache Hive e Apache Pig, possam atender aos requisitos de tempos de resposta interativa humana e extrema produtividade em uma escala de petabytes. Observe que o Hive 0.13 permite que consultas do Hive sejam executadas parte superior do Tez, em vez de no MapReduce.
 
-- **Alta disponibilidade** - Um segundo nó de cabeçalho foi adicionado aos clusters Hadoop implantados pelo HDInsight para aumentar a disponibilidade do serviço. Implementações padrão de clusters Hadoop normalmente têm um único nó principal. O HDInsight remove esse ponto único de falha com a adição de um nó de cabeçalho secundário. A mudança para uma nova configuração de cluster de alta disponibilidade não altera o preço do cluster, a menos que os clientes provisionem clusters com um nó de cabeçalho extragrande, em vez do nó de tamanho grande padrão.
+- **Alta disponibilidade** - Um segundo nó de cabeçalho foi adicionado aos clusters Hadoop implantados pelo HDInsight para aumentar a disponibilidade do serviço. Implementações padrão de clusters Hadoop normalmente têm um único nó principal. O HDInsight remove esse ponto único de falha com a adição de um nó de cabeçalho secundário. A mudança para uma nova configuração de cluster de alta disponibilidade não altera o preço do cluster, a menos que os clientes criarem clusters com um nó de cabeçalho extragrande, em vez do nó de tamanho grande padrão.
 
 - **Desempenho do Hive** - melhorias na ordem de magnitude dos tempos de resposta de consulta do Hive (até 40x) e da compactação de dados (até 80%) usando o formato ORC **(Optimized Row Columnar)**.
 
@@ -101,7 +101,7 @@ Alguns dos principais recursos da plataforma HDInsight incluem:
 A tabela a seguir lista as versões do HDInsight disponíveis no momento, as versões correspondentes do Hortonworks Data Platform que elas usam e suas datas de lançamento. Quando conhecidas, suas datas de vencimento e reprovação também são fornecidas. Observe o seguinte:
 
 * Clusters altamente disponíveis com dois headnodes são implantados por padrão para clusters HDInsight 2.1 e superiores. Eles não estão disponíveis para clusters HDInsight 1.6.
-* Depois que o suporte expirar para uma determinada versão, talvez ela fique indisponível no portal de visualização do Azure. A tabela a seguir indica quais versões estão disponíveis no portal do Azure. As versões do cluster continuarão disponíveis usando o parâmetro `Version` no comando do Windows PowerShell [New-AzureHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) e o SDK .NET até sua data de substituição.
+* Depois que o suporte expirar para uma determinada versão, talvez ela fique indisponível no portal de visualização do Azure. A tabela a seguir indica quais versões estão disponíveis no portal do Azure. As versões do cluster continuarão disponíveis usando o parâmetro `Version` no comando do Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) e o SDK .NET até sua data de substituição.
 
 Versão do HDInsight|Versão do HDP|Alta Disponibilidade|Data do lançamento|Disponível no Portal do Azure|Data de validade do suporte|Data de reprovação
 ---|---|---|---|---|---|---
@@ -162,4 +162,4 @@ A **Data de Reprovação** é a data após a qual a versão do cluster não pode
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

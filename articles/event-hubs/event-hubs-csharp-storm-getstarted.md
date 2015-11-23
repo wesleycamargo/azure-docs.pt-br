@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução aos Hubs de Evento"
+	pageTitle="Introdução aos Hubs de eventos em C# com Apache Storm | Microsoft Azure"
 	description="Siga este tutorial para começar a usar Hubs de Eventos do Azure enviando eventos em C# e recebendo-os em um cluster do Apache Storm."
 	services="event-hubs"
 	documentationCenter=""
@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="event-hubs"
-	ms.workload="core"
-	ms.tgt_pltfrm="csharp"
-	ms.devlang="csharp"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="09/01/2015"
+	ms.date="11/05/2015"
 	ms.author="sethm"/>
 
 # Introdução aos Hubs de Evento
@@ -89,9 +89,9 @@ Agora você está pronto para executar os aplicativos.
 
 Agora que criou um aplicativo funcional que cria um Hub de Eventos e envia e recebe dados, você pode passar para os seguintes cenários:
 
-- Um [aplicativo de exemplo completo que usa os Hubs de Evento].
-- O exemplo de [Escala horizontal do processamento de eventos com Hubs de Eventos].
-- Uma [solução de mensagens na fila] usando filas do Barramento de Serviço.
+- Um [aplicativo de exemplo completo que usa os Hubs de Evento][].
+- O exemplo de [Escala horizontal do processamento de eventos com Hubs de Eventos][].
+- Uma [solução de mensagens na fila][] usando filas do Barramento de Serviço.
 
 <!-- Images. -->
 [1]: ./media/event-hubs-csharp-storm-getstarted/create-event-hub1.png
@@ -108,9 +108,9 @@ Agora que criou um aplicativo funcional que cria um Hub de Eventos e envia e rec
 [portal do Azure]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Visão geral de Hubs de Eventos]: event-hubs-overview.md
-[aplicativo de exemplo completo que usa os Hubs de Evento]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
-[Escala horizontal do processamento de eventos com Hubs de Eventos]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
+[aplicativo de exemplo completo que usa os Hubs de Evento]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Escala horizontal do processamento de eventos com Hubs de Eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [solução de mensagens na fila]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

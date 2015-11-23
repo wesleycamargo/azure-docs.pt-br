@@ -1,4 +1,4 @@
-<properties pageTitle="O que aconteceu com meu projeto da API Web (serviço conectado do Active Directory do Azure do Visual Studio) |Microsoft Azure " description="Descreve o que acontece com seu projeto da API Web do MVC que você conecta ao AD do Azure usando os serviços do Visual Studio="active-directory" services="active-directory" documentationCenter="" authors="patshea123" manager="douge" editor="tglee"/>
+<properties pageTitle="O que aconteceu com meu projeto da API Web (serviço conectado do Active Directory do Azure do Visual Studio) |Microsoft Azure " description="Descreve o que acontece com seu projeto da API Web do MVC que você conecta ao AD do Azure usando os serviços do Visual Studio="active-directory" services="active-directory" documentationCenter="" authors="TomArcher" manager="douge" editor="tglee"/>
 
 <tags
 	ms.service="active-directory"
@@ -7,7 +7,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # O que aconteceu com meu projeto da API Web (serviço conectado do Active Directory do Azure do Visual Studio)
 
@@ -66,7 +66,7 @@ Um Aplicativo Azure AD foi criado no diretório selecionado no assistente.
 
 [Saiba mais sobre o Active Directory do Azure](http://azure.microsoft.com/services/active-directory/)
 
-##Se eu marquei *Desabilitar autenticação de Contas de usuários individuais*, quais alterações adicionais foram feitas ao meu projeto?
+##Se eu marquei *Desabilitar autenticação de contas de usuários individuais*, que alterações adicionais foram feitas ao meu projeto?
 Referências ao pacote NuGet foram removidas e arquivos foram removidos e copiados. Dependendo do estado do seu projeto, você terá de remover manualmente referências ou arquivos adicionais ou modificar o código conforme apropriado.
 
 ###Referências ao pacotes NuGet removidas (para aquelas presentes)
@@ -109,4 +109,4 @@ Seu Aplicativo do Active Directory do Azure foi atualizado para incluir a permis
 
 [Saiba mais sobre o Active Directory do Azure](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

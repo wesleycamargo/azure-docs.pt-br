@@ -22,7 +22,7 @@
 
 O Hub IoT do Azure é um serviço totalmente gerenciado que permite comunicações bidirecionais confiáveis e seguras entre milhões de dispositivos IoT e um back-end de aplicativo. Tutoriais anteriores ([Introdução ao Hub Iot] e [Enviar mensagens de nuvem para o dispositivo com o Hub IoT]) ilustram a funcionalidade da mensagem do dispositivo para nuvem básico e nuvem para dispositivo para o Hub IoT, e como acessá-los dos dispositivos e componentes de nuvem. [As mensagens do processo de dispositivo para nuvem] descreveu uma forma de armazenamento confiável das mensagens do dispositivo para nuvem no armazenamento de blob do Azure. Há casos, no entanto, em que os dados dos dispositivos não mapeiam facilmente para mensagens dispositivo para nuvem relativamente pequenas. Alguns exemplos são arquivos grandes que contêm imagens, vídeos, exemplo de dados de vibração com bastante frequência ou que contém algum tipo de dados pré-processados. Esses arquivos normalmente são processados em um modo de lotes usando ferramentas como o [Azure Data Factory] ou a pilha de [Hadoop]. Ao carregar um arquivo de um dispositivo é preferencial enviar eventos, ainda é possível usar a funcionalidade de confiabilidade e segurança de Hub IoT.
 
-Este tutorial se baseia no código apresentado no [Envio de mensagens nuvem para dispositivo com o Hub IoT] para mostrar como usar mensagens da nuvem para dispositivo para fornecer com segurança para o dispositivo um URI de blob do Azure para ser usado para carregar o arquivo, e como usar os reconhecimentos de fornecimento de Hub IoT para disparar o processamento do arquivo do seu back-end de aplicativo. As vantagens dessa abordagem é a reutilização de identidade do dispositivo Hub IoT e a confirmação de entrega de mensagens de nuvem para dispositivo para informar o back-end do aplicativo que o arquivo foi carregado com êxito.
+Este tutorial se baseia no código apresentado no [Envio de mensagens nuvem para dispositivo com o Hub IoT] para mostrar como usar mensagens da nuvem para dispositivo para fornecer com segurança para o dispositivo um URI de blob do Azure a ser usado para carregar o arquivo, e como usar os reconhecimentos de fornecimento de Hub IoT para disparar o processamento do arquivo do seu back-end de aplicativo. As vantagens dessa abordagem é a reutilização de identidade do dispositivo Hub IoT e a confirmação de entrega de mensagens de nuvem para dispositivo para informar o back-end do aplicativo que o arquivo foi carregado com êxito.
 
 > [AZURE.NOTE]A mesma abordagem usada aqui pode ser usada para dispositivos baixarem arquivos com segurança da nuvem.
 
@@ -53,7 +53,7 @@ Agora você está pronto para executar os aplicativos.
 
 1.  No Visual Studio, clique com o botão direito do mouse na solução e selecione **Definir projetos de inicialização...**. Selecione **Vários projetos de inicialização** e, em seguida, selecione a ação **Iniciar** para **SimulatedDevice**, e aplicativos **SendCloudToDevice**.
 
-2.  Pressione **F5** e você verá todos os aplicativos de início. Selecione a janela **SendCloudToDevice** e pressione uma tecla. Você verá uma mensagem de saída do dispositivo simulado quando o arquivo for carregado e o aplicativo **SendCloudToDevice** mostrará o recebimento de comentários. Você pode usar o [Portal de Visualização do Azure] ou Visual Studio Server Explorer para verificar a presença do arquivo na sua conta de armazenamento.
+2.  Pressione **F5** e você verá todos os aplicativos de início. Selecione a janela **SendCloudToDevice** e pressione uma tecla. Você verá uma mensagem de saída do dispositivo simulado quando o arquivo for carregado e o aplicativo **SendCloudToDevice** mostrará o recebimento de comentários. Você pode usar o [Portal de Visualização do Azure] ou o Gerenciador de Servidores do Visual Studio para verificar a presença do arquivo na sua conta de armazenamento.
 
   ![][50]
 
@@ -101,4 +101,4 @@ Informações adicionais sobre o Hub IoT:
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Centro de Desenvolvedores do IoT do Azure]: http://www.azure.com/develop/iot
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

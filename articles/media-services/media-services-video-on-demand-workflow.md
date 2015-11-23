@@ -89,15 +89,16 @@ Este artigo contém links para tópicos que mostram como configurar seu ambiente
 
 Para obter conceitos relacionados ao fornecimento de conteúdo sob demanda, veja [Conceitos dos Serviços de Mídia](media-services-concepts.md) (players.md).
 
+##Roteiros de aprendizagem dos Serviços de Mídia
 
-##Próximas etapas: roteiros de aprendizagem do AMS
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-Você pode exibir os roteiros de aprendizagem do AMS aqui:
+##Fornecer comentários
 
-- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

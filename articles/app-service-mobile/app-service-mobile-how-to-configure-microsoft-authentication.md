@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/30/2015"
 	ms.author="mahender"/>
 
 # Como configurar seu aplicativo para usar o logon da conta da Microsoft
@@ -71,4 +71,4 @@ Agora você está pronto para usar uma conta da Microsoft para autenticação em
 [Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Portal de Gerenciamento do Azure]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

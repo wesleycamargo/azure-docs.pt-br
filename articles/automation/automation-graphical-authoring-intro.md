@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/04/2015"
+   ms.date="11/05/2015"
    ms.author="bwren" />
 
 # Criação gráfica na Automação do Azure
@@ -131,7 +131,7 @@ Ao especificar um valor para um parâmetro, você seleciona uma fonte de dados p
 |Ativo de credencial de automação|Selecione uma Credencial de Automação como entrada.|  
 |Ativo de certificado de automação|Selecione um Certificado de Automação como entrada.|  
 |Ativo de conexão de automação|Selecione uma Conexão de Automação como entrada.| 
-|Expressão do PowerShell|Especifique a expressão simples do PowerShell. A expressão será avaliada antes da atividade, e o resultado será usado para o valor do parâmetro. Você pode usar variáveis para referir-se à saída de uma atividade ou um parâmetro de entrada de runbook.|
+|Expressão do PowerShell|Especifique a expressão simples do [PowerShell](#powershell-expressions). A expressão será avaliada antes da atividade, e o resultado será usado para o valor do parâmetro. Você pode usar variáveis para referir-se à saída de uma atividade ou um parâmetro de entrada de runbook.|
 |Cadeia de Caracteres Vazia|Um valor de cadeia de caracteres vazia.|
 |Nulo|Um valor Nulo.|
 |Cancelar Seleção|Limpa qualquer valor que foi configurado anteriormente.|
@@ -241,6 +241,7 @@ Você também pode recuperar a saída de uma atividade em uma fonte de dados de 
 
 A mesma diretriz para definir [pontos de verificação](automation-powershell-workflow/#checkpoints) em seu runbook se aplica a runbooks gráficos. Você pode adicionar uma atividade ao cmdlet Checkpoint-Workflow onde você precisa definir um ponto de verificação. Você deve então incluir um Add-AzureAccount após essa atividade, caso o runbook se inicie desse ponto de verificação em um trabalhador diferente.
 
+
 ## Autenticação para recursos do Azure
 
 A maioria dos runbooks na Automação do Azure requer autenticação para recursos do Azure. O método típico usado para essa autenticação é o cmdlet Add-AzureAccount com um [ativo de credencial](http://msdn.microsoft.com/library/dn940015.aspx) que representa um usuário do Active Directory com acesso à conta do Azure. Isso é discutido em [Configurando a Automação do Azure](automation-configuring.md).
@@ -285,10 +286,97 @@ Cada parâmetro de entrada é definido pelas propriedades na tabela a seguir.
 Os dados criados por qualquer atividade que não tenha um link de saída serão adicionados à [saída do runbook](http://msdn.microsoft.com/library/azure/dn879148.aspx). A saída é salva com o trabalho do runbook e está disponível para um runbook pai quando o runbook é usado como filho.
 
 
+## Expressões do PowerShell
+
+Uma das vantagens da criação gráfica é fornecer a capacidade de criar um runbook com o mínimo de conhecimento do PowerShell. Atualmente, você precisa saber um pouco do PowerShell para popular certos [valores de parâmetro](#activities) e configurar [as condições de vínculo](#links-and-workflow). Esta seção fornece uma breve introdução a expressões do PowerShell para os usuários que não estejam familiarizados com ele. Detalhes completos do PowerShell estão disponíveis em [scripts com o Windows PowerShell](http://technet.microsoft.com/library/bb978526.aspx).
+
+
+### Fonte de dados de expressão do PowerShell
+
+Você pode usar uma expressão do PowerShell como uma fonte de dados para popular o valor de um [parâmetro de atividade](#activities) com os resultados de algum código do PowerShell. Isso pode ser uma única linha de código que executa uma função simples ou várias linhas que realizam alguma lógica complexa. Qualquer saída de um comando que não está atribuído a uma variável é enviado para o valor do parâmetro.
+
+Por exemplo, o comando a seguir seria a saída da data atual.
+
+	Get-Date
+
+Os seguintes comandos criam uma cadeia de caracteres a partir da data atual e a atribuem a uma variável. O conteúdo da variável é enviado para a saída
+
+	$string = "The current date is " + (Get-Date)
+	$string
+
+Os comandos a seguir avaliam a data atual e retornam uma cadeia de caracteres que indica se o dia atual é um final de semana ou dia da semana.
+
+	$date = Get-Date
+	if (($date.DayOfWeek = "Saturday") -or ($date.DayOfWeek = "Sunday")) { "Weekend" }
+	else { "Weekday" }
+	
+ 
+
+### Saída de atividade
+
+Para usar a saída de uma atividade anterior no runbook, use a variável $ActivityOutput com a sintaxe a seguir.
+
+	$ActivityOutput['Activity Label'].PropertyName
+
+Por exemplo, você pode ter uma atividade com uma propriedade que requer um nome de uma máquina virtual caso em que você pode usar a expressão a seguir.
+
+	$ActivityOutput['Get-AzureVm'].Name
+
+Se a propriedade que exige a máquina virtual do objeto, em vez de apenas uma propriedade, retornaria o objeto inteiro usando a sintaxe a seguir.
+
+	$ActivityOutput['Get-AzureVm']
+
+Você também pode usar a saída de uma atividade em uma expressão mais complexa, como a seguir que concatena o texto para o nome da máquina virtual.
+
+	"The computer name is " + $ActivityOutput['Get-AzureVm'].Name
+
+
+### Condições
+
+Use [operadores de comparação](https://technet.microsoft.com/library/hh847759.aspx) para comparar valores ou determinar se um valor corresponde a um padrão especificado. Uma comparação retorna um valor de $true ou $false.
+
+Por exemplo, a condição a seguir determina se a máquina virtual de uma atividade denominada *Get-AzureVM* está *interrompida*.
+
+	$ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped"
+
+A condição a seguir verifica se a mesma máquina virtual está em um estado diferente de *interrompido*.
+
+	$ActivityOutput["Get-AzureVM"].PowerState –ne "Stopped"
+
+Você pode unir várias condições usando um [operador lógico](https://technet.microsoft.com/library/hh847789.aspx) como **- e** ou **- ou**. Por exemplo, a condição a seguir verifica se a mesma máquina virtual no exemplo anterior está em no estado de *interrompida* ou *parando*.
+
+	($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped") -or ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopping") 
+
+
+### Tabelas de hash
+
+[Tabelas de hash](http://technet.microsoft.com/library/hh847780.aspx) são pares nome/valor que são úteis para retornar um conjunto de valores. Propriedades de determinadas atividades podem esperar uma tabela de hash em vez de um valor simples. Você também pode ver como a tabela de hash é conhecida como um dicionário.
+
+Você cria uma tabela de hash com a sintaxe a seguir. Uma tabela de hash pode conter qualquer número de entradas, mas cada um é definido por um nome e valor.
+
+	@{ <name> = <value>; [<name> = <value> ] ...}
+
+Por exemplo, a expressão a seguir cria uma tabela de hash a ser usada na fonte de dados para um parâmetro de atividade que espera uma tabela de hash com valores para uma pesquisa na Internet.
+
+	$query = "Azure Automation"
+	$count = 10
+	$h = @{'q'=$query; 'lr'='lang_ja';  'count'=$Count}
+	$h
+
+O exemplo a seguir usam a saída de uma atividade chamada *Obter conexão do Twitter* para preencher uma tabela de hash.
+
+	@{'ApiKey'=$ActivityOutput['Get Twitter Connection'].ConsumerAPIKey;
+	  'ApiSecret'=$ActivityOutput['Get Twitter Connection'].ConsumerAPISecret;
+	  'AccessToken'=$ActivityOutput['Get Twitter Connection'].AccessToken;
+	  'AccessTokenSecret'=$ActivityOutput['Get Twitter Connection'].AccessTokenSecret}
+
+
+
 ## Artigos relacionados
 
 - [Aprendendo sobre o fluxo de trabalho do Windows PowerShell](automation-powershell-workflow.md)
 - [Ativos de automação](http://msdn.microsoft.com/library/azure/dn939988.aspx)
+- [Operadores](https://technet.microsoft.com/library/hh847732.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

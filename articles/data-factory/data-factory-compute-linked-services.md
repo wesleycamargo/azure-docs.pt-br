@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="11/09/2015" 
 	ms.author="spelluru"/>
 
 # Serviços vinculados de computação
@@ -49,6 +49,7 @@ Observe os seguintes pontos **importantes** sobre o serviço vinculado HDInsight
 	      "jobsContainer": "adfjobs",
 	      "timeToLive": "00:05:00",
 	      "version": "3.1",
+		  "osType": "linux",
 	      "linkedServiceName": "MyBlobStore"
 	      "additionalLinkedServiceNames": [
 	        "otherLinkedServiceName1",
@@ -69,6 +70,7 @@ timetolive | <p>O tempo ocioso permitido para o cluster HDInsight sob demanda. E
 versão | Versão do cluster HDInsight | Não
 linkedServiceName | O armazenamento de blob a ser usado pelo cluster sob demanda para armazenar e processar dados. | Sim
 additionalLinkedServiceNames | Especifica as contas de armazenamento adicionais para o serviço vinculado do HDInsight para que o serviço do Data Factory possa registrá-los em seu nome. | Não
+osType | Tipo do sistema operacional de origem. Valores permitidos são: Windows (padrão) e Linux | Não 
 
 ### Propriedades avançadas
 
@@ -235,7 +237,7 @@ apiKey | A API do modelo de espaço de trabalho publicada. | Sim
 
 
 ## Serviço Vinculado da Análise Azure Data Lake
-Você cria um serviço vinculado da **Análise Azure Data Lake** para vincular um serviço de computação da Análise Azure Data Lake a um Azure Data Factory antes de usar a atividade do [U-SQL da Análise Data Lake](data-factory-usql-activity.md) em um pipeline.
+Você cria um serviço vinculado da **Análise Azure Data Lake** para vincular um serviço de computação da Análise Azure Data Lake a um Azure Data Factory antes de usar a atividade do U-SQL da Análise [Data Lake em um pipeline](data-factory-usql-activity.md).
 
 O exemplo a seguir fornece uma definição de JSON para um serviço vinculado da Análise Azure Data Lake.
 
@@ -259,7 +261,7 @@ A tabela a seguir fornece as descrições das propriedades usadas na definição
 
 Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------
-Tipo | A propriedade type deve ser definida como: **AzureDataLakeAnalytics**. | Sim
+Tipo | A propriedade tipo deve ser definida como: **AzureDataLakeAnalytics**. | Sim
 accountName | Nome da conta da Análise Azure Data Lake. | Sim
 dataLakeAnalyticsUri | URI da Análise Azure Data Lake. | Não 
 autorização | O código de autorização é recuperado automaticamente depois de clicar no botão **Autorizar** no Editor do Data Factory e concluir o logon OAuth. | Sim 
@@ -270,7 +272,7 @@ sessionId | ID da sessão de autorização OAuth. Cada ID da sessão é exclusiv
 
 ## Serviço Vinculado do SQL do Azure
 
-Você pode criar um serviço vinculado SQL do Azure e usá-lo com a [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md) para invocar um procedimento armazenado de um pipeline do Data Factory. Confira o artigo [Conector SQL do Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) para saber mais sobre esse serviço vinculado.
+Você pode criar um serviço vinculado do SQL do Azure e usá-lo com a [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md) para invocar um procedimento armazenado de um pipeline de Data Factory. Consulte o artigo [Conector SQL do Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) para obter detalhes sobre esse serviço vinculado.
 
 
   
@@ -281,4 +283,4 @@ Você pode criar um serviço vinculado SQL do Azure e usá-lo com a [Atividade d
  
    
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

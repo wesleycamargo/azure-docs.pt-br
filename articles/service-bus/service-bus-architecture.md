@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Arquitetura do Barramento de Serviço"
+   pageTitle="Arquitetura do Barramento de Serviço | Microsoft Azure"
    description="Descreve a arquitetura de processamento de mensagens do Barramento de Serviço do Azure."
    services="service-bus"
    documentationCenter="na"
@@ -11,19 +11,19 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="07/24/2015"
+   ms.workload="na"
+   ms.date="11/06/2015"
    ms.author="sethm" />
 
 # Arquitetura do Barramento de Serviço
 
-A seção a seguir descreve a arquitetura de processamento de mensagens do Barramento de Serviço do Azure.
+Este artigo descreve a arquitetura de processamento de mensagens do Barramento de Serviço do Azure.
 
 ## Unidades de escala do Barramento de Serviço
 
 O Barramento de Serviço é organizado por *unidades de escala*. Uma unidade de escala é uma unidade de implantação que contém todos os componentes necessários para executar o serviço. Cada região implanta uma ou mais unidades de escala do Barramento de Serviço.
 
-Um namespace de Barramento de Serviço é mapeado para uma unidade de escala. A unidade de escala manipula todos os tipos de entidades do Barramento de Serviço: retransmissões, entidades do sistema de mensagens agenciado (filas, tópicos, assinaturas) e hubs de notificação. Uma unidade de escala do Barramento de Serviço consiste nos seguintes componentes:
+Um namespace de Barramento de Serviço é mapeado para uma unidade de escala. A unidade de escala manipula todos os tipos de entidades do Barramento de Serviço: retransmissões e entidades do sistema de mensagens agenciado (filas, tópicos, assinaturas). Uma unidade de escala do Barramento de Serviço consiste nos seguintes componentes:
 
 - **Um conjunto de nós de gateway.** Os nós de gateway autenticam as solicitações de entrada e manipulam as solicitações de retransmissão. Cada nó de gateway tem um endereço IP público.
 
@@ -33,7 +33,7 @@ Um namespace de Barramento de Serviço é mapeado para uma unidade de escala. A 
 
 - **Um repositório de gateway.** O repositório de gateway mantém os dados para cada entidade definida nessa unidade de escala. O repositório de gateway é implementado sobre um banco de dados do SQL do Azure.
 
-- **Muitos repositórios de mensagens.** Os repositórios de mensagens mantêm as mensagens de todas as filas, tópicos e assinaturas que são definidas na unidade de escala. Eles também contêm todos os dados de assinatura. A menos que o [Particionamento entidades de mensagens](https://msdn.microsoft.com/library/azure/dn520246.aspx) esteja habilitado, uma fila ou tópico é mapeado para um repositório de mensagens. As assinaturas são armazenadas no mesmo repositório de mensagens que o tópico pai. Os repositórios de mensagens são implementados no topo de bancos de dados do SQL Azure.
+- **Muitos repositórios de mensagens.** Os repositórios de mensagens mantêm as mensagens de todas as filas, tópicos e assinaturas que são definidas na unidade de escala. Eles também contêm todos os dados de assinatura. A menos que o [particionamento entidades de mensagens](service-bus-partitioning.md) esteja habilitado, uma fila ou tópico é mapeado para um repositório de mensagens. As assinaturas são armazenadas no mesmo repositório de mensagens que o tópico pai. Com exceção do [Sistema de Mensagens Premium](service-bus-premium-messaging.md) do Barramento de Serviço, os repositórios de mensagens são implementados no topo de bancos de dados do SQL Azure.
 
 - **Vários repositórios de registros.** Os repositórios de registros contêm registros de dispositivos para todos os hubs de notificação que são definidos na unidade de escala. Os repositórios de registros são implementados no topo de bancos de dados do SQL Azure.
 
@@ -69,4 +69,4 @@ Agora que você teve uma visão geral de como funciona o Barramento de Serviço,
 - [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 - [Uma solução de mensagens na fila usando filas do Barramento de Serviço](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

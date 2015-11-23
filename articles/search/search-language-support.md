@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Criar uma definição de índice para documentos em vários idiomas na Pesquisa do Azure | Microsoft Azure"
+   pageTitle="Criar um índice para documentos em vários idiomas na Pesquisa do Azure | Microsoft Azure | Serviço de pesquisa de nuvem hospedado"
    description="A Pesquisa do Azure dá suporte a 56 idiomas, aproveitando os analisadores de linguagem da Lucene e a tecnologia Processamento de Linguagem Natural da Microsoft."
    services="search"
    documentationCenter=""
@@ -16,9 +16,9 @@
    ms.date="10/19/2015"
    ms.author="jlembicz"/>
 
-# Criar uma definição de índice para documentos em vários idiomas na Pesquisa do Azure
-
+# Criar um índice para documentos em vários idiomas na Pesquisa do Azure
 > [AZURE.SELECTOR]
+- [Portal](search-language-support.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn879793.aspx)
 - [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.analyzername.aspx)
 
@@ -74,4 +74,4 @@ Se você é um desenvolvedor do .NET, é importante lembrar que você pode confi
 [2]: ./media/search-language-support/SelectAnalyzer.png
 [3]: ./media/search-language-support/IndexDefinition.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

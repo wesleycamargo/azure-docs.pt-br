@@ -168,7 +168,7 @@ public class Job : IComparable<Job>
 }
 ```
 
-Por fim, implementamos a interface IJobQueue no detalhamento. Observe que, aqui, omitimos os detalhes da implementação da fila de prioridade para clareza: Uma implementação de exemplo pode ser encontrada nos exemplos que acompanha este artigo.
+Por fim, implementamos a interface IJobQueue no ator. Observe que, aqui, omitimos os detalhes da implementação da fila de prioridade para clareza: Uma implementação de exemplo pode ser encontrada nos exemplos que acompanha este artigo.
 
 ## Exemplo de código de Cache Inteligente – fila de trabalhos
 
@@ -240,7 +240,7 @@ Nos exemplos acima, Leaderboard e JobQueue, usamos para diferentes técnicas:
 
 * Por outro lado, no exemplo JobQueue, implementamos o ator como uma fila de prioridade, em vez de fazer referência a outro objeto definido em outro lugar.
 
-Os atores fornecem flexibilidade ao desenvolvedor para definir estruturas de objeto avançadas como parte dos atores ou gráficos de objeto de referência fora dos atores. Em termos de cache, os atores podem write-behind ou write-through, ou podemos usar diferentes técnicas na granularidade da variável de um membro. Em outras palavras, temos total controle sobre o que persistir e quando persistir. Não é necessário persistir o estado transitório ou o estado que podemos criar a partir do estado salvo. E quanto a popular esses atores caches de ator? Há várias maneiras de se fazer isso. Os atores fornecem métodos virtuais chamados OnActivateAsync() e OnDectivateAsync() para que saibamos quando uma instância do ator é ativada e desativada. Observe que o ator é ativado sob demanda quando uma primeira solicitação é enviada a ele. Podemos usar OnActivateAsync() para popular o estado sob demanda como em read-through, talvez em um repositório estável externo. Ou podemos popular o estado em um temporizador, por exemplo, um ator Exchange Rate que forneça a função de conversão com base nas últimas taxas de câmbio. Esse ator pode popular seu estado de um serviço externo periodicamente, por exemplo, a cada 5 segundos, e usar o estado para a função de conversão. Veja o exemplo abaixo:
+Os atores fornecem flexibilidade ao desenvolvedor para definir estruturas de objeto avançadas como parte dos atores ou gráficos de objeto de referência fora dos atores. Em termos de cache, os atores podem write-behind ou write-through, ou podemos usar diferentes técnicas na granularidade da variável de um membro. Em outras palavras, temos total controle sobre o que persistir e quando persistir. Não é necessário persistir o estado transitório ou o estado que podemos criar a partir do estado salvo. E quanto a popular esses atores caches de ator? Há várias maneiras de se fazer isso. Os atores fornecem métodos virtuais chamados OnActivateAsync() e OnDeactivateAsync() para que saibamos quando uma instância do ator é ativada e desativada. Observe que o ator é ativado sob demanda quando uma primeira solicitação é enviada a ele. Podemos usar OnActivateAsync() para popular o estado sob demanda como em read-through, talvez em um repositório estável externo. Ou podemos popular o estado em um temporizador, por exemplo, um ator Exchange Rate que forneça a função de conversão com base nas últimas taxas de câmbio. Esse ator pode popular seu estado de um serviço externo periodicamente, por exemplo, a cada 5 segundos, e usar o estado para a função de conversão. Veja o exemplo abaixo:
 
 ## Exemplo de código de Cache Inteligente – conversor de taxas
 
@@ -301,4 +301,4 @@ Basicamente, o Cache Inteligente fornece:
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-smart-cache/smartcache-arch.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

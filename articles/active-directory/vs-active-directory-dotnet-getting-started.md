@@ -3,7 +3,7 @@
 	description="Como começar a usar o Active Directory do Azure em projetos do MVC após a conexão ou criação de um AD do Azure usando os serviços conectados do Visual Studio" 
 	services="active-directory" 
 	documentationCenter="" 
-	authors="patshea123" 
+	authors="TomArcher" 
 	manager="douge" 
 	editor="tglee"/>
   
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/03/2015" 
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Introdução ao Active Directory do Azure e aos serviços conectados do Visual Studio (Projetos do MVC)
 
@@ -77,4 +77,4 @@ Para adicionar um Efetuar login/logout em sua exibição, você pode usar a exib
 
 [Saiba mais sobre o Active Directory do Azure](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->
