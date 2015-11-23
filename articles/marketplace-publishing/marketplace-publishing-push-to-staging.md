@@ -146,7 +146,9 @@ Abaixo está a exibição detalhada de como os detalhes de marketing de ofertas 
 ## Próximas etapas
 Agora que o conteúdo do Marketplace está carregado, seguiremos para a **Etapa 3: Testar sua oferta no Preparo**. No entanto, você deve selecionar o tipo de oferta apropriado na lista abaixo já que as etapas variam por tipo de oferta.
 
-|| Imagem de máquina virtual | Serviço do desenvolvedor | Serviço de dados | Modelo de solução | |---|---|---|---|---| | **Etapa 3. Envie sua oferta para Preparo**| [Teste sua oferta de VM no Preparo](marketplace-publishing-vm-image-test-in-staging.md) | Teste sua oferta de serviço do desenvolvedor no Preparo| [Teste seu modelo de solução no Preparo](marketplace-publishing-solution-template-test-in-staging.md) |
+|| Imagem de máquina virtual | Serviço do desenvolvedor | Serviço de dados | Modelo de solução |
+|---|---|---|---|---|
+| **Etapa 3. Envie sua oferta para Preparo** | [Teste sua oferta de VM no Preparo](marketplace-publishing-vm-image-test-in-staging.md) | Teste sua oferta de serviço do desenvolvedor no Preparo| [Teste seu modelo de solução no Preparo](marketplace-publishing-solution-template-test-in-staging.md) |
 
 ## Consulte também
 - [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)

@@ -65,7 +65,11 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 | Banco de dados SQL | Sim | [Sim](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.9-preview) | Sim | [Criar banco de dados](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
 | Pesquisar | Sim | [Sim](https://portal.azure.com/#create/Microsoft.Search) | Sim | [REST de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
 | SQL Data Warehouse | Sim | [Sim](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
-| StorSimple | Não | Não | - | - | - | | Cache gerenciado | Não | Não | - | - | - |
+| StorSimple | Não | Não | - | - | - |
+| Backup | Não | Não | - | - | - |
+| Recuperação de site | Não | Não | - | - | - |
+| Cache gerenciado | Não | Não | - | - | - |
+| Catálogo de dados | Não | Não | - | - | - |
 
 ## Análise
 
@@ -108,7 +112,9 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 
 | O Barramento de | Gerenciador de Recursos habilitado | Portal de Visualização | Mover recursos | API REST | Esquema |
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
-| Active Directory do Azure | Não | Não | - | - | - | | Actice Directory B2C do Azure | Não | Não | - | - | - | | Autenticação multifator | Não | Não | - | - | - |
+| Active Directory do Azure | Não | Não | - | - | - |
+| Actice Directory B2C do Azure | Não | Não | - | - | - |
+| Autenticação multifator | Não | Não | - | - | - |
 
 ## Serviços para Desenvolvedores 
 
