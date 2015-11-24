@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Gerenciar um perfil de Gerenciador de tráfego do Azure
@@ -73,22 +73,16 @@ Você pode exibir o histórico de alterações para o perfil do Gerenciador de T
    - Para exibir detalhes de cada alteração individual, selecione a linha com a alteração que você deseja exibir e clique em **Detalhes** na parte inferior da página. Na janela **Detalhes da Operação**, você pode exibir a representação XML do objeto de API que foi criado ou atualizado como parte da operação e copiar o código XML na área de transferência.
 
 
-## Recursos adicionais
+## Próximas etapas
 
-[O que é o Gerenciador de Tráfego?](traffic-manager-overview.md)
+[Adicionar um ponto de extremidade](traffic-manager-endpoints.md)
 
-[Gerenciar pontos de extremidade no Gerenciador de Tráfego](traffic-manager-endpoints.md)
+[Configurar o método de roteamento de failover](traffic-manager-configure-failover-routing-method.md)
 
-[Sobre o monitoramento do Gerenciador de Tráfego](traffic-manager-monitoring.md)
+[Configurar o método de roteamento de round robin](traffic-manager-configure-round-robin-routing-method.md)
 
-[Gerenciador de Tráfego - Desabilitar, habilitar ou excluir um perfil](disable-enable-or-delete-a-profile.md)
+[Configurar o método de roteamento de desempenho](traffic-manager-configure-performance-routing-method.md)
 
-[Gerenciador de Tráfego - Desabilitar ou habilitar um ponto de extremidade](disable-or-enable-an-endpoint.md)
+[Solucionando problemas de estado degradado do Gerenciador de Tráfego](traffic-manager-troubleshooting-degraded.md)
 
-[Operações no Gerenciador de Tráfego (referência de API REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
-
-[Serviços de Nuvem](http://go.microsoft.com/fwlink/?LinkId=314074)
-
-[Sites](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -1,10 +1,10 @@
 <properties
-    pageTitle="Application Insights para aplicativos do Android | Microsoft Azure"
-    description="Analise utilização e desempenho de seu aplicativo Android com o Application Insights."
+    pageTitle="Análises para aplicativos Android | Microsoft Azure"
+    description="Analise o uso e o desempenho de seu aplicativo Android."
     services="application-insights"
     documentationCenter="android"
     authors="alancameronwills"
-    manager="ronmart"/>
+    manager="douge"/>
 
 <tags
     ms.service="application-insights"
@@ -12,12 +12,14 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="na"
     ms.topic="get-started-article"
-	ms.date="04/28/2015"
+	ms.date="11/14/2015"
     ms.author="awills"/>
 
-# Application Insights para aplicativos Android
+# Análise de aplicativos Android
 
 O Application Insights do Visual Studio permite que você monitore seu aplicativo móvel quanto ao uso, eventos e falhas.
+
+> [AZURE.NOTE]Recomendamos o [HockeyApp](http://support.hockeyapp.net/kb/client-integration-android/hockeyapp-for-android-sdk) para obter o gerenciamento de relatórios de falha, análise, distribuição e comentários.
 
 ## Requisitos
 
@@ -35,69 +37,9 @@ No [Portal do Azure][portal], crie um novo recurso do Application Insights. Sele
 
 A folha que será aberta é o local em que você verá os dados de uso e desempenho sobre seu aplicativo. Para retornar a ela na próxima vez em que fizer logon no Azure, você deverá encontrar um bloco para ela na tela inicial. Como alternativa, clique em Procurar para localizá-la.
 
-## Instale o plug-in do Application Insights no Android Studio
+## Configuração
 
-(Se você ainda não fez isso.)
-
-1.  Inicie o Studio Android e configure os plug-ins
-
-    ![Escolha Configurar](./media/app-insights-android/01-configure.png)
-
-2.  Selecione e instale o plug-in Android Studio do Application Insights.
-
-    ![Selecione o usuário](./media/app-insights-android/03-select-plugin.png)
-
-## <a name="sdk"></a>Instalar o SDK no seu aplicativo
-
-
-1.  Selecione **Ferramentas** > **Integrar SDK do Application Insights**.
-
-    ![Integre o Application Insights](./media/app-insights-android/04-tools-integrate.png)
-
-3.  Criar um componente em sua assinatura
-
-    ![Crie um componente](./media/app-insights-android/07-create-component.png)
-
-    Use a chave de instrumentação que você obteve de seu recurso do Application Insights.
-
-4.  Sincronizar Gradle para baixar o SDK e se integrar com o projeto
-
-    ![Sincronize arquivos Gradle para baixar o SDK](./media/app-insights-android/08-successful-integration.png)
-
-    (Informações adicionais estão disponíveis na [página de uso](http://go.microsoft.com/fwlink/?LinkID=533220).)
-
-Nesse ponto, a referência a seguir foi adicionada aos módulos build.gradle, enquanto permissões para `INTERNET` e `ACCESS_NETWORK_STATE`, e também uma marca de metadados contendo a chave de instrumentação do componente foram adicionados aos `AndroidManifest.xml` dos módulos
-
-```java
-
-    dependencies {
-    compile 'com.microsoft.azure:applicationinsights-android:+'
-    }
-```
-
-```xml
-
-    <manifest>
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
-    <application>
-        <meta-data
-            android:name="com.microsoft.applicationinsights.instrumentationKey"
-            android:value="${AI_INSTRUMENTATION_KEY}" />
-    </application>
-    </manifest>
-```
-
-#### Opcional: definir a chave de instrumentação no código
-
-Também é possível definir a chave de instrumentação no código. Isso substituirá aquela definida em `AndroidManifest.xml`
-
-```java
-
-    ApplicationInsights.setup(this, "<YOUR-IKEY-GOES-HERE>");
-    ApplicationInsights.start();
-```
+Siga o [guia de configuração](https://github.com/Microsoft/ApplicationInsights-Android#-3-setup).
 
 
 ## Usar o SDK
@@ -111,7 +53,7 @@ Adicione a importação a seguir à sua atividade-raiz de aplicativos:
      import com.microsoft.applicationinsights.library.ApplicationInsights;
 ```
 
-Adicione também o descrito a seguir ao retorno de chamada `onCreate` da atividade:
+Adicione também o seguinte retorno de chamada da atividade `onCreate`:
 
 ```java
 
@@ -197,4 +139,4 @@ Clique em qualquer gráfico para obter mais detalhes. Por exemplo, falhas:
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-api-custom-events-metrics.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

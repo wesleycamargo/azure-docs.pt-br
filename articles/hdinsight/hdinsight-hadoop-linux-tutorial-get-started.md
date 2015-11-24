@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/23/2015"
+   	ms.date="11/16/2015"
    	ms.author="nitinme"/>
 
 # Tutorial de hadoop: introdução usando o Hadoop com o Hive em HDInsight no Linux
@@ -23,7 +23,7 @@
 - [Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
 - [Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
-Este documento apresenta rapidamente o Azure HDInsight no Linux, mostrando a você como criar um cluster Hadoop baseado em Linux, conecte-se ao cluster usando um Secure Shell (SSH) e, em seguida, execute uma consulta de Hive em relação aos dados de exemplo que acompanham o cluster.
+Este documento apresenta rapidamente o Azure HDInsight no Linux, mostrando a você como criar um cluster Hadoop baseado em Linux, conectar-se ao cluster usando um Secure Shell (SSH) e depois executar uma consulta de Hive em relação aos dados de exemplo que acompanham o cluster.
 
 > [AZURE.NOTE]Se for iniciante em Hadoop e Big Data, você pode ler mais sobre os termos [Apache Hadoop](http://go.microsoft.com/fwlink/?LinkId=510084), [MapReduce](http://go.microsoft.com/fwlink/?LinkId=510086),[HDFS (Sistema de Arquivos Distribuído do Hadoop)](http://go.microsoft.com/fwlink/?LinkId=510087) e [Hive](http://go.microsoft.com/fwlink/?LinkId=510085). Para entender como o HDInsight habilita o Hadoop no Azure, consulte [Introdução ao Hadoop no HDInsight](hdinsight-hadoop-introduction.md).
 
@@ -70,9 +70,7 @@ Use as seguintes etapas para criar um novo cluster:
 
 	![Forneça credenciais de cluster](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.3.png "Forneça credenciais de cluster")
 
-    > [AZURE.NOTE]O SSH é usado para acessar remotamente o cluster HDInsight usando uma linha de comando. O nome de usuário e a senha usados aqui serão usados para se conectar ao cluster por meio do SSH. Além disso, o nome de usuário SSH deve ser exclusivo, pois ele cria uma conta de usuário em todos os nós de cluster HDInsight. Veja a seguir alguns dos nomes de conta reservados para uso pelos serviços no cluster e que não podem ser usados como o nome de usuário SSH:
-    >
-    > root, hdiuser, storm, hbase, ubuntu, zookeeper, hdfs, yarn, mapred, hbase, hive, oozie, falcon, sqoop, admin, tez, hcat, hdinsight-zookeeper.
+    > [AZURE.NOTE]O SSH é usado para acessar remotamente o cluster HDInsight usando uma linha de comando. O nome de usuário e a senha usados aqui serão usados para se conectar ao cluster por meio do SSH.
 
 	Para obter mais informações sobre como usar SSH com o HDInsight, consulte um dos seguintes documentos:
 
@@ -86,9 +84,9 @@ Use as seguintes etapas para criar um novo cluster:
 
 	No momento, você pode selecionar uma Conta de Armazenamento do Azure como fonte de dados para um cluster HDInsight. Use o item a seguir para entender as entradas na folha **Fonte de Dados**.
 
-	- **Método de seleção**: defina essa opção para **De todas as assinaturas** para habilitar a procura de contas de armazenamento de todas as suas assinaturas. Defina essa opção para a **Tecla de Acesso** se você desejar inserir o **Nome de armazenamento** e **Tecla de Acesso** de uma conta de armazenamento existente.
+	- **Método de seleção**: defina essa opção para **De todas as assinaturas** para habilitar a procura de contas de armazenamento de todas as suas assinaturas. Defina essa opção para **Tecla de Acesso** se você desejar inserir o **Nome de Armazenamento** e a **Tecla de Acesso** de uma conta de armazenamento existente.
 
-	- **Selecionar conta de armazenamento / Criar nova**: clique em **Selecionar conta de armazenamento** para procurar e selecionar uma conta de armazenamento existente que você deseja associar com o cluster. Ou, clique em **Criar nova** para criar uma nova conta de armazenamento. Use o campo exibido para inserir o nome da conta de armazenamento. Uma marca de seleção verde será exibida se o nome estiver disponível.
+	- **Selecione conta de armazenamento / Criar Nova**: clique em **Selecionar conta de armazenamento** para procurar e selecionar uma conta de armazenamento existente que você deseja associar ao cluster. Ou clique em **Criar Nova** para criar uma nova conta de armazenamento. Use o campo exibido para inserir o nome da conta de armazenamento. Uma marca de seleção verde será exibida se o nome estiver disponível.
 
 	- **Escolher Contêiner Padrão**: use essa opção para inserir o nome do contêiner padrão a ser usado para o cluster. Embora você possa inserir qualquer nome aqui, é recomendável usar o mesmo nome que o cluster para que você possa reconhecer facilmente que o contêiner é usado para este cluster específico.
 
@@ -98,17 +96,17 @@ Use as seguintes etapas para criar um novo cluster:
 
 	Clique em **Selecionar** para salvar a configuração de fonte de dados.
 
-8. Clique em **Camadas de preços do nó** para exibir informações sobre os nós que serão criados para esse cluster. Defina o número de nós de trabalho que você precisa para o cluster. O custo estimado do cluster será mostrado na folha.
+8. Clique em **Camadas de Preços do Nó** para exibir informações sobre os nós que serão criados para esse cluster. Defina o número de nós de trabalho que você precisa para o cluster. O custo estimado do cluster será mostrado na folha.
 
 	![Folha de camadas de preços de nó](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.5.png "Especifique o número de nós de cluster")
     
-    > [AZURE.IMPORTANT]Se você planeja ter mais de 32 nós de trabalho, na criação do cluster ou em sua expansão após a criação, deverá selecionar um tamanho de nó principal com pelo menos 8 núcleos e 14 GB de RAM.
+    > [AZURE.IMPORTANT]Se você planeja ter mais de 32 nós de trabalho, seja na criação do cluster ou em seu dimensionamento após a criação, deverá selecionar um tamanho de nó de cabeçalho com pelo menos 8 núcleos e 14 GB de RAM.
     >
-    > Para saber mais sobre tamanhos de nós e os custos associados, consulte [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+    > Para saber mais sobre tamanhos de nós e custos associados, confira [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-	Clique em **Selecionar** para salvar a configuração de preço do nó.
+	Clique em **Selecionar** para salvar a configuração de preços do nó.
 
-9. Na folha **Novo Cluster HDInsight**, verifique se **Fixar no Quadro Inicial** está selecionado e clique em **Criar**. Isso criará o cluster e adicionará um bloco para o mesmo para o quadro inicial do seu Portal do Azure. O ícone indica que o cluster está provisionando e será alterado para exibir o ícone de HDInsight após a conclusão da configuração.
+9. Na folha **Novo Cluster HDInsight**, certifique-se de que **Fixar no Quadro Inicial** está selecionado e, em seguida, clique em **Criar**. Isso criará o cluster e adicionará um bloco para o mesmo para o quadro inicial do seu Portal do Azure. O ícone indica que o cluster está provisionando e será alterado para exibir o ícone de HDInsight após a conclusão da configuração.
 
 Durante o provisionamento|Provisionamento concluído
 ------------------|---------------------
@@ -128,14 +126,13 @@ Você pode se conectar a um cluster HDInsight no Linux de um computador Linux ou
 
 		ssh <username>@<clustername>-ssh.azurehdinsight.net
 
-	Como você provisionou um cluster com a opção Criação Rápida, o nome de usuário SSH padrão é **hdiuser**. Portanto, o comando deve ser:
-
-		ssh hdiuser@myhdinsightcluster-ssh.azurehdinsight.net
+	Substitua &lt;nomedeusuário> pelo nome de usuário SSH que você usou ao criar o cluster. Substitua &lt;nomedocluster> pelo nome do cluster
 
 2. Quando solicitado, digite a senha que você forneceu durante o provisionamento do cluster. Depois que você for conectado com êxito, o prompt será alterado para o seguinte:
 
-		hdiuser@headnode-0:~$
+		hdiuser@hn0-clustername:~$
 
+    > [AZURE.NOTE]A parte `@hn0-clustername` da solicitação pode ser diferente em seu cluster.
 
 ###Para conectar-se de um computador baseado em Windows
 
@@ -147,9 +144,9 @@ Você pode se conectar a um cluster HDInsight no Linux de um computador Linux ou
 
 3. Para salvar as informações de conexão para uso futuro, insira um nome para essa conexão em **Sessões Salvas** e clique em **Salvar**. A conexão será adicionada à lista de sessões salvas.
 
-4. Clique em **Abrir** para se conectar ao cluster. Quando o nome de usuário for solicitado, insira **hdiuser**. Como senha, insira a senha que você especificou durante o provisionamento do cluster. Depois que você for conectado com êxito, o prompt será alterado para o seguinte:
+4. Clique em **Abrir** para se conectar ao cluster. Quando o nome de usuário for solicitado, insira o nome de usuário SSH que você usou ao criar o cluster. Como senha, insira a senha que você especificou durante a criação do cluster. Depois que você for conectado com êxito, o prompt será alterado para o seguinte:
 
-		hdiuser@headnode-0:~$
+		hdiuser@hn0-clustername:~$
 
 ##<a name="hivequery"></a>Executar uma consulta do Hive
 
@@ -179,7 +176,7 @@ Quando estiver conectado ao cluster via SSH, use os comandos a seguir para execu
 
 	Isso retorna a seguinte saída:
 
-		Query ID = hdiuser_20150116000202_cceb9c6b-4356-4931-b9a7-2c373ebba493
+		Query ID = username_20150116000202_cceb9c6b-4356-4931-b9a7-2c373ebba493
 		Total jobs = 1
 		Launching Job 1 out of 1
 		Number of reduce tasks not specified. Estimated from input data size: 1
@@ -286,4 +283,4 @@ Se você quiser saber mais sobre como criar ou gerenciar um cluster HDInsight, c
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

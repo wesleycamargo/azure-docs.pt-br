@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Fazer backup de máquinas virtuais do Azure | Microsoft Azure"
-	description="Procedimentos para fazer backup de uma máquina virtual do Azure."
+	description="Descubra suas máquinas virtuais, registre-as e faça backup delas com estes procedimentos para o backup de máquina virtual do Azure."
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
 	manager="jwhit"
-	editor=""/>
+	editor=""
+	keywords="backup de máquinas virtuais; fazer backup de máquina virtual, backup e recuperação de desastre"/>
 
 <tags
 	ms.service="backup"
@@ -13,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/29/2015"
+	ms.date="11/17/2015"
 	ms.author="trinadhk; aashishr; jimpark; markgal"/>
 
 
-# Fazer backup de máquinas virtuais do Azure
-Este artigo fornece os procedimentos para fazer backup de máquinas virtuais existentes no Azure, para protegê-las de acordo com as políticas de backup e de retenção da sua empresa.
+# Backup de máquinas virtuais do Azure
+Este artigo fornece os procedimentos sobre como fazer backup de máquinas virtuais existentes no Azure, para protegê-las de acordo com as políticas de backup e de recuperação de desastre da sua empresa.
 
 Primeiro, há algumas coisas que você precisa fazer antes de poder fazer backup de uma máquina virtual do Azure. Se ainda não tiver feito isto, conclua os [pré-requisitos](backup-azure-vms-prepare.md) para preparar o ambiente para o backup de VM antes de continuar.
 
@@ -26,7 +27,7 @@ Se você estiver procurando informações sobre o [planejamento da sua infraestr
 
 Fazer o backup de máquinas virtuais do Azure envolve três etapas principais:
 
-![Três etapas para fazer o backup de uma máquina virtual do Azure](./media/backup-azure-vms/3-steps-for-backup.png)
+![Três etapas para fazer o backup de uma VM de IaaS do Azure](./media/backup-azure-vms/3-steps-for-backup.png)
 
 >[AZURE.NOTE]O backup de máquina virtual é local. Você não pode fazer backup de máquinas virtuais de uma região em um cofre de backup em outra região. Assim, pelo menos um cofre de backup deve ser criado para cada região do Azure com VMs que precisam de backup.
 
@@ -161,4 +162,4 @@ Se você tiver problemas durante o backup da sua máquina virtual, dê uma olhad
 - [Gerenciar e monitorar suas máquinas virtuais](backup-azure-manage-vms.md)
 - [Restaurar máquinas virtuais](backup-azure-restore-vms.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

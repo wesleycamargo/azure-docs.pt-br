@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/18/2015"
+	ms.date="11/16/2015"
 	ms.author="jgao"/>
 
 
@@ -47,18 +47,19 @@ Antes de começar este tutorial do HBase, você deve ter o seguinte:
 	- **Nome do Cluster**: insira um nome para identificar este cluster.
 	- **Tipo de Cluster**: selecione **HBase**
 	- **Sistema Operacional do Cluster**: selecione **Ubuntu**.
-	- **Assinatura**: selecione a sua assinatura do Azure usada para provisionar este cluster.
+	- **Versão**: selecione a versão do cluster que deseja usar. Para saber mais sobre o que está incluído nas diferentes versões do HDInsight, consulte [Versões do cluster HDInsight](hdinsight-component-versioning.md).
+    - **Assinatura**: se você tiver várias assinaturas do Azure, selecione a que deseja usar para esse cluster.
 	- **Grupo de Recursos**: adicione ou selecione um grupo de recursos do Azure. Para saber mais, consulte [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md).
-	- **Credenciais** Digite uma senha para o usuário do serviço Web HTTP. O nome de usuário padrão é **admin**. Você também deve inserir um **Nome de Usuário SSH** e uma **SENHA** ou uma **CHAVE PÚBLICA**, que será usada para autenticar o usuário SSH. Usar uma chave pública é a abordagem recomendada. Para obter mais informações sobre como usar SSH com o HDInsight, consulte um dos seguintes artigos:
+	- **Credenciais**. Digite uma senha para o usuário do serviço Web HTTP. O nome de usuário padrão é **admin**. Você também deve inserir um **Nome de Usuário de SSH** e uma **SENHA** ou uma **CHAVE PÚBLICA**, que será usada para autenticar o usuário SSH. Usar uma chave pública é a abordagem recomendada. Para obter mais informações sobre como usar SSH com o HDInsight, consulte um dos seguintes artigos:
 
 		- [Usar SSH com Hadoop baseado em Linux no HDInsight no Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 		- [Usar SSH com Hadoop baseado em Linux no HDInsight do Windows](hdinsight-hadoop-linux-use-ssh-windows.md) Clique em **Selecionar** para salvar as mudanças.
 	- **Fonte de Dados**: selecione uma existente ou crie uma nova conta de armazenamento do Azure que será usada como o sistema de arquivos padrão para o cluster. O local da conta de armazenamento determina o local do cluster. O cluster HDInsight e a conta de armazenamento do Azure dependente devem estar localizados no mesmo data center. O nome padrão do **Contêiner Padrão** é o nome do cluster.  
-	- **Observar Camadas de Preço:** selecione o número de servidores de região para o cluster HBase.
+	- **Tipos de Preço do Nó**: selecione o número de servidores de região para o cluster HBase.
 
 		> [AZURE.WARNING]Para alta disponibilidade dos serviços HBase, você deverá provisionar um cluster que contenha pelo menos **três** nós. Isso garante que, se um nó falhar, as regiões de dados do HBase estão disponíveis em outros nós.
 
-	- **Configuração opcional**: selecione a versão do cluster, configure a rede virtual do Azure, configure o metastore do Hive/Oozie, configure as ações de Script e adicione mais contas de armazenamento.
+	- **Configuração Opcional**: selecione a versão do cluster, configure a rede virtual do Azure, configure as ações de Script e adicione mais contas de armazenamento.
 
 4. Clique em **Criar**.
 
@@ -114,7 +115,7 @@ Depois de concluir o procedimento a seguir, ele fará mais sentido.
 
 	Você verá os mesmos resultados que ao usar o comando de verificação, porque há apenas uma linha.
 
-	Para saber mais sobre o esquema de tabelas do HBase, consulte [Introdução ao design de esquema do HBase][hbase-schema]. Para obter mais comandos HBase, consulte [Guia de referência do Apache HBase][hbase-quick-start].
+	Para saber mais sobre o esquema da tabela HBase, consulte [Introdução ao design de esquema HBase][hbase-schema]. Para obter mais comandos HBase, consulte [Guia de referência do Apache HBase][hbase-quick-start].
 
 
 6. Sair do shell
@@ -182,7 +183,7 @@ Você pode consultar os dados nas tabelas HBase usando o Hive. Esta seção cria
 >
 > Para os comandos nesta seção, substitua **USERNAME** pelo usuário para autenticar o cluster e substitua **PASSWORD** pela senha da conta de usuário. Substitua **CLUSTERNAME** pelo nome do cluster.
 >
-> A API REST é protegida por meio de [autenticação básica](http://en.wikipedia.org/wiki/Basic_access_authentication). Você deve sempre fazer solicitações usando HTTPS (HTTP seguro) para ajudar a garantir que suas credenciais sejam enviadas com segurança para o servidor.
+> A API REST é protegida por meio da [autenticação básica](http://en.wikipedia.org/wiki/Basic_access_authentication). Você deve sempre fazer solicitações usando HTTPS (HTTP seguro) para ajudar a garantir que suas credenciais sejam enviadas com segurança para o servidor.
 
 1. De uma linha de comando, use o seguinte comando para verificar se você pode se conectar ao cluster HDInsight:
 
@@ -231,7 +232,7 @@ O SSH também pode ser usado para criar um túnel de solicitações locais, como
 3. Em **Categoria**, clique em **Sessão**.
 4. Opções básicas para a tela de sessão PuTTY, digite os seguintes valores:
 
-	- **Nome do Host**: o endereço SSH do seu servidor HDInsight no campo Nome do host (ou Endereço IP). O endereço SSH é o nome do cluster, seguido de **-ssh.azurehdinsight.net**. Por exemplo, *mycluster-ssh.azurehdinsight.net*.
+	- **Nome do Host**: o endereço SSH do seu campo de servidor em nome de Host (ou endereço IP) do HDInsight. O endereço SSH é o nome do cluster, seguido de **-ssh.azurehdinsight.net**. Por exemplo, *mycluster-ssh.azurehdinsight.net*.
 	- **Porta**: 22. A porta ssh no nó de cabeçalho 0 é 22.  
 5. Na seção **Categoria** à esquerda da caixa de diálogo, expanda **Conexão**, expanda **SSH** e clique em **Túneis**.
 6. Forneça as seguintes informações no formulário Opções de controle do encaminhamento de porta SSH:
@@ -259,10 +260,10 @@ O SSH também pode ser usado para criar um túnel de solicitações locais, como
 5. Selecione **Configuração manual do proxy**.
 6. Insira os valores a seguir:
 
-	- **Host de socks**: localhost
+	- **Host de Socks**: localhost
 	- **Porta**: use a mesma porta configurada no túnel SSH do Putty. Por exemplo, 9876.
 	- **SOCKS v5**: (selecionado)
-	- **DNS remoto**: (selecionado)
+	- **DNS Remoto**: (selecionado)
 7. Clique em **OK** para salvar as alterações.
 8. Navegue até http://<TheFQDN of a ZooKeeper>:60010/master-status
 
@@ -305,4 +306,4 @@ Para obter mais informações, consulte:
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

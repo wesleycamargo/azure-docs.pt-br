@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Desenvolvimento de aplicativo Web com o ASP.NET MVC usando o Banco de Dados de Documentos | Microsoft Azure" 
-	description="Saiba como usar o Banco de Dados de Documentos com o .NET para compilar um aplicativo Web de lista de tarefas pendentes. Você vai armazenar e acessar dados por meio de um aplicativo Web ASP.NET MVC hospedado nos Sites do Azure." 
-	keywords="GitHub, visual studio, desenvolvimento de aplicativos web, desenvolvimento de aplicativos, tutorial do banco de dados, aplicativos mvc, dados json, banco de dados de documentos, azure, Microsoft azure"
+	pageTitle="Tutorial do ASP.NET MVC usando o Banco de Dados de Documentos: desenvolvimento de aplicativo Web | Microsoft Azure" 
+	description="Conclua este tutorial do ASP.NET MVC para criar um aplicativo Web MVC usando o Banco de Dados de Documentos. Você armazenará o JSON e acessará dados de um aplicativo de lista de tarefas pendentes hospedado em sites do Azure." 
+	keywords="tutorial do asp.net mvc, desenvolvimento de aplicativos web, aplicativo web mvc, passo a passo do tutorial do asp net mvc"
 	services="documentdb" 
 	documentationCenter=".net" 
 	authors="ryancrawcour" 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="10/20/2015" 
+	ms.date="11/18/2015" 
 	ms.author="ryancraw"/>
 
 #<a name="_Toc395809351"></a>Desenvolvimento de aplicativo Web com ASP.NET MVC usando o Banco de Dados de Documentos
@@ -26,9 +26,9 @@
 - [Java](documentdb-java-application.md)
 - [Python](documentdb-python-application.md) 
 
-Para destacar como você pode aproveitar com eficiência o Banco de Dados de Documentos do Azure para armazenar e consultar documentos JSON, este artigo fornece um passo a passo completo que mostra como compilar um aplicativo Web de lista de tarefas pendentes usando o Banco de Dados de Documentos do Azure. As tarefas serão armazenadas como documentos JSON no Banco de Dados de Documentos do Azure.
+Para destacar como você pode aproveitar com eficiência o Banco de Dados de Documentos do Azure para armazenar e consultar documentos JSON, este artigo fornece um passo a passo completo que mostra como compilar um aplicativo de lista de tarefas pendentes usando o Banco de Dados de Documentos do Azure. As tarefas serão armazenadas como documentos JSON no Banco de Dados de Documentos do Azure.
 
-![Captura de tela do aplicativo Web de lista de tarefas pendentes criado por este tutorial](./media/documentdb-dotnet-application/image1.png)
+![Captura de tela do aplicativo Web de lista de tarefas pendentes criado por este tutorial - passo a passo do tutorial do ASP.NET MVC](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image1.png)
 
 Este passo a passo mostra como usar o serviço Banco de Dados de Documentos fornecido pelo Azure para armazenar e acessar dados por meio de um aplicativo Web ASP.NET MVC hospedado no Azure.
 
@@ -63,7 +63,7 @@ Agora que você tem uma conta, vamos criar nosso novo projeto ASP.NET.
    	A caixa de diálogo **Novo Projeto** aparecerá.
 2. No painel **Tipos de projeto**, expanda **Modelos**, **Visual C#**, **Web** e selecione **Aplicativo Web ASP.NET**.
 
-  	![Captura de tela da caixa de diálogo Novo Projeto com o tipo de projeto Aplicativo Web ASP.NET realçado](./media/documentdb-dotnet-application/image10.png)
+  	![Captura de tela da caixa de diálogo Novo Projeto com o tipo de projeto Aplicativo Web ASP.NET realçado](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image10.png)
 
 3. Na caixa **Nome**, digite o nome do projeto. Este tutorial usará o nome "todo". Se você optar por usar algum outro nome, sempre que este tutorial falar do namespace todo, será preciso ajustar os exemplos de código fornecidos para usar o nome de seu aplicativo.
 
@@ -71,7 +71,7 @@ Agora que você tem uma conta, vamos criar nosso novo projeto ASP.NET.
 
   	A caixa de diálogo **Novo Projeto ASP.NET** aparecerá.
 
-  	![Captura de tela da caixa de diálogo Novo Projeto ASP.NET com o modelo de aplicativo MVC realçado e a caixa Hospedar na nuvem marcada](./media/documentdb-dotnet-application/image11.png)
+  	![Captura de tela da caixa de diálogo Novo Projeto ASP.NET com o modelo de aplicativo MVC realçado e a caixa Hospedar na nuvem marcada](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image11.png)
 
 5. No painel de modelos, selecione **MVC**.
 
@@ -91,9 +91,9 @@ Agora que você tem uma conta, vamos criar nosso novo projeto ASP.NET.
 
 	Vamos ignorar a execução local do projeto porque tenho certeza de que vimos o aplicativo "Hello World" do ASP.NET. Vamos passar direto para a adição do Banco de Dados de Documentos a este projeto e a criação de nosso aplicativo.
 
-## <a name="_Toc395637767"></a>Etapa 3: Adicionar o Banco de Dados de Documentos ao seu projeto de aplicativo Web
+## <a name="_Toc395637767"></a>Etapa 3: Adicionar o Banco de Dados de Documentos ao seu projeto de aplicativo Web MVC
 
-Agora que cuidamos da maioria dos detalhes técnicos do ASP.NET MVC necessários para esta solução, vamos para o verdadeiro propósito deste tutorial, que é adicionar o Banco de Dados de Documentos do Azure ao nosso aplicativo Web.
+Agora que cuidamos da maioria dos detalhes técnicos do ASP.NET MVC necessários para esta solução, vamos para o verdadeiro propósito deste tutorial, que é adicionar o Banco de Dados de Documentos do Azure ao nosso aplicativo Web MVC.
 
 1. O SDK .NET do Banco de Dados de Documentos é distribuído como um pacote NuGet. Para obter o pacote NuGet no Visual Studio, use o gerenciador de pacotes NuGet no Visual Studio ao clicar com o botão direito do mouse no projeto no **Gerenciador de Soluções** e clicar em **Gerenciar Pacotes NuGet**.
 
@@ -255,7 +255,7 @@ Nesta seção, vamos adicionar código para tratar do seguinte:
 - [Adicionando itens](#_Toc395637771).
 - [Editando itens](#_Toc395637772).
 
-### <a name="_Toc395637770"></a>Listando itens incompletos no seu aplicativo Web
+### <a name="_Toc395637770"></a>Listando itens incompletos no seu aplicativo Web MVC
 
 A primeira coisa a fazer aqui é adicionar uma classe que contenha toda a lógica para conectar e usar o Banco de Dados de Documentos. Para este tutorial, vamos encapsular toda essa lógica em uma classe de repositório chamada DocumentDBRepository.
 
@@ -615,15 +615,15 @@ Agora que você tem o aplicativo completo funcionando corretamente no Banco de D
 
 2. Tudo já deve estar configurado de acordo com suas credenciais; na verdade, o site já foi criado no Azure para você na **URL de Destino** mostrada. Basta clicar em **Publicar**.
 
-    ![Captura de tela da caixa de diálogo Publicar Web no Visual Studio](./media/documentdb-dotnet-application/image29.png)
+    ![Captura de tela da caixa de diálogo Publicar Web no Visual Studio - passo a passo do tutorial do ASP.NET MVC](./media/documentdb-dotnet-application/image29.png)
 
 Em poucos segundos, o Visual Studio terminará de publicar seu aplicativo Web e iniciará um navegador no qual você poderá ver seu trabalho sendo executado no Azure!
 
 ##<a name="_Toc395637775"></a>Próximas etapas
 
-Parabéns! Você acabou de compilar seu primeiro aplicativo ASP.NET MVC usando o Banco de Dados de Documentos do Azure e o publicou nos Sites do Azure. O código-fonte do aplicativo completo, incluindo as funcionalidades de detalhes e de exclusão que não foram incluídas neste tutorial, pode ser baixado ou clonado do [GitHub][]. Portanto, se você estiver interessado em adicioná-las ao seu aplicativo, obtenha o código e adicione-o a esse aplicativo.
+Parabéns! Você acabou de compilar seu primeiro aplicativo Web ASP.NET MVC usando o Banco de Dados de Documentos do Azure e o publicou nos Sites do Azure. O código-fonte do aplicativo completo, incluindo as funcionalidades de detalhes e de exclusão que não foram incluídas neste tutorial, pode ser baixado ou clonado do [GitHub][]. Portanto, se você estiver interessado em adicioná-las ao seu aplicativo, obtenha o código e adicione-o a esse aplicativo.
 
-Para adicionar outras funcionalidades a seu aplicativo, consulte as APIs disponíveis na [Biblioteca .NET do Banco de Dados de Documentos](http://msdn.microsoft.com/library/azure/dn783362.aspx) e fique à vontade para contribuir com essa biblioteca no [GitHub][].
+Para adicionar outras funcionalidades a seu aplicativo, consulte as APIs disponíveis na [Biblioteca .NET do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn948556.aspx) e fique à vontade para contribuir com essa biblioteca no [GitHub][].
 
 
 [*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
@@ -633,4 +633,4 @@ Para adicionar outras funcionalidades a seu aplicativo, consulte as APIs dispon�
 [Basic CRUD Operations in ASP.NET MVC (Operações CRUD básicas no ASP.NET MVC)]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

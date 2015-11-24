@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/10/2015"
+	ms.date="11/16/2015"
 	ms.author="jodebrui"/>
 
 
 # Usar Na Memória (visualização) para melhorar o desempenho do aplicativo no Banco de Dados SQL
 
-Siga estas etapas para otimizar o desempenho transacional do Banco de Dados SQL do Azure [Premium](sql-database-service-tiers.md) usando o recurso [Na Memória](sql-database-in-memory.md).
+Siga estas etapas para otimizar o desempenho transacional do Banco de Dados SQL do Azure [Premium](sql-database-service-tiers.md) existente usando o recurso [Na Memória](sql-database-in-memory.md).
 
 
 ## Etapa 1: Verifique se o banco de dados Premium dá suporte a Na Memória
@@ -55,7 +55,7 @@ Importe o bacpac para um novo banco de dados Premium.
 1. No [portal](http://portal.azure.com/) do Azure,
  - Navegue até o servidor.
  - Selecione a opção [Importar Banco de Dados](sql-database-import.md).
- - Selecione um tipo de preços Premium.
+ - Selecione uma camada de preços Premium.
 
 2. Use o SSMS para importar o bacpac:
  - No **Pesquisador de Objetos**, clique com o botão direito do mouse no nó **Bancos de Dados**.
@@ -69,7 +69,7 @@ O SSMS inclui um relatório **Visão Geral da Análise do Desempenho da Transaç
 
 No SSMS, para gerar o relatório: - no **Pesquisador de Objetos**, clique com o botão direito do mouse no nó do seu banco de dados. - Clique em **Relatórios** > **Relatórios Padrão** > **Visão Geral da Análise do Desempenho da Transação**.
 
-Para saber mais, consulte [Determinando se uma tabela ou um procedimento armazenado deve ser transportado para o OLTP Na Memória](http://msdn.microsoft.com/library/dn205133.aspx).
+Para saber mais, confira [Determinando se uma tabela ou um procedimento armazenado deve ser transportado para o OLTP Na Memória](http://msdn.microsoft.com/library/dn205133.aspx).
 
 
 ## Etapa 3: Criar um banco de dados de teste comparável
@@ -89,7 +89,7 @@ ALTER DATABASE CURRENT
 ```
 
 
-## Etapa 4: Migrar tabelas
+## Etapa 4: migrar tabelas
 
 Você deve criar e preencher uma cópia com otimização de memória da tabela que você deseja testar. Você pode criá-la usando:
 
@@ -140,7 +140,7 @@ INSERT INTO <new_memory_optimized_table>
 ```
 
 
-## Etapa 5 (opcional): Migrar procedimentos armazenados
+## Etapa 5 (opcional): migrar procedimentos armazenados
 
 O recurso Na Memória também pode modificar um procedimento armazenado para melhorar o desempenho.
 
@@ -154,7 +154,7 @@ Um procedimento armazenado compilado nativamente deve ter as seguintes opções 
 - SCHEMABINDING: significa tabelas cujas definições de coluna o procedimento armazenado não pode alterar de alguma forma que afete o próprio procedimento armazenado, a menos que você descarte o procedimento armazenado.
 
 
-Um módulo nativo deve usar grandes [blocos ATOMIC](http://msdn.microsoft.com/library/dn452281.aspx) para o gerenciamento de transações. Não há uma função para uma BEGIN TRANSACTION explícita.
+Um módulo nativo deve usar grandes [blocos ATOMIC](http://msdn.microsoft.com/library/dn452281.aspx) para o gerenciamento de transações. Não há uma função para BEGIN TRANSACTION explícita ou para ROLLBACK TRANSACTION. Se seu código detectar uma violação de uma regra de negócio, poderá finalizar o bloco atômico com uma instrução [THROW](http://msdn.microsoft.com/library/ee677615.aspx).
 
 
 ### CREATE PROCEDURE típico para compilados nativamente
@@ -184,7 +184,7 @@ CREATE PROCEDURE schemaname.procedurename
 
 ### Como migrar um procedimento armazenado
 
-As etapas da migração são:
+As etapas de migração são:
 
 
 1. Obtenha o script CREATE PROCEDURE para o procedimento armazenado interpretado regular.
@@ -192,14 +192,14 @@ As etapas da migração são:
 2. Reescreva o cabeçalho para que ele corresponda ao modelo anterior.
 
 3. Verificar se o código T-SQL de procedimento armazenado usa os recursos sem suporte para procedimentos armazenados compilados nativamente. Implemente soluções alternativas, se necessário.
- - Para obter detalhes, consulte [Problemas de migração para procedimentos armazenados compilados nativamente](http://msdn.microsoft.com/library/dn296678.aspx).
+ - Para obter detalhes, confira [Problemas de migração para procedimentos armazenados compilados nativamente](http://msdn.microsoft.com/library/dn296678.aspx).
 
 4. Renomeie o antigo procedimento armazenado usando SP\_RENAME. Ou simplesmente descarte-o usando DROP.
 
 5. Execute o script T-SQL CREATE PROCEDURE editado.
 
 
-## Etapa 6: Executar sua carga de trabalho no teste
+## Etapa 6: executar sua carga de trabalho no teste
 
 Execute uma carga de trabalho em seu banco de dados de teste que seja semelhante à carga de trabalho executada em seu banco de dados de produção. Isso deve revelar o ganho de desempenho obtido com o uso do recurso Na Memória para tabelas e procedimentos armazenados.
 
@@ -210,7 +210,7 @@ Os principais atributos da carga de trabalho são:
 - Taxa de leitura/gravação.
 
 
-Para ajustar e executar a carga de trabalho de teste, considere usar a ferramenta ostress.exe, ilustrada [aqui](sql-database-in-memory.md).
+Para ajustar e executar a carga de trabalho de teste, considere usar a ferramenta útil ostress.exe, ilustrada [aqui](sql-database-in-memory.md).
 
 
 Para minimizar a latência de rede, execute o teste na mesma região geográfica do Azure onde está o banco de dados.
@@ -220,7 +220,7 @@ Para minimizar a latência de rede, execute o teste na mesma região geográfica
 
 Considere monitorar os efeitos de desempenho de suas implementações de Na Memória em produção:
 
-- [Monitorar o armazenamento Na Memória](https://azure.microsoft.com/documentation/articles/sql-database-in-memory-oltp-monitoring/).
+- [Monitorar o armazenamento na memória](https://azure.microsoft.com/documentation/articles/sql-database-in-memory-oltp-monitoring/).
 
 - [Monitoramento de Banco de Dados SQL usando exibições de gerenciamento dinâmico](sql-database-monitoring-with-dmvs.md)
 
@@ -233,4 +233,4 @@ Considere monitorar os efeitos de desempenho de suas implementações de Na Mem�
 
 - [Supervisor de Otimização de Memória](http://msdn.microsoft.com/library/dn284308.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

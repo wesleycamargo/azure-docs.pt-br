@@ -13,7 +13,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/21/2015"
+   ms.date="11/10/2015"
    ms.author="joaoma"/>
 
 
@@ -22,10 +22,9 @@
 O Application Gateway é a camada 7 do balanceador de carga. Ele fornece o failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local. O Application Gateway tem os seguintes recursos de entrega de aplicativo: balanceamento de carga HTTP, afinidade de sessão baseada em cookie, descarregamento SSL.
 
 > [AZURE.SELECTOR]
-- [Azure Classic Powershell steps](application-gateway-create-gateway.md)
-- [Azure Resource Manager Powershell steps](application-gateway-create-gateway-arm.md)
-- [Azure Resource Manager template steps](application-gateway-create-gateway-arm-template.md)
-
+- [Azure Classic PowerShell](application-gateway-create-gateway.md)
+- [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
+- [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
 
 <BR>
 
@@ -60,7 +59,7 @@ Neste cenário, você criará:
 
 No github, você pode baixar o modelo ARM existente para criar uma rede virtual e duas sub-redes; faça as alterações que desejar e reutilize-o. Para isso, siga as etapas abaixo.
 
-1. Navegue até https://github.com/Azure/azure-quickstart-templates/blob/master/101-create-applicationgateway-publicip.
+1. Navegue até https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-create-application-gateway/
 2. Clique em **azuredeploy.json** e em **RAW**.
 3. Salve o arquivo em uma pasta local do computador.
 4. Se você estiver familiarizado com modelos ARM, pule para a etapa 7.
@@ -76,8 +75,8 @@ No github, você pode baixar o modelo ARM existente para criar uma rede virtual 
 	| **skuname** | tamanho da instância de sku |
 	| **capacidade** | número de instâncias |
 	| **backendaddress1** | Endereço IP do primeiro servidor Web |
-	| **backendaddress2** | Endereço IP do segundo servidor Web|
-
+	| **backendaddress2** | Endereço IP do segundo servidor Web |
+	
 
 >[AZURE.IMPORTANT]Os modelos ARM mantidos no github pode mudar ao longo do tempo. Certifique-se de verificar o modelo antes de usá-lo.
 	
@@ -87,37 +86,35 @@ No github, você pode baixar o modelo ARM existente para criar uma rede virtual 
 	- **name**. Nome do recurso. Observe o uso de **[parameters('applicationGatewayName')]**, que significa o nome que será fornecido como entrada pelo usuário ou um arquivo de parâmetro durante a implantação.
 	- **properties**. Lista de propriedades do recurso. Esse modelo usa a rede virtual e o endereço IP público durante a criação do Application Gateway.
 
-7. Navegue de volta para https://github.com/Azure/azure-quickstart-templates/blob/master/101-create-applicationgateway-publicip.
+7. Navegue de volta para https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-create-application-gateway/azuredeploy.json.
 8. Clique em **azuredeploy-paremeters.json** e em **RAW**.
 9. Salve o arquivo em uma pasta local do computador.
 10. Abra o arquivo que acabou de salvar e edite os valores dos parâmetros. Use os valores abaixo para implantar o Application Gateway descrito em nosso cenário.
 
 		{
-		   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-		   "contentVersion": "1.0.0.0",
-		   "parameters": {
-		     "location": {
-		       "value": "East US"
-		     },
-		     "addressPrefix": {
-		      "value": "10.0.0.0/16"
-    		 },
-		     "subnetPrefix": {
-		      "value": "10.0.0.0/24"
-		     },
-		     "skuName": {
-		       "value": "Standard_Small"
-		     },
-		     "capacity": {
-		       "value": 2
-		    },
-		    "backendIpAddress1": {
-		      "value": "10.0.1.10"
-		    },
-		     "backendIpAddress2": {
-		       "value": "10.0.1.11"
-		     }
-		  }
+		  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+		{
+    	"location" : {
+        "value" : "West US"
+    	},
+    	"addressPrefix": {
+        "value": "10.0.0.0/16"
+    	},
+    	"subnetPrefix": {
+        "value": "10.0.0.0/24"
+    	},
+    	"skuName": {
+        "value": "Standard_Small"
+    	},
+    	"capacity": {
+        "value": 2
+    	},
+    	"backendIpAddress1": {
+        "value": "10.0.1.10"
+    	},
+    	"backendIpAddress2": {
+        "value": "10.0.1.11"
+    	}
 		}
 
 11. Salve o arquivo. Você pode testar o modelo Json e modelo de parâmetro usando ferramentas de validação de json online como [JSlint.com](http://www.jslint.com/)
@@ -150,7 +147,7 @@ Saída esperada:
 	                 =======  ==========
 	                  *
 
-		ResourceId        : /subscriptions/################################/resourceGroups/AppgatewayRG
+		ResourceId        : /subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/AppgatewayRG
 
 4. Execute o cmdlet New-AzureResourceGroupDeployment para implantar a nova rede virtual usando o modelo e os arquivos de parâmetro que você baixou e modificou acima.
 
@@ -175,7 +172,7 @@ A saída gerada pela linha de comando será a seguinte:
                    capacity         Int                        2
                    backendIpAddress1  String                     10.0.1.10
                    backendIpAddress2  String                     10.0.1.11
-
+					
 		Outputs           :
 
 
@@ -240,7 +237,7 @@ Clique para implantar é outra maneira de usar modelos ARM. É uma maneira fáci
 
 
 ### Etapa 1 
-Usar o link [Clique para implantar o Application Gateway](http://azure.microsoft.com/documentation/templates/101-create-applicationgateway-publicip/) redirecionará você para a página de modelo do portal do Application Gateway.
+Usar o link [Clicar para implantar o Application Gateway](https://azure.microsoft.com/pt-BR/documentation/templates/101-application-gateway-public-ip/) redirecionará você para a página de modelo do portal do Application Gateway.
 
 
 ### Etapa 2 
@@ -276,4 +273,4 @@ Se deseja obter mais informações sobre as opções de balanceamento de carga n
 - [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

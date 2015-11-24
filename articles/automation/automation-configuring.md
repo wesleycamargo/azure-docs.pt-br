@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/02/2015"
+   ms.date="11/10/2015"
    ms.author="bwren" />
 
 # Configurando a Automação do Azure
@@ -52,6 +52,33 @@ Ao acessar recursos do Azure usando [cmdlets do Azure](http://msdn.microsoft.com
 10. Faça logoff do Azure e, em seguida, faça logon novamente com a conta que você acabou de criar. Você será solicitado a alterar a senha do usuário.
 11. Crie um novo [ativo de credencial da Automação do Azure](http://msdn.microsoft.com/library/dn940015.aspx) para a conta de usuário que você criou. O **Tipo de Credencial** deve ser **Credencial do Windows PowerShell**.
 
+## Criar uma conta de automação
+
+Uma conta de automação é um contêiner para os seus recursos de Automação do Azure. Ele fornece uma maneira de separar seus ambientes ou organizar ainda mais seus fluxos de trabalho. Se você já tiver criado uma conta de automação, pode ignorar essa etapa.
+
+1. Faça logon no [Portal de Visualização do Azure](https://portal.azure.com/).
+
+2. No portal de visualização do Azure clique em **Novo** > **Gerenciamento** > **Conta de Automação**.
+
+3. Na folha **Adicionar Conta de Automação**, configurar os detalhes da Conta de Automação.
+
+>[AZURE.NOTE]Quando uma conta de Automação for criada usando o portal de visualização do Azure, a conta e todos os recursos associados a ela não serão trazidos de volta para o portal de gerenciamento clássico.
+
+A seguir, a lista de parâmetros a serem configurados:
+
+|Parâmetro |Descrição |
+|:---|:---|
+| Nome | Nome da sua Conta de Automação; deve ser um valor exclusivo. |
+| Grupo de recursos | Os grupos de recursos facilitam ver e gerenciar os recursos do Azure relacionados. No portal de visualização do Azure, você pode escolher um grupo de recursos existente ou criar um novo para sua Conta de Automação, enquanto no portal de gerenciamento do Azure, todas as contas de automação devem ser colocadas em um grupo de recursos padrão. |
+| Assinatura | Escolha uma assinatura na lista de assinaturas disponíveis. |
+| Região | A região especifica onde os recursos de Automação na conta serão armazenados. Você pode escolher qualquer região na lista, isso não afeta a funcionalidade da sua conta, mas seus runbooks podem ser executados mais rapidamente se a região da conta estiver próxima de onde os outros recursos do Azure estão armazenados. |
+| Opções de Conta | Essa opção permite que você escolha quais recursos serão criados em sua nova Conta de Automação; a seleção de **Sim** criará um runbook de tutorial. |
+
+![Criar conta](media/automation-configuration/automation-01-create-automation-account.png)
+
+>[AZURE.NOTE]Quando uma Conta de Automação criada usando o portal de gerenciamento clássico for [movida para outro grupo de recursos](../resource-group-move-resources.md) usando o portal de visualização do Azure, a Conta de Automação não estará mais disponível no portal clássico do Azure, já que as contas do gerenciador de recursos do Azure não têm suporte no portal de gerenciamento clássico.
+
+
 
 ## Usar uma credencial em um runbook
 
@@ -67,4 +94,4 @@ Repita essas linhas após qualquer [ponto de verificação](http://technet.micro
 - [Autenticação do Azure: autenticando no Azure usando o Active Directory do Azure](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->
