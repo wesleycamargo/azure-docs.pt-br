@@ -139,13 +139,11 @@ Por fim, você precisa publicar o back-end de aplicativo móvel no Azure e verif
 
 	Após a publicação, o serviço reiniciará e a página inicial do back-end será exibida.
 
-4. Usando <!--- either the **Try it now** button on the start page as before or using --> um aplicativo cliente conectado ao seu Aplicativo Móvel, invoque algumas operações que gerem alterações no banco de dados.
-<!--- This try it now is not longer on the page after it is published. 
-	>[AZURE.NOTE]When you use the **Try it now** button to launch the Help API pages, remember to supply your application key as the password (with a blank username).
--->
-4. No SQL Server Management Studio, conecte-se à instância do SQL Server, abra o Pesquisador de Objetos, expanda o banco de dados **OnPremisesDB** e expanda **Tabelas**.
+4. Usando um aplicativo cliente conectado ao seu Aplicativo Móvel, invoque algumas operações que gerem alterações no banco de dados.
 
-5. Clique com o botão direito na tabela **hybridService1.TodoItems** e escolha **Selecionar as 1000 linhas principais** para exibir os resultados.
+5. No SQL Server Management Studio, conecte-se à instância do SQL Server, abra o Pesquisador de Objetos, expanda o banco de dados **OnPremisesDB** e expanda **Tabelas**.
+
+6. Clique com o botão direito na tabela **hybridService1.TodoItems** e escolha **Selecionar as 1000 linhas principais** para exibir os resultados.
 
 	Observe que as alterações geradas no aplicativo cliente foram salvas pelo back-end de aplicativo móvel no banco de dados local usando a conexão híbrida.
 
@@ -164,4 +162,4 @@ Por fim, você precisa publicar o back-end de aplicativo móvel no Azure e verif
 [Azure Management Portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
 [Get started with Mobile Services]: ../mobile-services-windows-store-dotnet-get-started.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

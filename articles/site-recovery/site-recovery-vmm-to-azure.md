@@ -104,7 +104,7 @@ Gere uma chave de registro no cofre. Após baixar o Provedor do Azure Site Recov
 
 	![Ícone de Inicialização Rápida](./media/site-recovery-vmm-to-azure/ASRE2AVMM_QuickStartIcon.png)
 
-2. Na lista suspensa, selecione **Entre um site do Hyper-V local e o Microsoft Azure**.
+2. Na lista suspensa, selecione **Entre um site do VMM local e o Microsoft Azure**.
 3. Em **Preparar Servidores VMM**, clique no arquivo **Gerarchave de registro**. O arquivo de chave é gerado automaticamente e é válido por cinco dias após ter sido gerado. Se não estiver acessando o portal do Azure por meio do servidor VMM, você precisará copiar esse arquivo para o servidor.
 
 	![Chave de Registro](./media/site-recovery-vmm-to-azure/ASRE2AVMM_RegisterKey.png)
@@ -347,4 +347,4 @@ Para executar um failover de teste, faça o seguinte:
 
 <LI>Em caso de dúvidas, visite o <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Fórum dos Serviços de Recuperação do Azure</a>.</LI> </UL>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/27/2015"
+	ms.date="11/16/2015"
 	ms.author="sdanie"/>
 
 # Gerenciar sua primeira API no Gerenciamento de API do Azure
@@ -116,7 +116,7 @@ Depois que a API é importada, a página de resumo para a API é exibida no port
 
 ![Resumo da API][api-management-imported-api-summary]
 
-A seção API tem várias guias. A guia **Resumo** exibe as métricas básicas e as informações sobre a API. A guia [Configurações](api-management-howto-create-apis.md#configure-api-settings) é usada para exibir e editar a configuração de uma API. A guia [Operações](api-management-howto-add-operations.md) é usada para gerenciar as operações da API. A guia **Segurança** pode ser usada para configurar a autenticação de proxy para o servidor de back-end usando a autenticação Básica ou [autenticação mútua de certificados](api-management-howto-mutual-certificates.md), bem como para configurar a [autorização do usuário usando OAuth 2.0](api-management-howto-oauth2.md). A guia **Problemas** é usada para exibir os problemas relatados pelos desenvolvedores que utilizam suas APIs. A guia **Produtos** é usada para configurar os produtos que contêm essa API.
+A seção API tem várias guias. A guia **Resumo** exibe as métricas básicas e as informações sobre a API. A guia [Configurações](api-management-howto-create-apis.md#configure-api-settings) é usada para exibir e editar a configuração de uma API. A guia [Operações](api-management-howto-add-operations.md) é usada para gerenciar as operações da API. A guia **Segurança** pode ser usada para configurar a autenticação de gateway para o servidor de back-end usando a autenticação Básica ou [autenticação mútua de certificados](api-management-howto-mutual-certificates.md), bem como para configurar a [autorização do usuário usando OAuth 2.0](api-management-howto-oauth2.md). A guia **Problemas** é usada para exibir os problemas relatados pelos desenvolvedores que utilizam suas APIs. A guia **Produtos** é usada para configurar os produtos que contêm essa API.
 
 Por padrão, cada instância de Gerenciamento de API é fornecida com dois produtos função Web:
 
@@ -243,4 +243,4 @@ A seção **Análise** possui as quatro guias a seguir.
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

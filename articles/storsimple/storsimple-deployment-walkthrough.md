@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/17/2015"
+   ms.date="11/17/2015"
    ms.author="alkohli" />
 
 # Implantação do seu dispositivo StorSimple local
@@ -51,7 +51,7 @@ Execute estas etapas necessárias para configurar o dispositivo StorSimple e con
 | Etapa 4: concluir a instalação mínima do dispositivo</br>Opcional: atualizar o dispositivo StorSimple. | Use o serviço de gerenciamento para concluir a instalação do dispositivo e habilitá-lo para fornecer armazenamento. |
 | Etapa 5: criar um contêiner de volume. | Crie um contêiner para provisionar volumes. Um contêiner de volume tem a conta de armazenamento, largura de banda e configurações de criptografia para todos os volumes contidos nele. |
 | Etapa 6: criar um volume. | Provisione volumes de armazenamento no dispositivo StorSimple para seus servidores. |
-| Etapa 7: montar, inicializar e formatar um volume.</br>Opcional: configurar o MPIO. | Conecte os servidores ao armazenamento iSCSI fornecido pelo dispositivo. Opcionalmente, configure o MPIO para garantir que os servidores podem tolerar a falha de link, rede e interface. |
+| Etapa 7: montar, inicializar e formatar um volume.</br>Opcional: configurar o MPIO. | Conecte os servidores ao armazenamento iSCSI fornecido pelo dispositivo. Opcionalmente, configure o MPIO para garantir que os servidores possam tolerar a falha de link, rede e interface. |
 | Etapa 8: fazer um backup. | Configure a política de backup para proteger seus dados |
 | | |
 | **OUTROS PROCEDIMENTOS** | Talvez seja necessário consultar esses procedimentos conforme você implantar sua solução. |
@@ -290,4 +290,4 @@ Execute as etapas a seguir no portal do Azure para criar um backup manual sob de
 
 - Use o [Serviço StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) para gerenciar o seu dispositivo StorSimple.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

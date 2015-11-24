@@ -1,7 +1,8 @@
 <properties 
-    pageTitle="Criar um pool de banco de dados elástico do Banco de Dados SQL do Azure com o PowerShell | Microsoft Azure" 
-    description="Criar um pool de banco de dados elástico para compartilhar recursos entre vários Bancos de Dados SQL do Azure." 
-    services="sql-database" 
+    pageTitle="Expandir recursos com pools de banco de dados elástico | Microsoft Azure" 
+    description="Saiba como usar o PowerShell para expandir recursos do Banco de Dados SQL do Azure criando um pool de banco de dados elástico para gerenciar vários bancos de dados." 
+	keywords="vários bancos de dados, expandir"    
+	services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
     manager="jeffreyg" 
@@ -16,17 +17,18 @@
     ms.date="11/06/2015"
     ms.author="adamkr; sstein"/>
 
-# Criar um pool de banco de dados elástico com o PowerShell
+# Criar um pool de banco de dados elástico com o PowerShell para expansão de recursos para vários bancos de dados SQL 
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-portal.md)
 - [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
-
-Este artigo mostra como criar um [pool de banco de dados elástico](sql-database-elastic-pool.md) usando cmdlets do PowerShell.
+Saiba como gerenciar vários bancos de dados criando um [pool de banco de dados elástico](sql-database-elastic-pool.md) usando cmdlets do PowerShell.
 
 > [AZURE.NOTE]No momento, os pools de banco de dados elástico estão em visualização e disponíveis apenas com Servidores V12 do Banco de Dados SQL. Se você tiver um servidor de Banco de Dados SQL V11, poderá [usar o PowerShell para atualizar para o V12 e criar um pool](sql-database-upgrade-server.md) em uma única etapa.
+
+Os pools de banco de dados elástico permitem expandir recursos de banco de dados e o gerenciamento entre vários bancos de dados SQL.
 
 Este artigo mostrará como criar tudo o que você precisa (incluindo o servidor V12) para criar e configurar um pool de banco de dados elástico, exceto a assinatura do Azure. Se você precisar de uma assinatura do Azure basta clicar em **AVALIAÇÃO GRATUITA** na parte superior desta página e, em seguida, voltar para concluir este artigo.
 
@@ -35,7 +37,7 @@ Este artigo mostrará como criar tudo o que você precisa (incluindo o servidor 
 
 As etapas individuais para criar um pool de banco de dados elástico com o Azure PowerShell são divididas e explicadas por proporcionar clareza. Para quem deseja apenas uma lista concisa de comandos, confira a seção **Juntando as peças** ao final deste artigo.
 
-> [AZURE.IMPORTANT]A partir da liberação da Visualização do Azure PowerShell 1.0, o cmdlet Switch-AzureMode não está mais disponível, e os cmdlets contidos no módulo do Gerenciador de Recursos do Azure foram renomeados. Os exemplos neste artigo usam a nova convenção de nomenclatura do PowerShell 1.0 Preview. Para obter informações detalhadas, veja [Substituição de Switch-AzureMode no Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
+> [AZURE.IMPORTANT]A partir da liberação da Visualização do Azure PowerShell 1.0, o cmdlet Switch-AzureMode não está mais disponível, e os cmdlets contidos no módulo do Gerenciador de Recursos do Azure foram renomeados. Os exemplos neste artigo usam a nova convenção de nomenclatura do PowerShell 1.0 Preview. Para obter informações detalhadas, consulte [Substituição de Switch-AzureMode no Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
 Para executar os cmdlets do PowerShell, você precisa ter o Azure PowerShell instalado e em execução, e devido à remoção de Switch-AzureMode, você deve baixar e instalar o Azure PowerShell mais recente executando o [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 
@@ -53,14 +55,14 @@ Após entrar, você verá algumas informações na tela, incluindo a ID usada pa
 
 ### Selecionar sua assinatura do Azure
 
-Para selecionar a assinatura é necessário ter a ID ou o nome da assinatura (**-SubscriptionName**). Você pode copiar essas informações da etapa anterior, ou, se tiver várias assinaturas, poderá executar o cmdlet **Get-AzureSubscription** e copiar as informações da assinatura desejada do resultado. Quando tiver sua assinatura, execute o seguinte cmdlet:
+Para selecionar a assinatura, será necessário ter a ID ou o nome da assinatura (**-SubscriptionName**). Você pode copiar essas informações da etapa anterior, ou, se tiver várias assinaturas, poderá executar o cmdlet **Get-AzureSubscription** e copiar as informações da assinatura desejada do resultado. Quando tiver sua assinatura, execute o seguinte cmdlet:
 
 	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
 
 ## Criar um grupo de recursos, servidor e regra de firewall
 
-Agora que você tem acesso para executar cmdlets em sua assinatura do Azure, a próxima etapa é estabelecer o grupo de recursos que contém o servidor no qual o pool de banco de dados elástico será criado. Você pode editar o próximo comando a fim de usar qualquer local válido de sua escolha. Execute **(Get-AzureRMLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** para obter uma lista de locais válidos.
+Agora que você tem acesso para executar cmdlets em sua assinatura do Azure, a próxima etapa é estabelecer o grupo de recursos que contém o servidor no qual o pool de banco de dados elástico será criado para conter vários bancos de dados. Você pode editar o próximo comando a fim de usar qualquer local válido de sua escolha. Execute **(Get-AzureRMLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** para obter uma lista de locais válidos.
 
 Se você já tiver um grupo de recursos, poderá ir até a próxima etapa ou executar o comando a seguir para criar um novo grupo de recursos:
 
@@ -98,11 +100,11 @@ Agora que você tem um grupo de recursos, um servidor e uma regra de firewall co
 
 O pool criado na etapa anterior está vazio, ele não contém bancos de dados elásticos. As seções a seguir mostram como criar novos bancos de dados elásticos dentro do pool e também como adicionar bancos de dados existentes ao pool.
 
-*Depois de criar um pool, você também pode usar o Transact-SQL para criar novos bancos de dados elásticos no pool e mover bancos de dados existentes para dentro e fora de um pool. Para obter mais detalhes, veja [Referência do pool de banco de dados elástico - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+*Depois de criar um pool, você também pode usar o Transact-SQL para criar novos bancos de dados elásticos no pool e mover bancos de dados existentes para dentro e fora de um pool. Para obter mais detalhes, consulte [Referência do pool de banco de dados elástico - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
 ### Criar um novo banco de dados elástico dentro de um pool de banco de dados elástico
 
-Para criar um novo banco de dados diretamente dentro de um pool, use o cmdlet [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) e defina o parâmetro **ElasticPoolName**.
+Para criar um novo banco de dados diretamente dentro de um pool, use o cmdlet [New-AzureRMSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) e defina o parâmetro **ElasticPoolName**.
 
 
 	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
@@ -111,7 +113,7 @@ Para criar um novo banco de dados diretamente dentro de um pool, use o cmdlet [N
 
 ### Mover um banco de dados existente para um pool de banco de dados elástico
 
-Para mover um banco de dados existente para um pool, use o cmdlet [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) e defina o parâmetro **ElasticPoolName**.
+Para mover um banco de dados existente para um pool, use o cmdlet [Set-AzureRMSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) e defina o parâmetro **ElasticPoolName**.
 
 
 Para a demonstração, crie um banco de dados que não esteja em um pool de banco de dados elástico.
@@ -129,6 +131,8 @@ Mova o banco de dados existente para o pool de banco de dados elástico.
 
 
 ## Monitorando bancos de dados elásticos e pools de banco de dados elástico
+Os pools de banco de dados elástico fornecem relatórios de métricas para ajudar você a expandir os esforços para gerenciar vários bancos de dados.
+
 
 ### Obter o status de operações do pool de banco de dados elástico
 
@@ -232,4 +236,4 @@ Depois de criar um pool de banco de dados elástico, você pode gerenciar os ban
 
 Para saber mais sobre pools de banco de dados elásticos e bancos de dados elásticos, incluindo detalhes sobre APIs e erros, confira a [Referência de bancos de dados elásticos](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

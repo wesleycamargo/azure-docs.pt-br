@@ -1,11 +1,12 @@
 <properties
-   pageTitle="O que é o Banco de Dados SQL | Microsoft Azure"
-   description="Descubra os detalhes técnicos e recursos do Banco de Dados SQL do Azure, a solução RDBMS (sistema de gerenciamento de banco de dado relacional) e PaaS da Microsoft na nuvem."
-   services="sql-database"
-   documentationCenter=""
-   authors="shontnew"
-   manager="jeffreyg"
-   editor="monicar"/>
+	pageTitle="O que é o Banco de Dados SQL? Introdução ao Banco de Dados SQL | Microsoft Azure"
+	description="Obtenha uma introdução ao Banco de Dados SQL: detalhes e recursos técnicos do RDBMS (sistema de gerenciamento de banco de dado relacional) da Microsoft na nuvem."
+	keywords="introdução ao sql, introdução ao sql, o que é o banco de dados sql, DTU"
+	services="sql-database"
+	documentationCenter=""
+	authors="shontnew"
+	manager="jeffreyg"
+	editor="cgronlun"/>
 
 <tags
    ms.service="sql-database"
@@ -16,18 +17,18 @@
    ms.date="09/30/2015"
    ms.author="shkurhek"/>
 
-# Introdução ao Banco de dados SQL
+# O que é o Banco de Dados SQL? Introdução ao Banco de Dados SQL, detalhes técnicos e uma explicação sobre DTUs
 
 O Banco de Dados SQL é um serviço de banco de dados relacional na nuvem com base no mecanismo líder de mercado do Microsoft SQL Server que contém recursos internos críticos. O Banco de Dados SQL oferece desempenho previsível, escalabilidade sem tempo de inatividade, continuidade dos negócios e proteção de dados e quase não exige administração. Você pode se concentrar no desenvolvimento rápido de aplicativos e acelerar seu tempo de colocação no mercado, em vez de gerenciar máquinas virtuais e infraestrutura. Como ele se baseia no mecanismo [SQL Server](https://msdn.microsoft.com/library/bb545450.aspx), o Banco de Dados SQL oferece suporte a ferramentas do SQL Server, bibliotecas e APIs, o que torna mais fácil mover e estender para a nuvem.
 
-Este artigo apresenta os principais conceitos e recursos do Banco de Dados SQL relacionados ao desempenho, escalabilidade e gerenciabilidade, com links para explorar os detalhes. Se você estiver pronto para entrar, você poderá [Criar seu primeiro Banco de Dados SQL](sql-database-get-started.md) ou [Criar um pool de banco de dados elástico](sql-database-elastic-pool-portal.md) em minutos. Se você quiser se aprofundar, assista a este vídeo de 30 minutos.
+Este artigo é uma introdução aos principais conceitos e recursos do Banco de Dados SQL relacionados ao desempenho, escalabilidade e gerenciabilidade, com links para explorar os detalhes. Se você estiver pronto para entrar, poderá [Criar seu primeiro Banco de Dados SQL](sql-database-get-started.md) ou [Criar um pool de banco de dados elástico](sql-database-elastic-pool-portal.md) em minutos. Se você quiser se aprofundar, assista a este vídeo de 30 minutos.
 
 
 > [AZURE.VIDEO azurecon-2015-get-started-with-azure-sql-database]
 
 
 ## Ajuste de desempenho e dimensionamento sem tempo de inatividade
-Os bancos de dados SQL estão disponíveis nas *camadas de serviço* Básica, Standard e Premium. Cada camada de serviço oferece [diferentes níveis de desempenho e recursos](sql-database-service-tiers.md) para dar suporte a cargas de trabalho leves e pesadas de banco de dados. Você pode compilar seu primeiro aplicativo em um banco de dados pequeno com alguns dólares por mês e [alterar a camada de serviço](sql-database-scale-up.md) manualmente ou de forma programática a qualquer momento à medida que o seu aplicativo torna-se viral em todo o mundo, sem tempo de inatividade para seu aplicativo ou para seus clientes.
+Os banco de dados SQL estão disponíveis nas *camadas de serviço* Básica, Standard e Premium. Cada camada de serviço oferece [diferentes níveis de desempenho e recursos](sql-database-service-tiers.md) para dar suporte a cargas de trabalho leves e pesadas de banco de dados. Você pode compilar seu primeiro aplicativo em um banco de dados pequeno com alguns dólares por mês, e, em seguida, [alterar a camada de serviço](sql-database-scale-up.md) manualmente ou de forma programática a qualquer momento à medida que o seu aplicativo torna-se viral em todo o mundo, sem tempo de inatividade para seu aplicativo ou para seus clientes.
 
 Para muitos negócios e aplicativos, ser capaz de criar bancos de dados e ajustar o desempenho do banco de dados individual sob demanda é o suficiente, especialmente se os padrões de uso são relativamente previsíveis. Mas se você tiver os padrões de uso imprevisíveis, pode ser difícil de gerenciar os custos e o seu modelo de negócios.
 
@@ -43,7 +44,7 @@ Mas como você pode comparar o desempenho relativo de bancos de dados e pools de
 
 ## Mantenha seus aplicativos e a continuidade dos negócios
 
-O SLA [(contrato de nível de serviço)](http://azure.microsoft.com/support/legal/sla/) de disponibilidade de 99,99% líder do setor do Azure, impulsionado por uma rede global de data centers gerenciados pela Microsoft, ajudam a manter seu aplicativo em execução 24/7. Com cada banco de dados SQL, você tira proveito da proteção de dados, tolerância a falhas incorporadas e de uma proteção de dados que, em outras situações, você teria que projetar, comprar, criar e gerenciar. Mesmo assim, dependendo das demandas do seu negócio, você pode precisar de camadas adicionais de proteção para garantir que seu aplicativo e sua empresa possam recuperar-se rapidamente no caso de um desastre, um erro ou alguma outra situação. Com o banco de dados SQL, cada camada de serviço oferece um menu diferente dos recursos que você pode usar para colocar em funcionamento. Você pode usar a restauração para um ponto específico para retornar um banco de dados para um estado anterior, até 35 dias. Além disso, se o datacenter que hospeda os seus bancos de dados sofrer uma interrupção, você pode fazer failover para réplicas de banco de dados em uma região diferente. Ou você pode usar réplicas para upgrades ou realocação para diferentes regiões.
+O SLA [(contrato de nível de serviço)](http://azure.microsoft.com/support/legal/sla/) de disponibilidade de 99,99% líder do setor do Azure, impulsionado por uma rede global de data centers gerenciados pela Microsoft, ajudam a manter seu aplicativo em execução 24 horas por dia, 7 dias por semana. Com cada banco de dados SQL, você tira proveito da proteção de dados, tolerância a falhas incorporadas e de uma proteção de dados que, em outras situações, você teria que projetar, comprar, criar e gerenciar. Mesmo assim, dependendo das demandas do seu negócio, você pode precisar de camadas adicionais de proteção para garantir que seu aplicativo e sua empresa possam recuperar-se rapidamente no caso de um desastre, um erro ou alguma outra situação. Com o banco de dados SQL, cada camada de serviço oferece um menu diferente dos recursos que você pode usar para colocar em funcionamento. Você pode usar a restauração para um ponto específico para retornar um banco de dados para um estado anterior, até 35 dias. Além disso, se o datacenter que hospeda os seus bancos de dados sofrer uma interrupção, você pode fazer failover para réplicas de banco de dados em uma região diferente. Ou você pode usar réplicas para upgrades ou realocação para diferentes regiões.
 
 ![Replicação geográfica do Banco de Dados SQL](./media/sql-database-technical-overview/azure_sqldb_map.png)
 
@@ -51,12 +52,13 @@ O SLA [(contrato de nível de serviço)](http://azure.microsoft.com/support/lega
 Consulte [Continuidade dos negócios](sql-database-business-continuity.md) para obter detalhes sobre os diferentes recursos de continuidade dos negócios disponíveis para diferentes camadas de serviço.
 
 ## Proteja seus dados
-O SQL Server possui uma tradição de segurança de dados sólida que o banco de dados SQL mantém com recursos que limitam o acesso, protegem os dados e ajudam você a monitorar a atividade. Consulte [Protegendo seu banco de dados SQL](sql-database-security.md) para um rápido resumo das opções de segurança em Banco de Dados SQL. Consulte a [Central de Segurança para o Mecanismo do Banco de Dados do SQL Server e do Banco de Dados SQL](https://msdn.microsoft.com/library/bb510589) para uma visão mais abrangente dos recursos de segurança. E visite a [Central de Confiabilidade do Azure](http://azure.microsoft.com/support/trust-center/security/) para obter informações sobre segurança da plataforma do Azure.
+O SQL Server possui uma tradição de segurança de dados sólida que o banco de dados SQL mantém com recursos que limitam o acesso, protegem os dados e ajudam você a monitorar a atividade. Confira [Protegendo seu banco de dados SQL](sql-database-security.md) para um rápido resumo das opções de segurança em Banco de Dados SQL. Confira a [Central de Segurança para o Mecanismo do Banco de Dados do SQL Server e do Banco de Dados SQL](https://msdn.microsoft.com/library/bb510589) para uma visão mais abrangente dos recursos de segurança. E visite a [Central de Confiabilidade do Azure](http://azure.microsoft.com/support/trust-center/security/) para obter informações sobre segurança da plataforma do Azure.
 
 ## Próximas etapas
+Agora que você leu uma introdução ao Banco de Dados SQL e respondeu à pergunta "O que é o Banco de Dados SQL?", está pronto para o seguinte:
 
-- Consulte a [página de preços](http://azure.microsoft.com/pricing/details/sql-database/) para obter os preços e cálculos do banco de dados individual e do banco de dados elástico.
+- Confira a [página de preços](http://azure.microsoft.com/pricing/details/sql-database/) para obter os preços e cálculos do banco de dados individual e do banco de dados elástico.
 
-- Comece [criando seu primeiro banco de dados](sql-database-get-started.md). Compile seu primeiro aplicativo em [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md) ou [Ruby](sql-database-develop-ruby-simple-linux).
+- Comece pela [criação do seu primeiro banco de dados](sql-database-get-started.md). Compile seu primeiro aplicativo em [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md) ou [Ruby](sql-database-develop-ruby-simple-linux).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

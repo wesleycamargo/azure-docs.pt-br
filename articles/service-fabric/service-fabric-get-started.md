@@ -47,6 +47,14 @@ A instalação dos componentes da Malha do Serviço é feita pelo Web Platform I
 
 A instalação continuará automaticamente.
 
+## Instale o Azure PowerShell
+
+Para configurar o cluster do Service Fabric, você deve instalar os scripts do Azure PowerShell.
+
+Você pode baixar e instalar o módulo PowerShell no Azure executando o [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?LinkId=320376). Quando solicitado, clique em **Executar**. O Web Platform Installer instala os módulos do PowerShell do Azure e todas as dependências. Siga os prompts para concluir a instalação.
+
+> [AZURE.NOTE]Se você quiser baixar o instalador do PowerShell, visite https://github.com/Azure/azure-powershell/releases. O código-fonte para os cmdlets do PowerShell pode ser encontrado nesse repositório também
+
 ## Habilitar a execução de script do PowerShell
 
 A Malha do Serviço usa scripts do Windows PowerShell para criar um cluster de desenvolvimento local e implantar aplicativos do Visual Studio. Por padrão, o Windows bloqueia a execução desses scripts. Para habilitá-los, você deve modificar sua política de execução do PowerShell. Abra o PowerShell com um administrador e insira o seguinte comando:
@@ -106,4 +114,4 @@ Agora que seu ambiente de desenvolvimento está configurado, você pode começar
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Link do WebPI"
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->
