@@ -106,7 +106,8 @@ Subrede de IP|Máscara de rede|Intervalo IP
 1. Clique duas vezes no arquivo executável. Isso iniciará a instalação.
 2. Na tela Selecionar Pasta de Instalação, certifique-se de que a pasta esteja correta e clique em Avançar.
 3. Quando a instalação for concluída, clique em Concluir. Isso abre o assistente de configuração.
-4. Na tela de boas-vindas do Assistente de Configuração, marque **Ignorar o uso do Assistente de configuração de autenticação** e clique em **avançar**. Isso fecha o assistente e inicia o servidor.![Nuvem](./media/multi-factor-authentication-get-started-server/skip2.png)
+4. Na tela de boas-vindas do Assistente de Configuração, marque **Ignorar o uso do Assistente de configuração de autenticação** e clique em **avançar**. Isso fecha o assistente e inicia o servidor.
+![Nuvem](./media/multi-factor-authentication-get-started-server/skip2.png)
 
 5. De volta à página de onde baixamos o servidor, clique no botão **Gerar Credenciais de Ativação**. Copie essas informações no Servidor Azure MFA nas caixas fornecidas e clique em **Ativar**.
 
