@@ -55,7 +55,7 @@ Nesta seção, você escreverá um aplicativo do console do Windows que cria uma
 
     ![][12]
 
-> [AZURE.NOTE]É importante lembrar que o Registro de identidade do hub IoT só é usado para armazenar identidades de dispositivo com a finalidade de proteger o acesso, ou seja, armazenar as credenciais de segurança e habilitar/desabilitar o acesso do dispositivo individual. Os metadados de aplicativo do dispositivo devem ser armazenados em um repositório específico do aplicativo. Veja o [Guia do Desenvolvedor do Hub IoT][IoT Hub Developer Guide - Identity Registry] para obter mais informações.
+> [AZURE.NOTE] É importante lembrar que o Registro de identidade do hub IoT só é usado para armazenar identidades de dispositivo com a finalidade de proteger o acesso, ou seja, armazenar as credenciais de segurança e habilitar/desabilitar o acesso do dispositivo individual. Os metadados de aplicativo do dispositivo devem ser armazenados em um repositório específico do aplicativo. Veja o [Guia do Desenvolvedor do Hub IoT][IoT Hub Developer Guide - Identity Registry] para obter mais informações.
 
 ## Receber mensagens do dispositivo para a nuvem
 
@@ -134,4 +134,4 @@ Nesta seção, você criará um aplicativo do console do Windows que lê mensage
 [11]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp2.png
 [12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->
