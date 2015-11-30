@@ -245,8 +245,8 @@ Depois de habilitar o Write-back de Senha na ferramenta Azure AD Connect, você 
 
 1.	Depois que a instalação estiver concluída, se você estiver bloqueando as conexões de saída desconhecidas no seu ambiente, você também precisará adicionar as seguintes regras ao firewall. Não deixe de reiniciar o computador do AAD Connect após fazer estas alterações:
    - Permitir conexões de saída pela porta TCP 443
-   - Permitir conexões de saída para https://ssprsbprodncu-sb.accesscontrol.windows.net/ 
-   - Ao usar um proxy ou ter problemas gerais de conectividade, permitir conexões de saída pelas portas TCP 9350-9354
+   - Permitir conexões de saída para https://ssprsbprodncu-sb.accesscontrol.windows.net/
+   - Ao usar um proxy ou ter problemas gerais de conectividade, permitir conexões de saída pelas portas TCP 9350-9534
 
 ### Etapa 4: configurar as permissões apropriadas do Active Directory
 Para cada floresta que contenha os usuários cujas senhas serão redefinidas, se X for a conta que foi especificada para essa floresta no assistente de configuração (durante a configuração inicial), X deverá receber os direitos estendidos **Redefinir Senha**, **Alterar Senha**, **Permissões de Gravação** no `lockoutTime`, e **Permissões de Gravação** na `pwdLastSet` no objeto raiz de cada domínio da floresta. A direita deve ser marcada como herdada por todos os objetos de usuário.

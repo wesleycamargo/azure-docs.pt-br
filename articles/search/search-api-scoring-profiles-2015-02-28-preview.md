@@ -342,7 +342,7 @@ As interpolações permitem que você defina a inclinação para a qual o aument
 
 `boostingDuration` deve ser formatado como um valor XSD de "dayTimeDuration" (um subconjunto restrito de um valor de duração ISO 8601). O padrão para isso é:
 
-     [-]P[nD][T[nH][nM][nS]]
+     [-]P\[nD]\[T\[nH]\[nM]\[nS]\]
 
 A tabela a seguir fornece vários exemplos.
 

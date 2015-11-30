@@ -8,10 +8,11 @@
 	editor="tysonn"
 	keywords="backup e restauração; serviços de recuperação"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2015" ms.author="aashishr"; "trinadhk"; "jimpark"/>
+# Introdução ao Backup do Azure
+Este artigo fornece uma visão geral ampla da solução integrada de backup em nuvem da Microsoft que habilita os clientes a fazer backup de seus dados locais ou no Azure.
 
-# O que é o Backup do Azure?
-O Backup do Azure é um serviço multilocatário do Azure que permite fazer backup e restaurar seus dados localmente ou no Azure. Ele substitui a solução de backup local ou externa existente por uma solução de backup na nuvem confiável, segura e econômica. Ele também fornece a flexibilidade de proteger seus ativos que estão em execução na nuvem. O Backup do Azure foi desenvolvido em uma infraestrutura de excelência internacional que é escalonável, durável e altamente disponível. Com essa solução, você pode fazer backup de dados e aplicativos de seus servidores do SCDPM (System Center Data Protection Manager), servidores Windows, computadores cliente Windows ou máquinas virtuais de IaaS do Azure. O Backup do Azure e o SCDPM são as tecnologias fundamentais que compõem a solução de backup integrada na nuvem da Microsoft.
+## O que é o Backup do Azure?
+O Backup do Azure é um serviço multilocatário do Azure que permite fazer backup de seus dados presentes em qualquer lugar: localmente ou no Azure. Ele substitui a solução de backup local ou externa existente por uma oferta em nuvem confiável, segura e econômica. Ele também fornece a flexibilidade de proteger ativos que estão em execução na nuvem. O Backup do Azure foi desenvolvido em uma infraestrutura de excelência internacional que é escalonável, durável e altamente disponível. Com essa solução, você pode fazer backup de dados e aplicativos de seus servidores do SCDPM (System Center Data Protection Manager), servidores Windows, computadores cliente Windows ou máquinas virtuais de IaaS do Azure. O Backup do Azure e o SCDPM são as tecnologias fundamentais que compõem a solução de backup integrada na nuvem da Microsoft.
 
 > [AZURE.VIDEO what-is-azure-backup]
 
@@ -44,9 +45,9 @@ Os principais recursos dessa solução são:
 ## Cenários de implantação
 | Componente | Pode ser implantado no Azure? | Pode ser implantado localmente? | Armazenamento de destino com suporte|
 | --- | --- | --- | --- |
-| Agente de Backup do Azure | **Sim** <br><br>O agente do Backup do Azure pode ser implantando em qualquer VM do Windows Server em execução no Azure. | **Sim** <br><br>O agente do Backup do Azure pode ser implantando em qualquer VM do Windows Server ou computador físico. | Criar cofre de backup do Azure |
-| System Center Data Protection Manager (SCDPM) | **Sim** <br><br>Saiba mais sobre [como proteger cargas de trabalho no Azure usando o SCDPM](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx). | **Sim** <br><br>Saiba mais sobre [como proteger cargas de trabalho e VMs no seu datacenter](https://technet.microsoft.com/pt-BR/library/hh758173.aspx). | Disco anexado localmente,<br>cofre de Backup do Azure,<br>Fita (somente localmente) |
-| Backup do Azure (extensão VM) | **Sim** <br><br>Especializado no [backup de máquinas virtuais de IaaS do Azure](backup-azure-vms-introduction.md). | **Não** <br><br>Use o SCDPM para fazer backup das máquinas virtuais em seu datacenter. | Criar cofre de backup do Azure |
+| Agente de Backup do Azure | **Sim** <br><br>O agente de backup do Azure pode ser implantando em qualquer VM do Windows Server funcionando no Azure. | **Sim** <br><br>O agente de backup do Azure pode ser implantando em qualquer VM do Windows Server ou computador físico. | Criar cofre de backup do Azure |
+| System Center Data Protection Manager (SCDPM) | **Sim** <br><br>Saiba mais sobre [Proteger cargas de trabalho no Azure usando SCDPM](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx). | **Sim** <br><br>Saiba mais sobre [Proteger cargas de trabalho e máquinas virtuais no seu datacenter](https://technet.microsoft.com/pt-BR/library/hh758173.aspx). | O disco anexado localmente,<br>o cofre de Backup do Azure,<br>Fita (somente localmente) |
+| Backup do Azure (extensão VM) | **Sim** <br><br>Especializadas para [backup de máquinas virtuais do Azure IaaS](backup-azure-vms-introduction.md). | **Não** <br><br>Use o SCDPM para o backup das máquinas virtuais em seu datacenter. | Criar cofre de backup do Azure |
 
 
 ## Aplicativos e cargas de trabalho
@@ -60,7 +61,8 @@ Os principais recursos dessa solução são:
 | Microsoft SQL Server | Windows Server | [System Center DPM](backup-azure-backup-sql.md) |
 | Microsoft SharePoint | Windows Server | [System Center DPM](backup-azure-backup-sharepoint.md) |
 | Microsoft Exchange | Windows Server | System Center DPM |
-| VMs de IaaS do Azure (Windows)| - | [Backup do Azure (extensão de VM)](backup-azure-vms-introduction.md) | | VMs de IaaS do Azure (Linux) | - | [Backup do Azure (extensão de VM)](backup-azure-vms-introduction.md) |
+| VMs de IaaS do Azure (Windows) | - | [Backup do Azure (extensão VM)](backup-azure-vms-introduction.md) |
+| VMs de IaaS do Azure (Linux) | - | [Backup do Azure (extensão VM)](backup-azure-vms-introduction.md) |
 
 
 ## Próximas etapas

@@ -77,7 +77,7 @@ O Banco de Dados de Documentos dá suporte a quatro níveis de consistência de 
 
 1.      No [portal de Visualização do Azure](https://portal.azure.com/), acesse sua conta do Banco de Dados de Documentos. 
 
-2.      Na lente **Configuração**, clique em **Consistência Padrão**.
+2.      Na lente **Configuração**, clique em **Consistência Padrão**.
 
 3.      Na folha **Consistência Padrão**, selecione o nível de consistência padrão que você quer para sua conta do Banco de Dados de Documentos.
 

@@ -111,6 +111,7 @@ Os inicializadores padrão foram todos configurados pelos pacotes do WindowsServ
 
 * `AccountIdTelemetryInitializer` define a propriedade AccountId.
 * `AuthenticatedUserIdTelemetryInitializer` define a propriedade AuthenticatedUserId como definido pelo SDK do JavaScript.
+* `OperationNameTelemetryInitializer` atualiza a propriedade de contexto `Operation.Id` de todos os itens de telemetria acompanhados enquanto lida com uma solicitação com a `RequestTelemetry.Id` automaticamente gerada.
 * `AzureRoleEnvironmentTelemetryInitializer` atualiza as propriedades `RoleName` e `RoleInstance` do contexto `Device` para todos os itens de telemetria com informações extraídas do ambiente de tempo de execução do Azure.
 * `BuildInfoConfigComponentVersionTelemetryInitializer` atualiza a `Version` propriedade do `Component` contexto para todos os itens de telemetria com o valor extraído do arquivo `BuildInfo.config` produzido pelo MS Build.
 * `ClientIpHeaderTelemetryInitializer` atualiza a propriedade `Ip` do contexto `Location` de todos os itens de telemetria baseados no cabeçalho HTTP `X-Forwarded-For` da solicitação.
