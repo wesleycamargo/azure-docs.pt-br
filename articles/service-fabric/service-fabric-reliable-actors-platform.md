@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="jessebenson"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="11/13/2015"
    ms.author="abhisram"/>
 
 # Como atores confiáveis usam a plataforma do Service Fabric
@@ -97,10 +97,6 @@ Apresentamos a seguir uma lista parcial do local acima (listagem completa omitid
 
 A listagem acima mostra os assemblies que implementam o ator VoicemailBox sendo incluído no pacote de códigos dentro do pacote de serviços dentro do pacote de aplicativos.
 
-A solução do Visual Studio inclui os scripts do PowerShell que são usados para implantar o aplicativo no cluster e remover o aplicativo de lá. Os scripts estão circulados em captura de tela abaixo.
-
-![][2]
-
 O gerenciamento subsequente (isto é, atualizações e eventual exclusão) do aplicativo também é executado usando mecanismos de gerenciamento de aplicativo de malha do serviço. Para obter mais informações, consulte os tópicos sobre o [modelo de aplicativo](service-fabric-application-model.md), [implantação e remoção de aplicativos](service-fabric-deploy-remove-applications.md), e [atualização de aplicativo](service-fabric-application-upgrade.md).
 
 ## Escalabilidade para serviços de ator
@@ -109,7 +105,7 @@ Os administradores de cluster podem criar um ou mais serviços de ator de cada t
 > [AZURE.NOTE]Serviços de ator sem estado precisam ter uma contagem de [instância](service-fabric-availability-services.md#availability-of-service-fabric-stateless-services) de 1. Não há suporte para mais de uma instância de um serviço de ator sem estado em uma partição. Portanto, os serviços de ator sem estado têm a opção de aumentar a contagem de instâncias para obter escalabilidade. Eles devem usar as opções de escalabilidade descritas no [artigo sobre escalabilidade](service-fabric-concepts-scalability.md).
 
 ## Conceitos de partição de Malha do Serviço para atores
-A ID do ator de um ator é mapeada para uma partição de um serviço de ator. O ator é criado dentro da partição para a qual sua ID do ator está mapeada. Quando um ator é criado, o tempo de execução dos atores grava um [evento EventSource](service-fabric-reliable-actors-diagnostics.md#eventsource-events) que indica em qual partição o ator está criado. Abaixo está um exemplo desse evento que indica que um ator com ID `-5349766044453424161` foi criado na partição `0583c745-1bed-43b2-9545-29d7e3448156` do serviço `fabric:/VoicemailBoxAdvancedApplication/VoicemailBoxActorService`, o aplicativo `fabric:/VoicemailBoxAdvancedApplication`.
+A ID do ator de um ator é mapeada para uma partição de um serviço de ator. O ator é criado dentro da partição para a qual sua ID do ator está mapeada. Quando um ator é criado, o tempo de execução dos atores grava um [evento EventSource](service-fabric-reliable-actors-diagnostics.md#eventsource-events) que indica em qual partição o ator está criado. Abaixo está um exemplo desse evento que indica que um ator com ID `-5349766044453424161` foi criado na partição `b6afef61-be9a-4492-8358-8f473e5d2487` do serviço `fabric:/VoicemailBoxAdvancedApplication/VoicemailBoxActorService`, o aplicativo `fabric:/VoicemailBoxAdvancedApplication`.
 
     {
       "Timestamp": "2015-04-26T10:12:20.2485941-07:00",
@@ -121,14 +117,14 @@ A ID do ator de um ator é mapeada para uma partição de um serviço de ator. O
         "actorType": "Microsoft.Azure.Service.Fabric.Samples.VoicemailBox.VoiceMailBoxActor",
         "actorId": "-5349766044453424161",
         "isStateful": "True",
-        "replicaOrInstanceId": "130745418574851853",
-        "partitionId": "0583c745-1bed-43b2-9545-29d7e3448156",
+        "replicaOrInstanceId": "130906628008120392",
+        "partitionId": "b6afef61-be9a-4492-8358-8f473e5d2487",
         "serviceName": "fabric:/VoicemailBoxAdvancedApplication/VoicemailBoxActorService",
         "applicationName": "fabric:/VoicemailBoxAdvancedApplication",
       }
     }
 
-Outro ator com ID `-4952641569324299627` foi criado em uma partição diferente `c146fe53-16d7-4d96-bac6-ef54613808ff` do mesmo serviço, conforme indicado pelo evento abaixo.
+Outro ator com ID `-4952641569324299627` foi criado em uma partição diferente `5405d449-2da6-4d9a-ad75-0ec7d65d1a2a` do mesmo serviço, conforme indicado pelo evento abaixo.
 
     {
       "Timestamp": "2015-04-26T15:06:56.93882-07:00",
@@ -141,7 +137,7 @@ Outro ator com ID `-4952641569324299627` foi criado em uma partição diferente 
         "actorId": "-4952641569324299627",
         "isStateful": "True",
         "replicaOrInstanceId": "130745418574851853",
-        "partitionId": "c146fe53-16d7-4d96-bac6-ef54613808ff",
+        "partitionId": "5405d449-2da6-4d9a-ad75-0ec7d65d1a2a",
         "serviceName": "fabric:/VoicemailBoxAdvancedApplication/VoicemailBoxActorService",
         "applicationName": "fabric:/VoicemailBoxAdvancedApplication",
       }
@@ -149,27 +145,30 @@ Outro ator com ID `-4952641569324299627` foi criado em uma partição diferente 
 
 *Observação:* alguns campos dos eventos acima são omitidos para fins de brevidade.
 
-A ID de partição pode ser usada para obter outras informações sobre a partição. Por exemplo, a ferramenta [Gerenciador da Malha do Serviço](service-fabric-visualizing-your-cluster.md) pode ser usada para exibir informações sobre a partição e o serviço e o aplicativo ao qual ele pertence. A captura de tela abaixo mostra informações sobre a partição `c146fe53-16d7-4d96-bac6-ef54613808ff`, que continha o ator com ID `-4952641569324299627` no exemplo acima.
+A ID de partição pode ser usada para obter outras informações sobre a partição. Por exemplo, a ferramenta [Gerenciador da Malha do Serviço](service-fabric-visualizing-your-cluster.md) pode ser usada para exibir informações sobre a partição e o serviço e o aplicativo ao qual ele pertence. A captura de tela abaixo mostra informações sobre a partição `5405d449-2da6-4d9a-ad75-0ec7d65d1a2a`, que continha o ator com ID `-4952641569324299627` no exemplo acima.
 
 ![][3]
 
 Os atores podem obter, por meio de programação, a ID de partição, nome, nome do aplicativo e outras informações específicas da plataforma de Malha do Serviço por meio de `Host.ActivationContext` e os membros da classe base de `Host.StatelessServiceInitialization` ou `Host.StatefulServiceInitializationParameters` da qual o tipo de ator deriva. Apresentamos a seguir trecho de código de exemplo:
 
 ```csharp
-public void ActorMessage<TState>(Actor<TState> actor, string message, params object[] args)
+public void ActorMessage(StatefulActorBase actor, string message, params object[] args)
 {
-    string finalMessage = string.Format(message, args);
-    this.ActorMessage(
-        actor.GetType().ToString(),
-        actor.Id.ToString(),
-        actor.Host.ActivationContext.ApplicationTypeName,
-        actor.Host.ActivationContext.ApplicationName,
-        actor.Host.StatefulServiceInitializationParameters.ServiceTypeName,
-        actor.Host.StatefulServiceInitializationParameters.ServiceName.ToString(),
-        actor.Host.StatefulServiceInitializationParameters.PartitionId,
-        actor.Host.StatefulServiceInitializationParameters.ReplicaId,
-        FabricRuntime.GetNodeContext().NodeName,
-        finalMessage);
+    if (this.IsEnabled())
+    {
+        string finalMessage = string.Format(message, args);
+        ActorMessage(
+            actor.GetType().ToString(),
+            actor.Id.ToString(),
+            actor.ActorService.ServiceInitializationParameters.CodePackageActivationContext.ApplicationTypeName,
+            actor.ActorService.ServiceInitializationParameters.CodePackageActivationContext.ApplicationName,
+            actor.ActorService.ServiceInitializationParameters.ServiceTypeName,
+            actor.ActorService.ServiceInitializationParameters.ServiceName.ToString(),
+            actor.ActorService.ServiceInitializationParameters.PartitionId,
+            actor.ActorService.ServiceInitializationParameters.ReplicaId,
+            FabricRuntime.GetNodeContext().NodeName,
+            finalMessage);
+    }
 }
 ```
 
@@ -204,7 +203,7 @@ Atores com monitoração de estado são criados dentro de uma partição do serv
 
 > [AZURE.TIP]O tempo de execução de Atores da Malha emite alguns eventos de [ relacionados réplicas de ator com monitoração de estado](service-fabric-reliable-actors-diagnostics.md#events-related-to-stateful-actor-replicas). Eles são úteis para diagnóstico e monitoramento de desempenho.
 
-Lembre-se de que no exemplo do [VoiceMailBoxActor apresentado anteriormente](#service-fabric-partition-concepts-for-actors), o ator com ID `-4952641569324299627` foi criado na partição `c146fe53-16d7-4d96-bac6-ef54613808ff`. O evento EventSource desse exemplo também indicou que o ator foi criado na réplica `130745418574851853` dessa partição. Essa era a réplica primária de partição no momento em que o ator foi criado. A captura de tela do Gerenciador da Malha do Serviço abaixo confirma isso.
+Lembre-se de que no exemplo do [VoiceMailBoxActor apresentado anteriormente](#service-fabric-partition-concepts-for-actors), o ator com ID `-4952641569324299627` foi criado na partição `5405d449-2da6-4d9a-ad75-0ec7d65d1a2a`. O evento EventSource desse exemplo também indicou que o ator foi criado na réplica `130745418574851853` dessa partição. Essa era a réplica primária de partição no momento em que o ator foi criado. A captura de tela do Gerenciador da Malha do Serviço abaixo confirma isso.
 
 ![][4]
 
@@ -225,7 +224,7 @@ O trecho de código a seguir mostra como alterar o provedor de estado para um ti
 
 ```csharp
 [VolatileActorStateProvider]
-public class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
+public class VoicemailBoxActor : StatefulActor<VoicemailBox>, IVoicemailBoxActor
 {
     public Task<List<Voicemail>> GetMessagesAsync()
     {
@@ -243,4 +242,4 @@ Observe que a alteração do provedor de estado requer que o serviço de ator se
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="11/19/2015"
 	ms.author="jgao"/>
 
 # Gerenciar clusters Hadoop no HDInsight usando a CLI do Azure
@@ -115,6 +115,8 @@ Depois de preparar a conta de armazenamento e o contêiner de blob, você estar�
 ##Criar clusters usando arquivos de configuração
 Normalmente, você cria um cluster HDInsight, executa trabalhos nele e exclui o cluster para reduzir o custo. A interface de linha de comando oferece a opção de salvar as configurações em um arquivo, para que você possa reutilizá-lo toda vez que criar um cluster.
 
+> [AZURE.NOTE]A configuração de Metastore não está disponível para tipos de cluster HBase.
+
 	azure hdinsight cluster config create <file>
 
 	azure hdinsight cluster config set <file> --clusterName <ClusterName> --nodes <NumberOfNodes> --location "<DataCenterLocation>" --storageAccountName ""<Storage Account Name>".blob.core.windows.net" --storageAccountKey "<StorageAccountKey>" --storageContainer "<BlobContainerName>" --username "<Username>" --clusterPassword "<UserPassword>"
@@ -180,4 +182,4 @@ Neste artigo, você aprendeu a executar diferentes tarefas administrativas de cl
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "Listar e mostrar clusters"
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

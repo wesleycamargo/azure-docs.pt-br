@@ -87,7 +87,7 @@ Veja também um vídeo sobre monitoramento de pontos de extremidade em [Mantendo
 
 Você também pode monitorar o desempenho do aplicativo utilizando _extensões de site_.
 
-Cada aplicativo Web do Serviço de Aplicativo fornece um ponto de extremidade de gerenciamento extensível que permite que você aproveite um conjunto poderoso de ferramentas implantados como extensões de site. Essas ferramentas variam desde editores de código-fonte como [Visual Studio Online](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx) até o gerenciamento de ferramentas para recursos conectados, como um banco de dados MySQL conectado a um aplicativo Web.
+Cada aplicativo Web do Serviço de Aplicativo fornece um ponto de extremidade de gerenciamento extensível que permite que você aproveite um conjunto poderoso de ferramentas implantados como extensões de site. Essas ferramentas variam desde editores de código-fonte como o [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx) até ferramentas de gerenciamento para recursos conectados, como um banco de dados MySQL conectado a um aplicativo Web.
 
 O [Application Insights](/services/application-insights/) e o [New Relic](/marketplace/partners/newrelic/newrelic/) são duas das extensões de site para monitoramento de desempenho que estão disponíveis. Para usar o New Relic, instale um agente em tempo de execução. Para usar o Application Insights do Azure, recrie seu código com um SDK. Você também pode instalar uma extensão que fornece acesso a dados adicionais. O SDK permite que você escreva código para monitorar o uso e o desempenho de seu aplicativo em mais detalhes.
 
@@ -157,7 +157,7 @@ Estas são algumas das coisas que o Kudu fornece:
 
 Outro recurso útil do Kudu é que, caso seu aplicativo esteja lançando exceções de primeira chance, você pode usar o Kudu e o despejo de processo da ferramenta SysInternals para criar despejos de memória. Esses despejos de memória são instantâneos do processo e podem frequentemente ajudá-lo a solucionar problemas mais complexos com seu aplicativo Web.
 
-Para saber mais sobre recursos disponíveis no Kudu, consulte [Ferramentas online de Sites do Azure que você deve conhecer](/blog/windows-azure-websites-online-tools-you-should-know-about/).
+Para saber mais sobre os recursos disponíveis no Kudu, veja [Ferramentas online do Azure Websites Team Services que você precisa conhecer](/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
 <a name="mitigate" />
 ### 3\. Atenuar o problema
@@ -186,4 +186,4 @@ Esta é geralmente a maneira mais simples de se recuperar de problemas de uso ú
 
 Você também pode gerenciar seu aplicativo Web usando o Azure Powershell. Para obter mais informações, consulte [Usando o PowerShell do Azure com o Gerenciador de Recursos do Azure](powershell-azure-resource-manager.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

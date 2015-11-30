@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/06/2015"
+   ms.date="11/13/2015"
    ms.author="nitinme"/>
 
 # Provisionar um cluster HDInsight com o Repositório Data Lake usando o Azure PowerShell
@@ -46,7 +46,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 - **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pt-BR/pricing/free-trial/).
 - **Habilite sua assinatura do Azure** para a visualização pública do Repositório Data Lake. Veja [instruções](data-lake-store-get-started-portal.md#signup).
 - **SDK do Windows**. Você pode instalá-lo clicando [aqui](https://dev.windows.com/pt-BR/downloads). Use isso para criar um certificado de segurança.
-- **Azure PowerShell 1.0 ou posterior**. Consulte [Instalar e configurar o Azure PowerShell](../install-configure-powershell.md) para obter instruções.
+- **Azure PowerShell 1.0 ou posterior**. Veja [Instalar e configurar o Azure PowerShell](../install-configure-powershell.md) para obter instruções.
  
 
 ## Criar um Repositório Azure Data Lake
@@ -87,7 +87,7 @@ Execute estas etapas para criar um Repositório Data Lake.
 
 	A saída para isso deve ser **True**.
 
-4. Carregue alguns exemplos de dados no Azure Data Lake. Usaremos isso posteriormente neste artigo para verificar se os dados podem ser acessados a partir de um cluster HDInsight. Se estiver procurando alguns dados de exemplo para carregar, é possível obter a pasta **Dados da Ambulância** no [Repositório Git do Azure Data Lake](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+4. Carregue alguns exemplos de dados no Azure Data Lake. Usaremos isso posteriormente neste artigo para verificar se os dados podem ser acessados a partir de um cluster HDInsight. Se estiver procurando alguns dados de exemplo para carregar, é possível obter a pasta **Dados da Ambulância** no [Repositório Git do Azure Data Lake](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
 
 		
 		$myrootdir = "/"
@@ -294,4 +294,4 @@ Após a configuração do cluster HDInsight para usar o Repositório Data Lake, 
 [makecert]: https://msdn.microsoft.com/pt-BR/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/pt-BR/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/10/2015"
+	ms.date="11/16/2015"
 	ms.author="curtand"/>
 
 
@@ -51,10 +51,10 @@ Para usar os cmdlets do Windows PowerShell, primeiro você deve instalá-los.
 2.  Faça uma das opções a seguir:
 
 	- Para definir a senha de um usuário para que ela expire, execute o seguinte cmdlet usando o nome UPN ou a ID do usuário: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires \$false`
-  	
+
 	- Para definir as senhas de todos os usuários da organização para que elas expirem, use o seguinte cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$false`
 
-## Definir uma senha para não expirar
+## Definir uma senha para nunca expirar
 
 1. Conecte-se ao Windows PowerShell usando suas credenciais de administrador de empresa.
 
@@ -64,4 +64,4 @@ Para usar os cmdlets do Windows PowerShell, primeiro você deve instalá-los.
 
 	- Para definir as senhas de todos os usuários em uma organização para nunca expirar, execute o seguinte cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$true`
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

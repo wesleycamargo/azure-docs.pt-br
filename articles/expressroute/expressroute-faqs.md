@@ -59,7 +59,7 @@ A maioria dos serviços do Azure tem suporte na Rota Expressa.
 	**Não há suporte para os seguintes serviços:**
 
 	- CDN
-	- Teste de carga do Visual Studio Online
+	- Teste de carga do Visual Studio Team Services
 	- Multi-factor Authentication
 
 ## Dados e conexões
@@ -258,4 +258,4 @@ Consulte [Locais e parceiros da Rota Expressa](expressroute-locations.md) para o
 Sim. Pontos de extremidade do serviço do Office 365 estão acessíveis pela Internet, embora a Rota Expressa tenha sido configurada para sua rede. Se você estiver em um local configurado para se conectar a serviços do Office 365 por meio de Rota Expressa, você se conectará por meio de Rota Expressa.
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

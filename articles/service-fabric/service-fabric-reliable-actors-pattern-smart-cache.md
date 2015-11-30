@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="11/13/2015"
    ms.author="vturecek"/>
 
 # Padrão de design de Atores Confiáveis: cache inteligente
@@ -51,7 +51,7 @@ Em seguida, implementamos essa interface, usamos a última opção e encapsulamo
 ## Exemplo de código de Cache Inteligente — ator Leaderboard
 
 ```
-public class Leaderboard : Actor<LeaderboardCollection>, ILeaderboard
+public class Leaderboard : StatefulActor<LeaderboardCollection>, ILeaderboard
 {
     // Specialised collection, could be part of the actor
 
@@ -173,7 +173,7 @@ Por fim, implementamos a interface IJobQueue no ator. Observe que, aqui, omitimo
 ## Exemplo de código de Cache Inteligente – fila de trabalhos
 
 ```
-public class JobQueue : Actor<List<Jobs>>, IJobQueue
+public class JobQueue : StatefulActor<List<Jobs>>, IJobQueue
 {
 
     public override Task OnActivateAsync()
@@ -301,4 +301,4 @@ Basicamente, o Cache Inteligente fornece:
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-smart-cache/smartcache-arch.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

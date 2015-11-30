@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Desabilitar, habilitar ou excluir um perfil
@@ -46,8 +46,12 @@ Você pode desabilitar um perfil existente do Gerenciador de Tráfego para que e
 
 [Gerenciador de Tráfego - Desabilitar ou habilitar um ponto de extremidade](disable-or-enable-an-endpoint.md)
 
-[O que é o Gerenciador de Tráfego?](traffic-manager-overview.md)
+[Configurar o método de roteamento de failover](traffic-manager-configure-failover-routing-method.md)
 
- 
+[Configurar o método de roteamento de round robin](traffic-manager-configure-round-robin-routing-method.md)
 
-<!---HONumber=Oct15_HO3-->
+[Configurar o método de roteamento de desempenho](traffic-manager-configure-performance-routing-method.md)
+
+[Solucionando problemas de estado degradado do Gerenciador de Tráfego](traffic-manager-troubleshooting-degraded.md)
+
+<!---HONumber=Nov15_HO4-->

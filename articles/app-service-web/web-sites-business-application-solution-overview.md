@@ -38,7 +38,7 @@ A seguir há um exemplo de um aplicativo de linha de negócios em execução nos
 
 Inclua seus ativos da Web existentes nos Aplicativos Web do Serviço de Aplicativo com uma variedade de linguagens e estruturas.
 
-Seus ativos da Web existentes podem ser executados em aplicativos Web do Serviço de Aplicativo, independentemente de utilizarem .NET, PHP, Java, Node.js ou Python. Você pode movê-los para os Aplicativos Web usando suas ferramentas de [FTP] familiares ou seu sistema de gerenciamento de controle do código-fonte. Os Aplicativos Web oferecem suporte à publicação direta de opções de controle de código-fonte populares, como [Visual Studio], [Visual Studio Online] e [Git] (local, GitHub, BitBucket, DropBox, Mercurial, etc.).
+Seus ativos da Web existentes podem ser executados em aplicativos Web do Serviço de Aplicativo, independentemente de utilizarem .NET, PHP, Java, Node.js ou Python. Você pode movê-los para os Aplicativos Web usando suas ferramentas de [FTP] familiares ou seu sistema de gerenciamento de controle do código-fonte. Os Aplicativos Web dão suporte à publicação direta por meio de opções populares de controle do código-fonte como [Visual Studio], [Visual Studio Team Services] e [Git] - local, GitHub, BitBucket, DropBox, Mercurial, etc..
 
 ## Proteger seus ativos
 
@@ -92,7 +92,7 @@ Na camada **Padrão**, monitore a capacidade de resposta do aplicativo e receba 
 
 [FTP]: web-sites-deploy.md#ftp
 [Visual Studio]: web-sites-dotnet-get-started.md
-[Visual Studio Online]: ../cloud-services-continuous-delivery-use-vso.md
+[Visual Studio Team Services]: ../cloud-services-continuous-delivery-use-vso.md
 [Git]: web-sites-publish-source-control.md
 
 [HTTPS]: web-sites-configure-ssl-certificate.md
@@ -124,4 +124,4 @@ Na camada **Padrão**, monitore a capacidade de resposta do aplicativo e receba 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

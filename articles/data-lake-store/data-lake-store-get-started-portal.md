@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/05/2015"
+   ms.date="11/13/2015"
    ms.author="nitinme"/>
 
 # Introdução ao Repositório Azure Data Lake usando o Portal de Visualização do Azure
@@ -87,7 +87,7 @@ Você pode criar pastas em sua conta do Repositório Data Lake para gerenciar e 
 
 É possível carregar seus dados em uma conta do Repositório Data Lake diretamente no nível da raiz ou em uma pasta que você criou na conta. Na captura de tela abaixo, execute as etapas para carregar um arquivo em uma subpasta da folha **Gerenciador de Dados**. Nessa captura de tela, o arquivo é carregado em uma subpasta mostrada na trilha (marcada em uma caixa vermelha).
 
-Se estiver procurando alguns dados de exemplo para carregar, é possível obter a pasta **Dados da Ambulância** no [Repositório Git do Azure Data Lake](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+Se estiver procurando alguns dados de exemplo para carregar, é possível obter a pasta **Dados da Ambulância** no [Repositório Git do Azure Data Lake](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
 
 ![Carregar dados](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Carregar dados")
 
@@ -133,4 +133,4 @@ Para excluir uma conta do Repositório Azure Data Lake da folha de seu Repositó
 - [Usar a Análise Data Lake do Azure com o Repositório Data Lake](data-lake-analytics-get-started-portal.md)
 - [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

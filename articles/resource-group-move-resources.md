@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="11/13/2015" 
 	ms.author="tomfitz"/>
 
 # Mover recursos para um novo grupo de recursos ou uma nova assinatura
@@ -58,6 +58,7 @@ Os serviços que atualmente não dão suporte à transferência de um recurso s�
 
 - Máquinas Virtuais
 - Redes Virtuais
+- Armazenamento
 
 Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de Aplicativo. Para mover os aplicativos Web, as opções são:
 
@@ -96,4 +97,4 @@ No corpo da solicitação, especifique o grupo de recursos de destino e os recur
 - [Usando o Portal do Azure para gerenciar recursos](azure-portal/resource-group-portal.md)
 - [Usando marcas para organizar os recursos](./resource-group-using-tags.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

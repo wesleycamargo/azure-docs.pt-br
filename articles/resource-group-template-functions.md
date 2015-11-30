@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/09/2015"
+   ms.date="11/12/2015"
    ms.author="tomfitz"/>
 
 # Funções do modelo do Gerenciador de Recursos do Azure
@@ -494,6 +494,25 @@ O exemplo a seguir converte o valor do parâmetro fornecido pelo usuário em let
         "upperCaseAppName": "[toUpper(parameters('appName'))]"
     }
 
+## cortar
+
+**cortar (stringToTrim)**
+
+Remove todos os caracteres de espaço em branco à esquerda e à direita da cadeia de caracteres especificada.
+
+| Parâmetro | Obrigatório | Descrição
+| :--------------------------------: | :------: | :----------
+| stringToTrim | Sim | Cadeia de caracteres para cortar.
+
+O exemplo a seguir remove os caracteres de espaço em branco do valor de parâmetro fornecido pelo usuário.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "trimAppName": "[trim(parameters('appName'))]"
+    }
+
 
 ## uniqueString
 
@@ -529,6 +548,21 @@ O exemplo a seguir mostra como criar um nome exclusivo para uma conta de armazen
         "type": "Microsoft.Storage/storageAccounts", 
         ...
 
+## uri
+
+**URI (baseUri, relativeUri)**
+
+Cria um URI absoluto, combinando o baseUri e a cadeia de caracteres relativeUri.
+
+| Parâmetro | Obrigatório | Descrição
+| :--------------------------------: | :------: | :----------
+| baseUri | Sim | Cadeia de caracteres do URI de base.
+| relativeUri | Sim | Cadeia de caracteres de uri relativo para adicionar a cadeia de caracteres do uri de base.
+
+O exemplo a seguir mostra como criar um URI absoluto no link do modelo. O resultado é ****http://contoso.com/resources/nested/azuredeploy.json**.
+
+    "templateLink": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]"
+
 
 ## variáveis
 
@@ -544,7 +578,7 @@ Retorna o valor da variável. O nome do parâmetro especificado deve ser definid
 ## Próximas etapas
 - Para obter uma descrição das seções de um modelo do Gerenciador de Recursos do Azure, veja a seção [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md)
 - Para mesclar diversos modelos, veja a seção [Usando modelos vinculados com o Gerenciador de Recursos do Azure](resource-group-linked-templates.md)
-- Para iterar um número de vezes especificado ao criar um tipo de recurso, veja [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md)
-- Para ver como implantar o modelo que você criou, veja [Implantar um aplicativo com o Modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md)
+- Para iterar um número de vezes especificado ao criar um tipo de recurso, veja [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
+- Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o Modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

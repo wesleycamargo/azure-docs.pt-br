@@ -13,15 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="11/12/2015" 
 	ms.author="tamram;selcint"/>
 
 # Introdução ao Armazenamento do Azure em cinco minutos 
 
-É fácil começar a desenvolver para o Armazenamento do Azure. Este tutorial mostra como conseguir um aplicativo para Armazenamento do Azure em funcionamento rapidamente. Demonstraremos dois cenários para aumentar facilmente o Armazenamento do Azure:
+## Visão geral
 
-- [Executar seu primeiro aplicativo local do Armazenamento do Azure no Emulador de Armazenamento do Azure](#run-your-first-azure-storage-application-locally-against-the-azure-storage-emulator)
-- [Executar seu primeiro aplicativo do Armazenamento do Azure local no Armazenamento do Azure na nuvem](#run-your-first-azure-storage-application-against-azure-storage-in-the-cloud)
+O SDK do Azure inclui modelos de início rápido para usar o Armazenamento do Azure no Microsoft Visual Studio. Você pode
+
+É fácil começar a desenvolver para o Armazenamento do Azure. Este tutorial mostra como conseguir um aplicativo para Armazenamento do Azure em funcionamento rapidamente. Demonstraremos dois cenários para aumentar facilmente o Armazenamento do Azure:
 
 Se você quiser saber mais sobre o Armazenamento do Azure antes de entrarmos no código, consulte [Próximas Etapas](#next-steps).
 
@@ -40,7 +41,7 @@ A versão mais recente dos binários de Biblioteca de Cliente do Armazenamento d
 
 Ao desenvolver um aplicativo que usa o Armazenamento do Azure, você pode executar para o [Emulador do Armazenamento do Azure](storage-use-emulator.md). O emulador de armazenamento do fornece um ambiente local que emula os serviços de blob, fila e tabela do Azure para fins de desenvolvimento. Você pode usar o emulador de armazenamento para testar o aplicativo de armazenamento localmente, sem criar uma conta de armazenamento ou de assinatura do Azure e sem gerar custos.
 
-Para experimentar, vamos criar um aplicativo simples do Armazenamento do Azure usando um dos projetos de exemplo do início rápido do Azure no Visual Studio. Este tutorial concentra-se nos projetos de exemplo para o **Armazenamento de Blob do Azure**, **Armazenamento de Tabela do Azure** e **Filas de Armazenamento do Azure**.
+Para experimentar, vamos criar um aplicativo simples do Armazenamento do Azure usando um dos projetos de exemplo do início rápido do Azure no Visual Studio. Este tutorial concentra-se nos projetos de exemplo para o **Armazenamento de Blob do Azure**, **Armazenamento de Tabela do Azure** e **Armazenamento de Filas do Azure**:
 
 1. Inicie o Visual Studio.
 2. No menu **Arquivo**, clique em **Novo Projeto**.
@@ -66,7 +67,7 @@ Para executar no Armazenamento do Azure na nuvem, você precisará uma assinatur
 - Para obter uma assinatura do Azure, consulte [Avaliação Gratuita](http://azure.microsoft.com/pricing/free-trial/), [Opções de compra](http://azure.microsoft.com/pricing/purchase-options/) e [Ofertas para membros](http://azure.microsoft.com/pricing/member-offers/) (para membros de outros programas da Microsoft, MSDN, Microsoft Partner Network e BizSpark).
 - Para criar uma conta de armazenamento no Azure, consulte [Como criar, gerenciar ou excluir uma conta de armazenamento](storage-create-storage-account.md).
 
-Quando você tiver uma conta, você pode criar um aplicativo simples de armazenamento do Azure usando um dos projetos de exemplo de Início Rápido do Azure no Visual Studio. Este tutorial concentra-se nos projetos de exemplo para o **Armazenamento de Blob do Azure**, **Armazenamento de Tabela do Azure** e **Filas de Armazenamento do Azure**:
+Quando você tiver uma conta, você pode criar um aplicativo simples de armazenamento do Azure usando um dos projetos de exemplo de Início Rápido do Azure no Visual Studio. Este tutorial concentra-se nos projetos de exemplo para o **Armazenamento de Blobs do Azure**, **Armazenamento de Tabela do Azure** e **Armazenamento de Filas do Azure**:
 
 1. Inicie o Visual Studio.
 2. No menu **Arquivo**, clique em **Novo Projeto**.
@@ -107,4 +108,4 @@ Consulte estes recursos para saber mais sobre o Armazenamento do Azure:
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

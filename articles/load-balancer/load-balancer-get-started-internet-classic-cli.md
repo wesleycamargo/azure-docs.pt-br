@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artigo aborda o modelo de implantação clássico. Também é possível que você [Saiba como criar um balanceador de carga para a Internet no Gerenciador de Recursos usando o Gerenciador de Recursos do Azure](load-balancer-get-started-internet-arm-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artigo aborda o modelo de implantação clássico. Também é possível [Saber como criar um balanceador de carga para a Internet usando o Gerenciador de Recursos do Azure](load-balancer-get-started-internet-arm-ps.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -45,25 +45,28 @@ Este guia mostra como criar um balanceador de carga de Internet com base no cen�
 
 ## Criar ponto de extremidade e conjunto de balanceadores de carga 
 
-O cenário pressupõe que as máquinas virtuais "web1" e "web2" foram criadas. Este guia criará um conjunto de balanceadores de carga usando a porta 80 como porta pública e 80 como porta local. Uma porta de investigação também é configurada na porta 80 e nomeou o conjunto de balanceadores de carga como "lbset"
+O cenário pressupõe que as máquinas virtuais "web1" e "web2" foram criadas. Este guia criará um conjunto de balanceadores de carga usando a porta 80 como porta pública e a porta 80 como porta local. Uma porta de investigação também é configurada na porta 80 e nomeou o conjunto de balanceadores de carga como "lbset".
 
 
 ### Etapa 1 
 
-Criar o primeiro ponto de extremidade e conjunto de balanceadores de carga usando `azure network vm endpoint create` para a máquina virtual "web1"
+Criar o primeiro ponto de extremidade e conjunto de balanceadores de carga usando `azure network vm endpoint create` para a máquina virtual "web1".
 
-	azure network endpoint create web1 80 -k 80 -o tcp -t 80 -b lbset 
+	azure vm endpoint create web1 80 -k 80 -o tcp -t 80 -b lbset 
 
+Parâmetros usados:
 
+**-k** -porta da máquina virtual local<br> **-o** -protocolo<BR> **-t** -porta de investigação<BR> **-b** -nome do balanceador de carga<BR>
+ 
 ## Etapa 2 
 
 Adicione uma segunda máquina virtual "web2" ao conjunto de balanceadores de carga.
 
-	azure network endpoint create web2 80 -k 80 -o tcp -t 80 -b lbset
+	azure vm endpoint create web2 80 -k 80 -o tcp -t 80 -b lbset
 
 ## Etapa 3 
 
-Verificar a configuração do balanceador de carga usando `azure vm show`
+Verificar a configuração do balanceador de carga usando `azure vm show`.
 
 	azure vm show web1
 
@@ -122,7 +125,7 @@ Você pode criar um ponto de extremidade da área de trabalho remota para encami
 
 Você precisa excluir o ponto de extremidade associado ao conjunto de balanceadores de carga da máquina virtual. Depois que o ponto de extremidade é removido, a máquina virtual não pertence mais ao conjunto de balanceadores de carga.
 
- Usando o exemplo acima, você pode remover o ponto de extremidade criado para a máquina virtual "web1" do balanceador de carga "lbset" usando o comando `azure vm endpoint delete`.
+ Usando o exemplo acima, você pode remover o ponto de extremidade criado para a máquina virtual "web1" do balanceador de carga usando o comando "lbset" `azure vm endpoint delete`.
 
 	azure vm endpoint delete web1 tcp-80-80
 
@@ -140,4 +143,4 @@ Você precisa excluir o ponto de extremidade associado ao conjunto de balanceado
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

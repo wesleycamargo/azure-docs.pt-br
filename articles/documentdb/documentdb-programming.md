@@ -759,7 +759,7 @@ Procedimentos armazenados e gatilhos de JavaScript são colocados em uma área r
 Os procedimentos armazenados, gatilhos e UDFs são pré-compilados implicitamente para o formato de código de bytes a fim de evitar o custo de compilação no momento da invocação de cada script. Isso assegura que as invocações dos procedimentos armazenados sejam rápidas e possuam baixa pegada.
 
 ## Suporte de SDK de cliente
-Além do cliente [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/), o Banco de Dados de Documentos dá suporte a SDKs [.NET](https://msdn.microsoft.com/library/azure/dn783362.aspx), [Java](http://dl.windowsazure.com/documentdb/javadoc/), [JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/) e [Python](http://dl.windowsazure.com/documentDB/pythondocs/). Os procedimentos armazenados, gatilhos e UDFs também podem ser criados e executados usando qualquer um desses SDKs. O exemplo a seguir mostra como criar e executar um procedimento armazenado usando o cliente .NET. Observe como os tipos .NET são transferidos para o procedimento armazenado como JSON e lidos novamente.
+Além do cliente [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/), o Banco de Dados de Documentos dá suporte a SDKs [.NET](https://msdn.microsoft.com/library/azure/dn948556.aspx), [Java](http://dl.windowsazure.com/documentdb/javadoc/), [JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/) e [Python](http://dl.windowsazure.com/documentDB/pythondocs/). Os procedimentos armazenados, gatilhos e UDFs também podem ser criados e executados usando qualquer um desses SDKs. O exemplo a seguir mostra como criar e executar um procedimento armazenado usando o cliente .NET. Observe como os tipos .NET são transferidos para o procedimento armazenado como JSON e lidos novamente.
 
 	var markAntiquesSproc = new StoredProcedure
 	{
@@ -792,7 +792,7 @@ Além do cliente [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/), o B
 	Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(createdStoredProcedure.SelfLink, document, 1920);
 
 
-Essa amostra mostra como usar o [SDK .NET](https://msdn.microsoft.com/library/azure/dn783362.aspx) para criar um pré-gatilho e um documento com o gatilho habilitado.
+Essa amostra mostra como usar o [SDK .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx) para criar um pré-gatilho e um documento com o gatilho habilitado.
 
 	Trigger preTrigger = new Trigger()
 	{
@@ -920,4 +920,4 @@ Você também pode achar as seguintes referências e recursos úteis em seu cami
 -	[Arquitetura de banco de dados orientada a serviços](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Hospedando o Runtime do .NET no Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

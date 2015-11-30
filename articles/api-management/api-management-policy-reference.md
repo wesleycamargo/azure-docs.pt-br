@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="11/16/2015" 
 	ms.author="sdanie"/>
 
 # Referência de políticas do Gerenciamento de API do Azure
@@ -49,7 +49,7 @@ Expressões de política podem ser usadas como valores de atributo ou texto em q
 	-	[Converter JSON para XML][] - Converte o corpo da solicitação ou da resposta de JSON para XML.
 	-	[Converter XML para JSON][] - Converte o corpo da solicitação ou da resposta de XML para JSON.
 	-	[Localizar e substituir cadeia no corpo][] - Encontra uma subcadeia de uma solicitação ou resposta e a substitui por outra subcadeia.
-	-	[Mascarar URLS no conteúdo][] - Reescreve (mascara) os links no corpo da resposta e no cabeçalho de local, de modo que eles apontem para o link equivalente por meio do proxy.
+	-	[Mascarar URLS no conteúdo][] - Reescreve (mascara) os links no corpo da resposta e no cabeçalho de local, para que eles apontem para o link equivalente por meio do gateway.
 	-	[Definir o serviço de back-end][] - Altera o serviço de back-end para uma solicitação de entrada.
 	-	[Definir corpo][] - Define o corpo da mensagem para solicitações de entrada e saída.
 	-	[Definir cabeçalho HTTP][] - Atribui um valor a uma resposta e/ou cabeçalho de resposta existente ou adiciona uma nova resposta e/ou cabeçalho de resposta.
@@ -109,4 +109,4 @@ Para obter mais informações sobre expressões de política, consulte o vídeo 
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

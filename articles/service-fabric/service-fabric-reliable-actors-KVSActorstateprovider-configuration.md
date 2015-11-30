@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Visão geral da configuração de KVSActorStateProvider de atores confiáveis da malha do serviço"
-   description="Saiba como configurar atores com monitoração de estado do serviço malha do tipo 'KVSActorStateProvider'"
+   pageTitle="Visão geral da configuração de KVSActorStateProvider de Reliable Actors do Service Fabric | Microsoft Azure"
+   description="Saiba como configurar atores com monitoração de estado do Service Fabric do Azure do tipo 'KVSActorStateProvider'"
    services="Service-Fabric"
    documentationCenter=".net"
    authors="sumukhs"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="10/28/2015"
    ms.author="sumukhs"/>
 
 # Atores confiáveis para configuração - KVSActorStateProvider
@@ -81,4 +81,4 @@ As configurações de armazenamento servem para configurar o armazenamento local
 
 BatchAcknowledgementInterval controla a latência de replicação. Um valor '0' resulta na menor latência possível, ao custo de taxa de transferência (como mais mensagens de confirmação devem ser enviadas e processadas, cada uma contendo menos confirmações). Quanto maior o valor para BatchAcknowledgementInterval, maior será a produtividade geral da replicação, ao custo da maior latência de operação. Isso se converte diretamente para a latência de confirmações de transações.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

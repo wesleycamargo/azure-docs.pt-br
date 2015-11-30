@@ -4,36 +4,36 @@
 	description="Instruções para criar regras avançadas para um grupo, incluindo suporte para operadores de regra de expressões e parâmetros."
 	services="active-directory"
 	documentationCenter=""
-	authors="femila"
+	authors="curtand"
 	manager="stevenpo"
 	editor=""/>
 
 <tags
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/09/2015" 
-	ms.author="femila"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="11/17/2015"
+	ms.author="curtand"/>
 
 
 # Usar atributos para criar regras avançadas
-O Portal de gerenciamento do Azure fornece a flexibilidade de configurar uma regra mais avançada para habilitar dinâmicas associações de grupos.
+O portal do Azure fornece a flexibilidade de configurar regras avançadas no AD do Azure (Active Directory do Azure) para habilitar associações dinâmicas mais complexas de grupos do AD do Azure.
 
-**Para criar a regra avançada**no Azure Portal de gerenciamento, na guia**Configurar** do grupo, selecione o botão de opção **Regra avançada** e digite a regra avançada na caixa de texto fornecido. Você pode criar sua regra avançada usando as seguintes informações.
+**Para criar a regra avançada**, no portal do Azure, na guia **Configurar** do grupo, selecione a opção **Regra avançada** e digite a regra avançada na caixa de texto fornecida. Você pode criar sua regra avançada usando as seguintes informações.
 
 ## Construção do corpo de uma regra avançada
 A regra avançada que você pode criar para os membros dinâmicos para grupos é essencialmente uma expressão binária que consiste em três partes e resulta em um resultado verdadeiro ou falso. As três partes são:
 
 - Parâmetro da esquerda
 - Operador binário
-- Constante à direita 
+- Constante à direita
 
 Uma regra avançada completa é semelhante a esta: (leftParameter binaryOperator "RightConstant"), em que o parêntese de abertura e fechamento são necessários para toda a expressão binária, aspas duplas são necessárias para a constante à direita e a sintaxe do parâmetro esquerdo é user.property. Uma regra avançada pode consistir em mais de uma expressão binária separada pelos operadores lógicos -and, -or e -not. A seguir é exemplos de uma regra avançada construída de maneira adequada:
 
-- (user.department -eq "Sales") -or (user.department -eq "Marketing") 
-- (user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE") 
+- (user.department -eq "Sales") -or (user.department -eq "Marketing")
+- (user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
 
 Para a lista completa de parâmetros com suporte e operadores de regra de expressão, consulte as seções a seguir.
 
@@ -152,13 +152,13 @@ Operadores permitidos
 Agora você pode preencher os membros de um grupo com base no atributo gerenciador de um usuário.
 Para configurar um grupo como "Gerenciador"
 --------------------------------------------------------------------------------
-1. No portal do administrador, clique na guia **Configurar** e selecione **REGRA AVANÇADA**. 
+1. No portal do administrador, clique na guia **Configurar** e selecione **REGRA AVANÇADA**.
 2. Digite a regra com a seguinte sintaxe: Relatórios diretos para *Relatórios diretos para {UserID\_of\_manager}*
-3. Ao salvar essa regra, todos os usuários que atendem à regra serão adicionados como membros do grupo. Observe que pode levar alguns minutos para o preenchimento inicial do grupo. 
+3. Ao salvar essa regra, todos os usuários que atendem à regra serão adicionados como membros do grupo. Observe que pode levar alguns minutos para o preenchimento inicial do grupo.
 
 
 ## Informações adicionais
-Estes são alguns tópicos que fornecerão informações adicionais sobre o Active Directory do Azure
+Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
 * [Solucionando problemas de associações dinâmicas a grupos](active-directory-accessmanagement-troubleshooting.md)
 
@@ -168,4 +168,4 @@ Estes são alguns tópicos que fornecerão informações adicionais sobre o Acti
 
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

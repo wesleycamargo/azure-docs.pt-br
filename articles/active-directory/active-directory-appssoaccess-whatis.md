@@ -122,7 +122,7 @@ Depois de localizar seu aplicativo, você pode começar seguindo as instruções
 
 Se seu aplicativo não for encontrado na Galeria de aplicativos do AD do Azure, você tem estas opções:
 
-*	**Adicione um aplicativo não listado que estiver usando** -use a categoria personalizada na galeria de aplicativo dentro do portal de gerenciamento do Azure para se conectar a um aplicativo não listado que sua organização estiver usando. Você pode adicionar qualquer aplicativo que ofereça suporte ao SAML 2.0 como um aplicativo federado ou qualquer aplicativo que tenha uma página de entrada baseada em HTML como um aplicativo do SSO de senha. Para obter mais detalhes, consulte este artigo sobre [Adicionando seu próprio aplicativo](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
+*	**Adicione um aplicativo não listado que estiver usando** -use a categoria personalizada na galeria de aplicativo dentro do portal de gerenciamento do Azure para se conectar a um aplicativo não listado que sua organização estiver usando. Você pode adicionar qualquer aplicativo que ofereça suporte ao SAML 2.0 como um aplicativo federado ou qualquer aplicativo que tenha uma página de entrada baseada em HTML como um aplicativo do SSO de senha. Para obter mais detalhes, veja este artigo sobre [como adicionar seu próprio aplicativo](active-directory-saas-custom-apps.md).
 
 
 *	**Adicione seu próprio aplicativo que estiver desenvolvendo** - se você tiver desenvolvido o aplicativo, siga as orientações na documentação do desenvolvedor do AD do Azure para implementar o logon único federado ou provisionamento usando o Graph API do AD do Azure. Para obter mais informações, consulte estes recursos:
@@ -220,4 +220,4 @@ Esses links usam os mesmos mecanismos de controle de acesso que o painel de aces
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

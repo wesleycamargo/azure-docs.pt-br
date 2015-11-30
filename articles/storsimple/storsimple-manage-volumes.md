@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="11/18/2015"
    ms.author="v-sharos" />
 
 # Usar o serviço StorSimple Manager para gerenciar volumes
@@ -21,7 +21,7 @@
 
 Este tutorial explica como usar o serviço StorSimple Manager para criar e gerenciar volumes no dispositivo StorSimple e dispositivo virtual StorSimple.
 
-O serviço StorSimple Manager é uma extensão do Portal do Azure que permite gerenciar a solução do StorSimple em uma única interface da Web. Além de gerenciar volumes, você pode usar o serviço StorSimple Manager para criar e gerenciar serviços do StorSimple, exibir e gerenciar dispositivos, exibir alertas, exibir e gerenciar políticas de backup e o catálogo de backup.
+O serviço StorSimple Manager é uma extensão do portal do Azure que permite gerenciar a solução do StorSimple em uma única interface da Web. Além de gerenciar volumes, você pode usar o serviço StorSimple Manager para criar e gerenciar serviços do StorSimple, exibir e gerenciar dispositivos, exibir alertas, exibir e gerenciar políticas de backup e o catálogo de backup.
 
 > [AZURE.NOTE]O Azure StorSimple pode criar somente volumes pequenos de provisionamento. Não é possível criar volumes parcialmente ou totalmente provisionados em um sistema do Azure StorSimple.
 >
@@ -65,21 +65,21 @@ Você [criou um volume](storsimple-deployment-walkthrough-u1.md#step-6-create-a-
 
 3. Clique em **Adicionar** na parte inferior da página. Isso inicia o assistente Adicionar um volume.
 
-     ![Configurações básicas do assistente para Adicionar volume](./media/storsimple-manage-volumes/HCS_AddVolume1M.png)
+     ![Configurações básicas do assistente para Adicionar volume](./media/storsimple-manage-volumes/AddVolume1.png)
 
 4. No assistente Adicionar um volume, em **Configurações Básicas**, faça o seguinte:
 
   1. Digite um **Nome** para o seu volume.
   2. Especifique a **Capacidade Provisionada** para o seu volume em GB ou TB. A capacidade deve ser entre 1 GB e 64 TB para um dispositivo físico. A capacidade máxima que pode ser provisionada para um volume em um dispositivo virtual StorSimple é de 30 TB.
-  3. Na lista suspensa, selecione o **Tipo de Uso** para o seu volume. Escolha **Volume de arquivamento** se você estiver trabalhando com dados de arquivamento acessados com menos frequência. Para todos os outros casos de uso, selecione **Volume em camadas**. (Volumes em camadas eram chamados anteriormente de volumes primários).
+  3. Na lista suspensa, selecione o **Tipo de Uso** para o seu volume. Se você estiver usando esse volume de dados de arquivamento, marque a caixa de seleção **Usar este volume para dados de arquivamento acessados com menos frequência**. Para todos os outros casos de uso, selecione **Volume em Camadas**. (Volumes em camadas eram chamados anteriormente de volumes primários).
   5. Clique no ícone de seta ![Ícone de seta](./media/storsimple-manage-volumes/HCS_ArrowIcon.png)para ir para a página **Configurações Adicionais**.
 
-     ![Configurações adicionais do assistente para Adicionar volume](./media/storsimple-manage-volumes/HCs_AddVolume2M.png)
+        ![Add Volume wizard Additional Settings](./media/storsimple-manage-volumes/AddVolume2.png)
    
 5. Em **Configurações Adicionais**, adicione um novo registro de controle de acesso (ACR):
   
   1. Selecione um registro de controle de acesso (ACR) na lista suspensa. Como opção, você também pode abrir um novo ACR. ACRs determinam quais hosts podem acessar os volumes fazendo a correspondência do IQN do host com aqueles listados no registro.
-  2. Em **Backup padrão para este volume**, recomendamos que você habilite um backup padrão marcando a caixa de seleção **Habilitar**.
+  2. É recomendável que você habilite um backup padrão ao marcar a caixa de seleção **Habilitar um backup padrão para este volume**.
    3. Clique no ícone de verificação ![Ícone de verificação](./media/storsimple-manage-volumes/HCS_CheckIcon.png) para criar o volume com as configurações especificadas.
 
 O seu novo volume agora está pronto para uso.
@@ -113,9 +113,10 @@ Modifica um volume quando você precisa expandi-lo ou alterar os hosts que acess
   - Modificar os ACRs, desde que o volume esteja offline. Se o volume estiver online, você precisará colocá-lo offline primeiro. Consulte as etapas em [Colocar um volume offline](#take-a-volume-offline) antes de modificar o ACR.
   - Modificar a lista de ACRs depois que o volume está offline.
  
-    > [AZURE.NOTE]Você não pode alterar a opção **Habilitar um backup padrão** para o volume.
+    > [AZURE.NOTE]Você não pode alterar a opção **Habilitar um backup padrão para este volume** para o volume.
 
-6. Salve suas alterações, clicando no ícone de verificação ![check-icon](./media/storsimple-manage-volumes/HCS_CheckIcon.png). O portal exibirá uma mensagem de atualização do volume. Ele exibirá uma mensagem de êxito quando o volume for atualizado com êxito.
+6. Salve suas alterações, clicando no ícone de verificação ![check-icon](./media/storsimple-manage-volumes/HCS_CheckIcon.png). O portal do Azure
+7.  exibirá uma mensagem de atualização do volume. Ele exibirá uma mensagem de êxito quando o volume for atualizado com êxito.
 
 7. Se estiver expandindo um volume, conclua as seguintes etapas no computador host do Windows:
 
@@ -195,4 +196,4 @@ Execute as seguintes etapas para habilitar ou desabilitar o monitoramento para u
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

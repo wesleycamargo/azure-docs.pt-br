@@ -24,10 +24,6 @@
 
 Neste tutorial, você adicionará a autenticação ao projeto de [início rápido do iOS] usando um provedor de identidade com suporte. Este tutorial baseia-se no tutorial de [início rápido do iOS], que você deve concluir primeiro. Se você não usar o projeto baixado de início rápido do servidor, deve adicionar o pacote de extensão de autenticação ao seu projeto. Para obter mais informações sobre pacotes de extensão do servidor, confira [Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-##<a name="create-gateway"></a>Criar um gateway de Serviço de Aplicativo
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-gateway](../../includes/app-service-mobile-dotnet-backend-create-gateway.md)]
-
 ##<a name="register"></a>Registrar seu aplicativo para autenticação e configurar o Serviço de Aplicativo
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
@@ -50,4 +46,4 @@ No Xcode, pressione **Executar** para iniciar o aplicativo. Uma exceção será 
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

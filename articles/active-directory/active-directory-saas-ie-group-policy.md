@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/28/2015"
+   ms.date="11/18/2015"
    ms.author="liviodlc"/>
 
 #Como implantar a Extensão do Painel de Acesso no Internet Explorer usando a Política de Grupo
@@ -128,24 +128,53 @@ Além da execução do instalador, todas as extensões do Internet Explorer deve
 
 Agora a extensão deverá estar habilitada para os computadores na UO selecionada. [Saiba mais sobre como usar a política de grupo para habilitar ou desabilitar complementos do Internet Explorer.](https://technet.microsoft.com/library/dn454941.aspx)
 
-##Etapa 5: Testando a implantação
+##Etapa 5 (opcional): Desabilitar o prompt "Lembrar senha"
+
+Quando os usuários entram em sites que usam a extensão do painel de acesso, o Internet Explorer mostra o seguinte prompt perguntando "Deseja armazenar sua senha?"
+
+![](./media/active-directory-saas-ie-group-policy/remember-password-prompt.png)
+
+Se você quiser impedir que os usuários vejam esse prompt, siga as etapas abaixo para impedir o preenchimento automático de lembrar senhas:
+
+1. Na janela **Editor de gerenciamento de política de grupo**, vá para o caminho listado abaixo. Observe que essa configuração só está disponível em **Configuração do usuário**.
+	- `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/`
+
+2. Localize a configuração denominada **Ativar o recurso de preenchimento automático para nomes de usuário e senhas em formulários**.
+
+	> [AZURE.NOTE]Versões anteriores do Active Directory podem listar essa configuração com o nome **Não permitir o preenchimento automático para salvar senhas**. Essa configuração é diferente da configuração descrita neste tutorial.
+
+	![Lembre-se de examinar isso em Configurações do usuário.](./media/active-directory-saas-ie-group-policy/disable-auto-complete.png)
+
+3. Clique com o botão direito na configuração acima e selecione **Editar**.
+
+4. Na janela **Ativar o recurso de preenchimento automático para nomes de usuário e senhas em formulários**, selecione **Desabilitado**.
+
+	![Selecione Desabilitar](./media/active-directory-saas-ie-group-policy/disable-passwords.png)
+
+5. Clique em **OK** para aplicar essas alterações e fechar a janela.
+
+Os usuários não poderão mais armazenar suas credenciais ou usar o preenchimento automático para acessar as credenciais armazenadas anteriormente. No entanto, essa política permite que os usuários continuem a usar o preenchimento automático para outros tipos de campos de formulário, como campos de pesquisa.
+
+> [AZURE.WARNING]Se essa política for ativada depois que os usuários tiverem escolhido armazenar algumas credenciais, essa política *não* limpará as credenciais que já foram armazenadas.
+
+##Etapa 6: Testar a implantação
 
 Siga as etapas abaixo para verificar se a implantação da extensão obteve êxito:
 
-1. Se você tiver implantado usando a **Configuração do Computador**, entre em um computador cliente que pertença à UO selecionada na [Etapa 2: Criar o objeto de política de grupo](#step-2-create-the-group-policy-object). Se você tiver implantado usando a **Configuração do Usuário**, entre como um usuário que pertença a essa UO.
+1. Se você implantou usando **Configuração do computador**, faça logon em um computador cliente que pertence à UO que você selecionou na [Etapa 2: Criar o objeto de política de grupo](#step-2-create-the-group-policy-object). Se você implantou usando **Configuração do usuário**, certifique-se de conectar-se como um usuário que pertence a essa UO.
 
-2. As alterações da política de grupo podem demorar algumas entradas para serem totalmente atualizadas no computador. Para impor a atualização, abra uma janela **Prompt de Comando** e execute este comando: `gpupdate /force`
+2. As alterações da política de grupo podem demorar algumas entradas para serem totalmente atualizadas no computador. Para forçar a atualização, abra um **Prompt de comando** e execute o seguinte comando: `gpupdate /force`
 
 3. Será necessário reiniciar o computador para que a instalação ocorra. A inicialização poderá demorar consideravelmente mais do que o normal durante a instalação da extensão.
 
-4. Depois de reiniciar, abra o **Internet Explorer**. No canto superior direito da janela, clique em **Ferramentas** (o ícone de engrenagem) e selecione **Gerenciar complementos**.
+4. Depois de reiniciar, abra o **Internet Explorer**. No canto superior direito da janela, clique em **Ferramentas** (ícone de engrenagem) e, em seguida, selecione **Gerenciar complementos**.
 
 	![Vá para Ferramentas > Gerenciar Complementos](./media/active-directory-saas-ie-group-policy/manage-add-ons.png)
 
-5. Na janela **Gerenciar Complementos**, verifique se a **Extensão do Painel de Acesso** foi instalada e se seu **Status** foi definido como **Habilitado**.
+5. Na janela do **Gerenciar de complementos**, verifique se a **Extensão do painel de acesso** foi instalada e se seu **Status** foi definido como **Habilitado**.
 
 	![Verifique se a Extensão do Painel de Acesso está instalada e habilitada.](./media/active-directory-saas-ie-group-policy/verify-install.png)
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

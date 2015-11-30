@@ -28,7 +28,7 @@ O SDK está disponível em [NuGet.org]. Este pacote inclui a funcionalidade bás
 
 ###Instalar o SDK
 
-Para instalar o SDK, clique com botão direito no projeto do servidor no Visual Studio, selecione **Gerenciar Pacotes NuGet**, pesquise pelo pacote [Microsoft.Azure.Mobile.Server](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) e clique em **Instalar**.
+Para instalar o SDK, clique com botão direito do mouse no projeto do servidor no Visual Studio, selecione **Gerenciar Pacotes NuGet**, pesquise pelo pacote [Microsoft.Azure.Mobile.Server](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) e clique em **Instalar**.
 
 ###<a name="server-project-setup"></a> Inicializar o projeto de servidor
 
@@ -77,7 +77,7 @@ Muitos dos métodos de extensão de recurso estão disponíveis por meio de paco
 
 Os seguintes pacotes com base em extensão no NuGet fornecem vários recursos móveis que podem ser usados pelo seu aplicativo. Habilitar extensões durante a inicialização usando o objeto **MobileAppConfiguration**.
 
-- [Microsoft.Azure.Mobile.Server.Quickstart] dá suporte à configuração básica de Aplicativos Móveis. Adicionado à configuração chamando o método de extensão **UseDefaultConfiguration** durante a inicialização. Essa extensão inclui as seguintes extensões: Notificações, Autenticação, Entidade, Tabelas, pacotes Crossdomain e Home. Isso é equivalente ao projeto do servidor de início rápido que você baixa no portal do Azure.
+- [Microsoft.Azure.Mobile.Server.Quickstart] Dá suporte à configuração básica de Aplicativos Móveis. Adicionado à configuração chamando o método de extensão **UseDefaultConfiguration** durante a inicialização. Essa extensão inclui as seguintes extensões: Notificações, Autenticação, Entidade, Tabelas, pacotes Crossdomain e Home. Isso é equivalente ao projeto do servidor de início rápido que você baixa no portal do Azure.
 
 - [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) implementa a página padrão *este aplicativo móvel está em execução* na raiz do site. Adicionar à configuração chamando o método de extensão **AddMobileAppHomeController**.
 
@@ -85,17 +85,17 @@ Os seguintes pacotes com base em extensão no NuGet fornecem vários recursos m�
 
 - [Microsoft.Azure.Mobile.Server.Entity](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) permite que o Entity Framework acesse dados no Banco de Dados SQL. Adicionar à configuração chamando o método de extensão **AddTablesWithEntityFramework**.
 
-- [Microsoft.Azure.Mobile.Server.Authentication] permite a autenticação e define o middleware OWIN usado para validar tokens. Adicionar à configuração chamando os métodos de extensão **AddAppServiceAuthentication** e **IAppBuilder**.**UseMobileAppAuthentication**.
+- [Microsoft.Azure.Mobile.Server.Authentication] Permite a autenticação e define o middleware OWIN usado para validar tokens. Adicionar à configuração chamando os métodos de extensão **AddAppServiceAuthentication** e **IAppBuilder**.**UseMobileAppAuthentication**.
 
-- [Microsoft.Azure.Mobile.Server.Notifications] permite as notificações por push e define um ponto de extremidade de registro push. Adicionar à configuração chamando o método de extensão **AddPushNotifications**.
+- [Microsoft.Azure.Mobile.Server.Notifications] Permite as notificações por push e define um ponto de extremidade de registro push. Adicionar à configuração chamando o método de extensão **AddPushNotifications**.
 
-- [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) cria um controlador que fornece dados para os navegadores da Web herdados do seu Aplicativo Móvel. Adicionar à configuração chamando o método de extensão **MapLegacyCrossDomainController**.
+- [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) Cria um controlador que fornece dados para os navegadores da Web herdados do seu Aplicativo Móvel. Adicionar à configuração chamando o método de extensão **MapLegacyCrossDomainController**.
 
 ## Como definir um controlador da API personalizada
 
 O controlador da API personalizada fornece as funções mais básicas de back-end do Aplicativo Móvel, expondo um ponto de extremidade. O controlador da API personalizada
 
-1. No Visual Studio, clique com o botão direito na pasta Controladores e, em seguida, clique em **Adicionar** > **Controlador**, selecione **Web API 2 Controller&mdash;Empty** e clique em **Adicionar**.
+1. No Visual Studio, clique com o botão direito do mouse na pasta Controladores, clique em **Adicionar** > **Controlador**, selecione **Web API 2 Controller&mdash;Empty** e clique em **Adicionar**.
 
 2. Forneça um **Nome do Controlador**, como `CustomController`, e clique em **Adicionar**. Isso cria uma nova classe **CustomController** herdada do **ApiController**.
 
@@ -117,7 +117,7 @@ O controlador da API personalizada fornece as funções mais básicas de back-en
 		    .MapApiControllers()
 		    .ApplyTo(config);
     
-	Observe que você não precisa chamar **MapApiControllers** quando, em vez disso, você chama **UseDefaultConfiguration**, que inicializa todos os recursos.
+	Observe que você não precisará chamar **MapApiControllers** se chamar **UseDefaultConfiguration**, que inicializa todos os recursos.
 
 Qualquer controlador que não tenha **MobileAppControllerAttribute** instalado, ainda pode ser acessado por clientes, mas ele não será consumido corretamente por clientes que usem qualquer SDK cliente do Aplicativo Móvel.
 
@@ -153,11 +153,11 @@ Você pode adicionar autenticação ao seu projeto de servidor, estendendo o obj
 
 3. Adicione o atributo `[Authorize]` a qualquer controlador ou método que exija autenticação. Os usuários agora devem ser autenticados para acessar o ponto de extremidade ou aquelas APIs específicas.
 
-Para saber mais sobre como autenticar clientes para o back-end de Aplicativos Móveis, consulte [Adicionar autenticação ao seu aplicativo](app-service-mobile-dotnet-backend-ios-get-started-users.md).
+Para saber como autenticar clientes no back-end dos Aplicativos Móveis, veja [Adicionar autenticação ao seu aplicativo](app-service-mobile-ios-get-started-users.md).
 
 ## Adicionar notificações por push para um projeto do servidor
 
-Você pode adicionar notificações por push para seu projeto do servidor, estendendo o objeto **MobileAppConfiguration** e criando um cliente de Hubs de Notificação. Quando você instala o pacote [Microsoft.Azure.Mobile.Server.Quickstart] e chama o método de extensão **UseDefaultConfiguration**, você pode pular a etapa 3.
+Você pode adicionar notificações por push para seu projeto do servidor, estendendo o objeto **MobileAppConfiguration** e criando um cliente de Hubs de Notificação. Quando você instala o pacote [Microsoft.Azure.Mobile.Server.Quickstart] e chama o método de extensão **UseDefaultConfiguration**, pode pular a etapa 3.
 
 1. No Visual Studio, clique com o botão direito do mouse no projeto do servidor e clique em **Gerenciar pacotes NuGet**, pesquise por Microsoft.Azure.Mobile.Server.Notifications` e clique em **Instalar**. Isso instala o pacote [Microsoft.Azure.Mobile.Server.Notifications].
  
@@ -193,7 +193,30 @@ Você pode adicionar notificações por push para seu projeto do servidor, esten
         NotificationHubClient hub = NotificationHubClient
         .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-Neste ponto, você pode usar o cliente de Hubs de Notificação para enviar notificações por push para dispositivos registrados. Para obter mais informações, consulte [Adicionar notificações por push ao seu aplicativo](app-service-mobile-ios-get-started-push.md). Para saber mais sobre tudo o que você pode fazer com os Hubs de Notificação, consulte [Visão Geral de Hubs de Notificação](../notification-hubs/notification-hubs-overview.md).
+Neste ponto, você pode usar o cliente de Hubs de Notificação para enviar notificações por push para dispositivos registrados. Para saber mais, consulte [Adicionar notificações por push ao seu aplicativo](app-service-mobile-ios-get-started-push.md). Para saber mais sobre tudo o que você pode fazer com os Hubs de Notificação, consulte [Visão Geral de Hubs de Notificação](../notification-hubs/notification-hubs-overview.md).
+
+## Como adicionar marcas à instalação de um dispositivo para enviar por push para marcas
+
+Após as etapas mencionadas acima **Como definir um controlador de API personalizado**, convém configurar uma API personalizada em seu back-end para trabalhar com Hubs de Notificação para adicionar marcas à instalação de um dispositivo específico. Não deixe de passar pela ID de instalação armazenada no armazenamento local do cliente e pelas marcas que você deseja adicionar (opcional, uma vez que também pode especificar marcas diretamente em seu back-end). O trecho a seguir deve ser adicionado ao seu controlador para trabalhar com Hubs de Notificação para adicionar uma marca a um dispositivo de ID de Instalação.
+
+Use o [NuGet dos Hubs de Notificação do Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)([referência](https://msdn.microsoft.com/library/azure/mt414893.aspx)):
+
+		var hub = NotificationHubClient.CreateClientFromConnectionString("my-connection-string", "my-hub");
+
+		hub.PatchInstallation("my-installation-id", new[]
+		{
+		    new PartialUpdateOperation
+		    {
+		        Operation = UpdateOperationType.Add,
+		        Path = "/tags",
+		        Value = "{my-tag}"
+		    }
+		});
+	
+
+Para enviar por push essas marcas, trabalhe com [APIs de Hubs de Notificação](https://msdn.microsoft.com/library/azure/dn495101.aspx).
+
+Você também pode criar sua API personalizada para registrar as instalações de dispositivo com Hubs de Notificação diretamente no seu back-end.
 
 ## Como publicar o projeto do servidor
 
@@ -207,4 +230,4 @@ Use as etapas a seguir para publicar o seu projeto do servidor no Azure.
 [Microsoft.Azure.Mobile.Server.Authentication]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

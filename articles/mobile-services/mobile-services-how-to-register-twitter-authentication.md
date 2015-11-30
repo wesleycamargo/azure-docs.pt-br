@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/08/2015" 
+	ms.date="11/15/2015" 
 	ms.author="glenga"/>
 
 #Registrar seus aplicativos para logon do Twitter com os Serviços Móveis
@@ -22,17 +22,18 @@
 
 Este tópico mostra a você como registrar seus aplicativos para usar o Twitter e se autenticar com os Serviços Móveis do Azure.
 
->[AZURE.NOTE]Este tutorial é sobre os [Serviços Móveis do Azure](http://azure.microsoft.com/services/mobile-services/), uma solução para ajudá-lo a criar aplicativos móveis escalonáveis para qualquer plataforma. Os Serviços Móveis facilita a sincronização de dados, autentica usuários e envia notificações por push. Esta página oferece suporte ao tutorial <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started-users/">Introdução à autenticação</a>, que mostra como fazer o logon de usuários no seu aplicativo. Se essa for sua primeira experiência com os Serviços Móveis, conclua o tutorial <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started/">Introdução aos Serviços Móveis</a>.
+>[AZURE.NOTE]Este tutorial é sobre os [Serviços Móveis do Azure](http://azure.microsoft.com/services/mobile-services/), uma solução para ajudá-lo a criar aplicativos móveis escalonáveis para qualquer plataforma. Os Serviços Móveis facilita a sincronização de dados, autentica usuários e envia notificações por push. Esta página dá suporte ao tutorial [Adicionar autenticação ao seu aplicativo](mobile-services-ios-get-started-users.md) que mostra como fazer o logon de usuários no seu aplicativo. Se esta for sua primeira experiência com os Serviços Móveis, conclua o tutorial [Introdução aos Serviços Móveis](mobile-services-ios-get-started).
 
 Para concluir o procedimento deste tópico, você deve ter uma conta do Twitter com um endereço de email verificado. Para criar uma nova conta do Twitter, vá para <a href="http://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank">twitter.com</a>.
 
-1. Navegue até o site <a href="http://go.microsoft.com/fwlink/p/?LinkId=268300" target="_blank">Desenvolvedores do Twitter</a>, entre com suas credenciais de conta do Twitter e clique em **Criar um novo aplicativo**.
+1. Navegue até o site de [Desenvolvedores do Twitter,](http://go.microsoft.com/fwlink/p/?LinkId=268300) entre com suas credenciais da conta do Twitter e clique em **Criar novo aplicativo**.
 
-   	![][1]
+2. Digite os valores de **Nome**, **Descrição**, e **Site** para seu aplicativo, em seguida, digite um dos seguintes formatos de URL em **URL de Retorno de Chamada**.
+ 
+	+ **Back-end do .NET**: `https://<mobile_service>.azure-mobile.net/signin-twitter`
+	+ **Back-end do JavaScript**: `https://<mobile_service>.azure-mobile.net/login/twitter` 
 
-2. Digite os valores **Nome**, **Descrição** e **Site** para seu aplicativo, depois digite a URL para seu serviço acrescentado ao caminho _/login/twitter_ em **URL de Retorno de Chamada**.
-
-	>[AZURE.NOTE]Para um serviço móvel de back-end do .NET publicado no Azure usando o Visual Studio, a URL de redirecionamento é a URL do seu serviço móvel acrescida do caminho _signin-twitter_. Neste exemplo, nosso serviço móvel teria a URL de retorno de chamada ```https://todolist.azure-mobile.net/signin-twitter```.
+	 >[AZURE.NOTE]Certifique-se de que você use o formato de caminho da URL de redirecionamento correto para seu tipo de back-end de Serviços Móveis. Quando isso estiver incorreto, a autenticação não terá êxito. &nbsp;
 
    	![][2]
 
@@ -62,4 +63,4 @@ Agora você está pronto para usar um logon do Twitter para autenticação no se
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

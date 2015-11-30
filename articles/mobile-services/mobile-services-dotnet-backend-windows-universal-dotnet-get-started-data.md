@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/10/2015" 
 	ms.author="glenga"/>
 
 # Adicionar Serviços Móveis a um aplicativo existente
@@ -67,7 +67,7 @@ Neste momento, ambos os aplicativos do Windows Store e Windows Phone Store são 
 
 ##Atualizar o aplicativo para usar o serviço móvel
 
-Nesta seção, você atualizará o aplicativo Windows universal para usar o serviço móvel como um serviço de back-end do aplicativo. Você precisa fazer alterações apenas no arquivo de projeto MainPage.xaml.cs na pasta de projeto GetStartedWithData.Shared.
+Nesta seção, você atualizará o aplicativo Windows universal para usar o serviço móvel como um serviço de back-end do aplicativo. Você precisa fazer alterações apenas no arquivo de projeto MainPage.cs na pasta de projeto GetStartedWithData.Shared.
 
 [AZURE.INCLUDE [mobile-services-windows-dotnet-update-data-app](../../includes/mobile-services-windows-dotnet-update-data-app.md)]
 
@@ -121,4 +121,4 @@ Este tutorial demonstrou os conceitos básicos de como habilitar um projeto do a
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
   
 
-<!----HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

@@ -41,7 +41,7 @@ Os Aplicativos Web do Serviço de Aplicativo do Azure são uma plataforma totalm
 
 - **Galeria de Aplicativos Web** - selecione em uma lista crescente de modelos de aplicativos Web existentes. Aproveite o melhor da comunidade de aplicativos OSS com a instalação com um clique de pacotes, como Wordpress, Joomla e Drupal. Inicie seu processo de desenvolvimento de aplicativos da maneira certa aproveitando estruturas como .NET MVC, Django e CakePHP.
 - **Ajuste de escala automático** - os aplicativos Web permitem que você ajuste a escala vertical ou horizontalmente com rapidez para lidar com qualquer carga de cliente de entrada. Selecione manualmente o número e tamanho das máquinas virtuais ou configure o dimensionamento automático para ajustar seus servidores com base na carga ou cronograma.
-- **Integração contínua** - Configure fluxos de trabalho de implantação e integração contínua com o VSO, GitHub, TeamCity, Hudson ou BitBucket, permitindo que você compile, teste e implante automaticamente seu aplicativo Web a cada teste de integração ou verificação de código bem-sucedida.
+- **Integração contínua** - Configure fluxos de trabalho de implantação e integração contínua com o VSTS, GitHub, TeamCity, Hudson ou BitBucket, permitindo que você compile, teste e implante automaticamente seu aplicativo Web a cada teste de integração ou verificação de código bem-sucedido.
 - **Slots de implantação** - implemente a [Implantação de teste][Slots] para verificar seu código em um ambiente de pré-produção que é idêntico a seu aplicativo Web de produção no Serviço de Aplicativo do Azure. Quando estiver satisfeito, lance uma nova versão de seu aplicativo sem tempo de inatividade executando uma operação de permuta. 
 - **Testes em produção** - leve as Implantações de Teste para o próximo patamar e execute testes A/B para verificar o novo código com uma fração configurável do tráfego ativo. 
 - **Trabalhos Web** - execute qualquer programa ou script em máquinas virtuais de aplicativos Web. Execute trabalhos continuamente ou de acordo com uma agenda e dimensione para execução em várias máquinas virtuais. Use o [SDK WebJobs][Webjobs] do Azure para integrar ao Armazenamento do Azure ou ao Barramento de Serviço.
@@ -65,4 +65,4 @@ Para obter mais informações a respeito da plataforma de Serviço de Aplicativo
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

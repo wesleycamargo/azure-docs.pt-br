@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/30/2015" 
+	ms.date="11/18/2015" 
 	ms.author="mimig"/>
 
-# Monitorar uma conta do Banco de Dados de Documentos usando o Portal de Visualização do Azure 
+# Monitorar uma conta de Banco de Dados de Documentos 
 
 Você pode monitorar suas contas do Banco de Dados de Documentos no [Portal de Visualização do Microsoft Azure](https://portal.azure.com/). Para cada conta do Banco de Dados de Documentos, tanto as métricas de desempenho (como as solicitações e erros de servidor) quanto as métricas de utilização (como consumo de armazenamento) estão disponíveis.
 
@@ -90,4 +90,4 @@ Agora, você pode tratar essa parte como qualquer outra parte de métrica, perso
 Para saber mais sobre a capacidade do Banco de Dados de Documentos, consulte [Gerenciar a capacidade do Banco de Dados de Documentos](documentdb-manage.md).
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

@@ -3,7 +3,7 @@ O exemplo anterior mostrou uma entrada padrão, que requer que o cliente contate
 
 >[AZURE.NOTE]Você pode armazenar em cache o token emitido pelos Serviços Móveis usando tanto a autenticação gerenciada pelo cliente quanto a autenticação gerenciada pelo serviço. Este tutorial usa a autenticação gerenciada pelo serviço.
 
-1. No arquivo de projeto MainPage.xaml.cs e adicione as seguintes instruções **using**:
+1. No arquivo de projeto MainPage.cs e adicione as seguintes instruções **using**:
 
 		using System.Linq;		
 		using Windows.Security.Credentials;
@@ -91,4 +91,4 @@ O exemplo anterior mostrou uma entrada padrão, que requer que o cliente contate
 
 	Observe que na primeira inicialização, o registro com o provedor é requerido novamente. Porém, na segunda inicialização são usadas as credenciais armazenadas em cache e o registro é desviado.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/27/2015" 
+	ms.date="11/15/2015" 
 	ms.author="glenga"/>
 
 # Registrar seus aplicativos para logon no Google com os Serviços Móveis
@@ -34,10 +34,13 @@ Para concluir o procedimento neste tópico, você deve ter uma conta do Google c
 
 6. Na guia **Credenciais**, clique em **Adicionar credenciais** > **ID do cliente OAuth 2.0** e selecione **Aplicativo Web**.
 
-7. Digite a URL de serviço móvel em **Origens de JavaScript Autorizadas**, substitua a URL gerada em **URI de Redirecionamento Autorizado** com a URL do seu serviço móvel anexada ao caminho `/login/google` e, em seguida, clique em **Criar ID do Cliente**.
+7. Digite a URL de serviço móvel em **Origens de JavaScript Autorizadas**, substitua a URL gerada em **URI de Redirecionamento Autorizado** com um dos seguintes formatos de URL, em seguida, clique em **Criar ID do cliente**:
+ 
+	+ **Back-end do .NET**: `https://<mobile_service>.azure-mobile.net/signin-google`
+	+ **Back-end do JavaScript**: `https://<mobile_service>.azure-mobile.net/login/google` 
 
-	>[AZURE.NOTE]Para um serviço móvel de back-end do .NET publicado no Azure usando o Visual Studio, a URL de redirecionamento é a URL do seu serviço móvel acrescentada ao caminho _signin-google_ e o seu serviço móvel é um serviço .NET, como `https://todolist.azure-mobile.net/signin-google`. &nbsp;
-	
+	 >[AZURE.NOTE]Certifique-se de que você use o formato de caminho da URL de redirecionamento correto para seu tipo de back-end de Serviços Móveis. Quando isso estiver incorreto, a autenticação não terá êxito.
+
 8. Na próxima tela, anote os valores de ID do cliente e de segredo do cliente.
 
     > [AZURE.IMPORTANT]O segredo do cliente é uma credencial de segurança importante. Não compartilhe essa senha com ninguém nem distribua-a em um aplicativo cliente.
@@ -56,4 +59,4 @@ Agora você está pronto para configurar seu serviço móvel para usar o logon d
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

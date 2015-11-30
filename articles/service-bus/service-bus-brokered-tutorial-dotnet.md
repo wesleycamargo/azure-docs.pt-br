@@ -643,10 +643,10 @@ No Visual Studio, no menu **Compilar**, clique em **Compilar Solução** ou pres
 
 Este tutorial mostrou como compilar um serviço e um aplicativo cliente simples do Barramento de Serviço usando os recursos de sistema de mensagens agenciado do Barramento de Serviços. Para obter um tutorial semelhante que use o [sistema de mensagens de retransmissão](service-bus-messaging-overview.md/#Relayed-messaging) do Barramento de Serviço, consulte o [tutorial do sistema de mensagens de transmissão do Barramento de Serviço](service-bus-relay-tutorial.md).
 
-Para saber mais sobre o Barramento de Serviço, consulte os tópicos a seguir.
+Para saber mais sobre o [Barramento de Serviço](https://azure.microsoft.com/services/service-bus/), consulte os tópicos a seguir.
 
 - [Visão geral de mensagens do Barramento de Serviço](service-bus-messaging-overview.md)
 - [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 - [Arquitetura do Barramento de Serviço](service-bus-architecture.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

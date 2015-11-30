@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="08/21/2015"
+   ms.date="11/20/2015"
    ms.author="maroche"/>
 
 # O que é o Catálogo de Dados do Azure?
 
-O **Catálogo de Dados do Microsoft Azure** é um serviço de nuvem totalmente gerenciado que atua como um sistema de registro e sistema de descoberta em fontes de dados da empresa. O **Catálogo de Dados do Azure** fornece recursos que permitem que qualquer usuário – desde analistas a cientistas de dados e desenvolvedores – registre, descubra, entenda e consuma fontes de dados.
+O **Catálogo de Dados do Microsoft Azure** é um serviço de nuvem totalmente gerenciado que atua como um sistema de registro e sistema de descoberta em fontes de dados da empresa. O **Catálogo de Dados do Azure** fornece recursos que permitem que qualquer usuário, desde analistas a cientistas de dados e desenvolvedores, registre, descubra, entenda e consuma fontes de dados, assim como contribua com seu conhecimento para criar e dar suporte a uma comunidade e cultura de dados.
 
 ## Descrição do problema - motivação e visão geral
 
@@ -48,7 +48,9 @@ O **Catálogo de Dados do Azure** fornece um serviço baseado em nuvem no qual a
 
 Depois que uma fonte de dados é registrada, seus metadados podem ser aprimorados pelo usuário que executou o registro ou por outros usuários na empresa. Qualquer usuário pode anotar uma fonte de dados, fornecendo descrições, marcas ou outros metadados, como documentação, e processos para a solicitação de acesso à fonte de dados. Esses metadados descritivos complementam os metadados estruturais (como nomes de colunas e tipos de dados) registrados da fonte de dados, para facilitar a descoberta e o entendimento.
 
-Descobrir e entender fontes de dados e seu uso é o principal objetivo de registrar as fontes. Quando usuários corporativos precisam de dados para seus esforços (que podem ser de business intelligence, desenvolvimento de aplicativos, ciência de dados ou qualquer outra tarefa em que os dados certos são necessários), eles podem usar a experiência de descoberta do **Catálogo de Dados do Azure** para localizar rapidamente dados que correspondam às suas necessidades, compreendê-los para avaliar a adequação à finalidade e consumir dados abrindo a fonte de dados na ferramenta de sua preferência.
+Descobrir e entender fontes de dados e seu uso é o principal objetivo de registrar as fontes. Quando usuários corporativos precisam de dados para seus esforços (que podem ser de business intelligence, desenvolvimento de aplicativos, ciência de dados ou qualquer outra tarefa em que os dados certos são necessários), eles podem usar a experiência de descoberta do **Catálogo de Dados do Azure** para localizar rapidamente dados que correspondam às suas necessidades, compreendê-los para avaliar a adequação à finalidade e consumir dados abrindo a fonte de dados na ferramenta de sua preferência. Ao mesmo tempo, o **Catálogo de Dados do Azure** permite que os usuários contribuam com o catálogo, marcando, documentando e anotando as fontes de dados que já foram registradas, e registrando novas fontes de dados que podem ser descobertas, compreendidas e consumidas pela comunidade de usuários do catálogo.
+
+![Recursos do Catálogo de Dados do Azure](./media/data-catalog-what-is-data-catalog/data-catalog-capabilities.png)
 
 ## Registrar fontes de dados
 
@@ -66,6 +68,8 @@ O processo de registro envolve três etapas básicas:
 - Exibição do SQL Server
 - Tabela do Oracle Database
 - Exibição do Oracle Database
+- Tabela Teradata
+- Exibição do Teradata
 - Dimensão multidimensional do SQL Server Analysis Services
 - Medida multidimensional do SQL Server Analysis Services
 - KPI multidimensional do SQL Server Analysis Services
@@ -73,6 +77,9 @@ O processo de registro envolve três etapas básicas:
 - Relatório do SQL Server Reporting Services
 - Blob de Armazenamento do Azure
 - Diretório de Armazenamento do Azure
+- Arquivo do HDFS
+- Diretório do HDFS
+- Tabela do Hive
 
 As fontes de dados adicionais e os tipos de ativos serão adicionados durante a visualização do **Catálogo de Dados do Azure**.
 
@@ -86,7 +93,7 @@ Quando o registro for concluído, as fontes de dados poderão ser descobertas e 
 -	As fontes de dados registradas são mais facilmente compreendidas uma vez descobertas. Os metadados fornecidos pelo usuário são apresentados a qualquer usuário do **Catálogo de Dados do Azure** que exiba a fonte de dados com anotações, o que ajuda a fornecer contexto e informações adicionais. A maioria das fontes de dados geralmente não inclui descrições significativas ou documentação, e aquelas que o fazem são geralmente voltadas ao público técnico de desenvolvedores de DBA ou banco de dados. Aprimorando as fontes de dados no **Catálogo de Dados do Azure** com descrições e marcas apropriadas ao público-alvo, os usuários podem ajudar a garantir que aqueles que descobrirem os dados possam entender seus detalhes e o uso pretendido.
 -  Cada fonte de dados registrada pode incluir informações de acesso de solicitação, para que os usuários possam compreender com facilidade e seguir os processos existentes para a solicitação de acesso à fonte de dados e a seus dados.
 
-> [AZURE.NOTE]Cada usuário do **Catálogo de Dados do Azure** pode adicionar suas próprias marcas e descrições dos ativos de dados e atributos. O **Catálogo de Dados do Azure** acompanhará o valor e a fonte de cada anotação e exibirá o usuário e a data em que a anotação foi adicionada. Essa abordagem crowdsourcing aos metadados garante que cada usuário com uma perspectiva dos dados e seu uso possa compartilhar suas opiniões e recursos com a comunidade de usuários em geral.
+> [AZURE.NOTE]Cada usuário do **Catálogo de Dados do Azure** pode adicionar suas próprias marcas e descrições dos ativos de dados e atributos. O **Catálogo de Dados do Azure** acompanhará o valor e a fonte de cada anotação e exibirá o usuário que a adicionou. Essa abordagem crowdsourcing aos metadados garante que cada usuário com uma perspectiva dos dados e seu uso possa compartilhar suas opiniões e recursos com a comunidade de usuários em geral.
 
 ## Explorar, descobrir e entender
 
@@ -122,4 +129,4 @@ O objetivo final da descoberta de dados é localizar os dados necessários e us�
 
 > [AZURE.NOTE]Para obter a visualização do Catálogo de Dados do Azure, somente o Microsoft Excel e o Gerenciador de Relatórios do SQL Server Reporting Services terão suporte direto e estarão disponíveis no menu **Abrir no**.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

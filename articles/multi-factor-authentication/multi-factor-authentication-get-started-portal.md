@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # Implantando o portal do usuário para o Servidor Azure Multi-Factor Authentication
@@ -189,4 +189,4 @@ O auto-registro do usuário está concluído e o usuário está conectado ao Por
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -25,6 +25,7 @@ Estas notas de versão resumem as alterações de versões anteriores e os probl
 
 - [Problemas conhecidos no momento](#issues)
 - [Histórico de versão da API REST](#rest_version_history)
+- [Versão de novembro de 2015](#nov_changes_15)
 - [Versão de outubro de 2015](#oct_changes_15)
 - [Versão de setembro de 2015](#september_changes_15)
 - [Versão de agosto de 2015](#august_changes_15)
@@ -75,6 +76,12 @@ Os objetos de Serviços de Mídia no SDK não podem ser serializados, e, como re
 
 Para obter informações sobre o histórico de versões da API REST dos Serviços de Mídia, consulte [Referência da API REST dos Serviços de Mídia do Azure].
 
+##<a id="nov_changes_15"></a>Versão de novembro de 2015
+
+Os Serviços de Mídia do Azure agora oferece o serviço de entrega de licença do Google Widevine na nuvem. Para obter mais detalhes, consulte [este comunicado no blog](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Consulte também [neste tutorial](media-services-protect-with-drm.md) e o repositório [GitHub](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
+
+Observe que os serviços de entrega de licenças do Widevine fornecidos pelos Serviços de Mídia do Azure estão em versão de visualização. Para saber mais, confira [este blog](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
+
 ##<a id="oct_changes_15"></a>Versão de outubro de 2015
 
 O AMS (Serviços de Mídia do Azure) agora também está disponível nos seguintes datacenters: Sul do Brasil, Índia Ocidental, Sul da Índia e Índia Central. Agora você pode usar o Portal de Gerenciamento do Azure para [criar contas do Serviço de Mídia](media-services-create-account.md#create-a-media-services-account-using-quick-create) e executar as várias tarefas descritas [aqui](https://azure.microsoft.com/documentation/services/media-services/). No entanto, a Codificação Ativa não está habilitada nesses datacenters. Além disso, nem todos os tipos de Unidades Reservadas para Codificação estão disponíveis nesses datacenters.
@@ -85,24 +92,24 @@ O AMS (Serviços de Mídia do Azure) agora também está disponível nos seguint
 
 ##<a id="september_changes_15"></a>Versão de setembro de 2015 
 
-- AMS agora oferece a capacidade de proteger tanto VOD (vídeo sob demanda) quanto Fluxos Ao Vivo com tecnologia de DRM Modular Widevine. Você pode usar os seguintes parceiros de serviços de entrega para ajudá-lo a fornecer licenças do Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) e [castLabs](http://castlabs.com/company/partners/azure/). Para obter mais informações, confira [este blog](http://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
+- AMS agora oferece a capacidade de proteger tanto VOD (vídeo sob demanda) quanto Fluxos Ao Vivo com tecnologia de DRM Modular Widevine. Você pode usar os seguintes parceiros de serviços de entrega para ajudá-lo a fornecer licenças do Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) e [castLabs](http://castlabs.com/company/partners/azure/). Para saber mais, consulte [este blog](http://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
 
-	Você pode usar o [SDK do .NET do AMS](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partir da versão 3.5.1) ou a API REST para configurar seu AssetDeliveryConfiguration para usar o Widevine.
+	Você pode usar o [SDK do .NET AMS](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partir da versão 3.5.1) ou a API REST para configurar seu AssetDeliveryConfiguration para usar o Widevine.
 
-- O AMS adicionou suporte para vídeos ProRes da Apple. Agora você pode carregar os arquivos de vídeos de origem do QuickTime que usam Apple ProRes ou outros codecs. Para obter mais informações, confira [este blog](http://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
+- O AMS adicionou suporte para vídeos ProRes da Apple. Agora você pode carregar os arquivos de vídeos de origem do QuickTime que usam Apple ProRes ou outros codecs. Para saber mais, consulte [este blog](http://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
 
-- Agora você pode usar um Codificador de Mídia Padrão para fazer subrecortes e extração de arquivos dinâmicos. Para obter mais informações, confira [este blog](http://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+- Agora você pode usar um Codificador de Mídia Padrão para fazer subrecortes e extração de arquivos dinâmicos. Para saber mais, consulte [este blog](http://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
 - Foram feitas as seguintes atualizações de filtragem:
 
 	- Agora você pode usar o formato HLS (Apple HTTP Live Streaming) com filtro somente áudio. Essa atualização permite que você remova a faixa somente áudio especificando (somente áudio = false) na URL.
 	- Ao definir filtros para os ativos, agora você pode combinar vários filtros (até três) em uma única URL.
 
-	Para saber mais, confira [este](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support) blog.
+	Para saber mais, consulte [este blog](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support).
 
 - O AMS agora dá suporte ao I-Frames no HLS v4. O suporte do I-Frame otimiza as operações de avanço e retrocesso. Por padrão, todas as saídas do HLS v4 incluem o playlist do I-Frame (EXT-X-I-FRAME-STREAM-INF).
  
-	Para saber mais, confira [este](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support) blog.
+	Para saber mais, consulte [este blog](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support).
 
 ##<a id="august_changes_15"></a>Versão de agosto de 2015
 
@@ -118,7 +125,7 @@ O AMS (Serviços de Mídia do Azure) agora também está disponível nos seguint
 - Anunciando a disponibilidade geral do Media Encoder Standard. Para saber mais, confira [esta postagem no blog](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
 
 	O Codificador de Mídia Padrão usa as predefinições descritas [nesta](http://go.microsoft.com/fwlink/?LinkId=618336) seção. Lembre-se de que, ao usar uma predefinição para 4 mil codificações, você deve adquirir o tipo de unidade reservada **Premium**. Para saber mais, confira [Como escalar a codificação](media-services-portal-encoding-units).
-- Legendas em tempo real ativas com os Serviços de Mídia e o Player do Azure. Para saber mais, confira [esta postagem no blog](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/)
+- Legendas em tempo real ativas com os Serviços de Mídia e o Player do Azure. Para saber mais, consulte [esta postagem no blog](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/).
 
 ###Atualizações do SDK do .NET dos Serviços de Mídia
 
@@ -615,4 +622,4 @@ A seguinte funcionalidade era nova na versão de novembro do SDK.
 [Manipulando notificações de trabalho dos Serviços de Mídia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

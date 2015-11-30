@@ -12,19 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/05/2015" 
+	ms.date="11/17/2015" 
 	ms.author="awills"/>
 
 
-# Configurar o Application Insights: rastreamento de dependências
+# Configurar o Application Insights: acompanhamento de dependências
 
-*O Application Insights está em modo de visualização.*
-
-
-O [Application Insights do Visual Studio](http://azure.microsoft.com/services/application-insights) monitora seus aplicativos em tempo real para ajudá-lo a [detectar e diagnosticar problemas de desempenho e exceções][detect] e [descobrir como seu aplicativo é usado][knowUsers].
-
-
-<a name="selector1"></a>
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
@@ -42,9 +35,9 @@ O monitor de dependência pronto para uso atualmente relata chamadas para esses 
  * Chamadas HTTP locais ou remotas
  * Banco de Dados de Documentos, tabela, o armazenamento de blob e fila do Azure
 * Java
- * Chamada para um banco de dados por meio de um driver [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), como MySQL, SQL Server, PostgreSQL ou SQLite.
+ * Chamadas para um banco de dados por meio de um driver [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), como MySQL, SQL Server, PostgreSQL ou SQLite.
 
-Você pode escrever suas próprias chamadas SDK para monitorar outras dependências usando o [API do TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
+Você pode escrever suas próprias chamadas SDK para monitorar outras dependências usando a [API de TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
 
 
 ## Configurar monitoramento de dependência
@@ -97,7 +90,7 @@ No painel de controle do Aplicativo Web do Azure, adicione a extensão do Applic
 
 ### Se ele for um projeto de serviços de nuvem do Azure
 
-[Adicionar scripts a funções da Web e de trabalho](app-insights-cloudservices.md).
+[Adicione scripts a funções da Web e de trabalho](app-insights-cloudservices.md).
 
 ## <a name="diagnosis"></a> Diagnosticar problemas de desempenho de dependência
 
@@ -151,9 +144,9 @@ Clique em um tipo de solicitação e a instância de solicitação para encontra
 
 O módulo padrão de acompanhamento de dependência descobre automaticamente dependências externas, como bancos de dados e APIs REST. Mas, talvez você queira que alguns componentes adicionais sejam tratados da mesma forma.
 
-Você pode escrever código que envia informações de dependência usando a mesma [API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency) usada pelos módulos padrão.
+Você pode escrever códigos que envia informações de dependência usando a mesma [API de TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency) usada pelos módulos padrão.
 
-Por exemplo, se você criar seu código com um assembly que não escreveu, poderá determinar o tempo de todas as chamadas nele, para descobrir qual sua contribuição aos tempos de resposta. Para que esses dados sejam exibidos nos gráficos de dependência do Application Insights, envie-os usando `TrackDependency`.
+Por exemplo, se você criar seu código com um assembly que não escreveu, poderá determinar o tempo de todas as chamadas nele, para descobrir qual sua contribuição aos tempos de resposta. Para que esses dados sejam exibidos nos gráficos de dependência no Application Insights, envie-os usando `TrackDependency`.
 
 ```C#
 
@@ -170,7 +163,7 @@ Por exemplo, se você criar seu código com um assembly que não escreveu, poder
             }
 ```
 
-Se quiser desativar o módulo padrão de acompanhamento de dependência, remova a referência para DependencyTrackingTelemetryModule em [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
+Se desejar desativar o módulo padrão de acompanhamento de dependência, remova a referência para DependencyTrackingTelemetryModule em [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
 
 ## Próximas etapas
 
@@ -202,4 +195,4 @@ Se quiser desativar o módulo padrão de acompanhamento de dependência, remova 
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

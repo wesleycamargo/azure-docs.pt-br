@@ -1,6 +1,6 @@
 O [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) dá suporte a implantação contínua para aplicativos Web por meio de ferramentas de repositório e de controle do código-fonte como BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial e TFS. Você pode usar essas ferramentas para manter o conteúdo e o código de seu aplicativo, e enviar as alterações de modo rápido e fácil ao seu aplicativo Web quando desejar.
 
-Neste artigo, você aprenderá a usar o Git para publicar diretamente do seu computador local em Aplicativos Web (no Azure, esse método de publicação é chamado de **Git Local**). Você também saberá como habilitar a implantação contínua de sites de repositório, como BitBucket, CodePlex, DropBox, GitHub ou Mercurial. Para obter mais informações sobre como usar o TFS para implantação contínua, consulte [Envio contínuo ao Azure por meio do Visual Studio Online].
+Neste artigo, você aprenderá a usar o Git para publicar diretamente do seu computador local em Aplicativos Web (no Azure, esse método de publicação é chamado de **Git Local**). Você também saberá como habilitar a implantação contínua de sites de repositório, como BitBucket, CodePlex, DropBox, GitHub ou Mercurial. Para obter mais informações sobre como usar o TFS para implantação contínua, consulte [Envio contínuo ao Azure por meio do Visual Studio Team Services].
 
 > [AZURE.NOTE]Muitos dos comandos Git descritos neste artigo são executados automaticamente ao criar um aplicativo Web usando as [Ferramentas de Linha de Comando do Azure para Mac e Linux](/develop/nodejs/how-to-guides/command-line-tools/)
 
@@ -296,6 +296,6 @@ Estes são erros ou problemas comumente encontrados ao usar o Git para publicar 
 [Criar um Repo (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [Início rápido: Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 [Usando o Dropbox para compartilhar repositórios do Git]: https://gist.github.com/trey/2722927
-[Envio contínuo ao Azure por meio do Visual Studio Online]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
+[Envio contínuo ao Azure por meio do Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

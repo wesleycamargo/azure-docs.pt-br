@@ -85,7 +85,7 @@ Se você não habilitou os backups automáticos, você pode criar um [ backup ma
 
 Considere o uso de uma [implantação em estágios](web-sites-staged-publishing.md). Esta opção permite que você publique atualizações para uma implantação em estágios que executam lado a lado com a sua implantação de produção.
 
-Se você usar o Visual Studio Online, é possível configurar a implantação contínua a partir do controle de origem:
+Se você usar o Visual Studio Team Services, é possível configurar a implantação contínua por meio do controle do código-fonte:
 
 - [Usando o TFVC (Controle de Versão do Team Foundation)](../cloud-services-continuous-delivery-use-vso.md) 
 - [Usando Git](../cloud-services-continuous-delivery-use-vso-git.md)
@@ -103,4 +103,4 @@ Se você usar o Visual Studio Online, é possível configurar a implantação co
 
   
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

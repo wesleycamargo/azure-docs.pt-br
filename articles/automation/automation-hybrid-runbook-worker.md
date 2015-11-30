@@ -155,9 +155,9 @@ Se você for um usuário existente do SMA, pode mover seus runbooks para a Autom
 
 Você pode usar os critérios a seguir para determinar se a Automação do Azure com Runbook Worker Híbrido ou o Service Management Automation é mais adequado às suas necessidades.
 
-- O SMA requer uma instalação local do Microsoft Azure Pack, que tem mais recursos locais e custos mais altos de manutenção do que a Automação do Azure, que só precisa de um agente instalado nos runbook workers locais. Os agentes são gerenciados pelo Operations Management Suite, diminuindo ainda mais os custos de manutenção.
+- O SMA requer uma instalação local do Microsoft Azure Pack, que contém mais recursos locais e custos mais altos de manutenção do que a Automação do Azure, que só precisa de um agente instalado nos runbook workers locais. Os agentes são gerenciados pelo Operations Management Suite, diminuindo ainda mais os custos de manutenção.
 - A Automação do Azure armazena seus runbooks na nuvem e os entrega a Runbooks Workers Híbridos locais. Se a sua política de segurança não permite esse comportamento, você deve usar o SMA.
-- O Microsoft Azure Pack é um download gratuito, enquanto a Automação do Azure pode incorrer em encargos de assinatura. Azure. Deve manter vários bancos de dados para o SMA.
+- O Microsoft Azure Pack é um download gratuito, enquanto a Automação do Azure pode incorrer em encargos de assinatura.
 - A Automação do Azure com o Runbook Worker Híbrido permite que você gerencie runbooks para recursos em nuvem e locais em um único local, em vez de gerenciar separadamente tanto a Automação do Azure quando o SMA.
 - A Automação do Azure tem recursos avançados que incluem a criação gráfica e não estão disponíveis no SMA.
 
@@ -168,4 +168,4 @@ Você pode usar os critérios a seguir para determinar se a Automação do Azure
 - [Como editar um Runbook na Automação do Azure](https://msdn.microsoft.com/library/dn879137.aspx)
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

@@ -14,13 +14,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="09/01/2015"
+	ms.date="11/13/2015"
 	ms.author="jroth" />
 
 # Práticas recomendadas relacionadas ao desempenho para o SQL Server em máquinas virtuais do Azure
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
- 
 
 ## Visão geral
 
@@ -28,7 +25,9 @@ Este tópico fornece as práticas recomendadas para aprimoramento do desempenho 
 
 Ao criar imagens do SQL Server, considere o uso do [novo Portal](https://manage.windowsazure.com) para aproveitar os recursos, como o uso do Armazenamento Premium como padrão e outras opções, como configurações de Aplicação de Patch Automatizada, Backup Automatizado e do AlwaysOn.
 
->[AZURE.NOTE]Este documento concentra-se na obtenção do melhor desempenho para o SQL Server em máquinas virtuais do Azure. Se sua carga de trabalho for menos exigente, talvez você não precise de todos os aprimoramentos relacionados abaixo. Considere suas necessidades de desempenho e padrões de carga de trabalho ao avaliar essas recomendações.
+Este documento concentra-se na obtenção do melhor desempenho para o SQL Server em máquinas virtuais do Azure. Se sua carga de trabalho for menos exigente, talvez você não precise de todos os aprimoramentos relacionados abaixo. Considere suas necessidades de desempenho e padrões de carga de trabalho ao avaliar essas recomendações.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Lista de verificação rápida
 
@@ -54,7 +53,7 @@ Para aplicativos sensíveis ao desempenho, recomenda-se o uso dos seguintes tama
 
 Para obter informações atualizadas sobre tamanhos de máquina virtual com suporte, veja [Tamanhos das Máquinas Virtuais](virtual-machines-size-specs.md).
 
-Além disso, recomendamos a criação de sua conta de armazenamento do Azure no mesmo data center que suas máquinas virtuais do SQL Server a fim de reduzir os atrasos de transferência. Ao criar uma conta de armazenamento, desabilite a replicação geográfica, pois não há garantia para uma ordem de gravação consistente em vários discos. Em vez disso, considere a configuração de uma tecnologia de recuperação de desastres do SQL Server entre dois data centers do Azure. Para obter mais informações, veja [Alta Disponibilidade e Recuperação de Desastres para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
+Além disso, recomendamos a criação de sua conta de armazenamento do Azure no mesmo data center que suas máquinas virtuais do SQL Server a fim de reduzir os atrasos de transferência. Ao criar uma conta de armazenamento, desabilite a replicação geográfica, pois não há garantia para uma ordem de gravação consistente em vários discos. Em vez disso, considere a configuração de uma tecnologia de recuperação de desastres do SQL Server entre dois data centers do Azure. Para saber mais, consulte [Alta disponibilidade e recuperação de desastres para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
 
 ## Considerações sobre discos e desempenho
 
@@ -68,7 +67,7 @@ A política padrão de caching no disco do sistema operacional é de **Leitura/G
 
 ### Disco temporário
 
-A unidade de armazenamento temporário, rotulada como a unidade **D**:, não é mantida no armazenamento de blob do Azure. Não armazene seus dados ou arquivos de log na unidade **D**:.
+A unidade de armazenamento temporário, rotulada como a unidade **D**:, não é mantida no armazenamento de blobs do Azure. Não armazene seus dados ou arquivos de log na unidade **D**:.
 
 Armazene somente o TempDB e/ou as Extensões do Pool de Buffers na unidade **D** ao usar VMs (Máquinas Virtuais) da série D ou G. Ao contrário das outras séries de VM, a unidade **D** das VMs das séries D e G é baseada em SSD. Isso pode melhorar o desempenho de cargas de trabalho que usam muitos objetos temporários ou que têm conjuntos de trabalho que não cabem na memória. Para obter mais informações, veja [Usando SSDs em VMs do Azure para armazenar o TempDB do SQL Server e as extensões do pool de buffers](http://blogs.technet.com/b/dataplatforminsider/archive/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions.aspx).
 
@@ -134,4 +133,4 @@ Para obter as práticas recomendadas de segurança, veja [Considerações sobre 
 
 Confira outros tópicos sobre Máquina Virtual do SQL Server em [Visão geral do SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Diagnosticar falhas e exceções em aplicativos ASP.NET com o Application Insights" 
-	description="Configure seu aplicativo para obter uma ótima experiência de diagnóstico, capturando exceções junto com a telemetria de solicitação." 
+	description="Capture exceções de aplicativos do ASP.NET junto com a telemetria de solicitação." 
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
@@ -12,10 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="11/17/2015" 
 	ms.author="awills"/>
- 
-# Diagnosticar falhas e exceções em aplicativos ASP.NET com o Application Insights  
+
+
+# Configurar o Application Insights: Diagnosticar exceções
+
+[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
+
 
 Monitorando seu aplicativo com o [Visual Studio Application Insights][start], você pode correlacionar solicitações que falharam com exceções e outros eventos no cliente e no servidor, para que você possa diagnosticar rapidamente as causas.
 
@@ -32,7 +36,7 @@ Clique em um dos tipos de solicitação com falha na lista para obter a ocorrên
 ![Selecione uma instância de uma solicitação com falha e, em detalhes da exceção, obtenha a instâncias da exceção.](./media/app-insights-asp-net-exceptions/030-req-drill.png)
 
 
-**Como alternativa**, você pode iniciar na lista de exceções que encontrará mais adiante na folha de falhas. Continue clicando até finalmente chegar às exceções individuais.
+**Como alternativa**, você pode iniciar na lista de exceções que encontrará mais adiante na folha Falhas. Continue clicando até finalmente chegar às exceções individuais.
 
 
 ![Drill-through](./media/app-insights-asp-net-exceptions/040-exception-drill.png)
@@ -64,10 +68,10 @@ Para obter dados de diagnóstico específicos do aplicativo, você pode inserir 
 
 Você tem várias opções:
 
-* [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) normalmente é usado para monitorar padrões de uso, mas os dados que ele envia também aparecem em Eventos Personalizados na pesquisa de diagnóstico. Os eventos são nomeados e podem conter propriedades de cadeia de caracteres e métricas numéricas nas quais é possível [filtrar pesquisas diagnóstico][diagnostic].
-* [TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace) permite que você envie dados mais longos, como informações POST.
+* [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) normalmente é usado para monitorar padrões de uso, mas os dados que ele envia também aparecem em Eventos Personalizados na pesquisa de diagnóstico. Os eventos são nomeados e podem conter propriedades de cadeia de caracteres e métricas numéricas nas quais é possível [filtrar pesquisas de diagnóstico][diagnostic].
+* [TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace) permite que você envie dados mais longos, como informações de POST.
 * [TrackException()](#exceptions) envia rastreamentos de pilha. [Mais sobre exceções](#exceptions).
-* Se você já usa uma estrutura de registros, como Log4Net ou NLog poderá [capturar esses logs][netlogs] e vê-los na pesquisa de diagnóstico junto com os dados de solicitação e exceção.
+* Se você já usa uma estrutura de registros, como Log4Net ou NLog você poderá [capturar esses logs][netlogs] e vê-los na pesquisa de diagnóstico junto com os dados de solicitação e exceção.
 
 Para ver esses eventos, abra [Pesquisar][diagnostic], abra Filtrar e escolha Evento Personalizado, Rastreamento ou Exceção.
 
@@ -427,7 +431,7 @@ Adicione o atributo para as implementações de serviço:
 
 ## Contadores de desempenho de exceção
 
-Se tiver [instalado o Monitor de Status][redfield] no seu servidor, você poderá obter um gráfico da taxa de exceções, medida pelo .NET. Isso inclui exceções .NET tradas e sem tratamento.
+Se você tiver [instalado o Monitor de Status][redfield] no seu servidor, você poderá obter um gráfico da taxa de exceções, medida pelo .NET. Isso inclui exceções .NET tradas e sem tratamento.
 
 Abra uma folha do Metrics Explorer, adicione um novo gráfico e selecione **Taxa de exceção**, listada em Contadores de Desempenho.
 
@@ -448,4 +452,4 @@ Observe que ela será diferente da contagem 'Exceções' calculada pelo portal d
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="11/17/2015"
 	ms.author="trinadhk; aashishr; jimpark; markgal"/>
 
 # Preparar o seu ambiente para o backup das máquinas virtuais do Azure
@@ -117,7 +117,7 @@ HttpProxy.Port=<proxy port>
 	![Criar uma nova regra](./media/backup-azure-vms-prepare/firewall-02.png)
 2. No *Assistente para Nova Regra de Entrada*, selecione a opção **Personalizar** para *Tipo de Regra* e clique em Avançar. Na tela para selecionar *Programa*, escolha **Todos os Programas** e clique em Avançar.
 
-3. Na tela *Protocolo e Portas* use as entradas da tabela abaixo e clique em Avançar:
+3. Na tela *Protocolo e Portas*, use as entradas da tabela abaixo e clique em Avançar:
 
 	![Criar uma nova regra](./media/backup-azure-vms-prepare/firewall-03.png)
 
@@ -173,20 +173,17 @@ A extensão de backup será instalada se a VM estiver em execução. Uma VM em e
 - Não há suporte para o backup de máquinas virtuais baseadas no Gerenciador de Recursos do Azure (também conhecido como IaaS V2).
 - Não há suporte para o backup de máquinas virtuais com mais de 16 discos de dados.
 - Não há suporte para o backup de máquinas virtuais usando o Armazenamento Premium.
-- Não há suporte para o backup de máquinas virtuais com múltiplos IPs reservados.
 - Não há suporte para o backup de máquinas virtuais com um IP reservado e nenhum ponto de extremidade definido.
-- Não há suporte para o backup de máquinas virtuais usando vários NICs.
-- Não há suporte para o backup de máquinas virtuais em uma configuração de balanceamento de carga (interna e voltada para a Internet).
 - Não há suporte para a substituição de uma máquina virtual existente durante a restauração. Primeiro, exclua a máquina virtual existente e todos os discos associados e, em seguida, restaure os dados do backup.
 - Não há suporte para backup e restauração entre regiões.
-- Há suporte para o backup de máquinas virtuais usando o serviço do Backup do Azure em todas as regiões públicas do Azure. Veja aqui uma [lista de verificação](http://azure.microsoft.com/regions/#services) das regiões com suporte. Se a região que você procura ainda não tem suporte, ela não aparecerá na lista suspensa durante a criação de cofre.
+- Há suporte para o backup de máquinas virtuais usando o serviço do Backup do Azure em todas as regiões públicas do Azure. Veja abaixo uma [lista de verificação](http://azure.microsoft.com/regions/#services) das regiões com suporte. Se a região que você procura ainda não tem suporte, ela não aparecerá na lista suspensa durante a criação de cofre.
 - O backup de máquinas virtuais usando o serviço do Backup do Azure tem suporte somente para determinadas versões de Sistema Operacional:
   - **Linux**: a lista de distribuições aprovadas pelo Azure está disponível [aqui](../virtual-machines-linux-endorsed-distributions.md). Outras distribuições personalizadas do Linux também devem funcionar, contanto que o agente de VM esteja disponível na máquina virtual.
   - **Windows Server**: não há suporte para versões anteriores ao Windows Server 2008 R2.
 - A restauração de uma VM controladora de domínio que é parte de uma configuração multi-DC tem suporte somente através do PowerShell. Leia mais sobre [como restaurar um controlador de domínio com vários DCs](backup-azure-restore-vms.md#restoring-domain-controller-vms)
 
 ## Perguntas?
-Se houver dúvidas ou algum recurso que você gostaria de ver incluído, [envie-nos seus comentários](http://aka.ms/azurebackup_feedback).
+Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos seus comentários](http://aka.ms/azurebackup_feedback).
 
 ## Próximas etapas
 
@@ -194,4 +191,4 @@ Se houver dúvidas ou algum recurso que você gostaria de ver incluído, [envie-
 - [Backup de máquinas virtuais](backup-azure-vms.md)
 - [Gerenciar o backup de máquinas virtuais](backup-azure-manage-vms.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

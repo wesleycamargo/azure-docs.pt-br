@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # Como solucionar problemas de gerenciamento de senha
@@ -698,6 +698,22 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
                 <li class="unordered">
 										Se você tiver filtros de senha ativados e um usuário selecionar uma senha que não atende aos critérios de filtragem, a operação de redefinição ou de alteração falhará.&lt;br>&lt;br></li>
               </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>HR 8023042</p>
+            </td>
+            <td>
+              <p>O Mecanismo de Sincronização retornou um erro hr = 80230402, mensagem= Houve uma falha na tentativa de obter um objeto, porque existem entradas duplicadas com a mesma âncora</p>
+            </td>
+            <td>
+              <p>ADSync</p>
+            </td>
+            <td>
+              <p>Esse evento ocorre quando a mesma ID de usuário está habilitada em vários domínios. Por exemplo, se você estiver sincronizando florestas de Contas/Recursos e tiver a mesma ID de usuário presente e habilitada em cada uma delas, esse erro poderá ocorrer.  </p>
+              <p>Esse erro também pode ocorrer se você estiver usando um atributo de âncora não exclusivo (como alias ou UPN) e dois usuários compartilharem o mesmo atributo de âncora.</p>
+              <p>Para resolver esse problema, certifique-se de que você não tem nenhum usuário duplicado em seus domínios e de que você está usando um atributo de âncora exclusivo para cada usuário.</p>
             </td>
           </tr>
           <tr>
@@ -1462,19 +1478,17 @@ Se isso não resolver o problema, recomendamos que você dê uma olhada em [Solu
 
 <br/> <br/> <br/>
 
-**Recursos adicionais**
+## Links para a documentação de redefinição de senha
+Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
 
-
-* [O que é o Gerenciamento de Senhas](active-directory-passwords.md)
-* [Como funciona o gerenciamento de senhas](active-directory-passwords-how-it-works.md)
-* [Introdução ao gerenciamento de senhas](active-directory-passwords-getting-started.md)
-* [Personalizar o gerenciamento de senhas](active-directory-passwords-customize.md)
-* [Práticas recomendadas de gerenciamento de senhas](active-directory-passwords-best-practices.md)
-* [Como obter percepções operacionais com relatórios de gerenciamento de senhas](active-directory-passwords-get-insights.md)
-* [Perguntas frequentes sobre gerenciamento de senhas](active-directory-passwords-faq.md)
-* [Saiba mais](active-directory-passwords-learn-more.md)
-* [Gerenciamento de senhas no MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
-
+* [**Redefinir sua própria senha**](active-directory-passwords-update-your-own-password): saiba mais sobre como redefinir ou alterar sua própria senha como um usuário do sistema
+* [**Como funciona**](active-directory-passwords-how-it-works.md) - saiba mais sobre os seis diferentes componentes do serviço e o que cada um deles faz
+* [**Introdução**](active-directory-passwords-getting-started.md) - saiba como permitir que os usuários redefinam e alterem suas senhas na nuvem ou no local
+* [**Personalizar**](active-directory-passwords-customize.md) - aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização
+* [**Práticas recomendadas**](active-directory-passwords-best-practices.md) - aprenda a implantar rapidamente e gerenciar com eficiência as senhas em sua organização
+* [**Obter percepções**](active-directory-passwords-get-insights.md) - saiba mais sobre nossos recursos integrados de relatórios
+* [**Perguntas frequentes**](active-directory-passwords-faq.md) - obtenha respostas para perguntas frequentes
+* [**Saiba mais**](active-directory-passwords-learn-more.md) - aprofunde-se nos detalhes técnicos do funcionamento do serviço
 
 
 
@@ -1483,4 +1497,4 @@ Se isso não resolver o problema, recomendamos que você dê uma olhada em [Solu
 [003]: ./media/active-directory-passwords-troubleshoot/003.jpg "Image_003.jpg"
 [004]: ./media/active-directory-passwords-troubleshoot/004.jpg "Image_004.jpg"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

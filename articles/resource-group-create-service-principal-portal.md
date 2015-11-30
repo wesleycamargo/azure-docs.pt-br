@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/29/2015"
+   ms.date="11/17/2015"
    ms.author="tomfitz"/>
 
 # Criar o aplicativo do Active Directory e a entidade de serviço usando o portal
 
 ## Visão geral
-Quando tiver um aplicativo que precisa acessar ou modificar um recurso em sua assinatura, você poderá usar o portal para criar um aplicativo do Active Directory e atribuí-lo a uma função com a permissão correta. Quando você cria um aplicativo do Active Directory por meio do portal, ele realmente cria o aplicativo e uma entidade de serviço. Use a entidade de serviço ao definir as permissões.
+Quando tiver um aplicativo ou processo automatizado que precisa acessar ou modificar um recurso em sua assinatura, você poderá usar o portal para criar um aplicativo do Active Directory e atribuí-lo a uma função com a permissão correta. Quando você cria um aplicativo do Active Directory por meio do portal, ele realmente cria o aplicativo e uma entidade de serviço. Use a entidade de serviço ao definir as permissões.
 
-Este tópico mostra como criar um novo aplicativo e uma nova entidade de serviço usando o Portal do Azure. Atualmente, você deve usar o portal do Microsoft Azure para criar um novo aplicativo do Active Directory. Essa capacidade será adicionada ao portal de visualização do Azure em uma versão posterior. Você pode usar o portal de visualização para atribuir o aplicativo a uma função.
+Este tópico mostra como criar um novo aplicativo e uma nova entidade de serviço usando o Portal do Azure. Atualmente, você deve usar o portal do Microsoft Azure para criar um novo aplicativo do Active Directory. Essa capacidade será adicionada ao portal de visualização do Azure em uma versão posterior. Você pode usar o portal de visualização para atribuir o aplicativo a uma função. Você também pode executar essas etapas através do Azure PowerShell ou da CLI do Azure. Para obter mais informações, consulte [Autenticar uma entidade de serviço com o Gerenciador de Recursos do Azure](resource-group-authenticate-service-principal.md).
 
 ## Conceitos
 1. AAD (Active Directory do Azure) - um serviço de gerenciamento de identidades e acesso desenvolvido para a nuvem. Para mais detalhes, consulte: [O que é o Active Directory do Azure](active-directory/active-directory-whatis.md)
@@ -82,7 +82,7 @@ O portal agora deve estar com seu aplicativo selecionado.
 
      ![salvar][13]
 
-     A chave salva é exibida e você pode copiá-la.
+     A chave salva é exibida e você pode copiá-la. Você não poderá recuperar a chave mais tarde, portanto convém copiá-la agora.
 
      ![chave salva][8]
 
@@ -90,6 +90,9 @@ O portal agora deve estar com seu aplicativo selecionado.
   
      ![id do cliente][5]
 
+5. Em alguns casos, você precisa passar o ID de locatário com a solicitação de autenticação. Você pode recuperar o ID de locatário selecionando **Exibir pontos de extremidade** e recuperando o ID, conforme mostrado abaixo.
+
+     ![ID do locatário](./media/resource-group-create-service-principal-portal/save-tenant.png)
 
 Seu aplicativo agora está pronto e a entidade de serviço criada em seu locatário. Ao fazer logon como uma entidade de serviço, certifique-se de usar:
 
@@ -98,7 +101,17 @@ Seu aplicativo agora está pronto e a entidade de serviço criada em seu locatá
 
 ## Atribuindo o aplicativo a uma função
 
-Você pode usar o [portal de visualização](https://portal.azure.com) para atribuir o aplicativo do Active Directory a uma função que tenha acesso ao recurso que você precisa acessar. Para obter informações sobre como atribuir aplicativos a uma função, consulte [Controle de acesso baseado em função do Azure Active Directory](active-directory/role-based-access-control-configure.md).
+Você deve atribuir o aplicativo a uma função para conceder-lhe permissões para executar ações. Você pode usar o [portal de visualização](https://portal.azure.com) para atribuir o aplicativo do Active Directory a uma função com as permissões corretas.
+
+Para começar com controle de acesso no portal de visualização, selecione o ícone **Acesso**.
+
+![Selecionar usuários](./media/resource-group-create-service-principal-portal/select-users.png)
+
+Selecione a função à qual você deseja atribuir o aplicativo e procure o aplicativo.
+
+![Selecionar usuários](./media/resource-group-create-service-principal-portal/assign-to-role.png)
+
+Para obter mais informações sobre como trabalhar com usuários, aplicativos e funções, consulte [Gerenciar o acesso usando o Portal de gerenciamento do Azure](active-directory/role-based-access-control-configure/#manage-access-using-the-azure-management-portal).
 
 ## Obter o token de acesso no código
 
@@ -129,7 +142,7 @@ No aplicativo, adicione um método semelhante ao seguinte para recuperar o token
 ## Próximas etapas
 
 - Para aprender a especificar políticas de segurança, consulte [Gerenciar e auditar o acesso a recursos](resource-group-rbac.md).  
-- Para obter uma demonstração em vídeo dessas etapas, consulte [Habilitando o gerenciamento programático de um recurso do Azure com o Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
+- Para obter uma demonstração em vídeo dessas etapas, consulte [Habilitando o gerenciamento programático de um recurso do Azure com o Active Directory do Azure](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
 - Para obter informações sobre como usar o Azure PowerShell ou a CLI do Azure para trabalhar com aplicativos do Active Directory e entidades de serviço, incluindo como usar um certificado para autenticação, consulte [Autenticar uma entidade de serviço com o Gerenciador de Recursos do Azure](./resource-group-authenticate-service-principal.md).
 - Para obter orientações sobre como implantar recursos de segurança com o Gerenciador de Recursos do Azure, consulte [Considerações de segurança do Gerenciador de Recursos do Azure](best-practices-resource-manager-security.md).
 
@@ -149,4 +162,4 @@ No aplicativo, adicione um método semelhante ao seguinte para recuperar o token
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

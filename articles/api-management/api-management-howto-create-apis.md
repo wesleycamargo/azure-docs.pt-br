@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="11/16/2015" 
 	ms.author="sdanie"/>
 
 # Como criar APIs no Gerenciamento de API do Azure
@@ -55,7 +55,7 @@ Você pode usar a guia **Configurações** para verificar e editar a configuraç
 
 ![Configurações da API][api-management-api-settings]
 
-Para configurar **Autenticação de Proxy** para o serviço Web Implementando a API, selecione a guia **Segurança**. A lista suspensa **Com credenciais** pode ser usada para configurar a autenticação como **Autenticação básica** ou **Certificados mútuos**. Para usar a autenticação básica, basta inserir as credenciais desejadas. Para informações sobre como usar a autenticação de certificados mútuos, consulte [Como garantir serviços de back-end usando autenticação de certificados mútuos no Gerenciamento de API do Azure][].
+Para configurar a **Autenticação de gateway** para o serviço Web Implementando a API, selecione a guia **Segurança**. A lista suspensa **Com credenciais** pode ser usada para configurar a autenticação como **Autenticação básica** ou **Certificados mútuos**. Para usar a autenticação básica, basta inserir as credenciais desejadas. Para informações sobre como usar a autenticação de certificados mútuos, consulte [Como garantir serviços de back-end usando autenticação de certificados mútuos no Gerenciamento de API do Azure][].
 
 A guia **Segurança** também pode ser usada para configurar **Autorização do usuário** usando OAuth 2.0. Para obter mais informações, consulte [Como autorizar contas de desenvolvedor usando o OAuth 2.0 no Gerenciamento de API do Azure][].
 
@@ -96,4 +96,4 @@ Após criar uma API e definir as configurações, as próximas etapas são adici
 [Como garantir serviços de back-end usando autenticação de certificados mútuos no Gerenciamento de API do Azure]: api-management-howto-mutual-certificates.md
 [Como autorizar contas de desenvolvedor usando o OAuth 2.0 no Gerenciamento de API do Azure]: api-management-howto-oauth2.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

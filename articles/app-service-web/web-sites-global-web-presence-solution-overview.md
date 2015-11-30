@@ -35,7 +35,7 @@ Crie novos sites rapidamente por meio de um CMS popular na galeria ou inclua seu
 
 O Azure Marketplace oferece modelos populares de CMS (sistemas de gerenciamento de conteúdo de site), como Orchard, Umbraco, Drupal e [WordPress]. Você pode criar um aplicativo Web usando seu tipo de CMS favorito. Você pode escolher dentre vários back-ends de banco de dados para atender às suas necessidades, incluindo o [Banco de Dados do SQL Azure] e [MySQL].
 
-Seus ativos da Web existentes podem ser executados em aplicativos Web do Serviço de Aplicativo, independentemente de utilizarem .NET, PHP, Java, Node.js ou Python. Você pode movê-los para os Aplicativos Web usando suas ferramentas de [FTP] familiares ou seu sistema de gerenciamento de controle do código-fonte. Os Aplicativos Web dão suporte à publicação direta por meio de opções populares de controle do código-fonte, como [Visual Studio], [Visual Studio Online] e [Git] - local, GitHub, BitBucket, DropBox, Mercurial, etc.
+Seus ativos da Web existentes podem ser executados em aplicativos Web do Serviço de Aplicativo, independentemente de utilizarem .NET, PHP, Java, Node.js ou Python. Você pode movê-los para os Aplicativos Web usando suas ferramentas de [FTP] familiares ou seu sistema de gerenciamento de controle do código-fonte. Os Aplicativos Web dão suporte à publicação direta por meio de opções populares de controle do código-fonte como [Visual Studio], [Visual Studio Team Services] e [Git] - local, GitHub, BitBucket, DropBox, Mercurial, etc..
 
 ## Publicar de forma confiável
 
@@ -102,7 +102,7 @@ Torne seu site .COM atraente com recursos de mídia avançada, como:
 [Banco de Dados do SQL Azure]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md
 [FTP]: web-sites-deploy.md#ftp
 [Visual Studio]: web-sites-dotnet-get-started.md
-[Visual Studio Online]: ../cloud-services-continuous-delivery-use-vso.md
+[Visual Studio Team Services]: ../cloud-services-continuous-delivery-use-vso.md
 [Git]: web-sites-publish-source-control.md
 
 [implantando em um slot de preparo do site]: web-sites-staged-publishing.md
@@ -137,4 +137,4 @@ Torne seu site .COM atraente com recursos de mídia avançada, como:
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

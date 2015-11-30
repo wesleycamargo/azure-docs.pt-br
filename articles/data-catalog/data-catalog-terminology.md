@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="08/20/2015"
+   ms.date="11/20/2015"
    ms.author="maroche"/>
 
 # Terminologia do Catálogo de Dados do Azure
@@ -55,6 +55,12 @@ Os metadados descritivos de um ativo de dados podem incluir informações sobre 
 
 Uma visualização no Catálogo de Dados do Azure é um instantâneo de até 20 registros que podem ser extraídos da fonte de dados durante o registro e armazenados no catálogo com os metadados de ativos de dados. A visualização pode ajudar usuários que descobrem um ativo de dados a compreender melhor sua função e finalidade. Em outras palavras, a visualização de dados de exemplo pode ser mais valiosa do que ver apenas os nomes de coluna e tipos de dados. Visualizações só têm suporte para tabelas e exibições e devem ser explicitamente selecionadas pelo usuário durante o registro.
 
+## Perfil de dados
+
+Um perfil de dados no Catálogo de Dados do Azure é um instantâneo de nível de tabela e de coluna sobre um ativo de dados registrado que pode ser extraído da fonte de dados durante o registro e armazenado no catálogo com os metadados de ativos de dados. O perfil de dados pode ajudar os usuários que descobrem um ativo de dados a compreender melhor sua função e finalidade. De maneira semelhante ao que ocorre com as visualizações, os perfis de dados devem ser explicitamente selecionados pelo usuário durante o registro.
+
+> [AZURE.NOTE]Extrair um perfil de dados pode ser uma operação cara para grandes tabelas e exibições e pode aumentar significativamente o tempo necessário para registrar uma fonte de dados.
+
 ## Perspectiva do usuário
 
 No Catálogo de Dados do Azure, qualquer usuário pode fornecer metadados descritivos para um ativo de dados registrado. Cada usuário tem uma perspectiva distinta dos dados e seu uso. Por exemplo, o administrador responsável por um servidor pode fornecer detalhes de seu SLA (Contrato de Nível de Serviço) ou janelas de backup; um administrador de dados pode fornecer links de documentação para os negócios de negócios aos quais os dados dão suporte; e um analista pode fornecer uma descrição em termos mais relevantes para outros analistas e que podem ser mais valiosos para usuários que precisam descobrir e entender os dados.
@@ -76,8 +82,8 @@ Registro é o ato de extrair metadados de ativos de dados de uma fonte de dados 
 
 ## Consulte também
 
-- [O que é o Catálogo de Dados do Azure?](data-catalog-what-is-data-catalog.md)- este artigo oferece uma visão geral do serviço Catálogo de Dados do Azure, o valor que ele oferece e os cenários aos quais ele dá suporte.
+- [O que é o Catálogo de Dados do Azure?](data-catalog-what-is-data-catalog.md) - Este artigo fornece uma visão geral do serviço do Catálogo de Dados do Azure, a vantagem que ele oferece e os cenários aos quais ele dá suporte.
 
-- [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md)- este artigo apresenta um tutorial completo que mostra como usar o Catálogo de Dados do Azure para a descoberta de fonte de dados.
+- [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md) - Este artigo apresenta um tutorial completo que mostra como usar o Catálogo de Dados do Azure para a descoberta de fonte de dados.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

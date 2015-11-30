@@ -47,7 +47,7 @@ Conforme mostra a imagem acima, a topologia de implantação é composta pelos e
 -	Quatro nós subordinados em execução na mesma sub-rede virtual, e conjunto de disponibilidade como o nó mestre.
 -	Uma VM jump box localizada na mesma rede virtual e sub-rede que pode ser usada para acessar o cluster.
 
-O Spark versão 3.0.0 é a versão padrão e pode ser alterada para qualquer binário pré-criado disponível no repositório do Spark. Há também uma cláusula no script para remover os comentários da compilação do código-fonte. Um endereço IP estático será atribuído a cada nó mestre do Spark: 10.0.0.10. Um endereço IP estático será atribuído a cada nó escravo do Spark para contornar a limitação atual de não ser possível criar dinamicamente uma lista de endereços IP de dentro do modelo. (Por padrão, o primeiro nó será atribuído ao endereço IP privado 10.0.0.30, o segundo nó será atribuído ao 10.0.0.31 e assim por diante.) Para verificar erros de implantação, acesse o novo portal do Azure e procure **Grupo de Recursos** > **Última Implantação** > **Verificar Detalhes da Operação**.
+O Spark versão 3.0.0 é a versão padrão e pode ser alterada para qualquer binário pré-criado disponível no repositório do Spark. Há também uma cláusula no script para remover os comentários da compilação do código-fonte. Um endereço IP estático será atribuído a cada nó mestre do Spark: 10.0.0.10. Um endereço IP estático será atribuído a cada nó escravo do Spark para contornar a limitação atual de não ser possível criar dinamicamente uma lista de endereços IP de dentro do modelo. (Por padrão, o primeiro nó será atribuído ao endereço IP privado 10.0.0.30, o segundo nó será atribuído ao 10.0.0.31 e assim por diante.) Para verificar os erros de implantação, acesse o portal de visualização do Azure e procure **Grupo de Recursos** > **Última Implantação** > **Verificar Detalhes da Operação**.
 
 Antes de lidar com mais detalhes relacionados ao Gerenciador de Recursos do Azure e ao modelo usado para essa implantação, verifique se você tem o PowerShell ou a CLI do Azure configurados corretamente.
 
@@ -381,7 +381,7 @@ Parameters        :
 
 Durante e após a implantação, você pode verificar todas as solicitações feitas durante o provisionamento, incluindo quaisquer erros ocorridos.
 
-Para fazer isso, acesse o [Portal do Azure](https://portal.azure.com) e faça o seguinte:
+Para fazer isso, vá para o [Portal de visualização do Azure](https://portal.azure.com) e faça o seguinte:
 
 - Clique em **Procurar** na barra de navegação à esquerda, role para baixo e clique em **Grupos de Recursos**.
 - Clique no grupo de recursos que você acabou de criar, o que exibirá a folha "Grupo de Recursos".
@@ -847,4 +847,4 @@ Descubra mais [estruturas de aplicativo](virtual-machines-app-frameworks.md).
 
 [Solucionar problemas de implantações de modelo](resource-group-deploy-debug.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

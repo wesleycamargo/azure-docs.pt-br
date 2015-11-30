@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/17/2015"
+   ms.date="11/17/2015"
    ms.author="v-sharos" />
 
 # Implantar seu dispositivo StorSimple local no Portal do governo
@@ -277,4 +277,4 @@ Configurar um [dispositivo virtual](storsimple-virtual-device.md).
 Use o [Serviço StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) para gerenciar o seu dispositivo StorSimple.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

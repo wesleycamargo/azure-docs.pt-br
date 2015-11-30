@@ -111,6 +111,7 @@ Os inicializadores padrão foram todos configurados pelos pacotes do WindowsServ
 
 * `AccountIdTelemetryInitializer` define a propriedade AccountId.
 * `AuthenticatedUserIdTelemetryInitializer` define a propriedade AuthenticatedUserId como definido pelo SDK do JavaScript.
+* `OperationNameTelemetryInitializer` atualiza a propriedade de contexto `Operation.Id` de todos os itens de telemetria acompanhados enquanto lida com uma solicitação com a `RequestTelemetry.Id` automaticamente gerada.
 * `AzureRoleEnvironmentTelemetryInitializer` atualiza as propriedades `RoleName` e `RoleInstance` do contexto `Device` para todos os itens de telemetria com informações extraídas do ambiente de tempo de execução do Azure.
 * `BuildInfoConfigComponentVersionTelemetryInitializer` atualiza a `Version` propriedade do `Component` contexto para todos os itens de telemetria com o valor extraído do arquivo `BuildInfo.config` produzido pelo MS Build.
 * `ClientIpHeaderTelemetryInitializer` atualiza a propriedade `Ip` do contexto `Location` de todos os itens de telemetria baseados no cabeçalho HTTP `X-Forwarded-For` da solicitação.
@@ -136,9 +137,20 @@ Processadores de telemetria podem filtrar e modificar cada item de telemetria an
 
 Você pode [escrever seus próprios processadores de telemetria](app-insights-api-filtering-sampling.md#filtering).
 
-Há um processador padrão (de 2.0.1):
+Também há um [processador de telemetria de amostra](app-insights-api-filtering-sampling.md#sampling) padrão (de 2.0.1):
 
-* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor` - [Amostragem](app-insights-api-filtering-sampling.md#sampling) reduz o volume de telemetria e ainda permite que você navegue entre os itens de telemetria relacionados para diagnóstico.
+```XML
+
+    <TelemetryProcessors>
+     <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+
+     <!-- Set a percentage close to 100/N where N is an integer. -->
+     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
+     <SamplingPercentage>10</SamplingPercentage>
+     </Add>
+   </TelemetryProcessors>
+
+```
 
 
 
@@ -251,4 +263,4 @@ Para obter uma nova chave, [crie um novo recurso no portal do Application Insigh
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

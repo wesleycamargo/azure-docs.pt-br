@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="10/30/2015"
+   ms.date="11/18/2015"
    ms.author="tomfitz"/>
 
 # Autenticação de uma entidade de serviço com o Gerenciador de Recursos do Azure
@@ -22,7 +22,7 @@ Este tópico mostra como permitir que uma entidade de serviço (como um processo
 
 Ele mostra como autenticar com um nome de usuário e uma senha ou um certificado.
 
-Você pode usar o Azure PowerShell ou a CLI do Azure para Mac, Linux e Windows. Se você não tem o Azure PowerShell instalado, consulte [Como instalar e configurar o Azure PowerShell](./powershell-install-configure.md). Se você não tiver a CLI do Azure instalada, consulte [Instalar e configurar a CLI do Azure](xplat-cli-install.md).
+Você pode usar o Azure PowerShell ou a CLI do Azure para Mac, Linux e Windows. Se você não tem o Azure PowerShell instalado, consulte [Como instalar e configurar o Azure PowerShell](./powershell-install-configure.md). Se você não tiver a CLI do Azure instalada, consulte [Instalar e configurar a CLI do Azure](xplat-cli-install.md). Para obter informações sobre como usar o portal para executar essas etapas, consulte o aplicativo [Criar Active Directory e entidade de serviço usando o portal](resource-group-create-service-principal-portal.md)
 
 ## Conceitos
 1. AAD (Active Directory do Azure) - um serviço de gerenciamento de identidades e acesso para a nuvem. Para obter mais informações, consulte [O que é o Active Directory do Azure](active-directory/active-directory-whatis.md)
@@ -88,7 +88,7 @@ Nesta seção, você executará as etapas para criar uma entidade de serviço pa
 
      Se você criou a atribuição de função em uma assinatura que não seja a assinatura selecionada, você pode especificar os parâmetros **SubscriptoinId** ou **SubscriptionName** para recuperar uma assinatura diferente.
 
-5. Crie um novo objeto **PSCredential** que contenha suas credenciais ao executar o comando **Get-Credential**.
+5. Para fazer logon como entidade de serviço por meio do PowerShell, crie um novo objeto **PSCredential** que contenha suas credenciais ao executar o comando **Get-Credential**.
 
         PS C:\> $creds = Get-Credential
 
@@ -98,10 +98,9 @@ Nesta seção, você executará as etapas para criar uma entidade de serviço pa
 
      Como nome de usuário, use um dos parâmetros **ApplicationId** ou **IdentifierUris** que você usou ao criar o aplicativo. Como senha, use aquela especificada ao criar a conta.
 
-6. Use as credenciais que você inseriu como uma entrada para o cmdlet **Add-AzureAccount**, que fará o logon da entidade de serviço:
+     Use as credenciais que você inseriu como uma entrada para o cmdlet **Login-AzureRmAccount** que fará o logon da entidade de serviço em:
 
         PS C:\> Login-AzureRmAccount -Credential $creds -ServicePrincipal -Tenant $subscription.TenantId
-        
         Environment           : AzureCloud
         Account               : {guid}
         Tenant                : {guid}
@@ -110,9 +109,9 @@ Nesta seção, você executará as etapas para criar uma entidade de serviço pa
 
      Agora, você deve ser autenticado como a entidade de serviço para o aplicativo AAD que você criou.
 
-7. Para autenticar de um aplicativo, inclua o código .NET a seguir. Depois de recuperar o token, você poderá acessar recursos na assinatura.
+6. Para autenticar de um aplicativo, inclua o código .NET a seguir. Depois de recuperar o token, você poderá acessar recursos na assinatura.
 
-        public static string GetAToken()
+        public static string GetAccessToken()
         {
           var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantId or tenant name}");  
           var credential = new ClientCredential(clientId: "{application id}", clientSecret: "{application password}");
@@ -289,6 +288,20 @@ Você começará criando uma entidade de serviço. Para fazer isso, devemos usar
 
     Agora, você deve ser autenticado como a entidade de serviço para o aplicativo AAD que você criou.
 
+## Autenticar a entidade de serviço com certificado - Azure CLI
+
+Nesta seção, você executará as etapas para criar uma entidade de serviço para um aplicativo do Active Directory do Azure que usa um certificado para autenticação. Este tópico pressupõe que você emitiu um certificado e instalou o [OpenSSL](http://www.openssl.org/).
+
+1. Crie arquivo **. PEM** com:
+
+        openssl.exe pkcs12 -in examplecert.pfx -out examplecert.pem -nodes
+
+2. Abra o arquivo **. PEM** e copie os dados do certificado.
+
+3. Crie um novo aplicativo AAD executando o comando **azure ad app create** e forneça os dados do certificado que você copiou na etapa anterior, como o valor da chave.
+
+        azure ad app create -n "<your application name>" --home-page "<https://YourApplicationHomePage>" -i "<https://YouApplicationUri>" --key-value <certificate data>
+
 ## Próximas etapas
   
 - Para obter uma visão geral do controle de acesso baseado em função, veja [Gerenciando e auditando o acesso a recursos](resource-group-rbac.md)  
@@ -299,4 +312,4 @@ Você começará criando uma entidade de serviço. Para fazer isso, devemos usar
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

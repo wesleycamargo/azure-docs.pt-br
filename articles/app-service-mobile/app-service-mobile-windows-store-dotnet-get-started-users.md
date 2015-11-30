@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/22/2015"
+	ms.date="11/17/2015"
 	ms.author="glenga"/>
 
 # Adicionar autenticação ao seu aplicativo do Windows
@@ -25,10 +25,6 @@
 Este tópico mostra como autenticar usuários de um aplicativo móvel do Serviço de Aplicativo em seu aplicativo cliente. Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando um provedor de identidade que tenha suporte no Serviço de Aplicativo. Após ser autenticado e autorizado com sucesso pelo aplicativo móvel, o valor da ID de usuário é exibido.
 
 Este tutorial baseia-se no início rápido do aplicativo móvel. Você deve primeiro concluir o tutorial [Introdução ao seu aplicativo móvel].
-
-##<a name="create-gateway"></a>Criar um Gateway do Serviço de Aplicativo
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-gateway](../../includes/app-service-mobile-dotnet-backend-create-gateway.md)]
 
 ##<a name="register"></a>Registrar seu aplicativo para autenticação e configurar o Serviço de Aplicativo
 
@@ -62,4 +58,4 @@ Em seguida, você atualizará o aplicativo para autenticar usuários antes de so
 [Introdução ao seu aplicativo móvel]: app-service-mobile-windows-store-dotnet-get-started.md
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

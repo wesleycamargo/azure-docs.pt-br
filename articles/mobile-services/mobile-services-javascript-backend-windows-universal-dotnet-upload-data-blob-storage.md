@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/09/2015" 
 	ms.author="glenga"/>
 
 # Fazer upload de imagens no armazenamento de blob do Azure usando Serviços Móveis
@@ -87,4 +87,4 @@ Agora que você conseguiu carregar as imagens com segurança, integrando seu ser
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

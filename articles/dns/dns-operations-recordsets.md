@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/22/2015"
+   ms.date="11/10/2015"
    ms.author="joaoma"/>
 
 # Como gerenciar registros DNS usando o PowerShell
@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-operations-recordsets-cli.md)
-- [Azure Powershell](dns-operations-recordsets.md)
+- [PowerShell](dns-operations-recordsets.md)
 
 
 Este guia mostrará como gerenciar conjuntos de registro e registros de zona DNS.
@@ -268,7 +268,7 @@ O objeto do conjunto de registros também pode ser redirecionado em vez de ser p
 
 ##Consulte também
 
-[Introdução à criação de conjuntos de registros e registros](../dns-getstarted-create-recordset)<BR> [Executar operações em zonas DNS](../dns-operations-dnszones)<BR> [Automatizar operações usando o SDK do .NET](../dns-sdk)
+[Delegar um domínio ao DNS do Azure](dns-domain-delegation.md)<BR> [Gerenciar zonas DNS](dns-operations-dnszones.md)<BR> [Automatizar operações usando o SDK do .NET](dns-sdk.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

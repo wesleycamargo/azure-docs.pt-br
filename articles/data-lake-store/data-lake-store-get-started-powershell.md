@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/06/2015"
+   ms.date="11/13/2015"
    ms.author="nitinme"/>
 
 # Introdução ao Repositório Azure Data Lake usando o Azure PowerShell
@@ -96,7 +96,7 @@ Você pode criar diretórios em sua conta do Repositório Azure Data Lake para g
 
 É possível carregar seus dados no Repositório Data Lake diretamente no nível da raiz ou em um diretório que você criou na conta. Os trechos de código abaixo demonstram como carregar alguns dados de exemplo no diretório (**mynewdirectory**) criado na seção anterior.
 
-Se estiver procurando alguns dados de exemplo para carregar, é possível obter a pasta **Dados da Ambulância** no [Repositório Git do Azure Data Lake](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData). Baixe o arquivo e armazene-o em um diretório local no computador, como C:\\sampledata.
+Se estiver procurando alguns dados de exemplo para carregar, é possível obter a pasta **Dados da Ambulância** no [Repositório Git do Azure Data Lake](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData). Baixe o arquivo e armazene-o em um diretório local no computador, como C:\\sampledata.
 
 	Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "C:\sampledata\vehicle1_09142014.csv" -Destination $myrootdir\mynewdirectory\vehicle1_09142014.csv
 
@@ -141,4 +141,4 @@ Quando solicitado, insira **Y** para excluir a conta.
 - [Usar a Análise Data Lake do Azure com o Repositório Data Lake](data-lake-analytics-get-started-portal.md)
 - [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

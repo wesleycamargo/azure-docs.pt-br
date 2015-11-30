@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # Criar senhas de aplicativo no portal do myapps 365 para o Azure Multi-Factor Authentication
@@ -39,4 +39,4 @@ Se você não usar autenticação multifator com o Office 365 que tenha uma assi
 <li>Insira um nome para a senha de aplicativo e clique em **Avançar**</li>
 <li>Copie a senha de aplicativo na área de transferência e cole-a no seu aplicativo.</li>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -18,6 +18,10 @@
 
 
 #Utilitário de Migração do Data Warehouse (visualização)
+
+> [AZURE.SELECTOR]
+- [Download Migration Utility](https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip)
+
 O Utilitário de Migração do Data Warehouse é uma ferramenta criada para migrar o esquema e os dados do SQL Server e do Banco de Dados SQL do Azure para o SQL Data Warehouse do Azure. Durante a migração do esquema, a ferramenta mapeia automaticamente o esquema correspondente da origem para o destino. Depois de migrar o esquema, os usuários também verão a opção de mover dados por meio de scripts gerados automaticamente.
 
 Além da migração de esquema e de dados, essa ferramenta fornece aos usuários a opção de gerar relatórios de compatibilidade que resumem as incompatibilidades entre as instâncias de origem e de destino que impediriam uma migração simplificada.
@@ -57,4 +61,4 @@ Agora que você já migrou alguns dados, confira como [desenvolvê-los][].
 [desenvolvê-los]: https://azure.microsoft.com/pt-BR/documentation/articles/sql-data-warehouse-overview-develop/
 [aqui]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

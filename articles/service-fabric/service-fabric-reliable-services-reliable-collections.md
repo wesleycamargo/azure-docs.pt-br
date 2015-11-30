@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="10/15/2015"
+   ms.date="11/11/2015"
    ms.author="mcoskun"/>
 
 # Introdução à Reliable Collections nos serviços com estado do Service Fabric
@@ -108,6 +108,7 @@ Eis aqui algumas coisas que se deve manter em mente:
 
 - O tempo limite padrão é de 4 segundos para todas as APIs de Coleções Confiáveis. A maioria dos usuários não deve substituir isso.
 - O token de cancelamento padrão é `CancellationToken.None` em todas as APIs de Coleções Confiáveis.
+- O parâmetro de tipo de chave (TKey) para um dicionário confiável deve implementar corretamente GetHashCode e Equals (). As chaves devem ser imutáveis.
 - As Enumerações são instantâneos consistentes dentro de uma coleção. No entanto, as enumerações de várias coleções não são consistentes entre as coleções.
 - Para obter alta disponibilidade para as Coleções Confiáveis, cada serviço deve ter pelo menos um destino e uma réplica mínima com tamanho definido como 3.
 
@@ -118,4 +119,4 @@ Eis aqui algumas coisas que se deve manter em mente:
 - [Uso avançado do modelo de programação de Serviços Confiáveis](service-fabric-reliable-services-advanced-usage.md)
 - [Referência do desenvolvedor para Coleções Confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

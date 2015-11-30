@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="10/13/2015"
+   ms.date="11/16/2015"
    ms.author="alkohli" />
 
 # Desembalar, montar em rack e cabear o dispositivo StorSimple 8100.
@@ -248,7 +248,7 @@ Para oferecer suporte a este failover de controlador redundante, você precisa c
 Ao cabear o dispositivo, a configuração mínima exige:
 
 
-- Pelo menos duas interfaces de rede conectadas em cada controlador com uma para acesso à nuvem e outra para iSCSI. A porta DATA 0 é habilitada e configurada automaticamente por meio do console serial do dispositivo. Além da DATA 0, outra porta de dados também precisa ser configurada por meio do Portal de Gerenciamento. Nesse caso, conecte a porta DATA 0 à LAN primária (rede com acesso à Internet). As outras portas de dados podem ser conectadas ao segmento SAN/iSCSI LAN (VLAN) da rede, dependendo da função pretendida.
+- Pelo menos duas interfaces de rede conectadas em cada controlador com uma para acesso à nuvem e outra para iSCSI. A porta DATA 0 é habilitada e configurada automaticamente por meio do console serial do dispositivo. Além da DATA 0, outra porta de dados também precisa ser configurada por meio do Portal do Azure. Nesse caso, conecte a porta DATA 0 à LAN primária (rede com acesso à Internet). As outras portas de dados podem ser conectadas ao segmento SAN/iSCSI LAN (VLAN) da rede, dependendo da função pretendida.
 
 - Interfaces idênticas em cada controlador conectadas à mesma rede para garantir a disponibilidade caso ocorra um failover do controlador. Por exemplo, se você optar por conectar DATA 0 e DATA 3 em um dos controladores, precisará conectar DATA 0 e DATA 3 correspondentes no outro controlador.
 	
@@ -291,4 +291,4 @@ Agora o dispositivo está cabeado para energia, acesso à rede e conectividade s
 
 Saiba como [implantar e configurar seu dispositivo StorSimple no local](storsimple-deployment-walkthrough.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

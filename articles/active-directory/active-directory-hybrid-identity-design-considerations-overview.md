@@ -38,7 +38,7 @@ A ilustração acima é um exemplo de solução de identidade híbrida que usa o
 
 **Suposições**: você tem alguma experiência com o Windows Server, com os Serviços de Domínio do Active Directory e com o Active Directory do Azure. Neste documento, presumimos que você quer saber como essas soluções podem atender às suas necessidades comerciais por conta própria ou em uma solução integrada.
 
-## Visão geral de considerações de design
+## Visão geral sobre as considerações de design
 Este documento fornece um conjunto de etapas e tarefas que você pode seguir para criar uma solução de identidade híbrida que melhor atenda às suas necessidades. As etapas são apresentadas em uma sequência ordenada. Considerações de design que você venha a aprender em etapas posteriores podem exigir a alteração de decisões que você fez nas etapas anteriores devido a conflitos entre as opções de design. Sempre haverá tentativas de alertá-lo sobre possíveis conflitos de design ao longo do documento.
 
 Você chegará no design que melhor atenda às suas necessidades depois de passar pelas etapas quantas vezes for necessário para incorporar todas as considerações no documento.
@@ -51,4 +51,4 @@ Você chegará no design que melhor atenda às suas necessidades depois de passa
 
                                                              
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

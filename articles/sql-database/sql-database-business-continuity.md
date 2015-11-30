@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="07/14/2015"
+   ms.date="11/16/2015"
    ms.author="elfish"/>
 
 # Visão geral da continuidade dos negócios
@@ -91,4 +91,4 @@ A replicação geográfica ativa está disponível para bancos de dados Premium.
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -1,11 +1,12 @@
 <properties 
 	pageTitle="Configurando a Junção do Azure AD para seus usuários | Microsoft Azure" 
-	description="Explica como os administradores podem configurar o Ingresso no AD do Azure para os usuários finais (funcionários, estudantes, outros usuários) na sua organização." 
+	description="Explica como os administradores podem configurar a Junção do AD do Azure para o registro de dispositivos e diretório local."
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
 	manager="stevenpo" 
-	editor=""/>
+	editor=""
+	tags="azure-classic-portal"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/09/2015" 
+	ms.date="11/17/2015" 
 	ms.author="femila"/>
 
 # Configuração da Junção do Azure AD na sua organização
@@ -26,21 +27,17 @@ Instruções detalhadas para sincronizar seus usuários locais ao Azure AD são 
 Para criar e gerenciar usuários manualmente no Azure AD, consulte [Gerenciamento de usuários no Azure AD](https://msdn.microsoft.com/library/azure/hh967609.aspx).
 
 ## Configure o registro de dispositivos 
-1. Entre no Portal do Azure como Administrador.
+1. Faça logon no Portal do Azure como um Administrador.
 2. No painel esquerdo, selecione Active Directory.
 3. Na guia **Diretório**, selecione o diretório.
 4. Selecione a guia **Configurar**.
 5. Role até a seção **Dispositivos**.
 6. Na guia **dispositivos**, defina o seguinte:  
    * **Número máximo de dispositivos por usuário**: selecione o número máximo de dispositivos que um usuário pode ter no Azure AD. Se um usuário atingir esta cota, ele não poderá adicionar mais dispositivos até que um ou mais dos seus dispositivos existentes sejam removidos.
-   * **Exigir autenticação multifator para unir dispositivos**: habilitar quando os usuários devem fornecer um segundo fator de autenticação para unir seu dispositivo ao AD do Azure. Para obter mais informações sobre a autenticação multifator, consulte [Introdução ao Azure Multi-Factor Authentication na nuvem](multi-factor-authentication-get-started-cloud/).
-   *  **Usuários podem unir dispositivos ao Azure AD**: selecione os usuários e grupos que têm permissão para unir dispositivos ao Azure AD.   
-    * **Administradores adicionais em dispositivos unidos do Azure AD**: com o Azure AD Premium ou a EMS (Enterprise Mobility Suite), você pode escolher quais usuários recebem direitos de administrador local no dispositivo. Os administradores globais e o proprietário do dispositivo recebem direitos de administrador local por padrão.
-   
->[AZURE.NOTE]Se os usuários encontram o erro "**Limite de registro de dispositivos atingido**" (código de erro: **0x801C000E - DSREG\_ E\_ DEVICE\_ REGISTRATION\_ QUOTA\_EXCCEEDED**), você precisa alterar o máximo de dispositivos permitidos por usuário. Na seção **Os usuários podem associar dispositivos do Azure AD**, selecione **Adicionar** e defina o número de dispositivos que você deseja permitir por usuário.
-      
+   * **Exigir autenticação multifator para unir dispositivos**: habilitar quando os usuários devem fornecer um segundo fator de autenticação para unir seu dispositivo ao AD do Azure. Para obter mais informações sobre a autenticação multifator, consulte [Introdução à Autenticação Multifator do Azure na nuvem](multi-factor-authentication-get-started-cloud/)
+   * **Usuários podem unir dispositivos ao Azure AD**: selecione os usuários e grupos que têm permissão para unir dispositivos ao Azure AD.
+   * **Administradores adicionais em dispositivos unidos do Azure AD**: com o Azure AD Premium ou a EMS (Enterprise Mobility Suite), você pode escolher quais usuários recebem direitos de administrador local no dispositivo. Os administradores globais e o proprietário do dispositivo recebem direitos de administrador local por padrão.
 
-    
 <center>![](./media/active-directory-azureadjoin/active-directory-aadjoin-configure-devices.png) </center>
 Após você configurar a Junção do Azure AD para seus usuários, eles podem se conectar ao Azure AD por meio de seus dispositivos pessoais ou corporativos.
 
@@ -51,8 +48,11 @@ A seguir estão os três cenários de como você pode habilitar seus usuários p
 - Os usuários adicionam contas de trabalho ao Windows em um dispositivo pessoal 
 
 ## Informações adicionais
-* [Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Junção do Active Directory do Azure](active-directory-azureadjoin-overview.md)
+
+* [Windows 10 para a empresa: maneiras de usar dispositivos para o trabalho](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Junção do Active Directory do Azure](active-directory-azureadjoin-user-upgrade.md)
 * [Saiba mais sobre cenários de uso da Junção do Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

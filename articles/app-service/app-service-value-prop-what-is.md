@@ -17,7 +17,7 @@
 	ms.author="omark"/>
 
 # O que é o Serviço de Aplicativo do Azure?
-O Serviço de Aplicativo do Azure é o único serviço de nuvem que integra tudo o que você precisa compilar com rapidez e facilidade aplicativos Web e móveis para qualquer plataforma e qualquer dispositivo. Projetado para desenvolvedores, o Serviço de Aplicativo é uma plataforma totalmente gerenciada com recursos avançados, como DevOps internos, integração contínua com Visual Studio Online e GitHub, suporte a preparação e produção e aplicação de patch automática.
+O Serviço de Aplicativo do Azure é o único serviço de nuvem que integra tudo o que você precisa compilar com rapidez e facilidade aplicativos Web e móveis para qualquer plataforma e qualquer dispositivo. Criado para desenvolvedores, o Serviço de Aplicativo é uma plataforma totalmente gerenciada com recursos avançados, como DevOps interno, integração contínua com Visual Studio Team Services e GitHub, suporte ao preparo e à produção, bem como a aplicação automática de patch.
 
 O Serviço de Aplicativo do Azure é um serviço único que inclui todos os recursos existentes de sites do Azure, Serviços Móveis do Azure e Serviços BizTalk do Azure durante a adição de novos recursos. [Saiba mais](http://azure.microsoft.com/documentation/services/app-service/) sobre como o Serviço de Aplicativo se relaciona com esses serviços existentes.
 
@@ -30,7 +30,7 @@ Voltada para o desenvolvimento rápido de aplicativos Web e móveis, bem como pa
 
 - **Integração simplificada** - integre dados entre nuvens e automatize processos de negócios em minutos com uma experiência de design visual simples. Integre facilmente sua lógica com qualquer aplicativo móvel ou Web por meio de APIs REST padrão. Compile integração de aplicativos empresariais sofisticada, soluções B2B usando o EDI, políticas de negócios (mecanismo de regras) e muito mais com base na plataforma de BizTalk líder do setor.
 
-- **Produtividade do desenvolvedor inigualável** - otimizado para DevOps, com suporte à integração contínua para Visual Studio Online e Github para que você possa se concentrar em melhorar rapidamente seus aplicativos sem se preocupar com infraestrutura. Implante atualizações de aplicativo com recursos internos de preparação, reversão e teste em produção.
+- **Produtividade incomparável do desenvolvedor** - Otimizado para DevOps, com suporte à integração contínua para o Visual Studio Team Services e Github para que você possa se concentrar em melhorar rapidamente seus aplicativos sem se preocupar com a infraestrutura. Implante atualizações de aplicativo com recursos internos de preparação, reversão e teste em produção.
 
 - **Pronto para a Empresa** - desfrute de tranquilidade com segurança e gerenciamento de nível corporativo. Forneça administração delegada e baseada em função; facilmente proteja e gerencie dados que fluem para seus aplicativos móveis; proteja os ativos com funcionalidade interna de backup e restauração. Fique tranquilo sabendo que o Serviço de Aplicativo está em conformidade com PCI. Mantenha o controle com ambientes dedicados e a capacidade de implantar entre nuvens públicas e privadas. Beneficie-se com mais de 25 anos de experiência da Microsoft e nosso Contrato de Nível de Serviço empresarial.
 
@@ -59,4 +59,4 @@ Com o Serviço de Aplicativo do Azure, isso é tão fácil quanto selecionar um 
 [Crie um novo aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751) agora mesmo e gratuitamente. Nenhum cartão de crédito é exigido, sem problemas.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

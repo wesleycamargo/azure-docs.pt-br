@@ -164,4 +164,4 @@ O SDK do lado do cliente (JavaScript) participa da amostragem em conjunto com o 
 
 >>>>>>> 36f8b905a3f60271ee6dc3a17c3ca431937287dc
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

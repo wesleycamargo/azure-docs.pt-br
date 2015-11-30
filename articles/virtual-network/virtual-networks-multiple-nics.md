@@ -4,20 +4,22 @@
    services="virtual-network, virtual-machines"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
-   editor="tysonn" />
+   manager="carmonm"
+   editor="tysonn" 
+   tags="azure-service-management,azure-resource-manager"
+/>
 <tags 
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/10/2015"
+   ms.date="11/09/2015"
    ms.author="telmos" />
 
 # Criar uma VM com diversos NICs
 
-O recurso de várias NICs permite criar e gerenciar várias placas de interface de rede virtual (NICs) nas máquinas virtuais (VMs) do Azure. Várias NICs são um requisito para muitos aplicativos virtuais de rede, como soluções de distribuição de aplicativos e de otimização de WAN. Ter várias NICs também agrega mais funcionalidade de gerenciamento de tráfego da rede, incluindo isolamento do tráfego entre uma NIC de front-end e as NICs de back-end ou a separação do tráfego do plano de dados do tráfego do plano de gerenciamento.
+Você pode criar máquinas virtuais (VMs) no Azure e anexar várias interfaces de rede (NICs) para cada uma de suas VMs. Várias NICs são um requisito para muitos aplicativos virtuais de rede, como soluções de distribuição de aplicativos e de otimização de WAN. Ter várias NICs também agrega mais funcionalidade de gerenciamento de tráfego da rede, incluindo isolamento do tráfego entre uma NIC de front-end e as NICs de back-end ou a separação do tráfego do plano de dados do tráfego do plano de gerenciamento.
 
 ![Várias NICs da VM](./media/virtual-networks-multiple-nics/IC757773.png)
 
@@ -28,15 +30,15 @@ A figura acima mostra uma VM com três NICs, cada uma conectada a uma sub-rede d
 Neste momento, o recurso de várias NICs tem os seguintes requisitos e restrições:
 
 - VMs de várias NICs devem ser criadas nas redes virtuais do Azure (VNets). Não há suporte para as VMs não VNet. 
-- Dentro de um único serviço de nuvem, são permitidas apenas as seguintes configurações: 
+- Em um único serviço de nuvem (implantações clássicas) ou um grupo de recursos (implantação do Gerenciador de Recursos), são permitidas apenas as seguintes configurações: 
 	- Todas as VMs daquele serviço de nuvem devem ser habilitadas para várias NICs ou 
 	- Todas as VMs daquele serviço de nuvem devem ter uma única NIC cada uma 
 
->[AZURE.IMPORTANT]Se você tentar adicionar uma VM de várias NICs a uma implantação (serviço de nuvem) que já contenha uma VM de única NIC (ou vice-versa), receberá o seguinte erro: Não há suporte para máquinas virtuais com interface de rede secundária e máquinas virtuais sem interface de rede secundária na mesma implantação; além disso, uma máquina virtual que não tenha interface de rede secundária não pode ser atualizada para ter interfaces de rede secundárias e vice-versa.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
  
-- O VIP para Internet só é suportado na NIC "padrão". Há apenas um VIP para o IP da NIC padrão. 
-- Neste momento, não há suporte para endereços IP públicos no nível de instância para VMs de várias NICs. 
-- A ordem das NICs de dentro da VM será aleatória e também pode ser alterada nas atualizações da infraestrutura do Azure. No entanto, os endereços IP e os endereços ethernet MAC correspondentes permanecerão os mesmos. Por exemplo, suponha que **Eth1** tenha o endereço IP 10.1.0.100 e um endereço MAC 00-0D-3A-B0-39-0D; após uma atualização de infraestrutura e reinicialização do Azure, ela pode ser alterada para Eth2, mas o emparelhamento entre IP e MAC permanecerá o mesmo. Quando a reinicialização for iniciada pelo cliente, a ordem das NICs permanecerá a mesma. 
+- VIP da Internet (implantações clássicas) têm suporte apenas na NIC "padrão". Há apenas um VIP para o IP da NIC padrão. 
+- Neste momento, não há suporte para endereços LPIP (PI público no nível da instância) (implantações clássicas) para VMs com várias NICs. 
+- A ordem das NICs de dentro da VM será aleatória e também pode ser alterada nas atualizações da infraestrutura do Azure. No entanto, os endereços IP e os endereços ethernet MAC correspondentes permanecerão os mesmos. Por exemplo, suponha que **Eth1** tenha o endereço IP 10.1.0.100 e um endereço MAC 00-0D-3A-B0-39-0D; após uma atualização de infraestrutura e reinicialização do Azure, ela pode ser alterada para **Eth2**, mas o emparelhamento entre IP e MAC permanecerá o mesmo. Quando a reinicialização for iniciada pelo cliente, a ordem das NICs permanecerá a mesma. 
 - O endereço de cada NIC em cada máquina virtual deve estar localizado em uma sub-rede, várias NICs em uma única VM podem, cada uma, receber a atribuição de endereços que estejam na mesma sub-rede. 
 - O tamanho da VM determina o número de NICS que você pode criar para uma máquina virtual. A tabela a seguir lista os números de NICs correspondentes ao tamanho das máquinas virtuais: 
 
@@ -88,16 +90,16 @@ Neste momento, o recurso de várias NICs tem os seguintes requisitos e restriç�
 |Todos os outros tamanhos|1|
 
 ## Grupos de segurança de rede (NSG)
-Qualquer NIC em uma máquina virtual pode ser associada a um grupo de segurança de rede (NSG), incluindo todas as NICs de uma VM que seja habilitada para várias NICs. Se uma NIC tiver um endereço atribuído em uma sub-rede que esteja associada a um NSG, as regras do NSG da sub-rede também se aplicarão à NIC. Além de associar sub-redes a NSGs, você também pode associar uma NIC a um NSG.
+Em uma implantação do Gerenciador de recursos, qualquer NIC em uma máquina virtual pode estar associada com um NSG (grupo de segurança de rede), incluindo todas as NICs em uma VM que tenha várias NICs habilitadas. Se uma NIC tiver um endereço atribuído em uma sub-rede que esteja associada a um NSG, as regras do NSG da sub-rede também se aplicarão à NIC. Além de associar sub-redes a NSGs, você também pode associar uma NIC a um NSG.
 
-Se uma sub-rede for associada a um NSG e uma NIC dessa sub-rede for associada individualmente a um NSG, as regras do NSG associado serão aplicadas na "**ordem de fluxo**" de acordo com a direção do tráfego que estiver sendo passado para dentro ou para fora da NIC:
+Se uma sub-rede for associada a um NSG e uma NIC dessa sub-rede for associada individualmente a um NSG, as regras do NSG associado serão aplicadas na **ordem de fluxo** de acordo com a direção do tráfego que estiver sendo passado para dentro ou para fora da NIC:
 
 - **O **tráfego de entrada **cujo destino é a NIC em questão flui primeiro pela sub-rede, acionando as regras do NSG da sub-rede, antes de passar para a NIC, quando serão acionadas as regras do NSG da NIC.
 - O **tráfego de saída** cujo destino é a NIC em questão flui primeiro para fora da sub-rede, acionando as regras do NSG da NIC, antes de passar pela sub-rede, quando serão acionadas as regras do NSG da sub-rede. 
 
-A figura acima representa como a aplicação das regras do NSG é feita de acordo com o fluxo do tráfego (da VM para a sub-rede ou da sub-rede para a VM).
+Saiba mais sobre [grupos de segurança de rede](virtual-networks-nsg) e como elas são aplicados com base nas associações a sub-redes, VMs e NICs.
 
-## Como configurar uma VM de várias NICs
+## Como configurar uma VM de várias NICs em uma implantação clássica
 
 As instruções a seguir o ajudarão a criar uma VM de várias NICs contendo 3 NICs: uma NIC padrão e duas NICs adicionais. As etapas da configuração criarão uma VM que será configurada de acordo com o fragmento do arquivo de configuração de serviços abaixo:
 
@@ -258,4 +260,9 @@ Para adicionar uma rota padrão à NIC secundária, siga as etapas abaixo:
 
 Para VMs do Linux, como o comportamento padrão usa roteamento de host fraco, recomendamos que as NICs secundárias sejam restritas a fluxos de tráfego somente dentro da mesma sub-rede. No entanto, se determinados cenários exigirem conectividade fora da sub-rede, os usuários devem habilitar a política com base em roteamento para garantir que o tráfego de entrada e saída use a mesma NIC.
 
-<!---HONumber=Nov15_HO3-->
+## Próximas etapas
+
+- Implantar [VMs com várias NICs em um cenário de aplicativo de camada 2 em uma implantação do Gerenciador de Recursos](virtual-network-deploy-multinic-arm-template).
+- Implantar [VMs com várias NICs em um cenário de aplicativo de camada 2 em uma implantação clássica](virtual-network-deploy-multinic-classic-ps).
+
+<!---HONumber=Nov15_HO4-->

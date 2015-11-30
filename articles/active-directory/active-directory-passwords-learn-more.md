@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # Saiba mais sobre Gerenciamento de Senha
@@ -25,6 +25,7 @@ Se você já tiver implantado o Gerenciamento de Senha ou estiver somente procur
   - [Modelo de segurança de write-back de senha](#password-writeback-security-model)
 * [**Como funciona o portal de redefinição de senha?**](#how-does-the-password-reset-portal-work)
   - [Quais dados são usados na redefinição de senha?](#what-data-is-used-by-password-reset)
+  - [Como acessar os dados de redefinição de senha de seus usuários](#how-to-access-password-reset-data-for-your-users)
 
 ## Visão geral de write-back de senha
 O write-back de senha é um componente do [Azure Active Directory Connect](active-directory-aadconnect) que pode ser habilitado e usado pelos assinantes atuais do Active Directory Premium do Azure. Para saber mais, confira [Edições do Active Directory do Azure](active-directory-editions.md).
@@ -261,24 +262,121 @@ A tabela a seguir descreve onde e como esses dados são usados durante a redefin
           </tr>
         </tbody></table>
 
-<br/> <br/> <br/>
+###Como acessar os dados de redefinição de senha de seus usuários
+####Dados configuráveis por meio da sincronização
+Os campos a seguir podem ser sincronizados a partir do ambiente local:
 
-**Recursos adicionais**
+* Telefone celular
+* Telefone comercial
 
+####Dados configuráveis com o Azure AD PowerShell
+Os seguintes campos são acessíveis com o Azure AD PowerShell e a Graph API:
 
-* [O que é o Gerenciamento de Senhas](active-directory-passwords.md)
-* [Como funciona o gerenciamento de senhas](active-directory-passwords-how-it-works.md)
-* [Introdução ao gerenciamento de senhas](active-directory-passwords-getting-started.md)
-* [Personalizar o gerenciamento de senhas](active-directory-passwords-customize.md)
-* [Práticas recomendadas de gerenciamento de senhas](active-directory-passwords-best-practices.md)
-* [Como obter percepções operacionais com relatórios de gerenciamento de senhas](active-directory-passwords-get-insights.md)
-* [Perguntas frequentes sobre Gerenciamento de Senhas](active-directory-passwords-faq.md)
-* [Solucionar problemas do Gerenciamento de Senhas](active-directory-passwords-troubleshoot.md)
-* [Gerenciamento de senhas no MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* Email alternativo
+* Telefone celular
+* Telefone comercial
+* Telefone de autenticação
+* E-mail de autenticação
+
+####Dados configuráveis somente com a interface do usuário de registros
+Os seguintes campos só são acessíveis por meio da interface do usuário de do registro SSPR (https://aka.ms/ssprsetup):
+
+* Perguntas de segurança e respostas
+
+####O que acontece quando um usuário se registra?
+Quando um usuário se registrar, a página de registro **sempre** definirá os seguintes campos:
+
+* Telefone de autenticação
+* E-mail de autenticação
+* Perguntas de segurança e respostas
+
+Se você tiver fornecido um valor para **Celular** ou **Email alternativo**, os usuários podem imediatamente usá-los para redefinir suas senhas, mesmo se eles não tiverem se registrado para o serviço. Além disso, os usuários verão esses valores ao se registrar pela primeira vez e poderão modificá-los caso queiram. No entanto, depois que eles se registrarem com êxito, esses valores serão mantidos nos campos **Telefone de autenticação** e **Email de autenticação**, respectivamente.
+
+Isso pode ser uma maneira útil de desbloquear grandes números de usuários para usar SSPR e ainda permitir que os usuários validem essas informações durante o processo de registro.
+
+####Configurando dados de redefinição de senha com o PowerShell
+Você pode definir valores para os seguintes campos com o Azure AD PowerShell.
+
+* Email alternativo
+* Telefone celular
+* Telefone comercial
+
+Para começar, você precisa primeiro [baixar e instalar o módulo do Azure AD PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). Depois que você tiver instalado, pode seguir as etapas abaixo para configurar cada campo.
+
+#####Email alternativo
+```
+Connect-MsolService
+Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com")
+```
+
+#####Telefone celular
+```
+Connect-MsolService
+Set-MsolUser -UserPrincipalName user@domain.com -MobilePhone "+1 1234567890"
+```
+
+#####Telefone comercial
+```
+Connect-MsolService
+Set-MsolUser -UserPrincipalName user@domain.com -PhoneNumber "+1 1234567890"
+```
+
+####Lendo dados de redefinição de senha com o PowerShell
+Você pode ler os valores dos campos a seguir com o Azure AD PowerShell.
+
+* Email alternativo
+* Telefone celular
+* Telefone comercial
+* Telefone de autenticação
+* E-mail de autenticação
+
+Para começar, você precisa primeiro [baixar e instalar o módulo do Azure AD PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). Depois que você tiver instalado, pode seguir as etapas abaixo para configurar cada campo.
+
+#####Email alternativo
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select AlternateEmailAddresses
+```
+
+#####Telefone celular
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select MobilePhone
+```
+
+#####Telefone comercial
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select PhoneNumber
+```
+
+#####Telefone de autenticação
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select PhoneNumber
+```
+
+#####E-mail de autenticação
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select Email
+```
+
+## Links para a documentação de redefinição de senha
+Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
+
+* [**Redefinir sua própria senha**](active-directory-passwords-update-your-own-password): saiba mais sobre como redefinir ou alterar sua própria senha como um usuário do sistema
+* [**Como funciona**](active-directory-passwords-how-it-works.md) - saiba mais sobre os seis diferentes componentes do serviço e o que cada um deles faz
+* [**Introdução**](active-directory-passwords-getting-started.md) - saiba como permitir que os usuários redefinam e alterem suas senhas na nuvem ou no local
+* [**Personalizar**](active-directory-passwords-customize.md) - aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização
+* [**Práticas recomendadas**](active-directory-passwords-best-practices.md) - aprenda a implantar rapidamente e gerenciar com eficiência as senhas em sua organização
+* [**Obter percepções**](active-directory-passwords-get-insights.md) - saiba mais sobre nossos recursos integrados de relatórios
+* [**Perguntas frequentes**](active-directory-passwords-faq.md) - obtenha respostas para perguntas frequentes
+* [**Solução de problemas**](active-directory-passwords-troubleshoot.md) - aprenda a solucionar rapidamente os problemas com o serviço
 
 
 
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

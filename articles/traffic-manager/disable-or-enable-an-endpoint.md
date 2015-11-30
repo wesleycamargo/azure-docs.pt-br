@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Desabilitar ou habilitar um ponto de extremidade do Gerenciador de Tráfego
@@ -40,14 +40,8 @@ Você também pode desabilitar pontos de extremidade individuais que fazem parte
 
 [Gerenciador de Tráfego - Desabilitar, habilitar ou excluir um perfil](disable-enable-or-delete-a-profile.md)
 
-[O que é o Gerenciador de Tráfego?](../traffic-manager.md)
+[Solucionando problemas de estado degradado do Gerenciador de Tráfego](traffic-manager-troubleshooting-degraded.md)
 
-[Serviços de Nuvem](http://go.microsoft.com/fwlink/?LinkId=314074)
+[Considerações sobre desempenho do Gerenciador de Tráfego](traffic-manager-performance-considerations.md)
 
-[Sites](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-
-[Operações no Gerenciador de Tráfego (referência de API REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

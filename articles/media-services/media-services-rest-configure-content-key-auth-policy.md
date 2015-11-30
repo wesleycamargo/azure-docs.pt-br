@@ -464,6 +464,7 @@ Adicionar AuthorizationPolicy para o ContentKey, como mostrado [aqui](#AddAuthor
         None = 0,
         PlayReadyLicense = 1,
         BaselineHttp = 2,
+        Widevine = 3
     }
 
 
@@ -482,4 +483,4 @@ Agora que você configurou a política de autorização da chave de conteúdo, v
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

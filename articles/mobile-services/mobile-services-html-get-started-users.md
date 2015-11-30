@@ -35,7 +35,7 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Você também deve 
 
 3. No diretório do aplicativo, inicie um dos seguintes arquivos de comando da subpasta **server**.
 
-	+ ** launch-windows** (computadores com Windows) 
+	+ **.\\start-iisexpress.ps1** (computadores com o Windows) 
 	+ ** launch-mac.command** (computadores com Mac OS X)
 	+ ** launch-linux.sh** (computadores com Linux)
 
@@ -68,7 +68,7 @@ Em seguida, você irá atualizar o aplicativo para permitir autenticação antes
 
 	Isso permite que você faça logon nos Serviços Móveis a partir da página.
 
-2. No arquivo app.js, localize a linha de código na parte inferior do arquivo que chama a função refreshTodoItems e substitua-o pelo código a seguir:
+2. No arquivo page.js, localize a linha de código na parte inferior do arquivo que chama a função refreshTodoItems e substitua-o pelo código a seguir:
 	
 		function refreshAuthDisplay() {
 			var isLoggedIn = client.currentUser !== null;
@@ -137,4 +137,4 @@ No próximo tutorial, [Autorizar usuários com scripts], você irá obter o valo
 [Referência conceitual do tutorial HTML/JavaScript nos Serviços Móveis]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

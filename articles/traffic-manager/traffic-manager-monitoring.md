@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Sobre o monitoramento do Gerenciador de Tráfego
@@ -108,15 +108,11 @@ A tabela a seguir descreve o comportamento de monitoramento do Gerenciador de Tr
 
 ## Consulte também
 
-[O que é o Gerenciador de Tráfego?](traffic-manager-overview.md)
+[Criar um perfil](traffic-manager-manage-profiles.md)
 
-[Sobre os Métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-load-balancing-methods.md)
-
-[Serviços de Nuvem](http://go.microsoft.com/fwlink/p/?LinkId=314074)
-
-[Sites](http://go.microsoft.com/fwlink/p/?LinkId=393327)
+[Adicionar um ponto de extremidade](traffic-manager-endpoints.md)
 
 [Solucionando problemas de status degradado do Gerenciador de Tráfego](traffic-manager-troubleshooting-degraded.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

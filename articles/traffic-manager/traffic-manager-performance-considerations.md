@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 
@@ -87,15 +87,11 @@ Considerando as informações acima, sabemos que o único impacto no desempenho 
 
 [Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-load-balancing-methods.md)
 
-[O que é o Gerenciador de Tráfego?](../traffic-manmager-overview.md)
-
-[Serviços de Nuvem](http://go.microsoft.com/fwlink/?LinkId=314074)
-
-[Sites](http://go.microsoft.com/fwlink/p/?LinkId=393327)
+[Teste as configurações do Gerenciador de Tráfego](traffic-manager-testing-settings.md)
 
 [Operações no Gerenciador de Tráfego (referência de API REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Cmdlets do Gerenciador de Tráfego do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

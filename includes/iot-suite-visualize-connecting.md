@@ -1,40 +1,40 @@
-## View device telemetry in the dashboard
+## Exibir telemetria do dispositivo no painel
 
-The dashboard in the remote monitoring solution enables you to view the telemetry that your devices send to IoT Hub.
+O painel da solução de monitoramento remoto permite que você exiba a telemetria que seu dispositivo envia para o Hub IoT.
 
-1. In your browser, return to the remote monitoring solution dashboard, click **Devices** in the left-hand panel to navigate to the **Devices list**.
+1. Em seu navegador, retorne para o painel da solução de monitoramento remoto, clique em **Dispositivos** no painel esquerdo para navegar até a **Lista de dispositivos**.
 
-2. In the **Devices list**, you should see that the status of your device is now **Running**.
+2. Na **Lista de dispositivos**, você deve ver que o status do seu dispositivo agora é **Em execução**.
 
     ![][18]
 
-3. In the dashboard, select your device in the **Device to View** drop-down to view its telemetry. The telemetry from the sample application is 50 units for internal temperature, 55 units for external temperature, and 50 units for humidity. Note that by default the dashboard displays only temperature and humidity values.
+3. No painel de controle, selecione seu dispositivo no menu suspenso **Dispositivo para exibição** para exibir sua telemetria. A telemetria do aplicativo de exemplo é de 50 unidades de temperatura interna, 55 unidades de temperatura externa e 50 unidades de umidade. Observe que, por padrão, o painel exibe apenas os valores de temperatura e umidade.
 
     ![][img-telemetry]
 
-## Send a command to your device
+## Enviar um comando para o dispositivo
 
-The dashboard in the remote monitoring solution enables you to request IoT Hub to send commands to your devices. For example, in the remote monitoring solution you can send a command to set the internal temperature of a device.
+O painel da solução de monitoramento remoto permite solicitar que o Hub IoT envie comandos para seus dispositivos. Por exemplo, na solução de monitoramento remoto, você pode enviar um comando para definir a temperatura interna de um dispositivo.
 
-1. In the remote monitoring solution dashboard, click **Devices** in the left-hand panel to navigate to the **Devices list**.
+1. No painel da solução de monitoramento remoto, clique em **Dispositivos** no painel esquerdo para navegar até a **Lista de dispositivos**.
 
-2. Click **Device ID** for your device in the **Devices list**.
+2. Clique em **ID de dispositivo** para seu dispositivo na **Lista de dispositivos**.
 
-3. In the **Device details** panel, click **Commands**.
+3. No painel **Detalhes de dispositivo**, clique em **Comandos**.
 
     ![][13]
 
-4. In the **Command** drop-down, select **SetTemperature**, and then in **Temperature** enter a new temperature value. Click **Send command** to send the command to the device.
+4. Na lista suspensa **Comando**, selecione **Definir temperatura** e, em seguida, em **Temperatura**, insira um novo valor de temperatura. Clique em **Enviar comando** para enviar o comando para o dispositivo.
 
     ![][14]
 
-    > [AZURE.NOTE] The command history initially shows the command status as **Pending**. When the device acknowledges the command, the status changes to **Success**.
+    > [AZURE.NOTE]O histórico de comandos inicialmente mostra o status de comando como **Pendente**. Quando o dispositivo reconhece o comando, o status é alterado para **Sucesso**.
 
-5. On the dashboard, verify that the device is now sending 75 as the new temperature value.
+5. No painel, verifique se o dispositivo está agora enviando 75 como o novo valor de temperatura.
 
-## Next steps
+## Próximas etapas
 
-The article [Customizing preconfigured solutions][lnk-customize] describes some ways you can extend this sample. Possible extensions include using real sensors and implementing additional commands.
+O artigo [Personalizando soluções pré-configuradas][lnk-customize] descreve algumas de estender este exemplo. Extensões possíveis incluem usar sensores reais e implementar comandos adicionais.
 
 [13]: ./media/iot-suite-visualize-connecting/suite4.png
 [14]: ./media/iot-suite-visualize-connecting/suite7-1.png
@@ -42,3 +42,5 @@ The article [Customizing preconfigured solutions][lnk-customize] describes some 
 [img-telemetry]: ./media/iot-suite-visualize-connecting/telemetry.png
 [lnk-customize]: ../articles/iot-suite/
 [lnk-dev-messaging]: ../articles/iot-hub/iot-hub-devguide.md#messaging
+
+<!---HONumber=Nov15_HO4-->

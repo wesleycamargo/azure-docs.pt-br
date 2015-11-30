@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="09/16/2015"
+	ms.date="11/13/2015"
 	ms.author="jroth" />
 
 # Configurar um ouvinte externo para grupos de disponibilidade do AlwaysOn no Azure
@@ -29,15 +29,19 @@ Este tópico mostra como configurar um ouvinte para um grupo de disponibilidade 
 
 O seu grupo de disponibilidade pode conter somente réplicas locais, somente no Azure ou locais e no Azure para configurações híbridas. As réplicas do Azure podem residir na mesma região ou em várias regiões usando várias redes virtuais (VNets). As etapas a seguir pressupõem que você já tenha [configurado um grupo de disponibilidade](virtual-machines-sql-server-alwayson-availability-groups-gui.md), mas não configurou um ouvinte.
 
-Observe as seguintes limitações no ouvinte do grupo de disponibilidade no Azure ao implantar usando o endereço VIP público do serviço de nuvem:
+## Diretrizes e limitações para ouvintes externos
+
+Observe as seguintes limitações sobre o ouvinte do grupo de disponibilidade no Azure ao implantar usando o endereço VIP público do serviço de nuvem:
 
 - Há suporte para o ouvinte do grupo de disponibilidade no Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2.
 
 - O aplicativo cliente deve residir em um serviço de nuvem diferente daquele que contém as VMs do grupo de disponibilidade. O Azure não dá suporte a retorno de servidor direto com cliente e servidor no mesmo serviço de nuvem.
 
-- Há suporte a somente um ouvinte de grupo de disponibilidade por serviço de nuvem porque o ouvinte está configurado para usar o endereço VIP de serviço de nuvem. Observe que essa limitação ainda está em vigor apesar de o Azure agora dá suporte à criação de vários endereços VIP em um determinado serviço de nuvem.
+- Por padrão, as etapas neste artigo mostram como configurar um ouvinte para usar o endereço de IP Virtual (VIP) do serviço de nuvem. No entanto, é possível reservar e criar vários endereços VIP para seu serviço de nuvem. Isso permite que você use as etapas neste artigo para criar vários ouvintes associados a cada VIP diferente. Para obter informações sobre como criar vários endereços VIP, consulte [VIPs múltiplos por serviço de nuvem](load-balancer-multivip.md).
 
 - Se você estiver criando um ouvinte para um ambiente híbrido, a rede local deve ter conectividade com a Internet pública além da VPN site a site com a rede virtual do Azure. Quando estiver na sub-rede do Azure, o ouvinte do grupo de disponibilidade será alcançável somente pelo endereço IP público do respectivo serviço de nuvem.
+
+- Não há suporte para criar um ouvinte externo no mesmo serviço de nuvem em que você também tem um ouvinte externo usando o Balanceador de Carga Interna (ILB).
 
 ## Determinar a acessibilidade do Ouvinte
 
@@ -126,4 +130,4 @@ Se as réplicas do AlwaysOn estiverem em sub-redes diferentes, os clientes dever
 
 [AZURE.INCLUDE [Ouvinte das próximas etapas](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

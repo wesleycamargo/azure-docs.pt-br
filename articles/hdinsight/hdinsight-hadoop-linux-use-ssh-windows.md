@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/26/2015"
+   ms.date="11/16/2015"
    ms.author="larryfr"/>
 
 #Usar SSH com Hadoop baseado em Linux no HDInsight do Windows
@@ -44,10 +44,6 @@ SSH é um utilitário para efetuar login e executar remotamente comandos em um s
 ###Nome de usuário do SSH
 
 Um nome de usuário SSH é o nome usado para autenticação no cluster HDInsight. Quando você especifica um nome de usuário SSH durante a criação do cluster, esse usuário é criado em todos os nós no cluster. Depois que o cluster for criado, você poderá usar esse nome de usuário para se conectar aos nós de cabeçalho do cluster HDInsight. Nos nós de cabeçalho, você poderá se conectar aos nós de trabalho individuais.
-
-> [AZURE.NOTE]O nome de usuário SSH deve ser exclusivo. Como um nome de usuário SSH cria uma conta de usuário no cluster HDInsight, ele não pode entrar em conflito com os usuários existentes criados pelo HDInsight. Estes são os nomes reservados para uso por serviços em execução no cluster HDInsight e que não podem ser usados como o nome de usuário SSH:
->
-> root, hdiuser, storm, hbase, ubuntu, zookeeper, hdfs, yarn, mapred, hbase, hive, oozie, falcon, sqoop, admin, tez, hcat, hdinsight-zookeeper.
 
 ###Senha ou chave pública SSH
 
@@ -91,17 +87,17 @@ Use as informações a seguir se você planeja usar chaves SSH com o cluster. Se
 
 Ao criar um cluster HDInsight baseado em Linux, você deve fornecer a chave pública criada anteriormente. Em clientes baseados em Windows, há duas maneiras de criar um cluster HDInsight baseado em Linux:
 
-* **Portal de visualização do azure**: usa um portal baseado na Web para criar o cluster.
+* **Portal de visualização do Azure** – Usa um portal baseado na Web para criar o cluster.
 
 * **CLI do Azure para Mac, Linux e Windows**: usa comandos de linha de comando para criar o cluster.
 
-Cada um desses métodos exigirá a chave pública. Para obter informações completas sobre como criar um cluster HDInsight baseado em Linux, consulte [Provisionar clusters HDInsight baseados em Linux](hdinsight-hadoop-provision-linux-clusters.md).
+Cada um desses métodos exigirá a chave pública. Para obter informações completas sobre como criar um cluster HDInsight baseado em Linux, veja [Provisionar clusters HDInsight baseados em Linux](hdinsight-hadoop-provision-linux-clusters.md).
 
 ###Portal de Visualização do Azure
 
-Ao usar o [Portal de visualização do Azure][preview-portal] para criar um cluster HDInsight baseado em Linux, você deve inserir um **Nome de usuário SSH** e optar por inserir uma **SENHA** ou **CHAVE PÚBLICA SSH**.
+Ao usar o [portal de visualização do Azure][preview-portal] para criar um cluster HDInsight baseado em Linux, você deverá inserir um **Nome de usuário SSH** e optar por inserir uma **SENHA** ou uma **CHAVE PÚBLICA SSH**.
 
-Se selecionar **CHAVE PÚBLICA SSH**, você poderá colar a chave pública (exibida no campo __Chave pública para colagem no arquivo de OpenSSH authorized\_keys__ no PuttyGen,) no campo __Chave Pública SSH__ ou selecionar a opção __Selecionar um arquivo__ para procurar e selecionar o arquivo que contém a chave pública.
+Se você selecionar **CHAVE PÚBLICA SSH**, você poderá colar a chave pública (exibida no campo __Chave pública para colar no arquivo authorized\_keys do OpenSSH__ no PuttyGen) no campo __Chave Pública SSH__ ou selecionar a opção __Selecionar um arquivo__ para procurar e selecionar o arquivo que contém a chave pública.
 
 ![Imagem de formulário solicitando uma chave pública](./media/hdinsight-hadoop-linux-use-ssh-windows/ssh-key.png)
 
@@ -111,7 +107,7 @@ Isso cria um logon para o usuário especificado e permite a autenticação de se
 
 Você pode usar a [CLI do Azure para Mac, Linux e Windows](../xplat-cli-install.md) para criar um novo cluster usando o comando `azure hdinsight cluster create`.
 
-Para obter mais informações sobre como usar esse comando, consulte [Provisionar clusters Hadoop em Linux no HDInsight usando opções personalizadas](hdinsight-hadoop-provision-linux-clusters.md).
+Para obter mais informações sobre como usar esse comando, veja [Provisionar clusters Hadoop do Linux no HDInsight usando opções personalizadas](hdinsight-hadoop-provision-linux-clusters.md).
 
 ##Conectar-se a um cluster HDInsight baseado em Linux
 
@@ -137,7 +133,7 @@ Para obter mais informações sobre como usar esse comando, consulte [Provisiona
 
 6. Quando solicitado, insira o usuário que você inseriu ao criar o cluster. Se você tiver fornecido um senha para o usuário, você deverá inseri-la também.
 
-> [AZURE.NOTE]As etapas acima pressupõem que você esteja usando a porta 22, que conectará ao nó de cabeçalho 0 no cluster HDInsight. Ao usar a porta 23, você se conectará ao nó de cabeçalho 1. Para obter mais informações sobre nós de cabeçalho, consulte [Disponibilidade e confiabilidade de clusters Hadoop no HDInsight](hdinsight-high-availability-linux.md).
+> [AZURE.NOTE]As etapas acima pressupõem que você esteja usando a porta 22, que conectará ao nó de cabeçalho 0 no cluster HDInsight. Ao usar a porta 23, você se conectará ao nó de cabeçalho 1. Para obter mais informações sobre nós de cabeçalho, veja [Disponibilidade e confiabilidade de clusters Hadoop no HDInsight](hdinsight-high-availability-linux.md).
 
 ###Conectar a nós de trabalho
 
@@ -145,7 +141,7 @@ Os nós de trabalho não são diretamente acessíveis de fora do datacenter do A
 
 Se você forneceu uma chave SSH quando criou sua conta de usuário, execute as seguintes etapas para usar a chave privada ao autenticar no cluster, se quiser conectar-se aos nós de trabalho.
 
-1. Instale o Pageant de [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Esse utilitário é usado para armazenar em cache as chaves SSH para PuTTY.
+1. Instale o Pageant em [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Esse utilitário é usado para armazenar em cache as chaves SSH para PuTTY.
 
 2. Execute o Pageant. Ele será minimizado em um ícone na bandeja de status. Clique com o botão direito do mouse no ícone e selecione **Adicionar Chave**.
 
@@ -181,9 +177,9 @@ Se você forneceu uma chave SSH quando criou sua conta de usuário, execute as s
 
     > [AZURE.NOTE]Se você usar uma senha para autenticação da sessão SSH, será solicitado que você digite a senha novamente. Se você usar uma chave SSH, a conexão deverá terminar sem prompts.
 
-9. Estabelecida a sessão, o prompt de sua sessão PuTTY mudará `username@headnode` para `username@workernode` para indicar que você está conectado ao nó de trabalho. Todo comando executado neste momento será executado no nó de trabalho.
+9. Estabelecida a sessão, o prompt de sua sessão PuTTY mudará `username@hn0-clustername` para `username@wn0-clustername` para indicar que você está conectado ao nó de trabalho. Todo comando executado neste momento será executado no nó de trabalho.
 
-10. Quando terminar de executar ações no nó de trabalho, use o comando `exit` para fechar a sessão para o nó de trabalho. Você voltará para o prompt `username@headnode`.
+10. Quando terminar de executar ações no nó de trabalho, use o comando `exit` para fechar a sessão para o nó de trabalho. Você voltará para o prompt `username@hn0-clustername`.
 
 ##Adicionar mais contas
 
@@ -219,7 +215,7 @@ O SSH pode ser usado para criar um túnel de solicitações locais, como solicit
 
 > [AZURE.IMPORTANT]Um túnel SSH é um requisito para acessar a interface do usuário da Web para alguns serviços do Hadoop. Por exemplo, a interface do usuário de Histórico de trabalho ou a interface do usuário do Gerenciador de Recursos só podem ser acessadas usando um túnel SSH.
 
-Para obter mais informações sobre como criar e usar um túnel SSH, consulte [Usar um túnel SSH para acessar a interface do usuário da Web Ambari, ResourceManager, JobHistory, NameNode, Oozie e outras interfaces do usuário da Web](hdinsight-linux-ambari-ssh-tunnel.md).
+Para obter mais informações sobre como criar e usar um túnel SSH, veja [Usar um túnel SSH para acessar a interface do usuário da Web Ambari, ResourceManager, JobHistory, NameNode, Oozie e outras interfaces do usuário da Web](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ##Próximas etapas
 
@@ -233,4 +229,4 @@ Agora que você entende como autenticar usando uma chave SSH, aprenda a usar Map
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

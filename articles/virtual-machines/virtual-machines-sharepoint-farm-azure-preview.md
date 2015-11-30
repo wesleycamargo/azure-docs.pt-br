@@ -20,7 +20,7 @@
 # Criar farm do SharePoint Server
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo clássico.
- 
+
 Com o Marketplace do portal de Visualização do Microsoft Azure, você pode criar rapidamente farms pré-configurados do SharePoint Server 2013. Isso pode economizar muito tempo quando necessitar de um farm SharePoint básico ou de alta disponibilidade para um ambiente de desenvolvimento e teste, ou se estiver avaliando o SharePoint Server 2013 como uma solução de colaboração para a sua organização.
 
 > [AZURE.NOTE]O item **Farm do SharePoint Server** no Azure Marketplace do portal de Visualização do Azure foi removido.
@@ -69,4 +69,4 @@ No site Administração central do SharePoint, é possível configurar o My site
 
 [Arquiteturas do Microsoft Azure para SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

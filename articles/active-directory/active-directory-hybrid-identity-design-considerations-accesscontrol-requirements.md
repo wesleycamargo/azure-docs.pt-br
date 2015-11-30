@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Considerações de design da identidade híbrida do Active Directory do Azure - determinar os requisitos de controle de acesso | Microsoft Azure"
+	pageTitle="Considerações sobre design da identidade híbrida do Active Directory do Azure - determinar os requisitos de controle de acesso | Microsoft Azure"
 	description="Aborda os pilares da identidade e requisitos de acesso de identificação de recursos para usuários em um ambiente híbrido."
 	documentationCenter=""
 	services="active-directory"
@@ -60,13 +60,13 @@ Embora a autenticação e a autorização sejam os principais elementos para hab
  - Em caso afirmativo, onde estão localizados os aplicativos (no local ou na nuvem)?
  - Em caso afirmativo, onde estão localizados os recursos de destino (no local ou na nuvem)?
  
->[AZURE.NOTE]Faça anotações de cada resposta e entenda o raciocínio por trás da resposta. [Definir a estratégia de proteção de dados](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) abordará as opções disponíveis e vantagens/desvantagens de cada opção. Depois de responder a essas perguntas, você selecionará a opção que melhor se ajusta às necessidades da sua empresa.
+>[AZURE.NOTE]Faça anotações de cada resposta e entenda o raciocínio por trás da resposta. [Definir a estratégia de proteção de dados](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) abordará as opções disponíveis e as vantagens/desvantagens de cada opção. Depois de responder a essas perguntas, você selecionará a opção que melhor se ajusta às necessidades de sua empresa.
 
 ## Próximas etapas
 
 [Determinar requisitos de resposta a incidentes](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
 
 ## Consulte também
-[Visão geral de considerações de design](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

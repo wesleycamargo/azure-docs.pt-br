@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/23/2015"
+   ms.date="10/06/2015"
    ms.author="lodipalm"/>
 
 # Usar o Power BI com o SQL Data Warehouse
@@ -63,4 +63,4 @@ O nome de servidor totalmente qualificado e o nome do banco de dados podem ser e
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

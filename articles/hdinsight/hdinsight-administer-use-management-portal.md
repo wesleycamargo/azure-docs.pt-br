@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/04/2015"
+	ms.date="11/16/2015"
 	ms.author="jgao"/>
 
 # Gerenciar clusters Hadoop no HDInsight usando o portal de visualização do Azure
@@ -64,7 +64,7 @@ O HDInsight trabalha com uma ampla variedade de componentes do Hadoop. Para obte
 - Use os parâmetros de personalização do cluster no SDK do .NET do HDInsight ou no PowerShell do Azure durante a criação do cluster. Essas alterações de configuração são preservadas durante o tempo de vida do cluster e não são afetadas pelas novas imagens do nó do cluster que a plataforma do Azure refaz periodicamente para manutenção. Para mais informações sobre como usar os parâmetros de personalização do cluster, consulte [Criar clusters do HDInsight](hdinsight-provision-clusters.md).
 - Alguns componentes nativos do Java, como Mahout e Cascading, podem ser executados no cluster como arquivos JAR. Esses arquivos JAR podem ser distribuídos para o armazenamento de Blob do Azure e enviados aos clusters HDInsight por meio de mecanismos de envio de trabalho do Hadoop. Para obter mais informações, consulte [Enviar trabalhos do Hadoop de forma programática](hdinsight-submit-hadoop-jobs-programmatically.md).
 
-	>[AZURE.NOTE] Se você tiver problemas para implantar arquivos JAR nos clusters do HDInsight ou ao chamar arquivos JAR nesses clusters, entre em contato com o [Suporte da Microsoft](http://azure.microsoft.com/support/options/).
+	>[AZURE.NOTE]Se você tiver problemas para implantar arquivos JAR nos clusters do HDInsight ou ao chamar arquivos JAR nesses clusters, entre em contato com o [Suporte da Microsoft](http://azure.microsoft.com/support/options/).
 
 	> O Cascading não tem suporte do HDInsight e não é qualificado para o Suporte da Microsoft. Para obter as listas dos componentes suportados, consulte [O que há de novo nas versões de cluster fornecidas pelo HDInsight?](hdinsight-component-versioning.md)
 
@@ -101,11 +101,11 @@ Não há suporte para a instalação de software personalizado no cluster usando
 	- **Início Rápido (![ícone de nuvem e raio = início rápido](./media/hdinsight-administer-use-portal-linux/quickstart.png))**: exibe informações que ajudarão você a começar a usar o HDInsight.
 	- **Usuários (![ícone de usuários](./media/hdinsight-administer-use-portal-linux/users.png))**: permite definir permissões para o _gerenciamento de portal_ do cluster para outros usuários em sua assinatura do Azure.
 	
-		> [AZURE.IMPORTANT] Isso _só_ afeta o acesso e as permissões para o cluster no portal de visualização do Azure e não afeta quem pode se conectar ao cluster HDInsight ou enviar trabalhos a ele.
+		> [AZURE.IMPORTANT]Isso _só_ afeta o acesso e as permissões para o cluster no portal de visualização do Azure e não afeta quem pode se conectar ao cluster HDInsight ou enviar trabalhos a ele.
 	- **Marcas (![ícone de marca](./media/hdinsight-administer-use-portal-linux/tags.png))**: as marcas permitem definir pares de chave/valor para definir uma taxonomia personalizada dos seus serviços de nuvem. Por exemplo, você pode criar uma chave chamada __projeto__ e usar um valor comum para todos os serviços associados a um projeto específico.
 	- **Documentação**: links para a documentação do Azure HDInsight.
 	
-	> [AZURE.IMPORTANT] Para gerenciar os serviços fornecidos pelo cluster HDInsight, você deve usar o Ambari Web ou a API REST do Ambari. Para saber mais sobre como usar o Ambari, consulte [Gerenciar clusters HDInsight usando o Ambari](hdinsight-hadoop-manage-ambari.md).
+	> [AZURE.IMPORTANT]Para gerenciar os serviços fornecidos pelo cluster HDInsight, você deve usar o Ambari Web ou a API REST do Ambari. Para saber mais sobre como usar o Ambari, consulte [Gerenciar clusters HDInsight usando o Ambari](hdinsight-hadoop-manage-ambari.md).
 
 	**Uso**:
 	
@@ -123,6 +123,8 @@ Não há suporte para a instalação de software personalizado no cluster usando
 	- **Dimensionar o Cluster**: aumente e diminua o número de nós de trabalho do cluster.
 	- **Área de Trabalho Remota**: habilite e desabilite o acesso da área de trabalho remota (RDP) e configure o nome de usuário da RDP. O nome de usuário da RDP deve ser diferente do nome de usuário de HTTP.
 	- **Parceiro de Registro**:
+    
+    > [AZURE.NOTE]Esta é uma lista genérica de configurações disponíveis; nem todas elas estarão presentes para todos os tipos de cluster.
 
 6. Clique em **Propriedades**:
 
@@ -155,7 +157,7 @@ Consulte também [Pausar/desligar clusters](#pauseshut-down-clusters).
 ##Dimensionar clusters
 O recurso de dimensionamento de clusters permite que você altere o número de nós de trabalhador usados por um cluster em execução no Azure HDInsight sem precisar recriar o cluster.
 
->[AZURE.NOTE] Somente clusters HDInsight versão 3.1.3 ou superior são compatíveis. Se não tiver certeza quanto à versão de seu cluster, você poderá verificar a página Propriedades. Consulte [Familiarize-se com a interface do portal de cluster](hdinsight-adminster-use-management-portal/#Get-familiar-with-the-cluster-portal-interface).
+>[AZURE.NOTE]Somente clusters HDInsight versão 3.1.3 ou superior são compatíveis. Se não tiver certeza quanto à versão de seu cluster, você poderá verificar a página Propriedades. Consulte [Familiarize-se com a interface do portal de cluster](hdinsight-adminster-use-management-portal/#Get-familiar-with-the-cluster-portal-interface).
 
 O impacto da alteração do número de nós de dados em cada tipo de cluster com suporte do HDInsight:
 
@@ -247,7 +249,7 @@ Os clusters HDInsight têm os seguintes serviços Web HTTP (todos esses serviço
 
 Por padrão, esses serviços são concedidos para acesso. Você pode revogar/conceder o acesso no portal de Visualização do Azure.
 
->[AZURE.NOTE] Ao conceder/revogar o acesso, você redefinirá o nome de usuário de cluster e a senha.
+>[AZURE.NOTE]Ao conceder/revogar o acesso, você redefinirá o nome de usuário de cluster e a senha.
 
 **Para conceder/revogar acesso aos serviços Web HTTP**
 
@@ -310,17 +312,17 @@ O console de Consulta do HDInsight inclui os seguintes recursos:
 
 ##Execute consultas Hive
 
-Para executar trabalhos do Hive a partir do Portal de visualização, clique em **Editor Hive** no console de Consulta do HDInsight. Consulte [Abrir o console de Consulta do HDInsight](#open-hdinsight-query-console).
+Para executar trabalhos do Hive a partir do Portal de visualização, clique em **Editor Hive** no console de Consulta do HDInsight. Consulte [Abrir o console de consulta do HDInsight](#open-hdinsight-query-console).
 
 ##Monitorar trabalhos
 
-Para monitorar trabalhos a partir do Portal de visualização, clique em **Histórico de Trabalhos** no console de Consulta do HDInsight. Consulte [Abrir o console de Consulta do HDInsight](#open-hdinsight-query-console).
+Para monitorar trabalhos a partir do Portal de visualização, clique em **Histórico de Trabalhos** no console de Consulta do HDInsight. Consulte [Abrir o console de consulta do HDInsight](#open-hdinsight-query-console).
 
 ##Procurar arquivos
 
-Para procurar arquivos armazenados na conta de armazenamento padrão e as contas de armazenamento vinculadas, clique em **Navegador de Arquivos** no console de Consulta do HDInsight. Consulte [Abrir o console de Consulta do HDInsight](#open-hdinsight-query-console).
+Para procurar arquivos armazenados na conta de armazenamento padrão e as contas de armazenamento vinculadas, clique em **Navegador de Arquivos** no console de Consulta do HDInsight. Consulte [Abrir o console de consulta do HDInsight](#open-hdinsight-query-console).
 
-Você também pode usar o utilitário **Procurar no sistema de arquivos** a partir da **IU do Hadoop** no console do HDInsight. Consulte [Abrir console de Consulta do HDInsight](#open-hdinsight-query-console).
+Você também pode usar o utilitário **Procurar no sistema de arquivos** a partir da **IU do Hadoop** no console do HDInsight. Consulte [Abrir o console de consulta do HDInsight](#open-hdinsight-query-console).
 
 
 
@@ -333,11 +335,11 @@ A seção __Uso__ da folha do cluster HDInsight exibe informações sobre o núm
 
 ##Abrir a IU do Hadoop
 
-Para monitorar o cluster, procure no sistema de arquivos e verifique os logs, clique em **IU do Hadoop** no console de Consulta do HDInsight. Consulte [Abrir o console de Consulta do HDInsight](#open-hdinsight-query-console).
+Para monitorar o cluster, procure no sistema de arquivos e verifique os logs, clique em **IU do Hadoop** no console de Consulta do HDInsight. Consulte [Abrir o console de consulta do HDInsight](#open-hdinsight-query-console).
 
 ##Abrir a IU do Yarn
 
-Para usar a IU do Yarn, clique em **IU do Hadoop** no console de Consulta do HDInsight. Consulte [Abrir o console de Consulta do HDInsight](#open-hdinsight-query-console).
+Para usar a IU do Yarn, clique em **IU do Hadoop** no console de Consulta do HDInsight. Consulte [Abrir o console de consulta do HDInsight](#open-hdinsight-query-console).
 
 ##Conectar-se aos clusters usando o RDP
 
@@ -353,7 +355,7 @@ As credenciais do cluster que você forneceu em sua criação concedem acesso ao
 	![hdinsight habilitar desabilitar configurar área de trabalho remota](./media/hdinsight-administer-use-management-portal/hdinsight.portal.remote.desktop.png)
 
 	O valor padrão para Expira em é uma semana.
-> [AZURE.NOTE] Você também pode usar o SDK do .NET HDInsight para habilitar a área de trabalho remota em um cluster. Use o **EnableRdp** método no objeto de cliente HDInsight da seguinte maneira: **client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. Da mesma forma, para desabilitar a área de trabalho remota no cluster, você pode usar **client.DisableRdp(clustername, location)**. Para obter mais informações sobre esses métodos, consulte [Referência do SDK do .NET HDInsight](http://go.microsoft.com/fwlink/?LinkId=529017). Isso é aplicável apenas a clusters do HDInsight em execução no Windows.
+> [AZURE.NOTE]Você também pode usar o SDK do .NET HDInsight para habilitar a área de trabalho remota em um cluster. Use o **EnableRdp** método no objeto de cliente HDInsight da seguinte maneira: **client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. Da mesma forma, para desabilitar a área de trabalho remota no cluster, você pode usar **client.DisableRdp(clustername, location)**. Para obter mais informações sobre esses métodos, consulte [Referência do SDK do .NET HDInsight](http://go.microsoft.com/fwlink/?LinkId=529017). Isso é aplicável apenas a clusters do HDInsight em execução no Windows.
 
 **Para conectar-se ao cluster usando o RDP**
 
@@ -398,4 +400,4 @@ Neste artigo, você aprendeu a criar um cluster HDInsight usando o portal do de 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Linha de comando do Hadoop"
 
-<!----HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

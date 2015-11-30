@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/05/2015"
+   ms.date="11/13/2015"
    ms.author="nitinme"/>
 
 # Introdução ao Repositório Azure Data Lake usando a linha de comando do Azure
@@ -90,7 +90,7 @@ Por exemplo:
 
 É possível carregar seus dados no Repositório Data Lake diretamente no nível da raiz ou em uma pasta que você criou na conta. Os trechos de código abaixo demonstram como carregar alguns dados de exemplo no diretório (**mynewdirectory**) criado na seção anterior.
 
-Se estiver procurando alguns dados de exemplo para carregar, é possível obter a pasta **Dados da Ambulância** no [Repositório Git do Azure Data Lake](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData). Baixe o arquivo e armazene-o em um diretório local no computador, como C:\\sampledata.
+Se estiver procurando alguns dados de exemplo para carregar, é possível obter a pasta **Dados da Ambulância** no [Repositório Git do Azure Data Lake](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData). Baixe o arquivo e armazene-o em um diretório local no computador, como C:\\sampledata.
 
 	azure datalake store filesystem import <dataLakeStoreAccountName> "<source path>" "<destination path>"
 
@@ -192,4 +192,4 @@ Quando solicitado, insira **Y** para excluir a conta.
 
 [azure-command-line-tools]: ../xplat-cli-install.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

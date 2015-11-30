@@ -7,4 +7,4 @@ Para proteger seus pontos de extremidade, você deve restringir o acesso apenas 
 
 	 Isso garante que todas as operações feitas na tabela exijam um usuário autenticado, que é obrigatório neste tutorial. Você pode definir permissões diferentes em cada operação para oferecer suporte ao seu cenário específico.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

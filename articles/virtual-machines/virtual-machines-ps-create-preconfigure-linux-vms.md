@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="11/11/2015"
 	ms.author="cynthn"/>
 
 # Criar e pré-configurar uma máquina virtual do Linux usando o Azure PowerShell
@@ -27,31 +27,35 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
  
+Estas etapas mostram como criar uma máquina virtual do Linux usando uma abordagem de preenchimento de lacunas para a criação de conjuntos de comandos do Azure PowerShell. Esta abordagem poderá ser útil se você for novo no Azure PowerShell ou apenas quiser saber quais valores especificar para uma configuração bem-sucedida.
 
-Estas etapas mostram como usar um conjunto de comandos do Azure PowerShell para criar e pré-configurar uma máquina virtual do Linux usando o modelo de gerenciamento clássico. Você pode usar este processo para criar rapidamente um conjunto de comandos para uma nova máquina virtual baseada em Linux e expandir uma implantação existente ou criar vários conjuntos de comandos que criam rapidamente um ambiente personalizado para teste/desenvolvimento ou profissionais de TI.
+Para criar o conjunto de comandos, copie os conjuntos de blocos de comando em um arquivo de texto ou no ISE do Windows PowerShell; em seguida, preencha os valores das variáveis e remova os caracteres < and >. Veja os dois [exemplos](#examples) no final deste artigo para ter uma ideia do resultado final.
 
-Estas etapas seguem uma abordagem de preencher lacunas para criar conjuntos de comandos do Azure PowerShell. Esta abordagem poderá ser útil se você for novo no Azure PowerShell ou apenas quiser saber quais valores especificar para uma configuração bem-sucedida. Os usuários avançados do Azure PowerShell podem pegar os comandos e substituí-los por seus próprios valores de variáveis (as linhas que começam com "$").
+Para ver o tópico complementar sobre máquinas virtuais baseadas em Windows, confira [Usar o Azure PowerShell para criar máquinas virtuais baseadas em Windows](virtual-machines-ps-create-preconfigure-windows-vms.md).
 
-Para o tópico complementar sobre como configurar máquinas virtuais baseadas em Windows, confira [Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Windows](virtual-machines-ps-create-preconfigure-windows-vms.md).
+## Instale o Azure PowerShell
 
-## Etapa 1: instalar o Azure PowerShell
+Se você ainda não fez isso, veja como [instalar e configurar o Azure PowerShell](../install-configure-powershell.md). Em seguida, abra um prompt de comando do PowerShell do Azure.
 
-Se você ainda não fez isso, use as instruções em [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md) para instalar o PowerShell do Azure no computador local. Em seguida, abra um prompt de comando do PowerShell do Azure.
+## Definir a assinatura e a conta de armazenamento
 
-## Etapa 2: definir a assinatura e a conta de armazenamento
+Defina a assinatura e a conta de armazenamento do Azure executando os comandos a seguir no prompt de comando do Azure PowerShell.
 
-Defina a assinatura e a conta de armazenamento do Azure executando os comandos a seguir no prompt de comando do Azure PowerShell. Substitua tudo que estiver entre aspas, inclusive os caracteres < and >, pelos nomes corretos.
+Você pode obter o nome de assinatura correto na propriedade **SubscriptionName** da saída do comando **Get-AzureSubscription**.
+
+Você pode obter o nome da conta de armazenamento correto na propriedade **Label** da saída do comando **Get-AzureStorageAccount**, após emitir o comando Select-AzureSubscription.
+
+Substitua tudo que estiver entre aspas, inclusive os caracteres < and >, pelos nomes corretos.
 
 	$subscr="<subscription name>"
 	$staccount="<storage account name>"
 	Select-AzureSubscription -SubscriptionName $subscr –Current
 	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-Você pode obter o nome da assinatura correto na propriedade **SubscriptionName** da saída do comando **Get-AzureSubscription**. Você pode obter o nome da conta de armazenamento correto na propriedade **Label** da saída do comando **Get-AzureStorageAccount**, depois de emitir o comando **Select-AzureSubscription**. Você também pode armazenar esses comandos em um arquivo de texto para uso futuro.
 
-## Etapa 3: determinar a ImageFamily
+## Localizar a imagem que deseja usar
 
-Em seguida, você precisa determinar o valor de ImageFamily para a imagem específica correspondente à máquina virtual do Azure que deseja criar. Você pode obter a lista de valores de ImageFamily disponíveis com o comando a seguir.
+Em seguida, especifique o valor ImageFamily para a imagem que deseja usar. Você pode obter a lista de valores de ImageFamily disponíveis com o comando a seguir.
 
 	Get-AzureVMImage | select ImageFamily -Unique
 
@@ -66,19 +70,17 @@ Abra uma nova instância do editor de texto de sua escolha ou uma instância do 
 	$family="<ImageFamily value>"
 	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
-## Etapa 4: criar o conjunto de comandos
-
-Compile o restante do seu conjunto de comandos copiando um dos seguintes conjuntos de blocos de comandos no novo arquivo de texto ou no ISE do PowerShell e, em seguida, preenchendo os valores das variáveis e removendo os caracteres < and >. Veja os dois [exemplos](#examples) no final deste artigo para ter uma ideia do resultado final.
+## Especificar o nome, o tamanho e, opcionalmente, o conjunto de disponibilidade
 
 Comece seu conjunto de comandos escolhendo um destes dois blocos de comandos (obrigatório).
 
-Opção 1: especifique um nome e um tamanho de máquina virtual.
+**Opção 1**: especifique um nome e um tamanho de máquina virtual.
 
 	$vmname="<machine name>"
 	$vmsize="<Specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
 	$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
-Opção 2: especifique um nome, o tamanho e o nome do conjunto de disponibilidade.
+**Opção 2**: especifique um nome, o tamanho e o nome do conjunto de disponibilidade.
 
 	$vmname="<machine name>"
 	$vmsize="<Specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
@@ -87,22 +89,28 @@ Opção 2: especifique um nome, o tamanho e o nome do conjunto de disponibilidad
 
 Para os valores de InstanceSize para máquinas virtuais da série D, DS ou G, confira [Tamanhos de máquina virtual e serviços de nuvem no Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
 
-Use os comandos a seguir para especificar o nome de usuário inicial do Linux e a senha (obrigatório). Escolha uma senha forte. Para verificar a força da senha, consulte [Verificador de senha: usando senhas fortes](https://www.microsoft.com/security/pc-security/password-checker.aspx).
+
+## Configurar as opções de segurança de acesso do usuário
+
+**Opção 1**: especifique o nome e a senha do usuário inicial do Linux (obrigatório). Escolha uma senha forte. Para verificar a força da senha, consulte [Verificador de senha: usando senhas fortes](https://www.microsoft.com/security/pc-security/password-checker.aspx).
 
 	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."
 	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 
-Opcionalmente, especifique um conjunto de pares de chaves SSH que já tenham sido implantadas na assinatura.
+**Opção 2**: especifique um conjunto de pares de chaves SSH que já foram implantadas na assinatura.
 
 	$vm1 | Add-AzureProvisioningConfig -Linux -SSHKeyPairs "<SSH key pairs>"
 
-Para obter mais informações, veja [Como usar o SSH com o Linux no Azure](virtual-machines-linux-use-ssh-key.md).
+Para saber mais, confira [Como usar o SSH com o Linux no Azure](virtual-machines-linux-use-ssh-key.md).
 
-Opcionalmente, especifique uma lista de pares de chaves SSH que já tenham sido implantadas na assinatura.
+**Opção 3**: especifique uma lista de chaves SSH públicas que já foram implantadas na assinatura.
 
 	$vm1 | Add-AzureProvisioningConfig -Linux - SSHPublicKeys "<SSH public keys>"
 
-Para ver outras opções de pré-configuração para máquinas virtuais baseadas em Linux, confira a sintaxe para o conjunto de parâmetros **Linux** em [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx).
+Para ver outras opções de pré-configuração para máquinas virtuais baseadas em Linux, confira a sintaxe para o conjunto de parâmetros do **Linux** em [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx).
+
+
+## Opcional: atribuir um DIP estático
 
 Opcionalmente, atribua um endereço IP específico, conhecido como um DIP estático, à máquina virtual.
 
@@ -112,11 +120,16 @@ Você pode verificar se um endereço IP específico está disponível com o coma
 
 	Test-AzureStaticVNetIP –VNetName <VNet name> –IPAddress <IP address>
 
-Opcionalmente, atribua a máquina virtual a uma sub-rede específica de uma rede virtual do Azure.
+## Opcional: atribuir a máquina virtual a uma sub-rede específica 
+
+Atribua a máquina virtual a uma sub-rede específica de uma Rede Virtual do Azure.
 
 	$vm1 | Set-AzureSubnet -SubnetNames "<name of the subnet>"
 
-Opcionalmente, adicione um disco de dados único à máquina virtual.
+	
+## Opcional: adicionar um disco de dados
+	
+Adicione o seguinte conteúdo ao conjunto de comandos para adicionar um disco de dados à máquina virtual.
 
 	$disksize=<size of the disk in GB>
 	$disklabel="<the label on the disk>"
@@ -124,7 +137,9 @@ Opcionalmente, adicione um disco de dados único à máquina virtual.
 	$hcaching="<Specify one: ReadOnly, ReadWrite, None>"
 	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB $disksize -DiskLabel $disklabel -LUN $lun -HostCaching $hcaching
 
-Opcionalmente, adicione a máquina virtual a um conjunto existente de balanceamento de carga para tráfego externo.
+## Opcional: adicionar a máquina virtual a um balanceamento de carga existente 
+
+Adicione o seguinte conteúdo ao conjunto de comandos para adicionar a máquina virtual a um conjunto de balanceamento de carga de tráfego externo.
 
 	$prot="<Specify one: tcp, udp>"
 	$localport=<port number of the internal port>
@@ -136,34 +151,34 @@ Opcionalmente, adicione a máquina virtual a um conjunto existente de balanceame
 	$probepath="<URL path for probe traffic>"
 	$vm1 | Add-AzureEndpoint -Name $endpointname -Protocol $prot -LocalPort $localport -PublicPort $pubport -LBSetName $lbsetname -ProbeProtocol $probeprotocol -ProbePort $probeport -ProbePath $probepath
 
-Finalmente, inicie o processo de criação de máquina virtual escolhendo um dos blocos de comandos a seguir (obrigatório).
+## Decidir como iniciar o processo de criação de máquina virtual 
 
-Opção 1: criar a máquina virtual em um serviço de nuvem existente.
+Adicione um bloco ao conjunto de comandos para iniciar o processo de criação da máquina virtual, escolhendo um dos seguintes blocos de comando.
+
+**Opção 1**: crie a máquina virtual em um serviço de nuvem existente.
 
 	New-AzureVM –ServiceName "<short name of the cloud service>" -VMs $vm1
 
-O nome curto do serviço de nuvem é o nome que aparece na lista de Serviços de Nuvem no Portal do Azure ou na lista de grupos de recursos no Portal de Visualização do Azure.
+O nome curto do serviço de nuvem é o nome que aparece na lista de Serviços de Nuvem no Portal do Azure ou na lista de grupos de recursos no Portal de visualização do Azure.
 
-Opção 2: criar a máquina virtual em um serviço de nuvem e em uma rede virtual existentes.
+**Opção 2**: crie a máquina virtual em um serviço de nuvem e em uma rede virtual existentes.
 
 	$svcname="<short name of the cloud service>"
 	$vnetname="<name of the virtual network>"
 	New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
-## Etapa 5: executar o conjunto de comandos
+## Executar o conjunto de comandos
 
-Examine o conjunto de comandos do PowerShell do Azure criado em seu editor de texto ou o ISE do PowerShell, formado por vários blocos de comandos, da Etapa 4. Certifique-se de que você especificou todas as variáveis necessárias e que elas tenham os valores corretos. Verifique também se você removeu todos os caracteres < and >.
+Revise o conjunto de comandos do Azure PowerShell criado no editor de texto ou no ISE do Windows PowerShell, verifique se você especificou todas as variáveis e se elas têm os valores corretos. Verifique também se você removeu todos os caracteres < and >.
 
-Se você estiver usando um editor de texto, copie o conjunto de comandos para a área de transferência e clique com o botão direito no prompt de comando aberto do PowerShell do Azure. Isto emitirá o conjunto de comandos como uma série de comandos do PowerShell e criará sua máquina virtual do Azure. Como alternativa, execute o comando definido no ISE do PowerShell.
+Copie o conjunto de comandos para a área de transferência e clique com o botão direito no prompt de comando aberto do PowerShell do Azure. Isto emitirá o conjunto de comandos como uma série de comandos do PowerShell e criará sua máquina virtual do Azure.
 
-Se você criar a máquina virtual na assinatura, conta de armazenamento, serviço de nuvem, conjunto de disponibilidade, rede virtual ou sub-rede incorreta, exclua a máquina virtual, corrija a sintaxe do bloco de comandos e, em seguida, execute o conjunto de comandos corrigido.
+Após a criação da máquina virtual, confira [Como fazer logon em uma máquina virtual com Linux](virtual-machines-linux-how-to-log-on.md).
 
-Após a criação da máquina virtual, confira [Como fazer logon em uma máquina virtual que executa o Linux](virtual-machines-linux-how-to-log-on.md).
-
-Se pretender criar novamente essa máquina virtual ou uma semelhante, você poderá:
+Caso pretenda usar novamente o conjunto de comandos:
 
 - Salve esse conjunto de comandos como um arquivo de script do PowerShell (*.ps1)
-- Salvar este conjunto de comandos como um runbook de automação do Azure, na seção **Automação** do portal do Azure
+- Salve este conjunto de comandos como um runbook da Automação do Azure na seção **Automação** do portal do Azure
 
 ## <a id="examples"></a>Exemplos
 
@@ -265,4 +280,4 @@ Aqui está o conjunto de comandos do PowerShell do Azure correspondente para cri
 
 [Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

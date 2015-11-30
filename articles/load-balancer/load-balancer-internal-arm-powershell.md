@@ -114,7 +114,7 @@ Configure um pool de IP front-end para o tráfego de rede do balanceador de carg
 
 Crie um pool de IPs de front-end usando o endereço IP privado 10.0.2.5 para a sub-rede 10.0.2.0/24, que será o ponto de extremidade do tráfego de rede de entrada.
 
-	$frontendIP = New-AzureLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $backendSubnet.Id
+	$frontendIP = New-AzureLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $vnet.Subnets.Id
 
 ### etapa 2: 
 
@@ -278,4 +278,4 @@ Use o comando Remove-AzureLoadBalancer para excluir um balanceador de carga cria
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

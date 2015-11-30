@@ -54,7 +54,7 @@ O código seguinte cria o objeto `MobileServiceClient` que é usado para acessar
 	MobileServiceClient client = new MobileServiceClient(
 		"MOBILE_APP_URL", "", "");
 
-No código acima, substitua `MOBILE_APP_URL` pela URL do back-end do Aplicativo Móvel que está localizado na folha de seu Aplicativo Móvel no portal de visualização do Azure.
+No código acima, substitua `MOBILE_APP_URL` pela URL do back-end do Aplicativo Móvel que está localizado na folha de seu Aplicativo Móvel no Portal de visualização do Azure.
 
 ##<a name="instantiating"></a>Como criar uma referência de tabela
 
@@ -128,7 +128,7 @@ Em vez disso, também poderíamos ter escrito isso em várias linhas:
 
 Os dois métodos são equivalentes e podem ser usados de maneira intercambiável. A opção anterior, de concatenar vários predicados em uma consulta, é mais compacta e recomendada.
 
-A cláusula `where` oferece suporte a operações que são traduzidas para o subconjunto OData. Isso inclui os operadores relacionais (==, !=, <, <=, >, >=), operadores aritméticos (+, -, /, *, %), precisão de número (Math.Floor, Math.Ceiling), funções de cadeias de caracteres (Length, Substring, Replace, IndexOf, StartsWith, EndsWith), propriedades de data (Year, Month, Day, Hour, Minute, Second), propriedades de acesso de um objeto e expressões que combinam todos eles.
+A cláusula `where` dá suporte a operações que são traduzidas para o subconjunto OData. Isso inclui os operadores relacionais (==, !=, <, <=, >, >=), operadores aritméticos (+, -, /, *, %), precisão de número (Math.Floor, Math.Ceiling), funções de cadeias de caracteres (Length, Substring, Replace, IndexOf, StartsWith, EndsWith), propriedades de data (Year, Month, Day, Hour, Minute, Second), propriedades de acesso de um objeto e expressões que combinam todos eles.
 
 ### <a name="sorting"></a>Como classificar dados retornados
 
@@ -302,7 +302,7 @@ O cliente de Aplicativos Móveis permite que você se registrar para notificaç�
 		    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
 		}
 
-Observe que, neste exemplo, são incluídas duas marcas com o registro. Para obter mais informações sobre os aplicativos do Windows, veja [Adicionar notificações por push ao seu aplicativo](app-service-mobile-windows-store-dotnet-get-started-push.md).
+Observe que, neste exemplo, são incluídas duas marcas com o registro. Para saber mais sobre os aplicativos do Windows, veja [Adicionar notificações por push ao seu aplicativo](app-service-mobile-windows-store-dotnet-get-started-push.md).
 
 <!--- Remove until Xamarin.Android push is supported.
 Xamarin apps require some additional code to be able to register a Xamarin app running on iOS or Android app with the Apple Push Notification Service (APNS) and Google Cloud Messaging (GCM) services, respectively. For more information see **Add push notifications to your app** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
@@ -310,10 +310,44 @@ Xamarin apps require some additional code to be able to register a Xamarin app r
 >[AZURE.NOTE]When you need to send notifications to specific registered users, it is important to require authentication before registration, and then verify that the user is authorized to register with a specific tag. For example, you must check to make sure a user doesn't register with a tag that is someone else's user ID. For more information, see [Send push notifications to authenticated users](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
 >-->
 
+## Como registrar modelos de envio por push para enviar notificações entre plataformas
+
+Para registrar os modelos, basta passar pelos modelos com seu método **MobileService.GetPush(). RegisterAsync()** no seu aplicativo cliente.
+
+        MobileService.GetPush().RegisterAsync(channel.Uri, newTemplates());
+
+Seus modelos serão do tipo JObject e poderão conter vários modelos no seguinte formato JSON:
+
+        public JObject newTemplates()
+        {
+            // single template for Windows Notification Service toast
+            var template = "<toast><visual><binding template="ToastText01"><text id="1">$(message)</text></binding></visual></toast>";
+            
+            var templates = new JObject
+            {
+                ["generic-message"] = new JObject
+                {
+                    ["body"] = template,
+                    ["headers"] = new JObject
+                    {
+                        ["X-WNS-Type"] = "wns/toast"
+                    },
+                    ["tags"] = new JArray()
+                },
+                ["more-templates"] = new JObject {...}
+            };
+            return templates;
+        }
+
+O método **RegisterAsync()** também aceita Blocos Secundários:
+
+        MobileService.GetPush().RegisterAsync(string channelUri, JObject templates, JObject secondaryTiles);
+
+Para enviar notificações usando esses modelos registrados, trabalhe com [APIs de Hubs de Notificação](https://msdn.microsoft.com/library/azure/dn495101.aspx).
 
 ##<a name="optimisticconcurrency"></a>Como usar simultaneidade otimista
 
-Dois ou mais clientes podem gravar alterações no mesmo item, ao mesmo tempo, em alguns cenários. Sem uma detecção de conflitos, a última gravação substituirá qualquer atualização anterior, mesmo que isso não seja o resultado desejado. O *Controle de Simultaneidade Otimista* pressupõe que cada transação pode ser confirmada e, portanto, não usa nenhum recurso de bloqueio. Antes de confirmar uma transação, o controle de simultaneidade otimista verifica se nenhuma outra transação modificou os dados. Se os dados foram modificados, a transação de confirmação será revertida.
+Dois ou mais clientes podem gravar alterações no mesmo item, ao mesmo tempo, em alguns cenários. Sem uma detecção de conflitos, a última gravação substituirá qualquer atualização anterior, mesmo que isso não seja o resultado desejado. O *Controle de simultaneidade otimista* pressupõe que cada transação pode ser confirmada e, portanto, não usa nenhum recurso de bloqueio. Antes de confirmar uma transação, o controle de simultaneidade otimista verifica se nenhuma outra transação modificou os dados. Se os dados foram modificados, a transação de confirmação será revertida.
 
 Os Aplicativos Móveis dão suporte ao controle de simultaneidade otimista acompanhando as alterações em cada item usando a coluna de propriedades do sistema `__version` que é definida para cada tabela no back-end do Aplicativo Móvel. Cada vez que um registro é atualizado, os Aplicativos Móveis definem a propriedade `__version` desse registro como um novo valor. Durante cada solicitação de atualização, a propriedade `__version` do registro incluído na solicitação é comparada à mesma propriedade do registro no servidor. Se a versão passada com a solicitação não coincidir com o back-end, a biblioteca de cliente gerará uma `MobileServicePreconditionFailedException<T>`. O tipo incluído com a exceção é o registro do back-end que contém a versão do registro do servidor. O aplicativo pode usar essas informações para decidir se deve executar a solicitação de atualização novamente com o valor de `__version` correto do back-end para confirmar as alterações.
 
@@ -706,6 +740,6 @@ Essa propriedade converte todas as propriedades em letras minúsculas, durante a
 [API personalizada nas SDKs do cliente dos Serviços Móveis do Azure]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 [InvokeApiSync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
-[DelegatingHandler]: https://msdn.microsoft.com/pt-BR/library/system.net.http.delegatinghandler(v=vs.110).aspx
+[DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

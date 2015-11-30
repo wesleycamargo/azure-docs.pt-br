@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-dotnet" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="09/25/2015"
+	ms.date="11/17/2015"
 	ms.author="yuaxu"/>
 
 # Enviar notificações entre plataformas para um usuário específico
@@ -108,4 +108,4 @@ Publique novamente o projeto do back-end móvel e execute qualquer aplicativo cl
 [modelos]: https://msdn.microsoft.com/pt-BR/library/dn530748.aspx
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

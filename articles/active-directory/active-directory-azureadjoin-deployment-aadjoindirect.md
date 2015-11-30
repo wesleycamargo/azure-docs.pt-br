@@ -1,11 +1,12 @@
 <properties 
 	pageTitle="Cenários de uso e considerações de implantação para a Junção do Azure AD| Microsoft Azure" 
-	description="Lista e explica os diferentes cenários de implantação disponíveis para ingresso no AD do Azure." 
+	description="Um tópico que explica como os administradores podem configurar a Junção do Azure AD para seus usuários finais (funcionários, estudantes, outros usuários). Ele também discute os diferentes cenários reais para usar a Junção do AD do Azure" 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
 	manager="stevenpo" 
-	editor=""/>
+	editor=""
+	tags="azure-classic-portal"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/21/2015" 
+	ms.date="11/17/2015" 
 	ms.author="femila"/>
 
 # Cenários de uso e considerações de implantação para a Junção do Azure AD 
@@ -53,7 +54,7 @@ As empresas podem fornecer contas somente de nuvem para organizações e empresa
 *	Windows 10 (SKUs Professional e Enterprise)
 
 ### Tarefas do administrador
-* [Configurar a MFA e o registro de dispositivos](active-directory-azureadjoin-setup.md)
+* [Configure o registro de dispositivos](active-directory-azureadjoin-setup.md)
 
 ### Tarefas do usuário
 * [Configura um novo dispositivo Windows 10 com o Azure AD durante a instalação](active-directory-azureadjoin-user-frx.md)
@@ -77,14 +78,18 @@ Você pode configurar seus funcionários e usuários para usarem seus dispositiv
 
 ### Tarefas do administrador
 
-* [Configurar a MFA e o registro de dispositivos](active-directory-azureadjoin-setup.md)
+* [Configure o registro de dispositivos](active-directory-azureadjoin-setup.md)
 
 ### Tarefas do usuário
 * [Unir um dispositivo Windows 10 pessoal à sua organização](active-directory-azureadjoin-personal-device.md)
 
 
 ## Informações adicionais
-* [Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Junção do Active Directory do Azure](active-directory-azureadjoin-overview.md)
+* [Windows 10 para a empresa: maneiras de usar dispositivos para o trabalho](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Junção do Active Directory do Azure](active-directory-azureadjoin-user-upgrade.md)
+* [Autenticando identidades sem senhas com o Microsoft Passport](active-directory-azureadjoin-passport.md)
+* [Saiba mais sobre cenários de uso da Junção do Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

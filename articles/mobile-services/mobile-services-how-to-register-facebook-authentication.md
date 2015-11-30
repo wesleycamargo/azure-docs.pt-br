@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/25/2015" 
+	ms.date="11/15/2015" 
 	ms.author="glenga"/>
 
 # Registrar seus aplicativos para a autenticação do Facebook com os Serviços Móveis
@@ -48,11 +48,14 @@ Para concluir o procedimento neste tópico, você deve ter uma conta do Facebook
 	
     >[AZURE.IMPORTANT]O segredo do aplicativo é uma credencial de segurança importante. Não compartilhe esse segredo com ninguém nem o distribua com seu aplicativo. &nbsp;
 
-8. Clique na guia **Avançado**, digite a URL de seu serviço móvel acrescentada ao caminho _/login/facebook_ em **URIs de redirecionamento do OAuth válido** e clique em** Salvar Alterações**. &nbsp;
+8. Clique na guia **Avançado**, digite uma das seguintes URLs formatos no **OAuth válido para redirecionar as URIs**, em seguida, clique em **Salvar alterações**:
+ 
+	+ **Back-end do .NET**: `https://<mobile_service>.azure-mobile.net/signin-facebook`
+	+ **Back-end do JavaScript**: `https://<mobile_service>.azure-mobile.net/login/facebook` 
 
-     >[AZURE.NOTE]Para um serviço móvel de back-end do .NET publicado no Azure usando o Visual Studio, a URL de redirecionamento é a URL do seu serviço móvel acrescentada ao caminho _signin-facebook_ e o seu serviço móvel é um serviço .NET, como `https://todolist.azure-mobile.net/signin-facebook`.
+	 >[AZURE.NOTE]Certifique-se de que você use o formato de caminho da URL de redirecionamento correto para seu tipo de back-end de Serviços Móveis. Quando isso estiver incorreto, a autenticação não terá êxito.
+
        
-
 9. Clique em **Status e Revisão** > **Sim** para habilitar o acesso do público geral ao seu aplicativo.
 
 	A conta do Facebook que você usou para registrar o novo aplicativo é um administrador do aplicativo e tem acesso ao aplicativo como administrador. Esta etapa concede acesso ao público geral para que o aplicativo possa autenticar usando outras contas do Facebook.
@@ -73,4 +76,4 @@ Agora você está pronto para usar um logon do Facebook para autenticação em s
 [Serviços Móveis do Azure]: http://azure.microsoft.com/services/mobile-services/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

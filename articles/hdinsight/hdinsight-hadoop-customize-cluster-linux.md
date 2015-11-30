@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/05/2015"
+	ms.date="11/16/2015"
 	ms.author="larryfr"/>
 
 # Personalizar os clusters HDInsight usando a Ação de Script (Linux)
@@ -108,7 +108,7 @@ Nesta seção, usamos modelos do ARM (Gerenciador de Recursos do Azure) para cri
 		        },
 		        "sshUserName": {
 		            "type": "string",
-		            "defaultValue": "hdiuser"
+		            "defaultValue": "username"
 		        },
 		        "sshPassword": {
 		            "type": "securestring"
@@ -525,7 +525,7 @@ Há dois tipos de componentes de software livre disponíveis no serviço HDInsig
 
 > [AZURE.WARNING]Há suporte total a componentes fornecidos com o cluster HDInsight e o Suporte da Microsoft ajudará a isolar e resolver problemas relacionados a esses componentes.
 >
-> Componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a solucionar o problema. Isso pode resultar na resolução do problema ou na solicitação de você buscar nos canais disponíveis as tecnologias de código-fonte aberto, onde é possível encontrar conhecimento aprofundado sobre essa tecnologia. Por exemplo, há muitos sites de comunidades que podem ser usados, como o [Fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/pt-BR/home?forum=hdinsight) e [http://stackoverflow.com](http://stackoverflow.com). Além disso, os projetos do Apache têm sites do projeto em [http://apache.org](http://apache.org), por exemplo: [Hadoop](http://hadoop.apache.org/) e [Spark](http://spark.apache.org/).
+> Componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a solucionar o problema. Isso pode resultar na resolução do problema ou na solicitação de você buscar nos canais disponíveis as tecnologias de código-fonte aberto, onde é possível encontrar conhecimento aprofundado sobre essa tecnologia. Por exemplo, há muitos sites de comunidades que podem ser usados, como o [fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/pt-BR/home?forum=hdinsight) e o [http://stackoverflow.com](http://stackoverflow.com). Além disso, os projetos do Apache têm sites do projeto em [http://apache.org](http://apache.org) como, por exemplo, [Hadoop](http://hadoop.apache.org/) e [Spark](http://spark.apache.org/).
 
 O serviço HDInsight possibilita o uso de componentes personalizados de várias formas. Seja como for usado ou instalado em um cluster, o mesmo nível de suporte se aplica ao componente. Mostramos, a seguir, uma lista das formas mais comuns de usar os componentes personalizados em clusters HDInsight:
 
@@ -549,4 +549,4 @@ Consulte as informações e exemplos a seguir sobre como criar e usar scripts pa
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Estágios durante a criação de cluster"
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="11/16/2015" 
 	ms.author="sdanie"/>
 
 
@@ -23,7 +23,7 @@ No Gerenciamento de API do Azure, as políticas são uma poderosa funcionalidade
 
 Consulte a [Referência de Política][] para ver uma lista completa das instruções de política e suas configurações.
 
-As políticas são aplicados dentro do proxy que fica entre o consumidor da API e a API gerenciada. O proxy recebe todas as solicitações e normalmente as encaminha inalteradas à API subjacente. No entanto, uma política também pode aplicar mudanças à solicitação de entrada e à resposta de saída.
+As políticas são aplicadas dentro do gateway que fica entre o consumidor da API e a API gerenciada. O gateway recebe todas as solicitações e normalmente as encaminha inalteradas à API subjacente. No entanto, uma política também pode aplicar mudanças à solicitação de entrada e à resposta de saída.
 
 Expressões de política podem ser usadas como valores de atributo ou texto em qualquer uma das políticas de Gerenciamento de API, a menos que a política especifique o contrário. Algumas políticas, como [Controlar fluxo][] e [Definir variável][] se baseiam em expressões de políticas. Para obter mais informações, consulte [Políticas avançadas][] e [Expressões de política][].
 
@@ -73,7 +73,7 @@ Para limitar as solicitações de entrada e aceitar somente as provenientes de u
 
 ![Salvar][policies-save]
 
-Quando concluir a configuração das instruções da política, clique em Salvar e as alterações serão propagadas para o proxy de Gerenciamento de API imediatamente.
+Quando concluir a configuração das instruções da política, clique em Salvar para que as alterações sejam propagadas para o gateway de Gerenciamento de API imediatamente.
 
 ##<a name="sections"> </a>Compreendendo configuração de políticas
 
@@ -128,4 +128,4 @@ Confira o vídeo a seguir sobre expressões de política.
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->
