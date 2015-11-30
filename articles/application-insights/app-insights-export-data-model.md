@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="11/11/2015" 
 	ms.author="awills"/>
 
 # Modelo de dados de exportação do Application Insights
@@ -218,7 +218,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 
     string basicexception.problemid      Max: 100
 * 
-    *Derivação:* consulte Apêndice para análise de pilha de chamadas 
+    *Derivação:* veja no apêndice a análise de Pilha de Chamadas 
 
 **Exceptions.Assembly**
 
@@ -314,9 +314,9 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 
     string context.application.version      Max: 100
 * 
-    A versão do aplicativo cliente 
+    A versão do aplicativo cliente. Não disponível se definido como Desconhecido. 
 
-    *Exemplos*<br/>2015.5.21.3<br/>NokiaMailBye\_CD\_20150227.4
+    *Exemplos*<br/> 2015.5.21.3<br/>NokiaMailBye\_CD\_20150227.4
 
 **telemetryType**
 
@@ -332,7 +332,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 
     *Derivação:* UUID4 gerado
 
-    *Exemplos*<br/>edc6eaf3-3459-46a0-bb81-bedc24913864
+    *Exemplos*<br/> edc6eaf3-3459-46a0-bb81-bedc24913864
 
 **eventTime**
 
@@ -354,9 +354,9 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 * 
     O navegador do cliente 
 
-    *Padrão:* se null, é definido com base no processamento do agente do usuário. Consulte no apêndice a análise do agente do usuário
+    *Padrão:* se for null, será definido com base no processamento do agente do usuário. Consulte no apêndice a análise do agente do usuário
 
-    *Exemplos*<br/>Opera<br/>Mobile Safari<br/>Ovi Browser<br/>Chrome<br/>Firefox<br/>Internet Explorer
+    *Exemplos*<br/> Opera<br/>Mobile Safari<br/>Ovi Browser<br/>Chrome<br/>Firefox<br/>Internet Explorer
 
 **browserVersion**
 
@@ -364,7 +364,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 * 
     A versão do navegador do cliente 
 
-    *Padrão:* se null, é definido com base no processamento do agente do usuário. Consulte no apêndice a análise do agente do usuário
+    *Padrão:* se for null, será definido com base no processamento do agente do usuário. Consulte no apêndice a análise do agente do usuário
 
     *Exemplos*<br/> Opera 12.17<br/>Mobile Safari 8.0<br/>Ovi Browser 5.5<br/>Chrome 37.0<br/>Firefox 21.0<br/>Internet Explorer 7.0
 
@@ -374,39 +374,12 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 * 
     A ID de implantação do servidor 
 
-**deviceId**
-
-    string context.device.id      Max: 100
-* 
-    Uma identificação exclusiva do cliente. Uma ID gerada que deve ser armazenada localmente no dispositivo e não deve ser PII, como o endereço MAC ou uma ID imutável semelhante.   
-
-**deviceModel**
-
-    string context.device.devicemodel      Max: 100
-* 
-    O devicemodel para o cliente de hardware móvel 
-
-    *Exemplos*<br/> Outros<br/>iPad<br/>Nokia 503s
 
 **deviceName**
 
     string context.device.name      Max: 100
 * 
     O nome do dispositivo em que o aplicativo está em execução 
-
-**deviceType**
-
-    string context.device.type      Max: 100
-* 
-    O tipo de dispositivo de hardware do cliente 
-
-    *Exemplos*<br/> PC<br/>Celular<br/>Tablet
-
-**idioma**
-
-    string context.device.language      Max: 100
-* 
-    O idioma do aplicativo no cliente. Se não for fornecida explicitamente no item de telemetria, ele será originado pelo processamento do campo de agente do usuário. 
 
 **locale**
 
@@ -422,17 +395,6 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 * 
     O nome da máquina do servidor. Para a computação virtualizada, este item de dados é equivalente ao host subjacente. Para a computação dedicada, esse é o nome da máquina. 
 
-**networkType**
-
-    string context.device.network      Max: 100
-* 
-    O tipo de rede do cliente 
-
-**oemName**
-
-    string context.device.oemname      Max: 100
-* 
-    O nome de OEM para o cliente de hardware móvel 
 
 **operatingSystem**
 
@@ -442,7 +404,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 
     *Padrão:* se null, é definido com base no processamento do agente do usuário. Consulte no apêndice a análise do agente do usuário
 
-    *Exemplos*<br/> Windows<br/>iPad iOS<br/>Nokia
+    *Exemplos*<br/> Windows<br/>iOS iPad<br/>Nokia
 
 **operatingSystemVersion**
 
@@ -450,7 +412,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 * 
     A versão do sistema operacional do cliente 
 
-    *Padrão:* se null, é definido com base no processamento do agente do usuário. Consulte no apêndice a análise do agente do usuário
+    *Padrão:* se for null, será definido com base no processamento do agente do usuário. Consulte no apêndice a análise do agente do usuário
 
     *Exemplos*<br/> Windows XP<br/>iOS 8.3<br/>Nokia Series 40<br/>Windows 7<br/>Windows 8
 
@@ -482,7 +444,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 * 
     A resolução da tela no momento em que o item de telemetria foi capturado pelo aplicativo. Pode alternar entre retrato e paisagem no decorrer de uma sessão. Quando esse atributo é executado no nível da sessão, a resolução da primeira tela capturada representa a sessão completa. 
 
-    *Exemplos*<br/> Largura Altura da resolução de tela<br/>360X640<br/>1280X800<br/>1920X1080
+    *Exemplos*<br/> Largura e altura da resolução de tela<br/>360X640<br/>1280X800<br/>1920X1080
 
 **screenWidth**
 
@@ -515,7 +477,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 * 
     O endereço IPv4 do cliente no formato xxx.xxx.xxx.xxx.   
 
-    *Padrão:* se for null, é definido como o IP HTTP capturado no ponto de extremidade de coleta de dados
+    *Padrão:* se for null, será definido como o IP HTTP capturado no ponto de extremidade da coleta de dados
 
     *Exemplos*<br/> 0.123.63.143<br/>123.203.131.197
 
@@ -533,7 +495,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 * 
     O país da sessão do aplicativo. Pode ser fornecido diretamente no item de telemetria. Se não estiver presente, ele é preenchido com base no IPv4 no item de telemetria. Se não nenhum IPv4 for fornecido, o campo é deixado em branco. 
 
-    *Exemplos*<br/>Belarus<br/>Países Baixos<br/>Alemanha
+    *Exemplos*<br/> Belarus<br/>Países Baixos<br/>Alemanha
 
 
 **state**
@@ -542,7 +504,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 * 
     O estado da sessão do aplicativo. Pode ser fornecido diretamente no item de telemetria. Se não estiver presente, ele é preenchido com base no IPv4 no item de telemetria. Se não nenhum IPv4 for fornecido, o campo é deixado em branco. 
 
-    *Exemplos*<br/>Minsk<br/>Oregon<br/>Sérvia Central<br/>Provincia di Oristano
+    *Exemplos*<br/> Minsk<br/>Oregon<br/>Sérvia Central<br/>Provincia di Oristano
 
 **operationId**
 
@@ -568,7 +530,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 * 
     Se issynthetic = true, este item de dados representa a fonte dos dados sintéticos. 
 
-    *Padrão:* se null, o agente do usuário é inspecionado quanto a fontes sintéticas conhecidas (rastreadores da Web, etc.) e, com base nisso, a fonte pode ser definida.
+    *Padrão:* se null, o agente do usuário é inspecionado em relação a fontes sintéticas conhecidas (rastreadores da Web, etc.) e, com base nisso, a fonte pode ser definida.
 
 **syntheticTransaction**
 
@@ -576,7 +538,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 * 
     Um indicador de que o item de telemetria foi gerado por testes sintéticos, e não atividades reais de usuários. 
 
-    *Padrão:* se null, o agente do usuário é inspecionado em relação a uma lista de agentes sintéticos conhecidos. Se uma correspondência for encontrada, o valor é definido como true.<br/>Se o agente do usuário for null, é definido como false
+    *Padrão:* se null, o agente do usuário é inspecionado em relação a uma lista de agentes sintéticos conhecidos. Se uma correspondência for encontrada, o valor será definido como true.<br/>Se o agente do usuário for null, será definido como false
 
 **session.Id**
 
@@ -590,7 +552,8 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 
 **accountAcquisitionDate**
 
-    datetime context.user.accountAcquisitionDate      
+    datetime context.user.accountAcquisitionDate  
+    
 **anonUserId**
 
     string context.user.anonId      Max: 100
@@ -602,9 +565,11 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 **anonymousUserAcquisitionDate**
 
     datetime context.user.anonAcquisitionDate      
+
 **authenticatedUserAcquisitionDate**
 
-    datetime context.user.authAcquisitionDate      
+    datetime context.user.authAcquisitionDate     
+ 
 **authUserId**
 
     string context.user.authId      Max: 100
@@ -709,7 +674,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 * 
     Indica se a solicitação foi bem-sucedida. Um código de resposta na faixa de 200 é considerado bem-sucedido. 
 
-    *Padrão:* se for null, é definido como true
+    *Padrão:* se for null, será definido como true
 
 
 ## sessionmetric
@@ -964,7 +929,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 * 
     Uma parte da URL de referência, excluindo parâmetros de consulta e host. É o URI raiz. Esse valor pode ser usado para segmentação/agregação. 
 
-    *Derivação:* consulte no apêndice a transformação de URL
+    *Derivação:* veja no apêndice a transformação de URL
 
 **referrerData.hashTag**
 
@@ -972,7 +937,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 * 
     O texto da hashtag da URL de referência 
 
-    *Derivação:* consulte no apêndice a transformação de URL
+    *Derivação:* veja no apêndice a transformação de URL
 
 **referrerData.host**
 
@@ -980,7 +945,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 * 
     O host da URL de referência. Se a URL for um URI local, ele é representado como vazio 
 
-    *Derivação:* consulte no apêndice a transformação de URL
+    *Derivação:* veja no apêndice a transformação de URL
 
 **referrerData.port**
 
@@ -988,7 +953,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 * 
     A porta da URL de referência, se ela for representada na URL completa. Caso contrário, será vazio. 
 
-    *Derivação:* consulte no apêndice a transformação de URL
+    *Derivação:* veja no apêndice a transformação de URL
 
 **referrerData.protocol**
 
@@ -996,7 +961,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 * 
     O protocolo (HTTP, FTP etc.) da URL de referência 
 
-    *Derivação:* consulte no apêndice a transformação de URL
+    *Derivação:* veja no apêndice a transformação de URL
 
     *Exemplos*<br/> http<br/>https
 
@@ -1006,7 +971,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 * 
     Uma matriz dos nomes de parâmetro de consulta da URL de referência 
 
-    *Derivação:* consulte no apêndice a transformação de URL
+    *Derivação:* veja no apêndice a transformação de URL
 
 **referrerData.queryParameters.value**
 
@@ -1014,7 +979,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 * 
     Uma matriz de valores de parâmetros de consulta analisados da URL de referringData. 
 
-    *Derivação:* consulte no apêndice a transformação de URL
+    *Derivação:* veja no apêndice a transformação de URL
 
 
 
@@ -1024,4 +989,4 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 * [Exportação Contínua](app-insights-export-telemetry.md)
 * [Exemplos de código](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

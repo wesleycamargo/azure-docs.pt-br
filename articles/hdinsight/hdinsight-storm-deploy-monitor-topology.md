@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/23/2015"
+   ms.date="11/18/2015"
    ms.author="larryfr"/>
 
 #Implantar e gerenciar topologias Apache Storm no HDInsight baseado no Windows
@@ -149,7 +149,7 @@ Use as etapas a seguir para implantar um exemplo para seu Storm no cluster HDIns
 
 A interface do usuário do Storm é criada sobre a API REST e, portanto, você pode realizar gerenciamento semelhante e monitorar a funcionalidade usando a API REST. Você pode usar a API REST para criar ferramentas personalizadas para o gerenciamento e o monitoramento de topologias Storm.
 
-Para obter mais informações, consulte <a href="https://github.com/apache/storm/blob/master/STORM-UI-REST-API.md" target="_base">API REST da interface do usuário do Storm</a>. As informações a seguir são específicas para o uso da API REST com Apache Storm no HDInsight.
+Para obter mais informações, veja [API REST da interface do usuário do Storm](https://github.com/apache/storm/blob/master/docs/documentation/ui-rest-api.md). As informações a seguir são específicas para o uso da API REST com Apache Storm no HDInsight.
 
 ###URI de base
 
@@ -179,4 +179,4 @@ Para obter mais topologias de exemplo, consulte [Topologias de exemplo para Stor
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

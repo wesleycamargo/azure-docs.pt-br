@@ -1,7 +1,7 @@
 
 <properties
    pageTitle="Reliable Actors para a Internet das Coisas | Microsoft Azure"
-   description="Os Reliable Actors do Service Fabric são os principais blocos de construção em um sistema que combina um front-end do sistema de mensagens que dá suporte a vários transportes como HTTPS, MQTT ou AMQP e que se comunica com atores que representam dispositivos individuais."
+   description="Os Reliable Actors do Service Fabric são os principais blocos de construção em um sistema que combina um front-end do sistema de mensagens que dá suporte a vários transportes como HTTPS, MQTT ou AMQP."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="11/14/2015"
    ms.author="vturecek"/>
 
 # Padrão de design de Atores Confiáveis: Internet das Coisas
@@ -56,10 +56,10 @@ class ThingState
 	long _deviceGroupId;
 }
 
-public class Thing : Actor<ThingState>, IThing
+public class Thing : StatefulActor<ThingState>, IThing
 {
 
-    public override Task OnActivateAsync()
+    protected override Task OnActivateAsync()
     {
         State._telemetry = new List<ThingTelemetry>();
         State._deviceGroupId = -1; // not activated
@@ -74,7 +74,7 @@ public class Thing : Actor<ThingState>, IThing
             var deviceGroup = ActorProxy.Create<IThingGroup>(State._deviceGroupId);
             return deviceGroup.SendTelemetryAsync(telemetry); // sending telemetry data for aggregation
         }
-        return TaskDone.Done;
+        return Task.FromResult(true);
     }
 
     public Task ActivateMe(string region, int version)
@@ -118,10 +118,10 @@ class ThingGroupState
     public List<ThingInfo> _faultyDevices;
 }
 
-public class ThingGroup : Actor<ThingGroupState>, IThingGroup
+public class ThingGroup : StatefulActor<ThingGroupState>, IThingGroup
 {
 
-    public override Task OnActivateAsync()
+    protected override Task OnActivateAsync()
     {
         State._devices = new List<ThingInfo>();
         State._faultsPerRegion = new Dictionary<string, int>();
@@ -133,13 +133,13 @@ public class ThingGroup : Actor<ThingGroupState>, IThingGroup
     public Task RegisterDevice(ThingInfo deviceInfo)
     {
         State._devices.Add(deviceInfo);
-        return TaskDone.Done;
+        return Task.FromResult(true);
     }
 
     public Task UnregisterDevice(ThingInfo deviceInfo)
     {
         State._devices.Remove(deviceInfo);
-        return TaskDone.Done;
+        return Task.FromResult(true);
     }
 
     public Task SendTelemetryAsync(ThingTelemetry telemetry)
@@ -163,7 +163,7 @@ public class ThingGroup : Actor<ThingGroupState>, IThingGroup
             }
         }
 
-        return TaskDone.Done;
+        return Task.FromResult(true);
     }
 }
 ```
@@ -217,4 +217,4 @@ Concluímos que mais e mais clientes olharão para os Atores da Malha do Serviç
 [1]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-2.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

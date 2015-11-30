@@ -18,13 +18,6 @@
 
 # Configurar o Application Insights: páginas da Web
 
-*O Application Insights está em modo de visualização.*
-
-
-O [Application Insights do Visual Studio](http://azure.microsoft.com/services/application-insights) monitora seus aplicativos em tempo real para ajudá-lo a [detectar e diagnosticar problemas de desempenho e exceções][detect] e [descobrir como seu aplicativo é usado][knowUsers].
-
-
-<a name="selector1"></a>
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
@@ -37,7 +30,7 @@ Se já configurou telemetria do servidor para seu aplicativo Web [ASP.NET](app-i
 
 ## Abra seu recurso do Application Insights
 
-Entre no [Portal do Azure](http://portal.azure.com).
+Entre no [portal do Azure](http://portal.azure.com).
 
 Se tiver configurado o monitoramento do lado do servidor de seu aplicativo, você já terá um recurso:
 
@@ -104,7 +97,7 @@ Se desejar ver o desempenho das páginas ao longo do tempo, clique duas vezes na
 
 ## Visão geral de uso do cliente
 
-Na folha visão geral, clique em **Uso**:
+Na folha de visão geral, clique em **Uso**:
 
 ![](./media/app-insights-asp-net-client/14-usage.png)
 
@@ -155,7 +148,7 @@ Selecione qualquer evento para ver mais detalhes. Na página de detalhes, clique
 
 ### Propriedades de exibição de página
 
-* **Duração da exibição de página** &#151; o tempo necessário para carregar a página e iniciar a execução de scripts. Especificamente, o intervalo entre iniciar o carregamento da página e a execução de trackPageView. Se você moveu trackPageView da sua posição normal após a inicialização do script, ele refletirá um valor diferente.
+* **Duração da exibição de página**&#151; o tempo necessário para carregar a página e iniciar a execução de scripts. Especificamente, o intervalo entre iniciar o carregamento da página e a execução de trackPageView. Se você moveu trackPageView da sua posição normal após a inicialização do script, ele refletirá um valor diferente.
 
 ## Rastreamento de uso personalizado
 
@@ -200,4 +193,4 @@ Quer saber o que os usuários fazem com seu aplicativo? Inserindo chamadas em se
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

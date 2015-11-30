@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Visão geral da Service Fabric | Microsoft Azure" 
-   description="Uma visão geral da Malha do Serviço onde aplicativos são compostos por microsserviços. A Malha do Serviço é uma plataforma de sistemas distribuídos usada para criar aplicativos escalonáveis, confiáveis e facilmente gerenciados para a nuvem" 
+   description="Uma visão geral do Service Fabric no qual os aplicativos são compostos por muitos microsservicços para fornecer dimensionamento e resiliência. A Malha do Serviço é uma plataforma de sistemas distribuídos usada para criar aplicativos escalonáveis, confiáveis e facilmente gerenciados para a nuvem" 
    services="service-fabric" 
    documentationCenter=".net" 
    authors="msfussell" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA" 
-   ms.date="08/25/2015"
+   ms.date="11/18/2015"
    ms.author="mfussell"/>
 
 # Visão geral da Malha do Serviço
@@ -89,13 +89,15 @@ Ao usar a Malha do Serviço, você pode:
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Próximas etapas
 
-* Para obter mais informações: [Visão geral técnica](service-fabric-technical-overview.md).
+* Para mais informações: 
+	* [Por que usar uma abordagem de microsserviço para construir aplicativos?](service-fabric-overview-microservices.md).
+	* [Visão geral técnica](service-fabric-technical-overview.md).
 * Configurar o [ambiente de desenvolvimento](service-fabric-get-started.md) do Service Fabric.  
-* Escolher uma [estrutura](service-fabric-choose-framework.md) para seu serviço.
+* Escolher uma [estrutura do modelo de programação](service-fabric-choose-framework.md) para o serviço.
 
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

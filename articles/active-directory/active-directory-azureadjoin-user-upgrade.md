@@ -1,11 +1,12 @@
 <properties 
 	pageTitle="Configurar um dispositivo Windows 10 com o Azure AD de Settings| Microsoft Azure" 
-	description="Um tópico que explica como os usuários podem ingressar no AD do Azure por meio do menu Configurações." 
+	description="Explica como os usuários podem ingressar no AD do Azure por meio do menu Configurações no Windows 10." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
 	manager="stevenpo" 
-	editor=""/>
+	editor=""
+	tags="azure-classic-portal"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/21/2015" 
+	ms.date="11/17/2015" 
 	ms.author="femila"/>
 
 # Configurar um dispositivo Windows 10 com o Azure AD nas Configurações
@@ -31,13 +32,16 @@ Para unir ao AD do Azure no menu Configurações
 4. Forneça suas credenciais de entrada. Esse processo de inscrição incluirá todas as etapas necessárias para a autenticação completa. Se você fizer parte de um locatário federado, seu administrador fornecerá a você uma experiência de federação hospedada por sua organização.
 <center> ![](./media/active-directory-azureadjoin/active-directory-azureadjoin-sign-in.png) </center>
 5. Se a sua organização tiver configurado a autenticação multifator para unir ao AD do Azure, você precisará fornecer o segundo fator antes de poder continuar.
-6. Clique em **Aceitar** na tela Permitir que este dispositivo seja gerenciado.
+6. Clique em **Aceitar** na tela **Permitir que este dispositivo seja gerenciado**.
 7. você deve ver a mensagem "O dispositivo agora faz parte de sua organização no AD do Azure".
 
 
 ## Informações adicionais
-* [Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Junção do Active Directory do Azure](active-directory-azureadjoin-overview.md)
-* [Saiba mais sobre os cenários de uso e considerações de implantação para a Junção do Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Windows 10 para a empresa: maneiras de usar dispositivos para o trabalho](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Junção do Active Directory do Azure](active-directory-azureadjoin-user-upgrade.md)
+* [Autenticando identidades sem senhas com o Microsoft Passport](active-directory-azureadjoin-passport.md)
+* [Saiba mais sobre cenários de uso da Junção do Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

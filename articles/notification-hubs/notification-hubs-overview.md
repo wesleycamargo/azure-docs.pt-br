@@ -28,11 +28,8 @@ Com os Hubs de Notificação, você pode enviar facilmente notificações por pu
 Você pode usar os Hubs de Notificação para cenários empresariais e de consumidor. Por exemplo:
 
 - Envie notificações de últimas notícias para milhões de pessoas com baixa latência (Os Hubs de Notificação potencializam os aplicativos Bing pré-instalados em todos os dispositivos do Windows e do Windows Phone.)
-
 - Envie cupons baseados na localização para segmentos de usuários.
-
 - Envie notificações de eventos para usuários ou grupos para aplicativos de esportes/finanças/jogos.
-
 - Notifique os usuários sobre eventos corporativos, como novas mensagens/emails e vendas potenciais.
 - Envie senhas de uso único exigidas para Multi-Factor Authentication.
 
@@ -69,7 +66,7 @@ No entanto, em um alto nível, todos os sistemas de notificação de plataforma 
 
 ##Os desafios de notificações por push
 
-Embora esses sistemas sejam muito poderosos, ainda sobra muito trabalho para o desenvolvedor do aplicativo para implementar até cenários comuns de notificação por push, como a transmissão ou o envio de notificações por push a um usuário.
+Embora esses sistemas sejam muito poderosos, ainda sobra muito trabalho para o desenvolvedor do aplicativo para implementar até cenários comuns de notificação por push, como a transmissão ou o envio de notificações por push a usuários segmentados.
 
 As notificações por push são um dos recursos mais solicitados em serviços de nuvem para aplicativos móveis. A razão para isso é que a infraestrutura necessária para fazê-los funcionar é relativamente complexa e, na maioria das vezes, não relacionados à lógica comercial principal do aplicativo. Estes são alguns dos desafios na criação de uma infraestrutura de envio por push sob demanda:
 
@@ -88,15 +85,10 @@ Os Hubs de Notificação eliminam a complexidade: não é necessário gerenciar 
 ![][1]
 
 
-
-
-
-
 Os Hubs de Notificação fornecem uma infraestrutura de notificação por push pronta para uso com as seguintes vantagens:
 
 - **Várias plataformas.**
 	+  Suporte para todas as principais plataformas móveis. Os Hubs de Notificação podem enviar notificações por push a aplicativos da Windows Store, iOS, Android e Windows Phone.
-
 
 	+  Os Hubs de Notificação fornecem uma interface comum para enviar notificações a todas as plataformas com suporte. Protocolos específicos de plataforma não requeridos. O back-end do aplicativo pode enviar notificações em formatos específicos à plataforma ou independentes da plataforma. O aplicativo se comunica somente com Hubs de Notificação.
 
@@ -115,7 +107,7 @@ Os Hubs de Notificação fornecem uma infraestrutura de notificação por push p
 
 	- *Segmentação*: push para um segmento complexo definido por expressões de marca (por exemplo, os dispositivos em Nova York seguindo os Yankees).
 
-	Ao enviar seu identificador a um Hub de Notificação, cada dispositivo pode especificar uma ou mais _marcas_. Para saber mais sobre [marcas](http://msdn.microsoft.com/library/azure/dn530749.aspx). Marcas não precisam ser pré-provisionadas ou descartadas. As marcas fornecem uma maneira simples de enviar notificações aos usuários ou grupos de interesse. Como as marcas podem conter qualquer identificador específico ao aplicativo (como IDs de usuários ou de grupos), seu uso libera o back-end do aplicativo do ônus de precisar armazenar e gerenciar identificadores de dispositivos.
+	Ao enviar seu identificador a um Hub de Notificação, cada dispositivo pode especificar uma ou mais _marcas_. Para saber mais sobre [marcas]. Marcas não precisam ser pré-provisionadas ou descartadas. As marcas fornecem uma maneira simples de enviar notificações aos usuários ou grupos de interesse. Como as marcas podem conter qualquer identificador específico ao aplicativo (como IDs de usuários ou de grupos), seu uso libera o back-end do aplicativo do ônus de precisar armazenar e gerenciar identificadores de dispositivos.
 
 - **Personalização**: cada dispositivo pode ter um ou mais modelos para obter personalização e localização por dispositivo sem afetar o código de back-end.
 
@@ -124,6 +116,18 @@ Os Hubs de Notificação fornecem uma infraestrutura de notificação por push p
 - **Telemetria sofisticada**: disponível no portal e programaticamente.
 
 
+##Integração com Aplicativos Móveis do Serviço de Aplicativo
+
+Para facilitar uma experiência integrada e unificada nos serviços do Azure, os [Aplicativos Móveis do Serviço de Aplicativo] possui suporte interno para notificações de push usando Hubs de notificação. [Aplicativos Móveis do Serviço de Aplicativo] oferecem uma plataforma de desenvolvimento de aplicativos móveis altamente escalonável, disponível globalmente para os desenvolvedores corporativos e integradores de sistema e que traz um conjunto rico de recursos para desenvolvedores de aplicativos móveis.
+
+Os desenvolvedores de aplicativos móveis podem utilizar Hubs de notificação com o fluxo de trabalho a seguir:
+
+1. Recuperar o identificador de PNS do dispositivo
+2. Registrar o dispositivo e [modelos](optional) com Hubs de notificação por meio da conveniente API de registro do SDK do cliente de aplicativos móveis
+    + Observe que os aplicativos móveis removem imediatamente todas as marcas nos registros para fins de segurança. Trabalhar com Hubs de notificação do seu back-end diretamente para associar marcas a dispositivos.
+3. Enviar notificações do seu back-end de aplicativo com Hubs de notificação
+
+Aqui estão alguns recursos convenientes para desenvolvedores com essa integração: -**SDKs de cliente de aplicativos móveis.** Estes SDKs de várias plataformas fornecem APIs simples para registro e se comunicam com o hub de notificação vinculado automaticamente com o aplicativo móvel. Os desenvolvedores não precisam se aprofundar por meio de credenciais de Hubs de notificação e trabalhar com um serviço adicional. + Os SDKs marcam automaticamente o determinado dispositivo com o ID de usuário autenticado dos aplicativos móveis para habilitar o envio para o cenário do usuário. + Os SDKs usam automaticamente o ID de instalação de aplicativos móveis como GUID para registro nos Hubs de notificação, poupando aos desenvolvedores a dificuldade de manter vários GUIDs de serviço. - **Modelo de instalação.** Os Aplicativos móveis funcionam com o modelo de push mais recente dos Hubs de notificação para representar todas as propriedades de push associadas a um dispositivo em uma instalação de JSON que se alinha com serviços de notificação por push e é fácil de usar. - **Flexibilidade.** Os desenvolvedores sempre podem optar por trabalhar com Hubs de notificação diretamente até mesmo com a integração no lugar. - **Experiência integrada no [Portal do Azure].** O Push como um recurso é representado visualmente em aplicativos móveis e os desenvolvedores podem trabalhar facilmente com o hub de notificação associado por meio de aplicativos móveis.
 
 
 
@@ -156,5 +160,9 @@ As referências relevantes da API .NET gerenciada para notificações push estã
   [Xamarin.Android]: http://azure.microsoft.com/documentation/articles/partner-xamarin-notification-hubs-android-get-started
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
+  [Aplicativos Móveis do Serviço de Aplicativo]: https://azure.microsoft.com/pt-BR/documentation/articles/app-service-mobile-value-prop/
+  [templates]: https://msdn.microsoft.com/pt-BR/library/azure/dn530748.aspx
+  [Portal do Azure]: https://portal.azure.com
+  [marcas]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

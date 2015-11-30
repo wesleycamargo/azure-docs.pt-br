@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="11/17/2015"
    ms.author="masnider;jesseb"/>
 
 # Visão geral dos Serviços Confiáveis
@@ -52,7 +52,7 @@ Os Serviços Confiáveis na Malha de Serviços são diferentes dos serviços que
 ## Ciclo de vida do serviço
 Independentemente de seu serviço ser com ou sem estado, os Serviços Confiáveis fornecem um ciclo de vida simples que permite rapidamente conectar seu código e começar. Há apenas um ou dois métodos que você precisa implementar para colocar o serviço em funcionamento.
 
-+ CreateCommunicationListener - Onde o serviço define a pilha de comunicações que deseja usar. A pilha de comunicação, como [Web API](service-fabric-reliable-services-communication-webapi.md), é o que define os pontos de extremidade de escuta para do serviço (como os clientes o acessarão) e como essas mensagens que aparecem acabam interagindo com o restante do código do serviço.
++ CreateServiceReplicaListeners/CreateServiceInstanceListeners - Onde o serviço define a pilha de comunicações que deseja usar. A pilha de comunicação, como [Web API](service-fabric-reliable-services-communication-webapi.md), é o que define os pontos de extremidade de escuta para do serviço (como os clientes o acessarão) e como essas mensagens que aparecem acabam interagindo com o restante do código do serviço.
 
 + RunAsync - é aqui que o seu serviço executa sua lógica de negócios. O token de cancelamento fornecido é um sinal de quando esse trabalho deve parar. Por exemplo, se você tiver um serviço que precisa constantemente extrair mensagens de um ReliableQueue e processá-las, é aí que esse trabalho aconteceria.
 
@@ -60,16 +60,16 @@ Os principais eventos no ciclo de vida de um Serviço Confiável são os seguint
 
 1. O Objeto de Serviço (o elemento derivado de StatelessService ou StatefulService) é criado.
 
-2. O método CreateCommunicationListener é chamado, dando ao serviço a oportunidade de retornar um ouvinte de comunicação de sua escolha.
+2. O método CreateServiceReplicaListeners/CreateServiceInstanceListeners é chamado, fornecendo ao serviço a oportunidade de retornar um ou mais ouvintes de comunicação de sua escolha.
   + Observe que isso é opcional, embora a maioria dos serviços exponha um ponto de extremidade diretamente.
 
-3. Depois que o ouvinte de comunicação é criado, ele é aberto
-  + Os ouvintes de comunicação têm um método chamado Open(), que é chamado neste ponto e que retorna o endereço de escuta do serviço. Se seu Serviço Confiável usar um dos ICommunicationListeners internos, isso será processado para você.
+3. Depois que os ouvintes de comunicação são criados, ele é aberto
+  + Os ouvintes de comunicação têm um método chamado OpenAsync(), que é chamado neste ponto e que retorna o endereço de escuta do serviço. Se seu Serviço Confiável usar um dos ICommunicationListeners internos, isso será processado para você.
 
-4. Depois que o ouvinte de comunicação se torna Open(), a chamada RunAsync() no serviço principal é chamada.
+4. Depois que o ouvinte de comunicação é aberto, o método RunAsync() no serviço principal é chamado.
   + Observe que RunAsync é opcional; se o serviço fizer todo o seu trabalho somente em resposta direta a chamadas do usuário, não é necessário que ele implemente RunAsync().
 
-Quando o serviço está sendo desligado (ou quando for excluído ou simplesmente estiver sendo movido de um local específico), a ordem de chamada é a mesma, primeiro Close() é chamado no ouvinte de comunicação, em seguida, o token de cancelamento que foi passado para RunAsync() é cancelado.
+Quando o serviço está sendo desligado (ou quando for excluído, atualizado ou simplesmente estiver sendo movido de um local específico), a ordem de chamada é a mesma, primeiro CloseAsync() é chamado nos ouvintes de comunicação, em seguida, o token de cancelamento que foi passado para RunAsync() é cancelado.
 
 ## Serviços de exemplo
 Conhecendo este modelo de programação, vamos dar uma olhada em dois serviços diferentes para ver como essas peças se encaixam.
@@ -79,7 +79,7 @@ Um serviço sem estado é aquele em que não há literalmente nenhum estado mant
 
 Por exemplo, considere uma calculadora que não tem memória e que recebe todos os termos e as operações para serem executados ao mesmo tempo.
 
-Nesse caso, o RunAsync() do serviço pode ser vazio porque não há nenhum processamento de tarefa em segundo plano que o serviço precisa executar. Quando o serviço da Calculadora for criado, ele retornará um CommunicationListener (por exemplo, [Web API](service-fabric-reliable-services-communication-webapi.md)) que abre um ponto de extremidade de escuta em alguma porta. Esse ponto de extremidade de escuta se conectará aos diferentes métodos (por ex.: "Add (n1, n2)") que definem a API pública da Calculadora.
+Nesse caso, o RunAsync() do serviço pode ser vazio porque não há nenhum processamento de tarefa em segundo plano que o serviço precisa executar. Quando o serviço da Calculadora for criado, ele retornará um ICommunicationListener (por exemplo, [Web API](service-fabric-reliable-services-communication-webapi.md)) que abre um ponto de extremidade de escuta em alguma porta. Esse ponto de extremidade de escuta se conectará aos diferentes métodos (por ex.: "Add (n1, n2)") que definem a API pública da Calculadora.
 
 Quando é feita uma chamada de um cliente, o método apropriado é invocado e o serviço da Calculadora executa as operações nos dados fornecidos e retorna o resultado. O estado não é armazenado.
 
@@ -92,11 +92,11 @@ Um serviço com estado deve ter alguma parte do estado consistente e presente pa
 
 A maioria dos serviços hoje armazena seu estado externamente, pois o repositório externo é o que fornece confiabilidade, disponibilidade, escalabilidade e consistência para esse estado. Na Malha de Serviços, serviços com estado não precisam armazenar seu estado externamente, porque a Malha de Serviços cuida desses requisitos para o código e o estado do serviço.
 
-Vamos supor que queiramos desenvolver um serviço que recebeu solicitações para uma série de conversões que precisavam ser realizadas em uma imagem e a imagem que precisava ser convertida. Para esse serviço, ele retornaria um CommunicationListener (por exemplo, WebAPI) que abre uma porta de comunicação e permite envios por meio de uma API como `ConvertImage(Image i, IList<Conversion> conversions)`. Nessa API, o serviço pode receber as informações e armazenar a solicitação em um ReliableQueue e depois retornar algum token ao cliente para que ele possa rastrear a solicitação (já que as solicitações podem demorar algum tempo).
+Vamos supor que queiramos desenvolver um serviço que recebeu solicitações para uma série de conversões que precisavam ser realizadas em uma imagem e a imagem que precisava ser convertida. Para esse serviço, ele retornaria um ouvinte de comunicação (por exemplo, WebAPI) que abre uma porta de comunicação e permite envios por meio de uma API como `ConvertImage(Image i, IList<Conversion> conversions)`. Nessa API, o serviço pode receber as informações e armazenar a solicitação em um ReliableQueue e depois retornar algum token ao cliente para que ele possa rastrear a solicitação (já que as solicitações podem demorar algum tempo).
 
-Neste serviço, o RunAsync poderia ser mais complexo: o serviço teria um loop dentro de seu RunAsync que extrai solicitações do ReliableQueue, executa as conversões listadas e armazena os resultados em um ReliableDictionary para que, quando o cliente volta, pode obter suas imagens convertidas. Para garantir que, mesmo que algo falhe, a imagem não seja perdida, esse serviço confiável extrairia da fila, executaria as conversões e armazenaria o resultado em uma transação para que a mensagem só seja de fato removida da fila e os resultados sejam armazenados no dicionário de resultados quando as conversões estiverem concluídas. Se algo falhar no meio (como o computador em que essa instância do código está em execução), a solicitação permanecerá na fila aguardando para ser processada novamente.
+Neste serviço, o RunAsync poderia ser mais complexo: o serviço teria um loop dentro de seu RunAsync que extrai solicitações do IReliableQueue, executa as conversões listadas e armazena os resultados em um IReliableDictionary para que, quando o cliente volta, pode obter suas imagens convertidas. Para garantir que, mesmo que algo falhe, a imagem não seja perdida, esse serviço confiável extrairia da fila, executaria as conversões e armazenaria o resultado em uma transação para que a mensagem só seja de fato removida da fila e os resultados sejam armazenados no dicionário de resultados quando as conversões estiverem concluídas. Se algo falhar no meio (como o computador em que essa instância do código está em execução), a solicitação permanecerá na fila aguardando para ser processada novamente.
 
-Algo a ser observado sobre esse serviço é que parece um serviço .NET normal - a única diferença é que as estruturas de dados que estão sendo usadas (ReliableQueue e ReliableDictionary) são fornecidas pela Malha de Serviços e, portanto, se tornam altamente confiáveis, disponíveis e consistentes.
+Algo a ser observado sobre esse serviço é que parece um serviço .NET normal - a única diferença é que as estruturas de dados que estão sendo usadas (IReliableQueue e IReliableDictionary) são fornecidas pelo Service Fabric e, portanto, se tornam altamente confiáveis, disponíveis e consistentes.
 
 ## Quando usar APIs de Serviços Confiáveis
 Se um dos seguintes itens caracterizar as necessidades de serviço do aplicativo, as APIs de Serviços Confiáveis devem ser consideradas:
@@ -130,4 +130,4 @@ Se um dos seguintes itens caracterizar as necessidades de serviço do aplicativo
 + [Leia o modelo de programação de Atores Confiáveis](service-fabric-reliable-actors-introduction.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

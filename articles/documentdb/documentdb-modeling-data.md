@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/19/2015" 
 	ms.author="ryancraw"/>
 
 #Modelando dados no Banco de Dados de Documentos#
@@ -392,4 +392,4 @@ Para saber como fragmentar seus dados em diversas partições, consulte [Partici
 Por fim, para obter diretrizes sobre fragmentação e modelagem de dados para aplicativos multilocatários, consulte [Dimensionando um aplicativo multilocatário com o Banco de Dados de Documentos do Azure](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

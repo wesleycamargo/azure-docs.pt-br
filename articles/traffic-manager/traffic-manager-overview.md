@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # O que é o Gerenciador de Tráfego?
@@ -164,12 +164,12 @@ Se você quiser obter as figuras deste tópico como slides do PowerPoint para su
 
 ## Próximas etapas
 
-[Serviços de Nuvem](http://go.microsoft.com/fwlink/p/?LinkId=314074)
+[Métodos de roteamento do Gerenciador de Tráfego](traffic-manager-routing-methods.md)
 
-[Sites](http://go.microsoft.com/fwlink/p/?LinkId=393327)
+[Monitoramento do Gerenciador de Tráfego](traffic-manager-monitoring.md)
 
-[Operações no Gerenciador de Tráfego (referência de API REST)](http://go.microsoft.com/fwlink/p/?LinkId=313584)
+[Criar um perfil](traffic-manager-manage-profiles.md)
 
 [Cmdlets do Gerenciador de Tráfego do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -72,7 +72,7 @@ Para obter a amostragem nos dados de páginas da Web, insira uma linha extra no 
 	}); 
 ```
 
-* Defina um percentual (10, nesses exemplos) que seja igual a 100/N, em que N seja um inteiro - por exemplo, 50 (=100/2), 33,33 (=100/3), 25 (=100/4) e 10 (=100/5). 
+* Defina um percentual (10, nesses exemplos) que seja igual a 100/N, em que N seja um inteiro - por exemplo, 50 (=100/2), 33,33 (=100/3), 25 (=100/4) e 10 (=100/10). 
 * Se tiver muitos dados, você pode usar taxas de amostragem muito baixas, como 0,1.
 * Se você definir a amostragem na página da Web e no servidor, lembre-se de definir o mesmo percentual de amostragem em ambos os lados.
 * Os lados do cliente e do servidor serão coordenados para selecionar itens relacionados.
@@ -172,7 +172,7 @@ Você pode transmitir valores de cadeia de caracteres do arquivo .config fornece
     // If you have more processors:
     builder.Use((next) => new AnotherProcessor(next));
 
-    TelemetryConfiguration.Active.TelemetryChannel = builder.Build();
+    builder.Build();
 
     ```
 
@@ -409,4 +409,4 @@ Você pode adicionar quantos inicializadores desejar.
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

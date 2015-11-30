@@ -16,10 +16,10 @@
    ms.date="10/08/2015"
    ms.author="hascipio"/>
 
-# Configurar o Azure PowerShell para criar uma oferta para o Azure Marketplace
-Para obter informações detalhadas sobre como configurar o PowerShell no Azure, visite [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md). Uma abordagem simples é usar o método de certificado, que baixa e importa um certificado necessário para autenticar. Para obter o certificado necessário, use o cmdlet *Get-AzurePublishSettingsFile*. Ao terminar, salve o arquivo. Para importar o certificado em uma sessão do PowerShell, use o *Import-AzurePublishSettingsFile*.
+# Configurar o Azure PowerShell para criar a oferta para o Azure Marketplace
+Para obter informações detalhadas sobre como configurar o PowerShell no Azure, consulte, [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md). Uma abordagem simples é usar o método de certificado que baixa e importa um certificado necessário para autenticar. Para obter o certificado necessário, use o cmdlet **Get-AzurePublishSettingsFile**. Quando for solicitado, salve o arquivo. Para importar o certificado em uma sessão do PowerShell, use o cmdlet **Import-AzurePublishSettingsFile**.
 
-Para configurar e armazenar as configurações de assinatura do Microsoft Azure comuns para a sessão do PowerShell, use os cmdlets *Set-AzureSubscription* e *Select-AzureSubscription*:
+Para configurar e armazenar as configurações de assinatura do Microsoft Azure comuns para a sessão do PowerShell, use os cmdlets **Set-AzureSubscription** e **Select-AzureSubscription**:
 
         Set-AzureSubscription -SubscriptionName “mySubName” -CurrentStorageAccountName “mystorageaccount”
         Select-AzureSubscription -SubscriptionName "mySubName" –Current
@@ -27,7 +27,7 @@ Para configurar e armazenar as configurações de assinatura do Microsoft Azure 
 O primeiro comando associa uma conta de armazenamento padrão com a assinatura (necessária para algumas operações de provisionamento da VM). O segundo faz a assinatura do ano atual (reconhecido por outros cmdlets).
 
 ## Consulte também
-- [Introdução: como publicar uma oferta para o Azure Marketplace](marketplace-publishing-getting-started.md)
+- [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
 - [Criar uma imagem de máquina virtual para o Marketplace](marketplace-publishing-vm-image-creation.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

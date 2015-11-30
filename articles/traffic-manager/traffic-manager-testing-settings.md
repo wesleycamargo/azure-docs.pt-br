@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
-# Testando as configurações do Gerenciador de Tráfego
+# Teste as configurações do Gerenciador de Tráfego
 
 A melhor maneira de testar suas configurações do Gerenciador de Tráfego é configurar vários clientes e desativar os pontos de extremidade, que consistem em serviços de nuvem e sites, um de cada vez em seu perfil. As dicas a seguir o ajudarão a testar seu perfil do Gerenciador de Tráfego:
 
@@ -61,22 +61,15 @@ Para testar efetivamente um método de roteamento de tráfego de desempenho, voc
 
 Há serviços gratuitos de dig e pesquisa de DNS baseados na Web disponíveis. Alguns deles possibilitam que você verifique a resolução de nome DNS a partir de vários locais. Pesquise "Pesquisa de DNS" para obter exemplos. Outra opção é usar uma solução de terceiros, como Gomez ou Keynote, para confirmar que os perfis estão distribuindo o tráfego conforme o esperado.
 
-## Consulte também
+## Próximas etapas
 
-[Sobre os Métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-load-balancing-methods.md)
+[Considerações sobre desempenho do Gerenciador de Tráfego](traffic-manager-performance-considerations.md)
 
-[Gerenciador de Tráfego - Desabilitar, habilitar ou excluir um perfil](disable-enable-or-delete-a-profile.md)
+[Solucionando problemas de estado degradado do Gerenciador de Tráfego](traffic-manager-troubleshooting-degraded.md)
 
-[Gerenciador de Tráfego - Desabilitar ou habilitar um ponto de extremidade](disable-or-enable-an-endpoint.md)
 
-[O que é o Gerenciador de Tráfego?](traffic-manager-overview.md)
 
-[Serviços de Nuvem](http://go.microsoft.com/fwlink/p/?LinkId=314074)
-
-[Sites](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-[Operações para Gerenciador de Tráfego (referência de API REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

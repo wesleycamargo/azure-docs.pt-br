@@ -1,16 +1,17 @@
 <properties
    pageTitle="Perguntas frequentes do Backup do Azure | Microsoft Azure"
-   description="Perguntas frequentes sobre o serviço de Backup do Azure"
+   description="Perguntas frequentes sobre a solução de Backup do Azure – agente de backup, backup e retenção, recuperação, segurança e outras perguntas comuns sobre o serviço do Backup do Azure."
    services="backup"
    documentationCenter=""
    authors="Jim-Parker"
    manager="shreeshd"
-   editor=""/>
+   editor=""
+   keywords="solução de backup; serviço de backup"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/07/2015" ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2015" ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
 
-# Backup do Azure - Perguntas frequentes
-Veja a seguir uma lista de perguntas frequentes sobre o Backup do Azure. Se você tiver perguntas adicionais sobre o Backup do Azure, vá para o [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) e poste suas perguntas. Alguém da sua comunidade o ajudará a obter respostas. Se uma pergunta for frequente, ela será adicionada a este artigo para que possa ser encontrada com rapidez e facilidade.
+# Serviço de Backup do Azure - Perguntas frequentes
+Veja a seguir uma lista de perguntas frequentes sobre o Backup do Azure. Se você tiver outras perguntas sobre a solução do Backup do Azure, vá para o [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) e poste suas perguntas. Alguém da sua comunidade o ajudará a obter respostas. Se uma pergunta for frequente, ela será adicionada a este artigo para que possa ser encontrada com rapidez e facilidade.
 
 ## Instalação e configuração
 **P1. Qual é a lista de sistemas operacionais com suporte por meio dos quais posso fazer backup no Azure usando o Backup do Azure?** <br/> R1. Os sistemas operacionais da lista a seguir têm suporte no Backup do Azure
@@ -32,7 +33,7 @@ Veja a seguir uma lista de perguntas frequentes sobre o Backup do Azure. Se voc�
 
 **P2. Onde posso baixar o agente mais recente do Backup do Azure?** <br/> R2. Você pode baixar o agente mais recente [aqui](http://aka.ms/azurebackup_agent). Ele pode ser instalado no Windows Server, no servidor SCDPM ou no cliente Windows.
 
-**P3. Qual versão do servidor SCDPM tem suporte?** <br/> R3. Recomendamos que você instale o agente de Backup do Azure [mais recente](http://aka.ms/azurebackup_agent) do pacote cumulativo de atualizações mais recente do SCDPM (UR6 de julho de 2015)
+**P3. Qual versão do servidor SCDPM tem suporte?** <br/> R3. Recomendamos que você instale o agente de Backup do Azure [mais recente](http://aka.ms/azurebackup_agent) no pacote cumulativo de atualizações mais recente do SCDPM (UR6 de julho de 2015)
 
 **P4. Ao configurar o agente do Backup do Azure, sou solicitado a inserir as “credenciais do cofre”. Há uma data de expiração associada às credenciais do cofre?** <br/> R4. Sim, a credencial do cofre expira após 48 horas. Se o arquivo expirar, faça logon no Portal do Azure e baixe os arquivos de credenciais de cofre no seu cofre de backup.
 
@@ -72,7 +73,7 @@ Veja a seguir uma lista de perguntas frequentes sobre o Backup do Azure. Se voc�
 
 **P13. Qual é o requisito de tamanho mínimo para a pasta de cache?** <br/> R13. O tamanho da pasta de cache é determinado pela quantidade de dados submetida a backup. Em geral, de 10 a 15% do espaço necessário para o armazenamento de dados deve ser alocado para a pasta de cache.
 
-**P14. Como posso isolar os dados de servidor específicos para que eles não sejam recuperados por outros servidores na minha organização?**<br/> R14. Qualquer servidor registrado no mesmo cofre será capaz de recuperar os dados do backup feito por outros servidores que usam a mesma senha. Se você tiver servidores que deseja garantir que a recuperação ocorra apenas em servidores específicos na sua organização, deverá usar uma senha separada designada para esses servidores. Por exemplo, os servidores de recursos humanos podem usar uma senha de criptografia, os servidores de contabilidade podem usar outra senha e os outros servidores de armazenamento podem usar uma terceira senha.
+**P14. Como faço para isolar os dados de servidor específicos para que eles não sejam recuperados por outros servidores em minha organização?**<br/> R14. Qualquer servidor registrado no mesmo cofre será capaz de recuperar os dados do backup feito por outros servidores que usam a mesma senha. Se você tiver servidores que deseja garantir que a recuperação ocorra apenas em servidores específicos na sua organização, deverá usar uma senha separada designada para esses servidores. Por exemplo, os servidores de recursos humanos podem usar uma senha de criptografia, os servidores de contabilidade podem usar outra senha e os outros servidores de armazenamento podem usar uma terceira senha.
 
 **P15. Posso "migrar" meus dados de backup entre assinaturas?** <br/> R15: Não
 
@@ -175,4 +176,4 @@ O tamanho da fonte de dados é medido como mencionado abaixo
 
 Assim que os backups começarem a ser executados com êxito com o novo local de cache, você poderá remover a pasta de cache original.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

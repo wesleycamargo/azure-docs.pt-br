@@ -13,12 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="11/12/2015" 
 	ms.author="spelluru"/>
 
 # Mover dados do Oracle local usando o Azure Data Factory 
 
 Este artigo descreve como você pode usar a atividade de cópia da data factory para mover dados do Oracle para outro armazenamento de dados. Este artigo se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral de movimentação de dados com a atividade de cópia e combinações de armazenamento de dados com suporte.
+
+## Instalação 
+Para o serviço de fábrica de dados do Azure poder se conectar ao banco de dados Oracle no local, você deve instalar o seguinte:
+
+- Gateway de Gerenciamento de Dados na mesma máquina que hospeda o banco de dados ou em uma máquina separada para evitar competência por recursos com o banco de dados. O Gateway de Gerenciamento de Dados é um software que conecta fontes de dados locais a serviços de nuvem de maneira segura e gerenciada. Consulte o artigo [Mover dados entre local e nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter detalhes sobre o Gateway de Gerenciamento de Dados. 
+- [ODAC (componentes de acesso a dados da Oracle) para o Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html). Ele deve ser instalado na máquina host em que o gateway está instalado.
+
 
 ## Exemplo: copiar dados do Oracle para o Blob do Azure
 
@@ -150,7 +157,7 @@ Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo
 
 **Pipeline com Atividade de cópia:**
 
-O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída acima e agendada para ser executada a cada hora. No definição JSON do pipeline, o tipo de **source** está definido como **RelationalSource** e o tipo de **sink** está definido como **BlobSink**. A consulta SQL especificada com a propriedade **oracleReaderQuery** seleciona os dados na última hora para copiar.
+O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída acima e agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo **source** está definido como **RelationalSource** e o tipo **sink** está definido como **BlobSink**. A consulta SQL especificada com a propriedade **oracleReaderQuery** seleciona os dados na última hora para copiar.
 
 	
 	{  
@@ -211,7 +218,7 @@ gatewayName | Nome do gateway que será usado para se conectar ao servidor Oracl
 Consulte [Definir credenciais e segurança](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obter detalhes sobre como definir credenciais para uma fonte de dados do Oracle local.
 ## Propriedades de tipo do conjunto de dados do Oracle
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). Seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (Oracle, blob do Azure, tabela do Azure etc.).
+Para obter uma lista completa das seções e propriedades disponíveis para definição de conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). Seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (Oracle, blob do Azure, tabela do Azure etc.).
  
 A seção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção typeProperties para o conjunto de dados do tipo OracleTable tem as propriedades a seguir.
 
@@ -221,9 +228,9 @@ tableName | Nome da tabela no Banco de Dados Oracle à qual o serviço vinculado
 
 ## Propriedades de tipo da atividade de cópia do Oracle
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, consulte o artigo [Criando pipelines](data-factory-create-pipelines.md). Propriedades, como nome, descrição, tabelas de entrada e saída, várias políticas, etc. estão disponíveis para todos os tipos de atividades.
+Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, veja o artigo [Criando pipelines](data-factory-create-pipelines.md). Propriedades, como nome, descrição, tabelas de entrada e saída, várias políticas, etc. estão disponíveis para todos os tipos de atividades.
 
-**Observação:** a Atividade de cópia usa apenas uma entrada e produz apenas uma saída.
+**Observação:** a Atividade de Cópia usa apenas uma entrada e produz apenas uma saída.
 
 As propriedades disponíveis na seção typeProperties da atividade, por outro lado, variam de acordo com cada tipo de atividade e, no caso de Atividade de cópia, variam dependendo dos tipos de fontes e coletores.
 
@@ -238,7 +245,7 @@ Por exemplo: select * from MyTable <p>Se não for especificada, a instrução SQ
 
 ### Mapeamento de tipo para Oracle
 
-Conforme mencionado no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), a Atividade de cópia executa conversões automáticas de tipo de fonte para tipos de coletor, com a abordagem em duas etapas descritas a seguir:
+Conforme mencionado no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), a Atividade de cópia executa conversões automáticas de tipo de tipos de fonte para tipos de coletor, com a abordagem em duas etapas descrita a seguir:
 
 1. Converter de tipos de fonte nativos para o tipo .NET
 2. Converter do tipo .NET para o tipo de coletor nativo
@@ -271,7 +278,26 @@ UNSIGNED INTEGER | Número
 VARCHAR2 | Cadeia de caracteres
 XML | Cadeia de caracteres
 
+## Dicas de solução de problemas
+
+****Problema: ** você vê a seguinte **mensagem de erro**: A atividade de cópia encontrou parâmetros inválidos: 'UnknownParameterName', Mensagem detalhada: Não é possível localizar o provedor de dados .Net Framework solicitado. Ele pode não estar instalado".
+
+**Possíveis causas**
+
+1. O provedor de dados .NET Framework para Oracle não foi instalado.
+2. O provedor de dados .NET Framework para Oracle foi instalado no .NET Framework 2.0 e não foi encontrado nas pastas .NET Framework 4.0. 
+
+**Solução/solução alternativa**
+
+1. Se você não instalou o provedor .NET para Oracle, [instale-o](http://www.oracle.com/technetwork/topics/dotnet/utilsoft-086879.html) e repita o cenário. 
+2. Se você receber a mensagem de erro mesmo depois de instalar o provedor, faça o seguinte: 
+	1. Abra a configuração de máquina do .NET 2.0 na pasta: <system disk>: \\Windows\\Microsoft.NET\\Framework64\\v2.0.50727\\CONFIG\\machine.config.
+	2. Procure **Provedor de dados Oracle para .NET**, e você deve ser capaz de encontrar uma entrada como abaixo em **system.data** -> **DbProviderFactories**: "<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />"
+2.	Copie esta entrada no arquivo machine.config na seguinte pasta v4.0: <system disk>: \\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config e altere a versão para 4.xxx.x.x.
+3.	Instale "<ODP.NET Installed Path>\\11.2.0\\client\_1\\odp.net\\bin\\4\\Oracle.DataAccess.dll" no cache de assembly global (GAC), executando "gacutil /i [caminho do provedor]".
+
+
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

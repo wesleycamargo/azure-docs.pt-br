@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Considerações de design da identidade híbrida do Active Directory do Azure - determinar os requisitos de identidade | Microsoft Azure"
+	pageTitle="Considerações sobre design da identidade híbrida do Active Directory do Azure - determinar os requisitos de identidade | Microsoft Azure"
 	description="Identifique as necessidades de negócios da empresa que levarão você definir os requisitos para o design de identidade híbrida."
 	documentationCenter=""
 	services="active-directory"
@@ -38,7 +38,7 @@ Não deixe de responder às seguintes perguntas para identificar suas necessidad
 - Sua empresa está tentando se livrar das temidas contas "externas" no local e movê-las para a nuvem onde não são mais uma ameaça inativa dentro do seu ambiente local?
 
 ## Analisar a infraestrutura de identidades no local
-Agora que você tem uma ideia sobre os requisitos de negócios da empresa, precisa avaliar sua infraestrutura de identidade no local. Essa avaliação é importante para definir os requisitos técnicos para integrar sua solução de identidade atual ao sistema de gerenciamento de identidade de nuvem. Não deixe de responder às seguintes perguntas:
+Agora que você tem uma ideia sobre os requisitos de negócios da empresa, precisa avaliar sua infraestrutura de identidade no local. Essa avaliação é importante para definir os requisitos técnicos para integrar sua solução de identidade atual ao sistema de gerenciamento de identidade de nuvem. Certifique-se de responder às seguintes perguntas:
 
 - Que solução de autenticação e autorização sua empresa usa no local? 
 - Sua empresa possui atualmente algum serviço de sincronização local?
@@ -47,13 +47,13 @@ Agora que você tem uma ideia sobre os requisitos de negócios da empresa, preci
 Você também precisa estar ciente dos serviços de nuvem que sua empresa pode ter. É muito importante executar uma avaliação para entender a integração atual com os modelos SaaS, IaaS ou PaaS em seu ambiente. Não deixe de responder às seguintes perguntas durante essa avaliação: - Sua empresa tem alguma integração com um provedor de serviço de nuvem? - Em caso afirmativo, quais serviços estão sendo usados? - A integração está atualmente em produção ou é um piloto?
 
 
->[AZURE.NOTE]Se você não tiver um mapeamento preciso de todos os seus aplicativos e serviços de nuvem, pode usar a ferramenta Cloud App Discovery. Essa ferramenta pode fornecer a seu departamento de TI visibilidade de todos os negócios da organização e aplicativos de nuvem do consumidor. Isso facilita ainda mais a descoberta de TI de sombra em sua organização, incluindo detalhes sobre padrões de uso e quaisquer usuários que acessam seus aplicativos na nuvem. Para acessar essa ferramenta, visite [https://appdiscovery.azure.com](https://appdiscovery.azure.com/)
+>[AZURE.NOTE]Se você não tiver um mapeamento preciso de todos os seus aplicativos e serviços de nuvem, pode usar a ferramenta Cloud App Discovery. Essa ferramenta pode fornecer a seu departamento de TI visibilidade de todos os negócios da organização e aplicativos de nuvem do consumidor. Isso facilita ainda mais a descoberta de TI de sombra em sua organização, incluindo detalhes sobre padrões de uso e todos os usuários que acessam seus aplicativos na nuvem. Para acessar essa ferramenta, visite [https://appdiscovery.azure.com](https://appdiscovery.azure.com/)
 
 ## Avaliar os requisitos de integração de identidade
-Em seguida, você precisa avaliar os requisitos de integração de identidade. Essa avaliação é importante para definir os requisitos técnicos de como os usuários serão autenticados, qual será a aparência da presença da organização na nuvem, como a organização permitirá a autorização e como será a experiência do usuário. Não deixe de responder às seguintes perguntas:
+Em seguida, você precisa avaliar os requisitos de integração de identidade. Essa avaliação é importante para definir os requisitos técnicos de como os usuários serão autenticados, qual será a aparência da presença da organização na nuvem, como a organização permitirá a autorização e como será a experiência do usuário. Certifique-se de responder às seguintes perguntas:
 
 - Sua organização usará federação, autenticação padrão ou ambos?
-- A federação é um requisito? Pelo seguinte:
+- A federação é um requisito? Por causa do seguinte:
  - SSO baseada em Kerberos
  - Sua empresa tem um aplicativo local (seja criado internamente ou de terceiros) que usa SAML ou recursos de federação semelhantes.
  - MFA usando cartões inteligentes. RSA SecurID, etc.
@@ -73,7 +73,7 @@ Em seguida, você precisa avaliar os requisitos de integração de identidade. E
 - A organização possui vários domínios e todos eles usarão a autenticação federada ou padrão?
 
 ## Avaliar aplicativos executados em seu ambiente
-Agora que você tem uma ideia sobre suas instalações e infraestrutura de nuvem, precisa avaliar os aplicativos executados nesses ambientes. Essa avaliação é importante para definir os requisitos técnicos para integrar esses aplicativos para o sistema de gerenciamento de identidade na nuvem. Não deixe de responder às seguintes perguntas:
+Agora que você tem uma ideia sobre suas instalações e infraestrutura de nuvem, precisa avaliar os aplicativos executados nesses ambientes. Essa avaliação é importante para definir os requisitos técnicos para integrar esses aplicativos ao sistema de gerenciamento de identidades na nuvem. Certifique-se de responder às seguintes perguntas:
 
 - Onde nossos aplicativos residirão?
 - Os usuários acessarão os aplicativos no local? Na nuvem? Ou ambos?
@@ -81,19 +81,19 @@ Agora que você tem uma ideia sobre suas instalações e infraestrutura de nuvem
 - Há planos para desenvolver novos aplicativos que residirão no local ou na nuvem que usará autenticação de nuvem?
 
 ## Avaliar os requisitos do usuário
-Você também precisa avaliar os requisitos do usuário. Essa avaliação é importante para definir as etapas que serão necessárias para a integração e para ajudar os usuários com a transição para a nuvem. Não deixe de responder às seguintes perguntas:
+Você também precisa avaliar os requisitos do usuário. Essa avaliação é importante para definir as etapas que serão necessárias para a integração e para ajudar os usuários com a transição para a nuvem. Certifique-se de responder às seguintes perguntas:
 
 - Os usuários acessarão aplicativos no local?
 - Os usuários acessarão aplicativos na nuvem?
 - Como os usuários normalmente entram em seu ambiente local?
 - Como os usuários entrarão na nuvem?
 
->[Observação] Faça anotações de cada resposta e entenda o raciocínio por trás da resposta. [Determinar os requisitos de resposta a incidentes](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) vai avaliar as opções disponíveis e os prós e contras de cada opção. Depois de responder a essas perguntas, você selecionará a opção que melhor se ajusta às necessidades da sua empresa.
+>[Observação] Faça anotações de cada resposta e entenda a lógica por trás da resposta. [Determinar os requisitos de resposta a incidentes](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) apresentará as opções disponíveis e os prós e contras de cada opção. Depois de responder a essas perguntas, você selecionará a opção que melhor se ajusta às necessidades da sua empresa.
 
 ## Próximas etapas
 [Determinar os requisitos de sincronização de diretório](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
 
 ## Consulte também
-[Visão geral de considerações de design](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Visão geral de considerações sobre design] ((active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

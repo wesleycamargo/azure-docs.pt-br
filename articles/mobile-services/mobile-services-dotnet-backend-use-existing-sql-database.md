@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="08/01/2015"
+	ms.date="11/09/2015"
 	ms.author="glenga"/>
 
 
@@ -147,7 +147,6 @@ O modelo de dados que você deseja usar com o seu serviço móvel pode ser arbit
 
         using System.ComponentModel.DataAnnotations.Schema;
         using Microsoft.WindowsAzure.Mobile.Service.Tables;
-        using System.ComponentModel.DataAnnotations;
         using System;
 
 4. Em seguida, adicione essas propriedades extras a cada uma das classes:
@@ -585,7 +584,7 @@ Agora estamos prontos para criar controladores para expor nossos DTOs a nossos c
 
 3. Agora você está pronto para executar seu serviço. Pressione **F5** e use o cliente de teste compilado na página de ajuda para modificar os dados.
 
-Observe que as duas implementações do controlador tornam exclusivo o uso dos DTOs **MobileCustomer** e **MobileOrder** e são agnósticos do modelo subjacente. Esses DTOs estão prontamente serializados para JSON e podem ser usados para trocar dados com o SDK do cliente dos Serviços Móveis em todas as plataformas. Por exemplo, se compilar um aplicativo da Windows Store, o tipo do lado do cliente correspondente ficará parecido com o mostrado abaixo. O tipo seria análogo a outras plataformas clientes.
+Observe que as duas implementações do controlador tornam exclusivo o uso dos DTOs **MobileCustomer** e **MobileOrder** e são agnósticos do modelo subjacente. Esses DTOs estão prontamente serializados para JSON e podem ser usados para trocar dados com o SDK do cliente dos Serviços Móveis em todas as plataformas. Por exemplo, compilar um aplicativo da Windows Store, o tipo do lado do cliente correspondente ficará parecido com o mostrado abaixo. O tipo seria análogo a outras plataformas clientes.
 
     using Microsoft.WindowsAzure.MobileServices;
     using System;
@@ -615,4 +614,4 @@ Observe que as duas implementações do controlador tornam exclusivo o uso dos D
 
 Como uma próxima etapa, agora você pode compilar o aplicativo cliente para acessar o serviço.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

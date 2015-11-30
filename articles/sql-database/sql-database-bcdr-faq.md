@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="07/14/2015"
+   ms.date="11/16/2015"
    ms.author="elfish"/>
 
 # Perguntas frequentes sobre continuidade dos negócios
@@ -48,7 +48,7 @@ Para recuperação de uma interrupção — use [Get Recoverable Database](https
 
 ## 7\. Como posso restaurar bancos de dados em massa em meu servidor?
 
-Não há nenhuma funcionalidade interna para restauração em massa. Você pode usar o script [Banco de Dados SQL do Azure: recuperação completa do servidor](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) para realizar essa tarefa.
+Não há nenhuma funcionalidade interna para restauração em massa. O [banco de dados SQL do Azure: o script recuperação de servidor completa](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) é um exemplo de uma maneira de realizar essa tarefa.
 
 ## 8\. Qual é a diferença entre replicação geográfica padrão e replicação geográfica ativa?
 
@@ -58,11 +58,6 @@ Para replicação geográfica ativa, todos os bancos de dados secundários são 
 
 ## 9\. Qual é o atraso da replicação ao usar a replicação geográfica padrão ou replicação geográfica ativa?
 
-A replicação geográfica usa cópia contínua. Desse modo, use os DMVs (exibição de gerenciamento dinâmico) [sys.dm\_continuous\_copy\_status](https://msdn.microsoft.com/library/azure/dn741329.aspx) para obter a hora da última replicação e outras informações.
+Use a exibição de gerenciamento dinâmico (DMVs) [sys.dm\_geo\_replication\_link\_status](https://msdnstage.redmond.corp.microsoft.com/library/mt575504.aspx) para obter o último horário de replicação, último atraso de replicação e outras informações sobre o link de replicação.
 
-
-
-
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

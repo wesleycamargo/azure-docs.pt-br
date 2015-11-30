@@ -207,9 +207,11 @@ O metastore contém metadados Hive e Oozie, como informações sobre tabelas Hiv
 
 Usar a opção de configuração Metastore permite especificar um metastore externo usando o Banco de Dados SQL. Isso permite que as informações de metadados sejam preservadas quando você excluir um cluster, já que elas são armazenadas externamente no banco de dados. Para obter instruções sobre como criar um banco de dados SQL do Azure, consulte [Criar seu primeiro banco de dados SQL do Azure](sql-database-get-started.md).
 
+> [AZURE.NOTE]A configuração de Metastore não está disponível para tipos de cluster HBase.
+
 ###<a id="scriptaction"></a>Ação de script
 
-Você pode instalar componentes adicionais ou personalizar a configuração de cluster por meio de scripts durante o provisionamento de cluster. Esses scripts são invocados por meio de **Ação de script**. Para obter mais informações, consulte [Personalizar cluster HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md).
+Você pode instalar componentes adicionais ou personalizar a configuração de cluster por meio de scripts durante o provisionamento de cluster. Esses scripts são invocados por meio da **Ação de Script**. Para obter mais informações, consulte [Personalizar cluster HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md).
 
 > [AZURE.IMPORTANT]Não há suporte para a adição de componentes após a criação de um cluster, pois esses componentes não estarão disponíveis após a recriação de um nó de cluster. Os componentes instalados por meio de ações de script são reinstalados como parte do processo de recriação de imagens.
 
@@ -280,4 +282,4 @@ Neste artigo, você aprendeu as informações básicas sobre como criar um clust
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Use o Sqoop com o HDInsight"
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

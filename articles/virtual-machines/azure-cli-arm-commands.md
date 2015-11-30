@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-command-line-tools.md)
 
-Este artigo descreve como usar a interface de linha de comando do Azure (CLI do Azure) no modo do Gerenciador de Recursos do Azure para criar, gerenciar e excluir serviços na linha de comando de computadores Mac, Linux e Windows. É possível realizar muitas das mesmas tarefas usando as várias bibliotecas dos SDKs do Azure, com o Azure PowerShell, e usando o Portal de visualização do Azure.
+Este artigo descreve como usar a interface de linha de comando do Azure (CLI do Azure) no modo do Gerenciador de Recursos do Azure para criar, gerenciar e excluir serviços na linha de comando de computadores Mac, Linux e Windows. É possível realizar várias das mesmas tarefas usando as diversas bibliotecas dos SDKs do Azure, com o Azure PowerShell, e usando o portal de visualização do Azure.
 
 O Gerenciador de Recursos do Azure permite que você crie um grupo de recursos – máquinas virtuais, sites, bancos de dados e assim por diante – como uma única unidade implantável. Em seguida, você pode implantar, atualizar ou excluir todos os recursos para seu aplicativo em uma única operação coordenada. Você descrever os recursos de grupo em um modelo JSON para implantação e, em seguida, pode usar esse modelo para ambientes diferentes, como teste, preparação e produção.
 
@@ -1252,22 +1252,23 @@ Cria um recurso de ip público. Você criará o recurso ip público e o associar
 
 
 Opções de parâmetro:
-	-h, --help                                   informações de uso de saída
-	-v, -- verbose                               usa a saída detalhada
-	-- json                                      usa a saída json
-	-g, --resource-group <resource-group>        o nome do recurso de grupo
-	-n, --nome                                   <name> o nome do ip público
-	-l, --location <location>                    o local
-	-d, --domain-name-label <domain-name-label>  o rótulo de nome de domínio.
-	Isso configura o DNS para <domain-name-label>.<location>.cloudapp.azure.com 
-	-a, --allocation-method <allocation-method>  o método de alocação [Static][Dynamic]
-	-i, --idletimeout <idletimeout>              o tempo limite de ociosidade em minutos
-	-f, --reverse-fqdn <reverse-fqdn>            o fqdn inverso
-	-t, --tags <tags>                            a lista de marcas.
-	Podem ser vários. No formato "name = value".
-	O nome é obrigatório e o valor é opcional.
-	Por exemplo, -t tag1=value1;tag2
-	-s, --subscription <subscription>            o identificador de assinatura
+
+	-h, --help                                   output usage information
+	-v, --verbose                                use verbose output
+	--json                                       use json output
+	-g, --resource-group <resource-group>        the name of the resource group
+	-n, --name <name>                            the name of the public ip
+	-l, --location <location>                    the location
+	-d, --domain-name-label <domain-name-label>  the domain name label.
+	This set DNS to <domain-name-label>.<location>.cloudapp.azure.com
+	-a, --allocation-method <allocation-method>  the allocation method [Static][Dynamic]
+	-i, --idletimeout <idletimeout>              the idle timeout in minutes
+	-f, --reverse-fqdn <reverse-fqdn>            the reverse fqdn
+	-t, --tags <tags>                            the list of tags.
+	Can be multiple. In the format of "name=value".
+	Name is required and value is optional.
+	For example, -t tag1=value1;tag2
+	-s, --subscription <subscription>            the subscription identifier
 <br>
 
 	network public-ip set [options] <resource-group> <name>
@@ -1759,4 +1760,4 @@ Opções de parâmetro:
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

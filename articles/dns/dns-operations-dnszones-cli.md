@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/02/2015"
+   ms.date="11/10/2015"
    ms.author="joaoma"/>
 
 # Como gerenciar as zonas DNS usando a CLI
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-operations-dnszones-cli.md)
-- [Azure Powershell](dns-operations-dnszones.md)
+- [PowerShell](dns-operations-dnszones.md)
 
 Este guia mostrará como gerenciar sua zona DNS. Ele ajudará a entender a sequência de operações a serem realizadas para administrar sua zona DNS.
 
@@ -76,4 +76,4 @@ Esta operação tem um comutador opcional “-q” que suprime o prompt para con
 
 [Automatizar operações usando o SDK do .NET](dns-sdk.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

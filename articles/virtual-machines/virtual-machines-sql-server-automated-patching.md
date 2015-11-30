@@ -1,33 +1,34 @@
 <properties
-   pageTitle="Automatizada de aplicação de patches em VMs do SQL Server | Microsoft Azure"
-   description="Explica o recurso de Aplicação de Patch Automatizada para Máquinas Virtuais do SQL Server em execução no Azure."
-   services="virtual-machines"
-   documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar"
-   tags="azure-resource-manager" />
+	pageTitle="Automatizada de aplicação de patches em VMs do SQL Server | Microsoft Azure"
+	description="Explica o recurso de Aplicação de Patch Automatizada para Máquinas Virtuais do SQL Server em execução no Azure."
+	services="virtual-machines"
+	documentationCenter="na"
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar"
+	tags="azure-resource-manager" />
 <tags
-   ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows-sql-server"
-   ms.workload="infrastructure-services"
-   ms.date="08/05/2015"
-   ms.author="jroth" />
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.workload="infrastructure-services"
+	ms.date="11/12/2015"
+	ms.author="jroth" />
 
 # Aplicação de patch automatizada para o SQL Server em Máquinas Virtuais do Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
-
-
 Aplicação de patch automatizada estabelece uma janela de manutenção para uma Máquina Virtual do Azure que executa o SQL Server 2012 ou 2014. Atualizações automáticas só podem ser instaladas durante esta janela de manutenção. Para o SQL Server, isso garante que as atualizações do sistema e qualquer reinicialização associada ocorrerão no melhor momento possível para o banco de dados. Depende do Agente IaaS do SQL Server.
 
->[AZURE.NOTE]Aplicação de patch automatizada depende do Agente IaaS do SQL Server. Para instalar e configurar o agente, você deve ter o Agente de VM do Azure em execução na máquina virtual de destino. Imagens da galeria de máquinas virtuais mais recentes têm esta opção habilitada por padrão, porém o Agente de VM do Azure pode estar ausente em VMs existentes. Se você estiver usando sua própria imagem de VM, também será necessário instalar o Agente IaaS do SQL Server. Para obter mais informações, consulte [Agente de VM e Extensões](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
 
 ## Configurar a aplicação de patch automatizada no Portal
 
-Você pode usar o [Portal de Visualização do Azure](http://go.microsoft.com/fwlink/?LinkID=525040&clcid=0x409) para configurar a Aplicação de Patch Automatizada quando você cria uma nova Máquina Virtual do SQL Server. A captura de tela a seguir mostra essas opções em **CONFIGURAÇÃO OPCIONAL** | **APLICAÇÃO DE PATCH AUTOMATIZADO DE SQL**.
+Você pode usar o [Portal de Visualização do Azure](http://go.microsoft.com/fwlink/?LinkID=525040&clcid=0x409) para configurar a Aplicação de Patch Automatizada quando você cria uma nova Máquina Virtual do SQL Server.
+
+>[AZURE.NOTE]Aplicação de patch automatizada depende do Agente IaaS do SQL Server. Para instalar e configurar o agente, você deve ter o Agente de VM do Azure em execução na máquina virtual de destino. Imagens da galeria de máquinas virtuais mais recentes têm esta opção habilitada por padrão, porém o Agente de VM do Azure pode estar ausente em VMs existentes. Se você estiver usando sua própria imagem de VM, também será necessário instalar o Agente IaaS do SQL Server. Para obter mais informações, consulte [Agente de VM e Extensões](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
+
+A captura de tela do portal a seguir mostra essas opções em **CONFIGURAÇÃO OPCIONAL** | **PATCHING AUTOMATIZADO DO SQL**.
 
 ![Aplicação de Patch Automática do SQL no Portal do Azure](./media/virtual-machines-sql-server-automated-patching/IC778484.jpg)
 
@@ -92,4 +93,4 @@ Um recurso relacionado para VMs do SQL Server no Azure é o [Backup Automatizado
 
 Examine outros [recursos para executar o SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

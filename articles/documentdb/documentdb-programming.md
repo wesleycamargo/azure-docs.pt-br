@@ -475,69 +475,9 @@ A UDF pode, subsequentemente, ser usada em consultas como na amostra a seguir:
 ## API de consulta integrada da linguagem JavaScript
 Além de emitir consultas usando a gramática SQL do Banco de Dados de Documentos, o SDK do servidor permite que você execute consultas otimizadas usando uma interface fluente do JavaScript sem qualquer conhecimento de SQL. A API de consulta JavaScript permite que você crie consultas programaticamente ao passar funções de predicado em chamadas a função encadeáveis, com uma sintaxe semelhantes a bibliotecas JavaScript internas e conhecidas da Matriz ECMAScript5, como lodash. As consultas são analisadas no tempo de execução do JavaScript para serem executadas com eficiência usando índices do Banco de Dados de Documentos.
 
-> [AZURE.NOTE]`__` (double-underscore) é um alias para `getContext().getCollection()`.
-> <br/>
-> Em outras palavras, você pode usar `__` ou `getContext().getCollection()` para acessar a API de consulta JavaScript.
+> [AZURE.NOTE]`__` (double-underscore) é um alias para `getContext().getCollection()`. <br/> Em outras palavras, você pode usar `__` ou `getContext().getCollection()` para acessar a API de consulta JavaScript.
 
-As funções com suporte incluem:
-<ul>
-<li>
-<b>chain() ... .value([callback] [, options])</b>
-<ul>
-<li>
-Inicia uma chamada encadeada que deve ser terminada com value().
-</li>
-</ul>
-</li>
-<li>
-<b>filter(predicateFunction [, options] [, callback])</b>
-<ul>
-<li>
-Filtra a entrada usando uma função de predicado que retorna verdadeiro/falso para filtrar a entrada/saída de documentos de entrada no conjunto resultante. Esta tem um comportamento semelhante a uma cláusula WHERE no SQL.
-</li>
-</ul>
-</li>
-<li>
-<b>map(transformationFunction [, options] [, callback])</b>
-<ul>
-<li>
-Aplica uma projeção dada uma função de transformação que mapeia cada item de entrada para um valor ou objeto JavaScript. Esta tem um comportamento semelhante a uma cláusula SELECT no SQL.
-</li>
-</ul>
-</li>
-<li>
-<b>pluck([propertyName] [, options] [, callback])</b>
-<ul>
-<li>
-Este é um atalho para um mapa que extrai o valor de uma única propriedade de cada item de entrada.
-</li>
-</ul>
-</li>
-<li>
-<b>flatten([isShallow] [, options] [, callback])</b>
-<ul>
-<li>
-Combina e nivela as matrizes de cada item de entrada a uma única matriz. Esta tem um comportamento semelhante a SelectMany no LINQ.
-</li>
-</ul>
-</li>
-<li>
-<b>sortBy([predicate] [, options] [, callback])</b>
-<ul>
-<li>
-Produz um novo conjunto de documentos, classificando os documentos no fluxo de documentos de entrada em ordem crescente utilizando o predicado em questão. Esta tem um comportamento semelhante a uma cláusula ORDER BY no SQL.
-</li>
-</ul>
-</li>
-<li>
-<b>sortByDescending([predicate] [, options] [, callback])</b>
-<ul>
-<li>
-Produz um novo conjunto de documentos, classificando os documentos no fluxo de documentos de entrada em ordem decrescente utilizando o predicado em questão. Esta se comporta de forma semelhante a uma cláusula ORDER BY x DESC no SQL.
-</li>
-</ul>
-</li>
-</ul>
+As funções com suporte incluem: <ul> <li> <b>chain() ... .value([callback] [, options])</b> <ul> <li> Inicia uma chamada encadeada que deve ser terminada com value(). </li> </ul> </li> <li> <b>filter(predicateFunction [, options] [, callback])</b> <ul> <li> Filtra a entrada usando uma função de predicado que retorna verdadeiro/falso para filtrar a entrada/saída de documentos de entrada no conjunto resultante. Esta tem um comportamento semelhante a uma cláusula WHERE no SQL. </li> </ul> </li> <li> <b>map(transformationFunction [, options] [, callback])</b> <ul> <li> Aplica uma projeção dada uma função de transformação que mapeia cada item de entrada para um valor ou objeto JavaScript. Esta tem um comportamento semelhante a uma cláusula SELECT no SQL. </li> </ul> </li> <li> <b>pluck([propertyName] [, options] [, callback])</b> <ul> <li> Este é um atalho para um mapa que extrai o valor de uma única propriedade de cada item de entrada. </li> </ul> </li> <li> <b>flatten([isShallow] [, options] [, callback])</b> <ul> <li> Combina e nivela as matrizes de cada item de entrada a uma única matriz. Esta tem um comportamento semelhante a SelectMany no LINQ. </li> </ul> </li> <li> <b>sortBy([predicate] [, options] [, callback])</b> <ul> <li> Produz um novo conjunto de documentos, classificando os documentos no fluxo de documentos de entrada em ordem crescente utilizando o predicado em questão. Esta tem um comportamento semelhante a uma cláusula ORDER BY no SQL. </li> </ul> </li> <li> <b>sortByDescending([predicate] [, options] [, callback])</b> <ul> <li> Produz um novo conjunto de documentos, classificando os documentos no fluxo de documentos de entrada em ordem decrescente utilizando o predicado em questão. Esta se comporta de forma semelhante a uma cláusula ORDER BY x DESC no SQL. </li> </ul> </li> </ul>
 
 
 Quando incluídas em funções de predicado e/ou do seletor, as construções do JavaScript a seguir são automaticamente otimizadas para serem executadas de forma direta em índices do Banco de Dados de Documentos:
@@ -614,140 +554,7 @@ A tabela a seguir apresenta várias consultas SQL e as consultas JavaScript corr
 
 Assim como acontece com consultas SQL, as chaves de propriedade do documento (por exemplo, `doc.id`) diferenciam maiúsculas de minúsculas.
 
-<br/>
-<table border="1" width="100%">
-<colgroup>
-<col span="1" style="width: 40%;">
-<col span="1" style="width: 40%;">
-<col span="1" style="width: 20%;">
-</colgroup>
-<tbody>
-<tr>
-<th>SQL</th>
-<th>API de Consulta JavaScript</th>
-<th>Detalhes</th>
-</tr>
-<tr>
-<td>
-<pre>
-SELECT *
-FROM docs
-</pre>
-</td>
-<td>
-<pre>
-__.map(function(doc) {
-    return doc;
-});
-</pre>
-</td>
-<td>Resulta em todos os documentos (paginados com o token de continuação) como estão.</td>
-</tr>
-<tr>
-<td>
-<pre>
-SELECT docs.id, docs.message AS msg, docs.actions 
-FROM docs
-</pre>
-</td>
-<td>
-<pre>
-__.map(function(doc) {
-    return {
-        id: doc.id,
-        msg: doc.message,
-        actions: doc.actions
-    };
-});
-</pre>
-</td>
-<td>Projeta a id, a mensagem (com o alias msg) e ação de todos os documentos.</td>
-</tr>
-<tr>
-<td>
-<pre>
-SELECT * 
-FROM docs 
-WHERE docs.id="X998_Y998"
-</pre>
-</td>
-<td>
-<pre>
-__.filter(function(doc) {
-    return doc.id === "X998_Y998";
-});
-</pre>
-</td>
-<td>Consulta documentos com o predicado: id = "X998_Y998".</td></tr>
-<tr>
-<td>
-<pre>
-SELECT *
-FROM docs
-WHERE ARRAY_CONTAINS(docs.Tags, 123)
-</pre>
-</td>
-<td>
-<pre>
-__.filter(function(x) {
-    return x.Tags && x.Tags.indexOf(123) > -1;
-});
-</pre>
-</td>
-<td>Consultas para documentos que tenham a propriedade Tags e Tags é uma matriz com o valor 123.</td>
-</tr>
-<tr>
-<td>
-<pre>
-SELECT docs.id, docs.message AS msg
-FROM docs 
-WHERE docs.id="X998_Y998"
-</pre>
-</td>
-<td>
-<pre>
-__.chain()
-    .filter(function(doc) {
-        return doc.id === "X998_Y998";
-    })
-    .map(function(doc) {
-        return {
-            id: doc.id,
-            msg: doc.message
-        };
-    })
-    .value();
-</pre>
-</td>
-<td>Consulta documentos com um predicado, id = "X998_Y998" e projeta a id e a mensagem (com o alias msg).</td>
-</tr>
-<tr>
-<td>
-<pre>
-SELECT VALUE tag
-FROM docs
-JOIN tag IN docs.Tags
-ORDER BY docs._ts
-</pre>
-</td>
-<td>
-<pre>
-__.chain()
-    .filter(function(doc) {
-        return doc.Tags && Array.isArray(doc.Tags);
-    })
-    .sortBy(function(doc) {
-    	return doc._ts;
-    })
-    .pluck("Tags")
-    .flatten()
-    .value()
-</pre>
-</td>
-<td>Filtra documentos com uma propriedade de matriz, Tags e classifica os documentos resultantes pela propriedade do sistema _ts timestamp, depois projeta e nivela a matriz Tags.</td>
-</tr>
-</tbody>
-</table>
+<br/> <table border="1" width="100%"> <colgroup> <col span="1" style="width: 40%;"> <col span="1" style="width: 40%;"> <col span="1" style="width: 20%;"> </colgroup> <tbody> <tr> <th>SQL</th> <th>API de Consulta JavaScript</th> <th>Detalhes</th> </tr> <tr> <td> <pre> SELECT * FROM docs </pre> </td> <td> <pre> \_\_.map(function(doc) { return doc; }); </pre> </td> <td>Resulta em todos os documentos (paginados com o token de continuação) como estão.</td> </tr> <tr> <td> <pre> SELECT docs.id, docs.message AS msg, docs.actions FROM docs </pre> </td> <td> <pre> \_\_.map(function(doc) { return { id: doc.id, msg: doc.message, actions: doc.actions }; }); </pre> </td> <td>Projeta a id, a mensagem (com o alias msg) e ação de todos os documentos.</td> </tr> <tr> <td> <pre> SELECT * FROM docs WHERE docs.id="X998\_Y998" </pre> </td> <td> <pre> \_\_.filter(function(doc) { return doc.id === "X998\_Y998"; }); </pre> </td> <td>Consulta documentos com o predicado: id = "X998\_Y998".</td> </tr> <tr> <td> <pre> SELECT * FROM docs WHERE ARRAY\_CONTAINS(docs.Tags, 123) </pre> </td> <td> <pre> \_\_.filter(function(x) { return x.Tags && x.Tags.indexOf(123) > -1; }); </pre> </td> <td>Consultas para documentos que tenham a propriedade Tags e Tags é uma matriz com o valor 123.</td> </tr> <tr> <td> <pre> SELECT docs.id, docs.message AS msg FROM docs WHERE docs.id="X998\_Y998" </pre> </td> <td> <pre> \_\_.chain() .filter(function(doc) { return doc.id === "X998\_Y998"; }) .map(function(doc) { return { id: doc.id, msg: doc.message }; }) .value(); </pre> </td> <td>Consulta documentos com um predicado, id = "X998\_Y998" e projeta a id e a mensagem (com o alias msg).</td> </tr> <tr> <td> <pre> SELECT VALUE tag FROM docs JOIN tag IN docs.Tags ORDER BY docs.\_ts </pre> </td> <td> <pre> \_\_.chain() .filter(function(doc) { return doc.Tags && Array.isArray(doc.Tags); }) .sortBy(function(doc) { return doc.\_ts; }) .pluck("Tags") .flatten() .value() </pre> </td> <td>Filtra documentos com uma propriedade de matriz, Tags e classifica os documentos resultantes pela propriedade do sistema \_ts timestamp, depois projeta e nivela a matriz Tags.</td> </tr> </tbody> </table>
 
 ## Suporte de tempo de execução
 O [SDK do lado do servidor de JavaScript do Banco de Dados de Documentos](http://dl.windowsazure.com/documentDB/jsserverdocs/) dá suporte para a maioria dos principais recursos de linguagem JavaScript conforme o padrão [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
@@ -759,7 +566,7 @@ Procedimentos armazenados e gatilhos de JavaScript são colocados em uma área r
 Os procedimentos armazenados, gatilhos e UDFs são pré-compilados implicitamente para o formato de código de bytes a fim de evitar o custo de compilação no momento da invocação de cada script. Isso assegura que as invocações dos procedimentos armazenados sejam rápidas e possuam baixa pegada.
 
 ## Suporte de SDK de cliente
-Além do cliente [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/), o Banco de Dados de Documentos dá suporte a SDKs [.NET](https://msdn.microsoft.com/library/azure/dn783362.aspx), [Java](http://dl.windowsazure.com/documentdb/javadoc/), [JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/) e [Python](http://dl.windowsazure.com/documentDB/pythondocs/). Os procedimentos armazenados, gatilhos e UDFs também podem ser criados e executados usando qualquer um desses SDKs. O exemplo a seguir mostra como criar e executar um procedimento armazenado usando o cliente .NET. Observe como os tipos .NET são transferidos para o procedimento armazenado como JSON e lidos novamente.
+Além do cliente [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/), o Banco de Dados de Documentos dá suporte a SDKs [.NET](https://msdn.microsoft.com/library/azure/dn948556.aspx), [Java](http://dl.windowsazure.com/documentdb/javadoc/), [JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/) e [Python](http://dl.windowsazure.com/documentDB/pythondocs/). Os procedimentos armazenados, gatilhos e UDFs também podem ser criados e executados usando qualquer um desses SDKs. O exemplo a seguir mostra como criar e executar um procedimento armazenado usando o cliente .NET. Observe como os tipos .NET são transferidos para o procedimento armazenado como JSON e lidos novamente.
 
 	var markAntiquesSproc = new StoredProcedure
 	{
@@ -792,7 +599,7 @@ Além do cliente [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/), o B
 	Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(createdStoredProcedure.SelfLink, document, 1920);
 
 
-Essa amostra mostra como usar o [SDK .NET](https://msdn.microsoft.com/library/azure/dn783362.aspx) para criar um pré-gatilho e um documento com o gatilho habilitado.
+Essa amostra mostra como usar o [SDK .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx) para criar um pré-gatilho e um documento com o gatilho habilitado.
 
 	Trigger preTrigger = new Trigger()
 	{
@@ -854,8 +661,7 @@ Todas as operações do Banco de Dados de Documentos podem ser realizadas de man
 	}
 
 
-O procedimento armazenado é registrado executando uma solicitação POST em relação à URI dbs/sehcAA==/colls/sehcAIE2Qy4=/sprocs com o corpo contendo o procedimento armazenado a ser criado. Disparadores e UDFs podem ser registrados da mesma forma, emitindo um POST para /triggers e /udfs respectivamente.
-Este procedimento armazenado pode, então, ser executado emitindo uma solicitação POST ao link de recursos:
+O procedimento armazenado é registrado executando uma solicitação POST em relação à URI dbs/sehcAA==/colls/sehcAIE2Qy4=/sprocs com o corpo contendo o procedimento armazenado a ser criado. Disparadores e UDFs podem ser registrados da mesma forma, emitindo um POST para /triggers e /udfs respectivamente. Este procedimento armazenado pode, então, ser executado emitindo uma solicitação POST ao link de recursos:
 
 	POST https://<url>/sprocs/<sproc> HTTP/1.1
 	authorization: <<auth>>
@@ -920,4 +726,4 @@ Você também pode achar as seguintes referências e recursos úteis em seu cami
 -	[Arquitetura de banco de dados orientada a serviços](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Hospedando o Runtime do .NET no Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

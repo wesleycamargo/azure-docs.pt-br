@@ -20,32 +20,82 @@
 
 ##Visão geral
 
-O Active Directory do Azure pode provisionar automaticamente usuários e grupos para qualquer repositório de identidades ou aplicativos que seja administrado por um serviço Web com a interface definida na [especificação do protocolo SCIM](https://tools.ietf.org/html/draft-ietf-scim-api-19). O Active Directory do Azure pode enviar solicitações para criar, modificar e excluir usuários e grupos atribuídos a esse serviço Web, que poderá então converter essas solicitações em operações no repositório de identidades de destino.
+O Active Directory do Azure pode provisionar automaticamente usuários e grupos para qualquer repositório de identidades ou aplicativos que seja administrado por um serviço Web com a interface definida na [especificação do protocolo SCIM 2.0](https://tools.ietf.org/html/draft-ietf-scim-api-19). O Active Directory do Azure pode enviar solicitações para criar, modificar e excluir usuários e grupos atribuídos a esse serviço Web, que poderá então converter essas solicitações em operações no repositório de identidades de destino.
 
-![][1] *Figura: Provisionamento do Active Directory do Azure para um repositório de identidades arbitrário por meio de um serviço Web*
+![][1] *Figura: provisionamento do Active Directory do Azure para um repositório de identidades por meio de um serviço Web*
 
-Esse recurso pode ser usado juntamente com o recurso "traga seu próprio aplicativo" no AD do Azure para habilitar o logon único e o provisionamento automático de usuário de praticamente qualquer aplicativo que forneça uma API de provisionamento de usuário.
+Esse recurso pode ser usado juntamente com o recurso "[traga seu próprio aplicativo](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)" no AD do Azure para habilitar o logon único e o provisionamento automático de usuário de aplicativos que forneçam ou comecem com um serviço Web SCIM.
+
+Há dois casos de uso para SCIM no Active Directory do Azure:
+
+* **Provisionamento de usuários e grupos para os aplicativos que dão suporte a SCIM**: aplicativos que dão suporte a SCIM 2.0 e são capazes de aceitar um token de portador OAuth do AD do Azure funcionarão com o AD do Azure integrado.
+
+* **Criar a sua própria solução de provisionamento para aplicativos que dão suporte a outro provisionamento baseado em API**: para aplicativos não SCIM, você pode criar um ponto de extremidade SCIM para converter entre o ponto de extremidade SCIM do AD do Azure e qualquer API à qual o aplicativo dê suporte para provisionamento de usuários. Para ajudar no desenvolvimento de um ponto de extremidade SCIM, fornecemos bibliotecas CLI com exemplos de código que mostram como fornecer um ponto de extremidade SCIM e converter mensagens SCIM.
+
+##Provisionando usuários e grupos para aplicativos que dão suporte a SCIM
+
+O Active Directory do Azure pode ser configurado para provisionar automaticamente usuários e grupos atribuídos a aplicativos que implementam um serviço Web de [Sistema de Gerenciamento de Identidade entre Domínios 2 (SCIM)](https://tools.ietf.org/html/draft-ietf-scim-api-19) e aceitam tokens de portador OAuth para autenticação. Dentro da especificação SCIM 2.0, os aplicativos devem satisfazer estes requisitos:
+
+* Dar suporte à criação de usuários e/ou grupos, de acordo com a seção 3.3 do protocolo SCIM.  
+
+* Dar suporte à modificação de usuários e/ou grupos com solicitações de patch, de acordo com a seção 3.5.2 do protocolo SCIM.
+
+* Dar suporte à recuperação de um recurso conhecido, de acordo com a seção 3.4.1 do protocolo SCIM.
+
+*  Dar suporte a consultas de usuários e/ou grupos, de acordo com a seção 3.4.2 do protocolo SCIM. Por padrão, os usuários são consultados por externalId e os grupos são consultados por displayName.
+
+* Dar suporte a consultas de usuário por ID e pelo gerenciador, de acordo com a seção 3.4.2 do protocolo SCIM.
+
+* Dar suporte a consultas de grupos por ID e por membro, de acordo com a seção 3.4.2 do protocolo SCIM.
+
+* Aceitar tokens de portador OAuth para autorização, de acordo com a seção 2.1 do protocolo SCIM.
+
+* Dar suporte ao uso do AD do Azure como provedor de identidade para o token OAuth (suporte para provedores de identidade externos em breve)
+
+Verifique com o seu provedor de aplicativo ou na documentação do seu provedor de aplicativo as declarações de compatibilidade com esses requisitos.
+ 
+###Introdução
+
+Os aplicativos que dão suporte ao perfil SCIM descrito acima podem ser conectados ao Active Directory do Azure usando o recurso de aplicativo "personalizado" na galeria de aplicativos do AD do Azure. Uma vez conectado, o AD do Azure executa um processo de sincronização a cada 5 minutos, em que ele consulta o ponto de extremidade SCIM do aplicativo para os usuários e grupos atribuídos e os cria ou modifica de acordo com os detalhes da atribuição.
+
+**Para conectar um aplicativo que dê suporte a SCIM:**
+
+1.	Em um navegador da Web, inicie o portal de gerenciamento do Azure em https://manage.windowsazure.com.
+2.	Navegue até **Active Directory > Diretório > [seu diretório] > Aplicativos** e selecione **Adicionar > Adicionar um aplicativo da galeria**.
+3.	Selecione a guia **Personalizado** à esquerda, insira um nome para o seu aplicativo e clique no ícone de marca de seleção para criar um objeto de aplicativo.
+
+![][2]
+
+4.	Na tela resultante, selecione o segundo botão **Configurar provisionamento da conta**.
+5.	No diálogo, insira a URL do ponto de extremidade SCIM do aplicativo.  
+6.	Clique em **Próximo** e clique no botão **Iniciar Teste** para que o Active Directory do Azure tente se conectar ao ponto de extremidade do SCIM. Se as tentativas falharem, serão exibidas informações de diagnóstico.  
+7.	Se as tentativas de conexão com o aplicativo forem bem-sucedidas, clique em **Próximo** nas telas restantes e em **Concluir** para sair da caixa de diálogo.
+8.	Na tela resultante, selecione o terceiro botão **Atribuir Contas**. Na seção resultante Usuários e Grupos, atribua os usuários ou grupos que deseja provisionar ao aplicativo.
+9.	Depois de atribuir usuários e grupos, clique na guia **Configurar** próxima à parte superior da tela.
+10.	Em **Provisionamento de Conta**, confirme se o Status está definido como Ativado. 
+11.	Em **Ferramentas**, clique em **Reiniciar provisionamento de conta** para iniciar o processo de provisionamento.
+
+Observe que podem decorrer de 5 a 10 minutos antes que o processo de provisionamento comece a enviar solicitações ao ponto de extremidade SCIM. Um resumo das tentativas de conexão é fornecido na guia Painel do aplicativo, e um relatório da atividade de provisionamento e todos os erros de provisionamento podem ser baixados na guia Relatórios do diretório.
+
+##Criando sua própria solução de provisionamento para qualquer aplicativo
+
+Ao criar um serviço Web SCIM que interaja com o Active Directory do Azure, você poderá habilitar o logon único e o provisionamento de usuário automático para praticamente qualquer aplicativo que forneça uma API de provisionamento de usuário SOAP ou REST.
 
 Veja como ele funciona:
 
-1.	O AD do Azure fornece uma biblioteca Common Language Infrastructure denominada [Microsoft.SystemForCrossDomainIdentityManagement](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/). Os desenvolvedores e integradores de sistema podem usar essa biblioteca para criar e implantar um ponto de extremidade de serviço Web baseado em SCIM capaz de conectar o AD do Azure ao repositório de identidades de qualquer aplicativo.
+1.	O AD do Azure fornece uma biblioteca CLI denominada [Microsoft.SystemForCrossDomainIdentityManagement](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/). Os desenvolvedores e integradores de sistema podem usar essa biblioteca para criar e implantar um ponto de extremidade de serviço Web baseado em SCIM capaz de conectar o AD do Azure ao repositório de identidades de qualquer aplicativo.
 2.	Os mapeamentos são implementados no serviço Web para mapear o esquema de usuário padronizado para o esquema de usuário e o protocolo exigido pelo aplicativo.
 3.	A URL do ponto de extremidade é registrada no AD do Azure como parte de um aplicativo personalizado na galeria de aplicativos.
 4.	Os usuários e grupos são atribuídos a esse aplicativo no AD do Azure. Na atribuição, eles são colocados em uma fila para serem sincronizados com o aplicativo de destino. O processo de sincronização que trata a fila é executado a cada 5 minutos.
 
-##Exemplos de código
+###Exemplos de código
 
 Para facilitar esse processo, será fornecido um conjunto de [exemplos de código](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master) que cria um ponto de extremidade de serviço Web SCIM e demonstra o provisionamento automático. Um dos exemplos é de um provedor que mantém um arquivo com linhas de valores separados por vírgula representando usuários e grupos. O outro é de um provedor que opera no serviço de Gerenciamento de Acesso e Identidade do Amazon Web Services.
 
 
-###Pré-requisitos
-* Visual Studio 2013 ou posterior.
-* [SDK do Azure para .NET](https://azure.microsoft.com/pt-BR/downloads/)
-* Computador com Windows que ofereça suporte à estrutura ASP.NET 4.5 a ser usado como o ponto de extremidade SCIM. Esse computador deve poder ser acessado da nuvem
-* [Uma assinatura do Azure com uma versão de avaliação ou licenciada do AD Premium do Azure](https://azure.microsoft.com/pt-BR/services/active-directory/)
-* O exemplo do Amazon AWS requer bibliotecas do [Kit de Ferramentas do AWS para Visual Studio](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html). Consulte o arquivo LEIAME incluído no exemplo para obter mais detalhes
+**Pré-requisitos** * Visual Studio 2013 ou posterior * [SDK do Azure para .NET](https://azure.microsoft.com/pt-BR/downloads/) * Computador com Windows que dê suporte à estrutura do ASP.NET 4.5 para ser usado como ponto de extremidade SCIM. Esse computador deve poder ser acessado da nuvem * [Assinatura do Azure com versão de avaliação ou licenciada do AD Premium do Azure](https://azure.microsoft.com/pt-BR/services/active-directory/) * O exemplo do AWS da Amazon requer bibliotecas do [Kit de ferramentas AWS para Visual Studio](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html). Consulte o arquivo LEIAME incluído no exemplo para obter mais detalhes
 
-##Introdução
+###Introdução
 
 A maneira mais fácil de implementar um ponto de extremidade SCIM que possa aceitar solicitações de provisionamento do AD do Azure é criando e implantando o exemplo de código que gera os usuários provisionados em um arquivo CSV (valores separados por vírgula).
 
@@ -76,12 +126,12 @@ A maneira mais fácil de implementar um ponto de extremidade SCIM que possa acei
 
 ![][2]
 
-4.	Na tela resultante, selecione o segundo botão Configurar provisionamento da conta.
+4.	Na tela resultante, selecione o segundo botão **Configurar provisionamento da conta**.
 5.	Na caixa de diálogo, insira a URL exposta à Internet e a porta do seu ponto de extremidade SCIM. Isso seria algo como http://testmachine.contoso.com:9000 ou http://<ip-address>:9000/, em que <ip-address> é o endereço IP exposto à Internet.  
-6.	Clique em **Avançar** e clique no botão **Iniciar Teste** para que o Active Directory do Azure tente se conectar ao ponto de extremidade do SCI. Se as tentativas falharem, serão exibidas informações de diagnóstico.  
-7.	Se as tentativas de conexão com o serviço Web forem bem-sucedidas, clique em **Avançar** nas telas restantes e em **Concluir** para sair da caixa de diálogo.
+6.	Clique em **Próximo** e clique no botão **Iniciar Teste** para que o Active Directory do Azure tente se conectar ao ponto de extremidade do SCIM. Se as tentativas falharem, serão exibidas informações de diagnóstico.  
+7.	Se as tentativas de conexão com o serviço Web forem bem-sucedidas, clique em **Próximo** nas telas restantes e em **Concluir** para sair da caixa de diálogo.
 8.	Na tela resultante, selecione o terceiro botão **Atribuir Contas**. Na seção resultante Usuários e Grupos, atribua os usuários ou grupos que deseja provisionar ao aplicativo.
-9.	Depois de atribuir usuários e grupos, clique na guia **Configurar**, próxima à parte superior da tela.
+9.	Depois de atribuir usuários e grupos, clique na guia **Configurar** próxima à parte superior da tela.
 10.	Em **Provisionamento de Conta**, confirme se o Status está definido como Ativado. 
 11.	Em **Ferramentas**, clique em **Reiniciar provisionamento de conta** para iniciar o processo de provisionamento.
 
@@ -89,7 +139,7 @@ Observe que podem decorrer de 5 a 10 minutos antes que o processo de provisionam
 
 A etapa final da verificação do exemplo é abrir o arquivo TargetFile.csv da pasta \\AzureAD-BYOA-Provisioning-Samples\\ProvisioningAgent\\bin\\Debug no seu computador com Windows. Depois que o processo de provisionamento é executado, esse arquivo mostra os detalhes de todos os usuários e grupos provisionados e atribuídos.
 
-##Bibliotecas de desenvolvimento
+###Bibliotecas de desenvolvimento
 
 Para desenvolver seu próprio serviço Web em conformidade com a especificação do SCIM, em primeiro lugar, familiarize-se com as seguintes bibliotecas fornecidas pela Microsoft, que ajudam a acelerar o processo de desenvolvimento:
 
@@ -97,11 +147,11 @@ Para desenvolver seu próprio serviço Web em conformidade com a especificação
 
 ![][3]
 
-**2:** os [Manipuladores de rota expressa](http://expressjs.com/guide/routing.html) estão disponíveis para análise de objetos de solicitação node.js que representam chamadas (conforme definido pela especificação do SCIM) feitas para um serviço Web node.js.
+**2:** os [Manipuladores de rota expressa](http://expressjs.com/guide/routing.html) estão disponíveis para análise de objetos de solicitação node.js que representam chamadas (como definido pela especificação do SCIM) feitas para um serviço Web node.js.
 
-##Criando um ponto de extremidade SCIM personalizado
+###Criando um ponto de extremidade SCIM personalizado
 
-Usando as bibliotecas descritas acima, os desenvolvedores podem hospedar seus serviços em qualquer assembly executável da Common Language Infrastructure ou nos Serviços de Informações da Internet. Veja o exemplo de código para hospedar um serviço em um assembly executável no endereço http://localhost:9000:
+Usando as bibliotecas descritas acima, os desenvolvedores podem hospedar seus serviços em qualquer assembly executável da Common Language Infrastructure ou nos Serviços de Informações da Internet. Veja um exemplo de código para hospedar um serviço em um assembly executável no endereço http://localhost:9000:
 
     private static void Main(string[] arguments)
     {
@@ -220,7 +270,7 @@ Para hospedar o serviço nos Serviços de Informações da Internet, um desenvol
     }
     }
 
-##Manipulando a autenticação do ponto de extremidade
+###Manipulando a autenticação do ponto de extremidade
 
 As solicitações do Active Directory do Azure incluem um token de portador do OAuth 2.0. Qualquer serviço que recebe a solicitação deve autenticar o emissor como sendo o Active Directory do Azure em nome do locatário esperado do Active Directory do Azure, para acesso ao serviço Web Graph do Active Directory do Azure. No token, o emissor é identificado por uma declaração de iss, como "iss": "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/". Neste exemplo, o endereço base do valor da declaração, https://sts.windows.net, identifica o Active Directory do Azure como o emissor, enquanto o segmento do endereço relativo, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, é um identificador exclusivo do locatário do Active Directory do Azure em nome do qual o token foi emitido. Se o token tiver sido emitido para acessar um serviço Web Graph do Active Directory do Azure, o identificador desse serviço, 00000002-0000-0000-c000-000000000000, deverá estar no valor da declaração aud do token.
 
@@ -322,7 +372,7 @@ A figura abaixo mostra as mensagens que o Active Directory do Azure enviará a u
 
 ![][4] Figura: Sequência de provisionamento e desprovisionamento de usuário
 
-**1:** o Active Directory do Azure consultará o serviço para um usuário com um valor de atributo externalId correspondente ao valor de atributo mailNickname de um usuário no Active Directory do Azure. A consulta será expressa como uma solicitação HTTP como a que se segue, na qual jyoung é o exemplo de um mailNickname de um usuário no Active Directory do Azure:
+**1:** o Active Directory do Azure consultará o serviço para procurar um usuário com um valor de atributo externalId correspondente ao valor de atributo mailNickname de um usuário no Active Directory do Azure. A consulta será expressa como uma solicitação HTTP como a que se segue, na qual jyoung é o exemplo de um mailNickname de um usuário no Active Directory do Azure:
 
     GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
     Authorization: Bearer ...
@@ -383,7 +433,7 @@ No caso do exemplo acima de uma consulta para um usuário com um valor fornecido
 * parameters.AlternateFilter.ElementAt(0).ComparisonValue: "jyoung"
 * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"] 
 
-**2:** se a resposta a uma consulta ao serviço para um usuário com um valor de atributo externalId correspondente ao valor de atributo mailNickname de um usuário no Active Directory do Azure não retornar nenhum usuário, o Active Directory do Azure solicitará que o serviço provisione um usuário correspondente para o Active Directory do Azure. Veja um exemplo de tal solicitação:
+**2:** se a resposta a uma consulta ao serviço para procurar um usuário com um valor de atributo externalId correspondente ao valor de atributo mailNickname de um usuário no Active Directory do Azure não retornar nenhum usuário, o Active Directory do Azure solicitará que o serviço provisione um usuário correspondente para o Active Directory do Azure. Veja um exemplo de tal solicitação:
 
     POST https://.../scim/Users HTTP/1.1
     Authorization: Bearer ...
@@ -485,7 +535,7 @@ Se o serviço foi criado usando as bibliotecas Common Language Infrastructure fo
 
 Aqui, o valor do índice x pode ser 0 e o valor do índice y pode ser 1, ou o valor de x pode ser 1 e o valor de y pode ser 0, dependendo da ordem das expressões do parâmetro do filtro de consulta.
 
-**5:** veja o exemplo de uma solicitação do Active Directory do Azure a um serviço SCIM para atualizar um usuário:
+**5:** veja um exemplo de uma solicitação do Active Directory do Azure a um serviço SCIM para atualizar um usuário:
 
     PATCH ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
     Authorization: Bearer ...
@@ -637,4 +687,4 @@ A figura abaixo mostra as mensagens que o Active Directory do Azure enviará a u
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

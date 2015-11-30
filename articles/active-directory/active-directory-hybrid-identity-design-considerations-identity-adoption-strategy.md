@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Considerações de design de identidade híbrida do Active Directory do Azure. Defina uma estratégia de adoção de identidade híbrida | Microsoft Azure"
-	description="Com o controle de acesso condicional, o Active Directory do Azure verifica as condições específicas escolhidas para autenticação do usuário, antes de permitir o acesso ao aplicativo. Quando essas condições forem atendidas, o usuário será autenticado e será permitido o acesso ao aplicativo."
+	description="Com o controle de acesso condicional, o Active Directory do Azure verifica as condições específicas escolhidas para autenticação do usuário, antes de permitir o acesso ao aplicativo. Quando essas condições forem atendidas, o usuário é autenticado e autorizado a acessar o aplicativo."
 	documentationCenter=""
 	services="active-directory"
 	authors="billmath"
@@ -111,7 +111,7 @@ Se esse o caso, considere a topologia de várias florestas do AD do Azure, caso 
 - Todas as florestas são acessíveis pelo Azure AD Connect. Isso significa que o serviço não precisa ser ingressado no domínio e pode ser colocado em um DMZ, se isso facilitar.
 - Os usuários têm apenas uma caixa de correio.
 - A floresta que hospeda a caixa de correio do usuário tem a melhor qualidade de dados para os atributos visíveis na Lista de Endereços Global (GAL) do Exchange.
-- Quando não há nenhuma caixa de correio do usuário, qualquer floresta pode ser usada para contribuir com esses valores de atributos.
+- Quando não há nenhuma caixa de correio do usuário, qualquer floresta pode ser usada para contribuir com esses valores
 - Caso tenha uma caixa de correio vinculada, haverá outra conta em outra floresta usada para iniciar sessão.
 
 >[AZURE.NOTE]Os objetos existentes no local e na nuvem são "conectados" através de um identificador exclusivo. No contexto de sincronização de diretório, este identificador exclusivo é conhecido como SourceAnchor. No contexto de logon único, ele é conhecido como ImmutableId. Para saber mais sobre o uso do SourceAnchor, consulte o artigo [Conceitos de design do Azure AD Connect](https://azure.microsoft.com/pt-BR/documentation/articles/active-directory-aadconnect-design-concepts/#sourceanchor).
@@ -133,10 +133,10 @@ Temos suporte e você pode se conectar a uma instância local do Active Director
 
 Para realizar esse processo, as seguintes situações devem ser atendidas:
 
-- Os servidores de sincronização do Azure AD Connect devem ser configurados para filtragem de modo que cada um deles tenha um conjunto de objetos mutuamente exclusivos. Para fazer isso, por exemplo, defina o escopo de cada servidor para um determinado domínio ou UO.
-- Um domínio DNS só pode ser registrado em um único diretório do AD do Azure para que os UPNs dos usuários no AD local tenham que usar namespaces separados
+- Os servidores de sincronização do Azure AD Connect devem ser configurados para filtragem para que cada um deles tenha um conjunto de objetos mutuamente exclusivos. Para fazer isso, por exemplo, defina o escopo de cada servidor para um determinado domínio ou UO.
+- Um domínio DNS só pode ser registrado em um único diretório do AD do Azure para que os UPNs dos usuários no AD local tenham de usar namespaces separados
 - Os usuários de uma determinada instância do AD do Azure só podem ver os usuários de sua própria instância. Eles não poderão ver os usuários de outras instâncias
-- Apenas um dos diretórios do AD do Azure pode habilitar híbridos Exchange com o AD local.
+- Apenas um dos diretórios do AD do Azure pode habilitar o Exchange híbrido com o AD local
 - A exclusividade mútua também se aplica a write-back. Isso faz com que alguns recursos de write-back não sejam compatíveis com esta topologia, pois eles supõem a existência de uma única configuração local. Isso inclui:
  - Agrupar write-back com configuração padrão
  - Write-back de dispositivo
@@ -144,7 +144,7 @@ Para realizar esse processo, as seguintes situações devem ser atendidas:
 
 Lembre-se de que os itens a seguir não têm suporte e não devem ser escolhidos como implementação:
 
-- Não há suporte para a conexão de vários servidores de sincronização do Azure AD Connect para o mesmo diretório do AD do Azure, mesmo que eles sejam configurados para sincronizar conjuntos de objetos mutuamente exclusivos.
+- Não há suporte para a conexão de vários servidores de sincronização do Azure AD Connect ao mesmo diretório do AD do Azure, mesmo que eles sejam configurados para sincronizar conjuntos de objetos mutuamente exclusivos.
 - Ele não tem suporte para sincronização do mesmo usuário para vários diretórios do AD do Azure. 
 - Ele também não dá suporte para alterar uma configuração para fazer os usuários de um AD do Azure aparecerem como contatos em outro diretório do AD do Azure. 
 - Também não há suporte para modificar o Azure AD Connect Sync para se conectar a vários diretórios do AD do Azure.
@@ -170,10 +170,10 @@ Mesmo que defina uma solução para sua estratégia, você deve usar a avaliaç�
 
 | Local do usuário | Opção de design preferida |
 |---------------------------------------------------------------------|-----------------------------------------|
-| Active Directory do Azure | Multi-FactorAuthentication na nuvem |
+| Azure Active Directory | Multi-FactorAuthentication na nuvem |
 | Azure AD e AD local usando federação com AD FS | Ambos |
 | AD do Azure e AD local usando o Azure AD Connect sem sincronização de senha | Ambos |
-| AD do Azure e AD local usando o Azure AD Connect com sincronização de senha | Ambos |
+| O AD do Azure e o AD local usando o Azure AD Connect com sincronização de senha | Ambos |
 | AD local | Servidor Multi-Factor Authentication |
 
 >[AZURE.NOTE]Você deve garantir que a opção de design de autenticação multifator selecionada seja compatível com os recursos necessários para o seu design. Para saber mais, leia o artigo [Escolha a solução de segurança multifator mais adequada](https://azure.microsoft.com/documentation/articles/multi-factor-authentication-get-started/#what-am-i-trying-to-secure).
@@ -187,6 +187,6 @@ A autenticação multifator está disponível por padrão para administradores g
 [Determinar os requisitos para proteção de dados](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
 ## Consulte também
-[Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Visão geral de considerações sobre design] ((active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

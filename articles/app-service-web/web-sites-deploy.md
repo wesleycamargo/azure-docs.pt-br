@@ -26,7 +26,7 @@ A melhor maneira de implantar um aplicativo Web é configurando um [fluxo de tra
 
 ##### Implantar por meio de sistemas de controle do código-fonte hospedados em nuvem
 
-* [Entrega contínua usando o Visual Studio Online](#vso)
+* [Entrega contínua usando o Visual Studio Team Services](#vsts)
 * [Sites de repositório usando o Git](#git)
 * [Sites de repositório usando o Mercurial](#mercurial)
 * [Automatizar a implantação por meio do Dropbox](#dropbox)
@@ -52,14 +52,14 @@ A melhor maneira de implantar um aplicativo Web é configurando um [fluxo de tra
 
 Outra opção de implantação é usar um serviço baseado em nuvem, como o [Octopus Deploy](http://en.wikipedia.org/wiki/Octopus_Deploy). Para obter mais informações, consulte [Implantar aplicativos ASP.NET em Sites do Azure](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites).
 
-##<a name="vso"></a>Entrega contínua usando o Visual Studio Online
+##<a name="vso"></a>Entrega contínua usando o Visual Studio Team Services
 
-O [Visual Studio Online](http://www.visualstudio.com/) (anteriormente conhecido como Team Foundation Service) é a solução baseada em nuvem da Microsoft para colaboração de equipe e controle do código-fonte. O serviço é grátis para uma equipe de até 5 desenvolvedores. Você pode realizar a entrega contínua para um aplicativo da Web nos Serviços de Aplicativo e seu repositório pode usar [Git ou TFVC](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs).
+O [Visual Studio Team Services](http://www.visualstudio.com/) (anteriormente conhecido como Team Foundation Service) é a solução baseada em nuvem da Microsoft para colaboração de equipe e controle do código-fonte. O serviço é grátis para uma equipe de até 5 desenvolvedores. Você pode realizar a entrega contínua para um aplicativo da Web nos Serviços de Aplicativo e seu repositório pode usar [Git ou TFVC](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs).
 
 Para obter mais informações, consulte os recursos a seguir:
 
-* [Entrega contínua no Azure usando o Visual Studio Online e o TFVC](../cloud-services-continuous-delivery-use-vso.md). Tutorial passo a passo que mostra como configurar o fornecimento contínuo por meio do Visual Studio Online em um aplicativo Web, usando o TFVC. O TFVC é a opção de controle do código-fonte centralizada, ao contrário do Git, que é a opção de controle do código-fonte distribuída.
-* [Entrega contínua no Azure usando o Visual Studio Online e o Git](../cloud-services-continuous-delivery-use-vso-git.md). Semelhante ao tutorial anterior, porém usando o Git em vez do TFVC.
+* [Entrega contínua no Azure usando Visual Studio Team Services e TFVC](../cloud-services-continuous-delivery-use-vso.md) Tutorial passo a passo que mostra como configurar o fornecimento contínuo por meio do Visual Studio Team Services em um aplicativo Web, usando o TFVC. O TFVC é a opção de controle do código-fonte centralizada, ao contrário do Git, que é a opção de controle do código-fonte distribuída.
+* [Entrega contínua no Azure usando Visual Studio Team Services e Git](../cloud-services-continuous-delivery-use-vso-git.md). Semelhante ao tutorial anterior, porém usando o Git em vez do TFVC.
 
 ##<a name="git"></a>Sites de repositório usando o Git
 
@@ -180,7 +180,7 @@ Para obter mais informações, consulte o recurso a seguir:
 
 ##<a name="webdeploy"></a>Implantar por meio da linha de comando de Implantação da Web
 
-A [Implantação da Web](http://www.iis.net/downloads/microsoft/web-deploy) é o software da Microsoft para a implantação do IIS que não só fornece recursos de sincronização de arquivos inteligentes, mas também pode executar ou coordenar várias outras tarefas relacionadas à implantação que não poderão ser automatizadas quando você usar o FTP. Por exemplo, a Implantação da Web pode implantar um novo banco de dados ou atualizações de banco de dados junto com seu aplicativo Web. A Implantação da Web também pode minimizar o tempo necessário para atualizar um site existente, pois ele pode copiar apenas os arquivos alterados de forma inteligente. O Microsoft WebMatrix, o Visual Studio, o Visual Studio Online e o Team Foundation Server têm suporte para a Implantação da Web interna, mas você também pode usar a Implantação da Web diretamente da linha de comando para automatizar a implantação. Os comandos de Implantação da Web são muito avançados, mas a curva de aprendizado pode ser acentuada.
+A [Implantação da Web](http://www.iis.net/downloads/microsoft/web-deploy) é o software da Microsoft para a implantação do IIS que não só fornece recursos de sincronização de arquivos inteligentes, mas também pode executar ou coordenar várias outras tarefas relacionadas à implantação que não poderão ser automatizadas quando você usar o FTP. Por exemplo, a Implantação da Web pode implantar um novo banco de dados ou atualizações de banco de dados junto com seu aplicativo Web. A Implantação da Web também pode minimizar o tempo necessário para atualizar um site existente, pois ele pode copiar apenas os arquivos alterados de forma inteligente. O Microsoft WebMatrix, o Visual Studio, o Visual Studio Team Services e o Team Foundation Server têm suporte para a Implantação da Web interna, mas você também pode usar a Implantação da Web diretamente da linha de comando para automatizar a implantação. Os comandos de Implantação da Web são muito avançados, mas a curva de aprendizado pode ser acentuada.
 
 Para obter mais informações, consulte o recurso a seguir:
 
@@ -205,4 +205,4 @@ Para obter mais informações sobre outros tópicos de implantação, consulte a
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

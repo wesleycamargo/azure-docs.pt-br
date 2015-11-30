@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/24/2015"
+   ms.date="11/13/2015"
    ms.author="bwren" />
 
 # Tipos de runbook da Automação do Azure
@@ -82,7 +82,6 @@ Os runbooks do PowerShell se baseiam no Windows PowerShell. Você edita o códig
 - Exige familiarização com a criação de script do PowerShell.
 - Não é possível usar o [processamento paralelo](automation-powershell-workflow.md#parallel-processing) para executar várias ações paralelamente.
 - Não é possível usar os [pontos de verificação](automation-powershell-workflow.md#checkpoints) para retomar o runbook em caso de erro.
-- Não é possível executar runbooks no [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
 - Os runbooks de Fluxo de Trabalho e Gráficos do PowerShell só podem ser incluídos como runbooks filho usando o cmdlet Start-AzureAutomationRunbook, que cria um novo trabalho.
 
 ### Problemas conhecidos
@@ -98,7 +97,7 @@ Veja a seguir problemas conhecidos atuais com os runbooks do PowerShell.
 Você deve levar em conta as considerações adicionais a seguir ao determinar qual tipo usar para um runbook específico.
 
 - Você não pode converter runbooks de um tipo em outro.
-- Há limitações ao usar runbooks de tipos diferentes, como um runbook filho. Consulte [Runbooks filho na Automação do Azure](automation-child-runbooks.md) para saber mais.
+- Há limitações ao usar runbooks de tipos diferentes, como um runbook filho. Veja [Runbooks filho na Automação do Azure](automation-child-runbooks.md) para obter mais informações.
 
 
 
@@ -109,4 +108,4 @@ Você deve levar em conta as considerações adicionais a seguir ao determinar q
 - [Aprendendo sobre o fluxo de trabalho do Windows PowerShell](automation-powershell-workflow.md)
 - [Criando ou Importando um Runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

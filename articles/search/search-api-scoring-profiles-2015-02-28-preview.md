@@ -340,7 +340,9 @@ As interpolações permitem que você defina a inclinação para a qual o aument
 
 `boostingDuration` é um atributo da função de atualização. Você pode usá-lo para definir um período de expiração após o qual o aumento será interrompido para um documento específico. Por exemplo, para aumentar uma linha de produtos ou marca por um período promocional de 10 dias, você especificaria o período de 10 dias como "P10D" para esses documentos. Ou, para aumentar eventos futuros na próxima semana especifique "-P7D".
 
-`boostingDuration` deve ser formatado como um valor XSD de "dayTimeDuration" (um subconjunto restrito de um valor de duração ISO 8601). O padrão é: "P[nD]\[T\[nH]\[nM]\[nS]\]".
+`boostingDuration` deve ser formatado como um valor XSD de "dayTimeDuration" (um subconjunto restrito de um valor de duração ISO 8601). O padrão para isso é:
+
+     [-]P[nD][T[nH][nM][nS]]
 
 A tabela a seguir fornece vários exemplos.
 
@@ -370,4 +372,4 @@ Para obter mais exemplos, consulte [Esquema XML: tipos de dados (site W3.org)](h
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

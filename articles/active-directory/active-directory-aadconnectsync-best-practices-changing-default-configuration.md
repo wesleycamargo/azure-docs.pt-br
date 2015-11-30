@@ -26,7 +26,7 @@ A configuração criada pelo Azure AD Connect funciona "da forma como é" para a
 ## Alterações na conta de serviço
 A sincronização do Azure AD Connect é executada em uma conta de serviço criada pelo assistente de instalação. Essa conta de serviço mantém as chaves de criptografia no banco de dados usado pela sincronização. Ela é criada com uma senha de 127 caracteres que é definida para não expirar.
 
-- **Não há suporte** para alteração ou redefinição da senha da conta de serviço. Se isso ocorrer, as chaves de criptografia serão destruídas e o serviço não poderá acessar o banco de dados ou iniciar.
+- **Não há suporte** para alteração ou redefinição da senha da conta de serviço. Se isso ocorrer, as chaves de criptografia serão destruídas e o serviço não poderá acessar o banco de dados ou ser iniciado.
 
 ## Alterações no agendador
 A sincronização do Azure AD Connect está definida para sincronizar dados de identidade a cada três horas. Durante a instalação, uma tarefa agendada é criada em execução em uma conta de serviço com permissões para operar o servidor de sincronização.
@@ -83,4 +83,4 @@ Saiba mais sobre a configuração de [sincronização do Azure AD Connect](activ
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

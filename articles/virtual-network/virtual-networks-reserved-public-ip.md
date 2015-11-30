@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="IP Reservado"
-   description="Noções básicas sobre IPs reservados, VIP, ILPIP e como gerenciá-los"
+   pageTitle="IP Reservado | Microsoft Azure"
+   description="Noções básicas sobre IPs reservados e como gerenciá-los"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/17/2015"
+   ms.date="11/11/2015"
    ms.author="telmos" />
 
 # Visão geral de IPs reservados
@@ -27,7 +27,7 @@ Para evitar que endereços IP sejam alterados, é possível reservar um endereç
 
 ## Perguntas frequentes
 1. Posso usar um IP reservado para todos os serviços do Azure?  
-  - Os IPs reservados só podem ser usados para VMs e funções de instância de serviço de nuvem.
+  - Os IPs reservados só podem ser usados para VMs e funções de instância de serviço de nuvem exposto através de um VIP.
 1. Quantos IPs reservados eu posso ter?  
   - Neste momento, todas as assinaturas do Azure estão autorizadas a usar 20 IPs reservados. No entanto, você pode solicitar IPs reservados adicionais. Veja a página [Limites de assinatura e de serviço](../azure-subscription-service-limits/) para obter mais informações.
 1. Há uma cobrança para IPs reservados? 
@@ -119,4 +119,4 @@ Você também pode associar um IP reservado a um serviço de nuvem usando um arq
 
 - Verifique as [APIs REST do IP reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

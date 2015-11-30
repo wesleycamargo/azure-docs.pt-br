@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="07/14/2015"
+   ms.date="11/16/2015"
    ms.author="elfish"/>
 
 #Projeto para continuidade dos negócios
@@ -49,7 +49,7 @@ Você deve usar a replicação geográfica caso seu aplicativo atenda aos seguin
 
 ##Quando escolher replicação geográfica Padrão versus Ativa
 
-Os bancos de dados de camada padrão não têm a opção de usar a replicação geográfica ativa, de forma que, se seu aplicativo usa bancos de dados padrão e atende aos critérios acima, ele deve habilitar a replicação geográfica padrão. Por outro lado, os bancos de dados Premium podem escolher qualquer uma das opções. A replicação geográfica padrão foi projetada como uma solução de recuperação de desastres mais simples e econômica, especialmente adequada a aplicativos que a utilizam somente para se protegerem contra eventos não planejados, como interrupções. Com a replicação geográfica padrão, é possível usar somente a região pareada de DR para a recuperação e ter a capacidade de criar mais de um banco de dados secundário. Esse último recurso é essencial para o cenário de atualização de aplicativo. Portanto, se esse cenário for essencial para seu aplicativo você deve habilitar a replicação geográfica ativa em vez disso. Consulte [Atualização de aplicativo sem tempo de inatividade](sql-database-business-continuity-application-upgrade.md) para obter detalhes adicionais.
+Os bancos de dados de camada padrão não têm a opção de usar a replicação geográfica ativa, de forma que, se seu aplicativo usa bancos de dados padrão e atende aos critérios acima, ele deve habilitar a replicação geográfica padrão. Por outro lado, os bancos de dados Premium podem escolher qualquer uma das opções. A replicação geográfica padrão foi projetada como uma solução de recuperação de desastres mais simples e econômica, especialmente adequada a aplicativos que a utilizam somente para se protegerem contra eventos não planejados, como interrupções. Com a replicação geográfica padrão, é possível usar somente a região pareada de DR para a recuperação e pode criar apenas um secundário para cada primário. Um secundário adicional pode ser necessário para o cenário de atualização de aplicativo. Portanto, se esse cenário for essencial para seu aplicativo você deve habilitar a replicação geográfica ativa em vez disso. Consulte [Atualização de aplicativo sem tempo de inatividade](sql-database-business-continuity-application-upgrade.md) para obter detalhes adicionais.
 
 > [AZURE.NOTE]A replicação geográfica também oferece suporte a acesso somente leitura ao banco de dados secundário, proporcionando capacidade adicional para as cargas de trabalho somente leitura.
 
@@ -74,31 +74,28 @@ Você pode habilitar replicação geográfica usando o Portal do Azure ou chaman
 
 ###PowerShell
 
-Use o cmdlet [Start-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720220.aspx) do PowerShell para automatizar a configuração de replicação geográfica.
+Use o cmdlet [New-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) do PowerShell para automatizar a configuração de replicação geográfica. Este comando é síncrono um retorna quando os bancos de dados primários e secundários estiverem sincronizados.
 
-Para criar a replicação geográfica com um secundário não legível para um banco de dados premium ou padrão:
+Para configurar a replicação geográfica com um secundário não legível para um banco de dados premium ou Standard:
 		
-		Start-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -DatabaseName "SecondaryDatabaseName" -PartnerServer "PartnerServerName" –ContinuousCopy -OfflineSecondary
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "None"
+
 Para criar a replicação geográfica com um secundário legível de um banco de dados Premium:
 
-		Start-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -DatabaseName "SecondaryDatabaseName" -PartnerServer "PartnerServerName" –ContinuousCopy
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "All"
 		 
-Esse comando é assíncrono. Depois que ele retornar, use o cmdlet [Get-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720235.aspx) para verificar o status dessa operação. O campo ReplicationState do objeto retornado terá o valor CATCH\_UP quando a operação for concluída.
-
-		Get-AzureSqlDatabaseCopy -ServerName "PrimaryServerName" -DatabaseName "PrimaryDatabaseName" -PartnerServer "SecondaryServerName"
-
 
 ###API REST 
 
-Use o API [Iniciar cópia de banco de dados](https://msdn.microsoft.com/library/azure/dn509576.aspx) para criar uma configuração de replicação geográfica programaticamente.
+Use [Criar API](https://msdn.microsoft.com/library/mt163685.aspx) de banco de dados com *createMode* definido como *NonReadableSecondary* ou *secundário* para criar programaticamente um banco de dados secundário de replicação geográfica.
 
-Esse API é assíncrono. Depois que ele retornar, use o API [Obter cópia de banco de dados](https://msdn.microsoft.com/library/azure/dn509570.aspx) API para verificar o status dessa operação. O campo ReplicationState do corpo da resposta terá o valor CATCH\_UP quando a operação for concluída.
+Esse API é assíncrono. Depois de retornar, use o API [Obter replicação do link](https://msdn.microsoft.com/library/mt600778.aspx) para verificar o status dessa operação. O campo *replicationState* do corpo da resposta terá o valor CATCH\_UP quando a operação for concluída.
 
 
 ##Como escolher a configuração de failover 
 
 Ao projetar seu aplicativo para continuidade dos negócios, você deve considerar várias opções de configuração. A escolha dependerá da topologia de implantação do aplicativo e quais partes de seus aplicativos são mais vulneráveis a uma interrupção. Para diretrizes, consulte [Criando soluções de nuvem para recuperação de desastres usando replicação geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
- 
-
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

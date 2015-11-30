@@ -20,7 +20,7 @@
 
 O processo descrito neste artigo mostra como configurar o fornecimento contínuo de aplicativos na nuvem do Azure. Este processo permite criar pacotes automaticamente e implantar o pacote no Azure após cada verificação de código. O processo de compilação do pacote descrito neste artigo equivale ao comando Pacote do Visual Studio, e as etapas de publicação equivalem ao comando Publicar do Visual Studio. O artigo aborda os métodos que você usaria para criar um servidor de compilação com instruções de linha de comando do MSBuild e scripts do Windows PowerShell, além de demonstrar como configurar as definições do Visual Studio Team Foundation Server - Team Build para usar os comandos do MSBuild e os scripts do PowerShell. O processo é personalizável para o ambiente de compilação e os ambientes de destino do Azure.
 
-Você também pode usar o Visual Studio Online, uma versão do TFS hospedada no Azure, para fazer isso mais facilmente. Para obter mais informações, consulte [Fornecimento contínuo para o Azure usando o Visual Studio Online][].
+Você também pode usar o Visual Studio Team Services, uma versão do TFS hospedada no Azure, para fazer isso com mais facilidade. Para obter mais informações, veja [Entrega contínua para o Azure usando o Visual Studio Team Services][].
 
 Antes de começar, você deve publicar seu aplicativo do Visual Studio. Isso garantirá que todos os recursos estejam disponíveis e sejam inicializados quando você tentar automatizar o processo de publicação.
 
@@ -557,7 +557,7 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
 
 Para habilitar a depuração remota ao usar a entrega contínua, consulte [Habilitar a depuração remota ao usar a entrega contínua para publicar no Azure](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md).
 
-  [Fornecimento contínuo para o Azure usando o Visual Studio Online]: cloud-services-continuous-delivery-use-vso.md
+  [Entrega contínua para o Azure usando o Visual Studio Team Services]: cloud-services-continuous-delivery-use-vso.md
   [Team Foundation Build Service]: http://go.microsoft.com/fwlink/p/?LinkId=239963
   [.NET Framework 4]: http://go.microsoft.com/fwlink/?LinkId=239538
   [.NET Framework 4.5]: http://go.microsoft.com/fwlink/?LinkId=245484
@@ -576,4 +576,4 @@ Para habilitar a depuração remota ao usar a entrega contínua, consulte [Habil
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

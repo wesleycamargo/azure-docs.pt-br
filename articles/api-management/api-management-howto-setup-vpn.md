@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="11/16/2015"
 	ms.author="antonba"/>
 
 # Como configurar conexões VPN no Gerenciamento de API do Azure
 
-O suporte a VPN do Gerenciamento de API permite que você conecte seu proxy de Gerenciamento de API a uma Rede Virtual do Azure. Isso permite que os clientes do Gerenciamento de API se conectem com segurança a seus serviços Web de back-end locais ou que não estão acessíveis para a Internet pública.
+O suporte a VPN do Gerenciamento de API permite que você conecte seu gateway de Gerenciamento de API a uma Rede Virtual do Azure. Isso permite que os clientes do Gerenciamento de API se conectem com segurança a seus serviços Web de back-end locais ou que não estão acessíveis para a Internet pública.
 
 ## <a name="enable-vpn"> </a>Habilitar conexões VPN
 
@@ -36,9 +36,9 @@ Selecione uma VPN e sub-rede para cada região. A lista de VPNs é preenchida co
 
 ![Selecionar VPN][api-management-setup-vpn-select]
 
-Na parte inferior da tela, clique em **Salvar**. Você não poderá executar outras operações no serviço de Gerenciamento de API no Portal de Gerenciamento do Azure enquanto ele está sendo atualizado. O proxy do serviço permanecerá disponível e chamadas de tempo de execução não deverão ser afetadas.
+Na parte inferior da tela, clique em **Salvar**. Você não poderá executar outras operações no serviço de Gerenciamento de API no Portal de Gerenciamento do Azure enquanto ele está sendo atualizado. O gateway do serviço permanecerá disponível e as chamadas de tempo de execução não deverão ser afetadas.
 
-Observe que o endereço VIP do proxy será alterado sempre que a VPN for habilitada ou desabilitada.
+É importante observar que o endereço VIP do gateway será alterado sempre que a VPN for habilitada ou desabilitada.
 
 ## <a name="connect-vpn"> </a>Conectar a um serviço Web via VPN
 
@@ -67,4 +67,4 @@ Depois que o serviço de Gerenciamento de API é conectado à VPN, acessar servi
 [Como usar o Inspetor de API para rastrear chamadas no Gerenciamento de API do Azure]: api-management-howto-api-inspector.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -348,7 +348,7 @@ Durante a implantação, você verá algo assim:
 
 Durante e após a implantação, você pode verificar todas as solicitações feitas durante o provisionamento, incluindo quaisquer erros ocorridos.
 
-Para fazer isso, acesse o [Portal do Azure](https://portal.azure.com) e faça o seguinte:
+Para fazer isso, acesse o [Portal de visualização do Azure](https://portal.azure.com) e faça o seguinte:
 
 - Na barra de navegação à esquerda, clique em **Procurar**, role para baixo e clique em **Grupos de Recursos**.
 - Selecione o grupo de recursos que você acabou de criar, o que exibirá a folha "Grupo de Recursos".
@@ -670,4 +670,4 @@ Essencialmente, essa abordagem sugere o seguinte:
 
 Para obter mais informações, consulte [Linguagem de modelo do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

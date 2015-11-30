@@ -147,14 +147,16 @@ Cada servidor do Azure SQL Server começa com uma única conta de administrador 
 
 	O processo de alteração do administrador pode levar vários minutos. O novo administrador será exibido na caixa **Administrador do Active Directory**.
 
+> [AZURE.NOTE]Ao configurar o administrador do AD do Azure, o novo nome de administrador (usuário ou grupo) não pode já estar presentes no banco de dados mestre como um logon de autenticação do SQL Server. Se presente, a configuração de administração do AD do Azure falhará, revertendo sua criação e indicando que esse administrador (nome) já existe. Como esse logon de autenticação do SQL Server não é parte do AD do Azure, qualquer esforço para se conectar ao servidor usando a autenticação do AD do Azure falhará.
+
 Para remover o administrador mais tarde, na parte superior da folha **Administrador do Active Directory**, clique em **Remover administrador**.
 
 ### Provisionar um administrador do AD do Azure para o Azure SQL Server usando o PowerShell 
 
-> [AZURE.IMPORTANT]A partir da liberação do Azure PowerShell 1.0 Preview, o cmdlet Switch-AzureMode não é mais necessário, e os cmdlets contidos no módulo do Gerenciador de Recursos do Azure foram renomeados. Os exemplos neste artigo usam a nova convenção de nomenclatura do PowerShell 1.0 Preview. Para obter informações detalhadas, veja [Substituição de Switch-AzureMode no Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
+> [AZURE.IMPORTANT]A partir da liberação do Azure PowerShell 1.0 Preview, o cmdlet Switch-AzureMode não é mais necessário, e os cmdlets contidos no módulo do Gerenciador de Recursos do Azure foram renomeados. Os exemplos neste artigo usam a nova convenção de nomenclatura do PowerShell 1.0 Preview. Para obter informações detalhadas, consulte [Substituição de Switch-AzureMode no Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
 
-Para executar os cmdlets do PowerShell, você precisa ter o Azure PowerShell instalado e em execução, e devido à remoção de Switch-AzureMode, você deve baixar e instalar o Azure PowerShell mais recente executando o [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
+Para executar os cmdlets do PowerShell, você precisará ter o Azure PowerShell instalado e em execução e, devido à remoção de Switch-AzureMode, você deverá baixar e instalar o Azure PowerShell mais recente executando o [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 
 Para provisionar um administrador do AD do Azure, você deve executar os seguintes comandos do Azure PowerShell:
 
@@ -179,7 +181,7 @@ Set-AzureRMSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23"
 –ServerName "demo_server" -DisplayName "DBA_Group"
 ```
 
-O parâmetro de entrada **DisplayName** aceita o nome de exibição do Azure AD ou o Nome UPN. Por exemplo, ``DisplayName="John Smith"`` e ``DisplayName="johns@contoso.com"``. Para grupos do AD do Azure, há suporte apenas para o nome de exibição do AD do Azure.
+O parâmetro de entrada **DisplayName** aceita o nome para exibição do Azure AD ou o Nome UPN. Por exemplo, ``DisplayName="John Smith"`` e ``DisplayName="johns@contoso.com"``. Para grupos do AD do Azure, há suporte apenas para o nome de exibição do AD do Azure.
 
 > [AZURE.NOTE]O comando ```Set-AzureRMSqlServerActiveDirectoryAdministrator``` do Azure PowerShell não impedirá que você provisione administradores do Azure AD para usuários para os quais não há suporte. Um usuário para o qual não há suporte pode ser provisionado, mas não poderá se conectar a um banco de dados. (Consulte a lista de administradores com suporte em **Limitações e recursos do AD do Azure** acima.)
 
@@ -255,7 +257,7 @@ Para criar um usuário de banco de dados independente baseado no Azure AD (que n
 	FROM EXTERNAL PROVIDER;
 
 
-*Azure\_AD\_principal\_name* pode ser o nome UPN de um usuário do Azure AD ou o nome de exibição de um grupo do Azure AD.
+*Azure\_AD\_principal\_name* pode ser o nome UPN de um usuário do Azure AD ou o nome para exibição de um grupo do Azure AD.
 
 **Exemplos:** para criar um usuário de banco de dados independente que representa um usuário de domínio federado ou gerenciado pelo Azure AD:
 
@@ -325,4 +327,4 @@ Para exemplos de código específicos relacionados à autenticação do Azure AD
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

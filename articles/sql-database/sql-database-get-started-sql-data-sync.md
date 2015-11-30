@@ -18,7 +18,7 @@
 
 
 #Introdução à Sincronização de Dados do SQL do Azure (visualização)
-Neste tutorial, você aprenderá os conceitos básicos da Sincronização de Dados do SQL do Azure usando o portal do Azure (Visualização).
+Neste tutorial, você aprenderá os conceitos básicos da Sincronização de Dados do SQL do Azure usando o portal de gerenciamento do Azure.
 
 Este tutorial pressupõe uma experiência mínima anterior com SQL Server e com o Banco de Dados SQL do Azure. Neste tutorial, você criará um grupo de sincronização híbrido (instâncias do Banco de Dados SQL e do SQL Server) totalmente configurado e sincronizando no agendamento definido.
 
@@ -202,4 +202,4 @@ Para obter informações adicionais sobre banco de dados SQL e Sincronização d
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

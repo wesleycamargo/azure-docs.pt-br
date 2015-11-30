@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Testando as configurações do Gerenciador de Tráfego
@@ -57,4 +57,4 @@ Há serviços gratuitos de dig e pesquisa de DNS baseados na Web disponíveis. A
 [Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](../about-traffic-manager-balancing-methods.md) [Gerenciador de Tráfego](../traffic-manager.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

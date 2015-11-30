@@ -548,13 +548,10 @@ Para excluir uma fila e todas as mensagens contidas nela, chame o cmdlet Remove-
     $QueueName = "yourqueuename"
     Remove-AzureStorageQueue –Name $QueueName –Context $Ctx
 
-### Como gerenciar mensagens da fila
-Atualmente, o PowerShell do Azure não fornece cmdlets para gerenciar mensagens da fila diretamente. Para executar operações em mensagens da fila, você pode usar as classes fornecidas na biblioteca de [Cliente de armazenamento do Azure para .NET](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx).
-
 #### Como inserir uma mensagem em uma fila
 Para inserir uma mensagem em uma fila existente, primeiro crie uma nova instância da classe [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx). Em seguida, chame o método [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx). Um CloudQueueMessage pode ser criado por meio de uma cadeia de caracteres (em formato UTF-8) ou de uma matriz de bytes.
 
-O exemplo a seguir demonstra como adicionar uma mensagem a uma fila. O exemplo primeiro estabelece uma conexão com o armazenamento do Azure usando o contexto de conta de armazenamento, que inclui o nome da conta de armazenamento e sua chave de acesso. Em seguida, ele recupera a fila especificada usando o cmdlet [Get-AzureStorageQueue](https://msdn.microsoft.com/library/azure/dn806377.aspx). Se a fila existe, o cmdlet [New-Object](http://technet.microsoft.com/library/hh849885.aspx) é usado para criar uma instância da classe [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx). Posteriormente, o exemplo chama o método [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) nesse objeto de entidade para adicioná-lo a uma fila. Aqui está o código que recupera uma fila e insere a mensagem 'MessageInfo':
+O exemplo a seguir demonstra como adicionar uma mensagem a uma fila. O exemplo primeiro estabelece uma conexão com o armazenamento do Azure usando o contexto de conta de armazenamento, que inclui o nome da conta de armazenamento e sua chave de acesso. Em seguida, ele recupera a fila especificada usando o cmdlet [Get-AzureStorageQueue](https://msdn.microsoft.com/library/azure/dn806377.aspx). Se a fila existe, o cmdlet [New-Object](http://technet.microsoft.com/library/hh849885.aspx) é usado para criar uma instância da classe [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx). Posteriormente, o exemplo chama o método [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) nesse objeto de mensagem para adicioná-lo a uma fila. Aqui está o código que recupera uma fila e insere a mensagem 'MessageInfo':
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
@@ -620,7 +617,7 @@ Uma assinatura de acesso compartilhado pode estar em uma das duas formas:
 
 Para obter mais informações, consulte [o tutorial de Assinaturas de acesso compartilhado](storage-dotnet-shared-access-signature-part-1.md) e [Gerenciar acesso aos recursos de armazenamento do Azure](storage-manage-access-to-resources.md).
 
-Nas seções a seguir, você aprenderá a como criar uma política de acesso armazenado e um token de assinatura de acesso compartilhado para tabelas do Azure. O PowerShell do Azure fornece cmdlets semelhantes para contêineres, blobs e filas. Para executar os scripts nesta seção, baixe o [PowerShell do Azure versão 0.8.14](http://go.microsoft.com/?linkid=9811175&clcid=0x409) ou posterior.
+Nas seções a seguir, você aprenderá a como criar uma política de acesso armazenado e um token de assinatura de acesso compartilhado para tabelas do Azure. O PowerShell do Azure fornece cmdlets semelhantes para contêineres, blobs e filas. Para executar os scripts nesta seção, baixe o [Azure PowerShell versão 0.8.14](http://go.microsoft.com/?linkid=9811175&clcid=0x409) ou posterior.
 
 ### Como criar uma política baseada no token de Assinatura de Acesso Compartilhado
 Use o cmdlet New-AzureStorageTableStoredAccessPolicy para criar uma nova política de acesso armazenada. Em seguida, chame o cmdlet [New-AzureStorageTableSASToken](http://msdn.microsoft.com/library/azure/dn806400.aspx) para criar um novo token de assinatura de acesso compartilhado com base em política para uma Tabela de Armazenamento do Azure.
@@ -736,4 +733,4 @@ Neste guia, você aprendeu como gerenciar o armazenamento do Azure com o PowerSh
 [Next Steps]: #next
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

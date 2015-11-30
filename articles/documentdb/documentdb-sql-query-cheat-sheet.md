@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Página de dicas úteis de consulta do Banco de Dados de Documentos | Microsoft Azure" 
-	description="Uma página de dicas úteis de consulta imprimível que ajuda você a usar gramática de tipo SQL do Banco de Dados de Documentos para consultar documentos JSON no banco de dados NoSQL." 
+	pageTitle="PDF de consulta SQL do Banco de Dados de Documentos | Microsoft Azure" 
+	description="Um PDF de consulta SQL para impressão que ajuda você a usar a sintaxe SQL do Banco de Dados de Documentos para consultar documentos JSON em seu banco de dados NoSQL." 
+	keywords="folha de consulta sql, pdf de folha de consulta sql, folha de consulta de consulta sql"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="mimig1" 
@@ -13,29 +14,29 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/20/2015" 
+	ms.date="11/18/2015" 
 	ms.author="mimig"/>
 
-# Página de dicas úteis de consulta SQL do Banco de Dados de Documentos baixável
+# PDF de consulta SQL do Banco de Dados de Documentos
 
-A **Página de dicas úteis de consulta do Banco de Dados de Documentos** ajuda a escrever rapidamente consultas de dados do Banco de Dado de Documentos exibindo consultas comuns, palavras-chave, funções internas e operadores em uma folha de referência fácil de Imprimir.
+A **Folha de Consulta SQL do Banco de Dados de Documentos** ajuda a escrever rapidamente consultas de dados do Banco de Dados de Documentos exibindo consultas comuns, palavras-chave, funções internas e operadores em uma folha de referência em PDF fácil de imprimir.
 
-O Banco de Dados de Documentos dá suporte a consultas hierárquicas, relacionais e espaciais de documentos JSON usando [SQL](documentdb-sql-query.md) sem especificar um esquema ou índices secundários. Além dos operadores e palavras-chave ANSI-SQL standard, o Banco de Dados de Documentos oferece suporte a funções definidas pelo usuário (UDFs) JavaScript, operadores de JavaScript, e uma serie de funções internas.
+O Banco de Dados de Documentos dá suporte a consultas hierárquicas, relacionais e espaciais de documentos JSON usando o [SQL](documentdb-sql-query.md) sem especificar um esquema ou índices secundários. Além dos operadores e palavras-chave ANSI-SQL standard, o Banco de Dados de Documentos oferece suporte a funções definidas pelo usuário (UDFs) JavaScript, operadores de JavaScript, e uma serie de funções internas.
 
-## Baixe a página de dicas úteis de consulta do Banco de Dados de Documentos
+## Baixe o PDF de consulta de SQL do Banco de Dados de Documentos
 
-Escreva suas consultas mais rápido baixando a página de dicas úteis de consulta e usando-a como uma referência rápida. A página de dicas úteis mostra consultas de SQL comuns para recuperar dados de dois documentos JSON de exemplo. Para mantê-lo próximo, você pode imprimir a página de dicas úteis de um lado único em tamanho carta (21,59 x 27,94 mm).
+Escreva suas consultas mais rapidamente baixando a folha de consulta SQL e usando-a como uma referência rápida. O PDF de consulta SQL mostra as consultas comuns usadas para recuperar dados de dois documentos JSON de exemplo. Para mantê-lo próximo, você pode imprimir a folha de consulta SQL de lado único em tamanho carta (21,59 x 27,94 mm).
 
-**Baixe a página de dicas úteis aqui: [Página de dicas úteis de consulta do Banco de Dados de Documentos da Microsoft](http://go.microsoft.com/fwlink/?LinkId=623215)**
+**Baixe a folha de consulta SQL aqui: [folha de consulta SQL do Banco de Dados de Documentos do Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=623215)**
 
-![Página de dicas úteis de consulta do Banco de Dados de Documentos: Referência Rápida para a gramática SQL suportada pelo Banco de Dados de Documentos.][cheat-sheet]
+![Folha de consulta de SQL do Banco de Dados de Documentos: referência rápida à gramática SQL com suporte do Banco de Dados de Documentos.][cheat-sheet]
 
 [cheat-sheet]: ./media/documentdb-sql-query-cheat-sheet/microsoft-documentdb-sql-query-cheat-sheet-v2.png
 
 
-## Mais ajuda sobre consultas
+## Mais ajuda para escrever consultas SQL
 
-- Para examinar passo a passo as opções de consulta disponíveis no Banco de Dados de Documentos, consulte [Consultar Banco de Dados de Documentos](documentdb-sql-query.md).
-- Para obter a documentação de referência relacionada, consulte [Idioma de consulta SQL do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn782250.aspx).
+- Para obter um passo a passo das opções de consulta disponíveis no Banco de Dados de Documentos, veja [Consultar o Banco de Dados de Documentos](documentdb-sql-query.md).
+- Para obter a documentação de referência relacionada, veja [Linguagem de consulta SQL do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn782250.aspx).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

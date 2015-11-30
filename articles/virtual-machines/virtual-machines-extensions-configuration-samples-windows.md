@@ -26,9 +26,9 @@
 Este artigo fornece um exemplo de configuração para configurar extensões de VM do Azure para VMs do Windows.
 
 
-Para saber mais sobre estas extensões, clique aqui: [Visão geral de extensões de VM do Azure.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
+Para saber mais sobre estas extensões, consulte, [Visão geral de extensões de VM do Azure.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
 
-Para saber mais sobre a criação de modelos de extensão, clique aqui: [Criação de modelos de extensão.](virtual-machines-extensions-authoring-templates.md)
+Para saber mais sobre a criação de modelos de extensão, consulte: [Criação de modelos de extensão.](virtual-machines-extensions-authoring-templates.md)
 
 Este artigo lista os valores de configuração esperados para algumas das Extensões do Windows.
 
@@ -285,12 +285,13 @@ Antes de implantar a extensão, verifique a versão mais recente da extensão e 
 
 ### Diagnóstico do Azure
 
-Clique aqui para obter uma visão geral da [Extensão de diagnóstico do Azure](https://msdn.microsoft.com/library/azure/dn782207.aspx/)
+Para obter mais detalhes sobre como configurar o diagnóstico, consulte [Extensão de diagnóstico do Azure](virtual-machines-extensions-diagnostics-windows-template.md)
 
           {
             "publisher": "Microsoft.Azure.Diagnostics",
             "type": "IaaSDiagnostics",
-            "typeHandlerVersion": "1.4",
+            "typeHandlerVersion": "1.5",
+			"autoUpgradeMinorVersion": true,
             "settings": {
               "xmlCfg": "[base64(variables('wadcfgx'))]",
               "storageAccount": "[parameters('diagnosticsStorageAccount')]"
@@ -308,4 +309,4 @@ Veja abaixo um exemplo de um modelo de VM completo com uma Extensão de Script P
 
 [Extensão de script personalizado em uma VM do Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

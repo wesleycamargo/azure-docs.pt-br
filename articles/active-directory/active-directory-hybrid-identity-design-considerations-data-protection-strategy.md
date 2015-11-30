@@ -148,6 +148,6 @@ Como as opções de reposta a incidentes usam uma abordagem multicamada, a compa
 
 
 ## Consulte também
-[Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

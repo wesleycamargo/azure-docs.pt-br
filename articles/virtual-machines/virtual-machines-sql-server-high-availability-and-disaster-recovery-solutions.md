@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Alta Disponibilidade e Recuperação de Desastres para SQL Server | Microsoft Azure"
-   description="Este tutorial usa recursos criados com o modelo de implantação clássica e discute os vários tipos de estratégias HADR do SQL Server em execução em Máquinas Virtuais do Azure."
-   services="virtual-machines"
-   documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar" 
-   tags="azure-service-management"/>
+	pageTitle="Alta Disponibilidade e Recuperação de Desastres para SQL Server | Microsoft Azure"
+	description="Este tutorial usa recursos criados com o modelo de implantação clássica e discute os vários tipos de estratégias HADR do SQL Server em execução em Máquinas Virtuais do Azure."
+	services="virtual-machines"
+	documentationCenter="na"
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar" 
+	tags="azure-service-management"/>
 <tags 
-   ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows-sql-server"
-   ms.workload="infrastructure-services"
-   ms.date="08/17/2015"
-   ms.author="jroth" />
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.workload="infrastructure-services"
+	ms.date="11/13/2015"
+	ms.author="jroth" />
 
 # Alta disponibilidade e recuperação de desastres para SQL Server em Máquinas Virtuais do Azure
 
@@ -104,9 +104,14 @@ Para obter mais informações, consulte [Configurar Grupos de Disponibilidade Al
 
 ### Suporte do ouvinte do grupo de disponibilidade
 
-Ouvintes do grupo de disponibilidade têm suporte em VMs do Azure que executam o Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2. Esse suporte é possibilitado pelo uso de pontos de extremidade com balanceamento de carga, com DSR (Retorno de Servidor Direto) habilitado em VMs do Azure, que são nós do grupo de disponibilidade. Você deve seguir etapas especiais de configuração para que os ouvintes trabalhem para ambos os aplicativos clientes que estão em execução no Azure, bem como os que estão em execução local.
+Ouvintes do grupo de disponibilidade têm suporte em VMs do Azure que executam o Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2. Esse suporte é possibilitado pelo uso de pontos de extremidade habilitados em VMs do Azure, que são nós do grupo de disponibilidade. Você deve seguir etapas especiais de configuração para que os ouvintes trabalhem para ambos os aplicativos clientes que estão em execução no Azure, bem como os que estão em execução local.
 
-Clientes devem se conectar ao ouvinte por meio de uma máquina que não está no mesmo serviço de nuvem que os nós do Grupo de disponibilidade AlwaysOn. Se o Grupo de disponibilidade abranger várias sub-redes do Azure (como uma implantação que cruza regiões do Azure), a cadeia de conexão do cliente deve incluir "MultisubnetFailover = True". Isso resulta em tentativas de conexão em paralelo às réplicas nas diferentes sub-redes. Para obter instruções de como configurar um ouvinte, consulte [Configurar um ouvinte ILB para Grupos de Disponibilidade AlwaysOn no Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
+Há duas opções principais para configurar o ouvinte: externo (público) ou interno. O ouvinte (público) externo é associado a um IP Virtual público (VIP) que seja acessível pela Internet. Com um ouvinte externo, você deve habilitar o retorno de servidor direto, o que significa que você deve se conectar ao ouvinte de um computador que não está no mesmo serviço de nuvem que os nós do grupo de disponibilidade do AlwaysOn. A outra opção é um ouvinte interno que usa o balanceador de carga interno (ILB). Um ouvinte interno só oferece suporte a clientes na mesma rede virtual.
+
+Se o Grupo de disponibilidade abranger várias sub-redes do Azure (como uma implantação que cruza regiões do Azure), a cadeia de conexão do cliente deve incluir "**MultisubnetFailover=True**". Isso resulta em tentativas de conexão em paralelo às réplicas nas diferentes sub-redes. Para obter instruções sobre como configurar um ouvinte, consulte
+
+- [Configurar um ouvinte de ILB para grupos de disponibilidade do AlwaysOn no Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
+- [Configurar um ouvinte externo para grupos de disponibilidade do AlwaysOn no Azure](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md).
 
 Você pode ainda se conectar a cada réplica de disponibilidade separadamente conectando-se diretamente à instância do serviço. Além disso, como os Grupos de disponibilidade AlwaysOn são compatíveis com versões anteriores com clientes de espelhamento de banco de dados, você pode se conectar a réplicas de disponibilidade, como parceiros de espelhamento, desde que as réplicas sejam configuradas de forma semelhante ao espelhamento do banco de dados:
 
@@ -147,4 +152,4 @@ Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, c
 - [Instalar uma nova floresta do Active Directory no Azure](../active-directory/active-directory-new-forest-virtual-machine.md)
 - [Criar cluster WSFC para Grupos de Disponibilidade AlwaysOn em VM do Azure](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

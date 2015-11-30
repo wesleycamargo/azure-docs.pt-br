@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Consultas SQL em um banco de dados do Banco de Dados de Documentos — consultar SQL | Microsoft Azure" 
-	description="Saiba como o Banco de Dados de Documentos oferece suporte a consultas SQL em documentos JSON hierárquicos para indexação automática. Descubra um ambiente de banco de dados de consulta SQL que seja realmente livre de esquema." 
-	keywords="Consultar banco de dados, consultas sql, consulta sql, linguagem de consulta estruturada, banco de dados de documentos, azure, Microsoft azure"
+	pageTitle="Consulta SQL em um Banco de Dados de Documentos, um banco de dados NoSQL | Microsoft Azure" 
+	description="Aprenda a usar as instruções de consulta SQL para consultar o Banco de Dados de Documentos, um banco de dados NoSQL. Como uma linguagem de consulta JSON, as consultas SQL podem ser usadas para a análise de Big Data." 
+	keywords="consulta sql, consultas sql, sintaxe sql, linguagem de consulta json, conceitos de banco de dados e consultas sql"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="arramac" 
@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/13/2015" 
+	ms.date="11/18/2015" 
 	ms.author="arramac"/>
 
 # Consulta SQL no Banco de Dados de Documentos
-O Banco de Dados de Documentos do Microsoft Azure tem suporte para a realização da consulta de documentos utilizando uma SQL (Structured Query Language) em documentos hierárquicos JSON. O Banco de Dados de Documentos é verdadeiramente livre de esquemas. Em virtude de seu comprometimento com o modelo de dados JSON diretamente dentro do mecanismo do banco de dados, ele fornece a indexação automática de documentos JSON sem a necessidade de esquemas explícitos ou da criação de índices secundários.
+O Banco de Dados de Documentos do Microsoft Azure tem suporte para a realização de consultas de documentos usando uma SQL (Structured Query Language) como uma linguagem de consulta JSON. O Banco de Dados de Documentos é verdadeiramente livre de esquemas. Em virtude de seu comprometimento com o modelo de dados JSON diretamente dentro do mecanismo do banco de dados, ele fornece a indexação automática de documentos JSON sem a necessidade de esquemas explícitos ou da criação de índices secundários.
 
 Ao criar a linguagem de consulta para o Banco de Dados de Documentos, tínhamos dois objetivos em mente:
 
--	**Adotar a SQL** – em vez de inventar uma nova linguagem para consulta, desejávamos adotar a linguagem SQL. Afinal, a SQL é uma das linguagens de consulta mais familiares e populares. A SQL de Banco de Dados de Documentos fornece um modelo de programação formal para consultas avançadas em documentos JSON.
--	**Estender a SQL** – como um banco de dados de documentos JSON capaz de executar o JavaScript diretamente no mecanismo do banco de dados, queríamos usar o modelo de programação do JavaScript como alicerce para nossa linguagem de consulta. A SQL de Banco de Dados de Documentos é baseada no sistema de tipos, avaliação de expressão e invocação de função do JavaScript. Isso, por sua vez, oferece um modelo de programação natural para projeções relacionais, navegação hierárquica em documentos JSON, autojunções, e invocação de UDFs (funções definidas pelo usuário) gravadas inteiramente em JavaScript, entre outros recursos. 
+-	Em vez de inventar uma nova linguagem de consulta, gostaríamos de dar suporte à SQL. A SQL é uma das linguagens de consulta mais conhecidas e populares. A SQL de Banco de Dados de Documentos fornece um modelo de programação formal para consultas avançadas em documentos JSON.
+-	Como um banco de dados de documentos JSON capaz de executar o JavaScript diretamente no mecanismo do banco de dados, queríamos usar o modelo de programação do JavaScript como os alicerces da nossa linguagem de consulta. A SQL de Banco de Dados de Documentos é baseada no sistema de tipos, avaliação de expressão e invocação de função do JavaScript. Isso, por sua vez, oferece um modelo de programação natural para projeções relacionais, navegação hierárquica em documentos JSON, autojunções, consultas espaciais e invocação de UDFs (funções definidas pelo usuário) gravadas inteiramente em JavaScript, entre outros recursos. 
 
 Nós acreditamos que esses recursos sejam fundamentais para reduzir o atrito entre o aplicativo e o banco de dados e cruciais para a produtividade do desenvolvedor.
 
@@ -31,9 +31,9 @@ Recomendamos que você comece assistindo ao vídeo a seguir, em que Aravind Rama
 
 > [AZURE.VIDEO dataexposedqueryingdocumentdb]
 
-Em seguida, retorne a este artigo, em que vamos começar examinando alguns documentos simples JSON e comandos SQL.
+Em seguida, retorne a este artigo, onde começaremos com um tutorial de consulta SQL que apresenta a você alguns documentos JSON e comandos SQL simples.
 
-## Introdução a comandos SQL (Structured Query Language) no Banco de Dados de Documentos
+## Introdução aos comandos SQL no Banco de Dados de Documentos
 Para ver o Banco de Dados de Documentos SQL em funcionamento, vamos começar com alguns documentos JSON simples e percorreremos algumas consultas simples relacionadas a eles. Considere esses dois documentos JSON sobre duas famílias. Observe que com o Banco de Dados de Documentos, não precisamos criar nenhum esquema ou índice secundário explicitamente. Precisamos apenas inserir os documentos JSON em uma coleção do Banco de Dados de Documentos e, em seguida, realizar a consulta. Aqui, temos um documento JSON simples relacionado à família Andersen - os pais, filhos (e seus animais de estimação), endereço e informações de registro. O documento tem cadeias de caracteres, números, boolianos, matrizes e propriedades aninhadas.
 
 **Documento**
@@ -137,7 +137,7 @@ Agora, considere um caso em que precisamos reformatar a saída JSON para um form
 	}]
 
 
-A próxima consulta retorna todos os nomes de determinado filhos na família, cuja identificação corresponde ao `WakefieldFamily` solicitado pela cidade de residência.
+A próxima consulta retorna todos os nomes dos filhos na família cuja identificação corresponde ao `WakefieldFamily` solicitado pela cidade de residência.
 
 **Consulta**
 
@@ -164,7 +164,7 @@ Gostaríamos de chamar atenção para alguns aspectos de destaque da linguagem d
 
 ## Indexação do Banco de Dados de Documentos
 
-Antes de passarmos à gramática da SQL do Banco de Dados de Documentos, vale explorar o design da indexação no Banco de Dados de Documentos.
+Antes de passarmos à sintaxe da SQL do Banco de Dados de Documentos, vale explorar o design da indexação no Banco de Dados de Documentos.
 
 O objetivo de índices de bancos de dados é atender a consultas em suas diversas formas com um consumo mínimo de recursos (como CPU, entrada/saída), oferecendo alta produtividade e baixa latência. Frequentemente, a escolha do índice correto para consultar um banco de dados requer muito planejamento e experimentação. Esta abordagem representa um desafio para bancos de dados sem esquemas, nos quais os dados não seguem um esquema rígido e evoluem rapidamente.
 
@@ -180,7 +180,7 @@ Portanto, quando criamos o subsistema de indexação do Banco de Dados de Docume
 
 -	Eficiência no armazenamento: para manter um bom custo-benefício, a sobrecarga do armazenamento em disco do índice é vinculada e previsível. Isto é fundamental porque o Banco de Dados de Documentos permite que o desenvolvedor tome decisões baseadas em custo entre a sobrecarga do índice tendo em relação ao desempenho de consulta.
 
-Consulte [amostras do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-net) no MSDN para ver exemplos de como configurar a política de indexação para uma coleção. Agora, vejamos os detalhes da gramática da SQL do Banco de Dados de Documentos.
+Consulte [amostras do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-net) no MSDN para ver exemplos de como configurar a política de indexação para uma coleção. Agora, vejamos os detalhes da sintaxe da SQL do Banco de Dados de Documentos.
 
 
 ## Noções básicas de uma consulta SQL do Banco de Dados de Documentos
@@ -188,7 +188,8 @@ Toda consulta consiste em uma cláusula SELECT e cláusulas FROM e WHERE opciona
     
     SELECT <select_list> 
     [FROM <from_specification>] 
-    [WHERE <filter_condition>]    
+    [WHERE <filter_condition>]
+    [ORDER BY <sort_specification]    
 
 
 ## Cláusula FROM
@@ -322,7 +323,7 @@ Para outros operadores de comparação, como >, >=, !=, < e <=, aplicam-se as se
 Se o resultado da expressão escalar do filtro for Indefinido, o documento correspondente não seria incluído no resultado, uma ver que Indefinido não corresponde logicamente a “verdadeiro”.
 
 ### Palavra-chave BETWEEN
-Você também pode usar a palavra-chave BETWEEN para expressar consultas a intervalos de valores, como na ANSI SQL. BETWEEN Pode ser usado em qualquer tipo de JSON primitivo (números, cadeias de caracteres, boolianos e nulos).
+Você também pode usar a palavra-chave BETWEEN para expressar consultas a intervalos de valores, como na ANSI SQL. BETWEEN pode ser usado em cadeias de caracteres ou números.
 
 Por exemplo, esta consulta retorna todos os documentos de família nos quais a série do primeiro filho vai de 1 a 5 (incluindo ambos).
 
@@ -373,7 +374,7 @@ Este exemplo retorna todos os documentos cujo estado é qualquer um dos valores 
     FROM Families 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 
-A palavra-chave IN é equivalente a encadeamento várias cláusulas OR; no entanto, já que ela pode ser atendida pelo uso de um único índice, o Banco de Dados de Documentos dá suporte a um [limite](documentdb-limits.md) maior para o número de argumentos especificados dentro de uma cláusula IN.
+IN é equivalente ao encadeamento de várias cláusulas OR; no entanto, já que ela pode ser atendida pelo uso de um único índice, o Banco de Dados de Documentos dá suporte a um [limite](documentdb-limits.md) maior para o número de argumentos especificados dentro de uma cláusula IN.
 
 ### Operadores Ternário (?) e de União (??)
 Os operadores Ternário e de União podem ser usados para compilar expressões condicionais, de modo semelhante a linguagens de programação populares como C# e JavaScript.
@@ -705,7 +706,7 @@ E aqui está uma consulta que recupera famílias em ordem de data de criação, 
 	  }
 	]
 	
-## Conceitos de banco de dados de consulta SQ avançada
+## Conceitos avançados de banco de dados e consultas SQL
 ### Iteração
 Uma nova construção por meio da palavra-chave **IN** na SQL do Banco de Dados de Documentos, para dar suporte à iteração em matrizes JSON. A fonte FROM dá suporte à iteração. Comecemos com o exemplo a seguir:
 
@@ -943,7 +944,7 @@ O Banco de Dados de Documentos oferece um modelo de programação para executar 
 ###UDFs (Funções definidas pelo usuário)
 Além dos tipos já especificados neste artigo, a SQL do Banco de Dados de Documentos oferece suporte a UDFs (funções definidas pelo usuário). Em particular, há suporte a UDFs escalares nas quais os desenvolvedores podem passar zero ou muitos argumentos e retornar um resultado com um único argumento. Cada um desses argumentos é verificado quanto a serem valores JSON legais.
 
-A gramática da SQL do Banco de Dados de Documentos é estendida para dar suporte à lógica de aplicativos personalizados usando essas Funções definidas pelo usuário. As UDFs podem ser registradas com o Banco de Dados de Documentos e referenciadas como parte de uma consulta SQL. De fato, as UDFs são projetadas de maneira especial para serem invocadas por consultas. Como consequência dessa escolha, as UDFs não têm acesso ao objeto de contexto que outros tipos de JavaScript (procedimentos armazenados e gatilhos) têm. Como as consultas são executadas como somente leitura, elas podem ser executadas em réplicas primárias ou secundárias. Portanto, as UDFs foram criadas para serem executadas em réplicas secundárias, diferente de outros tipos de JavaScript.
+A sintaxe da SQL do Banco de Dados de Documentos é estendida para dar suporte à lógica de aplicativos personalizados usando essas funções definidas pelo usuário. As UDFs podem ser registradas com o Banco de Dados de Documentos e referenciadas como parte de uma consulta SQL. De fato, as UDFs são projetadas de maneira especial para serem invocadas por consultas. Como consequência dessa escolha, as UDFs não têm acesso ao objeto de contexto que outros tipos de JavaScript (procedimentos armazenados e gatilhos) têm. Como as consultas são executadas como somente leitura, elas podem ser executadas em réplicas primárias ou secundárias. Portanto, as UDFs foram criadas para serem executadas em réplicas secundárias, diferente de outros tipos de JavaScript.
 
 Abaixo há um exemplo de como uma UDF pode ser registrada no banco de dados do Banco de Dados de Documentos, especificamente em uma coleção de documento.
 
@@ -1386,8 +1387,6 @@ Aqui está outro exemplo que usa ARRAY\_LENGTH para obter o número de filhos po
       "numberOfChildren": 1
     }]
 
-Com isso, concluímos o conteúdo de gramática SQL e funções internas para Banco de Dados de Documentos. Agora vamos dar uma olhada em como o sistema de consultas LINQ funciona e como ele interage com a gramática que vimos até agora.
-
 ### Funções espaciais
 
 O Banco de Dados de Documentos dá suporte às seguintes funções internas do Open Geospatial Consortium (OGC) para consultas geoespaciais. Para obter mais detalhes sobre o suporte geoespacial no Banco de Dados de Documentos, consulte [Trabalhando com dados geoespaciais no Banco de Dados de Documentos do Azure](documentdb-geospatial.md).
@@ -1431,9 +1430,9 @@ As funções espaciais podem ser usadas para executar consultas espaciais em con
 
 Se você incluir a indexação espacial em sua política de indexação, as "consultas de distância" serão servidas com eficiência por meio do índice. Para obter mais detalhes sobre a indexação espacial, consulte a seção abaixo. Se você não tiver um índice espacial para os caminhos especificados, ainda poderá executar consultas espaciais especificando o cabeçalho da solicitação `x-ms-documentdb-query-enable-scan` com o valor definido como "true". No .NET, isso pode ser feito passando o argumento **FeedOptions** opcional para consultas com [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) definido como true.
 
-ST\_WITHIN pode ser usado para verificar se um ponto está dentro de um polígono. Normalmente, os polígonos são usados para representar limites como códigos postais, fronteiras de estado ou formações naturais. Novamente, se você incluir a indexação espacial em sua política de indexação, as consultas “internas" serão servidas com eficiência por meio do índice.
+ST\_WITHIN pode ser usado para verificar se um ponto está dentro de um polígono. Normalmente, os polígonos são usados para representar limites como códigos postais, fronteiras de estado ou formações naturais. Novamente, se você incluir a indexação espacial em sua política de indexação, as consultas "internas" serão servidas com eficiência por meio do índice.
 
-Os argumentos do polígono no ST\_WITHIN podem conter apenas um único toque, ou seja, os polígonos não devem conter orifícios neles. Verifique os [limites do Banco de Dados de Documentos](documentdb-limits.md) para o número máximo de pontos permitido em um polígono para uma consulta ST\_WITHIN.
+Os argumentos do polígono no ST\_WITHIN podem conter apenas um único toque, ou seja, os polígonos não devem conter orifícios neles. Verifique os [limites do Banco de Dados de Documentos](documentdb-limits.md) quanto ao número máximo de pontos permitido em um polígono para uma consulta ST\_WITHIN.
 
 **Consulta**
 
@@ -1450,7 +1449,7 @@ Os argumentos do polígono no ST\_WITHIN podem conter apenas um único toque, ou
       "id": "WakefieldFamily",
     }]
     
->[AZURE.NOTE]Da mesma forma como os tipos incompatíveis funcionam na consulta do Banco de Dados de Documentos, se o valor de local especificado em um dos argumentos for malformado ou inválido, então ele será avaliado como **indefinido** e o documento avaliado será ignorado nos resultados da consulta. Se sua consulta não retornar resultados, execute ST\_ISVALIDDETAILED para depurar o motivo pelo qual o tipo spatail é inválido.
+>[AZURE.NOTE]Da mesma forma como os tipos incompatíveis funcionam na consulta do Banco de Dados de Documentos, se o valor do local especificado em um dos argumentos for malformado ou inválido, ele será avaliado como **indefinido** e o documento avaliado será ignorado nos resultados da consulta. Se sua consulta não retornar resultados, execute ST\_ISVALIDDETAILED para depurar o motivo pelo qual o tipo spatail é inválido.
 
 ST\_ISVALID e ST\_ISVALIDDETAILED podem ser usados para verificar se um objeto espacial é válido. Por exemplo, a consulta a seguir verifica a validade de um ponto com um valor de latitude fora do intervalo (-132,8). ST\_ISVALID retorna um valor Booliano e ST\_ISVALIDDETAILED retorna o Booliano e uma cadeia de caracteres com o motivo pelo qual ele é considerado inválido.
 
@@ -1481,7 +1480,7 @@ Essas funções também podem ser usadas para validar polígonos. Por exemplo, S
       	}
     }]
     
-Com isso, concluímos o conteúdo de gramática SQL e funções internas para Banco de Dados de Documentos. Agora vamos dar uma olhada em como o sistema de consultas LINQ funciona e como ele interage com a gramática que vimos até agora.
+Com isso, encerramos as funções espaciais e a sintaxe de SQL para o Banco de Dados de Documentos. Agora vamos dar uma olhada em como o sistema de consultas LINQ funciona e como ele interage com a sintaxe que vimos até agora.
 
 ## LINQ para SQL do Banco de Dados de Documentos
 O LINQ é um modelo de programação .NET que expressa a computação como consultas em fluxos de objetos. O Banco de Dados de Documentos oferece uma biblioteca cliente para realizar a interface com o LINQ facilitando a conversão entre objetos JSON e .NET e mapeando por meio de um subconjunto de consultas do LINQ para consultas do Banco de Dados de Documentos.
@@ -1935,7 +1934,7 @@ Se os resultados de uma consulta não couberem em uma página de resultados, a A
 
 Para gerenciar a política de consistência de dados para consultas, use o cabeçalho `x-ms-consistency-level` como todas as solicitações da API REST. Para que haja consistência da sessão, é necessário também ecoar o cabeçalho de cookie `x-ms-session-token` mais recente na solicitação de consulta. Observe que a política de indexação da coleção consultada também pode influenciar a consistência dos resultados da consulta. Com as configurações da política de indexação padrão, para as coleções o índice sempre estará atualizado com o conteúdo dos documentos e os resultados das consultas corresponderão à consistência escolhida para os dados. Se a política de indexação for relaxada para Lenta, as consultas poderão retornar resultados obsoletos. Para obter mais informações, consulte [Níveis de consistência do Banco de Dados de Documentos][consistency-levels].
 
-Se a política de indexação configurada na coleção não puder suportar a consulta especificada, o servidor do Banco de Dados de Documentos retorna um 400, “Solicitação Incorreta". Este código é retornado para consultas de intervalo em caminhos configurados para pesquisas hash (igualdade), e para caminhos excluídos explicitamente da indexação. O cabeçalho `x-ms-documentdb-query-enable-scan` pode ser especificado para permitir que a consulta faça uma verificação quando um índice estiver indisponível.
+Se a política de indexação configurada na coleção não puder suportar a consulta especificada, o servidor do Banco de Dados de Documentos retorna um 400, "Solicitação Incorreta". Este código é retornado para consultas de intervalo em caminhos configurados para pesquisas hash (igualdade), e para caminhos excluídos explicitamente da indexação. O cabeçalho `x-ms-documentdb-query-enable-scan` pode ser especificado para permitir que a consulta faça uma verificação quando um índice estiver indisponível.
 
 ### SDK C# (.NET)
 O SDK .NET suporta consultas LINQ e SQL. O exemplo a seguir mostra como realizar a consulta de filtro simples mencionada no início deste documento.
@@ -2089,4 +2088,4 @@ O exemplo a seguir mostra como usar o queryDocuments na API do servidor do JavaS
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

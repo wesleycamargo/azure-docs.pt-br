@@ -50,13 +50,13 @@ Quando planejar sua solução de identidade híbrida, certifique-se de que as se
 - Sua empresa precisa criptografar todos os documentos/conteúdos compartilhados com parceiros comerciais externos?
 - Sua empresa precisa impor políticas corporativas em determinados tipos de emails (não responder a todos, não encaminhar)?
  
->[AZURE.NOTE]Certifique-se de fazer anotações de cada resposta e entender o raciocínio por trás de resposta. [Definir a estratégia de proteção de dados definir](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) ultrapassará as opções disponíveis e vantagens/desvantagens de cada opção. Ao responder essas perguntas, você selecionará a opção que melhor se ajusta às necessidades da sua empresa.
+>[AZURE.NOTE]Certifique-se de fazer anotações de cada resposta e entender o raciocínio por trás de resposta. [Definir a estratégia de proteção de dados definir](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) ultrapassará as opções disponíveis e vantagens/desvantagens de cada opção. Depois de responder a essas perguntas, você selecionará a opção que melhor se ajusta às necessidades da sua empresa.
 
 
 ## Próximas etapas
 [Determinar requisitos de controle de acesso](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)
 
 ## Consulte também
-[Visão geral de considerações de design](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

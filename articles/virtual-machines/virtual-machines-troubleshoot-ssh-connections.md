@@ -288,4 +288,4 @@ Para máquinas virtuais no modelo de implantação clássica, [Como redefinir um
 
 [Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

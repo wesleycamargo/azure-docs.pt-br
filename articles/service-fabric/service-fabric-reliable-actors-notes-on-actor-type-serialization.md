@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/11/2015"
+   ms.date="11/13/2015"
    ms.author="vturecek"/>
 
 # Observações sobre a serialização de tipo dos Atores Confiáveis do Service Fabric
@@ -55,7 +55,7 @@ O estado do ator deve ser serializável pelo contrato de dados. Por exemplo, se 
 
 ```csharp
 
-public class VoiceMailActor : Actor<VoicemailBox>, IVoiceMail
+public class VoiceMailActor : StatefulActor<VoicemailBox>, IVoiceMail
 {
 ...
 
@@ -82,4 +82,4 @@ public class VoicemailBox
 
 ```
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

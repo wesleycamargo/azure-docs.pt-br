@@ -17,11 +17,11 @@
 	ms.date="09/09/2015"
 	ms.author="paulettm"/>
 
-#Perguntas frequentes (FAQ) sobre o Aprendizado de Máquina do Azure: cobrança, suporte, recursos e limitações
+# Perguntas frequentes (FAQ) sobre o Aprendizado de Máquina do Azure: cobrança, suporte, recursos e limitações
 
 Essas perguntas frequentes são perguntas sobre o Aprendizado de Máquina do Azure, um serviço de nuvem para modelagem preditiva e soluções de operacionalização através de serviços Web. Estas perguntas frequentes abordam dúvidas sobre como usar o serviço, incluindo o modelo de cobrança, recursos, limitações e suporte.
 
-##Perguntas gerais
+## Perguntas gerais
 
 **O que é Aprendizado de Máquina do Azure?**
 
@@ -43,7 +43,7 @@ O serviço de API do Aprendizado de Máquina permite implantar modelos preditivo
 Consulte [Conectar a um serviço Web do Aprendizado de Máquina](machine-learning-connect-to-azure-machine-learning-web-service.md) para obter mais informações.
 
 
-##Perguntas sobre cobrança
+## Perguntas sobre cobrança
 
 **Como a cobrança do Aprendizado de Máquina funciona?**
 
@@ -55,18 +55,18 @@ Para obter informações sobre preços e cobrança, consulte [Preços do Aprendi
 
 ## Perguntas sobre o Estúdio de Aprendizado de Máquina
 
-###Criando um experimento
+### Criando um experimento
 **Há controle de versão ou integração Git para gráficos de experimento?**
 
 Não, mas sempre que um experimento é executado a versão do gráfico é mantida e não pode ser modificada por outros usuários.
 
-###Importando e exportando dados para o Aprendizado de Máquina
+### Importando e exportando dados para o Aprendizado de Máquina
 **Para quais fontes de dados o Aprendizado de Máquina dá suporte?**
 
 Os dados podem ser carregados no Estúdio de Aprendizado de Máquina de uma de duas formas: ao fazer upload de arquivos locais como conjunto de dados ou usando o módulo de leitor para importar dados. Arquivos locais podem ser transferidos por upload adicionando novos conjuntos de dados ao Estúdio de Aprendizado de Máquina. Consulte [Importar dados de treinamento para o Estúdio de Aprendizado de Máquina](machine-learning-import-data.md) para saber mais sobre os formatos de arquivo com suporte.
 
 
-####<a id="ModuleLimit"></a>Que tamanho o conjunto de dados para os meus módulos pode ter?
+#### <a id="ModuleLimit"></a>Que tamanho o conjunto de dados para os meus módulos pode ter?
 
 Os módulos do Estúdio de Aprendizado de Máquina dão suporte a conjuntos de dados com até 10 GB de dados numéricos densos para casos de uso comuns. Se um módulo receber mais de uma entrada, os 10 GB são o total dos tamanhos das entradas. Você também pode criar amostras de conjuntos de dados maiores por meio de consultas ao Banco de Dados SQL do Hive ou Azure ou do pré-processamento do Aprendizado por contagens, antes da ingestão.
 
@@ -93,8 +93,7 @@ Para conjuntos com mais de 2 GB, faça upload dos dados para o armazenamento do 
 
 **Eu posso ler dados da Amazon S3?**
 
-Se tiver uma pequena quantidade de dados e quiser expô-los por meio de uma URL http, você pode usar o módulo [Leitor][reader]. Para qualquer quantidade maior de dados, transfira-os para o armazenamento do Azure primeiro e, em seguida, use o modulo [Leitor][reader] para colocá-los em seu experimento.
-<!--
+Se tiver uma pequena quantidade de dados e quiser expô-los por meio de uma URL http, você pode usar o módulo [Leitor][reader]. Para qualquer quantidade maior de dados, transfira-os para o armazenamento do Azure primeiro e, em seguida, use o modulo [Leitor][reader] para colocá-los em seu experimento. <!--
 <SEE CLOUD DS PROCESS>
 -->
 
@@ -102,7 +101,7 @@ Se tiver uma pequena quantidade de dados e quiser expô-los por meio de uma URL 
 
 Você pode aprender sobre a funcionalidade de entrada de imagem na referência [Leitor de Imagem][image-reader].
 
-###Módulos
+### Módulos
 
 **O algoritmo, a fonte de dados, o formato de dados ou a operação de transformação de dados que estou procurando não está no Estúdio AM do Azure. Quais são minhas opções?**
 
@@ -118,7 +117,8 @@ Sim, é possível levar seus códigos existentes do R para o Estúdio AM e execu
 Não, não há suporte para isso. No entanto, códigos personalizados em R e Python podem ser usados para definir um módulo.
 
 
-###Processamento de dados
+### Processamento de dados
+
 **Há uma capacidade de visualizar dados (além de visualizações de R) interativamente dentro do experimento?**
 
 Clicando na saída de um módulo, você pode visualizar os dados e obter estatísticas.
@@ -127,7 +127,8 @@ Clicando na saída de um módulo, você pode visualizar os dados e obter estatí
 
 Como os dados são transmitidos ao navegador e podem ser grandes, o tamanho dos dados é limitado para evitar lentidão do Estúdio AM. É melhor baixar os dados/resultados e usar o Excel ou outra ferramenta para visualizar todos os dados.
 
-###Algoritmos
+### Algoritmos
+
 **Quais algoritmos existentes têm suporte no Estúdio de Aprendizado de Máquina?**
 
 O Estúdio de Aprendizado de Máquina fornece algoritmos de última geração, como Árvores de Decisão Aumentadas Escalonáveis, sistemas de Recomendação Bayesiana, Redes Neurais Profundas e Selvas de Decisão desenvolvidos na Microsoft Research. Pacotes de aprendizado de máquina escalonáveis de software livre, como Vowpal Wabbit, também estão incluídos. O Estúdio de Aprendizado de Máquina dá suporte a algoritmos de aprendizado de máquina para classificação binária e de múltiplas classes, de regressão e de clustering. Consulte a lista completa de [Módulos do Aprendizado de Máquina][machine-learning-modules].
@@ -158,7 +159,8 @@ Nº
 
 Atualmente, novos módulos personalizados podem ser criados apenas em R.
 
-###Módulo R
+### Módulo R
+
 **Quais pacotes de R estão disponíveis no Estúdio de Aprendizado de Máquina?**
 
 Atualmente, o Estúdio de Aprendizado de Máquina dá suporte a mais de 400 pacotes de R e essa lista continua crescendo. Consulte [Ampliar seu experimento com R](machine-learning-extend-your-experiment-with-r.md) para saber como obter uma lista dos pacotes de R com suporte. Se o pacote que desejar não estiver nesta lista, forneça o nome do pacote no [fórum de feedback do usuário](http://go.microsoft.com/fwlink/?LinkId=404231).
@@ -171,7 +173,7 @@ Sim, consulte [Criar módulos personalizados em R no Aprendizado de Máquina do 
 
 Não, não há um ambiente REPL para R no estúdio.
 
-###Módulo de Python
+### Módulo de Python
 
 **É possível criar um módulo personalizado em Python?**
 
@@ -182,11 +184,12 @@ Não atualmente, mas com o módulo Python padrão ou um conjunto deles, o mesmo 
 Você pode usar os blocos de notas Jupyter no Estúdio de aprendizado de máquina. Para saber mais, consulte [Introdução aos blocos de notas Jupyter no Estúdio AM do Azure](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx)
 
 ## Serviço Web
+
 ###Treinando modelos programaticamente
 
 **Como posso treinar novamente modelos do AzureML programaticamente?** Use as APIs de novos treinamentos. Há código de exemplo disponível [aqui](https://azuremlretrain.codeplex.com/).
 
-###Criar
+### Criar
 
 **Posso implantar o modelo localmente ou em um aplicativo sem conexão à Internet?** Nº
 
@@ -195,7 +198,8 @@ Você pode usar os blocos de notas Jupyter no Estúdio de aprendizado de máquin
 
 Consulte [Limites da assinatura do Azure](../azure-subscription-service-limits.md)
 
-###Uso
+### Uso
+
 **Quando seria melhor executar meu modelo de previsão como um serviço de Execução em Lotes em vez de um serviço de Resposta da Solicitação?**
 
 O Serviço de Solicitação-Resposta (RRS) é um serviço Web de baixa latência e alta escala usado para fornecer uma interface para modelos sem monitoração de estado que são criados e implantados por meio do ambiente de testes. O BES (Serviço de Execução em Lote) é um serviço para classificar de forma assíncrona um lote de registros de dados. A entrada para o BES é semelhante à entrada de dados usada no RRS. A principal diferença é que o BES lê um bloco de registros de uma variedade de fontes, como os serviços de Blob e Tabela do Azure, o Banco de Dados SQL do Azure, o HDInsight (consulta de Hive) e fontes de HTTP. Para saber mais, consulte [Como consumir serviços Web do Aprendizado de Máquina](machine-learning-consume-web-services.md).
@@ -206,7 +210,6 @@ Atualizar um modelo preditivo para um serviço já implantado é tão simples qu
 
 Você também pode usar as APIs de novos treinamentos. O código de exemplo está disponível [aqui](https://azuremlretrain.codeplex.com/).
 
-
 **Como posso monitorar meu serviço Web implantado na produção?**
 
 Após um modelo de previsão ser colocado em produção, você pode monitorá-lo no portal do Azure. Cada serviço implantado tem seu próprio painel, onde você pode ver informações de monitoramento do serviço.
@@ -215,15 +218,13 @@ Após um modelo de previsão ser colocado em produção, você pode monitorá-lo
 
 Para RRS, a resposta do serviço Web é normalmente onde você vê o resultado. Você também pode gravá-la em um blob. Para BES, a saída é gravada em um blob, por padrão. Você também pode gravar a saída em um banco de dados ou tabela usando o módulo Gravador.
 
- ** Posso criar serviços Web apenas de modelos criados no Estúdio? 
-Não. Você também pode criar serviços Web diretamente no bloco de notas Jupyter e no RStudio.
+ **** Posso criar serviços Web apenas de modelos criados no Estúdio? Não. Você também pode criar serviços Web diretamente no bloco de notas Jupyter e no RStudio.
 
-
-##Escalabilidade
+## Escalabilidade
 
 **Qual é a escalabilidade do serviço Web?**
 
-Atualmente, o máximo é de 20 solicitações simultâneas por ponto de extremidade, embora ele possa ser dimensionado para 10.000 pontos de extremidade. Isso se traduz em 4.800 solicitações simultâneas se usarmos todos os recursos (300 operadores).
+Atualmente, o ponto de extremidade padrão é provisionado com 20 solicitações RRS simultâneas por ponto de extremidade. Você pode dimensionar as solicitações simultâneas a 200 solicitações por ponto de extremidade e é possível dimensionar cada serviço Web em 10.000 pontos de extremidade, conforme descrito no artigo [pontos de extremidade de API de dimensionamento](machine-learning-scaling-endpoints.md). Para BES, cada ponto de extremidade permite processar 40 solicitações por vez e solicitações adicionais, além de 40 solicitações que são enfileiradas. Essas solicitações enfileiradas serão executadas automaticamente conforme a fila anda.
 
 
 **Trabalhos em R são distribuídos entre nós?**
@@ -261,7 +262,7 @@ Linhas e colunas são têm a limitação do .NET de Int Máximo: 2.147.483.647.
 
 Nº
 
-##Segurança e disponibilidade
+## Segurança e disponibilidade
 
 **Quem tem acesso ao ponto de extremidade http para o serviço Web implantado na produção por padrão? Como fazer para restringir o acesso ao terminal?**
 
@@ -280,11 +281,11 @@ Se você excluir acidentalmente a Conta de armazenamento, a única maneira de re
 Se você tiver alterado as Chaves de Acesso da Conta de Armazenamento, certifique-se de ressincronizar as Chaves de Acesso na configuração do espaço de trabalho no Portal do Azure
 
 
-##Azure Marketplace
+## Azure Marketplace
 
 Consulte as [Perguntas frequentes sobre a publicação e utilização de aplicativos no Marketplace do Aprendizado de Máquina](machine-learning-marketplace-faq.md)
 
-##Suporte e treinamento
+## Suporte e treinamento
 
 **Onde posso obter treinamento para o AM do Azure?**
 
@@ -309,4 +310,4 @@ O Aprendizado de Máquina do Azure também possui um fórum de comunidade no MSD
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

@@ -44,50 +44,6 @@ Para configurar a replicação geográfica, você precisa do seguinte:
 - Um logon que é o DBManager no primário, ter o db\_ownership do banco de dados local que você replicará geograficamente e ser o DBManager no(s) servidor(es) parceiro(s) para o qual você irá configurar a replicação geográfica.
 - A versão mais recente do SQL Server Management Studio - Para obter a versão mais recente do SQL Server Management Studio (SSMS), vá para [Baixar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). Para obter informações sobre como usar o SQL Server Management Studio para gerenciar os servidores lógicos e os bancos de dados do Banco de Dados SQL do Azure, confira [Gerenciamento do Banco de Dados SQL do Azure usando o SQL Server Management Studio](sql-database-manage-azure-ssms.md)
 
-
-
-## Conectar a um servidor lógico do Banco de Dados SQL
-
-Conectar o Banco de Dados SQL requer que você saiba o nome do servidor no Azure e tenha criado uma regra de firewall para o endereço IP do cliente a partir do qual você está conectando usando o Management Studio. Talvez seja necessário entrar no portal para obter essas informações e realizar a tarefa.
-
-1.  Entre no [Portal de Gerenciamento do Azure](http://manage.windowsazure.com).
-
-2.  No painel à esquerda, clique em **Banco de Dados SQL**.
-
-3.  Na home page do Bancos de Dados SQL, clique em **SERVIDORES** na parte superior da página para listar todos os servidores associados a sua assinatura. Localize o nome do servidor ao qual você deseja se conectar e o copie para a área de transferência.
-
-	Em seguida, configure o firewall de banco de dados SQL para permitir conexões do computador local. Você pode fazer isso adicionando o seu endereço IP de computadores locais à lista de exceção do firewall.
-
-1.  Na home page do bancos de dados SQL, clique em **SERVIDORES** e, em seguida, clique no servidor ao qual você deseja se conectar.
-
-2.  Clique em **Configurar** na parte superior da página.
-
-3.  Copie o endereço IP em endereço de IP de cliente atual.
-
-4.  Na página Configure, **permitido endereços IP** inclui três caixas onde você pode especificar um nome de regra e um intervalo de endereços IP como valores inicial e final. Para o nome de uma regra, você pode inserir o nome do seu computador. Para o intervalo de início e de término, colar no endereço IP do seu computador em ambas as caixas e clique na caixa de seleção que aparece.
-
-	O nome da regra deve ser exclusivo. Se esse for seu computador de desenvolvimento, você pode inserir o endereço IP na caixa de início do intervalo IP e caixa de término do intervalo IP. Caso contrário, talvez seja necessário inserir um amplo intervalo de endereços IP para acomodar conexões de outros computadores em sua organização.
-
-5. Na parte inferior da página, clique em **SALVAR**.
-
-    **Observação:** pode haver um atraso de até cinco minutos para as alterações nas configurações de firewall sejam efetivadas.
-
-	Agora você está pronto para se conectar ao banco de dados SQL usando o Management Studio.
-
-1.  Na barra de tarefas, clique em **Iniciar**, aponte para **Todos os programas**, aponte para **Microsoft SQL Server 2014** e, em seguida, clique em **SQL Server Management Studio**.
-
-2.  Em **Conectar-se ao Servidor**, especifique o nome do servidor totalmente qualificado como <MyLocalServer>.database.windows.net. No Azure, o nome do servidor é uma sequência gerada automaticamente composta por caracteres alfanuméricos.
-
-3.  Selecione **Autenticação do SQL Server**.
-
-4.  Na caixa **Login**, digite o logon de administrador do SQL Server que você especificou no portal durante a criação de seu servidor.
-
-5.  Na caixa **Senha**, digite a senha que você especificou no portal durante a criação de seu servidor.
-
-8.  Clique em **Conectar** para estabelecer a conexão.
-
-
-
 ## Adicionar banco de dados secundário
 
 Você pode usar a instrução **ALTER DATABASE** para criar um banco de dados secundário replicado geograficamente em um servidor parceiro. Você executa essa instrução no banco de dados mestre do servidor que contém o banco de dados a ser replicado. O banco de dados replicado geograficamente (o "banco de dados primário") terá o mesmo nome do banco de dados sendo replicado e, por padrão, terá o mesmo nível de serviço do banco de dados primário. O banco de dados secundário pode ser legível ou não legível, e pode ser um único banco de dados ou um banco de dados elástico. Para obter mais informações, confira [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) e [Camadas de Serviço](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/). Depois do banco de dados secundário ser criado e propagado, os dados começarão a replicação assíncrona a partir do banco de dados primário. As etapas a seguir descrevem como configurar a replicação geográfica usando o Management Studio. As etapas para criar secundários não legíveis e legíveis, com um banco de dados individual ou um banco de dados elástico, são fornecidas.
@@ -99,7 +55,10 @@ Você pode usar a instrução **ALTER DATABASE** para criar um banco de dados se
 
 Use as seguintes etapas para criar um secundário não legível como um banco de dados individual.
 
-1. No Management Studio, conecte seu servidor lógico do Banco de Dados SQL do Azure.
+1. Com a versão 13.0.600.65 ou posterior do SQL Server Management Studio.
+
+ 	 >[AZURE.IMPORTANT]Baixe a versão [mais recente](https://msdn.microsoft.com/library/mt238290.aspx) do SQL Server Management Studio. É recomendável usar sempre a versão mais recente do Management Studio para continuar em sincronia com as atualizações do portal do Azure.
+
 
 2. Abra a pasta Bancos de Dados, expanda a pasta **Bancos de Dados do Sistema**, clique com o botão direito do mouse em **mestre** e, em seguida, clique em **Nova Consulta**.
 
@@ -189,7 +148,7 @@ O comando executa o seguinte fluxo de trabalho:
 
 2. Alterna as funções dos dois bancos de dados na parceria de replicação geográfica.
 
-Essa sequência garante que não ocorrerá nenhuma perda de dados. Há um breve período durante o qual os bancos de dados não estão disponíveis (na ordem de 0 a 25 segundos) enquanto as funções são alternadas. A operação inteira deve levar menos de um minuto para ser concluída em circunstâncias normais. Para obter mais informações, confira [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) e [Camadas de Serviço](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/).
+Essa sequência garante que não ocorrerá nenhuma perda de dados. Há um breve período durante o qual os bancos de dados não estão disponíveis (na ordem de 0 a 25 segundos) enquanto as funções são alternadas. A operação inteira deve levar menos de um minuto para ser concluída em circunstâncias normais. Para obter mais informações, confira [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) e [Camadas de serviço](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/).
 
 
 > [AZURE.NOTE]Se o banco de dados primário não estiver disponível quando o comando for emitido, o comando falhará com uma mensagem de erro indicando que o servidor primário não está disponível. Em situações raras, é possível que a operação não seja concluída e pareça paralisada. Nesse caso, o usuário pode executar o comando de failover à força e aceitar a perda de dados.
@@ -235,7 +194,7 @@ Use as seguintes etapas para remover à força um secundário replicado geografi
 
 ## Monitorar a configuração e a integridade da replicação geográfica
 
-Monitorar as tarefas inclui o monitoramento da configuração de replicação geográfica e da integridade da replicação dos dados. Você pode usar a exibição de gerenciamento dinâmica **sys.dm\_geo\_replication\_links** no banco de dados mestre para retornar informações sobre todos os links de replicação existentes para cada banco de dados no servidor lógico do Banco de Dados SQL do Azure. Essa exibição contém uma linha para cada link de replicação entre os bancos de dados primários e secundários. Você pode usar a exibição de gerenciamento dinâmica **sys.dm\_replication\_status** para retornar uma linha para cada Banco de Dados SQL do Azure atualmente envolvido em um link de replicação. Isso inclui os bancos de dados primários e secundários. Se houver mais de um link de replicação contínua para um determinado banco de dados primário, essa tabela conterá uma linha para cada uma das relações. A exibição é criada em todos os bancos de dados, incluindo o mestre lógico. No entanto, consultar essa exibição no mestre lógico retorna um conjunto vazio. Você pode usar a exibição de gerenciamento dinâmica **sys.dm\_operation\_status** para mostrar o status de todas as operações do banco de dados, incluindo o status dos links de replicação. Para obter mais informações, confira [sys.dm\_geo\_replication\_links (Banco de Dados SQL do Azure)](https://msdn.microsoft.com/library/mt575501.aspx), [sys.dm\_geo\_replication\_link\_status (Banco de Dados SQL do Azure)](https://msdn.microsoft.com/library/mt575504.aspx) e [sys.dm\_operation\_status (Banco de Dados SQL do Azure)](https://msdn.microsoft.com/library/dn270022.aspx).
+Monitorar as tarefas inclui o monitoramento da configuração de replicação geográfica e da integridade da replicação dos dados. Você pode usar a exibição de gerenciamento dinâmica **sys.dm\_geo\_replication\_links** no banco de dados mestre para retornar informações sobre todos os links de replicação existentes para cada banco de dados no servidor lógico do Banco de Dados SQL do Azure. Essa exibição contém uma linha para cada link de replicação entre os bancos de dados primários e secundários. Você pode usar a exibição de gerenciamento dinâmica **sys.dm\_replication\_status** para retornar uma linha para cada Banco de Dados SQL do Azure atualmente envolvido em um link de replicação. Isso inclui os bancos de dados primários e secundários. Se houver mais de um link de replicação contínua para um determinado banco de dados primário, essa tabela conterá uma linha para cada uma das relações. A exibição é criada em todos os bancos de dados, incluindo o mestre lógico. No entanto, consultar essa exibição no mestre lógico retorna um conjunto vazio. Você pode usar a exibição de gerenciamento dinâmica **sys.dm\_operation\_status** para mostrar o status de todas as operações do banco de dados, incluindo o status dos links de replicação. Para obter mais informações, confira [sys.geo\_replication\_links (Banco de Dados SQL do Azure)](https://msdn.microsoft.com/library/mt575501.aspx), [sys.dm\_geo\_replication\_link\_status (Banco de Dados SQL do Azure)](https://msdn.microsoft.com/library/mt575504.aspx) e [sys.dm\_operation\_status (Banco de Dados SQL do Azure)](https://msdn.microsoft.com/library/dn270022.aspx).
 
 Use as etapas a seguir para monitorar uma parceria de replicação geográfica.
 
@@ -245,18 +204,18 @@ Use as etapas a seguir para monitorar uma parceria de replicação geográfica.
 
 3. Use a seguinte instrução para mostrar todos os bancos de dados com links de replicação geográfica.
 
-        SELECT database_id,start_date, partner_server, partner_database,  replication_state, is_target_role, is_non_redable_secondary FROM sys.geo_replication_links;
+        SELECT database_id, start_date, modify_date, partner_server, partner_database, replication_state_desc, role, secondary_allow_connections_desc FROM [sys].geo_replication_links;
 
 4. Clique em **Execute** para executar a consulta.
 5. Abra a pasta Bancos de Dados, expanda a pasta **Bancos de Dados do Sistema**, clique com o botão direito do mouse em **MyDB** e, em seguida, clique em **Nova Consulta**.
 6. Use a seguinte instrução para mostrar os intervalos de replicação e a hora da última replicação de meus bancos de dados secundários do MyDB.
 
-        SELECT link_guid, partner_server, last_replication, replication_lag_sec FROM sys.dm_ replication_status
+        SELECT link_guid, partner_server, last_replication, replication_lag_sec FROM sys.dm_geo_replication_link_status
 
 7. Clique em **Execute** para executar a consulta.
 8. Use a seguinte instrução para mostrar as operações de replicação geográfica mais recentes associadas ao banco de dados MyDB.
 
-        SELECT * FROM sys.dm_ operation_status where major_resource_is = 'MyDB'
+        SELECT * FROM sys.dm_operation_status where major_resource_is = 'MyDB'
         ORDER BY start_time DESC
 
 9. Clique em **Execute** para executar a consulta.
@@ -274,4 +233,4 @@ Use as etapas a seguir para monitorar uma parceria de replicação geográfica.
 - [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
 - [Documentação do Banco de Dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

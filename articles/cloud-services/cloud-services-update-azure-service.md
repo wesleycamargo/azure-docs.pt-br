@@ -119,6 +119,9 @@ Este próximo diagrama ilustra como a atualização ocorre se você estiver atua
 
 Durante uma atualização automática, o Azure Fabric Controller avalia periodicamente a integridade do serviço de nuvem a fim de determinar quando é seguro passar ao próximo UD. Essa avaliação de integridade é executada de acordo com a função e considera apenas instâncias na versão mais recente (ou seja, instâncias de UDs que já foram descritos). Ela verifica se um número mínimo de instâncias de função, para cada função, atingiu um estado de terminal satisfatório.
 
+### Tempo limite de inicialização de instância de função 
+O controlador de malha aguardará 30 minutos para cada instância de função atingir um estado iniciado. Se a duração do tempo limite expirar, o controlador de malha prosseguirá para a próxima instância de função.
+
 ## Reversão de uma atualização
 O Azure fornece flexibilidade no gerenciamento de serviços durante uma atualização, permitindo que você inicie outras operações em um serviço, após a aceitação da solicitação de atualização inicial pelo controlador de malha do Azure. Uma reversão só pode ser realizada quando uma atualização (mudança de configuração) ou upgrade estiver no estado **em andamento** na implantação. Uma atualização ou upgrade é considerada em andamento desde que exista pelo menos uma instância do serviço que ainda não foi atualizada para a nova versão. Para testar se há permissão para uma reversão, verifique se o valor do sinalizador RollbackAllowed, retornado pelas operações [Obter Implantação](https://msdn.microsoft.com/library/azure/ee460804.aspx) e [Obter Propriedades do Serviço de Nuvem](https://msdn.microsoft.com/library/azure/ee460806.aspx), está definido como true.
 
@@ -140,7 +143,7 @@ Essa funcionalidade é fornecida pelos seguintes recursos:
 
 Há algumas situações nas quais não há suporte para uma reversão de uma atualização ou upgrade, entre elas:
 
--   Redução nos recursos locais - se a atualização aumentar os recursos locais para uma função, a plataforma do Azure não permitirá a reversão. Para saber mais sobre como configurar os recursos locais, consulte [Configurar os recursos de armazenamento local](https://msdn.microsoft.com/library/azure/ee758708.aspx).
+-   Redução nos recursos locais - se a atualização aumentar os recursos locais para uma função, a plataforma do Azure não permitirá a reversão. Para saber mais sobre como configurar os recursos locais para uma função, consulte [Configurar os recursos de armazenamento local](https://msdn.microsoft.com/library/azure/ee758708.aspx).
 -   Limites de cota - se a atualização foi uma operação de redução vertical, talvez você não tenha cota de computação suficiente para concluir a operação de reversão. Cada assinatura do Azure tem uma cota associada que especifica o número máximo de núcleos que podem ser consumidos por todos os serviços hospedados que pertencem a essa assinatura. Se a execução de uma reversão de uma determinada atualização colocar sua assinatura acima da cota, a reversão não será habilitada.
 -   Condição de corrida - Se a atualização inicial tiver sido concluída, não será possível realizar uma reversão.
 
@@ -177,4 +180,4 @@ O diagrama a seguir ilustra como é a distribuição de um serviço que contém 
 ## Próximas etapas
 [Como gerenciar os serviços de nuvem](cloud-services-how-to-manage.md)<br> [Como monitorar os serviços de nuvem](cloud-services-how-to-monitor.md)<br> [Como configurar os serviços de nuvem](cloud-services-how-to-cofigure.md)<br>
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Implante seu serviço do StorSimple Manager | Microsoft Azure"
-   description="Explica como criar e excluir o serviço StorSimple Manager no Portal de Gerenciamento, além de descrever como gerenciar a chave de registro de serviço."
+   description="Explica como criar e excluir o serviço StorSimple Manager no portal do Azure, além de descrever como gerenciar a chave de registro de serviço."
    services="storsimple"
    documentationCenter=""
    authors="SharS"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/14/2015"
+   ms.date="11/16/2015"
    ms.author="v-sharos" />
 
 # Implantar o serviço StorSimple Manager
 
 ## Visão geral
 
-O serviço StorSimple Manager é executado no Microsoft Azure e se conecta a vários dispositivos StorSimple. Depois de criar o serviço, você pode usá-lo para gerenciar os dispositivos no Portal de Gerenciamento do Microsoft Azure em execução em um navegador. Isso permite monitorar todos os dispositivos que estão conectados ao serviço StorSimple Manager de um local único e central, minimizando a sobrecarga administrativa.
+O serviço StorSimple Manager é executado no Microsoft Azure e se conecta a vários dispositivos StorSimple. Depois de criar o serviço, você pode usá-lo para gerenciar os dispositivos no portal do Microsoft Azure em execução em um navegador. Isso permite monitorar todos os dispositivos que estão conectados ao serviço StorSimple Manager de um local único e central, minimizando a sobrecarga administrativa.
 
 A página de aterrissagem do StorSimple Manager lista todos os serviços StorSimple Manager que você pode usar para gerenciar os dispositivos de armazenamento do StorSimple. Para cada serviço StorSimple Manager, as informações a seguir são apresentadas na página do StorSimple Manager:
 
@@ -115,4 +115,4 @@ Execute as etapas a seguir para regenerar uma chave de registro de serviço.
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

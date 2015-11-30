@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/20/2015" 
+	ms.date="11/18/2015" 
 	ms.author="juliako"/>
 
 
@@ -21,6 +21,11 @@
 #Notas de versão SDK do Azure para .NET
 
 Este tópico contém links para as Notas de versão SDK do Azure para .NET
+
+
+##Notas de versão do SDK do Azure para .NET 2.8
+
+[Notas de versão do SDK do Azure para .NET 2.8](azure-sdk-dotnet-release-notes-2_8.md)
 
 ##Notas de versão do SDK do Azure para .NET 2.7
 
@@ -65,4 +70,4 @@ Este tópico contém links para as Notas de versão SDK do Azure para .NET
 [Notas de versão do SDK do Azure no MSDN](https://msdn.microsoft.com/library/azure/dn627519.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

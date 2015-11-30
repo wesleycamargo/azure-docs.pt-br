@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/24/2015" 
+	ms.date="11/15/2015" 
 	ms.author="ricksal"/>
 
 # Registrar seus aplicativos para usar um logon de conta do Active Directory do Azure
@@ -66,4 +66,4 @@ Agora você está pronto para usar um Active Directory do Azure para autenticaç
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

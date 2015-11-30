@@ -101,7 +101,7 @@ Você pode calcular o percentual de disponibilidade de um serviço em um períod
 %Availability =  ((Total Time – Total Downtime) / Total Time ) * 100
 ```
 
-Isso é útil para fins de SLA (o [Monitoramento de SLA](#SLA-monitoring) é descrito em mais detalhes posteriormente neste guia). A definição de _Tempo de inatividade_ depende do serviço. Por exemplo, o Visual Studio Online define tempo de inatividade como o período durante o qual as tentativas do cliente de se conectar ao serviço levam mais de 120 segundos e todas as operações básicas de gravação e leitura falham após a conexão ser estabelecida dentro desse período.
+Isso é útil para fins de SLA (o [Monitoramento de SLA](#SLA-monitoring) é descrito em mais detalhes posteriormente neste guia). A definição de _Tempo de inatividade_ depende do serviço. Por exemplo, o Visual Studio Team Services define o tempo de inatividade como o período durante o qual as tentativas do cliente de se conectar ao serviço levam mais de 120 segundos e todas as operações básicas de gravação e leitura falham após a conexão ser estabelecida dentro desse período.
 
 ## Monitoramento de desempenho
 Conforme o sistema é colocado cada vez mais sob pressão enquanto o volume de usuários aumenta e o tamanho dos conjuntos de dados que esses usuários acessam cresce, a possível falha de um ou mais componentes se torna provável. Frequentemente, a falha de um componente é precedida por uma queda no desempenho. Se conseguir detectar uma redução desse tipo, você pode tomar medidas proativas para corrigir a situação.
@@ -612,4 +612,4 @@ Em muitos casos, relatórios podem ser gerados por processos em lotes de acordo 
 - A página [Noções básicas sobre alertas e notificações de monitoramento no Azure](https://msdn.microsoft.com/library/azure/dn306639.aspx) no site da Microsoft.
 - A página do [Application Insights](app-insights-get-started/) no site da Microsoft.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

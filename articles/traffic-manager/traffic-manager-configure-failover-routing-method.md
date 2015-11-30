@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Configurar o método de roteamento de Failover
@@ -36,21 +36,20 @@ Observe que os Sites do Azure já fornecem funcionalidade de roteamento de tráf
 
 ## Próximas etapas
 
-[Sobre os Métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-load-balancing-methods.md)
+[Apontar um domínio de Internet da empresa para um domínio do Gerenciador de Tráfego](traffic-manager-point-internet-domain.md)
 
-[O que é o Gerenciador de Tráfego?](traffic-manager-overview.md)
+[Métodos de roteamento do Gerenciador de Tráfego](traffic-manager-load-balancing-methods.md)
+
+[Configurar o método de roteamento de round robin](traffic-manager-configure-round-robin-routing-method.md)
+
+[Configurar o método de roteamento de desempenho](traffic-manager-configure-performance-routing-method.md)
+
+[Solucionando problemas de estado degradado do Gerenciador de Tráfego](traffic-manager-troubleshooting-degraded.md)
 
 [Gerenciador de Tráfego - Desabilitar, habilitar ou excluir um perfil](disable-enable-or-delete-a-profile.md)
 
 [Gerenciador de Tráfego - Desabilitar ou habilitar um ponto de extremidade](disable-or-enable-an-endpoint.md)
 
-[Serviços de Nuvem](http://go.microsoft.com/fwlink/?LinkId=314074)
-
-[Sites](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-[Operações no Gerenciador de Tráfego (referência de API REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
-
-[Cmdlets do Gerenciador de Tráfego do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->
