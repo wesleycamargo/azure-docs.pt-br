@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/12/2015"
+	ms.date="11/18/2015"
 	ms.author="raynew"/>
 
 #  Configurar a proteção entre um site VMM local e o Azure
@@ -153,29 +153,31 @@ Gere uma chave de registro no cofre. Após baixar o Provedor do Azure Site Recov
 8. Clique em *Avançar* para concluir o processo. Após o registro, os metadados do servidor VMM é recuperado pela Recuperação de Site do Azure. O servidor é exibido na guia *Servidores VMM* da página **Servidores** no cofre.
 
 >[AZURE.NOTE]O Provedor do Azure Site Recovery também pode ser instalado usando a linha de comando a seguir. Esse método pode ser usado para instalar o provedor em um NÚCLEO de Servidor para o Windows Server 2012 R2
->
->1. Baixar o arquivo de instalação do Provedor e a chave de registro em uma pasta, por exemplo, C:\\ASR
->2. Parar o Serviço System Center Virtual Machine Manager
->3. Extrair o instalador do provedor, executando os comandos abaixo em um prompt de comando com privilégios de **Administrador**
->
+
+1. Baixar o arquivo de instalação do Provedor e a chave de registro em uma pasta, por exemplo, C:\\ASR
+1. Parar o Serviço System Center Virtual Machine Manager
+1. Extrair o instalador do provedor, executando os comandos abaixo em um prompt de comando com privilégios de **Administrador**
+
     	C:\Windows\System32> CD C:\ASR
     	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
->4. Instalar o provedor executando o comando a seguir
->
+1. Instalar o provedor executando o comando a seguir
+
 		C:\ASR> setupdr.exe /i
->5. Registrar o provedor executando o comando a seguir
->
+1. Registrar o provedor executando o comando a seguir
+
     	CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
-    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
- ####Lista de Parâmetros de Instalação de Linha de Comando####
->
+    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>       
+
+  
+#### Lista de parâmetros de instalação de linha de comando
+
  - **/Credentials**: parâmetro obrigatório que especifica o local no qual o arquivo da chave de registro está localizado  
  - **/FriendlyName**: parâmetro obrigatório para o nome do servidor do host Hyper-V que aparece no portal do Azure Site Recovery.
  - **/EncryptionEnabled**: parâmetro opcional que você precisa usar apenas no Cenário VMM para Azure se precisar da criptografia de suas máquinas virtuais em repouso no Azure. Certifique-se que o nome do arquivo fornecido por você tem uma extensão **.pfx**.
  - **/proxyAddress**: parâmetro opcional que especifica o endereço do servidor proxy.
  - **/proxyport**: parâmetro opcional que especifica a porta do servidor proxy.
  - **/proxyUsername**: parâmetro opcional que especifica o nome de usuário de Proxy (se o proxy exige autenticação).
- - **/proxyPassword**: parâmetro opcional que especifica a Senha para autenticação com o servidor proxy (se o proxy exige autenticação).
+ - **/proxyPassword**: parâmetro opcional que especifica a Senha para autenticação com o servidor proxy (se o proxy exige autenticação).  
 
 
 ## Etapa 4: criar uma conta de armazenamento do Azure
@@ -267,7 +269,16 @@ Depois de redes, servidores e nuvens estarem configurados corretamente, você po
 
 4. Na guia Configurar das propriedades da máquina virtual, as seguintes propriedades de rede podem ser modificadas.
 
-    1. Número de adaptadores de rede da máquina virtual de destino: o número de adaptadores de rede na máquina virtual de destino depende do tamanho da máquina virtual escolhida. O número de adaptadores de rede das máquinas virtuais de destino é no mínimo o número de adaptadores de rede na máquina virtual de origem e no máximo o número de adaptadores de rede compatível com o tamanho da máquina virtual escolhida.  
+
+	1.  Número de adaptadores de rede de máquina virtual de destino - O número de adaptadores de rede é determinado pelo tamanho especificado para a máquina virtual de destino. Verifique as [especificações de tamanho de máquina virtual](../virtual-machines/virtual-machines-size-specs.md#size-tables) para o número de nics com suporte pelo tamanho da máquina virtual. 
+
+		Quando você modificar o tamanho de uma máquina virtual e salvar as configurações, o número do adaptador de rede será alterado quando você abrir a página **Configurar** na próxima vez. O número de adaptadores de rede de máquinas virtuais de destino é, no mínimo, o número de adaptadores de rede na máquina virtual de origem e o número máximo de adaptadores de rede compatíveis com o tamanho da máquina virtual escolhida. Isso é explicado abaixo:
+
+
+		- Se o número de adaptadores de rede na máquina de origem for menor ou igual ao número de adaptadores permitido para o tamanho da máquina de destino, o destino terá o mesmo número de adaptadores que a origem.
+		- Se o número de adaptadores para máquina virtual de origem exceder o número permitido para o tamanho de destino e o tamanho máximo de destino será usado.
+		- Por exemplo, se uma máquina de origem tiver dois adaptadores de rede e o tamanho da máquina de destino oferecer suporte a quatro, a máquina de destino terá dois adaptadores. Se a máquina de origem tiver dois adaptadores, mas o tamanho de destino com suporte oferecer suporte apenas a uma máquina de destino, ela terá apenas um adaptador. 	
+
 
 	1. Rede da máquina virtual de destino: a rede à qual a máquina virtual se conecta é determinada pelo mapeamento de rede da rede da máquina virtual de origem. No caso de a máquina virtual de origem ter mais de um adaptador de rede, e as redes de origem estarem mapeadas para diferentes redes no destino, o usuário teria de escolher entre uma das redes de destino.
 
@@ -276,6 +287,8 @@ Depois de redes, servidores e nuvens estarem configurados corretamente, você po
 	1. IP de destino: se o adaptador de rede da máquina virtual de origem estiver configurado para usar um IP estático, o usuário poderá fornecer o IP da máquina virtual de destino. O usuário pode usar esse recurso para reter o IP da máquina virtual de origem após um failover. Se nenhum IP for fornecido, qualquer IP disponível seria fornecido ao adaptador de rede no momento do failover. Caso o IP de destino fornecido pelo usuário já estiver sendo usado por outra máquina virtual em execução no Azure, o failover falhará.
 
 		![Modificar propriedades de rede](./media/site-recovery-vmm-to-azure/MultiNic.png)
+
+>[AZURE.NOTE]As máquinas virtuais Linux que usam IP estático não têm suporte.
 
 ## Testar a implantação
 Para testar sua implantação, você pode executar um failover de teste para uma única máquina virtual, ou criar um plano de recuperação consistente de várias máquinas virtuais e executar um failover de teste para o plano. O failover de teste simula o mecanismo de failover e recuperação em uma rede isolada. Observe que:
@@ -289,7 +302,7 @@ Para testar sua implantação, você pode executar um failover de teste para uma
 
 	![Criar plano de recuperação](./media/site-recovery-vmm-to-azure/ASRE2AVMM_RP1.png)
 
-2. Na página **Selecionar Máquinas Virtuais**, selecione as máquinas virtuais a adicionar ao plano de recuperação. Essas máquinas virtuais são adicionadas ao grupo padrão do plano de recuperação, o Grupo 1. Foi testado um máximo de 100 máquinas virtuais em um único plano de recuperação.
+2. Na página **Selecionar Máquinas Virtuais**, selecione as máquinas virtuais a serem adicionadas ao plano de recuperação. Essas máquinas virtuais são adicionadas ao grupo padrão do plano de recuperação, o Grupo 1. Foi testado um máximo de 100 máquinas virtuais em um único plano de recuperação.
 
 	- Se você desejar verificar as propriedades das máquinas virtuais antes de adicioná-las ao plano, clique na máquina virtual na página Propriedades da nuvem na qual ela está localizada. Você também pode configurar as propriedades da máquina virtual no console do VMM.
 	- Todas as máquinas virtuais que são exibidas foram habilitadas para a proteção. A lista inclui as máquinas virtuais que estão habilitadas para proteção com a replicação inicial concluída e as que estão habilitadas para proteção com a replicação inicial pendente. Somente as máquinas virtuais com replicação inicial concluída podem realizar failover como parte de um plano de recuperação. Portanto, verifique o status de replicação inicial das máquinas virtuais no plano antes de iniciar o failover do plano de recuperação.
@@ -309,7 +322,7 @@ Há duas maneiras de executar um failover de teste no Azure.
 Se você quiser executar um failover de teste para uma máquina virtual habilitada para proteção no Azure sem especificar uma rede de destino do Azure, não será necessário preparar nada. Para executar um failover de teste com uma rede do Azure de destino, você precisará criar uma nova rede do Azure isolada da rede de produção do Azure (o comportamento padrão quando você cria uma nova rede no Azure). Veja como [executar um failover de teste](site-recovery-failover.md#run-a-test-failover) para obter mais detalhes.
 
 
-Você também precisará configurar a infraestrutura para que a máquina virtual replicada funcione como esperado. Por exemplo, uma máquina virtual com o Controlador de Domínio e DNS pode ser replicada para o Azure usando o Azure Site Recovery, e pode ser criada na rede de teste usando o Failover de teste. Confira a seção [considerações sobre failover de teste para o Active Directory](site-recovery-active-directory.md#considerations-for-test-failover) para obter mais detalhes.
+Você também precisará configurar a infraestrutura para que a máquina virtual replicada funcione como esperado. Por exemplo, uma máquina virtual com o Controlador de Domínio e DNS pode ser replicada para o Azure usando o Azure Site Recovery, e pode ser criada na rede de teste usando o Failover de teste. Examine as [considerações sobre o failover de teste para o Active Directory](site-recovery-active-directory.md#considerations-for-test-failover) para obter mais detalhes.
 
 Para executar um failover de teste, faça o seguinte:
 
@@ -331,7 +344,7 @@ Para executar um failover de teste, faça o seguinte:
 	- Clique em **Failover de teste concluído**. Limpe o ambiente de teste para desligar automaticamente e excluir as máquinas virtuais de teste.
 	- Clique em **Observações** para gravar e salvar observações associadas ao failover de teste.
 
-## <a id="runtest" name="runtest" href="#runtest"></a> Monitorar a atividade
+## <a id="runtest" name="runtest" href="#runtest"></a>Monitorar a atividade
 <p>Você pode usar a guia *Trabalhos* e *Painel* para exibir e monitorar os principais trabalhos executados pelo cofre de Recuperação de Site do Azure, incluindo a configuração da proteção para uma nuvem; habilitação e desabilitação da proteção para uma máquina virtual; execução de um failover (planejado, não planejado ou teste) e confirmação de um failover não planejado.</p>
 
 <p>A partir da guia *Trabalhos* você exibe os trabalhos, realiza busca detalhada nos detalhes do trabalho e erros, executa consultas de trabalho para recuperar trabalhos que combinam com os critérios específicos, exporta trabalhos para o Excel e reinicia os trabalhos que falharam.</p>
@@ -342,9 +355,9 @@ Para executar um failover de teste, faça o seguinte:
 
 ##<a id="next" name="next" href="#next"></a>Próximas etapas
 <UL>
-<LI>Para planejar e implantar o Azure Site Recovery em um ambiente de produção completo, confira <a href="http://go.microsoft.com/fwlink/?LinkId=321294">Guia de planejamento para o Azure Site Recovery</a> e <a href="http://go.microsoft.com/fwlink/?LinkId=321295">Guia de implantação para o Azure Site Recovery</a>.</LI>
+<LI>Para planejar e implantar o Azure Site Recovery em um ambiente de produção completo, confira <a href="http://go.microsoft.com/fwlink/?LinkId=321294">Guia de planejamento do Azure Site Recovery</a> e <a href="http://go.microsoft.com/fwlink/?LinkId=321295">Guia de implantação do Azure Site Recovery</a>.</LI>
 
 
 <LI>Em caso de dúvidas, visite o <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Fórum dos Serviços de Recuperação do Azure</a>.</LI> </UL>
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

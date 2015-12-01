@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="11/18/2015"
    ms.author="joaoma" />
 
 # Gerenciar um perfil de Gerenciador de tráfego do Azure
@@ -85,4 +85,4 @@ Você pode exibir o histórico de alterações para o perfil do Gerenciador de T
 
 [Solucionando problemas de estado degradado do Gerenciador de Tráfego](traffic-manager-troubleshooting-degraded.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

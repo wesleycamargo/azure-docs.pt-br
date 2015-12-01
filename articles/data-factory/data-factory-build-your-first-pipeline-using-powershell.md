@@ -112,7 +112,6 @@ Agora, você criará um serviço vinculado para um cluster HDInsight do Azure so
 		      "version": "3.1",
 		      "clusterSize": 1,
 		      "timeToLive": "00:30:00",
-		      "jobsContainer": "adfjobs",
 		      "linkedServiceName": "StorageLinkedService"
 		    }
 		  }
@@ -125,7 +124,6 @@ Agora, você criará um serviço vinculado para um cluster HDInsight do Azure so
 	Versão | Especifica a versão do HDInsight criada como 3.1.
 	ClusterSize | Cria um cluster do HDInsight de um nó.
 	TimeToLive | Especifica tempo ocioso de cluster HDInsight antes de ser excluído.
-	JobsContainer | Especifica o nome do contêiner de trabalho que será criado para armazenar os logs gerados pelo HDInsight
 	linkedServiceName | Especifica a conta de armazenamento que será usada para armazenar os logs gerados pelo HDInsight
 2. Execute o cmdlet **New-AzureDataFactoryLinkedService** para criar o serviço vinculado denominado HDInsightOnDemandLinkedService.
 
@@ -156,7 +154,7 @@ Agora, você criará o conjunto de dados de saída para representar os dados arm
 		  }
 		}
 
-	No exemplo anterior, você cria um conjunto de dados chamado **AzureBlobOutput** e especifica a estrutura dos dados que serão produzidos pelo script do Hive. Além disso, você especifica que os resultados são armazenados no contêiner de blob denominado **data** e na pasta chamada **partitioneddata**. A seção **availability** especifica que o conjunto de dados de saída é produzido mensalmente.
+	No exemplo anterior, você criou um conjunto de dados chamado **AzureBlobOutput** e especificou a estrutura dos dados produzidos pelo script do Hive. Além disso, você especifica que os resultados são armazenados no contêiner de blob denominado **data** e na pasta chamada **partitioneddata**. A seção **availability** especifica que o conjunto de dados de saída é produzido mensalmente.
 
 2. Execute o comando a seguir no Azure PowerShell para criar o conjunto de dados do Data Factory.
 
@@ -203,13 +201,13 @@ Nesta etapa, você criará seu primeiro pipelines.
 
 	No exemplo anterior, você cria um pipeline que consiste de uma única atividade que usa o Hive para processar dados em um cluster HDInsight.
 
-	O arquivo de script do Hive, partitionweblogs.hql, é armazenado na conta de armazenamento do Azure (especificada por scriptLinkedService, chamada StorageLinkedService) e em um contêiner chamado **script**.
+	O arquivo de script do Hive, partitionweblogs.hql, é armazenado na conta de armazenamento do Azure (especificada pelo scriptLinkedService, chamado StorageLinkedService) e em um contêiner chamado **script**.
 
-	A seção **extendedProperties** é usada para especificar as configurações de tempo de execução que serão passadas para o script do hive como valores de configuração de Hive (por exemplo, ${hiveconf:PartitionedData}).
+	A seção **defines** é usada para especificar as configurações de tempo de execução que serão passadas para o script do hive como valores de configuração do Hive (por exemplo, ${hiveconf:PartitionedData}).
 
 	As propriedades **start** e **end** do pipeline especificam o período ativo do pipeline.
 
-	No JSON de atividade, você especifica que o script do Hive deve ser executado no computador especificado pelo serviço vinculado – **HDInsightOnDemandLinkedService**.
+	Na atividade de JSON, você especifica que o script do Hive deve ser executado na computação especificada pelo serviço vinculado – **HDInsightOnDemandLinkedService**.
 2. Execute o comando a seguir para criar a tabela de Data Factory.
 
 		New-AzureDataFactoryPipeline $df -File .\MyFirstPipelinePSH.json
@@ -218,7 +216,7 @@ Nesta etapa, você criará seu primeiro pipelines.
 ### <a name="MonitorDataSetsAndPipeline"></a> Monitorar os conjuntos de dados e o pipeline
 Nesta etapa, você usará o Azure PowerShell para monitorar o que está acontecendo em um Azure Data Factory.
 
-1.	Execute **Get-AzureDataFactory** e atribua o resultado a uma variável **$df**.
+1.	Execute **Get-AzureDataFactory** e atribua a saída a uma variável **$df**.
 
 		$df=Get-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name DataFactoryMyFirstPipelinePSH
 
@@ -269,9 +267,9 @@ Consulte [Referência de cmdlet de Data Factory](https://msdn.microsoft.com/libr
 
 
 ## Próximas etapas
-Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script Hive em um cluster do HDInsight do Azure sob demanda. Para ver como usar uma Atividade de Cópia para copiar dados de um Blob do Azure para o SQL Azure, confira [Tutorial: Copiar dados de um blob do Azure para o SQL do Azure](./data-factory-get-started.md).
+Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script Hive em um cluster do HDInsight do Azure sob demanda. Para saber como usar uma Atividade de Cópia para copiar dados de um Blob do Azure para o SQL do Azure, consulte [Tutorial: Copiar dados de um Blob do Azure para o SQL do Azure](./data-factory-get-started.md).
 
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

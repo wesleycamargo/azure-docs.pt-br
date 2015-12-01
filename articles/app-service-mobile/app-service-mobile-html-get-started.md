@@ -19,9 +19,7 @@
 
 #Criar um aplicativo HTML
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)] 
-&nbsp;  
-<!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp; <!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
 
 >[AZURE.IMPORTANT]Este tópico não tem suporte dos Aplicativos Móveis porque o início rápido para aplicativos HTML/JavaScript foi temporariamente removido do portal do Azure. Planejamos trazê-lo de volta em breve. Obrigado por sua paciência enquanto concluímos a visualização dos Aplicativos Móveis.
 
@@ -47,15 +45,19 @@ Para concluir este tutorial, você precisará do seguinte:
 
 ##Criar um novo back-end de Aplicativo móvel
 
+Siga estas etapas para criar um novo back-end de aplicativo móvel.
+
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
+
+Você acabou de provisionar um back-end do aplicativo móvel do Azure que pode ser usado pelos aplicativos móveis clientes. Em seguida, você baixará um projeto do servidor para um back-end simples da "lista de tarefas" e o publicará no Azure.
 
 ## Baixar o projeto de servidor
 
-1. No [Portal do Azure], clique em**Procurar Tudo** > **Aplicativos Web** e clique no back-end de Aplicativo Móvel que você acabou de criar. 
+1. No [Portal do Azure], clique em **Procurar Tudo** > **Aplicativos Web** e clique no back-end de Aplicativo Móvel que você acabou de criar. 
 
-2. No back-end de Aplicativo Móvel, clique em **Todas as Configurações** e, em **Aplicativo Móvel**, clique **Início Rápido** > **HTML/JavaScript**.
+2. No back-end de Aplicativo Móvel, clique em **Todas as configurações** e, em **Aplicativo Móvel**, clique em **Início Rápido** > **HTML/JavaScript**.
 
-3. Em **Baixe e execute seu projeto de servidor** em **Criar um novo aplicativo**, clique em **Baixar**, extraia os arquivos compactados do projeto em seu computador local e abra a solução no Visual Studio.
+3. Em **Baixar e executar seu projeto de servidor** em **Criar um novo aplicativo**, clique em **Baixar**, extraia os arquivos compactados do projeto em seu computador local e abra a solução no Visual Studio.
 
 4. Compile o projeto para restaurar os pacotes do NuGet.
 
@@ -63,9 +65,9 @@ Para concluir este tutorial, você precisará do seguinte:
 
 O compartilhamento de recursos entre origens (CORS) é uma maneira para seu aplicativo baseado na web indicar a partir de quais domínios as solicitações são seguras e devem ser permitidas pelo navegador. Você deve adicionar uma entrada CORS para cada site que acessará o back-end do aplicativo móvel. Você pode controlar as configurações de CORS usando os comportamentos padrão de API Web do ASP.NET. Para saber mais, confira [Permitindo solicitações entre origens na API Web ASP.NET](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api#enable-cors).
 
-Por padrão, o projeto de início rápido do cliente que você baixará do portal é executado no localhost na porta 8000. Por isso, você posteriormente habilitará CORS para `http://localhost:8000` no projeto do servidor.
+Por padrão, o projeto de início rápido do cliente que você baixará do portal é executado no localhost na porta 8000. Por causa disso, em seguida você habilitará o CORS para `http://localhost:8000` no projeto de servidor.
 
-1. No menu Ferramentas do Visual Studio, clique em **Gerenciador de pacotes NuGet** > **Console do gerenciador de pacotes**, selecione Nuget.org como a **Fonte do pacote** e execute o seguinte comando na janela do console:
+1. No menu Ferramentas do Visual Studio, clique em **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes**, selecione Nuget.org como a **Origem do pacote** e execute o seguinte comando na janela do console:
  
 		Install-Package Microsoft.AspNet.WebApi.Cors  
 
@@ -73,7 +75,7 @@ Por padrão, o projeto de início rápido do cliente que você baixará do porta
 
 		using System.Web.Http.Cors;
 
-3. Depois, adicione o seguinte código ao método **Startup.ConfigureMobileApp** após **HttpConfiguration** (*config*) ser criado:
+3. Depois, adicione o código a seguir ao método **Startup.ConfigureMobileApp** depois que **HttpConfiguration** (*config*) for criado:
 
         // Enable CORS support for localhost port 8000, all headers and methods.
         var cors = new EnableCorsAttribute("http://localhost:8000", "*", "*");
@@ -89,9 +91,9 @@ Em seguida, você implantará o projeto habilitado por CORS no Azure.
 
 ##Baixe e execute o projeto do cliente
 
-1. De volta à folha para o back-end do Aplicativo Móvel, clique em **Todas as Configurações** e, em **Aplicativo Móvel**, clique em **Início rápido** > **HTML/JavaScript**. 
+1. De volta à folha para o back-end de Aplicativo Móvel, clique em **Todas as configurações** e, em **Aplicativo Móvel**, clique em **Início rápido** > **HTML/JavaScript**. 
 
-2.  Em **Baixe e execute seu projeto do HTML/JavaScript** em **Criar um novo aplicativo**, clique em **Baixar** e salve os arquivos compactados do projeto em seu computador local.
+2.  Em **Baixar e executar seu projeto HTML/JavaScript** em **Criar um novo aplicativo**, clique em **Baixar** e salve os arquivos de projeto compactados em seu computador local.
 
 3. Navegue até o local onde salvou os arquivos de projeto compactados, expanda os arquivos em seu computador e inicie um dos arquivos de comando a seguir da subpasta **server**.
 
@@ -123,4 +125,4 @@ Em seguida, você implantará o projeto habilitado por CORS no Azure.
 [Visual Studio Community 2013]: https://www.visualstudio.com/downloads
  
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

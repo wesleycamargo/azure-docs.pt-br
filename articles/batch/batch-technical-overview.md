@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Visão geral técnica do Azure Batch | Microsoft Azure"
+	pageTitle="Noções básicas do serviço Lote do Azure | Microsoft Azure"
 	description="Saiba mais sobre os conceitos, os fluxos de trabalho e os cenários do serviço Lote do Azure para cargas de trabalho paralelas em larga escala e HPC."
 	services="batch"
 	documentationCenter=""
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/26/2015"
+	ms.date="11/19/2015"
 	ms.author="danlep"/>
 
+# Noções básicas de Lote do Azure
 
-# Visão geral técnica do Lote do Azure para cargas de trabalho paralelas em larga escala e HPC
 O Lote do Azure ajuda você a executar aplicativos paralelos em larga escala e de computação de alto desempenho (HPC) na nuvem. É um serviço de plataforma que agenda o trabalho de computação intensiva para executar em uma coleção gerenciada de máquinas virtuais (nós de computação) e que pode dimensionar os recursos de computação para atender às necessidades do trabalho. Com o serviço em Lotes, você define de forma programática recursos de computação do Azure e trabalhos em lotes em larga escala que são executados sob demanda ou em um agendamento, e não precisa configurar e gerenciar manualmente um cluster HPC, VMs individuais, redes virtuais ou um agendador de trabalhos.
 
 ## Casos de uso
@@ -48,7 +48,7 @@ Para obter uma comparação do Lote com outras opções de solução HPC no Azur
 
 Desenvolva com as APIs do Lote para criar e gerenciar pools de VMs e para agendar os trabalhos e as tarefas executadas neles. Escreva aplicativos clientes ou front-ends para executar trabalhos e tarefas sob demanda, em uma agenda, ou como parte de um fluxo de trabalho maior gerenciado por ferramentas como o [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
 
-Consulte [Noções básicas de API do Lote do Azure](batch-api-basics.md) para obter mais informações sobre os conceitos do Lote.
+Consulte [Visão geral do recurso Lote do Azure](batch-api-basics.md) para saber mais sobre os conceitos do Lote.
 
 ### Contas necessárias
 
@@ -103,4 +103,4 @@ A Figura 2 mostra um fluxo de trabalho que usa um aplicativo cliente .NET do Lot
 [parallel]: ./media/batch-technical-overview/parallel.png
 [work_item_workflow]: ./media/batch-technical-overview/work_item_workflow.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

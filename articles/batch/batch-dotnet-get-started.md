@@ -42,7 +42,7 @@ Comece a trabalhar com a Biblioteca .NET do Lote do Azure criando um aplicativo 
 
 	2. Pesquise online **WindowsAzure.Storage** e clique em **Instalar** para instalar o pacote Armazenamento do Azure suas dependências.
 
-> [AZURE.TIP]Este tutorial usa alguns dos principais conceitos do Lote discutidos em [Noções básicas de API para o Lote do Azure](batch-api-basics.md), leitura altamente recomendada para aqueles que ainda não conhecem o Lote.
+> [AZURE.TIP]Este tutorial usa alguns dos principais conceitos do Lote discutidos em [Visão geral do recurso Lote do Azure](batch-api-basics.md), leitura altamente recomendada para aqueles que ainda não conhecem o Lote.
 
 ## Etapa 1: Criar e carregar os arquivos de suporte
 
@@ -487,7 +487,7 @@ Como você é cobrado pelos recursos no Azure, sempre será uma boa ideia exclui
 			Task status: Completed
 			Task start: 7/17/2015 8:31:57 PM
 
-8. Neste ponto, você pode ir para o portal de visualização do Azure para examinar os recursos que foram criados. Para excluir os recursos, pressione Enter até que o programa seja concluído.
+8. Neste ponto, você pode acessar o portal de visualização do Azure para examinar os recursos que foram criados. Para excluir os recursos, pressione Enter até que o programa seja concluído.
 
 ## Próximas etapas
 
@@ -495,4 +495,4 @@ Como você é cobrado pelos recursos no Azure, sempre será uma boa ideia exclui
 
 2. Alguns aplicativos geram grandes quantidades de dados que podem ser difíceis de processar. Um modo de resolver isso é por meio da [consulta de lista eficiente](batch-efficient-list-queries.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 # Introdução ao Servidor Azure Multi-Factor Authentication na nuvem
@@ -156,4 +156,4 @@ Depois de habilitar os usuários, aconselhamos que você envie a eles um email i
 ## Próximas etapas
 Agora que você configurou o Multi-Factor Authentication na nuvem, é possível seguir adiante acessando [Configurando o Azure Multi-Factor Authentication.](multi-factor-authentication-whats-next.md) Nesse documento, você aprenderá sobre relatórios, alertas de fraude, personalização de mensagens de voz e todos os recursos oferecidos pelo Azure Multi-Factor Authentication.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

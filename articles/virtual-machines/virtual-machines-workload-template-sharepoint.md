@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Implantar farms do SharePoint com os modelos do ARM | Microsoft Azure"
-	description="Implante facilmente um farm de três ou nove servidores do SharePoint com modelos do Gerenciador de Recursos e o Portal de Visualização do Azure, Azure PowerShell ou CLI do Azure."
+	description="Implante com facilidade um farm do SharePoint de três ou nove servidores com modelos do Gerenciador de Recursos e o portal de visualização do Azure, o Azure PowerShell ou a CLI do Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -31,7 +31,7 @@ Para um farm básico do SharePoint Server 2013, um modelo do Gerenciador de Recu
 
 Você pode executar o modelo com o portal de visualização do Azure, o Azure PowerShell ou CLI do Azure.
 
-> [AZURE.NOTE]Você também pode criar essa configuração usando o item [Farm do SharePoint 2013 não HA](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) no Azure Marketplace do portal de Visualização do Azure.
+> [AZURE.NOTE]Você também pode criar essa configuração usando o item [Farm do SharePoint 2013 não HA](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) no Azure Marketplace do portal de visualização do Azure.
 
 ### Portal de Visualização do Azure
 
@@ -39,7 +39,7 @@ Para implantar essa carga de trabalho usando um modelo do Gerenciador de Recurso
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
-1.	Clique em **Parâmetros**. No painel **Parâmetros**, insira novos valores, selecione os valores permitidos ou aceite os valores padrão e, em seguida, clique em **OK**.
+1.	Clique em **Parâmetros**. No painel **Parâmetros**, insira novos valores, selecione os valores permitidos ou aceite os valores padrão e clique em **OK**.
 2.	Se necessário, clique em **Assinatura** e selecione a assinatura correta do Azure.
 3.	Clique em **Grupo de recursos** e selecione um grupo de recursos existente. Como alternativa, clique em **Ou criar novo** para criar um novo para essa carga de trabalho.
 4.	Se necessário, clique em **Local do grupo de recursos** e selecione o local correto do Azure.
@@ -103,7 +103,7 @@ Para um farm do SharePoint Server 2013 de alta disponibilidade, um modelo do Ger
 
 ![](./media/virtual-machines-workload-template-sharepoint/nine-server-sharepoint-farm.png)
 
-> [AZURE.NOTE]Você também pode criar essa configuração usando o item [Farm do SharePoint 2013 HA](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) no Azure Marketplace do portal de Visualização do Azure.
+> [AZURE.NOTE]Você também pode criar essa configuração usando o item [Farm do SharePoint 2013 HA](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) no Azure Marketplace do portal de visualização do Azure.
 
 ### Portal de Visualização do Azure
 
@@ -111,7 +111,7 @@ Para implantar essa carga de trabalho usando um modelo do Gerenciador de Recurso
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
-1.	Clique em **Parâmetros**. No painel **Parâmetros**, insira novos valores, selecione os valores permitidos ou aceite os valores padrão e, em seguida, clique em **OK**.
+1.	Clique em **Parâmetros**. No painel **Parâmetros**, insira novos valores, selecione os valores permitidos ou aceite os valores padrão e clique em **OK**.
 2.	Se necessário, clique em **Assinatura** e selecione a assinatura correta do Azure.
 3.	Clique em **Grupo de recursos** e selecione um grupo de recursos existente. Como alternativa, clique em **Ou criar novo** para criar um novo para essa carga de trabalho.
 4.	Se necessário, clique em **Local do grupo de recursos** e selecione o local correto do Azure.
@@ -186,4 +186,4 @@ Quando a execução do modelo for concluída, você terá, então, um novo farm 
 
 [Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

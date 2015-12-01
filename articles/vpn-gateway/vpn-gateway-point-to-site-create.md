@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/09/2015"
+   ms.date="11/16/2015"
    ms.author="cherylmc"/>
 
 # Configurar uma conexão VPN ponto a site para uma Rede Virtual
@@ -26,25 +26,21 @@ Este artigo se aplica a conexões ponto a site para redes virtuais criadas usand
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
-O procedimento a seguir orientará você durante as etapas para criar uma conexão ponto a site segura para uma rede virtual. Embora a configuração de uma conexão ponto a site exija várias etapas, ela é uma ótima maneira de obter uma conexão segura do computador com sua rede virtual sem adquirir e configurar um dispositivo VPN. Há três partes principais para configurar uma VPN ponto a site: a rede virtual e o gateway de VPN, os certificados usados para autenticação e o cliente VPN que é usado para conectar você à sua rede virtual. A ordem em que você configura cada um deles é importante, portanto, não ignore nem pule as etapas.
+O procedimento a seguir orientará você durante as etapas para criar uma conexão ponto a site segura para uma rede virtual. Embora a configuração de uma conexão ponto a site exija várias etapas, ela é uma ótima maneira de obter uma conexão segura do computador com sua rede virtual sem adquirir e configurar um dispositivo VPN.
 
+A configuração de uma conexão ponto a site é dividida em três seções: a rede virtual e o gateway de VPN, os certificados usados para autenticação e o cliente VPN que será usado para conectar você à sua rede virtual. A ordem em que você configura cada um deles é importante, portanto, não ignore nem pule as etapas.
 
-1. Criar uma rede virtual e um gateway de VPN
-2. Gerar e carregar certificados
-3. Configurar o seu cliente VPN
-
-## 1\. Criar uma rede virtual e um gateway de VPN
-
+## Seção 1 - Criar uma rede virtual e um gateway de VPN
 
 Uma conexão ponto a site requer uma rede virtual com um gateway de roteamento dinâmico. As etapas a seguir orientarão você pelo seguinte:
 
-Etapa 1 - Criar uma rede virtual
+Etapa 1 - Criar uma rede virtual.
 
-Etapa 2 - Criar um gateway de roteamento dinâmico
+Etapa 2 - Criar um gateway de roteamento dinâmico.
 
-### Etapa 1 - Criar uma rede virtual
+### Criar uma rede virtual
 
-1. Faça logon no **Portal do Azure** (não é o Portal de Visualização).
+1. Faça logon no **portal do Azure** (não é o Portal de Visualização).
 1. No canto inferior esquerdo da tela, clique em **Novo**. No painel de navegação, clique em **Serviços de Rede** e, em seguida, clique em **Rede Virtual**. Clique em **Criação Personalizada** para iniciar o assistente de configuração.
 1. Na página **Detalhes da Rede Virtual**, insira as informações a seguir e, em seguida, clique na seta de avanço na parte inferior direita.
 	- **Nome**: nome da sua rede virtual. Por exemplo, "VNetEast". Esse será o nome você usará ao implantar as VMs e instâncias de PaaS para esta VNet.
@@ -61,32 +57,32 @@ Etapa 2 - Criar um gateway de roteamento dinâmico
  - **Espaço de endereço**: adicione o intervalo de endereços IP internos que você deseja usar para essa rede virtual, incluindo IP Inicial e Contagem. É importante selecionar um intervalo que não se sobreponha a qualquer um dos intervalos usados para sua rede local. Você precisará realizar a coordenação com o administrador da rede, que pode precisar reservar um intervalo de endereços IP de seu espaço de endereço de rede local para que você possa usar para sua rede virtual.
  - **Adicionar sub-rede**: não são necessárias sub-redes adicionais, mas convém criar uma sub-rede separada para as VMs que terão DIPS estáticos. Ou então, você pode colocar suas VMs em uma sub-rede separada das outras instâncias de função.
  - **Adicionar sub-rede de gateway**: a sub-rede de gateway é necessária para uma VPN ponto a site. Clique para adicionar a sub-rede de gateway. A sub-rede de gateway é usada apenas para o gateway de rede virtual.
-1. Quando sua rede virtual tiver sido criada, você verá a denominação **Criada** listada sob **Status** na página de redes no portal do Azure. Depois que sua rede virtual tiver sido criada, você poderá criar o gateway de roteamento dinâmico.
+1. Quando sua rede virtual tiver sido criada, você verá a denominação **Criada** listada em **Status** na página de redes no portal do Azure. Depois que sua rede virtual tiver sido criada, você poderá criar o gateway de roteamento dinâmico.
 
-### Etapa 2 - Criar um gateway de roteamento dinâmico
+### Criar um gateway de roteamento dinâmico
 
 O tipo de gateway deve ser configurado como dinâmico. Os gateways de roteamento estáticos não funcionarão com este recurso.
 
 1. No portal do Azure, na página **Redes**, clique na rede virtual que você acabou de criar e navegue até a página **Painel**.
 1. Clique em **Criar Gateway**, localizado na parte inferior da página **Painel**. Será exibida uma mensagem perguntando se **Você deseja criar um gateway para a rede virtual "sua\_rede"**. Clique em **Sim** para começar a criar o gateway. Pode levar cerca de 15 minutos para que o gateway seja criado.
 
-## 2\. Gerar e carregar certificados
+## Seção 2 - Gerar e carregar certificados
 
 Os certificados são usados para autenticar clientes VPN para VPNs ponto a site. Anteriormente, era necessário gerar seu próprio certificado autoassinado. Agora você agora pode usar certificados gerados usando uma solução corporativa. É possível carregar até 20 certificados raiz no Azure.
 
 Se você quiser usar um certificado autoassinado, as etapas a seguir o guiarão pelo processo. Se você estiver planejando usar uma solução de certificado corporativo, as etapas em cada seção serão diferentes, mas você ainda precisará fazer o seguinte:
 
 
-Etapa 1 - Identificar ou gerar um certificado raiz
+Etapa 1 - Identificar ou gerar um certificado raiz.
 
-Etapa 2 - Carregar o arquivo .cer do certificado raiz no Azure
+Etapa 2 - Carregar o arquivo .cer do certificado raiz no Azure.
 
-Etapa 3 - Gerar um certificado do cliente
+Etapa 3 - Gerar um certificado de cliente.
 
-Etapa 4 - Exportar e instalar o certificado do cliente
+Etapa 4 - Exportar e instalar o certificado de cliente.
 
 
-### Etapa 1 - Identificar ou gerar um certificado raiz
+### Identificar ou gerar um certificado raiz
 
 Se você não estiver usando uma solução de certificado corporativo, será preciso gerar um certificado raiz autoassinado. As etapas abaixo funcionam no Windows 8. Estamos em processo de atualização com novas etapas para o Windows 10.
 
@@ -99,7 +95,7 @@ Se você não estiver usando uma solução de certificado corporativo, será pre
 
     makecert -sky exchange -r -n "CN=RootCertificateName" -pe -a sha1 -len 2048 -ss My "RootCertificateName.cer"
 
-### Etapa 2 - Carregar o arquivo .cer do certificado raiz no portal do Azure
+### Carregar o arquivo .cer do certificado raiz no portal do Azure
 
 Você precisará carregar o arquivo. cer correspondente para cada certificado raiz no Azure. É possível carregar até 20 certificados.
 
@@ -107,7 +103,7 @@ Você precisará carregar o arquivo. cer correspondente para cada certificado ra
 1. No portal do Azure, na página **Certificados** da sua rede virtual, clique em **Carregar um certificado raiz**.
 1. Na página **Carregar certificado**, procure o certificado raiz .cer e clique na marca de seleção.
 
-### Etapa 3 - Gerar um certificado do cliente
+### Gerar um certificado de cliente
 
 As etapas a seguir visam gerar um certificado do cliente a partir do certificado raiz autoassinado. Se você estiver usando uma solução de certificado corporativo, siga as diretrizes para a solução que está usando.
 
@@ -119,7 +115,7 @@ As etapas a seguir visam gerar um certificado do cliente a partir do certificado
 
 4. Todos os certificados são armazenados no repositório de certificados Pessoal do computador. Marque *certmgr* para verificar. Você pode gerar quantos certificados de cliente forem necessários com base neste procedimento. É recomendável que você crie certificados de cliente exclusivos para cada computador que você deseje conectar à rede virtual.
 
-### Etapa 4 - Exportar e instalar o certificado do cliente
+### Exportar e instalar o certificado de cliente
 
 A instalação de um certificado do cliente em cada computador que você queira conectar à rede virtual é uma etapa obrigatória. As etapas a seguir guiarão você pela instalação manual do certificado do cliente.
 
@@ -127,7 +123,7 @@ A instalação de um certificado do cliente em cada computador que você queira 
 2. Exporte o *certificado de cliente* com a chave privada. Esse será um arquivo *.pfx*. Certifique-se de registrar ou se lembrar da senha (chave) que você definiu para esse certificado.
 3. Copie o arquivo *.pfx* para o computador cliente. No computador cliente, clique duas vezes no arquivo *.pfx* para instalá-lo. Digite a senha quando solicitado. Não modifique o local de instalação.
 
-## 3\. Configurar o seu cliente VPN
+## Seção 3 - Configurar o seu cliente VPN
 
 Para se conectar à rede virtual, também será necessário configurar o cliente VPN. O cliente requer um certificado de cliente e a configuração adequada do cliente VPN para se conectar.
 
@@ -139,7 +135,7 @@ Etapa 2 - Instalar o pacote de configuração de VPN no cliente e iniciar a cone
 
 Etapa 3 - Verificar a conexão.
 
-### Etapa 1 - Criar o pacote de configuração de cliente VPN
+### Criar o pacote de configuração de cliente VPN
 
 1. No portal do Azure, na página **Painel** da sua rede virtual, navegue até o menu de visualização rápida no canto direito e clique no pacote VPN que pertence ao cliente que você deseja conectar à sua rede virtual.
 2. 
@@ -150,7 +146,7 @@ Há suporte para os seguintes sistemas operacionais clientes:
  - Windows 8.1 (32 bits e 64 bits)
  - Windows Server 2012 (somente 64 bits)
  - Windows Server 2012 R2 (somente 64 bits)
- - Windows 10 (em validação no momento)
+ - Windows 10
 
 1. Selecione o pacote de download que corresponde ao sistema operacional cliente no qual ele será instalado:
  - Para clientes de 32 bits, selecione **Baixar o Pacote de Cliente VPN de 32 bits**.
@@ -158,16 +154,16 @@ Há suporte para os seguintes sistemas operacionais clientes:
 1. Pode levar alguns minutos para criar o pacote de cliente. Depois que o pacote tiver sido concluído, você poderá baixar o arquivo. O arquivo *.exe* baixado pode ser armazenado com segurança no seu computador local.
 1. Depois de gerar e baixar o pacote de cliente VPN no Portal do Azure, você pode instalar o pacote do cliente no computador cliente por meio do qual deseja se conectar à sua rede virtual. Se você planeja instalar o pacote do cliente VPN em vários computadores cliente, certifique-se de que cada um deles também tenha um certificado de cliente instalado. O pacote do cliente VPN contém informações de configuração para configurar o software de cliente VPN integrado ao Windows. O pacote não instala softwares adicionais.
 
-### Etapa 2 - Instalar o pacote de configuração de VPN no cliente e iniciar a conexão
+### Instalar o pacote de configuração de VPN no cliente e iniciar a conexão
 
-1. Copie o arquivo de configuração localmente no computador que você deseja conectar à sua rede virtual e clique duas vezes no arquivo .exe. Depois que o pacote tiver sido instalado, você pode iniciar a conexão VPN. Observe que o pacote de configuração não está assinado pela Microsoft. Convém assinar o pacote usando o serviço de assinatura de sua organização ou assiná-lo você mesmo usando a ferramenta [SignTool](http://go.microsoft.com/fwlink/p/?LinkId=699327). Não há problemas em usar o pacote sem assinatura. No entanto, se o pacote não estiver assinado, será exibido um aviso quando você instalar o pacote.
+1. Copie o arquivo de configuração localmente no computador que você deseja conectar à sua rede virtual e clique duas vezes no arquivo .exe. Depois que o pacote tiver sido instalado, você pode iniciar a conexão VPN. Observe que o pacote de configuração não está assinado pela Microsoft. Convém assinar o pacote usando o serviço de assinatura de sua organização ou assiná-lo você mesmo usando [SignTool](http://go.microsoft.com/fwlink/p/?LinkId=699327). Não há problemas em usar o pacote sem assinatura. No entanto, se o pacote não estiver assinado, será exibido um aviso quando você instalar o pacote.
 2. No computador cliente, navegue até Conexões VPN e localize a conexão VPN que você acabou de criar. Ele será nomeado com o mesmo nome da sua rede virtual. Clique em **Conectar**.
 3. Será exibida uma mensagem pop-up, que é usada para criar um certificado autoassinado para o ponto de extremidade do Gateway. Clique em **Continuar** para usar privilégios elevados.
 4. Na página de status da **Conexão**, clique em **Conectar** para iniciar a conexão.
-5. Se for exibida uma tela de **Selecionar certificado**, verifique se o certificado de cliente mostrado é o que você deseja usar para se conectar. Se não for, use a seta suspensa para selecionar o certificado correto e, em seguida, clique em **OK**.
+5. Se for exibida uma tela de **Selecionar certificado**, verifique se o certificado de cliente mostrado é o que você deseja usar para se conectar. Se não for, use a seta suspensa para selecionar o certificado correto e clique em **OK**.
 6. Agora você está conectado à sua rede virtual e tem acesso total a qualquer serviço e máquina virtual hospedados em sua rede virtual.
 
-### Etapa 3 - Verificar a conexão VPN
+### Verificar a conexão VPN
 
 1. Para verificar se a conexão VPN está ativa, abra um prompt de comandos com privilégios elevados e execute *ipconfig/all*.
 2. Exiba os resultados. Observe que o endereço IP que você recebeu está dentro do intervalo de endereços de conectividade ponto a site que você especificou quando criou a sua VNet. Os resultados devem ser algo semelhante a isto:
@@ -191,10 +187,10 @@ Exemplo:
 
 Você pode saber mais sobre a conectividade entre locais da rede virtual neste artigo: [Sobre a conectividade segura entre locais da rede virtual](vpn-gateway-cross-premises-options.md).
 
-Se você quiser configurar uma conexão VPN site a site, confira [Configurar uma rede virtual com uma conexão de gateway de VPN site a site](vpn-gateway-site-to-site-create.md).
+Se você quiser configurar uma conexão VPN site a site, consulte [Configurar uma rede virtual com uma conexão de gateway de VPN site a site](vpn-gateway-site-to-site-create.md).
 
-Você pode adicionar máquinas virtuais à sua rede virtual. Confira [Como criar uma máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md).
+Você pode adicionar máquinas virtuais à sua rede virtual. Consulte [Como criar uma máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md).
 
-Para saber mais sobre Redes Virtuais, consulte a página [Documentação da Rede Virtual](https://azure.microsoft.com/documentation/services/virtual-network/).
+Se quiser saber mais sobre Redes Virtuais, consulte a página [Documentação da Rede Virtual](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

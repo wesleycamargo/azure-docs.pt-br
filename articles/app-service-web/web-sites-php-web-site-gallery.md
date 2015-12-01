@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="hero-article"
-	ms.date="10/15/2015"
+	ms.date="11/13/2015"
 	ms.author="tomfitz"/>
 
 # Criar um aplicativo Web do WordPress no Serviço de Aplicativo do Azure
@@ -40,7 +40,7 @@ O Azure Marketplace disponibiliza uma ampla gama de aplicativos Web populares de
 
 1. Faça logon no [Portal de Visualização do Azure](https://portal.azure.com/).
 
-2. Clique em **Novo > Marketplace**.
+2. Clique em **Novo**.
 	
     ![Criar Novo][5]
 	
@@ -124,4 +124,4 @@ Para obter mais informações sobre como trabalhar com aplicativos Web do Servi�
 [7]: ./media/web-sites-php-web-site-gallery/search-web-app.png
 [browse]: ./media/web-sites-php-web-site-gallery/browse-web.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->
