@@ -3,7 +3,7 @@
 	description="Saiba como criar um aplicativo Web simples do Node.js e implantá-lo em um serviço de nuvem do Azure."
 	services="cloud-services"
 	documentationCenter="nodejs"
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="08/31/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 
 # Criar e implantar um aplicativo Node.jc para um Serviço de Nuvem do Azure
@@ -27,7 +27,7 @@ Este tutorial mostra como criar um aplicativo simples do Node.js em execução e
 
 Para saber mais sobre serviços de nuvem e como eles são comparados aos Sites do Azure e máquinas virtuais, consulte [Comparação de Sites do Azure, Serviços de Nuvem e Máquinas virtuais](../choose-web-site-cloud-service-vm.md).
 
->[AZURE.TIP]Procurando desenvolver um site simples? Se o seu cenário envolver apenas um site de front-end simples, <a href="/documentation/articles/web-sites-nodejs-develop-deploy-mac/">considere usar um aplicativo Web leve</a>. Você pode atualizar facilmente para um serviço de nuvem conforme o aplicativo Web cresce e suas necessidades mudam.
+>[AZURE.TIP]Procurando desenvolver um site simples? Se o seu cenário envolver apenas um site de front-end simples, <a href="../app-service-web/web-sites-nodejs-develop-deploy-mac.md">considere usar um aplicativo Web leve</a>. Você pode atualizar facilmente para um serviço de nuvem conforme o aplicativo Web cresce e suas necessidades mudam.
 
 
 Seguindo este tutorial, você irá criar um aplicativo da Web simples hospedado dentro de uma função Web. Você usará o emulador de computação para testar o aplicativo localmente e, em seguida, o implantará usando ferramentas de linha de comando do PowerShell.
@@ -197,4 +197,4 @@ Para obter mais informações, consulte o [Centro de desenvolvedores do Node.js]
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

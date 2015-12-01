@@ -12,7 +12,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/21/2015"
+   ms.date="11/24/2015"
    ms.author="joaoma"/>
 
 
@@ -60,32 +60,29 @@ Alterne para o modo PowerShell para usar os cmdlets do ARM. Mais informações e
 
 ### Etapa 1
 
-    Switch-AzureMode -Name AzureResourceManager
+		PS C:\> Login-AzureRmAccount
 
 ### Etapa 2
 
-Faça logon na sua conta do Azure.
+Verificar as assinaturas da conta
+
+		PS C:\> get-AzureRmSubscription 
+
+Você deverá se autenticar com suas credenciais.<BR>
+
+### Etapa 3 
+
+Escolha quais das suas assinaturas do Azure deseja usar.<BR>
 
 
-    Add-AzureAccount
-
-Você deverá autenticar com suas credenciais.
-
-
-### Etapa 3
-
-Escolha quais das suas assinaturas do Azure deseja usar.
-
-    Select-AzureSubscription -SubscriptionName "MySubscription"
-
-Para ver uma lista das assinaturas disponíveis, use o cmdlet “Get-AzureSubscription”.
+		PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### Etapa 4
 
 Crie um grupo de recursos (pule esta etapa se você estiver usando um grupo de recursos existente)
 
-    New-AzureResourceGroup -Name appgw-rg -location "West US"
+    New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
 O Gerenciador de Recursos do Azure requer que todos os grupos de recursos especifiquem um local. Ele é usado como o local padrão para os recursos do grupo de recursos em questão. Certifique-se de que todos os comandos para criar um Application Gateway usarão o mesmo grupo de recursos.
 
@@ -97,13 +94,13 @@ O exemplo a seguir mostra como criar uma rede virtual usando o Gerenciador de Re
 
 ### Etapa 1	
 	
-	$subnetconfig = New-AzureVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
+	$subnetconfig = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 
 Atribui o Intervalo de endereços 10.0.0.0/24 à variável de sub-rede a ser usada para criar uma rede virtual
 
 ### Etapa 2
 	
-	$vnet = New-AzurevirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnetconfig
+	$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnetconfig
 
 Cria uma rede virtual chamada "appgwvnet" no grupo de recursos "appw-rg" para a região Oeste dos EUA usando o prefixo 10.0.0.0/16 com a sub-rede 10.0.0.0/24
 	
@@ -118,49 +115,49 @@ Atribui o objeto de sub-rede a variável $subnet para as próximas etapas.
 
 ### Etapa 1
 
-	$gipconfig = New-AzureApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
+	$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
 Cria uma configuração de IP do Application Gateway chamada "gatewayIP01". Quando o Application Gateway é iniciado, ele pega um endereço IP da sub-rede configurada e encaminha o tráfego de rede para os endereços IP no pool IPs de back-end. Tenha em mente que cada instância terá um endereço IP.
  
 ### Etapa 2
 
-	$pool = New-AzureApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.0.0.10,10.0.0.11,10.0.0.12
+	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.0.0.10,10.0.0.11,10.0.0.12
 
 Esta etapa configurará o pool de endereços IP de back-end denominado "pool01" com os endereços IP "10.0.0.10,10.0.0.11, 10.0.0.12". Esses serão os endereços IP que receberão o tráfego de rede proveniente do ponto de extremidade do IP de front-end. Substitua os endereços IP acima adicionando seus próprios pontos de extremidade de endereço IP do aplicativo.
 
 ### Etapa 3
 
-	$poolSetting = New-AzureApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
+	$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 
 Define as configurações de "poolsetting01" do Application Gateway para o tráfego de rede com carga balanceada no pool de back-end.
 
 ### Etapa 4
 
-	$fp = New-AzureApplicationGatewayFrontendPort -Name frontendport01  -Port 80
+	$fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 80
 
 Configura a porta do IP de front-end denominada "frontendport01" para o ILB.
 
 ### Etapa 5
 
-	$fipconfig = New-AzureApplicationGatewayFrontendIPConfig -Name fipconfig01 -Subnet $subnet
+	$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -Subnet $subnet
 
 Cria a configuração de IP de front-end chamada "fipconfig01" e associa a um IP privado da sub-rede da rede virtual atual.
 
 ### Etapa 6
 
-	$listener = New-AzureApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
+	$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 
 Cria o ouvinte chamado "listener01" e associa a porta de front-end à configuração de IP de front-end.
 
 ### Etapa 7 
 
-	$rule = New-AzureApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
+	$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 
 Cria a regra de roteamento do balanceador de carga chamada "rule01", configurando o comportamento do balanceador de carga.
 
 ### Etapa 8
 
-	$sku = New-AzureApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
+	$sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
 Configura o tamanho da instância do Application Gateway
 
@@ -168,7 +165,7 @@ Configura o tamanho da instância do Application Gateway
 
 ## Criar Application Gateway usando New-AzureApplicationGateway
 
-	$appgw = New-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
+	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 
 Cria um Application Gateway com todos os itens de configuração das etapas acima. No exemplo, o Application Gateway se chama "appgwtest".
 
@@ -176,10 +173,10 @@ Cria um Application Gateway com todos os itens de configuração das etapas acim
 
 ## Iniciar o gateway
 
-Depois que o gateway tiver sido configurado, use o cmdlet `Start-AzureApplicationGateway` para iniciá-lo. A cobrança por um gateway de aplicativo começa depois que o gateway tiver sido iniciado com êxito.
+Depois que o gateway tiver sido configurado, use o cmdlet `Start-AzureRmApplicationGateway` para iniciá-lo. A cobrança por um gateway de aplicativo começa depois que o gateway tiver sido iniciado com êxito.
 
 
-**Observação:** o cmdlet `Start-AzureApplicationGateway` pode levar de 15 a 20 minutos para ser concluído.
+**Observação:** a conclusão do cmdlet `Start-AzureRmApplicationGateway` pode demorar de 15 a 20 minutos.
 
 No exemplo abaixo, o Application Gateway é chamado "appgwtest" e o grupo de recursos é "appgw-rg":
 
@@ -188,15 +185,15 @@ No exemplo abaixo, o Application Gateway é chamado "appgwtest" e o grupo de rec
 
 Obtenha o objeto do Application Gateway e associe-o a uma variável de "$getgw":
  
-	$getgw =  Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
+	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 ### Etapa 2
 	 
-Use o `Start-AzureApplicationGateway` para iniciar o Application Gateway:
+Use o `Start-AzureRmApplicationGateway` para iniciar o Application Gateway:
 
-	PS C:\> Start-AzureApplicationGateway -ApplicationGateway $getgw  
+	PS C:\> Start-AzureRmApplicationGateway -ApplicationGateway $getgw  
 
-	PS C:\> Start-AzureApplicationGateway AppGwTest 
+	PS C:\> Start-AzureRmApplicationGateway AppGwTest 
 
 	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway 
 	VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
@@ -206,46 +203,30 @@ Use o `Start-AzureApplicationGateway` para iniciar o Application Gateway:
 
 ## Verifique o status do Application Gateway
 
-Use o cmdlet `Get-AzureApplicationGateway` para verificar o status do gateway. Se *Start-AzureApplicationGateway* foi bem-sucedido na etapa anterior, o item State deverá ser *Running*, e Vip e DnsName deverão ter entradas válidas.
-
-Este exemplo mostra um application gateway que está ativo, em execução e pronto para assumir o tráfego destinado a `http://<generated-dns-name>.cloudapp.net`.
-
-	PS C:\> Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
-
-	VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway 
-	VERBOSE: 8:09:30 PM - Completed Operation: Get-AzureApplicationGateway
-	Name          : AppGwTest 
-	Description   : 
-	VnetName      : appgwvnet 
-	Subnets       : {Subnet01} 
-	InstanceCount : 2 
-	GatewaySize   : Medium 
-	State         : Running 
-	Vip           : 138.91.170.26 
-	DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
+Use o cmdlet `Get-AzureRmApplicationGateway` para verificar o status do gateway. Se *Start-AzureApplicationGateway* tiver sido bem-sucedido na etapa anterior, o Estado deverá ser *Em Execução*.
 
 
 ## Excluir um Application Gateway
 
 Para excluir um gateway de aplicativo, você precisará seguir este procedimento na ordem:
 
-1. Use o cmdlet `Stop-AzureApplicationGateway` para interromper o gateway. 
-2. Use o cmdlet `Remove-AzureApplicationGateway` para remover o gateway.
+1. Use o cmdlet `Stop-AzureRmApplicationGateway` para parar o gateway. 
+2. Use o cmdlet `Remove-AzureRmApplicationGateway` para remover o gateway.
 3. Verifique se o gateway foi removido usando o cmdlet `Get-AzureApplicationGateway`.
 
-Este exemplo mostra o cmdlet `Stop-AzureApplicationGateway` na primeira linha, seguido pela saída.
+Este exemplo mostra o cmdlet `Stop-AzureRmApplicationGateway` na primeira linha, seguido pela saída.
 
 ### Etapa 1
 
 Obtenha o objeto do Application Gateway e associe-o a uma variável de "$getgw":
  
-	$getgw =  Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
+	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 ### Etapa 2
 	 
-Use o `Stop-AzureApplicationGateway` para parar o Application Gateway:
+Use o `Stop-AzureRmApplicationGateway` para parar o Application Gateway:
 
-	PS C:\> Stop-AzureApplicationGateway -ApplicationGateway $getgw  
+	PS C:\> Stop-AzureRmApplicationGateway -ApplicationGateway $getgw  
 
 	VERBOSE: 9:49:34 PM - Begin Operation: Stop-AzureApplicationGateway 
 	VERBOSE: 10:10:06 PM - Completed Operation: Stop-AzureApplicationGateway
@@ -253,10 +234,10 @@ Use o `Stop-AzureApplicationGateway` para parar o Application Gateway:
 	----       ----------------     ------------                             ----
 	Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
 
-Depois que o Application Gateway estiver em um estado Stopped, use o cmdlet `Remove-AzureApplicationGateway` para remover o serviço.
+Depois que o gateway de aplicativo estiver em um estado Parado, use o cmdlet `Remove-AzureRmApplicationGateway` para remover o serviço.
 
 
-	PS C:\> Remove-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Force
+	PS C:\> Remove-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Force
 
 	VERBOSE: 10:49:34 PM - Begin Operation: Remove-AzureApplicationGateway 
 	VERBOSE: 10:50:36 PM - Completed Operation: Remove-AzureApplicationGateway
@@ -267,10 +248,10 @@ Depois que o Application Gateway estiver em um estado Stopped, use o cmdlet `Rem
 >[AZURE.NOTE]O comutador “-force” pode ser usado para suprimir a mensagem de confirmação da remoção
 >
 
-Para verificar se o serviço foi removido, você pode usar o cmdlet `Get-AzureApplicationGateway`. Essa etapa não é necessária.
+Para verificar se o serviço foi removido, você poderá usar o cmdlet `Get-AzureRmApplicationGateway`. Essa etapa não é necessária.
 
 
-	PS C:\>Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
+	PS C:\>Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 	VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway 
 
@@ -279,13 +260,13 @@ Para verificar se o serviço foi removido, você pode usar o cmdlet `Get-AzureAp
 
 ## Próximas etapas
 
-Se desejar configurar o descarregamento SSL, confira [Configurar um Application Gateway para descarregamento SSL](application-gateway-ssl.md).
+Se desejar configurar o descarregamento SSL, consulte [Configurar um Application Gateway para descarregamento SSL](application-gateway-ssl.md).
 
-Se desejar configurar um Application Gateway para usar com o ILB, confira [Criar um Application Gateway com um ILB (Balanceador de Carga Interno)](application-gateway-ilb.md).
+Se desejar configurar um Application Gateway para usar com o ILB, consulte [Criar um Application Gateway com um ILB (Balanceador de Carga Interno)](application-gateway-ilb.md).
 
 Se deseja obter mais informações sobre as opções de balanceamento de carga no geral, consulte:
 
-- [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
+- [Balanceador de Carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

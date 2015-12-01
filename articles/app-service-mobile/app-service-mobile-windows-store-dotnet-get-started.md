@@ -40,7 +40,11 @@ Para concluir este tutorial, você precisará do seguinte:
 
 ##Criar um novo back-end de aplicativo móvel do Azure
 
+Siga estas etapas para criar um novo back-end de aplicativo móvel.
+
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
+
+Você acabou de provisionar um back-end do aplicativo móvel do Azure que pode ser usado pelos aplicativos móveis clientes. Em seguida, você baixará um projeto do servidor para um back-end simples da "lista de tarefas" e o publicará no Azure.
 
 ## Configurar o projeto de servidor
 
@@ -50,7 +54,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 Quando você tiver configurado o back-end do Aplicativo Móvel, poderá criar um novo aplicativo cliente ou modificar um aplicativo existente para se conectar ao Azure. Nesta seção, você baixa um projeto de modelo de aplicativo Windows universal personalizado para se conectar ao back-end do Aplicativo Móvel.
 
-1. Novamente na folha **Introdução** do back-end do Aplicativo Móvel, clique em **Criar um novo aplicativo** > **Baixar**, extraia os arquivos do projeto compactados em seu computador local.
+1. De volta à folha **Introdução** do back-end do Aplicativo Móvel, clique em **Criar um novo aplicativo** > **Baixar**, extraia os arquivos de projeto compactados para seu computador local.
 
 3. (Opcional) Adicione o projeto de aplicativo Windows universal à solução com o projeto do servidor. Isso torna mais fácil depurar e testar o aplicativo e o back-end na mesma solução do Visual Studio, se você optar por fazer isso.
 
@@ -81,4 +85,4 @@ Quando você tiver configurado o back-end do Aplicativo Móvel, poderá criar um
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

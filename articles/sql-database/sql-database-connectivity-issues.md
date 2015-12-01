@@ -31,7 +31,7 @@ Este tópico descreve como impedir, solucionar, diagnosticar e reduzir erros de 
 Uma falha transitória é um erro para o qual a causa subjacente logo se resolverá. Uma causa ocasional de falhas transitórias é quando o sistema do Azure rapidamente alterna os recursos de hardware para melhor balanceamento de diversas cargas de trabalho. Durante esse período de tempo de reconfiguração, as conexões com o Banco de Dados SQL do Azure poderão ser perdidas.
 
 
-Se seu programa cliente estiver usando o ADO.NET, o programa será informado sobre a falha transitória pelo lançamento de uma **SqlException**. A propriedade **Número** pode ser comparada à lista de falhas transitórias na parte superior do tópico: [Mensagens de erro para programas de cliente do Banco de Dados SQL](sql-database-develop-error-messages).
+Se seu programa cliente estiver usando o ADO.NET, o programa será informado sobre a falha transitória pelo lançamento de uma **SqlException**. A propriedade **Número** pode ser comparada à lista de falhas transitórias na parte superior do tópico: [Mensagens de erro para programas de cliente do Banco de Dados SQL](sql-database-develop-error-messages.md).
 
 
 ### Conexão versus comando
@@ -94,7 +94,7 @@ Você também poderá definir um número máximo de tentativas antes que o progr
 
 Os exemplos de código com lógica de repetição, em uma variedade de linguagens de programação, estão disponíveis em:
 
-- [Exemplos de código de início rápido](sql-database-develop-quick-start-client-code-samples.md) 
+- [Exemplos de código de início rápido](sql-database-develop-quick-start-client-code-samples.md)
 
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
@@ -478,4 +478,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying* é uma biblioteca de tentativas de repetições de finalidade geral licenciada do Apache 2.0, escrita em **Python**, para simplificar a tarefa de adicionar comportamento de tentativa de repetição para quase tudo.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

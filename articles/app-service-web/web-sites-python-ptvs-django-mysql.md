@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="get-started-article" 
-	ms.date="08/30/2015"
-	ms.author="huguesv"/>
+	ms.date="11/17/2015"
+	ms.author="huvalo"/>
 
 # Django e MySQL no Azure com Ferramentas Python 2.2 para Visual Studio 
 
@@ -37,7 +37,7 @@ Confira o [Python Developer Center] para obter mais artigos que abrangem o desen
  - Visual Studio 2013 ou 2015
  - [Ferramentas Python 2.2 para Visual Studio]
  - [VSIX de amostra de Ferramentas Python 2.2 para Visual Studio]
- - [Ferramentas do SDK do Azure para VS 2013] ou [Ferramentas do SDK do Azure para VS 2015]
+ - [Azure Ferramentas SDK para VS 2013] ou [Azure Ferramentas SDK para VS 2015]
  - [Python 2.7 de 32 bits]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
@@ -98,14 +98,13 @@ Como alternativa, você pode criar sua própria máquina virtual em execução n
 
 Você pode criar um banco de dados com um plano grátis seguindo estas etapas.
 
-1.  Faça logon no [Portal do Azure].
+1.  Faça logon no [Portal do Azure](https://portal.azure.com/).
 
-1.  Na parte inferior do painel de navegação, clique em **NOVO**. Em seguida, clique em **dados + armazenamento** > **Azure Marketplace**.
+1.  Na parte superior do painel de navegação, clique em **NOVO**. Em seguida, clique em **Dados + Armazenamento** > **Banco de Dados MySQL**.
 
-  	<!-- ![New Button](./media/web-sites-python-ptvs-django-mysql/PollsCommonAzurePlusNew.png)-->
+  
 
-1.  Digite "**mysql**" na caixa de pesquisa, então clique em **Banco de Dados MySQL** e clique em **Criar**.
-
+1.  Digite "**mysql**" na caixa de pesquisa, então clique em **Banco de Dados MySQL** e clique em **Criar**. -->
   	<!-- ![Choose Add-on Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoClearDBAddon1.png) -->
 
 1.  Configure o novo banco de dados MySQL, criando um novo grupo de recursos e selecione o local apropriado para o mesmo.
@@ -191,7 +190,7 @@ Siga estas etapas para aprender mais sobre o Python Tools para Visual Studio, Dj
 - [Documentação do Django]
 - [MySQL]
 
-Para obter mais informações, consulte o [Centro de Desenvolvedores do Python](/develop/python/).
+Para saber mais, confira o [Centro de Desenvolvedores do Python](/develop/python/).
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -203,12 +202,12 @@ Para obter mais informações, consulte o [Centro de Desenvolvedores do Python](
 [Serviços de Nuvem do Azure]: ../cloud-services-python-ptvs.md
 
 <!--External Link references-->
-[Portal do Azure]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [Python Tools para Visual Studio]: http://aka.ms/ptvs
 [Ferramentas Python 2.2 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [VSIX de amostra de Ferramentas Python 2.2 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
-[Ferramentas do SDK do Azure para VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Ferramentas do SDK do Azure para VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
+[Azure Ferramentas SDK para VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
+[Azure Ferramentas SDK para VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Ferramentas Python para documentação do Visual Studio]: http://aka.ms/ptvsdocs
 [Depuração remota no Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=624026
@@ -218,4 +217,4 @@ Para obter mais informações, consulte o [Centro de Desenvolvedores do Python](
 [MySQL]: http://www.mysql.com/
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

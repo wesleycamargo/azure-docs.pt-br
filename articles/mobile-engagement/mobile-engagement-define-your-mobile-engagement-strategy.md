@@ -117,6 +117,9 @@ As *Informações do aplicativo* são dados que permitem confirmar o status do a
 
 ### Próximas etapas
 - Visite [Conceitos do Mobile Engagement] para saber mais sobre os conceitos básicos do Mobile Engagement.
+- Visite [Práticas recomendadas](mobile-engagement-getting-started-best-practices.md) para conhecer os detalhes
+- Visite o [cenário de Aplicativo de Jogos](mobile-engagement-gaming-scenario.md) para saber mais sobre a implementação do Mobile Engagement com um aplicativo de jogos de exemplo. 
+- Visite o [cenário de Aplicativo de Mídia](mobile-engagement-media-scenario.md) para saber mais sobre a implementação do Mobile Engagement com um aplicativo de mídia de exemplo. 
 - Visite os [Tutoriais] para saber mais sobre a implementação.
 
 <!-- Images. -->
@@ -127,4 +130,4 @@ As *Informações do aplicativo* são dados que permitem confirmar o status do a
 [Conceitos do Mobile Engagement]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [Tutoriais]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,10 +13,10 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="11/19/2015"
    ms.author="lodipalm;barbkess"/>
 
-# Criar um SQL Data Warehouse usando o portal de visualização do Azure#
+# Criar um SQL Data Warehouse
 
 > [AZURE.SELECTOR]
 - [Azure preview portal](sql-data-warehouse-get-started-provision.md)
@@ -46,6 +46,7 @@ Neste tutorial, você irá:
 
 
 ## Etapa 2: configurar e criar um servidor
+
 No Banco de Dados SQL e no SQL Data Warehouse, cada banco de dados é atribuído a um servidor, e cada servidor é atribuído a uma localização geográfica. O servidor é chamado de servidor SQL lógico.
 
 > [AZURE.NOTE]<a name="note"></a>Um servidor SQL lógico:
@@ -75,6 +76,7 @@ No Banco de Dados SQL e no SQL Data Warehouse, cada banco de dados é atribuído
     ![Configurar novo servidor](./media/sql-data-warehouse-get-started-provision/configure-server.png)
 
 ## Etapa 3: configurar e criar um banco de dados
+
 Agora que selecionou o servidor SQL lógico, você está pronto para concluir a criação do banco de dados.
  
 2. Na folha **SQL Data Warehouse**, preencha os campos restantes. 
@@ -103,6 +105,7 @@ Agora que selecionou o servidor SQL lógico, você está pronto para concluir a 
 
 
 ## Etapa 4: configurar o acesso ao firewall do servidor para o IP do cliente
+
 Para se conectar ao servidor usando seu endereço IP atual, adicione o endereço IP do cliente às regras de firewall. Esta etapa mostra como fazer isso.
 
 1. Clique em **Procurar** > **SQL Servers** > Escolher seu servidor > **Configurações** > **Firewall**.
@@ -123,9 +126,8 @@ Para se conectar ao servidor usando seu endereço IP atual, adicione o endereço
 
 Agora que você configurou o firewall poderá fazer conexões da área de trabalho do banco de dados do Azure SQL Data Warehouse que você acabou de criar.
 
-
 ## Próximas etapas
 
 Agora que você criou um banco de dados de exemplo para o SQL Data Warehouse, está pronto para [Conectar](./sql-data-warehouse-get-started-connect.md) ao seu banco de dados.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

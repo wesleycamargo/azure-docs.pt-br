@@ -3,7 +3,7 @@
 	description="Saiba como implantar um aplicativo do Node.js em um aplicativo Web no Serviço de Aplicativo do Azure."
 	services="app-service\web"
 	documentationCenter="nodejs"
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="10/13/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 # Criar um aplicativo Web do Node.js no Serviço de Aplicativo do Azure
 
@@ -87,7 +87,7 @@ Siga estas etapas para criar um aplicativo Web no Serviço de Aplicativo do Azur
 
 11. Na folha **Implantação Contínua**, clique em **Escolher Fonte**
 
-12. Clique em **Repositório Git** e, em seguida, clique em **OK**.
+12. Clique em **Repositório Git Local** e clique em **OK**.
 
 	![][setup-git-publishing]
 
@@ -101,7 +101,7 @@ Siga estas etapas para criar um aplicativo Web no Serviço de Aplicativo do Azur
 	
 	![](./media/web-sites-nodejs-develop-deploy-mac/setdeploycreds.png)
 
-14. Na folha do aplicativo Web, clique em **Configurações** e, em seguida, clique em **Propriedades**.
+14. Na folha do aplicativo Web, clique em **Configurações** e clique em **Propriedades**.
  
 	Para publicar, você enviará por push para um repositório Git remoto. A URL do repositório está listada em **URL do GIT**. Você a usará mais adiante neste tutorial.
 
@@ -109,13 +109,13 @@ Siga estas etapas para criar um aplicativo Web no Serviço de Aplicativo do Azur
 
 ## Criar e testar o aplicativo localmente
 
-Nesta seção, você criará um arquivo **server.js** que contém uma versão ligeiramente modificada do exemplo 'Hello, World' de [nodejs.org]. O código adiciona process.env.PORT como a porta de escuta ao executar em um aplicativo Web do Azure.
+Nesta seção, você criará um arquivo **server.js** que contém uma versão ligeiramente modificada do exemplo 'Olá Mundo' de [nodejs.org]. O código adiciona process.env.PORT como a porta de escuta ao executar em um aplicativo Web do Azure.
 
 1. Crie um diretório chamado *helloworld*.
 
 2. Use um editor de texto para criar um novo arquivo chamado **server.js** no diretório *helloworld*.
 
-2. Copie o seguinte código para o arquivo **server.js** e salve o arquivo:
+2. Copie o código a seguir para o arquivo **server.js** e salve o arquivo:
 
         var http = require('http')
         var port = process.env.PORT || 1337;
@@ -138,9 +138,9 @@ Nesta seção, você criará um arquivo **server.js** que contém uma versão li
 
 1. Instale o Git, se você ainda não fez isso.
 
-	Para obter instruções de instalação para sua plataforma, confira a [página de download do Git](http://git-scm.com/download).
+	Para obter instruções de instalação para sua plataforma, confira a [Página de download do Git](http://git-scm.com/download).
 
-1. Na linha de comando, altere para o diretório **helloworld** e insira o comando a seguir para inicializar um repositório Git local.
+1. Na linha de comando, mude para o diretório **helloworld** e insira o comando a seguir para inicializar um repositório Git local.
 
 		git init
 
@@ -200,19 +200,19 @@ Nesta seção, você criará um arquivo **server.js** que contém uma versão li
 
 ## Reverter uma implantação
 
-Na folha do **aplicativo Web**, você pode clicar em **Configurações > Implantação Contínua** para ver o histórico de implantação na folha **Implantações**. Se precisar reverter para uma implantação anterior, você poderá selecioná-la e, em seguida, clicar em **Reimplantar** na folha **Detalhes de Implantação**.
+Na folha do **aplicativo Web**, você pode clicar em **Configurações > Implantação Contínua** para ver o histórico de implantação na folha **Implantações**. Se precisar reverter para uma implantação anterior, você poderá selecioná-la e clicar em **Reimplantar** na folha **Detalhes de Implantação**.
 
 ## Próximas etapas
 
-Você implantou um aplicativo do Node.js para um aplicativo Web no Serviço de Aplicativo do Azure. Para saber mais sobre como os aplicativos Web do Aplicativo de Serviço executam aplicativos do Node.js, consulte [Aplicativos Web do Serviço de Aplicativo do Azure: Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx) e [Especificando uma versão do Node.js em um aplicativo do Azure](../nodejs-specify-node-version-azure-apps.md).
+Você implantou um aplicativo do Node.js para um aplicativo Web no Serviço de Aplicativo do Azure. Para saber mais sobre como os aplicativos Web do Aplicativo de Serviço executam aplicativos do Node.js, confira [Aplicativos Web do Serviço de Aplicativo do Azure: Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx) e [Especificando uma versão do Node.js em um aplicativo do Azure](../nodejs-specify-node-version-azure-apps.md).
 
 O Node.js fornece um rico ecossistema de módulos que podem ser usadas por seus aplicativos. Para saber como os Aplicativos Web funcionam com módulos, confira [Usando módulos do Node.js com aplicativos do Azure](../nodejs-use-node-modules-azure-apps.md).
 
-Se você tiver problemas com seu aplicativo depois de implantá-lo no Azure, confira [Como depurar um aplicativo Web Node.js no Serviço de Aplicativo do Azure](web-sites-nodejs-debug.md) para obter informações sobre como diagnosticar o problema.
+Se você tiver problemas com seu aplicativo depois de implantá-lo no Azure, confira [Como depurar um aplicativo Web Node.js no Serviço de Aplicativo do Azure](web-sites-nodejs-debug.md) para saber mais sobre como diagnosticar o problema.
 
 Este artigo usa o portal do Azure para criar um aplicativo Web. Você também pode usar a [Interface de linha de comando do Azure](../xplat-cli-install.md) ou o [Azure PowerShell](../install-configure-powershell.md) para executar as mesmas operações.
 
-Para obter mais informações sobre como desenvolver aplicativos do Node.js no Azure, consulte o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
+Para saber mais sobre como desenvolver aplicativos do Node.js no Azure, confira o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
 
 [helloworld-completed]: ./media/web-sites-nodejs-develop-deploy-mac/helloazure.png
 [helloworld-localhost]: ./media/web-sites-nodejs-develop-deploy-mac/helloworldlocal.png
@@ -224,4 +224,4 @@ Para obter mais informações sobre como desenvolver aplicativos do Node.js no A
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

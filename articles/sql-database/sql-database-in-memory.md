@@ -14,45 +14,75 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/16/2015"
+	ms.date="11/20/2015"
 	ms.author="jodebrui"/>
 
 
 # Introdução a Na Memória (visualização) no Banco de Dados SQL
 
-As tabelas SQL regulares são armazenadas apenas em um disco rígido. Usando os recursos de Na Memória, é possível aprimorar uma tabela para que ela resida na memória ativa enquanto o servidor estiver em execução.
+
+Os recursos Na Memória melhoram muito o desempenho de cargas de trabalho transacionais e analíticas nas situações certas.
+
+Este tópico enfatiza duas demonstrações, uma para o OLTP Na Memória e outro para a Análise Na Memória. Cada demonstração vem completa com as etapas e o código de que você precisa para executar a demonstração. Você pode:
+
+- Usar o código para testar as variações e ver as diferenças nos resultados de desempenho ou
+- Ler o código para entender o cenário e para saber como criar e utilizar os objetos Na Memória.
 
 
-As tecnologias Na Memória melhoram muito o desempenho de cargas de trabalho transacionais e analíticas.
+#### OLTP Na Memória
 
-- Com o OLTP Na Memória (processamento de transações online), você pode alcançar um ganho de até 30 vezes na taxa de transferência de transações, dependendo das especificações da carga de trabalho.
- - Tabelas com otimização de memória.
- - Procedimentos armazenados compilados nativamente.
+Os recursos do [OLTP](#install_oltp_manuallink) Na Memória (processamento de transações online) são:
 
-- Com a Análise Na Memória, você pode obter uma melhoria de até 100 vezes no desempenho da consulta.
- - Índices columnstore.
+- Tabelas com otimização de memória.
+- Procedimentos armazenados compilados nativamente.
 
 
-Para [análise em tempo real](http://msdn.microsoft.com/library/dn817827.aspx), combine essas tecnologias para obter:
+Uma tabela com otimização de memória tem uma representação de si mesmo em memória ativa, além da representação padrão em um disco rígido. As transações de negócios na tabela são executadas mais rapidamente porque elas interagem diretamente apenas com a representação na memória ativa.
+
+Com o OLTP Na Memória, você pode alcançar um ganho de até 30 vezes na taxa de transferência de transações, dependendo das especificações da carga de trabalho.
+
+
+Os procedimentos armazenados compilados nativamente exigem menos instruções de máquina durante o tempo de execução do que se fossem criados como procedimentos armazenados interpretados tradicionais. Vimos o resultado da compilação nativa em durações que são um 1/100º da duração interpretada.
+
+
+#### Análise Na Memória 
+
+O recurso de [Análise](#install_analytics_manuallink) Na Memória é:
+
+- Índices ColumnStore
+
+
+Um índice columnstore melhora o desempenho de cargas de trabalho de consulta por meio da compactação exótica de dados.
+
+Em outros serviços, os índices columnstore possuem necessariamente a otimização de memória. No entanto, no Banco de Dados SQL do Azure, um índice columnstore pode existir no disco rígido junto com a tabela tradicional que ele indexa.
+
+
+#### Análise em Tempo Real
+
+Para a [Análise em Tempo Real](http://msdn.microsoft.com/library/dn817827.aspx), você combina o OLTP e a Análise Na Memória para obter:
 
 - Visão de negócios em tempo real com base em dados operacionais.
-- OLTP muito rápido.
 
 
 #### Disponibilidade
 
 
-- *GA:* a Análise Na Memória está na Disponibilidade Geral (GA).
-- *Visualização:* o OLTP Na Memória e a Análise Operacional em Tempo Real existem em versão de Visualização.
- - Esses dois estão disponíveis apenas para bancos de dados SQL do Azure [Premium](sql-database-service-tiers.md).
+GA, Disponibilidade Geral:
+
+- [Índices columnstore](http://msdn.microsoft.com/library/dn817827.aspx) que estão *em disco*.
 
 
-#### OLTP e Análise
+Visualização:
 
-As duas principais seções neste tópico são:
+- OLTP Na Memória
+- A Análise Na Memória com índices columnstore com otimização de memória
+- Análise Operacional em Tempo Real
 
-- R. [OLTP](#install_oltp_manuallink) Na Memória, que envolve leitura e gravação.
-- B. [Análise](#install_analytics_manuallink) Na Memória, que envolve leitura.
+
+As considerações sobre os recursos Na Memória em versão de visualização serão descritas [mais adiante neste tópico](#preview_considerations_for_in_memory).
+
+
+> [AZURE.NOTE]Esses recursos em Visualização estão disponíveis apenas para bancos de dados SQL do Azure [*Premium*](sql-database-service-tiers.md) e não para bancos de dados na camada de serviço Standard ou Basic.
 
 
 
@@ -70,10 +100,10 @@ Você pode criar o banco de dados de exemplo AdventureWorksLT [V12] com alguns c
 
 #### Etapas de instalação
 
-1. No [portal de visualização do Azure](http://portal.azure.com/), crie um banco de dados Premium em um servidor V12. Defina **Origem** como o banco de dados de exemplo AdventureWorksLT [V12].
+1. No [portal de visualização do Azure](http://portal.azure.com/), crie um banco de dados Premium em um servidor V12. Defina a **Origem** como o banco de dados de exemplo AdventureWorksLT [V12].
  - Para obter instruções detalhadas, consulte [Criar seu primeiro banco de dados SQL do Azure](sql-database-get-started.md).
 
-2. Conecte-se ao banco de dados com o [SQL Server Management Studio (SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
+2. Conecte-se ao banco de dados com o SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
 
 3. Copie o [script Transact-SQL do OLTP Na Memória](http://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/T-SQL/In-Memory/sql_in-memory_oltp_sample.sql) para a área de transferência.
  - O script T-SQL cria os objetos necessários Na Memória no banco de dados de exemplo AdventureWorksLT criado na etapa 1.
@@ -101,7 +131,10 @@ SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 ```
 
 
-Um resultado **0** significa que não há suporte para Na Memória e 1 significa que há suporte.
+Um resultado **0** significa que não há suporte para Na Memória e 1 significa que há suporte. Para diagnosticar o problema:
+
+- Verifique se o banco de dados foi criado depois que os recursos de OLTP Na Memória tenham se tornado ativos para a Visualização.
+- Verifique se o banco de dados está na camada de serviço Premium.
 
 
 #### Sobre os itens criados com otimização de memória
@@ -115,7 +148,7 @@ Um resultado **0** significa que não há suporte para Na Memória e 1 significa
 - Demo.DemoSalesOrderDetailSeed
 
 
-Você pode inspecionar as tabelas com otimização de memória por meio do **Pesquisador de Objetos** do SSMS:
+Você pode inspecionar as tabelas com otimização de memória por meio do **Pesquisador de Objetos** no SSMS:
 
 - Clique com o botão direito do mouse em **Tabelas** > **Filtrar** > **Configurações do Filtro** > **Com Otimização de Memória** igual a 1.
 
@@ -130,7 +163,7 @@ SELECT is_memory_optimized, name, type_desc, durability_desc
 ```
 
 
-**Procedimento armazenado compilado nativamente**: SalesLT.usp\_InsertSalesOrder\_inmem pode ser inspecionado por meio do Pesquisador de Objetos ou de consultas da exibições de catálogo:
+**Procedimento armazenado compilado nativamente**: SalesLT.usp\_InsertSalesOrder\_inmem pode ser inspecionado por meio de uma consulta de exibições de catálogo:
 
 
 ```
@@ -189,8 +222,11 @@ INSERT INTO @od
 	FROM Demo.DemoSalesOrderDetailSeed
 	WHERE OrderID= cast((rand()*60) as int);
 	
-EXECUTE SalesLT.usp_InsertSalesOrder_inmem @SalesOrderID OUTPUT,
-	@DueDate, @CustomerID, @BillToAddressID, @ShipToAddressID, @od;
+WHILE (@i < 20)
+begin;
+	EXECUTE SalesLT.usp_InsertSalesOrder_inmem @SalesOrderID OUTPUT,
+		@DueDate, @CustomerID, @BillToAddressID, @ShipToAddressID, @od;
+end
 ```
 
 
@@ -205,14 +241,20 @@ O ideal é você planejar executar o ostress.exe em uma VM do Azure. Você criar
 
 Na VM ou em qualquer host que você escolher, instale os utilitários RML (Replay Markup Language), que incluem o ostress.exe.
 
-- Consulte a discussão sobre o ostress.exe em [Extensões do AdventureWorks para demonstrar o OLTP Na Memória](http://msdn.microsoft.com/library/dn511655&#x28;v=sql.120&#x29;.aspx).
+- Consulte a discussão sobre ostress.exe no [Banco de dados de exemplo para OLTP Na Memória](http://msdn.microsoft.com/library/mt465764.aspx).
  - Ou consulte [Banco de dados de exemplo para OLTP Na Memória](http://msdn.microsoft.com/library/mt465764.aspx).
  - Ou consulte [Blog da instalação do ostress.exe](http://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx)
 
 
 
 <!--
-dn511655.aspx is for SQL 2014, whereas mt465764.aspx is for SQL 2016.
+dn511655.aspx is for SQL 2014,
+[Extensions to AdventureWorks to Demonstrate In-Memory OLTP]
+(http://msdn.microsoft.com/library/dn511655&#x28;v=sql.120&#x29;.aspx)
+
+whereas for SQL 2016+
+[Sample Database for In-Memory OLTP]
+(http://msdn.microsoft.com/library/mt465764.aspx)
 -->
 
 
@@ -220,42 +262,29 @@ dn511655.aspx is for SQL 2014, whereas mt465764.aspx is for SQL 2016.
 ### Executar a carga de trabalho de estresse do \_inmem primeiro
 
 
-Você pode usar uma janela *Prompt Cmd RML* para executar nossa linha de comando do ostress.exe.
+Você pode usar uma janela *Prompt Cmd RML* para executar nossa linha de comando do ostress.exe. Os parâmetros de linha de comando direcionam o ostress para:
 
-Quando executado a partir do Prompt Cmd RML, o seguinte comando ostress.exe:
-
-- Insere um milhão de pedidos de vendas, com cinco itens de linha cada, nas tabelas com otimização de memória.
-- Usa 100 conexões simultâneas (-n100).
+- Execute 100 conexões simultaneamente (-n100).
+- Faça cada conexão executar o script T-SQL 50 vezes (-r50).
 
 
 ```
-ostress.exe -n100 -r500 -S<servername>.database.windows.net
-	 -U<login> -P<password> -d<database>
-	 -q -Q"DECLARE @i int = 0, @od SalesLT.SalesOrderDetailType_inmem,
-	 @SalesOrderID int, @DueDate datetime2 = sysdatetime(), @CustomerID int = rand() *
-	 8000, @BillToAddressID int = rand() * 10000, @ShipToAddressID int = rand()*
-	 10000;
-	 INSERT INTO @od SELECT OrderQty, ProductID FROM
-	 Demo.DemoSalesOrderDetailSeed WHERE OrderID= cast((rand()*60) as int);
-	 WHILE (@i < 20) begin;
-	 EXECUTE SalesLT.usp_InsertSalesOrder_inmem
-	 @SalesOrderID OUTPUT, @DueDate, @CustomerID, @BillToAddressID,
-	 @ShipToAddressID, @od; set @i += 1; end"
+ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password> -d<database> -q -Q"DECLARE @i int = 0, @od SalesLT.SalesOrderDetailType_inmem, @SalesOrderID int, @DueDate datetime2 = sysdatetime(), @CustomerID int = rand() * 8000, @BillToAddressID int = rand() * 10000, @ShipToAddressID int = rand()* 10000; INSERT INTO @od SELECT OrderQty, ProductID FROM Demo.DemoSalesOrderDetailSeed WHERE OrderID= cast((rand()*60) as int); WHILE (@i < 20) begin; EXECUTE SalesLT.usp_InsertSalesOrder_inmem @SalesOrderID OUTPUT, @DueDate, @CustomerID, @BillToAddressID, @ShipToAddressID, @od; set @i += 1; end"
 ```
 
 
 Para executar a linha de comando do ostress.exe anterior:
 
 
-1. Redefina o banco de dados ao executar o seguinte comando no SSMS para excluir todos os dados inseridos por todas as execuções anteriores: ```
+1. Redefina o conteúdo de dados do banco de dados ao executar o seguinte comando no SSMS para excluir todos os dados inseridos por todas as execuções anteriores: ```
 EXECUTE Demo.usp_DemoReset;
 ```
 
-2. Copie o texto para a sua área de transferência.
+2. Copie o texto da linha de comando anterior do ostress.exe para a área de transferência.
 
-3. Substitua todos os caracteres de fim de linha (\\r\\n) e todas as tabulações (\\t) por espaços.
+3. Substitua o <placeholders> para os parâmetros -S -U -P -d pelos valores reais corretos.
 
-4. Substitua o <placeholders> para os parâmetros -S -U -P -d pelos valores reais corretos.
+4. Execute a linha de comando editada em uma janela Cmd RML.
 
 
 #### O resultado é uma duração
@@ -269,7 +298,7 @@ Quando o ostress.exe é concluído, ele grava a duração da execução como sua
 #### Redefinir, editar para \_ondisk e executar novamente
 
 
-Depois de ter o resultado da execução do \_inmem, realize as seguintes etapas para a execução de \_indisk:
+Depois de ter o resultado da execução do \_inmem, realize as seguintes etapas para a execução de \_ondisk:
 
 
 1. Redefina o banco de dados ao executar o seguinte comando no SSMS para excluir todos os dados inseridos por pela execução anterior: ```
@@ -278,15 +307,15 @@ EXECUTE Demo.usp_DemoReset;
 
 2. Edite a linha de comando do ostress.exe para substituir todos *\_inmem* por *\_ondisk*.
 
-3. Execute novamente o ostress.exe e capture o resultado da duração.
+3. Execute novamente o ostress.exe pela segunda vez e capture o resultado da duração.
 
-4. Novamente, redefina o banco de dados para fazer uma limpeza responsável.
- - Uma única execução de teste inserindo um milhão de resultados de pedidos de vendas em 500 MB ou mais de dados nas tabelas.
+4. Redefina novamente o banco de dados para exclusão responsável do que puder ser uma grande quantidade de dados de teste.
 
 
 #### Resultados esperados para a comparação
 
-Os testes mostraram um aprimoramento de desempenho em torno de **nove vezes** melhor em comparação com as tabelas baseadas em disco para esta carga de trabalho, com o ostress sendo executado em uma VM na mesma região do Azure que o banco de dados.
+Os testes de Na Memória mostraram uma melhoria de desempenho de **nove vezes** para essa carga de trabalho simplista, com o ostress sendo executado em uma VM na mesma região do Azure que o banco de dados.
+
 
 A melhoria de desempenho pode ser maior quando a conversão em procedimentos armazenados compilados nativamente é adicionada.
 
@@ -319,7 +348,8 @@ Para fazer uma análise em tempo real em uma carga de trabalho OLTP, quase sempr
 3. Cole o script T-SQL no SSMS e execute o script.
  - A palavra-chave **COLUMNSTORE** é crucial em uma instrução **CREATE INDEX**, como em:<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
 
-4. Defina o AdventureWorksLT para um nível de compatibilidade 130:<br/>`ALTER DATABASE AdventureworksLT SET compatibility_level = 130;`
+4. Defina o AdventureWorksLT com um nível de compatibilidade 130:<br/>`ALTER DATABASE AdventureworksLT SET compatibility_level = 130;`
+ - O nível 130 não está diretamente relacionado aos recursos Na Memória. Mas o nível 130 geralmente oferece desempenho de consulta mais rápido que o 120.
 
 
 #### Tabelas e índices columnstore cruciais
@@ -412,29 +442,32 @@ GO
 ```
 
 
-## Considerações de visualização sobre Na Memória
+
+<a id="preview_considerations_for_in_memory" name="preview_considerations_for_in_memory"></a>
 
 
-Os recursos de Na Memória no Banco de Dados SQL do Azure se tornaram [ativos para visualização em 28 de outubro de 2015](http://azure.microsoft.com/updates/public-preview-in-memory-oltp-and-real-time-operational-analytics-for-azure-sql-database/).
+## Considerações de visualização sobre OLTP Na Memória
+
+
+Os recursos do OLTP Na Memória no Banco de Dados SQL do Azure se tornaram [ativos para visualização em 28 de outubro de 2015](http://azure.microsoft.com/updates/public-preview-in-memory-oltp-and-real-time-operational-analytics-for-azure-sql-database/).
 
 
 Durante a fase de Visualização antes da Disponibilidade Geral (GA), o OLTP Na Memória só tem suporte para:
 
-- Bancos de dados que estejam na camada de serviço *Premium*.
+- Os bancos de dados na camada de serviço *Premium*.
 
-- Bancos de dados que tenham sido criados depois que os recursos de Na Memória se tornaram ativos.
- - Um novo banco de dados restaurado de um backup feito antes da data de ativação de Na Memória não poderá dar suporte a Na Memória.
- - Suponha que você tenha feito backup de um banco de dados que ofereça suporte a Na Memória. Então, você restaura o backup em um banco de dados Premium antigo. O banco de dados antigo agora dá suporte a Na Memória.
+- Os bancos de dados criados depois que os recursos do OLTP Na Memória se tornaram ativos.
+ - Um novo banco de dados não oferecerá suporte a OLTP Na Memória se ele for restaurado de um banco de dados criado antes que os recursos do OLTP Na Memória tenham se tornado ativos.
 
 
-Em caso de dúvida, você também poderá executar o seguinte T-SQL SELECT para averiguar se seu banco de dados dá suporte a OLTP Na Memória. Um resultado **1** significa que o banco de dados dá suporte a Na Memória:
+Em caso de dúvida, você também poderá executar o seguinte T-SQL SELECT para averiguar se seu banco de dados dá suporte a OLTP Na Memória. Um resultado **1** significa que o banco de dados dá suporte a OLTP Na Memória:
 
 ```
 SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 ```
 
 
-Se a consulta retornar **1**, o OLTP Na Memória tem suporte neste banco de dados, bem como em qualquer cópia do banco de dados e restauração de banco de dados criada com base nesse banco de dados.
+Se a consulta retornar **1**, o OLTP Na Memória terá suporte neste banco de dados, bem como em qualquer cópia do banco de dados e restauração de banco de dados criada com base nesse banco de dados.
 
 
 #### Objetos permitidos apenas no Premium
@@ -465,7 +498,7 @@ Se um banco de dados contiver qualquer um dos seguintes tipos de objetos ou de t
 ## Etapas adicionais
 
 
-- Experimente [Usar o OLTP Na Memória em um aplicativo SQL do Azure existente.](sql-database-in-memory-oltp-migration.md)
+- Experimente [Usar o OLTP Na Memória em um Aplicativo SQL do Azure existente.](sql-database-in-memory-oltp-migration.md)
 
 
 ## Recursos adicionais
@@ -476,7 +509,7 @@ Se um banco de dados contiver qualquer um dos seguintes tipos de objetos ou de t
 
 - [Saiba mais sobre a Análise Operacional em Tempo Real no MSDN](http://msdn.microsoft.com/library/dn817827.aspx)
 
-- [White paper sobre padrões comuns de carga de trabalho e considerações sobre migração](http://msdn.microsoft.com/library/dn673538.aspx), que descreve os padrões de carga de trabalho onde o OLTP Na Memória geralmente fornece ganhos significativos de desempenho.
+- White paper sobre [Padrões comuns de carga de trabalho e considerações sobre migração](http://msdn.microsoft.com/library/dn673538.aspx), que descreve os padrões de carga de trabalho onde o OLTP Na Memória geralmente fornece ganhos significativos de desempenho.
 
 #### Design do aplicativo
 
@@ -492,4 +525,4 @@ Se um banco de dados contiver qualquer um dos seguintes tipos de objetos ou de t
 
 - [Monitorar o Armazenamento Na Memória](sql-database-in-memory-oltp-monitoring.md) para o OLTP Na Memória.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -81,7 +81,7 @@ Nesta etapa, você vinculará sua conta de Armazenamento do Azure e um cluster d
 	![Serviço vinculado de armazenamento do Azure](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
 	Você deve ver o script JSON para criar um serviço de armazenamento vinculado do Azure no editor. 
-4. Substitua **nome da conta** pelo nome da sua conta de armazenamento do Azure e **chave de conta** pela chave de acesso da sua conta de armazenamento do Azure. Para saber como obter sua chave de acesso de armazenamento, consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)
+4. Substitua **nome da conta** pelo nome da sua conta de armazenamento do Azure e **chave de conta** pela chave de acesso da sua conta de armazenamento do Azure. Para saber como obter sua chave de acesso de armazenamento, confira [Exibir, copiar e regenerar chaves de acesso de armazenamento](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)
 5. Clique em **Implantar** na barra de comandos para implantar o serviço vinculado.
 
 	![Botão Implantar](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
@@ -102,7 +102,6 @@ Agora, você criará um serviço vinculado para um cluster HDInsight sob demanda
 		      "version": "3.1",
 		      "clusterSize": 1,
 		      "timeToLive": "00:30:00",
-		      "jobsContainer": "adfjobs",
 		      "linkedServiceName": "StorageLinkedService"
 		    }
 		  }
@@ -115,7 +114,6 @@ Agora, você criará um serviço vinculado para um cluster HDInsight sob demanda
 	Versão | Especifica a versão do HDInsight criada como 3.1. 
 	ClusterSize | Cria um cluster do HDInsight de um nó. 
 	TimeToLive | Especifica tempo ocioso de cluster HDInsight antes de ser excluído.
-	JobsContainer | Especifica o nome do contêiner de trabalho que será criado para armazenar os logs gerados pelo HDInsight
 	linkedServiceName | Especifica a conta de armazenamento que será usada para armazenar os logs gerados pelo HDInsight
 3. Clique em **Implantar** na barra de comandos para implantar o serviço vinculado. 
 4. Confirme que você vê StorageLinkedService e HDInsightOnDemandLinkedService modo de exibição de árvore à esquerda.
@@ -125,10 +123,10 @@ Agora, você criará um serviço vinculado para um cluster HDInsight sob demanda
 ### Criar o conjunto de dados de saída
 Agora, você criará o conjunto de dados de saída para representar os dados armazenados no armazenamento de Blob do Azure.
 
-1. No **Data Factory Editor**, clique em **Novo conjunto de dados** na barra de comandos e selecione **Armazenamento de Blob do Azure**.  
+1. No **Editor da Fábrica de Dados**, clique em **Novo conjunto de dados** na barra de comandos e selecione **Armazenamento de Blobs do Azure**.  
 
 	![Novo conjunto de dados](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
-2. Copie e cole o trecho abaixo na janela de Rascunho-1. No trecho de JSON, você cria um conjunto de dados chamado **AzureBlobOutput** e especifica a estrutura dos dados que serão produzidos pelo script do Hive. Além disso, você especifica que os resultados são armazenados no contêiner de blob denominado **dados** e na pasta chamada **partitioneddata**. A seção **disponibilidade** especifica que o conjunto de dados de saída é produzido mensalmente.
+2. Copie e cole o trecho abaixo na janela de Rascunho-1. No trecho JSON, você está criando um conjunto de dados chamado **AzureBlobOutput** e especificando a estrutura dos dados que serão produzidos pelo script do Hive. Além disso, você especifica que os resultados são armazenados no contêiner de blob denominado **data** e na pasta chamada **partitioneddata**. A seção **availability** especifica que o conjunto de dados de saída é produzido mensalmente.
 	
 		{
 		  "name": "AzureBlobOutput",
@@ -157,7 +155,7 @@ Agora, você criará o conjunto de dados de saída para representar os dados arm
 ## Etapa 3: Criação do seu primeiro pipeline
 Nesta etapa, você criará seu primeiro pipelines.
 
-1. No **Data Factory Editor**, clique em **Reticências (...)** e em **Novo pipeline**.
+1. No **Editor da Fábrica de Dados**, clique em **Reticências (...)** e em **Novo pipeline**.
 	
 	![botão novo pipeline](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 2. Copie e cole o trecho abaixo na janela de Rascunho-1.
@@ -202,11 +200,11 @@ Nesta etapa, você criará seu primeiro pipelines.
  
 	No trecho de JSON, você cria um pipeline que consiste de uma única atividade que usa o Hive para processar dados em um cluster HDInsight.
 	
-	O arquivo de script do Hive, **partitionweblogs.hql**, é armazenado na conta de armazenamento do Azure (especificada por scriptLinkedService, chamada **StorageLinkedService**) e em um contêiner chamado **script**.
+	O arquivo de script do Hive, **partitionweblogs.hql**, é armazenado na conta de armazenamento do Azure (especificada pelo scriptLinkedService chamado **StorageLinkedService**) e em um contêiner chamado **script**.
 
-	A seção **extendedProperties** é usada para especificar as configurações de tempo de execução que serão passadas para o script hive como valores de configuração do Hive (por exemplo, ${hiveconf:PartitionedData}).
+	A seção **defines** é usada para especificar as configurações de tempo de execução que serão passadas para o script do hive como valores de configuração do Hive (por exemplo, ${hiveconf:PartitionedData}).
 
-	As propriedades **início** e **fim** do pipeline especificam o período ativo do pipeline.
+	As propriedades **start** e **end** do pipeline especificam o período ativo do pipeline.
 
 	Na atividade de JSON, você especifica que o script do Hive deve ser executado na computação especificada pelo serviço vinculado – **HDInsightOnDemandLinkedService**.
 3. Clique em **Implantar** na barra de comandos para implantar o pipeline.
@@ -214,7 +212,7 @@ Nesta etapa, você criará seu primeiro pipelines.
 
 	![Modo de exibição de árvore com pipeline](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-pipeline.png)
 5. Parabéns, você criou com sucesso seu primeiro pipeline!
-6. Clique em **X** para fechar as folhas do Data Factory Editor e para navegar de volta para a folha do Data Factory, e clique em **Diagrama**.
+6. Clique em **X** para fechar as folhas do Editor da Fábrica de Dados e para navegar de volta à folha Fábrica de Dados, e clique em **Diagrama**.
   
 	![Bloco do diagrama](./media/data-factory-build-your-first-pipeline-using-editor/diagram-tile.png)
 7. Na Exibição de diagrama, você terá uma visão geral dos pipelines e conjuntos de dados usados neste tutorial.
@@ -223,16 +221,16 @@ Nesta etapa, você criará seu primeiro pipelines.
 8. Na Exibição de Diagrama, clique duas vezes no conjunto de dados **AzureBlobOutput**. Você verá que a fatia que está sendo processada.
 
 	![Conjunto de dados](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
-9. Quando o processamento for concluído, você verá a fatia com o estado **Pronto**. Observe que a criação de um cluster do HDInsight sob demanda geralmente leva algum tempo. 
+9. Quando o processamento for concluído, você verá a fatia no estado **Pronto**. Observe que a criação de um cluster do HDInsight sob demanda geralmente leva algum tempo. 
 
 	![Conjunto de dados](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)	
-10. Quando a fatia estiver no estado **Ready**, verifique a pasta **partitioneddata** no contêiner de **dados** em seu armazenamento de blob para os dados de saída.  
+10. Quando a fatia estiver no estado **Pronto**, verifique a pasta **partitioneddata** no contêiner **data** em seu armazenamento de blobs para os dados de saída.  
  
 
  
 
 ## Próximas etapas
-Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script Hive em um cluster do HDInsight sob demanda. Para ver como usar uma Atividade de Cópia para copiar dados de um Blob do Azure para o SQL Azure, consulte [Tutorial: Copiar dados de um blob do Azure para o SQL Azure](./data-factory-get-started.md).
+Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script Hive em um cluster do HDInsight sob demanda. Para saber como usar uma Atividade de Cópia para copiar dados de um Blob do Azure para o SQL do Azure, confira [Tutorial: copiar dados de um Blob do Azure para o SQL do Azure](./data-factory-get-started.md).
   
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->
