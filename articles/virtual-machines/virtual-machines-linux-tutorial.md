@@ -232,7 +232,7 @@ O disco de dados agora está pronto para uso como o `/datadrive`.
 
 ## Próximas etapas
 
-Lembre-se de que o novo disco normalmente não está disponível para a VM, caso seja reinicializado, a menos que você grave essas informações no seu arquivo [/etc/fstab](http://en.wikipedia.org/wiki/Fstab). Se desejar, você poderá adicionar vários outros discos e [configurar o RAID](virtual-machines-linux-configure-raid.md).
+Lembre-se de que o novo disco normalmente não está disponível para a VM, caso seja reinicializado, a menos que você grave essas informações no seu arquivo [fstab](http://en.wikipedia.org/wiki/Fstab).
 
 Para saber mais sobre o Linux no Azure, confira:
 
