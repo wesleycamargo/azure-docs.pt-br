@@ -39,7 +39,7 @@ Pode haver uma ou mais instâncias de um tipo de serviço ativo no cluster. Por 
 
 O diagrama a seguir mostra a relação entre aplicativos e instâncias de serviço, partições e réplicas.
 
-![Partições e réplicas dentro de um Serviço][Imagem2]
+![Partições e réplicas dentro de um Serviço][Image2]
 
 
 ## Descrever um serviço
@@ -243,4 +243,4 @@ Depois que o aplicativo é empacotado corretamente e passa pela verificação, e
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
 
-<!------HONumber=Nov15_HO4-->
+<!-------HONumber=Nov15_HO4-->
