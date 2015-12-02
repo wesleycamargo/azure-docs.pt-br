@@ -49,7 +49,9 @@ Você pode usar a caixa de diálogo Serviços Conectados para se conectar a Serv
 
 1. Na caixa de diálogo **Serviços Móveis do Azure**, escolha um serviço móvel existente, se houver. Se você precisar criar um novo serviço móvel do Azure, siga o procedimento abaixo para fazer isso. Caso contrário, avance para a próxima etapa.
 
-    Para criar uma nova conta de serviço móvel: 1. Escolha o link **Criar Serviço** na parte inferior da caixa de diálogo. ![Adicionar novo serviço conectado móvel](./media/vs-azure-tools-connected-services-add-mobile-services/IC797637.png)
+    Para criar uma nova conta de serviço móvel:
+    1. Escolha o link **Criar Serviço** na parte inferior da caixa de diálogo.
+        ![Adicionar novo serviço conectado móvel](./media/vs-azure-tools-connected-services-add-mobile-services/IC797637.png)
 
 
 

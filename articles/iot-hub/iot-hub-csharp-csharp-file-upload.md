@@ -79,6 +79,7 @@ Informações adicionais sobre o Hub IoT:
 <!-- Links -->
 
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
+[Enviar mensagens da nuvem para o dispositivo com o Hub IoT]: iot-hub-csharp-csharp-c2d.md
 
 [Portal de Visualização do Azure]: https://portal.azure.com/
 
@@ -87,6 +88,7 @@ Informações adicionais sobre o Hub IoT:
 
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Enviar mensagens da nuvem para dispositivo]: iot-hub-csharp-csharp-c2d.md
+[Enviar mensagens da nuvem para o dispositivo com o Hub IoT]: iot-hub-csharp-csharp-c2d.md
 [Enviar mensagens de nuvem para o dispositivo com o Hub IoT]: iot-hub-csharp-csharp-c2d.md
 [Envio de mensagens nuvem para dispositivo com o Hub IoT]: iot-hub-csharp-csharp-c2d.md
 [As mensagens do processo de dispositivo para nuvem]: iot-hub-csharp-csharp-process-d2c.md

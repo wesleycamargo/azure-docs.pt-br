@@ -266,7 +266,7 @@ A seguir estão as distribuições do Linux que são validadas com o Armazenamen
 	<td rowspan="2"><strong>Oracle</strong></td>
 	<td>6.4</td>
 	<td></td>
-	<td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 obrigatório</a></td>
+	<td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 obrigatório </a></td>
 </tr>
 <tr>
 	<td>7.0</td>
