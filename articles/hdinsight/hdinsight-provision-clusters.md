@@ -261,7 +261,7 @@ Você pode consultar as [opções de configuração básica](#basic-configuratio
 **Para criar um cluster HDInsight**
 
 1. Entre no [Portal de Visualização do Azure][azure-preview-portal].
-2. Clique em **NOVO**, clique em **Análises de dados**, e, em seguida, clique em **HDInsight**.
+2. Clique em **NOVO**, em **Análises de Dados** e depois em **HDInsight**.
 
     ![Criar um novo cluster no Portal de Visualização do Azure](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Criar um novo cluster no Portal de Visualização do Azure")
 
