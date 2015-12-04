@@ -104,7 +104,8 @@ For more information about other features supported by service manifests, refer 
 ## Descrever um aplicativo
 
 
-O manifesto do aplicativo descreve declarativamente o tipo de aplicativo e a versão e especifica os metadados de composição de serviço, como nomes estáveis, esquema de particionamento, fator de replicação/contagem de instância, política de segurança/isolamento, restrições de posicionamento, substituições de configuração e tipos de serviço membro. Também são descritos os domínios de balanceamento de carga no qual o aplicativo é colocado. Portanto, um manifesto de aplicativo descreve os elementos no nível do aplicativo e faz referência a um ou mais manifestos do serviço para compor um tipo de aplicativo. Aqui está um manifesto de aplicativo de exemplo simples:
+O manifesto do aplicativo descreve declarativamente o tipo de aplicativo e a versão e especifica os metadados de composição de serviço, como nomes estáveis, esquema de particionamento, fator de replicação/contagem de instância, política de segurança/isolamento, restrições de posicionamento, substituições de configuração e tipos de serviço membro. Também são descritos os domínios de balanceamento de carga no qual o aplicativo é colocado.
+Portanto, um manifesto de aplicativo descreve os elementos no nível do aplicativo e faz referência a um ou mais manifestos do serviço para compor um tipo de aplicativo. Aqui está um manifesto de aplicativo de exemplo simples:
 
 ~~~
 <?xml version="1.0" encoding="utf-8" ?>
@@ -243,4 +244,4 @@ Depois que o aplicativo é empacotado corretamente e passa pela verificação, e
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
 
-<!-------HONumber=Nov15_HO4-->
+<!--------HONumber=Nov15_HO4-->
