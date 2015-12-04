@@ -88,11 +88,25 @@ Agora, vamos adicionar o arquivo MySetup.bat ao projeto do Visual Studio para te
 
 ![CopyToOutput do Visual Studio para o arquivo em lotes SetupEntryPoint][Image1]
 
-Agora, abra o arquivo MySetup.bat e adicione os comandos a seguir. ~~~ REM Defina uma variável de ambiente do sistema. Isso requer privilégios de administrador setx -m TestVariable "MyValue" echo System TestVariable set to > test.txt echo %TestVariable% >> test.txt
+Agora, abra o arquivo MySetup.bat e adicione os comandos a seguir.
+~~~
+REM Defina uma variável de ambiente do sistema. Isso requer privilégios de administrador
+setx -m TestVariable "MyValue"
+echo System TestVariable set to > test.txt
+echo %TestVariable% >> test.txt
 
-REM Para excluir essa variável do sistema use REM REG delete "HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment" /v TestVariable /f ~~~
+REM Para excluir essa variável do sistema use
+REM REG delete "HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment" /v TestVariable /f
+~~~
 
-Em seguida, compile e implante a solução em um cluster de desenvolvimento local. Após a inicialização do serviço, conforme visto no Gerenciador do Service Fabric, veja que MySetup.bat foi bem-sucedido de duas maneiras. Abra um prompt de comando do PowerShell e digite ~~~ [Environment]::GetEnvironmentVariable("TestVariable","Machine") ~~~ Da seguinte maneira ~~~ PS C:\\ [Environment]::GetEnvironmentVariable("TestVariable","Machine") MyValue ~~~
+Em seguida, compile e implante a solução em um cluster de desenvolvimento local. Após a inicialização do serviço, conforme visto no Gerenciador do Service Fabric, veja que MySetup.bat foi bem-sucedido de duas maneiras. Abra um prompt de comando do PowerShell e digite
+~~~
+ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
+~~~
+Da seguinte maneira
+~~~
+PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine") MyValue
+~~~
 
 Segundo, anote o nome do nó no qual o serviço foi implantado e iniciado no Gerenciador do Service Fabric, por exemplo, Nó 1, e, em seguida, navegue para a pasta de trabalho da instância do aplicativo e localize o arquivo out.txt que mostra o valor de **TestVariable**. Por exemplo, se ele foi implantado no Nó 2, você pode acessar este caminho até o MyApplicationType
 
@@ -103,9 +117,16 @@ C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ##  Iniciando comandos do PowerShell do SetupEntryPoint
 Para executar o PowerShell do ponto **SetupEntryPoint**, você poderá executar PowerShell.exe em um arquivo em lotes apontando para um arquivo do PowerShell. Primeiro, adicione um arquivo do PowerShell ao projeto de serviço, por exemplo, MySetup.ps1. Lembre-se de definir a propriedade *Copiar se for mais recente* para que esse arquivo também seja incluído no pacote do serviço. O exemplo a seguir mostra um exemplo de arquivo em lotes para iniciar um arquivo do PowerShell chamado MySetup.ps1, que define uma variável de ambiente do sistema chamada *TestVariable*.
 
-MySetup.bat para iniciar o arquivo do PowerShell. ~~~ powershell.exe -ExecutionPolicy Bypass -Command ".\\MySetup.ps1" ~~~
+MySetup.bat para iniciar o arquivo do PowerShell.
+~~~
+powershell.exe -ExecutionPolicy Bypass -Command ".\\MySetup.ps1"
+~~~
 
-No arquivo do PowerShell, adicione o seguinte para definir uma variável de ambiente do sistema ~~~ [Environment]::SetEnvironmentVariable("TestVariable", "MyValue", "Machine") [Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt ~~~
+No arquivo do PowerShell, adicione o seguinte para definir uma variável de ambiente do sistema
+~~~
+[Environment]::SetEnvironmentVariable("TestVariable", "MyValue", "Machine")
+[Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt
+~~~
 
 ## Aplicando RunAsPolicy aos serviços 
 Nas etapas acima, você viu como aplicar a política RunAs a um SetupEntryPoint. Agora, vamos analisar com mais detalhes como criar entidades diferentes que possam ser aplicadas como políticas de serviço.
@@ -266,4 +287,4 @@ O manifesto do aplicativo abaixo mostra várias configurações diferentes descr
 
 [Image1]: media/service-fabric-application-runas-security/copy-to-output.png
 
-<!---HONumber=Nov15_HO4-->
+<!----HONumber=Nov15_HO4-->
