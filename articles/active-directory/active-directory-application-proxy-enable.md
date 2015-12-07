@@ -27,7 +27,7 @@ Esta seção percorre a habilitação do o Proxy de aplicativo do Microsoft Azur
 Antes de habilitar e usar os serviços de Proxy de aplicativo, você precisa ter:
 
 - Uma conta de administrador do Microsoft Azure. Se você não tiver um, pode obter um aqui.
-- Um servidor executando o Windows Server 2012 R2 ou Windows 8.1 ou superior nos quais você pode instalar o conector do Proxy de aplicativo. O servidor deve poder enviar solicitações HTTPS para os serviços de Proxy de aplicativo na nuvem e ter uma conexão HTTPS para os aplicativos que você deseja publicar.
+- Um servidor executando o Windows Server 2012 R2 ou Windows 8.1 ou superior nos quais você pode instalar o conector do Proxy de aplicativo. O servidor deve poder enviar solicitações HTTPS para os serviços de Proxy de aplicativo na nuvem e ter uma conexão HTTPS para os aplicativos que você deseja publicar. 
 - Se um firewall estiver colocado no caminho, certifique-se de que o firewall esteja aberto para permitir solicitações de HTTPS (TCP) que originadas do conector para o Proxy do aplicativo. O conector usa essas portas com subdomínios que fazem parte do domínio de alto nível: msappproxy.net. Não esqueça de abrir **todas as**portas a seguir como**saída**tráfego:
 
 Número da porta | Descrição
@@ -40,7 +40,7 @@ Número da porta | Descrição
 8080 | Para habilitar a sequência de inicialização do conector e habilitar a atualização automática do conector
 9090 | Para ativar o registro do conector (necessário somente para o processo de registro do conector)
 9091 | Para ativar a renovação automática de certificados de confiança de conector
-
+ 
 Se o firewall reforça o tráfego de acordo com os usuários de origem, abra essas portas para o tráfego proveniente de serviços do Windows em execução como um serviço de rede. Além disso, certifique-se de habilitar a porta 8080 para Autoridade NT\\Sistema.
 
 
@@ -56,12 +56,15 @@ Se o firewall reforça o tráfego de acordo com os usuários de origem, abra ess
 1. Execute AADApplicationProxyConnectorInstaller.exe no servidor que você preparou (consulte os pré-requisitos do Proxy de aplicativo).
 2. Siga as instruções no Assistente para instalar.
 3. Durante a instalação, você será solicitado a registrar o conector com sua conta de Proxy do aplicativo ativa.
-<p>Forneça suas credenciais de administrador global do AD do Azure. -Certifique-se de que o administrador que registra o conector está no mesmo diretório em que você ativou o serviço Proxy de aplicativo, por exemplo se o domínio de locatário for contoso.com, o administrador deve ser admin@contoso.comou qualquer outro alias no domínio. E se você for um administrador global do locatário do AD do Azure. Seu locatário de administrador global pode ser diferente das suas credenciais do Microsoft Azure. -Se a Configuração de Segurança Reforçada do Internet Explorer estiver **Ativada** no servidor onde você estiver instalando o Conector do AD do Azure, a tela de registro pode estar bloqueada. Se isso acontecer, siga as instruções na mensagem de erro para permitir o acesso. Certifique-se de que a segurança reforçada do Internet Explorer está desativado. -Se o registro do conector não for bem-sucedido, consulte Solucionar problemas de Proxy de aplicativo.
+<p>Forneça suas credenciais de administrador global do AD do Azure.
+- Certifique-se de que o administrador que registra o conector está no mesmo diretório em que você ativou o serviço Proxy de aplicativo, por exemplo se o domínio de locatário for contoso.com, o administrador deve ser admin@contoso.comou qualquer outro alias no domínio. E se você for um administrador global do locatário do AD do Azure. Seu locatário de administrador global pode ser diferente das suas credenciais do Microsoft Azure.
+- Se a Configuração de Segurança Reforçada do Internet Explorer estiver **Ativada** no servidor onde você estiver instalando o Conector do AD do Azure, a tela de registro pode estar bloqueada. Se isso acontecer, siga as instruções na mensagem de erro para permitir o acesso. Certifique-se de que a segurança reforçada do Internet Explorer está desativado.
+- Se o registro do conector não for bem-sucedido, consulte Solucionar problemas de Proxy de aplicativo.
 
 4. Quando a instalação for concluída, dois novos serviços são adicionados ao seu servidor, conforme mostrado abaixo. Esses são o serviço de conector, que permite a conectividade, e um serviço de atualização automatizada que verifica periodicamente novas versões do conector e atualiza o conector conforme necessário. Clique em Concluir na janela de instalação para concluir a instalação ![Serviço de conector de Proxy de aplicativo!](./media/active-directory-application-proxy-enable/app_proxy_services.png) <p>
 5. Agora você está pronto para publicar aplicativos com o Proxy de aplicativo.
 
-Se você deseja desinstalar o conector, depois de desinstalar o serviço de conector e o serviço do atualizador, certifique-se de reiniciar o computador para remover completamente o serviço. <p>Para fins de alta disponibilidade, você deve implantar pelo menos um Conector adicional. Para implantar um conector adicional, repita as etapas 2 e 3 acima. Cada conector deve ser registrado separadamente.
+Se você deseja desinstalar o conector, depois de desinstalar o serviço de conector e o serviço do atualizador, certifique-se de reiniciar o computador para remover completamente o serviço. <p>Para fins de alta disponibilidade, você deve implantar pelo menos um conector adicional. Para implantar um conector adicional, repita as etapas 2 e 3 acima. Cada conector deve ser registrado separadamente.
 
 
 

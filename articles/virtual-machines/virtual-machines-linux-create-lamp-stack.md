@@ -334,7 +334,7 @@ Você também deve alterar o perfil /etc/mysql/my.cnf. Se você tiver linhas com
 	skip-networking
 	bind-address = 127.0.0.1  
 
-Você deve comentá-las (adicionar um # no início das linhas) e, em seguida, reiniciar o MySQL.
+Você deve comentá-las (adicionar um \# no início das linhas) e, em seguida, reiniciar o MySQL.
 
 Para adicionar um ponto de extremidade para permitir o acesso remoto, consulte as instruções na Fase 1: Criar uma imagem para criar um novo ponto de extremidade. O número padrão da porta TCP de acesso do MySQL é 3306. Aqui está um exemplo:
 
@@ -351,7 +351,7 @@ Uma vez que você tenha configurado a pilha LAMP com êxito, você pode implanta
 		sudo chmod g+w /var/www/html/                 # grant write permission to group lampappgroup
 
 	>[AZURE.NOTE]Talvez seja necessário fazer logon novamente se você quiser modificar um arquivo em /var/www/html /.
--	Use qualquer cliente SFTP (por exemplo, o FileZilla) para se conectar ao nome DNS da máquina virtual (por exemplo, lampdemo.cloudapp.net) e navegue até /**var/www/html** para publicar seu site.![][18]
+-	Use qualquer cliente SFTP (por exemplo, o FileZilla) para se conectar ao nome DNS da máquina virtual (por exemplo, lampdemo.cloudapp.net) e navegue até /**var/www/html** para publicar seu site. ![][18]
 
 
 

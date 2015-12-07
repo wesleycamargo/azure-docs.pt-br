@@ -86,7 +86,16 @@ Agora que o aplicativo Active Directory do Azure foi criado e a biblioteca de au
 
 1.	Abra o arquivo Program.cs para o projeto que você criou e, em seguida, adicione o seguinte usando instruções na parte superior do arquivo:
 
-    usando Microsoft. Azure; usando Microsoft.IdentityModel.Clients.ActiveDirectory; usando Microsoft.Azure.Management.Resources; usando Microsoft.Azure.Management.Resources.Models; usando Microsoft.Azure.Management.Storage; usando Microsoft.Azure.Management.Storage.Models; usando Microsoft.Azure.Management.Network; usando Microsoft.Azure.Management.Network.Models; usando Microsoft.Azure.Management.Compute; usando Microsoft.Azure.Management.Compute.Models;
+        using Microsoft.Azure;
+        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+		using Microsoft.Azure.Management.Resources;
+		using Microsoft.Azure.Management.Resources.Models;
+		using Microsoft.Azure.Management.Storage;
+		using Microsoft.Azure.Management.Storage.Models;
+		using Microsoft.Azure.Management.Network;
+		using Microsoft.Azure.Management.Network.Models;
+		using Microsoft.Azure.Management.Compute;
+		using Microsoft.Azure.Management.Compute.Models;
 
 
 2. Adicione o seguinte método à classe Program para obter o token necessário para criar as credenciais:
@@ -340,7 +349,7 @@ Agora que você criou todos os recursos de suporte, você pode criar uma máquin
 2.	Adicione o seguinte código ao método Main para chamar o método que você acabou de adicionar:
 
 		CreateVirtualMachine(credential);
-    Console.ReadLine();
+        Console.ReadLine();
 
 ##Etapa 5: adicionar código para excluir os recursos
 

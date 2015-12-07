@@ -86,18 +86,17 @@ Em seguida, na seção **ServiceManifestImport**, configure uma política para a
 
 Agora, vamos adicionar o arquivo MySetup.bat ao projeto do Visual Studio para testar os privilégios de Administrador. No Visual Studio, clique com botão direito do mouse no projeto de serviço e adicione uma nova chamada do arquivo MySetup.bat. Em seguida, é necessário assegurar que o arquivo esteja incluído no pacote de serviço, o que não ocorre por padrão. Para garantir que o arquivo MySetup.bat esteja incluído no pacote, selecione o arquivo, clique com botão direito para acessar o menu de contexto, escolha Propriedades e, na caixa de diálogo Propriedades, verifique se **Copiar para o Diretório de Saída** está definido como **Copiar se for mais recente**. Isso é mostrado na captura de tela abaixo.
 
-![CopyToOutput do Visual Studio para o arquivo em lotes SetupEntryPoint][image1]
+![CopyToOutput do Visual Studio para o arquivo em lotes SetupEntryPoint][Image1]
 
 Agora, abra o arquivo MySetup.bat e adicione os comandos a seguir.
-
 ~~~
-REM Set a system environment variable. This requires administrator privilege
+REM Defina uma variável de ambiente do sistema. Isso requer privilégios de administrador
 setx -m TestVariable "MyValue"
 echo System TestVariable set to > test.txt
 echo %TestVariable% >> test.txt
 
-REM To delete this system variable us
-REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
+REM Para excluir essa variável do sistema use
+REM REG delete "HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment" /v TestVariable /f
 ~~~
 
 Em seguida, compile e implante a solução em um cluster de desenvolvimento local. Após a inicialização do serviço, conforme visto no Gerenciador do Service Fabric, veja que MySetup.bat foi bem-sucedido de duas maneiras. Abra um prompt de comando do PowerShell e digite
@@ -116,8 +115,7 @@ C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ##  Iniciando comandos do PowerShell do SetupEntryPoint
 Para executar o PowerShell do ponto **SetupEntryPoint**, execute PowerShell.exe em um arquivo em lotes que aponte para um arquivo do PowerShell. Primeiro, adicione um arquivo do PowerShell ao projeto de serviço, por exemplo, MySetup.ps1. Não deixe de definir a propriedade *Copiar se for mais recente* para que esse arquivo também seja incluído no pacote do serviço. O exemplo a seguir mostra um exemplo de arquivo em lotes para iniciar um arquivo do PowerShell chamado MySetup.ps1, que define uma variável de ambiente do sistema chamada *TestVariable*.
 
-Use MySetup.bat para iniciar o arquivo do PowerShell.
-
+MySetup.bat para iniciar o arquivo do PowerShell.
 ~~~
 powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 ~~~
@@ -129,7 +127,7 @@ No arquivo do PowerShell, adicione o seguinte para definir uma variável de ambi
 [Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt
 ```
 
-## Aplicando RunAsPolicy aos serviços
+## Aplicando RunAsPolicy aos serviços 
 Nas etapas acima, você viu como aplicar a política RunAs a um SetupEntryPoint. Agora, vamos analisar com mais detalhes como criar entidades diferentes que possam ser aplicadas como políticas de serviço.
 
 ### Criar grupos de usuários locais
@@ -169,7 +167,7 @@ Você pode criar um usuário local que pode ser usado para proteger um serviço 
   </Users>
 </Principals>
 ~~~
-
+ 
 <!-- If an application requires that the user account and password be same on all machines (e.g. to enable NTLM authentication), the cluster manifest must set NTLMAuthenticationEnabled to true and also specify an NTLMAuthenticationPasswordSecret that will be used to generate the same password across all machines.
 
 <Section Name="Hosting">
@@ -184,8 +182,8 @@ A seção **RunAsPolicy** de um **ServiceManifestImport** especifica a conta da 
 
 ~~~
 <Policies>
-  <RunAsPolicy CodePackageRef="Code" UserRef="LocalAdmin" EntryPointType="Setup"/>
-  <RunAsPolicy CodePackageRef="Code" UserRef="Customer3" EntryPointType="Main"/>
+<RunAsPolicy CodePackageRef="Code" UserRef="LocalAdmin" EntryPointType="Setup"/>
+<RunAsPolicy CodePackageRef="Code" UserRef="Customer3" EntryPointType="Main"/>
 </Policies>
 ~~~
 

@@ -26,14 +26,17 @@ Para adicionar um dispositivo ao AD do Azure
 
 1. Após o estágio de **Preparação**, o Assistente de instalação será iniciado.
 2. Primeiro personalize sua região e idioma, aceite o EULA e entre online.
-<center>! [] (. / media/active-directory-azureadjoin/active-directory-azureadjoin-customize-region.png)</center>
+<center>
+![](./media/active-directory-azureadjoin/active-directory-azureadjoin-customize-region.png) </center>
 3. Selecione a rede para se conectar à internet.
 4. Selecione se é um dispositivo pessoal ou um dispositivo da empresa:
 5. Clique em **este dispositivo pertence à minha organização**. Isso inicia a experiência de junção do Azure AD. A seguir está uma tela que você vê no SKU do Windows 10 Professional. 
-<center>! [] (. / media/active-directory-azureadjoin/active-directory-azureadjoin-who-owns-pc.png)</center>
+<center>
+![](./media/active-directory-azureadjoin/active-directory-azureadjoin-who-owns-pc.png) </center>
 
 6.	Insira as credenciais fornecidas a você pela sua organização.
-<center> ![](./media/active-directory-azureadjoin/active-directory-azureadjoin-sign-in.png) </center>
+<center>
+![](./media/active-directory-azureadjoin/active-directory-azureadjoin-sign-in.png) </center> 
 7.	Depois de inserir seu nome de usuário, um locatário correspondente está localizado no AD do Azure. Se você estiver em um domínio federado, você será redirecionado para o servidor local do Secure Token Service (STS) (por exemplo, o AD FS). Se você for um usuário em um domínio não-federado, você precisa inserir suas credenciais diretamente na página hospedada pelo AD do Azure. Você também verá o logotipo de sua organização e um texto de apoio se a identidade visual da empresa tiver sido configurada.
 8.	Você será solicitado para um desafio de autenticação multifator. Essa opção é configurada pela TI.
 9.	O AD do Azure, em seguida, verificará se esse usuário/dispositivo requer o registro do dispositivo móvel MDM (gerenciamento). 

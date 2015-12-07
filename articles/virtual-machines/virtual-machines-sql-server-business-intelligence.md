@@ -425,7 +425,7 @@ O diagrama a seguir ilustra as portas a serem abertas no firewall da VM a fim de
 
 - [Usando o Power BI em um ambiente híbrido](https://msdn.microsoft.com/library/dn798994.aspx)
 
->[AZURE.NOTE] [Submit feedback and contact information through Microsoft SQL Server Connect](https://connect.microsoft.com/SQLServer/Feedback)
+>[AZURE.NOTE] [Enviar comentários e informações de contato pelo Microsoft SQL Server Connect](https://connect.microsoft.com/SQLServer/Feedback)
 
 ### Conteúdo da comunidade
 

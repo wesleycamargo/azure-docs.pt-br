@@ -59,15 +59,19 @@ Agora você pode fazer isso facilmente no Centro de Contas do Microsoft Azure, p
 
     Não há nenhum impacto no serviço. Isso efetivamente cancela a assinatura do atual administrador da conta e cria uma nova na conta do destinatário, mas associa os serviços do Azure subjacentes à nova assinatura. A ID da assinatura permanece a mesma.
 
--   **Como usar esse mecanismo para alterar o diretório para assinatura?**-Uma assinatura do Azure é criada no diretório ao qual o administrador da conta pertence. Portanto, para alterar o diretório, basta transferir a assinatura para uma conta de usuário no diretório de destino. Quando o usuário conclui as etapas para aceitar a transferência, a assinatura avançará automaticamente para o diretório de destino.
+-   **Como usar esse mecanismo para alterar o diretório para assinatura?**-   
+    Uma assinatura do Azure é criada no diretório ao qual o administrador da conta pertence. Portanto, para alterar o diretório, basta transferir a assinatura para uma conta de usuário no diretório de destino. Quando o usuário conclui as etapas para aceitar a transferência, a assinatura avançará automaticamente para o diretório de destino.
    
 -   **Se eu assumir a propriedade de cobrança de uma assinatura de outra organização, eles continuarão a ter acesso aos meus recursos?**
 
-    Se a assinatura é transferida para outro locatário, os usuários associados ao locatário anterior perdem o acesso à assinatura. Mesmo que um usuário não seja mais um administrador ou coadministrador de serviços, ele ainda terá acesso à assinatura por meio de outros mecanismos de segurança. Eles incluem:-certificados de gerenciamento que concedem ao usuário direitos de administrador para os recursos de assinatura. Para obter mais informações, consulte [criar e carregar um certificado de gerenciamento do Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx) -chaves de acesso para serviços como Armazenamento. Para obter mais informações, consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys) -credenciais de acesso remoto para serviços como máquinas virtuais do Azure
+    Se a assinatura é transferida para outro locatário, os usuários associados ao locatário anterior perdem o acesso à assinatura. Mesmo que um usuário não seja mais um administrador ou coadministrador de serviços, ele ainda terá acesso à assinatura por meio de outros mecanismos de segurança. Eles incluem:
+    - certificados de gerenciamento que concedem ao usuário direitos de administrador para os recursos de assinatura. Para obter mais informações, consulte [criar e carregar um certificado de gerenciamento do Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx) 
+    -	chaves de acesso para serviços como Armazenamento. Para obter mais informações, consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)
+    -	credenciais de acesso remoto para serviços como máquinas virtuais do Azure
 
     Esta não é uma lista completa. O destinatário deve considerar a atualização de qualquer segredo associado ao serviço, se for necessário restringir o acesso a seus recursos. A maioria dos recursos pode ser atualizada da seguinte maneira:
 
-    1.   Vá para o portal do Azure: [**https://portal.azure.com*](https://portal.azure.com)
+    1.   Vá para o portal do Azure: [*https://portal.azure.com*](https://portal.azure.com)
 
     2.    Clique em Procurar tudo - & gt; Todos os recursos
 

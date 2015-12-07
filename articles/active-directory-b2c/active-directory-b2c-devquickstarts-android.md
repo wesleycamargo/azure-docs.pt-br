@@ -891,7 +891,16 @@ Vamos escrever nosso `getTask` primeiro:
  
  **No mesmo arquivo** chamado `ToDoActivity.java`
  
- ``` private URL getEndpointUrl() { URL endpoint = null; try { endpoint = new URL(Constants.SERVICE\_URL); } catch (MalformedURLException e) { e.printStackTrace(); } return endpoint; }
+```
+    private URL getEndpointUrl() {
+        URL endpoint = null;
+        try {
+            endpoint = new URL(Constants.SERVICE_URL);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return endpoint;
+    }
 
  ```
 
@@ -964,7 +973,9 @@ Observe como as tarefas são armazenados por usuário na API, pois a API extrai 
 
 Para referência, o exemplo concluído [é fornecido como um .zip aqui](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip), ou você pode cloná-lo do GitHub:
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android```
+```
+git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android
+```
 
 
 ### Informações importantes
