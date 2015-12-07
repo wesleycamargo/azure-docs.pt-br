@@ -33,11 +33,12 @@ Os tópicos a seguir abordam o modelo de aplicativo da Malha do Serviço, e como
 ## Atualizar um aplicativo
 Leia os artigos a seguir para saber como atualizar um aplicativo:
 
-- [Atualização de aplicativo da Malha do Serviço](service-fabric-application-upgrade.md)
-- [Parâmetros de atualização](service-fabric-application-upgrade-parameters.md)
-- [Tópicos avançados](service-fabric-application-upgrade-advanced.md)
-- [Solucionando problemas de falhas de atualização de aplicativo ](service-fabric-application-upgrade-troubleshooting.md)
+- [Atualização do Aplicativo Service Fabric usando o Visual Studio](service-fabric-application-upgrade.md)
+- [Atualizar o aplicativo Service Fabric usando o PowerShell](service-fabric-application-upgrade-powershell.md)
 - [Passo a passo da atualização de aplicativo](service-fabric-application-upgrade-tutorial.md)
+- [Parâmetros de atualização](service-fabric-application-upgrade-parameters.md)
+- [Atualização Manual e Atualização com um Pacote Diff](service-fabric-application-upgrade-advanced.md)
+- [Solucionando problemas de falhas de atualização de aplicativo ](service-fabric-application-upgrade-troubleshooting.md)
 - [Atualização de aplicativo da Malha do Serviço: serialização de dados](service-fabric-application-upgrade-data-serialization.md)
 
 ## Dimensionar e particionar serviços de aplicativos
@@ -49,4 +50,4 @@ Os seguintes artigos descrevem o dimensionamento e o particionamento:
 ## Gerenciar um cluster
 - [Visualizando o cluster usando o Gerenciador da Malha do Serviço](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

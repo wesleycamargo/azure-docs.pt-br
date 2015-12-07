@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/25/2015"
+   ms.date="11/24/2015"
    ms.author="mbaldwin" />
 
 # Integrando aplicativos ao Active Directory do Azure
@@ -349,6 +349,6 @@ Para um administrador de empresa remover o acesso de um aplicativo ao seu diret�
 
 - Noções básicas sobre o [manifesto de aplicativo do Active Directory do Azure](active-directory-application-manifest.md)
 
-- Visite o [Guia do desenvolvedor do Active Directory](active-directory-developer's guide.md)
+- Visite o [Guia do desenvolvedor do Active Directory](active-directory-developers-guide.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

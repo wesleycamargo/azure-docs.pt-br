@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="11/20/2015"
 	ms.author="mahender"/>
 
 # Como configurar seu aplicativo do Serviço de Aplicativo para usar o logon da Conta da Microsoft
@@ -25,8 +25,7 @@
 Este tópico mostra como configurar o Serviço de Aplicativo do Azure para usar a conta da Microsoft como um provedor de autenticação.
 
 
-	> [AZURE.NOTE]
-	This topic demonstrates use of the App Service Authentication / Authorization feature. This replaces the App Service gateway for most applications. Differences that apply to using the gateway are called out in notes throughout the topic.
+> [AZURE.NOTE]Este tópico demonstra o uso do recurso de Autenticação / Autorização do Serviço de Aplicativo. Isso substitui o gateway do Serviço de Aplicativo para a maioria dos aplicativos. As diferenças que se aplicam ao uso do gateway são destacadas nas notas ao longo desse tópico.
 
 
 ## <a name="register"> </a>Registrar seu aplicativo com a conta da Microsoft
@@ -53,20 +52,20 @@ Este tópico mostra como configurar o Serviço de Aplicativo do Azure para usar 
 
 ## <a name="secrets"> </a>Adicionar informações da Conta da Microsoft ao seu aplicativo
 
-
-	> [AZURE.NOTE]
-	If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Microsoft Account**. Paste in the values you obtained earlier and click **Save**.
+> [AZURE.NOTE]Se for usar o Gateway do Serviço de Aplicativo, ignore esta seção e navegue até o gateway no portal. Selecione **Configurações**, **Identidade**, e então **Conta da Microsoft**. Cole os valores obtidos anteriormente e clique em **Salvar**.
 
 
-7. De volta ao [Portal de Gerenciamento do Azure], navegue até o aplicativo. Clique em **Configurações** e em **Autenticação/Autorização**.
+7. De volta ao [Portal de Gerenciamento do Azure], navegue até o aplicativo. Clique em **Configurações** e em **Autenticação / Autorização**.
 
-8. Se o recurso Autenticação/Autorização não estiver habilitado, mude a opção para **Ativado**.
+8. Se o recurso Autenticação / Autorização não estiver habilitado, mude a opção para **Ativado**.
 
 9. Clique em **Conta da Microsoft**. Cole os valores de ID do Aplicativo e de Segredo do Aplicativo que você obteve anteriormente e, opcionalmente, habilite os escopos exigidos pelo seu aplicativo. Em seguida, clique em **OK**.
 
     ![][1]
 	
-11. Por padrão, o Serviço de Aplicativo fornece logon, mas não restringe o acesso ao conteúdo do site e às APIs - isso é responsabilidade do código do aplicativo. Se você quiser ter um site totalmente protegido pelo logon da Conta da Microsoft, altere a lista suspensa **Ação a ser tomada quando a solicitação não for autenticada** para usar a opção **Conta da Microsoft**. Isso exigirá que todas as solicitações sejam autenticadas; as solicitações não autenticadas serão redirecionadas para fazer logon com a Conta da Microsoft.
+	Por padrão, o Serviço de Aplicativo fornece autenticação, mas não restringe o acesso autorizado ao conteúdo do site e às APIs. Você deve autorizar os usuários no código do aplicativo.
+
+17. (Opcional) Para restringir o acesso ao seu site somente para usuários autenticados pela conta da Microsoft, defina **Ação a ser executada quando a solicitação não for autenticada** como **Conta da Microsoft**. Isso exige que todas as solicitações sejam autenticadas e todas as solicitações não autenticadas sejam redirecionadas à conta da Microsoft para autenticação.
 
 11. Clique em **Salvar**.
 
@@ -91,4 +90,4 @@ Agora você está pronto para usar uma conta da Microsoft para autenticação em
 [Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Portal de Gerenciamento do Azure]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

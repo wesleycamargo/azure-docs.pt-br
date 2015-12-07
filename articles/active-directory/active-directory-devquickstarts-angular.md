@@ -126,7 +126,7 @@ $scope.logout = function () {
 };
 ...
 ```
-- Você também poderá querer apresentar informações do usuário na interface do usuário do aplicativo. O serviço da ADAL já foi adicionado ao controlador `userDataCtrl`, por isso, você pode acessar o objeto `userInfo` na exibição associada, `App/Scripts/UserData.html`:
+- Você também poderá querer apresentar informações do usuário na interface do usuário do aplicativo. O serviço da ADAL já foi adicionado ao controlador `userDataCtrl`, por isso, você pode acessar o objeto `userInfo` na exibição associada, `App/Views/UserData.html`:
 
 ```js
 <p>{{userInfo.userName}}</p>
@@ -152,4 +152,4 @@ Para referência, o exemplo concluído (sem seus valores de configuração) é f
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

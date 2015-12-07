@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="08/03/2015"
+	ms.date="11/19/2015"
 	ms.author="tomfitz"/>
 
 #Criar um aplicativo Web PHP-MySQL no Serviço de Aplicativo do Azure e implantá-lo usando o Git
@@ -27,7 +27,7 @@
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
 - [Python](web-sites-python-ptvs-django-mysql.md)
 
-Este tutorial mostra como criar um aplicativo Web PHP-MySQL e como implantá-lo no [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) usando o Git. Você usará [PHP][install-php], a Ferramenta de Linha de Comando do MySQL (parte do [MySQL][install-mysql]), um servidor Web e o [Git][install-git] instalados no seu computador. As instruções deste tutorial podem ser seguidas em qualquer sistema operacional, incluindo o Windows, o Mac e o Linux. Após a conclusão deste guia, você terá um aplicativo Web PHP/MySQL em execução no Azure.
+Este tutorial mostra como criar um aplicativo Web PHP-MySQL e como implantá-lo no [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) usando o Git. Você usará o [PHP][install-php], a Ferramenta de Linha de Comando do MySQL (parte do [MySQL][install-mysql]), e [Git][install-git] instalados em seu computador. As instruções deste tutorial podem ser seguidas em qualquer sistema operacional, incluindo o Windows, o Mac e o Linux. Após a conclusão deste guia, você terá um aplicativo Web PHP/MySQL em execução no Azure.
 
 Você aprenderá a:
 
@@ -40,9 +40,8 @@ Seguindo este tutorial, você compilará um aplicativo Web de registro simples e
 
 ##Configurar o ambiente de desenvolvimento
 
-Este tutorial pressupõe que você tem o [PHP][install-php], a Ferramenta de Linha de Comando do MySQL (parte do [MySQL][install-mysql]), um servidor web e o [Git][install-git] instalados no seu computador.
+O tutorial presume que você usa o [PHP][install-php], a Ferramenta de Linha de Comando do MySQL (parte do [MySQL][install-mysql]), e [Git][install-git] instalados em seu computador.
 
-> [AZURE.NOTE]Se você estiver executando este tutorial no Windows, poderá configurar seu computador para o PHP e configurar automaticamente o IIS (o servidor Web interno do Windows) instalando o <a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids">SDK do Azure para PHP</a>.
 
 ##<a id="create-web-site-and-set-up-git"></a>Criar um aplicativo Web e configurar a publicação Git
 
@@ -51,9 +50,9 @@ Siga estas etapas para criar um aplicativo Web e um Banco de Dados MySQL:
 1. Faça logon no [Portal do Azure][management-portal].
 2. Clique no ícone **Novo**.
 
-3. Clique em **Web + Móvel** e em **Azure Marketplace**.
+3. Clique em **Ver tudo** ao lado de **Marketplace**.
 
-4. Clique em **Aplicativos Web** e em **Aplicativo Web + MySQL**. Em seguida, clique em **Criar**.
+4. Clique em **Web + Móvel** e, em seguida, em **Aplicativo Web + MySQL**. Em seguida, clique em **Criar**.
 
 4. Insira um nome válido para o grupo de recursos.
 
@@ -67,9 +66,9 @@ Siga estas etapas para criar um aplicativo Web e um Banco de Dados MySQL:
 
 	![Criar novo banco de dados MySQL][new-mysql-db]
 
-7. Quando o aplicativo Web tiver sido criado, você verá o novo grupo de recursos. Clique no nome do aplicativo Web para definir suas configurações.
+7. Quando o aplicativo web tiver sido criado, você verá a nova folha do aplicativo web.
 
-7. Clique em **Configurar implantação contínua**.
+7. Em **configurações**, clique em **Implantação Contínua**. Em seguida, clique em _Configurar configurações exigidas_.
 
 	![Configurar a publicação do Git][setup-publishing]
 
@@ -91,7 +90,7 @@ Para conectar-se ao Banco de Dados MySQL que está em execução nos Aplicativos
 
 	![Selecionar um banco de dados][select-database]
 
-2. No resumo do banco de dados, selecione **Propriedades**.
+2. Em **Configurações** do banco de dados, selecione **Propriedades**.
 
     ![Selecionar propriedades][select-properties]
 
@@ -107,7 +106,7 @@ O aplicativo Registro é um aplicativo simples do PHP que permite que você se r
 
 * **index.php**: exibe um formulário de registro e uma tabela contendo informações sobre o inscrito.
 
-Para criar e executar o aplicativo localmente, siga as etapas abaixo. Observe que essas etapas presumem que o PHP, a ferramenta de linha de comando do MySQL (parte do MySQL) e um servidor Web estão configurados no seu computador local e que você habilitou a [extensão PDO do MySQL][pdo-mysql].
+Para criar e executar o aplicativo localmente, siga as etapas abaixo. Observe que essas etapas pressupõem que o PHP e a ferramenta de linha de comando do MySQL (parte do MySQL) estão configurados no computador local e que a [extensão PDO para MySQL][pdo-mysql] foi habilitada.
 
 1. Conecte-se ao servidor MySQL remoto usando os valores de `Data Source`, `User Id`, `Password` e `Database` que você recuperou anteriormente:
 
@@ -119,9 +118,9 @@ Para criar e executar o aplicativo localmente, siga as etapas abaixo. Observe qu
 
 3. Cole no seguinte comando `CREATE TABLE` para criar a tabela `registration_tbl` em seu banco de dados:
 
-		mysql> CREATE TABLE registration_tbl(id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id), name VARCHAR(30), email VARCHAR(30), date DATE);
+		CREATE TABLE registration_tbl(id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id), name VARCHAR(30), email VARCHAR(30), date DATE);
 
-4. No diretório raiz do servidor web, crie uma pasta chamada `registration` e crie um arquivo chamado `index.php`.
+4. Na raiz da pasta do aplicativo local, crie o arquivo **index.php**.
 
 5. Abra o arquivo **index.php** em um editor de texto ou IDE, adicione o código a seguir e conclua as alterações necessárias marcadas com os comentários `//TODO:`.
 
@@ -210,7 +209,11 @@ Para criar e executar o aplicativo localmente, siga as etapas abaixo. Observe qu
 		</body>
 		</html>
 
-Agora você pode navegar até ****http://localhost/registration/index.php** para testar o aplicativo.
+4.  Em um terminal, abra a sua pasta do aplicativo e digite o seguinte comando:
+
+		php -S localhost:8000
+
+Agora você pode navegar até ****http://localhost:8000/** para testar o aplicativo.
 
 
 ##Publicar seu aplicativo
@@ -300,4 +303,4 @@ Para obter mais informações, consulte o [Centro de desenvolvedores do PHP](/de
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

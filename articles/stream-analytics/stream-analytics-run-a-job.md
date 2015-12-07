@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Executar um trabalho | Microsoft Azure" 
-	description="Execute um trabalho de segmento de roteiro de aprendizagem."
+	description="Executar um trabalho do Stream Analytics | segmento do roteiro de aprendizagem."
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,10 +13,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/10/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
-# Executar um trabalho
+# Como executar um trabalho do Stream Analytics
 
 Quando uma entrada, consulta e saída de trabalho forem especificadas, você poderá iniciar o trabalho do Stream Analytics.
 
@@ -53,4 +53,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

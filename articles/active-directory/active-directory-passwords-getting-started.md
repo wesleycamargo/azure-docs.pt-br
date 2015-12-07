@@ -245,8 +245,8 @@ Depois de habilitar o Write-back de Senha na ferramenta Azure AD Connect, você 
 
 1.	Depois que a instalação estiver concluída, se você estiver bloqueando as conexões de saída desconhecidas no seu ambiente, você também precisará adicionar as seguintes regras ao firewall. Não deixe de reiniciar o computador do AAD Connect após fazer estas alterações:
    - Permitir conexões de saída pela porta TCP 443
-   - Permitir conexões de saída para https://ssprsbprodncu-sb.accesscontrol.windows.net/
-   - Ao usar um proxy ou ter problemas gerais de conectividade, permitir conexões de saída pelas portas TCP 9350-9534
+   - Permitir conexões de saída para https://ssprsbprodncu-sb.accesscontrol.windows.net/ 
+   - Ao usar um proxy ou ter problemas gerais de conectividade, permitir conexões de saída pelas portas TCP 9350-9354
 
 ### Etapa 4: configurar as permissões apropriadas do Active Directory
 Para cada floresta que contenha os usuários cujas senhas serão redefinidas, se X for a conta que foi especificada para essa floresta no assistente de configuração (durante a configuração inicial), X deverá receber os direitos estendidos **Redefinir Senha**, **Alterar Senha**, **Permissões de Gravação** no `lockoutTime`, e **Permissões de Gravação** na `pwdLastSet` no objeto raiz de cada domínio da floresta. A direita deve ser marcada como herdada por todos os objetos de usuário.
@@ -306,7 +306,7 @@ Agora que o Write-back de senha foi habilitado, você pode testar se ele funcion
 ## Links para a documentação de redefinição de senha
 Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
 
-* [**Redefinir sua própria senha**](active-directory-passwords-update-your-own-password): saiba mais sobre como redefinir ou alterar sua própria senha como um usuário do sistema
+* [**Redefinir sua própria senha**](active-directory-passwords-update-your-own-password.md): saiba mais sobre como redefinir ou alterar sua própria senha como um usuário do sistema
 * [**Como funciona**](active-directory-passwords-how-it-works.md) - saiba mais sobre os seis diferentes componentes do serviço e o que cada um deles faz
 * [**Personalizar**](active-directory-passwords-customize.md) - aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização
 * [**Práticas recomendadas**](active-directory-passwords-best-practices.md) - aprenda a implantar rapidamente e gerenciar com eficiência as senhas em sua organização
@@ -350,4 +350,4 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 [032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

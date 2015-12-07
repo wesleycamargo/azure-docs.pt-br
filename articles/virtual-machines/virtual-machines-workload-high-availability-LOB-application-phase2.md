@@ -111,7 +111,7 @@ Quando você tiver fornecido a todos os valores adequados, execute o bloco resul
 	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-> [AZURE.NOTE]Como essas máquinas virtuais são para um aplicativo de intranet, elas não recebem um endereço IP público ou um rótulo de nome de domínio DNS e não são expostas na Internet. No entanto, isso também significa que você não poderá se conectar a elas do portal de Visualização do Azure. O botão **Conectar** não ficará disponível quando você exibir as propriedades da máquina virtual. Use o acessório Conexão de Área de Trabalho Remota ou outra ferramenta da Área de Trabalho Remota para se conectar à máquina virtual usando o endereço IP privado ou o nome DNS da intranet.
+> [AZURE.NOTE]Como essas máquinas virtuais são para um aplicativo de intranet, elas não recebem um endereço IP público ou um rótulo de nome de domínio DNS e não são expostas na Internet. No entanto, isso também significa que você não pode se conectar a eles no portal de visualização do Azure. O botão **Conectar** não ficará disponível quando você exibir as propriedades da máquina virtual. Use o acessório Conexão de Área de Trabalho Remota ou outra ferramenta da Área de Trabalho Remota para se conectar à máquina virtual usando o endereço IP privado ou o nome DNS da intranet.
 
 ## Configurar o primeiro controlador de domínio
 
@@ -165,16 +165,16 @@ Você será solicitado a fornecer as credenciais de uma conta de administrador d
 
 Em seguida, você precisa atualizar os servidores DNS da sua rede virtual para que o Azure atribua às máquinas virtuais os endereços IP dos dois novos controladores de domínio para que eles sejam usados como seus servidores DNS. Observe que esse procedimento usa valores das Tabelas V (para as configurações de rede virtual) e M (para suas máquinas virtuais).
 
-1.	No painel esquerdo do [portal de Visualização do Azure](https://portal.azure.com/), clique em **Procurar tudo > Redes virtuais** e clique no nome da sua rede virtual (Tabela V - Item 1 - coluna Valor).
-2.	No painel de sua rede virtual, clique em **Todas as configurações**.
-3.	No painel de **Configurações**, clique em **Servidores DNS**.
+1.	No painel esquerdo do portal de visualização do Azure, clique em **Procurar tudo > Redes virtuais**, e, em seguida, clique no nome da sua rede virtual (Tabela V – Item 1 – coluna Valor).
+2.	No painel da sua rede virtual, clique em **Todas as configurações**.
+3.	No painel **Configurações**, clique em **Servidores DNS**.
 4.	No painel **Servidores DNS**, digite o seguinte:
-	- Para **Servidor DNS primário**: Tabela V - Item 6 - coluna Valor
-	- Para **Servidor DNS secundário**: Tabela V - Item 7 - coluna Valor
-5.	No painel esquerdo do portal de Visualização do Azure, clique em **Procurar tudo > Máquinas virtuais**.
-6.	No **Painel de máquinas virtuais**, clique no nome do seu primeiro controlador de domínio (Tabela M – Item 1 - coluna Nome da máquina virtual).
+	- Para **Servidor DNS primário**: Tabela V – Item 6 – coluna Valor
+	- Para **Servidor DNS secundário**: Tabela V – Item 7 – coluna Valor
+5.	No painel esquerdo do portal de visualização do Azure, clique em **Procurar tudo > Máquinas virtuais**.
+6.	No **Painel de máquinas virtuais**, clique no nome do seu primeiro controlador de domínio (Tabela M – Item 1 - coluna Nome de Máquina Virtual).
 7.	No painel da máquina virtual, clique em **Reiniciar**.
-8.	Quando o primeiro controlador de domínio for iniciado, clique no nome do segundo controlador de domínio no painel **Máquinas virtuais** (Tabela M – Item 2 - Coluna de nome de máquina virtual).
+8.	Quando o primeiro controlador de domínio é iniciado, clique no nome do seu segundo controlador de domínio no painel **Máquinas virtuais** (Tabela M – Item 2 - Coluna nome de máquina virtual).
 9.	No painel da máquina virtual, clique em **Reiniciar**. Aguarde até que o segundo controlador de domínio seja iniciado.
 
 Observe que podemos reiniciar os dois controladores de domínio para que eles não sejam configurados com os servidores DNS locais como servidores DNS. Como ambos são servidores DNS, eles são configurados automaticamente com os servidores DNS locais como encaminhadores DNS quando são promovidos a controladores de domínio.
@@ -196,7 +196,7 @@ Este diagrama mostra a configuração resultante da conclusão bem-sucedida dest
 
 ## Próxima etapa
 
-Para continuar a configuração dessa carga de trabalho, vá para a [Fase 3: configurar a infraestrutura do SQL Server](virtual-machines-workload-high-availability-LOB-application-phase3.md).
+Para continuar com a configuração dessa carga de trabalho, vá para [fase 3: Configurar infraestrutura do SQL Server](virtual-machines-workload-high-availability-LOB-application-phase3.md).
 
 ## Recursos adicionais
 
@@ -210,4 +210,4 @@ Para continuar a configuração dessa carga de trabalho, vá para a [Fase 3: con
 
 [Carga de trabalho de serviços de infraestrutura do Azure: farm do SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

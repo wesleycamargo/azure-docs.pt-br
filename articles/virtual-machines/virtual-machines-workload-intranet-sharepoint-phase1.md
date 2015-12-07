@@ -82,16 +82,16 @@ Para criar a rede virtual com as configurações das Tabelas V, S, D e L, use as
 
 > [AZURE.NOTE]Este procedimento orienta a criação de uma rede virtual que usa uma conexão VPN site a site. Para saber mais sobre como usar o ExpressRoute para sua conexão site a site, consulte [Visão geral técnica do ExpressRoute](../expressroute/expressroute-introduction.md).
 
-Depois de criar a rede virtual do Azure, o Portal de Gerenciamento do Azure determinará:
+Depois de criar a rede virtual do Azure, o portal do Azure vai determinar o seguinte:
 
 - O endereço IPv4 público do gateway da VPN do Azure para a sua rede virtual.
 - A chave pré-compartilhada do protocolo IPsec da conexão VPN site a site.
 
-Para ver esses itens no Portal de Gerenciamento do Azure depois de criar a rede virtual, clique em **Redes**, no nome da rede virtual e, em seguida, clique na opção de menu **Painel**.
+Para vê-los no portal do Azure depois de criar a rede virtual, clique em **Redes**, clique no nome da rede virtual e, em seguida, clique na opção de menu **Painel**.
 
-Em seguida, você configurará o gateway de rede virtual para criar uma conexão VPN site a site segura. Consulte [Configurar um gateway de rede virtual no Portal de Gerenciamento](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md) para obter instruções.
+Em seguida, você configurará o gateway de rede virtual para criar uma conexão VPN site a site segura. Consulte [Configurar o gateway de rede virtual no portal do Azure](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md) para obter instruções.
 
-Em seguida, crie a conexão VPN site a site entre a nova rede virtual e um dispositivo VPN local. Para saber mais, consulte [Configurar um gateway de rede virtual no Portal de Gerenciamento](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md).
+Em seguida, crie a conexão VPN site a site entre a nova rede virtual e um dispositivo VPN local. Para obter detalhes, consulte [Configurar o gateway de rede virtual no portal do Azure](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md) para obter instruções.
 
 Em seguida, certifique-se de que o espaço de endereço da rede virtual possa ser acessado pela sua rede local. Geralmente, isso é feito adicionando uma rota correspondente ao espaço de endereço da rede virtual ao seu dispositivo VPN e, em seguida, anunciando essa rota para o restante da infraestrutura de roteamento da rede da sua organização. Trabalhe com o departamento de TI para determinar como fazer isso.
 
@@ -173,4 +173,4 @@ Para configurar a configuração dessa carga de trabalho, vá para [Fase 2: Conf
 
 [Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 # Práticas recomendadas de segurança para o uso do Azure Multi-Factor Authentication com contas do AD do Azure
@@ -121,4 +121,4 @@ Embora este artigo destaque algumas práticas recomendadas para o Azure MFA, há
 - [Experiência de configuração do Azure Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md)
 - [Perguntas frequentes sobre o Azure Multi-Factor Authentication](multi-factor-authentication-faq.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

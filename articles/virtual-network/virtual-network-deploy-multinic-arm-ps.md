@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="11/20/2015"
    ms.author="telmos" />
 
 #Implantar VMs com várias NICs usando o Azure PowerShell
@@ -37,7 +37,7 @@ Antes de implantar os servidor de back-end, você deve implantar o grupo de recu
 2. Na página do modelo, à direita do **Grupo de recursos pai**, clique em **Implantar no Azure**.
 3. Caso necessário, altere os valores de parâmetro e siga as etapas no Portal de visualização do Azure para implantar o grupo de recursos.
 
-> [AZURE.IMPORTANT]Verifique se os nomes das contas de armazenamento são exclusivos. Você não pode ter nomes de conta de armazenamento duplicados no Azure.
+> [AZURE.IMPORTANT]Verifique se os nomes da conta de armazenamento são exclusivos. Você não pode ter nomes de conta de armazenamento duplicados no Azure.
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -53,7 +53,9 @@ As VMs de back-end dependem da criação dos recursos descritos abaixo.
 
 Baixe o script completo do PowerShell usado [aqui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/multinic.ps1). Realize os procedimentos abaixo para alterar o script para funcionar em seu ambiente.
 
-1. Altere os valores das variáveis a seguir com base no grupo de recursos existente implantado acima, no tópico [Pré-requisitos](#Prerequisites).
+[AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
+
+1. Altere os valores das variáveis a seguir com base no seu grupo de recursos existente implantado acima em [pré-requisitos](#Prerequisites).
 
 		$existingRGName        = "IaaSStory"
 		$location              = "West US"
@@ -81,10 +83,10 @@ Baixe o script completo do PowerShell usado [aqui](https://raw.githubusercontent
 
 3. Recupere os recursos existentes necessários para a implantação.
 
-		$vnet                  = Get-AzureVirtualNetwork -Name $vnetName -ResourceGroupName $existingRGName
+		$vnet                  = Get-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $existingRGName
 		$backendSubnet         = $vnet.Subnets|?{$_.Name -eq $backendSubnetName}
-		$remoteAccessNSG       = Get-AzureNetworkSecurityGroup -Name $remoteAccessNSGName -ResourceGroupName $existingRGName
-		$stdStorageAccount     = Get-AzureStorageAccount -Name $stdStorageAccountName -ResourceGroupName $existingRGName
+		$remoteAccessNSG       = Get-AzureRmNetworkSecurityGroup -Name $remoteAccessNSGName -ResourceGroupName $existingRGName
+		$stdStorageAccount     = Get-AzureRmStorageAccount -Name $stdStorageAccountName -ResourceGroupName $existingRGName
 
 ### Etapa 2: criar recursos necessários para as VMs
 
@@ -92,16 +94,16 @@ Você deve criar um novo grupo de recursos, uma conta de armazenamento para os d
 
 1. Crie um novo grupo de recursos.
 
-		New-AzureResourceGroup -Name $backendRGName -Location $location
+		New-AzureRmResourceGroup -Name $backendRGName -Location $location
 
 2. Crie uma nova conta de Armazenamento Premium no grupo de recursos criado acima.
 
-		$prmStorageAccount = New-AzureStorageAccount -Name $prmStorageAccountName `
+		$prmStorageAccount = New-AzureRmStorageAccount -Name $prmStorageAccountName `
 			-ResourceGroupName $backendRGName -Type Premium_LRS -Location $location
 
 3. Crie um novo conjunto de disponibilidade.
 
-		$avSet = New-AzureAvailabilitySet -Name $avSetName -ResourceGroupName $backendRGName -Location $location
+		$avSet = New-AzureRmAvailabilitySet -Name $avSetName -ResourceGroupName $backendRGName -Location $location
 
 4. Obtenha as credenciais da conta de administrador local para usar em cada VM.
 
@@ -111,7 +113,7 @@ Você deve criar um novo grupo de recursos, uma conta de armazenamento para os d
 
 Você deve usar um loop para criar várias VMs desejadas e para criar as NICs e VMs necessárias dentro do loop. Para criar as NICs e VMs, faça o seguinte:
 
-1. Inicie um loop `for` para repetir os comandos para criar uma VM e duas NICs, quantas vezes forem necessárias, com base no valor da variável `$numberOfVMs`.
+1. Inicie um `for` loop para repetir os comandos para criar uma VM e duas NICs quantas vezes forem necessárias, com base no valor da `$numberOfVMs` variável.
 
 		for ($suffixNumber = 1; $suffixNumber -le $numberOfVMs; $suffixNumber++){
 
@@ -119,57 +121,57 @@ Você deve usar um loop para criar várias VMs desejadas e para criar as NICs e 
 		
 		    $nic1Name = $nicNamePrefix + $suffixNumber + "-DA"
 		    $ipAddress1 = $ipAddressPrefix + ($suffixNumber + 3)
-		    $nic1 = New-AzureNetworkInterface -Name $nic1Name -ResourceGroupName $backendRGName `
+		    $nic1 = New-AzureRmNetworkInterface -Name $nic1Name -ResourceGroupName $backendRGName `
 				-Location $location -SubnetId $backendSubnet.Id -PrivateIpAddress $ipAddress1
 
 3. Crie a NIC usada para acesso remoto. Observe que esta NIC tem um NSG associado a ela.
 
 		    $nic2Name = $nicNamePrefix + $suffixNumber + "-RA"
 		    $ipAddress2 = $ipAddressPrefix + (53 + $suffixNumber)
-		    $nic2 = New-AzureNetworkInterface -Name $nic2Name -ResourceGroupName $backendRGName `
+		    $nic2 = New-AzureRmNetworkInterface -Name $nic2Name -ResourceGroupName $backendRGName `
 				-Location $location -SubnetId $backendSubnet.Id -PrivateIpAddress $ipAddress2 `
 				-NetworkSecurityGroupId $remoteAccessNSG.Id
 
-4. Crie um objeto `vmConfig`.
+4. Criar `vmConfig` objeto.
 
 		    $vmName = $vmNamePrefix + $suffixNumber
-		    $vmConfig = New-AzureVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avSet.Id
+		    $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avSet.Id
 
 5. Crie dois discos de dados por VM. Observe que os discos de dados se encontram na conta de Armazenamento Premium criada anteriormente.
 
 		    $dataDisk1Name = $vmName + "-" + $dataDiskSuffix + "-1"    
 		    $data1VhdUri = $prmStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $dataDisk1Name + ".vhd"
-		    Add-AzureVMDataDisk -VM $vmConfig -Name $dataDisk1Name -DiskSizeInGB $diskSize `
+		    Add-AzureRmVMDataDisk -VM $vmConfig -Name $dataDisk1Name -DiskSizeInGB $diskSize `
 				-VhdUri $data1VhdUri -CreateOption empty -Lun 0
 		
 		    $dataDisk2Name = $vmName + "-" + $dataDiskSuffix + "-2"    
 		    $data2VhdUri = $prmStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $dataDisk2Name + ".vhd"
-		    Add-AzureVMDataDisk -VM $vmConfig -Name $dataDisk2Name -DiskSizeInGB $diskSize `
+		    Add-AzureRmVMDataDisk -VM $vmConfig -Name $dataDisk2Name -DiskSizeInGB $diskSize `
 				-VhdUri $data2VhdUri -CreateOption empty -Lun 1
 
 6. Configure o sistema operacional e a imagem que vai usar na VM.
 		    
-		    $vmConfig = Set-AzureVMOperatingSystem -VM $vmConfig -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-		    $vmConfig = Set-AzureVMSourceImage -VM $vmConfig -PublisherName $publisher -Offer $offer -Skus $sku -Version $version
+		    $vmConfig = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+		    $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName $publisher -Offer $offer -Skus $sku -Version $version
 
-7. Adicione as duas NICs criadas acima para o objeto `vmConfig`.
+7. Adicione as duas NICs criadas acima ao `vmConfig` objeto.
 
-		    $vmConfig = Add-AzureVMNetworkInterface -VM $vmConfig -Id $nic1.Id -Primary
-		    $vmConfig = Add-AzureVMNetworkInterface -VM $vmConfig -Id $nic2.Id
+		    $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic1.Id -Primary
+		    $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic2.Id
 
-8. Crie o disco do sistema operacional e a VM. Observe que o símbolo `}` encerra o loop `for`.
+8. Crie o disco do sistema operacional e a VM. Observe que o `}` terminando o `for` loop.
 
 		    $osDiskName = $vmName + "-" + $osDiskSuffix
 		    $osVhdUri = $stdStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $osDiskName + ".vhd"
-		    $vmConfig = Set-AzureVMOSDisk -VM $vmConfig -Name $osDiskName -VhdUri $osVhdUri -CreateOption fromImage
-		    New-AzureVM -VM $vmConfig -ResourceGroupName $backendRGName -Location $location
+		    $vmConfig = Set-AzureRmVMOSDisk -VM $vmConfig -Name $osDiskName -VhdUri $osVhdUri -CreateOption fromImage
+		    New-AzureRmVM -VM $vmConfig -ResourceGroupName $backendRGName -Location $location
 		}
 
 ### Etapa 4: executar o script
 
 Agora que você baixou e alterou o script de acordo com suas necessidades, execute o script para criar VMs do banco de dados de back-end com várias NICs.
 
-1. Salve o script e execute-o no prompt de comando do **PowerShell** ou no **ISE do Windows PowerShell**. A saída inicial será exibida, conforme mostrado abaixo:
+1. Salve seu script e execute-o no prompt de comando do **PowerShell** ou **PowerShell ISE**. A saída inicial será exibida, conforme mostrado abaixo:
 
 		ResourceGroupName : IaaSStory-Backend
 		Location          : westus
@@ -182,7 +184,7 @@ Agora que você baixou e alterou o script de acordo com suas necessidades, execu
 		                    
 		ResourceId        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/IaaSStory-Backend
 
-2. Depois de alguns minutos, preencha a solicitação de credenciais e clique em **OK**. A saída abaixo representa uma VM única. Observe que o processo inteiro levou 8 minutos para ser concluído.
+2. Após alguns minutos, preencha a solicitação de credenciais e clique em **OK**. A saída abaixo representa uma VM única. Observe que o processo inteiro levou 8 minutos para ser concluído.
 
 		ResourceGroupName            : 
 		Id                           : 
@@ -306,4 +308,4 @@ Agora que você baixou e alterou o script de acordo com suas necessidades, execu
 		RequestId           : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 		StatusCode          : OK
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

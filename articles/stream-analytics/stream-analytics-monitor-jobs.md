@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Monitorar trabalhos do Stream Analytics programaticamente | Microsoft Azure" 
+	pageTitle="Monitorar trabalhos programaticamente no Stream Analytics | Microsoft Azure" 
 	description="Saiba como monitorar programaticamente os trabalhos do Stream Analytics criados por meio de APIs REST, do SDK do Azure ou do Powershell." 
 	services="stream-analytics" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -178,4 +178,4 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

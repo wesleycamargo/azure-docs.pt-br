@@ -34,7 +34,7 @@ A primeira seção, 'Etapas básicas,' lista as etapas para solucionar problemas
 
 Estas etapas básicas podem ajudar a resolver a maioria das falhas comuns de conexão de Área de Trabalho Remota em máquinas virtuais criadas com o modelo de implantação clássica. Depois de realizar cada etapa, tente se reconectar à VM.
 
-- Redefina o serviço da Área de Trabalho Remota no [portal do Azure](https://portal.azure.com) para corrigir problemas de inicialização com o servidor RDP.<br> Clique em Procurar tudo > Máquinas virtuais (clássicas) > sua máquina virtual do Windows > **Redefinir Acesso Remoto**.
+- Redefinir o serviço de área de trabalho remota no [portal de visualização do Azure](https://portal.azure.com) para corrigir problemas de inicialização com o servidor RDP.<br> Clique em Procurar tudo > Máquinas virtuais (clássicas) > sua máquina virtual do Windows > **Redefinir Acesso Remoto**.
 
     ![Captura de tela que mostra como redefinir a configuração de RDP](./media/virtual-machines-troubleshoot-remote-desktop-connections/Portal-RDP-Reset-Windows.png)
 
@@ -89,7 +89,7 @@ Estes são os erros mais comuns que você pode encontrar durante a tentativa de 
 
 Causa: o período de cortesia de licenciamento de 120 dias para a função de Servidor de Área de Trabalho Remota expirou e você precisa instalar licenças.
 
-Como solução, salve uma cópia local do arquivo RDP do portal do Azure e execute este comando no prompt de comando do Windows PowerShell para se conectar.
+Como alternativa, salve uma cópia local do arquivo RDP do portal e execute este comando no prompt de comando do Windows PowerShell para conectar-se.
 
 		mstsc <File name>.RDP /admin
 
@@ -107,7 +107,7 @@ Causa: o cliente da Área de Trabalho Remota em seu computador não pôde resolv
 Soluções possíveis:
 
 - Se você estiver na intranet de uma organização, certifique-se que o computador tem acesso ao servidor proxy e pode enviar o tráfego HTTPS para ele.
-- Se você estiver usando um arquivo RDP armazenado localmente, tente usar aquele gerado pelo portal do Azure. Isso garantirá que o você tenha o nome DNS correto para a máquina virtual ou o serviço de nuvem e a porta de ponto de extremidade da máquina virtual. Aqui está um arquivo RDP de exemplo gerado pelo portal do Azure:
+- Se você estiver usando um arquivo RDP armazenado localmente, tente usar aquele gerado pelo portal. Isso garantirá que o você tenha o nome DNS correto para a máquina virtual ou o serviço de nuvem e a porta de ponto de extremidade da máquina virtual. Aqui está um arquivo RDP de exemplo gerado pelo portal:
 
 		full address:s:tailspin-azdatatier.cloudapp.net:55919
 		prompt for credentials:i:1
@@ -169,4 +169,4 @@ Se nenhum desses erros ocorreu e ainda não foi possível para você conectar-se
 
 [Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

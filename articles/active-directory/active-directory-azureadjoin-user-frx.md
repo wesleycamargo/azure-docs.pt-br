@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Configurar um novo dispositivo com o AD do Azure durante a instalação
@@ -54,4 +54,4 @@ Para adicionar um dispositivo ao AD do Azure
 * [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!-----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

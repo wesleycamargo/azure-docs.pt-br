@@ -20,7 +20,7 @@ Contagem novas tentativas de execução de atividade do pipeline | 1000 | MaxInt
 
 **Recurso** | **Limite inferior padrão** | **Limite mínimo**
 -------- | ------------------- | -------------
-Intervalo de agendamento | 15 minutos | 5 minutos
+Intervalo de agendamento | 15 minutos | 15 minutos
 Intervalo entre novas tentativas | 1 segundo | 1 segundo
 Valor de tempo limite de nova tentativa | 1 segundo | 1 segundo
 
@@ -29,4 +29,4 @@ Valor de tempo limite de nova tentativa | 1 segundo | 1 segundo
 
 O Gerenciador de Recursos do Azure tem limites para chamadas de API. Você pode fazer chamadas de API em um intervalo dentro dos [limites de API do Gerenciador de Recursos do Azure](azure-subscription-service-limits/#resource-group-limits).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

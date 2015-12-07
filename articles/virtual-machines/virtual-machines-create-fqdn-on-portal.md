@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Criar um FQDN para uma VM no Portal do Azure | Microsoft Azure"
+   pageTitle="Criar o FQDN para uma VM no Portal de visualização do Azure | Microsoft Azure"
    description="Saiba como criar um nome de domínio totalmente qualificado, ou FQDN, para uma máquina virtual baseada no Gerenciador de Recursos no portal de visualização do Azure."
    services="virtual-machines"
    documentationCenter=""
@@ -54,4 +54,4 @@ No artigo, presumimos que você se conectou à sua assinatura no portal e criou 
 
     Agora, você pode se conectar remotamente à máquina virtual usando esse nome DNS. Por exemplo, use o `SSH adminuser@testdnslabel.eastus.cloudapp.azure.com` ao se conectar a uma máquina virtual do Linux que tem o nome de domínio totalmente qualificado de `testdnslabel.eastus.cloudapp.azure.com` e o nome de usuário de `adminuser`.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

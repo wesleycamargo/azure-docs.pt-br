@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="11/17/2015" 
 	ms.author="awills"/>
  
 # Passo a passo: Ativar a telemetria para o Microsoft Dynamics CRM Online usando o Application Insights
@@ -161,4 +161,4 @@ Você pode fazer análises ainda mais profundas se [exportar os dados para o Mic
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

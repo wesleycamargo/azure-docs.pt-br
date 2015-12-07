@@ -44,6 +44,8 @@ Essa pasta contém todos os recursos que o Engagement precisa. Você também pod
 
 ### /pasta sobreposição
 
+- `EngagementBaseOverlay.cs`: o código base usado pelas sobreposições de `Announcement` e `Notification`.
+
 - `EngagementOverlayAnnouncement.xaml` : O design do xaml do `Announcement`.
 
 - `EngagementOverlayAnnouncement.xaml.cs` : O código vinculado `EngagementOverlayAnnouncement.xaml`.
@@ -55,4 +57,4 @@ Essa pasta contém todos os recursos que o Engagement precisa. Você também pod
 - `EngagementPageOverlay.cs` : O código de exibição de anúncio e notificação `Overlay`.
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

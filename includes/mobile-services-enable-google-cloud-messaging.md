@@ -17,7 +17,7 @@
 
 	![](./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png)
 
-5. Clique nas **Credenciais** e clique em **Adicionar Credencial** -> **Chave de API**
+5. Clique nas **Credenciais** e em **Adicionar Credencial** ->**Chave de API**
 
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png)
@@ -34,4 +34,4 @@
 
 	Você usará esse valor de chave de API para habilitar o Azure para autenticar com o GCM e enviar notificações por push em nome do seu aplicativo.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

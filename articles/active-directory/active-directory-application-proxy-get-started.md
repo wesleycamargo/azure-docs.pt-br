@@ -3,8 +3,8 @@
 	description="Aborda como usar o Proxy de Aplicativo do AD do Azure para fornecer acesso remoto seguro aos seus aplicativos locais."
 	services="active-directory"
 	documentationCenter=""
-	authors="rkarlin"
-	manager="msStevenPo"
+	authors="kgremban"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/09/2015"
-	ms.author="rkarlin"/>
+	ms.author="kgremban"/>
 
 # Como fornecer acesso remoto seguro a aplicativos locais
 
@@ -61,4 +61,4 @@ Você pode fazer muito mais com o Proxy de Aplicativo:
 * [Inscrever-se no Azure como uma organização](../sign-up-organization.md)
 * [Identidade do Azure](../fundamentals-identity.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

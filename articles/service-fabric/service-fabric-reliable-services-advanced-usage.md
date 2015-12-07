@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="11/17/2015"
    ms.author="jesseb"/>
 
 # Uso avançado do modelo de programação de Serviços Confiáveis
 A Malha de Serviços simplifica o desenvolvimento e o gerenciamento de serviços confiáveis com e sem estado. Este guia tratará dos usos avançados do modelo de programação de Serviços Confiáveis para obter mais controle e flexibilidade sobre seus serviços. Antes de ler este guia, familiarize-se com [o do modelo de programação de Serviços Confiáveis](service-fabric-reliable-services-introduction.md).
 
 ## Classes base de serviço sem monitoração de estado
-A classe base StatelessService fornece o CreateCommunicationListener() e o RunAsync(), que são suficientes para a maioria dos serviços sem monitoração de estado. A classe StatelessServiceBase fica subjacente ao StatelessService e expõe eventos adicionais de ciclo de vida do serviço. Você pode derivar de StatelessServiceBase se precisar de controle adicional ou flexibilidade. Consulte a documentação de referência do desenvolvedor em [StatelessService](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.services.statelessservice.aspx) e [StatelessServiceBase](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.services.statelessservicebase.aspx) para obter mais informações.
+A classe base StatelessService fornece o RunAsync() e o CreateServiceInstanceListeners(), que são suficientes para a maioria dos serviços sem estado. A classe StatelessServiceBase fica subjacente ao StatelessService e expõe eventos adicionais de ciclo de vida do serviço. Você pode derivar de StatelessServiceBase se precisar de controle adicional ou flexibilidade. Consulte a documentação de referência do desenvolvedor em [StatelessService](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.services.statelessservice.aspx) e [StatelessServiceBase](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.services.statelessservicebase.aspx) para obter mais informações.
 
 - `void OnInitialize(StatelessServiceInitializiationParameters)` OnInitialize é o primeiro método chamado pela Malha de Serviço. São fornecidas informações de inicialização do serviço como o nome, id de partição, id de instância e informações do pacote de códigos. Nenhum processamento complexo deve ser feito aqui. Inicialização longa deve ser feita em OnOpenAsync.
 
@@ -35,11 +35,7 @@ A classe base StatefulService deve ser suficiente para a maioria dos serviços c
 
 - `Task OnChangeRoleAsync(ReplicaRole, CancellationToken)` OnChangeRoleAsync é chamado quando o serviço com estado está alterando funções, por exemplo para Primário ou Secundário. Réplicas primárias recebem status de gravação (têm permissão para criar e gravar nas coleções confiáveis), enquanto as réplicas Secundárias recebem status de leitura (pode somente ler o conteúdo das coleções confiáveis existentes). É possível iniciar ou atualizar as tarefas em segundo plano em resposta às alterações de função, como realizar validação somente leitura, geração de relatórios ou mineração de dados em um banco de dados Secundário.
 
-- `IStateProviderReplica CreateStateProviderReplica()` Um serviço com estado deve ter um provedor de estado confiável. StatefulService usa a classe ReliableStateManager, que fornece as coleções confiáveis (por exemplo, dicionários e filas). Talvez você queira fornecer seu próprio provedor caso deseje gerenciar o estado por conta própria ou estender a funcionalidade de um dos provedores de estado interno.
-
-- `bool EnableCommunicationListenerOnSecondary { get; }` Por padrão, os ouvintes de comunicação são criados apenas nos Primários. StatefulService e StatefulServiceBase permitem a substituição dessa propriedade para possibilitar a criação de ouvintes de comunicação nos Secundários. Talvez você queira permitir que seus Secundários manipulem as solicitações somente leitura a fim de melhorar a taxa de transferência em cargas de trabalho de leitura intensa.
-
-    > [AZURE.NOTE]Você é responsável por garantir que seus Secundários não tentem criar ou gravar em coleções confiáveis. As tentativas de gravar Secundário causarão uma exceção que, se não for tratada, fará com que a réplica seja fechada e reaberta.
+- `IStateProviderReplica CreateStateProviderReplica()` Um serviço com estado deve ter um provedor de estado confiável. StatefulService usa a classe ReliableStateManager, que fornece as coleções confiáveis (por exemplo, dicionários e filas). Você pode substituir esse método para configurar a classe ReliableStateManager, passando um ReliableStateManagerConfiguration para seu construtor. Isso permite que você forneça serializadores de estado personalizado, especifique o que acontece quando os dados podem ter sido perdidos e configure os provedores de estado/replicador.
 
 StatefulServiceBase também fornece os mesmos quatro eventos do ciclo de vida que StatelessServiceBase, com a mesma semântica e casos de uso:
 
@@ -59,4 +55,4 @@ Para tópicos mais avançados relacionados à Malha de Serviço, consulte os art
 
 - [Visão geral de Restrições de Posicionamento](service-fabric-placement-constraint.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

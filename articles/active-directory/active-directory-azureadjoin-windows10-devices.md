@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Usando dispositivos com Windows 10 no local de trabalho | Microsoft Azure" 
-	description="fornece um instantâneo dos usuários, dos recursos e da TI, realçando as diferentes maneiras em que um dispositivo pode ser provisionado e usado em uma empresa com o Windows 10." 
+	description="Fornece um instantâneo dos usuários, dos recursos e da TI, realçando as diferentes maneiras em que um dispositivo pode ser provisionado e usado em uma empresa com o Windows 10." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Usando dispositivos com Windows 10 no local de trabalho
@@ -173,4 +173,4 @@ Os usuários atualizando de dispositivos ingressados no domínio do Windows 8.1 
 * [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

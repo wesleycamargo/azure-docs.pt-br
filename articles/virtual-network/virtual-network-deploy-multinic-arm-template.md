@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="11/20/2015"
    ms.author="telmos" />
 
 # Implantar VMs com várias NICs usando um modelo
@@ -37,7 +37,7 @@ Antes de implantar os servidor de back-end, você deve implantar o grupo de recu
 2. Na página do modelo, à direita do **Grupo de recursos pai**, clique em **Implantar no Azure**.
 3. Caso necessário, altere os valores de parâmetro e siga as etapas no Portal de visualização do Azure para implantar o grupo de recursos.
 
-> [AZURE.IMPORTANT]Verifique se os nomes das contas de armazenamento são exclusivos. Você não pode ter nomes de conta de armazenamento duplicados no Azure.
+> [AZURE.IMPORTANT]Verifique se os nomes da conta de armazenamento são exclusivos. Você não pode ter nomes de conta de armazenamento duplicados no Azure.
 
 ## Entender o modelo de implantação
 
@@ -223,20 +223,11 @@ A figura a seguir mostra o conteúdo do novo grupo de recursos, após a implanta
 
 Para implantar o modelo baixado usando o PowerShell, faça o seguinte.
 
-1. Se você nunca tiver usado o Azure PowerShell, confira [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md) e siga as instruções até o fim para entrar no Microsoft Azure e selecionar a assinatura.
-2. Execute o cmdlet **Switch-AzureMode** para alternar para modo do Gerenciador de Recursos, como mostrado abaixo.
+[AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
-		Switch-AzureMode AzureResourceManager
+3. Execute o cmdlet **New-AzureRmResourceGroup** para criar um grupo de recursos usando o modelo.
 
-	Este é o resultado esperado para o comando descrito acima:
-
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
-
-	>[AZURE.WARNING]O cmdlet Switch-AzureMode será preterido em breve. Quando isso acontecer, todos os cmdlets do Gerenciador de Recursos serão renomeados.
-
-3. Execute o cmdlet **New-AzureResourceGroup** para criar um grupo de recursos usando o modelo.
-
-		New-AzureResourceGroup -Name IaaSStory-Backend -Location uswest `
+		New-AzureRmResourceGroup -Name IaaSStory-Backend -Location uswest `
 		    -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.json' `
 		    -TemplateParameterFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json'	
 
@@ -269,8 +260,8 @@ Para implantar o modelo baixado usando o PowerShell, faça o seguinte.
 
 Para implantar o modelo usando a CLI do Microsoft Azure, faça o seguinte:
 
-1. Se você nunca usou a CLI do Azure, confira [Instalar e configurar a CLI do Azure](xplat-cli.md) e siga as instruções até o ponto em que você seleciona a conta e a assinatura do Azure.
-2. Execute o comando **azure config mode** para alternar para o modo Gerenciador de Recursos, como mostrado abaixo.
+1. Se você nunca usou a CLI do Azure, veja [Instalar e configurar a CLI do Azure](xplat-cli.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
+2. Execute o comando **azure config mode** para alternar para o modo do Gerenciador de Recursos, como mostrado abaixo.
 
 		azure config mode arm
 
@@ -278,9 +269,9 @@ Para implantar o modelo usando a CLI do Microsoft Azure, faça o seguinte:
 
 		info:    New mode is arm
 
-3. Abra o [arquivo de parâmetro](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json), selecione o respectivo conteúdo e salve-o em um arquivo no computador. Nesse exemplo, nós salvamos o arquivo de parâmetros como *parameters.json*.
+3. Abra o [arquivo de parâmetro](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json), selecione o seu conteúdo e salve-o em um arquivo no seu computador. Para este exemplo, salvamos o arquivo de parâmetros em *parameters.json*.
 
-4. Execute o cmdlet **azure group deployment create** para implantar a nova rede virtual (VNet) usando o modelo e os arquivos de parâmetro que você baixou e modificou anteriormente. A lista exibida após a saída explicar os parâmetros usados.
+4. Execute o cmdlet **azure group deployment create** para implantar a nova rede virtual usando os arquivos de modelo e parâmetro que você baixou e modificou acima. A lista exibida após a saída explicar os parâmetros usados.
 
 		azure group create -n IaaSStory-Backend -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.json -e parameters.json
 
@@ -301,4 +292,4 @@ Para implantar o modelo usando a CLI do Microsoft Azure, faça o seguinte:
 		data:
 		info:    group create command OK
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

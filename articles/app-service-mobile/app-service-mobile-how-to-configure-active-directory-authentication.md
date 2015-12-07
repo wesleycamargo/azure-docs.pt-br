@@ -13,24 +13,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="11/20/2015" 
 	ms.author="mahender"/>
 
 # Como configurar seu aplicativo de Serviço de Aplicativo para usar o logon do Active Directory do Azure
+
+[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]&nbsp;
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 Este tópico mostra como configurar os Serviços de Aplicativos do Azure para usar o Active Directory do Azure como um provedor de autenticação.
 
-
-	> [AZURE.NOTE] This topic demonstrates use of the App Service Authentication / Authorization feature. This replaces the App Service gateway for most applications. If using the gateway, please see the [alternative method]. Differences that apply to using the gateway are called out in notes throughout that section.
+> [AZURE.NOTE]Este tópico demonstra o uso do recurso de Autenticação/Autorização do Serviço de Aplicativo. Isso substitui o gateway do Serviço de Aplicativo para a maioria dos aplicativos. Se for usar o gateway, confira o [método alternativo]. As diferenças que se aplicam ao uso do gateway são destacadas nas notas ao longo dessa seção.
 
 
 ## <a name="express"> </a>Configurar o Active Directory do Azure usando configurações expressas
 
 13. No [Portal de Gerenciamento do Azure], navegue até o seu aplicativo. Clique em **Configurações** e em **Autenticação/Autorização**.
 
-14. Se o recurso Autenticação/Autorização não estiver habilitado, mude o opção para **Ativar**.
+14. Se o recurso Autenticação/Autorização não estiver habilitado, mude a opção para **Ativado**.
 
 15. Clique em **Active Directory do Azure** e clique em **Expresso** em **Modo de Gerenciamento**.
 
@@ -38,7 +39,9 @@ Este tópico mostra como configurar os Serviços de Aplicativos do Azure para us
 
     ![][0]
 	
-16. Por padrão, o Serviço de Aplicativo fornece logon, mas não restringe o acesso ao conteúdo do site e às APIs - isso é responsabilidade do código do aplicativo. Se você quiser ter um site totalmente protegido pelo logon do Active Directory do Azure, altere o menu suspenso **Ação a ser tomada quando a solicitação não for autenticada** para usar a opção **Active Directory do Azure**. Isso exigirá que todas as solicitações sejam autenticadas; as solicitações não autenticadas serão redirecionadas para fazer logon com o Active Directory do Azure.
+	Por padrão, o Serviço de Aplicativo fornece autenticação, mas não restringe o acesso autorizado ao conteúdo do site e às APIs. Você deve autorizar os usuários no código do aplicativo.
+
+17. (Opcional) Para restringir o acesso ao seu site somente para usuários autenticados pelo Active Directory do Azure, defina **Ação a ser executada quando a solicitação não for autenticada** como **Active Directory do Azure**. Isso exige que todas as solicitações sejam autenticadas e todas as solicitações não autenticadas sejam redirecionadas ao Active Directory do Azure para autenticação.
 
 17. Clique em **Salvar**.
 
@@ -49,7 +52,7 @@ Você também pode optar por fornecer as configurações manualmente. Essa é a 
 
 ### <a name="register"> </a>Registrar seu aplicativo com o Active Directory do Azure
 
-1. Faça logon no [Portal de Gerenciamento de Visualização do Azure] e navegue até o seu aplicativo. Copie sua **URL**. Você a utilizará para configurar seu aplicativo do Active Directory do Azure.
+1. Faça logon no [Portal de Gerenciamento de Visualização do Azure] e navegue até o seu aplicativo. Copie a **URL**. Você a utilizará para configurar seu aplicativo do Active Directory do Azure.
 
 3. Entre no [Portal de Gerenciamento do Azure] e navegue até o **Active Directory**.
 
@@ -75,24 +78,24 @@ Você também pode optar por fornecer as configurações manualmente. Essa é a 
 
 10. Na parte inferior da barra de comando, clique em **Exibir Pontos de Extremidade**, copie a URL do **Documento de Metadados de Federação** e baixe esse documento ou navegue até ele em um navegador.
 
-11. No elemento raiz **EntityDescriptor**, deve haver um atributo **entityID** do formato `https://sts.windows.net/` seguido por um GUID específico para seu locatário (chamado de "ID do locatário"). Copiar esse valor - ele servirá como sua **URL do Emissor**. Você irá configurar seu aplicativo para usá-la posteriormente.
+11. No elemento raiz **EntityDescriptor**, deve haver um atributo **entityID** do formato `https://sts.windows.net/` seguido por um GUID específico para seu locatário (chamado de "ID do locatário"). Copie esse valor - ele servirá como sua **URL do Emissor**. Você irá configurar seu aplicativo para usá-la posteriormente.
 
 ### <a name="secrets"> </a>Adicionar informações do Active Directory do Azure ao seu aplicativo
 
-
-	> [AZURE.NOTE]
-	If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Azure Active Directory**. Paste in the ClientID and add the tenant ID to the **Allowed Tenants** list. Click **Save**.
+> [AZURE.NOTE]Se for usar o Gateway do Serviço de Aplicativo, ignore esta seção e navegue até o gateway no portal. Selecione **Configurações**, **Identidade** e **Active Directory do Azure**. Cole o ClientID e adicione a ID de locatário à lista **Locatários Permitidos**. Clique em **Salvar**.
 
 
 13. Novamente no [Portal de Gerenciamento de Visualização do Azure], navegue até o seu aplicativo. Clique em **Configurações** e em **Autenticação/Autorização**.
 
-14. Se o recurso Autenticação/Autorização não estiver habilitado, mude o opção para **Ativar**.
+14. Se o recurso Autenticação/Autorização não estiver habilitado, mude a opção para **Ativado**.
 
 15. Clique em **Active Directory do Azure** e clique em **Avançado** em **Modo de Gerenciamento**. Cole os valores de ID do Cliente e URL do Emissor que obteve anteriormente. Em seguida, clique em **OK**.
 
     ![][1]
 	
-16. Por padrão, o Serviço de Aplicativo fornece logon, mas não restringe o acesso ao conteúdo do site e às APIs - isso é responsabilidade do código do aplicativo. Se você quiser ter um site totalmente protegido pelo logon do Active Directory do Azure, altere o menu suspenso **Ação a ser tomada quando a solicitação não for autenticada** para usar a opção **Active Directory do Azure**. Isso exigirá que todas as solicitações sejam autenticadas; as solicitações não autenticadas serão redirecionadas para fazer logon com o Active Directory do Azure.
+	Por padrão, o Serviço de Aplicativo fornece autenticação, mas não restringe o acesso autorizado ao conteúdo do site e às APIs. Você deve autorizar os usuários no código do aplicativo.
+
+17. (Opcional) Para restringir o acesso ao seu site somente para usuários autenticados pelo Active Directory do Azure, defina **Ação a ser executada quando a solicitação não for autenticada** como **Active Directory do Azure**. Isso exige que todas as solicitações sejam autenticadas e todas as solicitações não autenticadas sejam redirecionadas ao Active Directory do Azure para autenticação.
 
 17. Clique em **Salvar**.
 
@@ -114,6 +117,6 @@ Agora você está pronto para usar um Active Directory do Azure para autenticaç
 [Portal de Gerenciamento de Visualização do Azure]: https://portal.azure.com/
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [ios-adal]: ../app-service-mobile-xamarin-ios-aad-sso.md
-[alternative method]: #advanced
+[método alternativo]: #advanced
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="08/10/2015"
+	ms.date="11/19/2015"
 	ms.author="tdykstra"/>
 
 # Comparação de Serviço de Aplicativo, Serviços de nuvem e Máquinas virtuais do Azure
@@ -153,11 +153,11 @@ Implantar o código com a implantação da Web|X||X|Os Serviços de Nuvem oferec
 Suporte do WebMatrix|X||X|
 Acesso a serviços como o Service Bus, Armazenamento, Banco de Dados SQL|X|X|X|
 Camada de serviços da Web ou Web hospedada de uma arquitetura multicamada|X|X|X|
-Camada intermediária de host de uma arquitetura multicamada|X|X|X|Os aplicativo Web do Serviço de Aplicativo podem hospedar facilmente uma camada média da API REST, e o recurso [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) pode hospedar tarefas de processamento em segundo plano. Você pode executar o WebJobs em um site dedicado para alcançar a escalabilidade independente para a camada. O recurso de [aplicativos de API](../app-service-api/app-service-api-apps-why-best-platform/) de visualização oferece ainda mais recursos para hospedar serviços REST.
+Camada intermediária de host de uma arquitetura multicamada|X|X|X|Os aplicativo Web do Serviço de Aplicativo podem hospedar facilmente uma camada média da API REST, e o recurso [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) pode hospedar tarefas de processamento em segundo plano. Você pode executar o WebJobs em um site dedicado para alcançar a escalabilidade independente para a camada. O recurso de [aplicativos de API](../app-service-api/app-service-api-apps-why-best-platform.md) de visualização oferece ainda mais recursos para hospedar serviços REST.
 Suporte integrado do MySQL como serviço|X|X|X|Os Serviços de Nuvem podem integrar o MySQL como serviço por meio de ofertas do ClearDB, mas não como parte do fluxo de trabalho do Portal de Gerenciamento.
 Suporte para ASP.NET, classic ASP, Node.js, PHP, Python|X|X|X|
 Dimensionamento para várias instâncias sem reimplantação|X|X|X|Máquinas Virtuais podem ser dimensionadas para várias instâncias, mas os serviços em execução nessas máquinas devem ser escritos para lidar com este dimensionamento. Você precisa configurar um balanceador de carga para rotear solicitações entre máquinas e criar um Grupo de Afinidade para impedir reinícios simultâneos de todas as instâncias devido a manutenções ou falhas de hardware.
-Suporte para SSL|X|X|X|Para aplicativos Web do Serviço de Aplicativo, o SSL para nomes de domínio personalizados só tem suporte no modo Básico e Padrão. Para obter informações sobre como usar SSL com aplicativos Web, consulte [Configurar um certificado SSL para um Website do Azure](../app-service-web/web-sites-configure-ssl-certificate/).
+Suporte para SSL|X|X|X|Para aplicativos Web do Serviço de Aplicativo, o SSL para nomes de domínio personalizados só tem suporte no modo Básico e Padrão. Para obter informações sobre como usar SSL com aplicativos Web, consulte [Configurar um certificado SSL para um Website do Azure](../app-service-web/web-sites-configure-ssl-certificate.md).
 Integração do Visual Studio|X|X|X|
 Depuração Remota|X|X|X|
 Implantar código com TFS|X|X|X|
@@ -204,4 +204,4 @@ Para começar a usar as opções escolhidas para seu aplicativo, consulte os seg
   [armazenamento]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

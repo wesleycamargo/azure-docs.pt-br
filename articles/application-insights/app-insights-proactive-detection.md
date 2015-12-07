@@ -3,7 +3,7 @@
 	description="O Application Insights executa uma análise profunda de telemetria do seu aplicativo e o avisará sobre possíveis problemas de desempenho." 
 	services="application-insights" 
     documentationCenter="windows"
-	authors="antonfr" 
+	authors="antonfrMSFT" 
 	manager="douge"/>
 
 <tags 
@@ -26,6 +26,8 @@ O Application Insights executa uma análise profunda de telemetria do seu aplica
 
 A detecção proativa usa o aprendizado de máquina e algoritmos de mineração de dados para detectar padrões anormais que afetam o desempenho do aplicativo. A detecção proativa analisa automaticamente a telemetria de desempenho coletada pelo Application Insights. Ela envia, para você, emails sobre qualquer desempenho anormal no aplicativo. Você não precisa definir regras de limites. As notificações de detecção proativa são integradas com recursos de análise do Application Insights que permitem uma triagem rápida e o diagnóstico dos problemas.
 
+A detecção proativa está em visualização e ainda não está disponível para todos os usuários do Application Insights. Se você quiser experimentar, entre em contato com AppInsightsML@microsoft.com e trabalharemos com você para configurá-lo.
+
 ## Sobre o alerta proativo
 
 * *Por que eu recebei esse email?*
@@ -46,8 +48,8 @@ A detecção proativa usa o aprendizado de máquina e algoritmos de mineração 
  * Não no momento. Atualmente, analisamos o tempo de resposta de solicitação e o tempo de carregamento da página. As análises de métricas adicionais estarão disponíveis em breve. 
 * *Posso criar minhas próprias regras de detecção de anomalias?*
  * Ainda não. Mas você pode:
- * [Configurar alertas](app-insights-alerts.md) que informam quando uma métrica excede um limite).
- * [Exportar telemetria](app-insights-export-telemetry.md) para um [banco de dados](app-insights-code-sample-export-sql-stream-analytics.md) ou [para o PowerBI](app-insights-export-power-bi.md) ou para [outras](app-insights-code-sample-export-telemetry-sql-database.md) ferramentas, onde será possível analisá-la por conta própria.
+ * [Configurar alertas](app-insights-alerts.md) que informam quando uma métrica excede um limite.)
+ * [Exportar telemetria](app-insights-export-telemetry.md) para um [banco de dados](app-insights-code-sample-export-sql-stream-analytics.md), [para o PowerBI](app-insights-export-power-bi.md) ou para [outras](app-insights-code-sample-export-telemetry-sql-database.md) ferramentas, em que será possível analisá-la por conta própria.
 * *Com que frequência a análise é executada?*
  * As análises são executadas todos os dias a partir da telemetria do dia anterior.
 * **Então isso substitui os [alertas de métrica](app-insights-alerts.md)?
@@ -80,7 +82,7 @@ Primeiro, isto é importante? Se uma página sempre for carregada lentamente, ma
 
 Use a instrução de impacto no email como um guia geral, mas lembre-se de que isso não é tudo. Obtenha outras evidências para confirmar.
 
-Considere os parâmetros do problema. Se for dependente da geografia, configure [testes de disponibilidade](app-insights-monitor-web-app-availability.md) incluindo a região; talvez a área esteja simplesmente enfrentando problemas de rede.
+Considere os parâmetros do problema. Se for dependente da geografia, configure os [testes de disponibilidade](app-insights-monitor-web-app-availability.md) incluindo a região; talvez a área esteja simplesmente enfrentando problemas de rede.
 
 ### Diagnosticar carregamentos lentos de página 
 
@@ -107,10 +109,8 @@ Há muitos conselhos na Web sobre como melhorar os tempos de resposta de seu ser
 * *É necessário assinar este serviço para receber notificações?*
  * Não. Nosso bot periodicamente pesquisa os dados de todos os usuários do Application Insights e envia notificações se detectar problemas.
 * *Posso cancelar a assinatura ou ter as notificações enviadas para meus colegas em vez disso?*
- * Clique no link que está no alerta ou no email. Abra as configurações de anomalias.
+ * Clique no link de cancelar assinatura que está no alerta ou no email. 
  
-    ![](./media/app-insights-proactive-detection/01.png)
-
     No momento, elas são enviadas para aqueles com [acesso de gravação ao recurso Application Insights](app-insights-resources-roles-access-control.md).
 * *Não quero ser inundado com essas mensagens.*
  * Elas são limitadas a uma por dia. Você não receberá nenhuma mensagem repetida.
@@ -128,4 +128,4 @@ Há muitos conselhos na Web sobre como melhorar os tempos de resposta de seu ser
 * [Gerenciador de pesquisas](app-insights-diagnostic-search.md)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015"
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 # Usar o aplicativo móvel como método de contato com o Azure Multi-Factor Authentication
@@ -73,4 +73,4 @@ Se você estiver usando uma conta de terceiros com o aplicativo móvel, insira o
 >[AZURE.NOTE]Se você vir "Adicionar conta de trabalho", isso é para a Junção de Local de Trabalho, e não para autenticação multifator. Você pode ignorar isso.
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

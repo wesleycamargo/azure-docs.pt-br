@@ -1,20 +1,21 @@
 <properties
-   pageTitle="O que é o licenciamento do Active Directory do Microsoft Azure? | Microsoft Azure"
-   description="Descrição de licenciamento do AD do Microsoft Azure, como ele funciona, como começar e práticas recomendadas, incluindo o Office 365, Microsoft Intune, e edições do Azure Active Directory Premium e Basic"
-   services="active-directory"
-   documentationCenter=""
-   authors="curtand"
-   manager="stevenpo"
-   editor=""/>
+    pageTitle="O que é o licenciamento do Active Directory do Microsoft Azure? | Microsoft Azure"
+    description="Descrição de licenciamento do AD do Microsoft Azure, como ele funciona, como começar e práticas recomendadas, incluindo o Office 365, Microsoft Intune, e edições do Azure Active Directory Premium e Basic"
+    services="active-directory"
+	keywords="Licenciamento do AD do Azure"
+    documentationCenter=""
+    authors="curtand"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="09/21/2015"
-   ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="11/20/2015"
+    ms.author="curtand"/>
 
 # O que é o licenciamento do Active Directory do Microsoft Azure?
 
@@ -112,7 +113,7 @@ Remover licenças é tão fácil quanto atribuí-las. Se o usuário for atribuí
 
 ###Estendendo avaliações
 
-As extensões de avaliação para clientes estão disponíveis como autoatendimento no portal do Office 365. Um administrador de cliente pode navegar até o [portal do Office](https://portal.office.com/#Billing) (o acesso depende de permissões para o portal do Office) e selecionar a avaliação do AD Premium do Azure. Clique no link **Estender avaliação** e siga as instruções. Você terá de inserir um cartão de crédito, mas não será cobrado.
+As extensões de avaliação para clientes estão disponíveis como autoatendimento no portal do Office 365. Um administrador de cliente pode navegar até o [portal do Office](https://portal.office.com/#Billing) (o acesso depende de permissões para o portal do Office) e selecionar a avaliação do AD do Azure Premium. Clique no link **Estender avaliação** e siga as instruções. Você terá de inserir um cartão de crédito, mas não será cobrado.
 
 ![Estendendo uma avaliação de licença no portal do Office](./media/active-directory-licensing-what-is/extend_license_trial.png)
 
@@ -131,4 +132,4 @@ Agora você pode estar pronto para configurar e usar alguns recursos do AD Premi
 - [Autenticação Multifator do Azure](multi-factor-authentication.md)
 - [Compra direta de licenças do AD Premium do Azure](http://aka.ms/buyaadp)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

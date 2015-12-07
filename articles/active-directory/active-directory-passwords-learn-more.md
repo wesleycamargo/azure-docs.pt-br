@@ -365,7 +365,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 ## Links para a documentação de redefinição de senha
 Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
 
-* [**Redefinir sua própria senha**](active-directory-passwords-update-your-own-password): saiba mais sobre como redefinir ou alterar sua própria senha como um usuário do sistema
+* [**Redefinir sua própria senha**](active-directory-passwords-update-your-own-password.md): saiba mais sobre como redefinir ou alterar sua própria senha como um usuário do sistema
 * [**Como funciona**](active-directory-passwords-how-it-works.md) - saiba mais sobre os seis diferentes componentes do serviço e o que cada um deles faz
 * [**Introdução**](active-directory-passwords-getting-started.md) - saiba como permitir que os usuários redefinam e alterem suas senhas na nuvem ou no local
 * [**Personalizar**](active-directory-passwords-customize.md) - aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização
@@ -379,4 +379,4 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

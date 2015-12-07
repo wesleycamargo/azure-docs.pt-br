@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="11/23/2015"
    ms.author="barbkess;JRJ@BigBangData.co.uk;mausher;nicw"/>
 
 # Visão geral de desempenho e escala
-Ao colocar o Data Warehouse na nuvem, você não precisa mais lidar com problemas de nível baixo de hardware. Já se foram os dias em que você precisava pesquisar o tipo de processador, a quantidade de memória ou o tipo de armazenamento que são necessários para obter excelente desempenho no seu data warehouse. Em vez disso, o SQL Data Warehouse faz a você esta pergunta: o quão rapidamente você deseja processar os dados?
+Ao colocar o Data Warehouse na nuvem, você não precisa mais lidar com problemas de nível baixo de hardware. Já se foram os dias em que você precisava pesquisar o tipo de processador, a quantidade de memória ou o tipo de armazenamento que são necessários para obter excelente desempenho no seu data warehouse. Em vez disso, o SQL Data Warehouse faz essa pergunta: com que rapidez você deseja analisar seus dados?
 
 O SQL Data Warehouse é uma plataforma distribuída de banco de dados baseada na nuvem, desenvolvida para fornecer excelente desempenho em escala onde você é quem está no controle total dos recursos usados para resolver consultas. Ao ajustar o número de unidades de data warehouse alocadas ao seu data warehouse, você pode escalar de modo elástico o tamanho dos recursos do warehouse em questão de segundos. Como uma plataforma distribuída de escala horizontal, o SQL Data Warehouse permite que o data warehouse processe volumes de dados significativos de modo efetivo e eficaz, enquanto deixa você no controle total do custo da solução.
 
@@ -77,4 +77,4 @@ Consulte o artigo [visão geral de desenvolvimento][] para obter algumas diretri
 
 <!--Other web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

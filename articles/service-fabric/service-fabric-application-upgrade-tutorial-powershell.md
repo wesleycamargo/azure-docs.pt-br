@@ -60,7 +60,7 @@ Agora, precisamos atualizar o arquivo *ApplicationManifest.xml* (localizado no p
 ```
 
 
-Agora, compile o projeto selecionando apenas o projeto **ActorService** e clicando com o botão direito do mouse e selecionando a compilação no Visual Studio. Se você selecionar Recompilar tudo, talvez tenha que atualizar as versões do projeto **VisualObjects.WebService** e **VisualObjects.Common", e também no *ServiceManifest.xml* e no *ApplicationManifest.xml*, já que o código teria sido alterado. Agora vamos empacotar o aplicativo atualizado clicando com o botão direito do mouse em *VisualObjectsApplication*, selecionando o menu do Service Fabric e escolhendo Pacote. Isso deve criar um pacote de aplicativos que pode ser implantado. Seu aplicativo atualizado está pronto para ser implantado agora.
+Agora, compile o projeto ao selecionar somente o projeto **ActorService**, clicar com o botão direito do mouse e selecionar a compilação no Visual Studio (se você selecionar Recompilar tudo, talvez tenha que atualizar as versões para os outros projetos, bem como em seu *ServiceManifest.xml* e no *ApplicationManifest.xml*, já que o código teria sido alterado). Vamos empacotar o aplicativo atualizado clicando com o botão direito do mouse em *VisualObjectsApplication*, selecionar o menu do Service Fabric e escolher Pacote. Isso deve criar um pacote de aplicativos que pode ser implantado. Seu aplicativo atualizado está pronto para ser implantado agora.
 
 
 ## Etapa 3: decida sobre as diretivas de integridade e parâmetros de atualização
@@ -115,14 +115,14 @@ Você talvez queira tentar alterar as versões e mudar da versão 2 para a vers�
 
 ## Próximas etapas
 
-[Atualizar seu aplicativo usando o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta você a fazer uma atualização de aplicativo usando o Visual Studio.
+[Atualizar seu Aplicativo Usando o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta você a fazer uma atualização de aplicativo usando o Visual Studio.
 
 Controle como seu aplicativo é atualizado usando [Parâmetros de Atualização](service-fabric-application-upgrade-parameters.md).
 
 Torne suas atualizações de aplicativo compatíveis aprendendo a usar a [Serialização de Dados](service-fabric-application-upgrade-data-serialization.md).
 
-Saiba como usar a funcionalidade avançada ao atualizar seu aplicativo consultando os [Tópicos avançados](service-fabric-application-upgrade-advanced.md).
+Saiba como usar a funcionalidade avançada ao atualizar seu aplicativo consultando os [Tópicos Avançados](service-fabric-application-upgrade-advanced.md).
 
-Corrija problemas comuns em atualizações de aplicativo consultando as etapas em [Solucionando problemas de atualizações de aplicativo](service-fabric-application-upgrade-troubleshooting.md).
+Corrija problemas comuns em atualizações de aplicativo consultando as etapas em [Solucionando Problemas de Atualizações de Aplicativo](service-fabric-application-upgrade-troubleshooting.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

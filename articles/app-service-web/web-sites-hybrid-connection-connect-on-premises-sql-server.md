@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="11/13/2015"
 	ms.author="cephalin"/>
 
 # Conectar-se ao SQL Server local por meio de um aplicativo Web no Serviço de Aplicativo do Azure usando conexões híbridas
@@ -139,7 +139,7 @@ Em seguida, você criará uma conexão híbrida e um serviço do BizTalk para o 
 <a name="CreateHC"></a>
 ## C. Criar uma Conexão Híbrida e um Serviço do BizTalk ##
 
-1. No portal, role para baixo a folha de seu aplicativo Web e clique em **status do Recursos de Rede** > **Configurar seus pontos de extremidade de conexão híbrida**.
+1. No portal, vá para configurações e clique em **rede** > **Configurar seus pontos de extremidade de conexão híbrida**.
 
 	![Conexões Híbridas][CreateHCHCIcon]
 
@@ -206,7 +206,7 @@ Nessa etapa, você edita a cadeia de conexão que diz a seu aplicativo onde enco
 
 	- Se você está se conectando a uma instância nomeada em vez de conectar-se a uma instância padrão (por exemplo, YourServer\\SQLEXPRESS), você precisa configurar seu SQL Server para utilizar portas estáticas. Para obter informações sobre configuração de portas estáticas, consulte [Como configurar um SQL Server para escutar em uma porta específica](http://support.microsoft.com/kb/823938). Por padrão, instâncias nomeadas utilizam UDP e portas dinâmicas, que não têm suporte em Conexões Híbridas.
 
-	- É recomendável que você especifique a porta (1433 por padrão, conforme mostrado no exemplo) na cadeia de conexão, de modo que você possa ter certeza de que seu SQL Server local tem TCP habilitado e utiliza a porta correta.
+	- É recomendável especificar a porta (1433 por padrão, conforme mostrado no exemplo) na cadeia de conexão para poder ter certeza de que seu SQL Server local tem TCP habilitado e está usando a porta correta.
 
 	- Lembre-se de usar a Autenticação do SQL Server para conectar-se, especificando a ID de usuário e senha em sua cadeia de conexão.
 
@@ -363,4 +363,4 @@ Agora você criou e implantou um aplicativo Web ASP.NET que utiliza uma conexão
 [HCTestSSMSTree]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F10HCTestSSMSTree.png
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

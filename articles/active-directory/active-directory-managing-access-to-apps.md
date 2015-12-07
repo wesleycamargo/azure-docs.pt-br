@@ -31,7 +31,7 @@ Gerenciamento de acesso contínuo, avaliação de uso e relatórios continuam a 
  A atribuição de aplicativo do AD do Azure se concentra em dois modos de atribuição principais:
 
 - **Atribuição individual** Um administrador de TI com privilégio global, de usuário ou AU pode selecionar as contas de usuário individuais e conceder a elas acesso ao aplicativo.
-- **Atribuição baseada em grupo (somente no AD do Azure pago)** Um administrador de TI com privilégio global, de usuário ou AU pode atribuir um grupo ao aplicativo. O acesso de um usuário específico é determinado dependendo se ele é membro do grupo no momento em que tenta acessar o aplicativo. Nesse modo, um administrador pode efetivamente criar uma regra de atribuição informando que "qualquer membro atual do grupo atribuído tem acesso ao aplicativo". Com essa opção de atribuição, os administradores podem se beneficiar de qualquer uma das opções de gerenciamento de grupo do AD do Azure, incluindo grupos dinâmicos baseados em atributo, grupos de sistema externo (por exemplo, AD no local ou Workday), grupos gerenciados de autoatendimento ou por administrador. Um único grupo pode ser atribuído facilmente a vários aplicativos, garantindo que os aplicativos com afinidade de atribuição possam compartilhar as regras de atribuição, reduzindo a complexidade do gerenciamento geral.
+- **Atribuição baseada em grupo (somente no AD do Azure pago)** Um administrador de TI com privilégio global, de usuário ou AU pode atribuir um grupo ao aplicativo. O acesso de um usuário específico é determinado dependendo se ele é membro do grupo no momento em que tenta acessar o aplicativo. Nesse modo, um administrador pode efetivamente criar uma regra de atribuição informando que "qualquer membro atual do grupo atribuído tem acesso ao aplicativo". Com essa opção de atribuição, os administradores podem se beneficiar de qualquer uma das opções de gerenciamento de grupo do AD do Azure, incluindo grupos dinâmicos baseados em atributo, grupos de sistema externo (por exemplo, AD no local ou Workday), grupos gerenciados de autoatendimento ou por administrador. Um único grupo pode ser atribuído facilmente a vários aplicativos, garantindo que os aplicativos com afinidade de atribuição possam compartilhar as regras de atribuição, reduzindo a complexidade do gerenciamento geral. Por favor, note que associações de grupo aninhadas não têm suporte para atribuição com base em grupo de aplicativos atualmente.
 
 Usando esses dois modos de atribuição, os administradores podem obter qualquer abordagem de gerenciamento de atribuição desejada.
 
@@ -71,4 +71,4 @@ Recursos do AD do Azure que permitem o compartilhamento de contas incluem:
 - [Protegendo aplicativos com acesso condicional](active-directory-conditional-access.md)
 - [Gerenciamento de grupo de autoatendimento/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

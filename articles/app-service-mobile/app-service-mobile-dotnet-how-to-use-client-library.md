@@ -18,7 +18,8 @@
 
 # Como usar o cliente gerenciado para Aplicativos Móveis do Azure
 
-[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]&nbsp;
+[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
+&nbsp;
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
@@ -51,8 +52,7 @@ Observe que [JsonPropertyAttribute](http://www.newtonsoft.com/json/help/html/Pro
 O código seguinte cria o objeto `MobileServiceClient` que é usado para acessar o back-end do Aplicativo Móvel.
 
 
-	MobileServiceClient client = new MobileServiceClient(
-		"MOBILE_APP_URL", "", "");
+	MobileServiceClient client = new MobileServiceClient("MOBILE_APP_URL");
 
 No código acima, substitua `MOBILE_APP_URL` pela URL do back-end do Aplicativo Móvel que está localizado na folha de seu Aplicativo Móvel no Portal de visualização do Azure.
 
@@ -80,7 +80,7 @@ Esta seção descreve como emitir consultas para o back-end do Aplicativo Móvel
 - [Selecionar colunas específicas]
 - [Pesquisar dados por ID]
 
->[AZURE.NOTE]Um tamanho de página controlado por servidor é usado para impedir que todas as linhas sejam retornadas. Isso impede que solicitações padrão de grandes conjuntos de dados impactem negativamente o serviço. Para retornar mais de 50 linhas, use o método `Take`, conforme descrito em [Retornar dados em páginas].
+>[AZURE.NOTE] Um tamanho de página controlado por servidor é usado para impedir que todas as linhas sejam retornadas. Isso impede que solicitações padrão de grandes conjuntos de dados impactem negativamente o serviço. Para retornar mais de 50 linhas, use o método `Take`, conforme descrito em [Retornar dados em páginas].
 
 ### <a name="filtering"></a>Como filtrar dados retornados
 
@@ -167,7 +167,7 @@ Você também pode usar o método [IncludeTotalCount] para garantir que a consul
 
 Esse é um cenário simplificado de passagem de valores de paginação embutidos em código para os métodos `Take` e `Skip`. Em um aplicativo do mundo real, você pode usar consultas semelhantes às mencionadas acima com um controle de paginação ou interface do usuário comparável para permitir que os usuários naveguem para páginas anteriores e posteriores.
 
->[AZURE.NOTE]Para substituir o limite de 50 linhas em um back-end do Aplicativo Móvel, você também deve aplicar o [EnableQueryAttribute](https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx) ao público método GET e especificar o comportamento de paginação. Quando aplicado ao método, o seguinte define o máximo de linhas retornadas para 1000:
+>[AZURE.NOTE] Para substituir o limite de 50 linhas em um back-end do Aplicativo Móvel, você também deve aplicar o [EnableQueryAttribute](https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx) ao público método GET e especificar o comportamento de paginação. Quando aplicado ao método, o seguinte define o máximo de linhas retornadas para 1000:
 
     [EnableQuery(MaxTop=1000)]
 
@@ -255,7 +255,12 @@ O código a seguir ilustra como atualizar uma instância existente com a mesma I
 
 	await todoTable.UpdateAsync(todoItem);
 
-Para inserir dados não tipados, você pode tirar proveito do Json.NET da seguinte maneira: JObject jo = new JObject(); jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D"); jo.Add("Text", "Hello World"); jo.Add("Complete", false); var inserted = await table.UpdateAsync(jo);
+Para inserir dados não tipados, você pode tirar proveito do Json.NET da seguinte maneira:
+	JObject jo = new JObject();
+	jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
+	jo.Add("Text", "Hello World");
+	jo.Add("Complete", false);
+	var inserted = await table.UpdateAsync(jo);
 
 Observe que, ao fazer uma atualização, uma ID deve ser especificada. É assim que o back-end identifica a instância para atualização. A ID pode ser obtida do resultado da chamada de `InsertAsync`. Quando você tenta atualizar um item sem fornecer o valor de "Id", uma `ArgumentException` é gerada.
 
@@ -307,7 +312,7 @@ Observe que, neste exemplo, são incluídas duas marcas com o registro. Para sab
 <!--- Remove until Xamarin.Android push is supported.
 Xamarin apps require some additional code to be able to register a Xamarin app running on iOS or Android app with the Apple Push Notification Service (APNS) and Google Cloud Messaging (GCM) services, respectively. For more information see **Add push notifications to your app** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
 
->[AZURE.NOTE]When you need to send notifications to specific registered users, it is important to require authentication before registration, and then verify that the user is authorized to register with a specific tag. For example, you must check to make sure a user doesn't register with a tag that is someone else's user ID. For more information, see [Send push notifications to authenticated users](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
+>[AZURE.NOTE] Quando você precisar enviar notificações a determinados usuários registrados, é importante exigir autenticação antes do registro e, em seguida, verificar se o usuário está autorizado para registrar com uma marca específica. Por exemplo, você deve verificar para certificar-se de que um usuário não se registra com uma marca de que seja o ID de outro usuário. For more information, see [Send push notifications to authenticated users](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
 >-->
 
 ## Como registrar modelos de envio por push para enviar notificações entre plataformas
@@ -342,6 +347,8 @@ Seus modelos serão do tipo JObject e poderão conter vários modelos no seguint
 O método **RegisterAsync()** também aceita Blocos Secundários:
 
         MobileService.GetPush().RegisterAsync(string channelUri, JObject templates, JObject secondaryTiles);
+
+Observe que todas as marcas serão removidas imediatamente por segurança. Para adicionar marcas a instalações ou modelos dentro de instalações, consulte [Trabalhar com o SDK do servidor de back-end do .NET para Aplicativos Móveis do Azure].
 
 Para enviar notificações usando esses modelos registrados, trabalhe com [APIs de Hubs de Notificação](https://msdn.microsoft.com/library/azure/dn495101.aspx).
 
@@ -668,7 +675,7 @@ Esta seção mostra como pode personalizar os cabeçalhos de solicitação e per
 
 ### <a name="headers"></a>Como personalizar cabeçalhos de solicitação
 
-Para dar suporte ao seu cenário específico de aplicativo, convém personalizar a comunicação com o back-end do Aplicativo Móvel. Por exemplo, convém adicionar um cabeçalho personalizado para cada solicitação de saída, ou até mesmo alterar códigos de status de respostas. Pode fazer isso fornecendo um [DelegatingHandler] personalizado, como no exemplo a seguir:
+Para dar suporte ao seu cenário específico de aplicativo, convém personalizar a comunicação com o back-end do Aplicativo Móvel. Por exemplo, convém adicionar um cabeçalho personalizado para cada solicitação de saída, ou até mesmo alterar códigos de status de respostas. Você pode fazer isso fornecendo um [DelegatingHandler] personalizado, como no exemplo a seguir:
 
     public async Task CallClientWithHandler()
     {
@@ -722,6 +729,7 @@ Essa propriedade converte todas as propriedades em letras minúsculas, durante a
 
 <!-- URLs. -->
 [Add authentication to your app]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md
+[Trabalhar com o SDK do servidor de back-end do .NET para Aplicativos Móveis do Azure]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
 [LoginAsync method]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
@@ -742,4 +750,4 @@ Essa propriedade converte todas as propriedades em letras minúsculas, durante a
 [InvokeApiSync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

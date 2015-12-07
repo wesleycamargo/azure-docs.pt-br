@@ -64,7 +64,7 @@ Neste momento, o recurso de várias NICs tem os seguintes requisitos e restriç�
 |D11|2|
 |D12|4|
 |D13|8|
-|D14|16|
+|D14|8|
 |DS1|1|
 |DS2|2|
 |DS3|4|
@@ -81,12 +81,12 @@ Neste momento, o recurso de várias NICs tem os seguintes requisitos e restriç�
 |D11\_v2|2|
 |D12\_v2|4|
 |D13\_v2|8|
-|D14\_v2|16|
+|D14\_v2|8|
 |G1|1|
 |G2|2|
 |G3|4|
 |G4|8|
-|G5|16|
+|G5|8|
 |Todos os outros tamanhos|1|
 
 ## Grupos de segurança de rede (NSG)
@@ -265,4 +265,4 @@ Para VMs do Linux, como o comportamento padrão usa roteamento de host fraco, re
 - Implantar [VMs com várias NICs em um cenário de aplicativo de camada 2 em uma implantação do Gerenciador de Recursos](virtual-network-deploy-multinic-arm-template).
 - Implantar [VMs com várias NICs em um cenário de aplicativo de camada 2 em uma implantação clássica](virtual-network-deploy-multinic-classic-ps).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

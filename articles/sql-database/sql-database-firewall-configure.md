@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/04/2015"
+   ms.date="11/24/2015"
    ms.author="rickbyh"/>
 
 # Como configurar um firewall do Banco de Dados SQL do Azure
@@ -133,7 +133,9 @@ Considere os seguintes pontos quando o acesso ao serviço de Banco de Dados SQL 
 
 [Como: Definir configurações de firewall do banco de dados (Banco de Dados SQL do Azure)](sql-database-configure-firewall-settings.md)
 
+[Central de segurança do mecanismo de banco de dados do SQL Server e banco de dados SQL do Azure](https://msdn.microsoft.com/library/bb510589)
+
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

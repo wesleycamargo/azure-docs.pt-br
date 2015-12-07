@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Use a CLI do Azure com o Gerenciador de Recursos | Microsoft Azure"
 	description="Saiba como usar o CLI do Azure para Mac, Linux e Windows para gerenciar os recursos do Azure usando a CLI no modo Gerenciador de Recursos do Azure."
-	services="virtual-machines,mobile-services,cloud-services"
+	services="virtual-machines,virtual-network,mobile-services,cloud-services"
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="11/18/2015"
 	ms.author="danlep"/>
 
 # Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciador de Recursos do Azure
@@ -45,16 +45,16 @@ Os requisitos de configuração para usar o modo Gerenciador de Recursos com a C
 
 - uma conta do Azure ([obtenha uma avaliação gratuita aqui](http://azure.microsoft.com/pricing/free-trial/))
 - [instalando a CLI do Azure](../xplat-cli-install.md)
-- [configurando a CLI do Azure](../xplat-cli-connect.md) para usar uma identidade do Active Directory do Azure ou uma entidade de serviço
+
 
 Depois que você tiver uma conta e tiver instalado a CLI do Azure, você deve:
 
-- alternar para o modo do Gerenciador de Recursos digitando `azure config mode arm`.
-- Faça logon na sua conta do Azure digitando `azure login` e usando a sua identidade de trabalho ou escolar nos prompts
+- [configurar a CLI do Azure](../xplat-cli-connect.md) para usar uma conta corporativa ou de estudante, ou uma identidade de conta da Microsoft 
+- alternar para o modo do Gerenciador de Recursos digitando `azure config mode arm`
 
 
-## azure account: Gerenciar suas informações de conta e configurações de publicação
-As informações da assinatura do Azure são utilizadas pela ferramenta para se conectar à sua conta. Essas informações podem ser obtidas no portal do Azure em um arquivo de configurações de publicação conforme descrito aqui. Você pode importar o arquivo de configurações de publicação como uma definição de configuração local persistente que a ferramenta irá usar para operações subsequentes. Você precisa importar as configurações de publicação apenas uma vez.
+## conta do Azure: gerenciar as informações da sua conta
+As informações da assinatura do Azure são utilizadas pela ferramenta para se conectar à sua conta.
 
 **Lista as assinaturas importadas**
 
@@ -1760,4 +1760,4 @@ Opções de parâmetro:
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

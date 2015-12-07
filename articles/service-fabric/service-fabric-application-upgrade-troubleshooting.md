@@ -216,13 +216,15 @@ O tempo de atualização para um domínio de atualização é limitado pelo *Upg
 
 ## Próximas etapas
 
-[Tutorial de atualização](service-fabric-application-upgrade-tutorial.md)
+[Atualização do Aplicativo Service Fabric usando o Visual Studio](service-fabric-application-upgrade.md)
+
+[Atualizar o aplicativo Service Fabric usando o PowerShell](service-fabric-application-upgrade-powershell.md)
 
 [Parâmetros de atualização](service-fabric-application-upgrade-parameters.md)
 
-[Tópicos avançados](service-fabric-application-upgrade-advanced.md)
+[Atualização Manual e Atualização com um Pacote Diff](service-fabric-application-upgrade-advanced.md)
 
 [Serialização de dados](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

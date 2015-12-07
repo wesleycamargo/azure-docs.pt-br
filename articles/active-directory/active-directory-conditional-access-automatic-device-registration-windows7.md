@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="11/24/2015"
 	ms.author="femila"/>
 
 # Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 7
@@ -52,4 +52,12 @@ Em seguida, abra um prompt de comando no computador com o Windows 7 e execute o 
 
 O Log de Eventos do Windows no computador Windows 7 exibirá as mensagens relacionadas ao Ingresso no Local de Trabalho. Você pode encontrar mensagens de eventos de Ingresso no Local de Trabalho bem-sucedidas e malsucedidas. O Log de Eventos pode ser encontrado no Visualizador de Eventos em Logs de Aplicativos e Serviços > Ingresso no Local de Trabalho da Microsoft.
 
-<!---HONumber=Nov15_HO1-->
+## Tópicos adicionais
+
+- [Visão geral do registro de dispositivos do Active Directory do Azure](active-directory-conditional-access-device-registration-overview.md)
+- [Registro de dispositivo automático com o Active Directory do Azure para dispositivos de domínio associado do Windows](active-directory-conditional-access-automatic-device-registration.md)
+- [Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+
+ 
+
+<!---HONumber=AcomDC_1125_2015-->

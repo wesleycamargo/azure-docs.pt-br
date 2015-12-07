@@ -24,6 +24,8 @@ Você pode escrever e configurar plug-ins para o SDK do Application Insights, a 
 Atualmente, esses recursos estão disponíveis para o SDK do ASP.NET.
 
 * A [Amostragem](#sampling) reduz o volume de telemetria sem afetar as estatísticas. Ela mantém juntos os pontos de dados relacionadas para que você possa navegar entre eles para diagnosticar um problema. No portal, as contagens totais são multiplicadas para compensar a amostragem.
+ * A amostragem de taxa fixa permite determinar a porcentagem de eventos que são transmitidos.
+ * A amostragem adaptável (o padrão para o SDK do ASP.NET de 2.0.0-beta3) ajusta automaticamente a taxa de amostragem de acordo com seu volume de telemetria. Você pode definir um volume de destino.
 * A [filtragem](#filtering) permite selecionar ou modificar a telemetria no SDK antes que ela seja enviada ao servidor. Por exemplo, você pode reduzir o volume de telemetria excluindo as solicitações de robôs. Essa é uma abordagem mais básica para reduzir o tráfego comparado à amostragem. Ela permite um maior controle sobre o que é transmitido, mas você precisa estar ciente de que ela afetará as estatísticas - por exemplo, se você filtrar todas as solicitações bem-sucedidas.
 * [Adicionar propriedades](#add-properties) a qualquer telemetria enviada do seu aplicativo, incluindo a telemetria dos módulos padrão. Por exemplo, você pode adicionar valores calculados ou números de versão pelos qual os dados serão filtrados no portal.
 * [A API do SDK](app-insights-api-custom-events-metrics.md) é usada para enviar eventos personalizados e métricas.
@@ -38,27 +40,22 @@ Antes de começar:
 
 *Esse recurso está incluído na versão beta.*
 
-A maneira recomendada para reduzir o tráfego enquanto estatísticas precisas são preservadas. O filtro seleciona itens relacionados para que você possa navegar entre os itens no diagnóstico. As contagens de eventos são ajustadas no Metric Explorer para compensar os itens filtrados.
+[Amostragem](app-insights-sampling.md) é maneira recomendada de reduzir o tráfego enquanto preserva estatísticas precisas. O filtro seleciona itens relacionados para que você possa navegar entre os itens no diagnóstico. As contagens de eventos são ajustadas no Metric Explorer para compensar os itens filtrados.
 
-1. Atualize os pacotes NuGet do seu projeto para a versão de *pré-lançamento* mais recente do Application Insights. Clique com o botão direito do mouse no projeto no Gerenciador de Soluções, marque a opção **Incluir pré-lançamento** e procure por Microsoft.ApplicationInsights.Web. 
+* A amostragem adaptável é recomendada. Ela ajusta automaticamente a porcentagem de amostragem para atingir um determinado volume de solicitações. Disponível atualmente somente para telemetria ASP.NET do lado do servidor.  
+* A amostragem de taxa fixa também está disponível. Especifique a porcentagem de amostragem. Disponível para o código do aplicativo Web ASP.NET e páginas Web do JavaScript. O cliente e o servidor sincronizarão suas amostragens para que, na Pesquisa, você possa navegar entre exibições de página e solicitações relacionadas.
 
-2. Adicione esse trecho de código a [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
+### Para habilitar a amostragem
 
-```XML
+**Atualize os pacotes NuGet** de seu projeto para a versão de *pré-lançamento* mais recente do Application Insights: clique com o botão direito do mouse no projeto no Gerenciador de Soluções, marque a opção **Incluir pré-lançamento** e procure por Microsoft.ApplicationInsights.Web.
 
-    <TelemetryProcessors>
-     <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+Em [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), você pode ajustar a taxa máxima de telemetria desejada pelo algoritmo adaptável:
 
-     <!-- Set a percentage close to 100/N where N is an integer. -->
-     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 10, 1 (=100/100), 0.1 (=100/1000) ... -->
-     <SamplingPercentage>10</SamplingPercentage>
-     </Add>
-   </TelemetryProcessors>
+    <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
 
-```
+### Amostragem do lado do cliente
 
-
-Para obter a amostragem nos dados de páginas da Web, insira uma linha extra no [trecho de código do Application Insights](app-insights-javascript.md) que você inseriu (normalmente em uma página mestra, como \_Layout.cshtml):
+Para obter a amostragem de taxa fixa nos dados de páginas da Web, insira uma linha extra no [trecho de código do Application Insights](app-insights-javascript.md) que você inseriu (normalmente em uma página mestra, como \_Layout.cshtml):
 
 *JavaScript*
 
@@ -72,10 +69,8 @@ Para obter a amostragem nos dados de páginas da Web, insira uma linha extra no 
 	}); 
 ```
 
-* Defina um percentual (10, nesses exemplos) que seja igual a 100/N, em que N seja um inteiro - por exemplo, 50 (=100/2), 33,33 (=100/3), 25 (=100/4) e 10 (=100/10). 
-* Se tiver muitos dados, você pode usar taxas de amostragem muito baixas, como 0,1.
-* Se você definir a amostragem na página da Web e no servidor, lembre-se de definir o mesmo percentual de amostragem em ambos os lados.
-* Os lados do cliente e do servidor serão coordenados para selecionar itens relacionados.
+* Defina um percentual (10, neste exemplo) que seja igual a 100/N, em que N seja um inteiro - por exemplo, 50 (=100/2), 33,33 (=100/3), 25 (=100/4) e 10 (=100/10). 
+* Se você também habilitar a [amostragem de taxa fixa](app-insights-sampling.md) no lado do servidor, o cliente e o servidor sincronizarão suas amostragens para que, na Pesquisa, você possa navegar entre exibições de página e solicitações relacionadas.
 
 [Saiba mais sobre a amostragem](app-insights-sampling.md).
 
@@ -164,7 +159,7 @@ Você pode transmitir valores de cadeia de caracteres do arquivo .config fornece
  
 **Como alternativa,** é possível inicializar o filtro no código. Em uma classe de inicialização adequada - por exemplo AppStart em Global.asax.cs - insira seu processador na cadeia:
 
-    ```C#
+```C#
 
     var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
     builder.Use((next) => new SuccessfulDependencyFilter(next));
@@ -174,7 +169,7 @@ Você pode transmitir valores de cadeia de caracteres do arquivo .config fornece
 
     builder.Build();
 
-    ```
+```
 
 Os TelemetryClients criados depois desse ponto usarão seus processadores.
 
@@ -198,7 +193,7 @@ Filtre os bots e os testes Web. Embora o Metrics Explorer ofereça a opção par
 
 #### Autenticação com falha
 
-Filtre as solicitações com uma resposta “401”.
+Filtre as solicitações com uma resposta "401".
 
 ```C#
 
@@ -409,4 +404,4 @@ Você pode adicionar quantos inicializadores desejar.
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

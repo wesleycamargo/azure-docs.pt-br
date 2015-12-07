@@ -13,11 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 # A experiência de conexão com o Azure Multi-Factor Authentication
-As informações a seguir ajudam a orientar você no processo de conexão.
+> [AZURE.NOTE]A documentação a seguir fornecida nesta página mostra uma experiência de logon típica. Para obter ajuda com a conexão, consulte [Problemas com a Azure Multi-Factor Authentication](multi-factor-authentication-end-user-manage-settings.md)
+
 
 
 ## Qual será sua experiência de conexão?
@@ -26,11 +27,80 @@ Sua experiência variará de acordo com o modo que você se conecta e usa a aute
 
 O que você está fazendo?|Descrição
 :------------- | :------------- | 
-[Conectando-se com o telefone celular ou comercial](multi-factor-authentication-end-user-signin-phone.md) | Isso é o que você pode esperar ao entrar usando o telefone celular ou comercial.
-[Conectando-se com o aplicativo móvel usando notificação](multi-factor-authentication-end-user-signin-app-notify.md) | Isso é que você pode esperar ao entrar no aplicativo móvel com notificações.
-[Conectando-se com o aplicativo móvel usando o código de verificação](multi-factor-authentication-end-user-signin-app-verify.md)|Isso é que você pode esperar ao entrar no aplicativo móvel com um código de verificação.
-[Conectando-se com um método alternativo](multi-factor-authentication-end-user-signin-alt.md)|Isso mostrará o que esperar se você desejar usar um método alternativo.
+[Conectando-se com o telefone celular ou comercial](#signing-in-with-mobile-or-office-phone) | Isso é o que você pode esperar ao entrar usando o telefone celular ou comercial.
+[Conectando-se com o aplicativo móvel usando notificação](#signing-in-with-the-mobile-app-using-notification) | Isso é que você pode esperar ao entrar no aplicativo móvel com notificações.
+[Conectando-se com o aplicativo móvel usando o código de verificação](#signing-in-with-the-mobile-app-using-verification-code)|Isso é que você pode esperar ao entrar no aplicativo móvel com um código de verificação.
+[Conectando-se com um método alternativo](#signing-in-with-an-alternate-method)|Isso mostrará o que esperar se você desejar usar um método alternativo.
+
+## Conectando-se com o telefone celular ou comercial
+
+As informações a seguir descrevem a experiência de usar a autenticação multifator com seu telefone celular ou comercial.
+
+### Para se conectar com uma ligação para seu telefone comercial ou celular
+
+- Entre em um aplicativo ou serviço, como o Office 365, usando seu nome de usuário e senha.
+- A Microsoft ligará para você.
+
+![A Microsoft liga](./media/multi-factor-authentication-end-user-signin-phone/call.png)
+
+- Atenda o telefone e pressione a tecla #.
+
+![Resposta](./media/multi-factor-authentication-end-user-signin-phone/phone.png)
+
+- Agora você deve estar conectado.</li>
+
+## Conectando-se com o aplicativo móvel usando notificação
+
+As informações a seguir descrevem a experiência de usar a autenticação multifator com seu aplicativo móvel quando você recebe uma notificação.
+
+### Para se conectar com uma notificação enviada ao seu aplicativo móvel
+
+- Entre em um aplicativo ou serviço, como o Office 365, usando seu nome de usuário e senha.
+- A Microsoft enviará uma notificação.
+
+![A Microsoft envia notificação](./media/multi-factor-authentication-end-user-signin-app-notify/notify.png)
+
+
+- Atenda o telefone e pressione a tecla de verificação.
+
+![Verificar](./media/multi-factor-authentication-end-user-signin-app-notify/phone.png)
+
+
+- Agora você deve estar conectado.
+
+
+## Conectando-se com o aplicativo móvel usando o código de verificação
+
+As informações a seguir descrevem a experiência de usar a autenticação multifator com seu aplicativo móvel quando você a está usando com um código de verificação.
+
+### Para se conectar usando um código de verificação com seu aplicativo móvel
+
+- Entre em um aplicativo ou serviço, como o Office 365, usando seu nome de usuário e senha.
+- A Microsoft solicitará um código de verificação.
+
+![Inserir código de verificação](./media/multi-factor-authentication-end-user-signin-app-verify/verify.png)
+
+- Abra o aplicativo Azure Authenticator em seu telefone e digite o código na caixa de conexão.
+
+![Obter o código](./media/multi-factor-authentication-end-user-signin-app-verify/phone.png)
+
+- Agora você deve estar conectado.
+
+
+## Conectando-se com um método alternativo
+
+
+A seção a seguir mostrará como se conectar com um método alternativo quando seu método principal não estiver disponível.
+
+### Para se conectar com um método alternativo
+
+- Entre em um aplicativo ou serviço, como o Office 365, usando seu nome de usuário e senha.
+- Selecione a opção Usar uma verificação diferente. Opções diferentes serão exibidas. O número que você vê se baseia na quantidade que foi configurada.
+
+![Usar método alternativo](./media/multi-factor-authentication-end-user-signin-alt/alt.png)
+
+- Escolha um método alternativo e conecte-se.
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

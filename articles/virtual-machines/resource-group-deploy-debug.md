@@ -315,7 +315,7 @@ Para ser específico sobre núcleos, por exemplo, você pode verificar as regiõ
 
 ## Verificando o registro do provedor de recursos
 
-Os recursos são gerenciados por provedores de recursos, e uma conta ou assinatura pode ser habilitada para usar um provedor específico. Se você estiver habilitado para usar um provedor, ele também deve ser registrado para uso. A maioria dos provedores são registrados automaticamente pelo portal do Azure ou pela interface de linha de comando que você está usando, mas nem todos.
+Os recursos são gerenciados por provedores de recursos, e uma conta ou assinatura pode ser habilitada para usar um provedor específico. Se você estiver habilitado para usar um provedor, ele também deve ser registrado para uso. A maioria dos provedores são registrados automaticamente pelo Portal de Visualização do Azure ou pela interface de linha de comando que você está usando, mas nem todos.
 
 ### PowerShell
 
@@ -434,4 +434,4 @@ Para dominar a criação de modelos, leia [Criando modelos do Gerenciador de Rec
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

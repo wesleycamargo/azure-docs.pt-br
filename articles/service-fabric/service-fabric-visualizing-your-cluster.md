@@ -32,13 +32,19 @@ Você pode navegar pelo Explorador do Service Fabric usando a árvore à esquerd
 
 ![Painel de clusters do Explorador do Service Fabric][sfx-cluster-dashboard]
 
-O cluster contém duas subárvores: uma para aplicativos e outra para nós.
+### O mapa de clusters
+
+Nós em um cluster do Service Fabric são colocados em uma grade de dimensão 2 de domínios de falha e domínios de atualização para garantir que seus aplicativos permaneçam disponíveis na presença de falhas de hardware e atualizações de aplicativos. Você pode exibir o layout do cluster atual usando o Mapa de Clusters.
+
+![Mapa de clusters do Explorador do Service Fabric][sfx-cluster-map]
 
 ### Exibindo seus aplicativos e serviços
 
+O cluster contém duas subárvores: uma para aplicativos e outra para nós.
+
 A exibição de aplicativos permite navegar pela hierarquia lógica do Service Fabric: aplicativos, serviços, partições e réplicas.
 
-No exemplo abaixo, o aplicativo **MyApp** é composto de dois serviços, **MyStatefulService** e **WebSvcService**. Como **MyStatefulService** tem monitoração de estado, ele inclui uma partição com uma réplica primária e duas réplicas secundárias. Por outro lado, o WebSvcService não tem monitoração de estado e contém uma única instância.
+No exemplo abaixo, o aplicativo **MyApp** é composto de dois serviços, **MyStatefulService** e **WebService**. Como o **MyStatefulService** tem monitoração de estado, ele inclui uma partição com uma réplica principal e duas secundárias. Por outro lado, o WebSvcService não tem monitoração de estado e contém uma única instância.
 
 ![Exibição do aplicativo do Explorador do Service Fabric][sfx-application-tree]
 
@@ -70,9 +76,11 @@ Como o Explorador do Service Fabric é baseado na Web e executado dentro do clus
 
 ### Descobrir o ponto de extremidade do Explorador do Service Fabric para um Cluster remoto
 
-Você pode descobrir o ponto de extremidade de cluster no portal do Service Fabric. Para acessar o Explorador do Service Fabric para um determinado cluster, basta conectar ao ponto de extremidade na porta 19007:
+Para acessar o Explorador do Service Fabric para um determinado cluster, basta apontar seu navegador para:
 
-http://&lt;your-cluster-endpoint&gt;:19007
+http://&lt;your-cluster-endpoint&gt;:19080/Explorer
+
+A URL completa também está disponível no painel essencial do cluster do portal do Azure.
 
 ### Conectar a um cluster seguro
 
@@ -83,18 +91,14 @@ Se você tentar conectar ao Explorador do Service Fabric em um cluster seguro, o
 ## Próximas etapas
 
 - [Visão geral da capacidade de teste](service-fabric-testability-overview.md).
-- [Gerenciar os seus aplicativos do Service Fabric no Visual Studio](service-fabric-manage-application-in-visual-studio.md).
-- [Implantação de aplicativos do Service Fabric usando o PowerShell](service-fabric-deploy-remove-applications.md)
+- [Gerenciando seus aplicativos de Malha do Serviço no Visual Studio](service-fabric-manage-application-in-visual-studio.md).
+- [Implantação de aplicativos de Malha do Serviço usando o PowerShell](service-fabric-deploy-remove-applications.md)
 
 <!--Image references-->
-[applicationview]: ./media/service-fabric-visualizing-your-cluster/applicationview.png
-[clustermap]: ./media/service-fabric-visualizing-your-cluster/clustermap.png
-[connecttocluster]: ./media/service-fabric-visualizing-your-cluster/connecttocluster.png
-[replicadetails]: ./media/service-fabric-visualizing-your-cluster/replicadetails.png
-[servicefabricexplorer]: ./media/service-fabric-visualizing-your-cluster/servicefabricexplorer.png
 [sfx-cluster-dashboard]: ./media/service-fabric-visualizing-your-cluster/SfxClusterDashboard.png
+[sfx-cluster-map]: ./media/service-fabric-visualizing-your-cluster/SfxClusterMap.png
 [sfx-application-tree]: ./media/service-fabric-visualizing-your-cluster/SfxApplicationTree.png
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

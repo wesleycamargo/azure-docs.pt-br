@@ -3,7 +3,7 @@
    description="Este artigo contém vários tópicos sobre o gerenciamento de um ambiente da Automação do Azure. Atualmente, inclui a Retenção de dados e o backup da Recuperação de desastres na Automação do Azure."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="SnehaGunda"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -36,7 +36,7 @@ A tabela a seguir resume a política de retenção para diferentes recursos.
 |Trabalhos|Excluído e removidos permanentemente 90 dias após a última modificação. Isso pode ocorrer depois que o trabalho é concluído, interrompido ou suspenso.|
 |Arquivos de configurações/MOF de nó| A configuração de nó antigo é removida permanentemente 90 dias depois que uma nova configuração de nó é gerada.|
 |Nós DSC| Removido de forma permanente 90 dias após o nó é cancelar o registro da conta de automação usando o portal do Azure ou o [AzureRMAutomationDscNode Unregister](https://msdn.microsoft.com/library/mt603500.aspx) cmdlet do Windows PowerShell. Nós também permanentemente são removidos de 90 dias depois que a conta que contém que o nó é excluída por um usuário. |
-|Exibir nó| Removido de forma permanente 90 dias depois que um novo relatório é gerado para esse nó|
+|Relatórios de Nó| Removido de forma permanente 90 dias depois que um novo relatório é gerado para esse nó|
 
 A política de retenção se aplica a todos os usuários e, atualmente não, pode ser personalizada.
 
@@ -84,4 +84,4 @@ A tabela a seguir mostra os emparelhamentos disponíveis das regiões primárias
 
 No evento improvável de os dados de uma região primária serem perdidos, a Microsoft tentará recuperá-los. Se não for possível recuperar os dados primários, o failover geográfico será executado e os clientes afetados receberão uma notificação em suas assinaturas.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/02/2015" 
+	ms.date="11/24/2015" 
 	ms.author="jaymathe"/>
 
 
@@ -26,7 +26,7 @@ Suponha que você tenha um conjunto de dados e gostaria de prever rapidamente um
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Um cenário simples poderia ser um em que o pesquisador estivesse tentando prever o peso de um indivíduo (y) com base em sua altura (x). Um cenário mais avançado poderia ser um em que o Pesquisador tivesse informações adicionais para a pessoa (como peso, gênero, raça) e tentasse prever o peso dessa pessoa. Esse [serviço Web](https://datamarket.azure.com/dataset/aml_labs/multivariate_regression) se ajusta ao modelo de regressão linear para os dados e gera o valor previsto (y) para cada uma das observações nos dados.
+Um cenário simples poderia ser um em que o pesquisador estivesse tentando prever o peso de um indivíduo (y) com base em sua altura (x). Um cenário mais avançado poderia ser um em que o Pesquisador tivesse informações adicionais para a pessoa (como peso, sexo, raça) e tentasse prever o peso dessa pessoa. Esse [serviço Web](https://datamarket.azure.com/dataset/aml_labs/multivariate_regression) se ajusta ao modelo de regressão linear para os dados e gera o valor previsto (y) para cada uma das observações nos dados.
 
 >Este serviço Web poderia ser consumido por usuários – potencialmente por meio de um aplicativo móvel, de um site ou até mesmo em um computador local, por exemplo. Mas a finalidade do serviço Web é também servir como um exemplo de como o Aprendizado de Máquina do Azure pode ser usado para criar serviços Web sobre o código R. Com apenas algumas linhas de código R e cliques de botão dentro do Estúdio de Aprendizado de Máquina do Azure, um experimento pode ser criado com código R e publicado como um serviço Web. O serviço Web pode ser publicado no Azure Marketplace e consumido por dispositivos e usuários em todo o mundo – sem qualquer infraestrutura configurada pelo autor do serviço Web.
 
@@ -117,4 +117,4 @@ Para obter as perguntas frequentes sobre o consumo do serviço Web ou a publica�
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

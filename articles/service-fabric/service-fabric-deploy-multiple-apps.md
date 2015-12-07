@@ -3,7 +3,7 @@
    description="Instruções passo a passo sobre como empacotar vários aplicativos para implantar em um cluster do Azure Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
-   authors="bscholl"
+   authors="bmscholl"
    manager=""
    editor=""/>
 
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/09/2015"
+   ms.date="11/17/2015"
    ms.author="bscholl"/>
 
 
-# Implantar vários aplicativos existentes
+# Implantar vários aplicativos personalizados
 
 Este artigo mostra como empacotar e implantar vários aplicativos no Service Fabric usando a versão de visualização da ferramenta de empacotamento do Service Fabric, disponível em http://aka.ms/servicefabricpacktool.
 
@@ -194,8 +194,8 @@ Depois que o aplicativo for publicado com êxito no cluster local, você poderá
 
 Neste tutorial, você aprendeu a empacotar com facilidade dois aplicativos existentes como um aplicativo do Service Fabric, e implantá-lo no Service Fabric para que possa se beneficiar de alguns recursos do Service Fabric, como a alta disponibilidade e a integração de integridade do sistema.
 
-Para saber mais, confira os tópicos a seguir:
+## Próximas etapas
 
-[Formato de Empacotamento do Service Fabric](service-fabric-deploy-existing-app.md)
+Saiba como [empacotar um aplicativo único manualmente](service-fabric-deploy-existing-app.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

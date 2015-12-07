@@ -2,9 +2,9 @@
 	pageTitle="Criando um aplicativo de placar de líderes da Windows Store com o back-end .NET | Serviços Móveis do Azure" 
 	description="Saiba como criar um aplicativo de placar de líderes da Windows Store usando os Serviços Móveis do Azure com um back-end .NET." 
 	documentationCenter="windows" 
-	authors="MikeWasson" 
-	manager="dwrede" 
-	editor="" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="jimbe" 
 	services="mobile-services"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/24/2015" 
+	ms.date="11/19/2015" 
 	ms.author="glenga"/>
 
 # Criando um aplicativo de Placas de Líderes com o back-end .NET de Serviços Móveis do Azure
@@ -762,4 +762,4 @@ Agora, quando executar o aplicativo, ele se comunicará com o serviço real.
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

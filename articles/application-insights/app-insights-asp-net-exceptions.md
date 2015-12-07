@@ -78,6 +78,9 @@ Para ver esses eventos, abra [Pesquisar][diagnostic], abra Filtrar e escolha Eve
 
 ![Drill-through](./media/app-insights-asp-net-exceptions/viewCustomEvents.png)
 
+
+> [AZURE.NOTE]Se o seu aplicativo gerar muita telemetria, o módulo de amostragem adaptável reduzirá automaticamente o volume enviado ao portal, enviando apenas uma fração representativa de eventos. Os eventos que fazem parte da mesma operação serão selecionados ou desmarcados como um grupo, para que você possa navegar entre os eventos relacionados. [Saiba mais sobre amostragem.](app-insights-sampling.md)
+
 ### Como consultar dados POST de solicitação
 
 Os detalhes da solicitação não incluem os dados enviados ao seu aplicativo em uma chamada POST. Para que esses dados sejam relatados:
@@ -452,4 +455,4 @@ Observe que ela será diferente da contagem 'Exceções' calculada pelo portal d
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

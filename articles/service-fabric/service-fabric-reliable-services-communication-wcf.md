@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="11/12/2015"
+   ms.date="11/17/2015"
    ms.author="bharatn@microsoft.com"/>
 
 # Pilha de comunicação baseada no WCF para Serviços Confiáveis
-A estrutura de serviços confiáveis permite que os autores de serviço decidam qual pilha de comunicação desejam usar para seu serviço. Eles podem ligar a pilha de comunicação de sua escolha por meio de `ICommunicationListener` retornado do método [`CreateCommunicationListener`](../service-fabric-reliable-service-communication.md). A estrutura fornece uma implementação baseada no WCF da pilha de comunicação para autores de serviço que desejam usar comunicação baseada no WCF.
+A estrutura de serviços confiáveis permite que os autores de serviço decidam qual pilha de comunicação desejam usar para seu serviço. Eles podem ligar a pilha de comunicação de sua escolha por meio do `ICommunicationListener` retornado dos métodos [CreateServiceReplicaListeners ou CreateServiceInstanceListeners](service-fabric-reliable-service-communication.md). A estrutura fornece uma implementação baseada no WCF da pilha de comunicação para autores de serviço que desejam usar comunicação baseada no WCF.
 
 ## Ouvinte de comunicação do WCF
 A implementação específica do WCF do `ICommunicationListener` é fornecida pela classe `Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener`.
@@ -47,7 +47,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 ```
 
 ## Desenvolvimento de clientes para a pilha de comunicação do WCF
-Para o desenvolvimento de clientes que se comuniquem com serviços usando o WCF, a estrutura fornece `WcfClientCommunicationFactory`, que é a implementação específica do WCF do [`ClientCommunicationFactoryBase`](../service-fabric-reliable-service-communication.md).
+Para o desenvolvimento de clientes que se comuniquem com serviços usando o WCF, a estrutura fornece `WcfClientCommunicationFactory`, que é a implementação específica do WCF do [`ClientCommunicationFactoryBase`](service-fabric-reliable-service-communication.md).
 
 ```csharp
 
@@ -114,4 +114,4 @@ var result = calculatorServicePartitionClient.InvokeWithRetryAsync(
 
 * [API Web com OWIN no Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -84,7 +84,7 @@ Para o ILB, você deve criar primeiro o balanceador de carga interno. Isso é fe
 
 1. Depois de ter definido as variáveis, copie o script do editor de texto para a sua sessão do Azure PowerShell para executá-lo. Se o prompt ainda mostrar >>, digite ENTER novamente para certificar-se de que o script comece a ser executado. Observação
 
->[AZURE.NOTE]O Portal de Gerenciamento do Azure não oferece suporte ao Balanceador de carga interno neste momento; portanto, você não verá o ILB ou os pontos de extremidade no portal. No entanto, **Get-AzureEndpoint** retorna um endereço IP interno se o Balanceador de Carga estiver sendo executado nele. Caso contrário, retornará null.
+>[AZURE.NOTE]O portal do Azure não dá suporte ao balanceador de carga interno neste momento. Assim, você não verá o ILB ou os pontos de extremidade no portal do Azure. No entanto, **Get-AzureEndpoint** retorna um endereço IP interno se o Balanceador de Carga estiver sendo executado nele. Caso contrário, retornará null.
 
 ## Verifique se KB2854082 está instalado, se necessário
 
@@ -138,4 +138,4 @@ Para o ILB, você deve criar primeiro o balanceador de carga interno. Isso é fe
 
 [AZURE.INCLUDE [Ouvinte das próximas etapas](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

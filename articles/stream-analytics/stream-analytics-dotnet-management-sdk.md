@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -48,7 +48,7 @@ Antes de começar este artigo, você deve ter o seguinte:
 		New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 		
 
--	Configure uma origem de entrada e o destino de saída para usar. Para mais obter instruções, veja [Adicionar entradas](stream-analytics-add-inputs.md) para configurar uma entrada de exemplo e [Adicionar saídas](stream-analytics-add-outputs.md) para configurar uma saída de exemplo.
+-	Configure uma origem de entrada e o destino de saída para usar. Para mais obter instruções, consulte [Adicionar entradas](stream-analytics-add-inputs.md) para configurar uma entrada de exemplo e [Adicionar saídas](stream-analytics-add-outputs.md) para configurar uma saída de exemplo.
 
 
 ## Configurar um projeto
@@ -365,4 +365,4 @@ Você tem de aprender as Noções básicas do uso de um SDK do .NET para criar e
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

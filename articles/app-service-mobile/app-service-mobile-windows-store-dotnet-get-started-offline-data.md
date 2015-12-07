@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/27/2015"
+	ms.date="11/22/2015"
 	ms.author="wesmc"/>
 
 # Habilitar sincronização offline para o seu aplicativo do Windows
@@ -36,7 +36,7 @@ Este tutorial exige o seguinte:
 
 * Visual Studio 2013 em execução no Windows 8.1.
 * Conclusão de [Criar um aplicativo do Windows][create a windows app].
-* [SQLite Store para os Serviços Móveis do Azure versão 2.0.0-beta][sqlite store nuget]
+* [SQLite Store dos Serviços Móveis do Azure versão 2.0.0-beta2][sqlite store nuget]
 * [SQLite para Windows 8.1](http://www.sqlite.org/downloads)
 
 ## Atualize o aplicativo cliente para dar suporte aos recursos offline
@@ -184,26 +184,23 @@ Nesta seção, você modificará o aplicativo cliente para simular um cenário o
 
 1. Edite App.xaml.cs no projeto compartilhado. Comente a inicialização do **MobileServiceClient** e adicione as seguintes linhas, que usam uma URL de aplicativo móvel inválido:
 
-         public static MobileServiceClient MobileService = new MobileServiceClient(
-            "https://your-service.azurewebsites.fail",
-            "https://your-gateway.azurewebsites.fail",
-            ""
-        );
+         public static MobileServiceClient MobileService = 
+				new MobileServiceClient("https://your-service.azurewebsites.fail");
+
+	Observe que quando seu aplicativo também estiver usando a autenticação, isso causará a falha da entrada. Você também pode demonstrar o comportamento offline desabilitando redes Wi-Fi e celulares no dispositivo ou usando o modo avião.
 
 2. Pressione **F5** para compilar e executar o aplicativo. Observe a falha de sincronização na atualização, quando o aplicativo é iniciado.
 3. Insira alguns novos itens de tarefas e clique em **Salvar** para cada um. Ocorre falha no envio por push para cada um com um `PushResult.Status=CancelledByNetworkError`. Os novos itens de tarefas pendentes existem apenas no armazenamento local até que possam ser enviados por push para o back-end do aplicativo móvel. 
  
-	É possível suprimir a caixa de diálogo de exceção para `PushResult.Status=CancelledByNetworkError`, então o aplicativo cliente se comportaria como se estivesse conectado ao back-end do aplicativo móvel que suporta todas as operações CRUD (Criar, Ler, Atualizar, Excluir) diretamente.
+	É possível suprimir a caixa de diálogo de exceção para `PushResult.Status=CancelledByNetworkError`, então o aplicativo cliente se comportaria como se estivesse conectado ao back-end do aplicativo móvel que dá suporte a todas as operações CRUD (criar, ler, atualizar, excluir) diretamente.
 
 4. Feche o aplicativo e reinicie-o para verificar se os novos itens que você criou persistem no armazenamento local.
 
-5. (Opcional) Use o Visual Studio para exibir a tabela de Banco de Dados SQL do Azure para ver se os dados no banco de dados do back-end não foram alterados.
+5. (Opcional) No Visual Studio, abra o **Gerenciador de Servidores**. Navegue até o banco de dados em **Azure**->**Bancos de Dados SQL**. Clique com o botão direito do mouse em seu banco de dados e selecione **Abrir no Gerenciador de Objetos do SQL Server**. Agora você pode navegar até sua tabela de banco de dados SQL e seu conteúdo. Verifique se os dados no banco de dados back-end não foram alterados.
 
-   No Visual Studio, abra **Gerenciador de Servidores**. Navegue até o banco de dados em **Azure**->**Bancos de Dados SQL**. Clique com o botão direito do mouse em seu banco de dados e selecione **Abrir no Gerenciador de Objetos do SQL Server**. Agora você pode navegar até sua tabela de banco de dados SQL e seu conteúdo.
+6. (Opcional) Use uma ferramenta REST, como o Fiddler ou o Postman, para consultar seu back-end móvel, usando uma consulta GET no formato `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem`.
 
-6. (Opcional) Use uma ferramenta REST, como o Fiddler ou o Postman, para consultar seu back-end móvel usando uma consulta GET no formulário `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem`. 
-
-## <a name="update-online-app"></a>Atualize o aplicativo para reconectar o back-end do aplicativo móvel
+## <a name="update-online-app"></a>Atualize o aplicativo para reconectar o back-end do Aplicativo Móvel
 
 Nesta seção, você reconecta o aplicativo ao back-end do aplicativo móvel. Isso simula o aplicativo mudando de um estado offline para um estado online com o back-end do aplicativo móvel. Quando você executar o aplicativo pela primeira vez, o manipulador de eventos de `OnNavigatedTo` chamará `InitLocalStoreAsync`. Isso, por sua vez, chamará `SyncAsync` para sincronizar seu armazenamento local com o banco de dados de back-end. Então, o aplicativo tentará sincronizar na inicialização.
 
@@ -215,7 +212,7 @@ Nesta seção, você reconecta o aplicativo ao back-end do aplicativo móvel. Is
 
 4. No aplicativo, clique na caixa de seleção ao lado de alguns itens a serem concluídos no repositório local.
 
-  `UpdateCheckedTodoItem` chama `SyncAsync` para sincronizar a conclusão de cada item com o back-end do aplicativo móvel. `SyncAsync` chama push e pull. No entanto, você deve observar que **sempre que executar um pull em comparação a uma tabela em que o cliente fez alterações, um push no contexto de sincronização do cliente será executado primeiro automaticamente**. Isso serve para garantir que todas as tabelas no repositório local, juntamente com as relações, permaneçam consistentes. Então nesse caso, poderíamos ter removido a chamada para `PushAsync` porque ela é executada automaticamente ao executar um pull. Esse comportamento pode resultar em um push inesperado se você não estiver ciente dele. Para obter mais informações sobre esse comportamento, confira [Sincronização de dados offline nos Aplicativos Móveis do Azure].
+  `UpdateCheckedTodoItem` chama `SyncAsync` para sincronizar a conclusão de cada item com o back-end do aplicativo móvel. `SyncAsync` chama push e pull. No entanto, observe que **sempre que você executar um pull em uma tabela em que o cliente fez alterações, um push no contexto de sincronização do cliente será executado primeiro automaticamente**. Isso serve para garantir que todas as tabelas no repositório local, juntamente com as relações, permaneçam consistentes. Então nesse caso, poderíamos ter removido a chamada a `PushAsync` porque ela é executada automaticamente ao executar um pull. Esse comportamento pode resultar em um push inesperado se você não estiver ciente dele. Para saber mais sobre esse comportamento, confira [Sincronização de dados offline nos Aplicativos Móveis do Azure].
 
 
 ##Resumo
@@ -251,7 +248,7 @@ Quando desejamos sincronizar o armazenamento local com o servidor, usamos os mé
 
 * [Sincronização de dados offline em Aplicativos Móveis do Azure]
 
-* [Cobertura em nuvem: sincronização Offline nos serviços móveis do Azure] (Observação: o vídeo está nos Serviços Móveis, mas a sincronização offline funciona de maneira semelhante nos Aplicativos Móveis do Azure)
+* [Cobertura em nuvem: sincronização offline nos serviços móveis do Azure] (observação: o vídeo está nos Serviços Móveis, mas a sincronização offline funciona de maneira semelhante nos Aplicativos Móveis do Azure)
 
 * [Azure Friday: Aplicativos habilitados para uso offline nos Serviços Móveis do Azure]
 
@@ -278,7 +275,7 @@ Quando desejamos sincronizar o armazenamento local com o servidor, usamos os mé
 [azure mobile app sdk nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/2.0.0-beta
 [sqlite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/2.0.0-beta
  
-[Cobertura em nuvem: sincronização Offline nos serviços móveis do Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Cobertura em nuvem: sincronização offline nos serviços móveis do Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Aplicativos habilitados para uso offline nos Serviços Móveis do Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015--->

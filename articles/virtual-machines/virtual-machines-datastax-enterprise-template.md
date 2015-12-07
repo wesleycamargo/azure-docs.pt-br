@@ -252,7 +252,7 @@ Ao implantar, tenha em mente que uma nova Conta de Armazenamento do Azure precis
 
 Durante e após a implantação, você pode verificar todas as solicitações feitas durante o provisionamento, incluindo quaisquer erros ocorridos.
 
-Para fazer isso, acesse o [Portal do Azure](https://portal.azure.com) e siga este procedimento:
+Para fazê-lo, vá para o [portal de visualização do Azure](https://portal.azure.com) e faça o seguinte:
 
 - Clique em "Procurar" na barra de navegação à esquerda, role para baixo e clique em "Grupos de Recursos".
 - Depois que você clicar no Grupo de Recursos que acabou de criar, será mostrada a folha "Grupo de Recursos".
@@ -388,10 +388,10 @@ Neste primeiro exemplo, fica claro como azuredeploy.json nesse cenário foi orga
 
 Em particular, os seguintes modelos vinculados serão usados para essa implantação:
 <!-- In list format, using bold typeface in the following manner is ok -->
--	**hared-resource.json**: Contém a definição de todos os recursos que serão compartilhados através da implantação. Exemplos são contas de armazenamento usadas para armazenar redes virtuais e discos do sistema operacional da VM.
--	**opscenter-resources.json**: Implanta uma VM OpsCenter e todos os recursos relacionados, incluindo uma interface de rede e um endereço IP público.
--	**opscenter-install-resources.json**: Implanta a extensão OpsCenter VM (script personalizado para Linux), que invocará o arquivo de script bash específico (opscenter.sh) necessário para configurar o serviço OpsCenter dentro dessa VM.
--	**ephemeral-nodes-resources.json**: Implanta todas as VMs do nó de cluster e recursos conectados (por exemplo, placas de rede e IPs privados). Esse modelo também implantará extensões de VM (scripts personalizados para Linux) e invoca um script bash (dsenode.sh) para instalar fisicamente partes do Apache Cassandra em cada nó.
+-	**shared-resource.json**: Contém a definição de todos os recursos que serão compartilhados na implantação. Exemplos são contas de armazenamento usadas para armazenar redes virtuais e discos do sistema operacional da VM.
+-	**opscenter-resources.json**: implanta uma VM OpsCenter e todos os recursos relacionados, incluindo uma interface de rede e um endereço IP público.
+-	**opscenter-install-resources.json**: implanta a extensão OpsCenter VM (script personalizado para Linux), que invocará o arquivo de script bash específico (opscenter.sh) necessário para configurar o serviço OpsCenter dentro dessa VM.
+-	**ephemeral-nodes-resources.json**: implanta todas as VMs do nó de cluster e recursos conectados (por exemplo, placas de rede e IPs privados). Esse modelo também implantará extensões de VM (scripts personalizados para Linux) e invoca um script bash (dsenode.sh) para instalar fisicamente partes do Apache Cassandra em cada nó.
 
 Vejamos detalhadamente como este último modelo é usado, pois ele é um dos mais interessantes em termos de desenvolvimento de modelo. Um conceito importante a ser realçado é como um único arquivo de modelo pode implantar várias cópias de um único tipo de recurso e, para cada instância, pode definir valores exclusivos para as configurações necessárias. Este conceito é conhecido como Loop de Recursos.
 
@@ -462,7 +462,7 @@ Os discos anexados são formatados como parte das atividades de preparação do 
 
 	bash vm-disk-utils-0.1.sh
 
-vm-disk-utils-0.1.sh faz parte da pasta shared\_scripts\\ubuntu, no repositório do github azure-quickstart-templates, e contém funções muito úteis para a montagem formatação e distribuição de discos. Essas funções podem ser usadas em todos os modelos no repositório.
+vm-disk-utils-0.1.sh faz parte da pasta shared_scripts\\ubuntu, no repositório do github azure-quickstart-templates, e contém funções muito úteis para a montagem formatação e distribuição de discos. Essas funções podem ser usadas em todos os modelos no repositório.
 
 Outro fragmento interessante para explorar é aquele relacionado às extensões de VM CustomScriptForLinux. Elas são instaladas como um tipo de recurso separado, com uma dependência em cada nó de cluster (e a instância OpsCenter). Elas usam o mesmo mecanismo de loop de recursos descrito para máquinas virtuais.
 
@@ -504,4 +504,4 @@ Essa abordagem sugere que você:
 
 Para obter mais informações, consulte [Linguagem de modelo do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

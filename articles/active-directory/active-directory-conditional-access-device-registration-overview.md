@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/02/2015"
+	ms.date="11/24/2015"
 	ms.author="femila"/>
 
 # Visão geral do registro de dispositivos do Active Directory do Azure
@@ -77,6 +77,10 @@ Por exemplo, se você usar dois sufixos UPN na sua organização chamada @contos
 
 ## Tópicos adicionais
 
-Você pode registrar seus dispositivos de domínio associado com Windows 7 e Windows 8.1 com o registro de dispositivos do AD do Azure. O tópico a seguir fornece mais informações sobre os pré-requisitos e as etapas necessárias para configurar o registro de dispositivos em dispositivos do Windows 7 e Windows 8.1. Registro de dispositivo automático com o Active Directory do Azure para dispositivos de domínio associado do Windows
+Você pode registrar seus dispositivos de domínio associado com Windows 7 e Windows 8.1 com o registro de dispositivos do AD do Azure. O tópico a seguir fornece mais informações sobre os pré-requisitos e as etapas necessárias para configurar o registro de dispositivos em dispositivos do Windows 7 e Windows 8.1.
 
-<!---HONumber=Oct15_HO3-->
+- [Registro de dispositivo automático com o Active Directory do Azure para dispositivos de domínio associado do Windows](active-directory-conditional-access-automatic-device-registration.md) 
+- [Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
+- [Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+
+<!---HONumber=AcomDC_1125_2015-->

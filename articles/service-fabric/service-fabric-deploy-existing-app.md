@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Implantar um aplicativo existente no Service Fabric do Azure | Microsoft Azure"
+   pageTitle="Implantar um aplicativo personalizado no Service Fabric do Azure | Microsoft Azure"
    description="Instruções passo a passo sobre como empacotar um aplicativo existente para que ele possa ser implantado em um cluster da Malha de Serviço do Azure."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/09/2015"
+   ms.date="11/17/2015"
    ms.author="bscholl"/>
 
-# Implantar um aplicativo existente no Service Fabric
+# Implantar um aplicativo personalizado no Service Fabric
 
 Você pode executar qualquer tipo de aplicativo existente, como o Node.js, o Java ou os aplicativos nativos no Service Fabric. O Service Fabric trata esses aplicativos como serviços sem estado e os coloca em nós em um cluster com base na disponibilidade e em outras métricas. Este artigo descreve como empacotar e implantar um aplicativo existente em um cluster do Service Fabric.
 
-## Benefícios da execução de um aplicativo existente no Service Fabric
+## Benefícios da execução de um aplicativo personalizado no Service Fabric
 
 Há algumas vantagens de executar o aplicativo no Cluster do Service Fabric:
 
@@ -46,7 +46,6 @@ Antes de entrar em detalhes sobre a implantação de um aplicativo existente, é
 
   O manifesto do serviço descreve os componentes de um serviço. Ele inclui dados como nome e tipo do serviço (informações que a Malha de Serviço usa para gerenciar o serviço), seu código, configuração e componentes de dados, além de alguns parâmetros adicionais que podem ser usados para configurar o serviço após sua implantação. Não vamos entrar em detalhes de todos os diferentes parâmetros disponíveis no manifesto do serviço; vamos observar o subconjunto que é exigido para executar um aplicativo existente na Malha de Serviço.
 
-Para saber mais sobre o formato de empacotamento do Service Fabric, leia [este artigo](service-fabric-develop-your-service-index.md).
 
 ## Estrutura de arquivos do pacote de aplicativos
 Para implantar um aplicativo no Service Fabric, ele precisará seguir uma estrutura de diretórios predefinida. A seguir, um exemplo dessa estrutura.
@@ -66,9 +65,9 @@ A raiz contém o arquivo ApplicationManifest.xml que define o aplicativo. Um sub
 
 - *code*: contém o código do serviço
 - *config*: contém um arquivo settings.xml (e outros arquivos, se forem necessários) que o serviço pode acessar no tempo de execução para recuperar definições específicas da configuração.
-- *data*: um diretório adicional para armazenar dados locais adicionais que o serviço possa precisar. Observação: data deve ser usado para armazenar somente dados efêmeros. A Malha de Serviço não vai copiar/replicar alterações no diretório data se o serviço precisar ser realocado, por exemplo, durante o failover.
+- *data*: um diretório adicional para armazenar dados locais adicionais que podem ser necessário para o serviço. Observação: data deve ser usado para armazenar somente dados efêmeros. A Malha de Serviço não vai copiar/replicar alterações no diretório data se o serviço precisar ser realocado, por exemplo, durante o failover.
 
-Observação: não será necessário criar os diretórios `config` e `data` caso você não precise deles.
+Observação: você não precisa criar os diretórios `config` e `data`, caso eles não sejam necessários.
 
 ## O processo de empacotamento de um aplicativo existente
 
@@ -76,12 +75,12 @@ O processo de empacotamento de um aplicativo existente baseia-se nas seguintes e
 
 - criar a estrutura de diretórios do pacote
 - adicionar arquivos de configuração e de código do aplicativo
-- Atualizar o arquivo de manifesto do serviço
-- Atualizar o manifesto do aplicativo
+- atualizar o arquivo de manifesto do serviço
+- atualizar o manifesto do aplicativo
 
->[AZURE.NOTE]\: forneceremos uma ferramenta de empacotamento, permitindo que você crie o ApplicationPackage automaticamente. No momento, a ferramenta está em visualização. Você pode encontrar mais informações [aqui](http://aka.ms/servicefabricpacktool).
+>[AZURE.NOTE]\: forneceremos uma ferramenta de empacotamento, permitindo que você crie o ApplicationPackage automaticamente. No momento, a ferramenta está em visualização. Você pode baixá-lo [aqui](http://aka.ms/servicefabricpacktool).
 
-### Criar a estrutura de diretório do pacote
+### Criar a estrutura de diretórios do pacote
 Você pode começar criando a estrutura de diretórios como descrito acima.
 
 ### Adicionar os arquivos de configuração e código do aplicativo
@@ -136,8 +135,8 @@ Vamos verificar a parte diferente do arquivo que você precisa atualizar:
 </ServiceTypes>
 ```
 
-- Você pode escolher qualquer nome desejado para `ServiceTypeName`, o valor será usado no `ApplicationManifest.xml` para identificar o serviço.
-- Você precisa especificar `UseImplicitHost="true"`. Esse atributo informa à Malha de Serviço que o serviço se baseia em um aplicativo independente, de modo que ele só precisa iniciá-lo como um processo e monitorar a integridade.
+- Você pode escolher qualquer nome desejado para `ServiceTypeName`. O valor será usado no `ApplicationManifest.xml` para identificar o serviço.
+- Você deve especificar `UseImplicitHost="true"`. Esse atributo informa à Malha de Serviço que o serviço se baseia em um aplicativo independente, de modo que ele só precisa iniciá-lo como um processo e monitorar a integridade.
 
 ### CodePackage
 O CodePackage especifica o local (e a versão) do código do serviço.
@@ -146,7 +145,7 @@ O CodePackage especifica o local (e a versão) do código do serviço.
 <CodePackage Name="Code" Version="1.0.0.0">
 ```
 
-O elemento `Name` é usado para especificar o nome do diretório no Pacote de Aplicativos que contém o código do serviço. `CodePackage` também tem o atributo `version`, que pode ser usado para especificar a versão do código e, possivelmente, ser usado para atualizar o código do serviço, utilizando a infraestrutura do ALM do Service Fabric.
+O elemento `Name` é usado para especificar o nome do diretório no Pacote de Aplicativos que contém o código do serviço. O `CodePackage` também tem o atributo `version` que pode ser usado para especificar a versão do código e, possivelmente, ser usado para atualizar o código do serviço, com a infraestrutura do ALM do Service Fabric.
 ### SetupEntrypoint
 
 ```xml
@@ -156,7 +155,7 @@ O elemento `Name` é usado para especificar o nome do diretório no Pacote de Ap
    </ExeHost>
 </SetupEntryPoint>
 ```
-O SetupEntrypoint é usado para especificar qualquer executável ou arquivo em lotes que deve ser executado antes da inicialização do código do serviço. Trata-se de um elemento opcional, de modo que ele não precisará ser incluído se não houver inicialização/configuração obrigatória. O SetupEntrypoint é executado toda vez que o serviço é reiniciado. Há apenas um SetupEntrypoint, de modo que os scripts de instalação/configuração precisam ser associados em um único arquivo em lotes se a instalação/configuração do aplicativo exigir vários scripts. Assim como o elemento Entrypoint, SetupEntrypoint pode executar qualquer tipo de arquivo: executável, arquivos em lotes e cmdlet do PowerShell. No exemplo acima, SetupEntrypoint se baseia em um arquivo em lotes, launchConfig.cmd, que está localizado no subdiretório `scripts` do diretório Code (supondo que o elemento WorkingDirectory esteja definido como Code).
+O SetupEntrypoint é usado para especificar qualquer executável ou arquivo em lotes que deve ser executado antes da inicialização do código do serviço. Trata-se de um elemento opcional, de modo que ele não precisará ser incluído se não houver inicialização/configuração obrigatória. O SetupEntrypoint é executado toda vez que o serviço é reiniciado. Há apenas um SetupEntrypoint, de modo que os scripts de instalação/configuração precisam ser associados em um único arquivo em lotes se a instalação/configuração do aplicativo exigir vários scripts. Assim como o elemento Entrypoint, SetupEntrypoint pode executar qualquer tipo de arquivo: executável, arquivos em lotes e cmdlet do PowerShell. No exemplo anterior, o SetupEntrypoint se baseia em um arquivo em lotes, launchConfig.cmd, que está localizado no subdiretório `scripts` do diretório Code (supondo que o elemento WorkingDirectory esteja definido como Code).
 
 ### Entrypoint
 
@@ -170,14 +169,14 @@ O SetupEntrypoint é usado para especificar qualquer executável ou arquivo em l
 </EntryPoint>
 ```
 
-O elemento `Entrypoint` no arquivo de manifesto do serviço é usado para especificar como iniciar o serviço. O elemento `ExeHost` especifica o executável (e os argumentos) que deve ser usado para iniciar o serviço.
+O elemento `Entrypoint` no arquivo de manifesto do serviço é usado para especificar como iniciar o serviço. O elemento `ExeHost` especifica o executável e os argumentos que devem ser usados para iniciar o serviço.
 
 - `Program`: especifica o nome do executável que deve ser executado para iniciar o serviço.
 - `Arguments`: especifica os argumentos que devem ser transmitidos para o executável. Pode ser uma lista de parâmetros com argumentos.
 - `WorkingFolder`: especifica o diretório de trabalho para o processo que será iniciado. Você pode especificar dois valores:
 	- `CodeBase`: o diretório de trabalho será definido no diretório Code no pacote de aplicativos (diretório `Code` na estrutura mostrada abaixo)
 	- `CodePackage`: o diretório de trabalho será definido como a raiz do pacote de aplicativos (`MyServicePkg`)
-- O elemento `WorkingDirectory` é útil para definir o diretório de trabalho correto para que caminhos relativos possam ser usados pelos scripts de inicialização ou do aplicativo.
+- O elemento `WorkingDirectory` é útil para definir o diretório de trabalho correto, de modo que os caminhos relativos possam ser usados pelos scripts de inicialização ou do aplicativo.
 
 ### Pontos de extremidade
 
@@ -191,7 +190,7 @@ O elemento `Endpoint` especifica os pontos de extremidade nos quais o aplicativo
 
 ## Arquivo de manifesto do aplicativo
 
-Depois de configurar o arquivo `servicemanifest.xml`, você precisará fazer algumas alterações no arquivo `ApplicationManifest.xml` para garantir que o tipo e o nome de Serviço corretos sejam usados.
+Depois de configurar o arquivo `servicemanifest.xml`, você deve fazer algumas alterações no arquivo `ApplicationManifest.xml` para garantir que o tipo e o nome de Serviço corretos sejam usados.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -204,7 +203,7 @@ Depois de configurar o arquivo `servicemanifest.xml`, você precisará fazer alg
 
 ### ServiceManifestImport
 
-No `ServiceManifestImport`, é possível especificar um ou mais serviços que você deseja incluir no aplicativo. Os serviços são referenciados com `ServiceManifestName`, que especifica o nome do diretório em que o arquivo `ServiceManifest.xml` está localizado.
+No `ServiceManifestImport`, você pode especificar um ou mais serviços para incluí-los no aplicativo. Os serviços são referenciados com `ServiceManifestName`, que especifica o nome do diretório em que o arquivo `ServiceManifest.xml` está localizado.
 
 ```xml
 <ServiceManifestImport>
@@ -213,7 +212,7 @@ No `ServiceManifestImport`, é possível especificar um ou mais serviços que vo
 ```
 
 ### Configurando o log
-Para um aplicativo existente, é muito útil poder ver logs do console para descobrir se os scripts de configuração e aplicativo não mostram algum erro. O redirecionamento do console pode ser configurado no arquivo `ServiceManifest.xml` usando o elemento `ConsoleRedirection`.
+Para um aplicativo existente, é muito útil poder ver logs do console para descobrir se os scripts de configuração e aplicativo não mostram algum erro. O redirecionamento do console pode ser configurado no arquivo `ServiceManifest.xml` usando o elemento `ConsoleRedirection`
 
 ```xml
 <EntryPoint>
@@ -226,7 +225,7 @@ Para um aplicativo existente, é muito útil poder ver logs do console para desc
 </EntryPoint>
 ```
 
-* `ConsoleRedirection` pode ser usado para redirecionar as saídas do console (stdout e stderr) para um diretório de trabalho, para que elas possam ser usadas para verificar se não há nenhum erro durante a instalação ou a execução do aplicativo no cluster do Service Fabric.
+* `ConsoleRedirection` pode ser usado para redirecionar as saídas do console (stdout e stderr) para um diretório de trabalho. Dessa forma, elas podem ser usadas para verificar se não há erros durante a instalação ou execução do aplicativo no cluster do Service Fabric.
 
 	* `FileRetentionCount` determina quantos arquivos são salvos no diretório de trabalho. Um valor de 5, por exemplo, significa que os arquivos de log das 5 execução anteriores são armazenados no diretório de trabalho.
 	* `FileMaxSizeInKb` especifica o tamanho máximo dos arquivos de log.
@@ -253,7 +252,7 @@ New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric
 ```
 Um serviço da Malha de Serviço pode ser implantado em várias 'configurações'. Por exemplo, ele pode ser implantado como uma única ou várias instâncias, ou pode ser implantado de modo que haja uma instância do serviço em cada nó do cluster da Malha de Serviço.
 
-O parâmetro `InstanceCount` do cmdlet `New-ServiceFabricService` é usado para especificar quantas instâncias do serviço devem ser iniciadas no cluster do Service Fabric. Você pode definir o valor de `InstanceCount` de acordo com o tipo de aplicativo que está sendo implantado. Os dois cenários mais comuns são: * `InstanCount = "1"`: nesse caso, somente uma instância do serviço será implantada no cluster. O agendador da Malha de Serviço determina em qual nó o serviço será implantado.
+O parâmetro `InstanceCount` do cmdlet `New-ServiceFabricService` é usado para especificar quantas instâncias do serviço devem ser iniciadas no cluster do Service Fabric. Você pode definir o valor de `InstanceCount` dependendo do tipo de aplicativo que está implantando. Os dois cenários mais comuns são: * `InstanCount = "1"`: nesse caso, somente uma instância do serviço será implantada no cluster. O agendador da Malha de Serviço determina em qual nó o serviço será implantado.
 
 * `InstanceCount ="-1"`: nesse caso, uma instância do serviço será implantada em cada nó do cluster do Service Fabric. O resultado final será ter uma (e apenas uma) instância do serviço para cada nó no cluster. Essa é uma configuração útil para aplicativos de front-end (por exemplo, um ponto de extremidade REST), pois aplicativos cliente precisam apenas se 'conectar' a qualquer um dos nós do cluster para usar o ponto de extremidade. Essa configuração também pode ser usada quando, por exemplo, todos os nós do cluster da Malha de Serviço estiverem conectados a um balanceador de carga para que o tráfego do cliente possa ser distribuído pelo serviço em execução em todos os nós do cluster.
 
@@ -275,8 +274,8 @@ Se você navegar até o diretório usando o Gerenciador de Servidores, poderá l
 ## Próximas etapas
 Neste artigo, você aprendeu as etapas básicas de empacotamento e implantação de um aplicativo existente no Service Fabric. Como uma próxima etapa, confira o conteúdo adicional deste tópico.
 
-- Exemplo de empacotamento e implantação de um aplicativo existente no [Github](https://github.com/bmscholl/servicefabric-samples/tree/comingsoon/samples/RealWorld/Hosting/SimpleApplication), incluindo a versão de pré-lançamento da ferramenta de empacotamento
-- Exemplo de empacotamento de vários aplicativos no [Github](https://github.com/bmscholl/servicefabric-samples/tree/comingsoon/samples/RealWorld/Hosting/SimpleApplication)
-- Como começar a [Criar o seu primeiro aplicativo do Service Fabric usando o Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
+- Exemplo de empacotamento e implantação de um aplicativo personalizado no [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Custom/SimpleApplication), incluindo um link para a versão de pré-lançamento da ferramenta de empacotamento.
+- Saiba como [implantar vários aplicativos personalizados](service-fabric-deploy-multiple-apps.md).
+- Introdução à [criação do seu primeiro aplicativo do Service Fabric no Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

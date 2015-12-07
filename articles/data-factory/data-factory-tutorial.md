@@ -238,7 +238,6 @@ O serviço Data Factory do Azure dá suporte à criação de um cluster sob dema
 1. Clique em **Nova computação** na barra de comandos e selecione **Cluster HDInsight sob demanda** no menu.
 2. No script JSON, faça o seguinte: 
 	1. Para a propriedade **clusterSize**, especifique o tamanho do cluster do HDInsight.
-	2. Para a propriedade **jobsContainer**, especifique o nome do contêiner padrão onde os logs de cluster serão armazenados. Para fins deste tutorial, especifique **adfjobscontainer**.
 	3. Para a propriedade **timeToLive**, especifique quanto tempo o cliente pode ficar ocioso antes de ser excluído. 
 	4. Para a propriedade **version**, especifique a versão do HDInsight que você deseja usar. Se você excluir essa propriedade, a versão mais recente será usada.  
 	5. Para o **linkedServiceName**, especifique **HDInsightStorageLinkedService** que você criou no tutorial do guia de Introdução. 
@@ -248,7 +247,6 @@ O serviço Data Factory do Azure dá suporte à criação de um cluster sob dema
 				    "properties": {
 		    	    "type": "HDInsightOnDemandLinkedService",
 		    	    "clusterSize": "4",
-		    	    "jobsContainer": "adfjobscontainer",
 		    	    "timeToLive": "00:05:00",
 		    	    "version": "3.1",
 		    	    "linkedServiceName": "HDInsightStorageLinkedService"
@@ -328,7 +326,7 @@ Nesta etapa, você criará os seguintes pipelines:
 4. Repita as etapas 1 a 3 com o conteúdo dos arquivos a seguir: 
 	1. EnrichGameLogsPipeline.json
 	2. AnalyzeMarketingCampaignPipeline.json
-4. Feche as folhas do Data Factory pressionando **X** (canto superior direito) para ver a página inicial (folha **DATA FACTORY) do seu Data Factory.
+4. Feche as folhas do Data Factory pressionando **X** (canto superior direito) para ver a página inicial (folha **DATA FACTORY **) do seu Data Factory.
 
 ### Exibição de diagrama
 
@@ -526,4 +524,4 @@ Pratique o [Guia passo a passo: usando a fonte de dados local][tutorial-onpremis
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

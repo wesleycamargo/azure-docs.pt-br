@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Criar uma VM do Oracle Database com o portal do Azure | Microsoft Azure" 
-	description="Saiba como criar uma máquina virtual com um Oracle Database usando o modelo de implantação clássico e o portal de visualização do Azure." 
-	services="virtual-machines" 
-	authors="bbenz" 
+<properties
+	pageTitle="Criar uma VM do Oracle Database com o portal do Azure | Microsoft Azure"
+	description="Saiba como criar uma máquina virtual com um Oracle Database usando o modelo de implantação clássico e o portal de visualização do Azure."
+	services="virtual-machines"
+	authors="bbenz"
 	documentationCenter=""
 	tags="azure-service-management"/>
-	
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="Windows" 
-	ms.workload="infrastructure-services" 
-	ms.date="06/22/2015" 
+
+<tags
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="Windows"
+	ms.workload="infrastructure-services"
+	ms.date="06/22/2015"
 	ms.author="bbenz" />
-	
+
 #Criar uma máquina virtual do Oracle Database no Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
@@ -24,7 +24,7 @@ O exemplo a seguir mostra como você pode criar uma máquina virtual (VM) com ba
 
 ##Para criar uma VM do Banco de Dados Oracle no Azure
 
-1.	Faça logon no [Portal do Azure](https://ms.portal.azure.com/).
+1.	Faça logon no [Portal de Visualização do Azure](https://ms.portal.azure.com/).
 
 2.	Clique em **Marketplace**, em **Computação** e digite **Oracle** na caixa de pesquisa.
 
@@ -57,7 +57,7 @@ O exemplo a seguir mostra como você pode criar uma máquina virtual (VM) com ba
 
 ##Para criar o banco de dados usando a VM do Banco de Dados Oracle no Azure
 
-1.	Faça logon no [Portal do Azure](https://ms.portal.azure.com/).
+1.	Faça logon no [Portal de Visualização do Azure](https://ms.portal.azure.com/).
 
 2.	Clique em **Máquinas Virtuais**.
 
@@ -149,7 +149,7 @@ Para permitir que o banco de dados seja acessado remotamente (por exemplo, de um
 
 ### Criar um ponto de extremidade público para a porta 1521
 
-1.	Faça logon no [Portal do Azure](https://ms.portal.azure.com/).
+1.	Faça logon no [Portal de Visualização do Azure](https://ms.portal.azure.com/).
 
 2.	Clique em **Procurar**.
 
@@ -200,4 +200,4 @@ Agora que você configurou sua máquina virtual e criou o banco de dados, consul
 
 -	[Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

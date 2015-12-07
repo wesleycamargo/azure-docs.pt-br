@@ -123,7 +123,7 @@ Para facilitar uma experiência integrada e unificada nos serviços do Azure, os
 Os desenvolvedores de aplicativos móveis podem utilizar Hubs de notificação com o fluxo de trabalho a seguir:
 
 1. Recuperar o identificador de PNS do dispositivo
-2. Registrar o dispositivo e [modelos](optional) com Hubs de notificação por meio da conveniente API de registro do SDK do cliente de aplicativos móveis
+2. Registrar o dispositivo e [modelos] com Hubs de Notificação por meio da conveniente API de registro do SDK do cliente de Aplicativos Móveis
     + Observe que os aplicativos móveis removem imediatamente todas as marcas nos registros para fins de segurança. Trabalhar com Hubs de notificação do seu back-end diretamente para associar marcas a dispositivos.
 3. Enviar notificações do seu back-end de aplicativo com Hubs de notificação
 
@@ -161,8 +161,8 @@ As referências relevantes da API .NET gerenciada para notificações push estã
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
   [Aplicativos Móveis do Serviço de Aplicativo]: https://azure.microsoft.com/pt-BR/documentation/articles/app-service-mobile-value-prop/
-  [templates]: https://msdn.microsoft.com/pt-BR/library/azure/dn530748.aspx
+  [modelos]: https://msdn.microsoft.com/pt-BR/library/azure/dn530748.aspx
   [Portal do Azure]: https://portal.azure.com
   [marcas]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

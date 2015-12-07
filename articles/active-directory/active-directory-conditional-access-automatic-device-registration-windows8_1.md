@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="11/24/2015"
 	ms.author="femila"/>
 
 # Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 8.1
@@ -52,4 +52,9 @@ O Log de Eventos do Windows no computador Windows 8.1 exibirá mensagens relacio
 
 A Política de Grupo permite que uma Tarefa Agendada no sistema que é executada no contexto do usuário seja disparada no momento da entrada do usuário. A tarefa registrará silenciosamente o usuário e o dispositivo com o Azure AD depois que a entrada for concluída. A Tarefa Agendada pode ser encontrada em dispositivos Windows 8.1 na Biblioteca do Agendador de Tarefas em **Microsoft** > **Windows** > **Ingresso no Local de Trabalho**. A tarefa será executada e registrada em todo e qualquer usuário do Active Directory que entrar.
 
-<!---HONumber=Oct15_HO3-->
+## Tópicos adicionais
+- [Visão geral do registro de dispositivos do Active Directory do Azure](active-directory-conditional-access-device-registration-overview.md)
+- [Registro de dispositivo automático com o Active Directory do Azure para dispositivos de domínio associado do Windows](active-directory-conditional-access-automatic-device-registration.md)
+- [Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
+
+<!---HONumber=AcomDC_1125_2015-->

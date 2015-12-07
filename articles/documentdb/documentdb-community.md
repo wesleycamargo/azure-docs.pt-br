@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="11/05/2015"
+  ms.date="11/23/2015"
   ms.author="andrl"/>
 
 # Portal da comunidade
@@ -33,7 +33,7 @@ Deixe-nos promover seu projeto. Mostre o projeto incrível em que você está tr
 
 Agregações (Group-by, Pivot-table, and N-dimensional Cube) e Transformações de Série Temporal como Procedimentos Armazenados no Banco de Dados de Documentos.
 
-Confira em [Github](https://github.com/lmaccherone/documentdb-lumenize) e em [npm](https://www.npmjs.com/package/lumenize).
+Confira no [Github](https://github.com/lmaccherone/documentdb-lumenize) e no [npm](https://www.npmjs.com/package/lumenize).
 
 
 ### Estudo do Banco de Dados de Documentos
@@ -42,8 +42,16 @@ Confira em [Github](https://github.com/lmaccherone/documentdb-lumenize) e em [np
 
 Um visualizador/gerenciador de gerenciamento de clientes para o serviço do Banco de Dados de Documentos do Microsoft Azure.
 
-Confira em [Github](https://github.com/mingaliu/DocumentDBStudio).
+Confira no [Github](https://github.com/mingaliu/DocumentDBStudio).
 
+
+### DoQmentDB
+
+*por Ariel Mashraki*
+
+DoQmentDB é um cliente com base em promessa do Node.js que fornece uma camada parecida com MongoDB sobre o Banco de Dados de Documentos.
+
+Confira no [Github](https://github.com/a8m/doqmentdb) e no [npm](https://www.npmjs.com/package/doqmentdb).
 
 <br/><br/>
 
@@ -63,15 +71,25 @@ Você pode se manter atualizado com as notícias e os recursos mais recentes do 
 
 **Postagens da comunidade:**
 
-* [**Lidando com erros de RequestRateTooLarge no Banco de Dados de Documentos e testando o desempenho**](http://blogs.msdn.com/b/bigdatasupport/archive/2015/09/02/dealing-with-requestratetoolarge-errors-in-azure-documentdb-and-testing-documentdb-performance.aspx) - *de Azim Uddin*
+* [**Pontos de dados - Aurelia encontra o Banco de Dados de Documentos: a jornada de um mediador**](https://msdn.microsoft.com/magazine/mt620011.aspx) - *por Julie Lerman*
 
-* [**Pontos de dados - uma visão geral do Banco de Dados de Documentos do Microsoft Azure**](https://msdn.microsoft.com/magazine/mt147238.aspx) - *de Julie Lerman*
+* [**Infraestrutura como código e implantação contínua de uma solução Node.js + Banco de Dados de Documentos do Azure**](http://www.talmeida.net/blog/2015/10/26/infrastructure-as-code-and-continuous-deployment-of-a-nodejs-azure-documentdb-solution) - *por Thiago Almedia*
 
-* [**Usando o Banco de Dados de Documentos com o F#**](https://jamessdixon.wordpress.com/2014/12/30/using-documentdb-with-f/) - *de Jamie Dixon*
+* [**Por que o Banco de Dados de Documentos faz sentido comercial para alguns projetos**](http://www.iquestllc.com/blogs/read/405/why-documentdb-makes-good-business-sense-for-some-projects) - *por Samuel Uresin*
 
-* [**Analisando logs de aplicativo com o Banco de Dados de Documentos**](http://vincentlauzon.com/2015/09/06/analysing-application-logs-with-documentdb/) - *de Vincent-Philippe Lauzon*
+* [**Banco de Dados de Documentos do Azure の開発ことはじめ - Client クラスの開発（1/2）**](http://beachside.hatenablog.com/entry/2015/10/01/202734) - *por Atsushi Yokohama*
 
-* [**Banco de Dados de Documentos do Azure – backups de ponto no tempo**](http://softwarejuancarlos.com/2015/09/06/azure-documentdb-point-in-time-backups/) - *de Juan Carlos Sanchez*
+* [**Documentos do azure を使うときに知っておきたいいくつかのこと**](http://beachside.hatenablog.com/entry/2015/10/01/202734) - *por Atsushi Yerevan*
+
+* [**Lidando com erros de RequestRateTooLarge no Banco de Dados de Documentos e testando o desempenho**](http://blogs.msdn.com/b/bigdatasupport/archive/2015/09/02/dealing-with-requestratetoolarge-errors-in-azure-documentdb-and-testing-documentdb-performance.aspx) - *por Azim Uddin*
+
+* [**Pontos de dados - uma visão geral do Banco de Dados de Documentos do Microsoft Azure**](https://msdn.microsoft.com/magazine/mt147238.aspx) - *por Julie Lerman*
+
+* [**Usando o Banco de Dados de Documentos com o F#**](https://jamessdixon.wordpress.com/2014/12/30/using-documentdb-with-f/) - *por Jamie Dixon*
+
+* [**Analisando logs de aplicativo com o Banco de Dados de Documentos**](http://vincentlauzon.com/2015/09/06/analysing-application-logs-with-documentdb/) - *por Vincent-Philippe Lauzon*
+
+* [**Banco de Dados de Documentos do Azure – backups de ponto no tempo**](http://softwarejuancarlos.com/2015/09/06/azure-documentdb-point-in-time-backups/) - *por Juan Carlos Sanchez*
 
 <br/><br/>
 
@@ -89,7 +107,6 @@ Você pode se manter atualizado com as notícias e os recursos mais recentes do 
 
 | Nome do evento | Local padrão | Data | Hashtag |
 | ------------------------------------------------------------------------------- | -------------------- | ------------------- | ------- |
-| [Grupo de usuários de integração](http://www.integrationusergroup.com/) | Webinar | 9 de novembro de 2015 | [#IntegrationMonday](https://twitter.com/hashtag/integrationmonday) |
 | [Meetup: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/) | Montreal, QC, Canadá | 01 de dezembro de 2015 | [#msdevmtl](https://twitter.com/hashtag/msdevmtl) |
 
 *Você está hospedando um evento? [Fale conosco](mailto:askdocdb@microsoft.com) para sabermos como podemos ajudar!*
@@ -98,6 +115,7 @@ Você pode se manter atualizado com as notícias e os recursos mais recentes do 
 
 | Nome do evento | Local padrão | Data | Gravação |
 | -------------------------------------------------------------------------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [Meetup: SeattleJS](http://www.meetup.com/seattlejs/events/220102664/) | Seattle, WA | 12 de novembro de 2015 | n/d |
 | [PASS Summit 2015](http://www.sqlpass.org/summit/2015/Home.asp) | Seattle, WA | 27 a 30 de outubro de 2015 | n/d |
 | [CloudDevelop 2015](http://www.clouddevelop.org/) | Columbus, OH | 23 de outubro de 2015 | n/d |
 | [SQL sábado #430 - Sófia 2015](http://www.sqlsaturday.com/430/eventhome.aspx) | Sófia, Bulgária | 10 de outubro de 2015 | n/d |
@@ -125,6 +143,7 @@ Você pode se manter atualizado com as notícias e os recursos mais recentes do 
 
 | Mostrar | Data | Episódio |
 | ------------------------------------------- | ------------------ | ------- |
+| Grupo de usuários de integração | 9 de novembro de 2015 | [Banco de Dados de Documentos do Azure para a integração da área de saúde – Parte 2](http://www.integrationusergroup.com/azure-documentdb-for-healthcare-integration-part-2/) |
 | Grupo de usuários de integração | 5 de outubro de 2015 | [Banco de Dados de Documentos do Azure para a integração da área de saúde](http://www.integrationusergroup.com/?event=azure-documentdb-and-biztalk) |
 | Itália DX - #TecHeroes | 2 de outubro de 2015 | [#TecHeroes - Banco de Dados de Documentos](https://channel9.msdn.com/Shows/TecHeroes/TecHeroes-DocumentDB) |
 | Microsoft Cloud Show - podcast | 30 de setembro de 2015 | [Episódio 099 - O Banco de Dados de Documentos do Azure com Andrew Liu](http://www.microsoftcloudshow.com/podcast/Episodes/099-azure-documentdb-with-andrew-liu) |
@@ -146,7 +165,7 @@ Você pode se manter atualizado com as notícias e os recursos mais recentes do 
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://www.microsoftvirtualacademy.com/pt-BR/training-courses/developing-solutions-with-azure-documentdb-10554) | [**Microsoft Virtual Academy**](https://www.microsoftvirtualacademy.com/pt-BR/training-courses/developing-solutions-with-azure-documentdb-10554)<br/><br/>O Microsoft Virtual Academy oferece treinamento ministrado pelas pessoas que ajudaram a criar o Banco de Dados de Documentos do Azure. |
 | [![Pluralsight](./media/documentdb-community/pluralsight.png)](http://www.pluralsight.com/courses/azure-documentdb-introduction) | [**Pluralsight**](http://www.pluralsight.com/courses/azure-documentdb-introduction)<br/><br/>A Pluralsight é um parceiro fundamental da Microsoft que oferece treinamento do Azure. Se você for assinante do MSDN, use seus benefícios para acessar o treinamento do Microsoft Azure. |
-| [![OpsGility](./media/documentdb-community/opsgility.png)](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) | [**OpsGility**](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb)<br/><br/>O Opsgility oferece treinamento técnico aprofundado sobre o Microsoft Azure. Obtenha treinamento com instrutores no local ou em uma sala de aula à distância com treinadores reconhecidos no mercado. |
+| [![OpsGility](./media/documentdb-community/opsgility.png)](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) | [**OpsGility**](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb)<br/><br/>O OpsGility oferece treinamento técnico aprofundado sobre o Microsoft Azure. Obtenha treinamento com instrutores no local ou em uma sala de aula à distância com treinadores reconhecidos no mercado. |
 
 <br/><br/>
 
@@ -215,4 +234,18 @@ Esses projetos são ativamente desenvolvidos pela equipe do Banco de Dados de Do
 | Conector do Hadoop | [azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) | [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
 | Ferramenta de migração de dados | [azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) | [Centro de download da Microsoft.](http://www.microsoft.com/pt-BR/download/details.aspx?id=46436) |
 
-<!---HONumber=Nov15_HO3-->
+<hr/>
+
+## Magos do Banco de Dados de Documentos
+
+<hr/>
+
+Os Magos do Banco de Dados de Documentos são líderes de comunidade que demonstraram um compromisso exemplar em ajudar outras pessoas a obterem o máximo proveito de sua experiência com o Banco de Dados de Documentos do Azure. Eles compartilham sua paixão, conhecimento real e experiência técnica com a comunidade e com a equipe do Banco de Dados de Documentos.
+
+| | | | |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| [![Allan Mitchell](./media/documentdb-community/wizard-allan-mitchell.jpg)](https://twitter.com/allansqlis) <br/> [Allan Mitchell](https://twitter.com/allansqlis) | [![Jen Stirrup](./media/documentdb-community/wizard-jen-stirrup.jpg)](https://twitter.com/jenstirrup) <br/> [Jen Stirrup](https://twitter.com/jenstirrup) | [![Lenni Lobel](./media/documentdb-community/wizard-lenni-lobel.jpg)](https://twitter.com/lennilobel) <br/> [Lenni Lobel](https://twitter.com/lennilobel) | [![Mihail Mateev](./media/documentdb-community/wizard-mihail-mateev.jpg)](https://twitter.com/mihailmateev) <br/> [Mihail Mateev](https://twitter.com/mihailmateev)|
+
+Deseja tornar-se um Mago do Banco de Dados de Documentos? Embora não haja qualquer parâmetro para tornar-se um Mago do Banco de Dados de Documentos, alguns dos critérios que avaliamos incluem o impacto das contribuições do candidato em fóruns online, como o StackOverflow e o MSDN; wikis e conteúdo online; conferências e grupos de usuários; podcasts, sites, blogs e mídia social; além de artigos e livros. Você pode indicar a si mesmo ou outra pessoa [enviando um email para nós](mailto:askdocdb@microsoft.com).
+
+<!---HONumber=AcomDC_1125_2015-->

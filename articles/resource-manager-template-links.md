@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/31/2015"
+   ms.date="11/19/2015"
    ms.author="tomfitz"/>
 
 # Vínculos de recursos - esquema do modelo
@@ -54,7 +54,7 @@ As tabelas a seguir descrevem os valores necessários para definir no esquema.
 
 | Nome | Tipo | Obrigatório | Valores permitidos | Descrição |
 | ------- | ---- | ---------------- | -------- | ----------- |
-| tagetId | cadeia de caracteres | Sim | | O identificador do recurso de destino para o qual vincular. |
+| targetId | string | Sim | | O identificador do recurso de destino para o qual vincular. |
 | HDInsight | cadeia de caracteres | Não | 512 caracteres | Descrição do bloqueio. |
 
 
@@ -129,4 +129,4 @@ O exemplo a seguir aplica um bloqueio somente leitura a um aplicativo Web.
 
 - Para obter informações sobre a estrutura do modelo, veja [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

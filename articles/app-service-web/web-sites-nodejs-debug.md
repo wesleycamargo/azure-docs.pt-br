@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="11/18/2015"
 	ms.author="tarcher"/>
 
 # Como depurar um aplicativo Web Node.js no Serviço de Aplicativo do Azure
@@ -63,7 +63,7 @@ Logs de diagnóstico podem ser acessado de três maneiras; Usando o protocolo FT
 
 	npm install azure-cli -g
 
-Uma vez instalado, as ferramentas podem ser acessadas usando o comando 'azure'. As ferramentas de linha de comando devem primeiro ser configuradas para usar sua assinatura do Azure. Para obter informações sobre como realizar essa tarefa, consulte a seção **Como baixar e importar as configurações de publicação** do artigo Como usar as Ferramentas de Linha de Comando do Azure.
+Uma vez instalado, as ferramentas podem ser acessadas usando o comando 'azure'. As ferramentas de linha de comando devem primeiro ser configuradas para usar sua assinatura do Azure. Para obter informações sobre como realizar essa tarefa, consulte o **como fazer o download e importar as configurações de publicação** seção a [como uso o Azure Command-line Tools](../xplat-cli-connect) artigo.
 
 ###FTP
 
@@ -73,7 +73,7 @@ Para acessar as informações de diagnóstico por meio de FTP, visite o [portal 
 
 É a URL FTP retornado no painel de controle para o **arquivos de log** diretório, que irá conter as seguintes subpastas:
 
-* [Método de implantação] - se você usar um método de implantação, como git, uma pasta de mesmo nome será criada e conterá informações relacionadas às implantações.
+* [Método de implantação](web-sites-deploy) - se você usar um método de implantação como git, uma pasta com o mesmo nome será criada e conterá informações relacionadas às implantações.
 
 * nodejs - Stdout e stderr informações capturadas de todas as instâncias do seu aplicativo (quando loggingEnabled for true.)
 
@@ -89,7 +89,7 @@ Isso fará o download uma **diagnostics.zip** no diretório atual. Este arquivo 
 
 * Arquivos de log
 
-	* [Método de implantação] - se você usar um método de implantação, como git, uma pasta de mesmo nome será criada e conterá informações relacionadas às implantações.
+	* [Método de implantação](web-sites-deploy) - se você usar um método de implantação como Git, uma pasta com o mesmo nome será criada e conterá informações relacionadas às implantações.
 
 	* nodejs - Stdout e stderr informações capturadas de todas as instâncias do seu aplicativo (quando loggingEnabled for true.)
 
@@ -106,7 +106,7 @@ Isso retornará uma cadeia de eventos de log que são atualizados à medida que 
 
 Neste artigo, você aprendeu como ativar e acessar as informações de diagnóstico do Azure. Embora essas informações sejam úteis em problemas de compreensão que ocorrem em seu aplicativo, podem indicar um problema com um módulo que você esteja usando ou indicar que a versão de Node.js usada pelos Aplicativos Web do Serviço de Aplicativo é diferente daquela usada no seu ambiente de implantação.
 
-Para obter informações no trabalho com módulos no Azure, consulte [usando o Node. js módulos com aplicativos do Azure]
+Para obter informações no trabalho com módulos no Azure, consulte [usando o Node. js módulos com aplicativos do Azure](../nodejs-use-node-modules-azure-apps)
 
 Para obter informações sobre como especificar uma versão do Node. js para seu aplicativo, consulte [especificar uma versão do Node. js em um aplicativo do Azure]
 
@@ -121,10 +121,10 @@ Para obter mais informações, consulte também o [Centro de desenvolvedores do 
 [IISNode]: https://github.com/tjanczuk/iisnode
 [IISNode Readme]: https://github.com/tjanczuk/iisnode#readme
 [How to Use The Azure Command-Line Interface]: ../xplat-cli-install.md
-[usando o Node. js módulos com aplicativos do Azure]: ../nodejs-use-node-modules-azure-apps.md
+[Using Node.js Modules with Azure Applications]: ../nodejs-use-node-modules-azure-apps.md
 [especificar uma versão do Node. js em um aplicativo do Azure]: ../nodejs-specify-node-version-azure-apps.md
 
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

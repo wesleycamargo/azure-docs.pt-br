@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/15/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
  
 # Explorar métricas no Application Insights
@@ -67,6 +67,8 @@ As granularidades disponíveis dependem do intervalo de tempo selecionado. As gr
 ## Metrics Explorer
 
 Clique em qualquer gráfico na folha visão geral para ver um conjunto mais detalhado de grades e gráficos relacionados. Você pode editar esses gráficos e grades para focar nos detalhes em que você está interessado.
+
+Ou então, basta clicar no botão Metrics Explorer no cabeçalho da folha de visão geral.
 
 Por exemplo, clique no gráfico de Solicitações com falha do aplicativo Web:
 
@@ -137,7 +139,7 @@ Observe as contagens de eventos junto a cada valor da propriedade. Quando você 
 
 Você deseja filtrar a telemetria em uma categoria de sua escolha? Por exemplo, talvez você divida seus usuários em categorias diferentes e queira segmentar os dados segundo essas categorias.
 
-[Criar sua própria propriedade](app-insights-api-custom-events-metrics.md#properties). Defina-a em um [Inicializador de Telemetria](app-insights-api-custom-events-metrics.md#telemetry-initializers) para que ela apareça em toda a telemetria - incluindo a telemetria padrão enviada por diferentes módulos do SDK.
+[Crie sua própria propriedade](app-insights-api-custom-events-metrics.md#properties). Defina-a em um [Inicializador de Telemetria](app-insights-api-custom-events-metrics.md#telemetry-initializers) para que ela apareça em toda a telemetria, incluindo a telemetria padrão enviada por diferentes módulos do SDK.
 
 ## Remover o tráfego de testes da Web e de bot
 
@@ -212,4 +214,4 @@ Se desejar obter exibições ainda mais avançadas dos seus dados, você poderá
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

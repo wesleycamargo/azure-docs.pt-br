@@ -33,7 +33,7 @@ Para integrar seu aplicativo ao Azure AD, siga as [instruções de desenvolvedor
 
 * Fornece credenciais para uma conta ou locatário de teste com o aplicativo que pode ser usado pela equipe do Azure AD para testar a integração.  
 
-* Forneça instruções sobre como a equipe do AD do Azure pode entrar e conectar uma instância do AD do Azure em seu aplicativo usando a [estrutura de consentimento do AD do Azure](https://azure.microsoft.com/pt-BR/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework).
+* Forneça instruções sobre como a equipe do AD do Azure pode entrar e conectar uma instância do AD do Azure em seu aplicativo usando a [estrutura de consentimento do AD do Azure](https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework).
 
 * Forneça instruções adicionais necessárias à equipe do AD do Azure para testar o logon único no seu aplicativo.
 
@@ -65,11 +65,11 @@ Para integrar seu aplicativo ao Azure AD, siga as [instruções de desenvolvedor
 
 ##Integração SAML
 
-Qualquer aplicativo que dê suporte ao SAML 2.0 pode ser integrado diretamente a um locatário do AD do Azure usando [estas instruções para adicionar um aplicativo personalizado](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx). Depois de testar se a integração do aplicativo funciona com o AD do Azure, envie as informações a seguir para <waadpartners@microsoft.com>.
+Qualquer aplicativo que dê suporte ao SAML 2.0 pode ser integrado diretamente a um locatário do AD do Azure usando [estas instruções para adicionar um aplicativo personalizado](active-directory-saas-custom-apps.md). Depois de testar se a integração do aplicativo funciona com o AD do Azure, envie as informações a seguir para <waadpartners@microsoft.com>.
 
 * Fornece credenciais para uma conta ou locatário de teste com o aplicativo que pode ser usado pela equipe do Azure AD para testar a integração.  
 
-* Forneça os valores da URL de logon do SAML, da URL de emissor (ID da entidade) e da URL de resposta (serviço do consumidor de declaração) para seu aplicativo, conforme descrito [aqui](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx). Se você geralmente fornece esses valores como parte de um arquivo de metadados do SAML, envie este também.
+* Forneça os valores da URL de logon do SAML, da URL de emissor (ID da entidade) e da URL de resposta (serviço do consumidor de declaração) para seu aplicativo, conforme descrito [aqui](active-directory-saas-custom-apps.md). Se você geralmente fornece esses valores como parte de um arquivo de metadados do SAML, envie este também.
 
 * Forneça uma breve descrição de como configurar o AD do Azure como um provedor de identidade em seu aplicativo usando o SAML 2.0. Se seu aplicativo der suporte à configuração do AD do Azure como um provedor de identidade por meio de um portal administrativo de autoatendimento, verifique se as credenciais fornecidas acima incluem a capacidade de configurá-la.
 
@@ -89,7 +89,7 @@ Qualquer aplicativo que dê suporte ao SAML 2.0 pode ser integrado diretamente a
 > 
 > URL de inscrição do aplicativo onde os clientes vão para se inscrever e/ou comprar o aplicativo:
 > 
-> Escolha até três categorias em que seu aplicativo deva ser listado (para saber as categorias disponíveis, consulte o [Azure Active Directory Marketplace](https://azure.microsoft.com/pt-BR/marketplace/active-directory/))):
+> Escolha até três categorias em que seu aplicativo deva ser listado (para saber as categorias disponíveis, consulte o [Marketplace do Active Directory do Azure](https://azure.microsoft.com/marketplace/active-directory/))):
 > 
 > Anexe o ícone pequeno do aplicativo (arquivo PNG, 45px por 45px, cor de plano de fundo sólida):
 > 
@@ -97,4 +97,4 @@ Qualquer aplicativo que dê suporte ao SAML 2.0 pode ser integrado diretamente a
 > 
 > Anexe o logotipo do aplicativo (arquivo PNG, 150px por 122px, cor de plano de fundo transparente):
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

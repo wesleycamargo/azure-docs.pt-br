@@ -134,7 +134,7 @@ Estamos trabalhando no material de treinamento de exemplo que você pode usar pa
 ## Links para a documentação de redefinição de senha
 Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
 
-* [**Redefinir sua própria senha**](active-directory-passwords-update-your-own-password): saiba mais sobre como redefinir ou alterar sua própria senha como um usuário do sistema
+* [**Redefinir sua própria senha**](active-directory-passwords-update-your-own-password.md): saiba mais sobre como redefinir ou alterar sua própria senha como um usuário do sistema
 * [**Como funciona**](active-directory-passwords-how-it-works.md) - saiba mais sobre os seis diferentes componentes do serviço e o que cada um deles faz
 * [**Introdução**](active-directory-passwords-getting-started.md) - saiba como permitir que os usuários redefinam e alterem suas senhas na nuvem ou no local
 * [**Personalizar**](active-directory-passwords-customize.md) - aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização
@@ -153,4 +153,4 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-best-practices/007.jpg "Image_007.jpg"
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

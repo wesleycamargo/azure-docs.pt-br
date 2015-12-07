@@ -58,7 +58,7 @@ O fluxograma abaixo ajuda na compreensão do processo de atualização de um apl
 
 [Serialização de dados](service-fabric-application-upgrade-data-serialization.md)
 
-[Tópicos avançados](service-fabric-application-upgrade-advanced.md)
+[Atualização Manual e Atualização com Pacotes Diff](service-fabric-application-upgrade-advanced.md)
 
 [Solucionar problemas de atualização de aplicativo ](service-fabric-application-upgrade-troubleshooting.md)
 
@@ -67,4 +67,4 @@ O fluxograma abaixo ajuda na compreensão do processo de atualização de um apl
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

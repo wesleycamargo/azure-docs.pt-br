@@ -1,23 +1,25 @@
-**1. How will customers be notified of the retiring SDK?**
+**1. Como os clientes serão notificados sobre a desativação do SDK?**
 
-Microsoft will provide 12 month advance notification to the end of support of the retiring SDK in order to facilitate a smooth transition to a supported SDK. Further, customers will be notified through various communication channels – Azure Management Portal, Developer Center, blog post, and direct communication to assigned service administrators.
+A Microsoft enviará notificações com 12 meses de antecedência informando sobre o fim do suporte para o SDK desativado, a fim de facilitar uma transição suave para um SDK com suporte. Além disso, os clientes serão notificados por meio de vários canais de comunicação, como o Portal de Gerenciamento do Azure, a Central de Desenvolvedores, postagens de blog e a comunicação direta para os administradores de serviço indicados.
 
-**2. Can customers author applications using a "to-be" retired DocumentDB SDK during the 12 month period?** 
+**2. Os clientes podem criar aplicativos usando um SDK do Banco de Dados de Documentos prestes a ser desativado durante o período de 12 meses?**
 
-Yes, customers will have full access to author, deploy and modify applications using the "to-be" retired DocumentDB SDK during the 12 month grace period. During the 12 month grace period, customers are advised to migrate to a newer supported version of DocumentDB SDK as appropriate.
+Sim, os clientes terão acesso total para criar, implantar e modificar os aplicativos usando o SDK do Banco de Dados de Documentos prestes a ser desativado durante o período de 12 meses. Durante o período de carência de 12 meses, os clientes serão aconselhados a migrar para uma versão mais recente com suporte do SDK do Banco de Dados de Documentos, como apropriado.
 
-**3. Can customers author and modify applications using a retired DocumentDB SDK after the 12 month notification period?**
+**3. Os clientes poderão criar e modificar os aplicativos usando um SDK do Banco de Dados de Documentos desativado após o período de notificação de 12 meses?**
 
-After the 12 month notification period, the SDK will be retired. Any access to DocumentDB by an applications using a retired SDK will not be permitted by the DocumentDB platform. Further, Microsoft will not provide customer support on the retired SDK.
+Após o período de notificação de 12 meses, o SDK será desativado. O acesso de aplicativos ao Banco de Dados de Documentos com um SDK desativado não será permitido pela plataforma do Banco de Dados de Documentos. Além disso, a Microsoft não fornecerá suporte ao cliente para o SDK desativado.
 
-**4. What happens to Customer’s running applications that are using unsupported DocumentDB SDK version?**
+**4. O que acontecerá com os aplicativos em execução do cliente que estiverem usando a versão sem suporte do SDK do Banco de Dados de Documentos?**
 
-Any attempts made to connect to the DocumentDB service with a retired SDK version will be rejected. 
+As tentativas de conexão com o serviço do Banco de Dados de Documentos com uma versão de SDK desativada serão recusadas.
 
-**5. Will new features and functionality be applied to all non-retired SDKs**
+**5. Os novos recursos e a funcionalidades serão aplicados a todos os SDKs não desativados?**
 
-New features and functionality will only be added to new versions. If you are using an old, non-retired, version of the SDK your requests to DocumentDB will still function as previous but you will not have access to any new capabilities.  
+Os novos recursos e funcionalidades serão adicionadas apenas para as novas versões. Se estiver usando uma versão anterior mas não-obsoleta do SDK, suas solicitações para o Banco de Dados de Documentos continuarão funcionando como antes, mas você não terá acesso aos novos recursos.
 
-**6. What should I do if I cannot update my application before a cut-off date**
+**6. O que devo fazer, caso eu não consiga atualizar o aplicativo antes de uma data de fechamento**
 
-We recommend that you upgrade to the latest SDK as early as possible. Once an SDK has been tagged for retirement you will have 12 months to update your application. If, for whatever reason, you cannot complete your application update within this timeframe then please contact the [DocumentDB Team](mailto:askdocdb@microsoft.com) and request their assistance before the cutoff date.
+Recomendamos atualizar o mais rápido possível para o SDK mais recente. Quando um SDK é marcado para desativação, você tem 12 meses para atualizar o aplicativo. Caso você não possa concluir a atualização do aplicativo nesse prazo por algum motivo, contate a [equipe do Banco de Dados de Documentos](mailto:askdocdb@microsoft.com) e solicite ajuda antes da data de fechamento.
+
+<!---HONumber=AcomDC_1125_2015-->

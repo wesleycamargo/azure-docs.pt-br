@@ -14,10 +14,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015"
+	ms.date="11/23/2015"
 	ms.author="jeffstok"/>
 
-# Noções básicas sobre entradas do Stream Analytics
+# Noções básicas sobre conexões de entrada do Stream Analytics
 
 As entradas do Stream Analytics do Azure são definidas como uma conexão a uma fonte de dados. O Stream Analytics tem uma integração de primeira classe com o Hub de Eventos de fontes do Azure, Hub IoT e armazenamento de Blob de dentro e fora da assinatura do Azure na qual seu trabalho está sendo executado. Como os dados são enviados a essa fonte de dados, eles são consumidos pelo trabalho do Stream Analytics e processados em tempo real. As entradas são divididas em dois tipos distintos: entradas de fluxo de dados e entradas de dados de referência.
 
@@ -201,4 +201,4 @@ Você foi apresentado ao Stream Analytics, um serviço gerenciado para análise 
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

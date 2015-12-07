@@ -6,7 +6,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="11/19/2015"
 	ms.author="brandwe"/>
 
 # Visualização do B2C do AD do Azure: chamando uma API Web de um aplicativo do Android
@@ -113,9 +113,9 @@ repositories {
 }
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile('com.microsoft.aad:adal:2.0-alpha') {
+    compile('com.microsoft.aad:adal:2.0.1-alpha') {
         exclude group: 'com.android.support'
-    } // Recent version is 2.0-alpha
+    } // Recent version is 2.0.1-alpha
 }
 ```
 
@@ -127,7 +127,7 @@ Se estiver usando o plug-in m2e no Eclipse, você pode especificar a dependênci
 <dependency>
     <groupId>com.microsoft.aad</groupId>
     <artifactId>adal</artifactId>
-    <version>2.0-alpha</version>
+    <version>2.0.1-alpha</version>
     <type>aar</type>
 </dependency>
 ```
@@ -891,7 +891,16 @@ Vamos escrever nosso `getTask` primeiro:
  
  **No mesmo arquivo** chamado `ToDoActivity.java`
  
- ``` private URL getEndpointUrl() { URL endpoint = null; try { endpoint = new URL(Constants.SERVICE\_URL); } catch (MalformedURLException e) { e.printStackTrace(); } return endpoint; }
+```
+    private URL getEndpointUrl() {
+        URL endpoint = null;
+        try {
+            endpoint = new URL(Constants.SERVICE_URL);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return endpoint;
+    }
 
  ```
 
@@ -964,7 +973,9 @@ Observe como as tarefas são armazenados por usuário na API, pois a API extrai 
 
 Para referência, o exemplo concluído [é fornecido como um .zip aqui](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip), ou você pode cloná-lo do GitHub:
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android```
+```
+git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android
+```
 
 
 ### Informações importantes
@@ -984,4 +995,4 @@ CookieSyncManager.getInstance().sync();
 ``` Mais sobre cookies: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -292,7 +292,7 @@ Você pode usar uma imagem existente. Ou também pode [capturar uma imagem de um
     $destContext = New-AzureStorageContext  –StorageAccountName $newxiostorageaccountname -StorageAccountKey $xiostorage.Primary  
  
 #### Etapa 4: copiar o Blob entre contas de armazenamento
-    #Get Image VHD from Portal
+    #Get Image VHD 
     $myImageVHD = "dansoldonorsql2k14-os-2015-04-15.vhd"
     $containerName = 'vhds'
     
@@ -1028,7 +1028,7 @@ Você pode verificar o status da cópia VHD para todos os VHDs: ForEach ($disk i
 
 Aguarde até que todos esses itens sejam registrados como êxito.
 
-Para obter informações de blobs individuais: #Check induvidual blob status Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContextnode2
+Para obter informações de blobs individuais: \#Check induvidual blob status Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContextnode2
 
 #### Etapa 21: registrar o disco do sistema operacional
     #change storage account to the new XIO storage account
@@ -1083,7 +1083,7 @@ Para obter informações de blobs individuais: #Check induvidual blob status Get
     Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEndpoint -Name $epname -Protocol $prot -LocalPort $locport -PublicPort $pubport -ProbePort 59999 -ProbeIntervalInSeconds 5 -ProbeTimeoutInSeconds 11  -ProbeProtocol "TCP" -InternalLoadBalancerName $ilb -LBSetName $ilb -DirectServerReturn $true | Update-AzureVM
     
     
-    #STOP!!! CHECK in portal or Machine Endpoints through powershell that these Endpoints are created!
+    #STOP!!! CHECK in the Azure portal or Machine Endpoints through powershell that these Endpoints are created!
     
     #SET ACLs or Azure Network Security Groups & Windows FWs 
      
@@ -1149,4 +1149,4 @@ Para adicionar o endereço IP, confira o [Apêndice](#appendix-migrating-a-multi
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

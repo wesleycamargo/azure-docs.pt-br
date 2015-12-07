@@ -1,4 +1,12 @@
-<properties pageTitle="Configurar túnel forçado para gateways de VPN do Microsoft Azure | Microsoft Azure" description="Se você tiver uma rede virtual com um gateway de VPN entre locais, poderá redirecionar ou "forçar" todo o tráfego de Internet para sua instalação local. " services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carolz" editor="" tags="azure-service-management"/>
+<properties 
+   pageTitle="Configurar o túnel forçado para Gateways de VPN usando o PowerShell | Microsoft Azure"
+   description="Se tiver uma rede virtual com um gateway de VPN entre locais, você pode redirecionar ou "forçar" todo o tráfego direcionado à Internet para seu local. Este artigo se aplica a gateways VPN criados usando o modelo de implantação clássico"
+   services="vpn-gateway"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carolz"
+   editor=""
+   tags="azure-service-management"/>
 <tags  
    ms.service="vpn-gateway"
    ms.devlang="na"
@@ -10,9 +18,9 @@
 
 # Configurar o túnel forçado
 
-Este artigo se refere a gateways de Vnets e VPN criados usando o modelo de implantação clássico. Quando as instruções para a configuração de túnel forçado para Gateways de VPN e VNets criados usando o modelo do Gerenciador de Recursos estiverem disponíveis, adicionaremos um link na parte superior desta página.
+Este artigo se refere a gateways de Vnets e VPN criados usando o modelo de implantação clássico. Se você deseja configurar o túnel forçado para redes virtuais e Gateways de VPN criados usando o modelo de implantação do Gerenciador de recursos, consulte [Configurar o túnel forçado usando o PowerShell e o Gerenciador de Recursos do Azure](vpn-gateway-forced-tunneling-rm.md).
 
->[AZURE.NOTE]É importante saber que atualmente o Azure funciona com dois modelos de implantação: Gerenciador de Recursos e clássico. Antes de começar a configuração, entenda as ferramentas e os modelos de implantação. Para saber mais sobre os modelos de implantação, consulte [Modelos de implantação do Azure](../azure-classic-rm.md).
+[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
 ## Sobre túnel forçado
 
@@ -32,11 +40,11 @@ O túnel forçado no Azure é configurado por meio de Rotas de Rede virtual Defi
 
 -  Cada sub-rede de rede virtual tem uma tabela de roteamento interna do sistema. A tabela de roteamento do sistema tem estes três grupos de rotas:
 
-	- **Rotas locais de rede virtual:** diretamente para as VMs de destino na mesma rede virtual
+	- **Rotas de rede local virtual:** diretamente para as VMs de destino na mesma rede virtual
 	
-	- **Rotas locais:** para o gateway de VPN do Azure
+	- **Rotas locais:** gateway de VPN do Azure
 	
-	- **Rota padrão:** diretamente para a Internet. Observe que os pacotes destinados para os endereços IP privados não cobertos pelas duas rotas anteriores serão removidos.
+	- **Rota padrão:** diretamente à Internet. Observe que os pacotes destinados para os endereços IP privados não cobertos pelas duas rotas anteriores serão removidos.
 
 
 
@@ -44,13 +52,13 @@ O túnel forçado no Azure é configurado por meio de Rotas de Rede virtual Defi
 
 - O túnel forçado deve ser associado a uma Rede Virtual que tem um gateway de VPN de roteamento dinâmico (e não um gateway estático). Você precisa definir um "site padrão" entre sites locais entre locais conectado à rede virtual.
 
-- Observe que o túnel forçado da Rota Expressa não está configurado por intermédio deste mecanismo, mas é habilitado por meio do anúncio de uma rota padrão por meio de sessões de emparelhamento de BGP da Rota Expressa. Consulte a [Documentação da Rota Expressa](https://azure.microsoft.com/documentation/services/expressroute/) para saber mais.
+- Observe que o túnel forçado da Rota Expressa não está configurado por intermédio deste mecanismo, mas é habilitado por meio do anúncio de uma rota padrão por meio de sessões de emparelhamento de BGP da Rota Expressa. Consulte a [Documentação da Rota Expressa](https://azure.microsoft.com/documentation/services/expressroute/) para obter mais informações.
 
 ## Visão geral de configuração
 
 O procedimento a seguir ajudará você a especificar um túnel forçado em uma rede virtual. As etapas de configuração correspondem ao exemplo de arquivo netcfg de rede virtual abaixo.
 
-No exemplo, a rede virtual "MultiTier-VNet" tem três sub-redes: *Frontend*, *Midtier* e *Backend*, com 4 conexões entre locais:*DefaultSiteHQ* e 3 *Branches*. As etapas de procedimento definirão o *DefaultSiteHQ* como a conexão de site padrão para o túnel forçado e configurará as sub-redes *Midtier* e *Backend* para usarem túnel forçado.
+No exemplo, a rede virtual "MultiTier-VNet" tem 3 sub-redes: *Frontend*, *Midtier*, e *Backend*, com 4 conexões entre locais: *DefaultSiteHQ*, e 3 *ramificações*. As etapas do procedimento definirão o *DefaultSiteHQ* como a conexão de site padrão para o túnel forçado e configuram as sub-redes *Midtier* e *Backend* para usarem o túnel forçado.
 
 	<VirtualNetworkSite name="MultiTier-VNet" Location="North Europe">
      <AddressSpace>
@@ -94,7 +102,7 @@ No exemplo, a rede virtual "MultiTier-VNet" tem três sub-redes: *Frontend*, *Mi
 
 - Uma rede virtual configurada.
 
-- A versão mais recente dos cmdlets do Azure PowerShell usando o Web Platform Installer. Você pode baixar e instalar a versão mais recente na seção **Windows PowerShell** da [página de download](http://azure.microsoft.com/downloads/).
+- A versão mais recente dos cmdlets do Azure PowerShell usando o Web Platform Installer. Você pode baixar e instalar a versão mais recente na seção **Windows PowerShell** da [Página de download](http://azure.microsoft.com/downloads/).
 
 ## Configurar o túnel forçado
 
@@ -153,11 +161,4 @@ Abaixo estão alguns cmdlets adicionais do PowerShell que podem ser úteis ao tr
 
 	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
 
-## Próximas etapas
-
-
-Para saber mais sobre Rotas definidas pelo usuário, consulte [Rotas definidas pelo usuário e Encaminhamento IP](../virtual-network/virtual-networks-udr-overview.md).
-
-Para saber mais sobre como proteger o tráfego de rede, consulte [O que é um Grupo de segurança de rede](../virtual-network/virtual-networks-nsg.md). Observe que você jamais deve aplicar um Grupo de segurança de rede a uma sub-rede de gateway VNet do Azure.
-
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=AcomDC_1125_2015-->

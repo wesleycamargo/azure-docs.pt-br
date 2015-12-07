@@ -3,9 +3,9 @@
 	description="Um tutorial que mostra como usar o WebMatrix para desenvolver um aplicativo Node.js e implantá-lo em Aplicativos Web do Serviço de Aplicativo do Azure." 
 	services="app-service\web" 
 	documentationCenter="nodejs" 
-	authors="MikeWasson" 
+	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="08/03/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 
 # Criar e implantar um aplicativo Web Node.js no Azure usando o WebMatrix
 
-Este tutorial mostra como usar o WebMatrix para desenvolver um aplicativo Node.js e implantá-lo em Aplicativos Web do [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714). O WebMatrix é uma ferramenta gratuita de desenvolvimento da Web da Microsoft que inclui tudo que você precisa para o desenvolvimento de sites ou aplicativos Web. O WebMatrix inclui vários recursos que o tornam fácil de usar Node. js como autocompletar de código, modelos predefinidos e suporte a editor Jade, menos e CoffeeScript. Saiba mais sobre o [WebMatrix for Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409).
+Este tutorial mostra como usar o WebMatrix para desenvolver um aplicativo Node.js e implantá-lo em Aplicativos Web do [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714). O WebMatrix é uma ferramenta gratuita de desenvolvimento da Web da Microsoft que inclui tudo que você precisa para o desenvolvimento de sites ou aplicativos Web. O WebMatrix inclui vários recursos que o tornam fácil de usar Node. js como autocompletar de código, modelos predefinidos e suporte a editor Jade, menos e CoffeeScript. Saiba mais sobre [WebMatrix](https://www.microsoft.com/web/webmatrix/).
 
 Após a conclusão deste guia, você terá um aplicativo Web Node.js em execução no Serviço de Aplicativo do Azure.
  
@@ -81,11 +81,11 @@ Siga estas etapas para criar um aplicativo Web no Serviço de Aplicativo do Azur
 
 É possível modificar e republicar seu aplicativo. Aqui você fará uma simples alteração no cabeçalho do arquivo **index.jade** e republicará o aplicativo.
 
-1. No WebMatrix, selecione **arquivos** e, em seguida, expanda a pasta **Visualização**. Abra o arquivo **index.jade** clicando nele duas vezes.
+1. No WebMatrix, selecione **Arquivos**, e, em seguida, expanda a pasta **exibições**. Abra o arquivo **index.jade** clicando nele duas vezes.
 
 	![o WebMatrix exibindo Jade][webmatrix-modify-index]
 
-2. Altere segunda linha para o seguinte:
+2. Altere a linha de parágrafo para o seguinte:
 
 		p Welcome to #{title} with WebMatrix on Azure!
 
@@ -126,4 +126,4 @@ Se você tiver problemas com seu aplicativo após ele ter sido implantado no Azu
 [nodesitefromtemplateazure]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-node-site-azure.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

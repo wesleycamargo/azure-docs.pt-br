@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Cenários de uso e considerações de implantação para a Junção do Azure AD| Microsoft Azure" 
-	description="Um tópico que explica como os administradores podem configurar a Junção do Azure AD para seus usuários finais (funcionários, estudantes, outros usuários). Ele também discute os diferentes cenários reais para usar a Junção do AD do Azure" 
+	description="Explica como os administradores podem configurar a Junção do AD do Azure para seus usuários finais (funcionários, estudantes, outros usuários). Ele também discute os diferentes cenários reais para usar a Junção do AD do Azure" 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Cenários de uso e considerações de implantação para a Junção do Azure AD 
@@ -92,4 +92,4 @@ Você pode configurar seus funcionários e usuários para usarem seus dispositiv
 * [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -12,12 +12,12 @@
 
         ![Add volume](./media/storsimple-create-volume/AddVolume1-include.png)
 
-3. Na caixa de diálogo **Configurações Adicionais**, adicione um novo registro de controle de acesso (ACR):
+3. Na página **Configurações adicionais**, adicione um novo registro de controle de acesso (ACR):
    1. Dê um **Nome** para o seu ACR.
    2. Em **Nome do Iniciador iSCSI**, forneça o iSCSI IQN (nome qualificado) do host Windows. Se você não tiver o IQN, vá para [Obter o IQN de um host do Windows Server](#get-the-iqn-of-a-windows-server-host).
    3. É recomendável que você habilite um backup padrão ao marcar a caixa de seleção **Habilitar um backup padrão para este volume**. O backup padrão criará uma política que é executa às 22:30 todos os dias (hora do dispositivo) e cria um instantâneo de nuvem desse volume.
 
-        > [AZURE.NOTE] After the backup is enabled here, it cannot be reverted. You will need to edit the volume to modify this setting.
+        > [AZURE.NOTE] Depois que o backup está habilitado aqui, ele não pode ser revertido. Você precisará editar o volume para modificar essa configuração.
 
         ![Add volume](./media/storsimple-create-volume/AddVolume2-include.png)
 
@@ -27,4 +27,4 @@
 
 Para assistir a um vídeo que demonstra como criar um volume do StorSimple, clique [aqui](http://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

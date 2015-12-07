@@ -1,10 +1,20 @@
-<properties pageTitle="Especificando uma versão de Node.js" description="Saiba como especificar a versão de Node.js usada pelos Sites e Serviços de Nuvem do Azure" services="" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor="mollybos"/>
+<properties
+	pageTitle="Especificando uma versão de Node.js"
+	description="Saiba como especificar a versão de Node.js usada pelos Sites e Serviços de Nuvem do Azure"
+	services=""
+	documentationCenter="nodejs"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="08/31/2015" ms.author="mwasson"/>
-
-
-
-
+<tags
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 # Especificar uma versão do Node.js em um aplicativo do Azure
 
@@ -12,13 +22,7 @@ Ao hospedar um aplicativo Node.js, talvez você queira garantir que seu aplicati
 
 ##Versões padrão
 
-As versões de Node.js fornecidas pelo Azure são atualizadas constantemente. Salvo indicação em contrário, a versão mais recente será usada. Atualmente, as versões a seguir estão incluídas:
-
-- 4\.x.x: 4.0.0
-- 0\.12.x: 0.12.6, 0.12.3, 0.12.2, 0.12.0
-- 0\.10.x: 0.10.32, 0.10.31, 0.10.29, 0.10.28, 10.26, 0.10.24, 0.10.21, 0.10.18, 0.10.5
-- 0\.8.x: 0.8.28, 0.8.27, 0.8.26, 0.8.19, 0.8.2
-- 0\.6: 0.6.20, 0.6.17
+As versões de Node.js fornecidas pelo Azure são atualizadas constantemente. Salvo indicação em contrário, a versão mais recente será usada.
 
 > [AZURE.NOTE]Se você estiver hospedando o seu aplicativo em um Serviço de Nuvem do Azure (função Web ou de trabalho), e é a primeira vez que você implantou o aplicativo, o Azure tentará usar a mesma versão do Node.js instalada em seu ambiente de desenvolvimento se ele corresponder a uma das versões padrão disponíveis no Azure.
 
@@ -98,4 +102,4 @@ Para obter mais informações, consulte o [Centro de desenvolvedores do Node.js]
 [trabalhar com módulos]: nodejs-use-node-modules-azure-apps.md
 [criar e implantar um Site no Node.js]: web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

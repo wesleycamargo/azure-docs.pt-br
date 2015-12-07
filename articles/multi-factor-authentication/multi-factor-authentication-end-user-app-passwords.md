@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 
@@ -129,4 +129,4 @@ Se você usar uma autenticação multifator com o Azure, talvez seja conveniente
 5. Confirme a exclusão clicando em **sim**.
 6. Quando a senha do aplicativo for excluída, clique em **fechar**. ![Fechar](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

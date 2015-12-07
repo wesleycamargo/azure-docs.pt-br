@@ -3,7 +3,7 @@
 	description="Saiba como habilitar o acesso à área de trabalho remota para as máquinas virtuais que hospedam o aplicativo Azure Node.js." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
-	authors="MikeWasson" 
+	authors="rmcmurray" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="mwasson"/>
+	ms.date="11/20/2015" 
+	ms.author="robmcm"/>
 
 
 # Habilitando a Área de Trabalho Remota no Azure
@@ -74,7 +74,7 @@ Depois de publicar a definição do serviço de atualização, você pode se con
 
     ![Prompt de segurança do Windows][5]
 
-4.  Clique em **Conectar** e será exibido um prompt de segurança para a inserção das credenciais para acessar a instância. Digite a senha criada na [Etapa1][Etapa 1: Configurar o serviço para acesso à Área de Trabalho Remota usando o PowerShell do Azure] e, em seguida, clique em **OK**.
+4.  Clique em **Conectar** e será exibido um prompt de segurança para a inserção das credenciais para acessar a instância. Digite a senha criada na [Etapa1](Etapa 1: Configurar o serviço para acesso à Área de Trabalho Remota usando o PowerShell do Azure) e, em seguida, clique em **OK**.
 
     ![prompt de nome de usuário/senha][6]
 
@@ -116,4 +116,4 @@ Quando você não precisar mais de conexões de área de trabalho remota para as
   [Usando a Área de Trabalho Remota com as funções do Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=AcomDC_1125_2015-->

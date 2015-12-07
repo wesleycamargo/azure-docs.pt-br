@@ -71,7 +71,7 @@ Esse cenário mostra como usar um armazenamento fora do padrão dentro da mesma 
       Get-AzureVM -Name $name -ServiceName $servicename | Set-AzureVMCustomScriptExtension -StorageAccountName $storageaccount -StorageAccountKey $storagekey -ContainerName $container -FileUri $fileUrl1, $fileUrl2 -Run 'file.ps1' | Update-AzureVM
 
 
-### Adicionar a extensão de Script Personalizado por meio do portal
+### Adicionar extensão do Script personalizado no portal de visualização do Azure
 
 Navegue até a VM no <a href="https://portal.azure.com/ " target="_blank">portal de visualização do Azure</a> e adicione a extensão especificando o arquivo de script a ser executado.
 
@@ -91,4 +91,4 @@ Para saber como usar a extensão de Script Personalizado com modelos, confira a 
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->
