@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="11/20/2015"
 	ms.author="mahender"/>
 
 # Como configurar seu aplicativo do Serviço do Aplicativo para usar o logon do Facebook
@@ -26,9 +26,7 @@ Este tópico mostra como configurar o Serviço de Aplicativo do Azure para usar 
 
 Para concluir o procedimento neste tópico, você deve ter uma conta do Facebook com um endereço de email verificado e um número de telefone celular. Para criar uma nova conta do Facebook, vá para [facebook.com].
 
-
-	> [AZURE.NOTE]
-	This topic demonstrates use of the App Service Authentication / Authorization feature. This replaces the App Service gateway for most applications. Differences that apply to using the gateway are called out in notes throughout the topic.
+> [AZURE.NOTE]Este tópico demonstra o uso do recurso de Autenticação / Autorização do Serviço de Aplicativo. Isso substitui o gateway do Serviço de Aplicativo para a maioria dos aplicativos. As diferenças que se aplicam ao uso do gateway são destacadas nas notas ao longo desse tópico.
 
 
 ## <a name="register"> </a>Registrar seu aplicativo com o Facebook
@@ -60,31 +58,30 @@ Para concluir o procedimento neste tópico, você deve ter uma conta do Facebook
 11. Clique na guia **Avançado** e adicione o **URI de redirecionamento** do seu aplicativo a **URIs de redirecionamento válidos do OAuth**. Em seguida, clique em **Salvar Alterações**. O URI de redirecionamento é a URL do seu aplicativo adicionada ao caminho _/.auth/login/facebook/callback_. Por exemplo: `https://contoso.azurewebsites.net/.auth/login/facebook/callback`. Certifique-se de que você está usando o esquema HTTPS.
 
 
-	> [AZURE.NOTE]Se você estiver usando o Gateway do Serviço de Aplicativo em vez do recurso de Autenticação/Autorização do Serviço de Aplicativo, a URL de redirecionamento usará a URL de gateway com o caminho _/signin-facebook_.
+	> [AZURE.NOTE]Se você estiver usando o Gateway do Serviço de Aplicativo em vez do recurso de Autenticação / Autorização do Serviço de Aplicativo, a URL de redirecionamento usará a URL de gateway com o caminho _/signin-facebook_.
 
 
 12. A conta do Facebook usada para registrar o aplicativo é um administrador do aplicativo. Neste ponto, apenas os administradores podem entrar neste aplicativo. Para autenticar outras contas do Facebook, clique em **Status e Análise** na barra de navegação à esquerda. Depois clique em **Sim** para habilitar o acesso ao público geral.
 
 
-## <a name="secrets"> </a>Adicionar informações do facebook ao seu aplicativo
+## <a name="secrets"> </a>Adicionar informações do Facebook ao seu aplicativo
+
+> [AZURE.NOTE]Se for usar o Gateway do Serviço de Aplicativo, ignore esta seção e navegue até o gateway no portal. Selecione **Configurações**, **Identidade**, e então **Facebook**. Cole os valores obtidos anteriormente e clique em **Salvar**.
 
 
-	> [AZURE.NOTE]
-	If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Facebook**. Paste in the values you obtained earlier and click **Save**.
+13. De volta ao [Portal de Gerenciamento do Azure], navegue até o aplicativo. Clique em **Configurações** e em **Autenticação / Autorização**.
 
-
-13. De volta ao [Portal de Gerenciamento do Azure], navegue até o aplicativo. Clique em **Configurações** e em **Autenticação/Autorização**.
-
-14. Se o recurso Autenticação/Autorização não estiver habilitado, mude a opção para **Ativado**.
+14. Se o recurso Autenticação / Autorização não estiver habilitado, mude a opção para **Ativado**.
 
 15. Clique em **Facebook**. Cole os valores de ID do Aplicativo e de Segredo do Aplicativo que você obteve anteriormente e, opcionalmente, habilite os escopos exigidos pelo seu aplicativo. Em seguida, clique em **OK**.
 
     ![][1]
 	
-16. Por padrão, o Serviço de Aplicativo fornece logon, mas não restringe o acesso ao conteúdo do site e às APIs - isso é responsabilidade do código do aplicativo. Se você quiser que o site seja totalmente protegido pelo logon do Facebook, altere a lista suspensa **Ação a ser tomada quando a solicitação não for autenticada** para usar a opção **Facebook**. Isso exigirá que todas as solicitações sejam autenticadas; as solicitações não autenticadas serão redirecionadas para fazer logon com o Facebook.
+	Por padrão, o Serviço de Aplicativo fornece autenticação, mas não restringe o acesso autorizado ao conteúdo do site e às APIs. Você deve autorizar os usuários no código do aplicativo.
+
+17. (Opcional) Para restringir o acesso ao seu site somente para usuários autenticados pelo Facebook, defina **Ação a ser executada quando a solicitação não for autenticada** como **Facebook**. Isso exige que todas as solicitações sejam autenticadas e todas as solicitações não autenticadas sejam redirecionadas ao Facebook para autenticação.
 
 17. Clique em **Salvar**.
-
 
 Agora você está pronto para usar o Facebook para autenticação em seu aplicativo.
 
@@ -102,4 +99,4 @@ Agora você está pronto para usar o Facebook para autenticação em seu aplicat
 [Get started with authentication]: /pt-BR/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Portal de Gerenciamento do Azure]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -14,12 +14,12 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/10/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
 # Noções básicas sobre monitoramento de trabalho do Stream Analytics
 
-## Página do Monitor
+## A página de monitoramento
 
 As duas principais métricas de desempenho de superfície do portal de Gerenciamento do Azure e do portal de visualização do Azure que podem ser usadas para monitorar e solucionar problemas de seu trabalho.
 
@@ -104,4 +104,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

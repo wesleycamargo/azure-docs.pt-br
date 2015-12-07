@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/17/2015"
+   ms.date="11/23/2015"
    ms.author="tedway; neerajkh"/>
 
 # Documentação da Ajuda para diversas áreas geográficas
 
-Atualmente, todos os ativos de aprendizado de máquina do Azure estão hospedados na região do Azure do Centro-Sul dos Estados Unidos (SCUS). Este artigo descreve como criar um espaço de trabalho e publicar um serviço Web em outras regiões do Azure.
+Este artigo descreve como criar um espaço de trabalho e publicar um serviço Web em outras regiões do Azure.
 
 ## Criar um espaço de trabalho
 
@@ -57,4 +57,4 @@ Fazer uma pergunta no [fórum de Aprendizado de Máquina do Azure](https://socia
 [3]: ./media/machine-learning-multi-geo/multi-geo_3.png
 [4a]: ./media/machine-learning-multi-geo/multi-geo_4a.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

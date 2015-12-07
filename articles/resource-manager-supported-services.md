@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/18/2015"
+   ms.date="11/19/2015"
    ms.author="tomfitz"/>
 
 # Suporte do Gerenciador de Recursos do Azure para serviços, regiões e versões de API
@@ -30,11 +30,9 @@ As tabelas a seguir listam quais serviços suportam a implantação e o gerencia
 | O Barramento de | Gerenciador de Recursos habilitado | Portal de Visualização | Mover recursos | API REST | Esquema |
 | ------- | ------------------------ | -------------- | -------------- |-------- | ------ |
 | Máquinas Virtuais | Sim | Sim, várias opções | Não | [Criar VM](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
-| Batch | Sim | [Sim (somente clássicas)](https://portal.azure.com/#create/Microsoft.BatchAccount) | | [REST do Lote](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
+| Batch | Sim | [Sim (somente clássicas)](https://portal.azure.com/#create/Microsoft.BatchAccount) | Sim | [REST do Lote](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Serviços de ciclo de vida do Dynamics | Sim | Não | | | |
-| Máquinas Virtuais (clássicas) | Limitado | Sim | Parcial (veja abaixo) | - | - |
-| Aplicativo remoto | Não | - | - | - | - |
-| Service Fabric | Não | - | - | - | - |
+| Máquinas Virtuais (clássicas) | Limitado | Sim, várias opções | Parcial (veja abaixo) | - | - | | Aplicativo Remoto | Não | Não | - | - | - | | Service Fabric | Não | Não | - | - | - |
 
 Máquinas virtuais (clássico) refere-se aos recursos que foram implantados por meio do modelo de implantação clássico, não por meio do modelo de implantação do Gerenciador de Recursos. Em geral, esses recursos não oferecem suporte a operações do Gerenciador de Recursos, mas existem algumas operações que foram habilitadas. Para obter mais informações sobre esses modelos de implantação, veja [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](resource-manager-deployment-model.md).
 
@@ -70,8 +68,8 @@ Recursos de máquinas virtuais (clássico) podem ser movidos para um novo grupo 
 | Gerenciamento da API | Sim | Não | Sim | [Criar API](https://msdn.microsoft.com/library/azure/dn781423.aspx#CreateAPI) | |
 | Aplicativos de API | Sim | [Sim](https://portal.azure.com/#create/microsoft_com.ApiApp.0.2.0-preview) | | | [2015-03-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-03-01-preview/Microsoft.AppService.json) |
 | Aplicativos Web | Sim | [Sim](https://portal.azure.com/#create/Microsoft.WebSite) | Sim, com limitações (veja abaixo) | | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) |
-| Hubs de Notificação | Sim | [Sim](https://portal.azure.com/#create/Microsoft.NotificationHub) | | [Criar Hub de Notificação](https://msdn.microsoft.com/library/azure/dn223269.aspx) | [2015-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-01/Microsoft.NotificationHubs.json) |
-| Aplicativos Lógicos | Sim | [Sim](https://portal.azure.com/#create/Microsoft.EmptyWorkflow.0.2.0-preview) | | | |
+| Hubs de Notificação | Sim | [Sim](https://portal.azure.com/#create/Microsoft.NotificationHub) | Sim | [Criar Hub de Notificação](https://msdn.microsoft.com/library/azure/dn223269.aspx) | [2015-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-01/Microsoft.NotificationHubs.json) |
+| Aplicativos Lógicos | Sim | [Sim](https://portal.azure.com/#create/Microsoft.EmptyWorkflow.0.2.0-preview) | Sim | | |
 | Compromisso de mobilidade | Sim | Não | Sim | | |
 
 Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de Aplicativo. Para mover os aplicativos Web, as opções são:
@@ -85,7 +83,7 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 | ------- | ------- | --------- | -------------- | -------- | ------ |
 | Hub de evento | Sim | Não | | [Criar Hub de eventos](https://msdn.microsoft.com/library/azure/dn790676.aspx) | |
 | Análise de fluxo | Sim | [Sim](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) | | | |
-| HDInsights | Sim | [Sim](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | | | |
+| HDInsights | Sim | [Sim](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | Sim | | |
 | Data Factory | Sim | [Sim](https://portal.azure.com/#create/Microsoft.DataFactory) | Sim | [Criar fábrica de dados](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
 | Aprendizado de Máquina | Não | Não | - | - | - | | Catálogo de Dados | Não | Não | - | - | - |
 
@@ -109,15 +107,13 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 
 | O Barramento de | Gerenciador de Recursos habilitado | Portal de Visualização | Mover recursos | API REST | Esquema |
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
-| Active Directory do Azure | Não | Não | - | - | - |
-| Actice Directory B2C do Azure | Não | Não | - | - | - |
-| Autenticação multifator | Não | Não | - | - | - |
+| Active Directory do Azure | Não | Não | - | - | - | | Actice Directory B2C do Azure | Não | Não | - | - | - | | Autenticação multifator | Não | Não | - | - | - |
 
 ## Serviços para Desenvolvedores 
 
 | O Barramento de | Gerenciador de Recursos habilitado | Portal de Visualização | Mover recursos | API REST | Esquema |
 | ------- | ------- | ---------- | -------------- | -------- | ------ |
-| Application Insights | Sim | [Sim](https://portal.azure.com/#create/Microsoft.AppInsights.0.2.3-preview) | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) |
+| Application Insights | Sim | [Sim](https://portal.azure.com/#create/Microsoft.AppInsights.0.2.3-preview) | Não | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) |
 | Bing Mapas | Sim | [Sim](https://portal.azure.com/#create/bingmaps.mapapis.1.0.4) | | | |
 | Conta do Visual Studio | Sim | | | | [2014-02-26](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-02-26/microsoft.visualstudio.json) |
 
@@ -125,7 +121,7 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 
 | O Barramento de | Gerenciador de Recursos habilitado | Portal de Visualização | Mover recursos | API REST | Esquema |
 | ------- | ------- | --------- | -------------- | -------- | ------ |
-| Automação | Sim | [Sim](https://portal.azure.com/#create/Microsoft.AutomationAccount.1.0.2-preview) | | | |
+| Automação | Sim | [Sim](https://portal.azure.com/#create/Microsoft.AutomationAccount.1.0.2-preview) | Sim | | |
 | Cofre da Chave | Sim | Não | Sim | [REST do Cofre da Chave](https://msdn.microsoft.com/library/azure/dn903609.aspx) | |
 | Agendador | Sim | Não | | | [2014-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-08-01/Microsoft.Scheduler.json) |
 | Insights Operacionais | Sim | Não | Sim | | |
@@ -237,4 +233,4 @@ Você pode abrir o arquivo e localizar o elemento **apiVersions**
 - Para saber mais sobre a criação de modelos do Gerenciador de Recursos do Azure, consulte [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 - Para saber mais sobre como implantar recursos, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

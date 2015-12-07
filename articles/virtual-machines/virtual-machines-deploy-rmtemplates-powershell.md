@@ -20,7 +20,7 @@
 # Gerenciar máquinas virtuais usando o PowerShell e o Gerenciador de Recursos do Azure
 
 > [AZURE.SELECTOR]
-- [Preview Portal](virtual-machines-windows-tutorial.md)
+- [Azure preview portal](virtual-machines-windows-tutorial.md)
 - [PowerShell - Windows](virtual-machines-deploy-rmtemplates-powershell.md)
 - [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
@@ -376,4 +376,4 @@ Se você gostaria de ver um vídeo desta tarefa sendo realizada, dê uma olhada 
 
 [Documentação de máquinas virtuais](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

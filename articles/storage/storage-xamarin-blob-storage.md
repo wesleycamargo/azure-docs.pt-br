@@ -3,8 +3,8 @@
 	description="A visualização da biblioteca de cliente do Armazenamento do Azure para Xamarin permite que os desenvolvedores criem aplicativos iOS, Android e da Windows Store com suas interfaces de usuário nativo. Este tutorial mostra como usar o Xamarin para criar um aplicativo Android que usa o Armazenamento de Blob do Azure." 
 	services="storage" 
 	documentationCenter="xamarin" 
-	authors="tamram" 
-	manager="carolz" 
+	authors="micurd" 
+	manager="" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.date="11/18/2015" 
 	ms.author="tamram"/>
 
 # Como usar o Armazenamento de Blob no Xamarin (visualização)
@@ -58,7 +58,7 @@ Para este tutorial, criaremos nosso aplicativo Xamarin no Visual Studio. Siga es
 1. Baixe e instale o [Visual Studio](https://www.visualstudio.com/).
 2. Baixe e instale o [Xamarin](http://xamarin.com/platform).
 3. Abra o Visual Studio e selecione **Arquivo -> Novo -> Projeto > Android > Aplicativo em branco (Android)**.
-4. Clique com o botão direito no seu projeto no painel do Gerenciador de Soluções e selecione **Gerenciar Pacotes NuGet**. Em seguida, procure **Armazenamento do Azure** e instale ar **Armazenamento do Azure 4.4.0-visualização??**.
+4. Clique com o botão direito no seu projeto no painel do Gerenciador de Soluções e selecione **Gerenciar Pacotes NuGet**. Em seguida, procure **armazenamento do Azure** e instale **Azure Storage 4.4.0-preview**.
 
 Agora você deve ter um aplicativo que permite que você clique em um botão e incremente um contador.
 
@@ -173,10 +173,7 @@ Neste tutorial, você aprendeu a usar o armazenamento de Blob do Azure e SAS com
 
 Saiba mais sobre blobs, tabelas e filas consultando os links a seguir:
 
-[Introdução ao Armazenamento do Microsoft Azure](storage-introduction.md)  
-[Como usar o Armazenamento de Blob no .NET](storage-dotnet-how-to-use-blobs.md)  
-[Como usar o Armazenamento de Tabela no .NET](storage-dotnet-how-to-use-tables.md)  
-[Como usar o Armazenamento de Fila no .NET](storage-dotnet-how-to-use-queues.md)
+[Introdução ao Armazenamento do Microsoft Azure](storage-introduction.md) [Como usar o Armazenamento de Blob no .NET](storage-dotnet-how-to-use-blobs.md) [Como usar o Armazenamento de Tabela no .NET](storage-dotnet-how-to-use-tables.md) [Como usar o Armazenamento de Fila no .NET](storage-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

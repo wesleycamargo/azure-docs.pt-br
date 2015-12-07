@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Backup Automatizado para Máquinas Virtuais do SQL Server | Microsoft Azure"
-	description="Explica o recurso de Backup Automatizado para SQL Server em execução em Máquinas Virtuais do Azure."
+	description="Explica o recurso de Backup Automatizado para o SQL Server com Máquinas Virtuais do Azure usando o modelo de implantação do Gerenciador de Recursos."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
@@ -24,7 +24,7 @@ O backup automatizado configura automaticamente o [Backup Gerenciado do Microsof
 
 ## Configurações de Backup Automatizadas
 
-A tabela a seguir descreve as opções que podem ser configuradas para Backup Automatizado. As etapas de configuração reais variam dependendo de se você usar os comandos do Portal do Azure ou do Azure Windows PowerShell.
+A tabela a seguir descreve as opções que podem ser configuradas para Backup Automatizado. As etapas de configuração reais variam dependendo dos comandos usados, do portal de visualização do Azure ou do Azure Windows PowerShell.
 
 |Configuração|Intervalo (Padrão)|Descrição|
 |---|---|---|
@@ -34,25 +34,25 @@ A tabela a seguir descreve as opções que podem ser configuradas para Backup Au
 |**Criptografia**|Habilitar/desabilitar (Desabilitado)|Habilita ou desabilita a criptografia. Quando a criptografia está habilitada, os certificados usados para restaurar o backup estão localizados na conta de armazenamento especificado no mesmo contêiner automaticbackup usando a mesma convenção de nomenclatura. Se a senha for alterada, um novo certificado será gerado com essa senha, mas o certificado antigo permanece para restaurar backups anteriores.|
 |**Senha**|Texto da senha (nenhum)|Uma senha para as chaves de criptografia. Isso só é necessário se a criptografia estiver habilitada. Para restaurar um backup criptografado, você deverá ter a senha correta e o certificado relacionado que foi usado no momento em que o backup foi feito.|
 
-## Configurar Backup automatizado no Portal
+## Configurar o Backup Automatizado no portal de visualização do Azure
 
-É possível usar o [Portal de Visualização do Azure](http://go.microsoft.com/fwlink/?LinkID=525040&clcid=0x409) para configurar o Backup Automatizado ao criar uma nova Máquina Virtual do SQL Server 2014.
+Use o portal de visualização do Azure para configurar o Backup Automatizado quando criar uma nova Máquina Virtual do SQL Server 2014.
 
->[AZURE.NOTE]O backup automatizado depende do Agente IaaS do SQL Server. Para instalar e configurar o agente, você deve ter o Agente de VM do Azure em execução na máquina virtual de destino. Imagens da galeria de máquinas virtuais mais recentes têm esta opção habilitada por padrão, porém o Agente de VM do Azure pode estar ausente em VMs existentes. Se você estiver usando sua própria imagem de VM, também será necessário instalar o Agente IaaS do SQL Server. Para obter mais informações, consulte [Agente de VM e Extensões](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
+>[AZURE.NOTE]O backup automatizado depende do Agente IaaS do SQL Server. Para instalar e configurar o agente, você deve ter o Agente de VM do Azure em execução na máquina virtual de destino. Imagens da galeria de máquinas virtuais mais recentes têm esta opção habilitada por padrão, porém o Agente de VM do Azure pode estar ausente em VMs existentes. Se você estiver usando sua própria imagem de VM, também será necessário instalar o Agente IaaS do SQL Server. Para saber mais, confira [Agente e extensões de VM](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
 
-A captura de tela do portal a seguir mostra essas opções em **CONFIGURAÇÃO OPCIONAL** | **BACKUP AUTOMATIZADO DO SQL**.
+A captura de tela do portal de visualização do Azure a seguir mostra essas opções em **CONFIGURAÇÃO OPCIONAL** | **BACKUP AUTOMATIZADO DO SQL**.
 
-![Configuração de Backup Automático do SQL no Portal do Azure](./media/virtual-machines-sql-server-automated-backup/IC778483.jpg)
+![Configuração do Backup Automático do SQL no portal de visualização do Azure](./media/virtual-machines-sql-server-automated-backup/IC778483.jpg)
 
-Para as máquinas virtuais existentes do SQL Server 2014, selecione as configurações de **Backup automático** na seção **Configuração** das propriedades da máquina virtual. Na janela **Backup automatizado**, é possível habilitar o recurso, definir o período de retenção, selecionar a conta de armazenamento e definir a criptografia. Isso é mostrado na captura de tela a seguir.
+Para as máquinas virtuais do SQL Server 2014 existentes, escolha as configurações de **Backup automático** na seção **Configuração** das propriedades da máquina virtual. Na janela **Backup automatizado**, você pode habilitar o recurso, definir o período de retenção, escolher a conta de armazenamento e definir a criptografia. Isso é mostrado na captura de tela a seguir.
 
-![Configuração de Backup Automatizado no Portal do Azure](./media/virtual-machines-sql-server-automated-backup/IC792133.jpg)
+![Configuração do Backup Automatizado no portal de visualização do Azure](./media/virtual-machines-sql-server-automated-backup/IC792133.jpg)
 
->[AZURE.NOTE]Quando você habilita o Backup Automatizado pela primeira vez, o Azure configura o Agente IaaS do SQL Server em segundo plano. Durante esse tempo, o portal não mostrará que o Backup Automatizado está configurado. Aguarde alguns minutos para que o agente seja instalado e configurado. Depois disso, o portal refletirá as novas configurações.
+>[AZURE.NOTE]Quando você habilita o Backup Automatizado pela primeira vez, o Azure configura o Agente IaaS do SQL Server em segundo plano. Durante esse período, o portal de visualização do Azure não mostrará que o Backup Automatizado está configurado. Aguarde alguns minutos para que o agente seja instalado e configurado. Depois disso, o portal de visualização do Azure refletirá as novas configurações.
 
 ## Configurar Backup Automatizado com o PowerShell
 
-No exemplo do PowerShell a seguir, o Backup Automatizado é configurado para uma VM existente do SQL Server 2014. O comando **New-AzureVMSqlServerAutoBackupConfig** define as configurações de Backup Automatizado para armazenar backups na conta de armazenamento do Azure especificada pela variável $storageaccount. Esses backups serão mantidos por 10 dias. O comando **Set-AzureVMSqlServerExtension** atualiza a VM do Azure especificada com essas configurações.
+No exemplo do PowerShell a seguir, o Backup Automatizado é configurado para uma VM existente do SQL Server 2014. O comando **New-AzureVMSqlServerAutoBackupConfig** define as configurações de Backup Automatizado para armazenar backups na Conta de Armazenamento do Azure especificada pela variável $storageaccount. Esses backups serão mantidos por 10 dias. O comando **Set-AzureVMSqlServerExtension** atualiza a VM do Azure especificada com essas configurações.
 
     $storageaccount = "<storageaccountname>"
     $storageaccountkey = (Get-AzureStorageKey -StorageAccountName $storageaccount).Primary
@@ -86,7 +86,7 @@ Para desinstalar o Agente IaaS do SQL Server, use a seguinte sintaxe:
 
     Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension –Uninstall | Update-AzureVM
 
-Você também pode desinstalar a extensão usando o comando **Remove-AzureVMSqlServerExtension**:
+Você pode também desinstalar a extensão usando o comando **Remove-AzureVMSqlServerExtension**:
 
     Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Remove-AzureVMSqlServerExtension | Update-AzureVM
 
@@ -106,12 +106,12 @@ Os produtos a seguir são compatíveis com os recursos do Agente IaaS do SQL Ser
 
 ## Próximas etapas
 
-O Backup Automatizado configura o Backup Gerenciado em VMs do Azure. Por isso, é importante [ler a documentação do Backup Gerenciado](https://msdn.microsoft.com/library/dn449496.aspx) para entender o comportamento e suas implicações.
+O Backup Automatizado configura o Backup Gerenciado em VMs do Azure. Portanto, é importante [ler a documentação do Backup Gerenciado](https://msdn.microsoft.com/library/dn449496.aspx) para entender o comportamento e suas implicações.
 
-Você pode encontrar outras orientações de backup e restauração para o SQL Server em VMs do Azure no seguinte tópico: [Backup e restauração do SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-backup-and-restore.md).
+Você pode encontrar outras orientações de backup e de restauração para o SQL Server em VMs do Azure no seguinte tópico: [Backup e restauração do SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-backup-and-restore.md).
 
-Um recurso relacionado às VMs do SQL Server no Azure é a [Aplicação de patch automatizada para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-automated-patching.md).
+Um recurso relacionado às VMs do SQL Server no Azure é a [Aplicação automatizada de patches do SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-automated-patching.md).
 
 Examine outros [recursos para executar o SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

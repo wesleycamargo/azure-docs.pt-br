@@ -129,10 +129,12 @@ A coluna de status pode ter os valores a seguir, que também indicam o problema 
 
 | Status | Descrição |
 | ---- | ----- |
-| Sucesso | A senha foi sincronizada com êxito |
-| SourceConnectorNotPresent | Nenhum objeto encontrado no espaço conector do Active Directory local |
-| NoTargetConnection | Nenhum objeto no metaverso ou no espaço conector do AD do Azure |
-| TargetNotExportedToDirectory | O objeto no espaço conector do AD do Azure ainda não foi exportado |
+| Sucesso | A senha foi sincronizada com êxito. |
+| FilteredByTarget | A senha está definida para **O usuário deve alterar a senha no próximo logon**. A senha não foi sincronizada. |
+| NoTargetConnection | Nenhum objeto no metaverso ou no espaço conector do AD do Azure. |
+| SourceConnectorNotPresent | Nenhum objeto encontrado no espaço conector do Active Directory local. |
+| TargetNotExportedToDirectory | O objeto no espaço conector do AD do Azure ainda não foi exportado. |
+| MigratedCheckDetailsForMoreInfo | A entrada de log foi criada antes da versão 1.0.9125.0 e é mostrada em seu estado herdado. |
 
 
 ### Disparar uma sincronização completa de todas as senhas
@@ -158,4 +160,4 @@ Não deve ser necessário forçar uma sincronização completa de todas as senha
 * [Azure AD Connect Sync: personalizando opções de sincronização](active-directory-aadconnectsync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -12,23 +12,27 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/15/2015" 
+	ms.date="11/17/2015" 
 	ms.author="awills"/>
  
 # Usar o Stream Analytics para alimentar o Power BI por meio do Application Insights
 
-O [Microsoft Power BI](https://powerbi.microsoft.com/) apresenta seus dados em elementos visuais variados e avançados, com a capacidade de reunir informações de várias fontes. Você pode transmitir dados de telemetria sobre o desempenho e o uso de seus aplicativos Web ou para dispositivos do Application Insights para o Power BI.
+Este artigo mostra como usar [Stream Analytics](http://azure.microsoft.com/services/stream-analytics/) para processar dados [exportados](app-insights-export-telemetry.md) do [Application Insights do Visual Studio](app-insights-overview.md). Como um destino de exemplo, podemos enviar os dados para o [Microsoft Power BI](https://powerbi.microsoft.com/).
+
 
 > [AZURE.NOTE]A maneira mais fácil de inserir dados no Power BI por meio do Application Insights é [usando o adaptador](https://powerbi.microsoft.com/pt-BR/documentation/powerbi-content-pack-application-insights/), que você encontrará na Galeria do Power BI em Serviços. O que descrevemos neste artigo é atualmente mais versátil, mas também é uma demonstração de como usar o Stream Analytics com o Application Insights.
 
+O [Microsoft Power BI](https://powerbi.microsoft.com/) apresenta seus dados em elementos visuais variados e avançados, com a capacidade de reunir informações de várias fontes.
+
+
 ![Exemplo de exibição do Power BI de dados de uso do Application Insights](./media/app-insights-export-power-bi/010.png)
 
-Neste artigo, mostraremos como exportar dados do Application Insights e usar o Stream Analytics para mover os dados para o Power BI. O [Stream Analytics](http://azure.microsoft.com/services/stream-analytics/) é um serviço do Azure que usaremos como um adaptador.
+O [Stream Analytics](http://azure.microsoft.com/services/stream-analytics/) é um serviço do Azure que funciona como um adaptador, processando continuamente os dados exportados do Application Insights.
 
 ![Exemplo de exibição do Power BI de dados de uso do Application Insights](./media/app-insights-export-power-bi/020.png)
 
 
-> [AZURE.NOTE]Você precisa de uma conta corporativa ou de estudante (conta organizacional do MSDN) para enviar dados do Stream Analytics para o Power BI.
+
 
 ## Vídeo
 
@@ -44,7 +48,7 @@ Se você nunca experimentou, agora é o momento para começar. O Application Ins
 
 Exportação contínua sempre gera dados para uma conta de armazenamento do Azure, por isso você precisa primeiro criar o armazenamento.
 
-1. Crie uma conta de armazenamento “clássica” na sua assinatura do [portal do Azure](https://portal.azure.com).
+1. Crie uma conta de armazenamento “clássica” na sua assinatura do [Portal do Azure](https://portal.azure.com).
 
     ![No portal do Azure, escolha Novo, Dados e Armazenamento](./media/app-insights-export-power-bi/030.png)
 
@@ -83,7 +87,7 @@ A [exportação contínua](app-insights-export-telemetry.md) move os dados do Ap
 
     E, além disso, os dados serão exportados para seu armazenamento.
 
-4. Inspecione os dados exportados. No Visual Studio, escolha **Exibir/Cloud Explorer** e abra Azure/Armazenamento. (Se você não tiver essa opção de menu, precisará instalar o Azure SDK: abra o diálogo Novo Projeto e abra Visual C#/Nuvem/Obter Microsoft Azure SDK para .NET.)
+4. Inspecione os dados exportados. No Visual Studio, escolha **Exibir / Cloud Explorer** e abra Azure / Armazenamento. (Se você não tiver essa opção de menu, precisará instalar o Azure SDK: abra o diálogo Novo Projeto e abra Visual C#/Nuvem/Obter Microsoft Azure SDK para .NET.)
 
     ![](./media/app-insights-export-power-bi/04-data.png)
 
@@ -132,7 +136,7 @@ Neste exemplo:
 
 * `webapplication27` é o nome do recurso do Application Insights **todo em minúsculas**.
 * `1234...` é a chave de instrumentação do recurso do Application Insights **sem traços**. 
-* `PageViews` é o tipo de dados que você deseja analisar. Os tipos disponíveis dependem do filtro definido na Exportação Contínua. Examine os dados exportados para ver os outros tipos disponíveis e veja o [modelo de dados de exportação](app-insights-export-data-model.md).
+* `PageViews` é o tipo de dados que você deseja analisar. Os tipos disponíveis dependem do filtro definido na Exportação Contínua. Examine os dados exportados para ver os outros tipos disponíveis e veja o [modelo de exportação de dados](app-insights-export-data-model.md).
 * `/{date}/{time}` um padrão escrito literalmente.
 
 > [AZURE.NOTE]Inspecione o armazenamento para garantir que o caminho está certo.
@@ -185,7 +189,7 @@ Cole esta consulta:
 
 * export-input é o alias que atribuímos à entrada do fluxo
 * pbi-output é o alias de saída que definimos
-* Usamos [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) porque o nome do evento está em uma matriz JSON aninhada. Em seguida, o Select seleciona o nome do evento, juntamente com uma contagem do número de instâncias com esse nome no período de tempo. A cláusula [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) agrupa os elementos em períodos de tempo de 1 minuto.
+* Usamos [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) porque o nome do evento está em uma matriz JSON aninhada. Em seguida, o Select seleciona o nome do evento, juntamente com uma contagem do número de instâncias com esse nome no período de tempo. A cláusula [Agrupar Por](https://msdn.microsoft.com/library/azure/dn835023.aspx) agrupa os elementos em períodos de tempo de 1 minuto.
 
 
 #### Consulta para exibir valores de métricas
@@ -262,4 +266,4 @@ Noam Ben Zeev mostra como exportar para o Power BI.
 * [Application Insights](app-insights-overview.md)
 * [Mais exemplos e explicações passo a passo](app-insights-code-samples.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

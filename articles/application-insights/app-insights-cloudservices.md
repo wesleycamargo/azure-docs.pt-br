@@ -58,9 +58,10 @@ Como alternativa, você pode enviar dados de todas as funções a apenas um recu
 
     ![Clique com o botão direito no projeto e selecione Gerenciar Pacotes Nuget](./media/app-insights-cloudservices/03-nuget.png)
 
+
 2. Adicione o pacote do NuGet [Application Insights para Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web). Esta versão do SDK inclui módulos que adicionam o contexto do servidor, como informações de função. Para funções de trabalho, use o Application Insights para Windows Services.
 
-    ![Pesquise “Application Insights”](./media/app-insights-cloudservices/04-ai-nuget.png)
+    ![Pesquise "Application Insights"](./media/app-insights-cloudservices/04-ai-nuget.png)
 
 
 3. Configure o SDK para enviar dados ao recurso do Application Insights.
@@ -68,18 +69,19 @@ Como alternativa, você pode enviar dados de todas as funções a apenas um recu
     Defina a chave de instrumentação como um parâmetro de configuração no arquivo `ServiceConfiguration.Cloud.cscfg`. ([Exemplo de código](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg)).
  
     ```XML
-     
      <Role name="WorkerRoleA"> 
-      <Setting name="Telemetry.AI.InstrumentationKey" value="YOUR IKEY" /> 
+      <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" value="YOUR IKEY" /> 
      </Role>
     ```
  
     Em uma função de inicialização adequada, defina a chave de instrumentação no parâmetro de configuração:
 
     ```C#
-
-     TelemetryConfiguration.Active.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("Telemetry.AI.InstrumentationKey");
+     TelemetryConfiguration.Active.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("APPINSIGHTS_INSTRUMENTATIONKEY");
     ```
+
+    Observação, o mesmo nome `APPINSIGHTS_INSTRUMENTATIONKEY` da definição de configuração será usado pelo relatório de Diagnóstico do Azure.
+
 
     Faça isso para cada função em seu aplicativo. Veja os exemplos:
  
@@ -91,34 +93,91 @@ Como alternativa, você pode enviar dados de todas as funções a apenas um recu
 
     (No arquivo. config, você verá mensagens solicitando que você coloque a chave de instrumentação lá. No entanto, para aplicativos em nuvem é melhor defini-la por meio do arquivo .cscfg. Isso garante que a função seja identificada corretamente no portal).
 
-## Habilitar Diagnóstico do Azure
 
-O Diagnóstico do Azure envia contadores de desempenho, logs de eventos do Windows e logs de rastreamento do seu aplicativo para o Application Insights.
+#### Executar e publicar o aplicativo
 
-No Gerenciador de Soluções, abra as Propriedades de cada função. Habilite **Enviar diagnósticos para o Application Insights**.
+Execute o aplicativo e entre no Azure. Abra os recursos do Application Insights que você criou, e veja que os pontos de dados individuais aparecerem em [Pesquisa](app-insights-diagnostic-search.md), e os dados agregados em [Metrics Explorer](app-insights-metrics-explorer.md).
 
-![Em Propriedades, selecione Habilitar Diagnóstico e Enviar para o Application Insights.](./media/app-insights-cloudservices/05-wad.png)
-
-Repita as outras funções.
-
-### Habilitando o Diagnóstico do Azure em um aplicativo ativo ou uma VM do Azure
-
-Também é possível habilitar o diagnóstico quando o aplicativo já estiver em execução no Azure, abrindo suas propriedades no Gerenciador de Servidores ou no Cloud Explorer no Visual Studio.
+Adicione mais telemetria: confira as seções a seguir e publique seu aplicativo para obter comentários em tempo real sobre o diagnóstico e de uso.
 
 
-## Usar o SDK para relatar telemetria
-### Solicitações de relatório
- * Nas funções web, o módulo de solicitações automaticamente coleta dados sobre solicitações HTTP. Consulte o [MVCWebRole de exemplo](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole) para obter exemplos de como você pode substituir o comportamento de coleção padrão. 
- * Você pode capturar o desempenho das chamadas a funções de trabalho acompanhando-as da mesma maneira como faz com solicitações HTTP. No Application Insights, o tipo de Solicitação de telemetria mede uma unidade de trabalho do servidor nomeada que pode ser cronometrada e pode ter êxito ou falhar independentemente. Embora as solicitações HTTP sejam capturadas automaticamente pelo SDK, você pode inserir seu próprio código para acompanhar as solicitações para funções de trabalho.
- * Consulte as duas funções de trabalho de exemplo instrumentadas para solicitações de relatório: [WorkerRoleA](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleA) e [WorkerRoleB](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleB)
+#### Não há dados?
 
-### Relatar dependências
-  * O SDK do Application Insights pode relatar chamadas de seu aplicativo para as dependências externas, como APIs REST e servidores SQL. Isso permite que você veja se uma determinada dependência está causando falhas ou respostas lentas.
-  * Para rastrear dependências, você precisa configurar a função web/de trabalho com o [Application Insights Agent](app-insights-monitor-performance-live-website-now.md), também conhecido como "Monitor de status".
-  * Para usar o Application Insights Agent com suas funções web/de trabalho:
-    * Adicione a pasta do [AppInsightsAgent](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent) e os dois arquivos dela em seus projetos de função web/de trabalho. Certifique-se de definir suas propriedades de compilação para que elas sempre sejam copiadas no diretório de saída. Esses arquivos instalam o agente.
-    * Adicione as tarefas de inicialização ao arquivo CSDEF conforme mostrado [aqui](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/AzureEmailService/ServiceDefinition.csdef#L18).
-    * OBSERVAÇÃO: as *funções de trabalho* requerem três variáveis de ambiente, conforme mostrado [aqui](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/AzureEmailService/ServiceDefinition.csdef#L44). Isso não é necessário para funções web.
+* Abra o bloco [Pesquisar][diagnostic] para ver eventos individuais.
+* Use o aplicativo abrindo páginas diferentes, para que ele gere alguma telemetria.
+* Aguarde alguns segundos e clique em Atualizar.
+* Consulte [Solucionar problemas][qna].
+
+
+
+## Mais telemetria
+
+As seções a seguir mostram como obter a telemetria adicional de diferentes aspectos de seu aplicativo.
+
+
+## Acompanhar as solicitações das funções de trabalho
+
+Nas funções web, o módulo de solicitações automaticamente coleta dados sobre solicitações HTTP. Consulte o [MVCWebRole de exemplo](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole) para obter exemplos de como você pode substituir o comportamento de coleção padrão.
+
+Você pode capturar o desempenho das chamadas a funções de trabalho acompanhando-as da mesma maneira como faz com solicitações HTTP. No Application Insights, o tipo de Solicitação de telemetria mede uma unidade de trabalho do servidor nomeada que pode ser cronometrada e pode ter êxito ou falhar independentemente. Embora as solicitações HTTP sejam capturadas automaticamente pelo SDK, você pode inserir seu próprio código para acompanhar as solicitações para funções de trabalho.
+
+Consulte as duas funções de trabalho de exemplo instrumentadas para solicitações de relatório: [WorkerRoleA](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleA) e [WorkerRoleB](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleB)
+
+## Diagnóstico do Azure
+
+[Os dados do Diagnóstico do Azure](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) incluem logs de aplicativo, contadores de desempenho e eventos de gerenciamento de função. Você pode enviá-los ao Application Insights para que possa vê-los junto com o restante da sua telemetria, facilitando o diagnóstico dos problemas.
+
+Os diagnósticos do Azure são especialmente úteis se uma função falhar inesperadamente ou não puder ser iniciada.
+
+1. Clique com o botão direito na função (não no projeto!) para abrir suas Propriedades, e selecione **Habilitar o Diagnóstico**, **Enviar diagnósticos ao Application Insights**.
+
+    ![Pesquise "Application Insights"](./media/app-insights-cloudservices/21-wad.png)
+
+    **Ou, se o seu aplicativo já estiver publicado e em execução**, abra o Gerenciador de Servidores ou o Gerenciador de Nuvem, clique com o botão direito em seu aplicativo e selecione a mesma opção.
+
+3.  Selecione o mesmo recurso do Application Insights de sua outra telemetria.
+
+    Se quiser, você pode definir um recurso diferente em configurações diferentes do serviço (Nuvem, Local) para ajudar a manter os dados de desenvolvimento separados dos dados em tempo real.
+
+3. Como opção, [exclua alguns diagnósticos do Azure](app-insights-azure-diagnostics.md) que você deseja encaminhar ao Application Insights. O padrão é tudo.
+
+### Exibir eventos de diagnóstico do Azure
+
+Onde encontrar o diagnóstico:
+
+* Os contadores de desempenho são exibidos como métricas personalizadas. 
+* Os logs de eventos do Windows são mostrados como eventos de rastreamentos e personalizados.
+* Logs de aplicativo, Logs de ETW e logs de infraestrutura de diagnóstico aparecem como rastreamentos.
+
+Para ver os contadores de eventos e os contadores de desempenho, abra o [Metrics Explorer](app-insights-metrics-explorer.md) e adicione um novo gráfico:
+
+
+![](./media/app-insights-cloudservices/23-wad.png)
+
+Use [Pesquisa](app-insights-diagnostic-search.md) para pesquisar os vários logs de rastreamento enviados pelo Diagnóstico do Azure. Por exemplo, se você tivesse uma exceção não tratada em uma função que fizesse essa função parar de funcionar e reciclar, essas informações seria mostradas no canal Aplicativo do Log de eventos do Windows. Você pode usar a funcionalidade Pesquisar para ver o erro do log de eventos do Windows e obter o rastreamento de pilha completo da exceção, permitindo que você encontre a causa principal do problema.
+
+
+![](./media/app-insights-cloudservices/25-wad.png)
+
+## Diagnósticos do aplicativo
+
+O diagnóstico do Azure inclui automaticamente as entradas de log geradas por seu aplicativo usando System.Diagnostics.Trace.
+
+Porém, se você já usa as estruturas Log4N ou NLog, você também poderá [capturar seus rastreamentos de log][netlogs].
+
+[Acompanhe métricas e eventos personalizados][api] no cliente, no servidor ou em ambos, para saber mais sobre o desempenho e uso de seu aplicativo.
+
+## Dependências
+
+O SDK do Application Insights pode relatar chamadas de seu aplicativo para as dependências externas, como APIs REST e servidores SQL. Isso permite que você veja se uma determinada dependência está causando falhas ou respostas lentas.
+
+Para rastrear dependências, você precisa configurar a função web/de trabalho com o [Application Insights Agent](app-insights-monitor-performance-live-website-now.md), também conhecido como "Monitor de status".
+
+Para usar o Application Insights Agent com suas funções web/de trabalho:
+
+* Adicione a pasta do [AppInsightsAgent](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent) e os dois arquivos dela em seus projetos de função web/de trabalho. Certifique-se de definir suas propriedades de compilação para que elas sempre sejam copiadas no diretório de saída. Esses arquivos instalam o agente.
+* Adicione as tarefas de inicialização ao arquivo CSDEF conforme mostrado [aqui](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/AzureEmailService/ServiceDefinition.csdef#L18).
+* OBSERVAÇÃO: as *funções de trabalho* requerem três variáveis de ambiente, conforme mostrado [aqui](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/AzureEmailService/ServiceDefinition.csdef#L44). Isso não é necessário para funções web.
 
 Aqui está um exemplo do que você vê no portal do Application Insights:
 
@@ -134,17 +193,21 @@ Aqui está um exemplo do que você vê no portal do Application Insights:
 
     ![](./media/app-insights-cloudservices/a5R0PBk.png)
 
-### Relatando exceções
+## Exceções
 
-* Consulte [Monitoramento de exceções no Application Insights](app-insights-asp-net-exceptions.md) para obter informações sobre como você pode coletar exceções sem tratamento de diferentes tipos de aplicativos Web.
-* A função web de exemplo tem controladores MVC5 e API Web 2. As exceções sem tratamento das 2 são capturadas com o seguinte:
-    * Configuração do [AiHandleErrorAttribute](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiHandleErrorAttribute.cs) [aqui](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/FilterConfig.cs#L12) para controladores MVC5
-    * Configuração do [AiWebApiExceptionLogger](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiWebApiExceptionLogger.cs) [aqui](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/WebApiConfig.cs#L25) para controladores da API Web 2
-* Para funções de trabalho: há duas maneiras de rastrear exceções.
-    * TrackException(ex)
-    * Se você tiver adicionado o pacote de NuGet do ouvinte de rastreamento Application Insights, você pode usar System.Diagnostics.Trace para registrar exceções. [Exemplo de código.](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L107)
+Consulte [Monitoramento de exceções no Application Insights](app-insights-asp-net-exceptions.md) para obter informações sobre como você pode coletar exceções sem tratamento de diferentes tipos de aplicativos Web.
 
-### Contadores de desempenho
+A função web de exemplo tem controladores MVC5 e API Web 2. As exceções sem tratamento das 2 são capturadas com o seguinte:
+
+* Configuração do [AiHandleErrorAttribute](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiHandleErrorAttribute.cs) [aqui](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/FilterConfig.cs#L12) para controladores MVC5
+* Configuração do [AiWebApiExceptionLogger](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiWebApiExceptionLogger.cs) [aqui](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/WebApiConfig.cs#L25) para controladores da API Web 2
+
+Para funções de trabalho: há duas maneiras de rastrear exceções.
+
+* TrackException(ex)
+* Se você tiver adicionado o pacote de NuGet do ouvinte de rastreamento Application Insights, você pode usar System.Diagnostics.Trace para registrar exceções. [Exemplo de código.](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L107)
+
+## Contadores de desempenho
 
 Os seguintes contadores são coletados por padrão:
 
@@ -165,7 +228,7 @@ Você pode especificar contadores de desempenho personalizados adicionais, ou ou
 
   ![](./media/app-insights-cloudservices/OLfMo2f.png)
 
-### Telemetria correlacionada para funções de trabalho
+## Telemetria correlacionada para funções de trabalho
 
 É uma experiência de diagnóstico avançada, quando você pode ver o que levou a uma solicitação com falha ou alta latência. Com as funções da web, o SDK automaticamente configura a correlação entre a telemetria relacionada. Para funções de trabalho, você pode usar um inicializador de telemetria personalizado para definir um atributo de contexto Operation.Id comum para todas as telemetrias para obter isso. Isso permitirá que você veja se o problema de latência/falha foi causado devido a alguma dependência ou ao seu código, rapidamente!
 
@@ -179,32 +242,26 @@ Faça assim:
 
 ![](./media/app-insights-cloudservices/bHxuUhd.png)
 
-#### Não há dados?
-
-* Abra o bloco [Pesquisar][diagnostic] para ver eventos individuais.
-* Use o aplicativo abrindo páginas diferentes, para que ele gere alguma telemetria.
-* Aguarde alguns segundos e clique em Atualizar.
-* Consulte [Solucionar problemas][qna].
 
 
-## Conclua a instalação.
+## Telemetria do cliente
 
-Para obter a visão de 360 graus completa de seu aplicativo, há mais algumas coisas a fazer:
+[Adicione o SDK do JavaScript a suas páginas da Web][client] para obter a telemetria baseada em navegador, como contagens de exibição de página, tempos de carregamento de página, exceções de script e para permitir que você escreva telemetria personalizada em seus scripts de página.
 
+## Testes de disponibilidade
 
-* [Adicione o SDK do JavaScript a suas páginas da Web][client] para obter a telemetria baseada em navegador, como contagens de exibição de página, tempos de carregamento de página, exceções de script e para permitir que você escreva telemetria personalizada em seus scripts de página.
-* Adicione o acompanhamento de dependência para diagnosticar problemas causados por bancos de dados ou outros componentes usados por seu aplicativo:
- * [em seu aplicativo Web ou VM do Azure][azure]
- * [em seu servidor IIS local][redfield]
-* [Capturar rastreamentos de log][netlogs] da sua estrutura de registros favorita
-* [Acompanhe métricas e eventos personalizados][api] no cliente, no servidor ou em ambos, para saber mais sobre como seu aplicativo é usado.
-* [Configure os testes da Web][availability] para certificar-se de manter seu aplicativo operante e responsivo.
+[Configure os testes da Web][availability] para certificar-se de manter seu aplicativo operante e responsivo.
 
 
 
 ## Exemplo
 
 [O exemplo](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) monitora um serviço que tem uma função web e duas funções de trabalho.
+
+## Tópicos relacionados
+
+* [Configurar o envio dos Diagnósticos do Azure ao Application Insights](app-insights-azure-diagnostics.md)
+* [Usando o PowerShell para enviar os diagnósticos do Azure ao Application Insights](app-insights-powershell-azure-diagnostics.md)
 
 
 
@@ -222,4 +279,4 @@ Para obter a visão de 360 graus completa de seu aplicativo, há mais algumas co
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

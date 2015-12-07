@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/03/2015"
+   ms.date="11/23/2015"
    ms.author="chackdan"/>
 
 # Atualizando um cluster do Service Fabric
@@ -74,25 +74,27 @@ Para abrir uma nova porta em todas as VMs em um Tipo de Nó, você precisará fa
 
 1. **Adicionar uma nova investigação ao balanceador de carga apropriado**
 
- Se você tiver implantado o cluster usando o portal, o balanceador de carga receberá o nome "loadBalancer-0", "loadBalancer-1" e assim por diante, um para cada Tipo de Nó. Como os nomes do balanceador de carga são exclusivos apenas em um grupo de recursos (RG), será melhor procurá-los em um determinado RG.
+    Se você tiver implantado o cluster usando o portal, o balanceador de carga receberá o nome "loadBalancer-0", "loadBalancer-1" e assim por diante, um para cada Tipo de Nó. Como os nomes do balanceador de carga são exclusivos apenas em um grupo de recursos (RG), será melhor procurá-los em um determinado RG.
 
- ![AddingProbes][addingProbes]
+    ![AddingProbes][AddingProbes]
+
 
 2. **Adicionar uma nova regra ao balanceador de carga**
 
-  Adicione uma nova regra ao mesmo balanceador de carga usando a investigação criada na etapa anterior.
+    Adicione uma nova regra ao mesmo balanceador de carga usando a investigação criada na etapa anterior.
 
-  ![AddingLBRules][AddingLBRules]
+    ![AddingLBRules][AddingLBRules]
+
 
 ### Propriedades de Posicionamento
 
   Para cada um dos Tipos de Nó, é possível adicionar as propriedades de posicionamento personalizadas que você deseja usar em seus aplicativos. NodeType é uma propriedade padrão que você pode usar sem adicioná-la explicitamente.
 
-  >[AZURE.NOTE]Para obter detalhes sobre o uso da propriedade de posicionamento, confira [a documentação sobre restrições de posicionamento](service-fabric-placement-constraint.md).
+  >[AZURE.NOTE]Para obter detalhes sobre o uso da propriedade de posicionamento, veja a [documentação sobre restrições de posicionamento](service-fabric-placement-constraint.md).
 
 ### Métricas de Capacidade
 
-Para cada um dos Tipos de Nó, é possível adicionar métricas de capacidade personalizadas que você deseja usar em seus aplicativos para relatar a carga. Para obter detalhes sobre o uso de métricas de capacidade para relatar a carga, confira a [visão geral dos relatórios de carga dinâmica](service-fabric-resource-balancer-dynamic-load-reporting.md).
+Para cada um dos Tipos de Nó, é possível adicionar métricas de capacidade personalizadas que você deseja usar em seus aplicativos para relatar a carga. Para obter detalhes sobre o uso de métricas de capacidade para relatar a carga, veja a [visão geral dos relatórios de carga dinâmica](service-fabric-resource-balancer-dynamic-load-reporting.md).
 
 ### Aplicação de patches do sistema operacional nas máquinas virtuais que compõem o cluster
 Esse recurso ainda será lançado. Hoje, você é responsável por aplicar patches a suas VMs. É necessário fazer isso VM por VM, para que você não desative mais de uma VM por vez.
@@ -103,7 +105,7 @@ Se for necessário atualizar a imagem do sistema operacional usada, você será 
 
 ## Próximas etapas
 
-- Saiba como [ampliar e reduzir verticalmente seu cluster](service-fabric-cluster-scale-up-down.md)
+- Saiba como [escalar e reduzir verticalmente seu cluster](service-fabric-cluster-scale-up-down.md)
 - Saiba mais sobre [atualizações de aplicativo](service-fabric-application-upgrade.md)
 
 <!--Image references-->
@@ -111,4 +113,4 @@ Se for necessário atualizar a imagem do sistema operacional usada, você será 
 [AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes.png
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

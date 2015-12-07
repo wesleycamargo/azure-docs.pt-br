@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Introdução à criação de balanceador de carga para a Internet no modelo de implantação clássico usando para serviços de nuvem | Microsoft Azure"
+   pageTitle="Introdução à criação de um balanceador de carga para a Internet no modelo de implantação clássico usando para serviços de nuvem | Microsoft Azure"
    description="Saiba como criar um balanceador de carga para a Internet no modelo de implantação clássico para serviços de nuvem"
    services="load-balancer"
    documentationCenter="na"
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Esse artigo cobre o modelo de implantação clássico. Também é possível que você [Saiba como criar um balanceador de carga para a Internet usando o Gerenciador de Recursos do Azure](load-balancer-get-started-internet-arm-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artigo aborda o modelo de implantação clássico. Também é possível [Saber como criar um balanceador de carga para a Internet usando o Gerenciador de Recursos do Azure](load-balancer-get-started-internet-arm-cli.md).
 
 Serviços de nuvem são automaticamente configurados com um balanceador de carga e podem ser personalizados por meio do modelo de serviço.
 
@@ -81,4 +81,4 @@ Verifique o esquema de definição de serviço para a [investigação de integri
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

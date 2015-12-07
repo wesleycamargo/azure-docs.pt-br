@@ -24,7 +24,7 @@ Este artigo mostra como criar uma máquina virtual baseada em uma imagem Oracle 
 
 ##Para criar uma máquina virtual Oracle WebLogic Server 12c e Oracle Database 12c no Azure
 
-1. Entre no [Portal do Azure](https://ms.portal.azure.com/).
+1. Entre no [portal de visualização do Azure](https://ms.portal.azure.com/).
 
 2.	Clique em **Marketplace**, em **Computação** e digite **Oracle** na caixa de pesquisa.
 
@@ -46,7 +46,7 @@ Este artigo mostra como criar uma máquina virtual baseada em uma imagem Oracle 
 
 	c. Não adicione nenhum ponto de extremidade neste momento.
 
-9.	Escolha ou crie um grupo de recursos. Para saber mais, consulte [Usando o Portal de Visualização do Azure para gerenciar os recursos do Azure](resource-group-portal.md).
+9.	Escolha ou crie um grupo de recursos. Para obter mais informações, consulte [Usando o portal de visualização do Azure para gerenciar os recursos do Azure](resource-group-portal.md).
 
 10. Escolha uma **Assinatura**.
 
@@ -71,4 +71,4 @@ Siga as instruções em [Criar uma máquina virtual Oracle WebLogic Server 12c n
 
 [Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

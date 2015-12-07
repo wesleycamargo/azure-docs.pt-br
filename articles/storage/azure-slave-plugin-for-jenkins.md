@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="11/19/2015"
     ms.author="v-dedomi"/>
 
 # Como usar o plug-in subordinado do Azure com Jenkins Continuous Integration
@@ -204,4 +204,4 @@ Nesta seção, você criará uma tarefa do Jenkins que será executada em um nó
 
 Em seguida, o Jenkins criará um nó subordinado usando o modelo criado na seção anterior e executará o script que você especificou na etapa de compilação dessa tarefa.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

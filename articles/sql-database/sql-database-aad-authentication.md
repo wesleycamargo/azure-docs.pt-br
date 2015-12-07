@@ -76,7 +76,7 @@ Não há suporte para contas da Microsoft (por exemplo, outlook.com, hotmail.com
 - Somente um administrador do Active Directory do Azure pode conectar-se inicialmente ao SQL Server do Azure usando uma conta do Active Directory do Azure. O administrador do Active Directory pode configurar usuários subsequentes de banco de dados do Active Directory do Azure.
 - É recomendável configurar o tempo limite da conexão para 30 segundos.
 - Não há suporte para algumas ferramentas como o Excel e o BI.
-- A autenticação do Active Directory do Azure dá suporte apenas ao **Provedor de Dados do .NET Framework para SQL Server** (é necessário o .NET Framework 4.6 como versão mínima). Portanto, o Management Studio (disponível com o SQL Server 2016) e aplicativos de camada de dados (DAC e .bacpac) podem se conectar, mas o **sqlcmd.exe** não pode se conectar porque o **sqlcmd** usa o provedor ODBC.
+- A autenticação do Active Directory do Azure dá suporte apenas ao **Provedor de Dados do .NET Framework para SQL Server** (é necessário o .NET Framework 4.6 como versão mínima). Portanto, o Management Studio (disponível com o SQL Server 2016) e aplicativos de camada de dados (DAC e .bacpac) podem se conectar, mas **sqlcmd.exe** não pode se conectar porque **sqlcmd** usa o provedor ODBC.
 - Não há suporte para a autenticação de dois fatores ou outras formas de autenticação interativa.
 
 
@@ -327,4 +327,4 @@ Para exemplos de código específicos relacionados à autenticação do Azure AD
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

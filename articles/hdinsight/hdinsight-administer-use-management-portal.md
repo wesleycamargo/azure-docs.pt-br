@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="11/24/2015"
 	ms.author="jgao"/>
 
 # Gerenciar clusters Hadoop no HDInsight usando o portal de visualização do Azure
@@ -94,8 +94,8 @@ Não há suporte para a instalação de software personalizado no cluster usando
 	
 	- Para personalizar o menu, clique com o botão direito do mouse em qualquer parte do menu e clique em **Personalizar**.
 	- **Configurações** e **Todas as Configurações**: exibem a folha **Configurações** do cluster, o que permite acessar informações de configuração detalhadas do cluster.
-	- **Painel**, **Painel do Cluster** e **URL**: são maneiras de acessar o painel do cluster, que é o Ambari Web para clusters baseados em Linux.
-	- **Área de Trabalho Remota**: conecte-se ao cluster usando a Área de Trabalho Remota.
+	- **Painel**, **Painel do Cluster** e **URL: são maneiras de acessar o painel do cluster, que é o Ambari Web para clusters baseados em Linux.
+- **Área de Trabalho Remota**: conecte-se ao cluster usando a Área de Trabalho Remota.
 	- **Dimensionar o Cluster**: permite alterar o número de nós de trabalho para o cluster.
 	- **Excluir**: exclui o cluster.
 	- **Início Rápido (![ícone de nuvem e raio = início rápido](./media/hdinsight-administer-use-portal-linux/quickstart.png))**: exibe informações que ajudarão você a começar a usar o HDInsight.
@@ -157,7 +157,7 @@ Consulte também [Pausar/desligar clusters](#pauseshut-down-clusters).
 ##Dimensionar clusters
 O recurso de dimensionamento de clusters permite que você altere o número de nós de trabalhador usados por um cluster em execução no Azure HDInsight sem precisar recriar o cluster.
 
->[AZURE.NOTE]Somente clusters HDInsight versão 3.1.3 ou superior são compatíveis. Se não tiver certeza quanto à versão de seu cluster, você poderá verificar a página Propriedades. Consulte [Familiarize-se com a interface do portal de cluster](hdinsight-adminster-use-management-portal/#Get-familiar-with-the-cluster-portal-interface).
+>[AZURE.NOTE]Somente clusters HDInsight versão 3.1.3 ou superior são compatíveis. Se não tiver certeza quanto à versão de seu cluster, você poderá verificar a página Propriedades. Consulte [Listar e mostrar clusters](hdinsight-adminster-use-management-portal/#list-and-show-clusters).
 
 O impacto da alteração do número de nós de dados em cada tipo de cluster com suporte do HDInsight:
 
@@ -211,8 +211,7 @@ O impacto da alteração do número de nós de dados em cada tipo de cluster com
 
 ##Pausar/desligar clusters
 
-A maioria dos trabalhos do Hadoop é composta por trabalhos em lotes que só são executados ocasionalmente. Para a maioria dos clusters do Hadoop, há grandes períodos de tempo em que o cluster não está sendo usado para processamento. Com o HDInsight, seus dados são armazenados no Armazenamento do Azure, assim você pode excluir, com segurança, um cluster quando ele não está em uso.
-Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes maiores do que os encargos para armazenamento, faz sentido, do ponto de vista econômico, excluir os clusters quando não estiverem em uso.
+A maioria dos trabalhos do Hadoop é composta por trabalhos em lotes que só são executados ocasionalmente. Para a maioria dos clusters do Hadoop, há grandes períodos de tempo em que o cluster não está sendo usado para processamento. Com o HDInsight, seus dados são armazenados no Armazenamento do Azure, assim você pode excluir, com segurança, um cluster quando ele não está em uso. Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes maiores do que os encargos para armazenamento, faz sentido, do ponto de vista econômico, excluir os clusters quando não estiverem em uso.
 
 Há várias maneiras de programar o processo:
 
@@ -267,7 +266,7 @@ Por padrão, esses serviços são concedidos para acesso. Você pode revogar/con
 
 ##Encontrar a conta de armazenamento padrão
 
-Cada cluster HDInsight tem uma conta de armazenamento padrão. A conta de armazenamento padrão e as chaves para um cluster são exibidos em **Configurações**/**Propriedades**/**Chaves de armazenamento do Azure**. Consulte [Listar e mostrar clusters](list-and-show-clusters).
+Cada cluster HDInsight tem uma conta de armazenamento padrão. A conta de armazenamento padrão e as chaves para um cluster são exibidos em **Configurações**/**Propriedades**/**Chaves de armazenamento do Azure**. Consulte [Listar e mostrar clusters](#list-and-show-clusters).
 
 	
 ##Encontrar o grupo de recursos 
@@ -277,7 +276,7 @@ No modo ARM, cada cluster HDInsight é criado com um grupo de recursos do Azure.
 - A lista de clusters tem uma coluna **Grupo de Recursos**.
 - Bloco **Fundamentos** do cluster.  
 
-Consulte [Listar e mostrar clusters](list-and-show-clusters).
+Consulte [Listar e mostrar clusters](#list-and-show-clusters).
    
 ##Abrir o console de Consulta do HDInsight
 
@@ -339,7 +338,7 @@ Para monitorar o cluster, procure no sistema de arquivos e verifique os logs, cl
 
 ##Abrir a IU do Yarn
 
-Para usar a IU do Yarn, clique em **IU do Hadoop** no console de Consulta do HDInsight. Consulte [Abrir o console de consulta do HDInsight](#open-hdinsight-query-console).
+Para usar a interface do usuário do Yarn, clique em **Interface do usuário do Yarn** no console de Consulta do HDInsight. Consulte [Abrir o console de consulta do HDInsight](#open-hdinsight-query-console).
 
 ##Conectar-se aos clusters usando o RDP
 
@@ -400,4 +399,4 @@ Neste artigo, você aprendeu a criar um cluster HDInsight usando o portal do de 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Linha de comando do Hadoop"
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

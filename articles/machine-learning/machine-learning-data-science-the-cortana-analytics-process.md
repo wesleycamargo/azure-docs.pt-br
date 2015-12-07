@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="11/23/2015" 
 	ms.author="bradsev;gopitk" />
 
 
@@ -27,7 +27,7 @@ Estas são as etapas do **Processo de Análise da Cortana**:
 
 O processo é **iterativo**: a compreensão dos refinamentos novos e existentes no modelo evolui e exige o retrabalho em etapas anteriormente concluídas na sequência. Os processos de planejamento de projeto e de desenvolvimento organizacional existentes são **adaptados com facilidade** ao trabalho com a sequência de etapas definida pelo CAP.
 
-As etapas no processo são diagramadas e vinculadas no [roteiro de aprendizagem do CAP](https://azure.microsoft.com/pt-BR/documentation/learning-paths/cortana-analytics-process/) e descritas abaixo.
+As etapas no processo são diagramadas e vinculadas no [Roteiro de aprendizagem do CAP](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) e descritas abaixo.
 
 ## Etapas de preparação 
 
@@ -83,7 +83,7 @@ Assim que tivermos um conjunto de modelos com um bom desempenho, eles poderão s
 
 ## Resumo e próximas etapas
 
-O [Processo de Análise da Cortana](https://azure.microsoft.com/pt-BR/documentation/learning-paths/cortana-analytics-process/) é modelado como uma sequência de etapas repetidas que **oferecem diretrizes** sobre as tarefas necessárias ao uso de uma análise avançada para a criação de um aplicativo inteligente. Cada etapa também fornece detalhes sobre como usar diversas tecnologias da Microsoft para concluir as tarefas descritas.
+O [Processo do Cortana Analytics](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) é modelado como uma sequência de etapas repetidas que **oferecem diretrizes** sobre as tarefas necessárias ao uso de uma análise avançada para a criação de um aplicativo inteligente. Cada etapa também fornece detalhes sobre como usar diversas tecnologias da Microsoft para concluir as tarefas descritas.
 
 Embora o CAP não prescreva tipos específicos de artefatos de **documentação**, é uma prática recomendada documentar os resultados de exploração de dados, a modelagem e a avaliação e salvar o código pertinente para que a análise possa ser iterada quando necessário. Isso também permite a reutilização do trabalho de análise enquanto você estiver trabalhando em outros aplicativos que envolvam dados e tarefas de previsão semelhantes.
 
@@ -91,4 +91,4 @@ Também serão fornecidos passo a passos completos que demonstram todas as etapa
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

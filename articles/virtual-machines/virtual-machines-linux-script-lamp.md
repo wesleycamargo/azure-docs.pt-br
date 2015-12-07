@@ -24,7 +24,7 @@
 
 A Extensão de Script Personalizado do Microsoft Azure para Linux é uma maneira de personalizar VMs (máquinas virtuais) executando código arbitrário escrito em qualquer linguagem de script com suporte da VM (por exemplo, Python e Bash). Isso fornece uma maneira muito flexível para automatizar a implantação de aplicativos em várias máquinas.
 
-Você pode implantar a Extensão de Script Personalizado usando o portal do Azure, o PowerShell do Windows ou a CLI (Interface de Linha de Comando) do Azure.
+Você pode implantar a extensão CustomScript usando o portal do Azure, Windows PowerShell ou a Interface de linha de comando do Azure (CLI do Azure).
 
 Neste artigo, usaremos a CLI do Azure para implantar um aplicativo simples da LAMP em uma VM do Ubuntu criada com o modelo de implantação clássico.
 
@@ -32,7 +32,7 @@ Neste artigo, usaremos a CLI do Azure para implantar um aplicativo simples da LA
 
 Para este exemplo, primeiro crie duas VMs do Azure executando o Ubuntu 14.04 ou posterior. As VMs são chamadas *script-vm* e *lamp-vm*. Use nomes exclusivos ao criar as VMs. Uma é usada para executar os comandos da CLI e a outra para implantar o aplicativo LAMP.
 
-Você também precisa de uma conta de Armazenamento do Azure e uma chave para acessá-la (que pode ser obtida no Portal do Azure).
+Você também precisa de uma conta de armazenamento do Azure e uma chave para acessá-la (você pode obtê-la no portal do Azure).
 
 Se precisar de ajuda para criar VMs do Linux no Azure, confira [Criar uma máquina virtual executando Linux](virtual-machines-linux-tutorial.md).
 
@@ -110,4 +110,4 @@ Recursos adicionais da CLI do Azure, do Linux e da Extensão de Script Personali
 
 [Computação Linux e Software Livre no Azure](virtual-machines-linux-opensource.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

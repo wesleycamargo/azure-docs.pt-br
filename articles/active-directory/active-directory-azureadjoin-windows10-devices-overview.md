@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Windows 10 para a empresa: maneiras de usar dispositivos para o trabalho
@@ -34,4 +34,4 @@ Os seguintes tópicos fornecem informações sobre recursos diferentes com dispo
 | Implantação | [Cenários de uso e considerações de implantação do ingresso do AD do Azure](active-directory-azureadjoin-deployment-aadjoindirect.md) <br><br> [Conectar dispositivos ingressados em domínio ao AD do Azure para experiências do Windows 10](active-directory-azureadjoin-devices-group-policy.md)<br><br>[Habilitar o Microsoft Passport para o trabalho na organização](active-directory-azureadjoin-passport-deployment.md)<br><br> |
 | Tarefas do usuário | [Configurando um novo dispositivo Windows 10 com o AD do Azure durante a instalação](active-directory-azureadjoin-user-frx.md) <br><br> [Configurar um dispositivo Windows 10 com o AD do Azure em Configurações](active-directory-azureadjoin-user-upgrade.md) <br><br> [Ingressar um dispositivo Windows 10 pessoal na sua organização](active-directory-azureadjoin-personal-device.md) |
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

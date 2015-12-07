@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Criar entradas do Stream Analytics | Microsoft Azure" 
+	pageTitle="Conectar-se às entradas do Stream Analytics | Microsoft Azure" 
 	description="Saiba como se conectar às fontes de entrada e como configurá-las para soluções do Stream Analytics."
 	documentationCenter=""
 	services="stream-analytics"
@@ -13,10 +13,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
-# Criar entradas do Stream Analytics
+# Conectar fontes de entrada do Stream Analytics
 
 ## Noções básicas sobre entradas do Stream Analytics
 ---
@@ -151,4 +151,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

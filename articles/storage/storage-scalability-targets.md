@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="09/27/2015"
+   ms.date="11/17/2015"
    ms.author="tamram" />
 
 # Metas de desempenho e escalabilidade do Armazenamento do Azure
+
+## Visão geral
 
 Este tópico descreve os tópicos de desempenho e escalabilidade do Armazenamento do Microsoft Azure. Para obter um resumo de outros limites do Azure, confira [Assinatura do Azure e limites de serviços, cotas e restrições](../azure-subscription-service-limits.md).
 
@@ -29,15 +31,26 @@ Este tópico descreve os tópicos de desempenho e escalabilidade do Armazenament
 
 Se as necessidades de seu aplicativo excederem as metas de escalabilidade de uma única conta de armazenamento, crie seu aplicativo para usar múltiplas contas de armazenamento e faça o particionamento dos seus objetos de dados nessas contas de armazenamento. Consulte [Detalhes de preços de armazenamento](http://azure.microsoft.com/pricing/details/storage/) para obter informações sobre o preço por volume.
 
-## Metas de escalabilidade para contas de armazenamento padrão
+
+## Metas de escalabilidade para blobs, filas, tabelas e arquivos
 
 [AZURE.INCLUDE [azure-storage-limits](../../includes/azure-storage-limits.md)]
 
-## Metas de escalabilidade para Contas de armazenamento Premium
+## Metas de escalabilidade para discos de máquina virtual 
 
-[AZURE.INCLUDE [azure-storage-limits-premium-storage](../../includes/azure-storage-limits-premium-storage.md)]
+[AZURE.INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
-## Limites de Armazenamento – Gerenciador de Recursos do Azure
+Consulte [Tamanhos de máquina virtual](../virtual-machines/virtual-machines-size-specs.md) para saber mais detalhes.
+
+### Contas de armazenamento padrão
+
+[AZURE.INCLUDE [azure-storage-limits-vm-disks-standard](../../includes/azure-storage-limits-vm-disks-standard.md)]
+
+### Contas de armazenamento Premium
+
+[AZURE.INCLUDE [azure-storage-limits-vm-disks-premium](../../includes/azure-storage-limits-vm-disks-premium.md)]
+
+## Metas de escalabilidade para o Gerenciador de recursos do Azure
 
 [AZURE.INCLUDE [azure-storage-limits-azure-resource-manager](../../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -45,13 +58,13 @@ Se as necessidades de seu aplicativo excederem as metas de escalabilidade de uma
 
 Cada objeto com dados armazenado no Armazenamento do Azure (blobs, mensagens, entidades e arquivos) pertence a uma partição e é identificado por uma chave de partição. A partição determina como o Armazenamento do Azure equilibra as cargas de blobs, mensagens, entidades e arquivos em servidores a fim de atender às necessidades de tráfego desses objetos. A chave de partição é exclusiva dentro da conta de armazenamento e é usada para localizar um blob, mensagem ou entidade.
 
-A tabela exibida acima, em [Metas de escalabilidade para contas de armazenamento padrão](#scalability-targets-for-standard-storage-accounts), lista as metas de desempenho para uma única partição para cada serviço.
+A tabela acima em [Metas de escalabilidade para contas de armazenamento padrão](#scalability-targets-for-standard-storage-accounts) lista as metas de desempenho para uma única partição para cada serviço.
 
 As partições afetam o balanceamento de carga e a escalabilidade de cada um dos serviços de armazenamento das seguintes formas:
 
 - **Blobs**: a chave de partição de um blob é o nome do contêiner + nome do blob. Isso significa que cada blob possui sua própria partição. Blobs podem, portanto, ser distribuídos em vários servidores a fim de expandir o acesso a eles. Embora os blobs possam ser agrupados logicamente em contêineres de blob, o particionamento não é afetado de forma alguma por esse agrupamento.
 
-- **Arquivos**: a chave da partição de um arquivo é o nome da conta + nome do compartilhamento de arquivo. Isso significa que todos os arquivos em um compartilhamento de arquivos também estão em uma única partição.
+- **Arquivos**: A chave de partição para um arquivo é o nome da conta + nome do compartilhamento do arquivos. Isso significa que todos os arquivos em um compartilhamento de arquivos também estão em uma única partição.
 
 - **Mensagens**: a chave de partição de uma mensagem é o nome da fila, portanto, todas mensagens em uma fila são agrupadas em uma única partição e são atendidas por um único servidor. Filas diferentes podem ser processadas por servidores diferentes a fim de equilibrar a carga, não importa a quantidade de filas que uma conta de armazenamento tenha.
 
@@ -72,8 +85,4 @@ As partições afetam o balanceamento de carga e a escalabilidade de cada um dos
 - [Lista de verificação de desempenho e escalabilidade do Armazenamento do Microsoft Azure](storage-performance-checklist.md)
 - [Armazenamento do Microsoft Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-
-
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

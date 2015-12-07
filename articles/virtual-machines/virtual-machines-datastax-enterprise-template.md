@@ -90,8 +90,7 @@ Clone todo o repositório de modelos usando um cliente git de sua escolha, como 
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-Quando terminar, procure a pasta datastax-enterprise no diretório C:\\Azure\\Templates.
-<!--Wrapping name of folder in bold typeface is not corp style  -->
+Quando terminar, procure a pasta datastax-enterprise no diretório C:\\Azure\\Templates. <!--Wrapping name of folder in bold typeface is not corp style  -->
 ### Etapa 2 (opcional): compreender os parâmetros do modelo
 
 Ao implantar soluções não triviais, como um cluster do Apache Cassandra com base no DataStax, você deve especificar um conjunto de parâmetros de configuração para lidar com várias configurações necessárias. Declarando esses parâmetros na definição do modelo, você pode especificar valores durante a implantação por meio de um arquivo externo ou na linha de comando.
@@ -252,7 +251,7 @@ Ao implantar, tenha em mente que uma nova Conta de Armazenamento do Azure precis
 
 Durante e após a implantação, você pode verificar todas as solicitações feitas durante o provisionamento, incluindo quaisquer erros ocorridos.
 
-Para fazer isso, acesse o [Portal do Azure](https://portal.azure.com) e siga este procedimento:
+Para fazê-lo, vá para o [portal de visualização do Azure](https://portal.azure.com) e faça o seguinte:
 
 - Clique em "Procurar" na barra de navegação à esquerda, role para baixo e clique em "Grupos de Recursos".
 - Depois que você clicar no Grupo de Recursos que acabou de criar, será mostrada a folha "Grupo de Recursos".
@@ -279,9 +278,7 @@ Você pode verificar o status das implantações de recursos individuais com o s
 
 ## Um tour da estrutura do modelo do Datastax Enterprise e da organização de arquivos
 
-Para criar um modelo robusto e reutilizável do Gerenciador de Recursos, é preciso realizar preparação adicional para organizar a série de tarefas complexas e inter-relacionadas necessárias durante a implantação de uma solução complexa como o DataStax Enterprise. Aproveitando a **vinculação de modelos** e os **loops de recursos** do AR,M além da execução de scripts por meio de extensões relacionadas, você pode implementar uma abordagem modular que pode ser reutilizada com praticamente qualquer implantação complexa com base no modelo.
-<!-- In previous paragraph, we can't use bold typeface to show emphasis. You can use italic to denote emphasis. -->
-O próximo diagrama descreve as relações entre todos os arquivos baixados do GitHub para essa implantação.
+Para criar um modelo robusto e reutilizável do Gerenciador de Recursos, é preciso realizar preparação adicional para organizar a série de tarefas complexas e inter-relacionadas necessárias durante a implantação de uma solução complexa como o DataStax Enterprise. Aproveitando a **vinculação de modelos** e os **loops de recursos** do AR,M além da execução de scripts por meio de extensões relacionadas, você pode implementar uma abordagem modular que pode ser reutilizada com praticamente qualquer implantação complexa com base no modelo. <!-- In previous paragraph, we can't use bold typeface to show emphasis. You can use italic to denote emphasis. --> O próximo diagrama descreve as relações entre todos os arquivos baixados do GitHub para essa implantação.
 
 ![datastax-enterprise-files](media/virtual-machines-datastax-enterprise-template/datastax-enterprise-files.png)
 
@@ -386,12 +383,7 @@ A seção "recursos" é onde acontece a maior parte da ação. Analisando essa s
 
 Neste primeiro exemplo, fica claro como azuredeploy.json nesse cenário foi organizado como um mecanismo de orquestração, invocando vários outros arquivos de modelo, cada um deles responsável por parte das atividades de implantação necessárias.
 
-Em particular, os seguintes modelos vinculados serão usados para essa implantação:
-<!-- In list format, using bold typeface in the following manner is ok -->
--	**hared-resource.json**: Contém a definição de todos os recursos que serão compartilhados através da implantação. Exemplos são contas de armazenamento usadas para armazenar redes virtuais e discos do sistema operacional da VM.
--	**opscenter-resources.json**: Implanta uma VM OpsCenter e todos os recursos relacionados, incluindo uma interface de rede e um endereço IP público.
--	**opscenter-install-resources.json**: Implanta a extensão OpsCenter VM (script personalizado para Linux), que invocará o arquivo de script bash específico (opscenter.sh) necessário para configurar o serviço OpsCenter dentro dessa VM.
--	**ephemeral-nodes-resources.json**: Implanta todas as VMs do nó de cluster e recursos conectados (por exemplo, placas de rede e IPs privados). Esse modelo também implantará extensões de VM (scripts personalizados para Linux) e invoca um script bash (dsenode.sh) para instalar fisicamente partes do Apache Cassandra em cada nó.
+Em particular, os seguintes modelos vinculados serão usados para essa implantação: <!-- In list format, using bold typeface in the following manner is ok --> - **shared-resource.json**: Contém a definição de todos os recursos que serão compartilhados na implantação. Exemplos são contas de armazenamento usadas para armazenar redes virtuais e discos do sistema operacional da VM. - **opscenter-resources.json**: implanta uma VM OpsCenter e todos os recursos relacionados, incluindo uma interface de rede e um endereço IP público. - **opscenter-install-resources.json**: implanta a extensão OpsCenter VM (script personalizado para Linux), que invocará o arquivo de script bash específico (opscenter.sh) necessário para configurar o serviço OpsCenter dentro dessa VM. - **ephemeral-nodes-resources.json**: implanta todas as VMs do nó de cluster e recursos conectados (por exemplo, placas de rede e IPs privados). Esse modelo também implantará extensões de VM (scripts personalizados para Linux) e invoca um script bash (dsenode.sh) para instalar fisicamente partes do Apache Cassandra em cada nó.
 
 Vejamos detalhadamente como este último modelo é usado, pois ele é um dos mais interessantes em termos de desenvolvimento de modelo. Um conceito importante a ser realçado é como um único arquivo de modelo pode implantar várias cópias de um único tipo de recurso e, para cada instância, pode definir valores exclusivos para as configurações necessárias. Este conceito é conhecido como Loop de Recursos.
 
@@ -504,4 +496,4 @@ Essa abordagem sugere que você:
 
 Para obter mais informações, consulte [Linguagem de modelo do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

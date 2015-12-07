@@ -156,7 +156,7 @@ Use a CLI do Azure para carregar a imagem. Você pode carregar uma imagem usando
 
 Você precisará de uma conta de armazenamento para carregar o arquivo do VHD. Você pode selecionar um já existente ou criar um novo. Para criar uma conta de armazenamento, veja [Criar uma conta de armazenamento](../storage-create-storage-account.md)
 
-Quando carrega o arquivo .vhd, você pode colocá-lo em qualquer lugar no seu armazenamento de blob. Nos exemplos de comando a seguir, **BlobStorageURL** é a URL da conta de armazenamento que você pretende usar e **YourImagesFolder** é o contêiner no armazenamento de blobs no qual deseja armazenar as imagens. **VHDName** é o rótulo que aparece no [Portal de Gerenciamento](http://manage.windowsazure.com) para identificar o disco rígido virtual. **PathToVHDFile** é o caminho completo e o nome do arquivo .vhd.
+Quando carrega o arquivo .vhd, você pode colocá-lo em qualquer lugar no seu armazenamento de blob. Nos exemplos de comando a seguir, **BlobStorageURL** é a URL da conta de armazenamento que você pretende usar e **YourImagesFolder** é o contêiner no armazenamento de blobs no qual deseja armazenar as imagens. **VHDName** é o rótulo que aparece no [portal do Azure](http://manage.windowsazure.com) para identificar o disco rígido virtual. **PathToVHDFile** é o caminho completo e o nome do arquivo .vhd.
 
 Na janela PowerShell do Azure que você usou na etapa anterior, digite:
 
@@ -171,4 +171,4 @@ Para obter mais informações, consulte [Add-AzureVhd (a página pode estar em i
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

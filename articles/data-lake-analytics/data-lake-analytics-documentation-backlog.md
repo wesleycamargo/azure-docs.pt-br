@@ -26,6 +26,7 @@ Continuaremos adicionando nova documentação para dar suporte à Análise Azure
 ------------- | ------------- | -------------- | -------------- | --------------- | --------------
 U-SQL | Consulta Distribuída | 1 | Em espera | [@edmacauley](https://github.com/edmacauley) |
 U-SQL | Movendo dados entre o WASB e o ADLS | 1 | Pendente | TBD | Ye Xing (ml)
+U-SQL | Diretrizes para testes de unidade para o modelo UDO | 1 | Pendente | TBD | [@ddobric](https://github.com/ddobric) 
 U-SQL | Processando o JSON | 2 | Pendente | [@mumian](https://github.com/mumian) | [@mwinkle](https://github.com/mwinkle)
 O Barramento de | Interagindo com o Curl | 3 |Pendente |[@mumian](https://github.com/mumian)
 U-SQL | Tabelas particionadas |1 | Em andamento | [@edmacauley](https://github.com/edmacauley) | 
@@ -45,7 +46,7 @@ Ferramentas | Usando as ferramentas de diagnóstico | 1 | Pendente | [@mumian](h
 
 Área |Tópico | location
 ------------- | ------------- | -------------- 
-O Barramento de | Coordenando a implantação da Análise Data Lake com outros serviços do Azure usando modelos ARM | [local](https://azure.microsoft.com/pt-BR/documentation/articles/data-lake-analytics-manage-use-powershell/)
+O Barramento de | Coordenando a implantação da Análise Data Lake com outros serviços do Azure usando modelos ARM | [local](https://azure.microsoft.com/documentation/articles/data-lake-analytics-manage-use-powershell/)
 
 ## Como fornecer comentários sobre a lista de pendências
 Há algumas opções para fornecer comentários sobre a lista de pendências:
@@ -54,4 +55,4 @@ Há algumas opções para fornecer comentários sobre a lista de pendências:
 * Enviar uma solicitação pull sobre este documento no [Repositório de Conteúdo do Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Enviar um email para [adlafeedback@microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

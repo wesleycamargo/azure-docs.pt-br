@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Junção do Active Directory do Azure| Microsoft Azure" 
-	description="Um tópico que explica a Junção do Azure AD." 
+	description="Fornece uma visão geral detalhada de como os dispositivos Windows 10 podem utilizar a junção do AD do Azure para se registrar no Active Directory do Azure." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/30/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Junção do Active Directory do Azure
@@ -68,6 +68,7 @@ Com a Junção do Azure AD, você obtém o seguinte:
 | SSO da área de trabalho para sites/aplicativos/recursos de trabalho, localmente ou nos aplicativos em nuvem que usam o Azure AD para autenticação | Registro automático no diretório corporativo (Azure AD) e autorregistro no MDM. (recurso do Azure AD Premium) | Fornece o SSO entre aplicativos e sites/recursos com essa conta de trabalho |
 | Os usuários podem adicionar sua MSA pessoal para acessar suas imagens/arquivos pessoais sem afetar os dados da empresa (as configurações de roaming continuam funcionando com a conta de trabalho). A conta de MSA habilita o SSO e não exige mais o roaming das configurações | SSPR (redefinição de senha de autoatendimento) no winlogon (capacidade de redefinir senha esquecida) (é necessário o AzureAD Premium para isso) | Fornece acesso à seção/frente da Store para que os usuários possam obter e usar aplicativos de LoB em seus dispositivos pessoais | |
 
+
 ## Informações adicionais
 * [Windows 10 para a empresa: maneiras de usar dispositivos para o trabalho](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Junção do Active Directory do Azure](active-directory-azureadjoin-user-upgrade.md)
@@ -76,4 +77,4 @@ Com a Junção do Azure AD, você obtém o seguinte:
 * [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

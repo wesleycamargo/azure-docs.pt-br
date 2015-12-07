@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015"
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 # Criar senhas de aplicativo no portal do Azure para o Azure Multi-Factor Authentication
@@ -32,4 +32,4 @@ Se você usar uma autenticação multifator com o Azure, talvez seja conveniente
 
 <center>![Nuvem](./media/multi-factor-authentication-end-user-app-passwords-create-azure/app2.png)</center>
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="08/30/2015"
-	ms.author="huguesv"/>
+	ms.date="11/17/2015"
+	ms.author="huvalo"/>
 
 
 # Criando aplicativos Web com Bottle no Azure
@@ -56,7 +56,7 @@ Você deve ter o Python e Git já instalados, mas certifique-se de ter uma das v
 A primeira etapa na criação de seu aplicativo é criar o aplicativo Web por meio do [Portal de Visualização do Azure](https://portal.azure.com).
 
 1. Faça logon no Portal de Visualização do Azure e clique no botão **NOVO** no canto inferior esquerdo. 
-2. Clique em **Web + Móvel** > **Azure Marketplace** > **Aplicativos Web**.
+2. Clique em **Web + móvel**.
 3. Na caixa de pesquisa, digite "python".
 4. Nos resultados da pesquisa, selecione **Bottle** e clique em **Criar**.
 5. Configure o novo aplicativo Bottle, como a criação de um novo plano de Serviço de Aplicativo e um novo grupo de recursos para ele. Em seguida, clique em **Criar**.
@@ -158,7 +158,7 @@ Pressione F5 para iniciar a depuração e o navegador da Web abrirá automaticam
 
 ![](./media/web-sites-python-create-deploy-bottle-app/windows-browser-bottle.png)
 
-Você pode definir pontos de interrupção nas fontes, usar as janelas de observação etc. Consulte a [Documentação das Ferramentas Python para Visual Studio] para obter mais informações sobre os diversos recursos.
+Você pode definir pontos de interrupção nas fontes, usar as janelas de observação etc. Consulte [Ferramentas Python para Documentação do Visual Studio] para obter mais informações sobre os vários recursos.
 
 ### Fazer alterações
 
@@ -297,6 +297,7 @@ Para o Python 2.7:
 Para o Python 3.4:
 
     python -m venv env
+ou pyvenv env
 
 Instale quaisquer pacotes externos exigidos pelo seu aplicativo. Você pode usar o arquivo requirements.txt na raiz do repositório para instalar os pacotes no seu ambiente virtual:
 
@@ -393,9 +394,8 @@ Para obter informações sobre como usar o Armazenamento de Tabela do Azure e o 
 [Python Tools para Visual Studio]: http://aka.ms/ptvs
 [Ferramentas Python 2.2 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Visual Studio]: http://www.visualstudio.com/
-[Documentação das Ferramentas Python para Visual Studio]: http://aka.ms/ptvsdocs
-[Ferramentas Python para documentação do Visual Studio]: http://aka.ms/ptvsdocs
+[Ferramentas Python para Documentação do Visual Studio]: http://aka.ms/ptvsdocs
 [Documentação do Bottle]: http://bottlepy.org/docs/dev/index.html
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

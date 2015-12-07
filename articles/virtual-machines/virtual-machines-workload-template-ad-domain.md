@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Modelo ARM dos Serviços de Domínio do Active Directory altamente disponível | Microsoft Azure"
-	description="Implante com facilidade dois servidores que atuam como controladores de domínio dos Serviços de Domínio do Active Directory com um modelo do Gerenciador de Recursos e o Portal de Visualização do Azure, o Azure PowerShell ou a CLI do Azure."
+	description="Implante facilmente dois servidores atuando como controladores de domínio dos Serviços de Domínio do Active Directory com um modelo do Gerenciador de recursos e o portal de visualização do Azure, Azure PowerShell, ou a CLI do Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -26,11 +26,11 @@ Use as instruções neste artigo para implantar um domínio do Active Directory 
 
 ![](./media/virtual-machines-workload-template-ad-domain/two-server-ad.png)
 
-Você pode executar o modelo com o Portal de Visualização do Azure, o Azure PowerShell ou a CLI do Azure.
+Você pode executar o modelo com o portal de visualização do Azure, o Azure PowerShell ou CLI do Azure.
 
 ## Portal de Visualização do Azure
 
-Para implantar essa carga de trabalho usando um modelo do Gerenciador de Recursos e o Portal de Visualização do Azure, clique [aqui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json).
+Para implantar essa carga de trabalho usando um modelo do Gerenciador de recursos e o portal de visualização do Azure, clique [aqui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-ad-domain/azure-portal-template.png)
 
@@ -108,4 +108,4 @@ Após a conclusão da execução do modelo, você terá uma nova configuração 
 
 [Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Criar um trabalho | Microsoft Azure" 
-	description="Segmento do roteiro de aprendizagem Criar um trabalho."
+	description="Criar um trabalho para o Stream Analytics | segmento do roteiro de aprendizagem."
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,10 +13,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
-# Criar um trabalho
+# Criar um trabalho de análise de fluxo
 
 O recurso de nível superior no Stream Analytics do Azure é um Trabalho do Stream Analytics. Ele consiste em uma ou mais fontes de dados de entrada, uma consulta que expressa a transformação de dados, e um ou mais destinos de saída nos quais os resultados são gravados.
 
@@ -60,4 +60,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

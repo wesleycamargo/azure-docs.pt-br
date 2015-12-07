@@ -24,14 +24,14 @@
 
 Se você não conseguir se conectar a uma máquina virtual do Windows por ter esquecido a senha ou por um problema com a configuração de serviço da Área de Trabalho Remota, use o portal de visualização do Azure ou a extensão VMAccess para redefinir a senha do administrador local ou a configuração de serviço da Área de Trabalho Remota.
 
-## Portal de visualização
+## Portal de Visualização do Azure
 
-Para redefinir o serviço de Área de Trabalho Remota no [portal de visualização](https://portal.azure.com), clique em **Procurar tudo** > **Máquinas virtuais (clássicas)** > *sua máquina virtual do Windows* > **Redefinir Acesso Remoto**. A página a seguir será exibida.
+Para redefinir o serviço de área de trabalho remota no [portal de visualização do Azure](https://portal.azure.com), clique em **Procurar tudo** > **máquinas virtuais (clássico)** > *sua máquina virtual Windows* > **Redefinir acesso remoto**. A página a seguir será exibida.
 
 
 ![](./media/virtual-machines-windows-reset-password/Portal-RDP-Reset-Windows.png)
 
-Para redefinir o nome e a senha da conta de administrador local no [portal de visualização](https://portal.azure.com), clique em **Procurar tudo** > **Máquinas virtuais (clássicas)** > *sua máquina virtual Windows* > **Todas as configurações** > **Redefinição de senha**. A página a seguir será exibida.
+Para redefinir o nome e a senha da conta de administrador local no [Portal de visualização do Azure](https://portal.azure.com), clique em **Procurar tudo** > **Máquinas virtuais (clássico)** > *sua máquina virtual Windows* > **Todas as configurações** > **Redefinição de senha**. A página a seguir será exibida.
 
 ![](./media/virtual-machines-windows-reset-password/Portal-PW-Reset-Windows.png)
 
@@ -57,7 +57,7 @@ Se você não souber o nome da máquina virtual e serviço de nuvem, execute **G
 
 Se o comando **write-host** exibir **True**, o agente de VM está instalado. Se ele exibir **False**, confira as instruções e um link para download na postagem do blog do Azure [Agente de VM e extensões - parte 2](http://go.microsoft.com/fwlink/p/?linkid=403947&clcid=0x409).
 
-Se tiver criado a máquina virtual com o portal do Azure, execute o comando adicional a seguir.
+Se você criou a máquina virtual com o portal, execute o seguinte comando adicional.
 
 	$vm.GetInstance().ProvisionGuestAgent = $true
 
@@ -114,4 +114,4 @@ Se você não conseguir executar o pacote de diagnóstico do Azure IaaS (Windows
 
 [Solucionar problemas de conexões de Área de Trabalho Remota para uma máquina virtual do Azure baseada em Windows](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

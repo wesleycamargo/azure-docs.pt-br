@@ -204,7 +204,7 @@ Os parâmetros são autoexplicativos. Substitua variáveis específicas e execut
 
 > [AZURE.NOTE]Por meio da linha de comando, também estou automatizando minhas regras de filtro de rede do ponto de extremidade usando o parâmetro –tcp-endpoints. Eu abri as portas 80 e 3389 para fornecer acesso a minha página da Web e à sessão RDP.
 
-Depois de executar o comando, vá para o portal do Azure e você verá o início do provisionamento de seu computador.
+Após executar o comando, vá para o portal de visualização do Azure e você verá sua máquina começar a provisionar.
 
 ![][13]
 
@@ -239,4 +239,4 @@ Espero que isso tenha sido útil! Siga adiante e comece sua jornada de infraestr
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

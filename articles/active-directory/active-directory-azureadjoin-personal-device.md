@@ -1,20 +1,21 @@
+
+
 <properties 
 	pageTitle="Ingressar em um dispositivo pessoal para sua organização| Microsoft Azure" 
-	description="Um tópico que explica como os usuários podem registrar seus computadores pessoais com Windows 10 em sua rede corporativa fornece as etapas de implantação para um cenário BYOD." 
+	description="Explica como os usuários podem registrar seus computadores pessoais com Windows 10 em sua rede corporativa fornece as etapas de implantação para um cenário BYOD." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
 	manager="stevenpo" 
 	editor=""
 	tags="azure-classic-portal"/>
-
 <tags 
 	ms.service="active-directory" 
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Ingressar em um dispositivo pessoal para sua organização
@@ -39,4 +40,4 @@ Para ingressar em um dispositivo Windows 10 para sua organização
 * [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

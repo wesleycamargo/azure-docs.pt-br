@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="11/19/2015" 
 	ms.author="v-dedomi"/>
 
 #Como usar o plug-in subordinado do Azure com Hudson Continuous Integration
@@ -213,4 +213,4 @@ Em seguida, o Hudson criará um nó subordinado usando o modelo criado na seçã
 
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

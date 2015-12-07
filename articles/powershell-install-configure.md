@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="11/24/2015"
 	ms.author="coreyp"/>
 
 # Como instalar e configurar o PowerShell do Azure#
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/manage/install-and-configure-windows-powershell/" title="PowerShell" class="current">PowerShell</a><a href="/manage/install-and-configure-cli/" title="CLI do Azure">CLI do Azure</a></div>
-
-> [AZURE.NOTE]**Visualização do Azure PowerShell 1.0** agora está disponível na [Galeria do PowerShell](http://www.powershellgallery.com/). Há muitas alterações nesta visualização e gostaríamos de usá-las para coletar comentários, que podemos incorporar o Azure PowerShell 1.0. **Essa visualização não se destina a aplicativos de missão crítica**. Se você estiver executando esses críticos, continue a usar o Azure PowerShell 0.9.8. Se você gostaria de usar a visualização 1.0, poderá desinstalá-lo a qualquer momento e voltar para 0.9.8. Para obter instruções de instalação completa, consulte esta [postagem do blog](https://azure.microsoft.com/pt-BR/blog/azps-1-0-pre/).
 
 É possível usar o Windows PowerShell para executar várias tarefas no Azure, interativamente em um prompt de comando ou automaticamente por meio de scripts. O PowerShell no Azure é um módulo que fornece cmdlets para gerenciar o Azure por meio do Windows PowerShell. É possível usar os cmdlets para criar, testar, implantar e gerenciar soluções e serviços entregues pela plataforma Azure. Na maioria dos casos, é possível usar os cmdlets para executar as mesmas tarefas que você pode executar por meio do Portal de Gerenciamento do Azure. Por exemplo, você pode criar e configurar serviços de nuvem, máquinas virtuais, redes virtuais e sites.
 
@@ -39,7 +37,7 @@ Quando você instala o módulo, o instalador verifica o software necessário em 
 <a id="Install"></a>
 ## Como instalar o Azure PowerShell
 
-Você pode baixar e instalar o módulo PowerShell no Azure executando o [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?LinkId=320376). Quando solicitado, clique em **Executar**. O Web Platform Installer instala os módulos do PowerShell do Azure e todas as dependências. Siga os prompts para concluir a instalação.
+Você pode baixar e instalar os módulos PowerShell no Azure executando o [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?LinkId=320376). Quando solicitado, clique em **Executar**. O Web Platform Installer instala os módulos do PowerShell do Azure e todas as dependências. Siga os prompts para concluir a instalação.
 
 > [AZURE.NOTE]Se você quiser baixar o instalador do PowerShell, visite https://github.com/Azure/azure-powershell/releases. O código-fonte para os cmdlets do PowerShell pode ser encontrado nesse repositório também
 
@@ -109,11 +107,11 @@ O módulo do Azure inclui cmdlets que ajudam você a baixar e importar o certifi
 > [AZURE.NOTE]Os cmdlets no módulo AzureResourceManager requer o método AD do Azure (Add-AzureAccount). Esses cmdlets não suportam a publicação de arquivos de configuração. Para obter mais informações sobre o cmdlets no módulo AzureResourceManager, consulte [Cmdlets do Gerenciador de Recursos do Azure](http://go.microsoft.com/fwlink/?LinkID=394765).
 
 
-- O cmdlet **Get-AzurePublishSettingsFile** abre uma página da web no Portal de Gerenciamento do Azure, do qual você pode baixar as informações da assinatura. As informações estão contidas em um arquivo .publishsettings.
+- O cmdlet **Get-AzurePublishSettingsFile** abre uma página da Web no Portal de Gerenciamento do Azure, do qual você pode baixar as informações da assinatura. As informações estão contidas em um arquivo .publishsettings.
 
 - O **Import-AzurePublishSettingsFile** importa o arquivo .publishsettings para uso pelo módulo. Esse arquivo contém um certificado de gerenciamento que tem credenciais de segurança.
 
-> [AZURE.IMPORTANT]Recomendamos que você exclua o perfil de publicação baixado usando <b>Get-AzurePublishSettingsFile</b> depois de importar essas configurações. Uma vez que o certificado de gerenciamento inclui credenciais de segurança, ele não deve ser acessado por usuários não autorizados. Se você precisar de informações sobre suas assinaturas, pode obtê-las no [Portal de Gerenciamento do Azure](http://manage.windowsazure.com/) ou no [Portal do Cliente do Microsoft Online Services](http://go.microsoft.com/fwlink/p/?LinkId=324875).
+> [AZURE.IMPORTANT]Recomendamos que você exclua o perfil de publicação baixado usando <b>Get-AzurePublishSettingsFile</b> depois de importar essas configurações. Uma vez que o certificado de gerenciamento inclui credenciais de segurança, ele não deve ser acessado por usuários não autorizados. Se você precisar de informações sobre suas assinaturas, poderá obtê-las no [Portal de Gerenciamento do Azure](http://manage.windowsazure.com/) ou no [Portal do Cliente do Microsoft Online Services](http://go.microsoft.com/fwlink/p/?LinkId=324875).
 
 1. Entre no [Portal deGerenciamento do Azure](http://manage.windowsazure.com) usando as credenciais da sua conta do Azure.
 
@@ -262,4 +260,4 @@ Esses são alguns dos recursos disponíveis que você pode usar para aprender a 
 
   [Microsoft Online Services Customer Portal]: https://mocp.microsoftonline.com/site/default.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

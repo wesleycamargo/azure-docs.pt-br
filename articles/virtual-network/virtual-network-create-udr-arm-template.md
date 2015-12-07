@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/08/2015"
+   ms.date="11/20/2015"
    ms.author="telmos" />
 
 #Criar UDR (Rotas Definidas pelo Usuário) usando um modelo
@@ -114,11 +114,13 @@ O modelo de exemplo disponível no repositório público usa um arquivo de parâ
 
 Para implantar o modelo ARM baixado usando o PowerShell, siga as etapas abaixo.
 
-1. Se você nunca usou o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](powershell-install-configure.md) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
+[AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
-3. Execute o cmdlet **New-AzureRMResourceGroup** para criar um grupo de recursos usando o modelo.
+1. Se você nunca usou o Azure PowerShell, consulte [como instalar e configurar o Azure PowerShell](powershell-install-configure.md) e siga as instruções até o final para entrar no Azure e selecionar sua assinatura.
 
-		New-AzureRMResourceGroup -Name TestRG -Location westus `
+3. Execute o cmdlet **New-AzureRmResourceGroup** para criar um grupo de recursos usando o modelo.
+
+		New-AzureRmResourceGroup -Name TestRG -Location westus `
 		    -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' `
 		    -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json'	
 
@@ -177,7 +179,7 @@ Para implantar o modelo ARM usando a CLI do Azure, siga as etapas abaixo.
 
 		info:    New mode is arm
 
-3. No navegador, navegue até ****https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copie o conteúdo do arquivo JSON e cole-o em um novo arquivo em seu computador. Para este cenário, você copiaria os valores abaixo em um arquivo chamado **c:\\udr\\azuredeploy.parameters.json**.
+3. No seu navegador, navegue até ****https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copie o conteúdo do arquivo json e cole em um novo arquivo em seu computador. Para esse cenário, você deve copiar o valores abaixo em um arquivo chamado **c:\\udr\\azuredeploy.parameters.json**.
 
 		{
 		  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -195,7 +197,7 @@ Para implantar o modelo ARM usando a CLI do Azure, siga as etapas abaixo.
 		  }
 		}
 
-4. Execute o cmdlet **azure group create** para implantar a nova VNet usando o modelo e os arquivos de parâmetro que você baixou e modificou acima. A lista exibida após a saída explicar os parâmetros usados.
+4. Execute o cmdlet **azure group create** para implantar a nova rede virtual usando os arquivos de modelo e parâmetro que você baixou e modificou acima. A lista exibida após a saída explicar os parâmetros usados.
 
 		azure group create -n TestRG -l westus --template-uri 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' -e 'c:\udr\azuredeploy.parameters.json'
 
@@ -216,7 +218,7 @@ Para implantar o modelo ARM usando a CLI do Azure, siga as etapas abaixo.
 		data:    
 		info:    group create command OK
 
-5. Execute o comando **azure group show** para exibir os recursos criados no novo grupo de recursos.
+5. Execute o comando **exibir grupo do azure** para exibir os recursos criados no novo grupo de recursos.
 
 		azure group show TestRG
 
@@ -388,6 +390,6 @@ Para implantar o modelo ARM usando a CLI do Azure, siga as etapas abaixo.
 		data:    
 		info:    group show command OK
 
->[AZURE.TIP]Se não visualizar todos os recursos, execute o comando **azure group deployment show** para garantir que o estado de provisionamento da implantação seja *Êxito*.
+>[AZURE.TIP]Se você não vir todos os recursos, execute o comando **exibir implantação de grupo do azure** para garantir que o estado de provisionamento da implantação é *bem-sucedido*.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

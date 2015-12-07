@@ -51,8 +51,7 @@ Observe que [JsonPropertyAttribute](http://www.newtonsoft.com/json/help/html/Pro
 O código seguinte cria o objeto `MobileServiceClient` que é usado para acessar o back-end do Aplicativo Móvel.
 
 
-	MobileServiceClient client = new MobileServiceClient(
-		"MOBILE_APP_URL", "", "");
+	MobileServiceClient client = new MobileServiceClient("MOBILE_APP_URL");
 
 No código acima, substitua `MOBILE_APP_URL` pela URL do back-end do Aplicativo Móvel que está localizado na folha de seu Aplicativo Móvel no Portal de visualização do Azure.
 
@@ -342,6 +341,8 @@ Seus modelos serão do tipo JObject e poderão conter vários modelos no seguint
 O método **RegisterAsync()** também aceita Blocos Secundários:
 
         MobileService.GetPush().RegisterAsync(string channelUri, JObject templates, JObject secondaryTiles);
+
+Observe que todas as marcas serão removidas imediatamente por segurança. Para adicionar marcas a instalações ou modelos dentro de instalações, consulte [Trabalhar com o SDK do servidor de back-end do .NET para Aplicativos Móveis do Azure].
 
 Para enviar notificações usando esses modelos registrados, trabalhe com [APIs de Hubs de Notificação](https://msdn.microsoft.com/library/azure/dn495101.aspx).
 
@@ -668,7 +669,7 @@ Esta seção mostra como pode personalizar os cabeçalhos de solicitação e per
 
 ### <a name="headers"></a>Como personalizar cabeçalhos de solicitação
 
-Para dar suporte ao seu cenário específico de aplicativo, convém personalizar a comunicação com o back-end do Aplicativo Móvel. Por exemplo, convém adicionar um cabeçalho personalizado para cada solicitação de saída, ou até mesmo alterar códigos de status de respostas. Pode fazer isso fornecendo um [DelegatingHandler] personalizado, como no exemplo a seguir:
+Para dar suporte ao seu cenário específico de aplicativo, convém personalizar a comunicação com o back-end do Aplicativo Móvel. Por exemplo, convém adicionar um cabeçalho personalizado para cada solicitação de saída, ou até mesmo alterar códigos de status de respostas. Você pode fazer isso fornecendo um [DelegatingHandler] personalizado, como no exemplo a seguir:
 
     public async Task CallClientWithHandler()
     {
@@ -722,6 +723,7 @@ Essa propriedade converte todas as propriedades em letras minúsculas, durante a
 
 <!-- URLs. -->
 [Add authentication to your app]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md
+[Trabalhar com o SDK do servidor de back-end do .NET para Aplicativos Móveis do Azure]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
 [LoginAsync method]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
@@ -742,4 +744,4 @@ Essa propriedade converte todas as propriedades em letras minúsculas, durante a
 [InvokeApiSync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

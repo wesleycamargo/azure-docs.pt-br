@@ -26,25 +26,9 @@ O Visual Studio Application Insights fornece dois níveis de rastreamento de uso
 
 ## Configurando
 
-Dados de uso de um aplicativo Web são fornecidos no navegador do cliente.
+Abra um recurso Application Insights no [Portal do Azure](https://portal.azure.com), clique no gráfico de cargas de página vazio do navegador e siga as instruções de instalação.
 
-#### Configurar um recurso do Application Insights 
-
-Um recurso do Application Insights é um local no Microsoft Azure em que os dados de telemetria do seu aplicativo são analisados e exibidos. Você pode já ter definido um para exibir dados do lado do servidor do aplicativo em [ASP.NET][greenbrown] ou [J2EE][java]. Caso contrário, talvez você queira fazer isso agora.
-
-É melhor exibir os dados de uso do cliente da web no mesmo recurso que os dados do servidor. Dessa forma, você pode facilmente correlacionar diagnósticos e métricas das duas extremidades. Portanto, se você já tiver um recurso, pule para a próxima etapa.
-
-#### Insira o código nas suas páginas da Web
-
-Em seu recurso no [Portal do Azure][portal], abra o Quick Start obtenha o trecho de código para monitorar as páginas da Web.
-
-![](./media/app-insights-web-track-usage/02-monitor-web-page.png)
-
-Coloque o código em uma página mestra como \_Layout.cshtml, (em .NET) ou em um arquivo de inclusão para garantir que ele seja incluído em todas as suas páginas.
-
-O trecho de código inclui a chave de instrumentação (iKey) que identifica o recurso. Para enviar dados para um recurso diferente - por exemplo, durante testes - você precisa apenas substituir a iKey.
-
-Publique suas páginas da Web ou use-as no modo de depuração para gerar alguns dados de telemetria.
+[Saiba mais](app-insights-javascript.md)
 
 
 ## Quão popular é o meu aplicativo Web?
@@ -391,4 +375,4 @@ Quando você usa análise, ela se torna parte integrante de seu ciclo de desenvo
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

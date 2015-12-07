@@ -89,10 +89,10 @@ O suporte do Azure entrará em contato com você. A conclusão do pedido pode le
 
 * [Criar e gerenciar uma conta do Lote do Azure](batch-account-create-portal.md)
 
-* [Noções básicas de API para o Lote do Azure](batch-api-basics.md)
+* [Visão geral dos recursos do Lote do Azure](batch-api-basics.md)
 
 * [Assinatura do Azure e limite de serviços, cotas e restrições](../azure-subscription-service-limits.md)
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

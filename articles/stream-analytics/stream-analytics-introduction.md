@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -30,7 +30,7 @@ O Stream Analytics aproveita anos de trabalho do Microsoft Research no desenvolv
 Grandes quantidades de dados estão fluindo em alta velocidade na rede hoje. Organizações que podem processar e agir sobre esses dados em tempo real podem melhorar consideravelmente a eficiência e se diferenciar no mercado. Cenários de análise de streaming em tempo real podem ser encontrados em todos os setores: análise de comércio de ações personalizadas em tempo real e alertas oferecidos por empresas de serviços financeiros; detecção de fraudes em tempo real; serviços de proteção de identidade e de dados; ingestão confiável e análise de dados gerados por sensores e atuadores inseridos em objetos físicos (Internet das Coisas ou IoT); análise de sequência de cliques na Web; e aplicativos de CRM (Gerenciamento de Relacionamento com o Cliente) emitem alertas quando a experiência do cliente em um período de tempo está degradada. As empresas estão procurando a maneira mais flexível, confiável e econômica de fazer tal análise de dados de fluxo de eventos em tempo real para serem bem-sucedidas no mundo dos negócios modernos, que é altamente competitivo.
 
 ## Principais recursos e benefícios
--   **Facilidade de uso:** o Stream Analytics dá suporte a um modelo de consulta simples e declarativo para descrever as transformações. Para otimizar a facilidade de uso, o Stream Analytics usa uma variante SQL e elimina a necessidade dos clientes de lidar com as complexidades técnicas de sistemas de processamento de fluxo. Usando a [linguagem de consulta do Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx), no editor de consulta do navegador, você tem o preenchimento automático do Intellisense para ajudá-lo a implementar funções temporais rápida e facilmente, incluindo junções com base temporal, agregações em janela, filtros temporais, bem como outras operações comuns, como junções, agregações, projeções e filtros. Além disso, o teste da consulta no navegador para um arquivo de dados de exemplo permite um desenvolvimento rápido e iterativo.  
+-   **Facilidade de uso:** o Stream Analytics dá suporte a um modelo de consulta simples e declarativo para descrever as transformações. Para otimizar a facilidade de uso, o Stream Analytics usa uma variante SQL e elimina a necessidade dos clientes de lidar com as complexidades técnicas de sistemas de processamento de fluxo. Usando a [linguagem de consulta do Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx), no editor de consulta do navegador, você tem o preenchimento automático do Intellisense para ajudá-lo a implementar funções temporais rápida e facilmente, incluindo junções com base temporal, agregações em janela, filtros temporais, bem como outras operações comuns, como junções, agregações, projeções e filtros. Além disso, o teste de consulta do navegador em um arquivo de dados de exemplo permite desenvolvimento iterativo rápido.  
 
 -   **Escalabilidade:** O Stream Analytics é capaz de lidar com altas taxas de transferência de evento, de até 1GB por segundo. A Integração com [Hubs de Eventos do Azure](http://azure.microsoft.com/services/event-hubs/) permite que a solução assimile milhões de eventos por segundo, provenientes de dispositivos conectados, clique em fluxos e arquivos de log, para citar alguns. Para conseguir isso, o Stream Analytics aproveita a funcionalidade de particionamento dos Hubs de eventos que podem produzir 1 MB/s por partição. Os usuários podem particionar o cálculo em uma série de etapas lógicas na definição de consulta, cada um com a capacidade de ser mais particionados para aumentar a escalabilidade.
 
@@ -53,4 +53,4 @@ Você foi apresentado ao Stream Analytics, um serviço gerenciado para análise 
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

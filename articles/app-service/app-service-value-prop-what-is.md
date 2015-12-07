@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="O que é o Serviço de Aplicativo do Azure" 
 	description="Saiba por que o Serviço de Aplicativo do Azure é a melhor plataforma para o desenvolvimento de aplicativos Web e móveis." 
+	keywords="serviço de aplicativo, serviço de aplicativo do azure, custo do serviço de aplicativo, escala, escalonável, implantação de aplicativo, implantação de aplicativo do azure"
 	services="app-service" 
 	documentationCenter="" 
 	authors="omarkmsft" 
@@ -59,4 +60,4 @@ Com o Serviço de Aplicativo do Azure, isso é tão fácil quanto selecionar um 
 [Crie um novo aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751) agora mesmo e gratuitamente. Nenhum cartão de crédito é exigido, sem problemas.
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

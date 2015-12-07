@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Adicionar saídas | Microsoft Azure" 
-	description="Segmento do roteiro de aprendizagem Adicionar saídas."
+	description="Adicionar saídas aos trabalhos do Stream Analytics | segmento do roteiro de aprendizagem."
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,10 +13,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/10/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
-# Adicionar saídas
+# Como **Adicionar saídas** para trabalhos do Stream Analytics
 
 Os trabalhos do Stream Analytics do Azure podem ser conectados a uma ou mais saídas, o que define uma conexão com um coletor de dados existente. Como o trabalho do Stream Analytics processa e transforma dados de entrada, um fluxo de eventos de saída são gravados na saída do trabalho.
 
@@ -24,11 +24,11 @@ As saídas do Stream Analytics podem ser usadas para dar origem a painéis ou al
 
 Para adicionar uma saída ao trabalho do Stream Analytics:
 
-1. No portal do Azure, clique em **Saídas** e em **Adicionar Saída** em seu trabalho do Stream Analytics.
+1. No portal do Azure, clique em **Saídas** e, em seguida, clique em **Adicionar saída** no trabalho do Stream Analytics.
 
     ![Adicionar saídas](./media/stream-analytics-add-outputs/1-stream-analytics-add-outputs.png)
 
-    No portal de visualização do Azure, clique no bloco **Saídas** em seu trabalho do Stream Analytics.
+    No portal de visualização do Azure, clique no bloco **Saídas** no seu trabalho do Stream Analytics.
 
     ![Adicionar Saídas no Portal do Azure](./media/stream-analytics-add-outputs/5-stream-analytics-add-outputs.png)
 
@@ -38,7 +38,7 @@ Para adicionar uma saída ao trabalho do Stream Analytics:
 
     ![Escolher tipo de dados no portal de visualização do Azure](./media/stream-analytics-add-outputs/6-stream-analytics-add-outputs.png)
 
-3. Forneça um nome amigável para essa saída na caixa **Alias de Saída**. Esse nome pode ser usado na consulta do seu trabalho posteriormente para fazer referência à saída.
+3. Forneça um nome amigável para essa saída na caixa **Alias de saída**. Esse nome pode ser usado na consulta do seu trabalho posteriormente para fazer referência à saída.
     
     Preencha o restante das propriedades de conexão necessárias para se conectar à saída. Esses campos variam de acordo com o tipo de saída e são definidos em detalhes aqui.
 
@@ -46,7 +46,7 @@ Para adicionar uma saída ao trabalho do Stream Analytics:
 
 4. Dependendo do tipo de saída, talvez seja necessário especificar como os dados são serializados ou formatados. As configurações específicas de serialização para cada tipo de saída estão documentadas aqui.
 
-    Preencha o restante das propriedades de conexão necessárias para se conectar à fonte de dados. Esses campos variam de acordo com o tipo de entrada e de fonte e são definidos detalhadamente [aqui](stream-analytics-create-a-job.md).
+    Preencha o restante das propriedades de conexão necessárias para se conectar à fonte de dados. Esses campos variam de acordo com o tipo de entrada e origem e são definidos em detalhes [aqui](stream-analytics-create-a-job.md).
 
     ![Adicionar hub de eventos](./media/stream-analytics-add-outputs/4-stream-analytics-add-outputs.png)
 
@@ -63,4 +63,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

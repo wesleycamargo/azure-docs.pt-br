@@ -45,7 +45,7 @@ Você precisará de uma conta do Microsoft Azure com uma assinatura válida para
 
 ### Grupo de afinidade
 
-Um grupo de afinidade para a solução é criada pelo registro em log no Portal do Azure rolando-se a tela para baixo até Configurações e criando-se um novo grupo de afinidade. Os recursos alocados criados posteriormente serão atribuídos a esse grupo de afinidade.
+É criado um grupo de afinidades para a solução de registro em log para o portal do Azure rolando para baixo até configurações e criando um novo grupo de afinidades. Os recursos alocados criados posteriormente serão atribuídos a esse grupo de afinidade.
 
 ### Redes
 
@@ -55,7 +55,7 @@ Uma nova rede é criada, e uma sub-rede é criada dentro da rede. Escolhemos uma
 
 A primeira VM do Ubuntu 13.10 é criada usando-se uma imagem da Endorsed Ubuntu Gallery e chamada `hadb01`. Um novo serviço de nuvem é criado no processo, chamado hadb. Demos esse nome para ilustrar a natureza compartilhada, de balanceamento de carga, que o serviço terá quando adicionarmos mais recursos. A criação de `hadb01` é tranquila e concluída usando o portal. Um ponto de extremidade para SSH é criado automaticamente e a nossa rede criada é selecionada. Também optamos por criar um novo conjunto de disponibilidade para as VMs.
 
-Assim que a primeira VM é criada (tecnicamente, quando o serviço de nuvem é criado), passamos à criação da segunda VM, `hadb02`. Para a segunda VM, também usaremos a VM Ubuntu 13.10 da Gallery usando o Portal, mas optaremos por usar um serviço de nuvem existente, `hadb.cloudapp.net`, em vez de criar uma nova. A rede e o conjunto de disponibilidade devem ser selecionadas automaticamente para nós. Também será criado um ponto de extremidade SSH.
+Assim que a primeira VM é criada (tecnicamente, quando o serviço de nuvem é criado), passamos à criação da segunda VM, `hadb02`. Para a segunda VM, também usaremos a VM do Ubuntu 13.10 na Gallery usando o portal, mas podemos optar por usar um serviço de nuvem existente, `hadb.cloudapp.net`, em vez de criar um novo. A rede e o conjunto de disponibilidade devem ser selecionadas automaticamente para nós. Também será criado um ponto de extremidade SSH.
 
 Depois que ambas as VMs forem criadas, anotaremos a porta SSH de `hadb01` (TCP 22) e de `hadb02` (atribuída automaticamente pelo Azure)
 
@@ -153,7 +153,7 @@ Você também precisa habilitar a rede para MySQL caso queira fazer consultas ex
 
 ### Criando o conjunto de balanceamento de carga do MySQL
 
-Retornaremos ao Portal do Azure e navegaremos até a VM `hadb01` e, em seguida, aos pontos de extremidade. Iremos criar um novo ponto de extremidade, escolher MySQL (TCP 3306) no menu suspenso e marcar na caixa *Criar novo conjunto de balanceamento de carga*. Chamaremos nosso ponto de extremidade de balanceamento de carga `lb-mysql`. Deixaremos a maioria das opções sozinha, exceto o tempo, que reduziremos para 5 (segundos, o mínimo)
+Voltamos ao portal e navegamos até o `hadb01` VM e, em seguida, até pontos de extremidade. Iremos criar um novo ponto de extremidade, escolher MySQL (TCP 3306) no menu suspenso e marcar na caixa *Criar novo conjunto de balanceamento de carga*. Chamaremos nosso ponto de extremidade de balanceamento de carga `lb-mysql`. Deixaremos a maioria das opções sozinha, exceto o tempo, que reduziremos para 5 (segundos, o mínimo)
 
 Depois que o ponto de extremidade for criado, vamos até `hadb02`, Pontos de extremidade, e criaremos um novo ponto de extremidade, mas escolheremos `lb-mysql` e selecionaremos MySQL no menu suspenso. Também é possível usar a CLI do Azure nesta etapa.
 
@@ -313,7 +313,7 @@ E essa captura de tela mostra ambos os nós, com um mestre e um subordinado:
 
 Estamos prontos para uma simulação de failover automático. Existem duas maneiras de fazer isso: a fácil e a difícil. A maneira fácil é usar a função de desligamento do cluster: ``crm_standby -U `uname -n` -v on``. Usando isso no mestre, o subordinado assumirá. Não se esqueça de desativá-lo (ou crm\_mon informará que um nó está em espera)
 
-A maneira difícil é desligando a VM primária (hadb01) por meio do Portal ou alterando o nível de execução na VM (ou seja: parada, desligamento) e, assim, estamos ajudando o Corosync e o Pacemaker sinalizando o desligamento do mestre. Podemos testar isso (útil para janelas de manutenção), mas também podemos forçar o cenário apenas congelando a VM.
+A maneira difícil é desligando a VM primária (hadb01) por meio do portal ou alterando o nível de execução na VM (ou seja, parada, desligada) e, em seguida, estaremos ajudando o Corosync e o Pacemaker por meio da sinalização da desativação do mestre. Podemos testar isso (útil para janelas de manutenção), mas também podemos forçar o cenário apenas congelando a VM.
 
 ## STONITH
 
@@ -340,4 +340,4 @@ As seguintes limitações se aplicam:
 - O ajuste do MySQL é necessário para garantir que a gravação seja feita em um ritmo confortável e os caches sejam liberados para o disco com a maior frequência possível para minimizar a perda de memória
 - O desempenho da gravação dependerá da interconexão da VM no comutador virtual porque esse é o mecanismo usado pelo DRBD para replicar o dispositivo
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

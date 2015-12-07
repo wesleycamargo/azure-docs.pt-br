@@ -31,7 +31,9 @@ Como uma plataforma IDMaaS (Gerenciamento de Identidade como um Serviço), o Act
 
 1. [Graph API do Active Directory do Azure](active-directory-graph-api.md): use a Graph API do Active Directory do Azure para acessar programaticamente o Active Directory do Azure por meio de pontos de extremidade da API REST.
 
-1. [Bibliotecas de Autenticação do Active Directory do Azure](active-directory-authentication-libraries.md): Autentique facilmente os usuários para obter tokens de acesso usando as bibliotecas de autenticação do Azure.
+    > [AZURE.IMPORTANT]A funcionalidade API do Azure AD Graph também está disponível por meio do [Microsoft Graph](https://graph.microsoft.io/), uma API unificada que inclui APIs de outros serviços da Microsoft, como o Outlook, o OneDrive, o OneNote, o Planner e o Office Graph, e está acessível por meio de um único ponto de extremidade e com um token de acesso único.
+
+1. [Bibliotecas de autenticação do Active Directory do Azure](active-directory-authentication-libraries.md): autentique facilmente os usuários para obter tokens de acesso usando as bibliotecas de autenticação do Azure.
 
 
 ## Introdução
@@ -80,7 +82,7 @@ Esses artigos descrevem como executar tarefas específicas usando o Active Direc
 Esses artigos fornecem referências básicas para REST e biblioteca de autenticação APIs, protocolos, erros, exemplos de código e pontos de extremidade.
 
 ###  Suporte
-- [Perguntas marcadas](http://stackoverflow.com/questions/tagged/azure-active-directory): encontre soluções do Active Directory do Azure no excedente de pilha pesquisando as marcas [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) e [adal](http://stackoverflow.com/questions/tagged/adal).
+- [Perguntas marcadas](http://stackoverflow.com/questions/tagged/azure-active-directory): encontre soluções do Active Directory do Azure no Excedente de Pilha pesquisando as marcas [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) e [adal](http://stackoverflow.com/questions/tagged/adal).
 
 ### Código
 
@@ -107,7 +109,7 @@ Esses artigos fornecem referências básicas para REST e biblioteca de autentica
 - [Referência do protocolo OpenID Connect 1.0](https://msdn.microsoft.com/library/azure/dn645541.aspx): o protocolo OpenID Connect 1.0 estende o OAuth 2.0 para uso como um protocolo de autenticação.
 
 
-- [Referência do protocolo WS-Federation 1.2](https://msdn.microsoft.com/library/azure/dn903702.aspx): o protocolo WS-Federation 1.2 é descrito na Especificação Web Services Federation Versão 1.2.
+- [Referência do protocolo WS-Federation 1.2](https://msdn.microsoft.com/library/azure/dn903702.aspx): o protocolo WS-Federation 1.2 é descrito na especificação Web Services Federation Versão 1.2.
 
 - [Tipos de token e declaração com suporte](active-directory-token-and-claims.md): você pode usar este guia para entender e avaliar as declarações nos tokens SAML 2.0 e JWT (Tokens Web JSON).
 
@@ -130,12 +132,12 @@ O [Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/) 
 
 ## Redes sociais
 
-- [Blog da Equipe do Active Directory](http://blogs.technet.com/b/ad/): os desenvolvimentos mais recentes no mundo do Active Directory do Azure.
+- [Blog da equipe do Active Directory](http://blogs.technet.com/b/ad/): os desenvolvimentos mais recentes no mundo do Active Directory do Azure.
 
-- [Blog da Equipe do Active Directory Graph do Azure](http://blogs.msdn.com/b/aadgraphteam): informações do Active Directory do Azure específicas à Graph API.
+- [Blog da equipe do Azure Active Directory Graph](http://blogs.msdn.com/b/aadgraphteam): informações do Active Directory do Azure específicas à Graph API.
 
 - [Cloud Identity](http://www.cloudidentity.net): considerações sobre o gerenciamento de identidades como serviço de um PM principal do Active Directory do Azure.
 
 - [Active Directory do Azure no Twitter](https://twitter.com/azuread): avisos do Active Directory do Azure em 140 caracteres ou menos.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

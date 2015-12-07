@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/20/2015"
+   ms.date="11/24/2015"
    ms.author="rickbyh"/>
 
 # Limitações e diretrizes de segurança de Banco de Dados SQL do Azure
@@ -62,7 +62,7 @@ Ao gerenciar logons e usuários no banco de dados SQL, há restrições.
 Para o logon principal no nível de servidor, as seguintes restrições se aplicam:
 
 - O usuário de banco de dados no banco de dados mestre correspondente para o logon principal no nível de servidor não pode ser alterado ou descartado. 
-- Embora o logon principal no nível de servidor não seja um membro das duas funções de banco de dados, **dbmanager** e **loginmanager**, no banco de dados **mestre**, ele tem todas as permissões concedidas para essas duas funções.
+- Embora o logon na entidade de segurança no nível do servidor não seja um membro das duas funções de banco de dados, **dbmanager** e **loginmanager**, no banco de dados **mestre**, ele tem todas as permissões concedidas para essas duas funções.
 
 > [AZURE.NOTE]Esse logon é criado durante o provisionamento do servidor e é semelhante ao logon **sa** em uma instância do SQL Server.
 
@@ -88,7 +88,7 @@ GO
 - Somente o logon na entidade de segurança no nível do servidor e os membros da função **dbmanager** do banco de dados no banco de dados **mestre** têm permissão para executar as instruções ``CREATE DATABASE`` e ``DROP DATABASE``.
 - Somente o logon na entidade de segurança no nível do servidor e os membros da função **loginmanager** do banco de dados no banco de dados **mestre** têm permissão para executar as instruções ``CREATE LOGIN``, ``ALTER LOGIN`` e ``DROP LOGIN``.
 - Para o ``CREATE/ALTER/DROP``, um usuário requer a permissão ``ALTER ANY USER`` no banco de dados.
-- Quando o proprietário de uma função de banco de dados tenta adicionar ou remover outro usuário de banco de dados de ou para aquela função de banco de dados, pode ocorrer o seguinte erro: **usuário ou função 'Name' não existe neste banco de dados.** Esse erro ocorre porque o usuário não está visível para o proprietário. Para resolver esse problema, conceda ao proprietário da função a permissão ``VIEW DEFINITION`` no usuário. 
+- Quando o proprietário de uma função de banco de dados tenta adicionar ou remover outro usuário de banco de dados de ou para essa função de banco de dados, pode ocorrer o seguinte erro: **O usuário ou a função “Nome” não existe neste banco de dados.** Esse erro ocorre porque o usuário não está visível para o proprietário. Para resolver esse problema, conceda ao proprietário da função a permissão ``VIEW DEFINITION`` no usuário. 
 
 Para obter mais informações sobre logons e usuários, veja [Gerenciando bancos de dados e logons no Banco de Dados SQL do Azure](sql-database-manage-logins.md).
 
@@ -109,4 +109,6 @@ Considere os seguintes pontos para tornar seus aplicativos de Banco de dados SQL
 
 [Gerenciamento de bancos de dados e logons no Banco de Dados SQL do Azure](sql-database-manage-logins.md)
 
-<!---HONumber=Nov15_HO3-->
+[Central de segurança do mecanismo de banco de dados do SQL Server e banco de dados SQL do Azure](https://msdn.microsoft.com/library/bb510589)
+
+<!---HONumber=AcomDC_1125_2015-->

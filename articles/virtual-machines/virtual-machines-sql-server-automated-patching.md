@@ -22,21 +22,21 @@ Aplicação de patch automatizada estabelece uma janela de manutenção para uma
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
 
-## Configurar a aplicação de patch automatizada no Portal
+## Configurar a patch automatizada no portal de visualização do Azure
 
-Você pode usar o [Portal de Visualização do Azure](http://go.microsoft.com/fwlink/?LinkID=525040&clcid=0x409) para configurar a Aplicação de Patch Automatizada quando você cria uma nova Máquina Virtual do SQL Server.
+Você pode usar o [portal de visualização do Azure](http://go.microsoft.com/fwlink/?LinkID=525040&clcid=0x409) para configurar a aplicação de patch automatizada quando criar uma nova Máquina Virtual do SQL Server.
 
 >[AZURE.NOTE]Aplicação de patch automatizada depende do Agente IaaS do SQL Server. Para instalar e configurar o agente, você deve ter o Agente de VM do Azure em execução na máquina virtual de destino. Imagens da galeria de máquinas virtuais mais recentes têm esta opção habilitada por padrão, porém o Agente de VM do Azure pode estar ausente em VMs existentes. Se você estiver usando sua própria imagem de VM, também será necessário instalar o Agente IaaS do SQL Server. Para obter mais informações, consulte [Agente de VM e Extensões](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
 
-A captura de tela do portal a seguir mostra essas opções em **CONFIGURAÇÃO OPCIONAL** | **PATCHING AUTOMATIZADO DO SQL**.
+A seguinte captura de tela do portal de visualização do Azure mostra essas opções em **CONFIGURAÇÃO OPCIONAL** | **PATCH AUTOMATIZADA DO SQL**.
 
-![Aplicação de Patch Automática do SQL no Portal do Azure](./media/virtual-machines-sql-server-automated-patching/IC778484.jpg)
+![Patch automatizada do SQL no portal de visualização do Azure](./media/virtual-machines-sql-server-automated-patching/IC778484.jpg)
 
 Para as máquinas virtuais existentes do SQL Server 2012 ou 2014, selecione as configurações de **Aplicação de patch automática** na seção **Configuração** das propriedades da máquina virtual. Na janela de **Aplicação de patch automatizada**, você pode habilitar o recurso, definir o agendamento de manutenção e a hora de início e escolher a duração da janela de manutenção. Isso é mostrado na captura de tela a seguir.
 
-![Configuração de Aplicação de Patch Automatizada no Portal do Azure](./media/virtual-machines-sql-server-automated-patching/IC792132.jpg)
+![Configuração da patch automatizada no portal de visualização do Azure](./media/virtual-machines-sql-server-automated-patching/IC792132.jpg)
 
->[AZURE.NOTE]Quando você habilita a Aplicação de Patch Automatizada pela primeira vez, o Azure configura o Agente IaaS do SQL Server em segundo plano. Durante esse tempo, o portal não mostrará que a Aplicação de Patch Automatizada está configurada. Aguarde alguns minutos para que o agente seja instalado e configurado. Depois disso, o portal refletirá as novas configurações.
+>[AZURE.NOTE]Quando você habilita a Aplicação de Patch Automatizada pela primeira vez, o Azure configura o Agente IaaS do SQL Server em segundo plano. Durante esse tempo, o portal de visualização do Azure não mostrará que a aplicação de patch automatizada está configurada. Aguarde alguns minutos para que o agente seja instalado e configurado. Em seguida, o portal de visualização do Azure refletirá as novas configurações.
 
 ## Configurar a aplicação de patch automatizada com o PowerShell
 
@@ -93,4 +93,4 @@ Um recurso relacionado para VMs do SQL Server no Azure é o [Backup Automatizado
 
 Examine outros [recursos para executar o SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

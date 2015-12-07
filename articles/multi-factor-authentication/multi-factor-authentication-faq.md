@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Perguntas frequentes sobre o Azure Multi-Factor Authentication" 
-	description="O Azure Multi-Factor Authentication é um método de verificar quem você é e que requer o uso de mais do que apenas um nome de usuário e uma senha. Ela fornece uma camada adicional de segurança para logons de usuário e transações." 
+	description="Fornece uma lista de perguntas frequentes e respostas relacionadas à MFA (Azure Multi-Factor Authentication). A MFA é um método de verificar quem você é e que requer o uso de mais do que apenas um nome de usuário e uma senha. Ela fornece uma camada adicional de segurança para logons de usuário e transações." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/20/2015" 
 	ms.author="billmath"/>
 
 # Perguntas frequentes sobre o Azure Multi-Factor Authentication
@@ -125,6 +125,12 @@ O serviço Azure Multi-Factor Authentication envia mensagens de texto usando agr
 
 As verificações de mensagem de texto também são mais confiáveis em alguns países, como os Estados Unidos e o Canadá. Os usuários que enfrentam dificuldades para receber mensagens de texto de modo confiável ao usar o Azure Multi-Factor Authentication são estimulados a selecionar os métodos de ligação ou aplicativo móvel. O aplicativo móvel é ótimo porque as notificações de aplicativo móvel podem ser recebidas por conexões celulares e Wi-Fi, e o código de acesso do aplicativo móvel é exibido mesmo quando o dispositivo não tem nenhum sinal. O aplicativo Azure Authenticator está disponível para [Windows Phone](http://www.windowsphone.com/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) e [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
 
+**P: Posso usar tokens de hardware com o servidor do Azure MFA?**
+
+Se você estiver usando o Servidor do Azure MFA, tokens OATH TOTP de terceiros podem ser importados e usados para a MFA. Atualmente, há suporte para a importação de tokens OATH TOTP de terceiros em um formato PSKC anterior que a Gemalto pode produzir para seus tokens e suporte à importação de tokens no formato CSV. Ao importar tokens no formato CSV, o arquivo CSV deve conter um número de série, uma chave secreta no formato Base32 e um intervalo de tempo (normalmente de 30 segundos).
+
+Portanto, se os tokens de ActiveIdentity forem tokens OATH TOTP e você conseguir obter o arquivo de chave secreta em um arquivo CSV que pode ser importado para o Servidor do Azure MFA, você poderá usá-los. Os tokens OATH podem ser usados com o AD FS, com o RADIUS quando o sistema de cliente pode processar as respostas do Access Challenge e com a autenticação baseada em Formulários do IIS.
+
 
 ## Erros
 
@@ -143,6 +149,6 @@ As verificações de mensagem de texto também são mais confiáveis em alguns p
 
 Atualmente, a verificação de segurança adicional pode ser usada somente com aplicativos/serviços que você pode acessar pelo navegador. Os aplicativos que não usam navegador (também conhecidos como aplicativos cliente avançados) que são instalados no computador local, como o Windows PowerShell, não funcionarão com contas que exigem a verificação de segurança adicional. Nesse caso, o aplicativo pode gerar o erro 0x800434D4L.
 
-Uma solução alternativa para isso é ter uma conta de usuário para as operações administrativas e outra para as operações não administrativas. Posteriormente, você pode vincular caixas de correio entre a conta administrativa e a conta não administrativa para que seja possível entrar no Outlook usando a conta não administrativa. Para obter mais detalhes sobre isso, confira [Fornecer a um administrador a capacidade de abrir e exibir o conteúdo da caixa de correio de um usuário] (http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1).
+Uma solução alternativa para isso é ter uma conta de usuário para as operações administrativas e outra para as operações não administrativas. Posteriormente, você pode vincular caixas de correio entre a conta administrativa e a conta não administrativa para que seja possível entrar no Outlook usando a conta não administrativa. Para obter mais detalhes sobre isso, veja [Fornecer a um administrador a capacidade de abrir e exibir o conteúdo da caixa de correio de um usuário] (http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1)).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

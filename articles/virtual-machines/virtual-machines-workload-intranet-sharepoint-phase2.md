@@ -111,11 +111,11 @@ Faça logon no primeiro computador do controlador de domínio usando as credenci
 1.	No Portal do Azure, no painel esquerdo, clique em **Máquinas Virtuais**.
 2.	Para se conectar a uma VM, clique em **Em execução** na coluna **Status** ao lado do nome.
 3.	Na barra de comandos localizada na parte inferior da página, clique em **Conectar**.
-4.	O portal informa que o arquivo .rdp está sendo recuperado. Clique em **OK**.
+4.	O portal do Azure informa que o arquivo .rdp está sendo recuperado. Clique em **OK**.
 5.	A caixa de diálogo do navegador será exibida com a pergunta: "Deseja abrir ou salvar ComputerName.rdp de manage.windowsazure.com?" Clique em **Abrir**.
 6.	Na caixa de diálogo **Conexão de Área de Trabalho Remota**, clique em **Conectar**.
 7.	Na caixa de diálogo **Segurança do Windows**, clique em **Usar outra conta**.
-8.	Em **Nome de usuário**, digite o nome da VM e o nome de usuário da conta de administrador local criada com a máquina virtual (uma conta de máquina local). Use o seguinte formato: *NomeDoComputador**NomeDaContaDoAdministradorLocal*
+8.	Em **Nome de usuário**, digite o nome da VM e o nome de usuário da conta de administrador local criada com a máquina virtual (uma conta de máquina local). Use o seguinte formato: *NomeDoComputador*\*NomeDaContaDoAdministradorLocal*
 9.	Em **Senha**, digite a senha da conta de administrador local.
 10.	Clique em **OK**.
 11.	Na caixa de diálogo **Conexão de Área de Trabalho Remota**, clique em **Sim**. A área de trabalho da nova máquina é exibida em uma janela de sessão de Área de Trabalho Remota.
@@ -248,4 +248,4 @@ Para continuar a configuração dessa carga de trabalho, vá para a [Fase 3: con
 
 [Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

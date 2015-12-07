@@ -31,7 +31,7 @@ Além disso, o tutorial presume que você já tenha implementado os seguintes pr
 
 - Você criou duas VMs (máquinas virtuais) no Azure usando a mesma imagem Oracle Enterprise Edition fornecida pela plataforma no Windows Server. Para obter informações, veja [Criando uma máquina virtual do Oracle Database 12c no Azure](virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine.md) e [Máquinas Virtuais do Azure](http://azure.microsoft.com/documentation/services/virtual-machines/). Verifique se as Máquinas Virtuais estão no [mesmo serviço de nuvem](virtual-machines-load-balance.md) e na mesma [Rede Virtual](azure.microsoft.com/documentation/services/virtual-network/) para garantir que possam se acessar mutuamente por um endereço IP privado persistente. Além disso, é recomendável colocar as VMs no mesmo [conjunto de disponibilidade](virtual-machines-manage-availability.md) para permitir que o Azure as coloque em domínios de falha e domínios de atualização separados. Observe que o Oracle Data Guard só está disponível com o Oracle Database Enterprise Edition. Cada computador deve ter pelo menos 2 GB de memória e 5 GB de espaço em disco. Para obter as informações mais atualizadas sobre os tamanhos de VM fornecidos pela plataforma, veja [Tamanhos de máquina virtual para o Azure](http://msdn.microsoft.com/library/dn197896.aspx). Se você precisar de volume de disco adicional para suas VMs, pode anexar discos adicionais. Para obter informações, veja [Como anexar um disco de dados a uma máquina virtual](storage-windows-attach-disk.md).
 
-- Você definiu os nomes de máquina virtual como "Machine1" para a VM primária e "Machine2" para a VM em espera no Portal do Azure.
+- Você definiu os nomes de Máquina Virtual como "Machine1" para a VM primária e "Máquina2" para a VM em espera no portal do Azure.
 
 - Você definiu a variável de ambiente **ORACLE\_HOME** para apontar para o mesmo caminho de instalação raiz do Oracle nas Máquinas Virtuais primária e em espera, como `C:\OracleDatabase\product\11.2.0\dbhome_1\database`.
 
@@ -313,7 +313,7 @@ Então use o comando de inicialização para iniciar uma instância:
 ##Criar um banco de dados físico em espera
 Esta seção aborda as etapas que devem ser executadas em Machine2 para preparar o banco de dados físico em espera.
 
-Primeiro, é necessário criar a área de trabalho remota para Machine2 usando o Portal do Azure.
+Primeiro, você precisa criar a área de trabalho remota para Machine2 por meio do portal do Azure.
 
 Em seguida, no servidor em espera (Machine2), crie todas as pastas necessárias para o banco de dados em espera, como C:\\<YourLocalFolder>\\TEST. Ao seguir este tutorial, certifique-se de que a estrutura de pasta corresponde à estrutura de pastas em Machine1 para manter todos os arquivos necessários, como controlfile, datafiles, redologfiles, udump, bdump e cdump. Além disso, defina as variáveis de ambiente ORACLE\_HOME e ORACLE\_BASE em Machine2. Caso contrário, defina-as como uma variável de ambiente usando a caixa de diálogo Variáveis de Ambiente. Para acessar essa caixa de diálogo, inicie o utilitário **Sistema** clicando duas vezes no ícone Sistema no **Painel de Controle**; em seguida, clique na guia **Avançado** e escolha **Variáveis de Ambiente**. Clique no botão **Novo** em **Variáveis de Sistema** para definir as variáveis de ambiente. Depois de configurar as variáveis de ambiente, você precisa fechar o prompt de comando do Windows existente e abrir um novo para ver as alterações.
 
@@ -625,4 +625,4 @@ Recomendamos habilitar o banco de dados de flashback nos bancos de dados primár
 ##Recursos adicionais
 [Imagens de Máquina Virtual Oracle para Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

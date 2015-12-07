@@ -49,9 +49,9 @@ Você pode restaurar uma máquina virtual em uma nova VM por meio de backups arm
   - Especifique o nome da máquina virtual: em um determinado serviço de nuvem, o nome da máquina virtual deve ser exclusivo. Se você pretende substituir uma VM existente com o mesmo nome, primeiro exclua a máquina virtual existente e os discos de dados e, em seguida, restaure os dados do Backup do Azure.
   - Selecione um serviço de nuvem para a VM: isso é obrigatório para a criação de uma VM. Você pode optar por usar um serviço de nuvem existente ou criar um novo serviço de nuvem.
 
-        O nome do serviço de nuvem deve ser globalmente exclusivo. Geralmente, o nome do serviço de nuvem é associado a uma URL pública no formato [serviçodenuvem].cloudapp.net. O Azure não permitirá a criação de um novo serviço de nuvem se o nome já estiver em uso. Se você optar por criar, selecione Criar novo serviço de nuvem". O serviço receberá o mesmo nome que a máquina virtual, portanto, o nome escolhido para a VM deverá ser exclusivo o suficiente para ser aplicado ao serviço de nuvem associado.
+        Whatever cloud service name is picked should be globally unique. Typically, the cloud service name gets associated with a public-facing URL in the form of [cloudservice].cloudapp.net. Azure will not allow you to create a new cloud service if the name has already been used. If you choose to create select create a new cloud service, it will be given the same name as the virtual machine – in which case the VM name picked should be unique enough to be applied to the associated cloud service.
 
-        Só exibimos serviços de nuvem e redes virtuais que não estejam associados a nenhum grupo de afinidade nos detalhes da instância de restauração. [Saiba mais](https://msdn.microsoft.com/pt-br/library/azure/jj156085.aspx).
+        We only display cloud services and virtual networks that are not associated with any affinity groups in the restore instance details. [Learn More](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 2. Selecione uma conta de armazenamento para a VM: isso é obrigatório para a criação de uma VM. Você pode selecionar entre contas de armazenamento existentes na mesma região que o cofre de backup do Azure. Não há suporte para contas de armazenamento com redundância de zona ou do tipo de armazenamento Premium.
 
@@ -101,8 +101,36 @@ O desafio surge porque o modo DSRM não está presente no Azure. Então, para re
 
 Leia mais sobre o [problema de reversão de USN](https://technet.microsoft.com/library/dd363553) e as estratégias sugeridas para corrigi-lo.
 
+## Restaurando VMs com configurações de rede especiais
+O Backup do Azure oferece suporte ao backup das seguintes configurações de rede especiais de máquinas virtuais.
+
+- VMs no balanceador de carga (interno e externo)
+- VMs com vários IPs reservados
+- VMs com vários NICs
+
+Essas configurações determinam as considerações a seguir ao restaurá-las.
+
+>[AZURE.TIP]Use o fluxo de restauração baseado no PowerShell para recriar a configuração de rede especial das VMs após a restauração.
+
+### Restauração a partir da interface do usuário:
+Ao restaurar da interface do usuário, **sempre escolha um novo serviço de nuvem**. Observe que como o portal usa apenas os parâmetros obrigatórios durante o fluxo de restauração, as VMs restauradas usando a interface do usuário perderão a configuração de rede especial que possuem. Em outras palavras, as VMs restauradas serão VMs normais sem a configuração do balanceador de carga ou de múltiplos NICs ou vários IP reservados.
+
+### Restaurando do PowerShell:
+O PowerShell tem a capacidade de restaurar apenas os discos da VM do backup, e não criar a máquina virtual. Isso é útil ao restaurar máquinas virtuais que exigem as configurações de rede especiais mencionadas acima.
+
+Para recriar completamente a máquina virtual após restaurar os discos, execute estas etapas:
+
+1. Restaure os discos do cofre de backup usando o [PowerShell de Backup do Azure](https://azure.microsoft.com/en-in/documentation/articles/backup-azure-vms-automation/#restore-an-azure-vm)
+
+2. Crie a configuração da VM necessária para o balanceador de carga/múltiplos NICs, múltiplos IPs reservados usando os cmdlets do PowerShell e use-a para criar a VM com a configuração desejada.
+	- Criar a VM no serviço de nuvem com o [balanceador de carga interno ](https://azure.microsoft.com/pt-BR/documentation/articles/load-balancer-internal-getstarted/)
+	- Criar a máquina virtual para se conectar ao [balanceador de carga voltado para a Internet](https://azure.microsoft.com/pt-BR/documentation/articles/load-balancer-internet-getstarted)
+	- Criar uma VM [com múltiplos NICs](https://azure.microsoft.com/en-in/documentation/articles/virtual-networks-multiple-nics)
+	- Criar VMs com [múltiplos IPs reservados](https://azure.microsoft.com/en-in/documentation/articles/virtual-networks-reserved-public-ip/)
+  
+
 ## Próximas etapas
 - [Solucionar erros](backup-azure-vms-troubleshoot.md#restore)
 - [Gerenciar máquinas virtuais](backup-azure-manage-vms.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Autenticando identidades sem senhas com o Microsoft Passport
@@ -26,9 +26,10 @@ O Microsoft Passport é uma nova abordagem à autenticação com chave privada/p
 
 A chave privada é disponibilizada somente por meio de um “gesto do usuário” - como um PIN, biometria ou dispositivo remoto, como um cartão inteligente - que o usuário usou para fazer logon no dispositivo; essa informação é vinculada a um certificado ou a um par de chaves assimétricas. Essa chave privada é atestada no hardware se o dispositivo tiver um chip do TPM (Trusted Platform Module). A chave privada nunca deixará o dispositivo.
 
-A chave pública é registrada com o Active Directory do Azure e o Windows Server Active Directory (para local). Os IDPs (Provedores de Identidade) validam o usuário mapeando a chave pública do usuário para a chave privada e fornecem informações de logon por meio da autenticação OTP, Phonefactor ou um mecanismo de notificação diferente.
+A chave pública é registrada com o Active Directory do Azure e o Windows Server Active Directory (para local). Os provedores de identidade (IDPs) validam o usuário mapeando a chave pública do usuário para a chave privada e fornece informações de entrada por meio do OTP (One Time Password), Phonefactor ou um mecanismo de notificação diferente.
 
 ## Por que as empresas deveriam adotar o Microsoft Passport
+
 Habilitando o Microsoft Passport, as empresas podem tornar seus recursos ainda mais seguros ao:
 
 * Configurar o Microsoft Passport com uma opção preferencial de hardware, o que significa que chaves serão geradas no TPM 1.2 ou 2.0, quando disponível, e pelo software quando o TPM não estiver disponível. 
@@ -52,7 +53,7 @@ O diagrama acima ilustra o par de chaves privada/pública e a validação pelo p
 
 1. O usuário comprova sua identidade por meio de vários métodos internos de verificação (gestos, cartões inteligentes físicos, autenticação multifator) e envia essas informações para o IDP (provedor de identidade), como o Active Directory do Azure ou o Active Directory.
 
-2.  O dispositivo cria as chaves, atesta a chave, leva a parte pública dessa chave, a anexa a instruções da estação, entra e a envia ao IDP para registrar essa chave.
+2. O dispositivo cria as chaves, atesta a chave, leva a parte pública dessa chave, a anexa a instruções da estação, entra e a envia ao IDP para registrar essa chave.
 
 3. Assim que a parte pública da chave é registrada no IDP, ela desafia o dispositivo a entrar com a parte privada da chave. O IDP, em seguida, valida e emite o token de autenticação que permite ao usuário acessar recursos protegidos.
 
@@ -71,13 +72,13 @@ No nível do usuário
 
 Para obter instruções de implantação detalhadas, veja [Habilitar o Microsoft Passport for Work na organização](active-directory-azureadjoin-passport-deployment.md).
 
+
 ## Informações adicionais
 
 * [Windows 10 para a empresa: maneiras de usar dispositivos para o trabalho](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Junção do Active Directory do Azure](active-directory-azureadjoin-user-upgrade.md)
 * [Saiba mais sobre cenários de uso da Junção do Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
-* [Habilitar o Microsoft Passport for Work na organização](active-directory-azureadjoin-passport-deployment.md)
-* [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com Windows 10](active-directory-azureadjoin-devices-group-policy.md)
+* [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

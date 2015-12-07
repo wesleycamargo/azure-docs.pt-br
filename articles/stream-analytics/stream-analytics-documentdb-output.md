@@ -14,10 +14,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
-# Banco de Dados de Documentos como saída do Stream Analytics do Azure
+# Noções básicas sobre Banco de Dados de Documentos como uma saída do Stream Analytics do Azure
 
 Agora o Stream Analytics do Azure oferece suporte ao [Banco de Dados de Documentos do Azure](http://azure.microsoft.com/services/documentdb/) como saída, possibilitando o arquivamento de dados e consultas de baixa latência em dados JSON não estruturados. Este documento descreve como implementar essa integração da melhor maneira. Para aqueles que não estão familiarizados com o Banco de Dados de Documentos, veja [Roteiro de aprendizagem do Banco de Dados de Documentos](https://azure.microsoft.com/documentation/learning-paths/documentdb/) para obter uma introdução.
 
@@ -59,4 +59,4 @@ A criação de Banco de Dados de Documentos como uma saída no Stream Analytics 
 -   **Chave de Partição** – O nome do campo nos eventos de saída usado para especificar a chave para a saída do particionamento em várias coleções. Para uma saída de coleção única, nenhuma coluna de saída arbitrária pode ser usada, por exemplo, PartitionId.  
 -   **ID do Documento** – Opcional. O nome do campo em eventos de saída usado para especificar a chave primária que serve de base para as operações de inserção ou atualização.  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

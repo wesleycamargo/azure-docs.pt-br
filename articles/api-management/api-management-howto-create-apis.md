@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="11/23/2015" 
 	ms.author="sdanie"/>
 
 # Como criar APIs no Gerenciamento de API do Azure
@@ -38,24 +38,25 @@ Use a janela **Adicionar nova API** para configurar a nova API.
 
 ![Adicionar nova API][api-management-add-new-api]
 
-Os três campos a seguir são usados para configurar a nova API.
+Os campos a seguir são usados para configurar a nova API.
 
--	O **Título da API Web** fornece um nome descritivo exclusivo para a API. Esse nome será exibido nos portais de gerenciamento e do desenvolvedor.
+-	O **Nome da API Web** fornece um nome descritivo exclusivo para a API. Esse nome será exibido nos portais de gerenciamento e do desenvolvedor.
 -	O **URL de Serviço Web** utiliza como referência o serviço HTTP que está implementando a API. O gerenciamento de API envia as solicitações para esse endereço.
 -	**O sufixo da URL da API Web** está anexado à URL base do serviço de gerenciamento de API. A URL base é comum para todas as APIs hospedadas por uma instância de um serviço de Gerenciamento de API. O Gerenciamento de API diferencia as APIs pelo sufixo e, portanto, o sufixo deve ser único para cada API para um editor específico.
 -	O **Esquema de URL da API da Web** determina quais protocolos podem ser usados para acessar a API. A HTTPs é especificada por padrão.
+-	Para adicionar, opcionalmente, essa nova API a um produto, clique na lista suspensa **Produtos (opcional)** e escolha um produto. Esta etapa pode ser repetida várias vezes para adicionar a API a vários produtos.
 
-Após configurar os três valores, clique em **Salvar**. Após criar as novas APIs, a página de resumo das APIs será exibida no Portal de Gerenciamento.
+Após configurar os valores desejados, clique em **Salvar**. Após criar a novas API, a página de resumo das APIs será exibida no Portal do Publicador.
 
 ![Resumo da API][api-management-api-summary]
 
 ## <a name="configure-api-settings"> </a>Definir configurações de API
 
-Você pode usar a guia **Configurações** para verificar e editar a configuração de uma API. O **Título da API Web**, o **URL do Serviço Web** e o **sufixo do URL da API Web** são definidos inicialmente, quando a API é criada, e podem ser modificados aqui. **Descrição** fornece uma descrição opcional, e o **Esquema de URL da API da Web** determina quais protocolos podem ser usados para acessar a API.
+Você pode usar a guia **Configurações** para verificar e editar a configuração de uma API. O **Nome da API Web**, o **URL do Serviço Web** e o **sufixo do URL da API Web** são definidos inicialmente, quando a API é criada, e podem ser modificados aqui. **Descrição** fornece uma descrição opcional, e o **Esquema de URL da API da Web** determina quais protocolos podem ser usados para acessar a API.
 
 ![Configurações da API][api-management-api-settings]
 
-Para configurar a **Autenticação de gateway** para o serviço Web Implementando a API, selecione a guia **Segurança**. A lista suspensa **Com credenciais** pode ser usada para configurar a autenticação como **Autenticação básica** ou **Certificados mútuos**. Para usar a autenticação básica, basta inserir as credenciais desejadas. Para informações sobre como usar a autenticação de certificados mútuos, consulte [Como garantir serviços de back-end usando autenticação de certificados mútuos no Gerenciamento de API do Azure][].
+Para configurar a autenticação de gateway para o serviço de back-end implementando a API, selecione a guia **Segurança**. A lista suspensa **Com credenciais** pode ser usada para configurar a autenticação como **HTTP básica** ou **Certificados do cliente**. Para usar a autenticação HTTP básica, basta inserir as credenciais desejadas. Para informações sobre como usar a autenticação de certificados do cliente, consulte [Como garantir serviços de back-end usando autenticação de certificados do cliente no Gerenciamento de API do Azure][].
 
 A guia **Segurança** também pode ser usada para configurar **Autorização do usuário** usando OAuth 2.0. Para obter mais informações, consulte [Como autorizar contas de desenvolvedor usando o OAuth 2.0 no Gerenciamento de API do Azure][].
 
@@ -65,7 +66,7 @@ Clique em **Salvar** para salvar quaisquer mudanças feitas nas configurações 
 
 ## <a name="next-steps"> </a>Próximas etapas
 
-Após criar uma API e definir as configurações, as próximas etapas são adicionar as operações à API, adicionar a API a um produto e publicá-la para que fique disponível para desenvolvedores. Para obter mais informações, consulte os dois guias a seguir.
+Após criar uma API e definir as configurações, as próximas etapas são adicionar as operações à API, adicionar a API a um produto e publicá-la para que fique disponível para desenvolvedores. Para obter mais informações, consulte os seguintes artigos.
 
 -	[Como adicionar operações a uma API][]
 -	[Como criar e publicar um produto][]
@@ -93,7 +94,7 @@ Após criar uma API e definir as configurações, as próximas etapas são adici
 
 [Introdução ao Gerenciamento de API do Azure]: api-management-get-started.md
 [Criar uma instância de serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
-[Como garantir serviços de back-end usando autenticação de certificados mútuos no Gerenciamento de API do Azure]: api-management-howto-mutual-certificates.md
+[Como garantir serviços de back-end usando autenticação de certificados do cliente no Gerenciamento de API do Azure]: api-management-howto-mutual-certificates.md
 [Como autorizar contas de desenvolvedor usando o OAuth 2.0 no Gerenciamento de API do Azure]: api-management-howto-oauth2.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

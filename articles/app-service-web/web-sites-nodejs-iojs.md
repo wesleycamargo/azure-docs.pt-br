@@ -3,9 +3,9 @@
 	description="Saiba como usar um aplicativo Web no Serviço de Aplicativo do Azure com io.js." 
 	services="app-service\web" 
 	documentationCenter="nodejs" 
-	authors="felixrieseberg" 
+	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="08/03/2015"
-	ms.author="mwasson" />
+	ms.date="11/20/2015"
+	ms.author="robmcm" />
 
 # Como usar io.js com Aplicativos Web do Serviço de Aplicativo do Azure
 
@@ -27,9 +27,9 @@ Embora os Aplicativos Web do [Serviço de Aplicativo do Azure](http://go.microso
 
 Após a implantação de um aplicativo de Node.js, os Aplicativos Web do Serviço de Aplicativo executam uma série de pequenos comandos para garantir que o ambiente seja configurado corretamente. Ao usar um script de implantação, esse processo pode ser personalizado para incluir o download e a configuração de io.js.
 
-O [Script de Implantação io.js] está disponível no GitHub. Para habilitar io.js em seu aplicativo Web, basta copiar **.deployment**, **deploy.cmd** e **IISNode.yml** para a raiz de sua pasta de aplicativos e implantar nos Aplicativos Web.
+O [Script de Implantação io.js](https://github.com/felixrieseberg/iojs-azure) está disponível no GitHub. Para habilitar io.js em seu aplicativo Web, basta copiar **.deployment**, **deploy.cmd** e **IISNode.yml** para a raiz de sua pasta de aplicativos e implantar nos Aplicativos Web.
 
-O primeiro arquivo, **.deployment**, instrui os Aplicativos Web a executar **deploy.cmd** após a implantação. Esse script executa todas as etapas normais para um aplicativo do Node.js, mas também baixa a versão mais recente do io.js. Por fim, **iisnode.yml** configura os Aplicativos Web para usar o binário de io.js recém-baixado, em vez de um binário de Node.js pré-instalado.
+O primeiro arquivo, **.deployment**, instrui os Aplicativos Web a executar **deploy.cmd** após a implantação. Esse script executa todas as etapas normais para um aplicativo Node. js, mas também baixa a versão mais recente do io.js. Por fim, **IISNode.yml** configura os aplicativos Web para usar apenas o io.js binário baixado em vez de um binário pré-instalado do Node.js.
 
 > [AZURE.NOTE]Para atualizar o binário do io.js usado, apenas reimplante seu aplicativo - o script baixará uma nova versão do io.js toda vez que o aplicativo for implantado.
 
@@ -58,7 +58,7 @@ Neste artigo, você aprendeu a usar io.js com Aplicativos Web do Serviço de Apl
 [io.js]: https://iojs.org
 [distribuição de io.js]: https://iojs.org/dist/
 [io.js no GitHub]: https://github.com/iojs/io.js
-[Script de Implantação io.js]: https://github.com/felixrieseberg/iojs-azure
+[io.js Deployment Script]: https://github.com/felixrieseberg/iojs-azure
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

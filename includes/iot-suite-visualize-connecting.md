@@ -34,13 +34,13 @@ O painel da solução de monitoramento remoto permite solicitar que o Hub IoT en
 
 ## Próximas etapas
 
-O artigo [Personalizando soluções pré-configuradas][lnk-customize] descreve algumas de estender este exemplo. Extensões possíveis incluem usar sensores reais e implementar comandos adicionais.
+O artigo [Personalizando soluções pré-configuradas][lnk-customize] descreve algumas maneiras de estender este exemplo. Extensões possíveis incluem usar sensores reais e implementar comandos adicionais.
 
 [13]: ./media/iot-suite-visualize-connecting/suite4.png
 [14]: ./media/iot-suite-visualize-connecting/suite7-1.png
 [18]: ./media/iot-suite-visualize-connecting/suite10.png
 [img-telemetry]: ./media/iot-suite-visualize-connecting/telemetry.png
-[lnk-customize]: ../articles/iot-suite/
+[lnk-customize]: ../articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-dev-messaging]: ../articles/iot-hub/iot-hub-devguide.md#messaging
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

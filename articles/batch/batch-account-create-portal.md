@@ -76,7 +76,7 @@ Para ver e gerenciar as chaves de acesso, clique no ícone da chave.
 
 ## Próximas etapas
 
-* Confira as [Noções básicas de API para o Lote do Azure](batch-api-basics.md) para saber mais sobre os conceitos do Lote.
+* Consulte [Visão geral dos recursos do Lote do Azure](batch-api-basics.md) para saber mais sobre os conceitos do Lote.
 
 * Comece a desenvolver seu primeiro aplicativo com a [biblioteca de cliente .NET do Lote](batch-dotnet-get-started.md).
 
@@ -84,4 +84,4 @@ Para ver e gerenciar as chaves de acesso, clique no ícone da chave.
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

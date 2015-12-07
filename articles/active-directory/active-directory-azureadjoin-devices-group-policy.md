@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10 | Microsoft Azure" 
-	description="Um tópico que explica como os administradores podem configurar políticas de grupo para permitir que dispositivos ingressem no domínio da rede corporativa." 
+	description="Explica como os administradores podem configurar políticas de grupo para permitir que dispositivos ingressem no domínio da rede corporativa." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -8,13 +8,10 @@
 	editor=""
 	tags="azure-classic-portal"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/17/2015" 
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article"
+
+	ms.date="11/19/2015" 
+
 	ms.author="femila"/>
 
 # Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10
@@ -53,14 +50,16 @@ Para habilitar o acesso condicional, você pode criar políticas que permitam ac
 
 ## Instruções de implantação
 
-1. Implantar o Azure AD Connect: o Azure Connect AD permitirá que computadores locais sejam provisionados como objetos de dispositivo na nuvem. Para implantar o Azure AD Connect, confira Habilitando o diretório para gerenciamento híbrido com o Azure AD Connect.
 
+## Etapa 1: implantar o Azure Active Directory Connect
 
-Se você tiver usado uma [instalação personalizada do Azure AD Connect](https://azure.microsoft.com/pt-BR/documentation/articles/active-directory-aadconnect-get-started-custom/) (não a instalação expressa), deve seguir o procedimento **Criar um SCP (ponto de conexão de serviço) no Active Directory local**, descrito abaixo.
+O Azure Connect AD permitirá que computadores locais sejam provisionados como objetos de dispositivo na nuvem. Para implantar o Azure AD Connect, confira Habilitando o diretório para gerenciamento híbrido com o Azure AD Connect.
 
-Se você tiver uma configuração federada com o AD do Azure antes de instalar o Azure AD Connect (por exemplo, se tiver implantado o AD FS, Serviços de Federação do Active Directory, antes) terá que seguir o procedimento **Configurar regras de declaração do AD FS** abaixo.
+ - Se você tiver usado uma [instalação personalizada do Azure AD Connect](https://azure.microsoft.com/pt-BR/documentation/articles/active-directory-aadconnect-get-started-custom/) (não a instalação expressa), deve seguir o procedimento **Criar um SCP (ponto de conexão de serviço) no Active Directory local**, descrito abaixo.
+ - Se você tiver uma configuração federada com o AD do Azure antes de instalar o Azure AD Connect (por exemplo, se tiver implantado o AD FS, Serviços de Federação do Active Directory, antes) terá que seguir o procedimento **Configurar regras de declaração do AD FS** abaixo.
 
 ### Criar um SCP (ponto de conexão de serviço) no Active Directory local
+
 Os dispositivos ingressados no domínio usarão esse objeto para descobrir as informações de locatário do AD do Azure no momento do registro automático no serviço de registro de dispositivo do Azure. No servidor do Azure AD Connect, execute os seguintes comandos do PowerShell:
 
     Import-Module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1";
@@ -112,7 +111,9 @@ No servidor AD FS, execute os comandos do PowerShell a seguir (ou em uma sessão
 
 >[AZURE.NOTE]Os computadores com Windows 10 farão a autenticação usando a autenticação integrada do Windows para um ponto de extremidade WS-Trust ativo hospedado pelo AD FS. Esse ponto de extremidade tem que estar habilitado. Se você estiver usando o proxy Web de autenticação, também deve fazer com que esse ponto de extremidade seja publicado por meio do proxy. Você pode fazer isso verificando se adfs/services/trust/13/windowstransport aparece como ativado no console de gerenciamento do AD FS em Serviço > Pontos de Extremidade.
 
-## Configurar o registro automático de dispositivo usando Política de Grupo no Active Directory
+
+## Etapa 2: configurar o registro automático de dispositivo usando Política de Grupo no Active Directory
+
 Você pode usar uma Política de Grupo do Active Directory e configurar os dispositivos associados ao domínio do Windows 10 para registro automático no AD do Azure. Para isso, confira as seguintes instruções passo a passo:
 
 1. 	Abra o Gerenciador do Servidor e navegue até **Ferramentas** > **Gerenciamento de Política de Grupo**.
@@ -136,4 +137,4 @@ Você pode usar uma Política de Grupo do Active Directory e configurar os dispo
 * [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/13/2015"
+   ms.date="11/24/2015"
    ms.author="andkjell"/>
 
 # Sincronização do Azure AD Connect: considerações e tarefas operacionais
@@ -44,7 +44,7 @@ Para aplicar esse método, siga estas etapas:
 
 **Preparar**
 
-1. Instale o Azure AD Connect, selecione **modo de preparo** e desmarque **Iniciar sincronização** na última página do assistente de instalação. Isso nos permite executar o mecanismo de sincronização manualmente.
+1. Instale o Azure AD Connect, selecione **modo de preparo** e desmarque **Iniciar sincronização** na última página do assistente de instalação. Isso nos permite executar o mecanismo de sincronização manualmente. ![ReadyToConfigure](./media/active-directory-aadconnectsync-operations/readytoconfigure.png)
 2. Faça o logon e o logoff e, no menu Iniciar, selecione **Serviço de Sincronização**.
 
 **Importar e sincronizar**
@@ -59,7 +59,7 @@ Você agora preparou a exportação das alterações para o Azure AD e AD local 
 **Verificar**
 
 1. Inicie um prompt de comando e vá para `%Program Files%\Microsoft Azure AD Sync\bin`
-2. Execute: `csexport "Name of Connector" %temp%\export.xml /f:x`<BR/> O nome do conector pode ser encontrado no serviço de sincronização. Ele terá um nome semelhante a "contoso.com – AAD" do Azure AD.
+2. Execute: `csexport "Name of Connector" %temp%\export.xml /f:x`<BR/> O nome do Conector pode ser encontrado no serviço de sincronização. Ele terá um nome semelhante a "contoso.com – AAD" do Azure AD.
 3. Execute: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`
 4. Agora você tem um arquivo em % temp % chamado export.csv que pode ser examinado no Microsoft Excel. Esse arquivo contém todas as alterações que estão prestes a ser exportadas.
 5. Faça as alterações necessárias na configuração ou nos dados e execute essas etapas novamente (importar, sincronizar e verificar) até o momento estimado para que as alterações a serem exportadas ocorram.
@@ -76,7 +76,7 @@ Se o valor do atributo tiver valores múltiplos, nem todas as alterações serã
 **Servidor ativo do comutador**
 
 1. No servidor atualmente ativo, desligue o servidor (FIM/DirSync/Azure AD Sync) para que ele não exporte para o Azure AD ou defina-o no modo de preparação (Azure AD Connect).
-2. Execute o assistente de instalação no servidor no "modo de preparo" e desative o "modo de preparo".
+2. Execute o assistente de instalação no servidor no **modo de preparo** e desabilite o **modo de preparo**. ![ReadyToConfigure](./media/active-directory-aadconnectsync-operations/additionaltasks.png)
 
 ## Recuperação de desastre
 Parte do design de implementação é planejar o que fazer em caso de desastre, quando você pode perder o servidor de sincronização. Há modelos diferentes para uso e qual deles usar dependerá de vários fatores, incluindo:
@@ -112,6 +112,6 @@ Quando não estiver usando o SQL Server Express que vem com o Azure AD Connect, 
 ## Próximas etapas
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
-Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
+Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

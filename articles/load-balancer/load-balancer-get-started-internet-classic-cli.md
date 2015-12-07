@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Introdução à criação de balanceador de carga para a Internet no modelo de implantação clássico usando a CLI do Azure | Microsoft Azure"
+   pageTitle="Introdução à criação de um balanceador de carga para a Internet no modelo de implantação clássico usando a CLI do Azure | Microsoft Azure"
    description="Saiba como criar um balanceador de carga para a Internet no modelo de implantação clássico usando a CLI do Azure"
    services="load-balancer"
    documentationCenter="na"
@@ -143,4 +143,4 @@ Você precisa excluir o ponto de extremidade associado ao conjunto de balanceado
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Configuração da Junção do Azure AD na sua organização
@@ -27,7 +27,7 @@ Instruções detalhadas para sincronizar seus usuários locais ao Azure AD são 
 Para criar e gerenciar usuários manualmente no Azure AD, consulte [Gerenciamento de usuários no Azure AD](https://msdn.microsoft.com/library/azure/hh967609.aspx).
 
 ## Configure o registro de dispositivos 
-1. Faça logon no Portal do Azure como um Administrador.
+1. Faça logon no Portal do Azure como administrador.
 2. No painel esquerdo, selecione Active Directory.
 3. Na guia **Diretório**, selecione o diretório.
 4. Selecione a guia **Configurar**.
@@ -48,11 +48,10 @@ A seguir estão os três cenários de como você pode habilitar seus usuários p
 - Os usuários adicionam contas de trabalho ao Windows em um dispositivo pessoal 
 
 ## Informações adicionais
-
 * [Windows 10 para a empresa: maneiras de usar dispositivos para o trabalho](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Junção do Active Directory do Azure](active-directory-azureadjoin-user-upgrade.md)
 * [Saiba mais sobre cenários de uso da Junção do Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

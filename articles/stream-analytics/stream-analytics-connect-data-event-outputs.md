@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Criar saídas do Stream Analytics | Microsoft Azure" 
+	pageTitle="Conectar-se às saídas do Stream Analytics | Microsoft Azure" 
 	description="Saiba como se conectar aos destinos de saída e como configurá-los para soluções do Stream Analytics." 
 	documentationCenter="" 
 	services="stream-analytics"
@@ -16,7 +16,7 @@
 	ms.date="11/06/2015" 
 	ms.author="jeffstok"/>
 
-# Criar saídas do Stream Analytics
+# Conectar fontes de saída do Stream Analytics
 
 ## Noções básicas sobre saídas do Stream Analytics ##
 ---
@@ -306,4 +306,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 [graphic37]: ./media/stream-analytics-connect-data-event-outputs/37-stream-analytics-connect-data-event-input-output.png
 [graphic38]: ./media/stream-analytics-connect-data-event-outputs/38-stream-analytics-connect-data-event-input-output.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

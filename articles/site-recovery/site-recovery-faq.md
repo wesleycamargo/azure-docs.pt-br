@@ -78,11 +78,11 @@ Não há suporte para isso. Envie seus comentários por meio do [Fórum de comen
 ## Suporte de versão
 
 ### Quais versões de hosts e clusters do Windows Server têm suporte?
-O Windows Server 2012 e o Windows Server 2012 R2 podem ser usados quando você escolhe a Réplica do Hyper-V para habilitar a replicação e a proteção entre sites do Hyper-V.
+Os Windows Server 2012 e Windows Server 2012 R2 podem ser usados quando você escolhe a réplica do Hyper-V para habilitar a replicação e a proteção entre dois Sites Hyper-V locais. O Windows Server 2012 R2 é necessário quando você deseja configurar a replicação de um servidor Hyper-v para o Azure.
 
 
-### Quais versões de sistemas operacionais convidados Hyper-V têm suporte?
-A lista mais atual de sistemas operacionais convidados com suporte está disponível no tópico [Sobre máquinas virtuais e sistemas operacionais convidados](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).
+### Quais versões de sistemas operacionais convidados têm suporte?
+Para a proteção de local para local, a lista mais atual de sistemas operacionais convidados com suporte está disponível no tópico [Sobre Máquinas Virtuais e Sistemas Operacionais Convidados](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). Para cenários Hyper-v para Azure, o Azure Site Recovery dá suporte a todos os sistemas operacionais convidados com suporte do Azure. Para cenário VMware para Azure, consulte [este artigo](site-recovery-vmware-to-azure.md#before-you-start)
 
 ### Posso configurar a proteção da máquina virtual quando Hyper-V está em execução em um sistema operacional cliente?
 
@@ -148,12 +148,6 @@ Nenhuma configuração específica é necessária. Os componentes do Provedor no
 ### O servidor Hyper-V precisa ser um membro do domínio?
 
 Não, o servidor não precisa estar em um domínio
-
-### Quais versões de hosts e clusters do Windows Server têm suporte?
-O Windows Server 2012 e o Windows Server 2012 R2 podem ser usados ao usar a Recuperação Automatizada do Sistema e a replicação Hyper-V entre sites Hyper-V e o Azure.
-
-### Quais versões de sistemas operacionais convidados têm suporte?
-A lista mais atual de sistemas operacionais convidados com suporte está disponível no artigo [Sobre máquinas virtuais e sistemas operacionais convidados](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).
 
 ## Implantar entre dois data centers VMM
 
@@ -256,4 +250,4 @@ Para iniciar a implantação do ASR:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

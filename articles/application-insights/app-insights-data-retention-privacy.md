@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/18/2015" 
 	ms.author="awills"/>
 
 # Coleta, retenção e armazenamento de dados no Application Insights 
@@ -64,6 +64,11 @@ Contagens de usuário e de sessão não são incluídas na cota para fins de pre
 * Abra Configurações/Cotas e Preços para ver o gráfico de Volume de dados.
 * Ou, no Metrics Explorer, adicione um novo gráfico e selecione **Volume de pontos de dados** como a métrica. Ative o Agrupamento e agrupe por **Tipo de dados**.
 
+*Como posso reduzir a quantidade de dados que meu aplicativo envia?*
+
+* Use [Amostragem](app-insights-sampling.md). Essa tecnologia reduz a taxa de dados sem distorcer suas métricas e sem afetar a capacidade de navegar entre itens relacionados na Pesquisa.
+* [Desative coletores de telemetria](app-insights-configuration-with-applicationinsights-config.md) que você não precisa.
+
 
 #### Por quanto tempo os dados são mantidos? 
 
@@ -107,7 +112,7 @@ A Microsoft usa os dados apenas para fornecer o serviço a você.
 
 #### Quão seguros meus dados estão? 
 
-Os dados são armazenados em servidores do Microsoft Azure. Para contas no Portal do Azure, as restrições de conta são descritas no documento sobre [Segurança, privacidade e conformidade do Azure](http://go.microsoft.com/fwlink/?linkid=392408). Para contas no Portal do Visual Studio Team Services, o documento [Proteção de dados do Visual Studio Team Services](http://download.microsoft.com/download/8/E/E/8EE6A61C-44C2-4F81-B870-A267F1DF978C/MicrosoftVisualStudioOnlineDataProtection.pdf) se aplica.
+Os dados são armazenados em servidores do Microsoft Azure. Para contas no Portal do Azure, as restrições de conta são descritas no documento sobre [Segurança, privacidade e Conformidade do Azure](http://go.microsoft.com/fwlink/?linkid=392408). Para contas no Portal do Visual Studio Team Services, o documento [Proteção de Dados do Visual Studio Team Services](http://download.microsoft.com/download/8/E/E/8EE6A61C-44C2-4F81-B870-A267F1DF978C/MicrosoftVisualStudioOnlineDataProtection.pdf) se aplica.
 
 É restrito o acesso aos seus dados por funcionários da Microsoft. Podemos acessar seus dados com a sua permissão e se isso for necessário para o seu uso do Application Insights.
 
@@ -250,4 +255,4 @@ Este produto inclui dados GeoLite2 criados pelo MaxMind, disponíveis em [http:/
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->
