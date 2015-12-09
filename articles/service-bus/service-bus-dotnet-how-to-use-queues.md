@@ -54,7 +54,7 @@ Nos dois casos, você pode recuperar sua cadeia de conexão usando o método [Cl
 
 ### Configure sua cadeia de conexão ao usar Serviços de Nuvem
 
-O mecanismo de configuração de serviço é exclusivo para projetos de Serviços de Nuvem do Azure e permite que você altere dinamicamente os parâmetros de configuração no portal do Azure sem reimplantar o aplicativo. Por exemplo, adicione um rótulo `Setting` ao seu arquivo de definição de serviço (.csdef), como mostrado no próximo exemplo.
+O mecanismo de configuração de serviço é exclusivo para projetos de Serviços de Nuvem do Azure e permite que você altere dinamicamente os parâmetros de configuração no [portal clássico do Azure][] sem reimplantar o aplicativo. Por exemplo, adicione um rótulo `Setting` ao seu arquivo de definição de serviço (.csdef), como mostrado no próximo exemplo.
 
 ```
 <ServiceDefinition name="Azure1">
@@ -82,7 +82,7 @@ Em seguida, especifique valores no arquivo de configuração de serviço (.cscfg
 </ServiceConfiguration>
 ```
 
-Use o nome da chave da SAS (Assinatura de Acesso Compartilhado) e os valores de chave recuperados do portal do Azure, conforme descrito na seção anterior.
+Use o nome da chave da SAS (Assinatura de Acesso Compartilhado) e os valores de chave recuperados do portal clássico do Azure, como descrito na seção anterior.
 
 ### Configure sua cadeia de conexão ao usar websites ou Máquinas Virtuais do Azure
 
@@ -97,7 +97,7 @@ Ao usar sites ou Máquinas Virtuais, é recomendável usar o sistema de configur
 </configuration>
 ```
 
-Use o nome da SAS e os valores de chave recuperados no portal do Azure, conforme descrito na seção anterior.
+Use o nome da SAS e os valores de chave recuperados no portal clássico do Azure, como descrito na seção anterior.
 
 ## Criar uma fila
 
@@ -183,7 +183,7 @@ for (int i=0; i<5; i++)
 }
 ```
 
-As filas do Barramento de Serviço dão suporte a um [tamanho máximo de mensagem de 256 KB](service-bus-quotas.md) (o cabeçalho, que inclui as propriedades padrão e personalizadas do aplicativo podem ter um tamanho máximo de 64 KB). Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB. Se o particionamento estiver habilitado, o limite superior será maior. Para saber mais, confira [Particionando entidades de mensagens](service-bus-partitioning.md).
+As filas do Barramento de Serviço são compatíveis com um [tamanho máximo de mensagem de 256 Kb](service-bus-quotas.md) (o cabeçalho, que inclui as propriedades padrão e personalizadas do aplicativo, podem ter um tamanho máximo de 64 KB). Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB. Se o particionamento estiver habilitado, o limite superior será maior. Para saber mais, confira [Particionando entidades de mensagens](service-bus-partitioning.md).
 
 ## Como receber mensagens de uma fila
 
@@ -246,7 +246,7 @@ Agora que você já sabe as noções básicas das filas de Barramento de Serviç
 -   Compile um aplicativo de trabalho que envia e recebe mensagens de e para uma fila do Barramento de Serviço com o [Tutorial do .NET do sistema de mensagens agenciado do Barramento do Serviço][].
 -   Baixe exemplos de Barramento de Serviço dos [exemplos do Azure][] ou consulte a [visão geral dos exemplos de Barramento de Serviço][].
 
-  [Azure portal]: http://manage.windowsazure.com
+  [portal clássico do Azure]: http://manage.windowsazure.com
   [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
   [Filas, tópicos e assinaturas]: service-bus-queues-topics-subscriptions.md
   [Tutorial do .NET do sistema de mensagens agenciado do Barramento do Serviço]: service-bus-brokered-tutorial-dotnet.md
@@ -259,4 +259,4 @@ Agora que você já sabe as noções básicas das filas de Barramento de Serviç
   [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
   [Complete]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

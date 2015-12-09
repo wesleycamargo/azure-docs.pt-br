@@ -14,7 +14,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="11/06/2015"
+    ms.date="12/01/2015"
     ms.author="adamkr; sstein"/>
 
 # Criar um pool de banco de dados elástico com o PowerShell para expansão de recursos para vários bancos de dados SQL 
@@ -236,4 +236,4 @@ Depois de criar um pool de banco de dados elástico, você pode gerenciar os ban
 
 Para saber mais sobre pools de banco de dados elásticos e bancos de dados elásticos, incluindo detalhes sobre APIs e erros, confira a [Referência de bancos de dados elásticos](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

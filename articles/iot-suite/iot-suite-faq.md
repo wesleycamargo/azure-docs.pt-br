@@ -26,11 +26,11 @@ Cinco. Você pode criar um tíquete de suporte para aumentar esse limite, mas po
 
 Duas. Você pode criar apenas duas APIs do Bing Mapas Gratuitas em uma assinatura. A solução de monitoramento remota é configurada por padrão com uma API do Bing Maps Gratuita. Como resultado, você só poderá provisionar até duas soluções de monitoramento remotas em uma assinatura sem modificações.
 
-### Qual é a diferença entre excluir um grupo de recursos no portal de visualização do Azure e clicar em excluir em uma solução pré-configurada no site azureiotsuite.com?
+### Qual é a diferença entre excluir um grupo de recursos no portal do Azure e clicar em excluir em uma solução pré-configurada no site azureiotsuite.com?
 
 - Se você excluir a solução pré-configurada no site [azureiotsuite.com][lnk-azureiotsuite], excluirá todos os recursos provisionados na criação da solução pré-configurada; se você tiver adicionado outros recursos ao grupo de recursos, eles também serão excluídos. 
 
-- Se você excluir o grupo de recursos no [portal de visualização do Azure][lnk-azure-portal], excluirá apenas os recursos desse grupo de recursos; também será necessário excluir o aplicativo do Active Directory do Azure associado à solução pré-configurada no [portal de gerenciamento do Azure][lnk-classic-portal].
+- Se você excluir o grupo de recursos no [portal do Azure][lnk-azure-portal], excluirá apenas os recursos desse grupo de recursos; também será necessário excluir o aplicativo do Active Directory do Azure associado à solução pré-configurada no [portal clássico do Azure][lnk-classic-portal].
 
 ### Como posso excluir um locatário do AAD?
 
@@ -42,4 +42,4 @@ Consulte a postagem do blog de Eric Golpe, [Passo a passo da exclusão de um loc
 [lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

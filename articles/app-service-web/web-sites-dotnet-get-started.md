@@ -40,7 +40,7 @@ O que você aprenderá:
 * Como configurar o Visual Studio para criar um novo aplicativo Web do Serviço de Aplicativo enquanto ele cria um projeto Web do ASP.NET MVC 5.
 * Como implantar um projeto Web em um aplicativo Web do Serviço de Aplicativo usando o Visual Studio.
 * Como usar o **Gerenciador de Servidores** do Visual Studio para abrir arquivos remotos e iniciar uma sessão de depuração remota. 
-* Como usar o [portal do Azure](/overview/preview-portal/) para monitorar e gerenciar seu aplicativo Web.
+* Como usar o [Portal do Azure](/overview/preview-portal/) para monitorar e gerenciar seu aplicativo Web.
 
 > [AZURE.NOTE]Este tutorial fala sobre o uso do ASP.NET com o Serviço de Aplicativo do Azure; ele não ensina a desenvolver um aplicativo Web ASP.NET. Para obter uma introdução ao ASP.NET MVC 5, confira [Introdução ao ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) no site do [ASP.NET](http://asp.net/). Para obter links para outros artigos com mais detalhes sobre como usar o Serviço de Aplicativo do Azure, confira a seção [Próximas etapas](#next-steps).
 > 
@@ -51,7 +51,7 @@ O que você aprenderá:
 Você precisa de uma conta do Azure para concluir este tutorial. Você pode:
 
 * [Abrir uma conta do Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F). Obtenha créditos que possam ser usados para experimentar os serviços pagos do Azure. Mesmo depois que os créditos são usados, você pode manter a conta e usar os serviços e recursos do Azure gratuitos, como o recurso de aplicativos Web do Serviço de Aplicativo do Azure.
-* [Ativar os benefícios de assinante do MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). - todos os meses, sua assinatura do MSDN lhe oferece créditos que podem ser usados para serviços pagos do Azure.
+* [Ativar benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Todos os meses, sua assinatura do Visual Studio oferece a você créditos que podem ser usados para serviços pagos do Azure.
 
 Se você quiser ter uma introdução ao Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751). Lá, você poderá criar imediatamente um aplicativo Web de curta duração inicial no Serviço de Aplicativo – sem exigência de cartão de crédito e sem compromissos.
 
@@ -231,7 +231,7 @@ No **Gerenciador de Servidores**, você também pode clicar com o botão direito
 
 Para obter mais informações, consulte [Solucionando problemas de aplicativos Web do Azure no Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
-## Monitore e gerencie o aplicativo Web no Portal do Azure
+## Monitorar e gerenciar o aplicativo Web no Portal do Azure
 
 O [Portal do Azure](/services/management-portal/) é uma interface da Web que você pode usar para gerenciar e monitorar seus serviços do Azure, como o aplicativo Web que acabou de criar. Nesta seção do tutorial, você descobre um pouco do que pode fazer no portal.
 
@@ -253,13 +253,13 @@ O [Portal do Azure](/services/management-portal/) é uma interface da Web que vo
 
 	![](./media/web-sites-dotnet-get-started/portalconfigure1.png)
 
-4. Clique em **Configurações do aplicativo** para ver um exemplo dos tipos de configurações que você pode definir no portal.
+4. Clique em **Configurações do aplicativo** para ver um exemplo dos tipos de configurações que você pode definir no Portal.
 
 	Por exemplo, você pode controlar a versão do .NET usada para o aplicativo Web, habilitar recursos como [WebSockets](/blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/) e definir [valores de cadeia de conexão](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
 
 	![Guia Configurar aplicativo Web do Portal](./media/web-sites-dotnet-get-started/portalconfigure2.png)
 
-Esses são apenas alguns dos recursos do portal. Você pode criar novos aplicativos Web, excluir aplicativos Web existentes, parar e reiniciar aplicativos Web e gerenciar outros tipos de serviços do Azure, como bancos de dados e máquinas virtuais.
+Esses são apenas alguns dos recursos do Portal. Você pode criar novos aplicativos Web, excluir aplicativos Web existentes, parar e reiniciar aplicativos Web e gerenciar outros tipos de serviços do Azure, como bancos de dados e máquinas virtuais.
 
 ## Próximas etapas
 
@@ -300,6 +300,5 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e os serviços existentes do Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Para obter um guia sobre a alteração do portal do Azure para o portal de visualização, confira [Referência para navegar no portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

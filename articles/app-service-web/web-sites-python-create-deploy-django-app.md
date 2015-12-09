@@ -57,7 +57,7 @@ Você deve ter o Python e Git já instalados, mas certifique-se de ter uma das v
 A primeira etapa na criação de seu aplicativo é criar o aplicativo Web por meio do [Portal do Azure](https://portal.azure.com).
 
 1. Faça logon no Portal do Azure e clique no botão **Novo** no canto inferior esquerdo.
-2. Clique em **Web + Móvel**.
+2. Clique em **Web + móvel**.
 3. Na caixa de pesquisa, digite "python".
 4. Nos resultados da pesquisa, selecione **Django** e clique em **Criar**.
 5. Configure o novo aplicativo Django, como a criação de um novo plano de Serviço de Aplicativo e um novo grupo de recursos para ele. Em seguida, clique em **Criar**.
@@ -497,7 +497,6 @@ Para obter mais informações, consulte o [Centro de Desenvolvedores do Python](
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 <!--Link references-->
@@ -520,4 +519,4 @@ Para obter mais informações, consulte o [Centro de Desenvolvedores do Python](
 [Ferramentas Python para documentação do Visual Studio]: http://aka.ms/ptvsdocs
 [Documentação do Django]: https://www.djangoproject.com/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

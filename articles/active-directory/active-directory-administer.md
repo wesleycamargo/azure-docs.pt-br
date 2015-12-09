@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Administrar seu diretório do Azure AD"
+	pageTitle="Administrar seu diretório do Azure AD | Microsoft Azure"
 	description="Um tópico que explica o que é um locatário do Azure AD e como gerenciar um diretório do Azure AD."
 	services="active-directory"
 	documentationCenter=""
-	authors="Markusvi"
+	authors="markusvi"
 	writer="markvi"
 	manager="stevenpo"
-	editor="LisaToft"/>
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/09/2015"
+	ms.date="12/01/2015"
 	ms.author="markvi"/>
 
 # Administrar seu diretório do Azure AD
@@ -145,4 +145,4 @@ As seguintes condições são verificadas:
 [1]: ./media/active-directory-administer/aad_portals.png
 [2]: ./media/active-directory-administer/azure_tenants.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

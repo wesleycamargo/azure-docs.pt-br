@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Criar um índice da Pesquisa do Azure no portal | Microsoft Azure | Serviço de pesquisa hospedado na nuvem"
-	description="Adicione um índice à Pesquisa do Azure, um serviço de pesquisa hospedado na nuvem, preenchendo as definições de campo no portal do Azure."
+	pageTitle="Criar um índice da Pesquisa do Azure no portal | Microsoft Azure | Serviço de pesquisa em nuvem hospedado"
+	description="Adicione um índice à Pesquisa do Azure, um serviço de pesquisa hospedado em nuvem, preenchendo as definições de campo no Portal Clássico do Azure."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -17,22 +17,22 @@
 	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
-# Criar um índice de Pesquisa do Azure no portal do Azure
+# Criar um índice da Pesquisa do Azure no Portal Clássico do Azure
 > [AZURE.SELECTOR]
 - [Overview](search-what-is-an-index.md)
 - [Portal](search-create-index-portal.md)
 - [.NET](search-create-index-dotnet.md)
 - [REST API](search-create-index-rest-api.md)
 
-Você pode rapidamente gerar um protótipo de índice na Pesquisa do Azure, criando um no portal do Azure. Usar o portal é ótimo para testes de verificação de conceito, mas também é possível usá-lo para exibir definições de esquema e uso de recursos para qualquer índice implantado em seu serviço.
+Você pode gerar rapidamente um protótipo de índice na Pesquisa do Azure criando um no Portal Clássico do Azure. Usar o portal é ótimo para testes de verificação de conceito, mas também é possível usá-lo para exibir definições de esquema e uso de recursos para qualquer índice implantado em seu serviço.
 
 Para concluir essa tarefa, verifique se você tem um serviço de Pesquisa do Azure que está pronto para ser usado. Consulte [Criar um serviço de Pesquisa do Azure no portal](search-create-service-portal.md) se precisar de ajuda para configurá-lo.
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [Portal Clássico do Azure](https://portal.azure.com).
 
 2. Abra o painel de serviços de seu serviço de Pesquisa do Azure. Aqui estão algumas maneiras para localizar o painel.
 	- Na barra de navegação rápida, clique em **Home**. A home page conta com blocos para cada serviço em sua assinatura. Clique no bloco para abrir o painel de serviços.
-	- Na barra de navegação, clique em **Procurar tudo** > **Filtrar por** > **Serviços de Pesquisa** para localizar o serviço de Pesquisa na lista.
+	- Na barra de navegação rápida, clique em **Procurar Tudo** > **Filtrar por** > **Serviços de pesquisa** para localizar o serviço Pesquisa na lista.
 
 3. No painel do serviços, você verá uma barra de comandos na parte superior, inclusive um para **Adicionar índice**.
 
@@ -44,7 +44,7 @@ Para concluir essa tarefa, verifique se você tem um serviço de Pesquisa do Azu
 
      ![][2]
 
-5. Para criar um novo índice no portal, clique em **Adicionar índice** e dê a ele um nome, como *hotéis*.
+5. Para criar um novo índice no portal, clique em **Adicionar Índice** e dê a ele um nome, como *hotéis*.
 
 	Pode levar um minuto para criar o índice, mas quando ele estiver pronto para se trabalhar com, aparecerá na lista de índices.
 
@@ -76,11 +76,11 @@ O portal é diferente. No portal, comportamentos de pesquisa são desativados po
 
 	![][5]
 
-	Analise as [Regras de nomenclatura](https://msdn.microsoft.com/library/azure/dn857353.aspx) e [Tipos de dados com suporte](https://msdn.microsoft.com/library/azure/dn798938.aspx) para obter informações de referência sobre tipos e nomes de campos.
+	Analise as [Regras de nomenclatura](https://msdn.microsoft.com/library/azure/dn857353.aspx) e os [Tipos de dados com suporte](https://msdn.microsoft.com/library/azure/dn798938.aspx) para obter informações de referência sobre tipos e nomes de campos.
 
     Os atributos de índice consistem dos seguintes itens:
 
-	- **Recuperável** especifica se um campo pode ser retornado em um resultado de pesquisa.
+	- **Recuperável** especifica se um campo pode ser retornado em um resultado da pesquisa.
 	- **Filtrável** permite que o campo seja usado nas consultas **$filter**.
 	- **Classificável** permite que o campo seja usado como uma opção de classificação.
 	- **Facetável** permite que um campo seja usado em uma estrutura de navegação facetada para filtragem autodirigida. Normalmente os campos que contêm valores repetidos que você pode usar para agrupar vários documentos (por exemplo, vários documentos que estão em um único produto ou serviço) funcionam melhor como facetas.
@@ -89,12 +89,12 @@ O portal é diferente. No portal, comportamentos de pesquisa são desativados po
 
 3. Para remover todos os campos não desejados, clique com botão direito do mouse e selecione **Excluir**.
 
-4. Clique em **OK** para salvar o índice que você acabou de definir e, em seguida, clique em **OK** na página Adicionar índice para criar o índice.
+4. Clique em **OK** para salvar o índice que você acabou de definir e clique em **OK** na página Adicionar índice para criar o índice.
 
 
 ## Próximas etapas
 
-Embora o índice esteja definido, ele não estará pronto para uso até que você carregue documentos. Suponha que você está recriando o índice Hotéis, usado para fins de teste, você pode carregar facilmente um pequeno número de documentos para aquele índice no [Fiddler](search-fiddler.md), usando as instruções na seção Carregar documentos de [Como usar o Fiddler com a Pesquisa do Azure](search-fiddler.md). Em seguida, você pode seguir as etapas restantes nesse artigo para executar algumas consultas.
+Embora o índice esteja definido, ele não estará pronto para uso até que você carregue documentos. Suponha que você esteja recriando o índice Hotéis, usado para fins de teste, você pode carregar facilmente um pequeno número de documentos para aquele índice no [Fiddler](search-fiddler.md), usando as instruções da seção Carregar documentos de [Como usar o Fiddler com a Pesquisa do Azure](search-fiddler.md). Em seguida, você pode seguir as etapas restantes nesse artigo para executar algumas consultas.
 
 Quando você estiver familiarizado com o índice básico, considere a possibilidade de adicionar um analisador de linguagem ou sugestor para adicionar suporte a vários idiomas ou sugestões de preenchimento automático. Os dois recursos são especificados no esquema de índice. Consulte [Suporte a Idiomas](https://msdn.microsoft.com/elibrary/azure/dn879793.aspx) e [Criar Índice](https://msdn.microsoft.com/library/azure/dn798941.aspx) para obter mais informações.
 
@@ -105,4 +105,4 @@ Quando você estiver familiarizado com o índice básico, considere a possibilid
 [4]: ./media/search-create-index-portal/AzureSearch-PortalIndex-4.PNG
 [5]: ./media/search-create-index-portal/AzureSearch-PortalIndex-5.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

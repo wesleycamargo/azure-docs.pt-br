@@ -35,7 +35,7 @@ Você precisará de uma conta no [Microsoft Azure](http://azure.com). Talvez voc
 
 O que você deseja | O que fazer | O que você ganha
 ---|---|---
- <a href="app-insights-start-monitoring-app-health-usage.md">![ASP.NET](./media/app-insights-get-started/appinsights-gs-i-01-perf.png)</a> | <a href="app-insights-start-monitoring-app-health-usage.md">Adicione o SDK do Application Insights ao seu projeto Web</a> <br/> ![gets](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-start-monitoring-app-health-usage.md">![Monitoramento de desempenho e uso](./media/app-insights-get-started/appinsights-gs-r-01-perf.png)</a>
+ <a href="app-insights-asp-net.md">![ASP.NET](./media/app-insights-get-started/appinsights-gs-i-01-perf.png)</a> | <a href="app-insights-asp-net.md">Adicione o SDK do Application Insights ao seu projeto Web</a> <br/> ![gets](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-asp-net.md">![Monitoramento de desempenho e uso](./media/app-insights-get-started/appinsights-gs-r-01-perf.png)</a>
 <a href="app-insights-monitor-performance-live-website-now.md">![Site ASP.NET já ativo](./media/app-insights-get-started/appinsights-gs-i-04-red2.png)</a><br/><a href="app-insights-monitor-performance-live-website-now.md">![Monitoramento de desempenho e dependência](./media/app-insights-get-started/appinsights-gs-i-03-red.png)</a>|<a href="app-insights-monitor-performance-live-website-now.md">Instalar o Monitor de Status no seu servidor IIS</a> <br/> ![gets](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-monitor-performance-live-website-now.md">![Monitoramento de dependência do ASP.NET](./media/app-insights-get-started/appinsights-gs-r-03-red.png)</a>
 <a href="insights-perf-analytics.md">![Aplicativo Web ou VM do Azure](./media/app-insights-get-started/appinsights-gs-i-10-azure.png)</a>|<a href="insights-perf-analytics.md">Habilitar Insights no seu aplicativo Web ou VM do Azure</a> <br/> ![gets](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="insights-perf-analytics.md">![Monitoramento de desempenho e dependência](./media/app-insights-get-started/appinsights-gs-r-03-red.png)</a>
 <a href="app-insights-java-get-started.md">![Java](./media/app-insights-get-started/appinsights-gs-i-11-java.png)</a>|<a href="app-insights-java-get-started.md">Adicionar o SDK ao seu projeto Java</a><br/>![gets](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-java-get-started.md">![Monitoramento de desempenho e uso](./media/app-insights-get-started/appinsights-gs-r-10-java.png)</a>
@@ -74,4 +74,4 @@ O que você deseja | O que fazer | O que você ganha
 
 [qna]: app-insights-troubleshoot-faq.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

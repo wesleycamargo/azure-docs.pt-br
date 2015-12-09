@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="11/25/2015"
    ms.author="seanmck"/>
 
 # Gerenciando parâmetros do aplicativo para vários ambientes
@@ -55,11 +55,12 @@ Os atributos DefaultValue especificam o valor a ser usado na ausência de um par
 
 >[AZURE.NOTE]Nem todos os parâmetros da instância de serviço são adequados para a configuração por ambiente. No exemplo acima, os valores LowKey e HighKey para o esquema de particionamento do serviço são definidos explicitamente para todas as instâncias do serviço, já que o intervalo de partição é uma função do seu domínio de dados, não do ambiente.
 
+
 ### Definições de configuração de serviço por ambiente
 
 O [modelo de aplicativo do Service Fabric](service-fabric-application-model.md) permite que os serviços incluam pacotes de configuração com pares de chave-valor personalizados legíveis em tempo de execução. Os valores dessas configurações também podem ser diferenciados pelo ambiente por meio da especificação de uma `ConfigOverride` no manifesto do aplicativo.
 
-Suponha que você tenha a seguinte configuração no manifesto de serviço para o serviço `Stateful1`:
+Suponha que você tenha a seguinte configuração em Config\\Settings.xml para o serviço `Stateful1`:
 
 
     <Section Name="MyConfigSection">
@@ -81,6 +82,7 @@ Para substituir esse valor por um par de aplicativo/ambiente específico, crie u
 Esse parâmetro poderá então ser configurado por ambiente, como mostrado acima, declarando-o na seção de parâmetros do manifesto do aplicativo e especificando valores específicos nos arquivos de parâmetros do aplicativo.
 
 >[AZURE.NOTE]No caso de definições de configuração de serviço, há três locais onde o valor de uma chave pode ser definido: o pacote de configuração de serviço, o manifesto do aplicativo e o arquivo de parâmetros do aplicativo. O Service Fabric sempre escolherá o arquivo de parâmetros de aplicativo primeiro (se especificado), o manifesto do aplicativo e, por fim, o pacote de configuração.
+
 
 ### Arquivos de parâmetros de aplicativo
 
@@ -127,4 +129,4 @@ Para saber mais sobre alguns dos principais conceitos discutidos neste tópico, 
 [publishdialog]: ./media/service-fabric-manage-multiple-environment-app-configuration/publish-dialog-choose-app-config.png
 [app-parameters-solution-explorer]: ./media/service-fabric-manage-multiple-environment-app-configuration/app-parameters-in-solution-explorer.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

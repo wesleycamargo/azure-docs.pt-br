@@ -36,7 +36,7 @@ Este passo a passo mostra como se conectar e consultar um banco de dados do SQL 
 
 Para conectar-se ao banco de dados, você precisará do nome completo do servidor (****nomedoservidor**.database.windows.net*) que contenha o banco de dados ao qual você deseja se conectar.
 
-1. Vá para o [Portal de Visualização do Azure](https://portal.azure.com).
+1. Vá para o [Portal do Azure](https://portal.azure.com).
 2. Navegue até o banco de dados ao qual você deseja se conectar.
 3. Localize o nome do servidor completo (vamos usá-lo nas etapas abaixo):
 
@@ -83,4 +83,4 @@ Agora que você pode se conectar e consultar, tente [conectar-se ao PowerBI][].
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

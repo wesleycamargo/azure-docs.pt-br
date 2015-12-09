@@ -63,7 +63,7 @@ Para dar suporte ao aplicativo, é criado um contêiner no Armazenamento do Azur
 
 	- **[nome-conta]** - o nome da conta de armazenamento que você criou anteriormente.
 
-	- **[chave-conta]** - a chave primária da conta de armazenamento. Você pode encontrar a chave primária da página Armazenamento no portal de visualização do Azure.
+	- **[chave-conta]** - a chave primária da conta de armazenamento. Você pode encontrar a chave primária da página Armazenamento no portal do Azure.
 
 2. Salve o arquivo App.config.
 
@@ -208,7 +208,7 @@ Um pool de nós de computação é o primeiro conjunto de recursos que você dev
 			BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials("[account-url]", "[account-name]", "[account-key]");
 			BatchClient client = BatchClient.Open(cred);
 
-	Substitua os valores entre colchetes por aqueles associados à sua conta do Lote, cada um deles pode ser encontrado no [portal de visualização do Azure](https://portal.azure.com). Para localizar esses valores, faça logon no [portal de visualização do Azure](https://portal.azure.com) e:
+	Substitua os valores entre colchetes por aqueles associados à sua conta do Lote, cada um deles pode ser encontrado no [portal do Azure](https://portal.azure.com). Para localizar esses valores, faça logon no [portal do Azure](https://portal.azure.com) e:
 
 	- **[nome-conta]** - clique em **Contas do Lote**, selecione a conta do Lote criada anteriormente
 	- **[url-conta]** - na folha Conta do Lote, clique em **Propriedades** > **URL**
@@ -487,7 +487,7 @@ Como você é cobrado pelos recursos no Azure, sempre será uma boa ideia exclui
 			Task status: Completed
 			Task start: 7/17/2015 8:31:57 PM
 
-8. Neste ponto, você pode acessar o portal de visualização do Azure para examinar os recursos que foram criados. Para excluir os recursos, pressione Enter até que o programa seja concluído.
+8. Neste ponto, você pode ir para o portal do Azure para examinar os recursos que foram criados. Para excluir os recursos, pressione Enter até que o programa seja concluído.
 
 ## Próximas etapas
 
@@ -495,4 +495,4 @@ Como você é cobrado pelos recursos no Azure, sempre será uma boa ideia exclui
 
 2. Alguns aplicativos geram grandes quantidades de dados que podem ser difíceis de processar. Um modo de resolver isso é por meio da [consulta de lista eficiente](batch-efficient-list-queries.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

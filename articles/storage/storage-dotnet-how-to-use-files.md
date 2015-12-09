@@ -23,15 +23,15 @@
 
 O armazenamento de arquivos do Azure oferece compartilhamentos de arquivos na nuvem usando o protocolo SMB padrão. O armazenamento de arquivo agora está disponível e dá suporte a SMB 2.1 e a SMB 3.0.
 
-Você pode criar compartilhamentos de arquivos do Azure usando o portal de visualização do Azure, os cmdlets do PowerShell de armazenamento do Azure, as bibliotecas de cliente de armazenamento do Azure ou APIs REST do armazenamento do Azure. Além disso, como os compartilhamentos de arquivos são compartilhamentos do SMB, você pode acessá-los por meio de APIs padrão e clássicas do sistema de arquivos.
+Você pode criar compartilhamentos de arquivos do Azure usando o [Portal do Azure](portal.azure.com), os cmdlets do PowerShell do Armazenamento do Azure, as bibliotecas de cliente do Armazenamento do Azure ou a API REST do Armazenamento do Azure. Além disso, como os compartilhamentos de arquivos são compartilhamentos do SMB, você pode acessá-los por meio de APIs padrão e clássicas do sistema de arquivos.
 
 Os aplicativos em execução no Azure podem facilmente montar compartilhamentos de arquivos a partir das máquinas virtuais do Azure. E com a versão mais recente do Armazenamento de arquivos, também é possível montar um compartilhamento de arquivos a partir de um aplicativo local que dá suporte ao SMB 3.0.
 
 O armazenamento de arquivos baseia-se na mesma tecnologia de armazenamento de Blobs, Tabelas e Fila, o que significa que o armazenamento de arquivo pode aproveitar a disponibilidade, a durabilidade, a escalabilidade e a redundância geográfica existentes e incorporadas à plataforma de armazenamento do Azure.
 
-Para saber mais sobre como usar o armazenamento de arquivos com o Linux, confira [Como usar o armazenamento de arquivos do Azure com Linux](storage-how-to-use-files-linux.md).
+Para saber mais sobre como usar o Armazenamento de Arquivos com o Linux, confira [Como usar o Armazenamento de Arquivos do Azure com o Linux](storage-how-to-use-files-linux.md).
 
-Para saber mais sobre metas de escalabilidade para armazenamento de arquivos, confira [Metas de desempenho e escalabilidade do armazenamento do Azure](storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts).
+Para saber mais sobre metas de escalabilidade para o Armazenamento de Arquivos, confira [Metas de desempenho e escalabilidade do Armazenamento do Azure](storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts).
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -58,14 +58,14 @@ Este guia de introdução mostra os fundamentos sobre como utilizar o armazename
 
 Agora há suporte de armazenamento de arquivos para todas as contas de armazenamento; assim, você pode usar uma conta de armazenamento existente ou criar uma nova conta de armazenamento. Confira [Como criar, gerenciar ou excluir uma conta de armazenamento](storage-create-storage-account.md#create-a-storage-account) para saber como criar uma nova conta de armazenamento.
 
-## Use o portal de visualização do Azure para gerenciar um compartilhamento de arquivos
+## Usar o Portal do Azure para gerenciar um compartilhamento de arquivos
 
-O [portal de visualização do Azure](https://ms.portal.azure.com/) fornece uma interface de usuário para que os clientes possam gerenciar o Armazenamento de arquivos. No portal de visualização, você pode:
+O [Portal do Azure](portal.azure.com) fornece uma interface de usuário para que os clientes possam gerenciar o Armazenamento de Arquivos. No portal de visualização, você pode:
 
 - Carregar e baixar arquivos de e para o compartilhamento de arquivos
 - Monitorar o uso real de cada compartilhamento de arquivos
 - Ajustar a cota de tamanho de compartilhamento
-- Obtenha o comando `net use` a ser usado para montar o compartilhamento de arquivos de um Windows Client 
+- Obtenha o comando `net use` a ser usado para montar o compartilhamento de arquivos de um cliente do Windows 
 
 ## Usar o PowerShell para gerenciar um compartilhamento de arquivos
 
@@ -81,7 +81,7 @@ Abra uma janela do PowerShell do Azure clicando em **Iniciar** e digitando **Pow
 
 ### Criar um contexto para sua conta e chave de armazenamento
 
-Agora, crie o contexto da conta de armazenamento. O contexto encapsula a conta de armazenamento e a chave da conta. Para obter instruções sobre como copiar a chave da conta no portal do Azure, consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+Agora, crie o contexto da conta de armazenamento. O contexto encapsula a conta de armazenamento e a chave da conta. Para obter instruções sobre como copiar a chave da conta no [Portal do Azure](portal.azure.com), consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 
 Substitua `storage-account-name` e `storage-account-key` pelo nome e chave da sua conta de armazenamento no exemplo a seguir.
 
@@ -469,7 +469,7 @@ Você pode copiar um blob em um arquivo da mesma maneira. Se o objeto de origem 
 
 A análise de armazenamento do Azure agora dá suporte a métricas para armazenamento de arquivos. Com dados de métricas, você pode rastrear solicitações e diagnosticar problemas.
 
-Você pode habilitar métricas para armazenamento de arquivos no portal do Azure. Você também pode habilitar métricas programaticamente ao chamar a operação Definir Propriedades de Serviço do Arquivo pela API REST ou uma operação semelhante na biblioteca de cliente de armazenamento.
+Você pode habilitar métricas para o Armazenamento de Arquivos no [Portal do Azure](portal.azure.com). Você também pode habilitar métricas programaticamente ao chamar a operação Definir Propriedades de Serviço do Arquivo pela API REST ou uma operação semelhante na biblioteca de cliente de armazenamento.
 
 ## Perguntas frequentes sobre armazenamento de arquivo
 
@@ -519,7 +519,7 @@ Você pode habilitar métricas para armazenamento de arquivos no portal do Azure
 
 	Você não tem esse nível de controle sobre as permissões se montar o compartilhamento de arquivos via SMB. No entanto, você pode conseguir isso criando uma SAS (assinatura de acesso compartilhado) por meio de bibliotecas de API REST ou de cliente.
 
-12. **O desempenho era lento durante a tentativa de descompactar arquivos no Armazenamento de arquivos. O que devo fazer?**
+12. **O desempenho era lento durante a tentativa de descompactar arquivos no Armazenamento de Arquivos. O que devo fazer?**
 
 	Para transferir grandes quantidades de arquivos para o armazenamento de arquivos, recomendamos que você use o AzCopy, o Azure Powershell (Windows) ou a CLI do Azure (Unix/Linux), já que essas ferramentas foram otimizadas para transferência de rede.
 
@@ -540,7 +540,7 @@ Consulte estes links para obter mais informações sobre o armazenamento de arqu
 
 ### Referência
 
-- Referência à [Biblioteca de Cliente de Armazenamento para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
+- [Referência à Biblioteca de Cliente de Armazenamento para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 - [Referência à API REST do serviço de arquivos](http://msdn.microsoft.com/library/azure/dn167006.aspx)
 
 ### Postagens no blog
@@ -550,4 +550,4 @@ Consulte estes links para obter mais informações sobre o armazenamento de arqu
 - [Apresentando o serviço de arquivo do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persistindo conexões para arquivos do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

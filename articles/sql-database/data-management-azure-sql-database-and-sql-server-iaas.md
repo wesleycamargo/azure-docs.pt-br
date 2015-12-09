@@ -61,7 +61,7 @@ Nas seções a seguir, aprenderemos sobre o SQL Server na nuvem pública: Banco 
 
 O **Banco de Dados SQL do Microsoft Azure (Banco de Dados SQL do Azure)** é um banco de dados como serviço relacional hospedado na nuvem do Azure que se encaixa na categoria do setor *software como serviço (SaaS)* e *plataforma como serviço (PaaS)*. O Banco de Dados SQL do Azure baseia-se em hardware e software padronizados que são de propriedade, hospedados e mantidos pela Microsoft. Com o Banco de Dados SQL, você pode desenvolver diretamente no serviço usando a funcionalidade e recursos internos. Ao usar o Banco de Dados SQL, você paga pelo uso com opções para escalar verticalmente ou horizontalmente para ter maior capacidade.
 
-**O SQL Server na Máquina Virtual (VM) do Azure** se enquadra na categoria do setor *Infraestrutura como Serviço (IaaS)* e permite executar o SQL Server dentro de uma máquina virtual na nuvem. Semelhante ao Banco de Dados SQL do Azure, ele se baseia no hardware padronizado que é de propriedade, hospedado e mantido pela Microsoft. Ao usar o SQL Server em uma VM, você pode colocar sua própria licença do SQL Server no Azure ou usar uma das imagens pré-configuradas do SQL Server no portal do Azure.
+**O SQL Server na Máquina Virtual (VM) do Azure** se enquadra na categoria do setor *Infraestrutura como Serviço (IaaS)* e permite executar o SQL Server dentro de uma máquina virtual na nuvem. Semelhante ao Banco de Dados SQL do Azure, ele se baseia no hardware padronizado que é de propriedade, hospedado e mantido pela Microsoft. Ao usar o SQL Server em uma VM, você pode colocar sua própria licença do SQL Server no Azure ou usar uma das imagens pré-configuradas do SQL Server no Portal Clássico do Azure.
 
 Em geral, essas duas opções de SQL são otimizadas para finalidades diferentes:
 
@@ -263,4 +263,4 @@ Obrigado a todos por dar vida a este artigo!
 <!--Image references-->
 [1]: ./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

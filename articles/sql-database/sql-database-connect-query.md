@@ -46,7 +46,7 @@ Para executar o exemplo de código de consulta C#, você deverá ter:
 - Visual Studio 2013 - atualização 4 (ou posterior). A Microsoft agora oferece a Comunidade do Visual Studio *gratuitamente*.
  - [Comunidade do Visual Studio, download](http://www.visualstudio.com/products/visual-studio-community-vs)
  - [Mais opções para o Visual Studio gratuito](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
- - Ou veja como a próxima [etapa](#InstallVSForFree) deste tópico descreve como o [portal de visualização do Azure](http://portal.azure.com/) orienta você pela instalação do Visual Studio.
+ - Ou veja como a próxima [etapa](#InstallVSForFree) deste tópico descreve como o [Portal do Azure](http://portal.azure.com/) orienta você pela instalação do Visual Studio.
 
 
 <a name="InstallVSForFree" id="InstallVSForFree"></a>
@@ -59,13 +59,13 @@ Para executar o exemplo de código de consulta C#, você deverá ter:
 Caso seja necessário instalar o Visual Studio, você poderá:
 
 - Instalar a Comunidade do Visual Studio gratuitamente ao usar seu navegador para acessar as páginas da Web do produto Visual Studio que ofereçam downloads gratuitos e outras opções ou
-- Permitir que o [portal de visualização do Azure](http://portal.azure.com/) oriente você na página de download, que será descrita a seguir.
+- Permita que o [Portal do Azure](http://portal.azure.com/) oriente você na página de download, que será descrita a seguir.
 
 
-### Visual Studio por meio do portal de visualização do Azure
+### Visual Studio por meio do Portal do Azure
 
 
-1. Faça logon por meio do [portal de visualização do Azure](http://portal.azure.com/), em http://portal.azure.com/.
+1. Faça logon por meio do [Portal do Azure](http://portal.azure.com/), http://portal.azure.com/.
 
 2. Clique em **PROCURAR* TUDO** > **Bancos de dados SQL**. Será aberta uma folha para a pesquisa de bancos de dados.
 
@@ -127,7 +127,7 @@ Nosso exemplo de C# usa o assembly do .NET Framework **System.Configuration.dll*
 ## Etapa 4: Obter a cadeia de conexão
 
 
-Use o [portal de visualização do Azure](http://portal.azure.com/) para copiar a cadeia de conexão necessária para a conexão ao banco de dados SQL.
+Use o [Portal do Azure](http://portal.azure.com/) para copiar a cadeia de conexão necessária para a conexão ao banco de dados SQL.
 
 Sua primeira utilização será para conectar o Visual Studio ao Banco de Dados SQL do Azure **AdventureWorksLT**.
 
@@ -316,7 +316,7 @@ Tentamos manter o exemplo C# pequeno. Ainda assim, adicionamos código para ler 
 O programa cliente C# não poderá se conectar ao Banco de Dados SQL até que o endereço IP do computador cliente tenha sido adicionado ao firewall do Banco de Dados SQL. O programa falhará com uma mensagem de erro útil que indica o endereço IP necessário.
 
 
-Você pode usar o [portal de visualização do Azure](http://portal.azure.com/) para adicionar o endereço IP.
+Você pode usar o [Portal do Azure](http://portal.azure.com/) para adicionar o endereço IP.
 
 
 
@@ -358,4 +358,4 @@ Para saber mais, consulte <br/>[Como definir as configurações de firewall no B
 
 [50-VSCopyToOutputDirectoryProperty]: ./media/sql-database-connect-query/connqry-vs-appconfig-copytoputputdir-h.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

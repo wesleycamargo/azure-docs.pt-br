@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Azure Site Recovery: teste de desempenho e dimensionamento: do local para o mesmo local"
-	description="Este artigo aborda os testes do impacto no desempenho da replicação usando o Azure Site Recovery em uma implantação do local para o mesmo local."
-	services="site-recovery"
+	pageTitle="Azure Site Recovery: teste de desempenho e resultados de escala para a replicação Hyper-V do local para o local"
+	description="Este artigo fornece informações sobre os testes de desempenho para a replicação de no local para no local usando o Azure Site Recovery."
+	services="site-recovery" 
 	documentationCenter=""
-	authors="csilauraa"
+	authors="rayne-wiselman"
 	manager="jwhit"
 	editor="tysonn"/>
 
@@ -13,24 +13,25 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="10/07/2015"
-	ms.author="lauraa"/>
+	ms.date="12/01/2015"
+	ms.author="raynew"/>
 
-# Teste de desempenho e dimensionamento: do local para o mesmo local
+# Azure Site Recovery: teste de desempenho e resultados de escala para a replicação Hyper-V do local para o local
 
-O Azure Site Recovery coordena e gerencia a replicação de seu armazenamento de dados primário em um segundo local para que seus dados passem por backup e possam ser recuperados no caso de interrupções planejadas ou não planejadas. Você pode fazer backup de nuvens privadas locais encontradas no System Center Virtual Machine Manager (VMM) para outro espaço no local ou para o armazenamento do Microsoft Azure. Para executar a replicação, o VMM usa a Réplica do Hyper-V, um mecanismo de replicação integrado ao Hyper-V no Windows Server 2012 e no Windows Server 2012 R2. Ele fornece a replicação assíncrona de máquinas virtuais do Hyper-V entre dois servidores de hospedagem. Qualquer carga de trabalho de servidor que possa ser virtualizada no Hyper-V pode ser replicada. A replicação funciona em qualquer rede comum baseada em IP. A Réplica do Hyper-V funciona com servidores autônomos, clusters de failover ou uma mistura de ambos.
+Você pode usar o Microsoft Azure Site Recovery para orquestrar e gerenciar a replicação de máquinas virtuais e de servidores físicos para o Azure ou em um datacenter secundário. Este artigo fornece os resultados do teste de desempenho que fizemos ao replicar máquinas virtuais do Hyper-V entre dois datacenters locais.
 
-Este tópico aborda os testes do impacto no desempenho da replicação usando o Azure Site Recovery em uma implantação do local para o mesmo local. Ele fornece informações detalhadas sobre os parâmetros e definições de configuração usadas no teste, mostra a etapa de implantação do teste e fornece resultados detalhados do teste.
 
-## Objetivos do teste
 
-O objetivo é examinar o desempenho do Azure Site Recovery durante a replicação em estado estável. A replicação em estado estável ocorre após a conclusão da replicação inicial das máquinas virtuais e durante a sincronizando das alterações delta. É importante medir o desempenho usando o estado estável, pois esse é o estado no qual a maioria das máquinas virtuais permanece, a menos que ocorra alguma interrupção inesperada.
+## Visão geral
 
-## Executando a implantação de teste
+O objetivo do teste é examinar o desempenho do Azure Site Recovery durante a replicação em estado estável. A replicação em estado estável ocorre após a conclusão da replicação inicial das máquinas virtuais e durante a sincronizando das alterações delta. É importante medir o desempenho usando o estado estável, pois esse é o estado no qual a maioria das máquinas virtuais permanece, a menos que ocorra alguma interrupção inesperada.
 
-A implantação de teste é formada por dois sites locais com um servidor VMM em cada um. Os dois servidores VMM são registrados em um cofre do Azure Site Recovery. Essa implantação de teste é típica de uma implantação de sede/filial, na qual a sede age como o site primário e a filial como o site secundário, ou de recuperação.
 
-### Etapas da implantação de teste.
+A implantação de teste é formada por dois sites locais com um servidor VMM em cada site. Essa implantação de teste é típica de uma implantação de sede/filial, na qual a sede age como o site primário e a filial como o site secundário, ou de recuperação.
+
+### O que fizemos
+
+Veja o que fizemos no teste aprovado:
 
 1. Criação de máquinas virtuais usando modelos do VMM.
 
@@ -104,9 +105,9 @@ O gráfico a seguir mostra a taxa de transferência de máquinas virtuais execut
 
 ### Conclusão
 
-Os resultados mostram claramente que o Azure Site Recovery, junto com a Réplica do Hyper-V, se ajusta muito bem com uma sobrecarga mínima para um cluster grande. O Azure Site Recovery oferece implantação, replicação, gerenciamento e monitoramento simplificado. A Réplica do Hyper-V fornece a infraestrutura necessária para o ajuste da replicação. Para planejar uma implantação ideal, sugerimos que você baixe o [Capacity Planner da Réplica Hyper-V](https://www.microsoft.com/pt-BR/download/details.aspx?id=39057).
+Os resultados mostram claramente que o Azure Site Recovery, junto com a Réplica do Hyper-V, se ajusta muito bem com uma sobrecarga mínima para um cluster grande. O Azure Site Recovery oferece implantação, replicação, gerenciamento e monitoramento simplificado. A Réplica do Hyper-V fornece a infraestrutura necessária para o ajuste da replicação. Para planejar uma implantação ideal, sugerimos que você baixe o [Capacity Planner da Réplica Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057).
 
-## Ambiente da implantação de teste
+## Detalhes do ambiente de teste
 
 ### Site primário
 
@@ -194,24 +195,13 @@ A tabela resume as métricas e os contadores de desempenho medidos na implantaç
 
 |Métrica|Contador|
 |---|---|
-|CPU|\\Processor(\_Total)\\% Processor Time|
-|Available memory|\\Memory\\Available MBytes|
-|IOPS|\\PhysicalDisk(\_Total)\\Disk Transfers/sec|
-|VM read (IOPS) operations/sec|\\Hyper-V Virtual Storage Device(<VHD>)\\Read Operations/Sec|
-|VM write (IOPS) operations/sec|\\Hyper-V Virtual Storage Device(<VHD>)\\Write Operations/S|
-|VM read throughput|\\Hyper-V Virtual Storage Device(<VHD>)\\Read Bytes/sec|
-|VM write throughput|\\Hyper-V Virtual Storage Device(<VHD>)\\Write Bytes/sec|
+|CPU|\\Processor(\_Total)\\% Processor Time| |Available memory|\\Memory\\Available MBytes| |IOPS|\\PhysicalDisk(\_Total)\\Disk Transfers/sec| |VM read (IOPS) operations/sec|\\Hyper-V Virtual Storage Device(<VHD>)\\Read Operations/Sec| |VM write (IOPS) operations/sec|\\Hyper-V Virtual Storage Device(<VHD>)\\Write Operations/S| |VM read throughput|\\Hyper-V Virtual Storage Device(<VHD>)\\Read Bytes/sec| |VM write throughput|\\Hyper-V Virtual Storage Device(<VHD>)\\Write Bytes/sec|
 
 
 ## Próximas etapas
 
-Para iniciar a implantação do ASR:
-
-- [Configurar a proteção entre um site VMM local e o Azure](site-recovery-vmm-to-azure.md)
-- [Configurar a proteção entre um site do Hyper-V local e o Azure](site-recovery-hyper-v-site-to-azure.md)
 - [Configurar a proteção entre dois sites VMM locais](site-recovery-vmm-to-vmm.md)
-- [Configurar a proteção entre dois sites VMM locais com SAN](site-recovery-vmm-san.md)
-- [Configurar a proteção com um único servidor VMM](site-recovery-single-vmm.md)
+
  
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

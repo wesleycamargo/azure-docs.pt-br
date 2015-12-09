@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Fluxo de trabalho típico para o desenvolvimento de Pesquisa do Azure | Microsoft Azure | Serviço de pesquisa hospedado na nuvem"
+	pageTitle="Fluxo de trabalho típico para o desenvolvimento da Pesquisa do Azure | Microsoft Azure | Serviço de pesquisa em nuvem hospedado"
 	description="Um fluxo de trabalho ou roteiro para criar aplicativos de protótipo e produção que se integram à Pesquisa do Azure, um serviço de pesquisa hospedado na nuvem."
 	services="search"
 	documentationCenter=""
@@ -42,7 +42,7 @@ Há duas camada de preços à sua escolha. Recomendamos o serviço compartilhado
 
 Depois de criar o serviço, você está pronto para criar um índice, começando com a definição de esquema.
 
-A maneira mais rápida e fácil de criar um índice é por meio do portal do Azure. No mínimo, cada documento deve ter uma chave exclusiva e pelo menos um campo contendo dados pesquisáveis. Para começar, consulte [Criar um índice no portal](search-create-index-portal.md).
+A maneira mais rápida e mais fácil de criar um índice é por meio do Portal Clássico do Azure. No mínimo, cada documento deve ter uma chave exclusiva e pelo menos um campo contendo dados pesquisáveis. Para começar, consulte [Criar um índice no portal](search-create-index-portal.md).
 
 > [AZURE.NOTE]Dentro de um índice da Pesquisa do Azure
 >
@@ -180,7 +180,7 @@ Para usar dados externos, você deve definir um campo no índice que armazena um
 
 Um do recursos mais interessantes da Pesquisa do Azure é a facilidade com a qual você pode escalar ou reduzir verticalmente os recursos em resposta à demanda. Embora esse recurso não elimine a necessidade de planejamento de capacidade, ele pode minimizar a maioria dos riscos. Você não fica obrigado a usar hardware adicional ou o hardware errado para executar suas cargas de trabalho de pesquisa.
 
-Como última etapa, examine os níveis de recursos existentes para partições e réplicas e determine se é necessário realizar ajustes. É a maneira mais fácil de ajustar a capacidade está no [Portal do Azure](https://ms.portal.azure.com/).
+Como última etapa, examine os níveis de recursos existentes para partições e réplicas e determine se é necessário realizar ajustes. A maneira mais fácil de ajustar a capacidade está no [Portal Clássico do Azure](https://ms.portal.azure.com/).
 
 Lembre-se de que somente a camada de preços Standard pode ser escalada ou reduzida verticalmente. Além disso, dependendo do grau de ajuste, ela pode levar de alguns minutos a várias horas para implantar clusters adicionais para o serviço.
 
@@ -190,4 +190,4 @@ Lembre-se de que somente a camada de preços Standard pode ser escalada ou reduz
 <!--Image references-->
 [1]: ./media/search-workflow/AzSearch-Workflow.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

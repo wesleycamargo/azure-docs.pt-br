@@ -19,11 +19,9 @@
 
 #Criar um aplicativo HTML
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)] 
-&nbsp;  
-<!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp; <!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
 
->[AZURE.IMPORTANT]Este tópico não tem suporte dos Aplicativos Móveis porque o início rápido para aplicativos HTML/JavaScript foi temporariamente removido do portal do Azure. Planejamos trazê-lo de volta em breve. Obrigado por sua paciência enquanto concluímos a visualização dos Aplicativos Móveis.
+>[AZURE.IMPORTANT]Este tópico não tem suporte dos Aplicativos Móveis porque o início rápido para aplicativos HTML/JavaScript foi temporariamente removido do portal do Azure. Planejamos trazê-lo de volta em breve. Agradecemos sua paciência.
 
 ##Visão geral
 
@@ -43,7 +41,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 * [Visual Studio Community 2013] ou uma versão posterior.
 
->[AZURE.NOTE]Se você deseja começar com o serviço de aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá até [Experimentar o serviço de aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), onde você pode criar imediatamente um aplicativo móvel inicial de curta duração no serviço de aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE]Se você desejar uma introdução ao Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](https://tryappservice.azure.com/?appServiceName=mobile), onde poderá criar imediatamente um Aplicativo Móvel inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ##Criar um novo back-end de Aplicativo móvel
 
@@ -127,4 +125,4 @@ Em seguida, você implantará o projeto habilitado por CORS no Azure.
 [Visual Studio Community 2013]: https://www.visualstudio.com/downloads
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

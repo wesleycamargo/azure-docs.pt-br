@@ -42,10 +42,10 @@ Este artigo não fornece uma visão geral conceitual do serviço Azure Data Fact
 
 Nesta etapa, é possível usar o Azure PowerShell para criar um Azure Data Factory denominado ADFTutorialDataFactoryPSH.
 
-1. Inicie o Azure PowerShell e execute os comandos a seguir. Mantenha o Azure PowerShell aberto até o fim deste tutorial. Se você fechá-lo e reabri-lo, será preciso executar esses comandos novamente.
-	- Execute **Add-AzureAccount** e insira o nome de usuário e a senha que você usa para entrar no portal de visualização do Azure.  
+1. Inicie o Azure PowerShell e execute os comandos a seguir. Mantenha o Azure PowerShell aberto até o fim deste tutorial. Se você fechá-la e reabri-la, precisará executar esses comandos novamente.
+	- Execute **Add-AzureAccount** e insira o nome de usuário e a senha que você usa para entrar no Portal do Azure.  
 	- Execute **Get-AzureSubscription** para exibir todas as assinaturas dessa conta.
-	- Execute **Select-AzureSubscription** para selecionar a assinatura com a qual deseja trabalhar. Esta assinatura deve ser a mesma que você usou no portal de visualização do Azure.
+	- Execute **Select-AzureSubscription** para selecionar a assinatura com a qual deseja trabalhar. Esta assinatura deve ser igual à que você usou no portal do Azure.
 2. Alterne para o modo AzureResourceManager pois os cmdlets de Data Factory do Azure estão disponíveis nesse modo.
 
 		Switch-AzureMode AzureResourceManager
@@ -109,7 +109,7 @@ Agora, você criará um serviço vinculado para um cluster HDInsight do Azure so
 		  "properties": {
 		    "type": "HDInsightOnDemand",
 		    "typeProperties": {
-		      "version": "3.1",
+		      "version": "3.2",
 		      "clusterSize": 1,
 		      "timeToLive": "00:30:00",
 		      "linkedServiceName": "StorageLinkedService"
@@ -121,7 +121,7 @@ Agora, você criará um serviço vinculado para um cluster HDInsight do Azure so
 
 	Propriedade | Descrição
 	-------- | -----------
-	Versão | Especifica a versão do HDInsight criada como 3.1.
+	Versão | Isso especifica a versão do HDInsight criada como a 3.2.
 	ClusterSize | Cria um cluster do HDInsight de um nó.
 	TimeToLive | Especifica tempo ocioso de cluster HDInsight antes de ser excluído.
 	linkedServiceName | Especifica a conta de armazenamento que será usada para armazenar os logs gerados pelo HDInsight
@@ -272,4 +272,4 @@ Neste artigo, você criou um pipeline com uma atividade de transformação (ativ
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

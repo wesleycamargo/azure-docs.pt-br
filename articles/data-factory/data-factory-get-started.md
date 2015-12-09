@@ -38,7 +38,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 ### Colete o nome da conta e chave de conta da sua Conta de Armazenamento do Azure
 Você precisará do nome da conta e chave de conta da sua conta de armazenamento do Azure para concluir este tutorial. Anote o **nome da conta** e **chave de conta** para sua conta de armazenamento do Azure, seguindo as instruções abaixo:
 
-1. Faça logon no [Portal de Visualização do Azure][azure-preview-portal].
+1. Faça logon no [Portal do Azure][azure-portal].
 2. Clique no hub **PROCURAR** à esquerda e selecione **Contas de armazenamento**.
 3. Na folha **Contas de armazenamento**, selecione a **Conta de armazenamento do Azure** que você deseja usar neste tutorial.
 4. Na folha **ARMAZENAMENTO**, clique no bloco **CHAVES**.
@@ -49,7 +49,7 @@ Você precisará do nome da conta e chave de conta da sua conta de armazenamento
 ### Colete o nome do servidor, nome do banco de dados e conta de usuário para seu banco de dados SQL do Azure
 Você precisará dos nomes do servidor, banco de dados e usuário SQL do Azure para concluir este tutorial. Anote os nomes do **servidor**, **banco de dados** e **usuário** para seu banco de dados SQL do Azure, seguindo as instruções abaixo:
 
-1. No **Portal de Visualização do Azure**, clique em **Procurar** à esquerda e selecione **Bancos de dados SQL**.
+1. No **Portal do Azure**, clique em **PROCURAR** à esquerda e selecione **Bancos de dados SQL**.
 2. Na **folha Bancos de dados SQL**, clique no **banco de dados** que você deseja utilizar neste tutorial. Anote o **nome do banco de dados**.  
 3. Em seguida, na folha do **BANCO DE DADOS SQL**, clique no bloco **PROPRIEDADES**.
 4. Anote os valores para **NOME DO SERVIDOR** e **LOGON DE ADMIN DO SERVIDOR**.
@@ -88,22 +88,22 @@ Agora, prepare seu armazenamento de blob do Azure e o banco de dados SQL do Azur
 
 		CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
-	**Se você tiver o SQL Server 2012/2014 instalado no computador:** siga as instruções da [Etapa 2: conectar-se ao banco de dados SQL do artigo Gerenciando o Banco de Dados SQL do Azure usando o SQL Server Management Studio][sql-management-studio] para se conectar ao seu SQL server do Azure e executar o script SQL. Observe que este artigo usa o portal de gerenciamento de versão (http://manage.windowsazure.com), não o portal de visualização (http://portal.azure.com), para configurar o firewall para um servidor SQL do Azure.
+	**Se você tiver o SQL Server 2012/2014 instalado no computador:** siga as instruções da [Etapa 2: conectar-se ao banco de dados SQL do artigo Gerenciando o Banco de Dados SQL do Azure usando o SQL Server Management Studio][sql-management-studio] para se conectar ao seu SQL server do Azure e executar o script SQL. Observe que este artigo usa o [Portal Clássico do Azure](http://manage.windowsazure.com), e não o [Portal do Azure](http://portal.azure.com), para configurar o firewall para um servidor SQL do Azure.
 
-	**Se você tiver o Visual Studio 2013 instalado no computador:** no [Azure Preview Portal](http://portal.azure.com), clique em **Procurar** hub à esquerda, clique **servidores SQL**, selecione o banco de dados e clique no botão **Abrir no Visual Studio** na barra de ferramentas para conectar-se ao seu SQL Server do Azure e executar o script. Se o cliente não tem permissão para acessar o SQL Server do Azure, você precisará configurar o firewall para o SQL Server do Azure permitir o acesso no seu computador (endereço IP). Consulte o artigo acima para obter as etapas para configurar o firewall para o SQL Server do Azure.
+	**Se você tiver o Visual Studio 2013 instalado no seu computador:** no [Portal do Azure](http://portal.azure.com), clique no hub **PROCURAR** à esquerda, clique em **Servidores SQL**, selecione seu banco de dados e clique no botão **Abrir no Visual Studio** na barra de ferramentas para se conectar ao servidor SQL do Azure e executar o script. Se o cliente não tiver permissão para acessar o servidor SQL do Azure, você precisará configurar o firewall para o servidor SQL do Azure permitir o acesso no seu computador (endereço IP). Consulte o artigo acima para obter as etapas para configurar o firewall para o SQL Server do Azure.
 
 
 Faça o seguinte:
 
-- Clique no link [Usando o Editor Data Factory](data-factory-get-started-using-editor.md) na parte superior para executar o tutorial usando o Editor Data Factory, que faz parte do Portal do Azure.
+- Clique no link [Usando o Data Factory Editor](data-factory-get-started-using-editor.md) na parte superior para executar o tutorial usando o Data Factory Editor, que faz parte do Portal Clássico do Azure.
 - Clique no link [Usando o PowerShell](data-factory-monitor-manage-using-powershell.md) na parte superior para executar o tutorial usando o PowerShell do Azure.
-- Clique no link [Usando o Visual Studio](data-factory-get-started-using-vs.md) na parte superior para executar o tutorial usando o Visual Studio 2013.
+- Clique no link [Usando o Visual Studio](data-factory-get-started-using-vs.md) link na parte superior para executar o tutorial usando o Visual Studio 2013.
  
 
 
 <!--Link references-->
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-preview-portal]: https://portal.azure.com/
+[azure-portal]: https://portal.azure.com/
 [sql-management-studio]: http://azure.microsoft.com/documentation/articles/sql-database-manage-azure-ssms/#Step2
 
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
@@ -111,4 +111,4 @@ Faça o seguinte:
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database-get-started.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -74,9 +74,9 @@ Vamos criar uma conta de Banco de Dados de Documentos. Se você já tiver uma co
 
 Abra *config.js* no editor de texto de sua preferência.
 
-Em seguida, crie um objeto vazio chamado *config* e defina as propriedades *config.endpoint* e *config.authKey* para o ponto de extremidade e a chave de autorização do Banco de Dados de Documentos. Ambas as configurações podem ser encontradas no [Portal de Visualização do Azure](https://portal.azure.com).
+Em seguida, crie um objeto vazio chamado *config* e defina as propriedades *config.endpoint* e *config.authKey* para o ponto de extremidade e a chave de autorização do Banco de Dados de Documentos. Ambas as configurações podem ser encontradas no [Portal do Azure](https://portal.azure.com).
 
-![Captura de tela da visualização do Portal do Azure mostrando uma conta do Banco de Dados de Documentos com o hub ATIVO realçado, o botão CHAVES realçado na folha da conta do Banco de Dados de Documentos e os valores de URI, de CHAVE PRIMÁRIA e de CHAVE SECUNDÁRIA realçados na folha Chaves][keys]
+![Captura de tela do Portal do Azure mostrando uma conta do Banco de Dados de Documentos com o hub ATIVO realçado, o botão CHAVES realçado na folha da conta do Banco de Dados de Documentos e os valores de URI, de CHAVE PRIMÁRIA e de CHAVE SECUNDÁRIA realçados na folha Chaves][keys]
 
     var config = {}
 
@@ -442,4 +442,4 @@ Em seguida, no arquivo *config.js*, atualize os valores de config.endpoint e con
 
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

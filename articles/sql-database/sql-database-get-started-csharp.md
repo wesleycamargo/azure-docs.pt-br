@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="09/01/2015"
+   ms.date="12/01/2015"
    ms.author="sstein"/>
 
 # Experimentar o Banco de Dados SQL: Usar o C&#x23; para criar um banco de dados SQL com a Biblioteca do Banco de Dados SQL para .NET 
@@ -22,7 +22,7 @@
 **Banco de dados individual**
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-get-started.md)
+- [Azure portal](sql-database-get-started.md)
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
@@ -63,7 +63,7 @@ Primeiro, você precisa permitir que o aplicativo cliente acesse a API REST ao c
 
 As [APIs REST do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx) usam o Active Directory do Azure para autenticação.
 
-Para autenticar seu aplicativo cliente com base no usuário atual, primeiro você precisa registrar seu aplicativo no domínio AAD associado à assinatura sob a qual os recursos do Azure foram criados. Se sua assinatura do Azure tiver sido criada com uma conta da Microsoft em vez de uma conta de trabalho ou escolar, você já terá um domínio AAD padrão. O registro do aplicativo pode ser feito no [Portal do Azure](https://manage.windowsazure.com/).
+Para autenticar seu aplicativo cliente com base no usuário atual, primeiro você precisa registrar seu aplicativo no domínio AAD associado à assinatura sob a qual os recursos do Azure foram criados. Se sua assinatura do Azure tiver sido criada com uma conta da Microsoft em vez de uma conta de trabalho ou escolar, você já terá um domínio AAD padrão. O registro do aplicativo pode ser feito no [Portal Clássico do Azure](https://manage.windowsazure.com/).
 
 Para criar um novo aplicativo e registrá-lo no active directory correto, faça o seguinte:
 
@@ -113,7 +113,7 @@ Para criar um novo aplicativo e registrá-lo no active directory correto, faça 
 
 O nome de domínio é necessário para seu código. Uma maneira fácil de identificar o nome de domínio adequado é:
 
-1. Vá para o [Portal de Visualização do Azure](https://portal.azure.com).
+1. Vá para o [Portal do Azure](https://portal.azure.com).
 2. Passe o mouse sobre o nome no canto superior direito e observe o Domínio que aparece na janela pop-up.
 
     ![Identifique o nome de domínio.][3]
@@ -436,4 +436,4 @@ Agora que você já experimentou o Banco de Dados SQL e configurou um banco de d
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

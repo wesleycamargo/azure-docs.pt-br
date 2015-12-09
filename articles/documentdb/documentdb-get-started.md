@@ -78,9 +78,9 @@ Primeiro, adicione essas referências para o início de seu aplicativo C#, no ar
 
 > [AZURE.IMPORTANT]Para concluir este tutorial do NoSQL, adicione as dependências acima.
 
-Em seguida, salve o ponto de extremidade de conta do Banco de Dados de Documentos e uma das duas chaves de acesso, a primária ou a secundária, que pode ser encontrada no [Portal de Visualização do Azure](https://portal.azure.com).
+Em seguida, salve o ponto de extremidade de conta do Banco de Dados de Documentos e uma das duas chaves de acesso, a primária ou a secundária, que pode ser encontrada no [Portal do Azure](https://portal.azure.com).
 
-![Captura de tela da visualização do Portal do Azure mostrando uma conta do Banco de Dados de Documentos com o hub ATIVO realçado, o botão CHAVES realçado na folha da conta do Banco de Dados de Documentos e os valores de URI, de CHAVE PRIMÁRIA e de CHAVE SECUNDÁRIA realçados na folha Chaves][keys]
+![Captura de tela do Portal do Azure mostrando uma conta do Banco de Dados de Documentos com o hub ATIVO realçado, o botão CHAVES realçado na folha da conta do Banco de Dados de Documentos e os valores de URI, de CHAVE PRIMÁRIA e de CHAVE SECUNDÁRIA realçados na folha Chaves][keys]
 
     private const string EndpointUrl = "<your endpoint URI>";
     private const string AuthorizationKey = "<your key>";
@@ -480,4 +480,4 @@ Para restaurar as referências do Banco de Dados de Documentos do SDK do .NET no
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

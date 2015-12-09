@@ -11,12 +11,12 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
 4. (Opcional) Em uma solução universal do Windows, altere o projeto inicial padrão para o outro aplicativo e execute o aplicativo novamente.
 
-	Observe que os dados salvos da etapa anterior são carregados a partir do serviço móvel após o aplicativo ser iniciado.
+	Observe que os dados salvos da etapa anterior são carregados por meio do serviço móvel após o aplicativo ser iniciado.
  
-4. No Portal de Gerenciamento, clique na guia **Dados** e, em seguida na tabela **TodoItems**.
+4. Novamente no [portal clássico do Azure](https://manage.windowsazure.com/), clique na guia **Dados** e na tabela **TodoItems**.
 
    	Isso permite que você procure os dados inseridos pelo aplicativo na tabela.
 
    	![](./media/mobile-services-javascript-backend-run-app/mobile-data-browse.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

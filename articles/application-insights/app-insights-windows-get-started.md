@@ -231,4 +231,4 @@ Quando uma [nova versão do SDK é lançada](app-insights-release-notes-windows.
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

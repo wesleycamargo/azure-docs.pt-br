@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Exibir, editar, criar e carregar documentos JSON usando o Gerenciador de Documentos do Banco de Dados de Documentos | Microsoft Azure"
-	description="Saiba mais sobre o Gerenciador de Documentos do Banco de Dados de Documentos, uma ferramenta do Portal de Visualização do Azure para exibir, editar, criar e carregar documentos JSON com o Banco de Dados de Documentos."
+	description="Saiba mais sobre o Gerenciador de Documentos do Banco de Dados de Documentos, uma ferramenta do Portal do Azure para exibir, editar, criar e carregar documentos JSON com o Banco de Dados de Documentos."
 	services="documentdb"
 	authors="AndrewHoh"
 	manager="jhubbard"
@@ -18,7 +18,7 @@
 
 # Exibir, editar, criar e carregar documentos JSON usando o Gerenciador de Documentos do Banco de Dados de Documentos #
 
-Este artigo fornece uma visão geral do Gerenciador de Documentos do [Banco de Dados de Documentos do Microsoft Azure](http://azure.microsoft.com/services/documentdb/), uma ferramenta do portal de Visualização do Azure que o habilita a exibir, editar, criar e carregar documentos JSON com o Banco de Dados de Documentos.
+Este artigo fornece uma visão geral do Gerenciador de Documentos do [Banco de Dados de Documentos do Microsoft Azure](http://azure.microsoft.com/services/documentdb/), uma ferramenta do Portal do Azure que o habilita a exibir, editar, criar e carregar documentos JSON com o Banco de Dados de Documentos.
 
 Depois de concluir este tutorial, você poderá responder às seguintes perguntas:
 
@@ -145,4 +145,4 @@ O Gerenciador de Documentos dá suporte à ingestão em massa de um ou mais docu
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

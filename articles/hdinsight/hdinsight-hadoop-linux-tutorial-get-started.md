@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="11/16/2015"
+   	ms.date="11/29/2015"
    	ms.author="nitinme"/>
 
 # Tutorial de hadoop: introdução usando o Hadoop com o Hive em HDInsight no Linux
@@ -51,10 +51,10 @@ Ao provisionar um cluster, você cria recursos de computação do Azure que cont
 
 Use as seguintes etapas para criar um novo cluster:
 
-1. Entre no [Portal de Visualização do Azure](https://ms.portal.azure.com/).
+1. Entre no [Portal do Azure](https://ms.portal.azure.com/).
 2. Clique em **NOVO**, clique em **Análises de dados**, e, em seguida, clique em **HDInsight**.
 
-    ![Criar um novo cluster no Portal de Visualização do Azure](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.1.png "Criar um novo cluster no Portal de Visualização do Azure")
+    ![Criando um novo cluster no Portal do Azure](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.1.png "Criando um novo cluster no Portal do Azure")
 
 3. Insira um **Nome de Cluster**, selecione **Hadoop** para o **Tipo de Cluster** e, na lista suspensa **Sistema Operacional do Cluster**, selecione **Ubuntu**. Uma marca de seleção verde aparecerá ao lado do nome do cluster, se disponível.
 
@@ -230,7 +230,7 @@ Quando estiver conectado ao cluster via SSH, use os comandos a seguir para execu
 
 ## <a name="nextsteps"></a>Próximas etapas
 
-Neste documento, você aprendeu como criar um cluster HDInsight baseado em Linux usando o portal de visualização do Azure, conectar-se ao cluster usando o SSH e como executar consultas básicas do Hive.
+Neste documento, você aprendeu como criar um cluster HDInsight baseado em Linux usando o Portal do Azure, conectar-se ao cluster usando o SSH e como executar consultas básicas do Hive.
 
 Para saber mais sobre como trabalhar com o HDInsight, consulte:
 
@@ -283,4 +283,4 @@ Se você quiser saber mais sobre como criar ou gerenciar um cluster HDInsight, c
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

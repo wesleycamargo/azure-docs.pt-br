@@ -54,7 +54,7 @@ Nos dois casos, você pode recuperar a cadeia de conexão usando o método `Clou
 
 ### Configure sua cadeia de conexão ao usar Serviços de Nuvem
 
-O mecanismo de configuração de serviço é exclusivo para projetos de Serviços de Nuvem do Azure e permite que você altere dinamicamente os parâmetros de configuração no portal do Azure sem reimplantar o aplicativo. Por exemplo, adicione um rótulo `Setting` ao seu arquivo de definição de serviço (****.csdef**), como mostrado no próximo exemplo.
+O mecanismo de configuração de serviço é exclusivo para projetos de Serviços de Nuvem do Azure e permite que você altere dinamicamente os parâmetros de configuração no [portal clássico do Azure][] sem reimplantar o aplicativo. Por exemplo, adicione um rótulo `Setting` ao seu arquivo de definição de serviço (****.csdef**), como mostrado no próximo exemplo.
 
 ```
 <ServiceDefinition name="Azure1">
@@ -83,7 +83,7 @@ Em seguida, especifique valores no arquivo de configuração do serviço (.cscfg
 </ServiceConfiguration>
 ```
 
-Use o nome da chave da SAS (Assinatura de Acesso Compartilhado) e os valores de chave recuperados do portal do Azure, conforme descrito na seção anterior.
+Use o nome da chave da SAS (Assinatura de Acesso Compartilhado) e os valores de chave recuperados do portal clássico do Azure, como descrito na seção anterior.
 
 ### Configurar a cadeia de conexão ao usar sites ou Máquinas Virtuais do Azure
 
@@ -98,7 +98,7 @@ Ao usar sites ou Máquinas Virtuais, é recomendável usar o sistema de configur
 </configuration>
 ```
 
-Use o nome da SAS e os valores de chave recuperados no portal do Azure, conforme descrito na seção anterior.
+Use o nome da SAS e os valores de chave recuperados no portal clássico do Azure, como descrito na seção anterior.
 
 ## Criar um tópico
 
@@ -155,7 +155,7 @@ Você também pode criar assinaturas de tópico com a classe [`NamespaceManager`
 
 ### Criar uma assinatura com o filtro padrão (MatchAll)
 
-**MatchAll** será o filtro padrão usado se nenhum filtro for especificado quando uma nova assinatura for criada. Quando você usa o filtro **MatchAll**, todas as mensagens publicadas no tópico são colocadas na fila virtual da assinatura. O exemplo a seguir cria uma assinatura denominada 'AllMessages' e usa o filtro padrão **MatchAll**.
+**MatchAll** será o filtro padrão usado se nenhum filtro for especificado quando uma nova assinatura for criada. Quando você usa o filtro **MatchAll**, todas as mensagens publicadas no tópico são colocadas na fila virtual da assinatura. O exemplo a seguir cria uma assinatura denominada “AllMessages” e usa o filtro padrão **MatchAll**.
 
 ```
 string connectionString =
@@ -317,7 +317,7 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
 -   Compile um aplicativo de trabalho que envia e recebe mensagens de e para uma fila do Barramento de Serviço: [Tutorial do .NET do sistema de mensagens agenciado do Barramento do Serviço][].
 -   Exemplos do Barramento de Serviço: baixe em [Exemplos do Azure][] ou consulte a [visão geral](service-bus-samples.md).
 
-  [Azure portal]: http://manage.windowsazure.com
+  [portal clássico do Azure]: http://manage.windowsazure.com
 
   [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
 
@@ -327,4 +327,4 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
   [Tutorial do .NET do sistema de mensagens agenciado do Barramento do Serviço]: service-bus-brokered-tutorial-dotnet.md
   [Exemplos do Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

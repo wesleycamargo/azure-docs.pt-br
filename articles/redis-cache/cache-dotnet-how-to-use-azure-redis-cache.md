@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="11/10/2015" 
+	ms.date="11/30/2015" 
 	ms.author="sdanie"/>
 
 # Como utilizar o cache Redis do Azure
@@ -30,7 +30,7 @@ O Cache Redis do Microsoft Azure está disponível nas seguintes camadas:
 
 -	**Básico** – um único nó. Vários tamanhos acima de 53 GB.
 -	**Padrão** – principal/réplica com dois nós. Vários tamanhos acima de 53 GB. SLA de 99,9%.
--	**Premium** – atualmente em visualização. Primário/de Réplica de dois nós com até 10 fragmentos. Vários tamanhos de 6 GB a 530 GB (entre em contato conosco para obter mais informações). Todos os recursos da camada Standard e muito mais, incluindo o suporte para o [cluster Redis](cache-how-to-premium-clustering.md), [persistência do Redis](cache-how-to-premium-persistence.md) e [Rede Virtual do Azure](cache-how-to-premium-vnet.md). Não há SLA durante o período de visualização.
+-	**Premium** – dois nós Primário/Réplica com até 10 fragmentos. Vários tamanhos de 6 GB a 530 GB (entre em contato conosco para obter mais informações). Todos os recursos da camada Standard e muito mais, incluindo o suporte para o [cluster Redis](cache-how-to-premium-clustering.md), [persistência do Redis](cache-how-to-premium-persistence.md) e [Rede Virtual do Azure](cache-how-to-premium-vnet.md). SLA de 99,9%.
 
 Cada camada é diferente em termos de recursos e preços. Para saber mais sobre preços, consulte [Detalhes de preços do cache][].
 
@@ -329,4 +329,4 @@ Agora que você aprendeu os conceitos básicos, siga estes links para saber mais
 
 [Avaliação gratuita do Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Criar um serviço Pesquisa do Azure no portal | Microsoft Azure | Serviço de pesquisa de nuvem hospedado"
-	description="Adicione uma Pesquisa do Azure gratuita ou padrão a uma assinatura existente usando o portal do Azure. A Pesquisa do Azure é um serviço de pesquisa hospedado na nuvem para aplicativos personalizados."
+	pageTitle="Criar um serviço Pesquisa do Azure no portal | Microsoft Azure | Serviço de pesquisa em nuvem hospedado"
+	description="Adicione uma Pesquisa do Azure gratuita ou padrão a uma assinatura existente usando o Portal Clássico do Azure. A Pesquisa do Azure é um serviço de pesquisa hospedado na nuvem para aplicativos personalizados."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -17,15 +17,15 @@
 	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
-# Criar um serviço de Pesquisa do Azure no portal do Azure
+# Criar um serviço Pesquisa do Azure no Portal Clássico do Azure
 
-A Pesquisa do Microsoft Azure é um novo serviço de pesquisa de nuvem hospedado que permite que você insira a funcionalidade de pesquisa em aplicativos personalizados. Ele fornece um mecanismo de pesquisa e armazenamento para seus dados de pesquisa, os quais você pode acessar e gerenciar por meio do portal do Azure, um SDK do .NET ou uma API REST. Os principais recursos incluem consultas de preenchimento automático, correspondência difusa, realce de ocorrências, navegação facetada, perfis de pontuação e suporte a vários idiomas. Para saber mais sobre o que a Pesquisa do Azure faz, confira [O que é a Pesquisa do Azure](seach-what-is-search.md).
+A Pesquisa do Microsoft Azure é um novo serviço de pesquisa de nuvem hospedado que permite que você insira a funcionalidade de pesquisa em aplicativos personalizados. Ele fornece um mecanismo de pesquisa e armazenamento para seus dados de pesquisa, os quais você pode acessar e gerenciar por meio do Portal Clássico do Azure, um SDK do .NET ou uma API REST. Os principais recursos incluem consultas de preenchimento automático, correspondência difusa, realce de ocorrências, navegação facetada, perfis de pontuação e suporte a vários idiomas. Para saber mais sobre o que a Pesquisa do Azure faz, confira [O que é a Pesquisa do Azure](seach-what-is-search.md).
 
 ## Adicionar a Pesquisa do Azure à sua assinatura gratuitamente
 
 Como administrador, você pode adicionar a Pesquisa do Azure a uma assinatura do Azure existente sem custos adicionais ao selecionar o serviço compartilhado, ou por um valor padrão ao optar por recursos dedicados.
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [Portal Clássico do Azure](https://portal.azure.com).
 
 2. Na barra de navegação rápida, clique em **Novo** > **Dados + Armazenamento** > **Pesquisa**.
 
@@ -78,9 +78,9 @@ Você pode verificar os [Detalhes de Preços](http://go.microsoft.com/fwlink/p/?
 <a id="sub-2"></a>
 ## Localizar o nome do serviço e chaves de Api do serviço de Pesquisa do Azure
 
-Depois que o serviço for criado, você poderá retornar ao portal do Azure para obter a URL ou `api-key`. As conexões com o serviço de Pesquisa do Azure exigem que você tenha a URL e a `api-key` para autenticar a chamada.
+Depois que o serviço for criado, você poderá retornar ao Portal Clássico do Azure para obter a URL ou a `api-key`. As conexões com o serviço Pesquisa do Azure exigem que você tenha a URL e a `api-key` para autenticar a chamada.
 
-1. Na barra de navegação rápida, clique em **Home** e clique no serviço Pesquisa do Azure para abrir o painel do serviço.
+1. Na barra de navegação rápida, clique em **Página Inicial** e clique no serviço Pesquisa do Azure para abrir o painel do serviço.
 
 2. No painel de serviço, você verá blocos com as informações essenciais e o ícone de chave para acessar as chaves de administrador.
 
@@ -123,4 +123,4 @@ As informações a seguir mostram como compilar e gerenciar aplicativos de pesqu
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

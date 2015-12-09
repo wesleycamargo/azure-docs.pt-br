@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/17/2015"
+	ms.date="11/29/2015"
 	ms.author="awills"/>
 
 # Application Insights: linguagens e plataformas
@@ -23,7 +23,7 @@ Estas são algumas das implementações das quais ouvimos falar, incluindo algum
 
 ## Idiomas
 
-+ [C#|VB (.NET)](app-insights-start-monitoring-app-health-usage.md)
++ [C#|VB (.NET)](app-insights-asp-net.md)
 + [C#|VB (Windows Store)](app-insights-windows-get-started.md)
 + [C++ (Windows Store)](app-insights-windows-cpp.md)
 + [Java](app-insights-java-get-started.md)
@@ -37,7 +37,7 @@ Estas são algumas das implementações das quais ouvimos falar, incluindo algum
 ## Plataformas
 
 + [Angular](https://www.npmjs.com/package/angular-applicationinsights)
-+ [ASP.NET](app-insights-start-monitoring-app-health-usage.md)
++ [ASP.NET](app-insights-asp-net.md)
 + [ASP.NET – para aplicativos que já estejam em tempo real](app-insights-monitor-performance-live-website-now.md)
 + [ASP.NET 5](app-insights-asp-net-five.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
@@ -45,6 +45,7 @@ Estas são algumas das implementações das quais ouvimos falar, incluindo algum
 + [Serviços de Nuvem do Azure](app-insights-cloudservices.md) &#151; incluindo funções Web e de trabalho
 + [Concreto](https://github.com/fidmor89/appInsights-Concrete)
 + [CRM Online do Microsoft Dynamics](app-insights-sample-mscrm.md)
++ [Docker](app-insights-docker.md)
 + [Drupal](https://github.com/fidmor89/AppInsights-Drupal)
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [J2EE](app-insights-java-get-started.md)
@@ -55,7 +56,7 @@ Estas são algumas das implementações das quais ouvimos falar, incluindo algum
 + [Orchard](https://orchardazureappinsights.codeplex.com) 
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [SharePoint](app-insights-sharepoint.md)
-+ Registro semântico [SLAB](https://github.com/fidmor89/SLAB_AppInsights)
++ Registro semântico do [SLAB](https://github.com/fidmor89/SLAB_AppInsights)
 + [Windows Store C#|VB](app-insights-windows-get-started.md)
 + [Windows Store C++](app-insights-windows-cpp.md)
 + [Funções de trabalho, serviços e aplicativos da área de trabalho do Windows](app-insights-windows-desktop.md)
@@ -67,7 +68,7 @@ Estas são algumas das implementações das quais ouvimos falar, incluindo algum
 
 +	[Log4Net, NLog ou System.Diagnostics.Trace](app-insights-diagnostic-search.md)
 +	[Java, Log4J ou Logback](app-insights-java-trace-logs.md)
-+   O [Registro semântico](https://github.com/fidmor89/SLAB_AppInsights)&#151;é integrado ao [Bloco de Aplicativos do Registro Semântico](https://msdn.microsoft.com/library/dn440729.aspx)
++   O [Registro Semântico](https://github.com/fidmor89/SLAB_AppInsights)&#151;é integrado ao [Bloco de Aplicativos do Registro Semântico](https://msdn.microsoft.com/library/dn440729.aspx)
 +   [Teste de carga baseado em nuvem](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 
 ## Exportação
@@ -79,13 +80,4 @@ Estas são algumas das implementações das quais ouvimos falar, incluindo algum
 
 Se não há ainda um SDK para sua linguagem ou plataforma, talvez você deseje criar um? Examine o código dos SDKs existentes listados no [projeto do SDK do Application Insights no GitHub](https://github.com/Microsoft/AppInsights-Home)
 
-
-
-
-[Cordova](http://cordova.apache.org/)
-
-[Aplicativos da Windows Store usando JavaScript](https://msdn.microsoft.com/library/windows/apps/br211385.aspx)
-
-<!--Link references-->
-
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

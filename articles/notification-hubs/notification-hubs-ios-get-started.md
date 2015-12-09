@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="11/04/2015"
+	ms.date="11/30/2015"
 	ms.author="wesmc"/>
 
 # Introdução aos Hubs de Notificação para aplicativos do iOS
@@ -37,7 +37,7 @@ O código completo para este tutorial pode ser encontrado no GitHub [aqui](https
 
 Este tutorial exige o seguinte:
 
-+ [SDK do iOS dos Serviços Móveis]
++ [SDK do iOS dos Serviços Móveis versão 1.2.4]
 + [XCode 7][Install Xcode]
 + Um dispositivo compatível com o iOS 8 (ou versão posterior)
 + Associação no Programa de Desenvolvedores de iOS
@@ -86,7 +86,7 @@ Seu hub de notificação agora está configurado para funcionar com o APNS e voc
 
    	![][9]
 
-4. Baixe a versão 1.2.4 do [SDK de Serviços Móveis do iOS] e descompacte o arquivo. No Xcode, clique com o botão direito do mouse no projeto e clique na opção **Adicionar Arquivos a** para adicionar a pasta **WindowsAzureMessaging.framework** ao seu projeto do Xcode. Selecione **Copiar itens se necessário** e depois clique em **Adicionar**.
+4. Baixe a [versão 1.2.4 do SDK do iOS dos Serviços Móveis] e descompacte o arquivo. No Xcode, clique com o botão direito do mouse no projeto e clique na opção **Adicionar Arquivos a** para adicionar a pasta **WindowsAzureMessaging.framework** ao seu projeto do Xcode. Selecione **Copiar itens se necessário** e depois clique em **Adicionar**.
 
    	![][10]
 
@@ -210,7 +210,7 @@ Se você quiser enviar notificações em um aplicativo. Esta seção fornece um 
 		#import <CommonCrypto/CommonHMAC.h>
 		#import "HubInfo.h"
 
-5. No ViewController.m, adicione o código a seguir à implementação da interface. Esse código analisará sua cadeia de conexão *DefaultFullSharedAccessSignature*. Como mencionamos na [referência da API REST](http://msdn.microsoft.com/library/azure/dn495627.aspx), essas informações analisadas serão usadas para gerar um token SaS para o cabeçalho de solicitação da **Autorização**.
+5. Em ViewController.m, adicione o código a seguir à implementação da interface. Esse código analisará sua cadeia de conexão *DefaultFullSharedAccessSignature*. Como mencionamos na [referência da API REST](http://msdn.microsoft.com/library/azure/dn495627.aspx), essas informações analisadas serão usadas para gerar um token SaS para o cabeçalho de solicitação da **Autorização**.
 
 		NSString *HubEndpoint;
 		NSString *HubSasKeyName;
@@ -486,8 +486,9 @@ Para obter informações mais gerais sobre os Hubs de Notificação, consulte [D
 
 
 <!-- URLs. -->
-[SDK de Serviços Móveis do iOS]: http://go.microsoft.com/fwLink/?LinkID=266533
-[SDK do iOS dos Serviços Móveis]: http://go.microsoft.com/fwLink/?LinkID=266533
+[SDK do iOS dos Serviços Móveis versão 1.2.4]: http://aka.ms/kymw2g
+[versão 1.2.4 do SDK do iOS dos Serviços Móveis]: http://aka.ms/kymw2g
+[Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
@@ -504,4 +505,4 @@ Para obter informações mais gerais sobre os Hubs de Notificação, consulte [D
 
 [Guia de programação de notificação local e por push]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

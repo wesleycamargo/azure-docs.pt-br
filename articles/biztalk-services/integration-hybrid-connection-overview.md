@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/08/2015"
+	ms.date="12/01/2015"
 	ms.author="mandia"/>
 
 
@@ -85,7 +85,7 @@ Porta | Por que você precisa disto
 --- | ---
 9350 - 9354 | Essas portas são usadas para a transmissão de dados. O gerenciador de retransmissão do Barramento de Serviço investiga a porta 9350 para determinar se a conectividade TCP está disponível. Quando está disponível, ele pressupõe que a porta 9352 também está. O tráfego de dados passa pela porta 9352. <br/><br/>Permita conexões de saída para essas portas.
 5671 | Quando a porta 9352 é usada para tráfego de dados, a porta 5671 é usada como canal de controle. <br/><br/>Permita conexões de saída para essa porta.
-80, 443 | Se as portas 9352 e 5671 não forem utilizáveis, *então* as portas 80 e 443 serão as portas de fallback usadas para transmissão de dados e o canal de controle.<br/><br/>Permita conexões de saída para essas portas.<br/><br/>**Observação** Não é recomendado usar as portas de fallback no lugar de outras portas TCP. O HTTP/WebSocket é usado como o protocolo, em vez do TCP nativo para canais de dados. Isso poderia degradar o desempenho.
+80, 443 | Essas portas são usadas para algumas solicitações de dados no Azure. Além disso, se as portas 9352 e 5671 não forem utilizáveis, *então* as portas 80 e 443 serão as portas de fallback usadas para transmissão de dados e o canal de controle.<br/><br/>Permita conexões de saída para essas portas.<br/><br/>**Observação** Não é recomendado usá-las como as portas de fallback no lugar de outras portas TCP. O HTTP/WebSocket é usado como o protocolo, em vez do TCP nativo para canais de dados. Isso poderia degradar o desempenho.
 
 
 
@@ -103,4 +103,4 @@ Porta | Por que você precisa disto
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

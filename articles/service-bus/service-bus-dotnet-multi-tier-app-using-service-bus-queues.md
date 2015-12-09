@@ -87,13 +87,13 @@ Antes de iniciar o desenvolvimento de seu aplicativo do Azure, baixe as ferramen
 
 A próxima etapa é para criar um namespace de serviço e obter uma chave de Assinatura de Acesso Compartilhado (SAS). Um namespace fornece um limite de aplicativo para cada aplicativo exposto por meio do Barramento de Serviço. A chave SAS será gerada pelo sistema quando um namespace de serviço for criado. A combinação do namespace e a chave SAS fornece as credenciais para o Barramento de Serviço autenticar o acesso a um aplicativo.
 
-### Configurar o namespace usando o portal do Azure
+### Configurar o namespace usando o portal clássico do Azure
 
-1.  Faça logon no [Portal do Azure][].
+1.  Faça logon no [portal clássico do Azure][].
 
-2.  No painel de navegação esquerdo do portal do Azure, clique em **Barramento de Serviço**.
+2.  No painel de navegação esquerdo do portal, clique em **Barramento de Serviço**.
 
-3.  No painel inferior do portal do Azure, clique em **Criar**.
+3.  No painel inferior do portal, clique em **Criar**.
 
     ![][6]
 
@@ -269,7 +269,7 @@ Agora, adicione o código para enviar itens para uma fila. Primeiro, você cria 
 
 2.  Nomeie a classe QueueConnector.cs. Clique em **Adicionar** para criar a classe.
 
-3.  Agora, você adiciona o código que encapsula as informações da conexão e inicializa a conexão em uma fila do Barramento de Serviço. Em QueueConnector.cs, adicione o seguinte código e insira valores para **Namespace** (seu namespace de serviço) e **yourKey**, que é a chave de SAS obtida do [portal do Azure][Azure portal] anteriormente.
+3.  Agora, você adiciona o código que encapsula as informações da conexão e inicializa a conexão em uma fila do Barramento de Serviço. Em QueueConnector.cs, adicione o código a seguir e insira valores em **Namespace** (seu namespace de serviço) e em **yourKey**, que é a chave SAS obtida do [portal clássico do Azure][] anteriormente.
 
         using System;
         using System.Collections.Generic;
@@ -286,7 +286,7 @@ Agora, adicione o código para enviar itens para uma fila. Primeiro, você cria 
                 // on every request.
                 public static QueueClient OrdersQueueClient;
 
-                // Obtain these values from the Azure portal.
+                // Obtain these values from the portal.
                 public const string Namespace = "your service bus namespace";
 
                 // The name of your queue.
@@ -510,8 +510,7 @@ Para saber como implantar o front-end em um site do Azure, consulte [Crie um apl
 
   [EventHubClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx
 
-  [Azure portal]: http://manage.windowsazure.com
-  [Portal do Azure]: http://manage.windowsazure.com
+  [portal clássico do Azure]: http://manage.windowsazure.com
   [6]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-03.png
   [7]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-04.png
   [8]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-09.png
@@ -545,4 +544,4 @@ Para saber como implantar o front-end em um site do Azure, consulte [Crie um apl
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
   [executionmodels]: ../cloud-services/fundamentals-application-models.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

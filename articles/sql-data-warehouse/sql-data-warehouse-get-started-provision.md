@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Criar um banco de dados do SQL Data Warehouse no portal de visualização do Azure | Microsoft Azure"
-	description="Saiba como criar um SQL Data Warehouse do Azure no portal de visualização do Azure"
+	pageTitle="Criar um banco de dados do SQL Data Warehouse no Portal do Azure | Microsoft Azure"
+	description="Saiba como criar um Azure SQL Data Warehouse no Portal do Azure"
 	services="sql-data-warehouse"
 	documentationCenter="NA"
 	authors="barbkess"
@@ -19,11 +19,11 @@
 # Criar um SQL Data Warehouse
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-data-warehouse-get-started-provision.md)
+- [Azure Portal](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-Este tutorial mostra como criar um banco de dados do SQL Data Warehouse do Azure em apenas alguns minutos usando o portal de visualização do Azure.
+Este tutorial mostra como criar um banco de dados do SQL Data Warehouse do Azure em apenas alguns minutos usando o Portal do Azure.
 
 Neste tutorial, você irá:
 
@@ -34,7 +34,7 @@ Neste tutorial, você irá:
 
 ## Etapa 1: entrar e começar
 
-1. Entre no [portal de visualização do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 
 2. Clique em **Novo** > **Dados + Armazenamento** > **SQL Data Warehouse**.
 
@@ -49,12 +49,7 @@ Neste tutorial, você irá:
 
 No Banco de Dados SQL e no SQL Data Warehouse, cada banco de dados é atribuído a um servidor, e cada servidor é atribuído a uma localização geográfica. O servidor é chamado de servidor SQL lógico.
 
-> [AZURE.NOTE]<a name="note"></a>Um servidor SQL lógico:
-  >
-  > + Fornece uma maneira consistente de configurar vários bancos de dados na mesma localização geográfica.
-  > + Não é hardware físico, como ocorre com um servidor local. Faz parte do software de serviço. É por isso que o chamamos de *servidor lógico*.
-  > + pode hospedar vários bancos de dados sem afetar o desempenho.
-  > + usa um *s* minúsculo em seu nome. O **s**ervidor SQL é um servidor lógico do Azure, enquanto o SQL **S**erver é o produto de banco de dados local da Microsoft.
+> [AZURE.NOTE]<a name="note"></a>Um servidor SQL lógico: >> + Fornece uma maneira consistente de configurar vários bancos de dados na mesma localização geográfica. > + Não é hardware físico, como ocorre com um servidor local. Faz parte do software de serviço. É por isso que o chamamos de *servidor lógico*. > + pode hospedar vários bancos de dados sem afetar o desempenho. > + usa um *s* minúsculo em seu nome. O **s**ervidor SQL é um servidor lógico do Azure, enquanto o SQL **S**erver é o produto de banco de dados local da Microsoft.
 
 1. Clique em **Servidor** > **Criar um novo servidor**. Não há cobrança para o servidor. Se você já tiver um servidor SQL lógico V12 que deseje usar, escolha o servidor existente e vá para a próxima seção. 
 
@@ -99,7 +94,7 @@ Agora que selecionou o servidor SQL lógico, você está pronto para concluir a 
 
 1. Clique em **Criar** para criar o banco de dados do SQL Data Warehouse.
 
-1. Aguarde alguns minutos, e o banco de dados estará pronto. Quando terminar, você deverá ser levado de volta ao [portal de visualização do Azure](https://portal.azure.com). Observe que seu banco de dados do SQL Data Warehouse foi adicionado ao painel.
+1. Aguarde alguns minutos, e o banco de dados estará pronto. Quando terminar, você deverá ser levado de volta ao [Portal do Azure](https://portal.azure.com). Observe que seu banco de dados do SQL Data Warehouse foi adicionado ao painel.
 
     ![Exibição de portal](./media/sql-data-warehouse-get-started-provision/database-portal-view.png)
 
@@ -130,4 +125,4 @@ Agora que você configurou o firewall poderá fazer conexões da área de trabal
 
 Agora que você criou um banco de dados de exemplo para o SQL Data Warehouse, está pronto para [Conectar](./sql-data-warehouse-get-started-connect.md) ao seu banco de dados.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

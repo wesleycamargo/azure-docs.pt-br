@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/21/2015"
+	ms.date="11/23/2015"
 	ms.author="wesmc"/>
 
 # Introdução aos Hubs de Notificação para aplicativos da Windows Store
@@ -37,7 +37,7 @@ O código completo para este tutorial pode ser encontrado no GitHub [aqui](https
 
 Este tutorial exige o seguinte:
 
-+ Microsoft Visual Studio Express 2013 para Windows com Update 2<br/>Esta versão do Visual Studio é necessária para criar um projeto do aplicativo universa. Se você apenas quer criar um aplicativo da Windows Store, você precisa do Visual Studio 2012 Express para Windows 8.
++ Microsoft Visual Studio Express 2013 para Windows com Atualização 2 ou posterior<br/>Essa versão do Visual Studio é necessária para criar um projeto do aplicativo universal. Se você apenas quer criar um aplicativo da Windows Store, você precisa do Visual Studio 2012 Express para Windows 8.
 
 + Uma conta ativa da Windows Store
 
@@ -284,4 +284,4 @@ Para obter mais informações gerais sobre os Hubs de Notificação, confira [Di
 [catálogo de blocos]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [visão geral de emblema]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->
