@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/23/2015"
+	ms.date="11/25/2015"
 	ms.author="awills"/>
 
 
@@ -120,7 +120,7 @@ Para segmentar o gráfico por chamadas para dependências diferentes, selecione 
 
 Você também pode filtrar o gráfico para examinar um bloco específico de dependência, tipo ou desempenho. Clique em Filtros.
 
-#### Contadores de desempenho
+## Contadores de desempenho
 
 (Não vale para aplicativos Web do Azure.) Clique em Servidores na folha de visão geral para ver gráficos de contadores de desempenho do servidor, como uso de memória e ocupação da CPU.
 
@@ -128,11 +128,15 @@ Adicione um novo gráfico ou clique em qualquer gráfico para alterar o que ele 
 
 Você também pode [alterar o conjunto de contadores de desempenho que são relatados pelo SDK](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3).
 
-#### Exceções
+## Exceções
 
 ![Clique no gráfico de exceções do servidor](./media/app-insights-monitor-performance-live-website-now/appinsights-039-1exceptions.png)
 
 Você pode fazer busca detalhada até exceções específicas (dos últimos sete dias) e obter rastreamentos de pilha e dados de contexto.
+
+## Amostragem
+
+Se o aplicativo envia muitos dados, e se você estiver usando o SDK do Application Insights para o ASP.NET versão 2.0.0-beta3 ou posterior, o recurso de amostragem adaptável poderá operar e enviar apenas uma porcentagem de sua telemetria. [Saiba mais sobre amostragem.](app-insights-sampling.md)
 
 
 ## Solucionar problemas
@@ -211,9 +215,9 @@ Suporte ao IIS: IIS 7, 7,5, 8 e 8.5 (o IIS é obrigatório)
 [availability]: app-insights-monitor-web-app-availability.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

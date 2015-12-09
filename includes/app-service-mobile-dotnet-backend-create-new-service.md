@@ -12,7 +12,7 @@
 
     > [AZURE.NOTE]Como parte deste tutorial, você criará um novo servidor e uma nova instância do Banco de Dados SQL. Você pode reutilizar este novo banco de dados e administrá-lo como faria com qualquer outra instância de Banco de Dados SQL. Se já houver um banco de dados no mesmo local do novo back-end do aplicativo móvel, você poderá escolher **Usar um banco de dados existente** e selecionar esse banco de dados. O uso de um banco de dados em um local diferente não é recomendado devido a latências maiores e aos custos adicionais de largura de banda. Outras opções de armazenamento de dados estão disponíveis.
 
-6. Na folha **Configurações** do novo back-end do Aplicativo Móvel, role para baixo até Celular e clique em **Introdução** > sua plataforma de aplicativo cliente > **Conectar um banco de dados**.
+6. Na folha **Configurações** do novo back-end do Aplicativo Móvel, clique em **Início rápido** > sua plataforma de aplicativo cliente > **Conectar um banco de dados**.
 
 	![](./media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-data-connection.png)
 
@@ -30,4 +30,4 @@
 <!-- URLs. -->
 [Portal do Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -36,7 +36,7 @@ As funções do AAD controlam as soluções pré-configuradas de provisão de ca
 
 Você pode encontrar mais informações sobre funções de administrador no AAD em [Atribuindo funções de administrador no AD do Azure][lnk-aad-admin], mas esse artigo se concentra principalmente nas funções **Administrador Global** e **Usuário/Membro do Domínio** como usadas por soluções pré-configuradas.
 
-**Administrador global:** pode haver muitos administradores globais por locatário do AAD. Quando você cria um locatário do AAD, por padrão vira o administrador global desse locatário. O administrador global pode provisionar uma solução pré-configurada e recebe uma função **ADMINISTRADOR** para o aplicativo dentro do seu locatário do AAD. No entanto, se outro usuário no mesmo locatário do AAD criar um aplicativo, a função padrão recebida pelo administrador global será **SOMENTE LEITURA IMPLÍCITA**. Os administradores globais podem atribuir funções para aplicativos que usam o [portal de gerenciamento do Azure][lnk-classic-portal].
+**Administrador global:** pode haver muitos administradores globais por locatário do AAD. Quando você cria um locatário do AAD, por padrão vira o administrador global desse locatário. O administrador global pode provisionar uma solução pré-configurada e recebe uma função **ADMINISTRADOR** para o aplicativo dentro do seu locatário do AAD. No entanto, se outro usuário no mesmo locatário do AAD criar um aplicativo, a função padrão recebida pelo administrador global será **SOMENTE LEITURA IMPLÍCITA**. Os administradores globais podem atribuir funções para aplicativos que usam o [portal clássico do Azure][lnk-classic-portal].
 
 **Usuário/membro do domínio:** pode haver muitos usuários/membros do domínio por locatário do AAD. Um usuário do domínio pode provisionar uma solução pré-configurada por meio do site [azureiotsuite.com][lnk-azureiotsuite]. A função padrão recebida por ele para o aplicativo provisionado será **ADMINISTRADOR**. Ele pode criar um aplicativo usando o script build.cmd no repositório [azure-iot-solution][lnk-github-repo], mas a função padrão recebida será **SOMENTE LEITURA IMPLÍCITA**, pois ele não tem permissão para atribuir funções. Se outro usuário no locatário do AAD criar um aplicativo, receberá a função **SOMENTE LEITURA IMPLÍCITA** por padrão para o aplicativo. Ele não terá a capacidade de atribuir funções de aplicativos; portanto, não poderá adicionar usuários ou funções para usuários para um aplicativo, mesmo se o tiver provisionado.
 
@@ -69,7 +69,7 @@ Existem duas funções definidas e uma implícita definidas no aplicativo criado
 
 Você deve ser um administrador global do AAD para alterar funções para um usuário:
 
-1. Acesse o [portal de Gerenciamento do Azure][lnk-classic-portal].
+1. Vá para o [portal clássico do Azure][lnk-classic-portal]
 
 2. Selecione **Active Directory**
 
@@ -91,7 +91,7 @@ Você deve ser um administrador global do AAD para alterar funções para um usu
 
 ### Sou um administrador de serviços e gostaria de alterar o mapeamento de diretório entre minha assinatura e um locatário do AAD específico. Como faço isso?
 
-1. Acesse o [portal de Gerenciamento do Azure][lnk-classic-portal], clique em **Configurações** na lista de serviços no lado esquerdo.
+1. Vá para o [portal clássico do Azure][lnk-classic-portal], clique em **Configurações** na lista de serviços no lado esquerdo.
 
 2. Selecione a assinatura para a qual você deseja alterar o mapeamento de diretórios.
 
@@ -145,4 +145,4 @@ Se você tiver certeza de que tem uma assinatura do Azure, valide o mapeamento d
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
 [lnk-wiki-clouddeployment]: https://github.com/Azure/azure-iot-remote-monitoring/wiki/Cloud-deployment
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

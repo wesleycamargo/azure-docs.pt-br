@@ -38,7 +38,7 @@ Para concluir este tutorial, você precisará:
 
 [AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
-Este tutorial foi criado para iniciantes do PowerShell, mas pressupõe que você compreende os conceitos básicos, como módulos, cmdlets e sessões. Para obter mais informações sobre o Windows PowerShell, consulte [Introdução ao PowerShell do Windows Azure (a página pode estar em inglês)](http://technet.microsoft.com/library/hh857337.aspx).
+Este tutorial foi criado para iniciantes do PowerShell, mas pressupõe que você compreende os conceitos básicos, como módulos, cmdlets e sessões. Para obter mais informações sobre o Windows PowerShell, consulte [Introdução ao PowerShell do Microsoft Azure (a página pode estar em inglês)](http://technet.microsoft.com/library/hh857337.aspx).
 
 ## O que você implantará
 
@@ -443,4 +443,4 @@ Você pode mover os recursos existentes para um novo grupo de recursos. Para obt
 - Para ver um exemplo detalhado da implantação de um projeto, confira [Implantar microsserviços de maneira previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Para saber mais sobre como solucionar problemas de uma implantação com falha, veja [Solucionando problemas de implantações do grupo de recursos no Azure](./virtual-machines/resource-group-deploy-debug.md).
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=Oct15_HO4-->

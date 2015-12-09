@@ -26,7 +26,7 @@
 
 ## Criar uma conta de Serviços de Mídia
 
-Use o portal do Azure, o SDK do .NET ou a API REST para criar uma conta dos Serviços de Mídia do Azure.
+Use o Portal Clássico do Azure, o SDK do .NET ou a API REST para criar uma conta dos Serviços de Mídia do Azure.
 
 <a id="setup_dev_env"></a>
 ## Configurar o ambiente de desenvolvimento  
@@ -47,8 +47,8 @@ Escolha .NET ou a API REST para conectar-se aos serviços de mídia do Azure por
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Enviar comentários
+##Fornecer comentários
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

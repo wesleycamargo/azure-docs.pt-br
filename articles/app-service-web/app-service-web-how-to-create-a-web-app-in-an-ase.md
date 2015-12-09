@@ -30,7 +30,7 @@ Este tutorial supõe que você tenha criado um Ambiente de Serviço de Aplicativ
 
 ## Criar um aplicativo Web
 
-1. [No portal de visualização do Azure](https://portal.azure.com/), clique em **Novo > Web + Móvel > Aplicativo Web**. 
+1. No [Portal do Azure](https://portal.azure.com/), clique em **Novo > Web + Móvel > Aplicativo Web**. 
 
 	![][1]
 
@@ -118,4 +118,4 @@ Depois de criar seu aplicativo Web e o plano do Serviço de Aplicativo, será um
 [ResourceGroups]: http://azure.microsoft.com/documentation/articles/resource-group-portal/
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

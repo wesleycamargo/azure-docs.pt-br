@@ -73,15 +73,15 @@ Para poder começar a desenvolver seu aplicativo do Azure, baixe as ferramentas 
 
 Para começar a usar os recursos de Barramento de Serviço no Azure, você deve primeiro criar um namespace de serviço. Um namespace fornece um contêiner de escopo para endereçar recursos do barramento de serviço dentro de seu aplicativo.
 
-Você pode gerenciar namespaces e entidades de mensagens do Barramento de Serviço usando o [portal do Azure][] ou o Gerenciador de Servidores do Visual Studio, mas só pode criar novos namespaces no portal.
+Você pode gerenciar namespaces e entidades de mensagens do Barramento de Serviço usando o [portal clássico do Azure][] ou o Gerenciador de Servidores do Visual Studio, mas só pode criar novos namespaces no portal.
 
-### Para criar um namespace usando o portal:
+### Criar um namespace usando o portal clássico do Azure:
 
-1.  Entre no [Portal do Azure][].
+1.  Entre no [portal clássico do Azure][].
 
-2.  No painel de navegação esquerdo do portal do Azure, clique em **Barramento de Serviço**.
+2.  No painel de navegação esquerdo do portal, clique em **Barramento de Serviço**.
 
-3.  No painel inferior do portal do Azure, clique em **Criar**.
+3.  No painel inferior do portal, clique em **Criar**.
 
     ![][5]
 
@@ -95,7 +95,7 @@ Você pode gerenciar namespaces e entidades de mensagens do Barramento de Servi�
 
 	![][38]
 
-O namespace que você criou aparecerá no portal do Azure, embora ele possa levar um tempo para ser ativado. Aguarde até que o status seja **Ativo** antes de prosseguir.
+O namespace que você criou aparecerá no portal clássico do Azure, embora ele possa levar um tempo para ser ativado. Aguarde até que o status seja **Ativo** antes de prosseguir.
 
 ## Obter as credenciais de gerenciamento padrão do namespace
 
@@ -247,7 +247,7 @@ Esse projeto é iniciado como um aplicativo de console do Visual Studio. O proje
             }
         }
 
-13. No Gerenciador de Soluções, clique duas vezes no arquivo **App.config** para abri-lo no editor do Visual Studio. Substitua o conteúdo de **&lt;system.ServiceModel&gt;** pelo código XML a seguir. Certifique-se de substituir *yourServiceNamespace* pelo nome do seu namespace de serviço e *yourKey* pela chave SAS que você recuperou anteriormente no portal do Azure:
+13. No Gerenciador de Soluções, clique duas vezes no arquivo **App.config** para abri-lo no editor do Visual Studio. Substitua o conteúdo de **&lt;system.ServiceModel&gt;** pelo código XML a seguir. Substitua *yourServiceNamespace* pelo nome do seu namespace de serviço e *yourKey* pela chave SAS que você recuperou anteriormente no portal clássico do Azure:
 
         <system.serviceModel>
           <extensions>
@@ -541,7 +541,7 @@ O Azure cobra as instâncias de função web por hora de acordo com o tempo cons
 
 As etapas a seguir mostram como parar e excluir o aplicativo.
 
-1.  Entre no [portal do Azure], clique em **Serviços de Nuvem** e clique no nome do seu serviço.
+1.  Entre no [portal clássico do Azure][], clique em **Serviços de Nuvem** e clique no nome do seu serviço.
 
 2.  Clique na guia **Painel** e, em seguida, clique em **Parar** para suspender temporariamente o aplicativo. Você poderá iniciá-lo novamente apenas clicando em **Iniciar**. Clique em **Excluir** para remover completamente o aplicativo do Azure sem possibilidade de restaurá-lo.
 
@@ -563,7 +563,7 @@ Para obter mais informações sobre o Barramento de Serviço, consulte os seguin
   [3]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-42-webpi.png
 
 
-  [portal do Azure]: http://manage.windowsazure.com
+  [portal clássico do Azure]: http://manage.windowsazure.com
   [5]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-03.png
   [6]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-04.png
 
@@ -610,4 +610,4 @@ Para obter mais informações sobre o Barramento de Serviço, consulte os seguin
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
   [executionmodels]: ../cloud-services/fundamentals-application-models.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

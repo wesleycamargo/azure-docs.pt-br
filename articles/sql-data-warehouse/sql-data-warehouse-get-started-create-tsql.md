@@ -20,7 +20,7 @@
 #Criar um SQL Data Warehouse com o TSQL 
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-data-warehouse-get-started-provision.md)
+- [Azure Portal](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-TSQL.md)
 - [PowerShell](sql-data-warehouse-get-started-create-powershell.md)
 
@@ -28,7 +28,7 @@ Este artigo mostra como criar um SQL Data Warehouse usando o Transact SQL. Para 
 
 - Uma assinatura do Azure. Se você precisar de uma assinatura do Azure basta clicar em **AVALIAÇÃO GRATUITA** na parte superior desta página e, em seguida, voltar para concluir este artigo.
 - Visual Studio. Para obter uma cópia gratuita do Visual Studio, consulte a página [Downloads do Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
-- Um SQL Server V12. Será necessário um SQL Server V12 para criar um SQL Data Warehouse. Se você não tem um SQL Server V12 disponível, é recomendável criar no Portal de Visualização, para que você possa criar seu SQL Data Warehouse em um novo servidor.
+- Um SQL Server V12. Será necessário um SQL Server V12 para criar um SQL Data Warehouse. Se você não tem um SQL Server V12 disponível, é recomendável criar no Portal, para que você possa criar seu SQL Data Warehouse em um novo servidor.
 
 Este artigo não abordará como configurar e conectar-se corretamente usando o Visual Studio. Para obter uma descrição completa de como fazer isso, consulte a documentação sobre [conexão e consulta][]. Para começar, você precisará abrir o Pesquisador de Objetos do SQL Server no Visual Studio e conectar-se ao servidor que você usará para criar seu SQL Data Warehouse. Após fazer isso, você poderá criar um SQL Data Warehouse executando o seguinte comando em relação ao banco de dados Mestre:
 
@@ -76,4 +76,4 @@ Após o provisionamento do SQL Data Warehouse, você poderá [carregar dados de 
 [carregar dados de exemplo]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [página de preços]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

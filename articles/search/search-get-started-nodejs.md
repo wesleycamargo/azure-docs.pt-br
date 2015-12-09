@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução à Pesquisa do Azure no NodeJS | Microsoft Azure | Serviço de pesquisa hospedado na nuvem"
+	pageTitle="Introdução à Pesquisa do Azure no NodeJS | Microsoft Azure | Serviço de pesquisa em nuvem hospedado"
 	description="Percorra a criação de um aplicativo de pesquisa em um serviço de pesquisa hospedado na nuvem no Azure usando NodeJS como linguagem de programação."
 	services="search"
 	documentationCenter=""
@@ -22,7 +22,7 @@ Aprenda a criar um aplicativo de pesquisa NodeJS personalizado que usa a Pesquis
 
 Usamos [NodeJS](https://nodejs.org) e NPM, [Sublime Text 3](http://www.sublimetext.com/3) e o Windows PowerShell no Windows 8.1 para desenvolver e testar esse código.
 
-Para executar esse exemplo, você deve ter um serviço de Pesquisa do Azure, para o qual você pode se inscrever no [Portal do Azure](https://portal.azure.com).
+Para executar esse exemplo, você deverá ter um serviço Pesquisa do Azure, no qual você pode se inscrever no [Portal Clássico do Azure](https://portal.azure.com).
 
 > [AZURE.TIP]Baixe o código-fonte deste tutorial em [AzureSearchNodeJSIndexerDemo](http://go.microsoft.com/fwlink/p/?LinkId=530198).
 
@@ -36,7 +36,7 @@ Neste aplicativo, o programa **DataIndexer** cria e carrega o índice usando um 
 
 ## Criar o serviço
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [Portal Clássico do Azure](https://portal.azure.com).
 
 2. Na barra de navegação rápida, clique em **Novo** > **Dados + Armazenamento** > **Pesquisa**.
 
@@ -147,4 +147,4 @@ Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para qu
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

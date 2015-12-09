@@ -414,24 +414,13 @@ Se estiver lendo um grande número de entidades e quiser processar/exibir as ent
 
 Agora que você aprendeu os conceitos básicos do armazenamento de Tabela, siga estes links para saber mais sobre tarefas de armazenamento mais complexas:
 
-<ul>
-<li>Consulte a documentação de referência do serviço Tabela para obter detalhes completos sobre as APIs disponíveis:
-  <ul>
-    <li>Referência à <a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Biblioteca de Cliente de Armazenamento para .NET</a>
-    </li>
-    <li><a href="http://msdn.microsoft.com/library/azure/dd179355">Referência da API REST</a></li>
-  </ul>
-</li>
-<li>Saiba mais sobre tarefas mais avançadas que você pode executar com o Armazenamento do Azure em <a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">documentação do Armazenamento do Azure</a>.</li>
-<li>Saiba como simplificar o código que você escreve a fim de trabalhar com o Armazenamento do Azure usando o <a href="../websites-dotnet-webjobs-sdk/">SDK WebJobs do Azure</a>.</li>
-<li>Consulte outros guias de recursos para obter informações sobre opções adicionais para armazenar dados no Azure:
-  <ul>
-    <li>Usar o <a href="/documentation/articles/storage-dotnet-how-to-use-blobs/">Armazenamento de Blob</a> para armazenar dados não estruturados.</li>
-    <li>Usar o <a href="/documentation/articles/storage-dotnet-how-to-use-queues/">Armazenamento de Fila</a> para armazenar dados estruturados.</li>
-    <li>Usar o <a href="/documentation/articles/sql-database-dotnet-how-to-use/">Banco de Dados SQL</a> para armazenar dados relacionais.</li>
-  </ul>
-</li>
-</ul>
+- Consulte a documentação de referência do serviço Tabela para obter detalhes completos sobre as APIs disponíveis:
+    - [Referência à Biblioteca de Cliente de Armazenamento para .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+    - [Referência da API REST](http://msdn.microsoft.com/library/azure/dd179355)
+- Saiba como simplificar o código que você escreve para trabalhar com o Armazenamento do Azure usando o [SDK do Azure WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
+- Consulte outros guias de recursos para obter informações sobre opções adicionais para armazenar dados no Azure.
+    - Usar o [Armazenamento de Blob](storage-dotnet-how-to-use-blobs.md) para armazenar dados não estruturados.
+    - Usar o [Banco de Dados SQL](sql-database-dotnet-how-to-use.md) para armazenar dados relacionais.
 
   [Download and install the Azure SDK for .NET]: /develop/net/
   [Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
@@ -444,7 +433,6 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Tabela, siga 
 
   [postagem de blog Apresentando a projeção de upsert e de consulta]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
   [.NET Client Library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [Storing and accessing data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure Storage Team blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configure Azure Storage connection strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
@@ -452,4 +440,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Tabela, siga 
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

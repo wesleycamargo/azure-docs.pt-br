@@ -244,8 +244,7 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Fila, siga es
 - Consulte a documentação de referência do serviço Fila para obter detalhes completos sobre as APIs disponíveis:
     - Referência à [Biblioteca de Cliente de Armazenamento para .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
     - [Referência da API REST](http://msdn.microsoft.com/library/azure/dd179355)
-- Conheça as tarefas mais avançadas que você pode executar com o Armazenamento do Azure em [Armazenando e acessando dados no Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
-- Saiba como simplificar o código que você escreve a fim de trabalhar com o Armazenamento do Azure usando o [SDK WebJobs do Azure](../websites-dotnet-webjobs-sdk/).
+- Saiba como simplificar o código que você escreve para trabalhar com o Armazenamento do Azure usando o [SDK do Azure WebJobs](../websites-dotnet-webjobs-sdk/).
 - Consulte outros guias de recursos para obter informações sobre opções adicionais para armazenar dados no Azure.
     - Usar o [Armazenamento de Tabela](storage-dotnet-how-to-use-tables.md) para armazenar dados estruturados. 
     - Usar o [Armazenamento de Blob](storage-dotnet-how-to-use-blobs.md) para armazenar dados não estruturados.
@@ -255,7 +254,6 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Fila, siga es
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [Creating a Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
   [CloudStorageAccount]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudstorageaccount_methods.aspx
-  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
@@ -263,4 +261,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Fila, siga es
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

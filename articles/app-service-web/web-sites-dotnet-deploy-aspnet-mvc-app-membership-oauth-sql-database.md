@@ -41,7 +41,7 @@ O que você aprenderá:
 
 ## Pré-requisitos
 
-Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [ativar os benefícios de assinante MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [inscrever-se para uma avaliação gratuita](/pricing/free-trial/?WT.mc_id=A261C142F).
+Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [ativar os benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [inscrever-se em uma avaliação gratuita](/pricing/free-trial/?WT.mc_id=A261C142F).
 
 Para configurar o ambiente de desenvolvimento, você deve instalar o [Visual Studio 2013 Atualização 4](http://go.microsoft.com/fwlink/?LinkId=390521) ou superior e a versão mais recente do [SDK do Azure para .NET](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). Este artigo foi escrito para o Visual Studio Atualização 4 e para o SDK 2.7.1. As mesmas instruções servem para o Visual Studio 2015 com a versão mais recente do [SDK do Azure para .NET](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409) instalado, mas algumas telas terão uma aparência diferente das ilustrações.
 
@@ -449,7 +449,7 @@ Nesta seção, você irá adicionar um usuário local e a função *canEdit* ao 
 
 ## Usar código temporário para adicionar novos usuários de logon social à função canEdit  ##
 
-Nesta seção, você modificará temporariamente o método **ExternalLoginConfirmation** no controlador de conta para adicionar novos usuários com registro com um provedor OAuth na função *canEdit*. No futuro, esperamos fornecer uma ferramenta semelhante à [WSAT](http://msdn.microsoft.com/library/ms228053.aspx) que permita criar e editar contas de usuário e funções. Até lá, você pode realizar a mesma função usando o código temporário.
+Nesta seção, você modificará temporariamente o método **ExternalLoginConfirmation** no controlador de conta para adicionar novos usuários com registro com um provedor OAuth na função *canEdit*. No futuro, esperamos fornecer uma ferramenta semelhante à [WSAT](http://msdn.microsoft.com/library/ms228053.aspx), que permita criar e editar contas de usuário e funções. Até lá, você pode realizar a mesma função usando o código temporário.
 
 1. Abra o arquivo **Controllers\\AccountController.cs** e navegue para o método **ExternalLoginConfirmation**.
 
@@ -628,7 +628,7 @@ Nesta seção, você aplica o atributo [Authorize](http://msdn.microsoft.com/lib
 
 4. Clique com o botão direito do mouse no aplicativo Web e selecione **Parar**.
 
-	Como alternativa, no [portal de visualização do Azure](https://portal.azure.com/), vá até a folha do aplicativo Web e clique no ícone **Parar** na parte superior da folha.
+	Como alternativa, no [Portal do Azure](https://portal.azure.com/), vá até a folha do aplicativo Web e clique no ícone **Parar** na parte superior da folha.
 
 	![parar portal do aplicativo Web](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/stopweb.png)
 
@@ -715,7 +715,7 @@ Se tiver problemas, veja algumas sugestões que você pode experimentar.
 * Erros durante o provisionamento do Banco de Dados SQL - Verifique se você tem o SDK atual instalado. Versões anteriores a 2.7.1 contêm um bug que, em alguns cenários, causa erros quando o VS tenta criar o servidor de banco de dados ou o banco de dados.
 * Mensagem de erro “Não há suporte para a operação para o seu tipo de oferta de assinatura” ao criar recursos do Azure - O mesmo que o descrito acima.
 * Erros durante a implantação - Considere a leitura do artigo [Implantação básica do ASP.NET](web-sites-dotnet-get-started.md). Esse cenário de implantação é mais simples e, se você tiver o mesmo problema lá, pode ser mais fácil de isolá-lo. Por exemplo, em alguns ambientes empresariais, um firewall corporativo pode impedir que o Web Deploy estabeleça os tipos de conexões necessárias com o Azure.
-* Nenhuma opção para selecionar a cadeia de conexão no Assistente de Publicação na Web ao implantar - Se você usou um método diferente para criar os recursos do Azure (por exemplo, você está tentando implantar um aplicativo Web e um banco de dados SQL criado no portal), o banco de dados SQL pode não ser associado ao aplicativo Web. A solução mais fácil é criar um novo aplicativo Web e banco de dados usando o VS, como mostrado no tutorial. Você não precisa iniciar o tutorial novamente – no Assistente de Publicação na Web, você pode optar por criar um novo aplicativo Web e receber o mesmo diálogo de criação de recursos do Azure que você recebe quando cria o projeto.
+* Nenhuma opção para selecionar a cadeia de conexão no Assistente de Publicação na Web ao implantar - se você tiver usado um método diferente para criar os recursos do Azure (por exemplo, você está tentando implantar um aplicativo Web e um banco de dados SQL criado no portal), o banco de dados SQL pode não ser associado ao aplicativo Web. A solução mais fácil é criar um novo aplicativo Web e banco de dados usando o VS, como mostrado no tutorial. Você não precisa iniciar o tutorial novamente – no Assistente de Publicação na Web, você pode optar por criar um novo aplicativo Web e receber o mesmo diálogo de criação de recursos do Azure que você recebe quando cria o projeto.
 * As instruções para o portal do desenvolvedor do Google ou Facebook estão desatualizadas - veja o comentário do Disqus em destaque no final deste tutorial.
 
 ## Próximas etapas
@@ -737,7 +737,6 @@ Este tutorial foi escrito por [Rick Anderson](http://blogs.msdn.com/b/rickandy/)
 ## O que mudou
 
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia para a alteração do portal do Azure para o portal de visualização do Azure, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- bookmarks -->
 [Add an OAuth Provider]: #addOauth
@@ -798,4 +797,4 @@ Este tutorial foi escrito por [Rick Anderson](http://blogs.msdn.com/b/rickandy/)
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

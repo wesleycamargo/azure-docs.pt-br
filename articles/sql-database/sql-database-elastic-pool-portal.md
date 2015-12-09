@@ -11,21 +11,21 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="11/06/2015"
+	ms.date="12/01/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Criar um pool de bancos de dados elásticos escalonável para bancos de dados SQL no portal de visualização do Azure
+# Criar um pool de bancos de dados elástico escalonável para bancos de dados SQL no portal do Azure
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-database-elastic-pool-portal.md)
+- [Azure portal](sql-database-elastic-pool-portal.md)
 - [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
-Este artigo mostra como criar um [pool de bancos de dados elásticos](sql-database-elastic-pool.md) escalonável usando o portal de visualização do Azure. Uma configuração de Banco de Dados SQL com pools de bancos de dados elásticos simplifica a administração e o compartilhamento de recursos entre vários bancos de dados.
+Este artigo mostra como criar um [pool de bancos de dados elástico](sql-database-elastic-pool.md) escalonável usando o portal do Azure. Uma configuração de Banco de Dados SQL com pools de bancos de dados elásticos simplifica a administração e o compartilhamento de recursos entre vários bancos de dados.
 
 > [AZURE.NOTE]No momento, os pools de banco de dados elástico estão em visualização e disponíveis apenas com Servidores V12 do Banco de Dados SQL. Se você tiver um servidor de Banco de Dados SQL V11, poderá [usar o PowerShell para atualizar para o V12 e criar um pool](sql-database-upgrade-server.md) em uma única etapa.
 
@@ -38,7 +38,7 @@ Antes de começar, será necessário pelo menos um banco de dados em um servidor
 Crie um pool de banco de dados elástico adicionando um novo pool a um servidor. Você pode adicionar vários pools a um servidor, mas apenas um (1) servidor pode ser associado a cada pool. Além disso, é possível adicionar todos os bancos de dados em um servidor, ou alguns deles, a um pool.
 
 
-No [portal de visualização do Azure](https://ms.portal.azure.com/), clique em **SQL servers**, clique no servidor que hospeda os bancos de dados que você deseja adicionar ao pool e, em seguida, clique em **Adicionar pool**.
+No [portal do Azure](https://portal.azure.com/), clique em **Servidores SQL**, clique no servidor que hospeda os bancos de dados que você deseja adicionar ao pool e, em seguida, clique em **Adicionar pool**.
 
 ![Adicionar pool a um servidor](./media/sql-database-elastic-pool-portal/elastic-pool-add-pool.png)
 
@@ -202,4 +202,4 @@ Depois de criar um pool de banco de dados elástico, você pode gerenciar os ban
 [11]: ./media/sql-database-elastic-pool-portal/recommended-pool.png
 [12]: ./media/sql-database-elastic-pool-portal/pools-message.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

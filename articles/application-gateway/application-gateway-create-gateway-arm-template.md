@@ -237,7 +237,7 @@ Clique para implantar é outra maneira de usar modelos ARM. É uma maneira fáci
 
 
 ### Etapa 1 
-Usar o link [Clicar para implantar o Application Gateway](https://azure.microsoft.com/pt-BR/documentation/templates/101-application-gateway-public-ip/) redirecionará você para a página de modelo do portal do Application Gateway.
+Usar o link [Clicar para implantar o Application Gateway](https://azure.microsoft.com/documentation/templates/101-application-gateway-public-ip/) redirecionará você para a página de modelo do portal do Application Gateway.
 
 
 ### Etapa 2 
@@ -273,4 +273,4 @@ Se deseja obter mais informações sobre as opções de balanceamento de carga n
 - [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

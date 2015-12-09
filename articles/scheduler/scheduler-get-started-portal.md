@@ -19,7 +19,7 @@
 
 ## Configurar o Agendador usando o portal do Azure para criar trabalhos de forma rápida e fácil
 
-Para concluir este tutorial, você precisa de uma conta do Azure com o recurso Agendador do Azure habilitado. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pt-BR/pricing/free-trial/).
+Para concluir este tutorial, você precisa de uma conta do Azure com o recurso Agendador do Azure habilitado. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte a [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Introdução
 
@@ -261,4 +261,4 @@ Por fim, para todos os tipos de ação, você pode alterar o agendamento em si e
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -27,9 +27,9 @@ A primeira etapa é criar um namespace de serviço e obter uma chave de Assinatu
 
 ### Para criar um namespace de serviço e obter uma chave SAS
 
-1. Para criar um namespace no portal do Azure, execute as etapas em [Como: Criar ou Modificar um Namespace de Serviço do Barramento de Serviço](https://msdn.microsoft.com/library/hh690931.aspx).
+1. Para criar um namespace no [portal clássico do Azure][], execute as etapas em [Como criar ou modificar um namespace do serviço Barramento de Serviço](https://msdn.microsoft.com/library/hh690931.aspx).
 
-2. Na janela principal do portal do Azure, clique no nome do namespace de serviço que você criou na etapa anterior.
+2. Na janela principal do portal, clique no nome do namespace de serviço que você criou na etapa anterior.
 
 3. Clique em **Configurar** para exibir as políticas de acesso compartilhado para o namespace.
 
@@ -76,7 +76,7 @@ A principal diferença entre um contrato básico de Barramento de Serviço e um 
 		...
 	```
 
-8. Imediatamente após a declaração do namespace, defina uma nova interface chamada **IImageContract** e aplique o atributo **ServiceContractAttribute** à interface com um valor de `http://samples.microsoft.com/ServiceModel/Relay/`. O valor do namespace é diferente do namespace que você usa em todo o escopo do seu código. O valor do namespace é usado como um identificador exclusivo para este contrato e deve ter informações sobre a versão. Para obter mais informações, consulte [Controle de Versão do Serviço](http://go.microsoft.com/fwlink/?LinkID=180498). Especificar o namespace de forma explícita impede a adição do valor de namespace padrão ao nome do contrato.
+8. Imediatamente após a declaração do namespace, defina uma nova interface chamada **IImageContract** e aplique o atributo **ServiceContractAttribute** à interface com um valor de `http://samples.microsoft.com/ServiceModel/Relay/`. O valor do namespace é diferente do namespace que você usa em todo o escopo do seu código. O valor do namespace é usado como um identificador exclusivo para este contrato e deve ter informações sobre a versão. Para saber mais, veja [Controle de Versão do Serviço](http://go.microsoft.com/fwlink/?LinkID=180498). Especificar o namespace de forma explícita impede a adição do valor de namespace padrão ao nome do contrato.
 
 	```
 	[ServiceContract(Name = "ImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/RESTTutorial1")]
@@ -193,7 +193,7 @@ Assim como nas etapas anteriores, há pouca diferença entre a implementação d
 
 	Ao adicionar o arquivo, certifique-se de que a opção **Todos os Arquivos** esteja selecionada na lista suspensa ao lado do campo **Nome do arquivo:**. O restante deste tutorial supõe que o nome da imagem seja "image.jpg". Se você tiver um arquivo diferente, será necessário renomear a imagem ou alterar o código para compensar.
 
-4. Para ter certeza de que o serviço em execução consegue encontrar o arquivo de imagem, no **Gerenciador de Soluções**, clique com o botão direito do mouse no arquivo de imagem. No painel **Propriedades**, defina **Copiar para o Diretório de Saída** para **Copiar se for mais recente**.
+4. Para ter certeza de que o serviço em execução consegue encontrar o arquivo de imagem, no **Gerenciador de Soluções**, clique com o botão direito do mouse no arquivo de imagem. No painel **Propriedades**, defina **Copiar para o Diretório de Saída** como **Copiar se for mais recente**.
 
 5. Adicione referências aos assemblies **System.Drawing.dll**, **System.Runtime.Serialization.dll** e **Microsoft.ServiceBus.dll** para o projeto, e adicione também as seguintes instruções `using` associadas.
 
@@ -241,7 +241,7 @@ Assim como nas etapas anteriores, há pouca diferença entre a implementação d
 
 ### Para definir a configuração a fim de executar o serviço da Web no Barramento de Serviço
 
-1. Clique com o botão direito do mouse no projeto **ImageListener**. Em seguida, clique em **Adicionar** e, em seguida, em **Novo Item**.
+1. Clique com o botão direito do mouse no projeto **ImageListener**. Em seguida, clique em **Adicionar** e em **Novo Item**.
 
 2. No **Gerenciador de Soluções**, clique duas vezes em **App.config**, que atualmente contém os seguintes elementos XML:
 
@@ -300,7 +300,7 @@ Assim como nas etapas anteriores, há pouca diferença entre a implementação d
 
 	Esta etapa configura um serviço que usa o padrão previamente definido **webHttpRelayBinding**. Ele também usa o padrão **sbTokenProvider**, definido na próxima etapa.
 
-6. Após o elemento `<services>`, crie um elemento `<behaviors>` com o conteúdo a seguir, substituindo "SAS\_KEY" pela chave *Assinatura de Acesso Compartilhado* (SAS) obtida no portal do Azure na Etapa 1.
+6. Após o elemento `<services>`, crie um elemento `<behaviors>` com o conteúdo a seguir, substituindo "SAS\_KEY" pela chave *Assinatura de Acesso Compartilhado* (SAS) obtida no [portal clássico do Azure][] na Etapa 1.
 
 	```
 	<behaviors>
@@ -582,4 +582,6 @@ Agora que você compilou um aplicativo que usa o serviço de retransmissão do B
 
 - [Como usar o serviço de Retransmissão do Barramento de Serviço](service-bus-dotnet-how-to-use-relay.md)
 
-<!---HONumber=Oct15_HO3-->
+[portal clássico do Azure]: http://manage.windowsazure.com
+
+<!---HONumber=AcomDC_1203_2015-->

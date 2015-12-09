@@ -57,11 +57,11 @@ Os itens a seguir são necessários para concluir este tutorial:
 
 ## Criar um novo aplicativo HTML
 
-Depois de criar seu serviço móvel, você poderá seguir um guia de início rápido fácil no Portal de Gerenciamento para criar um novo aplicativo ou modificar um aplicativo existente para conexão a seu serviço móvel.
+Depois de criar seu serviço móvel, você poderá seguir um início rápido fácil no portal clássico do Azure para criar um novo aplicativo ou modificar um aplicativo existente para conexão a seu serviço móvel.
 
 Nesta seção, você criará um novo aplicativo HTML que está conectado ao seu serviço móvel.
 
-1.  No Portal de Gerenciamento, clique em **Serviços Móveis**e, em seguida, clique no serviço móvel que você acabou de criar.
+1.  No [portal clássico do Azure], clique em **Serviços Móveis** e clique no serviço móvel que você acabou de criar.
 
 
 2. Na guia de início rápido, clique em **Windows** em **Escolher plataforma** e expanda **Criar um novo aplicativo HTML**.
@@ -108,7 +108,7 @@ O estágio final deste tutorial consiste em hospedar e executar seu novo aplicat
 
 	> [AZURE.NOTE]Você poderá examinar o código que acessa o seu serviço móvel para consultar e inserir dados, que estão localizados no arquivo page.js.
 
-4. No Portal de Gerenciamento, clique na guia **Dados** e, em seguida na tabela **TodoItems**.
+4. Novamente no [portal clássico do Azure], clique na guia **Dados** e clique na tabela **TodoItems**.
 
    	![][11]
 
@@ -147,11 +147,11 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 <!-- URLs. -->
 [Adicionar autenticação ao seu aplicativo]: mobile-services-html-get-started-users.md
 
-[Management Portal]: https://manage.windowsazure.com/
+[portal clássico do Azure]: https://manage.windowsazure.com/
 [Microsoft Web Platform Installer]: http://go.microsoft.com/fwlink/p/?LinkId=286333
 [versão mais recente do Python]: http://go.microsoft.com/fwlink/p/?LinkId=286342
 [Referência conceitual do tutorial do HTML/JavaScript de Serviços Móveis]: mobile-services-html-how-to-use-client-library.md
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

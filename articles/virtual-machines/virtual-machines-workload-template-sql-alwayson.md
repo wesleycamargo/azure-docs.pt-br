@@ -1,6 +1,6 @@
 <properties
 	pageTitle="SQL Server AlwaysOn com modelo do Gerenciador de Recursos do Azure| Microsoft Azure"
-	description="Implante facilmente cinco servidores que ofereçam suporte ao SQL Server AlwaysOn com um modelo do Gerenciador de Recursos do Azure e o portal de visualização do Azure, Azure PowerShell ou CLI do Azure."
+	description="Implante facilmente cinco servidores que ofereçam suporte ao SQL Server AlwaysOn com um modelo do Gerenciador de Recursos do Azure e o portal do Azure, o Azure PowerShell ou a CLI do Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -25,11 +25,11 @@ Use as instruções deste artigo para implantar o SQL Server AlwaysOn usando um 
 
 ![](./media/virtual-machines-workload-template-sql-alwayson/five-server-sqlao.png)
 
-Você pode executar o modelo com o portal de visualização do Azure, o Azure PowerShell ou CLI do Azure.
+Você pode executar o modelo com o portal do Azure, o Azure PowerShell ou a CLI do Azure.
 
-## Portal de visualização do Azure
+## Portal do Azure
 
-Para implantar essa carga de trabalho usando um modelo do Gerenciador de Recursos do Azure e o portal de visualização do Azure, clique [aqui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsql-server-2014-alwayson-dsc%2Fazuredeploy.json).
+Para implantar essa carga de trabalho usando um modelo do Gerenciador de Recursos do Azure e o portal do Azure, clique [aqui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsql-server-2014-alwayson-dsc%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-sql-alwayson/azure-portal-template.png)
 
@@ -107,4 +107,4 @@ Quando a execução do modelo for concluída, você terá uma nova configuraçã
 
 [Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

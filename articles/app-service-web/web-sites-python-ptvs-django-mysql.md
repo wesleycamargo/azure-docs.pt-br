@@ -194,7 +194,6 @@ Para saber mais, confira o [Centro de Desenvolvedores do Python](/develop/python
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 <!--Link references-->
@@ -202,7 +201,7 @@ Para saber mais, confira o [Centro de Desenvolvedores do Python](/develop/python
 [Serviços de Nuvem do Azure]: ../cloud-services-python-ptvs.md
 
 <!--External Link references-->
-[Azure Portal]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com
 [Python Tools para Visual Studio]: http://aka.ms/ptvs
 [Ferramentas Python 2.2 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [VSIX de amostra de Ferramentas Python 2.2 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
@@ -217,4 +216,4 @@ Para saber mais, confira o [Centro de Desenvolvedores do Python](/develop/python
 [MySQL]: http://www.mysql.com/
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução à Pesquisa do Azure no Java | Microsoft Azure | Serviço de pesquisa hospedado na nuvem"
+	pageTitle="Introdução à Pesquisa do Azure em Java | Microsoft Azure | Serviço de pesquisa em nuvem hospedado"
 	description="Como criar um aplicativo de pesquisa hospedado na nuvem no Azure usando Java como linguagem de programação."
 	services="search"
 	documentationCenter=""
@@ -28,7 +28,7 @@ Para compilar e testar este exemplo, usamos o seguinte software:
 
 - [Apache Tomcat 8.0](http://tomcat.apache.org/download-80.cgi)
 
-Para executar esse exemplo, você precisará de um serviço de Pesquisa do Azure, para o qual você pode se inscrever pelo [Portal de gerenciamento do Azure](https://portal.azure.com).
+Para executar esse exemplo, você deverá ter um serviço Pesquisa do Azure, no qual você pode se inscrever no [Portal Clássico do Azure](https://portal.azure.com).
 
 > [AZURE.TIP]Baixe o código-fonte deste tutorial em [Demonstração do Java da Pesquisa do Azure](http://go.microsoft.com/fwlink/p/?LinkId=530197) no Github.
 
@@ -55,7 +55,7 @@ A lista a seguir descreve os arquivos que são relevantes para este exemplo.
 
 ## Criar o serviço
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [Portal Clássico do Azure](https://portal.azure.com).
 
 2. Na barra de navegação rápida, clique em **Novo** > **Dados + armazenamento** > **Pesquisa**.
 
@@ -123,7 +123,7 @@ Todas as modificações de arquivos subsequentes e instruções de execução se
 
 1. Em **Gerenciador de Projetos**, clique duas vezes em **config.properties** para editar as definições de configuração que contêm o nome do servidor e a chave de Api.
 
-2. Consulte as etapas explicadas anteriormente neste artigo,em que você encontrou a URL de serviço e a chave de Api no [Portal do Azure](https://portal.azure.com), para obter os valores que você vai inserir agora em **config.properties**.
+2. Consulte as etapas explicadas anteriormente neste artigo, onde você encontrou a URL de serviço e a api-key no [Portal Clássico do Azure](https://portal.azure.com), para obter os valores que você vai inserir agora em **config.properties**.
 
 3. Em **config.properties**, substitua "Chave Api" com a chave de Api para o serviço. Em seguida, o nome do serviço (o primeiro componente da URL http://servicename.search.windows.net) substitui o "nome do serviço" no mesmo arquivo.
 
@@ -231,4 +231,4 @@ Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para qu
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -92,7 +92,7 @@ As considerações sobre os recursos Na Memória em versão de visualização se
 
 ## R. Instalar o exemplo de OLTP Na Memória.
 
-Você pode criar o banco de dados de exemplo AdventureWorksLT [V12] com alguns cliques no [portal de visualização do Azure](http://portal.azure.com/). Em seguida, as etapas desta seção explicam como é possível enriquecer seu banco de dados AdventureWorksLT com:
+Você pode criar o banco de dados de exemplo AdventureWorksLT [V12] com alguns cliques no [Portal do Azure](http://portal.azure.com/). Em seguida, as etapas desta seção explicam como é possível enriquecer seu banco de dados AdventureWorksLT com:
 
 - Tabelas Na Memória.
 - Um procedimento armazenado compilado nativamente.
@@ -100,7 +100,7 @@ Você pode criar o banco de dados de exemplo AdventureWorksLT [V12] com alguns c
 
 #### Etapas de instalação
 
-1. No [portal de visualização do Azure](http://portal.azure.com/), crie um banco de dados Premium em um servidor V12. Defina a **Origem** como o banco de dados de exemplo AdventureWorksLT [V12].
+1. No [Portal do Azure](http://portal.azure.com/), crie um banco de dados Premium em um servidor V12. Defina a **Origem** como o banco de dados de exemplo AdventureWorksLT [V12].
  - Para obter instruções detalhadas, consulte [Criar seu primeiro banco de dados SQL do Azure](sql-database-get-started.md).
 
 2. Conecte-se ao banco de dados com o SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
@@ -525,4 +525,4 @@ Se um banco de dados contiver qualquer um dos seguintes tipos de objetos ou de t
 
 - [Monitorar o Armazenamento Na Memória](sql-database-in-memory-oltp-monitoring.md) para o OLTP Na Memória.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

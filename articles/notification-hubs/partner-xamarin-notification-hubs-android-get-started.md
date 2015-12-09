@@ -16,7 +16,7 @@
 	ms.date="11/17/2015"
 	ms.author="wesmc"/>
 
-# Introdução aos Hubs de Notificação
+# Introdução aos Hubs de Notificação com o Xamarin para Android
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -25,6 +25,15 @@
 Este tutorial mostra como usar os Hubs de Notificação do Azure para enviar notificações por push para um aplicativo Xamarin.Android. Você criará um aplicativo Xamarin.Android em branco que recebe notificações por push usando o GCM(Google Cloud Messaging). Ao finalizar, você poderá usar seu hub de notificação para transmitir notificações por push a todos os dispositivos que executam seu aplicativo. O código concluído está disponível na amostra do [aplicativo NotificationHubs][GitHub].
 
 Este tutorial demonstra o cenário de transmissão simples usando Hubs de Notificação.
+
+
+## Antes de começar
+
+[AZURE.INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
+
+O código concluído neste tutorial pode ser encontrado no GitHub [aqui](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/Xamarin/GetStartedXamarinAndroid).
+
+
 
 ##Pré-requisitos
 
@@ -66,7 +75,7 @@ Agora, o seu hub de notificação está configurado para funcionar com o GCM e v
 
    	![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project1.png)
 
-2. Insira o **Nome do Aplicativo** e o **Identificador**. Clique nas **Plataformas de Destino** às quais você deseja dar suporte e clique em **Avançar** e **Criar**.
+2. Insira o **Nome do Aplicativo** e o **Identificador**. Clique nas **Plataformas de Destino** às quais você deseja dar suporte e clique em **Avançar** e em **Criar**.
 
    	![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project2.png)
 
@@ -104,7 +113,7 @@ O cliente de mensagens de nuvem do Google disponível na loja de componentes Xam
 
 1. Colete as informações a seguir para o aplicativo Android e o hub de notificação:
 
-	- **GoogleProjectNumber**: obtenha esse valor de Número do Projeto da visão geral do seu aplicativo no Portal do Desenvolvedor do Google. Você anotou este valor anteriormente quando criou o aplicativo no portal.
+	- **GoogleProjectNumber**: obtenha o valor de Número do Projeto da visão geral do seu aplicativo no Google Developer Portal. Você anotou este valor anteriormente quando criou o aplicativo no portal.
 	- **Cadeia de conexão de escuta**: no painel do portal do Azure, clique em **Exibir cadeias de conexão**. Copiar a sequência de conexão *DefaultListenSharedAccessSignature* para esse valor.
 	- **Nome do hub**: este é o nome do seu hub no portal do Azure. Por exemplo, *mynotificationhub2*.
 
@@ -161,7 +170,7 @@ O cliente de mensagens de nuvem do Google disponível na loja de componentes Xam
 
 4. Crie uma nova classe, **MyBroadcastReceiver**.
 
-	> [AZURE.NOTE]Mostraremos a criação de uma classe **BroadcastReceiver** desde o início. No entanto, uma alternativa rápida para criar manualmente o **MyBroadcastReceiver.cs** é consultar o arquivo **GcmService.cs** encontrado na amostra do projeto Xamarin.Android incluído com os [Exemplos do NotificationHubs][GitHub] . Duplicar o **GcmService.cs** e alterar os nomes de classe podem ser uma ótima maneira de começar.
+	> [AZURE.NOTE]Mostraremos a criação de uma classe **BroadcastReceiver** desde o início. No entanto, uma alternativa rápida para criar manualmente o **MyBroadcastReceiver.cs** é consultar o arquivo **GcmService.cs** encontrado na amostra do projeto Xamarin.Android incluído com os [Exemplos do NotificationHubs][GitHub] . Duplicar o **GcmService.cs** e alterar os nomes de classe pode ser uma ótima maneira de começar.
 
 5. Adicione as instruções using a seguir a **MyBroadcastReceiver.cs** (para se referir ao componente e ao assembly adicionados anteriormente):
 
@@ -281,7 +290,7 @@ O cliente de mensagens de nuvem do Google disponível na loja de componentes Xam
 
 11. Adicione os métodos **createNotification** e **dialogNotify** ao **PushHandlerService** para notificar os usuários quando a notificação for recebida.
 
-	>[AZURE.NOTE]O design de notificação no Android versão 5.0 e posterior teve uma mudança significativa das versões anteriores. Se você testar isso no Android 5.0 ou posterior, o aplicativo precisará estar em execução para receber a notificação. Para saber mais, confira [Notificações do Android](http://go.microsoft.com/fwlink/?LinkId=615880).
+	>[AZURE.NOTE]O design de notificação no Android versão 5.0 e posterior teve uma mudança significativa das versões anteriores. Se você testar isso no Android 5.0 ou posterior, o aplicativo precisará estar em execução para receber a notificação. Para obter mais informações, consulte [Notificações do Android](http://go.microsoft.com/fwlink/?LinkId=615880).
 
         void createNotification(string title, string desc)
         {
@@ -409,7 +418,7 @@ Nesta seção, enviaremos as notificações usando um aplicativo de console .NET
 
         using Microsoft.Azure.NotificationHubs;
 
-5. Em sua classe `Program`, adicione o método a seguir. Atualize o texto de espaço reservado com sua cadeia de conexão do *DefaultFullSharedAccessSignature* e o nome do hub no portal do Azure.
+5. Em sua classe `Program`, adicione o seguinte método: Atualize o texto de espaço reservado com sua cadeia de conexão do *DefaultFullSharedAccessSignature* e o nome do hub no portal do Azure.
 
         private static async void SendNotificationAsync()
         {
@@ -430,7 +439,7 @@ Nesta seção, enviaremos as notificações usando um aplicativo de console .NET
 
 1. Acompanhe [Introdução aos Serviços Móveis].
 
-1. Entre no [Portal do Azure] e selecione seu serviço móvel.
+1. Entre no [portal do Azure] e selecione seu serviço móvel.
 
 2. Selecione a guia **Agendador** na parte superior.
 
@@ -498,7 +507,7 @@ Neste exemplo simples, você envia notificações para todos os seus dispositivo
 [Introdução aos Serviços Móveis]: /develop/mobile/tutorials/get-started-xamarin-android/#create-new-service
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 
-[Portal do Azure]: https://manage.windowsazure.com/
+[portal do Azure]: https://manage.windowsazure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/library/jj927170.aspx
 [Instruções sobre Hubs de Notificação para Android]: http://msdn.microsoft.com/library/dn282661.aspx
@@ -514,4 +523,4 @@ Neste exemplo simples, você envia notificações para todos os seus dispositivo
 [Componente de mensagens de nuvem do Google]: http://components.xamarin.com/view/GCMClient/
 [Componente de mensagens do Azure]: http://components.xamarin.com/view/azure-messaging
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

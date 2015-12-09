@@ -6,7 +6,7 @@ O APNS (Serviço de Notificação por Push da Apple) usa certificados para auten
 
 Gere o arquivo CSR (Solicitação de Assinatura de Certificado), usado pela Apple para gerar um certificado de push assinado.
 
-1. Em seu Mac, execute a ferramenta Acesso do Conjunto de Chaves. Ela pode ser aberta na pasta **Utilitários** ou da pasta **Outros** na barra inicial.
+1. Em seu Mac, execute a ferramenta Acesso do Conjunto de Chaves. Ela pode ser aberta da pasta **Utilitários** ou da pasta **Outros** no launch pad.
 
 2. Clique em **Acesso do Conjunto de Chaves**, expanda **Assistente de Certificado** e clique em **Solicitar um Certificado de uma Autoridade de Certificação...**.
 
@@ -135,4 +135,4 @@ Para poder enviar notificações por push para um aplicativo iOS, você deverá 
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

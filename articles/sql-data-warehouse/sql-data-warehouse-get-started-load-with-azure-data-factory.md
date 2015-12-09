@@ -59,7 +59,7 @@ Agora que temos nossos dados no lugar, podemos prosseguir para sua fábrica de d
 
 ## Usando o Azure Data Factory
 
-Agora que tudo está configurado, podemos começar a configurar o pipeline navegando até a instância do Azure Data Factory no Portal de Visualização do Azure. Isso pode ser feito por meio do [Portal do Azure](portal.azure.com), selecionando a fábrica de dados no menu à esquerda.
+Agora que tudo está configurado, podemos começar a configurar o pipeline navegando até a instância do Azure Data Factory no Portal do Azure. Isso pode ser feito por meio do [Portal Clássico do Azure](portal.azure.com), selecionando a fábrica de dados no menu à esquerda.
 
 Aqui haverá três etapas para configurar um pipeline de fábrica de dados do Azure para transferir dados para o data warehouse: vinculação dos serviços, definição dos conjuntos de dados e criação do pipeline.
 
@@ -206,4 +206,4 @@ Na seção 'Criar e Implantar', agora clique em 'Mais Comandos' e em 'Novo Pipel
 	}
 	
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

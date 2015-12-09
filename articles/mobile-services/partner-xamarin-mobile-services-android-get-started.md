@@ -1,23 +1,28 @@
-<properties 
-	pageTitle="Introdução aos Serviços Móveis para Xamarin.Android | Microsoft Azure" 
-	writer="craigd" 
-	description="Saiba como usar serviços móveis do Azure com seu aplicativo Android Xamarin." 
-	documentationCenter="xamarin" 
-	authors="lindydonna" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Introdução aos Serviços Móveis para Xamarin.Android | Microsoft Azure"
+	writer="craigd"
+	description="Saiba como usar serviços móveis do Azure com seu aplicativo Android Xamarin."
+	documentationCenter="xamarin"
+	authors="lindydonna"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
-	ms.devlang="dotnet" 
-	ms.topic="hero-article" 
-	ms.date="11/05/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-android"
+	ms.devlang="dotnet"
+	ms.topic="hero-article"
+	ms.date="11/05/2015"
 	ms.author="donnam"/>
 
 # <a name="getting-started"></a>Introdução aos Serviços Móveis
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
@@ -47,11 +52,11 @@ O projeto quickstart baixado contém o componente dos Serviços Móveis do Azure
 
 ## Criar um novo aplicativo Xamarin.Android
 
-Depois de criar seu serviço móvel, você poderá seguir um guia de início rápido fácil no Portal de Gerenciamento para criar um novo aplicativo ou modificar um aplicativo existente para conexão a seu serviço móvel.
+Depois de criar seu serviço móvel, você poderá seguir um início rápido fácil no portal clássico do Azure para criar um novo aplicativo ou modificar um aplicativo existente para conexão a seu serviço móvel.
 
 Nesta seção, você criará um novo aplicativo Xamarin.Android que está conectado ao seu serviço móvel.
 
-1.  No Portal de Gerenciamento, clique em **Serviços Móveis**e, em seguida, clique no serviço móvel que você acabou de criar.
+1.  No [portal clássico do Azure], clique em **Serviços Móveis** e clique no serviço móvel que você acabou de criar.
 
 2. Na guia de início rápido, clique em **Xamarin.Android** sob **Escolher plataforma** e expanda **Criar um novo aplicativo Android**.
 
@@ -77,7 +82,7 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
 3. Pressione o botão **Executar** para compilar o projeto e iniciar o aplicativo. Você será solicitado a selecionar um emulador ou um dispositivo USB conectado.
 
-	> [AZURE.NOTE]Para que seja possível executar o projeto no emulador do Android, você deve definir no mínimo um AVD (Dispositivo Virtual Android). Use o Gerenciador do AVD para criar e gerenciar esses dispositivos.
+	> [AZURE.NOTE]Para que seja possível executar o projeto no emulador do Android, você deverá definir no mínimo um AVD (Dispositivo Virtual Android). Use o Gerenciador do AVD para criar e gerenciar esses dispositivos.
 
 4. No aplicativo, digite um texto significativo, como _Concluir o tutorial_ e clique em **Adicionar**.
 
@@ -87,7 +92,7 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
 	> [AZURE.NOTE]Você pode examinar o código que acessa o serviço móvel para consultar e inserir dados que estão localizados no arquivo ToDoActivity.cs C#.
 
-6. No Portal de Gerenciamento, clique na guia **Dados** e, em seguida na tabela **TodoItems**.
+6. Novamente no [portal clássico do Azure], clique na guia **Dados** e clique na tabela **TodoItems**.
 
 	![][11]
 
@@ -138,7 +143,6 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Xamarin.Android]: http://xamarin.com/download
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Azure]: http://azure.microsoft.com/
-[Management Portal]: https://manage.windowsazure.com/
- 
+[portal clássico do Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

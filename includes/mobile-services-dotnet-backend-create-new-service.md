@@ -1,7 +1,7 @@
 
 Siga estas etapas para criar um novo serviço móvel.
 
-1.	Faça logon no [Portal de Gerenciamento](https://manage.windowsazure.com/). Na parte inferior do painel de navegação, clique em **+NOVO**. Expanda **Computação** e **Serviço Móvel** e, em seguida, clique em **Criar**.
+1.	Faça logon no [portal clássico do Azure](https://manage.windowsazure.com/). Na parte inferior do painel de navegação, clique em **+NOVO**. Expanda **Computação** e **Serviço Móvel** e, em seguida, clique em **Criar**.
 	
 	![](./media/mobile-services-dotnet-backend-create-new-service/mobile-create.png)
 
@@ -19,4 +19,4 @@ Siga estas etapas para criar um novo serviço móvel.
 
 Você criou um novo serviço móvel que pode ser usado por seus aplicativos móveis.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

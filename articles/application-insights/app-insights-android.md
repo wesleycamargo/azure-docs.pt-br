@@ -26,4 +26,4 @@ Use o [SDK do Application Insights para Android](https://github.com/Microsoft/Ap
 * Consulte [Introdução ao Application Insights para Android](https://github.com/Microsoft/ApplicationInsights-Android).
 * [Introdução ao HockeyApp para Android](http://support.hockeyapp.net/kb/client-integration-android/hockeyapp-for-android-sdk).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Criar um banco de dados do SQL Data Warehouse no portal de visualização do Azure | Microsoft Azure"
-	description="Saiba como criar um SQL Data Warehouse do Azure no portal de visualização do Azure"
+	pageTitle="Criar um banco de dados do SQL Data Warehouse no Portal do Azure | Microsoft Azure"
+	description="Saiba como criar um Azure SQL Data Warehouse no Portal do Azure"
 	services="sql-data-warehouse"
 	documentationCenter="NA"
 	authors="barbkess"
@@ -19,11 +19,11 @@
 # Criar um SQL Data Warehouse
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-data-warehouse-get-started-provision.md)
+- [Azure Portal](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-Este tutorial mostra como criar um banco de dados do SQL Data Warehouse do Azure em apenas alguns minutos usando o portal de visualização do Azure.
+Este tutorial mostra como criar um banco de dados do SQL Data Warehouse do Azure em apenas alguns minutos usando o Portal do Azure.
 
 Neste tutorial, você irá:
 
@@ -34,7 +34,7 @@ Neste tutorial, você irá:
 
 ## Etapa 1: entrar e começar
 
-1. Entre no [portal de visualização do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 
 2. Clique em **Novo** > **Dados + Armazenamento** > **SQL Data Warehouse**.
 
@@ -99,7 +99,7 @@ Agora que selecionou o servidor SQL lógico, você está pronto para concluir a 
 
 1. Clique em **Criar** para criar o banco de dados do SQL Data Warehouse.
 
-1. Aguarde alguns minutos, e o banco de dados estará pronto. Quando terminar, você deverá ser levado de volta ao [portal de visualização do Azure](https://portal.azure.com). Observe que seu banco de dados do SQL Data Warehouse foi adicionado ao painel.
+1. Aguarde alguns minutos, e o banco de dados estará pronto. Quando terminar, você deverá ser levado de volta ao [Portal do Azure](https://portal.azure.com). Observe que seu banco de dados do SQL Data Warehouse foi adicionado ao painel.
 
     ![Exibição de portal](./media/sql-data-warehouse-get-started-provision/database-portal-view.png)
 
@@ -130,4 +130,4 @@ Agora que você configurou o firewall poderá fazer conexões da área de trabal
 
 Agora que você criou um banco de dados de exemplo para o SQL Data Warehouse, está pronto para [Conectar](./sql-data-warehouse-get-started-connect.md) ao seu banco de dados.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

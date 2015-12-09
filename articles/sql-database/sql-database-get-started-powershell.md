@@ -14,7 +14,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="10/20/2015"
+    ms.date="12/01/2015"
     ms.author="sstein"/>
 
 # Criar um novo banco de dados SQL e executar tarefas comuns de instalação de banco de dados com cmdlets do PowerShell 
@@ -22,7 +22,7 @@
 **Banco de dados individual**
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-get-started.md)
+- [Azure Portal](sql-database-get-started.md)
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
@@ -144,4 +144,4 @@ Depois de criar um novo banco de dados SQL e de realizar tarefas básicas de con
 
 - [Banco de Dados SQL do Azure](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

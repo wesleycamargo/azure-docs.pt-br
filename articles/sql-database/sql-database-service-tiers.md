@@ -34,7 +34,7 @@ Todas as camadas de serviço, Basic, Standard e Premium têm um SLA de tempo de 
 >[AZURE.NOTE]As edições Web e Business estão sendo desativadas. Descubra como [atualizar as edições Web e Business](sql-database-upgrade-new-service-tiers.md). Leia [Perguntas frequentes sobre a descontinuação](http://azure.microsoft.com/pricing/details/sql-database/web-business/) se planeja continuar usando as edições Web e Business.
 
 ### Camadas de serviço e níveis de desempenho de banco de dados individual
-Para bancos de dados individuais existem vários níveis de desempenho em cada camada de serviço, você tem a flexibilidade de escolher o nível que melhor atende às suas demandas de carga de trabalho. Se precisar expandir ou reduzir, você poderá alterar as camadas do banco de dados com facilidade no Portal do Azure, sem tempo de inatividade dos aplicativos. Consulte [Alterando camadas de serviços e níveis de desempenho do banco de dados](sql-database-scale-up.md) para obter detalhes.
+Para bancos de dados individuais existem vários níveis de desempenho em cada camada de serviço, você tem a flexibilidade de escolher o nível que melhor atende às suas demandas de carga de trabalho. Se precisar expandir ou reduzir, você poderá alterar as camadas do banco de dados com facilidade no Portal Clássico do Azure, sem tempo de inatividade dos aplicativos. Consulte [Alterando camadas de serviços e níveis de desempenho do banco de dados](sql-database-scale-up.md) para obter detalhes.
 
 As características de desempenho listadas aqui se aplicam a bancos de dados criados com o [Banco de Dados SQL V12](sql-database-v12-whats-new.md). Em situações em que o hardware subjacente no Azure hospeda vários bancos de dados SQL, o banco de dados ainda obterá um conjunto garantido de recursos e as características de desempenho esperadas do banco de dados individual não serão afetadas.
 
@@ -63,11 +63,11 @@ Cada banco de dados dentro de um pool também cumpre as características do banc
 ## Monitorando o desempenho do banco de dados
 O monitoramento do desempenho de um banco de dados SQL começa com o monitoramento da utilização de recursos em relação ao nível de desempenho de banco de dados escolhido. Esses dados relevantes são expostos das seguintes maneiras:
 
-1.	No Portal de Gerenciamento do Microsoft Azure.
+1.	O Portal Clássico do Microsoft Azure.
 
 2.	Nas Exibições de Gerenciamento Dinâmico no banco de dados do usuário e no banco de dados mestre do servidor que contém o banco de dados do usuário.
 
-No [portal de Visualização do Azure](https://portal.azure.com/), é possível monitorar a utilização de um banco de dados individual selecionando-o e clicando no gráfico de **Monitoramento**. Isso abre uma janela **Métrica** que pode ser alterada clicando no botão **Editar gráfico**. Adicione as seguintes métricas:
+No [Portal do Azure](https://portal.azure.com/), é possível monitorar a utilização de um banco de dados individual selecionando-o e clicando no gráfico **Monitoramento**. Isso abre uma janela **Métrica** que pode ser alterada clicando no botão **Editar gráfico**. Adicione as seguintes métricas:
 
 - Porcentagem de CPU
 - Porcentagem de DTU
@@ -96,4 +96,4 @@ Se estiver interessado em gerenciar vários bancos de dados como um grupo, consi
 Agora que você conhece as camadas do Banco de Dados SQL, teste-as usando uma versão de [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/) e [aprenda a criar seu primeiro banco de dados SQL](sql-database-get-started.md)!
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="11/17/2015"
+   ms.date="12/01/2015"
    ms.author="alkohli" />
 
 # Implantação do seu dispositivo StorSimple local
@@ -72,7 +72,7 @@ A lista de verificação de configuração da implantação a seguir descreve as
 | **Configurar e registrar o dispositivo** | Configurações de rede de Data 0 | Endereço IP de Data 0:</br>Máscara de sub-rede:</br>Gateway:</br>Servidor DNS primário:</br>Servidor NTP primário:</br>Servidor proxy Web IP/FQDN (opcional):</br>Porta proxy Web:| |
 | | Senha do administrador do dispositivo | A senha deve conter entre 8 e 15 caracteres, incluindo letra minúscula, letra maiúscula caracteres numéricos e especiais. | |
 | | Senha do Gerenciador de instantâneos do StorSimple | A senha deve conter 14 ou 15 caracteres, incluindo letra minúscula, letra maiúscula caracteres numéricos e especiais.| |
-| | Chave de registro do serviço | Essa chave é gerada no portal do Azure. | |
+| | Chave de registro do serviço | Essa chave é gerada no portal clássico do Azure. | |
 | | Chave de criptografia de dados do serviço | Essa chave é criada quando o dispositivo é registrado com o serviço de gerenciamento por meio do Windows PowerShell para StorSimple. Copie essa chave e salve-a em um local seguro.| |
 | | | | |
 | **Instalação mínima do dispositivo concluída** | Nome amigável para o dispositivo | Esse é um nome descritivo para o dispositivo. | |
@@ -143,7 +143,7 @@ Antes de começar, verifique se:
 | | | |
 | **NTP** | Disparamos uma sincronização de horário assim que o servidor NTP é inserido. Verifique se a porta UDP 123 está aberta ao inserir `time.windows.com` ou servidores de tempo públicos. | [Baixar e usar esse script](https://gallery.technet.microsoft.com/scriptcenter/Get-Network-NTP-Time-with-07b216ca). |
 | | | |
-| **Proxy (opcional)** | É uma porta e um URI de proxy válido? </br> O modo de autenticação está correto? | <code>wget http://bing.com | % {$\_.StatusCode}</code></br>Esse comando deve ser executado imediatamente depois de configurar o proxy web. Se for retornado um código de status 200, isso indica que a conexão foi bem-sucedida. |
+| **Proxy (opcional)** | É uma porta e um URI de proxy válido? </br> O modo de autenticação está correto? | <code>wget http://bing.com &#124; % {$\_.StatusCode}</code></br>Esse comando deve ser executado imediatamente depois de configurar o proxy web. Se for retornado um código de status 200, isso indica que a conexão foi bem-sucedida. |
 | | O tráfego é roteável por meio do proxy? | Execute a validação de DNS, verifique o NTP ou o HTTP uma vez após configurar o proxy no seu dispositivo. Isso lhe fornecerá uma visão clara de se o tráfego está sendo bloqueado no proxy ou em outro lugar. |
 | | | |
 | **Registro** | Verifique se as portas TCP de saída 443, 80 e 9354 estão abertas. | `Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Mais informações sobre o cmdlet Test-NetConnection](https://technet.microsoft.com/library/dn372891.aspx) |
@@ -164,13 +164,14 @@ Execute as seguintes etapas para criar uma nova instância do serviço StorSimpl
 
 > [AZURE.IMPORTANT]Se você não ativou a criação automática de uma conta de armazenamento com seu serviço, você precisará criar pelo menos uma conta de armazenamento depois que você criou com êxito um serviço. Esta conta de armazenamento será usada quando você criar um contêiner de volume.
 >
-> Se você não tiver criado uma conta de armazenamento automaticamente, vá para [Configurar uma nova conta de armazenamento para o serviço](#configure-a-new-storage-account-for-the-service) para obter instruções detalhadas. Se você habilitou a criação automática de uma conta de armazenamento, vá para [Etapa 2: Obter a chave de registro do serviço](#step-2:-get-the-service-registration-key).
+> Se você não tiver criado uma conta de armazenamento automaticamente, vá para [Configurar uma nova conta de armazenamento para o serviço](#configure-a-new-storage-account-for-the-service) para obter instruções detalhadas.
+> Se você habilitou a criação automática de uma conta de armazenamento, vá para [Etapa 2: Obter a chave de registro do serviço](#step-2:-get-the-service-registration-key).
 
 ## Etapa 2: Obter a chave de registro do serviço
 
 Depois que o serviço StorSimple Manager estiver em execução, será necessário obter a chave de registro do serviço. Essa chave é usada para registrar e conectar o seu dispositivo StorSimple com o serviço.
 
-Execute as etapas a seguir no portal do Azure.
+Execute as etapas a seguir no portal clássico do Azure.
 
 [AZURE.INCLUDE [storsimple-get-service-registration-key](../../includes/storsimple-get-service-registration-key.md)]
 
@@ -191,7 +192,7 @@ Para a configuração mínima de dispositivo do seu dispositivo StorSimple, é n
 - Habilitar o iSCSI em pelo menos uma interface de rede.
 - Atribuir endereços IP fixos para ambos os controladores.
 
-Execute as etapas a seguir no portal do Azure para concluir a configuração mínima do dispositivo.
+Execute as etapas a seguir no portal clássico do Azure para concluir a configuração mínima do dispositivo.
 
 [AZURE.INCLUDE [storsimple-complete-minimum-device-setup](../../includes/storsimple-complete-minimum-device-setup.md)]
 
@@ -202,13 +203,13 @@ Após a configuração do dispositivo ser concluída, você deve verificar atual
 
 Um contêiner de volume tem a conta de armazenamento, largura de banda e configurações de criptografia para todos os volumes contidos nele. Você precisará criar um contêiner de volume antes de começar a provisionar volumes em seu dispositivo StorSimple.
 
-Execute as etapas a seguir no portal do Azure para criar um contêiner de volume.
+Execute as etapas a seguir no portal clássico do Azure para criar um contêiner de volume.
 
 [AZURE.INCLUDE [storsimple-create-volume-container](../../includes/storsimple-create-volume-container.md)]
 
 ## Etapa 6: Criar um volume
 
-Depois de criar um contêiner de volume, você pode provisionar um volume de armazenamento no dispositivo StorSimple para seus servidores. Execute as etapas a seguir no portal do Azure para criar um volume.
+Depois de criar um contêiner de volume, você pode provisionar um volume de armazenamento no dispositivo StorSimple para seus servidores. Execute as etapas a seguir no portal clássico do Azure para criar um volume.
 
 > [AZURE.IMPORTANT]O StorSimple Manager pode criar apenas volumes pequenos de provisionamento. Não é possível criar volumes total ou parcialmente provisionados.
 
@@ -230,7 +231,7 @@ Se você decidir não configurar o MPIO, execute as etapas a seguir para montar,
 
 Backups oferecem proteção pontual de volumes e melhoram a capacidade de recuperação, minimizando os tempos de restauração. Você pode executar dois tipos de backup em seu dispositivo StorSimple: instantâneos locais e instantâneos em nuvem. Cada um desses tipos de backup pode ser **Agendado** ou **Manual**.
 
-Execute as etapas a seguir no portal do Azure para criar um backup agendado.
+Execute as etapas a seguir no portal clássico do Azure para criar um backup agendado.
 
 [AZURE.INCLUDE [storsimple-take-backup](../../includes/storsimple-take-backup.md)]
 
@@ -242,7 +243,7 @@ Esta é uma etapa opcional que você precisa executar somente se não tiver ativ
 
 Se você precisar criar uma conta de armazenamento do Azure em uma região diferente, consulte [Sobre Contas de Armazenamento do Azure](../storage/storage-create-storage-account.md) para obter instruções passo a passo.
 
-Execute as etapas a seguir no portal do Azure, na página **Serviço StorSimple Manager**.
+Execute as etapas a seguir no portal clássico do Azure, na página **Serviço StorSimple Manager**.
 
 [AZURE.INCLUDE [storsimple-configure-new-storage-account](../../includes/storsimple-configure-new-storage-account.md)]
 
@@ -279,7 +280,7 @@ Execute as etapas a seguir para obter o iSCSI IQN (Nome Qualificado) de um host 
 
 ## Criar um backup manual
 
-Execute as etapas a seguir no portal do Azure para criar um backup manual sob demanda para um único volume em seu dispositivo StorSimple.
+Execute as etapas a seguir no portal clássico do Azure para criar um backup manual sob demanda para um único volume em seu dispositivo StorSimple.
 
 [AZURE.INCLUDE [Criar um backup manual](../../includes/storsimple-create-manual-backup.md)]
 
@@ -290,4 +291,4 @@ Execute as etapas a seguir no portal do Azure para criar um backup manual sob de
 
 - Use o [Serviço StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) para gerenciar o seu dispositivo StorSimple.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

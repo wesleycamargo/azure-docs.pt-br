@@ -135,13 +135,14 @@ Abra estas portas para tráfego de saída no firewall do servidor:
 
 Consulte [este item de solução de problemas](app-insights-troubleshoot-faq.md#NuGetBuild).
 
+> [AZURE.NOTE]Se o seu aplicativo gerar muita telemetria (e você estiver usando o SDK do ASP.NET versão 2.0.0-beta3 ou posterior), o módulo de amostragem adaptável reduzirá automaticamente o volume enviado ao portal, enviando apenas uma fração representativa de eventos. No entanto, os eventos relacionados à mesma solicitação serão selecionadas ou desmarcadas como um grupo, para que você possa navegar entre os eventos relacionados. [Saiba mais sobre amostragem](app-insights-sampling.md).
 
 
 ## 5\. Adicionar acompanhamento de dependência (e contadores de desempenho de IIS)
 
 O SDK precisa de um pouco de ajuda para obter acesso a alguns dados. Especificamente, você precisará dessa etapa adicional para avaliar automaticamente as chamadas do seu aplicativo para bancos de dados, APIs REST e outros componentes externos. Essas métricas de dependência podem ser inestimáveis no diagnóstico de problemas de desempenho.
 
-Se você estiver executando no seu próprio servidor IIS, esta etapa também permitirá que contadores de desempenho do sistema apareçam no [Metrics Explorer](app-insights-metrics-explorer.md).
+Se você estiver executando no seu próprio servidor IIS, esta etapa também permitirá que contadores de desempenho do sistema apareçam no [metrics explorer](app-insights-metrics-explorer.md).
 
 #### Se seu aplicativo for executado em seu servidor IIS
 
@@ -149,7 +150,7 @@ Entre no seu servidor com direitos de administrador e instale o [Application Ins
 
 Talvez você precise [abrir portas adicionais de saída no firewall](app-insights-monitor-performance-live-website-now.md#troubleshooting).
 
-Esta etapa também habilita o [relatório de contadores de desempenho](app-insights-web-monitor-performance.md#system-performance-counters) como o uso de CPU, memória e a ocupação de rede.
+Esta etapa também habilita o [relatório de contadores de desempenho](app-insights-web-monitor-performance.md#system-performance-counters) como CPU, memória e ocupação de rede.
 
 #### Se seu aplicativo for um Aplicativo Web do Azure
 
@@ -189,7 +190,7 @@ Verifique se `buildinfo.config` foi gerado pelo processo do MSBuild. No arquivo.
     </PropertyGroup> 
 ```
 
-Quando ele tem as informações de compilação, o módulo da web Application Insights adiciona automaticamente **Versão do aplicativo** como uma propriedade para cada item de telemetria. Isso permite que você filtre por versão ao executar [pesquisas de diagnóstico][diagnostic] ou ao [explorar métricas][metrics].
+Quando ele tem as informações de compilação, o módulo da web do Application Insights adiciona automaticamente **Versão do aplicativo** como uma propriedade para cada item de telemetria. Isso permite que você filtre por versão ao executar [pesquisas de diagnóstico][diagnostic] ou ao [explorar métricas][metrics].
 
 No entanto, observe que o número de versão de compilação é gerado apenas pelo MSBuild, não pela compilação de desenvolvedor no Visual Studio.
 
@@ -209,7 +210,7 @@ Você precisará do [Visual Studio](http://go.microsoft.com/fwlink/?linkid=39782
 
 #### Se é um novo projeto...
 
-Quando você criar um novo projeto no Visual Studio, certifique-se de que **Adicionar Application Insights** esteja selecionado.
+Quando você criar um novo projeto no Visual Studio, selecione **Adicionar Application Insights**.
 
 
 ![Criar um projeto ASP.NET](./media/app-insights-start-monitoring-app-health-usage/appinsights-01-vsnewp1.png)
@@ -220,7 +221,7 @@ Se o projeto tem páginas da Web, ele também adiciona o [SDK do JavaScript][cli
 
 #### ...ou então, se é um projeto existente
 
-Clique com o botão direito no projeto no Gerenciador de Soluções e escolha **Adicionar Application Insights**.
+Clique com o botão direito do mouse no projeto no Gerenciador de Soluções e escolha **Adicionar Application Insights**.
 
 ![Escolher Adicionar Application Insights](./media/app-insights-start-monitoring-app-health-usage/appinsights-03-addExisting.png)
 
@@ -268,4 +269,4 @@ Se esse aplicativo é parte de um aplicativo maior, você talvez queira usar **D
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

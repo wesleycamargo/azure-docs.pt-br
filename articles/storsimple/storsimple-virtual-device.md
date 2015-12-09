@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/16/2015"
+   ms.date="12/01/2015"
    ms.author="alkohli" />
 
 # Implantar e gerenciar um dispositivo virtual StorSimple no Azure
@@ -55,7 +55,7 @@ Tenha as seguintes considerações de segurança em mente ao usar o dispositivo 
 
 - O dispositivo virtual é protegido por meio de sua assinatura do Microsoft Azure. Isso significa que, se você estiver usando o dispositivo virtual e se sua assinatura do Azure estiver comprometida, os dados armazenados em seu dispositivo virtual também estarão suscetíveis.
 
-- A chave pública do certificado usado para criptografar os dados armazenados no Azure StorSimple foi disponibilizada com segurança para o Portal do Azure e a chave privada é mantida com o dispositivo StorSimple. No dispositivo virtual StorSimple, as chaves públicas e privadas são armazenadas no Azure.
+- A chave pública do certificado usado para criptografar os dados armazenados no Azure StorSimple foi disponibilizada com segurança para o portal clássico do Azure e a chave privada é mantida com o dispositivo StorSimple. No dispositivo virtual StorSimple, as chaves públicas e privadas são armazenadas no Azure.
 
 - O dispositivo virtual é hospedado no datacenter do Microsoft Azure.
 
@@ -94,7 +94,7 @@ Faça as seguintes atualizações para o seu serviço do Azure StorSimple antes 
 
 Certifique-se de ter as seguintes informações antes de começar:
 
-- Você tem sua conta do Portal do Azure com credenciais de acesso.
+- Você tem sua conta do portal clássico do Azure com credenciais de acesso.
 
 - Você tem sua conta de armazenamento do Azure com credenciais de acesso.
 
@@ -115,7 +115,7 @@ Depois de ter criado uma rede virtual, configurado um serviço Gerenciador do St
 
 Execute as seguintes etapas para criar o dispositivo virtual StorSimple.
 
-1.  No Portal do Azure, vá até o serviço **StorSimple Manager**.
+1.  No portal clássico do Azure, vá até o serviço **StorSimple Manager**.
 
 2. Vá para a página **Dispositivos**.
 
@@ -285,7 +285,7 @@ No entanto, se você quiser se conectar diretamente ao dispositivo virtual de ou
 
 Execute as seguintes etapas para criar o dispositivo virtual StorSimple.
 
-1. Entre no Portal do Azure.
+1. Entre no portal clássico do Azure.
 
 - Clique em **Máquinas Virtuais** e, em seguida, selecione a máquina virtual que está sendo usada como seu dispositivo virtual.
 
@@ -369,7 +369,7 @@ Se você excluir ou desligar o dispositivo virtual, ele será exibido como **Off
 
 ### Para desligar o dispositivo virtual StorSimple
 
-1. Entre no Portal do Azure.
+1. Entre no portal clássico do Azure.
 
 2. Clique em **Máquinas Virtuais** e então selecione o dispositivo virtual.
 
@@ -377,7 +377,7 @@ Se você excluir ou desligar o dispositivo virtual, ele será exibido como **Off
 
 ### Para excluir o dispositivo virtual StorSimple
 
-1. Entre no Portal do Azure.
+1. Entre no portal clássico do Azure.
 
 - Clique em **Máquinas Virtuais** e então selecione o dispositivo virtual.
 
@@ -388,4 +388,4 @@ Se você excluir ou desligar o dispositivo virtual, ele será exibido como **Off
 
 Para administrar o dispositivo virtual, confira a lista detalhada dos fluxos de trabalho em [Administrar o dispositivo StorSimple usando o serviço StorSimple Manager](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

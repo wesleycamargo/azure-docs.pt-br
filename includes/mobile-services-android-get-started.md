@@ -31,7 +31,7 @@ Você pode executar o aplicativo usando o emulador ou um dispositivo real.
 
 	> [AZURE.NOTE]Você pode examinar o código que acessa o serviço móvel para consultar e inserir dados, que estão localizados no arquivo ToDoActivity.java.
 
-8. No Portal de Gerenciamento, clique na guia **Dados** e, em seguida na tabela **TodoItems**.
+8. Novamente no portal clássico do Azure, clique na guia **Dados** e clique na tabela **TodoItems**.
 
    	![](./media/mobile-services-android-get-started/mobile-data-tab1.png)
 
@@ -39,4 +39,4 @@ Você pode executar o aplicativo usando o emulador ou um dispositivo real.
 
    	![](./media/mobile-services-android-get-started/mobile-data-browse.png)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

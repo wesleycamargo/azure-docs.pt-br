@@ -17,12 +17,10 @@
 
 4. Selecione o aplicativo que você acabou de criar na guia **Aplicativos**.
 
-5. Clique em **Informações da Conexão** para exibir as configurações da conexão para colocar em sua integração SDK no aplicativo móvel.
+5. Clique em **INFORMAÇÕES DA CONEXÃO** para exibir as configurações da conexão a serem colocadas em sua integração do SDK no aplicativo móvel.
 
-   	![](./media/mobile-engagement-create-app-in-portal/app-main-page-select-connection-info.png)
-
-6. Copiar a **Cadeia de Conexão** – isso é o que você precisará para identificar esse aplicativo no código do aplicativo e conectar-se com o Compromisso de Mobilidade por meio de seu aplicativo.
+6. Copie a **CADEIA DE CONEXÃO** - você precisará dela para identificar este aplicativo no código do Aplicativo e para conectar-se com o Mobile Engagement por meio de seu aplicativo.
 
    	![](./media/mobile-engagement-create-app-in-portal/app-connection-info-page.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

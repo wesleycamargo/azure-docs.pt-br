@@ -291,7 +291,7 @@ Depois de criar alguns anúncios ainda em execução na nuvem, você exibirá o 
 
 ### Configure o aplicativo Web para usar o banco de dados SQL do Azure e a conta de armazenamento.
 
-Trata-se de uma melhor prática de segurança [evitar colocar informações confidenciais como cadeias de conexão em arquivos armazenados em repositórios de código-fonte](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets). O Azure fornece uma maneira de fazer isso: é possível definir a cadeia de conexão e outros valores de configuração no ambiente do Azure e as APIs de configuração do ASP.NET separam automaticamente esses valores quando o aplicativo é executado no Azure. Você pode definir esses valores no Azure usando o **Gerenciador de Servidores**, o portal, o Windows PowerShell ou a interface de linha de comando entre plataformas. Para saber mais, consulte [Como funcionam as cadeias de caracteres de aplicativos e de conexão](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
+Trata-se de uma melhor prática de segurança [evitar colocar informações confidenciais como cadeias de conexão em arquivos armazenados em repositórios de código-fonte](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets). O Azure fornece uma maneira de fazer isso: é possível definir a cadeia de conexão e outros valores de configuração no ambiente do Azure e as APIs de configuração do ASP.NET separam automaticamente esses valores quando o aplicativo é executado no Azure. Você pode definir esses valores no Azure usando o **Gerenciador de Servidores**, o Portal do Azure, o Windows PowerShell ou a interface de linha de comando entre plataformas. Para saber mais, consulte [Como funcionam as cadeias de caracteres de aplicativos e de conexão](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
 
 Nesta seção, você usa o **Gerenciador de Servidores** para definir os valores da cadeia de conexão no Azure.
 
@@ -309,7 +309,7 @@ Nesta seção, você usa o **Gerenciador de Servidores** para definir os valores
 
 9. Clique em **Salvar**.
 
-	![Cadeias de conexão no portal do Azure](./media/websites-dotnet-webjobs-sdk-get-started/azconnstr.png)
+	![Cadeias de conexão no Portal do Azure](./media/websites-dotnet-webjobs-sdk-get-started/azconnstr.png)
 
 10. No **Gerenciador de Servidores**, clique com o botão direito do mouse no aplicativo Web e, em seguida, clique em **Parar**.
 
@@ -327,11 +327,11 @@ Nesta seção, você usa o **Gerenciador de Servidores** para definir os valores
 
 11.	A miniatura será exibida alguns segundos após a atualização da página.
 
-	Se a miniatura não aparecer, você terá que aguardar um minuto para que o trabalho Web seja reiniciado. Se, depois de algum tempo, você ainda não estiver vendo a miniatura quando a página for atualizada, o trabalho Web pode não ter sido iniciado automaticamente. Nesse caso, vá para a guia Trabalhos Web na página [Portal do Azure](https://manage.windowsazure.com) do aplicativo Web e, em seguida, clique em **Iniciar**.
+	Se a miniatura não aparecer, você terá que aguardar um minuto para que o trabalho Web seja reiniciado. Se, depois de algum tempo, você ainda não estiver vendo a miniatura quando a página for atualizada, o trabalho Web pode não ter sido iniciado automaticamente. Nesse caso, vá para a guia WebJobs na página [portal clássico](https://manage.windowsazure.com) do aplicativo Web e clique em **Iniciar**.
 
 ### Veja o painel SDK de Trabalhos Web
 
-1. No [Portal do Azure](https://manage.windowsazure.com), selecione seu aplicativo Web.
+1. No [portal clássico](https://manage.windowsazure.com), selecione seu aplicativo Web.
 
 2. Clique na guia **Trabalhos Web**.
 
@@ -349,7 +349,7 @@ Nesta seção, você usa o **Gerenciador de Servidores** para definir os valores
 
 	O botão **Função de Repetição**, nesta página, faz a estrutura do SDK de Trabalhos Web chamar a função novamente e dá uma chance de primeiro alterar os dados passados para a função.
 
->[AZURE.NOTE]Quando terminar os testes, exclua o aplicativo Web e a instância do Banco de Dados SQL. O aplicativo Web é gratuito, mas a instância do Banco de Dados SQL e a conta de armazenamento acumulam encargos (mínimos, devido ao tamanho reduzido). Além disso, se deixar o aplicativo Web em execução, qualquer pessoa que encontrar a URL poderá criar e exibir anúncios. No portal do Azure, acesse a guia **Painel** de seu aplicativo Web e clique no botão **Excluir** na parte inferior da página. Em seguida, é possível marcar uma caixa de seleção para excluir a instância do Banco de Dados SQL ao mesmo tempo. Se apenas deseja evitar que outros acessem temporariamente o aplicativo Web, em vez disso, clique em **Parar**. Nesse caso, os encargos continuarão acumulando para o Banco de Dados SQL e a conta de armazenamento. Você pode seguir um procedimento semelhante para excluir o banco de dados SQL e a conta de armazenamento quando não precisar mais dela.
+>[AZURE.NOTE]Quando terminar os testes, exclua o aplicativo Web e a instância do Banco de Dados SQL. O aplicativo Web é gratuito, mas a instância do Banco de Dados SQL e a conta de armazenamento acumulam encargos (mínimos, devido ao tamanho reduzido). Além disso, se deixar o aplicativo Web em execução, qualquer pessoa que encontrar a URL poderá criar e exibir anúncios. No portal clássico, acesse a guia **Painel** de seu aplicativo Web e clique no botão **Excluir** na parte inferior da página. Em seguida, é possível marcar uma caixa de seleção para excluir a instância do Banco de Dados SQL ao mesmo tempo. Se apenas deseja evitar que outros acessem temporariamente o aplicativo Web, em vez disso, clique em **Parar**. Nesse caso, os encargos continuarão acumulando para o Banco de Dados SQL e a conta de armazenamento. Você pode seguir um procedimento semelhante para excluir o banco de dados SQL e a conta de armazenamento quando não precisar mais dela.
 
 ## <a id="create"></a>Criar o aplicativo do zero
 
@@ -466,7 +466,7 @@ Para adicionar arquivos a um projeto ou a uma pasta, clique com o botão direito
 	- *Global.asax.cs*  
 	- Na pasta *Controllers*: *AdController.cs*
 	- Na pasta *Views\\Shared*: arquivo *\_Layout.cshtml*
-	- Na pasta *Views\\Home*: *Index.cshtml*
+- Na pasta *Views\\Home*: *Index.cshtml*
 	- Na pasta *Views\\Ad* (crie a pasta primeiro): cinco arquivos *.cshtml*.<br/><br/>
 
 3. No projeto ContosoAdsWebJob, adicione os seguintes arquivos do projeto baixado.
@@ -803,7 +803,7 @@ Para garantir que seus Trabalhos Web estejam sempre em execução, e em todas as
 
 ### Usando o SDK de Trabalhos Web fora de Trabalhos Web
 
-Um programa que usa o SDK de Trabalhos Web não precisa ser executado no Azure em um Trabalho Web. Ele pode ser executado localmente e também pode ser executado em outros ambientes, como em uma função de trabalho do serviço de nuvem ou um serviço Windows. No entanto, só é possível acessar o painel do SDK de Trabalhos Web por meio de um aplicativo Web do Azure. Para usar o painel, é preciso conectar o aplicativo Web à conta de armazenamento que você está usando definindo a cadeia de conexão AzureWebJobsDashboard na guia **Configurar** do portal do Azure. Em seguida, você pode chegar ao Painel usando a seguinte URL:
+Um programa que usa o SDK de Trabalhos Web não precisa ser executado no Azure em um Trabalho Web. Ele pode ser executado localmente e também pode ser executado em outros ambientes, como em uma função de trabalho do serviço de nuvem ou um serviço Windows. No entanto, só é possível acessar o painel do SDK de Trabalhos Web por meio de um aplicativo Web do Azure. Para usar o painel, é preciso conectar o aplicativo Web à conta de armazenamento que você está usando definindo a cadeia de conexão AzureWebJobsDashboard na guia **Configurar** do portal clássico. Em seguida, você pode chegar ao Painel usando a seguinte URL:
 
 https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
@@ -813,4 +813,4 @@ Para obter mais informações, consulte [Obtendo um painel para desenvolvimento 
 
 Para obter mais informações, consulte [Recursos de documentação de Trabalhos Web do Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

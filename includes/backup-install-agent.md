@@ -1,6 +1,6 @@
 ## Baixar, instalar e registrar o agente de Backup do Azure
 
-Depois de criar o cofre de Backup do Azure, um agente deve ser instalado em cada um dos seus servidores locais (Windows Server, cliente Windows ou servidor do Data Protection Manager), o que permite fazer backup de dados e aplicativos no Azure.
+Após a criação do cofre de Backup do Azure, um agente deverá ser instalado em cada um dos computadores com o Windows (o Windows Server, o cliente do Windows, o servidor do System Center Data Protection Manager ou o computador do Azure Backup Server), o que permitirá o backup de dados e de aplicativos no Azure.
 
 1. Entre no [Portal de Gerenciamento](https://manage.windowsazure.com/)
 
@@ -48,4 +48,4 @@ Depois de criar o cofre de Backup do Azure, um agente deve ser instalado em cada
 
     ![Configurar o Backup do Azure](./media/backup-install-agent/configure.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

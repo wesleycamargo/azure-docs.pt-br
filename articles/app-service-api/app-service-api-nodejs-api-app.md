@@ -1,252 +1,243 @@
 <properties
-	pageTitle="Criar e implantar um aplicativo de API do Node.js no Serviço de Aplicativo do Azure | Microsoft Azure"
+	pageTitle="Criar e implantar um aplicativo de API do Node.js no serviço de aplicativo do Azure"
 	description="Saiba como criar um pacote do aplicativo de API do Node.js e implantá-lo no Serviço de Aplicativo do Azure."
 	services="app-service\api"
-	documentationCenter="nodejs"
-	authors="pkefal"
-  manager="" 
-  editor=""/>
+	documentationCenter="node"
+	authors="bradygaster"
+	manager="mohisri" 
+	editor="tdykstra "/>
 
 <tags
 	ms.service="app-service-api"
-	ms.workload="na"
+	ms.workload="web"
 	ms.tgt_pltfrm="na"
-	ms.devlang="nodejs"
+	ms.devlang="node"
 	ms.topic="get-started-article"
-	ms.date="08/11/2015"
-	ms.author="pakefali"/>
+	ms.date="11/27/2015"
+	ms.author="bradygaster"/>
 
 # Criar e implantar um aplicativo de API do Node.js no serviço de aplicativo do Azure
 
-> [AZURE.SELECTOR]
-- [.NET - Visual Studio 2015](app-service-dotnet-create-api-app.md)
-- [.NET - Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
-- [Node.js](app-service-api-nodejs-api-app.md)
-- [Java](app-service-api-java-api-app.md)
+[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
-Este tutorial mostra como criar um aplicativo [Node.js](http://nodejs.org) e implantá-lo em aplicativos de API do serviço de aplicativo do Azure usando [Git](http://git-scm.com). As instruções deste tutorial podem ser seguidas em qualquer sistema operacional que seja capaz de executar o nó.
+## Pré-requisitos
+1. [Node.js](nodejs.org) em execução na máquina de desenvolvimento (este exemplo pressupõe que o Node.js, versão 4.2.2, está instalado)
+1. Conta do [GitHub](https://github.com/)
+1. [Conta de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) do Microsoft Azure
+1. Git instalado em sua estação de trabalho de desenvolvimento local
 
-A captura de tela abaixo mostra o aplicativo concluído:
+## Instruções de configuração
+Os comandos a seguir devem ser executados usando a linha de comando do Node.js. Usando o gerador Swaggerize Yo, você pode realizar o scaffold do código de linha de base do Node.js do qual precisará para atender às solicitações HTTP definidas em um arquivo JSON Swagger.
+ 
+1. Instale globalmente os módulos NPM **yo** e **generator-swaggerize**.
 
-![][sample-api-app-page]
+        npm install -g yo
+	    npm install -g generator-swaggerize
+		
+1. Clone o [repositório GitHub que contém o exemplo de código](https://github.com/Azure-Samples/app-service-api-node-contact-list).
 
-> [AZURE.NOTE]Você também pode usar o Visual Studio Code para compilar e implantar um aplicativo de API do Node.js no Serviço de Aplicativo do Azure. Para obter mais informações sobre o Visual Studio Code e Node.js, consulte [Visual Studio Code](http://code.visualstudio.com/Docs/) e [Desenvolvimento de Aplicativos de Nó](http://code.visualstudio.com//Docs/nodejs).
+		git clone https://github.com/Azure-Samples/app-service-api-node-contact-list.git
+				
+1. Execute o comando para realizar o scaffold da API com base no arquivo **api.json** incluído com o código-fonte. O arquivo **api.json** é um arquivo Swagger que representa a API na qual você realmente realizará o scaffold usando o comando "yo swaggerize" durante a próxima etapa.
 
-## Criar um aplicativo de API no Portal de Visualização do Azure
+        yo swaggerize
+        
+    **Observação:** API.json não é a mesma coisa que o arquivo *apiapp.json* do período de visualização dos Aplicativos de API.
 
-> [AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [ativar os benefícios de assinante MSDN](/pricing/member-offers/msdn-benefits-details/) ou [inscrever-se para uma avaliação gratuita](/pricing/free-trial/). Você também pode experimentar gratuitamente [Exemplos de aplicativos do serviço de aplicativo](http://tryappservice.azure.com).
+1. O Swaggerize realizará o scaffold nos manipuladores e nas configuração dos metadados Swagger incluídos em **api.json**. Durante o processo de scaffold você receberá diversas perguntas, como seu nome de usuário e endereço de email do GitHub. Essas informações serão usadas para gerar o arquivo **package.json** na pasta de seu aplicativo. De todas as perguntas feitas durante o processo de scaffolding, o mais importante é que você selecione **express** quando receber a solicitação, pois este exemplo usará o mecanismo de exibição express para gerar posteriormente a página de Ajuda do Swagger quando seu Aplicativo de API estiver em execução no Azure (ou localmente).
 
-1. Faça logon no [Portal de Visualização do Azure](https://portal.azure.com).
+	![Linha de comando do Swaggerize](media/app-service-api-nodejs-api-app/swaggerize-command-line.png)
+    
+1. Vá até a pasta que contém o código em scaffolding (nesse caso, a subpasta *ContactList*). Em seguida, instale o módulo NPM **jsonpath**.
 
-2. Clique em **NOVO** na parte inferior esquerda do portal.
+        npm install --save jsonpath
+        
+    Você verá os resultados da instalação na experiência de linha de comando.
 
-3. Clique em **Web + Móvel** > **Aplicativo de API**.
+    ![Instalação de Jsonpath](media/app-service-api-nodejs-api-app/jsonpath-install.png)
 
-	![][portal-quick-create]
+1. Instale o módulo NPM **swaggerize-ui**.
 
-4. Insira um valor para **Nome**, como NodejsAPIApp.
+        npm install --save swaggerize-ui
+        
+    Você verá os resultados da instalação na experiência de linha de comando.
 
-5. Selecione um plano de serviço de aplicativo ou crie um novo. Se você criar um novo plano, selecione a camada de preços, localização e outras opções.
+    ![Instalação de interface do usuário do Swaggerize](media/app-service-api-nodejs-api-app/swaggerize-ui-install.png)
 
-	![][portal-create-api]
+1. Cópia a pasta **lib** da pasta **iniciar** para a pasta **ContactList** criada pelo scaffolder.
 
-6. Clique em **Criar**.
+1. Substitua o código no arquivo **handlers/contacts.js** pelo código a seguir. Esse código usa os dados JSON armazenados no arquivo **lib/contacts.json** atendido por **lib/contactRepository.js**. O novo código contats.js a seguir responderá às solicitações HTTP a fim de obter todos os contatos que usam esse código.
 
-	![][api-app-blade]
+        'use strict';
+        
+        var repository = require('../lib/contactRepository');
+        
+        module.exports = {
+            get: function contacts_get(req, res) {
+                res.json(repository.all())
+            }
+        };
 
-	Se você deixou a caixa de seleção **Adicionar ao quadro inicial** marcada, o portal abre automaticamente a folha de seu aplicativo de API após sua criação. Se você desmarcou a caixa de seleção, clique em **Notificações** na home page do portal para ver o status de criação do aplicativo de API e clique na notificação para ir até a folha do novo aplicativo de API.
+1. Substitua o código no arquivo **handlers/contacts/{id}.js** pelo código a seguir, que usará **lib/contactRepository.js** para obter o contato solicitado pela solicitação HTTP e retorná-lo como conteúdo JSON.
 
-7. Clique em **Configurações** > **Configurações do aplicativo**.
+        'use strict';
 
-9. Defina o nível de acesso como **Público (anônimo)**.
+        var repository = require('../../lib/contactRepository');
+        
+        module.exports = {
+            get: function contacts_get(req, res) {
+                res.json(repository.get(req.params['id']))
+            }    
+        };
 
-11. Clique em **Salvar**.
+1. Substitua o código no **server.js** pelo código a seguir. Observe que as alterações feitas no arquivo server.js são realçadas usando comentários, para que você possa ver as alterações feitas.
 
-	![][set-api-app-access-level]
+        'use strict';
 
-## Habilitar a publicação de Git para o novo aplicativo de API
+        var port = process.env.PORT || 8000; // first change
 
-[O Git](http://git-scm.com/%20target="_blank) é um sistema de controle de versão distribuído que você pode usar para implantar seu Site do Azure. Você armazenará o código que você escreve para seu aplicativo de API em um repositório Git local e você implantará seu código no Azure enviando-o por push para um repositório remoto. Esse método de implantação é um recurso dos aplicativos Web do serviço de aplicativo que pode ser usado em um aplicativo de API, já que aplicativos de API se baseiam em aplicativos Web: um aplicativo de API no serviço de aplicativo do Azure é um aplicativo Web com recursos adicionais para a hospedagem de serviços da Web.
+        var http = require('http');
+        var express = require('express');
+        var bodyParser = require('body-parser');
+        var swaggerize = require('swaggerize-express');
+        var swaggerUi = require('swaggerize-ui'); // second change
+        var path = require('path');
 
-No portal, você gerencia os recursos específicos dos aplicativos de API na folha **Aplicativo de API** e gerencia os recursos que são compartilhados com os aplicativos Web na folha **Host de aplicativo de API**. Portanto, nesta seção, você vai até a folha **Host de aplicativo de API** para configurar o recurso de implantação do Git.
+        var app = express();
 
-1. Na folha Aplicativo de API, clique em **Host de aplicativo de API**.
+        var server = http.createServer(app);
 
-	![][api-app-host]
+        app.use(bodyParser.json());
 
-2. Encontre a seção **Implantação** da folha **Aplicativo de API** e clique em **Configurar implantação contínua**. Talvez seja necessário rolar para baixo para ver essa parte da folha.
+        app.use(swaggerize({
+            api: path.resolve('./config/api.json'), // third change
+            handlers: path.resolve('./handlers'),
+            docspath: '/swagger' // fourth change
+        }));
 
-	![][deployment-part]
+        // change four
+        app.use('/docs', swaggerUi({
+          docs: '/swagger'  
+        }));
 
-3. Clique em **Escolher fonte > Repositório Git local**.
+        server.listen(port, function () { // fifth change
+            app.setHost(undefined); // sixth and final change
+        });
 
-5. Clique em **OK**.
+1. Ative o servidor usando o executável de linha de comando do Node.js.
 
-	![][setup-git-publishing]
+        node server.js
 
-6. Se você não configurou previamente as credenciais de implantação para publicação de um Aplicativo de API ou outro aplicativo de Serviço de Aplicativo, configure-as agora:
+    A execução desse comando iniciará o servidor HTTP do Node.js e começará a atender à sua API.
 
-	* Clique em **Configurar as credenciais de implantação**.
+1. Ao navegar até ****http://localhost:8000/contacts** você verá a saída JSON da lista de contatos (ou receberá uma solicitação para baixá-la, dependendo de seu navegador).
 
-	* Digite um nome de usuário e senha.
+    ![Chamada à Api de todos os contatos](media/app-service-api-nodejs-api-app/all-contacts-api-call.png)
 
-	* Clique em **Salvar**.
+1. Ao navegar até ****http://localhost:8000/contacts/2** você verá o contato representado por esse valor de ID.
 
-	![][deployment-credentials]
+    ![Chamada à Api de contato específico](media/app-service-api-nodejs-api-app/specific-contact-api-call.png)
 
-1. Na folha **Host de aplicativo de API**, clique em **Configurações > Propriedades**. A URL do repositório Git remoto na qual você vai implantar é mostrada em "URL GIT".
+1. Os dados JSON do Swagger são atendidos por meio do ponto de extremidade **/swagger**:
 
-2. Copie a URL para uso posterior no tutorial.
+    ![Json de Contatos do Swagger](media/app-service-api-nodejs-api-app/contacts-swagger-json.png)
 
-	![][git-url]
+1. A interface de usuário do Swagger é atendida por meio do ponto de extremidade **/docs**. Na interface de usuário do Swagger, você pode usar os recursos avançados de cliente HTML para testar sua API.
 
-## Baixe e inspecione o código para um aplicativo de API do Node.js
+    ![Interface de usuário do Swagger](media/app-service-api-nodejs-api-app/swagger-ui.png)
 
-Nesta seção, você vai baixar e examinar o código fornecido como parte do exemplo NodeAPIApp.
+## Criar um novo Aplicativo de API no Portal do Azure
+Nesta seção, você verá o processo de criação de um Aplicativo de API novo e vazio no Azure. Em seguida, você conectará o aplicativo a um repositório Git para habilitar o fornecimento contínuo de suas alterações no código.
 
-1. Baixe o código [neste repositório GitHub](http://go.microsoft.com/fwlink/?LinkID=534023&clcid=0x409). Você pode clonar o repositório ou clicar em **Baixar Zip** para baixá-lo como um arquivo .zip. Se você baixar o arquivo .zip, descompacte-o em seu disco local.
+O repositório GitHub do qual você clonou o código-fonte não é o mesmo repositório no qual vai enviará por push o código para implantação. O exemplo de repositório GitHub continha o estado "Inicial" do código e, agora que você tenha realizou o scaffold do estado "final" do código, será necessário enviar por push esse código apenas para o repositório Git associado ao Aplicativo de API. A primeira etapa será criar seu Aplicativo de API usando o Portal do Azure, em seguida
 
-2. Navegue até a pasta em que você descompactou o exemplo.
+1. Navegar até o [Portal do Azure](http://portal.azure.com). 
 
-	![][api-app-folder-browse]
+1. Criar um novo Aplicativo de API.
 
-3. Abra o arquivo **apiapp.json** em um editor de texto e inspecione o conteúdo.
+    ![Novo portal de Aplicativo de API](media/app-service-api-nodejs-api-app/new-api-app-portal.png)
 
-	![][apiapp-json]
+1. Você pode adicionar seu novo Aplicativo de API a um Grupo de Recursos e/ou Plano de Serviço de Aplicativo existente, ou você pode criar um novo Grupo de Recursos e Plano de Serviço de Aplicativo, conforme demonstra a captura de tela abaixo.
 
-	O Serviço de aplicativo do Azure possui dois pré-requisitos para reconhecer um aplicativo Node.js como um Aplicativo de API:
+    ![Folha de criação de Aplicativo de API](media/app-service-api-nodejs-api-app/api-app-creation-blade.png)
 
-	+ Um arquivo chamado *apiapp.json* deve estar presente no diretório raiz do aplicativo.
-	+ Um ponto de extremidade de metadados Swagger 2.0 precisa ser exposto pelo aplicativo. A URL do ponto de extremidade é especificada no arquivo *apiapp.json*.
+1. Após a criação de seu Aplicativo de API no portal, navegue até a folha que contém as configurações para seu Aplicativo de API, conforme exibido abaixo.
 
-	Observe a propriedade **apiDefinition**. O caminho para essa URL é relativo à URL da sua API e aponta para o ponto de extremidade Swagger 2.0. O Serviço de Aplicativo do Azure usa essa propriedade para descobrir a definição de sua API e habilitar muitos dos recursos de aplicativos de API do serviço de aplicativo.
+    ![Navegação do portal até Configurações](media/app-service-api-nodejs-api-app/portal-nav-to-settings.png)
 
-	> [AZURE.NOTE]O ponto de extremidade deve ter especificação Swagger 2.0, já que as versões anteriores (por exemplo, 1.2) sem suporte pela plataforma. O aplicativo de exemplo está usando swaggerize-express para criar um ponto de extremidade de especificação Swagger 2.0.
+1. Clique no item de navegação **Credenciais de implantação** no menu Configurações. Após a abertura da folha, adicione um nome de usuário e senha que você usará para publicar seu código do Node.js em seu Aplicativo de API. Em seguida, clique no botão **Salvar** na folha **Definir credenciais de implantação**.
 
-4. Abra o arquivo **server.js** e inspecione o código.
+    ![Credenciais de implantação](media/app-service-api-nodejs-api-app/deployment-credentials.png)
 
-	![][server-js]
+1. Depois de configurar suas credenciais de implantação, você pode criar um repositório Git associado ao seu Serviço de Aplicativo. Cada vez que você envia um código a esse repositório, o Serviço de Aplicativo do Azure pegará as alterações e as implantará diretamente em sua instância do Aplicativo de API. Para criar um repositório Git a fim de associá-lo ao seu site, clique no item de menu **Implantação contínua** na folha do menu Configurações, conforme exibido abaixo. Em seguida, selecione a opção **Repositório Git Local** na folha **Escolher fonte**. Depois, clique no botão OK para criar o repositório Git.
 
-	O código usa o módulo swaggerize-express para criar o ponto de extremidade Swagger 2.0.
+    ![Criar um repositório Git](media/app-service-api-nodejs-api-app/create-git-repo.png)
 
-		app.use(swaggerize({
-		    api: require('./api.json'),
-		    docspath: '/swagger',
-		    handlers: './handlers/'
-		}));
+1. Após a criação do repositório Git, a folha mudará e mostrará as implantações ativas. Como o repositório é novo, nenhuma implantação ativa deve estar na lista.
 
-	A propriedade `api` aponta para o arquivo de api.json, que contém a definição da especificação Swagger 2.0 de sua API. Você pode criar manualmente o arquivo em um editor de texto ou usar o [editor do Swagger](http://editor.swagger.io) online e baixar o arquivo JSON a partir de lá. (O arquivo *api.json* especifica uma propriedade `host`, mas o valor dessa propriedade é determinado e substituído dinamicamente em tempo de execução.)
+    ![Nenhuma implantação ativa](media/app-service-api-nodejs-api-app/no-active-deployments.png)
 
-	A propriedade `docspath` aponta para o ponto de extremidade Swagger 2.0. Essa URL é relativa ao caminho base de sua API. O caminho base é declarado no arquivo api.json. Em nosso exemplo é o caminho base é *api/data*, portanto, o caminho relativo para o ponto de extremidade swagger é */api/data/swagger*.
+1. A última etapa será copiar a URL do repositório Git do portal. Para fazer isso, navegue até a folha de seu novo Aplicativo de API e examine a seção **Essentials** da folha. Você deve ver a **URL do clone de Git** na seção Essentials. Ao lado dela há um ícone que copiará a URL para a área de transferência. Clique na URL para copiá-la (o botão aparece quando você passa o mouse sobre a URL) ou selecione toda a URL e copie-a na área de transferência.
 
-	> [AZURE.NOTE]Como o caminho base é declarado no arquivo *api.json*, tentar acessar o ponto de extremidade */swagger* como um caminho relativo para a URL do seu aplicativo API retornará 404. Esse é um erro comum ao tentar acessar o ponto de extremidade swagger.
+    ![Obter a Url do Git no Portal](media/app-service-api-nodejs-api-app/get-the-git-url-from-the-portal.png)
 
-	A propriedade `handlers` aponta para a pasta local que contém os manipuladores de rotas para o módulo Express.js.
+    **Observação**: você precisará da URL do clone Git na próxima etapa, portanto, salve-a em algum lugar por enquanto.
 
-## Execute o código de aplicativo de API localmente
+Agora que você tem um novo Aplicativo de API com um repositório Git de suporte, você pode enviar o código por push no repositório e utilizar os recursos de implantação contínua do Azure para implantar automaticamente as alterações.
 
-Nesta seção você executa o aplicativo localmente para verificar se que ele funciona antes da implantação.
+## Implantar seu código de Aplicativo de API no Azure
+Com os recursos internos de fornecimento contínuo do Serviço de Aplicativo do Azure, você pode simplesmente confirmar seu código em um repositório Git associado ao seu Serviço de Aplicativo, e o Azure pegará seu código-fonte e o implantará em seu Aplicativo de API.
 
-1. Navegue até a pasta de que você baixou o exemplo.
+1. Copie a pasta **src/end/ContactList** criada pelo scaffolder swaggerize em sua área de trabalho ou outra pasta, pois você criará um novo repositório Git local para o código que deve residir fora do repositório principal clonado do GitHub que contém o código de introdução. 
 
-2. Abra um prompt de linha de comando e digite o seguinte comando:
+1. Use a experiência de linha de comando do Node.js para navegar na nova pasta. Quando estiver lá, execute o seguinte comando para criar um novo repositório Git local.
 
-		npm install
+        git init
 
-3. Quando o comando *instalar* terminar, digite o seguinte comando:
+    Esse comando criará um repositório Git local e você receberá uma confirmação de que o novo repositório foi inicializado.
 
-		node server.js
+    ![Novo Repositório Git local](media/app-service-api-nodejs-api-app/new-local-git-repo.png)
 
-	A saída da janela de linha de comando exibe "Servidor iniciado .."
+1. Use a experiência de linha de comando do Node.js para executar o comando a seguir, que adicionará um Git remoto ao seu repositório local. O repositório remoto será aquele que você acabou de criar e associar a seu Aplicativo de API em execução no Azure.
 
-5. Aponte seu navegador para http://localhost:1337/
+        git remote add azure YOUR_GIT_CLONE_URL_HERE
 
-	Você verá a página a seguir
+    **Observação**: convém substituir a cadeia de caracteres "YOUR\_GIT\_CLONE\_URL\_HERE" acima por sua própria URL do clone do Git copiada anteriormente.
 
-	![][sample-api-app-page]
+1. Em seguida, execute os dois comandos abaixo na experiência de linha de comando do Node.js.
 
-6. Para exibir o arquivo Swagger.json, navegue até http://localhost:1337/api/data/swagger.
+        git add .
+        git commit -m "initial revision"
 
-## Publicar seu código de aplicativo de API no serviço de aplicativo do Azure
+    Depois de concluir esses dois comandos, você deverá ver algo como a captura de tela abaixo na janela de linha de comando.
 
-Nesta seção você criará um repositório Git local e enviará por push a partir desse repositório para o Azure, para implantar seu aplicativo de exemplo no Aplicativo de API em execução no Serviço de Aplicativo do Azure.
+    ![Saída da confirmação Git](media/app-service-api-nodejs-api-app/git-commit-output.png)
 
-1. Se o Git não estiver instalado, instale-o a partir da [página de download do Git](http://git-scm.com/download).
+1. Para enviar por push seu código para o Azure, que disparará uma implantação em seu Aplicativo de API, execute o seguinte comando na linha de comando do Node.js. Quando receber uma solicitação de senha, use a senha que você usou anteriormente ao criar suas Credenciais de implantação no Portal do Azure.
 
-1. Na linha de comando, alterne para o diretório do aplicativo de exemplo e digite os seguintes comandos para inicializar um repositório Git local.
+        git push azure master
 
-		git init
+1. Se você navegar de volta para a folha **Implantação Contínua** de seu Aplicativo de API, você verá que a implantação está acontecendo.
 
-2. Insira os comandos a seguir para adicionar arquivos ao repositório:
+    ![Implantação acontecendo](media/app-service-api-nodejs-api-app/deployment-happening.png)
 
-		git add .
-		git commit -m "Initial commit of the API App"
+    Simultaneamente, a linha de comando do Node.js refletirá o status de sua implantação, enquanto ela estiver acontecendo.
 
-3. Crie uma referência remota para enviar atualizações por push para o aplicativo Web (host de aplicativo de API) criado anteriormente, usando a URL de Git que você copiou anteriormente:
+    ![Implantação do Node.Js acontecendo](media/app-service-api-nodejs-api-app/node-js-deployment-happening.png)
 
-		git remote add azure [URL for remote repository]
+1. Após a conclusão da implantação, a folha **Implantação Contínua** refletirá a implantação bem-sucedida de suas alterações de código em seu Aplicativo de API. Copie a **URL** na seção **Essentials** da folha do Aplicativo de API.
 
-4. Envie as alterações por push ao Azure usando o seguinte comando:
+    ![Implantação concluída](media/app-service-api-nodejs-api-app/deployment-completed.png)
 
-		git push azure master
+1. Usando o cliente da API REST, como o Postman ou o Fiddler (ou seu navegador da Web), forneça a URL da chamada de API de contatos, que deve ser o ponto de extremidade **/contacts** de seu Aplicativo de API.
 
-	Será solicitada a senha que você criou anteriormente.
+    **Observação:** a URL será algo como http://myapiapp.azurewebsites.net/contacts
 
-	A saída deste comando termina com uma mensagem de que a implantação foi bem-sucedida:
+    Ao emitir uma solicitação GET para esse ponto de extremidade, você deverá a saída JSON de seu Aplicativo de API.
 
-		remote: Deployment successful.
-		To https://user@testsite.scm.azurewebsites.net/testsite.git
-	 	* [new branch]      master -> master
+    ![Postman acessando Api](media/app-service-api-nodejs-api-app/postman-hitting-api.png)
 
-## Exibir a definição de API no portal de visualização do Azure
+## Resumo
+Agora, você já criou e implantou com êxito seu primeiro Aplicativo de API usando o Node.js. A partir daqui, você pode adicionar código aos manipuladores para armazenar os dados em um banco de dados ou no disco de sua instância de Aplicativo de API. Agora que você a Implantação Contínua está conectada, a alteração da funcionalidade do Aplicativo de API e sua extensão será tão fácil quanto a alterar e enviar seu código por push ao repositório Git.
 
-Agora que você implantou uma API para seu aplicativo de API, você pode ver a definição de API no portal de visualização do Azure. Você começará reiniciando o *gateway*, que permite que o Azure reconheça que a definição de API de um aplicativo de API foi alterada. O gateway é um aplicativo Web que trata da administração da API e da autorização para os Aplicativos de API em um grupo de recursos.
-
-6. No portal de visualização do Azure, vá até a folha **Aplicativo de API** para o aplicativo de API que você criou anteriormente e clique no link **Gateway**.
-
-	![](./media/app-service-api-nodejs-api-app/clickgateway.png)
-
-7. Na folha **Gateway**, clique em **Reiniciar**. Agora você pode fechar esta folha.
-
-	![](./media/app-service-api-nodejs-api-app/gatewayrestart.png)
-
-8. Na folha **Aplicativo de API**, clique em **Definição de API**.
-
-	![](./media/app-service-api-nodejs-api-app/apidef.png)
-
-	A folha **Definição de API** mostra dois métodos Get.
-
-	![](./media/app-service-api-nodejs-api-app/apidefblade.png)
-
-## Executar o aplicativo de exemplo no Azure
-
-No portal de visualização do Azure, vá até a folha **Host de aplicativo de API** para seu aplicativo de API e clique em **Procurar** .
-
-![][browse-api-app-page]
-
-O navegador exibe a home page que vimos anteriormente, quando você executou o aplicativo de exemplo localmente.
-
-[AZURE.INCLUDE [app-service-api-direct-deploy-metadata](../../includes/app-service-api-direct-deploy-metadata.md)]
-
-## Próximas etapas
-
-Você implantou um aplicativo Web Node.js que usa um back-end do aplicativo de API para o Azure. Para obter mais informações sobre como usar o Node.js no Azure, consulte o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
-
-* Você pode experimentar esse aplicativo de API de exemplo no [Serviço TryApp](http://tryappservice.azure.com)
-
-[portal-quick-create]: ./media/app-service-api-nodejs-api-app/portal-quick-create.png
-[portal-create-api]: ./media/app-service-api-nodejs-api-app/portal-create-api.png
-[api-app-blade]: ./media/app-service-api-nodejs-api-app/api-app-blade.png
-[api-app-folder-browse]: ./media/app-service-api-nodejs-api-app/api-app-folder-browse.png
-[api-app-host]: ./media/app-service-api-nodejs-api-app/api-app-host.png
-[deployment-part]: ./media/app-service-api-nodejs-api-app/continuous-deployment.png
-[set-api-app-access-level]: ./media/app-service-api-nodejs-api-app/set-api-app-access.png
-[setup-git-publishing]: ./media/app-service-api-nodejs-api-app/local-git-repo.png
-[deployment-credentials]: ./media/app-service-api-nodejs-api-app/deployment-credentials.png
-[git-url]: ./media/app-service-api-nodejs-api-app/git-url.png
-[apiapp-json]: ./media/app-service-api-nodejs-api-app/apiapp-json.png
-[server-js]: ./media/app-service-api-nodejs-api-app/server-js.png
-[sample-api-app-page]: ./media/app-service-api-nodejs-api-app/sample-api-app-page.png
-[browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

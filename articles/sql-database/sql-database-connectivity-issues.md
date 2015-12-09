@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/17/2015"
+	ms.date="11/30/2015"
 	ms.author="genemi"/>
 
 
@@ -134,17 +134,53 @@ Para que fique prático, seu programa poderá reconhecer um parâmetro de tempo 
 ## Conexão: cadeia de conexão
 
 
-A cadeia de conexão necessária para conectar ao Banco de Dados SQL do Azure é um pouco diferente da cadeia de conexão para o Microsoft SQL Server. Você pode copiar a cadeia de conexão para o seu banco de dados desde o [portal de visualização do Azure](http://portal.azure.com/).
+A cadeia de conexão necessária para conectar ao Banco de Dados SQL do Azure é um pouco diferente da cadeia de conexão para o Microsoft SQL Server. Você pode copiar a cadeia de conexão para o seu banco de dados desde o [Portal do Azure](http://portal.azure.com/).
 
 
 [AZURE.INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
 
 
 
-#### 30 segundos para o tempo limite de conexão
+### Parâmetros SqlConnection .NET para repetição de conexão
 
 
-A conexão pela Internet é menos robusta do que por uma rede privada. Portanto, recomendamos que, na sua cadeia de conexão, você: - defina o parâmetro **Connection Timeout** como **30** segundos (em vez de 15 segundos).
+Se o programa cliente se conecta ao Banco de Dados SQL do Azure usando a classe **System.Data.SqlClient.SqlConnection** do .NET Framework, você deverá usar o .NET 4.5.1 ou posterior para poder aproveitar o recurso de repetição de conexão. Os detalhes do recurso estão [aqui](http://go.microsoft.com/fwlink/?linkid=393996).
+
+
+<!--
+2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
+-->
+
+
+Quando você cria a [cadeia de conexão](http://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) para o seu objeto **SqlConnection**, deve coordenar os valores entre os seguintes parâmetros:
+
+- ConnectRetryCount &nbsp;&nbsp;*(o padrão é 0. O intervalo vai de 0 a 255).*
+- ConnectRetryInterval &nbsp;&nbsp;*(o padrão é 1 segundo. O intervalo vai de 1 a 60).*
+- Connection Timeout &nbsp;&nbsp;*(O padrão é 15 segundos. O intervalo vai de 0 a 2147483647)*
+
+
+Especificamente, os valores escolhidos devem tornar verdadeira esta igualdade:
+
+- Connection Timeout = ConnectRetryCount * ConnectionRetryInterval
+
+Por exemplo, se a contagem for igual a 3 e o intervalo igual a 10 segundos, um tempo limite de apenas 29 segundos não seria suficiente para fornecer ao sistema tempo suficiente para sua terceira e última tentativa de conexão: 29 < 3 * 10.
+
+
+#### Conexão versus comando
+
+
+Os parâmetros **ConnectRetryCount** e **ConnectRetryInterval** permitem que seu objeto **SqlConnection** repita a operação de conexão sem informar ou incomodar o programa como, por exemplo, ao devolver o controle ao programa. As tentativas podem ocorrer nas seguintes situações:
+
+- Chamada ao método mySqlConnection.Open
+- Chamada ao método mySqlConnection.Execute
+
+Mas há uma sutileza aqui. Se ocorrer uma falha temporária durante a execução da sua *consulta*, o objeto **SqlConnection** objeto não tentará repetir a operação de conexão e certamente não repetirá a consulta. No entanto, **SqlConnection** verifica rapidamente a conexão antes de enviar a consulta para execução. Se a verificação rápida detectar um problema de conexão, **SqlConnection** repetirá a operação de conexão. Se a tentativa for bem-sucedida, sua consulta será enviada para execução.
+
+
+#### ConnectRetryCount deve ser combinada à lógica de repetição de aplicativo?
+
+Suponha que seu aplicativo tenha lógica de repetição personalizada robusta. Ele pode repetir a operação de conexão quatro vezes. Se você adicionar **ConnectRetryInterval** e **ConnectRetryCount** = 3 à cadeia de conexão, aumentará a contagem de repetição para 4 * 3 = 12 repetições. Talvez você não queira um número tão alto de repetições.
+
 
 
 <a id="b-connection-ip-address" name="b-connection-ip-address"></a>
@@ -152,7 +188,7 @@ A conexão pela Internet é menos robusta do que por uma rede privada. Portanto,
 ## Conexão: endereço IP
 
 
-Você deve configurar o servidor do Banco de Dados SQL para aceitar a comunicação do endereço IP do computador que hospeda o programa cliente. Você pode fazer isso editando as configurações do firewall por meio do [portal de visualização do Azure](http://portal.azure.com/).
+Você deve configurar o servidor do Banco de Dados SQL para aceitar a comunicação do endereço IP do computador que hospeda o programa cliente. Você pode fazer isso editando as configurações do firewall por meio do [Portal do Azure](http://portal.azure.com/).
 
 
 Se você se esquecer de configurar o endereço IP, o programa falhará com uma mensagem de erro útil que indica o endereço IP necessário.
@@ -204,7 +240,7 @@ ADO.NET 4.5: - adiciona suporte ao protocolo TDS 7.4. Isso inclui aprimoramentos
 Quando você usa um objeto de conexão de um pool de conexões, é recomendável que seu programa feche temporariamente a conexão quando ela não for usada imediatamente. Reabrir uma conexão não é tão caro quanto criar uma nova conexão.
 
 
-Se você estiver usando o ADO.NET 4.0 ou anterior, é recomendável que atualize para o ADO.NET mais recente. -a partir de julho de 2015, você poderá [baixar o ADO.NET 4.6](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
+Se você estiver usando o ADO.NET 4.0 ou anterior, será recomendável atualizar para o ADO.NET mais recente. - A partir de julho de 2015, você poderá [baixar o ADO.NET 4.6](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
 
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
@@ -215,7 +251,7 @@ Se você estiver usando o ADO.NET 4.0 ou anterior, é recomendável que atualize
 Se seu programa estiver falhando ao conectar com o Banco de Dados SQL do Azure, uma opção de diagnóstico será tentar se conectar com um programa utilitário. Idealmente, o utilitário conectaria usando a mesma biblioteca que seu programa.
 
 
-Em qualquer computador com o Windows, você poderá experimentar estes utilitários:-SQL Server Management Studio (ssms.exe), que se conecta usando o ADO.NET. -sqlcmd.exe, que se conecta usando [ODBC](http://msdn.microsoft.com/library/jj730308.aspx).
+Em qualquer computador com o Windows, você poderá experimentar estes utilitários:-SQL Server Management Studio (ssms.exe), que se conecta usando o ADO.NET. - sqlcmd.exe, que se conecta usando [ODBC](http://msdn.microsoft.com/library/jj730308.aspx).
 
 
 Uma vez conectado, teste se uma consulta SQL SELECT curta funciona.
@@ -229,7 +265,7 @@ Uma vez conectado, teste se uma consulta SQL SELECT curta funciona.
 Suponha que você suspeite que as tentativas de conexão estão falhando devido a problemas de porta. Em seu computador, você poderá executar um utilitário que relate as configurações de porta.
 
 
-No Linux, os utilitários a seguir podem ser úteis:- `netstat -nap` - `nmap -sS -O 127.0.0.1` -(altere o valor de exemplo para seu endereço IP).
+No Linux, os utilitários a seguir podem ser úteis:- `netstat -nap` - `nmap -sS -O 127.0.0.1` - (altere o valor de exemplo para seu endereço IP).
 
 
 No Windows, o utilitário [PortQry.exe](http://www.microsoft.com/download/details.aspx?id=17148) pode ser útil. Veja uma execução de exemplo que consultou a situação da porta no servidor do Banco de Dados SQL do Azure e que foi executado em um computador laptop:
@@ -478,4 +514,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying* é uma biblioteca de tentativas de repetições de finalidade geral licenciada do Apache 2.0, escrita em **Python**, para simplificar a tarefa de adicionar comportamento de tentativa de repetição para quase tudo.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->
