@@ -201,7 +201,7 @@ Para saber mais, confira o [Centro de Desenvolvedores do Python](/develop/python
 [Serviços de Nuvem do Azure]: ../cloud-services-python-ptvs.md
 
 <!--External Link references-->
-[Azure Portal]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com
 [Python Tools para Visual Studio]: http://aka.ms/ptvs
 [Ferramentas Python 2.2 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [VSIX de amostra de Ferramentas Python 2.2 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025

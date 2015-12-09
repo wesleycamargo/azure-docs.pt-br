@@ -42,7 +42,9 @@ Para usar o [EventProcessorHost], você deve ter uma [Conta de armazenamento do 
 
 	Em seguida, substitua o seguinte código no corpo da classe:
 
-	``` class SimpleEventProcessor : IEventProcessor { Stopwatch checkpointStopWatch;
+		class SimpleEventProcessor : IEventProcessor
+	    {
+	        Stopwatch checkpointStopWatch;
 
 	    async Task IEventProcessor.CloseAsync(PartitionContext context, CloseReason reason)
 	    {

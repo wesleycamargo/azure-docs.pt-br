@@ -30,7 +30,7 @@ Ao fim deste tutorial, você terá três aplicativos de console do Windows:
 * **ReadDeviceToCloudMessages**, que lê mensagens de dispositivo para nuvem e exibe seu conteúdo, e
 * **SimulatedDevice**, que se conecta ao hub IoT com a identidade do dispositivo criada anteriormente e envia uma mensagem de dispositivo na nuvem a cada segundo.
 
-> [AZURE.NOTE]O Hub IoT tem suporte SDK para várias plataformas de dispositivo e idiomas (incluindo C, Java e Javascript) no entanto, SDKs de dispositivo IoT do Azure. Consulte o [Centro de Desenvolvedores do IoT do Azure][] para obter instruções passo a passo sobre como conectar seu dispositivo ao código deste tutorial e, em geral, do Hub IoT do Azure. SDKs de serviço de IoT do Azure para Jave e Node estarão disponíveis em breve.
+> [AZURE.NOTE] O Hub IoT tem suporte SDK para várias plataformas de dispositivo e idiomas (incluindo C, Java e Javascript) no entanto, SDKs de dispositivo IoT do Azure. Consulte o [Centro de Desenvolvedores do IoT do Azure][] para obter instruções passo a passo sobre como conectar seu dispositivo ao código deste tutorial e, em geral, do Hub IoT do Azure. SDKs de serviço de IoT do Azure para Jave e Node estarão disponíveis em breve.
 
 Para concluir este tutorial, você precisará do seguinte:
 

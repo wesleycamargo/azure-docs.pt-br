@@ -39,7 +39,20 @@ Os recursos do Azure Site Recovery que contribuem para a sua estratégia de prot
 
 As tecnologias de replicação do Site Recovery são compatíveis com qualquer aplicativo em execução em uma máquina virtual. Além disso, conduzimos testes adicionais em parceria com as equipes de produto do aplicativo para darmos mais suporte a cada aplicativo.
 
-**Carga de trabalho** | <p>**Replicar VMs do Hyper-V**</p> <p>**(para o site secundário)**</p> | <p>**Replicar VMs do Hyper-V**</p><p>**(para o Azure)**</p> | <p>**Replicar VMs VMware**</p> <p>**(para o site secundário)**</p> | <p>**Replicar VMs VMware**</p><p>**(para o Azure)****</p>---|---|---|---|--- Active Directory, DNS | Y | Y | Y | Y Aplicativos Web (IIS, SQL) | Y | Y | Y | Y SCOM | Y | Y | Y | Y Sharepoint | Y | Y | Y | Y <p>SAP</p><p>Replicar site da SAP para o Azure para não cluster</p> | Y (testado pela Microsoft) | Y (testado pela Microsoft) | Y (testado pela Microsoft) Exchange (não DAG) | Y | Em breve | Y | Y Área de Trabalho Remota/VDI | Y | Y | Y | N/D <p>Linux</p> <p>(sistema operacional e aplicativos)</p> | Y (testado pela Microsoft) | Y (testado pela Microsoft) | Y (testado pela Microsoft) Dynamics AX | Y | Y | Y | Y Dynamics CRM | Y | Em breve | Y | Em breve Oracle | Y (testado pela Microsoft) | Y (testado pela Microsoft) | Y (testado pela Microsoft) | Y (testado pela Microsoft) Servidor de Arquivos do Windows | Y | Y | Y | Y
+**Carga de trabalho** | <p>**Replicar máquinas virtuais do Hyper-V**</p> <p>**(para o site secundário)**</p> | <p>**Replicar máquinas virtuais do Hyper-V**</p><p>**(para o Azure)**</p> | <p>**Replicar máquinas virtuais da VMware**</p> <p>**(para o site secundário)**</p> | <p>**Replicar máquinas virtuais da VMware**</p><p>**(para o Azure)****</p>
+---|---|---|---|---
+Active Directory, DNS | Y | Y | Y | Y
+Aplicativos Web (IIS, SQL) | Y | Y | Y | Y
+SCOM | Y | Y | Y | Y
+Sharepoint | Y | Y | Y | Y
+<p>SAP</p><p>Replicar site da SAP para o Azure para não cluster</p> | Y (testado pela Microsoft) | Y (testado pela Microsoft) | Y (testado pela Microsoft)
+Exchange (não DAG) | Y | Em breve | Y | Y
+Área de Trabalho Remota/VDI | Y | Y | Y | N/D
+<p>Linux</p> <p>(sistema operacional e aplicativos)</p> | Y (testado pela Microsoft) | Y (testado pela Microsoft) | Y (testado pela Microsoft)
+Dynamics AX | Y | Y | Y | Y
+Dynamics CRM | Y | Em breve | Y | Em breve
+Oracle | Y (testado pela Microsoft) | Y (testado pela Microsoft) | Y (testado pela Microsoft) | Y (testado pela Microsoft) Servidor de Arquivos do 
+Windows | Y | Y | Y | Y
 
 ##Proteger o Active Directory e o DNS
 

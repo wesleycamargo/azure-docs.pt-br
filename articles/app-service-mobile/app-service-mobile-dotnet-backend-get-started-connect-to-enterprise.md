@@ -25,7 +25,7 @@ Este tutorial exige o seguinte:
 
 * Visual Studio 2013 em execução no Windows 8.1
 * Uma assinatura ativa do [SharePoint Online]
-* A conclusão do tutorial [Logon Único da Biblioteca de Autenticação do Active Directory do Azure]. Você deve usar o locatário fornecido por sua assinatura do SharePoint.
+* Conclusão do tutorial [Logon único da Biblioteca de Autenticação do Active Directory do Azure]. Você deve usar o locatário fornecido por sua assinatura do SharePoint.
 
 [AZURE.INCLUDE [app-service-mobile-to-web-and-api](../../includes/app-service-mobile-to-web-and-api.md)]
 
