@@ -233,7 +233,7 @@ linkedServiceName | Nome do serviço vinculado usado pela atividade. <p>Uma ativ
 typeProperties | Propriedades na seção typeProperties dependem do tipo de atividade. Consulte o artigo sobre cada atividade individual para saber mais sobre isso | Nenhuma
 política | Políticas que afetam o comportamento de tempo de execução da atividade. Se não for especificado, as políticas padrão serão utilizadas. Rolar abaixo para obter detalhes | Não
 iniciar | Data-hora de início do pipeline. Deve estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. As propriedades de início e término especificam o período ativo para o pipeline. Divisões de saída são produzidas somente neste período ativo. | Não<p>se você especificar um valor para a propriedade final, você deve especificar o valor da propriedade inicial.</p><p>Os horários de início e fim podem estar vazios para criar um pipeline, mas ambos devem ter valores para definir um período ativo de execução do pipeline.Se você não especificar os horários de início e fim ao criar um pipeline, você pode defini-los depois usando o Set-AzureDataFactoryPipelineActivePeriod cmdlet.</p>
-End | End date-time para o pipeline. Se especificado, deve estar no formato ISO. Por exemplo: 2014-10-14T17:32:41Z <p>Se não for especificado, ele é calculado como "+ 48 horas de início". Para executar o pipeline indefinidamente, especifique 9999-09-09 como o valor para a propriedade final.</p>| Nenhum
+End | End date-time para o pipeline. Se especificado, deve estar no formato ISO. Por exemplo: 2014-10-14T17:32:41Z <p>Se não for especificado, ele é calculado como "+ 48 horas de início". Para executar o pipeline indefinidamente, especifique 9999-09-09 como o valor para a propriedade final.</p>| Nenhum <p>Se você definir um valor para a propriedade inicial, também deverá definir um valor para a propriedade final.</p><p>Confira as observações para **iniciar** propriedade.</p>
 isPaused | Se definido como verdadeiro, o pipeline não será executado. Valor padrão = falso. Você pode usar essa propriedade para habilitar ou desabilitar. | Nenhum
 Agendador | A propriedade "Agendador" é usada para definir o agendamento desejado para a atividade. Suas subpropriedades são as mesmas na [propriedade de disponibilidade em um conjunto de dados](data-factory-create-datasets.md#Availability). | Não |   
 
@@ -335,4 +335,4 @@ Quando um pipeline é implantado, você pode gerenciar e monitorar seu pipeline,
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->
