@@ -18,7 +18,8 @@
 
 # Suporte do Gerenciador de Recursos do Azure para serviços, regiões e versões de API
 
-O Gerenciador de Recursos do Azure fornece uma nova maneira de implantar e gerenciar os serviços que compõem seus aplicativos. A maioria (não todos) dos serviços suporta o Gerenciador de Recursos e alguns serviços suportam o Gerenciador de Recursos apenas parcialmente. A Microsoft habilitará o Gerenciador de Recursos para todos os serviços importantes para soluções futuras, mas, até que o suporte seja consistente, você precisa saber o status atual de cada serviço. Este tópico fornece uma lista de provedores de recursos com suporte para o Gerenciador de Recursos do Azure.
+O Gerenciador de Recursos do Azure fornece uma nova maneira de implantar e gerenciar os serviços que compõem seus aplicativos.
+A maioria (não todos) dos serviços suporta o Gerenciador de Recursos e alguns serviços suportam o Gerenciador de Recursos apenas parcialmente. A Microsoft habilitará o Gerenciador de Recursos para todos os serviços importantes para soluções futuras, mas, até que o suporte seja consistente, você precisa saber o status atual de cada serviço. Este tópico fornece uma lista de provedores de recursos com suporte para o Gerenciador de Recursos do Azure.
 
 Ao implantar seus recursos, você também precisa saber quais são as regiões que oferecem suporte a esses recursos e quais versões de API estão disponíveis para os recursos. A seção [Regiões com suporte](#supported-regions) mostra como descobrir quais regiões funcionarão para sua assinatura e seus recursos. A seção [Versões de API com suporte](#supported-api-versions) mostra como determinar quais versões de API você pode usar.
 
@@ -61,7 +62,8 @@ Recursos de máquinas virtuais (clássico) podem ser movidos para um novo grupo 
 | Banco de dados SQL | Sim | [Sim](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.9-preview) | Sim | [Criar banco de dados](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
 | Pesquisar | Sim | [Sim](https://portal.azure.com/#create/Microsoft.Search) | Sim | [REST de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
 | SQL Data Warehouse | Sim | [Sim](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
-| StorSimple | Não | Não | - | - | - | | Cache gerenciado | Não | Não | - | - | - |
+| StorSimple | Não | Não | - | - | - |
+| Cache gerenciado | Não | Não | - | - | - |
 
 ## Web e serviços móveis
 
@@ -87,7 +89,8 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 | Análise de fluxo | Sim | [Sim](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) | | | |
 | HDInsights | Sim | [Sim](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | Sim | | |
 | Data Factory | Sim | [Sim](https://portal.azure.com/#create/Microsoft.DataFactory) | Sim | [Criar fábrica de dados](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
-| Aprendizado de Máquina | Não | Não | - | - | - | | Catálogo de Dados | Não | Não | - | - | - |
+| Aprendizado de Máquina | Não | Não | - | - | - |
+| Catálogo de Dados | Não | Não | - | - | - |
 
 ## Mídia e CDN
 
@@ -103,7 +106,8 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
 | Serviços do BizTalk | Sim | Não | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |
 | Barramento de Serviço | Sim | Não | | [REST do Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh780717.aspx) | |
-| Backup | Não | Não | - | - | - | | Recuperação de Site | Não | Não | - | - | - |
+| Backup | Não | Não | - | - | - |
+| Recuperação de Site | Não | Não | - | - | - |
 
 ## Gerenciamento de acesso e identidade 
 
@@ -237,4 +241,4 @@ Você pode abrir o arquivo e localizar o elemento **apiVersions**
 - Para saber mais sobre a criação de modelos do Gerenciador de Recursos do Azure, consulte [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 - Para saber mais sobre como implantar recursos, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!----HONumber=AcomDC_1125_2015-->
