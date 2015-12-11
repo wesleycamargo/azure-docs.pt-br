@@ -61,7 +61,6 @@ Para acessar o armazenamento de blob do Azure, você precisa criar uma credencia
     ```
     -- Verifique as credenciais existentes com escopo de banco de dados.
     SELECT * FROM sys.database\_credentials;
-    ```
 
 3. Use [CREATE CREDENTIAL (Transact-SQL)][] para criar uma credencial com escopo de banco de dados para cada conta de armazenamento do Azure que deseja acessar. Neste exemplo, IDENTITY é um nome amigável para a credencial. Ele não afeta a autenticação no Armazenamento do Azure. SECRET é sua chave de conta de armazenamento do Azure.
 
@@ -365,4 +364,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/pt-BR/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/pt-BR/library/ms189450.aspx
 
-<!------HONumber=Nov15_HO3-->
+<!-------HONumber=Nov15_HO3-->
