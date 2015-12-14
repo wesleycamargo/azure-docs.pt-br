@@ -72,9 +72,11 @@ Permite definir funções (SPROCs) e entidades expostas por meio de um banco de 
 > [AZURE.TIP]Clique na lista suspensa **outras versões** e selecione uma versão, se você não vir o artigo.
 
 ### EDM - Modelo de Dados de Entrada
-- Visão geral: [http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx][OverviewLink] [OverviewLink]:http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
-- Visualização: [http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx][PreviewLink] [PreviewLink]:http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
-- Tipos de dados: [http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx][DataTypesLink] [DataTypesLink]:http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
+- Visão geral: [http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx](OverviewLink)
+[OverviewLink]:http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
+- Visualização: [http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx](PreviewLink)
+[PreviewLink]:http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
+- Tipos de dados: [http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx](DataTypesLink) [DataTypesLink]:http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
 
 Veja a seguir o fluxo detalhado da Esquerda para a Direita de onde o cliente insere a declaração do OData (chamada ao serviço Web do provedor de conteúdo) a fim de obter os resultados/dados de volta:
 
@@ -298,4 +300,4 @@ Conecta-se a um serviço que expõe uma tabela ou modo de exibição de banco de
 - Se estiver interessado em examinar exemplos, leia este artigo [Exemplos de mapeamento OData de Serviço de Dados](marketplace-publishing-data-service-creation-odata-mapping-examples.md) para ver um código de exemplo e compreender a sintaxe do código e o contexto.
 - Para retornar ao caminho indicado para a publicação de um Serviço de Dados no Azure Marketplace, leia este artigo [Guia de publicação de Serviço de Dados](marketplace-publishing-data-service-creation.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

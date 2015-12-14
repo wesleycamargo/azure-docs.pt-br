@@ -1,4 +1,12 @@
-<properties pageTitle="Configurar o túnel forçado para Gateways de VPN usando o Gerenciador de Recursos | Microsoft Azure" descrição="Caso tenha uma Rede Virtual com um Gateway de VPN entre locais, você pode redirecionar ou "forçar" todo o tráfego direcionado à Internet para um local determinado. Este artigo se aplica ao modelo de implantação do Gerenciador de Recursos. " services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carolz" editor="" tags="azure-resource-manager"/>
+<properties 
+   pageTitle="Configurar o túnel forçado para Gateways de VPN usando o Gerenciador de Recursos | Microsoft Azure"
+   description="Caso tenha uma Rede Virtual com um Gateway de VPN entre locais, você pode redirecionar ou "forçar" todo o tráfego direcionado à Internet para um local determinado. Este artigo se aplica ao modelo de implantação do Gerenciador de Recursos. "
+   services="vpn-gateway"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carolz"
+   editor=""
+   tags="azure-resource-manager"/>
 <tags  
    ms.service="vpn-gateway"
    ms.devlang="na"
@@ -132,4 +140,4 @@ Antes de começar a configurar, verifique se você tem os itens a seguir.
 		Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
 		
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
