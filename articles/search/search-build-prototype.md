@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Compilar um protótipo de aplicativo para a Pesquisa do Azure | Microsoft Azure | Serviço de pesquisa de nuvem hospedado" 
+	pageTitle="Compile um protótipo de aplicativo para a Pesquisa do Azure | Microsoft Azure | Serviço de pesquisa de nuvem hospedado" 
 	description="Crie seu primeiro protótipo de aplicativo para começar a usar a Pesquisa do Azure, um serviço de pesquisa de nuvem hospedado." 
 	services="search" 
 	documentationCenter="" 
@@ -44,7 +44,7 @@ Para carregar os dados e arquivos de esquema usando o código no aplicativo de e
 
 ## Testar a solução de protótipo em seu sistema
 
-1. [Criar um serviço de Pesquisa do Azure no portal do Azure](search-create-service-portal.md)
+1. [Crie um serviço de Pesquisa do Azure no portal clássico do Azure](search-create-service-portal.md).
 
     Você pode adicionar uma versão compartilhada (gratuita) do serviço para qualquer assinatura existente do Azure. O serviço compartilhado é geralmente usado para protótipos. Tenha em mente que o serviço compartilhado fornece 50 MB de dados ou 10.000 documentos no total, o que ocorrer primeiro. Além disso, os documentos e dados podem ser distribuídos para um máximo de 3 índices.
 
@@ -133,4 +133,4 @@ Visite estes links para saber mais:
 [1]: ./media/search-build-prototype/azsearch-datafiles.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

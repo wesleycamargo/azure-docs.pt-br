@@ -1,6 +1,6 @@
 <properties
    pageTitle="Introdução à Detecção de Ameaças do Banco de Dados SQL"
-   description="Como começar com a Detecção de Ameaças do Banco de Dados SQL no portal de Visualização do Azure"
+   description="Como começar com a Detecção de Ameaças do Banco de Dados SQL no Portal do Azure"
    services="sql-database"
    documentationCenter=""
    authors="ronitr"
@@ -30,7 +30,7 @@ Por exemplo, a Detecção de Ameaças detecta determinadas atividades anormais d
 
 ## Configurar a detecção de ameaças para seu banco de dados
 
-1. Inicialize o portal de Visualização do Azure em [https://portal.azure.com](https://portal.azure.com).
+1. Inicie o Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 2. Navegue até a folha de configuração do Banco de Dados SQL que você deseja monitorar. Na folha Configurações, selecione **Auditoria e Detecção de Ameaças**.
 
@@ -89,4 +89,4 @@ Por exemplo, a Detecção de Ameaças detecta determinadas atividades anormais d
 [8]: ./media/sql-database-threat-detection-get-started/8_td_excel_fast_combine.png
 [9]: ./media/sql-database-threat-detection-get-started/9_td_excel_parameters.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

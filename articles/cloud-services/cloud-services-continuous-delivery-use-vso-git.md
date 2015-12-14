@@ -23,8 +23,7 @@ Você pode usar os projetos de equipe do Visual Studio Team Services para hosped
 Você precisará do Visual Studio 2013 e do SDK do Azure instalados. Se você ainda não tiver o Visual Studio 2013, baixe-o selecionando o link **Introdução gratuita (a página pode estar em inglês)** em [www.visualstudio.com](http://www.visualstudio.com). Instale o SDK do Azure [aqui](http://go.microsoft.com/fwlink/?LinkId=239540).
 
 
-> [AZURE.NOTE]Você precisa de uma conta do Visual Studio online para concluir este tutorial:
-> você pode [abrir uma conta do Visual Studio Online gratuitamente](http://go.microsoft.com/fwlink/p/?LinkId=512979).
+> [AZURE.NOTE]Você precisa de uma conta do Visual Studio Team Services para concluir este tutorial: você pode [abrir uma conta do Visual Studio Team Services gratuitamente](http://go.microsoft.com/fwlink/p/?LinkId=512979).
 
 Para configurar um serviço de nuvem para compilação e implantação automática no Azure usando o Visual Studio Team Services, siga essas etapas.
 
@@ -60,7 +59,7 @@ Para configurar um serviço de nuvem para compilação e implantação automáti
 
 ## Etapa 3: conectar o projeto ao Azure
 
-1. Agora que possui um repositório Git no Visual Studio Team Services com algum código-fonte nele, você está pronto para conectar seu repositório Git ao Azure. No [Portal de Gerenciamento do Azure](http://manage.windowsazure.com), selecione o serviço de nuvem ou site ou crie um novo; para isso, selecione o ícone + na parte inferior esquerda e escolha **Serviço de Nuvem** ou **Aplicativo Web**, depois selecione **Criação Rápida**.
+1. Agora que possui um repositório Git no Visual Studio Team Services com algum código-fonte nele, você está pronto para conectar seu repositório Git ao Azure. No [portal clássico do Azure](http://manage.windowsazure.com), selecione o serviço de nuvem ou site ou crie um novo; para isso, selecione o ícone + na parte inferior esquerda e escolha **Serviço de Nuvem** ou **Aplicativo Web**, depois selecione **Criação Rápida**.
 
 	![][9]
 
@@ -153,7 +152,7 @@ Para configurar um serviço de nuvem para compilação e implantação automáti
 
 	![][29]
 
-1. No [Portal de Gerenciamento do Azure](http://manage.windowsazure.com), você poderá exibir a implantação associada na guia **Implantações** quando o ambiente de preparo estiver selecionado.
+1. No [portal clássico do Azure](http://manage.windowsazure.com), você poderá exibir a implantação associada na guia **Implantações** quando o ambiente de preparo estiver selecionado.
 
 	![][30]
 
@@ -173,13 +172,13 @@ Para configurar um serviço de nuvem para compilação e implantação automáti
 
 ## Etapa 5: reimplantar uma compilação anterior
 
-Esta etapa é opcional. No Portal de Gerenciamento do Azure, selecione uma implantação anterior e escolha **Reimplantar** para que seu site retroceda até um check-in anterior. Observe que isso vai disparar uma nova compilação no TFS e criará uma nova entrada em seu histórico de implantação.
+Esta etapa é opcional. No portal clássico do Azure, selecione uma implantação anterior e escolha **Reimplantar** para que seu site retroceda até um check-in anterior. Observe que isso vai disparar uma nova compilação no TFS e criará uma nova entrada em seu histórico de implantação.
 
 ![][34]
 
 ## Etapa 6: Alterar a implantação de produção
 
-Quando estiver pronto, você pode promover o ambiente de preparo para o ambiente de produção escolhendo **Trocar** no Portal de Gerenciamento do Azure. O ambiente de preparo recém-implantado é promovido para a produção e o ambiente de produção anterior, se houver, torna-se um ambiente de preparo. A implantação Ativa pode ser diferente dos ambientes de preparo e de produção, mas o histórico de implantação de compilações recentes é o mesmo, independentemente do ambiente.
+Quando estiver pronto, você pode promover o ambiente de preparo para o ambiente de produção escolhendo **Trocar** no portal clássico do Azure. O ambiente de preparo recém-implantado é promovido para a produção e o ambiente de produção anterior, se houver, torna-se um ambiente de preparo. A implantação Ativa pode ser diferente dos ambientes de preparo e de produção, mas o histórico de implantação de compilações recentes é o mesmo, independentemente do ambiente.
 
 ![][35]
 
@@ -273,4 +272,4 @@ Para obter mais dicas de como usar o Git com Visual Studio Team Services, consul
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

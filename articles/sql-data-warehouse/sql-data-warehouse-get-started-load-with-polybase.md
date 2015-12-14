@@ -72,7 +72,7 @@ Para preparar um arquivo de texto de exemplo:
 
 Para localizar o ponto de extremidade do serviço blob:
 
-1. No portal do Azure, selecione **Procurar** > **Contas de Armazenamento**.
+1. No portal clássico do Azure, selecione **Procurar** > **Contas de Armazenamento**.
 2. Clique na conta de armazenamento que você deseja usar.
 3. Na folha da conta de Armazenamento, clique em Blobs
 
@@ -282,4 +282,4 @@ Confira o [Guia do PolyBase][] para saber mais sobre como desenvolver uma soluç
 [Criar Credencial com Escopo do Banco de Dados (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

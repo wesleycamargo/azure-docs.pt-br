@@ -70,9 +70,9 @@ Nesta seção, apresentaremos algumas das mais importantes diferenças conceitua
 
 Você pode começar a usar os Modelos do Azure aproveitando as várias ferramentas que oferecemos para desenvolver e implantar na plataforma.
 
-### Portal de Visualização do Azure
+### Portal do Azure
 
-O portal de visualização do Azure ainda tem a opção de implantar Máquinas Virtuais com o modelo de implantação clássico e Máquinas Virtuais com o modelo de implantação do Gerenciador de Recursos. ao mesmo tempo. O portal de visualização do Azure também permitirá implantações de modelo personalizado.
+O portal do Azure ainda tem a opção de implantar Máquinas Virtuais com o modelo de implantação clássico e Máquinas Virtuais com o modelo de implantação do Gerenciador de Recursos. ao mesmo tempo. O portal do Azure também permitirá implantações de modelos personalizados.
 
 ### PowerShell do Azure
 
@@ -116,4 +116,4 @@ Não há suporte para isso no momento. Você não pode conectar as Redes Virtuai
 
 Um conjunto abrangente de modelos iniciais pode ser encontrado em [modelos de início rápido do Gerenciador de Recursos do Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

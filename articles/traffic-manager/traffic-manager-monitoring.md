@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="12/01/2015"
    ms.author="joaoma" />
 
 # Sobre o monitoramento do Gerenciador de Tráfego
 
-O Gerenciador de Tráfego do Azure monitora seus pontos de extremidade, incluindo serviços de nuvem e sites, para garantir que estejam disponíveis. Para que o monitoramento funcione corretamente, você deve configurá-lo do mesmo modo para cada ponto de extremidade que você especifica no perfil do Gerenciador de Tráfego. Depois de você configurar o monitoramento, o Gerenciador de Tráfego exibirá o status de seus pontos de extremidade e o perfil no Portal de Gerenciamento. Você pode configurar as definições de monitoramento no Portal de Gerenciamento, na página Configurar, para seu perfil do Gerenciador de Tráfego. Você pode especificar as configurações a seguir:
+O Gerenciador de Tráfego do Azure monitora seus pontos de extremidade, incluindo serviços de nuvem e sites, para garantir que estejam disponíveis. Para que o monitoramento funcione corretamente, você deve configurá-lo do mesmo modo para cada ponto de extremidade que você especifica no perfil do Gerenciador de Tráfego. Depois de você configurar o monitoramento, o Gerenciador de Tráfego exibirá o status de seus pontos de extremidade e o perfil no portal do Azure. Você pode configurar as definições de monitoramento no portal do Azure, na página Configurar, para seu perfil do Gerenciador de Tráfego. Você pode especificar as configurações a seguir:
 
 - **Protocolo** – escolha HTTP ou HTTPS. É importante observar que o monitoramento HTTPS não verifica se o seu certificado SSL é válido, ele apenas verifica se tal certificado está presente.
 
@@ -27,7 +27,7 @@ O Gerenciador de Tráfego do Azure monitora seus pontos de extremidade, incluind
 
 ## Sobre monitoramento do status de integridade
 
-O Gerenciador de Tráfego do Azure exibe a integridade do serviço de ponto de extremidade e de perfil no Portal de Gerenciamento. A coluna de status tanto para o perfil quanto para o ponto de extremidade exibe o status do monitor mais recente. Você pode usar esse status para compreender a integridade dos perfis de acordo com suas configurações de monitoramento do Gerenciador de Tráfego. Quando seu perfil está íntegro, as consultas DNS são distribuídas aos serviços com base nas configurações de roteamento de tráfego para o perfil (Round Robin, Desempenho ou Failover). Depois que o sistema de monitoramento do Gerenciador de Tráfego detecta uma alteração no status do monitor, ele atualiza a entrada de status no Portal de Gerenciamento. Pode levar até cinco minutos para que a alteração de estado seja atualizada.
+O Gerenciador de Tráfego do Azure exibe a integridade do serviço de ponto de extremidade e de perfil no portal do Azure. A coluna de status tanto para o perfil quanto para o ponto de extremidade exibe o status do monitor mais recente. Você pode usar esse status para compreender a integridade dos perfis de acordo com suas configurações de monitoramento do Gerenciador de Tráfego. Quando seu perfil está íntegro, as consultas DNS são distribuídas aos serviços com base nas configurações de roteamento de tráfego para o perfil (Round Robin, Desempenho ou Failover). Depois que o sistema de monitoramento do Gerenciador de Tráfego detecta uma alteração no status do monitor, ele atualiza a entrada de status no portal do Azure. Pode levar até cinco minutos para que a alteração de estado seja atualizada.
 
 ### Status do monitor de ponto de extremidade
 
@@ -103,7 +103,7 @@ A tabela a seguir descreve o comportamento de monitoramento do Gerenciador de Tr
 
 1. Crie um arquivo com o mesmo nome em cada ponto de extremidade que você planeja incluir em seu perfil.
 2. Para cada ponto de extremidade, use um navegador da Web para testar o acesso ao arquivo. A URL consiste no nome de domínio do ponto de extremidade específico (o serviço de nuvem ou site), o caminho para o arquivo e o nome do arquivo. 
-3. No Portal de Gerenciamento, em **Configurações de Monitoramento**, no **Caminho Relativo e Nome de Arquivo**, especifique o caminho e o nome de arquivo.
+3. No portal do Azure, em **Configurações de Monitoramento**, no **Caminho Relativo e Nome de Arquivo**, especifique o caminho e o nome de arquivo.
 4. Quando você terminar de fazer suas alterações de configuração, clique em **Salvar** na parte inferior da página.
 
 ## Consulte também
@@ -115,4 +115,4 @@ A tabela a seguir descreve o comportamento de monitoramento do Gerenciador de Tr
 [Solucionando problemas de status degradado do Gerenciador de Tráfego](traffic-manager-troubleshooting-degraded.md)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

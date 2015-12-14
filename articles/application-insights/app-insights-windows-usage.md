@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
 
 #  Monitorar utilização em aplicativos da Windows Store e Windows Phone com o Application Insights
@@ -153,4 +153,4 @@ Se você compilar na configuração Liberar, os eventos serão armazenados no di
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

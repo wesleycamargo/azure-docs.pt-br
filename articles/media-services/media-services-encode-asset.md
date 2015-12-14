@@ -34,7 +34,7 @@ Para aproveitar os benefícios do [empacotamento dinâmico](media-services-dynam
 Os Serviços de Mídia são compatíveis com os seguintes codificadores sob demanda descritos neste artigo:
 
 - **Media Encoder Standard**
-- **Codificador de Mídia do Azure** 
+- **Codificador de Mídia do Azure**
 - **Fluxo de trabalho do Media Encoder Premium**
 
 Este artigo fornece uma breve visão geral dos codificadores de mídia sob demanda e fornece links para artigos que oferecem informações mais detalhadas. O tópico também fornece uma comparação entre os codificadores.
@@ -45,7 +45,7 @@ Observe que, por padrão, cada conta dos Serviços de Mídia pode ter uma tarefa
 
 ###Visão geral
 
-É recomendável usar o Codificador de Mídia Padrão. No entanto, ele atualmente não está exposto no portal do Azure.
+É recomendável usar o Codificador de Mídia Padrão. No entanto, ele atualmente não está exposto por meio do Portal Clássico do Azure.
 
 Em comparação com o Codificador de Mídia do Azure, este codificador suporta mais formatos de entrada e saída e codecs. Outros benefícios incluem:
 
@@ -265,4 +265,4 @@ MP3 (MPEG-1 Audio Layer 3)|Não|Não|Sim
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

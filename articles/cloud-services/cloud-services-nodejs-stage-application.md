@@ -34,7 +34,7 @@ Esta tarefa aborda como preparar um aplicativo usando o **Microsoft Azure PowerS
     Publish-AzureServiceProject -Slot staging
     ```
 
-2.  Faça logon no [Portal de Gerenciamento do Azure] e selecione **Serviços de Nuvem**. Após o serviço de nuvem ser criado e o status da coluna **Preparo** ter sido atualizada para **Executando**, clique no nome de serviço.
+2.  Faça logon no [portal clássico do Azure] e selecione **Serviços de Nuvem**. Após o serviço de nuvem ser criado e o status da coluna **Preparo** ter sido atualizada para **Executando**, clique no nome de serviço.
 
 	![portal exibindo um serviço em execução][cloud-service]
 
@@ -54,7 +54,7 @@ Após verificar a versão atualizada de um aplicativo no ambiente de preparo, vo
 
 > [AZURE.NOTE]Essa etapa pressupõe que você já implantou um aplicativo na produção e preparou a versão atualizada do aplicativo.
 
-1.  Faça logon no [Portal de Gerenciamento do Azure], clique em **Serviços de Nuvem** e, em seguida, selecione o nome do serviço.
+1.  Faça logon no [portal clássico do Azure], clique em **Serviços de Nuvem** e selecione o nome do serviço.
 
 2.  No **Painel**, selecione **Preparo** e, em seguida, clique em **Permutar** na parte inferior da página. Isso abre a caixa de diálogo Permuta de VIP.
 
@@ -68,11 +68,11 @@ Você preparou uma implantação e atualizou uma implantação em produção com
 
 - [Como implantar um serviço atualizado na produção permutando VIPs no Azure]
 
-[Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
+[portal clássico do Azure]: http://manage.windowsazure.com
 [cloud-service]: ./media/cloud-services-nodejs-stage-application/staging-cloud-service-running.png
 [cloud-service-dashboard]: ./media/cloud-services-nodejs-stage-application/cloud-service-dashboard-staging.png
 [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
 [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
 [Como implantar um serviço atualizado na produção permutando VIPs no Azure]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

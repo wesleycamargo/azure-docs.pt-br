@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/23/2015" 
+	ms.date="11/30/2015" 
 	ms.author="mandia"/>
 
 # Conecte-se aos conectores locais no serviço de aplicativo do Azure usando o Gerenciador de Conexão Híbrida
@@ -61,7 +61,7 @@ Agora, quando você navegar para o conector novamente, o status da conexão híb
 
 ## Portas TCP e segurança
 
-Quando você cria uma conexão híbrida, um site é criado no servidor IIS local. O servidor IIS pode estar em um rede de perímetro. Os requisitos de porta TCP no servidor IIS incluem:
+Quando você cria uma conexão híbrida, um site é criado no servidor IIS local. O servidor IIS pode estar em um DMZ. Os requisitos de porta TCP no servidor IIS incluem:
 
 Porta TCP | Porque
 --- | ---
@@ -133,4 +133,4 @@ Se sua API personalizada usar uma porta TCP ou HTTP, você poderá usar [conexõ
 
  
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

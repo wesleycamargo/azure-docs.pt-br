@@ -24,7 +24,7 @@ O Banco de Dados de Documentos é um banco de dados de documentos NoSQL para sol
 Uma maneira rápida para conhecer esse banco de dados JSON e vê-lo em ação é seguir estas três etapas:
 
 1. Assista ao vídeo [O que é o Banco de Dados de Documentos?](http://azure.microsoft.com/documentation/videos/what-is-azure-documentdb/) de dois minutos de duração, que apresenta os benefícios do uso do Banco de Dados de Documentos.
-2. Assista ao vídeo [Criar o Banco de Dados de Documentos no Azure](http://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) de três minutos de duração, que realça como começar a usar o Banco de Dados de Documentos por meio do portal de visualização do Azure.
+2. Assista ao vídeo [Criar o Banco de Dados de Documentos no Azure](http://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) de três minutos de duração, que destaca como começar a usar o Banco de Dados de Documentos por meio do Portal do Azure.
 3. Visite o [Query Playground](http://www.documentdb.com/sql/demo), onde você pode percorrer atividades diferentes para saber mais sobre a poderosa funcionalidade de consultas disponível no Banco de Dados de Documentos. Em seguida, vá até a guia Área Restrita e execute suas próprias consultas SQL personalizadas e experimente o Banco de Dados de Documentos.
 
 Em seguida, volte para este artigo, onde mostraremos mais detalhes e você conhecerá as respostas para as seguintes perguntas:
@@ -99,7 +99,7 @@ O Banco de Dados de Documentos permite gravar a lógica do aplicativo como progr
 A execução do JavaScript dentro do Banco de Dados de Documentos é baseada nos conceitos suportados pelos sistemas do banco de dados relacional, com o JavaScript sendo uma substituição moderna para Transact-SQL. Toda lógica do JavaScript é executada em uma transação ACID ambiente com isolamento de instantâneo. Durante sua execução, se o JavaScript lançar uma exceção, então, toda a transação será abortada.
 
 ## Próximas etapas
-Se você já tiver uma conta do Azure, poderá começar a usar o Banco de Dados de Documentos no [portal de visualização do Azure](https://portal.azure.com/#gallery/Microsoft.DocumentDB) ao [criar uma conta de banco de dados do Banco de Dados de Endereços](documentdb-create-account.md).
+Se você já tiver uma conta do Azure, poderá começar a usar o Banco de Dados de Documentos no [Portal do Azure](https://portal.azure.com/#gallery/Microsoft.DocumentDB) [criando uma conta de banco de dados do Banco de Dados de Documentos](documentdb-create-account.md).
 
 Se você não tiver uma conta do Azure, poderá:
 
@@ -112,4 +112,4 @@ Em seguida, quando você estiver pronto para saber mais, visite nosso [roteiro d
 [1]: ./media/documentdb-introduction/json-database-resources1.png
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

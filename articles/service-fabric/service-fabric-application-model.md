@@ -18,7 +18,7 @@
 
 # Modelar um aplicativo no Malha do Serviço
 
-Este artigo fornece uma visão geral do modelo de aplicativo da Malha do Serviço e descreve como definir um aplicativo e um serviço por meio de arquivos de manifesto e ter os aplicativos empacotados e prontos para implantação.
+Este artigo fornece uma visão geral do modelo de aplicativo do Service Fabric do Azure. Ele também descreve como definir um aplicativo e um serviço por meio de arquivos de manifesto e ter os aplicativos empacotados e prontos para implantação.
 
 ## Entenda o modelo de aplicativo
 
@@ -27,24 +27,24 @@ Um aplicativo é uma coleção de serviços membros que executam determinadas fu
 ![][1]
 
 
-Um tipo de aplicativo é uma categorização de um aplicativo, que consiste em um conjunto de tipos de serviço. Um tipo de serviço é uma categorização de um serviço, que pode ter diferentes definições e configurações, mas a funcionalidade básica permanece a mesma. As instâncias de um serviço são as diferentes variações de configuração de serviço de um mesmo tipo de serviço.
+Um tipo de aplicativo é uma categorização de um aplicativo e consiste em um pacote de tipos de serviço. Um tipo de serviço é uma categorização de um serviço. A categorização pode ter diferentes definições e configurações, mas a funcionalidade núcleo permanece a mesma. As instâncias de um serviço são as diferentes variações de configuração de serviço de um mesmo tipo de serviço.
 
 Classes (ou "tipos") de aplicativos e de serviços são descritos usando arquivos XML (manifestos de aplicativo e manifestos do serviço), que são os modelos em relação ao qual os aplicativos podem ser instanciados. O código para instâncias do aplicativo diferentes será executado como processos separados, mesmo quando hospedadas pelo mesmo nó da Malha do Serviço. Além disso, o ciclo de vida de cada instância do aplicativo pode ser gerenciado (ou seja, atualizado) independentemente. O diagrama a seguir mostra como os tipos de aplicativo são compostos de tipos de serviço, que, por sua vez, são compostos de código, configuração e pacotes.
 
-![Service Fabric ApplicationTypes and ServiceTypes][Image1]
+![Tipos de aplicativos do Service Fabric e tipos de serviço][Image1]
 
-Dois arquivos de manifesto diferentes são usados para descrever aplicativos e serviços: o manifesto do serviço e o manifesto do aplicativo, que é abordado em detalhes nas seções a seguir.
+Dois arquivos de manifesto diferentes são usados para descrever aplicativos e serviços: o manifesto do serviço e o manifesto do aplicativo. Isso é abordado em detalhes nas seções a seguir.
 
-Pode haver uma ou mais instâncias de um tipo de serviço ativo no cluster. Por exemplo, instâncias de serviço com monitoração de estado, ou réplicas, alcançam alta confiabilidade replicando o estado entre as réplicas localizadas em diferentes nós do cluster (que essencialmente fornecem redundância para que o serviço esteja disponível mesmo se um nó em um cluster falhar). Um [serviço particionado](service-fabric-concepts-partitioning.md) divide ainda mais seu estado (e padrões de acesso a esse estado) pelos nós do cluster.
+Pode haver uma ou mais instâncias de um tipo de serviço ativo no cluster. Por exemplo, instâncias de serviço com estado, ou réplicas, alcançam alta confiabilidade replicando o estado entre as réplicas localizadas em diferentes nós do cluster. Essa replicação essencialmente fornece redundância para que o serviço esteja disponível mesmo se um nó em um cluster falhar. Um [serviço particionado](service-fabric-concepts-partitioning.md) divide ainda mais seu estado (e padrões de acesso a esse estado) pelos nós do cluster.
 
 O diagrama a seguir mostra a relação entre aplicativos e instâncias de serviço, partições e réplicas.
 
-![Partições e réplicas dentro de um Serviço][Image2]
+![Partições e réplicas dentro de um serviço][Image2]
 
 
 ## Descrever um serviço
 
-O manifesto do serviço define declarativamente o tipo de serviço, a versão e especifica os metadados de serviço, como o tipo de serviço, as propriedades de integridade, as medidas e os arquivos de configuração de balanceamento de carga e binários de serviço. Trocando em miúdos, ele descreve os pacotes de código, de configuração e de dados que compõem um pacote de serviço para dar suporte a um ou mais tipos de serviço. Aqui está um manifesto do serviço de exemplo simples:
+O manifesto do serviço declarativamente define o tipo de serviço e a versão. Ele especifica os metadados de serviço, como o tipo de serviço, propriedades de integridade, métricas de balanceamento de carga, binários de serviço e arquivos de configuração. Trocando em miúdos, ele descreve os pacotes de código, de configuração e de dados que compõem um pacote de serviço para dar suporte a um ou mais tipos de serviço. Aqui está um manifesto do serviço de exemplo simples:
 
 ~~~
 <?xml version="1.0" encoding="utf-8" ?>
@@ -72,24 +72,24 @@ O manifesto do serviço define declarativamente o tipo de serviço, a versão e 
 
 Os atributos **Version** são cadeias de caracteres não estruturadas e não analisadas pelo sistema. Eles são usados para fazer a versão de cada componente para atualizações.
 
-**ServiceTypes** declara que tipos de serviço são suportados pelos **CodePackages** nesse manifesto. Quando um serviço é instanciado em relação a um desses tipos de serviço, todos os pacotes de código declarados nesse manifesto são ativados com a execução de seus pontos de entrada. Os processos resultantes devem registrar os tipos de serviço com suporte no tempo de execução. Observe que os tipos de serviço são declarados no nível do manifesto e não no nível do pacote de código. Assim, quando há vários pacotes de código, eles são todos ativados sempre que o sistema procurar por qualquer um dos tipos de serviço declarados.
+**ServiceTypes** declara que os tipos de serviço para os quais há suporte pelos **CodePackages** nesse manifesto. Quando um serviço é instanciado em relação a um desses tipos de serviço, todos os pacotes de código declarados nesse manifesto são ativados com a execução de seus pontos de entrada. Os processos resultantes devem registrar os tipos de serviço com suporte no tempo de execução. Observe que os tipos de serviço são declarados no nível do manifesto e não no nível do pacote de código. Assim, quando há vários pacotes de código, eles são todos ativados sempre que o sistema procurar por qualquer um dos tipos de serviço declarados.
 
-**SetupEntryPoint** é um ponto de entrada privilegiado que é executado com as mesmas credenciais da Malha do Serviço (normalmente, a conta *LocalSystem*) antes de qualquer outro ponto de entrada. O executável especificado pelo **EntryPoint** normalmente é o host de serviço de longa execução; portanto, ter um ponto de entrada de instalação separado evita a necessidade de executar o host de serviço com altos privilégios por longos períodos de tempo. O executável especificado pelo **EntryPoint** é executado depois que o **SetupEntryPoint** é encerrado com êxito. O processo resultante é monitorado e reiniciado (começando novamente com **SetupEntryPoint**) se ele terminar ou falhar.
+**SetupEntryPoint** é um ponto de entrada privilegiado que é executado com as mesmas credenciais da Malha do Serviço (normalmente, a conta *LocalSystem*) antes de qualquer outro ponto de entrada. O executável especificado pelo **EntryPoint** normalmente é o host de serviço de longa duração. A presença de um ponto de entrada de instalação separado evita a necessidade de executar o host de serviço com altos privilégios por longos períodos de tempo. O executável especificado pelo **EntryPoint** é executado depois que o **SetupEntryPoint** é encerrado com êxito. O processo resultante é monitorado e reiniciado (começando novamente com **SetupEntryPoint**) se ele terminar ou falhar.
 
-**DataPackage** declara uma pasta nomeada pelo atributo **Name** que contém dados estáticos arbitrários a serem consumidos pelo processo no tempo de execução.
+**DataPackage** declara uma pasta nomeada pelo atributo **Name**, que contém dados estáticos arbitrários a serem consumidos pelo processo no tempo de execução.
 
-**ConfigPackage** declara uma pasta nomeada pelo atributo **Name** que contém um arquivo *Settings*. Esse arquivo contém seções de configurações de par chave-valor, definido pelo usuário, que o processo pode ler de volta no tempo de execução. Durante a atualização, se apenas a **version** **ConfigPackage** foi alterada, o processo em execução não é reiniciado. Em vez disso, um retorno de chamada notifica o processo de que as definições de configuração foram alteradas para que possam ser recarregadas dinamicamente. Aqui está um exemplo do arquivo *Settings.xml*:
+**ConfigPackage** declara uma pasta nomeada pelo atributo **Name**, que contém um arquivo *Settings.xml*. Esse arquivo contém seções de configurações de par chave-valor, definido pelo usuário, que o processo pode ler de volta no tempo de execução. Durante a atualização, se apenas a **ConfigPackage** **versão** tiver sido alterada, o processo em execução não será reiniciado. Em vez disso, um retorno de chamada notifica o processo de que as definições de configuração foram alteradas para que possam ser recarregadas dinamicamente. Aqui está um exemplo do arquivo *Settings.xml*:
 
 ~~~
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Section Name="MyConfigurationSecion">
-    <Parameter Name="MySettingA" Value="Foo" />
-    <Parameter Name="MySettingB" Value="Bar" />
+    <Parameter Name="MySettingA" Value="Example1" />
+    <Parameter Name="MySettingB" Value="Example2" />
   </Section>
 </Settings>
 ~~~
 
-> [AZURE.NOTE]Um manifesto do serviço pode conter vários pacotes de código, de configuração e de dados e cada um deles pode ser transformado em versão independentemente.
+> [AZURE.NOTE]Um manifesto do serviço pode conter vários pacotes de código, de configuração e de dados. Cada um deles pode ser transformado em versão independentemente.
 
 <!--
 For more information about other features supported by service manifests, refer to the following articles:
@@ -104,8 +104,7 @@ For more information about other features supported by service manifests, refer 
 ## Descrever um aplicativo
 
 
-O manifesto do aplicativo descreve declarativamente o tipo de aplicativo e a versão e especifica os metadados de composição de serviço, como nomes estáveis, esquema de particionamento, fator de replicação/contagem de instância, política de segurança/isolamento, restrições de posicionamento, substituições de configuração e tipos de serviço membro. Também são descritos os domínios de balanceamento de carga no qual o aplicativo é colocado.
-Portanto, um manifesto de aplicativo descreve os elementos no nível do aplicativo e faz referência a um ou mais manifestos do serviço para compor um tipo de aplicativo. Aqui está um manifesto de aplicativo de exemplo simples:
+O manifesto do aplicativo declarativamente descreve o tipo de aplicativo e a versão. Ele especifica os metadados de composição de serviço, como nomes estáveis, esquema de particionamento, fator de replicação/contagem de instância, política de segurança/isolamento, restrições de posicionamento, substituições de configuração e tipos de serviço membro. Também são descritos os domínios de balanceamento de carga no qual o aplicativo é colocado. Portanto, um manifesto de aplicativo descreve os elementos no nível do aplicativo e faz referência a um ou mais manifestos do serviço para compor um tipo de aplicativo. Aqui está um manifesto de aplicativo de exemplo simples:
 
 ~~~
 <?xml version="1.0" encoding="utf-8" ?>
@@ -128,7 +127,7 @@ Portanto, um manifesto de aplicativo descreve os elementos no nível do aplicati
 </ApplicationManifest>
 ~~~
 
-Manifestos de serviço, como atributos **Version**, são cadeias de caracteres não estruturadas e não analisadas pelo sistema. Eles também são usados para a fazer a versão de cada componente para atualizações.
+Manifestos de serviço, como atributos **Versão**, são cadeias de caracteres não estruturadas e não analisadas pelo sistema. Eles também são usados para a fazer a versão de cada componente para atualizações.
 
 **ServiceManifestImport** contém referências a manifestos de serviço que compõem esse tipo de aplicativo. Os manifestos de serviço importados determinam quais tipos de serviço são válidos nesse tipo de aplicativo.
 
@@ -136,7 +135,7 @@ Manifestos de serviço, como atributos **Version**, são cadeias de caracteres n
 
 > [AZURE.NOTE]Um manifesto de aplicativo pode conter várias importações de manifesto do serviço e serviços padrão. Cada importação de manifesto do serviço pode ser transformada em versão independentemente.
 
-Para saber como manter aplicativos diferentes e parâmetros de serviço para ambientes individuais, consulte [Gerenciar parâmetros de aplicativo para vários ambientes](service-fabric-manage-multiple-environment-app-configuration.md)
+Para saber como manter aplicativos diferentes e parâmetros de serviço para ambientes individuais, consulte [Gerenciar parâmetros de aplicativo para vários ambientes](service-fabric-manage-multiple-environment-app-configuration.md).
 
 <!--
 For more information about other features supported by application manifests, refer to the following articles:
@@ -171,27 +170,29 @@ D:\TEMP\MYAPPLICATIONTYPE
             init.dat
 ~~~
 
-As pastas são nomeadas para corresponder a atributos **Name** de cada elemento correspondente. Por exemplo, se o manifesto do serviço contiver dois pacotes de código com nomes **MyCodeA** e **MyCodeB** seria necessário haver duas pastas com os mesmos nomes que contêm os binários necessários para cada pacote de código.
+As pastas são nomeadas para corresponder a atributos **Name** de cada elemento correspondente. Por exemplo, se o manifesto do serviço contiver dois pacotes de código com os nomes **MyCodeA** e **MyCodeB**, então, duas pastas com os mesmos nomes conteriam os binários necessários para cada pacote de códigos.
 
-### Usar o SetupEntryPoint
-Os cenários típicos para uso do SetupEntryPoint são aqueles em que você precisa fazer algo antes do início do serviço ou você que precisa fazer uma operação privilegiada superior. Alguns exemplos incluem - Configurar e inicializar as variáveis de ambiente que o serviço executável pode usar. Isso inclui não apenas os executáveis escritos com os modelos de programação do Service Fabric, mas EXEs que são simplesmente usados. Por exemplo, se você implantar um aplicativo de nodejs então o npm.exe precisaria variações de ambientes configuradas. -ACL um recurso como um certificado
+### Use o SetupEntryPoint
 
-A seguir as etapas para que garantir que você codifique (exe), arquivo em lote ou PowerShell estão corretamente empacotados em um projeto do Visual Studio.
+Cenários típicos de uso do **SetupEntryPoint** quando você precisa executar um executável antes do início do serviço ou você precisa executar uma operação com privilégios elevados. Por exemplo:
 
+- Configurar e inicializar as variáveis de ambiente que o serviço executável precisa. Isso não é limitado a apenas executáveis gravados usando os modelos de programação do Service Fabric. Por exemplo, npm.exe precisa de algumas variáveis de ambiente configurados para implantar um aplicativo node.js.
 
-### Criar um pacote usando o Visual Studio
+- Configurando o controle de acesso, instalando certificados de segurança.
+
+### Compilar um pacote usando o Visual Studio
 
 Se você usar o Visual Studio 2015 para criar o seu aplicativo, pode usar o comando Package para criar automaticamente um pacote que corresponda ao layout descrito acima.
 
-Para criar um pacote, clique com o botão direito do mouse no projeto de aplicativo no Gerenciador de Soluções e escolha o comando de pacote, conforme mostrado abaixo:
+Para criar um pacote, clique com o botão direito do mouse no projeto de aplicativo no Gerenciador de Soluções e escolha o comando de Pacote, conforme mostrado abaixo:
 
 ![][2]
 
-Quando o empacotamento estiver concluído, você encontrará o local do pacote na janela Saída. Observe que a etapa de empacotamento ocorre automaticamente quando você implanta ou depura seu aplicativo no Visual Studio.
+Quando o empacotamento estiver concluído, você encontrará o local do pacote na janela **Saída**. Observe que a etapa de empacotamento ocorre automaticamente quando você implanta ou depura seu aplicativo no Visual Studio.
 
-### Testando o pacote
+### Teste o pacote
 
-A estrutura do pacote pode ser verificada através do PowerShell localmente usando o comando **Test-ServiceFabricApplicationPackage**, que irá verificar se há problemas de análise de manifesto e checar todas as referências. Observe que esse comando só verifica a correção estrutural de diretórios e arquivos no pacote; ele não irá verificar qualquer conteúdo do pacote de códigos ou de dados para além da presença dos arquivos necessários:
+Você pode verificar a estrutura do pacote localmente por meio do PowerShell usando o comando **Test-ServiceFabricApplicationPackage**. Esse comando verificará se há problemas de análise de manifesto e também todas as referências. Observe que esse comando só verifica a correção estrutural de diretórios e arquivos no pacote. Ele não verificará qualquer código ou dados de conteúdo do pacote além de verificar se todos os arquivos necessários estão presentes.
 
 ~~~
 PS D:\temp> Test-ServiceFabricApplicationPackage .\MyApplicationType
@@ -230,9 +231,12 @@ Depois que o aplicativo é empacotado corretamente e passa pela verificação, e
 
 ## Próximas etapas
 
-[Implante e remova os aplicativos][10]
-[Gerenciar parâmetros de aplicativo para vários ambientes][11]
-[RunAs: executar um aplicativo Service Fabric com permissões de segurança diferentes][12]
+[Implantar e remover aplicativos][10]
+
+[Gerenciando parâmetros do aplicativo para vários ambientes][11]
+
+[RunAs: executando um aplicativo de Service Fabric com permissões de segurança diferentes][12]
+
 <!--Image references-->
 [1]: ./media/service-fabric-application-model/application-model.jpg
 [2]: ./media/service-fabric-application-model/vs-package-command.png
@@ -244,4 +248,4 @@ Depois que o aplicativo é empacotado corretamente e passa pela verificação, e
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
 
-<!--------HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

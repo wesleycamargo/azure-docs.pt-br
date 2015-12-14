@@ -46,7 +46,7 @@ Se o arquivo **iisnode. yml** ainda não existir dentro de seu aplicativo, você
 
 > [AZURE.NOTE]Se seu aplicativo Web foi criado usando os Cmdlets do PowerShell do Azure ou as ferramentas de linha de comando do Azure, um arquivo **IISNode.yml** padrão é criado automaticamente.
 
-Para reiniciar o aplicativo Web, selecione-o no [portal de visualização do Azure](https://portal.azure.com) e, em seguida, clique no botão **Reiniciar**:
+Para reiniciar o aplicativo Web, selecione-o no [Portal do Azure](https://portal.azure.com) e clique no botão **REINICIAR**:
 
 ![botão de reinicialização][restart-button]
 
@@ -67,7 +67,7 @@ Uma vez instalado, as ferramentas podem ser acessadas usando o comando 'azure'. 
 
 ###FTP
 
-Para acessar as informações de diagnóstico por meio de FTP, visite o [portal de visualização do Azure](https://portal.azure.com), selecione seu aplicativo Web e, em seguida, selecione o **PAINEL**. No **links rápidos** seção, o **FTP LOGS de diagnóstico** e **LOGS de diagnóstico FTPS** links fornecem acesso aos logs usando o protocolo FTP.
+Para acessar as informações de diagnóstico por FTP, visite o [Portal do Azure](https://portal.azure.com), selecione o seu aplicativo Web e selecione **PAINEL**. No **links rápidos** seção, o **FTP LOGS de diagnóstico** e **LOGS de diagnóstico FTPS** links fornecem acesso aos logs usando o protocolo FTP.
 
 > [AZURE.NOTE]Se já não tiver configurado o nome de usuário e senha de FTP ou de implantação, você pode fazer isso a **QuickStart** página de gerenciamento selecionando **Configurar credenciais de implantação**.
 
@@ -113,10 +113,9 @@ Para obter informações sobre como especificar uma versão do Node. js para seu
 Para obter mais informações, consulte também o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
->[AZURE.NOTE]Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 [IISNode]: https://github.com/tjanczuk/iisnode
 [IISNode Readme]: https://github.com/tjanczuk/iisnode#readme
@@ -127,4 +126,4 @@ Para obter mais informações, consulte também o [Centro de desenvolvedores do 
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

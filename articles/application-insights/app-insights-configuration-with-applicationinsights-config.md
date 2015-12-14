@@ -68,7 +68,7 @@ Os erros de `DiagnosticsTelemetryModule` relatórios na instrumentação do Appl
 
 ### Acompanhamento de solicitação da Web
 
-Relatórios do [código de tempo e o resultado da resposta](app-insights-start-monitoring-app-health-usage.md) de solicitações HTTP.
+Relatórios do [código de tempo e o resultado da resposta](app-insights-asp-net.md) de solicitações HTTP.
 
 * `Microsoft.ApplicationInsights.Web.RequestTrackingTelemetryModule`
 * Pacote NuGet [Microsoft.ApplicationInsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web)
@@ -111,7 +111,6 @@ Os inicializadores padrão foram todos configurados pelos pacotes do WindowsServ
 
 * `AccountIdTelemetryInitializer` define a propriedade AccountId.
 * `AuthenticatedUserIdTelemetryInitializer` define a propriedade AuthenticatedUserId como definido pelo SDK do JavaScript.
-* `OperationNameTelemetryInitializer` atualiza a propriedade de contexto `Operation.Id` de todos os itens de telemetria acompanhados enquanto lida com uma solicitação com a `RequestTelemetry.Id` automaticamente gerada.
 * `AzureRoleEnvironmentTelemetryInitializer` atualiza as propriedades `RoleName` e `RoleInstance` do contexto `Device` para todos os itens de telemetria com informações extraídas do ambiente de tempo de execução do Azure.
 * `BuildInfoConfigComponentVersionTelemetryInitializer` atualiza a `Version` propriedade do `Component` contexto para todos os itens de telemetria com o valor extraído do arquivo `BuildInfo.config` produzido pelo MS Build.
 * `ClientIpHeaderTelemetryInitializer` atualiza a propriedade `Ip` do contexto `Location` de todos os itens de telemetria baseados no cabeçalho HTTP `X-Forwarded-For` da solicitação.
@@ -136,6 +135,29 @@ Os inicializadores padrão foram todos configurados pelos pacotes do WindowsServ
 Processadores de telemetria podem filtrar e modificar cada item de telemetria antes de serem enviado do SDK para o portal.
 
 Você pode [escrever seus próprios processadores de telemetria](app-insights-api-filtering-sampling.md#filtering).
+
+
+#### Processador de telemetria de amostragem adaptável (da 2.0.0-beta3)
+
+Isso é habilitado por padrão. Se o seu aplicativo envia muita telemetria, esse processador remove parte dela.
+
+```xml
+
+    <TelemetryProcessors>
+      <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+        <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
+      </Add>
+    </TelemetryProcessors>
+
+```
+
+O parâmetro fornece o destino que o algoritmo tenta obter. Cada instância do SDK funciona independentemente, portanto, se o servidor for um cluster de vários computadores, o volume real de telemetria será multiplicado adequadamente.
+
+[Saiba mais sobre a amostragem](app-insights-sampling.md).
+
+
+
+#### Processador de telemetria de amostragem de taxa fixa (da 2.0.0-beta1)
 
 Também há um [processador de telemetria de amostra](app-insights-api-filtering-sampling.md#sampling) padrão (de 2.0.1):
 
@@ -257,10 +279,10 @@ Para obter uma nova chave, [crie um novo recurso no portal do Application Insigh
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
-[exceptions]: app-insights-web-failures-exceptions.md
+[exceptions]: app-insights-asp-net-exceptions.md
 [netlogs]: app-insights-asp-net-trace-logs.md
 [new]: app-insights-create-new-resource.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

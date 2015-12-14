@@ -20,7 +20,7 @@
 
 Verifique o desempenho de seu aplicativo Web antes de iniciá-lo ou implantar atualizações na produção. Dessa forma, você pode avaliar melhor se o aplicativo está pronto para lançamento. Tenha mais confiança que seu aplicativo pode dar conta do tráfego durante o pico de uso ou na sua próxima ação de marketing.
 
-Durante a visualização pública, você pode testar o desempenho de seu aplicativo gratuitamente no Portal de Visualização do Azure. Esses testes simulam carga de usuário em seu aplicativo por um período de tempo específico e medem a resposta desse aplicativo. Por exemplo, os resultados do teste mostram a velocidade com que seu aplicativo responde a um número específico de usuários. Eles também mostram quantas solicitações falharam, o que pode indicar problemas com seu aplicativo.
+Durante a visualização pública, você pode testar o desempenho de seu aplicativo gratuitamente no Portal do Azure. Esses testes simulam carga de usuário em seu aplicativo por um período de tempo específico e medem a resposta desse aplicativo. Por exemplo, os resultados do teste mostram a velocidade com que seu aplicativo responde a um número específico de usuários. Eles também mostram quantas solicitações falharam, o que pode indicar problemas com seu aplicativo.
 
 ![Localizar problemas de desempenho em seu aplicativo Web][TestOverview]
 
@@ -34,7 +34,7 @@ Durante a visualização pública, você pode testar o desempenho de seu aplicat
 
 ## Configurar e executar o teste de desempenho
 
-0.	Entre no [Portal de Visualização do Azure][AzurePortal]. Para usar uma conta do Visual Studio Team Services que você possui, entre como o proprietário da conta.
+0.	Entre no [Portal do Azure][AzurePortal]. Para usar uma conta do Visual Studio Team Services que você possui, entre como o proprietário da conta.
 
 0.	Vá para seu aplicativo Web.
 
@@ -76,7 +76,7 @@ Adoraríamos receber seus comentários. Para perguntas ou problemas, entre em co
 
 #### P: Existe um limite para o tempo pelo qual posso executar um teste? 
 
-R: Sim, você pode executar o teste por até uma hora no Portal de Visualização do Azure.
+R: sim, você pode executar o teste por até uma hora no Portal do Azure.
 
 #### P: Por quanto tempo posso executar testes de desempenho? 
 
@@ -84,7 +84,7 @@ R: Após a visualização pública, você obtém 20.000 VUMs (minutos de usuári
 
 #### P: Onde posso verificar quantos VUMs usei até agora?
 
-R: Você pode verificar esse valor no portal de Visualização do Azure.
+R: Você pode verificar esse valor no Portal do Azure.
 
 ![Vá para a sua conta do VSTS][VSTSAccount]
 
@@ -112,4 +112,4 @@ R: para encontrar a nova conta, vá para ```https://{accountname}.visualstudio.c
 [AzureFreeTrial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [WhatIsVSTS]: https://www.visualstudio.com/products/what-is-visual-studio-online-vs
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

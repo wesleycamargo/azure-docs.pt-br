@@ -125,7 +125,7 @@ Observe que a definição de build que você cria a partir dessas instruções n
 
 ### Instalar o SDK do Service Fabric
 
-Instale o [SDK do Service Fabric](https://azure.microsoft.com/pt-BR/campaigns/service-fabric/).
+Instale o [SDK do Service Fabric](https://azure.microsoft.com/campaigns/service-fabric/).
 
 ### Registrar o repositório NuGet do SDK do Service Fabric
 
@@ -339,4 +339,4 @@ As instruções anteriores criam um novo cluster para cada build e o remove ao f
 
 Para saber mais sobre a integração contínua com aplicativos do Service Fabric, leia os seguintes artigos. [Documentação base sobre build](https://msdn.microsoft.com/Library/vs/alm/Build/overview) - [Implantar um agente de build](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows) - [Criar e configurar uma definição de build](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

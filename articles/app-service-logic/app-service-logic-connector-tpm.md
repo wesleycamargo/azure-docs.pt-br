@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="08/23/2015"
+   ms.date="11/30/2015"
    ms.author="rajram"/>
 
 # Introdução ao Gerenciamento de Parceiros Comerciais do BizTalk e à adição dele ao seu Aplicativo Lógico
@@ -39,4 +39,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 <!--References-->
 [1]: app-service-logic-create-a-trading-partner-agreement.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

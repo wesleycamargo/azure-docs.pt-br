@@ -392,4 +392,4 @@ Para implantar o modelo ARM usando a CLI do Azure, siga as etapas abaixo.
 
 >[AZURE.TIP]Se você não vir todos os recursos, execute o comando **exibir implantação de grupo do azure** para garantir que o estado de provisionamento da implantação é *bem-sucedido*.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

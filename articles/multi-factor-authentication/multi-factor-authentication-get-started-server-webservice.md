@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="12/01/2015" 
 	ms.author="billmath"/>
 
 # Introdução ao Serviço Web de Aplicativos Móveis do Servidor MFA
@@ -32,7 +32,7 @@ Para usar o aplicativo Azure Multi-Factor Authentication, é preciso fazer o seg
 - O SDK de Serviço Web do Azure Multi-Factor Authentication deve estar instalado no IIS 6.x, o IIS 7.x no mesmo servidor que o Servidor Azure Multi-Factor Authentication
 - O SDK de Serviço Web do Azure Multi-Factor Authentication deve estar protegido com um certificado SSL.
 - O Serviço Web de Aplicativos Móveis deve poder se conectar ao SDK de Serviço Web do Azure Multi-Factor Authentication por SSL
-- O Serviço Web de Aplicativos Móveis deve poder se autenticar no SDK de Serviço Web do Azure Multi-Factor Authentication usando as credenciais de uma conta de serviço que seja membro de um grupo de segurança chamado “Administradores do Azure Multi-Factor Authentication”. Essa conta de serviço e o grupo existem no Active Directory se o Servidor Azure Multi-Factor Authentication for executado em um servidor ingressado em um domínio. Essa conta de serviço e o grupo existem localmente no Servidor Azure Multi-Factor Authentication se ele não tiver ingressado em um domínio.
+- O Serviço web Aplicativo móvel deve ser capaz de autenticar no SDK de Serviço Web do Azure Multi-Factor Authentication usando as credenciais de uma conta de serviço que é um membro de um grupo de segurança chamado “PhoneFactor Admins”. Essa conta de serviço e o grupo existem no Active Directory se o Servidor Azure Multi-Factor Authentication for executado em um servidor ingressado em um domínio. Essa conta de serviço e o grupo existem localmente no Servidor Azure Multi-Factor Authentication se ele não tiver ingressado em um domínio.
 
 
 A instalação do Portal do Usuário em um servidor diferente do Servidor Azure Multi-Factor Authentication exige estas três etapas:
@@ -68,7 +68,7 @@ Antes de instalar o Serviço Web de Aplicativos Móveis, esteja ciente do seguin
 
 <li>Localize as chaves WEB_SERVICE_SDK_AUTHENTICATION_USERNAME e WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD e defina os valores para o nome de usuário e a senha da conta de serviço que é membro do grupo de segurança PhoneFactor Admins (consulte a seção Requisitos acima). Essa pode ser a mesma conta que está sendo usada como a Identidade do Portal do Usuário do Azure multi-Factor Authentication que foi instalado anteriormente. Digite o Nome de usuário e Senha entre as aspas no final da linha, (value=””/>). É recomendável usar um nome de usuário qualificado (por exemplo, domínio\nomedeusuário ou máquina\nomedeusuário).</li>
 
-<li>Localize a configuração pfMobile App Web Service_pfwssdk_PfWsSdk e mude o valor de “http://localhost:4898/PfWsSdk.asmx” para a URL do SDK de Serviço Web que está em execução no Servidor Azure Multi-Factor Authentication (por exemplo, https://computer1.domain.local/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx). Como o SSL é usado para esta conexão, você deve referenciar o SDK de Serviço Web pelo nome do servidor e não o endereço IP, pois o certificado SSL terá sido emitido para o nome do servidor e a URL usada deve corresponder ao nome no certificado. Se o nome do servidor não resolver para um endereço IP do servidor da Internet, adicione uma entrada ao arquivo de host nesse servidor para mapear o nome do Servidor Azure Multi-Factor Authentication para seu endereço IP. Depois de feitas as alterações, salve o arquivo web.config.</li>
+<li>Localize a configuração pfMobile App Web Service_pfwssdk_PfWsSdk e mude o valor de “http://localhost:4898/PfWsSdk.asmx” para a URL do SDK de Serviço Web que está em execução no Servidor Azure Multi-Factor Authentication (por exemplo, https://computer1.domain.local/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx). Como o SSL é usado para esta conexão, você deve referenciar o SDK de Serviço Web pelo nome do servidor e não o endereço IP, pois o certificado SSL terá sido emitido para o nome do servidor e a URL usada deve corresponder ao nome no certificado. Se o nome do servidor não resolver para um endereço IP do servidor da Internet, adicione uma entrada ao arquivo de hosts nesse servidor para mapear o nome do Servidor Azure Multi-Factor Authentication para seu endereço IP. Depois de feitas as alterações, salve o arquivo web.config.</li>
 
 <li>Se o site em que o Serviço Web de Aplicativos Móveis foi instalado (por exemplo, Site Padrão) ainda não tiver sido associado com um certificado assinado publicamente, instale o certificado no servidor, se ainda não estiver instalado, abra o Gerenciador do IIS e associe o certificado ao site.</li>
 
@@ -89,4 +89,4 @@ Agora que o Serviço Web de Aplicativos Móveis está instalado, você precisa c
 
 <center>![Setup](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)</center>
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="11/30/2015" 
 	ms.author="awills"/>
 
 # API do Application Insights para métricas e eventos personalizados 
@@ -104,22 +104,26 @@ Por exemplo, em um aplicativo de jogo, envie um evento sempre que um usuário ga
 
     telemetry.trackEvent("WinGame");
 
-Aqui, “WinGame” é o nome que aparece no portal do Application Insights. Clique no bloco Eventos Personalizados na folha de visão geral:
+Aqui, “WinGame” é o nome que aparece no portal do Application Insights.
 
-![Navegue até o recurso do aplicativo em portal.azure.com](./media/app-insights-api-custom-events-metrics/01-custom.png)
+Para ver uma contagem de seus eventos, abra uma folha do [Gerenciador de Métrica](app-insights-metrics-explorer.md), adicione um novo gráfico e selecione eventos.
+
+![](./media/app-insights-api-custom-events-metrics/01-custom.png)
+
+Para comparar as contagens de eventos diferentes, defina o tipo de gráfico como Grade e agrupe pelo nome do evento:
+
+![](./media/app-insights-api-custom-events-metrics/07-grid.png)
 
 
-O gráfico é agrupado pelo nome do Evento para que você possa ver as contribuições relativas dos eventos mais importantes. Para controlar isso, selecione o gráfico e use o controle de Agrupamento.
-
-![Selecione o gráfico e defina o agrupamento](./media/app-insights-api-custom-events-metrics/02-segment.png)
-
-Na lista abaixo do gráfico, selecione um nome de evento. Clique para ver ocorrências individuais do evento.
+Na grade, clique em um nome de evento para ver ocorrências individuais daquele evento.
 
 ![Detalhe os eventos](./media/app-insights-api-custom-events-metrics/03-instances.png)
 
 Clique em qualquer ocorrência para ver mais detalhes.
 
+Para se concentrar em eventos específicos no Search Explorer ou Metric Explorer, defina o filtro da folha de acordo com os nomes de eventos que você está interessado:
 
+![Abra Filtros, expanda o Nome do evento e selecione um ou mais valores](./media/app-insights-api-custom-events-metrics/06-filter.png)
 
 ## Acompanhar Métrica
 
@@ -249,7 +253,7 @@ Envie exceções ao Application Insights: para [contá-las][metrics], como uma i
 Os SDKs capturam muitas exceções automaticamente; portanto, você não precisa chamar sempre explicitamente o TrackException.
 
 * ASP.NET: [escrever código para capturar exceções](app-insights-asp-net-exceptions.md)
-* J2EE: [as exceções são capturadas automaticamente](app-insights-java-get-started.md#exceptions-and-request-failures)
+* J2EE: [exceções são detectadas automaticamente](app-insights-java-get-started.md#exceptions-and-request-failures)
 * Aplicativos do Windows: [as falhas são detectadas automaticamente](app-insights-windows-crashes.md)
 * JavaScript: detectado automaticamente. Se você quiser desabilitar a coleta automática, adicione uma linha no trecho de código que você inserir em suas páginas da Web:
 
@@ -296,7 +300,7 @@ Use essa chamada para acompanhar os tempos de resposta e taxas de êxito de cham
             }
 ```
 
-Lembre-se de que os SDKs de servidor incluem um [módulo de dependência](app-insights-dependencies.md) que descobre e rastreia automaticamente determinadas chamadas de dependência; por exemplo, para bancos de dados e APIs REST. Você precisa instalar um agente em seu servidor para fazer com que o módulo funcione. Se você desejar controlar chamadas que não são detectadas pelo acompanhamento automatizado, ou se você não quiser instalar o agente, você usaria essa chamada.
+Lembre-se de que o servidor SDKs inclui um [módulo de dependência](app-insights-dependencies.md) que descobre e acompanha determinadas chamadas de dependência automaticamente - por exemplo, para APIs de REST e bancos de dados. Você precisa instalar um agente em seu servidor para fazer com que o módulo funcione. Se você desejar controlar chamadas que não são detectadas pelo acompanhamento automatizado, ou se você não quiser instalar o agente, você usaria essa chamada.
 
 Para desativar o módulo padrão de rastreamento de dependência, edite [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) e exclua a referência a `DependencyCollector.DependencyTrackingTelemetryModule`.
 
@@ -344,7 +348,7 @@ Em um aplicativo MVC Web ASP.NET, por exemplo:
             </script>
         }
 
-Não é necessário usar o nome do usuário real de conexão. Só deve ser uma ID exclusiva para esse usuário. Não deve incluir espaços, nem os caracteres `,;=|`.
+Não é necessário usar o nome do usuário real de conexão. Só deve ser uma ID exclusiva para esse usuário. Não deve incluir espaços ou os caracteres `,;=|`.
 
 A ID de usuário também é definida em um cookie de sessão e enviada ao servidor. Se o servidor SDK estiver instalado, a ID de usuário autenticado será enviada como parte das propriedades de contexto de telemetria do cliente e servidor, para que você possa filtrar e pesquisar nela.
 
@@ -548,7 +552,7 @@ Chamadas de telemetria individuais podem substituir os valores padrão em seus d
 
 É possível escrever códigos para processar a telemetria antes que ela seja enviada do SDK. O processamento inclui dados enviados dos módulos de telemetria padrão, como a coleção de solicitação HTTP e a coleção de dependência.
 
-* [Adicione propriedades](app-insights-api-filtering-sampling.md#add-properties) à telemetria como, por exemplo, números de versão ou valores calculados de outras propriedades.
+* [Adicionar propriedades](app-insights-api-filtering-sampling.md#add-properties) à telemetria - por exemplo, números de versão ou valores calculados de outras propriedades.
 * A [amostragem](app-insights-api-filtering-sampling.md#sampling) reduz o volume de dados enviados do seu aplicativo ao portal, sem afetar as métricas exibidas, e sem afetar sua capacidade de diagnosticar problemas navegando entre itens relacionados, como exceções, solicitações e exibições de página.
 * A [filtragem](app-insights-api-filtering-sampling.md#filtering) também reduz o volume. Você controla o que é enviado ou descartado, mas você precisa levar em conta o efeito em suas métricas. Dependendo de como você descartar os itens, você poderá perder a capacidade de navegar entre itens relacionados.
 
@@ -654,16 +658,24 @@ Se você definir qualquer um desses valores por conta própria, considere remove
 
 ## Limites
 
-Há alguns limites no número de métricas você pode usar.
+Há alguns limites no número de métricas e eventos por aplicativo (isto é, por chave de instrumentação).
 
-1. Até 500 pontos de dados de telemetria por segundo por chave de instrumentação (ou seja, por aplicativo). Isso inclui a telemetria padrão enviada pelas métricas dos módulos e eventos personalizados, SDK e outra telemetria enviada pelo seu código.
+1. Uma taxa máxima por segundo que se aplica separadamente a cada chave de instrumentação. Acima do limite, alguns dados serão descartados.
+ * Até 500 pontos de dados por segundo para chamadas TrackTrace e dados de log capturados. (100 por segundo para o tipo de preço livre).
+ * Até 50 pontos de dados por segundo para exceções capturadas por nossos módulos ou chamadas TrackException. 
+ * Até 500 pontos de dados por segundo para todos os outros dados, incluindo a telemetria padrão enviada pelos módulos SDK e eventos personalizados, métricas e outra telemetria enviada pelo seu código. (100 por segundo para o tipo de preço livre).
+1. Volume total mensal de dados, dependendo de seu [tipo de preço](app-insights-pricing.md).
 1.	Máximo de 200 nomes exclusivos de métrica e 200 nomes de propriedade exclusivo para seu aplicativo. As métricas incluem o envio de dados por meio de TrackMetric, bem como as medidas em outros tipos de dados como eventos. Os nomes de propriedades e métricas são globais por chave de instrumentação, não no escopo do tipo de dados.
 2.	As propriedades podem ser usadas para filtragem e agrupamento, somente enquanto tiverem menos de 100 valores exclusivos para cada propriedade. Depois que os valores exclusivos excederem 100, a propriedade ainda pode ser usada para pesquisa e filtragem, mas não para filtros.
 3.	As propriedades padrão como Solicitar Nome e URL da Página estão limitadas a 1000 valores exclusivos por semana. Depois de 1000 valores exclusivos, os valores adicionais são marcados como "Outros valores". O valor original ainda pode ser usado para filtragem e pesquisa de texto completo.
 
-* *P: Por quanto tempo são mantidos os dados?*
+*Como evitar atingir o limite de taxa de dados?*
 
-    Consulte [Privacidade e retenção de dados][data].
+* Instalar o SDK mais recente para usar [amostragem](app-insights-sampling.md).
+
+*Por quanto tempo são mantidos os dados?*
+
+* Consulte [Privacidade e retenção de dados][data].
 
 
 ## Documentos de Referência
@@ -715,7 +727,7 @@ Há alguns limites no número de métricas você pode usar.
 [data]: app-insights-data-retention-privacy.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
@@ -724,4 +736,4 @@ Há alguns limites no número de métricas você pode usar.
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

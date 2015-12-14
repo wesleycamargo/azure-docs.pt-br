@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD Connect Sync - Implementar sincronização de senha | Microsoft Azure"
+	pageTitle="Sincronização do Azure AD Connect: Implementar a sincronização de senha | Microsoft Azure"
 	description="Fornece a você as informações que você precisa para compreender como funciona a sincronização de senha e como habilitá-la em seu ambiente."
 	services="active-directory"
 	documentationCenter=""
@@ -160,4 +160,4 @@ Não deve ser necessário forçar uma sincronização completa de todas as senha
 * [Azure AD Connect Sync: personalizando opções de sincronização](active-directory-aadconnectsync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

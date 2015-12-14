@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/23/2015" 
+	ms.date="12/01/2015" 
 	ms.author="jeffstok"/>
 
 # Como **Adicionar saídas** para trabalhos do Stream Analytics
@@ -24,11 +24,11 @@ As saídas do Stream Analytics podem ser usadas para dar origem a painéis ou al
 
 Para adicionar uma saída ao trabalho do Stream Analytics:
 
-1. No portal do Azure, clique em **Saídas** e, em seguida, clique em **Adicionar saída** no trabalho do Stream Analytics.
+1. No portal clássico do Azure, clique em **Saídas** e, em seguida, clique em **Adicionar saída** no trabalho do Stream Analytics.
 
     ![Adicionar saídas](./media/stream-analytics-add-outputs/1-stream-analytics-add-outputs.png)
 
-    No portal de visualização do Azure, clique no bloco **Saídas** no seu trabalho do Stream Analytics.
+    No portal do Azure, clique no bloco **Saídas** no seu trabalho do Stream Analytics.
 
     ![Adicionar Saídas no Portal do Azure](./media/stream-analytics-add-outputs/5-stream-analytics-add-outputs.png)
 
@@ -36,7 +36,7 @@ Para adicionar uma saída ao trabalho do Stream Analytics:
 
     ![Escolher Tipo de Dados](./media/stream-analytics-add-outputs/2-stream-analytics-add-outputs.png)
 
-    ![Escolher tipo de dados no portal de visualização do Azure](./media/stream-analytics-add-outputs/6-stream-analytics-add-outputs.png)
+    ![Escolher tipo de dados no portal do Azure](./media/stream-analytics-add-outputs/6-stream-analytics-add-outputs.png)
 
 3. Forneça um nome amigável para essa saída na caixa **Alias de saída**. Esse nome pode ser usado na consulta do seu trabalho posteriormente para fazer referência à saída.
     
@@ -50,7 +50,9 @@ Para adicionar uma saída ao trabalho do Stream Analytics:
 
     ![Adicionar hub de eventos](./media/stream-analytics-add-outputs/4-stream-analytics-add-outputs.png)
 
-    ![Adicionar hub de eventos no portal de visualização do Azure](./media/stream-analytics-add-outputs/7-stream-analytics-add-outputs.png)
+    ![Adicionar hub de eventos no portal do Azure](./media/stream-analytics-add-outputs/7-stream-analytics-add-outputs.png)
+
+> [Azure.Note]Qualquer elemento de saída adicionado ao trabalho deve existir antes de o trabalho ser iniciado e de os eventos começarem a fluir. Por exemplo, se você usar o armazenamento de Blobs como uma saída, o trabalho não criará uma conta de armazenamento automaticamente. Ele precisa ser criado pelo usuário antes de o trabalho ASA ser iniciado.
 
 ## Obter ajuda
 Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureStreamAnalytics)
@@ -63,4 +65,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

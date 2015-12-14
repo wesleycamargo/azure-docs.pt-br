@@ -40,9 +40,9 @@ Você deve usar sua conta do Marketplace como o nome de usuário e a chave de co
 
 Um ou mais parâmetros de entrada do serviço Web podem ter excedido o limite de tamanho ao consumir o serviço Web na página **explorar este conjunto de dados** do Marketplace. Os serviços podem ser chamados com um comprimento de entrada maior usando métodos HTTP POST. Para obter exemplos, consulte [Soluções de exemplo usando R no Aprendizado de Máquina e publicadas no Marketplace](machine-learning-r-csharp-web-service-examples.md).
 
-**4. Por que eu não vejo nada na int da guia "API EXPLORER" do armazenamento no Portal de Gerenciamento do Azure?**
+**4. Por que não vejo nada na guia “GERENCIADOR DE API” no Repositório do Portal Clássico do Azure?**
 
-Isso é um problema conhecido com o Marketplace do Portal de Gerenciamento do Azure. A equipe está trabalhando para resolver esse problema.
+Esse é um problema conhecido no Marketplace do Portal Clássico do Azure. A equipe está trabalhando para resolver esse problema.
 
 
 ##Perguntas sobre a publicação de Aprendizado de Máquina do Azure no Marketplace
@@ -77,4 +77,4 @@ Entre em contato com a equipe do Azure Marketplace em <datamarketbd@microsoft.co
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -55,7 +55,7 @@ Para habilitar o acesso condicional, você pode criar políticas que permitam ac
 
 O Azure Connect AD permitirá que computadores locais sejam provisionados como objetos de dispositivo na nuvem. Para implantar o Azure AD Connect, confira Habilitando o diretório para gerenciamento híbrido com o Azure AD Connect.
 
- - Se você tiver usado uma [instalação personalizada do Azure AD Connect](https://azure.microsoft.com/pt-BR/documentation/articles/active-directory-aadconnect-get-started-custom/) (não a instalação expressa), deve seguir o procedimento **Criar um SCP (ponto de conexão de serviço) no Active Directory local**, descrito abaixo.
+ - Se você tiver usado uma [instalação personalizada do Azure AD Connect](active-directory-aadconnect-get-started-custom.md) (não a instalação expressa), deve seguir o procedimento **Criar um SCP (ponto de conexão de serviço) no Active Directory local**, descrito abaixo.
  - Se você tiver uma configuração federada com o AD do Azure antes de instalar o Azure AD Connect (por exemplo, se tiver implantado o AD FS, Serviços de Federação do Active Directory, antes) terá que seguir o procedimento **Configurar regras de declaração do AD FS** abaixo.
 
 ### Criar um SCP (ponto de conexão de serviço) no Active Directory local
@@ -137,4 +137,4 @@ Você pode usar uma Política de Grupo do Active Directory e configurar os dispo
 * [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

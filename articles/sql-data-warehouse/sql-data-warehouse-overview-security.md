@@ -24,7 +24,7 @@ Este artigo apresenta os conceitos básicos da proteção do banco de dados do S
 
 A Segurança da Conexão refere-se a como você restringe e protege as conexões com o banco de dados usando regras de firewall e criptografia de conexão.
 
-As regras de firewall são usadas pelo servidor e pelo banco de dados para rejeitar tentativas de conexão de endereços IP que não foram incluídos explicitamente na lista de permissões. Para permitir que seu aplicativo ou o endereço IP público do computador cliente tente se conectar a um novo banco de dados, primeiramente você deve criar uma regra de firewall no nível de servidor usando o Portal de Gerenciamento do Azure, a API REST ou o PowerShell. Como prática recomendada, você deve restringir ao máximo os intervalos de endereços IP permitidos por meio do firewall de servidor. Para obter mais informações, consulte [Firewall do Banco de Dados SQL do Azure][].
+As regras de firewall são usadas pelo servidor e pelo banco de dados para rejeitar tentativas de conexão de endereços IP que não foram incluídos explicitamente na lista de permissões. Para permitir que seu aplicativo ou o endereço IP público do computador cliente tente se conectar a um novo banco de dados, primeiramente você deve criar uma regra de firewall no nível de servidor usando o Portal Clássico do Azure, a API REST ou o PowerShell. Como prática recomendada, você deve restringir ao máximo os intervalos de endereços IP permitidos por meio do firewall de servidor. Para obter mais informações, consulte [Firewall do Banco de Dados SQL do Azure][].
 
 
 ## Autenticação
@@ -72,7 +72,7 @@ Existem maneiras de limitar ainda mais o que um usuário pode fazer com o Banco 
 - [Permissões][] granulares permitem controlar quais operações você pode fazer em colunas, tabelas, exibições, procedimentos e outros objetos individuais no banco de dados.
 - [Procedimentos armazenados][] podem ser usados para limitar as ações que podem ser executadas no banco de dados.
 
-O gerenciamento de bancos de dados e servidores lógicos pelo Portal de Gerenciamento do Azure ou usando a API do Gerenciador de Recursos do Azure é controlado pela atribuições de função da sua conta de usuário. Para obter mais informações sobre esse tópico, consulte [Controle de acesso baseado em função no portal de Visualização do Azure][].
+O gerenciamento de bancos de dados e servidores lógicos pelo Portal Clássico do Azure ou usando a API do Gerenciador de Recursos do Azure é controlado pelas atribuições de função da sua conta de usuário. Para saber mais sobre esse tópico, confira [Controle de acesso baseado em função no portal do Azure][].
 
 
 
@@ -87,7 +87,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 ```
 
-Você também pode habilitar a Transparent Data Encryption por meio das configurações de banco de dados no [Portal do Azure][].
+Você também pode habilitar a Transparent Data Encryption por meio das configurações de banco de dados no [Portal Clássico do Azure][].
 
 
 
@@ -114,9 +114,9 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 [Procedimentos armazenados]: https://msdn.microsoft.com/library/ms190782.aspx
 [Transparent Data Encryption]: http://go.microsoft.com/fwlink/?LinkId=526242
 [Introdução à Auditoria do Banco de Dados SQL]: sql-database-auditing-get-started.md
-[Portal do Azure]: https://portal.azure.com/
+[Portal Clássico do Azure]: https://portal.azure.com/
 
 <!--Other Web references-->
-[Controle de acesso baseado em função no portal de Visualização do Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
+[Controle de acesso baseado em função no portal do Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

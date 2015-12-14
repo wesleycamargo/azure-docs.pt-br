@@ -156,7 +156,7 @@ Use a CLI do Azure para carregar a imagem. Você pode carregar uma imagem usando
 
 Você precisará de uma conta de armazenamento para carregar o arquivo do VHD. Você pode selecionar um já existente ou criar um novo. Para criar uma conta de armazenamento, veja [Criar uma conta de armazenamento](../storage-create-storage-account.md)
 
-Quando carrega o arquivo .vhd, você pode colocá-lo em qualquer lugar no seu armazenamento de blob. Nos exemplos de comando a seguir, **BlobStorageURL** é a URL da conta de armazenamento que você pretende usar e **YourImagesFolder** é o contêiner no armazenamento de blobs no qual deseja armazenar as imagens. **VHDName** é o rótulo que aparece no [portal do Azure](http://manage.windowsazure.com) para identificar o disco rígido virtual. **PathToVHDFile** é o caminho completo e o nome do arquivo .vhd.
+Quando carrega o arquivo .vhd, você pode colocá-lo em qualquer lugar no seu armazenamento de blob. Nos exemplos de comando a seguir, **BlobStorageURL** é a URL da conta de armazenamento que você pretende usar e **YourImagesFolder** é o contêiner no armazenamento de blobs no qual deseja armazenar as imagens. **VHDName** é o rótulo que aparece no [portal clássico do Azure](http://manage.windowsazure.com) para identificar o disco rígido virtual. **PathToVHDFile** é o caminho completo e o nome do arquivo .vhd.
 
 Na janela PowerShell do Azure que você usou na etapa anterior, digite:
 
@@ -164,11 +164,11 @@ Na janela PowerShell do Azure que você usou na etapa anterior, digite:
 
 Para obter mais informações, consulte [Add-AzureVhd (a página pode estar em inglês)](https://msdn.microsoft.com/library/azure/dn495173.aspx).
 
-> [AZURE.NOTE]A [Versão de visualização do Azure Powershell 1.0](https://azure.microsoft.com/pt-BR/blog/azps-1-0-pre/) altera significativamente a maneira como ele manipula cmdlets para o modelo de implantação clássico e o modelo de implantação do Gerenciador de Recursos. Este artigo ainda não usa a versão de visualização.
+> [AZURE.NOTE]A [Versão de visualização do Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/) altera significativamente a maneira como ele manipula cmdlets para o modelo de implantação clássico e o modelo de implantação do Gerenciador de Recursos. Este artigo ainda não usa a versão de visualização.
 
 
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

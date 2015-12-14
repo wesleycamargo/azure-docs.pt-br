@@ -20,7 +20,7 @@
 # Gerenciar contas e cotas do Lote do Azure e com o .NET do Gerenciamento do Lote
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](batch-account-create-portal.md)
+- [Azure portal](batch-account-create-portal.md)
 - [Batch Management .NET](batch-management-dotnet.md)
 
 Menor carga de manutenção em seus aplicativos Lote do Azure usando a biblioteca [.NET do Gerenciamento do Lote][api_mgmt_net] para automatizar a criação, a exclusão, o gerenciamento essencial e a descoberta de cotas da conta do Lote.
@@ -30,7 +30,7 @@ Menor carga de manutenção em seus aplicativos Lote do Azure usando a bibliotec
 - **Verificar cotas de conta** e eliminar as suposições de tentativa e erro na determinação dos limites de cada conta do Lote. Ao verificar suas cotas de conta antes de iniciar trabalhos, de criar pools ou de adicionar nós de computação, você poderá ajustar proativamente quando ou onde esses recursos de computação serão criados. Você pode determinar quais contas exigem aumento de cota antes da alocação de recursos adicionais a elas.
 - **Combine os recursos de outros serviços do Azure** para uma experiência de gerenciamento completa, aproveitando o Gerenciamento do Lote do .NET, o [Active Directory do Azure][aad_about] e o [Gerenciador de Recursos do Azure][resman_overview] juntos no mesmo aplicativo. Usando esses recursos e suas APIs, você pode fornecer uma experiência de autenticação, criação e exclusão de grupos de recursos ininterrupta, além dos recursos descritos acima para uma solução de gerenciamento de ponta a ponta.
 
-> [AZURE.NOTE]Embora este artigo se concentre no gerenciamento programático de suas contas, chaves e cotas do Lote, você poderá executar muitas dessas atividades usando o [Portal de visualização do Azure][azure_portal]. Confira [Criar e gerenciar uma conta do Lote do Azure no Portal de visualização do Azure](batch-account-create-portal.md) e [Cotas e limites do serviço do Lote do Azure](batch-quota-limit.md) para saber mais.
+> [AZURE.NOTE]Embora este artigo se concentre no gerenciamento programático de suas contas, chaves e cotas do Lote, você poderá executar muitas dessas atividades usando o [Portal do Azure][azure_portal]. Confira [Criar e gerenciar uma conta do Lote do Azure no Portal do Azure](batch-account-create-portal.md) e [Cotas e limites do serviço do Lote do Azure](batch-quota-limit.md) para saber mais.
 
 ## Criar e excluir contas do Lote
 
@@ -119,7 +119,7 @@ Console.WriteLine("Pool quota: {0}", account.Properties.PoolQuota);
 Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.ActiveJobAndJobScheduleQuota);
 ```
 
-> [AZURE.IMPORTANT]Embora existam cotas padrão para assinaturas e serviços do Azure, muitos desses limites podem ser aumentados emitindo uma solicitação no [Portal de visualização do Azure][azure_portal]. Por exemplo, confira [Cotas e limites do serviço do Lote do Azure](batch-quota-limit.md) para obter instruções sobre como aumentar suas cotas de conta do Lote.
+> [AZURE.IMPORTANT]Embora existam cotas padrão para assinaturas e serviços do Azure, muitos desses limites podem ser aumentados emitindo uma solicitação no [Portal do Azure][azure_portal]. Por exemplo, confira [Cotas e limites do serviço do Lote do Azure](batch-quota-limit.md) para obter instruções sobre como aumentar suas cotas de conta do Lote.
 
 ## .NET do Gerenciamento do Lote, AAD e Gerenciador de Recursos
 
@@ -133,7 +133,7 @@ No projeto de exemplo discutido abaixo, a [ADAL][aad_adal] (Biblioteca de Autent
 
 ### Gerenciador de Recursos
 
-Ao criar contas do Lote com a biblioteca .NET de Gerenciamento do Lote, você geralmente as criará dentro de um [Grupo de Recursos][resman_overview]. Você pode criar o grupo de recursos programaticamente usando o [ResourceManagementClient][resman_client] encontrado na biblioteca [.NET do Gerenciador de Recursos][resman_api] ou pode adicionar uma conta a um grupo de recursos existente criado anteriormente usando o [Portal de visualização do Azure][azure_portal].
+Ao criar contas do Lote com a biblioteca .NET de Gerenciamento do Lote, você geralmente as criará dentro de um [Grupo de Recursos][resman_overview]. Você pode criar o grupo de recursos programaticamente usando o [ResourceManagementClient][resman_client] encontrado na biblioteca [.NET do Gerenciador de Recursos][resman_api] ou pode adicionar uma conta a um grupo de recursos existente criado anteriormente usando o [Portal do Azure][azure_portal].
 
 ## <a name="sample"></a>Projeto de exemplo no GitHub
 
@@ -159,9 +159,9 @@ O aplicativo de exemplo demonstra as seguintes operações:
   - Excluir conta recém-criada
 7. Exclua o grupo de recursos
 
-Antes de excluir o grupo de recursos e a conta do Lote, você pode inspecionar ambos no [Portal de visualização do Azure][azure_portal]\:
+Antes de excluir o grupo de recursos e a conta do Lote, você pode inspecionar ambos no [Portal do Azure][azure_portal]\:
 
-![Portal de visualização do Azure exibindo o grupo de recursos e a conta do Lote][1] <br /> *Portal de visualização do Azure exibindo o novo grupo de recursos e a conta do Lote*
+![Portal do Azure exibindo o grupo de recursos e a conta do Lote][1] <br /> *Portal do Azure exibindo o novo grupo de recursos e a conta do Lote*
 
 [aad_about]: ../active-directory/active-directory-whatis.md "O que é o Active Directory do Azure?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md
@@ -190,4 +190,4 @@ Antes de excluir o grupo de recursos e a conta do Lote, você pode inspecionar a
 
 [1]: ./media/batch-management-dotnet/portal-01.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

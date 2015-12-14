@@ -40,7 +40,7 @@ Isso não é destinado a ser uma maneira de fazer backup de uma máquina virtual
 
 ##Capturar a máquina virtual
 
-1. No [Portal do Azure](http://manage.windowsazure.com), **conecte-se** à máquina virtual. Para obter instruções, consulte [Como entrar em uma máquina virtual que executa o Windows Server][].
+1. No [portal clássico do Azure](http://manage.windowsazure.com), **conecte-se** à máquina virtual. Para obter instruções, consulte [Como entrar em uma máquina virtual que executa o Windows Server][].
 
 2.	Abra uma janela de Prompt de comando como administrador.
 
@@ -56,9 +56,9 @@ Isso não é destinado a ser uma maneira de fazer backup de uma máquina virtual
 
 	![Executar o Sysprep](./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png)
 
-7.	O Sysprep desliga a máquina virtual, alterando o status dela no Portal do Azure para **Parado**.
+7.	O Sysprep desliga a máquina virtual, alterando o status dela no portal clássico do Azure para **Parado**.
 
-8.	No portal do Azure, clique em **Máquinas Virtuais** e selecione a máquina virtual que você deseja capturar.
+8.	No portal clássico do Azure, clique em **Máquinas Virtuais** e selecione a máquina virtual que você deseja capturar.
 
 9.	Na barra de comandos, clique em **Capturar**.
 
@@ -90,4 +90,4 @@ A imagem está pronta para ser usada para criar máquinas virtuais. Para fazer i
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

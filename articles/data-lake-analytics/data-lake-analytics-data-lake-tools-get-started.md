@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="12/02/2015"
    ms.author="jgao"/>
 
 # Tutorial: desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio
@@ -29,19 +29,19 @@ U-SQL é uma linguagem altamente extensível e hiperescalonável para preparaç�
 **Pré-requisitos**
 
 - **Visual Studio 2015, Visual Studio 2013 atualização 4 ou Visual Studio 2012 com Visual C++ instalado** 
-- **SDK do Microsoft Azure para .NET versão 2.5 ou posterior**. Instale-o usando o [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
+- **SDK do Microsoft Azure para .NET versão 2.7 ou posterior**. Instale-o usando o [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
 - **[Ferramentas do Data Lake para Visual Studio](http://aka.ms/adltoolsvs)**. 
 
     Após a instalação das Ferramentas do Data Lake para Visual Studio, você verá um menu do Data Lake no Visual Studio:
     
     ![Menu U-SQL do Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-menu.png)
 
-- **Explore as duas seções a seguir em [Introdução à Análise Azure Data Lake usando o Portal de Visualização do Azure](data-lake-analytics-get-started-portal.md)**.
+- **Explore as duas seções a seguir em [Introdução à Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md)**.
 
 	- [Criar uma conta da Análise Data Lake do Azure](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
 	- [Carregar SearchLog.tsv na conta padrão do Repositório Data Lake](data-lake-analytics-get-started-portal.md#update-data-to-the-default-adl-storage-account).
 
-	As Ferramentas do Data Lake não dão suporte à criação de contas da Análise Data Lake. Por isso, você precisa criá-la usando o Portal de Visualização do Azure, o Azure PowerShell, o SDK do .NET ou a CLI do Azure. Para executar o trabalho da Análise Data Lake, você precisará de alguns dados. Embora as Ferramentas do Data Lake deem suporte ao carregamento de dados, você poderá usar o portal para carregar os dados de exemplo para deixar o tutorial mais fácil de acompanhar.
+	As Ferramentas do Data Lake não dão suporte à criação de contas da Análise Data Lake. Portanto, você precisa criá-la usando o Portal do Azure, Azure PowerShell, SDK do .NET ou a CLI do Azure. Para executar o trabalho da Análise Data Lake, você precisará de alguns dados. Embora as Ferramentas do Data Lake deem suporte ao carregamento de dados, você poderá usar o portal para carregar os dados de exemplo para deixar o tutorial mais fácil de acompanhar.
 
 ## Conecte-se ao Azure
 
@@ -55,7 +55,7 @@ U-SQL é uma linguagem altamente extensível e hiperescalonável para preparaç�
 **Para procurar as suas contas de Análise Data Lake**
 
 1. No Visual Studio, abra o **Gerenciador de Servidores** pressionando **CTRL+ALT+S**.
-2. No **Gerenciador de Servidores**, expanda **Azure** e expanda **Análise Data Lake**. Você deverá ver uma lista das suas contas da Análise Data Lake, caso haja alguma. Não é possível criar contas de Análise Data Lake no Visual Studio. Para criar uma conta, consulte [Introdução à Análise Data Lake do Azure usando o Portal de Visualização do Azure](data-lake-analytics-get-started-portal.md) ou [Introdução à Análise Data Lake do Azure usando o Azure PowerShell](knoa-get-started-powershell.md).
+2. No **Gerenciador de Servidores**, expanda **Azure** e expanda **Análise Data Lake**. Você deverá ver uma lista das suas contas da Análise Data Lake, caso haja alguma. Não é possível criar contas de Análise Data Lake no Visual Studio. Para criar uma conta, veja [Introdução à Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md) ou [Introdução à Análise do Azure Data Lake usando o Azure PowerShell](knoa-get-started-powershell.md).
 
 ## Carregar arquivos de dados de origem
 
@@ -80,7 +80,7 @@ Caso você queira usar seus próprios dados, estes são os procedimentos para ca
 4. Navegue até a pasta na qual você deseja carregar arquivos, 
 5. Clique com o botão direito do mouse em qualquer espaço em branco e clique em **Carregar**. 
 
-## Desenvolver e testar scripts U-SQL 
+## Desenvolver scripts U-SQL 
 
 Os trabalhos de Análise Data Lake são escritos na linguagem U-SQL. Para saber mais sobre o U-SQL, consulte [Introdução à linguagem U-SQL](data-lake-analytics-u-sql-get-started.md) e [Referência da linguagem U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 
@@ -149,21 +149,21 @@ Os trabalhos de Análise Data Lake são escritos na linguagem U-SQL. Para saber 
 
 	- **Inserir Caminho do Azure**
 		
-		Em vez de memorizar o caminho do arquivo do Azure e digitá-lo manualmente ao escrever o script, as Ferramentas do Data Lake para Visual Studio fornecem uma maneira mais fácil: clique com o botão direito no editor e clique em Inserir Caminho do Azure. Navegue até o arquivo na caixa de diálogo do Navegador de Blob do Azure. Clique no botão OK e o caminho do arquivo será inserido em seu código.
+		Em vez de memorizar o caminho do arquivo do Azure e digitá-lo manualmente ao escrever o script, as Ferramentas do Data Lake para Visual Studio fornecem uma maneira mais fácil: clique com o botão direito no editor e clique em Inserir Caminho do Azure. Navegue até o arquivo na caixa de diálogo do Navegador de Blob do Azure. Clique em **OK**; o caminho do arquivo será inserido em seu código.
 
-5. Especifique a conta de Análise Data Lake, o Banco de dados e o Esquema:
+5. Especifique a conta da Análise do Data Lake, o Banco de Dados e o Esquema. Você pode selecionar **(local)** para executar o script localmente para a finalidade de teste. Para obter mais informações, veja [Executar o U-SQL localmente](#run-u-sql-locally).
 
 	![Enviar projeto de U-SQL do Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job.png)
 
-    Para saber mais, consulte [Usar o Catálogo do U-SQL](data-lake-analytics-use-u-sql-catalog.md).
+    Para obter mais informações, veja [Usar o catálogo do U-SQL](data-lake-analytics-use-u-sql-catalog.md).
 
-5. No **Gerenciador de Soluções**, clique com botão direito do mouse em **Script.usql** e clique em **Criar Script**. Verifique o resultado no painel Saída.
-6. No **Gerenciador de Soluções**, clique com botão direito do mouse em **Script.usql** e clique em **Enviar Script**. Como opção, também é possível clicar em **Enviar** no painel Script.usql. Consulte a captura de tela anterior. Clique na seta para baixo ao lado do botão Enviar para enviar usando as opções avançadas:
+5. No **Gerenciador de Soluções**, clique com o botão direito do mouse em **Script.usql** e clique em **Compilar Script**. Verifique o resultado no painel Saída.
+6. No **Gerenciador de Soluções**, clique com o botão direito do mouse em **Script.usql** e clique em **Enviar Script**. Como opção, também é possível clicar em **Enviar** no painel Script.usql. Consulte a captura de tela anterior. Clique na seta para baixo ao lado do botão Enviar para enviar usando as opções avançadas:
 7. Especifique o **Nome do Trabalho**, verifique a **Conta de Análise** e clique em **Enviar**. Os resultados do envio e o link do trabalho ficarão disponíveis na janela de resultados das Ferramentas do Date Lake para Visual Studio quando o envio for concluído.
 
 	![Enviar projeto de U-SQL do Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-advanced.png)
 
-8. Clique no botão Atualizar para ver o status do trabalho mais recente e atualizar a tela. Após a conclusão bem-sucedida do trabalho, ele exibirá **Gráfico do Trabalho**, **Operações de Metadados**, **Histórico de Estado**, **Diagnósticos**:
+8. Clique no botão Atualizar para ver o status do trabalho mais recente e atualizar a tela. Após a conclusão bem-sucedida do trabalho, ele exibirá **Gráfico do Trabalho**, **Operações de Metadados**, **Histórico de Estado** e **Diagnósticos**:
 
 	![Gráfico de desempenho de trabalho de Análise Data Lake do SQL-U do Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
@@ -176,13 +176,13 @@ Os trabalhos de Análise Data Lake são escritos na linguagem U-SQL. Para saber 
 	
 **Para verificar o estado do trabalho**
 
-1. No Gerenciador de Servidores, expanda **Azure**, expanda **Análise Data Lake**, expanda o nome de sua conta de Análise Data Lake.
+1. No Gerenciador de Servidores, expanda **Azure**, expanda **Análise do Data Lake** e expanda o nome de sua conta da Análise do Data Lake
 2. Clique duas vezes em **Trabalhos** para listar os trabalhos.
 2. Clique em um trabalho para ver o status.
 
 **Para ver a saída do trabalho**
 
-1. No **Gerenciador de Servidores**, expanda o **Azure**, expanda a **Análise Data Lake**, expanda sua conta da Análise Data Lake, expanda **Contas de Armazenamento**, clique com o botão direito do mouse na conta padrão do Repositório Data Lake e clique em **Gerenciador**. 
+1. No **Gerenciador de Servidores**, expanda **Azure**, expanda **Análise do Data Lake**, expanda sua conta da Análise do Data Lake, expanda **Contas de Armazenamento**, clique com o botão direito do mouse na conta padrão do Repositório do Data Lake e clique em **Gerenciador**. 
 2.  Clique duas vezes em **saída** para abrir a pasta
 3.  Clique duas vezes em **SearchLog-From-adltools.csv**.
 
@@ -202,13 +202,78 @@ A Reprodução do Trabalho permite que você assista ao progresso da execução 
 
 As Ferramentas do Data Lake para Visual Studio fornecem sobreposições de cores selecionáveis pelo usuário na exibição do trabalho a fim de indicar o progresso, a E/S de dados, o tempo de execução, a taxa de transferência de E/S de cada estágio. Com isso, os usuários podem descobrir possíveis problemas e distribuir as propriedades do trabalho de forma direta e intuitiva. Você pode escolher uma fonte de dados para exibir na lista suspensa.
 
+## Executar o U-SQL localmente
+
+Usando a experiência de execução local do U-SQL no Visual Studio, você pode:
+
+- Execute scripts U-SQL localmente, junto com Assemblies do C#. 
+- Depure os assemblies do C# localmente. 
+- Exiba tabelas locais e assemblies no Gerenciador de Servidores exatamente como você pode fazer para o serviço da Análise do Azure Data Lake. 
+
+Você verá uma conta *Local* no Visual Studio e o instalador cria uma pasta *DataRoot* localizada em *C:\\LocalRunRoot*. A pasta DataRoot será usada:
+
+- Armazenar metadados, incluindo tabelas, bancos de dados, TVFs, etc.
+- Para um determinado script: se um caminho relativo for referenciado nos caminhos de entrada/saída, pesquisaremos o DataRoot (bem como caminho do script se a entrada)
+- A pasta DataRoot não será referenciada se você estiver tentando registrar um assembly e usar um caminho relativo (veja a parte “Usar assemblies ao fazer a execução local” para obter mais detalhes)
+
+### Problemas e limitações conhecidos
+
+- A Execução Local do U-SQL não dá suporte à consulta de conjuntos de arquivos localmente. Veja [conjuntos de arquivos U-SQL](https://msdn.microsoft.com/library/azure/mt621294.aspx). Isso será resolvido no futuro.
+- Desempenho lento devido ao paralelismo baixo, pois os planos de trabalho são executados em série em um único processo. 
+- A execução local não pode mostrar gráficos de trabalho no Visual Studio. Isso será abordado no futuro. 
+- Não é possível criar a tabela/banco de dados, etc. no Gerenciador de Servidores para a conta local.
+- Quando um caminho relativo é referenciado:
+
+    - Na entrada de script (EXTRACT * FROM “/path/abc”) - o caminho do DataRoot e o caminho do script serão pesquisados. 
+    - Na saída do script (OUTPUT TO “path/abc”): o caminho do DataRoot será usado como a pasta de saída. 
+    - No registro do assembly (CREATE ASSEMBLY xyz FROM “/path/abc”): o caminho do script será pesquisado, mas não o DataRoot. 
+    - No Modo de Exibição/TVF registrado ou outras entidades de metadados: o caminho do DataRoot será pesquisado, mas não o caminho do script. 
+    
+    Para scripts executados no serviço do Data Lake, a conta de armazenamento padrão será usada como a pasta raiz e será devidamente pesquisada.
+
+### Testar scripts U-SQL localmente
+Para obter instruções sobre como desenvolver scripts U-SQL, veja [Desenvolver scripts U-SQL](#develop-and-test-u-sql-scripts). Para criar e executar scripts U-SQL localmente, selecione **(Local)** na lista suspensa do cluster e clique em **Enviar**. Verifique se você tem os dados certos referenciados - veja o caminho absoluto ou coloque os dados na pasta DataRoot.
+
+![Enviar projeto do U-SQL do Visual Studio localmente](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-local-run.png)
+
+Você também pode clicar com o botão direito do mouse em um script e clicar em **Executar Plano Local** no menu de contexto ou pressionar **CTRL + F5** para disparar a execução local.
+
+### Usar assemblies na execução local
+
+Há duas maneiras de executar os arquivos personalizados do C#:
+
+- Escreva assemblies no arquivo code-behind e os assemblies serão automaticamente registrados e descartados depois que o script for concluído. 
+- Crie um projeto de assembly do C# e registre a dll de saída da conta local por meio de um script como o mostrado abaixo. Observe que o caminho é relativo ao script, em vez de à pasta DataRoot.
+
+![Usar assemblies na execução local do U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-local-run-assembly.png)
+ 
+### Depurar scripts e assemblies do C# localmente
+
+Você pode depurar assemblies do C# sem enviar e registrá-los para o Serviço da Análise do Azure Data Lake. Você pode definir pontos de interrupção no arquivo code-behind e em um projeto do C# referenciado.
+
+**Para depurar o código local no arquivo code-behind** 1. Definir pontos de interrupção no arquivo code-behind. 2. Pressione **F5** para depurar o script localmente.
+
+O procedimento a seguir só funciona no Visual Studio 2015. No Visual Studio mais antigo, talvez seja necessário adicionar manualmente os arquivos pdb.
+
+**Para depurar o código local em um projeto do C# referenciado** 1. Crie um projeto de Assembly do C# e compile-o para gerar o dll de saída. 2. Registre o dll usando uma instrução U-SQL:
+
+        CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
+3.	Definir pontos de interrupção no código C#.
+4.	Pressione **F5** para depurar o script referenciando o dll do C# localmente.  
+ 
+
+
+
+
+
+
 
 
 ##Consulte também
 
 Para começar a usar a Análise Data Lake com ferramentas diferentes, consulte:
 
-- [Introdução à Análise Data Lake usando o Portal de Visualização do Azure](data-lake-analytics-get-started-portal.md)
+- [Introdução à Análise do Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md)
 - [Introdução à Análise Data Lake usando o Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Introdução à Análise Data Lake usando o SDK do .NET](data-lake-analytics-get-started-net-sdk.md)
 
@@ -219,4 +284,4 @@ Para ver mais tópicos de desenvolvimento:
 - [Introdução à linguagem U-SQL da Análise Data Lake do Azure](data-lake-analytics-u-sql-get-started.md)
 - [Desenvolver operadores do U-SQL definidos pelo usuário para trabalhos da Análise Data Lake](data-lake-analytics-u-sql-user-defined-operators.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

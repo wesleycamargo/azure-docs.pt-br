@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="11/25/2015"
-	ms.author="rgarodia, azuresbcic"/>
+	ms.author="rgarodia"/>
 
 # Solucionar problemas de inscrição do Azure
 Este artigo ajudará você a solucionar as causas comuns de problemas que podem ocorrer quando você se inscreve no Azure.
@@ -60,4 +60,4 @@ Sugestões: se você já ativou uma assinatura do Azure anteriormente, e a ativa
 ## Ainda não consegue se inscrever?
 [Entre em contato com o Suporte do Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) para receber ajuda se ainda tiver problemas de inscrição, ou se o problema não for abordado neste artigo.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

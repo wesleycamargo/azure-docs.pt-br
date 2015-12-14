@@ -18,9 +18,11 @@
 
 # Conectar-se a uma plataforma SaaS de um aplicativo de API ASP.NET no Serviço de Aplicativo do Azure
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Visão geral
 
-Este tutorial mostra como codificar e configurar um [aplicativo de API](app-service-api-apps-why-best-platform.md) que se conecta a uma [plataforma SaaS (Software como serviço)](../app-service/app-service-authentication-overview.md#obotosaas) usando o [SDK de aplicativo de API do Serviço de Aplicativo para .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/). O tutorial também mostra como chamar o aplicativo de API de um cliente .NET usando o [SDK do Serviço de Aplicativo para .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService). Ao final do tutorial, você terá um cliente de aplicativo do console .NET que chama um aplicativo de API .NET em execução no Serviço de Aplicativo do Azure. O aplicativo de API chama a API do Dropbox e retorna uma lista de arquivos e pastas em na conta de Dropbox do usuário.
+Este tutorial mostra como escrever código e configurar em um [aplicativo de API](app-service-api-apps-why-best-platform.md) que se conecta a uma [Plataforma de Software como um serviço (SaaS)](../app-service/app-service-authentication-overview.md#obotosaas) usando o [SDK do Aplicativo de API do Serviço de Aplicativo para .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/). O tutorial também mostra como chamar o aplicativo de API de um cliente .NET usando o [SDK do Serviço de Aplicativo para .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService). Ao final do tutorial, você terá um cliente de aplicativo do console .NET que chama um aplicativo de API .NET em execução no Serviço de Aplicativo do Azure. O aplicativo de API chama a API do Dropbox e retorna uma lista de arquivos e pastas em na conta de Dropbox do usuário.
 
 Como alternativa para escrever código que chama uma API de SaaS diretamente de um aplicativo de API personalizado, você pode chamar um [aplicativo de API de conector](../app-service-logic/app-service-logic-what-are-biztalk-api-apps.md) pré-empacotado. Para obter informações sobre como fazer isso, consulte [Implantar e configurar um aplicativo de API de conector SaaS](app-service-api-connnect-your-app-to-saas-connector.md).
 
@@ -52,7 +54,7 @@ Quando houver instruções para inserir um nome para o projeto, digite *SimpleDr
 
 [AZURE.INCLUDE [app-service-api-create](../../includes/app-service-api-create.md)]
 
-## Configurar o arquivo *apiapp.json*
+## Configurar o arquivo *apiapp. JSON*
 
 Para que um aplicativo de API faça chamadas de saída para uma plataforma SaaS, essa plataforma deve ser especificada no arquivo *apiapp.json*.
 
@@ -88,7 +90,7 @@ Para que um aplicativo de API faça chamadas de saída para uma plataforma SaaS,
 
 2. Salve o arquivo.
 
-A configuração da propriedade `authentication` tem alguns efeitos:
+A definição da propriedade de `authentication` tem dois efeitos:
 
 * Faz com que o portal exiba a interface do usuário na folha de aplicativo de API, permitindo que você insira o ID do cliente da plataforma SaaS e os valores secretos do cliente.
 
@@ -96,9 +98,9 @@ A configuração da propriedade `authentication` tem alguns efeitos:
 
 * Permite que o aplicativo de API recupere o token de acesso do provedor de SaaS do gateway para uso ao chamar a API do provedor de SaaS.
 
-A propriedade `authentication` é uma matriz, mas essa versão de visualização não oferece suporte à especificação de vários provedores.
+A propriedade `authentication` é uma matriz, mas essa versão de visualização não é compatível com a especificação de vários provedores.
 
-Para obter uma lista de plataformas compatíveis, consulte [Obtendo o consentimento do usuário para acessar outras plataformas SaaS](../app-service/app-service-authentication-overview.md#obotosaas).
+Para obter uma lista de plataformas compatíveis, consulte [Como obter consentimento do usuário para acessar outras plataformas SaaS](../app-service/app-service-authentication-overview.md#obotosaas).
 
 Você também pode especificar os escopos, como neste exemplo:
 
@@ -169,7 +171,7 @@ Os escopos disponíveis são definidos de acordo com cada provedor de SaaS e pod
 
 ## Criar um aplicativo de API no Azure
 
-Nesta seção, use o assistente **Publicar Web** do Visual Studio para criar um aplicativo de API no Azure. Quando houver instruções para inserir um nome para o aplicativo de API, digite *SimpleDropbox*.
+Nesta seção, use o assistente **Publicar Web** do Visual Studio para criar um novo aplicativo de API no Azure. Quando houver instruções para inserir um nome para o aplicativo de API, digite *SimpleDropbox*.
 
 [AZURE.INCLUDE [app-service-api-pub-web-create](../../includes/app-service-api-pub-web-create.md)]
 
@@ -221,7 +223,7 @@ Nesta seção, você criará um projeto de aplicativo de console que usa o códi
  
 	* No ** Gerenciador de Soluções**, clique com o botão direito do mouse em ** Referências** e, em seguida, clique em ** Adicionar Referência**.
 
-	* Marque a caixa de seleção à esquerda de **System.Windows.Forms**e, em seguida, clique em **OK**.
+	* Marque a caixa de seleção à esquerda de **System.Windows.Forms** e, em seguida, clique em **OK**.
 	 
 	![](./media/app-service-api-dotnet-connect-to-saas/setref.png)
 
@@ -372,16 +374,11 @@ Observações adicionais:
 
 * O atributo `STAThread` no método `Main` é exigido pelo controle de navegador da Web e não está relacionado à configuração ou à chamada do aplicativo de API.
 
-* A URL de logon do gateway mostrada termina com `/aad` no caso do Active Directory do Azure.
+* A URL de logon do gateway exibida termina com `/aad` no caso do Active Directory do Azure.
 
 		browser.Navigate(string.Format(@"{0}/login/aad", GATEWAY_URL));
 
-	Veja os valores a serem usados com outros provedores:
-	* "microsoftaccount"
-	* "facebook"
-	* "twitter"
-	* "google"
-<br/><br/>
+	Veja os valores a serem usados com outros provedores: * "microsoftaccount" * "facebook" * "twitter" * "google" <br/><br/>
 
 * O segundo parâmetro do método `GetConsentLinkAsync()` é a URL de retorno de chamada para a qual o servidor de consentimento redireciona depois que o usuário faz logon no Dropbox e concede consentimento para acessar a conta do usuário.
 
@@ -419,7 +416,7 @@ Esta seção contém os seguintes tópicos:
 * [Erro HTTP 400 em vez da página de logon do Dropbox](#400)
 * [Erro HTTP 403 ao chamar o aplicativo de API](#403)
 
-### <a id="405"></a> Erro HTTP 405 após o logon do gateway
+### <a id="405"></a> Erro HTTP 405 após logon do gateway
 
 Se você obtiver erros HTTP 405 quando o código chamar GetConsentLinkAsync, verifique se você usou https://, não http://, para a URL de gateway.
 
@@ -435,7 +432,7 @@ Certifique-se de que você tem o **ID de cliente** correto na folha **Autentica�
 
 * Verifique se o **nível de acesso** do aplicativo de API está configurado como **Público (autenticado)**, e não **Interno**.
 
-* Certifique-se de que você tem o **segredo de cliente** correto na folha **Autenticação** do aplicativo de API e certifique-se de que não há espaços à esquerda ou à direita.
+* Você deve ter o **segredo do cliente** correto na folha de **autenticação** do aplicativo de API, sem deixar espaços à esquerda ou à direita.
 
 A URL de redirecionamento após o logo no Dropbox pode se parecer com este exemplo:
 
@@ -447,9 +444,9 @@ Se você remover %3d%3d do final do valor da cadeia de consulta `error`, ela ser
 
 ## Próximas etapas
 
-Você aprender a codificar e configurar um aplicativo de API que se conecta a uma plataforma SaaS. Para obter links para outros tutoriais sobre como lidar com a autenticação em aplicativos da API, consulte [Autenticação para aplicativos de API e aplicativos móveis - próximas etapas](../app-service/app-service-authentication-overview.md#next-steps).
+Você aprender a codificar e configurar um aplicativo de API que se conecta a uma plataforma SaaS. Para obter links para outros tutoriais sobre como lidar com a autenticação em aplicativos da API, consulte [Autenticação para aplicativos de API e aplicativos móveis - Próximas etapas](../app-service/app-service-authentication-overview.md#next-steps).
 
 [Azure preview portal]: https://portal.azure.com/
 [Azure portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

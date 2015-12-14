@@ -34,11 +34,11 @@ Você aprenderá a:
 * Como criar um aplicativo Web e um banco de dados MySQL usando o Portal do Azure. Como o PHP está habilitado em Aplicativos Web por padrão, nada de especial é necessário para executar seu código PHP.
 * Como publicar seu aplicativo no Azure usando FTP.
  
-Seguindo este tutorial, você compilará um aplicativo Web de registro simples em PHP. O aplicativo será hospedado em um aplicativo Web. A seguinte é uma captura de tela do aplicativo concluído:
+Seguindo este tutorial, você compilará um aplicativo Web de registro simples em PHP. O aplicativo será hospedado em um aplicativo Web. Abaixo, uma captura de tela do aplicativo concluído:
 
 ![Site PHP do Azure][running-app]
 
->[AZURE.NOTE]Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 
 ##Criar um aplicativo Web e configurar a publicação por FTP
@@ -46,7 +46,7 @@ Seguindo este tutorial, você compilará um aplicativo Web de registro simples e
 Siga estas etapas para criar um aplicativo Web e um Banco de Dados MySQL:
 
 1. Faça logon no [Portal do Azure][management-portal].
-2. Clique no ícone **+ Novo** na parte inferior esquerda do portal.
+2. Clique no ícone **+ Novo**, na parte inferior esquerda do Portal do Azure.
 
 	![Criar um novo site do Azure][new-website]
 
@@ -250,7 +250,7 @@ Anote os atributos de `publishUrl`, `userName` e `userPWD`.
 
 ##Publicar seu aplicativo
 
-Depois de testar seu aplicativo localmente, você poderá publicá-lo para o aplicativo Web usando FTP. Entretanto, você precisará atualizar a conexão do banco de dados no aplicativo. Com o uso das informações de conexão do banco de dados obtido previamente (na seção **Obter informações de conexão MySQL e FTP**), atualize as seguintes informações nos **dois** arquivos `createdatabase.php` e `index.php` com os valores apropriados:
+Depois de testar seu aplicativo localmente, você poderá publicá-lo para o aplicativo Web usando FTP. Entretanto, você precisará atualizar a conexão de banco de dados no aplicativo. Com o uso das informações de conexão do banco de dados obtido previamente (na seção **Obter informações de conexão MySQL e FTP**), atualize as seguintes informações nos **dois** arquivos `createdatabase.php` e `index.php` com os valores apropriados:
 
 	// DB connection info
 	$host = "value of Data Source";
@@ -300,4 +300,4 @@ Para obter mais informações, consulte o [Centro de desenvolvedores do PHP](/de
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

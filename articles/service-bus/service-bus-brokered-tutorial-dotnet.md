@@ -33,7 +33,7 @@ A seguir, algumas etapas administrativas e de pré-requisito que você deve segu
 
 1. Para criar um namespace de serviço, execute as etapas descritas em [Como criar ou modificar um namespace de serviço do Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh690931.aspx).
 
-1. Na janela principal do portal do Azure, clique no nome do namespace de serviço criado na etapa anterior.
+1. Na janela principal do [portal clássico do Azure][], clique no nome do namespace de serviço criado na etapa anterior.
 
 1. Clique em **Configurar**.
 
@@ -45,11 +45,11 @@ A próxima etapa será criar um projeto do Visual Studio e escrever duas funçõ
 
 1. Abra o Visual Studio como administrador clicando com o botão direito do mouse no programa no menu Iniciar e clicando em **Executar como administrador**.
 
-1. Crie um novo projeto de aplicativo de console. Clique no menu **Arquivo** e selecione **Novo**, então clique em **Projeto**. Na caixa de diálogo **Novo Projeto**, clique em **Visual C#** (se **Visual C#** não aparecer, procure em **Outras Linguagens**), clique no modelo **Aplicativo de Console** e chame-o de **QueueSample**. Use o **Local** padrão. Clique em **OK** para criar o projeto.
+1. Crie um novo projeto de aplicativo de console. Clique no menu **Arquivo**, selecione **Novo** e, em seguida, clique em **Projeto**. Na caixa de diálogo **Novo Projeto**, clique em **Visual C#** (se **Visual C#** não aparecer, procure em **Outras Linguagens**), clique no modelo **Aplicativo de Console** e chame-o de **QueueSample**. Use o **Local** padrão. Clique em **OK** para criar o projeto.
 
 1. Use o gerenciador de pacotes NuGet para adicionar as bibliotecas do Barramento de Serviço ao seu projeto:
 	1. No Gerenciador de Soluções, clique com o botão direito do mouse na pasta do projeto e clique em **Gerenciar Pacotes NuGet**.
-	2. Na caixa de diálogo **Gerenciar Pacotes Nuget**, pesquise online **Barramento de Serviço** e clique em **Instalar**. <br />
+	2. Na caixa de diálogo **Gerenciar Pacotes Nuget**, pesquise on-line **Barramento de Serviço** e clique em **Instalar**. <br />
 1. No Gerenciador de Soluções, clique duas vezes no arquivo Program.cs para abri-lo no editor do Visual Studio. Altere o nome do namespace de seu padrão `QueueSample` para `Microsoft.ServiceBus.Samples`.
 
 	```
@@ -106,8 +106,8 @@ A próxima etapa será criar um projeto do Visual Studio e escrever duas funçõ
 	    publicclass Program
 	    {
 	
-	        privatestatic DataTable issues;
-	        privatestatic List<BrokeredMessage> MessageList;
+	        private static DataTable issues;
+	        private static List<BrokeredMessage> MessageList;
 	```
 
 1. Fora de `Main()`, defina um método `ParseCSV()` que analise a lista de mensagens em Data.csv e que carregue as mensagens em uma tabela [DataTable](https://msdn.microsoft.com/library/azure/system.data.datatable.aspx), como mostrado aqui. O método retorna um objeto **DataTable**.
@@ -169,7 +169,8 @@ A próxima etapa será criar um projeto do Visual Studio e escrever duas funçõ
 	    // Instantiate the brokered list object
 	    List<BrokeredMessage> result = new List<BrokeredMessage>();
 	
-	    // Iterate through the table and create a brokered message for each rowforeach (DataRow item in issues.Rows)
+	    // Iterate through the table and create a brokered message for each row
+	    foreach (DataRow item in issues.Rows)
 	    {
 	        BrokeredMessage message = new BrokeredMessage();
 	        foreach (DataColumn property in issues.Columns)
@@ -629,9 +630,9 @@ No Visual Studio, no menu **Compilar**, clique em **Compilar Solução** ou pres
 
 ### Executar o aplicativo QueueSample
 
-1. Antes de executar o aplicativo, você deverá verificar se criou um namespace de serviço e se obteve uma chave SAS, como descrito em [Introdução e pré-requisitos](#introduction-and-prerequisites).
+1. Antes de executar o aplicativo, crie um namespace de serviço e obtenha uma chave SAS, como descrito em [Introdução e pré-requisitos](#introduction-and-prerequisites).
 
-1. Abra seu navegador e vá ate o [portal do Azure](http://manage.windowsazure.com).
+1. Abra seu navegador e vá ate o [portal clássico do Azure][].
 
 1. Clique em **Barramento de Serviço** na árvore à esquerda.
 
@@ -649,4 +650,6 @@ Para saber mais sobre o [Barramento de Serviço](https://azure.microsoft.com/ser
 - [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 - [Arquitetura do Barramento de Serviço](service-bus-architecture.md)
 
-<!---HONumber=Nov15_HO4-->
+[portal clássico do Azure]: http://manage.windowsazure.com
+
+<!---HONumber=AcomDC_1203_2015-->

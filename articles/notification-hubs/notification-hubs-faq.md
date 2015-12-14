@@ -3,7 +3,7 @@
 	description="Perguntas frequentes sobre como projetar/implementar soluções em Hubs de Notificação"
 	services="notification-hubs"
 	documentationCenter="mobile"
-	authors="wesmc"
+	authors="wesmc7777"
 	manager="dwrede"
 	editor="" />
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="11/25/2015" 
 	ms.author="wesmc" />
 
 #Hubs de Notificação do Azure - Perguntas frequentes (FAQs)
@@ -67,14 +67,14 @@ Os Hubs de Notificação do Azure conseguem processar pelo menos 1 milhão envio
 ###8\. Há qualquer garantia de latência?
 Devido à natureza das notificações por push que são entregues por uma plataforma externa específica o Serviço de Notificações por Push, não há nenhuma garantia de latência. Normalmente, a maioria das notificações são entregues em alguns minutos.
 
-###9\. Quais são as considerações precisamos levar em conta com a criação de uma solução com namespaces e Hubs de Notificação?
+###9\. Quais são as considerações que precisamos levar em conta com a criação de uma solução com namespaces e hubs de notificação?
 *Aplicativos móveis/Ambiente:* deve haver um Hub de Notificação por aplicativo móvel e ambiente. Em um cenário de multilocatário - cada locatário deve ter um hub separado. Você nunca deve compartilhar o mesmo Hub de Notificação entre ambientes de teste e produção, visto que isso pode causar problemas futuros durante o envio de notificações. Por exemplo, a Apple oferece pontos de extremidade de área restrita e push de produção, cada qual com credenciais separadas. Se o hub foi originalmente configurado com certificado de área restrita da Apple e depois reconfigurado para usar o certificado de produção da Apple, os tokens de dispositivo antigos se tornariam inválidos com o novo certificado e causariam falhas de envios por push. É melhor separar a produção e ambientes de teste e usar os hubs diferentes para ambientes diferentes.
 
-*Credenciais de PNS:* quando um aplicativo móvel é registrado no portal do desenvolvedor da plataforma (por exemplo, Apple ou Google, etc.), você obtém um identificador de aplicativos e tokens de segurança que um back-end do aplicativo precisa fornecer aos serviços de Notificação por Push da Plataforma para poder enviar notificações por push para os dispositivos. Esses tokens de segurança que podem ser na forma de certificados (por exemplo, para Apple iOS ou Windows Phone) ou chaves de segurança (Google Android, Windows) etc precisam ser configurados em Hubs de Notificação. Isso é normalmente feito no nível do hub de notificação, mas também pode ser feito no nível de namespace em um cenário de multilocatário.
+*Credenciais de PNS:* quando um aplicativo móvel é registrado no portal do desenvolvedor da plataforma (por exemplo, Apple ou Google, etc.), você obtém um identificador de aplicativos e tokens de segurança que um back-end do aplicativo precisa fornecer aos serviços de Notificação por Push da Plataforma para poder enviar notificações por push para os dispositivos. Esses tokens de segurança que podem ser apresentados na forma de certificados (por exemplo, para Apple iOS ou Windows Phone) ou chaves de segurança (Google Android, Windows, etc.) precisam ser configurados nos hubs de notificação. Isso é normalmente feito no nível do hub de notificação, mas também pode ser feito no nível de namespace em um cenário de multilocatário.
 
 *Namespaces:* os namespaces também podem ser usados para o agrupamento de implantação. Também pode ser usado para representar todos os hubs de notificação para todos os locatários do mesmo aplicativo no cenário de multilocatário.
 
-*Distribuição geográfica:* a distribuição geográfica nem sempre é crítica em caso de notificações por push. Deve-se observar as vários serviços de Notificação por push (por exemplo, APNS, GCM etc.) que, por fim, entregam as notificações por push aos dispositivos que não são igualmente distribuídos. No entanto se você tiver um aplicativo que é usado em todo o mundo você pode criar vários hubs em namespaces diferentes aproveitando a disponibilidade do serviço de Hubs de Notificação em diferentes regiões do Azure no mundo todo. Observe que isso aumentará o custo de gerenciamento principalmente em torno de registros, então isso realmente não é recomendado e só deve ser feito se for realmente necessário.
+*Distribuição geográfica:* a distribuição geográfica nem sempre é crítica em caso de notificações por push. Deve-se observar as vários serviços de Notificação por push (por exemplo, APNS, GCM etc.) que, por fim, entregam as notificações por push aos dispositivos que não são igualmente distribuídos. No entanto, se você tiver um aplicativo que é usado em todo o mundo, você poderá criar vários hubs em namespaces diferentes, aproveitando a disponibilidade do serviço de Hubs de notificação em diferentes regiões do Azure no mundo todo. Observe que isso aumentará o custo de gerenciamento principalmente em torno de registros, então isso realmente não é recomendado e só deve ser feito se for realmente necessário.
 
 ###10\. Devemos fazer registros de back-end do aplicativo ou diretamente dispositivos?
 Registros de back-end do aplicativo são úteis quando você precisa fazer uma autenticação de cliente antes de criar o registro ou quando há marcas que devem ser criadas ou modificadas pelo back-end do aplicativo, com base em alguma lógica de aplicativo. Encontre mais orientações aqui - [Orientações sobre registro de back-end] e [Orientações sobre registro de back-end - 2]
@@ -111,7 +111,7 @@ Todas as operações de gerenciamento de Hubs de notificação vão para Logs de
 Os Hubs de Notificação do Azure fornecem vários recursos para executar solução de problemas comuns principalmente no cenário em torno de notificações removidas. Veja detalhes neste white paper sobre solução de problemas - [NH - Solução de problemas]
 
 ###2\. Quais recursos de telemetria estão disponíveis?
-Os Hubs de Notificação do Azure permitem a exibição de dados de telemetria no portal de gerenciamento do Azure. Detalhes das métricas disponíveis estão disponíveis aqui - [NH - Métricas]. Observe que notificações de sucesso significam apenas que as notificações foram entregues ao Serviço de Notificação por Push externo (por exemplo, APNS para Apple, GCM para Google etc) e então, depende do PNS para entregar a notificação para os dispositivos e o PNS não expõe essas métricas para nós. Ele também fornece o recurso de exportar a telemetria programaticamente (na camada Padrão). Veja este exemplo para obter detalhes - [NH - Exemplo de métricas]
+Os Hubs de Notificação do Azure permitem a exibição de dados de telemetria no portal de gerenciamento do Azure. Detalhes das métricas disponíveis estão disponíveis aqui - [NH - Métricas]. Observe que as notificações de sucesso indicam apenas que as notificações foram entregues ao Serviço de notificação por push externo (por exemplo, APNS para Apple, GCM para Google, etc.) e então, cabe ao PNS entregar a notificação aos dispositivos e o PNS não expõe essas métricas para nós. Ele também fornece o recurso de exportar a telemetria programaticamente (na camada Padrão). Veja este exemplo para obter detalhes - [NH - Exemplo de métricas]
 
 [Portal do Azure]: https://manage.windowsazure.com
 [Preços de Hubs de Notificação]: http://azure.microsoft.com/pricing/details/notification-hubs/
@@ -135,4 +135,4 @@ Os Hubs de Notificação do Azure permitem a exibição de dados de telemetria n
 [NH - Exemplo de métricas]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [Importação/Exportação de Registros]: https://msdn.microsoft.com/library/dn790624.aspx
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

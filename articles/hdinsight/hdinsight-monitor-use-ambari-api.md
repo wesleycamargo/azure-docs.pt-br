@@ -35,7 +35,7 @@ Atualmente, o HDInsight dá suporte apenas ao recurso de monitoramento da Ambari
 
 Antes de começar este tutorial, você deve ter o seguinte:
 
-- **Uma estação de trabalho com o PowerShell do Azure**. Consulte [Instalar e usar o PowerShell do Azure](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- **Uma estação de trabalho com o PowerShell do Azure**. Veja [Instalar o Azure PowerShell 1.0 e superior](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
 
 
 - [cURL][curl] (Opcional). Para instalá-lo, consulte [Downloads e versões de cURL][curl-download].
@@ -50,7 +50,7 @@ Nome do cluster HDInsight|$clusterName||O nome do seu cluster HDInsight.
 Nome de usuário do cluster|$clusterUsername||Nome de usuário do cluster especificado no provisionamento.
 Senha do cluster|$clusterPassword||Senha do usuário do cluster.
 
-	> [AZURE.NOTE] Preencha os valores na tabela. Isso poderá ser útil para percorrer este tutorial.
+	> [AZURE.NOTE] Fill-in the values in the table. This will be helpful for going through this tutorial.
 
 
 
@@ -121,7 +121,7 @@ A saída é:
 
 **Para o lançamento de 8/10/2014**:
 
-Ao usar o ponto de extremidade da Ambari, "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}", o campo *host\_name* retorna o nome de domínio totalmente qualificado (FQDN) do nó em vez de apenas o nome do host. Antes do lançamento de 8/10/2014, este exemplo retornava simplesmente "**headnode0**". Após o lançamento de 8/10/2014, o FQDN “**headnode0.{ClusterDNS}.azurehdinsight.net**” passou a ser retornado, como mostrado no exemplo acima. Essa alteração foi necessária para facilitar cenários em que vários tipos de cluster, como HBase e Hadoop, podem ser implantados em uma VNET (rede virtual). Isso acontece, por exemplo, ao usar HBase como uma plataforma de back-end para o Hadoop.
+Ao usar o ponto de extremidade da Ambari, "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}", o campo *host\_name* retorna o nome de domínio totalmente qualificado (FQDN) do nó em vez de apenas o nome do host. Antes do lançamento de 8/10/2014, este exemplo retornava simplesmente "**headnode0**". Após o lançamento de 8/10/2014, o FQDN “**headnode0.{ClusterDNS}.azurehdinsight.net**” passou a ser retornado como mostrado no exemplo acima. Essa alteração foi necessária para facilitar cenários em que vários tipos de cluster, como HBase e Hadoop, podem ser implantados em uma VNET (rede virtual). Isso acontece, por exemplo, ao usar HBase como uma plataforma de back-end para o Hadoop.
 
 ## APIs de monitoramento da Ambari
 
@@ -147,7 +147,7 @@ Obter informações de configuração.|`/api/v1/clusters/<ClusterName>.azurehdin
 
 Você aprendeu como usar as chamadas de API para monitoramento da Ambari. Para obter mais informações, consulte:
 
-- [Gerenciar clusters HDInsight usando o portal de visualização do Azure][hdinsight-admin-portal]
+- [Gerenciar clusters HDInsight usando o Portal do Azure][hdinsight-admin-portal]
 - [Gerenciar clusters HDInsight usando o PowerShell do Azure][hdinsight-admin-powershell]
 - [Gerenciar clusters HDInsight usando a interface de linha de comando][hdinsight-admin-cli]
 - [Documentação do HDInsight][hdinsight-documentation]
@@ -175,4 +175,4 @@ Você aprendeu como usar as chamadas de API para monitoramento da Ambari. Para o
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

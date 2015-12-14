@@ -95,9 +95,9 @@ Para facilitar esse processo, será fornecido um conjunto de [exemplos de códig
 **Pré-requisitos**
 
 * Visual Studio 2013 ou posterior.
-* [SDK do Azure para .NET](https://azure.microsoft.com/pt-BR/downloads/)
+* [SDK do Azure para .NET](https://azure.microsoft.com/downloads/)
 * Computador com Windows que ofereça suporte à estrutura ASP.NET 4.5 a ser usado como o ponto de extremidade SCIM. Esse computador deve poder ser acessado da nuvem
-* [Uma assinatura do Azure com uma versão de avaliação ou licenciada do AD Premium do Azure](https://azure.microsoft.com/pt-BR/services/active-directory/)
+* [Uma assinatura do Azure com uma versão de avaliação ou licenciada do AD Premium do Azure](https://azure.microsoft.com/services/active-directory/)
 * O exemplo do Amazon AWS requer bibliotecas do [Kit de Ferramentas do AWS para Visual Studio](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html). Consulte o arquivo LEIAME incluído no exemplo para obter mais detalhes
 
 ###Introdução
@@ -692,4 +692,4 @@ A figura abaixo mostra as mensagens que o Active Directory do Azure enviará a u
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

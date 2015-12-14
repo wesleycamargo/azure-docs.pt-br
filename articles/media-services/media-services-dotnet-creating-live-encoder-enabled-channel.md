@@ -39,27 +39,27 @@ As etapas a seguir descrevem as tarefas envolvidas na criação de aplicativos c
 
 1. Conecte uma câmera de vídeo a um computador. Inicie e configure um codificador ao vivo local que possa produzir um fluxo de taxa de bits única em um dos seguintes protocolos: RTMP, Smooth Streaming ou RTP (MPEG-TS). Para obter mais informações, consulte [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores ao Vivo](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-	Essa etapa também pode ser realizada após a criação do canal.
+Essa etapa também pode ser realizada após a criação do canal.
 
 1. Crie e inicie um Canal.
 
 1. Recupere a URL de ingestão do canal.
 
-	A URL de ingestão é usada pelo codificador ao vivo para enviar o fluxo para o canal.
+A URL de ingestão é usada pelo codificador ao vivo para enviar o fluxo para o canal.
 
 1. Recupere a URL de visualização do canal.
 
-	Use essa URL para verificar se o canal está recebendo corretamente o fluxo ao vivo.
+Use essa URL para verificar se o canal está recebendo corretamente o fluxo ao vivo.
 
 2. Crie um ativo.
 3. Se você quiser que o ativo seja criptografado dinamicamente durante a reprodução, faça o seguinte:
-	1. Crie uma chave de conteúdo.
-	1. Configure a política de autorização da chave de conteúdo.
-	1. Configure a política de entrega de ativos (usada pelo empacotamento dinâmico e criptografia dinâmica).
+1. Crie uma chave de conteúdo.
+1. Configure a política de autorização da chave de conteúdo.
+1. Configure a política de entrega de ativos (usada pelo empacotamento dinâmico e criptografia dinâmica).
 3. Crie um programa e especifique o uso do ativo que você criou.
 1. Publique o ativo associado ao programa criando um localizador OnDemand.
 
-	Certifique-se de ter pelo menos uma unidade reservada para streaming no ponto de extremidade de streaming por meio do qual você deseja transmitir o conteúdo.
+Certifique-se de ter pelo menos uma unidade reservada para streaming no ponto de extremidade de streaming por meio do qual você deseja transmitir o conteúdo.
 
 1. Inicie o programa quando estiver pronto para iniciar o streaming e o arquivamento.
 2. Opcionalmente, o codificador ao vivo pode ser sinalizado para iniciar um anúncio. O anúncio é inserido no fluxo de saída.
@@ -108,18 +108,12 @@ Os itens a seguir são necessários para concluir o tutorial.
 ##Conectar-se aos Serviços de Mídia
 Como prática recomendada, você deve usar um arquivo app.config para armazenar o nome e a chave de conta dos Serviços de Mídia.
 
->[AZURE.NOTE]Para localizar os valores de Nome e Chave, vá para o Portal do Azure, selecione sua conta de serviço de mídia e clique no ícone "GERENCIAR CHAVES" na parte inferior da janela do portal. Clicando no ícone ao lado de cada caixa de texto, o valor é copiado para a área de transferência do sistema.
+>[AZURE.NOTE]Para localizar os valores de Nome e Chave, vá para o Portal Clássico do Azure, selecione sua conta de Serviço de Mídia e clique no ícone “GERENCIAR CHAVES” na parte inferior da janela do portal. Clicando no ícone ao lado de cada caixa de texto, o valor é copiado para a área de transferência do sistema.
 
 Adicione a seção appSettings ao arquivo app.config e defina os valores do nome e da chave de sua conta dos Serviços de Mídia.
 
 
-	<?xml version="1.0"?>
-	<configuration>
-	  <appSettings>
-	      <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" />
-	      <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" />
-	  </appSettings>
-	</configuration>
+<?xml version="1.0"?> <configuration> <appSettings> <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" /> <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" /> </appSettings> </configuration>
 	 
 	
 ##Exemplo de código
@@ -522,4 +516,4 @@ Adicione a seção appSettings ao arquivo app.config e defina os valores do nome
 
 Se este tópico não contiver o que você esperava, se estiver faltando alguma informação ou se não tiver atendido de alguma outra forma às suas necessidades, envie seus comentários usando o thread Disqus abaixo.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

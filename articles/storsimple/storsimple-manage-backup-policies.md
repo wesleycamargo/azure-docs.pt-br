@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/02/2015"
    ms.author="v-sharos"/>
 
 # Usar o serviço StorSimple Manager para gerenciar políticas de backup
@@ -28,7 +28,7 @@ A página **Políticas de Backup** também permite filtrar as políticas de back
 - **Nome da política** – o nome associado à política. Os diferentes tipos de políticas incluem:
 
    - Políticas agendadas, que são criadas explicitamente pelo usuário.
-   - Políticas automáticas, que são criadas quando o backup padrão para essa opção de volume foi habilitado no momento da criação do volume. Essas políticas são nomeadas como VolumeName\_Default, em que Volume se refere ao nome do volume StorSimple configurado pelo usuário no Portal de Gerenciamento. As políticas automáticas resultam em instantâneos diários de nuvem, começando na hora do dispositivo 22:30.
+   - Políticas automáticas, que são criadas quando o backup padrão para essa opção de volume foi habilitado no momento da criação do volume. Essas políticas são nomeadas como VolumeName\_Default, em que Volume se refere ao nome do volume StorSimple configurado pelo usuário no Portal clássico do Azure. As políticas automáticas resultam em instantâneos diários de nuvem, começando na hora do dispositivo 22:30.
    - Políticas importadas, que foram originalmente criadas no Gerenciador de Instantâneos do StorSimple. Elas têm uma marca que descreve o host do Gerenciador de Instantâneos do StorSimple do qual as políticas foram importadas.
 
 - **Volumes** – os volumes associados à política. Todos os volumes associados a uma política de backup são agrupados quando os backups são criados.
@@ -49,7 +49,7 @@ As operações usadas com frequência que podem ser executadas nessa página sã
 
 ## Adicionar uma política de backup
 
-Adicione uma política de backup para agendar automaticamente seus backups. Execute as etapas a seguir no Portal de Gerenciamento para adicionar uma política de backup ao seu dispositivo StorSimple. Depois de adicionar a política, você poderá definir um agendamento (confira [Adicionar ou modificar um agendamento](#add-or-modify-a-schedule)).
+Adicione uma política de backup para agendar automaticamente seus backups. Execute as etapas a seguir no Portal clássico do Azure para adicionar uma política de backup ao seu dispositivo StorSimple. Depois de adicionar a política, você poderá definir um agendamento (confira [Adicionar ou modificar um agendamento](#add-or-modify-a-schedule)).
 
 [AZURE.INCLUDE [storsimple-add-backup-policy](../../includes/storsimple-add-backup-policy.md)]
 
@@ -60,26 +60,26 @@ Para assistir a um vídeo que demonstra como criar um local ou a política de ba
 
 ## Adicionar ou modificar um agendamento
 
-É possível adicionar ou modificar um agendamento que esteja anexado a uma política de backup existente no dispositivo StorSimple. Execute as etapas a seguir no Portal de Gerenciamento para adicionar ou modificar um agendamento.
+É possível adicionar ou modificar um agendamento que esteja anexado a uma política de backup existente no dispositivo StorSimple. Execute as etapas a seguir no Portal clássico do Azure para adicionar ou modificar um agendamento.
 
 [AZURE.INCLUDE [storsimple-add-modify-backup-schedule](../../includes/storsimple-add-modify-backup-schedule.md)]
 
 ## Excluir uma política de backup
 
-Execute as etapas a seguir no Portal de Gerenciamento para excluir uma política de backup do seu dispositivo StorSimple.
+Execute as etapas a seguir no Portal clássico do Azure para excluir uma política de backup do seu dispositivo StorSimple.
 
 [AZURE.INCLUDE [storsimple-delete-backup-policy](../../includes/storsimple-delete-backup-policy.md)]
 
 
 ## Fazer um backup manual
 
-Execute as etapas a seguir no Portal de Gerenciamento para criar um backup sob demanda (manual) para um único volume.
+Execute as etapas a seguir no Portal clássico do Azure para criar um backup sob demanda (manual) para um único volume.
 
 [AZURE.INCLUDE [storsimple-create-manual-backup](../../includes/storsimple-create-manual-backup.md)]
 
 ## Criar uma política de backup personalizada com vários volumes e agendamentos
 
-Execute as etapas a seguir no Portal de Gerenciamento para criar uma política de backup personalizada que tenha vários volumes e agendamentos.
+Execute as etapas a seguir no Portal clássico do Azure para criar uma política de backup personalizada que tenha vários volumes e agendamentos.
 
 [AZURE.INCLUDE [storsimple-create-custom-backup-policy](../../includes/storsimple-create-custom-backup-policy.md)]
 
@@ -88,4 +88,4 @@ Execute as etapas a seguir no Portal de Gerenciamento para criar uma política d
 
 - Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

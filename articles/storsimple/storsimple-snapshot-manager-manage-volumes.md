@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="10/15/2015"
+   ms.date="12/02/2015"
    ms.author="v-sharos" />
 
 # Usar o StorSimple Snapshot Manager para exibir e gerenciar volumes
@@ -103,7 +103,7 @@ Use o procedimento a seguir para exibir informações sobre volumes locais e do 
     :--------------|:-------------
     Nome | A coluna **Nome** contém a letra da unidade atribuída a cada volume descoberto.
     Dispositivo | A coluna **Dispositivo** contém o endereço IP do dispositivo conectado ao computador host.
-    Nome do Volume do Dispositivo | A coluna **Nome do Volume do Dispositivo** contém o nome do volume do dispositivo ao qual o volume selecionado pertence. Esse é o nome do volume definido no Portal de Gerenciamento do Azure para o volume específico.
+    Nome do Volume do Dispositivo | A coluna **Nome do Volume do Dispositivo** contém o nome do volume do dispositivo ao qual o volume selecionado pertence. Esse é o nome do volume definido no Portal clássico do Azure para o volume específico.
     Caminhos de acesso | A coluna **Caminhos de Acesso** exibe o caminho de acesso ao volume. Esta é a letra da unidade ou ponto de montagem no qual o volume está acessível para o computador host.
  
 ## Excluir um volume
@@ -271,4 +271,4 @@ Use o procedimento a seguir para configurar um volume espelhado dinâmico, em se
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -71,4 +71,12 @@ Para implantar o modelo ARM usando a CLI do Azure, siga as etapas abaixo.
 
 		azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-natrules/azuredeploy.json' -e 'c:\lb\azuredeploy.parameters.json'
 
-<!---HONumber=AcomDC_1125_2015-->
+## Próximas etapas
+
+[Introdução à configuração de um balanceador de carga interno](load-balancer-internal-getstarted.md)
+
+[Configurar um modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md)
+
+[Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
+
+<!---HONumber=AcomDC_1203_2015-->

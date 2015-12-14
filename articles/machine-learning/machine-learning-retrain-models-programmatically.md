@@ -61,7 +61,7 @@ Diagrama 1: visão geral do processo readaptação
 	![][4]
 
 	Em seguida, clicamos no botão Publicar Serviço Web e depois clicamos em Sim. Essa ação publicará o Experimento de Treinamento como um Serviço Web que produz modelos treinados e resultados de avaliação do modelo. O Painel do Serviço Web será exibido com a Chave de API e a página de ajuda da API para a Execução em Lotes. Observe que apenas o método de Execução em Lotes pode ser usado para criar Modelos Treinados.  
-4. *Adicionar um novo Ponto de Extremidade* O Serviço Web de Pontuação que publicamos na Etapa 2 acima foi criado com um ponto de extremidade padrão. Os pontos de extremidade padrão são mantidos em sincronização com o experimento de origem e o treinamento original; e um modelo treinado do ponto de extremidade padrão não pode ser substituído. Para criar um ponto de extremidade atualizável, visite o Portal do Azure e clique em Adicionar Ponto de Extremidade (mais detalhes [aqui](machine-learning-create-endpoint.md)).
+4. *Adicionar um novo Ponto de Extremidade* O Serviço Web de Pontuação que publicamos na Etapa 2 acima foi criado com um ponto de extremidade padrão. Os pontos de extremidade padrão são mantidos em sincronização com o experimento de origem e o treinamento original; e um modelo treinado do ponto de extremidade padrão não pode ser substituído. Para criar um ponto de extremidade atualizável, visite o Portal Clássico do Azure e clique em Adicionar Ponto de Extremidade (mais detalhes [aqui](machine-learning-create-endpoint.md)).
 
 5. *Readaptar o modelo com novos dados e BES* Para chamar as APIs de Recuperação, criamos um novo Aplicativo de Console C# no Visual Studio (Novo -> Projeto -> Windows Desktop -> Aplicativo de Console).
 
@@ -84,7 +84,7 @@ Diagrama 1: visão geral do processo readaptação
 	```
 	1. Fornecer informações de Armazenamento do Azure. O código de exemplo para BES carregará um arquivo de uma unidade local (por exemplo, "C:\\temp\\CensusIpnput.csv") para o Armazenamento do Azure, irá processá-lo e gravar os resultados no Armazenamento do Azure.  
 
-		Para fazer isso, você precisa recuperar as informações de nome da conta de Armazenamento, a chave e o contêiner do Portal de Gerenciamento do Azure para sua conta de Armazenamento e, em seguida, atualizar o código aqui. Você também precisa garantir que o arquivo de entrada está disponível no local especificado no código.
+		Para fazer isso, você precisa recuperar o nome da conta de Armazenamento, a chave e as informações de contêiner do Portal Clássico do Azure para a sua conta de Armazenamento e, em seguida, atualizar o código aqui. Você também precisa garantir que o arquivo de entrada está disponível no local especificado no código.
 
 		Configuramos esse Experimento de Treinamento com duas saídas, portanto os resultados incluirão informações do local de armazenamento para ambos, conforme mostrado abaixo. "output1" é a saída do Modelo Treinado e "output2" a saída do Modelo de Avaliação. Lembre-se também de que a extensão de arquivo da Saída para o Modelo Treinado (Output1) é “.ileaner” e não “.csv”.
 
@@ -156,4 +156,4 @@ Usando as APIs de Recuperação podemos atualizar o modelo treinado de um de Ser
 <!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

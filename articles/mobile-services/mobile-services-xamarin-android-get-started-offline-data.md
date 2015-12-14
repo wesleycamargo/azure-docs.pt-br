@@ -18,6 +18,11 @@
 
 # Usando sincronização de dados offline em Serviços Móveis
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
 Este tópico apresenta os recursos de sincronização offline de Serviços Móveis do Azure no aplicativo de início rápido de lista de tarefas pendentes. A sincronização offline permite que você crie facilmente aplicativos que são utilizáveis mesmo quando o usuário final não tem acesso à rede.
@@ -128,11 +133,11 @@ Nesta seção você reconectará o aplicativo ao serviço móvel. Isso simula o 
 
 1. Abra `ToDoActivity.cs`. Remova a URL de serviço móvel inválida e adicione novamente a chave correta de aplicativo e URL.
 
-2. Recompile e execute o aplicativo. Observe que os dados têm a mesma aparência do cenário offline mesmo que agora o aplicativo esteja conectado ao serviço móvel. Isso ocorre porque esse aplicativo sempre usa a `IMobileServiceSyncTable`, que está apontada para o repositório local.
+2. Recompile e execute o aplicativo. Observe que os dados têm a mesma aparência do cenário offline mesmo que agora o aplicativo esteja conectado ao serviço móvel. Isso ocorre porque esse aplicativo sempre usa o `IMobileServiceSyncTable`, que está voltado ao repositório local.
 
-3. Faça logon no Portal de Gerenciamento do Microsoft Azure e observe o banco de dados para seu serviço móvel. Se o serviço usar o back-end do JavaScript, você poderá procurar os dados na guia **Dados** do serviço móvel.
+3. Faça logon no [Portal clássico do Azure] e examine o banco de dados para o seu serviço móvel. Se o serviço usar o back-end do JavaScript, você poderá procurar os dados na guia **Dados** do serviço móvel.
 
-    Se você estiver usando o back-end do .NET para o serviço móvel, no Visual Studio, vá para **Gerenciador de Servidores** -> **Azure** -> **Bancos de Dados SQL**. Clique com o botão direito do mouse em seu Banco de Dados e selecione **Abrir no Gerenciador de Objetos do SQL Server**.
+    Se você estiver usando o back-end do .NET para o serviço móvel, no Visual Studio, acesse **Gerenciador de servidores** > **Azure** > **Bancos de dados SQL**. Clique com o botão direito do mouse em seu Banco de Dados e selecione **Abrir no Gerenciador de Objetos do SQL Server**.
 
     Observe que os dados *não* foram sincronizados entre o banco de dados e o repositório local.
 
@@ -171,6 +176,6 @@ Nesta seção você reconectará o aplicativo ao serviço móvel. Isso simula o 
 [Xamarin Studio]: http://xamarin.com/download
 [extensão Xamarin]: http://xamarin.com/visual-studio
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
- 
+[Portal clássico do Azure]: https://manage.windowsazure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -26,7 +26,7 @@ Este artigo explica como usar os recursos do sistema de mensagens agenciado do B
 
 ## Introdução ao Barramento de serviço
 
-Este artigo presume que você já tenha um namespace do Barramento de Serviço que contém uma fila denominada "queue1." Caso contrário, você pode criar o namespace e a fila usando o [Portal do Azure](http://manage.windowsazure.com). Para obter mais informações sobre como criar namespaces e filas do Service Bus, consulte [Como usar filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md).
+Este artigo presume que você já tenha um namespace do Barramento de Serviço que contém uma fila denominada "queue1." Caso contrário, você pode criar o namespace e a fila usando o [Portal clássico do Azure](http://manage.windowsazure.com). Para obter mais informações sobre como criar namespaces e filas do Service Bus, consulte [Como usar filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md).
 
 ## Baixe o SDK do Barramento de Serviço
 
@@ -63,7 +63,7 @@ O valor da configuração **Microsoft.ServiceBus.ConnectionString** é a cadeia 
 Endpoint=sb://[namespace].servicebus.windows.net;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
 ```
 
-Em que `[namespace]` e `[SAS key]` são obtidos no portal do Azure. Para obter mais informações, confira [Como usar as Filas do Barramento de Serviço[[].
+Em que `[namespace]` e `[SAS key]` são obtidos no [portal clássico do Azure][]. Para obter mais informações, consulte [Como usar as Filas do Barramento de Serviço][].
 
 Ao usar o AMQP, a cadeia de conexão é acrescentada com `;TransportType=Amqp`, que informa à biblioteca de cliente para fazer sua conexão com o Barramento de Serviço usando o AMQP 1.0.
 
@@ -227,7 +227,7 @@ Este tópico mostrou como enviar mensagens para o Barramento de Serviço usando 
 
 Ao usar a amostra do aplicativo do .NET descrito acima e um aplicativo do Java semelhante obtido de um guia complementar, [Como usar a API do Java Message Service (JMS) com o Service Bus e o AMQP 1.0](service-bus-java-how-to-use-jms-api-amqp.md), é possível trocar mensagens entre o .NET e o Java.
 
-Para obter mais informações sobre os detalhes de mensagens em plataformas cruzadas usando o Barramento de Serviço e o AMQP 1.0, veja a [Visão geral do Barramento de Serviço e do AMQP 1.0](service-bus-amqp-overview.md).
+Para obter mais informações sobre os detalhes de mensagens em plataformas cruzadas usando o Barramento de Serviço e o AMQP 1.0, veja a [Visão geral do Barramento de Serviço do AMQP 1.0](service-bus-amqp-overview.md).
 
 ### Do JMS para o .NET
 
@@ -306,13 +306,13 @@ Os seguintes recursos da API do Service Bus do .NET não são atualmente suporta
 * Renovação de bloqueio da sessão
 * Algumas pequenas diferenças no comportamento
 
-Para obter mais informações, veja a [Visão geral do Barramento de Serviço e do AMQP](service-bus-amqp-dotnet.md). Este tópico inclui uma lista detalhada de APIs não suportadas.
+Para obter mais informações, veja a [Visão geral do Barramento de Serviço AMQP](service-bus-amqp-dotnet.md). Este tópico inclui uma lista detalhada de APIs não suportadas.
 
 ## Resumo
 
 Este tópico mostrou como acessar os recursos do sistema de mensagens agenciado do Barramento de Serviço (tópicos sobre filas e publicação/assinatura) do .NET que usam o AMQP 1.0 e a API do .NET do Barramento de Serviço.
 
-Você também pode usar o AMQP 1.0 do Service Bus de outras linguagens, incluindo Java, C, Python e PHP. Os componentes criados com estas linguagens podem trocar mensagens de forma confiável e com total fidelidade usando o AMQP 1.0 no Service Bus. Para obter mais informações, veja a [Visão geral do Barramento de Serviço e do AMQP](service-bus-amqp-dotnet.md).
+Você também pode usar o AMQP 1.0 do Service Bus de outras linguagens, incluindo Java, C, Python e PHP. Os componentes criados com estas linguagens podem trocar mensagens de forma confiável e com total fidelidade usando o AMQP 1.0 no Service Bus. Para obter mais informações, veja a [Visão geral do Barramento de Serviço AMQP](service-bus-amqp-dotnet.md).
 
 ## Próximas etapas
 
@@ -322,5 +322,6 @@ Agora que você leu uma visão geral do Barramento de Serviço e do AMQP com o .
 * [Como usar a API do JMS (Serviço de Mensagem Java) com Barramento de Serviço e AMQP 1.0](service-bus-java-how-to-use-jms-api-amqp.md)
 * [Como usar as filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md)
  
+[portal clássico do Azure]: http://manage.windowsazure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

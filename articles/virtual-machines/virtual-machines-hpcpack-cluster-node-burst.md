@@ -27,7 +27,7 @@ Este artigo mostra como adicionar os nós de “disparo contínuo” do Azure (i
 
 >[AZURE.TIP]Se você usar o [script de implantação de IaaS do HPC Pack](virtual-machines-hpcpack-cluster-powershell-script.md) para criar o cluster no Azure, é possível incluir os nós de disparo contínuo do Azure em sua implantação automatizada.
 
-As etapas neste artigo ajudarão você a adicionar nós do Azure rapidamente a uma VM de nó de cabeçalho do HPC Pack baseado em nuvem para uma implantação de teste ou de prova de conceito. O procedimento é basicamente o mesmo que o usado para o “disparo contínuo para o Azure” para adicionar a capacidade de computação em nuvem a um cluster HPC Pack local. Para obter um tutorial, veja [Configurar um cluster de cálculo híbrido com o Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Para obter orientações e considerações detalhadas sobre implantações de produção, veja [Disparo contínuo para o Azure com o Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493).
+As etapas neste artigo ajudarão você a adicionar nós do Azure rapidamente a uma VM de nó de cabeçalho do HPC Pack baseado em nuvem para uma implantação de teste ou de prova de conceito. O procedimento é basicamente o mesmo que o usado para o “disparo contínuo para o Azure” para adicionar a capacidade de computação em nuvem a um cluster HPC Pack local. Para obter um tutorial, veja [Configurar um cluster de cálculo híbrido com o Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Para obter diretrizes e considerações detalhadas sobre implantações de produção, veja [Disparo contínuo para o Azure com o Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493).
 
 Se desejar usar o tamanho de instância A8 ou A9 de uso intensivo de computação, veja [Sobre as instâncias A8, A9, A10 e A11 de computação intensiva](virtual-machines-a8-a9-a10-a11-specs.md).
 
@@ -41,7 +41,7 @@ Se desejar usar o tamanho de instância A8 ou A9 de uso intensivo de computaçã
 
 ## Etapa 1: criar um serviço de nuvem e uma conta de armazenamento para adicionar nós do Azure
 
-Use o portal do Azure ou ferramentas equivalentes para configurar o seguinte, que é necessário para implantar seus nós do Azure:
+Use o portal clássico do Azure ou ferramentas equivalentes para configurar o seguinte, que é necessário para implantar seus nós do Azure:
 
 * Um novo serviço de nuvem do Azure
 * Uma nova conta de armazenamento do Azure
@@ -88,4 +88,4 @@ Se você encontrar problemas ao implantar nós do Azure, veja [Solucionar proble
 <!--Image references-->
 [burst]: ./media/virtual-machines-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -45,7 +45,7 @@ Você precisará de uma conta do Microsoft Azure com uma assinatura válida para
 
 ### Grupo de afinidade
 
-É criado um grupo de afinidades para a solução de registro em log para o portal do Azure rolando para baixo até configurações e criando um novo grupo de afinidades. Os recursos alocados criados posteriormente serão atribuídos a esse grupo de afinidade.
+É criado um grupo de afinidade para a solução de registro em log para o portal clássico do Azure rolando para baixo até configurações e criando um novo grupo de afinidades. Os recursos alocados criados posteriormente serão atribuídos a esse grupo de afinidade.
 
 ### Redes
 
@@ -340,4 +340,4 @@ As seguintes limitações se aplicam:
 - O ajuste do MySQL é necessário para garantir que a gravação seja feita em um ritmo confortável e os caches sejam liberados para o disco com a maior frequência possível para minimizar a perda de memória
 - O desempenho da gravação dependerá da interconexão da VM no comutador virtual porque esse é o mecanismo usado pelo DRBD para replicar o dispositivo
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

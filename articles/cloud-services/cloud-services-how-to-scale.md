@@ -22,7 +22,7 @@
 
 # Como fazer o dimensionamento automático de um aplicativo
 
-Na página Escala do Portal de Gerenciamento do Azure, você pode dimensionar manualmente seu aplicativo ou definir parâmetros para dimensioná-lo automaticamente. Você pode dimensionar aplicativos executados em funções Web, funções de trabalho ou máquinas virtuais. Para dimensionar um aplicativo que esteja executando instâncias de funções Web ou funções de trabalho, você pode adicionar ou remover instâncias de função para acomodar a carga de trabalho.
+Na página Escala do portal clássico do Azure, você pode dimensionar manualmente seu aplicativo ou definir parâmetros para dimensioná-lo automaticamente. Você pode dimensionar aplicativos executados em funções Web, funções de trabalho ou máquinas virtuais. Para dimensionar um aplicativo que esteja executando instâncias de funções Web ou funções de trabalho, você pode adicionar ou remover instâncias de função para acomodar a carga de trabalho.
 
 Quando você expande ou diminui um aplicativo que está sendo executado em máquinas virtuais, novas máquinas não são criadas nem excluídas, mas serão ativadas ou desativadas de um conjunto de disponibilidade de máquinas criadas anteriormente. Você pode especificar o dimensionamento com base em um percentual médio de uso de CPU ou com base no número de mensagens em uma fila.
 
@@ -43,7 +43,7 @@ Você deve considerar as seguintes informações antes de configurar a colocaç�
 
 Na página Escala, você pode aumentar ou diminuir manualmente o número de instâncias em execução em um serviço de nuvem.
 
-1. No [Portal de Gerenciamento](https://manage.windowsazure.com/), clique em **Serviços de Nuvem** e no nome do Serviço de Nuvem para abrir o painel.
+1. No [portal clássico do Azure](https://manage.windowsazure.com/), clique em **Serviços de Nuvem** e no nome do Serviço de Nuvem para abrir o painel.
 
 2. Clique em **Escala**. O dimensionamento automático é desabilitado por padrão para todas as funções, o que significa que você pode alterar manualmente o número de instâncias usadas pelo aplicativo.
 
@@ -74,7 +74,7 @@ Na página Escala, você pode configurar seu Serviço de Nuvem para aumentar ou 
 
 ## Uso médio da CPU
 
-1. No [Portal de Gerenciamento](https://manage.windowsazure.com/), clique em **Serviços de Nuvem** e no nome do Serviço de Nuvem para abrir o painel.
+1. No [portal clássico do Azure](https://manage.windowsazure.com/), clique em **Serviços de Nuvem** e no nome do Serviço de Nuvem para abrir o painel.
 
 2. Clique em **Escala**.
 
@@ -126,7 +126,7 @@ Na página Escala, você pode configurar seu Serviço de Nuvem para aumentar ou 
 
 ## Mensagens da fila
 
-1. No [Portal de Gerenciamento](https://manage.windowsazure.com/), clique em **Serviços de Nuvem** e no nome do Serviço de Nuvem para abrir o painel.
+1. No [portal clássico do Azure](https://manage.windowsazure.com/), clique em **Serviços de Nuvem** e no nome do Serviço de Nuvem para abrir o painel.
 2. Clique em **Escala**.
 3. Role até a seção da função ou do conjunto de disponibilidade e clique em **Fila**. Isso habilita o dimensionamento automático de seu aplicativo com base em um número de destino de mensagens da fila.
 
@@ -176,7 +176,7 @@ Na página Escala, você pode configurar seu Serviço de Nuvem para aumentar ou 
 
 Sempre que você dimensionar uma função, também é benéfico dimensionar o banco de dados que o aplicativo está usando. Se você vincular o banco de dados ao Serviço de Nuvem, poderá alterar a edição do Banco de Dados SQL e redimensionar o banco de dados na página Escala.
 
-1. No [Portal de Gerenciamento](https://manage.windowsazure.com/), clique em **Serviços de Nuvem** e no nome do Serviço de Nuvem para abrir o painel.
+1. No [portal clássico do Azure](https://manage.windowsazure.com/), clique em **Serviços de Nuvem** e no nome do Serviço de Nuvem para abrir o painel.
 2. Clique em **Escala**.
 3. Na seção Recursos Vinculados, secione a edição para usar para o banco de dados.
 
@@ -195,7 +195,7 @@ Você pode agendar o dimensionamento automático de seu aplicativo configurando 
 
 **Observação**: as agendas não estão disponíveis no momento para aplicativos que usam máquinas virtuais.
 
-1. No [Portal de Gerenciamento](https://manage.windowsazure.com/), clique em **Serviços de Nuvem** e no nome do Serviço de Nuvem para abrir o painel.
+1. No [portal clássico do Azure](https://manage.windowsazure.com/), clique em **Serviços de Nuvem** e no nome do Serviço de Nuvem para abrir o painel.
 2. Clique em **Escala**.
 3. Na página Escala, clique em **configurar horas agendadas**.
 
@@ -227,4 +227,4 @@ Você pode agendar o dimensionamento automático de seu aplicativo configurando 
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

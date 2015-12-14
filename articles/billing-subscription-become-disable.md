@@ -32,6 +32,6 @@ Para resolver isso, confira o artigo [Por que você recebeu uma notificação in
 
 ### A assinatura do Azure foi cancelada
 
-Para reativar uma assinatura, você deverá criar um tíquete de suporte. Para criar um tíquete de suporte e reativar uma assinatura do Azure, confira o artigo [Como criar um tíquete de suporte para problemas de assinatura e cobrança do Azure](../billing-create-billing-support-ticket.md).
+Para reativar uma assinatura, você deverá criar um tíquete de suporte. Para criar um tíquete de suporte e reabilitar uma assinatura do Azure, confira o artigo [Como criar um tíquete de suporte para problemas de assinatura e de cobrança do Azure](../billing-how-to-create-billing-support-ticket.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

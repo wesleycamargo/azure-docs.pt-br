@@ -33,7 +33,7 @@ Para concluir o procedimento deste tópico, você deve ter uma conta do Twitter 
 ## <a name="register"> </a>Registre seu aplicativo com o Twitter
 
 
-1. Faça logon no [Portal de Gerenciamento do Azure] e navegue até o seu aplicativo. Copie a **URL**. Você a usará para configurar o seu aplicativo do Twitter.
+1. Faça logon no [portal do Azure] e navegue até o seu aplicativo. Copie a **URL**. Você a usará para configurar o seu aplicativo do Twitter.
 
 2. Navegue até o site de [Desenvolvedores do Twitter,] entre com suas credenciais da conta do Twitter e clique em **Criar Novo Aplicativo**.
 
@@ -55,7 +55,7 @@ Para concluir o procedimento deste tópico, você deve ter uma conta do Twitter 
 > [AZURE.NOTE]Se for usar o Gateway do Serviço de Aplicativo, ignore esta seção e navegue até o gateway no portal. Selecione **Configurações**, **Identidade**, e então **Twitter**. Cole os valores obtidos anteriormente e clique em **Salvar**.
 
 
-13. De volta ao [Portal de Gerenciamento do Azure], navegue até o aplicativo. Clique em **Configurações** e em **Autenticação / Autorização**.
+13. De volta ao [portal do Azure], navegue até o seu aplicativo. Clique em **Configurações** e em **Autenticação / Autorização**.
 
 14. Se o recurso Autenticação / Autorização não estiver habilitado, mude a opção para **Ativado**.
 
@@ -85,7 +85,7 @@ Agora você está pronto para usar o Twitter para autenticação em seu aplicati
 <!-- URLs. -->
 
 [Desenvolvedores do Twitter,]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[Portal de Gerenciamento do Azure]: https://portal.azure.com/
+[portal do Azure]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -21,11 +21,11 @@
 
 Neste guia, exploraremos como usar os [Cmdlets de Gerenciamento de Serviços do Azure para Armazenamento](https://msdn.microsoft.com/library/azure/dn806401.aspx) para executar uma variedade de tarefas de administração e desenvolvimento com o Armazenamento do Azure.
 
-O PowerShell no Azure é um módulo que fornece cmdlets para gerenciar o Azure por meio do Windows PowerShell. Ele é um shell de linha de comando baseado em tarefa e linguagem de script criado especialmente para administração do sistema. Com o PowerShell, você pode facilmente controlar e automatizar a administração dos seus aplicativos e serviços do Azure. Na maioria dos casos, é possível usar os cmdlets para executar as mesmas tarefas que você pode executar por meio do Portal de Gerenciamento do Azure.
+O PowerShell no Azure é um módulo que fornece cmdlets para gerenciar o Azure por meio do Windows PowerShell. Ele é um shell de linha de comando baseado em tarefa e linguagem de script criado especialmente para administração do sistema. Com o PowerShell, você pode facilmente controlar e automatizar a administração dos seus aplicativos e serviços do Azure. Na maioria dos casos, é possível usar os cmdlets para executar as mesmas tarefas que você pode executar por meio do [Portal do Azure](portal.azure.com).
 
 Este guia pressupõe que você tenha experiência anterior usando o [Armazenamento do Azure](http://azure.microsoft.com/documentation/services/storage/) e o [Windows PowerShell](http://technet.microsoft.com/library/bb978526.aspx). Este guia fornece vários scripts para demonstrar o uso do PowerShell com o Armazenamento do Azure. Você deve atualizar as variáveis de script com base em sua configuração antes de executar cada script.
 
-A primeira seção deste guia fornece uma visão rápida no Armazenamento do Azure e do PowerShell. Para obter informações e instruções detalhadas, comece com os [Pré-requisitos para usar o PowerShell do Azure com o armazenamento do Azure](#prerequisites-for-using-azure-powershell-with-azure-storage).
+A primeira seção deste guia fornece uma visão rápida no Armazenamento do Azure e do PowerShell. Para obter informações e instruções detalhadas, comece com os [Pré-requisitos para usar o Azure PowerShell com o armazenamento do Azure](#prerequisites-for-using-azure-powershell-with-azure-storage).
 
 
 ## Introdução ao Armazenamento do Azure e ao PowerShell em 5 minutos
@@ -39,7 +39,7 @@ Consulte [Gerenciar contas, assinaturas e funções administrativas](https://msd
 **Depois de criar uma assinatura e conta do Microsoft Azure:**
 
 1.	Baixe e instale o [Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409).
-2.	Inicie o ISE (Ambiente de Script Integrado) do Windows PowerShell: No seu computador local, vá até o menu **Iniciar**. Digite **Ferramentas Administrativas** e clique para executá-las. Na janela **Ferramentas Administrativas**, clique com botão direito do mouse em **ISE do Windows PowerShell** e clique em **Executar como administrador**.
+2.	Inicie o Ambiente de Script Integrado (ISE) do Windows PowerShell: No seu computador local, vá até o menu **Iniciar**. Digite **Ferramentas Administrativas** e clique para executá-las. Na janela **Ferramentas Administrativas**, clique com botão direito em **ISE do Windows PowerShell** e clique em **Executar como administrador**.
 3.	No **ISE do Windows PowerShell**, clique em **Arquivo** > **Novo** para criar um novo arquivo de script.
 4.	Agora, você terá um script simples que mostra os comandos básicos do PowerShell para acessar o armazenamento do Azure. O script primeiro solicitará suas credenciais da conta do Azure para adicioná-la ao ambiente local do PowerShell. Depois, o script definirá a assinatura padrão do Azure e criará uma nova conta de armazenamento no Azure. Em seguida, o script criará um novo contêiner nessa nova conta de armazenamento e carregará um arquivo de imagem existente (blob) para esse contêiner. Depois que o script listar todos os blobs nesse contêiner, ele criará um novo diretório de destino no computador local e baixará o arquivo de imagem.
 5.	Na seção de código a seguir, selecione o script entre os comentários **#begin** e **#end**. Pressione CTRL + C para copiá-lo para a área de transferência.
@@ -102,19 +102,17 @@ Consulte [Gerenciar contas, assinaturas e funções administrativas](https://msd
 	- **$SubscriptionName:** você deve atualizar essa variável com o nome de sua própria assinatura. Execute uma das três maneiras a seguir para localizar o nome de sua assinatura:
 
 		a. No **ISE do Windows PowerShell**, clique em **Arquivo** > **Novo** para criar um novo arquivo de script. Copie o seguinte script para o novo arquivo de script e clique em **Depurar** > **Executar**. O script a seguir primeiro solicitará suas credenciais de conta do Azure para adicioná-la ao ambiente do PowerShell local e, em seguida, mostrará todas as assinaturas que estão conectadas à sessão do PowerShell local. Anote o nome da assinatura que você deseja usar e siga este tutorial:
-
-    		Add-AzureAccount
-       		Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName
-
-
-		b. Atualmente, o Azure dá suporte a dois portais: o [Portal de Gerenciamento](https://manage.windowsazure.com/) atual e o [Portal de Visualização do Azure](https://portal.azure.com/). Se você entrar no [Portal de Gerenciamento do Azure](https://portal.azure.com/) atual, role para baixo e clique em **Configurações** no lado esquerdo do portal. Clique em **Assinaturas**. Copie o nome da assinatura que você deseja usar ao executar os scripts fornecidos neste guia. Consulte a captura de tela a seguir como exemplo.
-
-		![Portal de Gerenciamento do Azure][Image1]
-
-		c. Se você entrar no [Portal de Visualização do Azure](https://portal.azure.com/), no menu de Hub do lado esquerdo, clique em **PROCURAR**. Em seguida, clique em **Tudo** e em **Assinaturas**. Copie o nome da assinatura que você deseja usar ao executar os scripts fornecidos neste guia. Consulte a captura de tela a seguir como exemplo.
-
-		![Portal de visualização do Azure][Image2]
-
+		
+			Add-AzureAccount
+				Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName
+		
+		b. Para localizar e copiar o nome da sua assinatura no [Portal do Azure](portal.azure.com), no menu de Hub à esquerda, clique em **Assinaturas**. Copie o nome da assinatura que você deseja usar ao executar os scripts fornecidos neste guia.
+		
+		![Portal do Azure][Image2]
+		  
+		c. Para localizar e copiar o nome da sua assinatura no [Portal clássico do Azure](https://manage.windowsazure.com/), role para baixo e clique em **Configurações** no lado esquerdo do portal. Clique em **Assinaturas** para ver uma lista das suas assinaturas. Copie o nome da assinatura que você deseja usar ao executar os scripts fornecidos neste guia.
+		
+		![Portal Clássico do Azure][Image1]
 
 	- **$StorageAccountName:** Use o nome fornecido no script ou insira um novo nome para a conta de armazenamento. **Importante:** o nome da conta de armazenamento deve ser exclusivo no Azure. Ele também deve ter somente letras minúsculas!
 
@@ -145,7 +143,7 @@ Você pode executar os cmdlets no console do PowerShell do Azure, o console do W
 ## Como gerenciar contas de armazenamento no Azure
 
 ### Como definir uma assinatura padrão do Azure
-Para gerenciar o armazenamento do Azure usando o PowerShell do Azure, você precisa autenticar seu ambiente de cliente com o Azure por meio de autenticação do Active Directory do Azure ou autenticação baseada em certificado. Para obter informações detalhadas, confira o tutorial [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md). Este guia usa a autenticação do Active Directory do Azure.
+Para gerenciar o armazenamento do Azure usando o PowerShell do Azure, você precisa autenticar seu ambiente de cliente com o Azure por meio de autenticação do Active Directory do Azure ou autenticação baseada em certificado. Para obter informações detalhadas, confira o tutorial [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md). Este guia usa a autenticação do Active Directory do Azure.
 
 1.	No console do PowerShell do Azure ou no ISE do Windows PowerShell, digite o seguinte comando para adicionar a conta do Azure ao ambiente do PowerShell local:
 
@@ -492,7 +490,7 @@ Para consultar uma tabela, use a classe [Microsoft.WindowsAzure.Storage.Table.Ta
     $entities  | Format-Table PartitionKey, RowKey, @{ Label = "Name"; Expression={$_.Properties["Name"].StringValue}}, @{ Label = "ID"; Expression={$_.Properties[“ID”].Int32Value}} -AutoSize
 
 #### Como excluir entidades de tabela
-Você pode excluir uma entidade usando suas chaves de partição e de linha. O exemplo a seguir pressupõe que você executou o script fornecido na seção "Como adicionar entidades" deste guia. O exemplo primeiro estabelece uma conexão com o armazenamento do Azure usando o contexto de armazenamento, que inclui o nome da conta de armazenamento e sua chave de acesso primário. Em seguida, ele tentará recuperar a tabela "Funcionários" criada anteriormente usando o cmdlet [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx). Se a tabela existir, o exemplo chama o método [Microsoft.WindowsAzure.Storage.Table.TableOperation.Retrieve](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.retrieve.aspx) para recuperar uma entidade com base em seus valores de chave de partição e de linha. Em seguida, transmita a entidade para o método [Microsoft.WindowsAzure.Storage.Table.TableOperation.Delete](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.delete.aspx) para excluir.
+Você pode excluir uma entidade usando suas chaves de partição e de linha. O exemplo a seguir pressupõe que você executou o script fornecido na seção "Como adicionar entidades" deste guia. O exemplo primeiro estabelece uma conexão com o armazenamento do Azure usando o contexto de armazenamento, que inclui o nome da conta de armazenamento e sua chave de acesso primário. Em seguida, ele tentará recuperar a tabela "Funcionários" criada anteriormente usando o cmdlet [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx). Se a tabela existir, o exemplo chamará o método [Microsoft.WindowsAzure.Storage.Table.TableOperation.Retrieve](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.retrieve.aspx) para recuperar uma entidade com base em seus valores de chave de partição e de linha. Em seguida, transmita a entidade para o método [Microsoft.WindowsAzure.Storage.Table.TableOperation.Delete](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.delete.aspx) para excluir.
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
@@ -573,7 +571,7 @@ O exemplo a seguir demonstra como adicionar uma mensagem a uma fila. O exemplo p
 
 
 #### Como retirar a próxima mensagem da fila
-Seu código remove uma mensagem de um fila em duas etapas. Quando você chama o método [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx), receberá a próxima mensagem em uma fila. Uma mensagem retornada de **GetMessage** torna-se invisível para todas as outras mensagens de leitura de código da fila. Para concluir a remoção da mensagem da fila, você também deve chamar o método [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx). Este processo de duas etapas de remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. Seu código chama **DeleteMessage** logo depois que a mensagem é processada.
+Seu código remove uma mensagem de um fila em duas etapas. Quando você chamar o método [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx), receberá a próxima mensagem em uma fila. Uma mensagem retornada de **GetMessage** torna-se invisível para todas as outras mensagens de leitura de código da fila. Para concluir a remoção da mensagem da fila, você também deve chamar o método [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx). Este processo de duas etapas de remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. Seu código chama **DeleteMessage** logo depois que a mensagem é processada.
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
@@ -597,7 +595,7 @@ O Armazenamento de Arquivos do Azure oferece o armazenamento compartilhado para 
 Para obter mais informações sobre o Armazenamento de arquivos do Azure, veja [Como usar o Armazenamento de arquivos do Azure com o Windows](storage-dotnet-how-to-use-files.md) e [API REST do Serviço de Arquivos](http://msdn.microsoft.com/library/azure/dn167006.aspx).
 
 ## Como definir e consultar análises de armazenamento
-Você pode usar a [Análise de armazenamento do Azure](storage-analytics.md) para coletar métricas para suas contas de armazenamento do Azure e registrar dados sobre solicitações enviadas à sua conta de armazenamento. Você pode usar métricas de armazenamento para monitorar a integridade de uma conta de armazenamento, e log de armazenamento para diagnosticar e solucionar problemas com sua conta de armazenamento. Por padrão, as métricas de armazenamento não estão habilitadas para seus serviços de armazenamento. Você pode habilitar o monitoramento usando o Portal de Gerenciamento do Azure, Windows PowerShell ou com programação por meio de uma API de armazenamento. O log de armazenamento ocorre no lado do servidor e permite que você registre detalhes de solicitações bem-sucedidas e com falhas na conta de armazenamento. Esses registros permitem ver detalhes de operações de leitura, gravação e exclusão em suas tabelas, filas e blobs bem como as razões para solicitações com falha.
+Você pode usar a [Análise de armazenamento do Azure](storage-analytics.md) para coletar métricas para suas contas de armazenamento do Azure e registrar dados sobre solicitações enviadas à sua conta de armazenamento. Você pode usar métricas de armazenamento para monitorar a integridade de uma conta de armazenamento, e log de armazenamento para diagnosticar e solucionar problemas com sua conta de armazenamento. Por padrão, as métricas de armazenamento não estão habilitadas para seus serviços de armazenamento. Você pode habilitar o monitoramento usando o Portal do Azure ou o Windows PowerShell ou programaticamente usando a biblioteca de cliente de armazenamento. O log de armazenamento ocorre no lado do servidor e permite que você registre detalhes de solicitações bem-sucedidas e com falhas na conta de armazenamento. Esses registros permitem ver detalhes de operações de leitura, gravação e exclusão em suas tabelas, filas e blobs bem como as razões para solicitações com falha.
 
 Para saber como habilitar e exibir dados de métricas de armazenamento usando o PowerShell, consulte [Como habilitar métricas de armazenamento usando o PowerShell](http://msdn.microsoft.com/library/azure/dn782843.aspx#HowtoenableStorageMetricsusingPowerShell).
 
@@ -627,7 +625,7 @@ Use o cmdlet New-AzureStorageTableStoredAccessPolicy para criar uma nova políti
     New-AzureStorageTableSASToken -Name $tableName -Policy $policy -Context $Ctx
 
 ### Como criar um token de Assinatura de Acesso Compartilhado (não revogável) ad hoc
-Use o cmdlet [New-AzureStorageTableSASToken](http://msdn.microsoft.com/library/azure/dn806400.aspx) para criar um novo token de Assinatura de Acesso Compartilhado ad-hoc (não revogável) para uma tabela de armazenamento do Azure:
+Use o cmdlet [New-AzureStorageTableSASToken](http://msdn.microsoft.com/library/azure/dn806400.aspx) para criar um novo token de Assinatura de Acesso Compartilhado ad hoc (não revogável) para uma tabela de armazenamento do Azure:
 
     New-AzureStorageTableSASToken -Name $tableName -Permission "rqud" -StartTime "2015-01-01" -ExpiryTime "2015-02-01" -Context $Ctx
 
@@ -665,7 +663,7 @@ Para usar o Armazenamento do Azure com AzureChinaCloud, você precisa criar um c
 
     	$Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment AzureChinaCloud
 
-Para usar o armazenamento do Azure com [Azure Government. dos EUA](http://azure.microsoft.com/features/gov/), você deve definir um novo ambiente e, em seguida, criar um novo contexto de armazenamento com esse ambiente:
+Para usar o Armazenamento do Azure com [Azure Government. dos EUA](http://azure.microsoft.com/features/gov/), você deve definir um novo ambiente e, em seguida, criar um novo contexto de armazenamento com esse ambiente:
 
 1. Chame o cmdlet [Add-AzureEnvironment](http://msdn.microsoft.com/library/azure/dn790364.aspx) para criar um novo ambiente do Azure para seu datacenter particular.
 
@@ -684,7 +682,6 @@ Para obter mais informações, consulte:
 Neste guia, você aprendeu como gerenciar o armazenamento do Azure com o PowerShell do Azure. Estes são alguns artigos e recursos relacionados para saber mais sobre eles.
 
 - [Documentação do Armazenamento do Azure](http://azure.microsoft.com/documentation/services/storage/)
-- [Referência do MSDN de Armazenamento do Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 - [Cmdlets do PowerShell do Armazenamento do Azure](http://msdn.microsoft.com/library/azure/dn806401.aspx)
 - [Referência do Windows PowerShell](https://msdn.microsoft.com/library/ms714469.aspx)
 
@@ -733,4 +730,4 @@ Neste guia, você aprendeu como gerenciar o armazenamento do Azure com o PowerSh
 [Next Steps]: #next
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

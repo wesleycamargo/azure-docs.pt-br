@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="12/02/2015" 
 	ms.author="tomfitz"/>
 
 # Bloquear recursos com o Gerenciador de Recursos do Azure
@@ -22,7 +22,7 @@ Como administrador, há situações em que você deseja colocar um bloqueio em u
 
 O Gerenciador de Recursos do Azure permite restringir operações nos recursos por meio de bloqueios de gerenciamento de recursos. Os bloqueios de recursos são políticas que impõem um nível de bloqueio em um escopo específico. O escopo pode ser uma assinatura, um grupo de recursos ou um recurso. O nível de bloqueio identifica o tipo de imposição da política, que atualmente tem dois valores –**CanNotDelete** e **ReadOnly**. **CanNotDelete** significa que os usuários autorizados ainda poderão ler e modificar os recursos, mas não poderão excluir qualquer um dos recursos restritos. **ReadOnly** significa que os usuários autorizados ainda poderão ler os recursos, mas não poderão modificar ou excluir qualquer um dos recursos restritos.
 
-Os bloqueios são diferentes do uso de controle de acesso baseado em função para atribuir permissões de usuário para executar determinadas ações. Para saber mais sobre como configurar permissões para usuários e funções, consulte [Controle de acesso baseado em função no portal de visualização](role-based-access-control-configure.md) e [Gerenciar e auditar o acesso a recursos](resource-group-rbac.md). Ao contrário do controle de acesso baseado em função, você utiliza os bloqueios de gerenciamento para aplicar uma restrição a todos os usuários e funções, e normalmente aplica os bloqueios por apenas uma duração limitada.
+Os bloqueios são diferentes do uso de controle de acesso baseado em função para atribuir permissões de usuário para executar determinadas ações. Para saber mais sobre como configurar permissões para usuários e funções, confira [Controle de acesso baseado em função no portal](role-based-access-control-configure.md) e [Gerenciar e auditar o acesso a recursos](resource-group-rbac.md). Ao contrário do controle de acesso baseado em função, você utiliza os bloqueios de gerenciamento para aplicar uma restrição a todos os usuários e funções, e normalmente aplica os bloqueios por apenas uma duração limitada.
 
 ## Cenários comuns
 
@@ -108,4 +108,4 @@ O Azure PowerShell fornece outros comandos para trabalhar com bloqueios, tais co
 - Para alterar o grupo de recursos em que um recurso reside, confira [Mover recursos para um novo grupo de recursos](resource-group-move-resources.md)
 - É possível aplicar restrições e convenções em sua assinatura com políticas personalizadas. Para saber mais, confira [Usar a Política para gerenciar recursos e controlar o acesso](resource-manager-policy.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

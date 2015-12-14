@@ -15,7 +15,7 @@ As novas APIs do Twitter v1.1 exigem que o aplicativo seja autenticado para aces
 	+ **Token de acesso**
 	+ **Segredo do token de acesso**
 
-4. Faça o logon no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e clique em seu serviço móvel.
+4. Faça logon no [portal clássico do Azure](https://manage.windowsazure.com/), clique em **Serviços Móveis** e clique em seu serviço móvel.
 
 5. Clique na guia **Identidade**, insira os valores de **Chave do consumidor** e **Segredo do consumidor** obtidos no Twitter e clique em **Salvar**.
 
@@ -32,9 +32,8 @@ As novas APIs do Twitter v1.1 exigem que o aplicativo seja autenticado para aces
 
 <!-- URLs. -->
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Register your apps for Twitter login with Mobile Services]: ../articles/mobile-services/mobile-services-how-to-register-twitter-authentication.md
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Configurações do aplicativo]: http://msdn.microsoft.com/library/azure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

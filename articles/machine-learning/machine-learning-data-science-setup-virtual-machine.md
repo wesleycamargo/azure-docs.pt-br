@@ -26,7 +26,7 @@ Se você já tiver uma máquina virtual do Azure e apenas deseja configurar um s
 
 Antes de iniciar o processo de criação de uma máquina virtual no Azure, você precisa determinar o tamanho da máquina que é necessária para processar os dados para o seu projeto. Máquinas menores têm menos memória e menos núcleos de CPU que máquinas maiores, mas elas também são mais baratas. Para obter uma lista dos tipos de máquinas e seus preços, consulte a página <a href="http://azure.microsoft.com/pricing/details/virtual-machines/" target="_blank">Preços de máquinas virtuais</a>
 
-1. Faça logon no <a href="https://manage.windowsazure.com" target="_blank">Portal do Azure</a> e clique em **Novo** no canto inferior esquerdo. Uma janela será exibida. Selecione **COMPUTAÇÃO** -> **MÁQUINA VIRTUAL** -> **DA GALERIA**.
+1. Faça logon no <a href="https://manage.windowsazure.com" target="_blank">Portal Clássico do Azure</a> e clique em **Novo** no canto inferior esquerdo. Uma janela será exibida. Selecione **COMPUTAÇÃO** -> **MÁQUINA VIRTUAL** -> **DA GALERIA**.
 
 	![Criar espaço de trabalho][24]
 
@@ -60,7 +60,7 @@ Pode levar de 15 a 25 minutos para concluir o processo de provisionamento da má
 
 Se você criou a máquina virtual seguindo as instruções na Etapa 1, o ponto de extremidade para o IPython Notebook já foi adicionado e essa etapa pode ser ignorada.
 
-Se a máquina virtual já existir e você precisar adicionar um ponto de extremidade ao IPython Notebook que você instalará na Etapa 3 abaixo, primeiro faça logon no portal de gerenciamento do Azure, selecione a máquina virtual e adicione o ponto de extremidade ao servidor do IPython Notebook. A figura a seguir contém uma captura de tela do portal após o ponto de extremidade do IPython Notebook ter sido adicionado à máquina virtual do Windows.
+Se a máquina virtual já existir e você precisar adicionar um ponto de extremidade ao IPython Notebook que será instalado na Etapa 3 abaixo, primeiro faça logon no Portal Clássico do Azure, selecione a máquina virtual e adicione o ponto de extremidade ao servidor do IPython Notebook. A figura a seguir contém uma captura de tela do portal após o ponto de extremidade do IPython Notebook ter sido adicionado à máquina virtual do Windows.
 
 ![Criar espaço de trabalho][17]
 
@@ -79,7 +79,7 @@ Quando solicitado, digite uma senha para o IPython Notebook e a senha de adminis
 ## <a name="access"></a>Etapa 4: acesse o IPython Notebooks usando um navegador da Web
 Para acessar o servidor do IPython Notebook, abra um navegador da Web e insira *https://&#60;virtual nome DNS do computador>:&#60;número da porta pública>* na caixa de texto da URL. Aqui, o *&#60;número da porta pública>* deve ser o número da porta especificado quando o ponto de extremidade do IPython Notebook foi adicionado.
 
-O *&#60;nome DNS da máquina virtual>* pode ser encontrado no portal de gerenciamento do Azure. Depois de fazer logon no portal de gerenciamento, clique em **MÁQUINAS VIRTUAIS**, selecione a máquina que você criou e, em seguida, selecione **PAINEL**, o nome DNS será mostrado da seguinte maneira:
+O *&#60;nome DNS da máquina virtual>* pode ser encontrado no Portal Clássico do Azure. Depois de fazer logon no Portal Clássico, clique em **MÁQUINAS VIRTUAIS**, selecione a máquina que você criou e, em seguida, selecione **PAINEL**; o nome DNS será mostrado da seguinte forma:
 
 ![Criar espaço de trabalho][19]
 
@@ -104,11 +104,11 @@ Os IPython Notebooks fornecem uma maneira fácil para que os usuários carreguem
 
 A cobrança das máquinas virtuais do Azure ocorre na forma **pague somente pelo que usa**. Para garantir que você não esteja sendo cobrado quando não estiver usando sua máquina virtual, ela deverá estar no estado **Parado (Desalocado)** quando não estiver em uso.
 
-> [AZURE.NOTE]Se você desligar a máquina virtual de dentro da VM (usando as opções de energia do Windows), a VM será interrompida, mas permanecerá alocada. Para garantir que você não continue a ser cobrado, sempre pare as máquinas virtuais no [Portal de Gerenciamento do Azure](http://manage.windowsazure.com/). Você também pode interromper a VM por meio do Powershell chamando **ShutdownRoleOperation** com "PostShutdownAction" igual a "StoppedDeallocated".
+> [AZURE.NOTE]Se você desligar a máquina virtual de dentro da VM (usando as opções de energia do Windows), a VM será interrompida, mas permanecerá alocada. Para garantir que você não continue sendo cobrado, sempre pare as máquinas virtuais no [Portal Clássico do Azure](http://manage.windowsazure.com/). Você também pode interromper a VM por meio do Powershell chamando **ShutdownRoleOperation** com "PostShutdownAction" igual a "StoppedDeallocated".
 
 Desligar e desalocar a máquina virtual:
 
-1. Faça logon no [Portal de Gerenciamento do Azure](http://manage.windowsazure.com/) usando sua conta.  
+1. Faça logon no [Portal Clássico do Azure](http://manage.windowsazure.com/) usando sua conta.  
 
 2. Selecione **MÁQUINAS VIRTUAIS** na barra de navegação à esquerda.
 
@@ -118,7 +118,7 @@ Desligar e desalocar a máquina virtual:
 
 ![Desligamento da VM][15]
 
-A máquina virtual será desalocada, mas não excluída. Você pode reiniciar a máquina virtual a qualquer momento no Portal de Gerenciamento do Azure.
+A máquina virtual será desalocada, mas não excluída. Você pode reiniciar a máquina virtual a qualquer momento no Portal Clássico do Azure.
 
 ## Sua VM do Azure está pronta para uso: o que vem a seguir?
 
@@ -143,4 +143,4 @@ As próximas etapas no processo e tecnologia de análise avançada estão mapead
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

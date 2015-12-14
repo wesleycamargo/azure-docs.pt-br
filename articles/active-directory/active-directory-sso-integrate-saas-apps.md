@@ -1,8 +1,8 @@
 <properties
     pageTitle="Integrar o logon único do Active Directory do Azure com aplicativos SaaS | Microsoft Azure"
-    description="Habilitar o gerenciamento de acesso centralizado da autenticação de logon único e do provisionamento de usuário dos aplicativos SaaS no Active Directory do Azure. Uma visão geral de como integrar o AD do Azure a aplicativos SaaS."
+    description="Habilitar o gerenciamento de acesso centralizado da autenticação de logon único e do provisionamento de usuário dos aplicativos SaaS no Active Directory do Azure. Uma visão geral de como integrar o Active Directory do Azure a aplicativos SaaS."
     services="active-directory"
-	keywords="integrar o AD do Azure a aplicativos SaaS"
+	  keywords="integrar o AD do Azure a aplicativos SaaS"
     documentationCenter=""
     authors="curtand"
     manager="stevenpo"
@@ -14,14 +14,14 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="11/20/2015"
+      ms.date="12/01/2015"
       ms.author="curtand"/>
 
-# Integrar o logon único do Azure AD (Active Directory do Azure) com aplicativos SaaS  
+# Integrar o logon único do Azure AD com aplicativos de SaaS  
 
 [AZURE.INCLUDE [active-directory-sso-use-case-intro](../../includes/active-directory-sso-use-case-intro.md)]
 
-Para começar a configurar o logon único para um aplicativo que está trazendo para sua organização, você usará um diretório existente no Active Directory do Azure. Você pode usar um diretório do Azure AD que você obtém por meio do Microsoft Azure, Office 365 ou Windows Intune. Se você tiver dois ou mais deles, consulte [Administrar seu diretório do AD do Azure](active-directory-administer.md) para determinar qual deles usar.
+Para começar a configurar o logon único para um aplicativo que está trazendo para sua organização, você usará um diretório existente no Active Directory do Azure (Azure AD). Você pode usar um diretório do Azure AD que você obtém por meio do Microsoft Azure, Office 365 ou Windows Intune. Se você tiver dois ou mais deles, consulte [Administrar seu diretório do AD do Azure](active-directory-administer.md) para determinar qual deles usar.
 
 ## Autenticação
 
@@ -41,7 +41,7 @@ O Azure AD fornece várias maneiras personalizáveis para implantar aplicativos 
 
 ## Considerações adicionais sobre os aplicativos já em uso
 
-Configurar o logon único para um aplicativo já utilizado pela sua organização é um processo diferente de criar novas contas para um novo aplicativo. Há algumas etapas preliminares incluindo: mapeamento das identidades do usuário no aplicativo para as identidades do Active Directory (AD) do Azure e compreender como os usuários farão logon em um aplicativo depois dele ser integrado.
+Configurar o logon único para um aplicativo já utilizado pela sua organização é um processo diferente de criar novas contas para um novo aplicativo. Há algumas etapas preliminares incluindo: mapeamento das identidades do usuário no aplicativo para as identidades do Azure AD e compreender como os usuários farão logon em um aplicativo depois dele ser integrado.
 
 > [AZURE.NOTE]Para configurar o SSO para um aplicativo existente, você precisa ter direitos de administrador globais no AD do Azure e no aplicativo de SaaS.
 
@@ -62,10 +62,10 @@ Outro recurso valioso é *Suprimir o consentimento do usuário* no artigo [Orien
 ## Próximas etapas
 
 
-Para aplicativos SaaS que você encontrar na Galeria de Aplicativos, o Active Directory do Azure fornece diversos [tutoriais sobre como integrar aplicativos SaaS](active-directory-saas-tutorial-list.md).
+Para aplicativos SaaS que você encontrar na Galeria de Aplicativos, o Azure AD fornece diversos [tutoriais sobre como integrar aplicativos SaaS](active-directory-saas-tutorial-list.md).
 
-Se o aplicativo não estiver na Galeria de Aplicativos, você poderá [adicioná-lo à Galeria de Aplicativos do Active Directory do Azure como um aplicativo personalizado](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
+Se o aplicativo não estiver na Galeria de Aplicativos, você poderá [adicioná-lo à Galeria de Aplicativos do Azure AD como um aplicativo personalizado](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
 
 Há muito mais detalhes sobre todos esses assuntos na biblioteca do Azure.com, começando com [O que é o acesso a aplicativos e o logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

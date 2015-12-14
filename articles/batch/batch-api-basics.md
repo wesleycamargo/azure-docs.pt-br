@@ -66,7 +66,7 @@ Quando você usa o serviço Lote do Azure, tira proveito dos seguintes recursos:
 
 ### <a name="account"></a>Conta
 
-Uma conta do Batch é uma entidade identificada exclusivamente no serviço Batch. Todo o processamento é feito por meio de uma conta do Lote. Quando você executar operações com o serviço Lote, precisará do nome da conta e da chave da conta. Para criar e gerenciar uma conta do Lote, confira [Criar e gerenciar uma conta do Lote do Azure no portal de visualização do Azure](batch-account-create-portal.md).
+Uma conta do Batch é uma entidade identificada exclusivamente no serviço Batch. Todo o processamento é feito por meio de uma conta do Lote. Quando você executar operações com o serviço Lote, precisará do nome da conta e da chave da conta. Para criar e gerenciar uma conta do Lote, confira [Criar e gerenciar uma conta do Lote do Azure no portal do Azure](batch-account-create-portal.md).
 
 ### <a name="computenode"></a>Nó de computação
 
@@ -354,4 +354,4 @@ Cada nó em um pool tem uma ID exclusiva e o nó no qual uma tarefa é executada
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

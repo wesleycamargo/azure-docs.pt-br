@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Carregar imagens no armazenamento de blob do Azure de um aplicativo universal do Windows | Microsoft Azure" 
-	description="Saiba como usar um serviço móvel de back-end do .NET para carregar imagens no armazenamento de blob do Azure e acessar imagens em seu aplicativo Windows universal." 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	services="mobile-services,storage" 
-	manager="dwrede" 
+<properties
+	pageTitle="Carregar imagens no armazenamento de blob do Azure de um aplicativo universal do Windows | Microsoft Azure"
+	description="Saiba como usar um serviço móvel de back-end do .NET para carregar imagens no armazenamento de blob do Azure e acessar imagens em seu aplicativo Windows universal."
+	documentationCenter="windows"
+	authors="ggailey777"
+	services="mobile-services,storage"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="07/13/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="07/13/2015"
 	ms.author="glenga"/>
 
 # Fazer upload de imagens no Armazenamento do Azure usando Serviços Móveis
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
@@ -52,7 +57,7 @@ Agora que você conseguiu carregar as imagens com segurança, integrando seu ser
 + [Referência conceitual do tutorial do .NET de Serviços Móveis](../mobile-services-windows-dotnet-how-to-use-client-library.md)
 
      Saiba mais sobre como usar os Serviços Móveis com o .NET
- 
+
 <!-- Anchors. -->
 [Install the Storage Client library]: #install-storage-client
 [Update the client app to capture images]: #add-select-images
@@ -66,9 +71,7 @@ Agora que você conseguiu carregar as imagens com segurança, integrando seu ser
 
 <!-- URLs. -->
 [Introdução aos Serviços Móveis]: ../mobile-services-windows-store-dotnet-get-started.md
-[Azure Management Portal]: https://manage.windowsazure.com/
 [How To Create a Storage Account]: ../storage-create-storage-account.md
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Usar o Portal de Visualização do Azure para gerenciar os recursos do Azure | Microsoft Azure" 
+	pageTitle="Usar o portal do Azure para gerenciar os recursos do Azure | Microsoft Azure" 
 	description="Agrupe vários recursos como um grupo lógico que se torna o limite do ciclo de vida para recursos contidos nele." 
 	services="azure-resource-manager,azure-portal" 
 	documentationCenter="" 
@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
+	ms.date="12/02/2015" 
 	ms.author="tomfitz"/>
 
 
-# Usando o Portal de Visualização do Azure para gerenciar os recursos do Azure
+# Usando o Portal do Azure para gerenciar os recursos do Azure
 
 ## Introdução
 
-Historicamente, para gerenciar um recurso (como um servidor de banco de dados, um banco de dados ou um aplicativo Web) no Microsoft Azure era necessário executar operações em um recurso de cada vez. Se você tivesse um aplicativo complexo composto de vários recursos, seria necessário coordenar manualmente alterações na infraestrutura do aplicativo. No Portal de Visualização do Azure, você pode usar o Gerenciador de Recursos do Azure para criar grupos de recursos para implantar e gerenciar todos os recursos em um aplicativo coletivamente.
+Historicamente, para gerenciar um recurso (como um servidor de banco de dados, um banco de dados ou um aplicativo Web) no Microsoft Azure era necessário executar operações em um recurso de cada vez. Se você tivesse um aplicativo complexo composto de vários recursos, seria necessário coordenar manualmente alterações na infraestrutura do aplicativo. No portal do Azure, você pode usar o Gerenciador de Recursos do Azure para criar grupos de recursos para implantar e gerenciar todos os recursos em um aplicativo coletivamente.
 
 Normalmente, um grupo de recursos contém recursos relacionados a um aplicativo específico. Por exemplo, um grupo pode conter um aplicativo Web que hospeda seu site público, um Banco de Dados SQL que armazena dados relacionais usados pelo site e uma conta de Armazenamento que armazena ativos não relacionais. Todos os recursos em um grupo de recursos devem compartilhar o mesmo ciclo de vida. Para obter mais informações sobre o Gerenciador de Recursos, consulte [Visão geral do Gerenciador de Recursos](../resource-group-overview.md).
 
-Este tópico fornece uma visão geral de como usar grupos de recursos no portal de visualização do Azure. Atualmente, nem todo serviço dá suporte ao portal de visualização ou ao Gerenciador de Recursos. Para esses serviços, você precisará usar o [portal](https://manage.windowsazure.com). Para o status de cada serviço, consulte [Suporte do Gerenciador de Recursos do Azure para serviços, regiões e versões de API](resource-manager-supported-services.md)
+Este tópico fornece uma visão geral de como usar grupos de recursos no portal do Azure. Atualmente, nem todo serviço dá suporte ao portal ou ao Gerenciador de Recursos. Para esses serviços, você precisará usar o [portal clássico](https://manage.windowsazure.com). Para saber o status de cada serviço, confira [Suporte do Gerenciador de Recursos do Azure para serviços, regiões e versões de API](resource-manager-supported-services.md)
 
 ## Criar recursos e grupo de recursos
 
@@ -125,13 +125,13 @@ Como os grupos de recursos permitem que você gerencie o ciclo de vida de todos 
 
 ## Marcação de recursos
 
-Você pode aplicar marcas a recursos e grupos de recursos para organizar seus ativos de modo lógico. Para obter informações sobre como trabalhar com marcas por meio do portal de visualização, consulte [Usando marcas para organizar os recursos do Azure](../resource-group-using-tags.md).
+Você pode aplicar marcas a recursos e grupos de recursos para organizar seus ativos de modo lógico. Para obter informações sobre como trabalhar com marcas usando o portal, confira [Usando marcas para organizar os recursos do Azure](../resource-group-using-tags.md).
 
 ## Implantando um modelo personalizado
 
-Se você quiser executar uma implantação, mas não usa nenhum dos modelos no marketplace, você pode criar um modelo personalizado que define a infraestrutura para sua solução. Para obter mais informações sobre modelos, consulte [Criação de modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
+Se você quiser executar uma implantação, mas não usa nenhum dos modelos no marketplace, você pode criar um modelo personalizado que define a infraestrutura para sua solução. Para saber mais sobre modelos, confira [Criando modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
-Para implantar um modelo personalizado por meio do portal de visualização, selecione **Novo**, **Marketplace** e **Tudo**.
+Para implantar um modelo personalizado por meio do portal, selecione **Novo**, **Marketplace** e **Tudo**.
 
 ![localizar implantação de modelo](./media/resource-group-portal/launch-template.png)
 
@@ -146,12 +146,12 @@ Depois de iniciar a implantação de modelo, você pode criar o modelo personali
 ## Próximas etapas
 Introdução
 
-- Para obter uma introdução aos conceitos no Gerenciador de Recursos, consulte [Visão Geral do Gerenciador de Recursos do Azure](../resource-group-overview.md).  
-- Para obter uma introdução ao uso do Azure PowerShell ao implantar recursos, consulte [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md).
-- Para obter uma introdução ao uso da CLI do Azure ao implantar recursos, consulte [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](../xplat-cli-azure-resource-manager.md). 
+- Para obter uma introdução aos conceitos no Gerenciador de Recursos, confira [Visão Geral do Gerenciador de Recursos do Azure](../resource-group-overview.md).  
+- Para obter uma introdução ao uso do Azure PowerShell ao implantar recursos, confira [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md).
+- Para obter uma introdução ao uso da CLI do Azure ao implantar recursos, confira [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](../xplat-cli-azure-resource-manager.md). 
   
 
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

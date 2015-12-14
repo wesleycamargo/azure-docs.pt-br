@@ -90,7 +90,7 @@ Se você quiser especificá-lo em tempo de execução, você pode chamar o méto
           /* Initialize Engagement angent with above configuration. */
           EngagementAgent.Instance.Init(e, engagementConfiguration);
 
-A cadeia de conexão para o seu aplicativo é exibida no Portal do Azure.
+A cadeia de conexão do seu aplicativo é exibida no Portal Clássico do Azure.
 
 ### Inicialização do Engagement
 
@@ -285,4 +285,4 @@ O modo de intermitência aumenta ligeiramente a vida útil da bateria, mas tem u
 [NuGet website]: http://docs.nuget.org/docs/start-here/overview
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

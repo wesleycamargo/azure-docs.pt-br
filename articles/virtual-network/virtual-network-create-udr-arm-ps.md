@@ -236,4 +236,4 @@ Para habilitar o encaminhamento de IP na NIC usada por **FW1**, execute as etapa
 		NetworkSecurityGroup : null
 		Primary              : True
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

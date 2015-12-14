@@ -53,7 +53,7 @@ As etapas a seguir descrevem as tarefas envolvidas na criação de aplicativos c
 
 3. Crie um programa.
 
-	Ao usar o Portal de Gerenciamento do Azure, criar um programa também cria um ativo.
+	Ao usar o Portal Clássico do Azure, a criação de um programa também cria um ativo.
 
 	Ao usar o SDK do .NET ou REST, você precisa criar um ativo e especificar o uso desse ativo durante a criação de um programa. 
 1. Publique o ativo associado ao programa.   
@@ -157,7 +157,7 @@ Você pode obter a URL de visualização quando você cria o canal. Para obter a
 
 Depois que o canal inicia a ingestão de dados, você pode visualizar o fluxo.
 
-Observe que, no momento, o fluxo de visualização só pode ser entregue no formato MP4 fragmentado (Smooth Streaming), independentemente do tipo de entrada especificado. Você pode usar o player [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) para testar o Smooth Stream. Você também pode usar um player hospedado no Portal de Gerenciamento do Azure para exibir o fluxo.
+Observe que, no momento, o fluxo de visualização só pode ser entregue no formato MP4 fragmentado (Smooth Streaming), independentemente do tipo de entrada especificado. Você pode usar o player [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) para testar o Smooth Stream. Você também pode usar um player hospedado no Portal Clássico do Azure para exibir a transmissão.
 
 
 ####Endereços IP permitidos
@@ -269,4 +269,4 @@ Escolha **Portal**, **.NET** e **API REST** para saber como criar e gerenciar ca
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

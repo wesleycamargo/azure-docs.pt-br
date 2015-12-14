@@ -233,7 +233,7 @@ Se você tiver estendido o tutorial [Introdução ao Azure Data Factory][adfgets
 
 #### Para usar um cluster HDInsight sob demanda
 
-1. No **Portal do Azure**, clique em **Criar e implantar** na página inicial do Data Factory.
+1. No **Portal Clássico do Azure**, clique em **Criar e implantar** na página inicial do Data Factory.
 2. No Editor Data Factory, Clique em **Nova computação** na barra de comandos e selecione **Cluster HDInsight sob demanda** no menu.
 2. No script JSON, faça o seguinte:
 	1. Para a propriedade **clusterSize**, especifique o tamanho do cluster do HDInsight.
@@ -248,7 +248,7 @@ Se você tiver estendido o tutorial [Introdução ao Azure Data Factory][adfgets
 			    "typeProperties": {
 			      "clusterSize": "1",
 			      "timeToLive": "00:05:00",
-			      "version": "3.1",
+			      "version": "3.2",
 			      "linkedServiceName": "StorageLinkedService"
 			    }
 			  }
@@ -374,7 +374,7 @@ Se você tiver estendido o tutorial [Introdução ao Azure Data Factory][adfgets
 
 	(local do blob), (nome do blob), (número de linhas no blob), (nó em que a atividade foi executada), (carimbo de data/hora)
 
-10.	Use o [Portal do Azure][azure-preview-portal] ou cmdlets do PowerShell do Azure para monitorar sua data factory, pipelines e conjuntos de dados. Você pode ver as mensagens de **ActivityLogger** no código da atividade personalizada nos logs (especificamente, user-0.log) que você pode baixar do portal ou usando os cmdlets.
+10.	Use o [Portal Clássico do Azure][azure-preview-portal] ou os cmdlets do Azure PowerShell para monitorar seu data factory, pipelines e conjuntos de dados. Você pode ver as mensagens de **ActivityLogger** no código da atividade personalizada nos logs (especificamente, user-0.log) que você pode baixar do portal ou usando os cmdlets.
 
 	![baixar logs de atividade personalizada][image-data-factory-download-logs-from-custom-activity]
 
@@ -398,7 +398,7 @@ Você pode executar suas atividades personalizadas do .NET usando o Azure Batch 
 
 Aqui estão os passos de alto nível para usar o serviço vinculado Azure Batch no passo a passo descrito na seção anterior:
 
-1. Crie uma conta de lote do Azure usando o Portal de Gerenciamento do Azure. Consulte o artigo [Criar e gerenciar uma conta do Lote do Azure][batch-create-account] para ver as instruções. Anote a chave e o nome da conta do Azure Batch.
+1. Crie uma conta do Lote do Azure usando o [Portal Clássico do Azure](http://manage.windowsazure.com). Veja o artigo [Criar e gerenciar uma conta do Lote do Azure][batch-create-account] para ver as instruções. Anote a chave e o nome da conta do Azure Batch.
 
 	Você também pode usar o cmdlet [New-AzureBatchAccount][new-azure-batch-account] para criar uma conta do Azure Batch. Consulte [usando o Azure PowerShell para gerenciar conta do Azure lote][azure-batch-blog] para obter instruções detalhadas sobre como usar este cmdlet.
 2. Crie um pool do Azure Batch. Você pode baixar o código-fonte da [ferramenta Gerenciador do Lote do Azure][batch-explorer], compilar e usá-lo (ou) usar a [Biblioteca do Lote do Azure para .NET][batch-net-library] para criar um pool do Lote do Azure. Consulte [Passo a passo de exemplo do gerenciador do Azure Batch][batch-explorer-walkthrough] para obter instruções passo a passo de como usar o Gerenciador do Azure Batch.
@@ -474,4 +474,4 @@ Aqui estão os passos de alto nível para usar o serviço vinculado Azure Batch 
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -32,7 +32,7 @@ Este artigo fornece instruções sobre como usar o Portal do Azure para realizar
 
 Antes de começar este tutorial, você deve ter o seguinte:
 
-- **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pt-BR/pricing/free-trial/).
+- **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Uma conta do repositório Azure Data Lake**. Para obter instruções sobre como criar uma, consulte [Introdução ao repositório Azure Data Lake](data-lake-store-get-started-portal.md)
 
 ## Criar grupos de segurança no Active Directory do Azure
@@ -125,7 +125,7 @@ Ao atribuir usuários/grupos de segurança ao sistema de arquivos do Azure Data 
 
 ## Remova grupos de segurança de uma conta do repositório Azure Data Lake.
 
-Ao remover grupos de segurança das contas do repositório Azure Data Lake, você está apenas alterando o acesso às operações de gerenciamento na conta usando o Portal de Visualização do Azure e as APIs do Gerenciador de Recursos do Azure.
+Ao remover grupos de segurança das contas do Repositório do Azure Data Lake, você está apenas alterando o acesso às operações de gerenciamento na conta usando o Portal do Azure e as APIs do Gerenciador de Recursos do Azure.
 
 1. Na folha de sua conta do Repositório Data Lake, clique no ícone de usuário.
 
@@ -164,4 +164,4 @@ Quando você remove as ACLs de grupos de segurança do sistema de arquivos do re
 - [Introdução ao Repositório Data Lake usando o PowerShell](data-lake-store-get-started-powershell.md)
 - [Introdução ao Repositório Data Lake usando o SDK do .NET](data-lake-store-get-started-net-sdk.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

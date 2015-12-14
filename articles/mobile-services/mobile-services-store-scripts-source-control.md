@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/15/2015" 
+	ms.date="09/15/2015"
 	ms.author="ggailey777"/>
 
 # Armazenar o código de seu projeto de serviço móvel no controle do código-fonte
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 > [AZURE.SELECTOR]
 - [.NET backend](mobile-services-dotnet-backend-store-code-source-control.md)
@@ -24,7 +29,7 @@
 
 Este tópico mostra como usar o controle do código-fonte dos Serviços Móveis do Azure para armazenar scripts do servidor. Scripts e outros arquivos de código de back-end de JavaScript podem ser promovidos do repositório de Git local para o serviço móvel de produção. Ele também mostra como definir o código compartilhado que pode ser exigido por vários scripts e como usar o arquivo package.json para adicionar módulos Node.js ao serviço móvel.
 
-Para concluir este tutorial, você já deve ter criado um serviço móvel por meio da conclusão do tutorial [Introdução aos Serviços Móveis].
+Para concluir este tutorial, você já deve ter criado um serviço móvel por meio da conclusão do tutorial [Guia de introdução aos serviços móveis].
 
 ##<a name="enable-source-control"></a>Habilitar o controle do código-fonte no seu serviço móvel
 
@@ -93,7 +98,7 @@ Agora que criou seu repositório local, você pode fazer alterações nos script
 
 	Uma série de comandos deverão ser exibidos indicando que a confirmação foi implantada no serviço móvel.
 
-6. De volta ao Portal de Gerenciamento, clique na guia **Dados**; em seguida, clique na tabela **TodoItem**, em **Script** e selecione a operação **Inserir**. Observe que o script da operação de inserção exibido é o mesmo do código JavaScript que você acabou de carregar para o repositório.
+6. De volta ao [Portal clássico do Azure], clique na guia **Dados**. Em seguida, clique na tabela **TodoItem**, em **Script** e selecione a operação **Inserir**. Observe que o script da operação de inserção exibido é o mesmo do código JavaScript que você acabou de carregar para o repositório.
 
 ##<a name="use-npm"></a>Aproveitar o código compartilhado e os módulos do Node.js nos seus scripts de servidor
 
@@ -147,10 +152,10 @@ Agora que concluiu este tutorial, você sabe como armazenar seus scripts no cont
 [Git website]: http://git-scm.com
 [Controle do código-fonte]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Instalando o Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[Introdução aos Serviços Móveis]: mobile-services-ios-get-started.md
+[Guia de introdução aos serviços móveis]: mobile-services-ios-get-started.md
 [Trabalhar com scripts de servidor em Serviços Móveis]: mobile-services-how-to-use-server-scripts.md
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Portal clássico do Azure]: https://manage.windowsazure.com/
 [Módulos]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

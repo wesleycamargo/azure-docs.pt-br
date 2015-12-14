@@ -32,17 +32,17 @@ Para saber mais sobre a preparação para desastres e quando recuperar o banco d
 A operação de recuperação afeta o aplicativo. Ele exige a alteração da cadeia de conexão SQL e pode resultar em perda permanente de dados. Portanto, deve ser feita somente quando houver a probabilidade de a interrupção durar mais do que o RTO do aplicativo. Quando o aplicativo for implantado na produção você deverá executar o monitoramento regular da integridade do aplicativo e usar os seguintes pontos de dados para ter certeza de a recuperação é garantida:
 
 1. Falha de conectividade permanente da camada do aplicativo com o banco de dados.
-2. Seu Portal do Azure mostra um alerta sobre um incidente na região com grande impacto.
+2. Seu Portal Clássico do Azure mostra um alerta sobre um incidente na região com grande impacto.
 
 > [AZURE.NOTE]Depois que o banco de dados é recuperado, você pode configurá-lo para ser usado, seguindo o guia [Configurar seu banco de dados após a recuperação](#postrecovery).
 
 ## Failover para banco de dados secundário replicado geograficamente
 > [AZURE.NOTE]Deve ser configurado para ter um banco de dados secundário a ser usado para failover. A replicação geográfica só está disponível para bancos de dados Standard e Premium. Saiba [como configurar a replicação geográfica](sql-database-business-continuity-design.md)
 
-###Portal do Azure
-Use o Portal do Azure para encerrar a relação de cópia contínua com o banco de dados secundário replicado geograficamente.
+###Portal Clássico do Azure
+Use o Portal Clássico do Azure para encerrar o relacionamento de cópia contínua com o banco de dados secundário replicado geograficamente.
 
-1. Faça logon no [Portal do Azure](https://portal.Azure.com).
+1. Faça logon no [Portal Clássico do Azure](https://portal.Azure.com)
 2. No lado esquerdo da tela, selecione **PROCURAR** e selecione **Bancos de Dados SQL**
 3. Navegue até o banco de dados e selecione-o. 
 4. Na parte inferior da folha do banco de dados, selecione o **Mapa de Replicação Geográfica**.
@@ -66,10 +66,10 @@ Caso ocorra uma interrupção de um banco de dados, você poderá recuperar o ba
 
 > [AZURE.NOTE]A recuperação de um banco de dados cria um novo banco de dados. É importante garantir que o servidor que você está recuperando tenha capacidade de DTU suficiente para o novo banco de dados. Você pode solicitar um aumento dessa cota [contatando o suporte](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
 
-###Portal do Azure
-Para restaurar um banco de dados SQL usando a restauração geográfica no Portal do Azure, use as etapas a seguir.
+###Portal Clássico do Azure
+Para restaurar um banco de dados SQL usando a restauração geográfica no Portal Clássico do Azure, use as etapas a seguir.
 
-1. Faça logon no [Portal do Azure](https://portal.Azure.com)
+1. Faça logon no [Portal Clássico do Azure](https://portal.Azure.com)
 2. No lado esquerdo da tela, selecione **NOVO** e selecione **Dados e Armazenamento** e selecione **Banco de Dados SQL**
 2. Selecione **BACKUP** como a origem e, em seguida, selecione o backup redundante geograficamente do qual você deseja recuperar.
 3. Especifique o restante das propriedades do banco de dados e, em seguida, clique em **Criar**.
@@ -131,4 +131,4 @@ Para obter mais informações sobre regras de alerta de banco de dados, consulte
 
 Se a auditoria for necessária para acessar o banco de dados, você precisará habilitar a auditoria após a recuperação do banco de dados. Um bom indicador de auditoria é obrigatório, pois os aplicativos cliente usam cadeias de conexão seguras em um padrão *.database.secure.windows.net. Para saber mais, confira [Introdução à Auditoria do Banco de Dados SQL](sql-database-auditing-get-started.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

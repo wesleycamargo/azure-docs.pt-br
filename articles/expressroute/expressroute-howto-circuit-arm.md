@@ -35,7 +35,7 @@ Este artigo fornece uma orientação pelas etapas de criação de um circuito da
 
 1. **Importe o módulo do PowerShell para Rota Expressa.**
 
- 	Você deve instalar o instalador do PowerShell mais recente da [Galeria do PowerShell](http://www.powershellgallery.com/) e importar os módulos do Gerenciador de Recursos do Azure na sessão do PowerShell para começar a usar os cmdlets da Rota Expressa. Você precisará executar o PowerShell como Administrador.
+ 	Instale o instalador do PowerShell mais recente da [Galeria do PowerShell](http://www.powershellgallery.com/) e importe os módulos do Gerenciador de Recursos do Azure na sessão do PowerShell para começar a usar os cmdlets da Rota Expressa. Você precisará executar o PowerShell como Administrador.
 
 	    Install-Module AzureRM
 
@@ -76,7 +76,7 @@ Este artigo fornece uma orientação pelas etapas de criação de um circuito da
 		
 3. **Criar um circuito da Rota Expressa.**
 
-	Primeiro você deve criar um grupo de recursos, se ainda não tiver um, antes de criar o circuito da Rota Expressa. Você pode fazer isso executando o comando a seguir.
+	Primeiro crie um grupo de recursos, se ainda não tiver um, antes de criar o circuito da Rota Expressa. Você pode fazer isso executando o comando a seguir.
 
 		New-AzureRmResourceGroup -Name “ExpressRouteResourceGroup” -Location "West US"
 
@@ -89,7 +89,7 @@ Este artigo fornece uma orientação pelas etapas de criação de um circuito da
 	Especifique a camada certa de SKU e a família de SKU.
  
 	 - A camada de SKU determina se o complemento padrão da Rota Expressa ou da Rota Expressa Premium está habilitado. Você pode especificar o *padrão* para obter a SKU padrão ou *premium* para obter o complemento premium
-	 - A família da SKU determina o tipo de cobrança. Você pode selecionar *metereddata* para um plano de dados limitado e *unlimiteddata"para um plano de dados ilimitado. **Observação:** você não poderá alterar o tipo de cobrança depois de criar um circuito.
+	 - A família da SKU determina o tipo de cobrança. Você pode selecionar *metereddata* para um plano de dados limitado e *unlimiteddata"para um plano de dados ilimitado. **Observação:** não será possível alterar o tipo de cobrança depois de criar um circuito.
 
 	A resposta conterá a chave de serviço. Você pode obter descrições detalhadas de todos os parâmetros executando o seguinte:
 
@@ -219,7 +219,7 @@ Este artigo fornece uma orientação pelas etapas de criação de um circuito da
 
 7. **Vincule uma Rede Virtual a um circuito da Rota Expressa.**
 
-	Em seguia, vincule uma Rede Virtual ao seu circuito da Rota Expressa. Veja [Vinculando circuitos da Rota Expressa a redes virtuais](expressroute-howto-linkvnet-arm.md) para obter instruções passo a passo. Se você precisar criar uma rede virtual para a Rota Expressa, consulte [Criando uma rede virtual para a Rota Expressa](expressroute-howto-createvnet-classic.md) para obter instruções.
+	Em seguia, vincule uma Rede Virtual ao seu circuito da Rota Expressa. Veja [Vinculando circuitos da Rota Expressa a redes virtuais](expressroute-howto-linkvnet-arm.md) para obter instruções passo a passo. Se precisar criar uma rede virtual para a Rota Expressa, consulte [Criando uma rede virtual para a Rota Expressa](expressroute-howto-createvnet-classic.md) para obter instruções.
 
 ##  Obter o status de um circuito da Rota Expressa
 
@@ -356,6 +356,5 @@ Se o provedor de serviços tiver desprovisionado o circuito (o estado de provisi
 ## Próximas etapas
 
 - [Configurar o roteamento](expressroute-howto-routing-arm.md)
-- [Vincular uma Rede Virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-arm.md) 
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

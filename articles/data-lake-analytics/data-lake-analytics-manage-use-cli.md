@@ -26,7 +26,7 @@ Saiba como gerenciar contas, fontes de dados, usuários e trabalhos da Análise 
 
 Antes de começar este tutorial, você deve ter o seguinte:
 
-- **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pt-BR/pricing/free-trial/).
+- **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **CLI do Azure**. Consulte [Instalar e configurar a CLI do Azure](xplat-cli.md).
 	- Baixe e instale o **pré-lançamento das** [ferramentas de CLI do Azure](https://github.com/MicrosoftBigData/AzureDataLake/releases) para concluir esta demonstração.
 - **Autenticação**, usando o seguinte comando:
@@ -210,8 +210,8 @@ Uma conta da Análise Data Lake e as contas de armazenamento dependentes devem s
 ##Consulte também 
 
 - [Visão geral da Análise do Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-- [Introdução à Análise Data Lake usando o Portal de Visualização do Azure](data-lake-analytics-get-started-portal.md)
-- [Gerenciar a Análise Azure Data Lake usando o Portal de Visualização do Azure](data-lake-analytics-use-portal.md)
-- [Monitorar e solucionar problemas em trabalhos da Análise Azure Data Lake usando o Portal de Visualização do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Introdução à Análise do Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md)
+- [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-use-portal.md)
+- [Monitorar e solucionar problemas em trabalhos da Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

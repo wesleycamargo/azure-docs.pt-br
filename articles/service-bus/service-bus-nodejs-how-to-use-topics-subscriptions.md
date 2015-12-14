@@ -69,7 +69,7 @@ O módulo Azure lê as variáveis de ambiente AZURE\_SERVICEBUS\_NAMESPACE e AZU
 
 Para obter um exemplo de como definir as variáveis de ambiente em um arquivo de configuração para um Serviço de Nuvem do Azure, consulte [Serviço de Nuvem do Node.js com Armazenamento][].
 
-Para ver um exemplo de como definir variáveis de ambiente no portal do Azure para um Site do Azure, veja [Aplicativo Web do Node.js com armazenamento][].
+Para ver um exemplo de como definir variáveis de ambiente no [portal clássico do Azure][] para um Site do Azure, veja [Aplicativo Web do Node.js com Armazenamento][].
 
 ## Criar um tópico
 
@@ -130,11 +130,11 @@ Dois filtros que implementam a lógica de repetição estão incluídos no SDK d
 
 As assinaturas do tópico também são criadas com o objeto **ServiceBusService**. As assinaturas são nomeadas e podem ter um filtro opcional que restringe o conjunto de mensagens entregues à fila virtual da assinatura.
 
-> [AZURE.NOTE]As assinaturas são persistentes e continuarão existindo até que elas ou o tópico ao qual estão associadas sejam excluídos. Se seu aplicativo contiver a lógica para criar uma assinatura, ele deverá primeiro verificar se a assinatura já existe usando o método **getSubscription**.
+> [AZURE.NOTE]As assinaturas são persistentes e continuarão existindo até que elas ou o tópico ao qual estão associadas sejam excluídos. Se seu aplicativo contiver a lógica para criar uma assinatura, ele deve primeiro verificar se a assinatura já existe usando o método **getSubscription**.
 
 ### Criar uma assinatura com o filtro padrão (MatchAll)
 
-**MatchAll** será o filtro padrão usado se nenhum filtro for especificado quando uma nova assinatura for criada. Quando o filtro **MatchAll** é usado, todas as mensagens publicadas no tópico são colocadas na fila virtual da assinatura. O exemplo a seguir cria uma assinatura denominada 'AllMessages' e usa o filtro padrão **MatchAll**.
+**MatchAll** será o filtro padrão usado se nenhum filtro for especificado quando uma nova assinatura for criada. Quando o filtro **MatchAll** é usado, todas as mensagens publicadas no tópico são colocadas na fila virtual da assinatura. O exemplo a seguir cria uma assinatura denominada “AllMessages” e usa o filtro padrão **MatchAll**.
 
 ```
 serviceBusService.createSubscription('MyTopic','AllMessages',function(error){
@@ -152,7 +152,7 @@ O tipo de filtro mais flexível compatível com as assinaturas é o **SqlFilter*
 
 Os filtros podem ser adicionados a uma assinatura usando o método **createRule** do objeto **ServiceBusService**. Este método permite que você adicione novos filtros a uma assinatura existente.
 
-> [AZURE.NOTE]Como o filtro padrão é aplicado automaticamente em todas as assinaturas novas, você deve primeiro remover o filtro padrão, ou o filtro **MatchAll** substituirá todos os outros filtros que você possa especificar. Você pode remover a regra padrão usando o método **deleteRule** do objeto **ServiceBusService**.
+> [AZURE.NOTE]Como o filtro padrão é aplicado automaticamente em todas as assinaturas novas, você deve primeiro remover o filtro padrão, senão o filtro **MatchAll** substituirá todos os outros filtros que você possa especificar. Você pode remover a regra padrão usando o método **deleteRule** do objeto **ServiceBusService**.
 
 O exemplo a seguir cria uma assinatura denominada `HighMessages` com um **SqlFilter** que seleciona apenas as mensagens que tenham uma propriedade **MessageNumber** personalizada maior do que 3.
 
@@ -292,7 +292,7 @@ Caso o aplicativo falhe após o processamento da mensagem, mas antes que o méto
 
 ## Excluir tópicos e assinaturas
 
-Os tópicos e as assinaturas são persistentes e devem ser explicitamente excluídos por meio do portal do Azure ou de forma programática. O exemplo a seguir demonstra como excluir o tópico denominado `MyTopic`:
+Os tópicos e as assinaturas são persistentes e devem ser explicitamente excluídos por meio do [portal clássico do Azure][] ou de forma programática. O exemplo a seguir demonstra como excluir o tópico denominado `MyTopic`:
 
     serviceBusService.deleteTopic('MyTopic', function (error) {
         if (error) {
@@ -317,14 +317,14 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
 -   Visite o repositório [SDK do Azure para o nó][] no GitHub.
 
   [SDK do Azure para o nó]: https://github.com/WindowsAzure/azure-sdk-for-node
-  [Azure portal]: http://manage.windowsazure.com
+  [portal clássico do Azure]: http://manage.windowsazure.com
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Filas, tópicos e assinaturas]: service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [Criar e implantar um aplicativo Node.js em um site do Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Serviço de Nuvem do Node.js com Armazenamento]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-  [Aplicativo Web do Node.js com armazenamento]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
+  [Aplicativo Web do Node.js com Armazenamento]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

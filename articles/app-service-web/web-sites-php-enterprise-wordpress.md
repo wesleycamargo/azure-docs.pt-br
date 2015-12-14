@@ -28,7 +28,7 @@ Uma instalação básica do WordPress tem apenas dois requisitos.
 
     > [AZURE.NOTE]O ClearDB fornece diversas configurações do MySQL, com características de desempenho diferentes para cada configuração. Consulte a [Azure Store][cdbnstore] for para obter informações sobre ofertas oferecidas por meio da Azure Store ou o [preço do ClearDB](http://www.cleardb.com/pricing.view) para ofertas diretamente no ClearDB.
 
-* **PHP 5.2.4 ou posterior** - o Serviço de Aplicativo do Azure atualmente fornece as versões [5\.4, 5.5 e 5.6 do PHP][phpwebsite].
+* **PHP 5.2.4 ou posterior** – o Serviço de Aplicativo do Azure atualmente fornece as versões [5\.4, 5.5 e 5.6 do PHP][phpwebsite].
 
 	> [AZURE.NOTE]Recomendamos sempre executar a versão mais recente do PHP para garantir que você tenha as correções de segurança mais recentes.
 
@@ -134,7 +134,7 @@ Use uma das seções a seguir para migrar o site.
 
 6. Clique em **Enviar**. Você será avisado de que a importação foi bem-sucedida.
 
-8. Depois de ter concluído todas essas etapas, reinicie o site de sua folha de aplicativo Web no [Portal de visualização do Azure][mgmtportal].
+8. Depois de ter concluído todas essas etapas, reinicie o site de sua folha de aplicativo Web no [Portal do Azure][mgmtportal].
 
 Depois de importar o site, você precisará realizar as etapas a seguir para habilitar as configurações não contidas no arquivo de importação.
 
@@ -161,7 +161,7 @@ Se você estava usando isto... | Faça isso...
 
 4. Crie um novo aplicativo Web no Portal do Azure e publique o backup do WordPress.
 
-	1. Criar um novo aplicativo Web no[ Portal de visualização do Azure][mgmtportal] com um banco de dados usando **Novo** -> **Web + Móvel** -> **Azure Marketplace** -> **Aplicativos Web** -> **Aplicativo Web + SQL** (ou **Aplicativo Web + MySQL**) -> **Criar**. Defina todas as configurações necessárias para criar um aplicativo Web vazio.
+	1. Criar um novo aplicativo Web no[ Portal do Azure][mgmtportal] com um banco de dados usando **Novo** -> **Web + Móvel** -> **Azure Marketplace** -> **Aplicativos Web** -> **Aplicativo Web + SQL** (ou **Aplicativo Web + MySQL**) -> **Criar**. Defina todas as configurações necessárias para criar um aplicativo Web vazio.
 
 	2. No backup do WordPress, localize o arquivo **wp-config.php** e o abra em um editor. Substitua as entradas a seguir pelas informações do novo banco de dados MySQL.
 
@@ -232,11 +232,10 @@ Para fazer isto... | Use isto...
 
 * [Dicas para o WordPress no Azure](http://www.johnpapa.net/azurecleardbmysql/)
 
->[AZURE.NOTE]Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo.. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia sobre a alteração do portal para o portal de visualização, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [performance-diagram]: ./media/web-sites-php-enterprise-wordpress/performance-diagram.png
 [basic-diagram]: ./media/web-sites-php-enterprise-wordpress/basic-diagram.png
@@ -283,4 +282,4 @@ Para fazer isto... | Use isto...
 [cdn]: ../cdn-how-to-use.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

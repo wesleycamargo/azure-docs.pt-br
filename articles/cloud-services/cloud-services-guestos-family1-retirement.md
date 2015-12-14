@@ -37,7 +37,7 @@ Os Serviços de Nuvem são afetados se qualquer uma das opções a seguir se apl
 
 1. Você tem um valor de "osFamily = "1" explicitamente especificado no arquivo ServiceConfiguration.cscfg para seu serviço de nuvem. 
 2. Você não tem um valor para osFamily especificado explicitamente no arquivo ServiceConfiguration.cscfg para seu serviço de nuvem. Atualmente, o sistema usa o valor padrão de "1" nesse caso.
-3. O Portal de Gerenciamento do Azure lista o valor da família do sistema operacional convidado como "Windows Server 2008". Consulte [isto](https://msdn.microsoft.com/library/azure/gg456325.aspx) para localizar esse valor.
+3. O portal clássico do Azure lista o valor da família do Sistema Operacional Convidado como "Windows Server 2008". Consulte [isto](https://msdn.microsoft.com/library/azure/gg456325.aspx) para localizar esse valor.
 
 Para definir quais dos serviços de nuvem estão executando qual família de SO, execute o script abaixo no PowerShell do Azure, embora você deva [configurar o PowerShell do Azure](../install-configure-powershell.md) primeiro. Para obter detalhes adicionais sobre o script, consulte [Fim da vida útil da família 1 dos sistemas operacionais convidados do Azure: junho de 2014](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
 
@@ -79,6 +79,6 @@ Recomendamos que você migre suas funções de serviço de nuvem para uma das fa
 Não há mais suporte para serviços de nuvem na família 1 dos sistemas operacionais convidados. Migre da família 1 assim que possível para evitar a interrupção do serviço.
 
 ## Próximas etapas
-Examinar as últimas [versões do SO convidado](cloud-services-guestos-update-matrix.md).
+Examine as últimas [versões do SO convidado](cloud-services-guestos-update-matrix.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

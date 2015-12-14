@@ -15,11 +15,11 @@
 
     ![Criar contêiner de volume com o modelo de largura de banda 1](./media/storsimple-add-volume-container/HCS_CreateVCBT1-include.png)
 
-3. Se você tiver especificado **Selecionar um modelo de largura de banda**, escolha uma opção na lista suspensa de modelos existentes de largura de banda. Examine as configurações de agenda e clique no ícone de verificação ![ícone de verificação](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png).
+3. Se você especificou **Selecionar um modelo de largura de banda**, escolha um modelo existente de largura de banda na lista suspensa. Examine as configurações de agenda e clique no ícone de verificação ![ícone de verificação](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png).
 
     ![Criar contêiner de volume com o modelo de largura de banda 2](./media/storsimple-add-volume-container/HCS_CreateVCBT2-include.png)
 
 O contêiner de volume será salvo, e o contêiner de volume recém-criado será listado na página **Contêiner de volume**.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

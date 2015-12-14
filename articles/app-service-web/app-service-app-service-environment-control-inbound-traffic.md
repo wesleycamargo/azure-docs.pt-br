@@ -54,7 +54,7 @@ Também é recomendável que todos os servidores DNS personalizados na rede virt
 ## Criando um grupo de segurança de rede ##
 Para obter detalhes completos sobre como funcionam os grupos de segurança de rede, consulte as seguintes [informações][NetworkSecurityGroups]. Os detalhes abaixo tocam em pontos de destaque dos grupos de segurança de rede, com foco em como configurar e aplicar um grupo de segurança de rede a uma sub-rede que contém um ambiente de serviço de aplicativo.
 
-**Observação**: os grupos de segurança de rede pode ser configurados somente usando o cmdlets do Powershell descritos abaixo. Os grupos de segurança de rede não podem ser configurados graficamente usando o novo portal (portal.azure.com) porque o novo portal permite apenas configuração gráfica de NSGs associados às redes virtuais "v2". No entanto, os Ambientes de Serviços de Aplicativo atualmente funcionam apenas com redes virtuais clássicas "v1". Consequentemente, apenas os cmdlets do Powershell podem ser usados para configurar grupos de segurança de rede associados às redes virtuais "v1".
+**Observação**: os grupos de segurança de rede pode ser configurados somente usando o cmdlets do Powershell descritos abaixo. Os grupos de segurança de rede não podem ser configurados graficamente usando o [Portal do Azure](portal.azure.com) porque esse portal permite apenas a configuração gráfica de NSGs associados às redes virtuais "v2". No entanto, os Ambientes de Serviços de Aplicativo atualmente funcionam apenas com redes virtuais clássicas "v1". Consequentemente, apenas os cmdlets do Powershell podem ser usados para configurar grupos de segurança de rede associados às redes virtuais "v1".
 
 Grupos de segurança de rede são criados pela primeira vez como uma entidade autônoma associada a uma assinatura. Como os grupos de segurança de rede são criados em uma região do Azure, certifique-se de que o grupo de segurança de rede é criado na mesma região que o ambiente de serviço de aplicativo.
 
@@ -82,7 +82,7 @@ Se desejar suporte a FTP, as regras a seguir podem usadas como um modelo para co
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPCtrl" -Type Inbound -Priority 400 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '21' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPDataRange" -Type Inbound -Priority 500 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '10001-10020' -Protocol TCP
 
-(**Observação:** o intervalo de portas do canal de dados pode mudar durante o período de visualização.)
+(**Observação:** o intervalo de portas do canal de dados pode mudar durante o período de visualização).
 
 Se a depuração remota com o Visual Studio é usada, as regras a seguir demonstram como conceder acesso. Há uma regra separada para cada versão do Visual Studio para a qual há suporte, já que cada versão usa uma porta diferente para a depuração remota. Assim como acontece com acesso ao FTP, o tráfego de depuração remota pode não fluir corretamente por meio de um dispositivo de proxy ou WAF tradicional. O *SourceAddressPrefix* pode ser definido, em vez disso, como o intervalo de endereços IP dos computadores de desenvolvedor executando o Visual Studio.
 
@@ -134,4 +134,4 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 
 <!-- IMAGES -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

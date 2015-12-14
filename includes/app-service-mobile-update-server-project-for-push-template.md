@@ -46,4 +46,6 @@
 
     Este código manda o hub de notificação enviar uma notificação de um modelo para todos os registros de modelo que contêm "messageParam". A cadeia de caracteres será inserida no lugar de messageParam em cada PNS que tiver um registro usando "messageParam". Isso permite enviar a notificação para APNS, GCM, WNS ou qualquer outro PNS.
 
-<!---HONumber=AcomDC_1125_2015-->
+	Para obter mais informações sobre modelos com os Hubs de Notificação, veja [Modelos](notification-hubs-templates.md).
+
+<!---HONumber=AcomDC_1203_2015-->

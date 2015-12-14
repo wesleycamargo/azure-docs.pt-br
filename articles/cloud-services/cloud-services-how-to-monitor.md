@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Como monitorar um serviço de nuvem | Microsoft Azure" 
-	description="Saiba como monitorar serviços de nuvem usando o Portal de Gerenciamento do Azure." 
+	description="Saiba como monitorar serviços de nuvem usando o portal clássico do Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="rboucher" 
@@ -21,9 +21,9 @@
 
 [AZURE.INCLUDE [isenção de responsabilidade](../../includes/disclaimer.md)]
 
-Você pode monitorar métricas do desempenho de seus serviços de nuvem no Portal de Gerenciamento do Azure. Você pode definir o nível de monitoramento como mínimo e detalhado para cada função do serviço, além de poder personalizar as exibições de monitoramento. Os dados de monitoramento detalhados são armazenados em uma conta do armazenamento, que você poderá acessar fora do portal.
+Você pode monitorar métricas do desempenho de seus serviços de nuvem no portal clássico do Azure. Você pode definir o nível de monitoramento como mínimo e detalhado para cada função do serviço, além de poder personalizar as exibições de monitoramento. Os dados de monitoramento detalhados são armazenados em uma conta do armazenamento, que você poderá acessar fora do portal.
 
-O monitoramento das exibições no Portal de Gerenciamento são altamente configuráveis. Você pode escolher as métricas que você deseja monitorar na lista de métricas na página **Monitoramento** e pode escolher quais métricas para plotar em gráficos de métricas na página **Monitoramento** e no painel.
+O monitoramento das exibições no portal clássico do Azure são altamente configuráveis. Você pode escolher as métricas que você deseja monitorar na lista de métricas na página **Monitoramento** e pode escolher quais métricas para plotar em gráficos de métricas na página **Monitoramento** e no painel.
 
 ##Conceitos##
 
@@ -38,7 +38,7 @@ Observe que habilitar o monitoramento detalhado aumentará os custos de armazena
 
 ##Tutorial: Configurar o monitoramento para serviços de nuvem##
 
-Use os procedimentos a seguir para configurar o monitoramento mínimo ou detalhado no Portal de Gerenciamento.
+Use os procedimentos a seguir para configurar o monitoramento mínimo ou detalhado no portal clássico do Azure.
 
 ###Antes de começar###
 
@@ -62,25 +62,25 @@ Certifique-se de que a cadeia de conexão de diagnóstico esteja presente na con
 
 ###Para alterar o nível de monitoramento para detalhado ou mínimo###
 
-1. No [Portal de Gerenciamento](https://manage.windowsazure.com/), abra a página **Configurar** para implantar o serviço de nuvem.
+1. No [portal clássico do Azure](https://manage.windowsazure.com/), abra a página **Configurar** para implantar o serviço de nuvem.
 
 2. Em **Nível**, clique em **Detalhado** ou **Mínimo**.
 
 3. Clique em **Salvar**.
 
-Após ativar o monitoramento detalhado, deve ser possível ver os dados de monitoramento no Portal de Gerenciamento dentro de uma hora.
+Após ativar o monitoramento detalhado, deve ser possível ver os dados de monitoramento no portal clássico do Azure dentro de uma hora.
 
 Os dados brutos do contador de desempenho e os dados de monitoramento agregados são armazenados na conta de armazenamento, em tabelas qualificadas pela ID da implantação para as funções.
 
 ##Tutorial: Receber alertas para métricas dos serviços de nuvem##
 
-Você pode receber alertas baseados nas métricas de monitoramento do serviço de nuvem. Na página **Serviços de Gerenciamento** do Portal de Gerenciamento do Azure, você pode criar uma regra para acionar uma alerta quando a métrica escolhida alcançar um valor especificado. Você também pode escolher que um email seja enviado quando o alerta é disparado. Para saber mais, consulte [Como: receber notificações de alerta e gerenciar regras de alerta no Azure](http://go.microsoft.com/fwlink/?LinkId=309356).
+Você pode receber alertas baseados nas métricas de monitoramento do serviço de nuvem. Na página **Serviços de Gerenciamento** do portal clássico do Azure, você pode criar uma regra para disparar um alerta quando a métrica escolhida alcançar um valor especificado. Você também pode escolher que um email seja enviado quando o alerta é disparado. Para saber mais, confira [Como: receber notificações de alerta e gerenciar regras de alerta no Azure](http://go.microsoft.com/fwlink/?LinkId=309356).
 
 ##Tutorial: Adicionar métricas à tabela de métricas##
 
-1. No [Portal de Gerenciamento](http://manage.windowsazure.com/), abra a página **Monitoramento** para o serviço de nuvem.
+1. No [portal clássico do Azure](http://manage.windowsazure.com/), abra a página **Monitorar** para o serviço de nuvem.
 
-	Por padrão, a tabela de métricas exibe um subconjunto de métricas disponíveis. A ilustração mostra as métricas detalhadas padrão para um serviço de nuvem, que estão limitadas à contador de desempenho de memória\\MBytes disponíveis, com os dados agregados à nível de função. Use **Adicionar Métricas** para selecionar métricas agregadas e de nível de função adicionais para monitorar o Portal de Gerenciamento.
+	Por padrão, a tabela de métricas exibe um subconjunto de métricas disponíveis. A ilustração mostra as métricas detalhadas padrão para um serviço de nuvem, que estão limitadas à contador de desempenho de memória\\MBytes disponíveis, com os dados agregados à nível de função. Use **Adicionar Métricas** para selecionar métricas agregadas e de nível de função adicionais para monitorar o portal clássico do Azure.
 
 	![Exibição detalhada](./media/cloud-services-how-to-monitor/CloudServices_DefaultVerboseDisplay.png)
  
@@ -133,7 +133,7 @@ Para exibir os contadores de desempenho personalizados no portal, você precisa 
 	</PerformanceCounterConfiguration>
 	```
 4. Salve as alterações e carregue o arquivo de configuração no mesmo local, substituindo o arquivo existente no blob.
-5. Alterne para modo Detalhado na configuração do Portal de Gerenciamento. Se você já estivesse no modo Detalhado, teria que alternar para o modo mínimo e voltar ao detalhado.
+5. Alterne para modo Detalhado na configuração do portal clássico do Azure. Se você já estivesse no modo Detalhado, teria que alternar para o modo mínimo e voltar ao detalhado.
 6. O contador de desempenho personalizados estará disponível na caixa de diálogo **Adicionar Métricas**. 
 
 ##Tutorial: Personalizar o gráfico de métricas##
@@ -159,15 +159,15 @@ Para exibir os contadores de desempenho personalizados no portal, você precisa 
 
 2. Adicionar ou remover métricas do gráfico:
 
-	- Para plotar uma nova métrica, marque a caixa de seleção da métrica nos cabeçalhos do gráfico. Em uma exibição estreita, clique na seta para baixo por ***n*??métricas** métricas para plotar uma métrica que a área do cabeçalho do gráfico não pode exibir.
+	- Para plotar uma nova métrica, marque a caixa de seleção da métrica nos cabeçalhos do gráfico. Em uma exibição estreita, clique na seta para baixo por ***n*??métricas** para plotar uma métrica que a área do cabeçalho do gráfico não pode exibir.
 
-	- Para excluir uma métrica que seja plotado no gráfico, desmarque a caixa de seleção próxima ao cabeçalho.
+	- Para excluir uma métrica que seja plotada no gráfico, desmarque a caixa de seleção próxima ao cabeçalho.
 
 3. Alterne entre exibições **Relativas** e **Absoluta**.
 
 4. Escolha 1 hora, 24, horas ou 7 dias para exibição dos dados.
 
-##Tutorial: Acessar dados do monitoramento detalhado fora do Portal de Gerenciamento##
+##Como acessar dados do monitoramento detalhado fora do portal clássico do Azure##
 
 Os dados do monitoramento detalhado são armazenados em tabelas nas contas de armazenamento que você especifica para cada função. Para cada implantação do serviço de nuvem, seis tabelas são criadas para a função. Duas tabelas são criadas para cada (5 minutos, 1 hora e 12 horas). Uma dessas tabelas armazena as agregações de nível de função; outra tabela armazena as agregações para as instâncias de função.
 
@@ -192,4 +192,4 @@ Por exemplo, as tabelas a seguir armazenariam os dados agregados do monitorament
 	WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

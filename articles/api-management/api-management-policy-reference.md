@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="12/02/2015" 
 	ms.author="sdanie"/>
 
 # Referência de políticas do Gerenciamento de API do Azure
@@ -34,6 +34,11 @@ Expressões de política podem ser usadas como valores de atributo ou texto em q
 	-	[Controlar fluxo][] - Aplica-se condicionalmente a instruções de políticas com base nos resultados da avaliação do booliano [expressions][].
 	-	[Encaminhar solicitações][] -encaminha a solicitação ao serviço de back-end.
 	-	[Registrar em log no Hub de Eventos][] - envia mensagens no formato especificado para um destino de mensagem definido por uma entidade [Agente](https://msdn.microsoft.com/library/azure/mt592020.aspx#Logger).
+	-	[Retornar resposta](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) - Anula a execução de pipeline e retorna a resposta especificada diretamente para o chamador.
+	-	[Enviar solicitação unidirecional](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) - Envia uma solicitação para a URL especificada sem aguardar uma resposta.
+	-	[Enviar solicitação](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) - Envia uma solicitação para a URL especificada.
+	-	[Definir método de solicitação](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod) - Permite alterar o método HTTP para uma solicitação.
+	-	[Definir código de status](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus) - Altera o código de status de HTTP para o valor especificado.
 	-	[Definir variável][] - Mantém um valor em uma variável [contexto][] para acesso posterior.
 -	[Políticas de autenticação][]
 	-	[Autenticar com o Basic][] - Autenticar com um serviço de back-end usando a autenticação Básica.
@@ -109,4 +114,4 @@ Para obter mais informações sobre expressões de política, consulte o vídeo 
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

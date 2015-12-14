@@ -30,7 +30,7 @@ Este tópico mostra como configurar o Serviço de Aplicativo do Azure para usar 
 
 ## <a name="register"> </a>Registrar seu aplicativo com a conta da Microsoft
 
-1. Faça logon no [Portal de Gerenciamento do Azure] e navegue até o seu aplicativo. Copie a **URL**. Você usará isso para configurar o aplicativo de sua Conta da Microsoft.
+1. Faça logon no [portal do Azure] e navegue até o seu aplicativo. Copie a **URL**. Você usará isso para configurar o aplicativo de sua Conta da Microsoft.
 
 2. Navegue até a página [Meus Aplicativos] no Centro de Desenvolvedoras da conta da Microsoft e faça logon com sua conta da Microsoft, se necessário.
 
@@ -55,7 +55,7 @@ Este tópico mostra como configurar o Serviço de Aplicativo do Azure para usar 
 > [AZURE.NOTE]Se for usar o Gateway do Serviço de Aplicativo, ignore esta seção e navegue até o gateway no portal. Selecione **Configurações**, **Identidade**, e então **Conta da Microsoft**. Cole os valores obtidos anteriormente e clique em **Salvar**.
 
 
-7. De volta ao [Portal de Gerenciamento do Azure], navegue até o aplicativo. Clique em **Configurações** e em **Autenticação / Autorização**.
+7. De volta ao [portal do Azure], navegue até o seu aplicativo. Clique em **Configurações** e em **Autenticação / Autorização**.
 
 8. Se o recurso Autenticação / Autorização não estiver habilitado, mude a opção para **Ativado**.
 
@@ -88,6 +88,6 @@ Agora você está pronto para usar uma conta da Microsoft para autenticação em
 <!-- URLs. -->
 
 [Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Portal de Gerenciamento do Azure]: https://portal.azure.com/
+[portal do Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

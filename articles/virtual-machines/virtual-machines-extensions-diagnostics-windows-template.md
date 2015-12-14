@@ -72,7 +72,7 @@ Para conjuntos de escala de máquina virtual, a configuração de extensões é 
    
 A propriedade *publisher* com o valor de **Microsoft.Azure.Diagnostics** e a propriedade *type* com o valor **IaaSDiagnostics** identificam exclusivamente a extensão de diagnóstico do Microsoft Azure.
 
-Você pode usar o valor da propriedade *name* para fazer referência a extensão no grupo de recursos. Ao defini-lo especificamente como **Microsoft.Insights.VMDiagnosticsSettings**, ele será facilmente identificado pelo Portal do Azure, garantindo a exibição correta dos gráficos de monitoramento neste serviço.
+Você pode usar o valor da propriedade *name* para fazer referência a extensão no grupo de recursos. Ao defini-lo especificamente como **Microsoft.Insights.VMDiagnosticsSettings**, ele será facilmente identificado pelo portal clássico do Azure, garantindo a exibição correta dos gráficos de monitoramento neste serviço.
 
 A propriedade *typeHandlerVersion* especifica a versão da extensão que você deseja usar. Definindo a versão secundária *autoUpgradeMinorVersion* como **true**, você obtém a versão secundária mais recente da extensão disponível. É altamente recomendável definir a propriedade *autoUpgradeMinorVersion* sempre como **true** para que você possa usar sempre a extensão de diagnóstico disponível mais recente, com todos os novos recursos e correções de erros.
 
@@ -119,7 +119,7 @@ O exemplo a seguir descreve a configuração de diagnóstico XML que coleta cont
         "wadmetricsresourceid": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name , '/providers/', 'Microsoft.Compute/virtualMachines/')]",
         "wadcfgxend": ""><MetricAggregation scheduledTransferPeriod="PT1H"/><MetricAggregation scheduledTransferPeriod="PT1M"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>"
 
-O nó xml de definição Métrica na configuração acima é um elemento de configuração importante, pois determina a forma de agregação e de armazenamento dos contadores de desempenho definidos anteriormente no xml, no nó *PerformanceCounter*. Essas métricas são elementos que orientam os gráficos e alertas no Portal de visualização do Azure. Portanto, é importante incluí-las na configuração, caso pretenda ver os dados de monitoramento no portal.
+O nó xml de definição Métrica na configuração acima é um elemento de configuração importante, pois determina a forma de agregação e de armazenamento dos contadores de desempenho definidos anteriormente no xml, no nó *PerformanceCounter*. Essas métricas são elementos que orientam os gráficos e alertas no portal do Azure. Portanto, é importante incluí-las na configuração, caso pretenda ver os dados de monitoramento no portal.
 
 Este é um exemplo do XML para definições de métricas:
 
@@ -165,4 +165,4 @@ Cada tabela WADMetrics inclui as seguintes colunas:
 - Implante o modelo do Gerenciador de Recursos usando o [Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md) ou a [Linha de Comando do Azure](virtual-machines-deploy-rmtemplates-powershell.md)
 - Saiba mais sobre a [Criação de modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

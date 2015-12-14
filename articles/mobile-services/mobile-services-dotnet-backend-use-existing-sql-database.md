@@ -12,12 +12,17 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
-	ms.topic="article" 
+	ms.topic="article"
 	ms.date="11/09/2015"
 	ms.author="glenga"/>
 
 
 # Compilar um serviço usando um banco de dados SQL existente com o back-end do .NET dos Serviços Móveis
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 O back-end .NET dos Serviços Móveis facilita a obtenção dos benefícios dos ativos existentes ao compilar um serviço móvel. Um cenário particularmente interessante é usar um banco de dados SQL existente (ou local ou em nuvem), que já possa ser usado por outros aplicativos, para disponibilizar os dados existentes aos clientes móveis. Nesse caso, há um requisito de que o modelo do banco de dados (ou o *esquema*) permaneça inalterado, para que as soluções existentes continuem funcionando.
 
@@ -26,7 +31,7 @@ O back-end .NET dos Serviços Móveis facilita a obtenção dos benefícios dos 
 
 Para esse tutorial, usaremos o banco de dados que foi criado com seu serviço móvel, mas não usaremos o modelo padrão que é criado. Em vez disso, criaremos manualmente um modelo arbitrário que representará um aplicativo existente que você possa ter. Para obter maiores detalhes sobre como se conectar a um banco de dados local, consulte [Conectar-se a um SQL Server local por meio de um serviço móvel do Azure utilizando Conexões Híbridas](mobile-services-dotnet-backend-hybrid-connections-get-started.md).
 
-1. Inicie criando um projeto de servidor dos Serviços Móveis no **Visual Studio 2013 Update 2** ou usando o projeto de Início rápido que você pode baixar na guia de Serviços Móveis para seu serviço no [Portal de Gerenciamento do Azure](http://manage.windowsazure.com). Para os propósitos deste tutorial, presumiremos que o nome do seu projeto de servidor seja **ShoppingService**.
+1. Comece criando um projeto de servidor dos Serviços Móveis no **Visual Studio 2013 Atualização 2** ou usando o projeto de início rápido que você pode baixar na guia dos Serviços Móveis do serviço no [portal clássico do Azure](http://manage.windowsazure.com). Para os propósitos deste tutorial, presumiremos que o nome do seu projeto de servidor seja **ShoppingService**.
 
 2. Crie um arquivo **Customer.cs** dentro da pasta **Modelos** e use a seguinte implementação. Você precisará adicionar uma referência de assembly para **System.ComponentModel.DataAnnotations** em seu projeto.
 
@@ -468,7 +473,7 @@ A próxima etapa é implementar um [**MappedEntityDomainManager**](http://msdn.m
             }
         }
 
-    Nesse caso, os métodos **InsertAsync** e **UpdateAsync** são interessantes; é neles que reforçamos a relação de que cada **Pedido** deve ter um **Cliente** associado válido. Em **InsertAsync**, observaremos que a propriedade **MobileOrder.CustomerId** foi preenchida, a qual mapeia para a propriedade **Order.CustomerId**. Obtivemos esse valor com base na procura pelo **Cliente** com o **MobileOrder.MobileCustomerId** correspondente. Isso porque, por padrão, o cliente se preocupa somente com a ID dos Serviços Móveis (**MobileOrder.MobileCustomerId**) do **Cliente**, que é diferente de sua chave primária real necessária para definir a chave estrangeira (**MobileOrder.CustomerId**) do **Pedido** para o **Cliente**. Isso é usado somente internamente no serviço para facilitar a operação de inserção.
+    Nesse caso, os métodos **InsertAsync** e **UpdateAsync** são interessantes; é neles que reforçamos a relação de que cada **Pedido** deve ter um **Cliente** associado válido. Em **InsertAsync**, observaremos que a propriedade **MobileOrder.CustomerId** foi preenchida, a qual mapeia para a propriedade **Order.CustomerId**. Obtivemos esse valor com base na pesquisa pelo **Cliente** com o **MobileOrder.MobileCustomerId** correspondente. Isso porque, por padrão, o cliente se preocupa somente com a ID dos Serviços Móveis (**MobileOrder.MobileCustomerId**) do **Cliente**, que é diferente de sua chave primária real necessária para definir a chave estrangeira (**MobileOrder.CustomerId**) do **Pedido** para o **Cliente**. Isso é usado somente internamente no serviço para facilitar a operação de inserção.
 
 Agora estamos prontos para criar controladores para expor nossos DTOs a nossos clientes.
 
@@ -614,4 +619,4 @@ Observe que as duas implementações do controlador tornam exclusivo o uso dos D
 
 Como uma próxima etapa, agora você pode compilar o aplicativo cliente para acessar o serviço.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

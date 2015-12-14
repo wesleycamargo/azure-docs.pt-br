@@ -17,26 +17,35 @@
    ms.author="sumukhs"/>
 
 # Configurando Serviços Confiáveis com estado
-A configuração padrão dos Serviços Confiáveis com estado pode ser modificada alterando o arquivo "settings.xml" gerado na raiz do pacote do Visual Studio na pasta "Config" para cada serviço no aplicativo.
+A Configuração padrão dos Serviços Confiáveis com monitoração de estado pode ser modificada por meio do pacote de configuração (Config) ou na implementação do serviço (Código).
 
-O tempo de execução da Malha de Serviços procura nomes de seção predefinidos no arquivo "settings.xml" e consome os valores de configuração ao criar os componentes de tempo de execução subjacentes.
++ **Config** - A configuração por meio do pacote de configuração é feita alterando o arquivo "Settings.xml" gerado na raiz do pacote do Visual Studio sob a pasta "Config" para cada serviço no aplicativo.
++ **Código** - A configuração via código é feita substituindo StatefulService.CreateReliableStateManager e criando um ReliableStateManager usando um objeto ReliableStateManagerConfiguration com o conjunto de opções apropriadas.
 
-> [AZURE.NOTE]**NÃO** exclua/modifique os nomes de seção das configurações a seguir no arquivo "settings.xml" que é gerado no Visual Studio Solution.
+Por padrão, o tempo de execução do Service Fabric procura nomes de seção predefinidos no arquivo "Settings.xml" e consome os valores de configuração ao criar os componentes de tempo de execução subjacentes.
+
+> [AZURE.NOTE]**NÃO** exclua os nomes de seção das configurações a seguir no arquivo "Settings.xml" que é gerado no Visual Studio Solution, a menos que você pretenda configurar o serviço via código. Renomear os nomes de pacote ou a seção de configuração exigirá uma alteração de código ao configurar o ReliableStateManager.
+
 
 ## Configuração de segurança do replicador
 As configurações de segurança do replicador servem para proteger o canal de comunicação que é usado durante a replicação. Isso significa que os serviços não poderão ver o tráfego de replicação uns dos outros, garantindo que os dados que têm alta disponibilidade também estejam seguros. Por padrão, uma seção de configuração de segurança vazia não habilita a segurança de replicação.
 
-### Nome da seção
+### Nome padrão da seção
 ReplicatorSecurityConfig
+
+> [AZURE.NOTE]Para alterar o nome da seção, substitua o parâmetro replicatorSecuritySectionName pelo construtor ReliableStateManagerConfiguration ao criar ReliableStateManager para este serviço.
+
 
 ## Configuração do replicador
 As configurações do replicador servem para configurar o replicador que será responsável por tornar o estado do Serviço Confiável com estado altamente confiável por meio da replicação e da persistência do estado localmente. A configuração padrão é gerada pelo modelo do Visual Studio e deve ser suficiente. Esta seção fala sobre configurações adicionais que estão disponíveis para ajustar o replicador.
 
-### Nome da seção
+### Nome padrão da seção
 ReplicatorConfig
 
-### Nomes da configuração
+> [AZURE.NOTE]Para alterar o nome da seção, substitua o parâmetro replicatorSettingsSectionName pelo construtor ReliableStateManagerConfiguration ao criar ReliableStateManager para este serviço.
 
+
+### Nomes da configuração
 |Nome|Unidade|Valor Padrão|Comentários|
 |----|----|-------------|-------|
 |BatchAcknowledgementInterval|Segundos|0,05|Período de tempo pelo qual o replicador no secundário espera após o recebimento de uma operação antes de enviar novamente uma confirmação ao primário. Todas as outras confirmações a serem enviadas para operações e processadas dentro deste intervalo são enviadas como uma única resposta.|
@@ -50,8 +59,22 @@ ReplicatorConfig
 |SharedLogId|guid|""|Especifica um guid exclusivo a ser usado para identificar o arquivo de log compartilhado usado com esta réplica. Normalmente, os serviços não devem usar essa configuração, mas se SharedLogId for especificado, SharedLogPath também deve ser especificado.|
 |SharedLogPath|Nome de caminho totalmente qualificado|""|Especifica o caminho totalmente qualificado onde o arquivo de log compartilhado para esta réplica será criado. Normalmente, os serviços não devem usar essa configuração, mas se SharedLogPath for especificado, SharedLogId também deve ser especificado.|
 
-## Exemplo do arquivo de configuração
 
+## Exemplo de configuração via código
+```csharp
+protected override IReliableStateManager CreateReliableStateManager()
+{
+    return new ReliableStateManager(
+        new ReliableStateManagerConfiguration(
+            new ReliableStateManagerReplicatorSettings
+            {
+                RetryInterval = TimeSpan.FromSeconds(3)
+            }));
+}
+```
+
+
+## Exemplo do arquivo de configuração
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -72,6 +95,7 @@ ReplicatorConfig
 </Settings>
 ```
 
+
 ## Comentários
 BatchAcknowledgementInterval controla a latência de replicação. Um valor '0' resulta na menor latência possível, ao custo de taxa de transferência (como mais mensagens de confirmação devem ser enviadas e processadas, cada uma contendo menos confirmações). Quanto maior o valor para BatchAcknowledgementInterval, maior será a produtividade geral da replicação, ao custo da maior latência de operação. Isso se converte diretamente para a latência de confirmações de transações.
 
@@ -83,4 +107,4 @@ O MaxRecordSizeInKB define o tamanho máximo de um registro que pode ser gravado
 
 As configurações de SharedLogId e SharedLogPath são sempre usadas juntas e permitem que um serviço use um log compartilhado separado do log compartilhado padrão para o nó. Para obter maior eficiência, devem ser especificados o máximo de serviços possível para o mesmo log compartilhado. Arquivos de log compartilhados devem ser colocados em discos que são usados exclusivamente para o arquivo de log compartilhado, de forma que a contenção de movimentação do cabeçote seja reduzida. A expectativa é de que isso precise ser alterado somente em casos raros.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

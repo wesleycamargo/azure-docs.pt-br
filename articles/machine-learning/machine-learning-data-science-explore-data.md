@@ -29,4 +29,4 @@ Este documento aborda como explorar dados em quatro ambientes diferentes, normal
 - **Tabela do Hive** Os dados são explorados usando consultas de Hive.
 - Os dados do **Studio de AML(Aprendizado de Máquina do Azure)** são explorados usando módulos do AML.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

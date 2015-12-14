@@ -20,34 +20,34 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-database-upgrade-server-portal.md)
+- [Azure Portal](sql-database-upgrade-server-portal.md)
 - [PowerShell](sql-database-upgrade-server-powershell.md)
 
 
-O Banco de Dados SQL V12 é a versão mais recente e, portanto, a atualização para essa versão é recomendada. O Banco de Dados SQL V12 tem muitas [vantagens em relação à versão anterior](sql-database-v12-whats-new.md), incluindo:
+O V12 de banco de dados SQL é a versão mais recente para atualizar para o V12 do banco de dados do SQL que é recomendado. O V12 do banco de dados SQL tem muitas [vantagens em relação à versão anterior](sql-database-v12-whats-new.md) incluindo:
 
 - Maior compatibilidade com o SQL Server.
 - Desempenho premium melhorado e novos níveis de desempenho.
-- [Pools de banco de dados elástico](sql-database-elastic-pool.md).
+- [Pools de banco de dados elásticos](sql-database-elastic-pool.md).
 
-Este artigo fornece instruções para atualizar os servidores existentes V11 de banco de dados SQL e bancos de dados para V12 de banco de dados SQL.
+Esse artigo fornece instruções para atualizar os servidores existentes V11 de banco de dados SQL e bancos de dados para V12 de banco de dados SQL.
 
-Durante o processo de atualização para V12 você atualizará qualquer banco de dados da Web e Business para uma nova camada de serviço para que instruções atualizem o bancos de dados da Web e Business que estão incluídos.
+Durante o processo de atualização para V12 você vai atualizar qualquer banco de dados da Web e Business para uma nova camada de serviço para que instruções atualizem o bancos de dados da Web e Business que estão incluídos.
 
-Além disso, migrar para um [pool de banco de dados elástico](sql-database-elastic-pool.md) pode ser mais econômico do que a atualização para níveis de desempenho individual (tipos de preço) para bancos de dados individuais. Os pools também simplificam o gerenciamento de banco de dados porque você só precisa gerenciar as configurações de desempenho para o pool em vez de gerenciar separadamente os níveis de desempenho de bancos de dados individuais. Se você tiver bancos de dados em vários servidores, considere movê-los para o mesmo servidor, aproveitando para colocá-los em um pool.
+Além disso, migrar para um [pool de banco de dados elástico](sql-database-elastic-pool.md) pode ser mais econômico do que a atualização para níveis de desempenho individual (faixas de preço) para bancos de dados únicos. Os pools também simplificam o gerenciamento de banco de dados porque você só precisa gerenciar as configurações de desempenho para o pool em vez de gerenciar separadamente os níveis de desempenho de bancos de dados individuais. Se você tiver bancos de dados em vários servidores, considere movê-los para o mesmo servidor e aproveitando para colocá-los em um pool.
 
 Você pode facilmente migrar automaticamente dos servidores V11 diretamente para os pools de banco de dados elásticos executando as etapas neste artigo.
 
-Observe que os bancos de dados permanecerão online e continuarão a trabalhar em toda a operação de atualização. No momento da transição real para o novo nível de desempenho temporário, podem ocorrer quedas das conexões de duração muito curta, normalmente em torno de 90 segundos, mas que podem atingir até cinco minutos. Se seu aplicativo [tiver um tratamento de falha transitória para encerramentos de conexão](sql-database-connect-central-recommendations.md), isso será suficiente para proteger contra a queda de conexões ao final da atualização.
+Observe que os bancos de dados permanecerão online e continuarão a trabalhar em toda a operação de atualização. No momento da transição real para o novo nível de desempenho temporário podem ocorrer quedas das conexões ao banco de dados com duração muito curtas que é normalmente em torno de 90 segundos, mas pode ser até 5 minutos. Se seu aplicativo [tiver um tratamento de falha transitória para encerramentos de conexão](sql-database-connect-central-recommendations.md), isso será suficiente para proteger contra a queda de conexões ao final da atualização.
 
-A atualização para o Banco de Dados SQL V12 não poderá ser desfeita. Após uma atualização, o servidor não pode ser revertido para V11.
+A atualização para o V12 do banco de dados SQL não poderá ser desfeita. Após uma atualização, o servidor não pode ser revertido para V11.
 
-Após a atualização para V12, as [recomendações de nível de serviço](sql-database-service-tier-advisor.md) e [as recomendações de pool elástico](sql-database-elastic-pool-portal.md#step-2-choose-a-pricing-tier) não estarão imediatamente disponíveis até que o serviço tenha tempo para avaliar suas cargas de trabalho no novo servidor. O histórico de recomendação do servidor V11 não se aplica ao servidores V12 e, portanto, não será mantido.
+Após a atualização para V12, as [recomendações de nível de serviço](sql-database-service-tier-advisor.md) e [as recomendações de pool elástico](sql-database-elastic-pool-portal.md#step-2-choose-a-pricing-tier) não estarão imediatamente disponíveis até que o serviço tenha tempo para avaliar suas cargas de trabalho no novo servidor. O histórico de recomendação do servidor V11 não se aplica ao servidores V12, portanto não é mantido.
 
-## Preparar-se para atualizar
+## Prepare-se para atualizar
 
 - **Atualizar todos os bancos de dados da Web e Business**: confira a seção [Atualizar todos os bancos de dados da Web e Business](sql-database-v12-upgrade.md#upgrade-all-web-and-business-databases) abaixo ou use o [PowerShell para atualizar bancos de dados e o servidor](sql-database-upgrade-server-powershell.md).
-- **Examinar e suspender a replicação geográfica:** se o seu Banco de Dados SQL do Azure estiver configurado para replicação geográfica, você deverá documentar sua configuração atual e [parar a replicação geográfica](sql-database-geo-replication-portal.md#remove-secondary-database). Após a conclusão da atualização, reconfigure seu banco de dados para replicação geográfica.
+- **Examinar e suspender a replicação geográfica:** se o seu Banco de Dados SQL do Azure estiver configurado para replicação geográfica, você deverá documentar sua configuração atual e [parar a replicação geográfica](sql-database-geo-replication-portal.md#remove-secondary-database). Após a conclusão da atualização, você deve reconfigurar seu banco de dados para replicação geográfica.
 - **Abra estas portas se você tiver clientes em uma VM do Azure**: se o seu programa cliente se conectar ao Banco de Dados SQL V12 enquanto seu cliente for executado em uma máquina virtual do Azure (VM), abra os seguintes intervalos de porta 11000-11999 e 14000-14999 na VM. Para obter detalhes, confira [Portas para o Banco de Dados SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
@@ -157,15 +157,15 @@ Os parâmetros ElasticPoolCollection e DatabaseCollection são opcionais:
 
     
 
-## Monitorar bancos de dados após a atualização para o Banco de Dados SQL V12
+## Monitorar bancos de dados após a atualização para V12 do banco de dados SQL
 
 
-Após a atualização, é recomendável monitorar o banco de dados ativamente para garantir que aplicativos estão sendo executados no desempenho esperado e uso ideal como necessário.
+Após a atualização, é recomendável monitorar o banco de dados ativamente para garantir que aplicativos estão sendo executados no desempenho esperado e uso ideal conforme necessário.
 
 Além de monitorar os bancos de dados individuais, você pode monitorar os pools de banco de dados elásticos [usando o portal](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool) ou com o [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools)
 
 
-**Dados de consumo de recursos:** para os bancos de dados Basic, Standard e Premium, os dados de consumo de recursos estão disponíveis por meio do DMV [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) no banco de dados do usuário. Essa DMV oferece, quase em tempo real, informações sobre consumo de recurso na granularidade a 15 segundos para a hora da operação anterior. O consumo de porcentagem de DTU para um intervalo é calculado como o consumo de porcentagem máxima das dimensões de CPU, E/S e log. Aqui está uma consulta para calcular o consumo médio de porcentagem de DTU na última hora:
+**Dados de consumo de recursos:** para os bancos de dados Basic, Standard e Premium, os dados de consumo de recursos estão disponíveis por meio do DMV [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) no banco de dados do usuário. Essa DMV oferece, quase em tempo real, informações sobre consumo de recurso na granularidade a 15 segundos para a hora da operação anterior. O consumo de percentual de DTU para um intervalo é calculado como o consumo de percentual máxima das dimensões de CPU, E/S e log. Aqui está uma consulta para calcular o consumo médio de porcentagem de DTU na última hora:
 
     SELECT end_time
     	 , (SELECT Max(v)
@@ -203,4 +203,4 @@ Por exemplo, você pode configurar um alerta por email sobre “Porcentagem DTU�
 - [Start-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
 - [Stop-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

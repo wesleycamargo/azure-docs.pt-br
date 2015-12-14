@@ -3,7 +3,7 @@
 	description="O recurso Filtragem de País usa códigos do país para definir os países nos quais uma solicitação será permitida ou bloqueada para um diretório protegido." 
 	services="cdn" 
 	documentationCenter=".NET" 
-	authors="juliako" 
+	authors="camsoper" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="juliako"/>
+	ms.date="12/02/2015" 
+	ms.author="casoper"/>
 
 #Códigos de país
 
@@ -268,4 +268,4 @@ O recurso **Filtragem de País** usa códigos de país para definir os países n
 | ZM | Zâmbia | |
 | ZW | Zimbábue | |
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

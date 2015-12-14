@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.date="12/01/2015"
 	ms.author="pehteh"/>
 
 # Bibliotecas de conexão para Banco de Dados SQL e SQL Server
@@ -68,4 +68,4 @@ A tabela a seguir exibe as bibliotecas lançadas por terceiros, como outras empr
 https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers
 -->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

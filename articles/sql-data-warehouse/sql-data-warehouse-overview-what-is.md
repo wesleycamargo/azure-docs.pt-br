@@ -49,7 +49,7 @@ Essa abordagem MPP permite que o SQL Data Warehouse use uma abordagem do tipo di
 
 ## Escalonável
 
-A arquitetura do SQL Data Warehouse apresenta armazenamento e computação separados, permitindo que cada um seja dimensionado independentemente. A estrutura de implantação simples e rápida do Banco de Dados SQL permite que computadores adicionais estejam disponíveis imediatamente. Complementar isso é o uso dos Blobs de Armazenamento do Azure. Os blobs não apenas oferecem armazenamento estável e replicado, mas também fornecem a infraestrutura para expansão sem esforço e de baixo custo. Usando essa combinação de armazenamento de escala em nuvem e de computação do Azure, o SQL Data Warehouse permite pagar pelo armazenamento de desempenho da consulta à medida que você precisar dela e quando precisar dela. Alterar a quantidade de computação é tão simples quanto mover um controle deslizante no Portal do Azure para a esquerda ou direita, mas pode também ser agendado ou adicionado a uma carga de trabalho com o T-SQL e PowerShell.
+A arquitetura do SQL Data Warehouse apresenta armazenamento e computação separados, permitindo que cada um seja dimensionado independentemente. A estrutura de implantação simples e rápida do Banco de Dados SQL permite que computadores adicionais estejam disponíveis imediatamente. Complementar isso é o uso dos Blobs de Armazenamento do Azure. Os blobs não apenas oferecem armazenamento estável e replicado, mas também fornecem a infraestrutura para expansão sem esforço e de baixo custo. Usando essa combinação de armazenamento de escala em nuvem e de computação do Azure, o SQL Data Warehouse permite pagar pelo armazenamento de desempenho da consulta à medida que você precisar dela e quando precisar dela. Alterar a quantidade de computação é tão simples quanto mover um controle deslizante no Portal Clássico do Azure para a esquerda ou direita, mas pode também ser agendado ou adicionado a uma carga de trabalho com o T-SQL e PowerShell.
 
 Junto com a capacidade de controlar totalmente o volume de computação, independentemente do armazenamento, o SQL Data Warehouse permite pausar totalmente seu data warehouse. Enquanto mantém o armazenamento em vigor, todas computação é liberada no pool principal do Azure, economizando dinheiro imediatamente. Quando necessário, basta retomar a computação e ter seu dados e computação disponíveis para sua carga de trabalho.
 
@@ -138,4 +138,4 @@ Agora que você sabe um pouco sobre o SQL Data Warehouse, saiba mais sobre a [ca
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

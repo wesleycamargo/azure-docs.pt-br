@@ -60,7 +60,7 @@ O Gerenciador de Recursos do Azure permite trabalhar com os recursos do seu apli
 
 **Para criar um grupo de recursos**
 
-1. Entre no [Portal de Visualização do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Clique em **NOVO**, clique em **Gerenciamento**, e, em seguida, clique em **Grupo de recursos**.
 3. Digite ou selecione os valores a seguir:
 
@@ -74,7 +74,7 @@ Antes de provisionar um cluster HBase, você precisa ter uma rede virtual do Azu
 
 **Para criar uma Rede Virtual usando o portal do Azure**
 
-1. Entre no [portal de visualização](https://portal.azure.com).
+1. Entre no [Portal](https://portal.azure.com).
 2. Clique em **NOVO**, clique em **Rede**, e, em seguida, clique em **Rede Virtual**.
 3. Em **Selecionar um modelo de implantação**, selecione **Clássico** se você usar um cluster do HDInsight baseado no Windows; selecione **Gerenciador de Recursos** se você usar um cluster do HDInsight baseado no Linux. Finalmente, clique em **Criar**.
 
@@ -115,10 +115,10 @@ Um servidor DNS é opcional, mas necessário em alguns casos. O procedimento foi
 
 **Para criar um cluster HDInsight**
 
-1. Entre no [Portal de Visualização do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Clique em **NOVO**, clique em **Análises de dados**, e, em seguida, clique em **HDInsight**.
 
-    ![Criar um novo cluster no Portal de Visualização do Azure](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Criar um novo cluster no Portal de Visualização do Azure")
+    ![Criando um novo cluster no Portal do Azure](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Criando um novo cluster no Portal do Azure")
 
 3. Digite ou selecione os valores a seguir:
 
@@ -389,4 +389,4 @@ Neste tutorial, você aprendeu como provisionar um cluster do HBase. Para obter 
 
 [azure-preview-portal]: https://portal.azure.com
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

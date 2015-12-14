@@ -32,7 +32,7 @@ Atualmente, esses recursos estão disponíveis para o SDK do ASP.NET.
 
 Antes de começar:
 
-* Instale o [SDK do Application Insights](app-insights-start-monitoring-app-health-usage.md) no aplicativo. Instale os pacotes NuGet manualmente e selecione a versão de *pré-lançamento* mais recente.
+* Instale o [SDK do Application Insights](app-insights-asp-net.md) no aplicativo. Instale os pacotes NuGet manualmente e selecione a versão de *pré-lançamento* mais recente.
 * Experimente a [API do Application Insights](app-insights-api-custom-events-metrics.md). 
 
 
@@ -43,7 +43,7 @@ Antes de começar:
 [Amostragem](app-insights-sampling.md) é maneira recomendada de reduzir o tráfego enquanto preserva estatísticas precisas. O filtro seleciona itens relacionados para que você possa navegar entre os itens no diagnóstico. As contagens de eventos são ajustadas no Metric Explorer para compensar os itens filtrados.
 
 * A amostragem adaptável é recomendada. Ela ajusta automaticamente a porcentagem de amostragem para atingir um determinado volume de solicitações. Disponível atualmente somente para telemetria ASP.NET do lado do servidor.  
-* A amostragem de taxa fixa também está disponível. Especifique a porcentagem de amostragem. Disponível para o código do aplicativo Web ASP.NET e páginas Web do JavaScript. O cliente e o servidor sincronizarão suas amostragens para que, na Pesquisa, você possa navegar entre exibições de página e solicitações relacionadas.
+* A [amostragem de taxa fixa](app-insights-sampling.md) também está disponível. Especifique a porcentagem de amostragem. Disponível para o código do aplicativo Web ASP.NET e páginas Web do JavaScript. O cliente e o servidor sincronizarão suas amostragens para que, na Pesquisa, você possa navegar entre exibições de página e solicitações relacionadas.
 
 ### Para habilitar a amostragem
 
@@ -395,7 +395,7 @@ Você pode adicionar quantos inicializadores desejar.
 [data]: app-insights-data-retention-privacy.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
@@ -404,4 +404,4 @@ Você pode adicionar quantos inicializadores desejar.
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

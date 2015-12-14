@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/16/2015"
+   ms.date="11/19/2015"
    ms.author="chackdan"/>
 
 # Configurar um cluster de Malha de Serviço no Portal do Azure
@@ -64,7 +64,7 @@ Esta página ajuda na configuração de um cluster de Malha de Serviço. Supõe-
 
 
 
-1. **Opcional: Propriedades de Posicionamento**- você não precisa adicionar quaisquer configurações aqui, uma propriedade de posicionamento padrão de "NodeTypeName" é adicionada pelo sistema. Você pode optar por adicionar mais se seu aplicativo tiver essa necessidade. 
+10. **Opcional: Propriedades de Posicionamento**- você não precisa adicionar quaisquer configurações aqui, uma propriedade de posicionamento padrão de "NodeTypeName" é adicionada pelo sistema. Você pode optar por adicionar mais se seu aplicativo tiver essa necessidade. 
 
   
 ## Configurações de segurança
@@ -178,14 +178,11 @@ Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPath -A
 Register your application type with service fabric.
 
 ```powershell
-Register-ServiceFabricApplicationType -ApplicationPathInImageStore "WordCount"
-````
+Register-ServiceFabricApplicationType -ApplicationPathInImageStore "WordCount" ````
 
 Crie uma nova instância no tipo de Aplicativo que você acabou de registrar.
 
-```powershell
-New-ServiceFabricApplication -ApplicationName fabric:/WordCount -ApplicationTypeName WordCount -ApplicationTypeVersion 1.0.0.0
-````
+```powershell New-ServiceFabricApplication -ApplicationName fabric:/WordCount -ApplicationTypeName WordCount -ApplicationTypeVersion 1.0.0.0 ````
 
 Agora abra o navegador de sua escolha e conecte-se ao ponto de extremidade que o aplicativo está escutando. Para a minha contagem de aplicativo de exemplo, o URL parece o seguinte.
 
@@ -211,4 +208,4 @@ http://sfcluster4doc.westus.cloudapp.azure.com:31000
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!-----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

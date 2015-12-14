@@ -57,9 +57,9 @@ Se os clientes definirem o SO convidado para atualizar automaticamente, nunca pr
 
 Versões do SO convidado são lançadas a cada mês. Devido aos lançamentos regulares, cada versão tem uma vida útil fixa.
 
-Aos 60 dias da vida útil, uma versão é "*desabilitada*". "Desabilitada" significa que a versão é removida do Portal de Gerenciamento do Azure. Ela também pode não ser definida no arquivo de configuração CSCFG. As implantações existentes são mantidas em execução, mas novas implantações e atualizações de código e a configuração para as implantações existentes não serão permitidas.
+Aos 60 dias da vida útil, uma versão é "*desabilitada*". "Desabilitada" significa que a versão é removida do portal clássico do Azure. Ela também pode não ser definida no arquivo de configuração CSCFG. As implantações existentes são mantidas em execução, mas novas implantações e atualizações de código e a configuração para as implantações existentes não serão permitidas.
 
-Posteriormente, a versão SO Convidado “*expira*” e todas as instalações que ainda estiverem executando essa versão terão a atualização forçada e serão definidas para atualizarem automaticamente o SO Convidado no futuro. A expiração é feita em lotes, de modo que o período de tempo de desativação da validade pode variar.
+Posteriormente, a versão SO Convidado "*expira*" e todas as instalações que ainda estiverem executando essa versão terão a atualização forçada e serão definidas para atualizarem automaticamente o SO Convidado no futuro. A expiração é feita em lotes, de modo que o período de tempo de desativação da validade pode variar.
 
 Esses períodos podem ser mais longos, a critério da Microsoft, para facilitar as transições do cliente. Quaisquer alterações serão comunicadas na [Matriz de compatibilidade do SDK e lançamentos do SO convidado do Azure](cloud-services-guestos-update-matrix.md).
 
@@ -67,7 +67,7 @@ Esses períodos podem ser mais longos, a critério da Microsoft, para facilitar 
 
 ### Notificações durante a desativação 
 
-* **Desativação de família** <br>A Microsoft usará postagens de blog e notificação no portal de gerenciamento. Os clientes que ainda estiverem usando uma família desativada do sistema operacional convidado serão notificados por meio de comunicação direta (email, mensagens do portal, telefonema) para administradores de serviço atribuídos. Todas as alterações serão postadas nessa página e o RSS feed será listado no início desta página. 
+* **Desativação de família** <br>A Microsoft usará postagens de blog e notificação no portal clássico do Azure. Os clientes que ainda estiverem usando uma família desativada do sistema operacional convidado serão notificados por meio de comunicação direta (email, mensagens do portal, telefonema) para administradores de serviço atribuídos. Todas as alterações serão postadas nessa página e o RSS feed será listado no início desta página. 
 
 
 * **Desativação da versão** <br>Todas as alterações serão postadas nessa página e o RSS feed será listado no início desta página, incluindo as datas de lançamento, desabilitação e expiração. Os administradores de serviços receberão emails se tiverem implantações em execução em uma família ou versão do SO convidado desabilitada. O intervalo desses emails pode variar. Geralmente, eles são enviados pelo menos um mês antes da desabilitação, embora esse intervalo não seja um SLA oficial.
@@ -90,4 +90,4 @@ Se a arquitetura do aplicativo Web exigir uma dependência mais profunda do sist
 ## Próximas etapas
 Examine as últimas [versões do SO convidado](cloud-services-guestos-update-matrix.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -92,7 +92,7 @@ Internamente, essa extensão usa a PublicConfiguration e a PrivateConfiguration 
 
 Você pode acompanhar uma das duas etapas a seguir para adicionar o AzureLogCollector a uma ou mais instâncias de um Serviço de Nuvem ou de uma Máquina Virtual de funções selecionadas, o que disparará as coleções em cada VM para execução e envio dos arquivos coletados para a conta do Azure especificada.
 
-## Adicionar o AzureLogCollector como uma Extensão de Serviço
+## Adicionar como uma extensão de serviço
 
 1. Siga as instruções para conectar o Azure PowerShell à sua assinatura.
 
@@ -186,7 +186,7 @@ A seguir, a definição dos parâmetros passados para o script. (Isso também fo
       { String Name, String Location, String SearchPattern, Bool Recursive }
              
             
-## Adicionar o AzureLogCollector como uma Extensão de VM
+## Adicionar como uma extensão de VM
 
 Siga as instruções para conectar o Azure PowerShell à sua assinatura.
 
@@ -521,4 +521,4 @@ SetAzureVMLogCollector.ps1
 
 Agora você pode examinar ou copiar os logs de um local muito simples.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

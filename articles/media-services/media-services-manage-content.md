@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como gerenciar conteúdo com os Serviços de Mídia do Azure usando o Portal de Gerenciamento do Azure" 
+	pageTitle="Como gerenciar conteúdo de mídia com os Serviços de Mídia do Azure usando o Portal Clássico do Azure" 
 	description="Saiba como gerenciar seu conteúdo de mídia nos Serviços de Mídia do Azure. Isso inclui: upload, indexação, codificação, criptografia e publicação." 
 	services="media-services" 
 	documentationCenter="" 
@@ -17,10 +17,10 @@
 	ms.author="juliako"/>
 
 
-# Gerenciar conteúdo com os Serviços de Mídia do Azure usando o Portal de Gerenciamento do Azure
+# Gerenciar conteúdo com os Serviços de Mídia do Azure usando o Portal Clássico do Azure
 
 
-Este tópico mostra como usar o Portal de Gerenciamento para gerenciar o conteúdo de mídia em sua conta de serviços de mídia.
+Este tópico mostra como usar o Portal Clássico do Azure para gerenciar o conteúdo de mídia em sua conta dos Serviços de Mídia.
 
 Este tópico mostra como executar as seguintes operações de conteúdo diretamente do portal:
 
@@ -33,13 +33,13 @@ Este tópico mostra como executar as seguintes operações de conteúdo diretame
 - Reproduzir conteúdo
 
 
-##<a id="upload"></a>Como: carregar conteúdo 
+##<a id="upload"></a>Como: carregar conteúdo
 
 
 [AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
 
-1. No [Portal de Gerenciamento](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), clique em **Serviços de Mídia** e no nome da conta dos Serviços de Mídia.
+1. No [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), clique em **Serviços de Mídia** e no nome da conta dos Serviços de Mídia.
 2. Selecione a página CONTEÚDO. 
 3. Clique no botão **Carregar** na página ou na parte inferior do portal. 
 4. Na caixa de diálogo **Carregar conteúdo**, navegue até o arquivo do ativo desejado. Clique no arquivo e, em seguida, clique em **Abrir** ou pressione **Enter**.
@@ -63,16 +63,16 @@ Se o valor do tamanho do arquivo não for atualizado depois que o processo de ca
 - [.NET](media-services-index-content.md)
 - [Portal](media-services-manage-content.md#index)
 
-O Indexador de Mídia do Azure permite que você torne o conteúdo de seus arquivos de mídia pesquisável e gere uma transcrição de texto completo para legendas codificadas e palavras-chave. Você pode indexar seu conteúdo usando o Portal de Gerenciamento, seguindo as etapas demonstradas abaixo. No entanto, se você quiser mais controle sobre quais arquivos e como é feito o trabalho de indexação, você pode usar o SDK dos Serviços de Mídia para .NET ou APIs REST. Para saber mais, consulte [Indexando arquivos de mídia com o Indexador de Mídia do Azure](media-services-index-content.md).
+O Indexador de Mídia do Azure permite que você torne o conteúdo de seus arquivos de mídia pesquisável e gere uma transcrição de texto completo para legendas codificadas e palavras-chave. Você pode indexar seu conteúdo usando o Portal Clássico do Azure, seguindo as etapas demonstradas abaixo. No entanto, se você quiser mais controle sobre quais arquivos e como é feito o trabalho de indexação, você pode usar o SDK dos Serviços de Mídia para .NET ou APIs REST. Para saber mais, consulte [Indexando arquivos de mídia com o Indexador de Mídia do Azure](media-services-index-content.md).
 
-As etapas a seguir demonstram como usar o Portal de gerenciamento para indexar seu conteúdo.
+As etapas a seguir demonstram como usar o Portal Clássico do Azure para indexar seu conteúdo.
 
 1. Selecione o arquivo que você deseja indexar. Se houver suporte para a indexação para esse tipo de arquivo, o botão PROCESSO será habilitado na parte inferior da página CONTEÚDO.
 1. Pressione o botão PROCESSO.
 2. Na caixa de diálogo **Processo**, escolha o processador do **Indexador de Mídia do Azure**.
 3. Em seguida, preencha na caixa de diálogo Processo as informações para **título** e **descrição** do arquivo de mídia de entrada.
-	
-	![Processo][process]
+
+![Processo][process]
 
 ##<a id="encode"></a>Como: codificar conteúdo
 
@@ -96,36 +96,33 @@ Com o empacotamento dinâmico, você só precisa armazenar e pagar pelos arquivo
 
 Observe que, além de poder usar os recursos de empacotamento dinâmico, unidades reservadas de streaming sob demanda oferecem capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps. Por padrão, o streaming por demanda é configurado em um modelo de instância compartilhada para a qual os recursos do servidor (por exemplo, computação, capacidade de egresso etc.) são compartilhados com todos os outros usuários. Para melhorar a taxa de transferência de um streaming por demanda, é recomendável adquirir unidades reservadas para Streaming por Demanda.
 
-Esta seção descreve as etapas que você pode seguir para codificar o conteúdo com o Codificador de Mídia do Azure usando o Portal de Gerenciamento.
+Esta seção descreve as etapas que você pode seguir para codificar o conteúdo com o Codificador de Mídia do Azure usando o Portal Clássico do Azure.
 
 1.  Selecione o arquivo que você deseja codificar. Se houver suporte para codificação para esse tipo de arquivo, o botão PROCESSO será habilitado na parte inferior da página CONTEÚDO.
 4. Na caixa de diálogo **Processo**, selecione o processador do **Codificador de Mídia do Azure**.
 5. Escolha uma das **configurações de codificação**.
 
-	![Process2][process2]
-
-		
-	O tópico [Cadeias de caracteres de predefinição de tarefa do Codificador de Mídia do Azure](https://msdn.microsoft.com/library/azure/dn619392.aspx) explica o que significa cada predefinição nas categorias **Predefinições para streaming adaptável (empacotamento dinâmico)**, **Predefinições para download progressivo** e **Predefinições herdadas para streaming adaptável**.
+![Process2][process2]
 
 
-	As **Outras** configurações são descritas abaixo:
+O tópico [Cadeias de caracteres de predefinição de tarefa do Codificador de Mídia do Azure](https://msdn.microsoft.com/library/azure/dn619392.aspx) explica o que significa cada predefinição nas categorias **Predefinições para streaming adaptável (empacotamento dinâmico)**, **Predefinições para download progressivo** e **Predefinições herdadas para streaming adaptável**.
 
-	+ **Codificar com proteção de conteúdo PlayReady**. Essa predefinição produz um ativo codificado com proteção de conteúdo PlayReady.  
-	
-	
-		Por padrão, o serviço de licença PlayReady dos Serviços de Mídia é usado. Para especificar algum outro serviço do qual os clientes possam obter uma licença para reproduzir o conteúdo criptografado do PlayReady, use as APIs REST ou do SDK .NET dos Serviços de Mídia. Para saber mais, consulte [Usando criptografia estática para proteger seu conteúdo]() e defina a propriedade **licenseAcquisitionUrl** na predefinição do Criptografador de Mídia. Como alternativa, é possível usar criptografia dinâmica e definir a propriedade **PlayReadyLicenseAcquisitionUrl** como descrito em [Usando criptografia dinâmica e serviço de entrega de licença do PlayReady](http://go.microsoft.com/fwlink/?LinkId=507720). 
-	+ **Reproduzir no PC/Mac (via Flash/Silverlight)**. Essa predefinição produz um ativo de Smooth Streaming com as seguintes características: 44,1 kHz 16 bits/CBR de áudio estéreo de exemplo codificado em 96 kbps usando AAC, e CBR de vídeo de 720 p codificado em 6 bitrates variando entre 3400 kbps a 400 kbps usando o Perfil Principal H.264 e GOPs de dois segundos.
-	+ **Reproduzir por meio de HTML5 (IE/Chrome/Safari)**. Essa predefinição produz um único arquivo MP4 com as seguintes características: 44,1 kHz 16 bits/CBR de áudio estéreo de exemplo codificado em 128 kbps usando AAC, e CBR de vídeo de 720 p codificado em 4500 kbps usando o Perfil Principal H.264.
-	+ **Reprodução em dispositivos iOS e PC/Mac.** Essa predefinição produz um ativo com as mesmas características que o ativo de Smooth Streaming (descrito acima), mas em um formato que pode ser usado para fornecer fluxos HLS da Apple para dispositivos iOS. 
+
+As **Outras** configurações são descritas abaixo:
+
++ **Codificar com proteção de conteúdo PlayReady**. Essa predefinição produz um ativo codificado com proteção de conteúdo PlayReady.
+
+
+Por padrão, o serviço de licença PlayReady dos Serviços de Mídia é usado. Para especificar algum outro serviço do qual os clientes possam obter uma licença para reproduzir o conteúdo criptografado do PlayReady, use as APIs REST ou do SDK .NET dos Serviços de Mídia. Para saber mais, consulte [Usando criptografia estática para proteger seu conteúdo]() e defina a propriedade **licenseAcquisitionUrl** na predefinição do Criptografador de Mídia. Como alternativa, é possível usar a criptografia dinâmica e definir a propriedade **PlayReadyLicenseAcquisitionUrl**, como descrito em [Usando a criptografia dinâmica e o serviço de entrega de licença do PlayReady](http://go.microsoft.com/fwlink/?LinkId=507720). + **Reproduzir no PC/Mac (via Flash/Silverlight)**. Essa predefinição produz um ativo de Smooth Streaming com as seguintes características: CBR de áudio estéreo de exemplo/44,1 kHz 16 bits codificado em 96 kbps usando AAC e CBR de vídeo de 720p codificado em 6 taxas de bits, que variam entre 3.400 kbps a 400 kbps usando o Perfil Principal H.264 e GOPs de dois segundos. + **Reprodução via HTML5 (IE/Chrome/Safari)**. Essa predefinição produz um único arquivo MP4 com as seguintes características: CBR de áudio estéreo de exemplo/44,1 kHz 16 bits codificado em 128 kbps usando AAC e CBR de vídeo de 720p codificado em 4.500 kbps usando o Perfil Principal H.264. + **Reprodução em dispositivos iOS e PC/Mac**. Essa predefinição produz um ativo com as mesmas características que o ativo de Smooth Streaming (descrito acima), mas em um formato que pode ser usado para fornecer fluxos HLS da Apple para dispositivos iOS.
 
 5. Em seguida, digite o nome de conteúdo de saída amigável desejado ou aceite o padrão. Em seguida, clique no botão de seleção para iniciar a operação de codificação e você poderá acompanhar o andamento na parte inferior do portal.
 6. Pressione OK.
 
-	Após a codificação ser realizada, a página de conteúdo conterá o arquivo codificado.
+Após a codificação ser realizada, a página de conteúdo conterá o arquivo codificado.
 
-	Para exibir o andamento do trabalho de codificação, alterne para a página **TRABALHOS**.
+Para exibir o andamento do trabalho de codificação, alterne para a página **TRABALHOS**.
 
-	Se o valor do tamanho do arquivo não for atualizado depois que a codificação for concluída, pressione o botão **Sincronizar Metadados**. Isso sincroniza o tamanho do arquivo do ativo de saída com o tamanho real do arquivo no armazenamento e atualiza o valor na página Conteúdo.
+Se o valor do tamanho do arquivo não for atualizado depois que a codificação for concluída, pressione o botão **Sincronizar Metadados**. Isso sincroniza o tamanho do arquivo do ativo de saída com o tamanho real do arquivo no armazenamento e atualiza o valor na página Conteúdo.
 
 ##<a id="encrypt"></a>Como: criptografar conteúdo
 
@@ -159,7 +156,7 @@ Consulte também:
 
 Para fornecer a seus usuários uma URL que pode ser usada para transmitir ou baixar seu conteúdo, primeiro você precisa "publicar" o ativo criando um localizador. Os localizadores fornecem acesso aos arquivos contidos no ativo. Os Serviços de Mídia oferecem suporte a dois tipos de localizador: OnDemandOrigin, usados para transmitir mídia por streaming (por exemplo, MPEG DASH, HLS ou Smooth Streaming) e SAS (Assinatura de Acesso), usados para baixar arquivos de mídia.
 
-Quando você usa o Portal de Gerenciamento para publicar seus ativos, os localizadores são criados para você e há uma URL com base em OnDemantOrigin (caso seu ativo contém um arquivo .ism) ou uma URL SAS.
+Quando você usa o Portal Clássico do Azure para publicar seus ativos, os localizadores são criados para você e há uma URL com base em OnDemantOrigin (caso seu ativo contenha um arquivo .ism) ou uma URL SAS.
 
 Uma URL SAS tem o seguinte formato:
 
@@ -196,7 +193,7 @@ Para usar o Portal para publicar um ativo, faça o seguinte:
 
 ## Como reproduzir conteúdo no portal
 
-O **Portal de Gerenciamento do Azure** fornece um player de conteúdo que você pode usar para testar o vídeo.
+O **Portal Clássico do Azure** fornece um player de conteúdo que você pode usar para testar o vídeo.
 
 Clique no vídeo desejado e clique no botão **Reproduzir** na parte inferior do portal.
  
@@ -231,4 +228,4 @@ Algumas considerações se aplicam:
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

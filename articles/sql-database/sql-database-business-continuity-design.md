@@ -55,13 +55,13 @@ Os bancos de dados de camada padrão não têm a opção de usar a replicação 
 
 ##Como habilitar a replicação geográfica
 
-Você pode habilitar replicação geográfica usando o Portal do Azure ou chamando a API REST ou comando do PowerShell.
+Você pode habilitar replicação geográfica usando o Portal clássico do Azure ou chamando a API REST ou comando do PowerShell.
 
-###Portal do Azure
+###Portal Clássico do Azure
 
 [AZURE.VIDEO sql-database-enable-geo-replication-in-azure-portal]
 
-1. Faça logon no [Portal do Azure](https://portal.Azure.com).
+1. Faça logon no [Portal Clássico do Azure](https://portal.Azure.com)
 2. No lado esquerdo da tela, selecione **PROCURAR** e, em seguida, selecione **Bancos de Dados SQL**
 3. Navegue até a folha de banco de dados, selecione o **Mapa de replicação geográfica** e clique em **Configurar a replicação geográfica**.
 4. Navegue até a folha de replicação geográfica. Selecione a região de destino. 
@@ -98,4 +98,4 @@ Esse API é assíncrono. Depois de retornar, use o API [Obter replicação do li
 
 Ao projetar seu aplicativo para continuidade dos negócios, você deve considerar várias opções de configuração. A escolha dependerá da topologia de implantação do aplicativo e quais partes de seus aplicativos são mais vulneráveis a uma interrupção. Para diretrizes, consulte [Criando soluções de nuvem para recuperação de desastres usando replicação geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

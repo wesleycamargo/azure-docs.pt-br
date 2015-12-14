@@ -21,7 +21,7 @@
 
 Os pontos de extremidade do serviço Web no Aprendizado de Máquina do Azure têm níveis de limitação selecionável para coincidir com a taxa na qual o ponto de extremidade será consumido.
 
-Para controlar a quantidade de limitação no ponto de extremidade, use o controle deslizante no Portal de Gerenciamento do Azure para definir o máximo de chamadas simultâneas entre 20 e 200
+Para controlar a quantidade de limitação no ponto de extremidade, use o controle deslizante no Portal Clássico do Azure para definir o máximo de chamadas simultâneas entre 20 e 200
 
 
 As APIs síncronas são normalmente usadas em situações onde uma baixa latência é desejada. A latência aqui indica o tempo necessário para a API concluir uma solicitação e não se responsabiliza por quaisquer atrasos na rede. Digamos que você tenha uma API com uma latência de 50 ms. Para consumir totalmente a capacidade disponível com alto nível de limitação e o Máximo de Chamadas Simultâneas = 20, você precisa chamar esta API 20 * 1000 / 50 = 400 vezes por segundo. Estendendo isso ainda mais, um Máximo de Chamadas Simultâneas de 200 permitirá que você chame a API 4000 vezes por segundo, supondo que a latência é de 50 ms.
@@ -47,4 +47,4 @@ A interface de usuário de gerenciamento permite fornecer um número de simultan
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -22,10 +22,10 @@ Leia o processo completamente antes de começar e compreender onde e por que cad
 ## Desenvolvimento de blocos de construção
 Você deve decidir sobre os blocos de construção de sua solução antes de prosseguir com o modelo de solução no Portal de Publicação. Abaixo estão alguns links para os documentos que podem ajudá-lo no processo:
 
-1. [Práticas recomendadas para criação de modelos do Gerenciador de Recursos do Azure](https://azure.microsoft.com/pt-BR/documentation/articles/best-practices-resource-manager-design-templates/)
-2. [Criando modelos do Gerenciador de Recursos do Azure](https://azure.microsoft.com/pt-BR/documentation/articles/resource-group-authoring-templates/)
+1. [Práticas recomendadas para criação de modelos do Gerenciador de Recursos do Azure](../best-practices-resource-manager-design-templates.md)
+2. [Criando modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md)
 3. Modelos de Início Rápido do Azure:
-  - [https://azure.microsoft.com/pt-BR/documentation/templates/](https://azure.microsoft.com/pt-BR/documentation/templates/)
+  - [https://azure.microsoft.com/pt-BR/documentation/templates/](https://azure.microsoft.com/documentation/templates/)
   - [https://github.com/azure/azure-quickstart-templates](https://github.com/azure/azure-quickstart-templates)
 
 ## Próximas etapas
@@ -34,4 +34,4 @@ Agora que examinou os pré-requisitos e concluiu as tarefas necessárias, você 
 
 [link-acct]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

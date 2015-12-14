@@ -25,7 +25,7 @@ Este tópico descreve as limitações e diretrizes de Banco de dados SQL do Micr
 
 O serviço de Banco de dados SQL do Azure só está disponível por meio da porta TCP 1433. Para acessar um Banco de dados SQL do seu computador, certifique-se de que o firewall permita a comunicação TCP de saída na porta TCP 1433. Como parte do processo de conexão, as conexões de máquinas virtuais do Azure são redirecionadas para um endereço IP e uma porta diferentes, exclusivos para cada função de trabalho. O número da porta estará na faixa de 11000 a 11999.
 
-Antes de conectar-se, pela primeira vez, ao servidor de banco de dados SQL do Azure, você deve usar o [Portal do Azure](https://portal.azure.com) ou [Portal de gerenciamento de plataforma do Azure](https://manage.windowsazure.com/microsoft.onmicrosoft.com#Workspaces/All/dashboard) para configurar o firewall do banco de dados SQL do Azure. Será necessário criar uma configuração de firewall no nível de servidor que habilite as tentativas de conexão do seu computador ou do Azure ao servidor de Banco de dados SQL do Azure. Além disso, se você quiser controlar o acesso a determinados bancos de dados em seu servidor de banco de dados SQL, crie regras de firewall no nível de banco de dados para os respectivos bancos de dados. Para obter mais informações, consulte [Firewall do Banco de Dados SQL do Azure](sql-database-firewall-configure.md).
+Antes de conectar-se, pela primeira vez, ao servidor de banco de dados SQL do Azure, você deve usar o [Portal Clássico do Azure](https://portal.azure.com) ou [Portal clássico de plataforma do Azure](https://manage.windowsazure.com/microsoft.onmicrosoft.com#Workspaces/All/dashboard) para configurar o firewall do banco de dados SQL do Azure. Será necessário criar uma configuração de firewall no nível de servidor que habilite as tentativas de conexão do seu computador ou do Azure ao servidor de Banco de dados SQL do Azure. Além disso, se você quiser controlar o acesso a determinados bancos de dados em seu servidor de banco de dados SQL, crie regras de firewall no nível de banco de dados para os respectivos bancos de dados. Para obter mais informações, consulte [Firewall do Banco de Dados SQL do Azure](sql-database-firewall-configure.md).
 
 ## Criptografia da conexão e validação de certificado
 
@@ -111,4 +111,4 @@ Considere os seguintes pontos para tornar seus aplicativos de Banco de dados SQL
 
 [Central de segurança do mecanismo de banco de dados do SQL Server e banco de dados SQL do Azure](https://msdn.microsoft.com/library/bb510589)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

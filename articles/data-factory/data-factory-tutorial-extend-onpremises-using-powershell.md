@@ -26,7 +26,7 @@ Para copiar dados de eficácia de campanha de marketing do Blob do Azure para o 
 
 > [AZURE.IMPORTANT]Este artigo não cobre todos os cmdlets de Data Factory. Consulte [Referência de cmdlet de Data Factory][cmdlet-reference] para obter uma documentação abrangente sobre os cmdlets de Data Factory.
 >    
-> Se estiver usando o Azure PowerShell 1.0 Preview, você precisará usar os cmdlets documentados [aqui](https://msdn.microsoft.com/library/dn820234.aspx). Por exemplo, use New-AzureRMDataFactory em vez de New-AzureDataFactory.
+> Se estiver usando o Azure PowerShell 1.0, precisará usar os cmdlets documentados [aqui](https://msdn.microsoft.com/library/dn820234.aspx). Por exemplo, use New-AzureRMDataFactory em vez de New-AzureDataFactory.
 
 ## Pré-requisitos
 
@@ -44,7 +44,7 @@ Neste tutorial, você realizará as seguintes etapas:
 2. [Etapa 2: criar um serviço vinculado para o SQL Server local](#OnPremStep2). Nesta etapa, você primeiro cria um banco de dados e uma tabela no computador local do SQL Server e, em seguida, cria o serviço vinculado: **OnPremSqlLinkedService**.
 3. [Etapa 3: criar tabela e pipeline](#OnPremStep3). Nesta etapa, você criará uma tabela **MarketingCampaignEffectivenessOnPremSQLTable** e um pipeline **EgressDataToOnPremPipeline**. 
 
-4. [Etapa 4: monitorar o pipeline e exibir o resultado](#OnPremStep4). Nesta etapa, você monitorará as fatias de dados, tabelas e pipelines usando o Portal do Azure.
+4. [Etapa 4: monitorar o pipeline e exibir o resultado](#OnPremStep4). Nesta etapa, você monitorará as fatias de dados, tabelas e pipelines usando o Portal Clássico do Azure.
 
 
 ## <a name="OnPremStep1"></a> Etapa 1: criar um gateway de gerenciamento de dados
@@ -55,7 +55,7 @@ Você deve ter pelo menos um gateway instalado no seu ambiente corporativo, bem 
 
 Se você tiver um gateway de dados existente que você possa usar, ignore esta etapa.
 
-1.	Crie um gateway de dados lógicos. No **Portal de Visualização do Azure**, clique em **Serviços vinculados** na folha **DATA FACTORY**.
+1.	Crie um gateway de dados lógicos. No **Portal do Azure**, clique em **Serviços Vinculados** na folha **DATA FACTORY**.
 2.	Clique em **Adicionar (+) Gateway de Dados** na barra de comandos.  
 3.	Na folha **Novo gateway de dados**, clique em **CRIAR**.
 4.	Na folha **Criar**, insira **MyGateway** para o **nome** do gateway de dados.
@@ -101,7 +101,7 @@ Para começar, você precisa criar o banco de dados SQL Server, a tabela, os tip
 
 ### Criar o serviço vinculado
 
-1.	No **Portal de Visualização do Azure**, clique no bloco **Serviços Vinculados** na folha **DATA FACTORY** de **LogProcessingFactory**.
+1.	No **Portal do Azure**, clique no bloco **Serviços Vinculados** na folha **DATA FACTORY** de **LogProcessingFactory**.
 2.	Na folha **Serviços Vinculados**, clique em **Adicionar (+) armazenamento de dados**.
 3.	Na folha **Novo armazenamento de dados**, insira **OnPremSqlLinkedService** como o **Nome**. 
 4.	Clique em **Tipo (Configurações necessárias)** e selecione **SQL Server**. Agora você deve ver as configurações de **GATEWAY DE DADOS**, **Servidor**, **Banco de dados** e **CREDENCIAIS** na folha **Novo armazenamento de dados**. 
@@ -158,7 +158,7 @@ Parabéns! Você verificou com êxito o passo a passo para usar sua fonte de dad
 [adfintroduction]: data-factory-introduction.md
 [useonpremisesdatasources]: data-factory-move-data-between-onprem-and-cloud.md
 
-[azure-preview-portal]: http://portal.azure.com
+[azure-portal]: http://portal.azure.com
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -174,4 +174,4 @@ Parabéns! Você verificou com êxito o passo a passo para usar sua fonte de dad
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

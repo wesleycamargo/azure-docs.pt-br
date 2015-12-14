@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Criar farms de servidores do SharePoint | Microsoft Azure"
-	description="Crie rapidamente um novo farm básico ou altamente disponível do SharePoint Server 2013 usando o Marketplace do portal de Visualização do Azure."
+	description="Crie rapidamente um novo farm básico ou altamente disponível do SharePoint Server 2013 usando o Marketplace do portal do Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -21,9 +21,9 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo clássico.
 
-Com o Marketplace do portal de Visualização do Microsoft Azure, você pode criar rapidamente farms pré-configurados do SharePoint Server 2013. Isso pode economizar muito tempo quando necessitar de um farm SharePoint básico ou de alta disponibilidade para um ambiente de desenvolvimento e teste, ou se estiver avaliando o SharePoint Server 2013 como uma solução de colaboração para a sua organização.
+Com o Marketplace do portal do Microsoft Azure, você pode criar rapidamente farms pré-configurados do SharePoint Server 2013. Isso pode economizar muito tempo quando necessitar de um farm SharePoint básico ou de alta disponibilidade para um ambiente de desenvolvimento e teste, ou se estiver avaliando o SharePoint Server 2013 como uma solução de colaboração para a sua organização.
 
-> [AZURE.NOTE]O item **Farm do SharePoint Server** no Azure Marketplace do portal de Visualização do Azure foi removido.
+> [AZURE.NOTE]O item **Farm do SharePoint Server** no Azure Marketplace do portal do Azure foi removido.
 
 O farm do SharePoint básico consiste em três máquinas virtuais nesta configuração.
 
@@ -59,7 +59,7 @@ Para criar o farm de alta disponibilidade (nove servidores) do SharePoint:
 
 No site Administração central do SharePoint, é possível configurar o My sites, os aplicativos SharePoint e outra funcionalidade. Para obter mais informações, consulte [Configurar o SharePoint 2013](http://technet.microsoft.com/library/ee836142.aspx).
 
-> [AZURE.NOTE]O Portal de visualização do Azure cria ambos os farms em uma rede virtual somente em nuvem com a presença da web voltada para a Internet. Não há nenhuma conexão de VPN site a site ou de Rota Expressa para a rede da sua organização.
+> [AZURE.NOTE]O portal do Azure cria ambos os farms em uma rede virtual somente em nuvem com a presença da web voltada para a Internet. Não há nenhuma conexão de VPN site a site ou de Rota Expressa para a rede da sua organização.
 
 ## Recursos adicionais
 
@@ -69,4 +69,4 @@ No site Administração central do SharePoint, é possível configurar o My site
 
 [Arquiteturas do Microsoft Azure para SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

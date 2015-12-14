@@ -22,17 +22,17 @@ A lógica de processamento de fluxo no Stream Analytics do Azure é implementada
 
 ## Para criar uma consulta do Stream Analytics: ##
 
-1. Em seu trabalho do Stream Analytics no portal de Gerenciamento do Azure, clique em **Consulta**.
+1. Em seu trabalho do Stream Analytics no portal clássico do Azure, clique em **Consulta**.
 
     ![Selecionar Consulta](./media/stream-analytics-write-queries/1-stream-analytics-write-queries.png)
 
-    No portal de visualização do Azure, clique em **Consulta**.
+    No portal do Azure, clique em **Consulta**.
 
     ![Selecionar Visualização da Consulta](./media/stream-analytics-write-queries/query-preview-portal.png)
 
 2.	Os novos trabalhos têm um modelo de consulta que ajuda você a começar. O modelo de consulta executa uma consulta de "passagem" que projeta todos os campos dos eventos de entrada na saída.
 
-    - Se tiver definido pelo menos uma entrada e saída para seu trabalho, você poderá substituir os campos de espaço reservado "[YourOutputAlias]" e "[YourInputAlias]" pelos aliases da entrada e saída que deseja usar primeiro. Além disso, você ainda pode criar e testar sua consulta no portal do Azure sem definir entradas e saídas no trabalho.
+    - Se tiver definido pelo menos uma entrada e saída para seu trabalho, você poderá substituir os campos de espaço reservado "[YourOutputAlias]" e "[YourInputAlias]" pelos aliases da entrada e saída que deseja usar primeiro. Além disso, você ainda pode criar e testar sua consulta no portal clássico do Azure sem definir entradas e saídas no trabalho.
     - Se quiser executar mais processamento do que uma simples passagem, você pode editar a definição da consulta. Para começar a criar uma consulta, veja alguns padrões comuns de consulta capturados [aqui](stream-analytics-query-patterns).  
   
     ![Janela de Consulta](./media/stream-analytics-write-queries/2-stream-analytics-write-queries.png)
@@ -41,7 +41,7 @@ A lógica de processamento de fluxo no Stream Analytics do Azure é implementada
 
 Você pode testar se sua consulta se comporta conforme esperado executando-a no navegador em um ou mais arquivos JSON locais contendo dados de teste. Isso não iniciará o trabalho nem terá nenhuma implicação de faturamento.
 
-> [AZURE.NOTE]Atualmente, não há suporte para o teste de consulta no navegador no portal de visualização do Azure.
+> [AZURE.NOTE]Atualmente, não há suporte para o teste de consulta no navegador no portal do Azure.
 
 1.	Verifique se não há erros na consulta (caso contrário, o botão Testar será desabilitado) e clique no botão Testar.  
 
@@ -70,4 +70,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

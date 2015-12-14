@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="10/09/2015"
+   ms.date="11/30/2015"
    ms.author="hascipio"/>
 
 # Concluir a criação de oferta com conteúdo de marketing
@@ -22,13 +22,13 @@ Nesta etapa do processo de publicação, você precisará de fornecer determinad
 ## Passo 1: fornecer conteúdo de marketing do Marketplace
 **O inglês é o idioma padrão e o único suportado.** Verifique se todas as informações fornecidas nos campos se encontram em inglês. Todas as informações podem ser editadas em qualquer momento até você enviar por push para o preparo.
 
-  1. Acesse o Portal de Publicação, [https://publish.windowsazure.com](https://publish.windowsazure.com)
+  1. Acesse o portal de publicação, [https://publish.windowsazure.com](https://publish.windowsazure.com)
   2. No menu à esquerda, clique na guia **Marketing**.
   3. No painel principal, clique no botão **Inglês (EUA)**.
 
 ### Detalhes
 1. Insira o resumo, o resumo longo e uma descrição da oferta.
-2.	Carregue imagens das especificações necessárias (mencionadas no Portal de Publicação) em formato PNG, uma para cada tamanho.
+2.	Carregue imagens das especificações necessárias (mencionadas no portal de publicação) em formato PNG, uma para cada tamanho.
 
   ![desenho](media/marketplace-publishing-push-to-staging/pubportal-02.png)
 
@@ -144,9 +144,7 @@ Abaixo está uma visão detalhada de como a oferta de informações de marketing
 ## Próximas etapas
 Agora que o conteúdo do Marketplace está carregado, seguiremos para a testar sua oferta no preparo. No entanto, você deve selecionar o tipo de oferta apropriado na lista abaixo já que as etapas variam por tipo de oferta.
 
-|| Imagem de máquina virtual | Serviço do desenvolvedor | Serviço de dados | Modelo de solução |
-|---|---|---|---|---|
-| **Etapa 3. Envie sua oferta para Preparo** | [Teste sua oferta de VM no Preparo](marketplace-publishing-vm-image-test-in-staging.md) | Teste sua oferta de serviço do desenvolvedor no Preparo| [Teste seu modelo de solução no Preparo](marketplace-publishing-solution-template-test-in-staging.md) |
+|| Imagem de máquina virtual | Serviço do desenvolvedor | Serviço de dados | Modelo de solução | |---|---|---|---|---| | **Etapa 3. Enviar por push sua oferta para preparo** | [Testar sua oferta de VM no preparo](marketplace-publishing-vm-image-test-in-staging.md) | Testar sua oferta de serviço do desenvolvedor no preparo| [Testar seu modelo de solução no preparo](marketplace-publishing-data-service-test-in-staging.md) | [Testar seu modelo de solução no preparo](marketplace-publishing-solution-template-test-in-staging.md) |
 
 ## Consulte também
 - [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -160,4 +158,4 @@ Agora que o conteúdo do Marketplace está carregado, seguiremos para a testar s
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

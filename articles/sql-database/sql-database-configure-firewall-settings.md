@@ -18,11 +18,11 @@
 	ms.author="rickbyh"/>
 
 
-# Como definir as configurações de firewall no Banco de Dados SQL usando o Portal do Azure
+# Como definir as configurações de firewall no Banco de Dados SQL usando o Portal Clássico do Azure
 
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-configure-firewall-settings.md)
+- [Azure Portal](sql-database-configure-firewall-settings.md)
 - [TSQL](sql-database-configure-firewall-settings-tsql.md)
 - [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 - [REST API](sql-database-configure-firewall-settings-rest.md)
@@ -33,15 +33,15 @@ O Banco de Dados SQL do Microsoft Azure usa regras de firewall para permitir con
 > [AZURE.IMPORTANT]Para permitir que os aplicativos do Azure se conectem ao seu servidor de banco de dados, as conexões do Azure devem estar habilitadas. Para obter mais informações sobre regras de firewall e como habilitar conexões do Azure, confira [Firewall do Banco de Dados SQL do Azure](sql-database-firewall-configure.md). Talvez seja necessário abrir algumas portas TCP adicionais se estiver criando conexões dentro do limite de nuvem do Azure. Para obter mais informações, veja a seção **V12 do Banco de Dados SQL: fora versus dentro** de [Portas além da 1433 para ADO.NET 4.5 e Banco de Dados SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 
-### Gerenciar regras de firewall no nível de servidor pelo Novo Portal do Azure
+### Gerenciar regras de firewall no nível de servidor pelo Novo Portal Clássico do Azure
 
 
 [AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
 
-## Gerenciar regras de firewall no nível de servidor pelo Portal de Gerenciamento 
+## Gerenciar regras de firewall no nível de servidor pelo Portal Clássico 
 
-1. No Portal de Gerenciamento, clique em **Bancos de Dados SQL**. Todos os bancos de dados e os servidores correspondentes são listados aqui.
+1. No Portal Clássico, clique em **Bancos de Dados SQL**. Todos os bancos de dados e os servidores correspondentes são listados aqui.
 2. Clique em **Servidores** na parte superior da página.
 3. Clique na seta ao lado do servidor para o qual deseja gerenciar as regras de firewall.
 4. Clique em **Configurar** na parte superior da página.
@@ -62,4 +62,4 @@ Para ver um tutorial sobre como criar um banco de dados, confira [Criar seu prim
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -26,7 +26,7 @@ Este artigo mostra como configurar um computador cliente local executando o Wind
 
 ## Pré-requisitos
 
-* **Nó principal do Pacote HPC implantado em uma VM do Azure**: você pode usar ferramentas automatizadas, como um [modelo de início rápido do Azure](https://azure.microsoft.com/pt-BR/documentation/templates/) ou um [script do Azure PowerShell](virtual-machines-hpcpack-cluster-powershell-script.md) para implantar o nó principal e o cluster, ou você pode implantar o cluster manualmente no Azure como faria com um cluster local. Você precisará do nome DNS do nó principal e as credenciais de um administrador de cluster para concluir as etapas neste artigo.
+* **Nó principal do Pacote HPC implantado em uma VM do Azure**: você pode usar ferramentas automatizadas, como um [modelo de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) ou um [script do Azure PowerShell](virtual-machines-hpcpack-cluster-powershell-script.md) para implantar o nó principal e o cluster, ou você pode implantar o cluster manualmente no Azure como faria com um cluster local. Você precisará do nome DNS do nó principal e as credenciais de um administrador de cluster para concluir as etapas neste artigo.
 
     Se você implantou o nó principal manualmente, verifique se há um ponto de extremidade HTTPS configurado na VM. Se não houver, configure um. Confira: [Como instalar pontos de extremidade em uma máquina virtual](virtual-machines-set-up-endpoints.md).
 
@@ -183,4 +183,4 @@ Para verificar a configuração, tente executar trabalhos no cluster no Azure us
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-hpcpack-cluster-submit-jobs/jobsubmit.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

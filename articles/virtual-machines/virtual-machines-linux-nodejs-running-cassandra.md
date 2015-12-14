@@ -124,7 +124,7 @@ Nesta etapa do processo, criaremos a imagem do Ubuntu com o software de pré-req
 O Azure precisa de uma chave pública X509 que é PEM ou DER codificada no momento de provisionamento. Gerar um par de chaves pública/privada usando as instruções localizadas em Como usar SSH com Linux no Azure. Se você planeja usar putty.exe como um cliente SSH no Windows ou Linux, você precisará converter a chave privada RSA codificada PEM para o formato PPK usando puttygen.exe; as instruções para isso podem ser encontradas na página da Web acima.
 
 ####ETAPA 2: criar uma VM do modelo Ubuntu
-Para criar a VM do modelo, faça logon no portal do Azure e use a seguinte sequência: clique em NOVO, COMPUTAÇÃO, MÁQUINA VIRTUAL, DA GALERIA, UBUNTU, Ubuntu Server 14.04 LTS e clique na seta direita. Para um tutorial que descreva como criar uma VM Linux, consulte Criar uma Máquina Virtual executando o Linux.
+Para criar a VM do modelo, faça logon no portal clássico do Azure e use a seguinte sequência: clique em NOVO, COMPUTAÇÃO, MÁQUINA VIRTUAL, DA GALERIA, UBUNTU, Ubuntu Server 14.04 LTS e clique na seta direita. Para um tutorial que descreva como criar uma VM Linux, consulte Criar uma Máquina Virtual executando o Linux.
 
 Insira as seguintes informações na tela #1 "Configuração da máquina virtual":
 
@@ -293,7 +293,7 @@ Certifique-se de que a máquina virtual esteja realçada e clique no link CAPTUR
 Isto levará alguns segundos e a imagem deverá estar disponível na seção MINHAS IMAGENS da galeria de imagens. A VM de origem será automaticamente delatada depois que a imagem for capturada com êxito.
 
 ##Processo de implantação de região única
-**Etapa 1: Criar a Rede Virtual** Faça logon no portal do Azure e crie uma Rede Virtual com os atributos mostrados na tabela. Confira [Configurar uma rede virtual somente na nuvem no portal do Azure](../virtual-network/virtual-networks-create-vnet.md) para obter as etapas detalhadas do processo.
+**Etapa 1: Criar a Rede Virtual** Faça logon no portal clássico do Azure e crie uma Rede Virtual com os atributos mostrados na tabela. Confira [Configurar uma rede virtual somente na nuvem no portal clássico do Azure](../virtual-network/virtual-networks-create-vnet.md) para obter as etapas detalhadas do processo.
 
 <table>
 <tr><th>Nome do atributo da VM</th><th>Valor</th><th>Comentários</th></tr>
@@ -340,7 +340,7 @@ A criação da lista de VMs mencionada acima exige o seguinte processo:
 3.	Adicione um balanceador de carga interno ao serviço de nuvem e anexe-o à sub-rede "dados"
 4.	Para cada VM criada anteriormente, adicione um ponto de extremidade com balanceamento de carga para o tráfego de poupança através de um conjunto de balanceamento de carga conectado ao balanceador de carga interno criado anteriormente
 
-O processo acima pode ser executado usando o portal do Azure; use um computador com o Windows (ou uma VM no Azure, caso você não tenha acesso a um computador com o Windows), use o script do PowerShell a seguir para provisionar todas as 8 VMs automaticamente.
+O processo acima pode ser executado usando o portal clássico do Azure; use um computador com o Windows (ou uma VM no Azure, caso você não tenha acesso a um computador com o Windows), use o script do PowerShell a seguir para provisionar todas as 8 VMs automaticamente.
 
 **Lista1: script do PowerShell para provisionamento de máquinas virtuais**
 		
@@ -459,7 +459,7 @@ Observe que o keyspace criado na etapa 4 usa SimpleStrategy com um replication\_
 Utilizará a implantação de região única concluída e repetirá o mesmo processo para instalar a segunda região. A principal diferença entre a implantação de região única e a de várias regiões é a configuração de túnel VPN para comunicação entre regiões; começaremos com a instalação de rede, provisionamento de VMs e configuração de Cassandra.
 
 ###Etapa 1: criar uma rede virtual na 2ª região
-Faça logon no portal do Azure e crie uma Rede Virtual com os atributos mostrados na tabela. Confira [Configurar uma Rede Virtual somente na nuvem no portal do Azure](../virtual-network/virtual-networks-create-vnet.md) para obter as etapas detalhadas do processo.
+Faça logon no portal clássico do Azure e crie uma Rede Virtual com os atributos mostrados na tabela. Confira [Configurar uma rede virtual somente na nuvem no portal clássico do Azure](../virtual-network/virtual-networks-create-vnet.md) para obter as etapas detalhadas do processo.
 
 <table>
 <tr><th>Nome do atributo    </th><th>Valor	</th><th>Comentários</th></tr>
@@ -488,7 +488,7 @@ Crie duas redes locais para os seguintes detalhes:
 
 
 ###Etapa 3: mapear rede "Local" para os respectivos VNETs
-No portal do Azure, selecione todas as redes virtuais, clique em "Configurar", marque "Conectar à rede local" e selecione as Redes Locais de acordo com os seguintes detalhes:
+No portal clássico do Azure, selecione todas as redes virtuais, clique em "Configurar", marque "Conectar à rede local" e selecione as Redes Locais de acordo com os seguintes detalhes:
 
 
 | Rede Virtual | Rede Local |
@@ -512,7 +512,7 @@ Edite ambas as redes locais para substituir o endereço IP do gateway de espaço
 Use o seguinte script do Powershell para atualizar a chave do IPSec de cada gateway de VPN [use a mesma chave para ambos os gateways]: Set-AzureVNetGatewayKey -VNetName hk-vnet-east-us -LocalNetworkSiteName hk-lnet-map-to-west-us -SharedKey D9E76BKK Set-AzureVNetGatewayKey -VNetName hk-vnet-west-us -LocalNetworkSiteName hk-lnet-map-to-east-us -SharedKey D9E76BKK
 
 ###Etapa 6: estabelecer a conexão VNET para VNET
-No portal do Azure, use o menu "PAINEL" das duas redes virtuais para estabelecer a conexão gateway a gateway. Use os itens do menu "CONECTAR" na barra de ferramentas inferior. Após alguns minutos, o painel deverá exibir graficamente os detalhes da conexão.
+No portal clássico do Azure, use o menu "PAINEL" das duas redes virtuais para estabelecer a conexão gateway a gateway. Use os itens do menu "CONECTAR" na barra de ferramentas inferior. Após alguns minutos, o painel deverá exibir graficamente os detalhes da conexão.
 
 ###Etapa 7: criar as máquinas virtuais na região #2 
 Criar a imagem do Ubuntu, conforme descrito na implantação da região #1, seguindo as mesmas etapas, ou copie o arquivo VHD de imagem para a conta de armazenamento do Azure localizada na região #2 e crie a imagem. Use esta imagem e crie a seguinte lista de máquinas virtuais em um novo serviço de nuvem hk-c-svc-east-us:
@@ -692,4 +692,4 @@ O Microsoft Azure é uma plataforma flexível que permite a execução tanto de 
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

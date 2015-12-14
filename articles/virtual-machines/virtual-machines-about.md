@@ -36,7 +36,7 @@ Avalie uma máquina virtual criando uma máquina virtual simples rapidamente. Pa
 
 [Criar uma máquina virtual que executa Linux](virtual-machines-linux-tutorial.md)
 
-[Criar uma máquina virtual que executa o Windows no Portal de Visualização do Azure](virtual-machines-windows-tutorial.md)
+[Criar uma máquina virtual executando o Windows no portal do Azure](virtual-machines-windows-tutorial.md)
 
 Como esses tutoriais lhe ajudam a criar máquinas virtuais rapidamente, eles mostram apenas uma maneira de fazer isso, em vez de descrever as várias ferramentas que você pode usar para criar máquinas virtuais. Para obter um resumo dessas ferramentas e links para obter instruções, consulte:
 
@@ -52,4 +52,4 @@ Se você estiver começando a aprender sobre as máquinas virtuais do Azure, con
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

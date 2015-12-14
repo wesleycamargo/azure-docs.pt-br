@@ -1,23 +1,28 @@
-<properties 
-	pageTitle="Enviar emails usando o SendGrid | Microsoft Azure" 
-	description="Aprenda a usar o serviço SendGrid para enviar emails de seu aplicativo de serviços móveis do Azure." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="Erikre" 
-	manager="sendgrid" 
+<properties
+	pageTitle="Enviar emails usando o SendGrid | Microsoft Azure"
+	description="Aprenda a usar o serviço SendGrid para enviar emails de seu aplicativo de serviços móveis do Azure."
+	services="mobile-services"
+	documentationCenter=""
+	authors="Erikre"
+	manager="sendgrid"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="07/31/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="07/31/2015"
 	ms.author="Erikre"/>
 
 
 # Enviar email dos Serviços Móveis com SendGrid
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 Este tópico mostra como adicionar a funcionalidade de e-mail ao seu serviço móvel. Nste tópico, você adicionará scripts do lado do servidor para enviar e-mails usando o SendGrid. Ao concluir, seu serviço móvel enviará um e-mail sempre que um registro for inserido.
 
@@ -37,14 +42,14 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
 
 ## <a name="add-script"></a>Registrar um novo script que envia emails
 
-1. Faça o logon no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e clique em seu serviço móvel.
+1. Faça logon no [portal clássico do Azure], clique em **Serviços Móveis** e clique em seu serviço móvel.
 
-2. No Portal de Gerenciamento, clique na guia **Dados** e clique na tabela **TodoItem**.
+2. No portal clássico do Azure, clique na guia **Dados** e, em seguida, clique na tabela **TodoItem**.
 
 	![][1]
 
 3. Em **todoitem**, clique na guia **Script** e selecione **Inserir**.
-   
+
 	![][2]
 
 	Isso exibe a função que é chamada quando ocorre uma inserção na tabela **TodoItem**.
@@ -52,8 +57,8 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
 4. Substitua a função de inserção pelo seguinte código:
 
         var SendGrid = require('sendgrid').SendGrid;
-        
-        function insert(item, user, request) {    
+
+        function insert(item, user, request) {
             request.execute({
                 success: function() {
                     // After the record has been inserted, send the response immediately to the client
@@ -64,8 +69,8 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
             });
 
             function sendEmail(item) {
-                var sendgrid = new SendGrid('**username**', '**password**');       
-                
+                var sendgrid = new SendGrid('**username**', '**password**');
+
                 sendgrid.send({
                     to: '**email-address**',
                     from: '**from-address**',
@@ -94,7 +99,7 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
 
 ## <a name="insert-data"></a>Inserir dados de teste para receber emails
 
-1. No projeto de aplicativo do cliente, execute o aplicativo de início rápido. 
+1. No projeto de aplicativo do cliente, execute o aplicativo de início rápido.
 
 	Este tópico mostra a versão do Windows Store do início rápido,
 
@@ -131,10 +136,8 @@ Agora que você já viu como é fácil usar o serviço de emails do SendGrid com
 [Introdução aos Serviços Móveis]: /develop/mobile/tutorials/get-started
 [sign up page]: https://sendgrid.com/windowsazure.html
 [Multiple User Credentials page]: https://sendgrid.com/credentials
-[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
+[portal clássico do Azure]: https://manage.windowsazure.com/
 [serviço de e-mail baseado em nuvem]: https://sendgrid.com/email-solutions
 [entrega de e-mail transacional]: https://sendgrid.com/transactional-email
 
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

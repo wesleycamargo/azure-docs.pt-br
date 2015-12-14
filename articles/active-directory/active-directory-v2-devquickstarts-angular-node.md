@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Introdução ao AngularJS do AD do Azure | Microsoft Azure"
-	description="Como criar um aplicativo de página única Angular JS que conecte usuários com contas da Microsoft pessoais e contas corporativas ou de estudante."
+	description="Como compilar um aplicativo de página única Angular JS que autentica usuários com contas da Microsoft pessoais e contas corporativas ou de estudante."
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
@@ -223,7 +223,7 @@ return $http.get('/api/tasks');
 ...
 ```
 
-Parabéns! Seu aplicativo de página única integrado ao AD do Azure está concluído. Vá em frente, receba os aplausos. Ele pode autenticar os usuários, chamar com segurança sua API REST back-end usando OpenID Connect e obter informações básicas sobre o usuário. Para uso imediato, ele oferece suporte a qualquer usuário com uma conta pessoal da Microsoft ou uma conta corporativa/de estudante do AD do Azure. Experimente o aplicativo executando:
+Parabéns! Seu aplicativo de página única integrado ao Azure AD está concluído. Vá em frente, receba os aplausos. Ele pode autenticar os usuários, chamar com segurança sua API REST back-end usando OpenID Connect e obter informações básicas sobre o usuário. Para uso imediato, ele oferece suporte a qualquer usuário com uma conta pessoal da Microsoft ou uma conta corporativa/de estudante do AD do Azure. Experimente o aplicativo executando:
 
 ```
 node server.js
@@ -231,10 +231,10 @@ node server.js
 
 Em um navegador, navegue até `http://localhost:8080`. Entre usando uma conta pessoal da Microsoft ou uma conta corporativa/de estudante. Adicione tarefas à lista de tarefas pendentes do usuário e saia. Tente entrar com o outro tipo de conta. Se você precisar de um locatário do AD do Azure a fim de criar usuários corporativos/estudantes, [saiba como obter um aqui](active-directory-howto-tenant.md) (é gratuito).
 
-Para continuar aprendendo sobre a visualização do modelo de aplicativo v2.0, confira nosso [guia do desenvolvedor v 2.0](active-directory-appmodel-v2-overview.md). Para obter recursos adicionais, confira:
+Para continuar aprendendo sobre a visualização do modelo de aplicativo v2.0, confira nosso [guia do desenvolvedor v 2.0](active-directory-appmodel-v2-overview.md). Para obter recursos adicionais, consulte:
 
 - [Exemplos do Azure no GitHub >>](https://github.com/Azure-Samples)
 - [AD do Azure no Excedente de Pilha >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 - Documentação do Azure AD no [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

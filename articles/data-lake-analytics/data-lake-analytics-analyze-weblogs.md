@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/09/2015"
+   ms.date="12/01/2015"
    ms.author="jgao"/>
 
 # Tutorial: analise os logs do site usando a Análise Data Lake do Azure
@@ -34,12 +34,12 @@ Saiba como analisar os logs do site usando a Análise Data Lake, principalmente 
 
 - **Conhecimento básico da Análise Data Lake e das Ferramentas do Data Lake para Visual Studio**. Para começar. confira:
  
-	- [Introdução à Análise Data Lake do Azure usando o Portal de Visualização do Azure](data-lake-analytics-get-started-portal.md).
+	- [Introdução à Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md).
 	- [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 
 - **Uma conta da Análise Data Lake.** Confira [Criar uma conta da Análise Data Lake do Azure](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
 
-	As Ferramentas do Data Lake não dão suporte à criação de contas da Análise Data Lake. Por isso, você precisa criá-la usando o Portal de Visualização do Azure, o Azure PowerShell, o SDK do .NET ou a CLI do Azure. 
+	As Ferramentas do Data Lake não dão suporte à criação de contas da Análise Data Lake. Portanto, você precisa criá-la usando o Portal do Azure, Azure PowerShell, SDK do .NET ou a CLI do Azure. 
 - **Carregue os dados de exemplo na conta da Análise Data Lake.** Confira [Carregar SearchLog.tsv na conta padrão do Repositório Data Lake](data-lake-analytics-get-started-portal.md#update-data-to-the-default-adl-storage-account).
 
     Para executar o trabalho da Análise Data Lake, você precisará de alguns dados. Embora as Ferramentas do Data Lake deem suporte ao carregamento de dados, você poderá usar o portal para carregar os dados de exemplo para deixar o tutorial mais fácil de acompanhar.
@@ -58,13 +58,13 @@ Antes de criar e testar qualquer script U-SQL, é preciso se conectar ao Azure.
 **Para procurar as suas contas de Análise Data Lake**
 
 1. No Visual Studio, abra o **Gerenciador de Servidores** pressionando **CTRL+ALT+S**.
-2. No **Gerenciador de Servidores**, expanda **Azure** e expanda **Análise Data Lake**. Você deverá ver uma lista das suas contas da Análise Data Lake, caso haja alguma. Não é possível criar contas da Análise Data Lake a partir do estúdio. Para criar uma conta, consulte [Introdução à Análise Azure Data Lake usando o Portal de Visualização do Azure](data-lake-analytics-get-started-portal.md) ou [Introdução à Análise Azure Data Lake usando o Azure PowerShell](data-lake-analytics-get-started-powershell.md).
+2. No **Gerenciador de Servidores**, expanda **Azure** e expanda **Análise Data Lake**. Você deverá ver uma lista das suas contas da Análise Data Lake, caso haja alguma. Não é possível criar contas da Análise Data Lake a partir do estúdio. Para criar uma conta, veja [Introdução à Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md) ou [Introdução à Análise do Azure Data Lake usando o Azure PowerShell](data-lake-analytics-get-started-powershell.md).
 
 ## Desenvolver aplicativos U-SQL 
 
 Um aplicativo U-SQL é basicamente um script U-SQL. Para saber mais sobre o U-SQL, consulte [Introdução ao U-SQL](data-lake-analytics-u-sql-get-started.md).
 
-Você pode adicionar operadores definidos pelo usuário a este aplicativo. Para saber mais, consulte [Desenvolver operadores U-SQL definidos pelo usuário para trabalhos da Análise Data Lake](data-lake-analytics-u-sql-develop-user-defined-operators.md).
+Você pode adicionar operadores definidos pelo usuário a este aplicativo. Para obter mais informações, veja [Desenvolver operadores U-SQL definidos pelo usuário para trabalhos da Análise do Data Lake](data-lake-analytics-u-sql-develop-user-defined-operators.md).
  
 **Para criar e enviar um trabalho da Análise Data Lake**
 
@@ -168,10 +168,10 @@ Você pode adicionar operadores definidos pelo usuário a este aplicativo. Para 
         USING Outputters.Tsv();
 
 6. Volte para o primeiro script U-SQL e, ao lado do botão **Enviar**, especifique a conta de análise.
-7. No **Gerenciador de Soluções**, clique com o botão direito do mouse em **Script.usql** e clique em **Criar Script**. Verifique os resultados no painel Saída.
+7. No **Gerenciador de Soluções**, clique com o botão direito do mouse em **Script.usql** e clique em **Compilar Script**. Verifique os resultados no painel Saída.
 8. No **Gerenciador de Soluções**, clique com o botão direito do mouse em **Script.usql** e clique em **Enviar Script**.
 9. Verifique se a **Conta da Análise** é uma conta em que você pode executar o trabalho e clique em **Enviar**. Os resultados do envio e o link do trabalho ficarão disponíveis na janela de resultados das Ferramentas do Date Lake para Visual Studio quando o envio for concluído.
-10. Aguarde até o trabalho ser concluído com sucesso. Se houver falha no trabalho, é provável que esteja faltando o arquivo original. Confira a seção Pré-requisitos deste tutorial. Para saber mais, consulte [Monitorar e solucionar problemas com trabalhos de Análise Azure Data Lake](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
+10. Aguarde até o trabalho ser concluído com sucesso. Se houver falha no trabalho, é provável que esteja faltando o arquivo original. Confira a seção Pré-requisitos deste tutorial. Para obter mais informações sobre solução de problemas, veja [Monitorar e solucionar problemas com trabalhos da Análise do Azure Data Lake](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
 
     Quando o trabalho for concluído, você deverá ver a seguinte tela:
     
@@ -183,8 +183,8 @@ Você pode adicionar operadores definidos pelo usuário a este aplicativo. Para 
 
 **Para ver a saída do trabalho**
 
-1. No **Gerenciador de Servidores**, expanda o **Azure**, expanda a **Análise Data Lake**, expanda sua conta da Análise Data Lake, expanda **Contas de Armazenamento**, clique com o botão direito do mouse na conta padrão do Repositório Data Lake e clique em **Gerenciador**. 
-2.  Clique duas vezes em **Amostras** para abrir a pasta e clique duas vezes em **Saídas**.
+1. No **Gerenciador de Servidores**, expanda **Azure**, expanda **Análise do Data Lake**, expanda sua conta da Análise do Data Lake, expanda **Contas de Armazenamento**, clique com o botão direito do mouse na conta padrão do Repositório do Data Lake e clique em **Gerenciador**. 
+2.  Clique duas vezes em **Exemplos** para abrir a pasta e clique duas vezes em **Saídas**.
 3.  Clique duas vezes em **UnsuccessfulResponsees.log**.
 4.  Também é possível clicar duas vezes no arquivo de saída no modo de exibição de gráficos do trabalho a fim de navegar diretamente até a saída.
         
@@ -192,7 +192,7 @@ Você pode adicionar operadores definidos pelo usuário a este aplicativo. Para 
 
 Para começar a usar a Análise Data Lake com ferramentas diferentes, consulte:
 
-- [Introdução à Análise Data Lake usando o Portal de Visualização do Azure](data-lake-analytics-get-started-portal.md)
+- [Introdução à Análise do Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md)
 - [Introdução à Análise Data Lake usando o Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Introdução à Análise Data Lake usando o SDK do .NET](data-lake-analytics-get-started-net-sdk.md)
 
@@ -202,4 +202,4 @@ Para ver mais tópicos de desenvolvimento:
 - [Introdução à linguagem U-SQL da Análise Data Lake do Azure](data-lake-analytics-u-sql-get-started.md)
 - [Desenvolver operadores do U-SQL definidos pelo usuário para trabalhos da Análise Data Lake](data-lake-analytics-u-sql-user-defined-operators.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

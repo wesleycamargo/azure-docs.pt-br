@@ -22,7 +22,7 @@
 
 Usando Git, é possível implantar um aplicativo ASP.NET em Aplicativos Web do Serviço de Aplicativo do Azure. Neste tutorial, você compilará um aplicativo de lista de tarefas MVC do ASP.NET de front-end simples que se conecta a um banco de dados MongoDB em execução em uma máquina virtual no Azure. [O MongoDB][MongoDB] é um banco de dados NoSQL de código-fonte aberto e com alto desempenho. Depois de executar e testar o aplicativo ASP.NET no computador de desenvolvimento, você carregará o aplicativo nos Aplicativos Web do Serviço de Aplicativo usando Git.
 
->[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 
 ## Conhecimento prévio ##
@@ -419,7 +419,7 @@ No **Gerenciador de soluções**, abra o arquivo *DAL/Dal.cs*. Localize a seguin
 
 	private string connectionString = "mongodb://<vm-dns-name>";
 
-Substitua `<vm-dns-name>` pelo nome DNS da máquina virtual executando MongoDB criado na etapa [Criar uma máquina virtual e instalar o MongoDB][] deste tutorial. Para localizar o nome DNS da máquina virtual, vá até o Portal do Azure, selecione **Máquinas Virtuais** e localize **Nome DNS**.
+Substitua `<vm-dns-name>` pelo nome DNS da máquina virtual executando MongoDB criado na etapa [Criar uma máquina virtual e instalar o MongoDB][] deste tutorial. Para encontrar o nome DNS da máquina virtual, vá até o Portal do Azure, selecione **Máquinas Virtuais** e localize **Nome DNS**.
 
 Se o nome DNS da máquina virtual for "testlinuxvm.cloudapp.net" e MongoDB estiver escutando na porta padrão 27017, a linha da cadeia de conexão do código será assim:
 
@@ -450,7 +450,7 @@ Nesta seção, você publicará as alterações feitas nos Aplicativos Web do Se
 
 Você já implantou o aplicativo ASP.NET com êxito para os Aplicativos Web do Serviço de Aplicativo do Azure. Para exibir o aplicativo Web:
 
-1. Faça logon no portal do Azure.
+1. Faça logon no Portal do Azure.
 2. Clique em **Aplicativos Web**. 
 3. Selecione seu aplicativo Web na lista **Aplicativos Web**.
 
@@ -499,4 +499,4 @@ Para obter mais informações sobre como desenvolver aplicativos do C# para Mong
 [Deploy the ASP.NET application to the web site using Git]: #deployapp
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

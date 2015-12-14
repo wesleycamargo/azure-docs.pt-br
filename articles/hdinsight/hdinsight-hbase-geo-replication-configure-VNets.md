@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/08/2015"
+   ms.date="12/02/2015"
    ms.author="jgao"/>
 
 # Configurar uma conexão VPN entre duas redes virtuais do Azure  
@@ -71,7 +71,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 **Para criar uma rede virtual chamada Contoso-VNet-EU no Norte da Europa**
 
-1.	Entre no [Portal do Azure][azure-portal].
+1.	Entre no [Portal Clássico do Azure][azure-portal].
 2.	Clique em **NOVO**, **SERVIÇOS DE REDE**, **REDE VIRTUAL**, **CRIAÇÃO PERSONALIZADA**.
 3.	Digite:
 
@@ -144,7 +144,7 @@ Ao criar uma configuração de VNet a VNet, você precisa configurar cada VNet p
 
 **Para criar uma rede local chamada Contoso-LNet-EU correspondente ao espaço de endereço de rede da Contoso-VNet-EU**
 
-1. No portal do Azure, clique em **NOVO**, **SERVIÇOS DE REDE**, **REDE VIRTUAL**, **ADICIONAR REDE LOCAL**.
+1. No Portal Clássico do Azure, clique em **NOVO**, **SERVIÇOS DE REDE**, **REDE VIRTUAL**, **ADICIONAR REDE LOCAL**.
 3. Digite:
 
 	- **NOME**: Contoso-LNet-EU
@@ -175,7 +175,7 @@ Há duas partes nessa configuração. Primeiro, configure uma conexão de site a
 
 **Para configurar a conexão de site a site Contoso-VNet-EU para Contoso-LNet-US**
 
-1.	No portal do Azure, clique em **REDES** no painel à esquerda,
+1.	No Portal Clássico do Azure, clique em **REDES** no painel esquerdo.
 2.	Clique em **Contoso-VNet-EU**.
 3.	Clique na guia **CONFIGURAR**.
 4.	Marque **Conectar à rede local**.
@@ -187,7 +187,7 @@ Há duas partes nessa configuração. Primeiro, configure uma conexão de site a
 
 **Para criar um gateway VPN para Contoso-VNet-EU**
 
-1.	No Portal do Azure, clique na guia **PAINEL**.
+1.	No Portal Clássico do Azure, clique na guia **PAINEL**.
 4.	Clique em **CRIAR GATEWAY** na parte inferior da página e clique em **Roteamento dinâmico**.
 5.	Clique em **Sim** para confirmar. Observe que o gráfico do gateway na página muda para a cor amarelo e diz Criando Gateway. Geralmente, leva cerca de 15 minutos para que o gateway seja criado.
 
@@ -205,7 +205,7 @@ Na última seção, você pode criar um gateway VPN para cada um dos VNets. Voc�
 
 **Para configurar o endereço IP do dispositivo VPN para o Contoso-LNet-EU**
 
-1.	No portal do Azure, clique em **REDES** no painel à esquerda.
+1.	No Portal Clássico do Azure, clique em **REDES** no painel esquerdo.
 2.	Clique em **REDES LOCAIS** na parte superior.
 3.	Clique em **Contoso-LNet-EU** e, em seguida, clique em **EDITAR** na parte inferior.
 4.	Atualizar **ENDEREÇO IP DO DISPOSITIVO DE VPN**. Este é o endereço obtido na guia PAINEL do Contoso-VNET-EU.
@@ -218,7 +218,7 @@ Na última seção, você pode criar um gateway VPN para cada um dos VNets. Voc�
 
 ###Definir chaves de gateway de VNet
 
-Os gateways de Vnet usam uma chave compartilhada para autenticar conexões entre as redes virtuais. A chave não pode ser configurada no Portal do Azure. Você deve usar o PowerShell ou o SDK do .NET.
+Os gateways de Vnet usam uma chave compartilhada para autenticar conexões entre as redes virtuais. A chave não pode ser configurada no Portal Clássico do Azure. Você deve usar o PowerShell ou o SDK do .NET.
 
 **Para definir as chaves**
 
@@ -233,7 +233,7 @@ Os gateways de Vnet usam uma chave compartilhada para autenticar conexões entre
 
 ##Verifique a conexão VPN 
 
-Sem qualquer VM implantada aos VNets, você pode usar o diagrama visual de rede virtual na página Painel do VNet no Portal do Azure para verificar o status da conexão:
+Sem nenhuma VM implantada nas VNets, você pode usar o diagrama visual da rede virtual na página do Painel da VNet no Portal Clássico do Azure para verificar o status da conexão:
 
 ![Status da conexão VPN da rede virtual de replicação de HBase do HDInsight][img-vpn-status]
   
@@ -270,4 +270,4 @@ Neste tutorial, você aprendeu como configurar uma conexão VPN entre duas redes
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -2,7 +2,7 @@ Um novo script de inserção está registrado e gerará uma SAS quando um novo i
 
 0. Se você ainda não criou sua conta de armazenamento, consulte [Como criar uma conta de armazenamento](../storage/storage-create-storage-account.md).
 
-1. No Portal de Gerenciamento, clique em **Armazenamento**, clique na conta de armazenamento e clique em **Gerenciar Chaves**.
+1. No [portal clássico do Azure](https://manage.windowsazure.com/), clique em **Armazenamento**, na conta de armazenamento e em **Gerenciar Chaves**.
 
 2. Anote o **Nome da Conta de Armazenamento** e a **Chave de Acesso**.
 
@@ -17,7 +17,7 @@ Um novo script de inserção está registrado e gerará uma SAS quando um novo i
 
 	A chave de acesso da conta de armazenamento é armazenada criptografada em configurações do aplicativo. Você pode acessar essa chave de qualquer script de servidor em tempo de execução. Para obter mais informações, consulte [Configurações do aplicativo].
 
-4. Na guia Configurar, verifique se [Esquema dinâmico](http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7)está habilitado. Você precisa do esquema dinâmico habilitado para poder adicionar novas colunas à tabela TodoItem. O esquema dinâmico não deve ser habilitado em qualquer serviço de produção.
+4. Na guia Configurar, verifique se [Esquema dinâmico](http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7) está habilitado. Você precisa do esquema dinâmico habilitado para poder adicionar novas colunas à tabela TodoItem. O esquema dinâmico não deve ser habilitado em qualquer serviço de produção.
 
 4. Clique na guia **Dados** e, em seguida, clique na tabela **TodoItem**.
 
@@ -91,4 +91,4 @@ Em seguida, você atualizará o aplicativo quickstart para adicionar funcionalid
 <!-- URLs. -->
 [Configurações do aplicativo]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

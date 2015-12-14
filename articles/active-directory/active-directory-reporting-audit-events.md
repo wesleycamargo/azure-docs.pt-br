@@ -13,10 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
+   ms.date="11/30/2015"
    ms.author="kenhoff"/>
 
 # Eventos de relatório de auditoria do Active Directory do Azure
+
+## Artigos de documentação de relatório
+
+ - [API de Relatório](active-directory-reporting-api-getting-started.md)
+ - [Eventos de Auditoria](active-directory-reporting-audit-events.md)
+ - [Retenção](active-directory-reporting-retention.md)
+ - [Visualizações](active-directory-reporting-previews.md)
+ - [Pesquisar](active-directory-reporting-search.md)
+ - [Aterramento](active-directory-reporting-backfill.md)
+ - [Latências](active-directory-reporting-latencies.md)
+ - [Evento "Ator Desconhecido"](active-directory-reporting-unknown-actor.md)
+
 O relatório de auditoria do Active Directory do Azure ajuda os clientes a identificar ações privilegiadas que ocorreram nos seus respectivos Active Directory do Azure. Ações com privilégios incluem alterações de elevação (por exemplo, criação de funções ou redefinições de senha), alteração de configurações de política (por exemplo, políticas de senha) ou alterações na configuração de diretório (por exemplo, as alterações às configurações de federação de domínio). Os relatórios fornecem o registro de auditoria para o nome do evento, o ator que executou a ação, o recurso de destino afetado pela alteração e a data e hora (em UTC). Os clientes são capazes de recuperar a lista de eventos de auditoria para o Active Directory do Azure por meio do [Portal de Gerenciamento do Azure](https://manage.windowsazure.com/), conforme descrito em [Veja seus relatórios de acesso e de uso](active-directory-view-access-usage-reports.md).
 
 
@@ -45,9 +57,9 @@ Adicionar entidade de serviço | Uma entidade de serviço foi adicionada ao dire
 Remover entidade de serviço | Uma entidade de serviço foi removida do diretório.
 Adicionar credenciais de entidade de serviço | Credenciais adicionadas a uma entidade de serviço.
 Remover credenciais de entidade de serviço | Credenciais removidas de uma entidade de serviço.
-Adicionar entrada de delegação | [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) foi criado no diretório.
-Definir entrada de delegação | [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) foi atualizado no diretório.
-Remover entrada de delegação | [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) foi excluído do diretório.
+Adicionar entrada de delegação | [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) criado no diretório.
+Definir entrada de delegação | [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) atualizado no diretório.
+Remover entrada de delegação | [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) excluído do diretório.
 **Eventos de função** |
 Adicionar um membro da função à Função | Um usuário foi adicionado a uma função de diretório.
 Remover membro de função da Função | Um usuário foi removido de uma função de diretório.
@@ -119,4 +131,4 @@ TelephoneNumber | O número de telefone do usuário.
 
 Registros de auditoria são um controle necessário para muitas regulamentações de conformidade. Para clientes que usam o Relatório de Auditoria do Active Directory do Azure para atender aos seus regulamentos de conformidade, recomenda-se que o cliente envie uma cópia deste tópico de ajuda com a cópia do relatório de auditoria exportado do cliente para ajudar a explicar os detalhes do relatório. Se o auditor gostaria de entender os regulamentos de conformidade que o Azure atende atualmente, indique a [Página de conformidade](http://azure.microsoft.com/support/trust-center/compliance/) da Central de confiabilidade do Microsoft Azure ao auditor.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

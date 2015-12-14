@@ -309,7 +309,7 @@ Ao implantar, tenha em mente que uma nova Conta de Armazenamento do Azure precis
 
 Durante e após a implantação, você pode verificar todas as solicitações feitas durante o provisionamento, incluindo quaisquer erros ocorridos.
 
-Para fazê-lo, vá para o [portal de visualização do Azure](https://portal.azure.com) e faça o seguinte:
+Para fazer isso, acesse o [Portal do Azure](https://portal.azure.com) e faça o seguinte:
 
 - Clique em **Procurar** na barra de navegação à esquerda, role para baixo e clique em **Grupos de Recursos**.
 - Depois que você clicar no grupo de recursos que acabou de criar, a folha Grupo de Recursos será mostrada.
@@ -694,4 +694,4 @@ Essencialmente, essa abordagem sugere que você:
 
 Para obter mais informações, consulte [Linguagem de modelo do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

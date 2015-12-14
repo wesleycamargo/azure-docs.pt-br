@@ -22,4 +22,4 @@ Os novos recursos e funcionalidades serão adicionadas apenas para as novas vers
 
 Recomendamos atualizar o mais rápido possível para o SDK mais recente. Quando um SDK é marcado para desativação, você tem 12 meses para atualizar o aplicativo. Caso você não possa concluir a atualização do aplicativo nesse prazo por algum motivo, contate a [equipe do Banco de Dados de Documentos](mailto:askdocdb@microsoft.com) e solicite ajuda antes da data de fechamento.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

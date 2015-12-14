@@ -29,9 +29,9 @@ As ferramentas de auditoria permitem e facilitam a adoção de padrões de confo
 
 ##<a id="subheading-1"></a>Fundamentos da Auditoria do Banco de Dados SQL do Azure
 
-A seção a seguir descreve a configuração de auditoria usando o Portal de Visualização do Azure. Você também pode [configurar a auditoria do banco de dados usando o Portal Clássico do Azure].
+A seção a seguir descreve a configuração de auditoria usando o Portal do Azure. Você também pode [Configurar a auditoria do banco de dados usando o Portal Clássico do Azure].
 
-A Auditoria de Banco de Dados SQL permite:
+A auditoria de Banco de Dados SQL permite:
 
 - **Retenha** uma trilha de auditoria dos eventos selecionados. Definir categorias de ações de banco de dados a ser auditadas.
 - **Relate** sobre a atividade do banco de dados. Utilizar relatórios pré-configurados e um painel para iniciar rapidamente um relatório de atividades e eventos.
@@ -62,7 +62,7 @@ Antes de configurar a auditoria, verifique se você está usando um ["Cliente de
 
 ##<a id="subheading-2"></a>Configurar a auditoria do banco de dados
 
-1. Inicie o [Portal de Visualização do Azure](https://portal.azure.com) em https://portal.azure.com. Outra opção é iniciar o [Portal Clássico do Azure](https://manage.windowsazure.com/) em https://manage.windowsazure.com/. Consulte os detalhes abaixo.
+1. Inicie o [Portal do Azure](https://portal.azure.com) em https://portal.azure.com. Outra opção é iniciar o [Portal Clássico do Azure](https://manage.windowsazure.com/) em https://manage.windowsazure.com/. Consulte os detalhes abaixo.
 
 2. Navegue até a folha de configuração do Banco de Dados SQL/SQL Server que você deseja auditar. Na folha Configurações, selecione **Auditoria e Detecção de Ameaças**.
 
@@ -74,7 +74,7 @@ Antes de configurar a auditoria, verifique se você está usando um ["Cliente de
 
 	![Painel de navegação][2]
 
-5. Clique em **Eventos Auditados** para personalizar os eventos a auditar. Na folha **Registro em log por evento**, clique em **Êxito** e **Falha** para registrar todos os eventos ou escolha categorias de evento individuais.
+5. Clique em **Eventos Auditados** para personalizar os eventos a auditar. Na folha **Registro em log por evento**, clique em **Sucesso** e **Falha** para registrar todos os eventos ou escolha categorias de evento individuais.
 
 
 6. Você pode marcar a caixa de seleção **Herdar configurações de auditoria do servidor** para designar que este banco de dados será auditado de acordo com as configurações do seu servidor. Quando você marcar essa opção, você verá um link que permite exibir ou modificar as configurações de auditoria do servidor neste contexto.
@@ -123,7 +123,7 @@ Você pode importar os logs de auditoria para o modelo do Excel diretamente da s
 
 
 ##<a id="subheading-5">Práticas para uso em produção</a>
-A descrição nesta seção refere-se às capturas de tela acima. É possível usar o [Portal de Visualização do Azure](https://portal.azure.com) ou o [Portal Clássico do Azure](https://manage.windowsazure.com/).
+A descrição nesta seção refere-se às capturas de tela acima. É possível usar o [Portal do Azure](https://portal.azure.com) ou o [Portal Clássico do Azure](https://manage.windowsazure.com/).
 
 
 ##<a id="subheading-6"></a>Regeneração de Chave de Armazenamento
@@ -159,7 +159,7 @@ Há vários cmdlets do PowerShell que você pode usar para configurar a auditori
 [Fundamentos da Auditoria do Banco de Dados SQL do Azure]: #subheading-1
 [Configurar a auditoria do banco de dados]: #subheading-2
 [Analisar os logs e relatórios de auditoria]: #subheading-3
-[configurar a auditoria do banco de dados usando o Portal Clássico do Azure]: #subheading-4
+[Configurar a auditoria do banco de dados usando o Portal Clássico do Azure]: #subheading-4
 [Practices for usage in production]: #subheading-5
 [Storage Key Regeneration]: #subheading-6
 [Automation]: #subheading-7
@@ -178,4 +178,4 @@ Há vários cmdlets do PowerShell que você pode usar para configurar a auditori
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

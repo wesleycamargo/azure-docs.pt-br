@@ -29,19 +29,19 @@ Quando você cria um aplicativo Web, o Azure o atribui a um subdomínio do azure
 
 Para um aplicativo Web de produção, talvez você deseje que os usuários vejam um nome de domínio personalizado. Este artigo explica como configurar um domínio personalizado com [Aplicativos Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-Se precisar de mais ajuda em qualquer momento neste artigo, você pode entrar em contato com os especialistas do Azure nos [fóruns do Azure no MSDN e do Stack Overflow](http://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure. Para enviar um incidente, vá para o [site de Suporte do Azure](http://azure.microsoft.com/support/options/) e clique em **Obter Suporte**.
+Se precisar de mais ajuda em qualquer momento neste artigo, você pode contatar os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](http://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure. Para enviar um incidente, vá para o [site de Suporte do Azure](http://azure.microsoft.com/support/options/) e clique em **Obter Suporte**.
 
 [AZURE.INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
 
 ## Visão geral
 
-Se você ainda não registrou um nome de domínio externo (ou seja, não *.azurewebsites.net), a maneira mais fácil de configurar um domínio personalizado é comprá-lo diretamente no [portal de visualização do Azure](https://portal.azure.com). O processo permite que você gerencie o nome de domínio do aplicativo Web diretamente no portal em vez de acessar um site de terceiros como o GoDaddy para gerenciá-lo. Da mesma forma, a configuração do nome de domínio no aplicativo Web é bastante simplificada, independentemente do aplicativo Web usar ou não o [Gerenciador de Tráfego do Azure](web-sites-traffic-manager-custom-domain-name.md). Para obter mais informações, veja [Comprar e configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure](custom-dns-web-site-buydomains-web-app.md).
+Se você ainda não registrou um nome de domínio externo (ou seja, não *.azurewebsites.net), a maneira mais fácil de configurar um domínio personalizado é comprá-lo diretamente no [Portal do Azure](https://portal.azure.com). O processo permite que você gerencie o nome de domínio do aplicativo Web diretamente no Portal em vez de acessar um site de terceiros como o GoDaddy para gerenciá-lo. Da mesma forma, a configuração do nome de domínio no aplicativo Web é bastante simplificada, independentemente do aplicativo Web usar ou não o [Gerenciador de Tráfego do Azure](web-sites-traffic-manager-custom-domain-name.md). Para obter mais informações, veja [Comprar e configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure](custom-dns-web-site-buydomains-web-app.md).
 
 Se você já tiver um nome de domínio ou se desejar reservar um domínio de outros registradores de domínio, veja abaixo as etapas gerais para obter um nome de domínio personalizado para o aplicativo Web: (veja as [instruções específicas para o GoDaddy.com](web-sites-godaddy-custom-domain-name.md)):
 
 1. Reserve o seu nome de domínio. Este artigo não aborda este processo. Existem muitas opções de registradores de domínio. Quando você se inscrever, o site do registrador vai fornecer instruções sobre o processo.
 1. Crie registros DNS que mapeiem o domínio para seu aplicativo Web do Azure.
-1. Adicione o nome de domínio dentro do [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
+1. Adicione o nome de domínio dentro do [Portal do Azure](https://portal.azure.com).
 
 Dentro dessa estrutura de tópicos básica, existem casos específicos a se considerar:
 
@@ -68,13 +68,13 @@ Se o Endereço IP for alterado, um padrão CNAME ainda será válido, ao passo q
 
 Ignore este passo se você estiver criando um registro CNAME. Para criar um registro A, é preciso ter o endereço IP virtual do seu aplicativo Web. Para obter o endereço IP:
 
-1.	Em seu navegador, abra o [Portal do Azure](https://portal.azure.com).
+1.	No seu navegador, abra o [Portal do Azure](https://portal.azure.com).
 2.	Clique na opção **Procurar** no lado esquerdo da página.
 3.	Clique na lâmina **Aplicativos Web**.
 4.	Clique no nome do seu aplicativo Web.
 5.	Na página **Informações Gerais**, clique em **Todas as Configurações**.
 6.	Clique em **Domínios personalizados e SSL**.
-7.	Na folha **Domínios personalizados e SSL**, clique em **Trazer domínios externos”**. O endereço IP está localizado na parte inferior dessa parte.
+7.	Na folha **Domínios personalizados e SSL**, clique em **Trazer domínios externos"**. O endereço IP está localizado na parte inferior dessa parte.
 
 ## Criar os registros DNS
 
@@ -87,7 +87,7 @@ A página pode listar registros A e CNAME em separado, ou fornecer uma lista sus
 
 Ao criar ou editar um registro, os campos permitirão que você mapeie o seu nome de domínio para um endereço IP (para registros A) ou outro domínio (para registros CNAME). Para um registro CNAME, você mapeará *do* seu domínio personalizado *para* o seu subdomínio azurewebsites.net.
 
-Em muitas ferramentas de registradores, basta digitar apenas a parte de subdomínio do seu domínio, não o nome de domínio inteiro. Além disso, muitas ferramentas usam “@” para significar o domínio raiz. Por exemplo:
+Em muitas ferramentas de registradores, basta digitar apenas a parte de subdomínio do seu domínio, não o nome de domínio inteiro. Além disso, muitas ferramentas usam "@" para significar o domínio raiz. Por exemplo:
 
 <table cellspacing="0" border="1">
   <tr>
@@ -107,7 +107,7 @@ Em muitas ferramentas de registradores, basta digitar apenas a parte de subdomí
   </tr>
 </table>
 
-Considerando que o nome de domínio personalizado é “contoso.com”, isso criaria os seguintes registros:
+Considerando que o nome de domínio personalizado é "contoso.com", isso criaria os seguintes registros:
 
 - **contoso.com** mapeado para 168.62.48.183.
 - **www.contoso.com** mapeado para **contoso.azurewebsites.net**.
@@ -128,7 +128,7 @@ Os visitantes do seu aplicativo Web não enxergarão o subdomínio awverify; ele
 
 [AZURE.INCLUDE [modos](../../includes/custom-dns-web-site-enable-on-web-site.md)]
 
->[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## Verificar propagação de DNS
 
@@ -140,11 +140,10 @@ Depois de concluir as etapas de configuração, pode levar algum tempo para que 
 
 ## Próximas etapas
 
-Para obter mais informações, consulte: [Introdução ao DNS do Azure](../dns/dns-getstarted-create-dnszone.md) e [Domínio delegado para DNS do Azure](../dns/dns-domain-delegation.md)
+Para obter mais informações, confira: [Introdução ao DNS do Azure](../dns/dns-getstarted-create-dnszone.md) e [Domínio delegado para DNS do Azure](../dns/dns-domain-delegation.md)
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- Anchors. -->
 [Overview]: #overview
@@ -156,4 +155,4 @@ Para obter mais informações, consulte: [Introdução ao DNS do Azure](../dns/d
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

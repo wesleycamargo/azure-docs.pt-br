@@ -1,6 +1,6 @@
 <properties
-   pageTitle="“Ator Desconhecido” dos relatórios do Active Directory do Azure | Microsoft Azure"
-   description="Descrição do evento “Actor desconhecido” nos relatórios do Active Directory do Azure"
+   pageTitle="Active Directory do Azure relatando ";Ator desconhecido"; | Microsoft Azure"
+   description="Descrição do evento ";Actor desconhecido"; nos relatórios do Active Directory do Azure"
    services="active-directory"
    documentationCenter=""
    authors="kenhoff"
@@ -13,10 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/09/2015"
+   ms.date="11/30/2015"
    ms.author="kenhoff"/>
 
-# Active Directory do Azure, relatar eventos de “tor desconhecido”
+# Active Directory do Azure relatando eventos de "Ator desconhecido"
+
+## Artigos de documentação de relatório
+
+ - [API de Relatório](active-directory-reporting-api-getting-started.md)
+ - [Eventos de Auditoria](active-directory-reporting-audit-events.md)
+ - [Retenção](active-directory-reporting-retention.md)
+ - [Visualizações](active-directory-reporting-previews.md)
+ - [Pesquisar](active-directory-reporting-search.md)
+ - [Aterramento](active-directory-reporting-backfill.md)
+ - [Latências](active-directory-reporting-latencies.md)
+ - [Evento "Ator Desconhecido"](active-directory-reporting-unknown-actor.md)
 
 Em raras ocasiões, você poderá ver valores incomuns nos campos "Ator" ou "Usuário" nos relatórios do AD do Azure. Esse comportamento é esperado e é causado por um dos dois eventos:
 
@@ -38,4 +49,4 @@ Isso é um bug conhecido e estamos nos empenhando para resolvê-lo.
 
 <!-- ![](./media/active-directory-reporting-unknown-actor/uid-actor.png) -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -48,7 +48,7 @@ Para usar o AD do Azure para autenticar solicitações ao Gerenciador de Recurso
 
 	    New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-	>[AZURE.NOTE]Anote o identificador do aplicativo retornado depois que o aplicativo é criado, pois você precisará dele para a próxima etapa. Você também pode encontrar o identificador do aplicativo no campo de ID de cliente do aplicativo na seção Active Directory do Portal de Visualização do Azure.
+	>[AZURE.NOTE]Anote o identificador do aplicativo retornado depois que o aplicativo é criado, pois você precisará dele para a próxima etapa. Você também pode encontrar o identificador do aplicativo no campo de ID de cliente do aplicativo na seção Active Directory do portal do Azure.
 
 3. Substitua {id-aplicativo} pelo identificador que acabou de registrar e, em seguida, crie a entidade de serviço para o aplicativo:
 
@@ -86,16 +86,7 @@ Agora que o aplicativo Active Directory do Azure foi criado e a biblioteca de au
 
 1.	Abra o arquivo Program.cs para o projeto que você criou e, em seguida, adicione o seguinte usando instruções na parte superior do arquivo:
 
-        using Microsoft.Azure;
-        using Microsoft.IdentityModel.Clients.ActiveDirectory;
-		using Microsoft.Azure.Management.Resources;
-		using Microsoft.Azure.Management.Resources.Models;
-		using Microsoft.Azure.Management.Storage;
-		using Microsoft.Azure.Management.Storage.Models;
-		using Microsoft.Azure.Management.Network;
-		using Microsoft.Azure.Management.Network.Models;
-		using Microsoft.Azure.Management.Compute;
-		using Microsoft.Azure.Management.Compute.Models;
+    usando Microsoft. Azure; usando Microsoft.IdentityModel.Clients.ActiveDirectory; usando Microsoft.Azure.Management.Resources; usando Microsoft.Azure.Management.Resources.Models; usando Microsoft.Azure.Management.Storage; usando Microsoft.Azure.Management.Storage.Models; usando Microsoft.Azure.Management.Network; usando Microsoft.Azure.Management.Network.Models; usando Microsoft.Azure.Management.Compute; usando Microsoft.Azure.Management.Compute.Models;
 
 
 2. Adicione o seguinte método à classe Program para obter o token necessário para criar as credenciais:
@@ -349,7 +340,7 @@ Agora que você criou todos os recursos de suporte, você pode criar uma máquin
 2.	Adicione o seguinte código ao método Main para chamar o método que você acabou de adicionar:
 
 		CreateVirtualMachine(credential);
-        Console.ReadLine();
+    Console.ReadLine();
 
 ##Etapa 5: adicionar código para excluir os recursos
 
@@ -378,10 +369,10 @@ Como você é cobrado pelos recursos usados no Azure, sempre é uma boa prática
 
 2.	Pressione **Enter** após cada código de status ser retornado para criar cada recurso. Depois que a máquina virtual for criada, execute a próxima etapa antes de pressionar Enter para excluir todos os recursos.
 
-	Devem ser necessários cerca de cinco minutos para o aplicativo de console executar completamente do início ao fim. Antes de pressionar Enter para iniciar a exclusão de recursos, você pode levar alguns minutos para verificar a criação de recursos no portal de visualização do Azure antes de excluí-los.
+	Devem ser necessários cerca de cinco minutos para o aplicativo de console executar completamente do início ao fim. Antes de pressionar Enter para iniciar a exclusão de recursos, você pode levar alguns minutos para verificar a criação de recursos no portal do Azure antes de excluí-los.
 
-3. Procure os logs de auditoria no portal de visualização do Azure para ver o status dos recursos:
+3. Procure os Logs de Auditoria no portal do Azure para ver o status dos recursos:
 
 	![Criar um aplicativo do AD](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

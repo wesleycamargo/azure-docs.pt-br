@@ -22,12 +22,12 @@ Este tópico explora e compara as ferramentas e opções de gerenciamento de ban
 
 
 
-## Portal do Azure
+## Portal Clássico do Azure
 
 
-O [Portal do Azure](http://portal.azure.com) é um portal de gerenciamento baseado na Web, em que você pode criar, atualizar e excluir servidores lógicos e bancos de dados e monitorar a atividade do banco de dados. Essa ferramenta será excelente se você estiver começando a usar o Azure, gerenciando uma pequena quantidade de bancos de dados, ou precisar fazer algo rapidamente.
+O [Portal clássico do Azure](http://portal.azure.com) é um portal clássico baseado na Web, em que você pode criar, atualizar e excluir servidores lógicos e bancos de dados e monitorar a atividade do banco de dados. Essa ferramenta será excelente se você estiver começando a usar o Azure, gerenciando uma pequena quantidade de bancos de dados, ou precisar fazer algo rapidamente.
 
-Para obter informações mais detalhadas sobre como usar o portal, confira [Gerenciar Bancos de Dados SQL usando o Portal do Azure](sql-database-manage-portal.md).
+Para obter informações mais detalhadas sobre como usar o portal, confira [Gerenciar Bancos de Dados SQL usando o Portal clássico do Azure](sql-database-manage-portal.md).
 
 ## SQL Server Management Studio e SQL Server Data Tools no Visual Studio
 
@@ -44,4 +44,4 @@ Você pode usar ferramentas de linha de comando, como o PowerShell para gerencia
 Para obter mais informações sobre como gerenciar seus bancos de dados SQL do Azure com ferramentas de linha de comando, consulte [Gerenciamento de banco de dados SQL com o PowerShell](sql-database-command-line-tools.md)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

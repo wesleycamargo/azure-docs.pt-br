@@ -182,4 +182,4 @@ Para criar um NSG chamado *NSG-BackEnd* com base no cenário acima, siga as etap
 
 		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -108,10 +108,10 @@ Faça logon no primeiro computador do controlador de domínio usando as credenci
 
 ### <a id="logon"></a>Para fazer logon em uma máquina virtual usando uma conexão de Área de Trabalho Remota
 
-1.	No Portal do Azure, no painel esquerdo, clique em **Máquinas Virtuais**.
+1.	No portal clássico do Azure, no painel esquerdo, clique em **Máquinas Virtuais**.
 2.	Para se conectar a uma VM, clique em **Em execução** na coluna **Status** ao lado do nome.
 3.	Na barra de comandos localizada na parte inferior da página, clique em **Conectar**.
-4.	O portal do Azure informa que o arquivo .rdp está sendo recuperado. Clique em **OK**.
+4.	O portal clássico do Azure informa que o arquivo .rdp está sendo recuperado. Clique em **OK**.
 5.	A caixa de diálogo do navegador será exibida com a pergunta: "Deseja abrir ou salvar ComputerName.rdp de manage.windowsazure.com?" Clique em **Abrir**.
 6.	Na caixa de diálogo **Conexão de Área de Trabalho Remota**, clique em **Conectar**.
 7.	Na caixa de diálogo **Segurança do Windows**, clique em **Usar outra conta**.
@@ -205,14 +205,14 @@ Em seguida, execute as seguintes etapas para adicionar outras propriedades de co
 
 Em seguida, atualize os servidores DNS da sua rede virtual para que o Azure atribua às máquinas virtuais os endereços IP dos dois novos controladores de domínio para que eles sejam usados como seus servidores DNS. Observe que esse procedimento usa os valores da Tabela V (para as configurações da rede virtual).
 
-1.	No painel esquerdo do Portal do Azure, clique em **Redes** e, em seguida, clique no nome de sua rede virtual (Tabela V – Item 1 – coluna Valor).
+1.	No painel esquerdo do portal clássico do Azure, clique em **Redes** e, em seguida, clique no nome de sua rede virtual (Tabela V – Item 1 – coluna Valor).
 2.	Clique em **Configurar**.
 3.	Em **Servidores DNS**, remova as entradas correspondentes aos servidores DNS que estão na rede local.
 4.	Em **Servidores DNS**, adicione duas entradas com nomes amigáveis e os endereços IP dos seguintes itens de tabela:
  - Tabela V – Item 6 – coluna Valor
  - Tabela V – Item 7 – coluna Valor
 5.	Na barra de comandos na parte inferior, clique em **Salvar**.
-6.	No painel esquerdo do Portal do Azure, clique em **Máquinas Virtuais** e clique na coluna **Status** ao lado do nome do seu primeiro controlador de domínio.
+6.	No painel esquerdo do portal clássico do Azure, clique em **Máquinas Virtuais** e clique na coluna **Status** ao lado do nome do seu primeiro controlador de domínio.
 7.	Na barra de comandos, clique em **Reiniciar**.
 8.	Quando o primeiro controlador de domínio for iniciado, clique na coluna **Status** ao lado do nome do seu segundo controlador de domínio.
 9.	Na barra de comandos, clique em **Reiniciar**. Aguarde até que o segundo controlador de domínio seja iniciado.
@@ -248,4 +248,4 @@ Para continuar a configuração dessa carga de trabalho, vá para a [Fase 3: con
 
 [Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

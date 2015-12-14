@@ -65,8 +65,7 @@ storedProcedureParameters | Especificar valores para parâmetros de procedimento
 		CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable(Id);
 		GO
 
-	ID é a única identificada e a coluna datetimestamp é a data e a hora em que a ID correspondente é gerada.
-	![Dados de amostra](./media/data-factory-stored-proc-activity/sample-data.png)
+	ID é a única identificada e a coluna datetimestamp é a data e a hora em que a ID correspondente é gerada. ![Dados de amostra](./media/data-factory-stored-proc-activity/sample-data.png)
 
 2. Crie o seguinte **procedimento armazenado** que insere dados no **sampletable**.
 
@@ -81,7 +80,7 @@ storedProcedureParameters | Especificar valores para parâmetros de procedimento
 	> [AZURE.IMPORTANT]O **nome** e o **uso de maiúsculas** do parâmetro (DateTime, neste exemplo) devem corresponder àqueles do parâmetro especificado no JSON do pipeline/atividade. Na definição do procedimento armazenado, certifique-se de que **@** seja usado como um prefixo para o parâmetro.
 	
 ### Criar uma data factory  
-4. Depois de fazer logon no [Portal de Visualização do Azure](http://portal.azure.com/), faça o seguinte:
+4. Depois de fazer logon no [Portal do Azure](http://portal.azure.com/), faça o seguinte:
 	1.	Clique em **NOVO** no menu à esquerda. 
 	2.	Clique em **Análise de dados** na folha **Criar**.
 	3.	Clique em **Data Factory** na folha **Análise de dados**.
@@ -93,14 +92,14 @@ storedProcedureParameters | Especificar valores para parâmetros de procedimento
 	4.	Clique em **OK**.
 4.	Depois de selecionar o grupo de recursos, verifique se que você está usando a assinatura correta na qual deseja que a data factory seja criada.
 5.	Clique em **Criar** na folha **Nova data factory**.
-6.	Você verá a data factory que está sendo criada no **Quadro inicial** do Portal de Visualização do Azure. Após a data factory ter sido criada com êxito, você verá a página da data factory, que exibe seu conteúdo.
+6.	Você verá o data factory que está sendo criado no **Quadro Inicial** do Portal do Azure. Após a data factory ter sido criada com êxito, você verá a página da data factory, que exibe seu conteúdo.
 
 ### Criar um serviço vinculado do SQL do Azure  
 Depois de criar a data factory, você deve criar um serviço do SQL Azure vinculado que vincula seu banco de dados SQL na data factory. Isso é o banco de dados que contém a tabela sampletable e o procedimento armazenado sp\_sample.
 
 7.	Clique em **Criar e implantar** na folha **DATA FACTORY** para **SProcDF**. Isso inicia o Data Factory Editor. 
 2.	Clique em **Novo armazenamento de dados** no comando barra e escolha **SQL Azure**. Você deve ver o script JSON para criar um serviço vinculado do SQL Azure no editor. 
-4. Substitua o **servername** com o nome do seu servidor de banco de dados SQL, **databasename** com o banco de dados em que você criou a tabela e o procedimento armazenado, **username@servername** com a conta de usuário que tenha acesso ao banco de dados, e **senha** com a senha da conta de usuário.
+4. Substitua o **servername** com o nome do seu servidor de banco de dados SQL, **databasename** com o banco de dados em que você criou a tabela e o procedimento armazenado, * ***username@servername** com a conta de usuário que tenha acesso ao banco de dados, e **senha** com a senha da conta de usuário.
 5. Clique em **Implantar** na barra de comandos para implantar o serviço vinculado.
 
 ### Criar um conjunto de dados de saída
@@ -199,4 +198,4 @@ Para fazer isso, passe o parâmetro Cenário e o valor da atividade de procedime
 		}
 	}
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

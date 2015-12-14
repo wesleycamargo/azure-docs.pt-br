@@ -41,7 +41,7 @@ Você criará um aplicativo Web de lista de contatos simples criado no ASP.NET d
 
 ![Contatos - Editar página](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms00.png)
 
->[AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Azure. Se não tem uma conta, você pode <a href="/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">ativar os benefícios de assinante MSDN</a> ou <a href="/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">inscrever-se em uma avaliação gratuita</a>. Se você quiser obter uma introdução ao Azure antes de se registrar com uma conta, acesse [Experimentar o Serviço de Aplicativo](https://tryappservice.azure.com/), em que é possível criar imediatamente um site de iniciante ASP.NET de curta duração no Azure gratuitamente. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Azure. Se não tiver uma conta, você poderá <a href="/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">ativar os benefícios de assinante do Visual Studio</a> ou <a href="/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">inscrever-se em uma avaliação gratuita</a>. Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](https://tryappservice.azure.com/), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ##Configurar o ambiente de desenvolvimento 
 Para começar, defina o ambiente de desenvolvimento instalando o Visual Studio 2013 e o SDK do Azure para .NET.
@@ -68,7 +68,7 @@ Neste tutorial, seu aplicativo Web do Azure será executado em um ambiente de ho
 
 O Banco de Dados SQL no Azure é um serviço de banco de dados relacional baseado em que é fundamentado em tecnologias do SQL Server. As ferramentas e os aplicativos que funcionam com o SQL Server também funcionam com o Banco de Dados SQL.
 
-1. No [Portal de Gerenciamento do Azure](https://manage.windowsazure.com/), clique em **Aplicativos Web** na guia à esquerda e clique em **Novo**. ![Web Platform Installer](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-02.png)
+1. No [portal clássico do Azure](https://manage.windowsazure.com/), clique em **Aplicativos Web** na guia à esquerda e clique em **Novo**. ![Web Platform Installer](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-02.png)
 2. Clique em **Aplicativo Web** e, em seguida, clique em **Criação Personalizada**. ![Criação Personalizada](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-03.png) O assistente **Novo Aplicativo Web - Criação Personalizada** é aberto.  
 
 3. Na etapa **Criar Aplicativo Web** do assistente, digite uma cadeia de caracteres na caixa **URL** para usar como URL exclusiva do seu aplicativo. A URL completa consistirá no que você digitar aqui mais o sufixo que você vê ao lado da caixa de texto. A ilustração mostra uma URL que provavelmente será executada, portanto, **você deve escolher uma URL diferente**. ![Contatos - Criar Novo Site](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-04.png)
@@ -82,7 +82,7 @@ O Banco de Dados SQL no Azure é um serviço de banco de dados relacional basead
 11. Insira um **Nome de Logon** e **Senha** de administrador. Se selecionou **Novo servidor do Banco de Dados SQL**, você não irá digitar um nome e uma senha existentes aqui; digite um novo nome e uma senha que você está definindo agora para usar mais tarde ao acessar o banco de dados. Se você tiver selecionado um SQL Server criado anteriormente, será solicitada a senha para o nome da conta do SQL Server anterior que você criou. Para este tutorial, não selecionaremos a caixa **Avançado**.
 12. Clique na marca de seleção no canto inferior direito da caixa para indicar que você concluiu.
 
-O **Portal de Gerenciamento do Azure** retorna para a página **Aplicativos Web** e a coluna **Status** mostra que o site está em criação. Depois de pouco tempo (normalmente menos de um minuto), a coluna **Status** mostra que o site foi criado com êxito. Na barra de navegação à esquerda, o número de sites presentes na conta é exibido próximo ao ícone **Aplicativo Web** e o número de bancos de dados aparece ao lado do ícone **Bancos de Dados SQL**.
+O **portal clássico do Azure** retorna para a página **Aplicativos Web** e a coluna **Status** mostra que o site está em criação. Depois de pouco tempo (normalmente menos de um minuto), a coluna **Status** mostra que o site foi criado com êxito. Na barra de navegação à esquerda, o número de sites presentes na conta é exibido próximo ao ícone **Aplicativo Web** e o número de bancos de dados aparece ao lado do ícone **Bancos de Dados SQL**.
 ##Criar um aplicativo de Web Forms ASP.NET 
 Você criou um aplicativo Web, mas ainda não há conteúdo nele. A próxima etapa é criar o aplicativo Web do Visual Studio que será publicado no Azure.
 ###Criar o projeto 
@@ -189,7 +189,7 @@ Nos Web Forms ASP.NET, as páginas mestras permitem que você crie um layout con
 		</body>
 		</html>
 
-	Mais adiante, neste tutorial, você adicionará o scaffolding para Web Forms. O scaffolding criará a página à qual o link “Contato/Demonstração” acima faz referência.
+	Mais adiante, neste tutorial, você adicionará o scaffolding para Web Forms. O scaffolding criará a página à qual o link "Contato/Demonstração" acima faz referência.
  
 ###Executar o aplicativo localmente 
  
@@ -667,7 +667,7 @@ Para evitar que outras pessoas se registrem e utilizem seu aplicativo de exemplo
 2. No **Gerenciador de Servidores**, navegue até **Aplicativo Web**.
 3. Clique com o botão direito do mouse em cada instância do aplicativo Web e selecione **Parar Aplicativo Web**. ![Item de menu Parar Site](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms26a.png)  
 
-	Como alternativa, no Portal de Gerenciamento do Microsoft Azure, você pode selecionar o aplicativo Web e clicar no ícone **parar** na parte inferior da página. ![Página Adicionar Novo Contato](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms26b.png)
+	Como alternativa, no portal clássico do Azure, você pode selecionar o aplicativo Web e clicar no ícone **parar** na parte inferior da página. ![Página Adicionar Novo Contato](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms26b.png)
 
 ##Revisar o banco de dados 
 É importante saber como exibir e modificar o banco de dados diretamente. Saber como trabalhar diretamente com o banco de dados permite que você confirme dados presentes no banco de dados e também compreenda como os dados são armazenados em cada tabela.
@@ -701,4 +701,4 @@ Deixe comentários sobre o que você gostou e o que você gostaria de ver melhor
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -27,11 +27,11 @@ A primeira etapa é criar um namespace de serviço e obter uma chave de SAS [(As
 
 1. Para obter informações completas sobre como criar um namespace de serviço, consulte o tópico [Como criar ou modificar um Namespace do barramento de serviço](https://msdn.microsoft.com/library/azure/hh690931.aspx) na seção [Gerenciar Namespaces de Serviço do Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh690928.aspx).
 
-1. Na janela principal do portal do Azure, clique no nome do namespace de serviço criado na etapa anterior.
+1. Na janela principal do [portal clássico do Azure][], clique no nome do namespace de serviço criado na etapa anterior.
 
 1. Clique na guia **Configurar**.
 
-1. Na seção **gerador de chave de acesso compartilhado**, anote o **Chave Primária** associada à política **RootManageSharedAccessKey**, ou copie-a para a área de transferência. Você usará este valor posteriormente neste tutorial.
+1. Na seção **gerador de chave de acesso compartilhada**, anote a **Chave Primária** associada à política **RootManageSharedAccessKey** ou copie-a para a área de transferência. Você usará este valor posteriormente neste tutorial.
 
 ## Criar um cliente de console
 
@@ -59,7 +59,7 @@ Depois de obter o namespace de serviço e as credenciais na primeira etapa, voc�
 
 1. Crie um novo projeto de aplicativo de console. Clique no menu **Arquivo**, depois em **Novo** e, em seguida, clique em **Projeto**. Na caixa de diálogo **Novo Projeto**, clique em **Visual C#** (se **Visual C#** não aparecer, procure em **Outras Linguagens**), selecione o modelo **Aplicativo de Console** e chame-o de **Microsoft.ServiceBus.Samples**. Use o Local padrão. Clique em **OK** para criar o projeto.
 
-1. Em Program.cs, certifique-se que suas instruções `using` aparecem da seguinte maneira:
+1. Em Program.cs, certifique-se de que as suas instruções `using` apareçam da seguinte maneira:
 
 	```
 	using System;
@@ -355,7 +355,7 @@ private static string DeleteResource(string resourceName)
 
 ### Formatar o feed Atom
 
-O método `GetResources()` contém uma chamada para um método `FormatXml()` que reformata feed Atom recuperado para que este seja mais legível. A seguir está a definição de `FormatXml()`; adicione esse código diretamente após o código `DeleteResource()` adicionado na seção anterior:
+O método `GetResources()` contém uma chamada para um método `FormatXml()` que reformata o feed Atom recuperado para que este seja mais legível. A seguir está a definição de `FormatXml()`; adicione esse código diretamente após o código `DeleteResource()` adicionado na seção anterior:
 
 ```
 // Formats the XML string to be more human-readable; intended for display purposes
@@ -377,7 +377,7 @@ private static string FormatXml(string inputXml)
 
 ## Compile e execute o aplicativo
 
-Agora você pode compilar e executar o aplicativo. No menu **Compilar** no Visual Studio, selecione **Compilar Solução**, ou então pressione F6.
+Agora você pode compilar e executar o aplicativo. No menu **Compilar** no Visual Studio, clique em **Compilar Solução** ou, então, pressione F6.
 
 ### Executar o aplicativo
 
@@ -629,4 +629,6 @@ Para saber mais, consulte os seguintes artigos:
 - [Conceitos básicos do Barramento de Serviço do Azure](fundamentals-service-bus-hybrid-solutions.md)
 - [Tutorial do REST para retransmissão do Barramento de Serviço](service-bus-relay-rest-tutorial.md)
 
-<!---HONumber=Oct15_HO3-->
+[portal clássico do Azure]: http://manage.windowsazure.com
+
+<!---HONumber=AcomDC_1203_2015-->

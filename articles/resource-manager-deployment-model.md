@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/26/2015"
+   ms.date="12/02/2015"
    ms.author="tomfitz"/>
 
 # Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica
@@ -42,11 +42,11 @@ Os recursos criados com o Gerenciador de Recursos compartilham as seguintes cara
 
 - Criados por meio de um dos seguintes métodos:
 
-  - O [portal de visualização](https://portal.azure.com/).
+  - O [portal do Azure](https://portal.azure.com/)
 
-        ![preview portal](./media/resource-manager-deployment-model/preview-portal.png)
+        ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        For Compute, Storage, and Networking resources, you have the option of using either Resourece Manager or Classic deployment. Select **Resource Manager**.
+        For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
@@ -54,7 +54,7 @@ Os recursos criados com o Gerenciador de Recursos compartilham as seguintes cara
 
             PS C:\> Switch-AzureMode -Name AzureResourceManager
 
-  - Para visualização do Azure PowerShell 1.0, use a versão de comandos do Gerenciador de Recursos. Esses comandos têm o formato *verb-AzureRm*, conforme mostrado abaixo.
+  - Para o Azure PowerShell 1.0, use a versão de comandos do Gerenciador de Recursos. Esses comandos têm o formato *verb-AzureRm*, conforme mostrado abaixo.
 
             PS C:\> Get-AzureRmResourceGroupDeployment
 
@@ -73,19 +73,19 @@ Os recursos criados no modelo de implantação clássica compartilham as seguint
 
 - Criados por meio de um dos seguintes métodos:
 
-  - [Portal do Azure](https://manage.windowsazure.com)
+  - [Portal clássico](https://manage.windowsazure.com)
 
-        ![Azure portal](./media/resource-manager-deployment-model/azure-portal.png)
+        ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Or, the preview portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
+        Or, the portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
-  - Para versões do Azure PowerShell anteriores à visualização 1.0, os comandos são executados no modo **AzureServiceManagement** (que é o modo padrão e, portanto, se você não alternar especificamente para AzureResourceManager, estará executando no modo AzureServiceManagement).
+  - Para versões do Azure PowerShell anteriores à 1.0, os comandos são executados no modo **AzureServiceManagement** (que é o modo padrão e, portanto, se você não alternar especificamente para AzureResourceManager, estará executando no modo AzureServiceManagement).
 
             PS C:\> Switch-AzureMode -Name AzureServiceManagement
 
-  - Para visualização do Azure PowerShell 1.0, use a versão de comandos do Gerenciamento de Serviços. Esses nomes de comandos **não têm** o formato *verb-AzureRm*, conforme mostrado abaixo.
+  - Para o Azure PowerShell 1.0, use a versão de comandos do Gerenciamento de Serviço. Esses nomes de comandos **não têm** o formato *verb-AzureRm*, conforme mostrado abaixo.
 
             PS C:\> Get-AzureDeployment
 
@@ -95,7 +95,7 @@ Os recursos criados no modelo de implantação clássica compartilham as seguint
 
     ![tipo clássico](./media/resource-manager-deployment-model/classic-type.png)
 
-Você ainda pode usar o portal de visualização para gerenciar recursos que foram criados por meio da implantação clássica.
+Você ainda pode usar o portal para gerenciar recursos que foram criados por meio da implantação clássica.
 
 ## Benefícios de usar o Gerenciador de Recursos e os grupos de recursos
 
@@ -168,4 +168,4 @@ Para saber como conectar redes virtuais de diferentes modelos de implantação, 
 - Para saber como criar modelos de implantação declarativa, veja [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 - Para ver os comandos para implantar um modelo, veja [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

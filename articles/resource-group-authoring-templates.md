@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/13/2015"
+   ms.date="11/30/2015"
    ms.author="tomfitz"/>
 
 # Criando modelos do Gerenciador de Recursos do Azure
@@ -228,7 +228,7 @@ Você define recursos com a seguinte estrutura:
 
 | Nome do elemento | Obrigatório | Descrição
 | :----------------------: | :------: | :----------
-| apiVersion | Sim | Versão da API que oferece suporte ao recurso. Para obter as versões e os esquemas disponíveis para os recursos, veja [Esquemas do Gerenciador de Recursos do Azure](https://github.com/Azure/azure-resource-manager-schemas).
+| apiVersion | Sim | Versão da API REST a ser usada para criar o recurso. Para determinar os números de versão disponíveis para um tipo de recurso específico, confira [Versões da API com suporte](../resource-manager-supported-services/#supported-api-versions).
 | type | Sim | Tipo do recurso. Esse valor é uma combinação do namespace do provedor de recursos e do tipo de recurso que tem suporte do provedor de recursos.
 | name | Sim | Nome do recurso. O nome deve seguir as restrições de componente URI definidas em RFC3986.
 | location | Não | Locais geográficos com suporte do recurso fornecido.
@@ -415,7 +415,7 @@ O modelo a seguir implanta um aplicativo Web e o provisiona com o código de um 
 ## Próximas etapas
 - Para obter detalhes sobre as funções que você pode usar de dentro de um modelo, consulte [Funções de modelo do Gerenciador de Recursos do Azure](resource-group-template-functions.md)
 - Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o Modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md)
-- Para obter um exemplo detalhado de implantação de um aplicativo, consulte [Provisionar e implantar microsserviços de forma previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
+- Para obter um exemplo detalhado de implantação de um aplicativo, confira [Provisionar e implantar microsserviços de forma previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
 - Para ver os esquemas disponíveis, consulte [Esquemas do Gerenciador de Recursos do Azure](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

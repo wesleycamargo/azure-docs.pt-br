@@ -18,6 +18,8 @@
 
 # Proteger um aplicativo de API: adicionar autenticação do Active Directory do Azure ou do provedor social
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Visão geral
 
 Este tutorial mostra como proteger um aplicativo de API para que somente usuários autenticados possam acessá-lo. O tutorial também mostra código que você pode usar em um aplicativo de API do ASP.NET para recuperar informações sobre o usuário conectado.
@@ -272,4 +274,4 @@ Você viu como proteger um aplicativo de API do Azure exigindo autenticação do
 [Portal Azure]: https://manage.windowsazure.com/
 [Portal de visualização do Azure]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

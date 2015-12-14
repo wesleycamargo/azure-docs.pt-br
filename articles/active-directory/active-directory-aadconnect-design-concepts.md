@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Conceitos de design do Azure AD Connect | Microsoft Azure"
+   pageTitle="Azure AD Connect: conceitos de design | Microsoft Azure"
    description="Este tópico detalha determinadas áreas de design da implementação"
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="10/13/2015"
+   ms.date="12/02/2015"
    ms.author="andkjell"/>
 
 # Conceitos de design do Azure AD Connect
@@ -69,4 +69,4 @@ Por esse motivo, as seguintes restrições se aplicam ao Azure AD Connect:
 ## Próximas etapas
 Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -270,4 +270,4 @@ Use o comando Remove-AzureLoadBalancer para excluir um balanceador de carga cria
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

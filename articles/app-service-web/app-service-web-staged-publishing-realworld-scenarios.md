@@ -236,7 +236,7 @@ require_once(ABSPATH . 'wp-settings.php');
 ```
 
 #### Configurar um Ambiente de Preparo
-Supondo que você já tenha um aplicativo Web do WordPress em execução no Azure Web, faça logon no [portal de Visualização de Gerenciamento do Azure](http://portal.azure.com) e vá para seu aplicativo Web WordPress. Do contrário, você pode criar um no marketplace. Para saber mais, clique [aqui](web-sites-php-web-site-gallery). Clique em Configurações -> Slots de implantação-> Adicionar para criar um slot de implantação com estágio de nome. Um slot de implantação é outro aplicativo Web que compartilha os mesmos recursos que o aplicativo Web principal criado anteriormente.
+Supondo que você já tenha um aplicativo Web do WordPress em execução no Azure Web, faça logon no [Portal do Azure](http://portal.azure.com) e vá para seu aplicativo Web WordPress. Do contrário, você pode criar um no marketplace. Para saber mais, clique [aqui](web-sites-php-web-site-gallery). Clique em Configurações -> Slots de implantação-> Adicionar para criar um slot de implantação com estágio de nome. Um slot de implantação é outro aplicativo Web que compartilha os mesmos recursos que o aplicativo Web principal criado anteriormente.
 
 ![Criar um slot de implantação de estágio](./media/app-service-web-staged-publishing-realworld-scenarios/1setupstage.png)
 
@@ -278,7 +278,7 @@ Procurar e testar seu aplicativo Web de preparo. Considerando um cenário em que
 
 ![Alternar alterações de visualização do WordPress](./media/app-service-web-staged-publishing-realworld-scenarios/6swaps1.png)
 
- >[AZURE.NOTE]>Se você tiver um cenário em que precisa somente enviar arquivos (nenhuma atualização de banco de dados), **Verifique** a **Configuração de Slot** para todas as *configurações do aplicativo* e *configurações de cadeias de conexão* relacionadas ao banco de dados na folha de configuração do aplicativo Web no portal de visualização do Azure antes de ALTERNAR. Neste caso, DB\_NAME, DB\_HOST, DB\_PASSWORD, DB\_USER, as configurações de cadeia de conexão padrão devem aparecer nas alterações de visualização ao **Alternar**. Neste momento, quando você concluir a operação **Alternar**, o aplicativo Web WordPress terá **SOMENTE** os arquivos atualizados.
+ >[AZURE.NOTE]>Se você tiver um cenário em que precisa somente enviar arquivos (nenhuma atualização de banco de dados), **Verifique** a **Configuração de Slot** para todas as *configurações do aplicativo* e *configurações de cadeias de conexão* relacionadas ao banco de dados na folha de configuração do aplicativo Web no Portal do Azure antes de ALTERNAR. Neste caso, DB\_NAME, DB\_HOST, DB\_PASSWORD, DB\_USER, as configurações de cadeia de conexão padrão devem aparecer nas alterações de visualização ao **Alternar**. Neste momento, quando você concluir a operação **Alternar**, o aplicativo Web WordPress terá **SOMENTE** os arquivos atualizados.
 
 Antes de ALTERNAR, aqui está o aplicativo Web de produção do WordPress ![Aplicativo Web de produção antes de alternar slots](./media/app-service-web-staged-publishing-realworld-scenarios/7bfswap.png)
 
@@ -364,19 +364,12 @@ Para configurar, você precisa atualizar o arquivo courier.config na pasta **Con
 
 Under `<repositories>`, enter the production site URL and user information. If you are using default Umbraco Membership provider, then add the ID for the Administration user in <user> section . If you are using a custom Umbraco membership provider, use `<login>`,`<password>` to Courier2 module know how to connect to the production site. For more details, review the [documentation](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) for Courier module.
 
-De maneira semelhante, instale o módulo Courier em seu site de produção e configure-o para apontar para o aplicativo Web de estágio em seu respectivo arquivo courier.config, conforme mostrado aqui
+Similarly, install Courier module on your production site and configure it point to stage web app in its respective courier.config file as shown here
 
 ```xml
   <!-- Repository connection settings -->
   <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
-  <repositories>
-        <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  -->
-        <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
-            <url>http://umbracositecms-1-stage.azurewebsites.net</url>
-            <user>0</user>
-           </repository>
-  </repositories>
-```
+  <repositories> <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  --> <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true"> <url>http://umbracositecms-1-stage.azurewebsites.net</url> <user>0</user> </repository> </repositories> ```
 
 Clique na guia Courier2 no painel do aplicativo Web Umbraco CMS e selecione os locais. Você deve ver o nome do repositório, como mencionado em `courier.config`. Faça isso tanto nos aplicativos Web de produção quanto nos de preparo.
 
@@ -429,4 +422,4 @@ Este exemplo mostra a flexibilidade da plataforma, onde você pode criar módulo
 
 [Como bloquear acesso via Web a slots de implantação de não produção](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

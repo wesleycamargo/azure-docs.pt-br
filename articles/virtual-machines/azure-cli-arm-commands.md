@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-command-line-tools.md)
 
-Este artigo descreve como usar a interface de linha de comando do Azure (CLI do Azure) no modo do Gerenciador de Recursos do Azure para criar, gerenciar e excluir serviços na linha de comando de computadores Mac, Linux e Windows. É possível realizar várias das mesmas tarefas usando as diversas bibliotecas dos SDKs do Azure, com o Azure PowerShell, e usando o portal de visualização do Azure.
+Este artigo descreve como usar a interface de linha de comando do Azure (CLI do Azure) no modo do Gerenciador de Recursos do Azure para criar, gerenciar e excluir serviços na linha de comando de computadores Mac, Linux e Windows. É possível realizar muitas das mesmas tarefas usando as várias bibliotecas de SDKs do Azure, com o Azure PowerShell, e usando o portal do Azure.
 
 O Gerenciador de Recursos do Azure permite que você crie um grupo de recursos – máquinas virtuais, sites, bancos de dados e assim por diante – como uma única unidade implantável. Em seguida, você pode implantar, atualizar ou excluir todos os recursos para seu aplicativo em uma única operação coordenada. Você descrever os recursos de grupo em um modelo JSON para implantação e, em seguida, pode usar esse modelo para ambientes diferentes, como teste, preparação e produção.
 
@@ -1760,4 +1760,4 @@ Opções de parâmetro:
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

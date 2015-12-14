@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Criar o FQDN para uma VM no Portal de visualização do Azure | Microsoft Azure"
-   description="Saiba como criar um nome de domínio totalmente qualificado, ou FQDN, para uma máquina virtual baseada no Gerenciador de Recursos no portal de visualização do Azure."
+   pageTitle="Criar o FQDN para uma VM no portal do Azure | Microsoft Azure"
+   description="Saiba como criar um nome de domínio totalmente qualificado, ou FQDN, para uma máquina virtual baseada no Gerenciador de Recursos no portal do Azure."
    services="virtual-machines"
    documentationCenter=""
    authors="dsk-2015"
@@ -17,12 +17,12 @@
    ms.date="08/21/2015"
    ms.author="dkshir"/>
 
-# Criar um nome de domínio totalmente qualificado no Portal de Visualização do Azure
+# Criar um nome de domínio totalmente qualificado no portal do Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
 
 
-Quando você cria uma máquina virtual no [portal de visualização do Azure](https://portal.azure.com) usando o modelo de implantação do **Gerenciador de Recursos**, o portal cria um recurso de IP público para a máquina virtual. Você pode usar esse endereço IP para acessar remotamente a máquina virtual. No entanto, o portal não cria um [nome de domínio totalmente qualificado](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) ou FQDN, por padrão. Uma vez que é mais fácil se lembrar e usar um FQDN em vez de um endereço IP, este artigo demonstra como você pode adicionar um à sua máquina virtual.
+Quando você cria uma máquina virtual no [portal do Azure](https://portal.azure.com) usando o modelo de implantação do **Gerenciador de Recursos**, o portal cria um recurso de IP público para a máquina virtual. Você pode usar esse endereço IP para acessar remotamente a máquina virtual. No entanto, o portal não cria um [nome de domínio totalmente qualificado](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) ou FQDN, por padrão. Uma vez que é mais fácil se lembrar e usar um FQDN em vez de um endereço IP, este artigo demonstra como você pode adicionar um à sua máquina virtual.
 
 No artigo, presumimos que você se conectou à sua assinatura no portal e criou uma máquina virtual com as imagens disponíveis, usando o **Gerenciador de Recursos**. Siga estas etapas assim que a máquina virtual começar a ser executada.
 
@@ -54,4 +54,4 @@ No artigo, presumimos que você se conectou à sua assinatura no portal e criou 
 
     Agora, você pode se conectar remotamente à máquina virtual usando esse nome DNS. Por exemplo, use o `SSH adminuser@testdnslabel.eastus.cloudapp.azure.com` ao se conectar a uma máquina virtual do Linux que tem o nome de domínio totalmente qualificado de `testdnslabel.eastus.cloudapp.azure.com` e o nome de usuário de `adminuser`.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

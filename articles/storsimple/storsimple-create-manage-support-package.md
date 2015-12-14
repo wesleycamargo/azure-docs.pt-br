@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/15/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 
@@ -33,13 +33,13 @@ Depois de ler este tutorial, você poderá:
 - Descriptografar e editar um pacote de suporte
 
 
-## Criar um pacote de suporte no Portal de Gerenciamento
+## Criar um pacote de suporte no Portal clássico do Azure
 
-Para solucionar os problemas que possam ocorrer com o serviço StorSimple Manager, você pode criar e carregar um pacote de suporte para o site do Suporte da Microsoft por meio da página **Manutenção** do serviço no Portal de Gerenciamento. Você precisará fornecer uma chave de acesso de suporte para permitir o carregamento. A chave de acesso de suporte deve ser fornecida a você por seu Engenheiro de Suporte em um email. Um pacote de suporte não criptografado e compactado é criado (arquivo .cab). Esse pacote pode ser recuperado pelo Engenheiro de Suporte do site de Suporte quando o engenheiro fornece a chave de acesso.
+Para solucionar os problemas que possam ocorrer com o serviço StorSimple Manager, você pode criar e carregar um pacote de suporte para o site do Suporte da Microsoft por meio da página **Manutenção** do serviço no Portal Clássico do Azure. Você precisará fornecer uma chave de acesso de suporte para permitir o carregamento. A chave de acesso de suporte deve ser fornecida a você por seu Engenheiro de Suporte em um email. Um pacote de suporte não criptografado e compactado é criado (arquivo .cab). Esse pacote pode ser recuperado pelo Engenheiro de Suporte do site de Suporte quando o engenheiro fornece a chave de acesso.
 
-Execute as seguintes etapas no Portal de Gerenciamento para criar um pacote de suporte:
+Execute as seguintes etapas no Portal Clássico para criar um pacote de suporte:
 
-#### Para criar um pacote de suporte no Portal de Gerenciamento
+#### Para criar um pacote de suporte no Portal clássico do Azure
 
 1. Navegue até **Dispositivos > Manutenção**.
 
@@ -123,7 +123,7 @@ Os diferentes parâmetros que podem ser usados com o cmdlet Export-HcsSupportPac
 
 Após gerar um pacote de suporte, talvez você precise editá-lo para remover informações específicas do cliente, como nomes de volume, endereços IP de dispositivos e nomes de backup dos arquivos de log.
 
-> [AZURE.IMPORTANT]Você só pode editar um pacote de suporte que tenha sido gerado por meio do Windows PowerShell para StorSimple. Você não pode editar um pacote criado no Portal de Gerenciamento com o serviço StorSimple Manager.
+> [AZURE.IMPORTANT]Você só pode editar um pacote de suporte que tenha sido gerado por meio do Windows PowerShell para StorSimple. Você não pode editar um pacote criado no Portal Clássico do Azure com o serviço StorSimple Manager.
 
 Para editar um pacote de suporte antes de carregá-los no site de Suporte da Microsoft, você precisará descriptografar o pacote de suporte, editar os arquivos e criptografá-lo novamente. Execute as seguintes etapas para editar um pacote de suporte:
 
@@ -199,4 +199,4 @@ Abaixo há um exemplo que demonstra como descriptografar, editar e criptografar 
 - Saiba como [usar pacotes de suporte e logs de dispositivo para solucionar problemas de implantação do dispositivo](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting). 
 - Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

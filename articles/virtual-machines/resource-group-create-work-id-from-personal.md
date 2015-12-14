@@ -28,11 +28,11 @@ Felizmente, uma das melhores vantagens da conta pessoal do Azure é que ela vem 
 
 > [AZURE.NOTE]Se você recebeu um nome de usuário e uma senha de um administrador, há boas chances de que você já tenha uma ID corporativa ou de estudante (às vezes também chamada de *ID organizacional*). Nesse caso, você pode começar a usar sua conta do Azure imediatamente para acessar recursos do Azure que a exigem. Se não for possível usar esses recursos, talvez você precise retornar a este artigo para obter ajuda. Para obter mais informações, veja [Contas que você pode usar para entrar](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SignInAccounts) e [Como uma assinatura do Azure está relacionada ao Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SubRelationToDir).
 
-As etapas são simples. Você precisa localizar sua identidade de conexão no portal do Azure, descobrir o domínio padrão do Active Directory do Azure e adicionar um novo usuário a ele como um coadministrador do Azure.
+As etapas são simples. Você precisa localizar sua identidade de conexão no portal clássico do Azure, descobrir o domínio padrão do Active Directory do Azure e adicionar um novo usuário a ele como um coadministrador do Azure.
 
-## Localizar o diretório padrão no Portal do Azure
+## Localize seu diretório padrão no portal clássico do Azure
 
-Comece fazendo logon no [portal do Azure](https://manage.windowsazure.com) com a identidade de sua conta pessoal da Microsoft. Quando estiver conectado, role para baixo no painel azul do lado esquerdo e clique em **ACTIVE DIRECTORY**.
+Comece fazendo logon no [portal clássico do Azure](https://manage.windowsazure.com) com a identidade de sua conta pessoal da Microsoft. Quando estiver conectado, role para baixo no painel azul do lado esquerdo e clique em **ACTIVE DIRECTORY**.
 
 ![Azure Active Directory](./media/resource-group-create-work-id-from-personal/azureactivedirectorywidget.png)
 
@@ -144,4 +144,4 @@ Agora você pode usar sua nova identidade do Active Directory do Azure para usar
     data:
     info:    group create command OK
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

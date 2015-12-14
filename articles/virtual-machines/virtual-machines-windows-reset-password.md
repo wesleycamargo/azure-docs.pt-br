@@ -22,16 +22,16 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
 
 
-Se você não conseguir se conectar a uma máquina virtual do Windows por ter esquecido a senha ou por um problema com a configuração de serviço da Área de Trabalho Remota, use o portal de visualização do Azure ou a extensão VMAccess para redefinir a senha do administrador local ou a configuração de serviço da Área de Trabalho Remota.
+Se você não conseguir se conectar a uma máquina virtual do Windows por ter esquecido a senha ou por um problema com a configuração de serviço da Área de Trabalho Remota, use o portal do Azure ou a extensão VMAccess para redefinir a senha do administrador local ou a configuração de serviço da Área de Trabalho Remota.
 
-## Portal de Visualização do Azure
+## Portal do Azure
 
-Para redefinir o serviço de área de trabalho remota no [portal de visualização do Azure](https://portal.azure.com), clique em **Procurar tudo** > **máquinas virtuais (clássico)** > *sua máquina virtual Windows* > **Redefinir acesso remoto**. A página a seguir será exibida.
+Para redefinir o serviço de área de trabalho remota no [portal do Azure](https://portal.azure.com), clique em **Procurar tudo** > **máquinas virtuais (clássico)** > *sua máquina virtual Windows* > **Redefinir acesso remoto**. A página a seguir será exibida.
 
 
 ![](./media/virtual-machines-windows-reset-password/Portal-RDP-Reset-Windows.png)
 
-Para redefinir o nome e a senha da conta de administrador local no [Portal de visualização do Azure](https://portal.azure.com), clique em **Procurar tudo** > **Máquinas virtuais (clássico)** > *sua máquina virtual Windows* > **Todas as configurações** > **Redefinição de senha**. A página a seguir será exibida.
+Para redefinir o nome e a senha da conta de administrador local no [portal do Azure](https://portal.azure.com), clique em **Procurar tudo** > **Máquinas virtuais (clássico)** > *sua máquina virtual Windows* > **Todas as configurações** > **Redefinição de senha**. A página a seguir será exibida.
 
 ![](./media/virtual-machines-windows-reset-password/Portal-PW-Reset-Windows.png)
 
@@ -114,4 +114,4 @@ Se você não conseguir executar o pacote de diagnóstico do Azure IaaS (Windows
 
 [Solucionar problemas de conexões de Área de Trabalho Remota para uma máquina virtual do Azure baseada em Windows](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

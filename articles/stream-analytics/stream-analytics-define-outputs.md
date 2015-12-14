@@ -14,14 +14,14 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/23/2015" 
+	ms.date="12/01/2015" 
 	ms.author="jeffstok"/>
 
 # Noções básicas sobre saídas do Stream Analytics
 
 Ao criar um trabalho do Stream Analytics, um dos itens a considerar é como a saída do trabalho será consumida. Como os consumidores da transformação de dados estão visualizando os resultados do trabalho do Stream Analytics? Que ferramentas eles usarão para analisar a saída? A retenção ou armazenamento de dados é um requisito?
 
-Para poder habilitar uma variedade de padrões de aplicação, o Stream Analytics do Azure fornece sete métodos diferentes para armazenar e exibir saídas de trabalho. Banco de dados SQL, armazenamento de Blob, Hubs de Eventos, filas de Barramento de Serviço, tópicos de Barramento de Serviço, Power BI e armazenamento de tabela são saídas compatíveis. Isso proporciona tanto a facilidade de exibição da saída de trabalho quanto a flexibilidade no consumo e armazenamento de saída do trabalho para armazenamento de dados e outros fins.
+Para poder habilitar uma variedade de padrões de aplicação, o Stream Analytics do Azure fornece métodos diferentes para armazenar e exibir saídas de trabalho. Isso proporciona facilidade de exibição da saída de trabalho e flexibilidade no consumo e armazenamento de saída do trabalho para armazenamento de dados e outros fins. Qualquer saída configurada no trabalho deve existir antes de o trabalho ser iniciado e de os eventos começarem a fluir. Por exemplo, se você usar o armazenamento de Blobs como uma saída, o trabalho não criará uma conta de armazenamento automaticamente. Ele precisa ser criado pelo usuário antes de o trabalho ASA ser iniciado.
 
 
 ## Banco de dados SQL ##
@@ -118,11 +118,11 @@ Há alguns parâmetros que são necessários para configurar fluxos de dados de 
 
 O [Power BI](https://powerbi.microsoft.com/) pode ser usado como uma saída de um trabalho do Stream Analytics para fornecer uma experiência rica de visualização para usuários do Stream Analytics. Essa funcionalidade pode ser utilizada para painéis operacionais, geração de relatórios e relatórios orientados por métricas.
 
-> [AZURE.NOTE]No momento, não há suporte para a criação e configuração das saídas do Power BI no Portal de Visualização do Azure.
+> [AZURE.NOTE]No momento, não há suporte para a criação e configuração das saídas do Power BI no Portal do Azure.
 
 ### Autorizar uma conta do Power BI
 
-1.	Quando o Power BI é selecionado como uma saída no portal de Gerenciamento do Azure, você será solicitado a autorizar um usuário existente do Power BI ou criar uma nova conta do Power BI.  
+1.	Quando o Power BI for selecionado como uma saída no portal clássico do Azure, você será solicitado a autorizar um usuário existente do Power BI ou a criar uma nova conta do Power BI.  
 
     ![Autorizar usuário do Power BI](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)
 
@@ -267,4 +267,4 @@ Você foi apresentado ao Stream Analytics, um serviço gerenciado para análise 
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

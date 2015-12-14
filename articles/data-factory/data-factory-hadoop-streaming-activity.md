@@ -40,7 +40,8 @@ O cluster HDInsight é preenchido automaticamente com os programas de exemplo (w
 	                        "<nameofthecluster>/example/apps/wc.exe",
 	                        "<nameofthecluster>/example/apps/cat.exe"
 	                    ],
-	                    "fileLinkedService": "StorageLinkedService"
+	                    "fileLinkedService": "StorageLinkedService",
+	                    "getDebugInfo": "Failure"
 	                },
 	                "outputs": [
 	                    {
@@ -73,11 +74,12 @@ Observe o seguinte:
 2. Defina o tipo da atividade como **HDInsightStreaming**.
 3. Para a propriedade **mapper**, especifique o nome do executável do mapeador. No exemplo acima, cat.exe é o executável do mapeador.
 4. Para a propriedade **reducer**, especifique o nome do executável do redutor. No exemplo acima, wc.exe é o executável do redutor.
-5. Para a propriedade de tipo **input**, especifique o arquivo de entrada (incluindo o local) para o mapeador. No exemplo: “wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt”: adfsample é o contêiner de blob, example/data/Gutenberg é a pasta e davinci.txt é o blob.
+5. Para a propriedade de tipo **input**, especifique o arquivo de entrada (incluindo o local) para o mapeador. No exemplo: "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt": adfsample é o contêiner de blob, example/data/Gutenberg é a pasta e davinci.txt é o blob.
 6. Para a propriedade de tipo **output**, especifique o arquivo de saída (incluindo o local) para o redutor. A saída do trabalho de Transmissão do Hadoop será gravada no local especificado para essa propriedade.
-7. Na seção **filePaths**, especifique os caminhos para os executáveis do mapeador e do redutor. No exemplo: “adfsample/example/apps/wc.exe”, adfsample é o contêiner de blob, example/apps é a pasta e wc.exe é o executável.
+7. Na seção **filePaths**, especifique os caminhos para os executáveis do mapeador e do redutor. No exemplo: "adfsample/example/apps/wc.exe", adfsample é o contêiner de blob, example/apps é a pasta e wc.exe é o executável.
 8. Para a propriedade **fileLinkedService**, especifique o serviço vinculado do Armazenamento do Azure que representa o armazenamento do Azure que contém os arquivos especificados na seção filePaths.
 9. Para a propriedade **arguments**, especifique os argumentos para o trabalho de transmissão.
+10. A propriedade **getDebugInfo** é um elemento opcional. Quando ela é definida como Falha, os logs são baixados somente em caso de falha de execução. Quando ela é definida como Todos, os logs sempre são baixados, não importa o status de execução.
 
 > [AZURE.NOTE]Conforme mostrado no exemplo, você precisará especificar um conjunto de dados de saída para a atividade de Streaming do Hadoop para a propriedade de **saídas**. Isso é apenas um conjunto de dados fictício que é necessário para direcionar a agenda de pipeline. Você não precisa especificar qualquer conjunto de dados de entrada para a atividade da propriedade **entradas**.
 
@@ -190,4 +192,4 @@ O cluster HDInsight é preenchido automaticamente com os programas de exemplo (w
 	    }
 	}
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

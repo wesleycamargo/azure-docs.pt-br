@@ -60,7 +60,7 @@ Se quiser usar o Armazenamento de Blob do Azure para hospedar o conteúdo da pá
 #### Criar uma conta de armazenamento
 
 1. Entre no [Portal de Visualização do Azure](https://portal.azure.com/).
-2. Clique em **+ Novo** -> **Dados + Armazenamento** -> **Conta de armazenamento**. Você precisará de uma assinatura do Azure para criar uma conta de Armazenamento de Blob do Azure. É possível se inscrever em uma versão de avaliação gratuita [aqui](https://azure.microsoft.com/pt-BR/pricing/free-trial/).
+2. Clique em **+ Novo** -> **Dados + Armazenamento** -> **Conta de armazenamento**. Você precisará de uma assinatura do Azure para criar uma conta de Armazenamento de Blob do Azure. Você pode se inscrever em uma versão de avaliação gratuita [aqui](https://azure.microsoft.com/pricing/free-trial/).
 3. Forneça um **Nome** para a conta de armazenamento (por exemplo, "contoso") e escolha as seleções apropriadas para **Tipo de preço**, **Grupo de Recursos** e **Assinatura**. Verifique se a opção **Fixar no Quadro Inicial** está marcada. Clique em **Criar**.
 4. Volte para o quadro inicial e clique na conta de armazenamento que você acabou de criar.
 5. Na seção **Resumo**, clique em **Contêineres** e em **+ Adicionar**.
@@ -90,4 +90,4 @@ Agora que você carregou o conteúdo de exemplo em sua própria conta de armazen
         
 Agora, você pode usar o botão **Executar Agora** ou seu próprio aplicativo para executar a política novamente. O resultado deve ser quase o mesmo — você usou o mesmo HTML e CSS de exemplo em ambos os casos. No entanto, as políticas agora estão fazendo referência à sua própria instância do Armazenamento de Blob do Azure, e você é livre para editar e recarregar os arquivos como quiser. Para saber mais sobre como personalizar o HTML e CSS, consulte o [artigo principal sobre personalização da interface do usuário](active-directory-b2c-reference-ui-customization.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
-   ms.date="10/28/2015"
+   ms.date="11/28/2015"
    ms.author="tomfitz"/>
 
 # Gerenciando o acesso aos recursos
@@ -26,10 +26,21 @@ Este tópico se concentra nos comandos que você usa para atribuir funções e p
 
 Há alguns conceitos importantes sobre o controle de acesso baseado em função para que você possa compreender:
 
-1. Principal - entidade que recebeu permissão, como um usuário, o grupo de segurança ou o aplicativo.
-2. Função - conjunto de ações permitidas
-3. Escopo - o nível ao qual uma função se aplica, como a assinatura, um grupo de recursos ou um recurso.
-3. Atribuição de função – o processo de adição de uma entidade a uma função e definição do escopo.
+1. Principal – entidade que recebeu permissão, como um usuário do Active Directory do Azure, o grupo de segurança ou o aplicativo.
+2. Função – um conjunto de ações permitidas e excluídas.
+3. Ação – uma ação que é executada em um recurso (por exemplo, ler, criar). 
+4. Escopo - o nível ao qual uma função se aplica, como a assinatura, um grupo de recursos ou um recurso.
+5. Atribuição de função – o processo de associação de uma entidade a uma função e de definição do escopo.
+
+Você pode obter uma lista das **Ações** com suporte usando a ferramenta CLI de plataforma cruzada (xPlat) do Azure ou o módulo do Azure PowerShell.
+
+Para a ferramenta CLI de plataforma cruzada do Azure, use o seguinte comando para listar **todas** as ações para todos os Provedores de Recursos.
+
+    azure provider operations show --operationSearchString '*';
+
+Se você estiver usando o módulo PowerShell AzureRm (Gerenciador de Recursos do Azure), use o seguinte comando para listar **todas** as ações para **todos** os Provedores de Recursos.
+
+    Get-AzureRmProviderOperation -OperationSearchString *;
 
 ## Exemplos de função
 Para entender os conceitos RBAC, vejamos alguns exemplos de definições de função comuns:
@@ -134,7 +145,7 @@ Para obter uma explicação mais completa da configuração de um aplicativo do 
 
 
 ###Lista dos logs de auditoria do grupo de recursos.
-Para obter o log de auditoria para um grupo de recursos, execute o comando **Get-AzureRmLog** (ou **Get-AzureResourceGroupLog** para versões do Azure PowerShell antes da visualização 1.0).
+Para obter o log de auditoria para um grupo de recursos, execute o comando **Get-AzureRmLog** (ou **Get-AzureResourceGroupLog** para versões do Azure PowerShell antes da 1.0 Preview).
 
       PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroupName
 
@@ -262,11 +273,11 @@ Crie a atribuição de função.
 
 ## Próximas etapas
 
-- Para saber mais sobre o controle de acesso baseado em função, veja [Controle de acesso baseado em função no portal do Microsoft Azure](role-based-access-control-configure.md).
-- Para saber mais sobre como trabalhar com entidades de serviço para gerenciar o acesso para aplicativos em sua assinatura, veja [Autenticando uma entidade de serviço por meio do Gerenciador de Recursos do Azure](resource-group-authenticate-service-principal.md) e [criar uma nova entidade de serviço do Azure usando o portal clássico do Azure](../resource-group-create-service-principal-portal.md).
-- Para saber mais sobre como auditar operações em sua organização, veja [Operações de auditoria com o Gerenciador de Recursos](resource-group-audit.md).
+- Para saber mais sobre o controle de acesso baseado em função, confira [Controle de acesso baseado em função no portal do Microsoft Azure](role-based-access-control-configure.md).
+- Para saber mais sobre como trabalhar com entidades de serviço para gerenciar o acesso para aplicativos em sua assinatura, confira [Autenticando uma entidade de serviço usando o Gerenciador de Recursos do Azure](resource-group-authenticate-service-principal.md) e [Criar uma nova entidade de serviço do Azure usando o portal clássico do Azure](../resource-group-create-service-principal-portal.md).
+- Para saber mais sobre como auditar operações em sua organização, confira [Operações de auditoria com o Gerenciador de Recursos](resource-group-audit.md).
 - É possível aplicar restrições e convenções em sua assinatura com políticas personalizadas. Para saber mais, confira [Usar a Política para gerenciar recursos e controlar o acesso](resource-manager-policy.md).
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

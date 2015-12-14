@@ -43,7 +43,7 @@ No editor, abra ou crie um arquivo JavaScript e adicione o código a seguir que 
 	var MobileServiceClient = WindowsAzure.MobileServiceClient;
     var client = new MobileServiceClient('AppUrl', 'AppKey');
 
-Você deve substituir o espaço reservado `AppUrl` pela URL do aplicativo de seu serviço móvel e `AppKey` pela chave do aplicativo, obtida no [Portal do Azure](http://manage.windowsazure.com/).
+Você deve substituir o espaço reservado `AppUrl` pela URL do aplicativo do seu serviço móvel e `AppKey` pela chave do aplicativo, obtida no [portal clássico do Azure](http://manage.windowsazure.com/).
 
 >[AZURE.IMPORTANT]A chave do aplicativo serve para filtrar solicitações aleatórias de seu serviço móvel e é distribuída com o aplicativo. Como essa chave não é criptografada, ela não pode ser considerado segura. Para realmente proteger o acesso aos seus dados de serviços móveis, você deve autenticar os usuários antes de permitir o acesso. Para saber mais, confira [Como autenticar usuários](#authentication).
 
@@ -624,7 +624,7 @@ Os filtros são usados para muito mais do que cabeçalhos de solicitações pers
 
 ##<a name="hostnames"></a>Como usar o compartilhamento de recursos entre origens
 
-Para controlar quais sites podem interagir e enviar solicitações para o seu serviço móvel, não deixe de adicionar o nome do host do site que você usa para hospedá-lo na lista branca do CORS (Compartilhamento de Recursos entre Origens). Para um serviço móvel do back-end de JavaScript, você pode configurar a lista de permissões na guia Configurar no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com). Você pode usar caracteres curinga se necessário. Por padrão, os novos Serviços Móveis instruem os navegadores para permitirem acesso somente a partir do `localhost`, e o CORS (Compartilhamento de Recursos entre Origens) permite que o código em JavaScript em execução em um navegador em um nome de host externo interaja com o Serviço Móvel. Essa configuração não é necessária para aplicativos WinJS.
+Para controlar quais sites podem interagir e enviar solicitações para o seu serviço móvel, não deixe de adicionar o nome do host do site que você usa para hospedá-lo na lista branca do CORS (Compartilhamento de Recursos entre Origens). Para um serviço móvel do back-end de JavaScript, você pode configurar a lista de permissões na guia Configurar no [portal clássico do Azure](https://manage.windowsazure.com). Você pode usar caracteres curinga se necessário. Por padrão, os novos Serviços Móveis instruem os navegadores para permitirem acesso somente a partir do `localhost`, e o CORS (Compartilhamento de Recursos entre Origens) permite que o código em JavaScript em execução em um navegador em um nome de host externo interaja com o Serviço Móvel. Essa configuração não é necessária para aplicativos WinJS.
 
 <!-- Anchors. -->
 [What is Mobile Services]: #what-is
@@ -665,4 +665,4 @@ Para controlar quais sites podem interagir e enviar solicitações para o seu se
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [referência de opções de consulta do sistema OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

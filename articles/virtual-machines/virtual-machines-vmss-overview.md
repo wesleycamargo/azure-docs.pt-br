@@ -83,7 +83,7 @@ Esta seção lista alguns cenários típicos de conjunto de dimensionamento de V
 
 	Uma função de trabalho PaaS v1, embora limitada em termos de suporte à plataforma/tempo de execução (apenas imagens da plataforma Windows) também inclui serviços como troca de VIP, definições de atualização configuráveis, configurações específicas de implantação de aplicativo/tempo de execução, que _ainda_ não estão disponíveis nos conjuntos de dimensionamento de VM ou serão fornecidos por outros serviços PaaS de nível mais alto, como o Service Fabric. Com isso em mente, você pode observar os conjuntos de escalas de VM como uma infraestrutura que oferece suporte à PaaS. Isto é, as soluções PaaS, como o Service Fabric ou os gerenciadores de clusters, como o Mesos, podem ser criadas com base nos conjuntos de escalas de VM como uma camada de computação escalonável.
 
-	Veja um exemplo de um cluster Mesos que implanta um conjunto de escalas de VM na mesma rede virtual como uma VM autônoma. A VM autônoma é um mestre Mesos, e o conjunto de dimensionamento de VM representa um conjunto de nós subordinados: [https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json). As versões futuras do [Serviço de Contêiner do Azure](https://azure.microsoft.com/pt-BR/blog/azure-container-service-now-and-the-future/) implantarão versões mais complexas/reforçadas desse cenário com base nos conjuntos de dimensionamento de VM.
+	Veja um exemplo de um cluster Mesos que implanta um conjunto de escalas de VM na mesma rede virtual como uma VM autônoma. A VM autônoma é um mestre Mesos, e o conjunto de dimensionamento de VM representa um conjunto de nós subordinados: [https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json). As versões futuras do [Serviço de Contêiner do Azure](https://azure.microsoft.com/blog/azure-container-service-now-and-the-future/) implantarão versões mais complexas/reforçadas desse cenário com base nos conjuntos de dimensionamento de VM.
 
 ## Orientação de dimensionamento e desempenho do conjunto de dimensionamento de VM
 
@@ -153,4 +153,4 @@ Esta seção lista alguns cenários típicos de conjunto de dimensionamento de V
 
 **A.** Sim. Um conjunto de dimensionamento de VM é um conjunto de disponibilidade implícito com 3 FDs e 5 UDs. Não é preciso configurar nada em virtualMachineProfile. Em versões futuras, os conjuntos de dimensionamento de VM provavelmente incluirão vários locatários, mas, por enquanto, um conjunto de dimensionamento é um único conjunto de disponibilidade.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

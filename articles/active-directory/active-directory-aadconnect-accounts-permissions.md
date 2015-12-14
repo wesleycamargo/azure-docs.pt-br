@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Contas e permissões do Azure Ad Connect | Microsoft Azure"
+   pageTitle="Azure AD Connect: contas e permissões | Microsoft Azure"
    description="Este tópico descreve as contas usadas e criadas e as permissões necessárias."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="11/02/2015"
+   ms.date="12/02/2015"
    ms.author="andkjell;billmath"/>
 
 
@@ -122,4 +122,4 @@ A conta de serviço é criada com uma senha longa e complexa que não expira. El
 
 Saiba mais sobre [Como integrar suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -224,7 +224,7 @@ A seção typeProperties é diferente para cada tipo de conjunto de dados e forn
 
 Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------
-tableName | Nome da tabela no Banco de Dados Oracle à qual o serviço vinculado se refere. | Sim
+tableName | Nome da tabela no Banco de Dados Oracle à qual o serviço vinculado se refere. | Não (se **oracleReaderQuery** de **SqlSource** for especificado)
 
 ## Propriedades de tipo da atividade de cópia do Oracle
 
@@ -234,18 +234,18 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 As propriedades disponíveis na seção typeProperties da atividade, por outro lado, variam de acordo com cada tipo de atividade e, no caso de Atividade de cópia, variam dependendo dos tipos de fontes e coletores.
 
-No caso de Atividade de cópia, quando a fonte é do tipo SqlSource, as seguintes propriedades estão disponíveis na seção typeProperties:
+No caso da atividade de Cópia, quando a fonte é do tipo **OracleSource**, as seguintes propriedades estão disponíveis na seção **typeProperties**:
 
 Propriedade | Descrição |Valores permitidos | Obrigatório
 -------- | ----------- | ------------- | --------
 oracleReaderQuery | Utiliza a consulta personalizada para ler os dados. | Cadeia de caracteres de consulta SQL. 
-Por exemplo: select * from MyTable <p>Se não for especificada, a instrução SQL que é executada é: select * from MyTable</p> | Não
+Por exemplo: select * from MyTable <p>Se não for especificada, a instrução SQL que é executada será: select * from MyTable</p> | Não (se **tableName** de **dataset** for especificado)
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ### Mapeamento de tipo para Oracle
 
-Conforme mencionado no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), a Atividade de cópia executa conversões automáticas de tipo de tipos de fonte para tipos de coletor, com a abordagem em duas etapas descrita a seguir:
+Como mencionado no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), a atividade de Cópia executa conversões automáticas de tipos de fonte para tipos de coletor, com a seguinte abordagem de duas etapas:
 
 1. Converter de tipos de fonte nativos para o tipo .NET
 2. Converter do tipo .NET para o tipo de coletor nativo
@@ -280,7 +280,7 @@ XML | Cadeia de caracteres
 
 ## Dicas de solução de problemas
 
-****Problema: ** você vê a seguinte **mensagem de erro**: A atividade de cópia encontrou parâmetros inválidos: 'UnknownParameterName', Mensagem detalhada: Não é possível localizar o provedor de dados .Net Framework solicitado. Ele pode não estar instalado".
+****Problema: ** você vê a seguinte **mensagem de erro**: A atividade de cópia encontrou parâmetros inválidos: 'UnknownParameterName', Mensagem detalhada: não é possível localizar o Provedor de Dados do .Net Framework solicitado. Ele pode não estar instalado".
 
 **Possíveis causas**
 
@@ -289,15 +289,15 @@ XML | Cadeia de caracteres
 
 **Solução/solução alternativa**
 
-1. Se você não instalou o provedor .NET para Oracle, [instale-o](http://www.oracle.com/technetwork/topics/dotnet/utilsoft-086879.html) e repita o cenário. 
+1. Se você não instalou o Provedor do .NET para o Oracle, [instale-o](http://www.oracle.com/technetwork/topics/dotnet/utilsoft-086879.html) e repita o cenário. 
 2. Se você receber a mensagem de erro mesmo depois de instalar o provedor, faça o seguinte: 
-	1. Abra a configuração de máquina do .NET 2.0 na pasta: <system disk>: \\Windows\\Microsoft.NET\\Framework64\\v2.0.50727\\CONFIG\\machine.config.
-	2. Procure **Provedor de dados Oracle para .NET**, e você deve ser capaz de encontrar uma entrada como abaixo em **system.data** -> **DbProviderFactories**: "<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />"
+	1. Abra a configuração do computador do .NET 2.0 na pasta: <system disk>: \\Windows\\Microsoft.NET\\Framework64\\v2.0.50727\\CONFIG\\machine.config.
+	2. Procure **Provedor de Dados Oracle para o .NET**; você deve ser capaz de encontrar uma entrada como a mostrada abaixo em **system.data** -> **DbProviderFactories**: “<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />”
 2.	Copie esta entrada no arquivo machine.config na seguinte pasta v4.0: <system disk>: \\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config e altere a versão para 4.xxx.x.x.
-3.	Instale "<ODP.NET Installed Path>\\11.2.0\\client\_1\\odp.net\\bin\\4\\Oracle.DataAccess.dll" no cache de assembly global (GAC), executando "gacutil /i [caminho do provedor]".
+3.	Instale “<ODP.NET Installed Path>\\11.2.0\\client\_1\\odp.net\\bin\\4\\Oracle.DataAccess.dll” no GAC (cache de assembly global), executando “gacutil /i [provider path]”.
 
 
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -68,7 +68,7 @@ Tendo em mente as categorias e recursos mencionados, o modelo de controle de ace
 Como mencionado anteriormente, chaves mestras do Banco de Dados de Documentos fornecem acesso administrativo total a todos os recursos em uma conta do Banco de Dados de Documentos, enquanto chaves somente leitura habilitam acesso de leitura a todos os recursos dentro da conta. O trecho de código a seguir ilustra como usar o ponto de extremidade e a chave mestra de uma conta do Banco de Dados de Documentos para criar uma instância de DocumentClient e criar um novo banco de dados.
 
     //Read the DocumentDB endpointUrl and authorization keys from config.
-    //These values are available from the Azure Management Portal on the DocumentDB Account Blade under "Keys".
+    //These values are available from the Azure Classic Portal on the DocumentDB Account Blade under "Keys".
     //NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
     
 	private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
@@ -163,4 +163,4 @@ Para obter facilmente todos os recursos de permissão associados a um determinad
 - Para saber como criar tokens de autorização do Banco de Dados de Documentos, clique [aqui](https://msdn.microsoft.com/library/azure/dn783368.aspx)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

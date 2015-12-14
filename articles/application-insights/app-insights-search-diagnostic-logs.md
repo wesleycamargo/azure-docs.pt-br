@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Logs, exceções e diagnóstico personalizado para o ASP.NET no Application Insights
@@ -34,6 +34,11 @@ Abra a Pesquisa de Diagnóstico para ver a telemetria que o SDK envia automatica
 ![](./media/app-insights-search-diagnostic-logs/appinsights-31search.png)
 
 Os detalhes variam de um tipo de aplicativo para outro. Você pode clicar em qualquer evento individual para obter mais detalhes.
+
+## Amostragem 
+
+Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Application Insights para o ASP.NET versão 2.0.0-beta3 ou posterior, o recurso de amostragem adaptável poderá operar e enviar apenas uma porcentagem de sua telemetria. [Saiba mais sobre amostragem.](app-insights-sampling.md)
+
 
 ##<a name="events"></a>Eventos personalizados
 
@@ -271,6 +276,11 @@ No Gerenciador de Soluções, clique com o botão direito do mouse em `Applicati
 
 Até 500 eventos por segundo de cada aplicativo. Os eventos são retidos por sete dias.
 
+### Alguns dos meus eventos ou rastreamentos não aparecem
+
+Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Application Insights para o ASP.NET versão 2.0.0-beta3 ou posterior, o recurso de amostragem adaptável poderá operar e enviar apenas uma porcentagem de sua telemetria. [Saiba mais sobre amostragem.](app-insights-sampling.md)
+
+
 ## <a name="add"></a>Próximas etapas
 
 * [Configurar testes de disponibilidade e capacidade de resposta][availability]
@@ -285,7 +295,7 @@ Até 500 eventos por segundo de cada aplicativo. Os eventos são retidos por set
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-web-failures-exceptions.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
@@ -295,4 +305,4 @@ Até 500 eventos por segundo de cada aplicativo. Os eventos são retidos por set
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

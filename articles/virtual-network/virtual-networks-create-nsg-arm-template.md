@@ -181,4 +181,4 @@ Para implantar o modelo ARM usando a CLI do Azure, siga as etapas abaixo.
 	- **-f (ou --arquivo de modelo)**. Caminho para o arquivo de modelo ARM.
 	- **-e (ou --arquivo de parâmetros)**. Caminho para o arquivo de parâmetros ARM.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

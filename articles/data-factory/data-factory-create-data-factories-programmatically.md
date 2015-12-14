@@ -261,7 +261,7 @@ Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamen
 
 	
 
-12. Adicione o método auxiliar a seguir usado pelo método **Principal** na classe **Programa**. Esse método exibe uma caixa de diálogo que permite que você forneça o **nome de usuário** e a **senha** que você usa para fazer logon no portal do Azure.
+12. Adicione o método auxiliar a seguir usado pelo método **Principal** na classe **Programa**. Esse método exibe uma caixa de diálogo que permite que você forneça o **nome de usuário** e a **senha** que você usa para fazer logon no Portal Clássico do Azure.
  
 		public static string GetAuthorizationHeader()
         {
@@ -371,7 +371,7 @@ Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamen
 		Jane, Doe
 	 
 17. Execute o exemplo, clicando no menu **Depurar** -> **Iniciar Depuração**. Quando você vir **Obter detalhes de execução de uma fatia de dados**, aguarde alguns minutos e pressione **ENTER**.
-18. Use o Portal de visualização para verificar se a data factory **APITutorialFactory** é criada com os seguintes artefatos: 
+18. Use o Portal do Azure para verificar se a data factory **APITutorialFactory** foi criada com os seguintes artefatos: 
 	- Serviço vinculado: **LinkedService\_AzureStorage** 
 	- Conjunto de dados: **DatasetBlobSource** e **DatasetBlobDestination**.
 	- Pipeline: **PipelineBlobSample** 
@@ -392,4 +392,4 @@ Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamen
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

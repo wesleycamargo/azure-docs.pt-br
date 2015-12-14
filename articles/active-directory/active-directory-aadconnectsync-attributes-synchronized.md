@@ -400,7 +400,7 @@ Computadores (dispositivos) do Windows 10 ingressados no domínio sincronizaçã
 | displayName | X| |
 | ms-DS-CreatorSID | X| Também chamado de registeredOwnerReference.|
 | objectGUID | X| Também chamado de deviceID.|
-| objectSID | X| Também chamado de omPremisesSecurityIdentifier.|
+| objectSID | X| Também chamado de onPremisesSecurityIdentifier.|
 | operatingSystem | X| Também chamado de deviceOSType.|
 | operatingSystemVersion | X| Também chamado de deviceOSVersion.|
 | userCertificate | X| |
@@ -435,4 +435,4 @@ Saiba mais sobre a configuração de [sincronização do Azure AD Connect](activ
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

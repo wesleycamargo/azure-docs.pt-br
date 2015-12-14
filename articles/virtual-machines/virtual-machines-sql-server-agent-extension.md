@@ -19,7 +19,7 @@
 
 # Extensão do agente IaaS do SQL Server
 
-Essa extensão permite que o SQL Server em máquinas virtuais do Azure usem determinados serviços, listados neste artigo, que só podem ser usados com essa extensão instalada. Essa extensão é instalada automaticamente para imagens da Galeria de Imagens do SQL Server no Portal de Visualização do Azure. Ela pode ser instalada em qualquer VM do SQL Server no Azure que tenha o Agente convidado da VM Azure.
+Essa extensão permite que o SQL Server em máquinas virtuais do Azure usem determinados serviços, listados neste artigo, que só podem ser usados com essa extensão instalada. Essa extensão é instalada automaticamente para imagens da Galeria de Imagens do SQL Server no portal do Azure. Ela pode ser instalada em qualquer VM do SQL Server no Azure que tenha o Agente convidado da VM Azure.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
 
@@ -41,7 +41,7 @@ Requisitos para uso da extensão em sua VM:
 - **Correção automatizada de SQL**: este serviço permite que você configure um período de manutenção durante o qual as atualizações para sua VM podem ocorrer, para que você possa evitar atualizações durante horários de pico em sua carga de trabalho. Para ver mais informações sobre este serviço, consulte [Correção automatizada para SQL Server em máquinas virtuais do Azure](virtual-machines-sql-server-automated-patching.md).
 
 ## Adicionar a extensão com o Powershell
-Se você provisionar sua VM do SQL Server usando o [Portal de Visualização do Azure](https://portal.azure.com/), a extensão será instalada automaticamente. Para VMs do SQL Server configuradas com o [Portal do Azure](https://manage.windowsazure.com), ou para VMs as quais você traz sua própria licença do SQL, é possível adicionar essa extensão a uma VM existente usando o seguinte cmdlet do Azure PowerShell.
+Se você provisionar sua VM do SQL Server usando o [portal do Azure](https://portal.azure.com/), a extensão será instalada automaticamente. Para VMs do SQL Server configuradas com o [portal clássico do Azure](https://manage.windowsazure.com), ou para VMs as quais você traz sua própria licença do SQL, é possível adicionar essa extensão a uma VM existente usando o seguinte cmdlet do Azure PowerShell.
 
 **Set-AzureVMSqlServerExtension**
 
@@ -78,4 +78,4 @@ Se você quiser remover essa extensão de sua VM, usar o seguinte cmdlet do Powe
 ### Sintaxe
 Remove-AzureVMSqlServerExtension -VM <IPersistentVM> [<CommonParameters>]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -61,7 +61,7 @@ Se esta for sua primeira vez, você será solicitado a fazer logon ou se inscrev
 Se esse aplicativo é parte de um aplicativo maior, você talvez queira usar **Definir configurações** e colocá-lo no mesmo grupo de recursos que os outros componentes.
 
 
-####<a name="land"></a> Qual a função de “Adicionar o Application Insights”?
+####<a name="land"></a> Qual a função de "Adicionar o Application Insights"?
 
 O comando executou estas etapas (que, em vez disso, você poderia [executar manualmente](app-insights-start-monitoring-app-health-usage.md), se preferir):
 
@@ -123,6 +123,8 @@ Quando você executa no modo de depuração, a telemetria é expressa através d
 
 Veja [este item da Solução de problemas](app-insights-troubleshoot-faq.md#NuGetBuild).
 
+> [AZURE.NOTE]Se o seu aplicativo gerar muita telemetria (e você estiver usando o SDK do ASP.NET versão 2.0.0-beta3 ou posterior), o módulo de amostragem adaptável reduzirá automaticamente o volume enviado ao portal, enviando apenas uma fração representativa de eventos. No entanto, os eventos relacionados à mesma solicitação serão selecionadas ou desmarcadas como um grupo, para que você possa navegar entre os eventos relacionados. [Saiba mais sobre amostragem](app-insights-sampling.md).
+
 ## Próximas etapas
 
 - [Dados do usuário e da página](../article/application-insights/app-insights-asp-net-client.md#selector1)
@@ -168,4 +170,4 @@ Se você fez todas as personalizações no ApplicationInsights.config, salve uma
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

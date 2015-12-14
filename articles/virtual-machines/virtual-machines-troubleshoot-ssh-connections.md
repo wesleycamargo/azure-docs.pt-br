@@ -37,11 +37,11 @@ Como alternativa, você pode registrar um incidente de suporte do Azure. Vá par
 
 Para resolver as falhas de conexão SSH mais comuns em máquinas virtuais criadas usando o modelo de implantação clássica, experimente estas etapas:
 
-1. **Redefina o Acesso Remoto** no [portal de visualização do Azure](https://portal.azure.com). Clique em **Procurar tudo** > **Máquinas virtuais (clássicas)** > sua máquina virtual do Windows > **Redefinir Acesso Remoto**.
+1. **Redefinir o Acesso Remoto** no [portal do Azure](https://portal.azure.com). Clique em **Procurar tudo** > **Máquinas virtuais (clássicas)** > sua máquina virtual do Windows > **Redefinir Acesso Remoto**.
 
 	![Captura de tela que mostra como redefinir a configuração de SSH](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Reset-Windows.png)
 
-2. **Reiniciar** a máquina virtual. No [portal de visualização do Azure](https://portal.azure.com), clique em **Procurar tudo** > **Máquinas virtuais (clássicas)** > sua máquina virtual do Windows > **Reiniciar**. No [portal do Azure](https://manage.windowsazure.com), abra as **Máquinas virtuais** > **Instâncias** e clique em **Reiniciar**.
+2. **Reiniciar** a máquina virtual. No [portal do Azure](https://portal.azure.com), clique em **Procurar tudo** > **Máquinas virtuais (clássicas)** > sua máquina virtual do Windows > **Reiniciar**. No [portal clássico do Azure](https://manage.windowsazure.com), abra as **Máquinas virtuais** > **Instâncias** e clique em **Reiniciar**.
 
 3. [**Redimensione** a máquina virtual](https://msdn.microsoft.com/library/dn168976.aspx).
 
@@ -110,7 +110,7 @@ Para resolver os problemas comuns de SSH para máquinas virtuais criadas usando 
 	Set-AzureVMExtension -ResourceGroupName "testRG" -VMName "testVM" -Location "West US" -Name "VMAccessForLinux" -Publisher "Microsoft.OSTCExtensions" -ExtensionType "VMAccessForLinux" -TypeHandlerVersion "1.2" -SettingString "{}" -ProtectedSettingString '{"reset_ssh":true}'
 	```
 
-2. **Reinicie** a VM do Linux no portal. No [portal de visualização do Azure](https://portal.azure.com), clique em **Procurar tudo** > **Máquinas virtuais** > sua máquina virtual do Windows > **Reiniciar**.
+2. **Reinicie** a VM do Linux no portal. No [portal do Azure](https://portal.azure.com), clique em **Procurar tudo** > **Máquinas virtuais** > sua máquina virtual do Windows > **Reiniciar**.
 
 	![Captura de tela que mostra como reiniciar a máquina virtual V2](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Restart-V2-Windows.png)
 
@@ -176,14 +176,14 @@ As seções a seguir ajudarão você a identificar a origem da falha e encontrar
 
 Primeiro, verifique o status da máquina virtual no portal do Azure.
 
-No [portal do Azure](https://manage.windowsazure.com), para máquinas virtuais no modelo de implantação clássico:
+No [portal clássico do Azure](https://manage.windowsazure.com), para máquinas virtuais no modelo de implantação clássico:
 
 1. Clique em **Máquinas virtuais** > *Nome da VM*.
 2. Clique no **Painel** da VM para verificar o status.
 3. Clique em **Monitor** para ver a atividade recente dos recursos de computação, armazenamento e rede.
 4. Clique em **Pontos de extremidade** para garantir que haja um ponto de extremidade para o tráfego SSH.
 
-No [portal de visualização do Azure](https://portal.azure.com):
+No [portal do Azure](https://portal.azure.com):
 
 1. Para uma máquina virtual criada no modelo de implantação clássico, clique em **Procurar** > **Máquinas virtuais (clássicas)** > *Nome da VM*. Para uma máquina virtual criada com o Gerenciador de Recursos, clique em **Procurar** > **Máquinas virtuais** > *Nome da VM*. O painel de status da máquina virtual deve mostrar **Executando**. Role para baixo para mostrar a atividade recente dos recursos de computação, armazenamento e rede.
 2. Clique em **Configurações** para examinar os pontos de extremidade, os endereços IP e outras configurações. Para identificar pontos de extremidade em máquinas virtuais criadas com o Gerenciador de Recursos, verifique se definiu um [Grupo de Segurança de Rede](../traffic-manager/virtual-networks-nsg.md), as regras aplicadas a ele e se elas são referenciadas na sub-rede.
@@ -253,7 +253,7 @@ Se não houver outra VM na mesma rede virtual, você poderá facilmente criar um
 
 Se for possível criar uma conexão SSH com uma VM na mesma rede virtual, verifique:
 
-- A configuração do ponto de extremidade para o tráfego SSH na VM de destino. A porta TCP privada do ponto de extremidade deve corresponder à porta TCP na qual o serviço SSH na VM está escutando (o padrão é 22). Para as VMs criadas no modelo de implantação do Gerenciador de Recursos usando modelos, verifique o número da porta SSH TCP no portal de visualização do Azure em **Procurar** > **Máquinas virtuais (v2)** > *Nome da VM* > **Configurações** > **Pontos de extremidade**.
+- A configuração do ponto de extremidade para o tráfego SSH na VM de destino. A porta TCP privada do ponto de extremidade deve corresponder à porta TCP na qual o serviço SSH na VM está escutando (o padrão é 22). Para as VMs criadas no modelo de implantação do Gerenciador de Recursos usando modelos, verifique o número da porta SSH TCP no portal do Azure em **Procurar** > **Máquinas virtuais (v2)** > *Nome da VM* > **Configurações** > **Pontos de extremidade**.
 - A ACL para o ponto de extremidade de tráfego de SSH na máquina virtual de destino. As ACLs permitem que você especifique tráfego de entrada permitido ou negado da Internet com base em seu endereço IP de origem. ACLs configuradas incorretamente podem impedir o tráfego de SSH para o ponto de extremidade. Examine suas ACLs para verificar se o tráfego de entrada dos endereços IP públicos de seu proxy ou de outro servidor de borda é permitido. Para saber mais, confira [Sobre as listas de controle de acesso de rede (ACLs)](../virtual-network/virtual-networks-acl.md).
 
 Para que o ponto de extremidade deixe de ser a fonte do problema, remova o ponto de extremidade atual e crie um novo, e especifique o nome do **SSH** (porta TCP 22 como o número da porta pública e privada). Para obter mais informações, consulte [Configurar pontos de extremidade em uma máquina virtual no Azure](virtual-machines-set-up-endpoints.md).
@@ -287,4 +287,4 @@ Para máquinas virtuais no modelo de implantação clássico, confira [Como rede
 
 [Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

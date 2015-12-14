@@ -25,7 +25,7 @@ Para se inscrever em uma assinatura de Avaliação Gratuita do Azure, você deve
 
 >[AZURE.NOTE]Seu número de telefone e os detalhes do seu cartão de crédito são usados apenas para verificar sua identidade. Embora seu cartão de crédito não será cobrado, a Microsoft colocará uma espera de autorização em uma quantidade mínima para verificar se o cartão de crédito é válido. A suspensão será liberada dentro de 3 a 5 dias úteis, dependendo das políticas da sua instituição financeira.
 
-1. Abra a [página de avaliação gratuita do Azure](https://azure.microsoft.com/pt-BR/pricing/free-trial/) e selecione **Experimentar agora**.
+1. Abra a [página de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/) e selecione **Experimentar agora**.
 2. Entre com sua conta da Microsoft ou com sua conta corporativa ou de estudante.
 3. Na seção **Sobre você**, digite suas informações pessoais. ![Captura de tela de informações pessoais](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
 
@@ -57,8 +57,8 @@ Quando você atualizar de uma assinatura de avaliação gratuita em uma assinatu
 
 Se tiver comprado créditos do Azure via Open de um revendedor, siga estas etapas para ativar sua assinatura:
 
-1. Abra a página [Chave da Licença do Azure via Open](http://azure.microsoft.com/offers/ms-azr-0111p/) e selecione Ativar uma nova assinatura ou assinatura existente.
+1. Abra a página [Azure em chave Open License](http://azure.microsoft.com/offers/ms-azr-0111p/) e selecione Ativar uma nova assinatura ou assinatura existente.
 2. Insira a chave do produto (Product Key) e, em seguida, marque a opção de contrato.</br>![CHAVE OSA](./media/billing-buy-sign-up-azure-subscription/OSAkey.png)
 3. Selecione **Ativar**.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

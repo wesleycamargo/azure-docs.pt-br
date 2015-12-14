@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="11/20/2015"
+	ms.date="12/01/2015"
 	ms.author="robmcm"/>
 
 
@@ -71,7 +71,7 @@ Adicione o código a seguir à parte superior do arquivo **server.js** em seu ap
 
 O módulo do azure lerá as variáveis de ambiente AZURE\_STORAGE\_ACCOUNT e AZURE\_STORAGE\_ACCESS\_KEY, ou AZURE\_STORAGE\_CONNECTION\_STRING para obter as informações necessárias para se conectar à sua conta de armazenamento do Azure. Se essas variáveis de ambiente não estiverem definidas, você deverá especificar as informações da conta ao chamar **TableService**.
 
-Para ver um exemplo de como definir variáveis de ambiente no portal do Azure para um Site do Azure, veja [Aplicativo Web do Node.js com armazenamento].
+Para ver um exemplo de como definir variáveis de ambiente no [portal do Azure](portal.azure.com) para um Site do Azure, veja [Aplicativo Web do Node.js com armazenamento].
 
 ## Criar uma tabela
 
@@ -114,7 +114,7 @@ Para adicionar uma entidade, primeiro crie um objeto que defina as propriedades 
 
 * **RowKey** – identifica exclusivamente a entidade dentro da partição
 
-Ambos **PartitionKey** e **RowKey** devem ser valores de cadeia de caracteres. Para obter informações, veja [Noções básicas sobre o modelo de dados do serviço Tabela](http://msdn.microsoft.com/library/azure/dd179338.aspx).
+Ambos **PartitionKey** e **RowKey** devem ser valores de cadeia de caracteres. Para obter informações, consulte [Noções básicas sobre o modelo de dados do serviço Tabela](http://msdn.microsoft.com/library/azure/dd179338.aspx).
 
 A seguir, um exemplo de definição de uma entidade. Observe que **dueDate** é definido com um tipo de **Edm.DateTime**. A especificação do tipo é opcional, e os tipos serão inferidos se não especificados.
 
@@ -163,9 +163,9 @@ Há vários métodos disponíveis para atualizar uma entidade existente:
 
 * **mergeEntity** – atualiza uma entidade existente mesclando novos valores de propriedade à entidade existente
 
-* **insertOrReplaceEntity** – Atualiza uma entidade existente substituindo-a. Se não existir nenhuma entidade, uma nova será inserida
+* **insertOrReplaceEntity** – atualiza uma entidade existente substituindo-a. Se não existir nenhuma entidade, uma nova será inserida
 
-* **insertOrMergeEntity** – Atualiza uma entidade existente mesclando novos valores de propriedade à existente. Se não existir nenhuma entidade, uma nova será inserida
+* **insertOrMergeEntity** – atualiza uma entidade existente mesclando novos valores de propriedade à existente. Se não existir nenhuma entidade, uma nova será inserida
 
 O exemplo a seguir demonstra a atualização de uma entidade usando **updateEntity**:
 
@@ -255,9 +255,9 @@ Para consultar uma tabela, utilize o objeto **TableQuery** para compilar uma exp
 
 * **where** – a cláusula “where”
 
-	* **and** – Uma condição “where” `and`.
+	* **and** – uma condição “where” `and`.
 
-	* **or** - uma condição “where” `or`.
+	* **or** – uma condição “where” `or`.
 
 * **top** – o número de itens a serem buscados
 
@@ -432,22 +432,20 @@ Uma vez que a ACL foi definida, você pode criar uma SAS com base na ID de uma p
 
 Para obter mais informações, veja os recursos a seguir.
 
--   Referência do MSDN: [Armazenando e acessando dados no Azure][].
--   [Blog da equipe do Armazenamento do Azure][].
+-   [Blog da Equipe do Armazenamento do Azure][].
 -   Repositório do [SDK do Armazenamento do Azure para Node][] no GitHub.
 -   [Centro de Desenvolvedores do Node.js](/develop/nodejs/)
 
   [SDK do Armazenamento do Azure para Node]: https://github.com/Azure/azure-storage-node
   [OData.org]: http://www.odata.org/
   [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-  [Azure portal]: http://manage.windowsazure.com
+  [Azure Portal]: portal.azure.com
 
   [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
-  [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
-  [Blog da equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Blog da Equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Website with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
   [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
   [Aplicativo Web do Node.js com armazenamento]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

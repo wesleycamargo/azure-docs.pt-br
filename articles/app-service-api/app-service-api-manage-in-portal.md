@@ -18,6 +18,8 @@
 
 # Gerenciar aplicativos de API no Serviço de Aplicativo do Azure
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 Este artigo mostra como usar o [Portal de Visualização do Azure](https://portal.azure.com/) para executar tarefas de monitoramento e gerenciamento de aplicativos de API. Aqui estão algumas das tarefas que você pode realizar:
 
 - Configurar autenticação 
@@ -130,8 +132,8 @@ Para chegar a um aplicativo de API no Gerenciador de Servidores, clique em **Azu
 
 ## Próximas etapas
 
-Este artigo mostra como usar o portal do Azure para executar tarefas de gerenciamento de aplicativos de API. Para aplicativos de API instalados a partir da galeria de aplicativos de API, confira também [Gerenciar e monitorar aplicativos de API e conectores internos](../app-service-logic/app-service-logic-monitor-your-connectors.md).
+Este artigo mostra como usar o portal do Azure para executar tarefas de gerenciamento de aplicativos de API. Para aplicativos de API instalados a partir de galeria de aplicativos de API, consulte também [Gerenciar e monitorar aplicativos de API e conectores internos](../app-service-logic/app-service-logic-monitor-your-connectors.md).
 
 Para obter informações sobre como gerenciar aplicativos de API usando a linha de comando, consulte os artigos na seção **Automatizar** do menu que aparece no lado esquerdo do artigo (em janelas de navegador largas) ou na parte superior do artigo (em janelas de navegador estreitas).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

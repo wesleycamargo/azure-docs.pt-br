@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/13/2015"
+	ms.date="12/01/2015"
 	ms.author="szark"/>
 
 
@@ -37,12 +37,13 @@ O Agente Linux do Azure já vem pré-instalado nas imagens da Galeria do Azure e
 
 Distribuição|Versão|Drivers|Agente
 ---|---|---|---
-Canonical Ubuntu|Ubuntu 12.04, 14.04, 15.04 e 15.10|No kernel|Pacote: no repositório, em "walinuxagent" <p><p>Fonte: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
-CentOS by OpenLogic |CentOS 6.3+, 7.0+| CentOS 6.3: [download do LIS](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 +: no Kernel|Pacote: no repositório <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic, em "WALinuxAgent"<p><p>Fonte: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+Ubuntu|Ubuntu 12.04, 14.04, 15.04 e 15.10|No kernel|Pacote: no repositório, em "walinuxagent" <p><p>Fonte: [GitHub](https://github.com/Azure/WALinuxAgent)
+CentOS by OpenLogic |CentOS 6.3+, 7.0+| CentOS 6.3: [download do LIS](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 +: no Kernel|Pacote: no repositório <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic, em "WALinuxAgent"<p><p>Fonte: [GitHub](https://github.com/Azure/WALinuxAgent)
 [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)|494\.4.0+ |No kernel|Fonte: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent)
 Oracle Linux| 6\.4+, 7.0+|No kernel|Pacote: no repositório, em "WALinuxAgent" <p><p>Fonte: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 SUSE Linux Enterprise |SLES 11 SP3+, SLES 12+ e <p><p> SLES para SAP 11.3+ |No kernel|Pacote: no repositório [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) em "WALinuxAgent"<p><p>Fonte: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
-openSUSE |openSUSE 13.1+|No kernel|Pacote: no repositório [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) em "WALinuxAgent" <p><p>Código-fonte: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+openSUSE |openSUSE 13.1+|No kernel|Pacote: no repositório [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) em "WALinuxAgent" <p><p>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent)
+Debian da Credativ |Debian 7.9+, 8.2+|No kernel|Pacote: no repositório, em "waagent" <p><p>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent)
 
 ## Parceiros
 
@@ -79,4 +80,9 @@ A estratégia da Oracle consiste em oferecer um amplo portfólio de soluções p
 
 O SUSE Linux Enterprise Server no Azure é uma plataforma testada que fornece confiabilidade e segurança superiores para a computação em nuvem. A plataforma Linux versátil do SUSE se integra perfeitamente aos serviços de nuvem do Azure para oferecer um ambiente de nuvem facilmente gerenciável. E, com mais de 9.200 aplicativos certificados de mais de 1.800 fornecedores de software independentes para SUSE Linux Enterprise Server, o SUSE garante que as cargas de trabalho em execução compatíveis no datacenter podem ser implantadas com segurança no Azure.
 
-<!---HONumber=Nov15_HO4-->
+### Credativ
+[http://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure](http://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure)
+
+A Credativ é uma empresa de serviços e consultoria independente, especializada no desenvolvimento e na implementação de soluções profissionais com o uso de software gratuito. Como especialistas líderes em software livre, temos reconhecimento internacional, com vários departamentos de TI usando nosso suporte. Em conjunto com a Microsoft, a credativ está preparando o imagens correspondentes do Debian para Debian 8 (Jessie) e Debian antes do 7 (Wheezy), projetadas especialmente para execução no Azure e facilmente gerenciadas por meio da plataforma. A credativ também dará suporte a manutenção de longo prazo e fará a atualização das imagens Debian para Azure por meio de seus Centros de suporte de software livre.
+
+<!---HONumber=AcomDC_1203_2015-->

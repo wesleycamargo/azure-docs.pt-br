@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configurar um cluster de computação híbrido com o Microsoft HPC Pack"
+	pageTitle="Configurar um cluster de cálculo híbrido com o Microsoft HPC Pack"
 	description="Aprenda a usar o Microsoft HPC Pack e o Azure para configurar um cluster de computação de alto desempenho (HPC) híbrido e pequeno"
 	services="cloud-services"
 	documentationCenter=""
@@ -25,7 +25,7 @@ Este tutorial lhe mostra como usar o Microsoft HPC Pack 2012 R2 e o Azure para i
 
 Este tutorial mostra uma abordagem, às vezes chamada de cluster "de estouro para a nuvem", para usar os recursos de computação dimensionáveis e sob demanda no Azure para executar aplicativos com uso intensivo de computação.
 
-Este tutorial não pressupõe nenhuma experiência anterior com clusters de computação ou com o HPC Pack. Ele destina-se somente para ajudá-lo a implantar um cluster híbrido de computação de forma rápida para fins de demonstração. Para obter as considerações e as etapas para implantar um cluster híbrido do HPC Pack em uma escala maior em um ambiente de produção, consulte as [diretrizes detalhadas](http://go.microsoft.com/fwlink/p/?LinkID=200493). Se você quiser configurar um cluster do HPC Pack inteiramente no Azure, consulte [Opções de cluster do HPC com o Microsoft HPC Pack no Azure](../virtual-machines/virtual-machines-hpcpack-cluster-options.md).
+Este tutorial não pressupõe nenhuma experiência anterior com clusters de cálculo ou com o HPC Pack. Ele destina-se somente para ajudá-lo a implantar um cluster híbrido de cálculo de forma rápida para fins de demonstração. Para obter as considerações e as etapas para implantar um cluster híbrido do HPC Pack em uma escala maior em um ambiente de produção, consulte as [diretrizes detalhadas](http://go.microsoft.com/fwlink/p/?LinkID=200493). Se você quiser configurar um cluster do HPC Pack inteiramente no Azure, consulte [Opções de cluster do HPC com o Microsoft HPC Pack no Azure](../virtual-machines/virtual-machines-hpcpack-cluster-options.md).
 
 >[AZURE.NOTE]O Azure oferece uma [variedade de tamanhos](../virtual-machines/virtual-machines-size-specs.md) para seus recursos de computação, adequados para diferentes cargas de trabalho. Por exemplo, as instâncias A8 e A9 combinam alto desempenho e acesso a uma rede de aplicativos com alta taxa de transferência e baixa latência, necessários para alguns aplicativos de HPC. Consulte [Sobre as instâncias A8, A9, A10 e A11 com uso intensivo de computação](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md).
 
@@ -86,7 +86,7 @@ Primeiro instale o Microsoft HPC Pack em um computador local executando o Window
 	![Concluir][install_hpc7]
 
 ## Preparar a assinatura do Azure
-Use o [Portal do Azure](https://manage.windowsazure.com) para realizar as etapas a seguir com sua assinatura do Azure. Elas são necessárias para implantar posteriormente os nós do Azure no nó de cabeça local.
+Use o [portal clássico do Azure](https://manage.windowsazure.com) para realizar as etapas a seguir com sua assinatura do Azure. Elas são necessárias para implantar posteriormente os nós do Azure no nó de cabeça local.
 
 - Carregue um certificado de gerenciamento (necessário para proteger conexões entre o nó de cabeça e os serviços do Azure)
 
@@ -99,7 +99,7 @@ Use o [Portal do Azure](https://manage.windowsazure.com) para realizar as etapas
 ### <a>Carregue o certificado de gerenciamento padrão</a>
 O HPC Pack instala um certificado autoassinado no nó de cabeça, chamado de Certificado de gerenciamento padrão de HPC no Azure da Microsoft, que pode ser carregado como um certificado de gerenciamento do Azure. Este certificado é fornecido para implantações de prova de conceito e fins de teste.
 
-1. No computador do nó de cabeça, faça logon no [Portal do Azure](https://manage.windowsazure.com).
+1. No computador do nó de cabeçalho, faça logon no [portal clássico do Azure](https://manage.windowsazure.com).
 
 2. Clique em **Configurações**e, em seguida, clique em **Certificados de gerenciamento**.
 
@@ -348,4 +348,4 @@ Depois de testar o cluster, você pode usar o Gerenciador de Cluster de HPC para
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

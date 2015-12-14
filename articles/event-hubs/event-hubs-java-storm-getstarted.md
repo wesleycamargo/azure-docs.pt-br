@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução aos Hubs de eventos em Java com Apache Storm | Microsoft Azure"
+	pageTitle="Introdução aos Hubs de Eventos em Java com o Apache Storm | Microsoft Azure"
 	description="Siga este tutorial para começar a usar Hubs de Eventos do Azure enviando eventos com Java e recebendo-os em um cluster do Apache Storm."
 	services="event-hubs"
 	documentationCenter=""
@@ -24,7 +24,7 @@
 
 Hubs de Eventos são um sistema de inclusão altamente dimensionável que pode receber milhões de eventos por segundo, permitindo que um aplicativo processe e analise grandes quantidades de dados produzidos por aplicativos e dispositivos conectados. Depois de coletados em Hubs de Evento, você pode transformar e armazenar dados usando qualquer provedor de análise em tempo real ou cluster de armazenamento.
 
-Para mais informações, consulte [Visão geral de Hubs de Eventos][].
+Para obter mais informações, confira [Visão Geral dos Hubs de Eventos][].
 
 Este tutorial descreve como coletar mensagens em um Hub de Eventos usando um aplicativo de console em Java e recuperá-los em paralelo usando o Apache Storm.
 
@@ -36,7 +36,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 ## Criar um Hub de Evento
 
-1. Entre no [portal do Azure] e clique em **NOVO** na parte inferior da tela.
+1. Faça logon no [portal clássico do Azure][] e clique em **NOVO** na parte inferior da tela.
 
 2. Clique em **Serviços de Aplicativos**, em **Barramento de Serviço**, em **Hub de Eventos** e em **Criação Rápida**.
 
@@ -79,7 +79,7 @@ Agora você está pronto para executar os aplicativos.
 
    	![][22]
 
-> [AZURE.NOTE]Neste tutorial, apenas use o Storm no modo local para fins de desenvolvimento. Consulte a [Visão geral do HDInsight Storm][] e a documentação oficial do [Apache Storm][] para obter mais informações de implantações e padrões do Storm.
+> [AZURE.NOTE]Neste tutorial, apenas use o Storm no modo local para fins de desenvolvimento. Confira a [Visão geral do HDInsight Storm][] e a documentação oficial do [Apache Storm][] para obter mais informações de implantações e padrões do Storm.
 
 ## Próximas etapas
 
@@ -100,9 +100,9 @@ Os seguintes recursos estão disponíveis para o desenvolvimento de aplicativos 
 [22]: ./media/event-hubs-java-storm-getstarted/receive-storm2.png
 
 <!-- Links -->
-[portal do Azure]: https://manage.windowsazure.com/
+[portal clássico do Azure]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Visão geral de Hubs de Eventos]: event-hubs-overview.md
+[Visão Geral dos Hubs de Eventos]: event-hubs-overview.md
 
 [Apache Storm]: https://storm.incubator.apache.org
 [Visão geral do HDInsight Storm]: ../hdinsight/hdinsight-storm-overview.md
@@ -110,4 +110,4 @@ Os seguintes recursos estão disponíveis para o desenvolvimento de aplicativos 
 [Desenvolver aplicativos de processamento de dados de fluxo com SCP.NET e C# em Storm]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

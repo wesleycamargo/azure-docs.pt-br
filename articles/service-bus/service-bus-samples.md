@@ -29,7 +29,7 @@ Observe que os exemplos do sistema de mensagens agenciado exigem uma cadeia de c
 
 ### Para obter uma cadeia de conexão do Barramento de Serviço do Azure
 
-1. Faça logon no [portal do Azure](http://manage.windowsazure.com).
+1. Faça logon no [portal clássico do Azure](http://manage.windowsazure.com).
 
 1. Na coluna à esquerda, clique em **Barramento de Serviço**.
 
@@ -132,4 +132,4 @@ Consulte os tópicos a seguir para obter mais visões gerais do Barramento de Se
 - [Arquitetura do Barramento de Serviço](service-bus-architecture.md)
 - [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -27,7 +27,7 @@ Substitua este comentário com a seguinte linha dentro da declaração `@interfa
 ```
 
 
-* No Portal de Gerenciamento, clique em **Serviços Móveis**, em seguida, clique no serviço móvel. Clique na guia **Painel** e anote a **URL do Site**. Em seguida, clique em **Gerenciar Chaves** e anote a **Chave do Aplicativo**. Você precisará desses valores ao acessar o serviço móvel com o código de seu aplicativo.
+* No [Portal clássico do Azure](https://manage.windowsazure.com/), clique em **Serviços Móveis** e, em seguida, clique no serviço móvel. Clique na guia **Painel** e anote a **URL do Site**. Em seguida, clique em **Gerenciar Chaves** e anote a **Chave do Aplicativo**. Você precisará desses valores ao acessar o serviço móvel com o código de seu aplicativo.
 
 
 * Em **Todoservice**, localize a seguinte linha:
@@ -146,4 +146,4 @@ Substitua o corpo do método, daqui para o final do método, pelo código a segu
 }
 ```
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

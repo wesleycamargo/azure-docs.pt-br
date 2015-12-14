@@ -28,7 +28,7 @@ Para aprimorar seu Active Directory do Azure, é possível adicionar recursos pa
 As assinaturas do Office 365 incluem recursos adicionais do Active Directory do Azure descritos na tabela de comparação abaixo.
 
 
-> [AZURE.NOTE]Para obter as opções de preço dessas edições, confira [Preço do Active Directory do Azure](https://azure.microsoft.com/pt-BR/pricing/details/active-directory/). <br>Atualmente, não há suporte para o Azure Active Directory Premium e o Azure Active Directory Basic na China. Entre em contato conosco no Fórum do Active Directory do Azure para obter mais informações
+> [AZURE.NOTE]Para obter as opções de preço dessas edições, confira [Preço do Active Directory do Azure](https://azure.microsoft.com/pricing/details/active-directory/). <br>Atualmente, não há suporte para o Azure Active Directory Premium e o Azure Active Directory Basic na China. Entre em contato conosco no Fórum do Active Directory do Azure para obter mais informações
 
 
 - **Azure Active Directory Basic** - Projetada para profissionais de tarefas com necessidades que priorizam a nuvem, esta edição fornece soluções de gerenciamento de identidades por autoatendimento e de acesso a aplicativos centrados na nuvem. Com a Basic edition do Active Directory do Azure, você obtém recursos que aumentam sua produtividade e reduzem os custos, como o gerenciamento de acesso baseado em grupo, redefinição de senha por autoatendimento para aplicativos em nuvem e o Proxy de Aplicativo do Active Directory do Azure (para publicar aplicativos web locais usando o Active Directory do Azure), tudo com o apoio de um SLA de nível empresarial de 99,9% de tempo de atividade.
@@ -65,7 +65,7 @@ Para inscrever-se e começar a usar o Active Directory Premium hoje, consulte [I
 | | [Redefinição de senha por autoatendimento para usuários de nuvem](active-directory-passwords.md)| Incluído nas assinaturas do Office 365 [4]| ![Verificação][12]| ![Verificação][12]|
 | | [Proxy de aplicativo: proteger o acesso remoto e SSO a aplicativos Web locais](active-directory-application-proxy-get-started.md)| | ![Verificação][12]| ![Verificação][12]|
 | | [Provisionamento e gerenciamento de acesso a aplicativos com base em grupo](active-directory-accessmanagement-group-saasapps.md)| | ![Verificação][12]| ![Verificação][12]|
-| | [Tempo de atividade de SLA de alta disponibilidade (99,9%)](https://azure.microsoft.com/pt-BR/support/legal/sla/)| SLA do Microsoft Online Services [5]| ![Verificação][12]| ![Verificação][12]|
+| | [Tempo de atividade de SLA de alta disponibilidade (99,9%)](https://azure.microsoft.com/support/legal/sla/)| SLA do Microsoft Online Services [5]| ![Verificação][12]| ![Verificação][12]|
 | **Recursos somente Premium**| [Relatórios avançados sobre uso de aplicativos](active-directory-view-access-usage-reports.md)| | | ![Verificação][12]|
 | | [Gerenciamento de grupos por autoatendimento para usuários na nuvem] (Gerenciamento de grupos por autoatendimento para usuários no AD do Azure)| | | ![Verificação][12]|
 | | [Redefinição de senha por autoatendimento com write-back local](active-directory-passwords-getting-started.md/#enable-users-to-reset-or-change-their-ad-passwords)| | | ![Verificação][12]|
@@ -102,4 +102,4 @@ Para inscrever-se e começar a usar o Active Directory Premium hoje, consulte [I
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

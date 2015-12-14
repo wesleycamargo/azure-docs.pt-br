@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Tratar conflitos de gravação do banco de dados com simultaneidade otimista (Windows Store) | Microsoft Azure" 
-	description="Saiba como tratar conflitos de gravação do banco de dados no servidor e em seu aplicativo da Windows Store." 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Tratar conflitos de gravação do banco de dados com simultaneidade otimista (Windows Store) | Microsoft Azure"
+	description="Saiba como tratar conflitos de gravação do banco de dados no servidor e em seu aplicativo da Windows Store."
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="10/05/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="10/05/2015"
 	ms.author="wesmc"/>
 
 # Tratando conflitos de gravação do banco de dados
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 
 
@@ -32,10 +37,10 @@ Neste tutorial, você adicionará funcionalidade ao aplicativo de início rápid
 Este tutorial requer o seguinte:
 
 + Microsoft Visual Studio 2013 ou posterior.
-+ Este tutorial baseia-se no início rápido dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir a [Introdução aos Serviços Móveis]. 
++ Este tutorial baseia-se no início rápido dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir a [Introdução aos Serviços Móveis].
 + [Conta do Azure]
 + Pacote NuGet 1.1.0 ou posterior dos Serviços Móveis do Azure. Para obter a versão mais recente, siga as etapas abaixo:
-	1. No Visual Studio, abra o projeto e clique com o botão direito do mouse no Gerenciador de Soluções e clique em **Gerenciar Pacotes NuGet**. 
+	1. No Visual Studio, abra o projeto e clique com o botão direito do mouse no Gerenciador de Soluções e clique em **Gerenciar Pacotes NuGet**.
 
 		![][19]
 
@@ -44,7 +49,7 @@ Este tutorial requer o seguinte:
 		![][20]
 
 
- 
+
 
 ##Atualizar o aplicativo para permitir atualizações
 
@@ -85,7 +90,7 @@ Nesta seção, você atualizará a interface do usuário do TodoList para permit
 
         private async Task UpdateToDoItem(TodoItem item)
         {
-            Exception exception = null;			
+            Exception exception = null;
             try
             {
                 //update at the remote table
@@ -94,7 +99,7 @@ Nesta seção, você atualizará a interface do usuário do TodoList para permit
             catch (Exception ex)
             {
                 exception = ex;
-            }			
+            }
             if (exception != null)
             {
                 await new MessageDialog(exception.Message, "Update Failed").ShowAsync();
@@ -111,18 +116,18 @@ Dois ou mais clientes podem gravar alterações no mesmo item, ao mesmo tempo, e
 
 		public class TodoItem
 		{
-			public string Id { get; set; }			
+			public string Id { get; set; }
 			[JsonProperty(PropertyName = "text")]
-			public string Text { get; set; }			
+			public string Text { get; set; }
 			[JsonProperty(PropertyName = "complete")]
-			public bool Complete { get; set; }			
+			public bool Complete { get; set; }
 			[JsonProperty(PropertyName = "__version")]
 			public string Version { set; get; }
 		}
 
 	> [AZURE.NOTE]Ao usar tabelas sem tipo, habilite a simultaneidade otimista para adicionar o sinalizador Version a SystemProperties da tabela.
 	>
-	>````` 
+	>`````
 	//Enable optimistic concurrency by retrieving __version
 todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 `````
@@ -132,7 +137,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
         private async Task UpdateToDoItem(TodoItem item)
         {
-            Exception exception = null;			
+            Exception exception = null;
             try
             {
                 //update at the remote table
@@ -145,7 +150,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
             catch (Exception ex)
             {
                 exception = ex;
-            }			
+            }
             if (exception != null)
             {
                 if (exception is MobileServicePreconditionFailedException)
@@ -168,27 +173,27 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
         private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
         {
             //Ask user to choose the resolution between versions
-            MessageDialog msgDialog = new MessageDialog(String.Format("Server Text: "{0}" \nLocal Text: "{1}"\n", 
-                                                        serverItem.Text, localItem.Text), 
+            MessageDialog msgDialog = new MessageDialog(String.Format("Server Text: "{0}" \nLocal Text: "{1}"\n",
+                                                        serverItem.Text, localItem.Text),
                                                         "CONFLICT DETECTED - Select a resolution:");
             UICommand localBtn = new UICommand("Commit Local Text");
             UICommand ServerBtn = new UICommand("Leave Server Text");
             msgDialog.Commands.Add(localBtn);
-            msgDialog.Commands.Add(ServerBtn);			
+            msgDialog.Commands.Add(ServerBtn);
             localBtn.Invoked = async (IUICommand command) =>
             {
-                // To resolve the conflict, update the version of the 
+                // To resolve the conflict, update the version of the
                 // item being committed. Otherwise, you will keep
                 // catching a MobileServicePreConditionFailedException.
-                localItem.Version = serverItem.Version;				
-                // Updating recursively here just in case another 
+                localItem.Version = serverItem.Version;
+                // Updating recursively here just in case another
                 // change happened while the user was making a decision
                 await UpdateToDoItem(localItem);
-            };			
+            };
             ServerBtn.Invoked = async (IUICommand command) =>
             {
 				RefreshTodoItems();
-            };			
+            };
             await msgDialog.ShowAsync();
         }
 
@@ -218,7 +223,7 @@ Nesta seção você criará um pacote de aplicativos da Windows Store para insta
 5. Copie a pasta do pacote "todolist\_1.0.0.0\_AnyCPU\_Debug\_Test" na segunda máquina. Nessa máquina, abra a pasta do pacote e clique com o botão direito do mouse no script do PowerShell **Add-AppDevPackage.ps1** e clique em **Executar com o PowerShell** conforme mostrado abaixo. Siga os prompts para instalar o aplicativo.
 
 	![][12]
-  
+
 5. Execute a instância 1 do aplicativo no Visual Studio clicando em **Depurar**->**Iniciar Depuração**. Na tela Iniciar da segunda máquina, clique na seta para baixo para ver "Aplicativos por nome". Em seguida, clique no aplicativo **todolist** para executar a instância 2 do aplicativo.
 
 	Instância do Aplicativo 1 ![][2]
@@ -227,7 +232,7 @@ Nesta seção você criará um pacote de aplicativos da Windows Store para insta
 
 
 6. Na instância 1 do aplicativo, atualize o texto do último item para **Gravação de Teste 1** e, em seguida, clique em outra caixa de texto para que o manipulador de eventos `LostFocus` atualize o banco de dados. A captura de tela abaixo mostra um exemplo.
-	
+
 	Instância do Aplicativo 1 ![][3]
 
 	Instância do Aplicativo 2 ![][2]
@@ -255,7 +260,7 @@ Você pode detectar e resolver conflitos de gravação em scripts de servidor. E
 
 As etapas a seguir mostram como adicionar o script de atualização do servidor e testá-lo.
 
-1. Faça logon no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e clique no seu aplicativo. 
+1. Faça logon no [Portal clássico do Azure], clique em **Serviços Móveis** e clique em seu aplicativo.
 
    	![][7]
 
@@ -269,8 +274,8 @@ As etapas a seguir mostram como adicionar o script de atualização do servidor 
 
 4. Substitua o script existente pela função a seguir e clique em **Salvar**.
 
-		function update(item, user, request) { 
-			request.execute({ 
+		function update(item, user, request) {
+			request.execute({
 				conflict: function (serverRecord) {
 					// Only committing changes if the item is not completed.
 					if (serverRecord.complete === false) {
@@ -282,8 +287,8 @@ As etapas a seguir mostram como adicionar o script de atualização do servidor 
 						request.respond(statusCodes.FORBIDDEN, 'The item is already completed.');
 					}
 				}
-			}); 
-		}   
+			});
+		}
 5. Execute o aplicativo **todolist** nas duas máquinas. Altere o TodoItem `text` para o último item na instância 2. Em seguida, clique em outra caixa de texto para que o manipulador de eventos `LostFocus` atualize o banco de dados.
 
 	Instância do Aplicativo 1 ![][4]
@@ -321,7 +326,7 @@ Este tutorial demonstrou como habilitar um aplicativo da Windows Store para trat
 * [Introdução à autenticação para seu aplicativo] <br/>Saiba como autenticar usuários de seu aplicativo.
 
 * [Adicionar notificações por push ao seu aplicativo] <br/>Saiba como enviar uma notificação por push bem básica ao seu aplicativo com os Serviços Móveis.
- 
+
 
 
 <!-- Images. -->
@@ -358,12 +363,10 @@ Este tutorial demonstrou como habilitar um aplicativo da Windows Store para trat
 [Introdução à autenticação para seu aplicativo]: /develop/mobile/tutorials/get-started-with-users-dotnet
 [Adicionar notificações por push ao seu aplicativo]: /develop/mobile/tutorials/get-started-with-push-dotnet
 
-[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[Management Portal]: https://manage.windowsazure.com/
+[Portal clássico do Azure]: https://manage.windowsazure.com/
 [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268374
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268375
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [Propriedades do sistema]: http://go.microsoft.com/fwlink/?LinkId=331143
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

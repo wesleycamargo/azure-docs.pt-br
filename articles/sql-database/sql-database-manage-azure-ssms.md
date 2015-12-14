@@ -21,7 +21,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-manage-portal.md)
+- [Azure Portal](sql-database-manage-portal.md)
 - [SSMS](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
@@ -34,7 +34,7 @@ Você pode usar o SQL Server Management Studio (SSMS) para administrar servidore
 
 Conectar ao banco de dados SQL requer que você saiba o nome do servidor no Azure. Talvez seja necessário entrar no portal para obter essa informação.
 
-1.  Entre no [Portal de Gerenciamento do Azure](http://manage.windowsazure.com).
+1.  Entre no [Portal Clássico do Azure](http://manage.windowsazure.com).
 
 2.  No painel à esquerda, clique em **Banco de Dados SQL**.
 
@@ -192,4 +192,4 @@ O Banco de dados SQL oferece suporte a vários modos de exibição de gerenciame
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

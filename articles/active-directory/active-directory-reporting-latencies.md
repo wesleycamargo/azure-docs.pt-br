@@ -13,10 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/09/2015"
+   ms.date="11/30/2015"
    ms.author="kenhoff"/>
 
 # Latências de relatório do Active Directory do Azure
+
+## Artigos de documentação de relatório
+
+ - [API de Relatório](active-directory-reporting-api-getting-started.md)
+ - [Eventos de Auditoria](active-directory-reporting-audit-events.md)
+ - [Retenção](active-directory-reporting-retention.md)
+ - [Visualizações](active-directory-reporting-previews.md)
+ - [Pesquisar](active-directory-reporting-search.md)
+ - [Aterramento](active-directory-reporting-backfill.md)
+ - [Latências](active-directory-reporting-latencies.md)
+ - [Evento "Ator Desconhecido"](active-directory-reporting-unknown-actor.md)
 
 Relatório | Mínimo | Média | Máximo
 ------------------------------------------------------- | -------- | ---------- | ----------
@@ -50,4 +61,4 @@ Uso de aplicativos habilitados para RMS | 2 horas | 4 horas | 8 horas
 **Relatórios de visualização particular** | | |
 Atividade de entrada de todos os usuários | 2 horas | 4 horas | 8 horas
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

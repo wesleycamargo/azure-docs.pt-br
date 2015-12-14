@@ -60,11 +60,11 @@ Para preparar o ativo de streaming dinâmico você tem duas opções:
 Para obter informações sobre como carregar e codificar ativos, consulte os seguintes artigos:
 
 
-Carregue seus arquivos usando **Portal de Gerenciamento do Azure**, **.NET** ou **API REST**.
+Carregue seus arquivos usando o **Portal Clássico do Azure**, o **.NET** ou a **API REST**.
 
 [AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
-Codifique-os com o **Codificador de Mídia do Azure** usando o **Portal de Gerenciamento**, o **.NET** ou **API REST**.
+Codifique-os com o **Codificador de Mídia do Azure** usando o **Portal Clássico do Azure**, o **.NET** ou a **API REST**.
 
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
 
@@ -85,7 +85,7 @@ Configure a política de fornecimento de ativos usando **.NET** ou **API REST**.
 
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
 
-Publicar ativos (pela criação de localizadores) usando o **Portal de Gerenciamento do Azure** ou **.NET**.
+Publicar ativos (pela criação de localizadores) usando o **Portal Clássico do Azure** ou **.NET**.
 
 [AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
 
@@ -105,4 +105,4 @@ Os formatos de arquivo de origem a seguir não têm suporte pelo empacotamento d
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

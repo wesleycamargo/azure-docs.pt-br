@@ -25,7 +25,7 @@ O objetivo deste tutorial é mostrar a você como integrar o AWS (Amazon Web Ser
 - Você pode habilitar seus usuários a fazerem logon automaticamente no AWS (Amazon Web Service) (logon único) com suas contas do AD do Azure
 - Você pode gerenciar suas contas em um local central – o Portal do Active Directory do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
 ## Pré-requisitos 
 
@@ -41,11 +41,11 @@ Para configurar a integração do AD do Azure com o AWS (Amazon Web Service), vo
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/). 
+- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/). 
 
  
 ## Descrição do cenário
-O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste. <br> O cenário descrito neste tutorial consiste em três blocos de construção principais:
+O objetivo deste tutorial é permitir que você teste o logon único do AD do Azure em um ambiente de teste. <br> O cenário descrito neste tutorial consiste em três blocos de construção principais:
 
 1. Adicionando o AWS (Amazon Web Service) da galeria 
 2. Configurar e testar o logon único do Azure AD
@@ -186,7 +186,7 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal do
 
      a. Na caixa de texto **Nome do Atributo**, digite ****https://aws.amazon.com/SAML/Attributes/RoleSessionName**.
 
-     b. Na caixa de texto **Valor do atributo**, tipo **mail**.
+     b. Na caixa de texto **Valor do atributo**, digite **userprincipalname**.
 
      c. Clique em **Concluir** para fechar a caixa de diálogo **Adicionar atributo de usuário**.
 
@@ -199,25 +199,25 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal do
 
 ### Criação de um usuário de teste do Azure AD
 
-O objetivo desta seção é criar um usuário de teste no portal do Azure chamado Simon Britta.<br> Na lista de usuários, selecione **Britta Simon**.<br><br>![Criação de um usuário de teste do Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_01.png)<br>
+O objetivo desta seção é criar um usuário de teste no portal do Azure chamado Simon Britta.<br> Na lista Usuários, selecione **Brenda Fernandes**.<br><br>![Criação de um usuário de teste do Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_01.png)<br>
 
 **Para criar um usuário de teste no Azure AD, execute as seguintes etapas:**
 
-1. No **Portal de Gerenciamento do Azure**, no painel de navegação esquerdo, clique em **Active Directory**. <br><br>![Criação de um usuário de teste do Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_02.png)<br> 
+1. No **Portal de Gerenciamento do Azure**, no painel de navegação esquerdo, clique em **Active Directory**. <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-amazon-web-service/create_aaduser_02.png)<br> 
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
-3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**. <br><br>![Criação de um usuário de teste do Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_03.png)<br>
+3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**. <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-amazon-web-service/create_aaduser_03.png)<br>
  
-4. Para abrir a caixa de diálogo **Adicionar usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar usuário**. <br><br>![Criação de um usuário de teste do Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_04.png)<br>
+4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**. <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-amazon-web-service/create_aaduser_04.png)<br>
 
-5. Na página de diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_05.png)<br>
+5. Na página de diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-amazon-web-service/create_aaduser_05.png)<br>
 
   1. Em Tipo de Usuário, selecione Novo usuário na organização.
   2. Na **caixa de texto** Nome do usuário, digite **BrittaSimon**.
   3. Clique em Avançar.
 
-6.  Na caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_06.png)<br>
+6.  Na caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-amazon-web-service/create_aaduser_06.png)<br>
 
   1. Na caixa de texto **Nome**, digite **Britta**.
   2. Na caixa de texto **Sobrenome**, digite **Simon**.
@@ -225,9 +225,9 @@ O objetivo desta seção é criar um usuário de teste no portal do Azure chamad
   4. Na lista **Função**, selecione **Usuário**.
   5. Clique em **Próximo**.
 
-7. Na página de diálogo **Obter senha temporária**, clique em **criar**. <br><br>![Criação de um usuário de teste do Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_07.png)<br>
+7. Na página de diálogo **Obter senha temporária**, clique em **criar**. <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-amazon-web-service/create_aaduser_07.png)<br>
  
-8. Na página de diálogo **Obter senha temporária**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_08.png)<br>
+8. Na página de diálogo **Obter senha temporária**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-amazon-web-service/create_aaduser_08.png)<br>
 
   1. Anote o valor da **Nova senha**.
   2. Clique em **Concluído**.   
@@ -249,7 +249,7 @@ O objetivo desta seção é criar uma usuária chamada Brenda Fernandes no AWS (
 
 5. Na caixa de diálogo Criar usuário, execute a seguintes etapas: <br><br>![Configurar o logon único][30]<br>
 
-     a. Na caixa de texto **Inserir nomes de usuário**, digite o nome de usuário Simon Brita de Simon no AD do Azure.
+     a. Na caixa de texto **Inserir Nomes de Usuário**, digite o nome de usuário (userprincipalname) de Brenda Fernandes no AD do Azure.
 
      b. Clique em **Criar**.
 
@@ -270,7 +270,7 @@ O objetivo desta seção é habilitar Simon Britta a usar o logon único do Azur
 
 1. No menu na parte superior, clique em **Usuários**. <br><br>![Atribuir usuário][25]<br>
 
-1. Na lista de usuários, selecione **Britta Simon**.
+1. Na lista Usuários, selecione **Brenda Fernandes**.
 
 2. Na barra de ferramentas na parte inferior, clique em **Atribuir**. <br><br>![Atribuir usuário][29]<br>
 
@@ -320,4 +320,4 @@ O objetivo desta seção é testar a sua configuração de logon único do AD do
 [33]: ./media/active-directory-saas-amazon-web-service/ic7950252.png
 [34]: ./media/active-directory-saas-amazon-web-service/ic7950253.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

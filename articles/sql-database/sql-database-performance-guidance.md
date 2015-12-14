@@ -115,7 +115,7 @@ A Replicação geográfica padrão e ativa fornecem recursos de recuperação de
 Para saber mais, consulte a [Visão geral sobre a continuidade dos negócios](sql-database-business-continuity.md).
 
 ### Armazenamento máximo OLTP na memória
-**Armazenamento máximo de OLTP na Memória** refere-se à quantidade máxima de armazenamento disponível para a [Visualização do OLTP na Memória](sql-database-in-memory.md) para bancos de dados Premium. Isso às vezes também é conhecido como *armazenamento XTP na memória*. Você pode usar o Portal do Azure ou a exibição **sys.dm\_db\_resource\_stats** para monitorar seu uso de armazenamento na Memória. Para obter mais informações sobre como monitorar, veja [Monitorar o armazenamento OLTP na memória](sql-database-in-memory-oltp-monitoring.md).
+**Armazenamento máximo de OLTP na Memória** refere-se à quantidade máxima de armazenamento disponível para a [Visualização do OLTP na Memória](sql-database-in-memory.md) para bancos de dados Premium. Isso às vezes também é conhecido como *armazenamento XTP na memória*. Você pode usar o Portal clássico do Azure ou a exibição **sys.dm\_db\_resource\_stats** para monitorar seu uso de armazenamento na Memória. Para obter mais informações sobre como monitorar, veja [Monitorar o armazenamento OLTP na memória](sql-database-in-memory-oltp-monitoring.md).
 
 >[AZURE.NOTE]A versão Preview do OLTP Na Memória só recebe suporte no momento para bancos de dados individuais e não para bancos de dados em pools de bancos de dados elásticos.
 
@@ -168,7 +168,7 @@ Há dois modos de exibição que permitem o monitoramento do uso de recursos par
 - [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 - [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
->[AZURE.NOTE]Também é possível usar o Portal de Gerenciamento do Azure para exibir a utilização de recursos. Para obter um exemplo, veja [Camadas de serviço - Monitorando o desempenho](sql-database-service-tiers.md#monitoring-performance).
+>[AZURE.NOTE]Também é possível usar o Portal Clássico do Azure para exibir a utilização de recursos. Para obter um exemplo, veja [Camadas de serviço - Monitorando o desempenho](sql-database-service-tiers.md#monitoring-performance).
 
 ### Usando sys.dm\_db\_resource\_stats
 A exibição [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) existe em cada banco de dados SQL e fornece dados sobre a utilização recente de recursos com relação à camada de serviço. A porcentagem média de CPU, E/S de dados, gravações de log e memória é registrada a cada 15 segundos e armazenada por uma hora.
@@ -292,7 +292,7 @@ Embora as camadas de serviço sejam projetadas para melhorar a estabilidade e a 
 Esta seção explica algumas técnicas que você pode usar para ajustar o Banco de Dados SQL do Azure para obter o melhor desempenho do seu aplicativo e ser capaz de executar no menor nível de desempenho possível. Diversas técnicas correspondem às tradicionais práticas recomendadas de ajuste do SQL Server, mas algumas técnicas são específicas do Banco de Dados SQL do Azure. Em alguns casos, as técnicas tradicionais do SQL Server podem ser estendidas para funcionarem também no Banco de Dados SQL do Azure, examinando os recursos consumidos para um banco de dados localizar áreas para ajustar ainda mais.
 
 ### Query Performance Insight e Consultor de Índices
-O Banco de Dados SQL fornece duas ferramentas no Portal do Azure para análise e correção de problemas de desempenho com seu banco de dados:
+O Banco de Dados SQL fornece duas ferramentas no Portal Clássico do Azure para análise e correção de problemas de desempenho com seu banco de dados:
 
 - [Visão de Desempenho de Consulta](sql-database-query-performance.md)
 - [Supervisor de Índices](sql-database-index-advisor.md)
@@ -491,4 +491,4 @@ Alguns aplicativos de banco de dados contêm cargas de trabalho de leitura pesad
 
 As camadas de serviço no Banco de Dados SQL do Azure capacita você a elevar o nível nos tipos de aplicativos criados na nuvem. Quando combinadas ao ajuste cuidadoso do aplicativo, você poderá obter o desempenho ideal e previsível para seu aplicativo. Este documento descreve as técnicas recomendadas para otimizar o consumo de recursos do banco de dados para o ajuste adequado a um dos níveis de desempenho. O ajuste é um exercício contínuo no modelo de nuvem e as camadas de serviço e seus níveis de desempenho permitem aos administradores maximizar o desempenho e minimizar os custos na plataforma Microsoft Azure.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

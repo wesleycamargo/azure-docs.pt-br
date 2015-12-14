@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Introdução ao Application Insights com Java no Eclipse
@@ -99,7 +99,7 @@ Insira o trecho de código no título dos arquivos HTML.
 
 #### Exibir dados do lado do cliente
 
-Abra suas páginas da Web atualizadas e use-as. Aguarde um ou dois minutos, retorne ao Application Insights e atualize a folha de uso.
+Abra suas páginas da Web atualizadas e use-as. Aguarde um ou dois minutos, retorne ao Application Insights e abra a folha de uso. (Na folha Visão geral, role para baixo e clique em Uso.)
 
 As métricas de sessão, usuário e exibição de página serão exibidas na folha de uso:
 
@@ -129,7 +129,7 @@ Agora, publique seu aplicativo no servidor, permita que as pessoas o usem e obse
 
 Exceções sem tratamento são coletadas automaticamente:
 
-![](./media/app-insights-java-get-started/21-exceptions.png)
+![](./media/app-insights-java-eclipse/21-exceptions.png)
 
 Para coletar dados em outras exceções, você tem duas opções:
 
@@ -144,10 +144,10 @@ Para coletar dados em outras exceções, você tem duas opções:
 
 ## Contadores de desempenho
 
-Clique no bloco **Servidores** e você verá uma variedade de contadores de desempenho.
+Na folha Visão geral, role para baixo e clique no bloco **Servidores**. Você verá uma variedade de contadores de desempenho.
 
 
-![](./media/app-insights-java-get-started/11-perf-counters.png)
+![Role para baixo e clique no bloco Servidores](./media/app-insights-java-eclipse/11-perf-counters.png)
 
 ### Personalizar a coleta do contador de desempenho
 
@@ -198,7 +198,7 @@ Cada [contador de desempenho do Windows](https://msdn.microsoft.com/library/wind
 
 Seus contadores de desempenho são visíveis como métricas personalizadas em [Metrics Explorer][metrics].
 
-![](./media/app-insights-java-get-started/12-custom-perfs.png)
+![](./media/app-insights-java-eclipse/12-custom-perfs.png)
 
 
 ### Contadores de desempenho do Unix
@@ -207,7 +207,9 @@ Seus contadores de desempenho são visíveis como métricas personalizadas em [M
 
 ## Testes de disponibilidade na Web
 
-O Application Insights pode testar seu site em intervalos regulares para verificar ele está operante e respondendo bem. Para configurar, clique no gráfico vazio de testes da Web na folha de visão geral e forneça sua URL pública.
+O Application Insights pode testar seu site em intervalos regulares para verificar ele está operante e respondendo bem. [Para configurar][availability], role para baixo e clique em Disponibilidade.
+
+![Role para baixo, clique em Disponibilidade, em seguida, Adicionar teste na Web](./media/app-insights-java-eclipse/31-config-web-test.png)
 
 Se seu site ficar inativo, você obterá gráficos de tempos de resposta e também notificações por email.
 
@@ -258,4 +260,4 @@ Você pode inserir o código tanto no JavaScript da página da Web quanto no Jav
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

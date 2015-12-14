@@ -39,7 +39,7 @@ Vocês devem concordar sobre um conjunto de convenções de nomenclatura antecip
 
 ### Afixos
 
-Ao criar determinados recursos, o Azure usa alguns padrões para simplificar o gerenciamento dos recursos que estão associados a esses recursos. Por exemplo, ao criar a primeira máquina virtual para um novo serviço de nuvem, o Portal do Azure tenta usar o nome da máquina virtual como o nome de um novo serviço de nuvem para a máquina virtual.
+Ao criar determinados recursos, o Azure usa alguns padrões para simplificar o gerenciamento dos recursos que estão associados a esses recursos. Por exemplo, ao criar a primeira máquina virtual para um novo serviço de nuvem, o portal clássico do Azure tenta usar o nome da máquina virtual como o nome de um novo serviço de nuvem para a máquina virtual.
 
 Portanto, é útil identificar os tipos de recursos que precisam de um afixo para identificar esse tipo. Além disso, especifique claramente se o afixo deverá ficar:
 
@@ -204,7 +204,7 @@ Decisões:
 
 Tarefa:
 
-- Crie o conjunto de contas de armazenamento usando a sua convenção de nomenclatura. Você pode usar o portal de visualização do Azure, o portal do Azure ou o cmdlet **New-AzureStorageAccount** do PowerShell.
+- Crie o conjunto de contas de armazenamento usando a sua convenção de nomenclatura. Você pode usar o portal do Azure, o portal clássico do Azure ou o cmdlet **New-AzureStorageAccount** do PowerShell.
 
 ## 4\. Serviços de Nuvem
 
@@ -232,7 +232,7 @@ Decisão:
 
 Tarefa:
 
-- Crie o conjunto de serviços de nuvem usando a sua convenção de nomenclatura. Você pode usar o Portal do Azure ou o cmdlet do PowerShell **New-AzureService**.
+- Crie o conjunto de serviços de nuvem usando a sua convenção de nomenclatura. Você pode usar o portal clássico do Azure ou o cmdlet do PowerShell **New-AzureService**.
 
 ## 5\. Redes virtuais
 
@@ -290,7 +290,7 @@ Tarefas:
 - Defina o espaço de endereço da rede virtual.
 - Defina o conjunto de sub-redes e o espaço de endereço para cada uma.
 - Para redes virtuais entre instalações, defina o conjunto de espaços de endereços de redes locais para as instalações que as máquinas virtuais da rede virtual precisam acessar.
-- Crie a rede virtual usando a sua convenção de nomenclatura. Você pode usar o portal de visualização do Azure ou o portal do Azure.
+- Crie a rede virtual usando a sua convenção de nomenclatura. Você pode usar o portal do Azure ou o portal clássico do Azure.
 
 ## 6\. Conjuntos de disponibilidade
 
@@ -314,7 +314,7 @@ Tarefa:
 
 No Azure PaaS, o Azure gerencia as máquinas virtuais e seus discos associados. Você deve criar e nomear os serviços de nuvem e as funções e, em seguida, o Azure criará instâncias associadas a essas funções. No caso do Azure IaaS, cabe a você fornecer nomes para os serviços de nuvem, máquinas virtuais e discos associados.
 
-Para reduzir a carga administrativa, o portal do Azure usará o nome do computador como uma sugestão para o nome padrão do serviço de nuvem associado (caso o cliente opte por criar um novo serviço de nuvem como parte do assistente de criação de máquinas virtuais).
+Para reduzir a carga administrativa, o portal clássico do Azure usará o nome do computador como uma sugestão para o nome padrão do serviço de nuvem associado (caso o cliente opte por criar um novo serviço de nuvem como parte do assistente de criação de máquinas virtuais).
 
 Além disso, o Azure nomeia os discos e seus blobs VHD de apoio usando uma combinação do nome do serviço de nuvem, do nome do computador e da data de criação.
 
@@ -329,7 +329,7 @@ Decisão:
 Tarefas:
 
 - Defina o nome de cada máquina virtual usando a sua convenção de nomenclatura.
-- Crie as suas máquinas virtuais com o Portal de visualização do Azure, com o Portal do Azure, com o cmdlet **New-AzureVM** do PowerShell, com o CLI do Azure ou com os modelos do Gerenciador de Recursos.
+- Crie as suas máquinas virtuais com o portal do Azure, com o portal clássico do Azure, com o cmdlet **New-AzureVM** do PowerShell, com o CLI do Azure ou com os modelos do Gerenciador de Recursos.
 
 ## Exemplo de uma carga de trabalho de TI: o mecanismo de análise financeira Contoso
 
@@ -377,7 +377,7 @@ A Contoso determinou que precisavam duas contas de armazenamento:
 
 Como a rede virtual não precisa de conectividade contínua com a rede local da Contoso, a Contoso decidiu por uma rede virtual somente em nuvem.
 
-Criaram uma rede virtual somente em nuvem com as seguintes configurações usando o Portal de visualização do Azure:
+Criaram uma rede virtual somente em nuvem com as seguintes configurações usando o portal do Azure:
 
 - Nome: AZFAE-USE-VN01
 - Local: Leste dos EUA 2
@@ -442,4 +442,4 @@ Essa configuração inclui:
 
 [Computação do Azure, Provedores de Rede e Armazenamento no Gerenciador de Recursos do Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

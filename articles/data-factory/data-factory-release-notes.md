@@ -270,10 +270,7 @@ Você verá as listas **Fatias atualizadas recentemente** e **Fatias com falha r
 
 Clique no título das listas ou em **... (reticências)** para ver a lista maior de fatias. Clique em **Filtrar** na barra de ferramentas para filtrar as fatias.
  
-Você ainda poderá exibir fatias classificadas segundo os horários da fatia clicando no bloco **Fatias de dados (por horário da fatia)**. As fatias nessas coleções são ordenadas segundo o horário da fatia. Por exemplo, se for um agendamento por hora, as fatias serão:
-- 4/4/2015 às 17h em andamento
-- 4/4/2015 às 16h Bem-sucedida
-- 4/4/2015 15h Falhou
+Você ainda poderá exibir fatias classificadas segundo os horários da fatia clicando no bloco **Fatias de dados (por horário da fatia)**. As fatias nessas coleções são ordenadas segundo o horário da fatia. Por exemplo, se for um agendamento por hora, as fatias serão: - 4/4/2015 às 17h em andamento - 4/4/2015 às 16h Bem-sucedida - 4/4/2015 15h Falhou
 
 Porém, se uma fatia mais antiga for executada novamente, ela não aparecerá na parte superior desta lista mesmo que provavelmente seja nisso que o usuário esteja mais interessado.
 
@@ -295,7 +292,7 @@ Consulte a postagem de blog: [Atualização da Azure Data Factory - novos armaze
 ## Notas da versão de 27/02/2015 da Data Factory
 
 ### Novos aprimoramentos
-- **Editor da Azure Data Factory**. O Editor Data Factory, que faz parte do Portal de visualização do Azure, permite criar, editar e implantar arquivos JSON que definem os pipelines, conjuntos de dados e serviços vinculados. O principal objetivo do editor é fornecer uma IU (interface do usuário) rápida e leve para criar artefatos da Azure Data Factory sem exigir que você instale o PowerShell do Azure, podendo usar mais prontamente os cmdlets do PowerShell. Consulte a postagem do blog [Editor da Azure Data Factory - um editor Web leve][adf-editor-blog] para uma visão geral e um vídeo sobre o Editor do Data Factory. Para uma visão geral detalhada do editor, consulte o artigo [Editor Data Factory][adf-editor].          
+- **Editor da Azure Data Factory**. O Editor do Data Factory, que faz parte do Portal do Azure, permite criar, editar e implantar arquivos JSON que definem os pipelines, conjuntos de dados e serviços vinculados. O principal objetivo do editor é fornecer uma interface do usuário rápida e leve para criar artefatos do Azure Data Factory sem a necessidade de instalar o Azure PowerShell, possibilitando um uso mais ágil dos cmdlets do PowerShell. Consulte a postagem do blog [Editor da Azure Data Factory - um editor Web leve][adf-editor-blog] para uma visão geral e um vídeo sobre o Editor do Data Factory. Para uma visão geral detalhada do editor, consulte o artigo [Editor Data Factory][adf-editor].          
 
 ### Alterações
 
@@ -316,7 +313,7 @@ Consulte a postagem de blog: [Atualização da Azure Data Factory - novos armaze
 - Integração de Aprendizado de Máquina do Azure
 	- Esta versão do serviço Azure Data Factory permite que você integre a Azure Data Factory com o AM (Aprendizado de Máquina) do Azure usando **AzureMLLinkedService** e **AzureMLBatchScoringActivity**. Consulte [Criar pipelines de previsão usando a Data Factory e o Aprendizado de Máquina do Azure][adf-azure-ml] para obter detalhes. 
 - É fornecido o status da versão do gateway
-	- O status de "NewVersionAvailable" será mostrado no Portal de Visualização do Azure e na saída do cmdlet Get-AzureDataFactoryGateway, se houver uma versão mais recente do gateway disponível do que a que está instalada no momento. Você pode seguir o trajeto do portal para baixar o novo arquivo de instalação (. msi) e executá-lo para instalar o gateway mais recente. Não é necessária nenhuma configuração adicional.
+	- O status de "NewVersionAvailable" será mostrado no Portal do Azure e na saída do cmdlet Get-AzureDataFactoryGateway, se houver uma versão mais recente do gateway disponível do que a que está instalada no momento. Você pode seguir o trajeto do portal para baixar o novo arquivo de instalação (. msi) e executá-lo para instalar o gateway mais recente. Não é necessária nenhuma configuração adicional.
 
 ### Alterações
 
@@ -357,4 +354,4 @@ Consulte a postagem de blog: [Atualização da Azure Data Factory - novos armaze
 
  
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -72,7 +72,8 @@ Os Reliable Services fornecem um modelo de programação simples, potente e de n
 - [Introdução aos Reliable Services](service-fabric-reliable-services-quick-start.md)
 - [Arquitetura](service-fabric-reliable-services-platform-architecture.md)
 - [Coleções Confiáveis](service-fabric-reliable-services-reliable-collections.md)
-- [Configurando Reliable Services com estado](../Service-Fabric/service-fabric-reliable-services-configuration.md)
+- [Configurando Serviços Confiáveis com estado](../Service-Fabric/service-fabric-reliable-services-configuration.md)
+- [Serialização](../Service-Fabric/service-fabric-reliable-services-serialization.md)
 - [Uso avançado do modelo de programação de Reliable Services](../Service-Fabric/service-fabric-reliable-services-advanced-usage.md)
 
 A comunicação com Reliable Services e as abstrações que os clientes podem usar para descobrir e se comunicar com os pontos de extremidade de serviço são descritas nos artigos a seguir:
@@ -80,11 +81,11 @@ A comunicação com Reliable Services e as abstrações que os clientes podem us
 - [Comunicando-se com serviços](service-fabric-connect-and-communicate-with-services.md)
 - [Modelo de comunicação de serviço](service-fabric-reliable-services-communication.md)
 - [Pilha de comunicação padrão fornecida pela Estrutura de Serviços Confiáveis](service-fabric-reliable-services-communication-remoting.md)
-- [Pilha de comunicação baseada no WCF para Reliable Services](service-fabric-reliable-services-communication-wcf.md)
+- [Pilha de comunicação baseada no WCF para Serviços Confiáveis](service-fabric-reliable-services-communication-wcf.md)
 - [Introdução à API da Web da Malha do Serviço do Microsoft Azure com host automático OWIN (VS 2015 RC)](service-fabric-reliable-services-communication-webapi.md)
 
 Os Reliable Services emitem eventos e contadores de desempenho, que podem ser usados para diagnosticar e monitorar seu serviço:
 
 - [Diagnóstico de Reliable Service com estado](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

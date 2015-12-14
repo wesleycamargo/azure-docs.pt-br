@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
-	ms.author="sstein; vinsonyu"/>
+	ms.date="12/01/2015" 
+	ms.author="sstein"/>
 
 # Gerenciar o Banco de Dados SQL do Azure com o PowerShell
 
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-manage-portal.md)
+- [Azure Portal](sql-database-manage-portal.md)
 - [Transact-SQL (SSMS)](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
@@ -36,7 +36,7 @@ Para executar os cmdlets do PowerShell, você precisa ter o Azure PowerShell ins
 
 ## Configurar credenciais
 
-Para executar os cmdlets do PowerShell em sua assinatura do Azure, primeiramente você deve estabelecer acesso à sua conta do Azure. Execute o seguinte e você receberá um sinal na tela para inserir suas credenciais. Use o mesmo email e senha usados para entrar no Portal do Azure.
+Para executar os cmdlets do PowerShell em sua assinatura do Azure, primeiramente você deve estabelecer acesso à sua conta do Azure. Execute o seguinte e você receberá um sinal na tela para inserir suas credenciais. Use o mesmo email e senha usados para entrar no Portal Clássico do Azure.
 
 	Add-AzureAccount
 
@@ -115,7 +115,7 @@ Também é possível excluir um servidor com o comando [Remove-AzureRMSqlServer]
 Se você estiver criando novamente esses recursos do SQL do Azure ou semelhantes, é possível:
 
 - Salvar como um arquivo de script do PowerShell (*. ps1)
-- Salvar como um runbook de automação do Azure, na seção Automação do Portal de Gerenciamento do Azure 
+- Salvar como um runbook de automação do Azure, na seção Automação do Portal Clássico do Azure 
 
 ## Próximas etapas
 
@@ -131,4 +131,4 @@ Combinar comandos e automatizar. Por exemplo, substitua tudo que está entre asp
 
 - [Cmdlets do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

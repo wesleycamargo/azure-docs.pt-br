@@ -44,7 +44,7 @@ bus_service = ServiceBusService(
 	shared_access_key_value='sharedaccesskey')
 ```
 
-Os valores para o nome chave e valor da SAS podem ser encontrados na informação de conexão do [Portal do Azure][], ou no painel das **Propriedades** do Visual Studio ao selecionar o namespace do Barramento de Serviço no Gerenciador de Servidores (conforme mostrado na seção anterior).
+Os valores para o nome chave e valor da SAS podem ser encontrados na informação de conexão do [Portal clássico do Azure][], ou no painel das **Propriedades** do Visual Studio ao selecionar o namespace do Barramento de Serviço no Gerenciador de Servidores (conforme mostrado na seção anterior).
 
 ```
 bus_service.create_queue('taskqueue')
@@ -109,10 +109,10 @@ Agora que você já sabe as noções básicas das filas de Barramento de Serviç
 
 -   Consulte [Filas, tópicos e assinaturas][].
 
-[Portal do Azure]: http://manage.windowsazure.com
+[Portal clássico do Azure]: http://manage.windowsazure.com
 [pacote do Python Azure]: https://pypi.python.org/pypi/azure
 [Filas, tópicos e assinaturas]: service-bus-queues-topics-subscriptions.md
 [Filas do Azure e Filas do Barramento de Serviço]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

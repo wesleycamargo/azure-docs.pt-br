@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="11/20/2015" 
 	ms.author="wesmc"/>
 
 # Orientação arquitetural do push corporativo
@@ -22,7 +22,7 @@ As empresas hoje estão gradualmente migrando para a criação de aplicativos m�
 
 Um requisito frequente é enviar notificação por push para os usuários através de seus aplicativos móveis quando ocorre um evento de interesse nos sistemas de back-end. Por exemplo, um cliente bancário que tenha o aplicativo de serviços bancários do banco no seu iPhone deseja ser notificado quando um débito fica acima de um determinado valor de sua conta ou um cenário de intranet em que um funcionário do departamento financeiro com um aplicativo de aprovação de orçamento no seu Windows Phone deseja ser notificado quando ele recebe uma solicitação de aprovação.
 
-A conta bancária ou o processamento de aprovação provavelmente pode ser feito em algum sistema back-end que deve iniciar um envio por push para o usuário. Pode haver vários sistemas de back-end e todos devem criar o mesmo tipo de lógica para implementar push quando um evento dispara uma notificação. A complexidade aqui reside na integração de vários back-end com um sistema de envio por push único em que os usuários finais podem se inscrever para diferentes notificações e pode até mesmo haver vários aplicativos móveis, por exemplo, no caso de aplicativos móveis de intranet onde um aplicativo móvel talvez queira receber notificações de vários sistemas de back-end. Os sistemas de back-end não sabem nem precisam saber de tecnologia/semântica de push para que uma solução comum aqui tem sido tradicionalmente para introduzir um componente que controla os sistemas de back-end para todos os eventos de interesse e é responsável por enviar as mensagens por push para o cliente. Aqui falaremos sobre uma solução ainda melhor usando o Barramento de Serviço do Azure - modelo de Tópico/Assinatura que reduzirá a complexidade, tornando a solução escalonável.
+A conta bancária ou o processamento de aprovação provavelmente pode ser feito em algum sistema back-end que deve iniciar um envio por push para o usuário. Poderá haver vários sistemas de back-end e todos deverão compilar o mesmo tipo de lógica para implementar push quando um evento disparar uma notificação. A complexidade aqui reside na integração de vários sistemas de back-end com sistemas individuais de envio por push, nos quais os usuários finais podem se inscrever para diferentes notificações e pode até mesmo haver vários aplicativos móveis, por exemplo, no caso de aplicativos móveis de intranet nos quais um aplicativo móvel talvez queira receber notificações de vários sistemas de back-end. Os sistemas de back-end não sabem nem precisam saber de tecnologia/semântica de push para que uma solução comum aqui tem sido tradicionalmente para introduzir um componente que controla os sistemas de back-end para todos os eventos de interesse e é responsável por enviar as mensagens por push para o cliente. Aqui falaremos sobre uma solução ainda melhor usando o Barramento de Serviço do Azure - modelo de Tópico/Assinatura que reduzirá a complexidade, tornando a solução escalonável.
 
 Esta é a arquitetura geral da solução (generalizado com vários aplicativos móveis, mas igualmente aplicável quando há apenas um aplicativo móvel)
 
@@ -213,7 +213,7 @@ O código de exemplo completo está disponível em [Exemplos do Hub de Notifica�
 
 	![][3]
 
-	g. Configure o trabalho para ser "Executar Continuamente" para que quando você fizer o logon no portal de gerenciamento do Azure, seja semelhante ao seguinte:
+	g. Configure o trabalho para ser “Executado Continuamente” para que, quando fizer logon no portal de gerenciamento do Azure, você veja algo semelhante ao seguinte:
 
 	![][4]
 
@@ -271,4 +271,4 @@ O código de exemplo completo está disponível em [Exemplos do Hub de Notifica�
 [Hubs de Notificação - tutorial do Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Hubs de Notificação - tutorial universal do Windows]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

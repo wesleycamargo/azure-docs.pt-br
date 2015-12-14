@@ -22,7 +22,7 @@ Veja alguns problemas comuns e soluções relacionadas às funções do Serviço
 
 ## Contate o Suporte ao Cliente do Azure
 
-Se precisar de mais ajuda em qualquer momento neste artigo, você pode entrar em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](http://azure.microsoft.com/support/forums/).
+Se precisar de mais ajuda em qualquer momento neste artigo, você pode contatar os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](http://azure.microsoft.com/support/forums/).
 
 Como alternativa, você também pode registrar um incidente de suporte do Azure. Acesse o [site de Suporte do Azure](http://azure.microsoft.com/support/options/) e clique em **Obter Suporte**. Para obter informações sobre como usar o Suporte do Azure, leia as [Perguntas Frequentes de Suporte do Microsoft Azure](http://azure.microsoft.com/support/faq/).
 
@@ -71,9 +71,9 @@ Depois que o serviço for implantado novamente, você verá o erro abaixo com o 
 
 1. Certifique-se de que o Azure SDK 1.3 ou superior está instalado.
 
-2. Durante a implantação da solução com o Visual Studio, escolha “Configurar conexões de Área de Trabalho Remota...” Para obter mais informações sobre como configurar a conexão de Área de Trabalho Remota, confira [Usando a Área de Trabalho Remota com as funções do Azure](https://msdn.microsoft.com/library/gg443832.aspx).
+2. Durante a implantação da solução com o Visual Studio, escolha "Configurar conexões de Área de Trabalho Remota..." Para obter mais informações sobre como configurar a conexão de Área de Trabalho Remota, confira [Usando a Área de Trabalho Remota com as funções do Azure](https://msdn.microsoft.com/library/gg443832.aspx).
 
-3. No Portal de Gerenciamento do Microsoft Azure, depois que a instância mostrar um status de **Pronto**, clique em uma das instâncias de função.
+3. No portal clássico do Microsoft Azure, depois que a instância mostrar um status de **Pronto**, clique em uma das instâncias de função.
 
 4. Clique no ícone **Conectar** na área **Acesso Remoto** da faixa de opções
 
@@ -165,4 +165,4 @@ Depois de verificar que todos os erros foram corrigidos, o serviço pode ser imp
 
 Confira mais [artigos sobre solução de problemas](..\?tag=top-support-issue&service=cloud-services) para serviços de nuvem.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

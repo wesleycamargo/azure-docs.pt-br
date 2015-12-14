@@ -36,9 +36,9 @@ As seções a seguir descrevem os recursos de segurança do StorSimple que ajuda
 
 ## Proteção de serviço do gerenciador do StorSimple
 
-O Serviço do gerenciador do StorSimple é um serviço de gerenciamento hospedado no Microsoft Azure usado para gerenciar todos os dispositivos StorSimple que sua organização adquiriu. Você pode acessar o serviço do Gerenciador do StorSimple usando suas credenciais organizacionais para fazer logon no Portal do Azure por meio de um navegador da Web.
+O Serviço do gerenciador do StorSimple é um serviço de gerenciamento hospedado no Microsoft Azure usado para gerenciar todos os dispositivos StorSimple que sua organização adquiriu. Você pode acessar o serviço do Gerenciador do StorSimple usando suas credenciais organizacionais para fazer logon no Portal clássico do Azure por meio de um navegador da Web.
 
-O acesso ao serviço do Gerenciador do StorSimple requer que a organização tenha uma assinatura do Azure que inclua o StorSimple. Sua assinatura determina os recursos que você pode acessar no portal do Azure. Se sua organização não tiver uma assinatura do Azure e você quiser saber mais sobre ela, consulte [Inscrever-se no Azure como uma organização](../sign-up-organization.md).
+O acesso ao serviço do Gerenciador do StorSimple requer que a organização tenha uma assinatura do Azure que inclua o StorSimple. Sua assinatura determina os recursos que você pode acessar no portal clássico do Azure. Se sua organização não tiver uma assinatura do Azure e você quiser saber mais sobre ela, consulte [Inscrever-se no Azure como uma organização](../sign-up-organization.md).
 
 Como o serviço do Gerenciador do StorSimple está hospedado no Azure, ele é protegido pelos recursos de segurança do Azure. Para obter mais informações sobre os recursos de segurança fornecidos pelo Microsoft Azure, acesse a [Central de Confiabilidade do Microsoft Azure](http://azure.microsoft.com/support/trust-center/security/).
 
@@ -46,7 +46,7 @@ Como o serviço do Gerenciador do StorSimple está hospedado no Azure, ele é pr
 
 O dispositivo StorSimple é um dispositivo de armazenamento híbrido local que contém unidades de estado sólido (SSDs) e unidades de disco rígido (HDDs), juntamente com controladores redundantes e recursos de failover automático. Os controladores de gerenciam o armazenamento hierárquico, colocando dados usados no momento (ou mais acessados) no armazenamento local (no dispositivo StorSimple ou servidores locais), ao mesmo tempo movendo dados menos dados para a nuvem.
 
-Apenas dispositivos StorSimple autorizados têm permissão para ingressar no serviço do Gerenciador do StorSimple que você criou na sua assinatura do Azure. Para autorizar um dispositivo, registre-o com o serviço do Gerenciador do StorSimple fornecendo a chave de registro. A chave de registro é uma chave aleatória de 128 bits gerada no portal do Azure.
+Apenas dispositivos StorSimple autorizados têm permissão para ingressar no serviço do Gerenciador do StorSimple que você criou na sua assinatura do Azure. Para autorizar um dispositivo, registre-o com o serviço do Gerenciador do StorSimple fornecendo a chave de registro. A chave de registro é uma chave aleatória de 128 bits gerada no portal clássico do Azure.
 
 ![Chave de registro do serviço](./media/storsimple-security/ServiceRegistrationKey.png)
 
@@ -131,7 +131,7 @@ Conforme descrito em outras seções, as senhas são usadas para autorizar e aut
 
 ## Proteger dados que fluem através do serviço
 
-É o objetivo principal do serviço do Gerenciador do StorSimple gerenciar e configurar o dispositivo StorSimple. O serviço do Gerenciador do StorSimple é executado no Microsoft Azure. Você usa o Portal do Azure para inserir dados de configuração de dispositivo e, em seguida, Microsoft Azure usa o serviço do Gerenciador do StorSimple para enviar os dados para o dispositivo. O StorSimple usa um sistema de pares de chaves assimétricas para ajudar a garantir que o comprometimento do serviço do Azure não resultará no comprometimento das informações armazenadas.
+É o objetivo principal do serviço do Gerenciador do StorSimple gerenciar e configurar o dispositivo StorSimple. O serviço do Gerenciador do StorSimple é executado no Microsoft Azure. Você usa o Portal Clássico do Azure para inserir dados de configuração de dispositivo e, em seguida, o Microsoft Azure usa o serviço do Gerenciador do StorSimple para enviar os dados para o dispositivo. O StorSimple usa um sistema de pares de chaves assimétricas para ajudar a garantir que o comprometimento do serviço do Azure não resultará no comprometimento das informações armazenadas.
 
 ![Criptografia dos dados em trânsito](./media/storsimple-security/DataEncryption.png)
 
@@ -183,7 +183,7 @@ Quando você cria uma conta de armazenamento, o Microsoft Azure gera duas chaves
 Recomendamos seguir estas práticas recomendadas para a rotação de chaves:
 
 - Alterne as chaves da conta de armazenamento regularmente para ajudar a garantir que sua conta de armazenamento não seja acessada por usuários não autorizados.
-- Periodicamente, o administrador do Azure deve alterar ou gerar nova chave primária ou secundária usando a seção de armazenamento do Portal do Azure para acessar diretamente a conta de armazenamento.
+- Periodicamente, o administrador do Azure deve alterar ou gerar uma nova chave primária ou secundária usando a seção de armazenamento do Portal clássico do Azure para acessar diretamente a conta de armazenamento.
 
 
 ## Proteger dados por meio de criptografia
@@ -192,8 +192,8 @@ O StorSimple usa os seguintes algoritmos de criptografia para proteger os dados 
 
 | Algoritmo | Comprimento da chave | Aplicativos/protocolos/comentários |
 | --------- | ---------- | ------------------------------- |
-| RSA | 2\.048 | RSA PKCS 1 v1.5 é usada pelo Portal do Azure para criptografar dados de configuração enviados para o dispositivo: por exemplo, credenciais da conta de armazenamento, configuração do dispositivo StorSimple e chaves de criptografia de armazenamento em nuvem. |
-| AES | 256 | AES com CBC é usado para criptografar a parte pública da chave de criptografia de dados de serviço antes de ela ser enviada para o Portal do Azure por meio do dispositivo StorSimple. Também é usado pelo dispositivo StorSimple para criptografar os dados antes sejam enviados para a conta de armazenamento em nuvem. |
+| RSA | 2\.048 | A RSA PKCS 1 v1.5 é usada pelo Portal clássico do Azure para criptografar dados de configuração enviados para o dispositivo: por exemplo, credenciais da conta de armazenamento, configuração do dispositivo StorSimple e chaves de criptografia de armazenamento em nuvem. |
+| AES | 256 | O AES com CBC é usado para criptografar a parte pública da chave de criptografia de dados de serviço antes de ela ser enviada para o Portal clássico do Azure por meio do dispositivo StorSimple. Também é usado pelo dispositivo StorSimple para criptografar os dados antes sejam enviados para a conta de armazenamento em nuvem. |
 
 
 ## Segurança do dispositivo virtual StorSimple
@@ -269,4 +269,4 @@ A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azu
 [Implantar o dispositivo StorSimple](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

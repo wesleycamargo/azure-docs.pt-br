@@ -41,7 +41,7 @@
 
     >[AZURE.NOTE]O segredo do cliente e o SID do pacote são credenciais de segurança importantes. Não compartilhe esses segredos com ninguém nem os distribua com o seu aplicativo.
 
-10. Faça logon no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e clique em seu aplicativo.
+10. Faça logon no [Portal clássico do Azure](https://manage.windowsazure.com/), clique em **Serviços Móveis** e clique em seu aplicativo.
 
 11. Clique na guia **Identidade**, insira os valores **Segredo do cliente** e **SID do pacote** obtidos a partir de WNS na etapa 4 e, em seguida, clique em **Salvar**.
 
@@ -60,6 +60,5 @@ Agora está pronto para usar uma conta da Microsoft para autenticação em seu a
 <!-- URLs. -->
 [Introdução aos Serviços Móveis]: /develop/mobile/tutorials/get-started/#create-new-service
 [Enviar uma página de aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

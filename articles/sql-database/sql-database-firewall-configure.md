@@ -35,7 +35,7 @@ Para configurar seu firewall de banco de dados, você deve criar regras de firew
 
 ## Visão geral do firewall do Banco de Dados SQL
 
-Inicialmente, todo acesso ao seu servidor de Banco de Dados SQL do Azure é bloqueado pelo firewall. Para começar a usar seu servidor de Banco de Dados SQL do Azure, você deve acessar o Portal de Gerenciamento e especificar uma ou mais regras de firewall no nível do servidor que permitem acesso ao seu servidor de Banco de Dados SQL. Use as regras de firewall para especificar quais intervalos de endereço IP da Internet têm permissão e se os aplicativos do Azure podem tentar se conectar ao seu servidor de Banco de Dados SQL.
+Inicialmente, todo acesso ao seu servidor de Banco de Dados SQL do Azure é bloqueado pelo firewall. Para começar a usar seu servidor de Banco de Dados SQL do Azure, você deve acessar o Portal Clássico e especificar uma ou mais regras de firewall no nível do servidor que permitem acesso ao seu servidor de Banco de Dados SQL do Azure. Use as regras de firewall para especificar quais intervalos de endereço IP da Internet têm permissão e se os aplicativos do Azure podem tentar se conectar ao seu servidor de Banco de Dados SQL.
 
 No entanto, se você quiser conceder acesso de forma seletiva a apenas um dos bancos de dados em seu servidor de Banco de Dados SQL do Azure, você deve criar uma regra no nível de banco de dados para o banco de dados necessário com um intervalo de endereços IP que vá além do intervalo de endereços IP especificado na regra de firewall no nível de servidor, e certifique-se de que o endereço IP do cliente esteja dentro do intervalo especificado na regra no nível de banco de dados.
 
@@ -60,7 +60,7 @@ Quando um computador tenta se conectar ao seu servidor de banco de dados pela In
 
 Quando um aplicativo do Azure tenta se conectar ao seu servidor de banco de dados, o firewall verifica se há permissão para conexões do Azure. Uma configuração de firewall com endereço inicial e final igual a 0.0.0.0 indica que essas conexões são permitidas. Se a tentativa de conexão não for permitida, a solicitação não alcançará o servidor de Banco de Dados SQL do Azure.
 
-Há duas maneiras para habilitar conexões do Azure no [Portal de Gerenciamento](http://go.microsoft.com/fwlink/p/?LinkID=161793):
+Há duas maneiras para habilitar conexões do Azure no [Portal Clássico](http://go.microsoft.com/fwlink/p/?LinkID=161793):
 
 - Marque a caixa de seleção **Permitir que serviços do Microsoft Azure acessem o servidor** durante a criação de um novo servidor.
 
@@ -68,7 +68,7 @@ Há duas maneiras para habilitar conexões do Azure no [Portal de Gerenciamento]
 
 ## Criando a primeira regra de firewall no nível do servidor
 
-A primeira configuração de firewall no nível do servidor pode ser criada usando o [Portal de Gerenciamento](http://go.microsoft.com/fwlink/p/?LinkID=161793) ou programaticamente usando a API REST ou o Azure PowerShell. As regras de firewall no nível de servidor subsequentes podem ser criadas e gerenciados usando esses métodos, por exemplo, por meio de Transact-SQL. Para saber mais sobre regras de firewall no nível do servidor, confira [Como: configurar as definições de firewall (Banco de Dados SQL do Azure)](sql-database-configure-firewall-settings.md).
+A primeira configuração de firewall no nível do servidor pode ser criada usando o [Portal Clássico](http://go.microsoft.com/fwlink/p/?LinkID=161793) ou programaticamente usando a API REST ou o Azure PowerShell. As regras de firewall no nível de servidor subsequentes podem ser criadas e gerenciados usando esses métodos, por exemplo, por meio de Transact-SQL. Para saber mais sobre regras de firewall no nível do servidor, confira [Como: configurar as definições de firewall (Banco de Dados SQL do Azure)](sql-database-configure-firewall-settings.md).
 
 ## Criando regras de firewall no nível do banco de dados
 
@@ -76,7 +76,7 @@ Depois de configurar o primeiro firewall no nível do servidor, convém restring
 
 ## Gerenciar programaticamente regras de firewall de banco de dados
 
-Além do Portal de Gerenciamento do Azure, as regras de firewall podem ser gerenciadas por meio de programação usando Transact-SQL, API REST e PowerShell do Azure. As tabelas a seguir descrevem o conjunto de comandos disponíveis para cada método.
+Além do Portal Clássico do Azure, as regras de firewall podem ser gerenciadas por meio de programação usando Transact-SQL, API REST e Azure PowerShell. As tabelas a seguir descrevem o conjunto de comandos disponíveis para cada método.
 
 
 ### Transact-SQL
@@ -117,7 +117,7 @@ Considere os seguintes pontos quando o acesso ao serviço de Banco de Dados SQL 
 
 - **Configuração de firewall local:** antes que o computador possa acessar o Banco de Dados SQL do Azure, talvez seja necessário criar uma exceção de firewall em seu computador para a porta TCP 1433. Talvez seja necessário abrir portas adicionais se estiver criando conexões dentro do limite de nuvem do Azure. Para obter mais informações, veja a seção **V12 do Banco de Dados SQL: fora versus dentro** de [Portas além da 1433 para ADO.NET 4.5 e Banco de Dados SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md)
 
-- **NAT (Conversão de endereços de rede):** devido à NAT, o endereço IP usado pelo computador para se conectar ao Banco de Dados SQL do Azure pode ser diferente do endereço IP exibido nas configurações de IP do computador. Para exibir o endereço IP usado pelo computador para se conectar ao Azure, faça logon no Portal de Gerenciamento e navegue até a guia **Configurar** no servidor que hospeda o seu banco de dados. Na seção **Endereços IP Permitidos**, o **Atual Endereço IP do Cliente** é exibido. Clique em **Adicionar** nos **Endereços IP Permitidos** para permitir que este computador acesse o servidor.
+- **NAT (Conversão de endereços de rede):** devido à NAT, o endereço IP usado pelo computador para se conectar ao Banco de Dados SQL do Azure pode ser diferente do endereço IP exibido nas configurações de IP do computador. Para exibir o endereço IP usado pelo computador para se conectar ao Azure, faça logon no Portal Clássico e navegue até a guia **Configurar** no servidor que hospeda o seu banco de dados. Na seção **Endereços IP Permitidos**, o **Atual Endereço IP do Cliente** é exibido. Clique em **Adicionar** nos **Endereços IP Permitidos** para permitir que este computador acesse o servidor.
 
 - **As alterações à lista de permissões ainda não entraram em vigor:** pode ocorrer um atraso de cinco minutos para que as alterações à configuração do firewall do Banco de Dados SQL do Azure entrem em vigor.
 
@@ -138,4 +138,4 @@ Considere os seguintes pontos quando o acesso ao serviço de Banco de Dados SQL 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -25,7 +25,7 @@ Este tópico apresenta uma visão geral de alguns aspectos do uso de máquinas v
 
 ## Autenticação: nomes de usuário, senhas e chaves SSH.
 
-Ao criar uma máquina virtual Linux usando o portal do Azure, você deve fornecer um nome de usuário, senha ou uma chave pública SSH. A escolha de um nome de usuário para a implantação de uma máquina virtual Linux no Azure está sujeita à seguinte restrição: nomes de contas (UID <100) do sistema já presentes na máquina virtual não são permitidos - root por exemplo.
+Ao criar uma máquina virtual Linux usando o portal clássico do Azure, você deve fornecer um nome de usuário, senha ou uma chave pública SSH. A escolha de um nome de usuário para a implantação de uma máquina virtual Linux no Azure está sujeita à seguinte restrição: nomes de contas (UID <100) do sistema já presentes na máquina virtual não são permitidos - root por exemplo.
 
 
  - Confira [Criar uma máquina virtual que executa Linux](virtual-machines-linux-tutorial.md)
@@ -45,7 +45,7 @@ Opcionalmente, você pode obter um shell de root usando **sudo -s**.
 
 ## Configuração do firewall
 
-O Azure fornece um filtro de pacote de entrada que restringe a conectividade a portas especificadas no portal do Azure. Por padrão, a única porta permitida é SSH. Você pode abrir o acesso a portas adicionais na sua máquina virtual Linux configurando pontos de extremidade no portal do Azure:
+O Azure fornece um filtro de pacote de entrada que restringe a conectividade a portas especificadas no portal clássico do Azure. Por padrão, a única porta permitida é SSH. Você pode abrir o acesso a portas adicionais na sua máquina virtual Linux configurando pontos de extremidade no portal clássico do Azure:
 
  - Confira: [Como instalar pontos de extremidade em uma máquina virtual](virtual-machines-set-up-endpoints.md)
 
@@ -81,7 +81,7 @@ O Azure oferece a possibilidade de capturar o estado de uma máquina virtual exi
 
 2. Desligue a máquina virtual.
 
-3. Clique em *Capturar* no portal do Azure ou use as ferramentas Powershell ou CLI para capturar a máquina virtual como uma imagem.
+3. Clique em *Capturar* no portal clássico do Azure ou use as ferramentas Powershell ou CLI para capturar a máquina virtual como uma imagem.
 
  - Confira: [Como capturar uma máquina virtual Linux para ser usada como um modelo](virtual-machines-linux-capture-image.md)
 
@@ -99,4 +99,4 @@ No Linux, o disco de dados pode ser nomeado pelo kernel como `/dev/sdc`, e os us
 
  - **Consulte também:** [configurar RAID de software no Linux](virtual-machines-linux-configure-raid.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

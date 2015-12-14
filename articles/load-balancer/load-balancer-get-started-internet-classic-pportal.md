@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/03/2015"
+   ms.date="11/20/2015"
    ms.author="joaoma" />
 
-#Introdução à criação de um balanceador de carga para a Internet (clássico) no portal de visualização
+# Introdução à criação de um balanceador de carga para a Internet (clássico) no portal de visualização
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
@@ -30,7 +30,7 @@
 
 
 
-## Criar um ponto de extremidade do balanceador de carga usando o Portal de visualização	
+## Introdução à criação de um ponto de extremidade do balanceador de carga usando o portal de Visualização	
 
 Para criar um modelo de implantação (clássico) de balanceador de carga para a Internet no portal de visualização, siga as etapas abaixo.
 
@@ -66,4 +66,4 @@ Para criar um modelo de implantação (clássico) de balanceador de carga para a
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

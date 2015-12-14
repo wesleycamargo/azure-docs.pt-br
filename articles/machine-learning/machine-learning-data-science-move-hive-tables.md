@@ -250,4 +250,4 @@ Depois de seguir esse procedimento, você deve ter uma tabela com dados no forma
 
 Na seção final, são discutidos os parâmetros que os usuários podem ajustar para que o desempenho das consultas do Hive possa ser melhorado.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

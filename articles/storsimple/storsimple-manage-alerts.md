@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/02/2015"
    ms.author="v-sharos" />
 
 # Use o serviço StorSimple Manager para exibir e gerenciar alertas do StorSimple
@@ -151,7 +151,7 @@ Se a conectividade de nuvem falhar em seu dispositivo de produção do StorSimpl
 	Dependendo da quantidade de dados nas camadas locais do seu dispositivo, as gravações também continuarão a ocorrer para as primeiras horas após a interrupção na conectividade de nuvem. As gravações então desacelerarão e acabarão por começar a falhar se a conectividade de nuvem for interrompida por várias horas.
 
  
-- **Para os dados na nuvem**: para a maioria dos erros de conectividade de nuvem, é retornado um erro. Quando a conectividade for restaurada, as E/Ss são reiniciadas sem que o usuário precise colocar o volume online. Em casos raros, pode haver necessidade de intervenção do usuário para deixar o volume online novamente no Portal do Azure.
+- **Para os dados na nuvem**: para a maioria dos erros de conectividade de nuvem, é retornado um erro. Quando a conectividade for restaurada, as E/Ss são reiniciadas sem que o usuário precise colocar o volume online. Em casos raros, pode haver necessidade de intervenção do usuário para deixar o volume online novamente no Portal clássico do Azure.
  
 - **Para instantâneos de nuvem em andamento**: a operação é repetida algumas vezes dentro de 4 a 5 horas e, se a conectividade não for restaurada, os instantâneos de nuvem falharão.
 
@@ -234,4 +234,4 @@ Se a conectividade de nuvem falhar em seu dispositivo de produção do StorSimpl
 - Saiba mais sobre [erros do StorSimple](storsimple-troubleshoot-operational-device.md).
 - Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

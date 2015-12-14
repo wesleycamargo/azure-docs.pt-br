@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introdução à Máscara de Dados Dinâmicos do Banco de Dados SQL (Portal de Visualização do Azure)"
-   description="Como começar a usar a Máscara de Dados Dinâmicos do Banco de Dados SQL no Portal de Visualização do Azure"
+   pageTitle="Introdução ao Mascaramento de dados dinâmicos no banco de dados SQL (Portal do Azure)"
+   description="Como começar a usar a Máscara de Dados Dinâmicos do Banco de Dados SQL no Portal do Azure"
    services="sql-database"
    documentationCenter=""
    authors="ronitr"
@@ -17,10 +17,10 @@
    ms.author="ronitr; ronmat; v-romcal; sstein"/>
 
 
-# Introdução à Máscara de Dados Dinâmicos do Banco de Dados SQL (Portal de Visualização do Azure)
+# Introdução ao Mascaramento de dados dinâmicos no banco de dados SQL (Portal do Azure)
 
 > [AZURE.SELECTOR]
-- [Dynamic Data Masking - Azure portal](sql-database-dynamic-data-masking-get-started-portal.md)
+- [Dynamic Data Masking - Azure Classic Portal](sql-database-dynamic-data-masking-get-started-portal.md)
 
 ## Visão geral
 
@@ -32,7 +32,7 @@ Por exemplo, um representante de serviço em um centro de chamada pode identific
 
 ## Noções básicas sobre Máscara de dados dinâmica em banco de dados SQL
 
-É possível configurar uma política de máscara de dados dinâmicos no portal de Visualização do Azure selecionando a operação Máscara de Dados Dinâmicos na folha de configuração do Banco de Dados SQL ou na folha de configurações.
+É possível configurar uma política de máscara de dados dinâmicos no Portal do Azure selecionando a operação Máscara de Dados Dinâmicos na folha de configuração do Banco de Dados SQL ou na folha de configurações.
 
 
 ### Permissões de mascaramento de dados dinâmico
@@ -62,9 +62,9 @@ A Máscara de dados dinâmica pode ser configurada através de funções do admi
 
 O mecanismo de recomendações DDM sinaliza determinados campos do banco de dados como potencialmente confidenciais, que podem ser bons candidatos para mascaramento. Na folha Mascaramento de Dados Dinâmicos no portal, você verá as colunas recomendadas para seu banco de dados. Tudo o que você precisa fazer é clicar em **Adicionar Máscara** para uma ou mais colunas e em **Salvar** para aplicar uma máscara a esses campos.
 
-## Configurar a máscara de dados dinâmicos para seu banco de dados usando o Portal de Visualização do Azure
+## Configurar dados dinâmicos de mascaramento para o banco de dados usando o Portal do Azure
 
-1. Inicie o portal de Visualização do Azure em [https://portal.azure.com](https://portal.azure.com).
+1. Inicie o Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 2. Navegue até a folha de configurações do banco de dados que contém os dados confidenciais que você deseja mascarar.
 
@@ -109,4 +109,4 @@ Confira [Cmdlets do Banco de Dados SQL do Azure](https://msdn.microsoft.com/libr
 
 Confira [Operações para Bancos de Dados SQL do Azure](https://msdn.microsoft.com/library/dn505719.aspx).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

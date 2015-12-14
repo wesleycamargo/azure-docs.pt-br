@@ -70,7 +70,7 @@ Pressione **Enter** para fechar o aplicativo. Neste momento, você criou o índi
 
 > [AZURE.NOTE]Se você receber erros que incluem “valor inválido para a chave ‘attachdbfilename’” ou algum outro erro de anexação de banco de dados, você pode estar se deparando com conflitos de UAC. Para os fins desta demonstração, contorne esses erros fazendo o seguinte: copie a solução para uma pasta nova ou existente (como Temp) que forneça acesso a usuários autenticados. Use **Executar como administrador** para iniciar o Visual Studio. Abra a solução, compile-a e, em seguida, pressione **F5** para criar o índice.
 
-Para verificar a criação do índice e o carregamento do documento, acesse o painel do serviço de Pesquisa no [Portal de Gerenciamento do Azure](https://portal.azure.com). Em uso, a contagem do índice deve ter aumentado em uma unidade e você deve ter 294 documentos, um para cada produto no banco de dados.
+Para verificar a criação do índice e o upload do documento, acesse o painel do serviço de Pesquisa no [Portal clássico do Azure](https://portal.azure.com). Em uso, a contagem do índice deve ter aumentado em uma unidade e você deve ter 294 documentos, um para cada produto no banco de dados.
 
 Clique no bloco **Índices** para mostrar a lista de índices. A lista de índices desliza e mostra o novo índice, bem como a contagem de documentos. Observe que você pode ter até três índices na camada de preços Gratuita. Se você já tiver três índices, precisa excluir um para liberar espaço para os novos.
 
@@ -206,4 +206,4 @@ Você também pode examinar a [API REST da Pesquisa do Azure](http://msdn.micros
 [11]: ./media/search-create-first-solution/AzureSearch_Create1_Suggestions.PNG
 [12]: ./media/search-create-first-solution/AzureSearch_Create1_CodeplexDownload.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

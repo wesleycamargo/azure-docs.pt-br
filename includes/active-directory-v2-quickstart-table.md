@@ -8,4 +8,4 @@
 | | [Proteger uma API Web do NodeJS](active-directory-v2-devquickstarts-node-api.md) |
 | | [Chamar APIs de Rest do Office 365 em um aplicativo](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) |
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

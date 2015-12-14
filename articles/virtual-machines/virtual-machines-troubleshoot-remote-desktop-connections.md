@@ -34,7 +34,7 @@ A primeira seção, 'Etapas básicas,' lista as etapas para solucionar problemas
 
 Estas etapas básicas podem ajudar a resolver a maioria das falhas comuns de conexão de Área de Trabalho Remota em máquinas virtuais criadas com o modelo de implantação clássica. Depois de realizar cada etapa, tente se reconectar à VM.
 
-- Redefinir o serviço de área de trabalho remota no [portal de visualização do Azure](https://portal.azure.com) para corrigir problemas de inicialização com o servidor RDP.<br> Clique em Procurar tudo > Máquinas virtuais (clássicas) > sua máquina virtual do Windows > **Redefinir Acesso Remoto**.
+- Redefina o serviço da Área de Trabalho Remota no [portal do Azure](https://portal.azure.com) para corrigir problemas de inicialização com o servidor RDP.<br> Clique em Procurar tudo > Máquinas virtuais (clássicas) > sua máquina virtual do Windows > **Redefinir Acesso Remoto**.
 
     ![Captura de tela que mostra como redefinir a configuração de RDP](./media/virtual-machines-troubleshoot-remote-desktop-connections/Portal-RDP-Reset-Windows.png)
 
@@ -169,4 +169,4 @@ Se nenhum desses erros ocorreu e ainda não foi possível para você conectar-se
 
 [Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

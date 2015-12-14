@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Conectando o Banco de Dados SQL do Azure à Pesquisa do Azure usando indexadores | Microsoft Azure | Serviço de pesquisa de nuvem hospedado" 
+	pageTitle="Como conectar o Banco de Dados SQL do Azure à Pesquisa do Azure usando indexadores | Microsoft Azure | Serviço de pesquisa de nuvem hospedado" 
 	description="Saiba como extrair dados do Banco de Dados SQL do Azure para um índice de Pesquisa do Azure usando indexadores." 
 	services="search" 
 	documentationCenter="" 
@@ -28,7 +28,7 @@ Este artigo abordará a mecânica do uso de indexadores, mas também exploraremo
 
 Para instalar e configurar um indexador do SQL Azure, você pode chamar a [API REST da Pesquisa do Azure](http://go.microsoft.com/fwlink/p/?LinkID=528173) para criar e gerenciar **indexadores** e **fontes de dados**.
 
-Também é possível usar a [classe Indexer](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx) no [SDK do .NET](https://msdn.microsoft.com/library/azure/dn951165.aspx) ou o assistente de Importação de Dados no [portal do Azure](https://portal.azure.com) para criar e agendar um indexador.
+Também é possível usar a [classe Indexer](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx) no [SDK do .NET](https://msdn.microsoft.com/library/azure/dn951165.aspx) ou o assistente de Importação de Dados no [Portal clássico do Azure](https://portal.azure.com) para criar e agendar um indexador.
 
 Uma **fonte de dados** especifica quais dados indexar, as credenciais necessárias para acessar os dados e as políticas que permitem à Pesquisa do Azure identificar com eficiência as alterações nos dados (linhas novas, modificadas ou excluídas). Ela é definida como um recurso independente para que possa ser usada por vários indexadores.
 
@@ -66,7 +66,7 @@ Primeiro, crie a fonte de dados:
 	}
 
 
-Você pode conseguir a cadeia de conexão no [Portal do Azure](https://portal.azure.com); use a opção `ADO.NET connection string`.
+Você pode conseguir a cadeia de conexão no [Portal clássico do Azure](https://portal.azure.com); use a opção `ADO.NET connection string`.
 
 Em seguida, crie um índice de destino da Pesquisa do Azure, caso ainda não tenha criado um. É possível fazer isso por meio da [UI do portal](https://portal.azure.com) ou usando a [API de Criação de Índices](https://msdn.microsoft.com/library/azure/dn798941.aspx). Certifique-se de que o esquema de seu índice de destino seja compatível com o esquema da tabela de origem. Confira a tabela a seguir para conhecer o mapeamento entre os tipos de dados de SQL e da Pesquisa do Azure.
 
@@ -279,4 +279,4 @@ R: Sim. O indexador é executado em um dos nós em seu serviço de pesquisa, e o
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -163,7 +163,7 @@ A pesquisa exibe eventos individuais, como exibições de página, solicitaçõe
 
 Abra a pesquisa de diagnóstico:
 
-![Abra a pesquisa de diagnóstico](./media/app-insights-diagnostic-search/01-open-Diagnostic.png)
+![Abra a pesquisa de diagnóstico](./media/app-insights-portal/01-open-Diagnostic.png)
 
 Abrir a folha de filtro e escolha os tipos de eventos que você deseja ver. (Se posteriormente, você desejar restaurar os filtros com os quais você abriu a folha, clique em Redefinir.)
 
@@ -205,4 +205,4 @@ Para ver a pesquisa novamente, **vá até a folha de visão geral** e abra Favor
 
 Se você os salvou com o intervalo de tempo Relativo, a folha reaberta contém os dados mais recentes. Se você os salvou com o intervalo de tempo Absoluto, consulte os mesmos dados, sempre.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

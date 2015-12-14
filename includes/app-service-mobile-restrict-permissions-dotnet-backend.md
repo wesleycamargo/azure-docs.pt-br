@@ -22,4 +22,4 @@ Por padrão, APIs em um back-end de aplicativo móvel podem ser chamadas de form
 
 	Para obter mais detalhes, consulte [Exigir autenticação para acesso às tabelas](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth) em [Como usar o SDK do Node.js de Aplicativos Móveis do Azure](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

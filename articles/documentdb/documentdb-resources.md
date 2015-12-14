@@ -34,8 +34,7 @@ Como o diagrama a seguir ilustra, o **modelo de recursos** hierárquico do Banco
 
 >[AZURE.NOTE]Ele oferece um protocolo TCP altamente eficiente que também possui o modelo de comunicação RESTful, disponível por meio do [SDK do cliente .NET.](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-![Modelo de recursos hierárquico do Banco de Dados de Documentos][1]  
-**Modelo de recursos hierárquico**
+![Modelo de recursos hierárquico do Banco de Dados de Documentos][1] **Modelo de recursos hierárquico**
 
 Para começar a trabalhar com os recursos, você deve [criar uma conta de banco de dados do Banco de Dados de Documentos](documentdb-create-account.md) usando sua assinatura do Azure. Uma conta do banco de dados pode consistir em um conjunto de **bancos de dados**, cada um contendo diversas **coleções**, cada uma delas, por sua vez, contendo **procedimentos armazenados, gatilhos, UDFs, documentos** e **anexos** relacionados. Um banco de dados também tem **usuários** associados, cada um com um conjunto de **permissões** para acessar coleções, procedimentos armazenados, gatilhos, UDFs, documentos ou anexos. Enquanto bancos de dados, usuários, permissões e coleções são recursos definidos pelo sistema com esquemas bastante conhecidos, os documentos e anexos possuem conteúdos JSON arbitrários, definidos pelo usuário.
 
@@ -61,11 +60,7 @@ Recursos como contas do banco de dados, bancos de dados, coleções, usuários, 
 
 Propriedade |Configurável pelo usuário ou gerada pelo sistema?|Finalidade
 ---|---|---
-_rid|Gerado pelo sistema|Gerado pelo sistema, identificador exclusivo e hierárquico do recurso.
-_etag|Gerado pelo sistema|etag do recurso necessário para o controle de simultaneidade otimista.
-_ts|Gerado pelo sistema|Carimbo de data/hora da última atualização do recurso.
-_self|Gerado pelo sistema|URI endereçável exclusivo do recurso.
-id|Configurável pelo usuário|Nome exclusivo do recurso definido pelo usuário.
+_\_rid|Gerado pelo sistema|Gerado pelo sistema, identificador exclusivo e hierárquico do recurso. \_etag|Gerado pelo sistema|etag do recurso necessário para o controle de simultaneidade otimista. \_ts|Gerado pelo sistema|Carimbo de data/hora da última atualização do recurso. \_self|Gerado pelo sistema|URI endereçável exclusivo do recurso. id|Configurável pelo usuário|Nome exclusivo do recurso definido pelo usuário. Se o usuário não especificar uma id, uma id será gerada pelo sistema
 
 ### Representação da conexão dos recursos
 O Banco de Dados de Documentos não obriga nenhuma extensão proprietária para o padrão JSON nem codificações especiais; ele trabalha com documentos JSON compatíveis padrão.
@@ -73,18 +68,7 @@ O Banco de Dados de Documentos não obriga nenhuma extensão proprietária para 
 ### Endereçamento de um recurso
 Todos os recursos são endereçáveis pelo URI. O valor da propriedade **\_self** de um recurso representa o URI relativo do recurso. O formato do URI consiste nos segmentos do caminho /<feed>/{\_rid}:
 
-|Valor da \_self |Descrição
-|-------------------|-----------
-|/dbs |Feed de banco de dados em uma conta de banco de dados
-|/dbs/{_rid-db} |Banco de dados com a propriedade de ID exclusiva com o valor {_rid-db}
-|/dbs/{_rid-db}/colls/ |Feed de coleções em um banco de dados
-|/dbs/{_rid-db}/colls/{_rid-coll} |Coleção com a propriedade de ID exclusiva com o valor {_rid-coll}
-|/dbs/{_rid-db}/colls/{_rid-coll}/docs |Feed de documentos em uma coleção
-|/dbs/{_rid-db}/colls/{_rid-coll}/docs/{_rid-doc} |Documento com uma id correspondente ao valor {_rid-doc}
-|/dbs/{_rid-db}/users/ |Feed de usuários em um banco de dados
-|/dbs/{_rid-db}/users/{_rid-user} |Usuário com a propriedade de ID exclusiva com o valor {_rid-user}
-|/dbs/{_rid-db}/users/{_rid-user}/permissions |Feed de permissões em um banco de dados
-|/dbs/{_rid-db}/users/{_rid-user}/permissions/{_rid-permission} |Permissão com a propriedade de ID exclusiva com o valor {_rid-permission}.
+|Valor de \_self |Descrição |-------------------|----------- |/dbs |Feed de bancos de dados em uma conta de banco de dados |/dbs/{\_rid-db} |Banco de dados com uma id correspondente ao valor {\_rid-db} |/dbs/{\_rid-db}/colls/ |Feed de coleções em um banco de dados |/dbs/{\_rid-db}/colls/{\_rid-coll} |Coleção com uma id correspondente ao valor {\_rid-coll} |/dbs/{\_rid-db}/colls/{\_rid-coll}/docs |Feed de documentos em uma coleção |/dbs/{\_rid-db}/colls/{\_rid-coll}/docs/{\_rid-doc} |Documento com uma id correspondente ao valor {\_rid-doc} |/dbs/{\_rid-db}/users/ |Feed de usuários em um banco de dados |/dbs/{\_rid-db}/users/{\_rid-user} |Usuário com uma id correspondente ao valor {\_rid-user} |/dbs/{\_rid-db}/users/{\_rid-user}/permissions |Feed de permissões em um usuário |/dbs/{\_rid-db}/users/{\_rid-user}/permissions/{\_rid-permission} |Permissão com uma id correspondente ao valor {\_rid-permission}
   
 Cada recurso tem um nome de usuário exclusivo definido exposto por meio da propriedade id. Observação: para documentos, se o usuário não especificar uma id, o sistema gerará automaticamente uma id exclusiva para o documento. A ID é uma cadeia de caracteres definida pelo usuário, com até 256 caracteres e exclusiva no contexto de um recurso pai específico. Por exemplo, o valor da propriedade de ID de todos os documentos dentro de uma determinada coleção é exclusivo, mas não é garantido que seja exclusivo nas coleções. Do mesmo modo, o valor da propriedade de ID de todas as permissões para um determinado usuário é exclusivo, mas não é garantido que seja exclusivo em todos os usuários. A propriedade \_rid é usada para construir o link endereçável \_self de um recurso.
 
@@ -95,7 +79,7 @@ Os valores das propriedades \_self e \_rid são representações alternativas e 
 ## Contas de banco de dados
 Você pode provisionar uma ou mais contas do Banco de Dados de Documentos usando sua assinatura do Azure. Cada conta de banco de dados da camada Padrão terá a capacidade mínima de uma coleção S1.
 
-Você pode [criar e gerenciar contas de banco de dados do Banco de Dados de Documentos](documentdb-create-account.md) por meio do portal do Azure em [http://portal.azure.com/](http://portal.azure.com/). Criar e gerenciar uma conta do banco de dados requer acesso administrativo e pode ser feito somente com sua assinatura do Azure.
+Você pode [criar e gerenciar contas de banco de dados do Banco de Dados de Documentos](documentdb-create-account.md) por meio do Portal Clássico do Azure em [http://portal.azure.com/](http://portal.azure.com/). Criar e gerenciar uma conta do banco de dados requer acesso administrativo e pode ser feito somente com sua assinatura do Azure.
 
 ### Propriedades de contas de banco de dados
 Como parte do provisionamento e gerenciamento de uma conta do banco de dados, você pode configurar e ler as seguintes propriedades:
@@ -107,14 +91,12 @@ Chave primária e Chave secundária|Essas são as chaves primária e secundária
 MaxMediaStorageUsageInMB (LEITURA)|Quantidade máxima de armazenamento de mídia disponível para a conta de banco de dados.
 MediaStorageUsageInMB (READ)|Uso atual do armazenamento de mídia para a conta de banco de dados.
 
-Observe que, além de provisionar, configurar e gerenciar sua conta de banco de dados por meio do Portal do Azure, também é possível criar e gerenciar programaticamente contas do Banco de Dados de Documentos por meio das [APIs REST do Banco de Dados de Documentos do Azure](https://msdn.microsoft.com/library/azure/dn781481.aspx) e das [SDKs clientes](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+Observe que, além de provisionar, configurar e gerenciar sua conta de banco de dados por meio do Portal Clássico do Azure, também é possível criar e gerenciar de forma programática contas de banco de dados do Banco de Dados de Documentos por meio das [APIs REST do Banco de Dados de Documentos do Azure](https://msdn.microsoft.com/library/azure/dn781481.aspx) e dos [SDKs do cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
 ## Bancos de dados
 Um banco de dados do Banco de Dados de Documentos é um contêiner lógico de uma ou mais coleções e usuários, conforme mostrado no diagrama a seguir. Você pode criar qualquer número de bancos de dados em uma conta de banco de dados do Banco de Dados de Documentos, sujeito aos limites de oferta.
 
-![Modelo hierárquico de coleções e conta de banco de dados][2]
-
-**Um banco de dados é um contêiner lógico de usuários e coleções**
+![Modelo hierárquico de coleções e conta de banco de dados][2] **Um banco de dados é um contêiner lógico de usuários e coleções**
 
 Um banco de dados pode conter praticamente um armazenamento de documentos ilimitado, particionado por coleções, que formam os domínios de transação para os documentos contidos neles.
 
@@ -145,7 +127,7 @@ A política de indexação de cada coleção permite realizar compromissos de de
 -	Escolha se deseja incluir ou excluir caminhos ou padrões específicos em seus documentos do índice. Isso pode ser feito definindo includedPaths e excludedPaths na indexingPolicy de uma coleção, respectivamente. Também é possível configurar os compromissos de armazenamento e desempenho para consultas de intervalo e hash para padrões de caminho específicos. 
 -	Escolha entre atualizações de índice síncronas (consistentes) e assíncronas (lentas). Por padrão, o índice é atualizado sincronamente em cada inserção, substituição ou exclusão de um documento para a coleção. Isso permite que as consultas obedeçam ao mesmo nível de consistência das leituras de documentos. Enquanto o Banco de Dados de Documentos é otimizado para gravação e suporta volumes constantes de gravações de documentos junto com a manutenção síncrona de índice e atendimento a consultas consistentes, você pode configurar determinadas coleções para atualizar seu índice, sem pressa. A indexação lenta aumenta ainda mais o desempenho de gravação, sendo ideal para cenários de ingestão em massa para coleções basicamente de leitura intensa.
 
-A política de indexação pode ser alterada executando-se um PUT na coleção. Isso pode ser obtido por meio do [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx), do [Portal do Azure](https://portal.azure.com) ou de [APIs REST do Banco de Dados de Documentos do Azure](https://msdn.microsoft.com/library/azure/dn781481.aspx).
+A política de indexação pode ser alterada executando-se um PUT na coleção. Isso pode ser obtido por meio do [SDK do cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx), do [Portal Clássico do Azure](https://portal.azure.com) ou das [APIs REST do Banco de Dados de Documentos do Azure](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
 ### Consultando uma coleção
 Os documentos dentro de uma coleção podem ter esquemas arbitrários e os documentos podem ser consultados dentro de uma coleção sem oferecer qualquer esquema ou índices secundários de início. É possível consultar a coleção usando a [sintaxe SQL do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn782250.aspx), que oferece operadores hierárquicos e relacionais ricos e extensibilidade por meio de UDFs baseados em JavaScript. A gramática JSON permite modelar documentos JSON como árvores com rótulos como os nós da árvore. Isso é explorado por técnicas de indexação automáticas do Banco de Dados de Documentos, bem como pelo dialeto SQL do Banco de Dados de Documentos. A linguagem de consulta do Banco de Dados de Documentos é formada por três aspectos principais:
@@ -396,9 +378,7 @@ Como seus aplicativos precisam ser escalados conforme o crescimento do usuário,
 
 Independentemente da estratégia de fragmentação específica escolhida, você pode modelar seus usuários reais como usuários no banco de dados do Banco de Dados de Documentos e associar permissões de refinamento a cada usuário.
 
-![Coleções do usuário][3]
-
-**Estratégias de fragmentação e modelagem de usuários**
+![Coleções do usuário][3] **Estratégias de fragmentação e modelagem de usuários**
 
 Assim como todos os outros recursos, os usuários no Banco de Dados de Documentos podem ser criados, substituídos, excluídos, lidos ou enumerados facilmente usando as APIs REST ou qualquer SDK do cliente. O Banco de Dados de Documentos sempre oferece uma forte consistência para leitura ou consulta dos metadados de um recurso do usuário. Vale destacar que excluir um usuário automaticamente assegura que você não poderá acessar nenhuma das permissões contidas nele. Embora o Banco de Dados de Documentos recupere a cota das permissões como parte do usuário excluído em segundo plano, as permissões excluídas estão disponíveis imediatamente mais uma vez para uso.
 
@@ -417,4 +397,4 @@ Saiba mais sobre como trabalhar com recursos usando comandos HTTP em [interaçõ
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
 
-<!----HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

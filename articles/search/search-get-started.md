@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introdução à Pesquisa do Azure | Microsoft Azure | Serviço de pesquisa hospedado na nuvem" 
+	pageTitle="Guia de introdução à pesquisa do Azure | Microsoft Azure | Serviço de pesquisa hospedado na nuvem" 
 	description="Comece a usar a Pesquisa do Azure, um serviço de pesquisa hospedado na nuvem do Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -35,7 +35,7 @@ Como administrador, você pode adicionar o serviço de Pesquisa a uma assinatura
 
 Os assinantes obtêm automaticamente acesso gratuito a um serviço de Pesquisa compartilhado, multilocatários, que você pode utilizar para fins de aprendizado, testes de prova de conceito ou pequenos projetos de desenvolvimento de pesquisa. Inscreva-se na versão gratuita por meio das seguintes etapas.
 
-1. Entre no [Portal do Azure](https://portal.azure.com) usando sua assinatura existente. Observe que esta URL leva você até o Portal de Visualização. O uso do Portal de Visualização é um requisito. 
+1. Conecte-se no [Portal clássico do Azure](https://portal.azure.com) usando sua assinatura existente. Observe que esta URL leva você até o Portal. O uso do Portal é um requisito. 
 
 2. Clique em **Novo** na parte superior da página.
  
@@ -78,7 +78,7 @@ Configurar recursos dedicados pode levar algum tempo (15 minutos ou mais).
 
 **Etapa 1 - Criar um novo serviço com a Camada de preços definida como Standard**
 
-1. Entre no [Portal do Azure](https://portal.azure.com) usando sua assinatura existente. 
+1. Conecte-se no [Portal clássico do Azure](https://portal.azure.com) usando sua assinatura existente. 
 
 2. Clique em **Novo** na parte inferior da página.
 
@@ -310,7 +310,7 @@ Você também pode consultar o sistema para obter informações de contagens de 
 
 Se você precisar de um lembrete de onde encontrar as páginas de configuração, siga as etapas a seguir para localizar o painel de serviço.
 
-1.	Entre no [Portal do Azure](https://portal.azure.com) usando sua assinatura existente. 
+1.	Conecte-se no [Portal clássico do Azure](https://portal.azure.com) usando sua assinatura existente. 
 2.	Clique em **Início** e, em seguida, clique no bloco do serviço de Pesquisa.
 
  	![][22]
@@ -378,4 +378,4 @@ Pronto para a próxima etapa? Os links a seguir levam você a materiais adiciona
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

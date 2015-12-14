@@ -159,7 +159,7 @@ Adicione um bloco ao conjunto de comandos para iniciar o processo de criação d
 
 	New-AzureVM –ServiceName "<short name of the cloud service>" -VMs $vm1
 
-O nome curto do serviço de nuvem é o nome que aparece na lista de Serviços de Nuvem no Portal do Azure ou na lista de grupos de recursos no Portal de visualização do Azure.
+O nome curto do serviço de nuvem é o nome que aparece na lista de Serviços de Nuvem do Azure no portal clássico do Azure ou na lista de grupos de recursos no Portal do Azure.
 
 **Opção 2**: crie a máquina virtual em um serviço de nuvem e em uma rede virtual existentes.
 
@@ -178,7 +178,7 @@ Após a criação da máquina virtual, confira [Como fazer logon em uma máquina
 Caso pretenda usar novamente o conjunto de comandos:
 
 - Salve esse conjunto de comandos como um arquivo de script do PowerShell (*.ps1)
-- Salve este conjunto de comandos como um runbook da Automação do Azure na seção **Automação** do portal do Azure
+- Salve este conjunto de comandos como um runbook de automação do Azure na seção **automação** do portal clássico do Azure
 
 ## <a id="examples"></a>Exemplos
 
@@ -280,4 +280,4 @@ Aqui está o conjunto de comandos do PowerShell do Azure correspondente para cri
 
 [Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

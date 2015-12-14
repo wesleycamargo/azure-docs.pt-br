@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/06/2015"
+   ms.date="11/30/2015"
    ms.author="cherylmc"/>
 
 # Configurar uma conexão VNet a VNet para redes virtuais na mesma assinatura usando o Gerenciador de recursos do Azure e o PowerShell
 
 > [AZURE.SELECTOR]
-- [Azure Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
+- [Azure Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
 Este artigo o orientará pelas etapas usando o modelo de implantação do Gerenciador de Recursos. Você pode selecionar o artigo do modelo de implantação e da ferramenta de implantação usando as guias acima. Neste momento, não temos uma solução para conexões de VNet a VNet para redes virtuais criadas usando o método de implantação do Gerenciador de recursos que residem em assinaturas diferentes. Atualmente, a equipe está trabalhando em uma solução e prevemos ter etapas prontas até o final do ano. Quando estiverem disponíveis, este artigo vai expor essas etapas. As etapas a seguir são para VNets que estão na mesma assinatura.
@@ -82,11 +82,7 @@ Antes de começar, verifique se possui os seguintes itens:
 
 - Uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [benefícios de assinante do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
-- Cmdlets do Azure PowerShell 0.9.8. Você pode baixar e instalar essa versão na seção Windows PowerShell da [página Download](http://azure.microsoft.com/downloads/). Este artigo foi escrito para a versão 0.9.8, embora seja possível usar estas etapas (com pequenas modificações nos cmdlets) com o PowerShell 1.0 Preview.
-
-**Sobre o uso destas etapas com o Azure PowerShell 1.0 Preview**
-
-	[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)] 
+- Cmdlets do Azure PowerShell (1.0 ou posterior). Você pode baixar e instalar essa versão na seção Windows PowerShell da [página Download](http://azure.microsoft.com/downloads/).
 
 
 ## 1\. Planejar seus intervalos de endereços IP
@@ -119,17 +115,20 @@ Valores para VNet2:
 
 ## 2\. Conecte-se as suas assinaturas 
 
+Alterne para o modo do PowerShell para usar os cmdlets do Gerenciador de Recursos. Para obter mais informações, consulte [Usando o Windows PowerShell com o Gerenciador de Recursos](../powershell-azure-resource-manager.md).
+
 Abra o console do PowerShell e conecte-se à sua conta. Use o exemplo a seguir para ajudar com a conexão:
 
-		Add-AzureAccount
+		    Login-AzureRmAccount
 
-Se você tiver mais de uma assinatura, use *Select-AzureSubscription* para se conectar à assinatura que deseja usar.
+Verificar as assinaturas da conta.
 
-		Select-AzureSubscription "yoursubscription"
+		    Get-AzureRmSubscription 
 
-Em seguida, alterne para o modo Gerenciador de Recursos do Azure.
-		
-		Switch-AzureMode -Name AzureResourceManager
+Especifique a assinatura que você quer usar.
+
+		    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+
 
 ## 3\. Criar uma rede virtual
 
@@ -138,13 +137,13 @@ Use o exemplo abaixo para criar uma rede virtual e uma sub-rede de gateway. Subs
 
 Em primeiro lugar, crie um Grupo de Recursos.
 
-			New-AzureResourceGroup -Name testrg1 -Location 'West US'
+			New-AzureRmResourceGroup -Name testrg1 -Location 'West US'
 
 Em seguida, crie sua rede virtual. O exemplo abaixo cria uma rede virtual chamada *VNet1* e duas sub-redes, uma chamada *GatewaySubnet* e outra chamada *Subnet1*. É importante criar uma sub-rede especificamente chamada *GatewaySubnet*. Se você usar outro nome, a configuração de conexão falhará. No exemplo abaixo, nossa sub-rede de gateway está usando a /28. Você pode optar por usar uma sub-rede de gateway tão pequena quanto a /29. Observe que alguns recursos (como Rota Expressa/conexão coexistente site a site) exigem uma sub-rede de gateway maior de /27, de modo que talvez seja conveniente criar sua sub-rede de gateway para acomodar recursos adicionais que possam ser usados no futuro.
 
- 		$subnet = New-AzureVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.0.0/28
-		$subnet1 = New-AzureVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.1.1.0/28'
-		New-AzureVirtualNetwork -Name VNet1 -ResourceGroupName testrg1 -Location 'West US' -AddressPrefix 10.1.0.0/16 -Subnet $subnet, $subnet1
+ 		$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.0.0/28
+		$subnet1 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.1.1.0/28'
+		New-AzureRmVirtualNetwork -Name VNet1 -ResourceGroupName testrg1 -Location 'West US' -AddressPrefix 10.1.0.0/16 -Subnet $subnet, $subnet1
 
 ## 4\. Solicitar um endereço IP público
 
@@ -154,7 +153,7 @@ Em seguida, você solicitará um endereço IP público a ser alocado para o gate
 Use o exemplo abaixo. O Método de Alocação para esse endereço deve ser Dinâmico.
 
 
-		$gwpip= New-AzurePublicIpAddress -Name gwpip1 -ResourceGroupName testrg1 -Location 'West US' -AllocationMethod Dynamic
+		$gwpip= New-AzureRmPublicIpAddress -Name gwpip1 -ResourceGroupName testrg1 -Location 'West US' -AllocationMethod Dynamic
 
 ## 5\. Criar a configuração do gateway
 
@@ -162,21 +161,21 @@ Use o exemplo abaixo. O Método de Alocação para esse endereço deve ser Dinâ
 A configuração do gateway define a sub-rede e o endereço IP público a serem usados. Use o exemplo a seguir para criar a configuração do gateway.
 
 
-		$vnet = Get-AzureVirtualNetwork -Name VNet1 -ResourceGroupName testrg1
-		$subnet = Get-AzureVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
-		$gwipconfig = New-AzureVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id 
+		$vnet = Get-AzureRmVirtualNetwork -Name VNet1 -ResourceGroupName testrg1
+		$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
+		$gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id 
 
 ## 6\. Criar o gateway
 
 
 Nesta etapa, você criará o gateway de rede virtual para sua rede virtual. As configurações de rede virtual com rede virtual exigem um VpnType RouteBased. Criar um gateway pode demorar um pouco, então, seja paciente.
 
-		New-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg1 -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
+		New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg1 -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
 ## 7\. Criar a VNet2
 
 
-Depois de configurar a VNet1, repita as etapas anteriores para definir a VNet2 juntamente com sua configuração de gateway. Depois de concluir a configuração para ambas as VNets e seus respectivos gateways, continue para a **Etapa 8. Conecte os gateways**.
+Depois de configurar a VNet1, repita as etapas anteriores para definir a VNet2 juntamente com sua configuração de gateway. Depois de concluir a configuração para ambas as redes virtuais e seus respectivos gateways, continue para a **Etapa 8. Conecte os gateways**.
 
 ## 8\. Conectar os gateways
 
@@ -186,29 +185,29 @@ Ao criar conexões, observe que elas demoram um pouco para serem concluídas.
 
 **Para VNet1 com VNet2**
     
-    $vnetgw1 = Get-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg1
-    $vnetgw2 = Get-AzureVirtualNetworkGateway -Name vnetgw2 -ResourceGroupName testrg2
+    $vnetgw1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg1
+    $vnetgw2 = Get-AzureRmVirtualNetworkGateway -Name vnetgw2 -ResourceGroupName testrg2
     
-    New-AzureVirtualNetworkGatewayConnection -Name conn1 -ResourceGroupName testrg1 -VirtualNetworkGateway1 $vnetgw1 -VirtualNetworkGateway2 $vnetgw2 -Location 'West US' -ConnectionType Vnet2Vnet -SharedKey 'abc123'
+    New-AzureRmVirtualNetworkGatewayConnection -Name conn1 -ResourceGroupName testrg1 -VirtualNetworkGateway1 $vnetgw1 -VirtualNetworkGateway2 $vnetgw2 -Location 'West US' -ConnectionType Vnet2Vnet -SharedKey 'abc123'
 
 
 **Para VNet2 com VNet1**
     
-    $vnetgw1 = Get-AzureVirtualNetworkGateway -Name vnetgw2 -ResourceGroupName testrg2
-    $vnetgw2 = Get-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg1
+    $vnetgw1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw2 -ResourceGroupName testrg2
+    $vnetgw2 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg1
     
-    New-AzureVirtualNetworkGatewayConnection -Name conn2 -ResourceGroupName testrg2 -VirtualNetworkGateway1 $vnetgw1 -VirtualNetworkGateway2 $vnetgw2 -Location 'Japan East' -ConnectionType Vnet2Vnet -SharedKey 'abc123'
+    New-AzureRmVirtualNetworkGatewayConnection -Name conn2 -ResourceGroupName testrg2 -VirtualNetworkGateway1 $vnetgw1 -VirtualNetworkGateway2 $vnetgw2 -Location 'Japan East' -ConnectionType Vnet2Vnet -SharedKey 'abc123'
     
 
 Depois de alguns minutos, a conexão deve ser estabelecida. Observe que, neste momento, os gateways e conexões criados com o Gerenciador de Recursos do Azure não ficam visíveis no Portal de Visualização.
 
 ## Verificando conexões
 
-Neste momento, as conexões VPN criadas com o Gerenciador de Recursos não podem ser vistas no Portal de Visualização. No entanto, é possível verificar se a conexão foi bem-sucedida usando *Get-AzureVirtualNetworkGatewayConnection –Debug*. No futuro, teremos um cmdlet para isso, bem como a capacidade de exibir sua conexão no Portal de Visualização.
+Neste momento, as conexões VPN criadas com o Gerenciador de Recursos não podem ser vistas no Portal de Visualização. No entanto, é possível verificar se a conexão foi bem-sucedida usando *Get-AzureRmVirtualNetworkGatewayConnection –Debug*. No futuro, teremos um cmdlet para isso, bem como a capacidade de exibir sua conexão no Portal de Visualização.
 
 É possível usar o exemplo de cmdlet a seguir. Lembre-se de alterar os valores de acordo com cada conexão que você deseja verificar. Quando solicitado, selecione *A* para executar Todos.
 
-		Get-AzureVirtualNetworkGatewayConnection -Name vnet2connection -ResourceGroupName vnet2vnetrg -Debug 
+		Get-AzureRmVirtualNetworkGatewayConnection -Name vnet2connection -ResourceGroupName vnet2vnetrg -Debug 
 
  Após o cmdlet ter sido concluído, role pelos valores para exibi-los. No exemplo abaixo, o status da conexão é exibido como *Conectado* e é possível ver os bytes de entrada e saída.
 
@@ -247,21 +246,17 @@ Se já tiver criado redes virtuais no modo do Gerenciador de Recursos do Azure e
 Se precisar adicionar sub-redes de gateway às redes virtuais, use o exemplo abaixo, substituindo os valores pelos seus próprios. Certifique-se de nomear a sub-rede de gateway como 'GatewaySubnet'. Se você usar outro nome, a configuração do VPN não funcionará conforme esperado.
 
 	
-		$vnet = Get-AzureVirtualNetwork -ResourceGroupName testrg -Name testvnet
-		Add-AzureVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
-		Set-AzureVirtualNetwork -VirtualNetwork $vnet
+		$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName testrg -Name testvnet
+		Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
+		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 Depois de verificar se suas sub-redes do gateway estão configuradas corretamente, continue para a **Etapa 4. Solicite um endereço IP público** e siga as etapas.
 
 
 ## Próximas etapas
 
-Você pode adicionar máquinas virtuais às suas redes virtuais. [Criar uma máquina virtual](../virtual-machines/virtual-machines-windows-tutorial.md)
-
-Para saber mais sobre Gateways de VPN, consulte [Perguntas frequentes sobre o Gateway de VPN](vpn-gateway-vpn-faq.md).
-
-Para obter informações da API REST, consulte [Referência de API REST do gateway de rede do Azure](https://msdn.microsoft.com/library/azure/mt163859.aspx).
+Você pode adicionar máquinas virtuais às suas redes virtuais. [Criar uma máquina virtual](../virtual-machines/virtual-machines-windows-tutorial.md).
 
 Para obter mais informações sobre redes virtuais, consulte [Visão geral da rede virtual](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

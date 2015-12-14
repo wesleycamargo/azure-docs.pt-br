@@ -59,7 +59,7 @@ A MV do Linux Ubuntu já vem com o Python 2.7 pré-instalado, mas ela não tem o
 
 1.  Inicie uma nova janela **Terminal**.
     
-1.  Digite o seguinte comando para conectar-se à sua MV do Azure. Se você não criar um FQDN, você pode se conectar usando o endereço IP público exibido no resumo da máquina virtual no portal do Azure.
+1.  Digite o seguinte comando para conectar-se à sua MV do Azure. Se não tiver criado um FQDN, você pode se conectar usando o endereço IP público exibido no resumo da máquina virtual no portal clássico do Azure.
 
 		$ ssh yourusername@yourVmUrl
 
@@ -126,4 +126,4 @@ A MV do Linux Ubuntu já vem com o Python 2.7 pré-instalado, mas ela não tem o
 
 Depois que você concluir este tutorial, desligue e/ou remova sua máquina virtual recém-criada do Azure para liberar recursos para outros tutoriais e evitar a incidência de encargos de uso do Azure.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

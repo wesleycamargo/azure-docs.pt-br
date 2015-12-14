@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Índice do artigo do HDInsight para o portal do Azure | Microsoft Azure"
-   description="Uma página de índice com links para artigos sobre o HDInsight no portal do Azure. A Microsoft recomenda o portal de visualização do Azure para novos clusters Hadoop no HDInsight."
+   pageTitle="Índice de artigos sobre o HDInsight para o Portal Clássico do Azure | Microsoft Azure"
+   description="Uma página de índice com links para artigos sobre o HDInsight no Portal Clássico do Azure. A Microsoft recomenda o Portal do Azure para novos clusters Hadoop no HDInsight."
    services="hdinsight"
    documentationCenter="na"
    authors="cjgronlund"
@@ -16,25 +16,25 @@
    ms.date="08/17/2015"
    ms.author="cjgronlund"/>
 
-# Índice do artigo do HDInsight para o portal do Azure
+# Índice de artigos sobre o HDInsight para o Portal Clássico do Azure
 
-Use esta página de índice para localizar artigos que abordam o HDInsight no [portal do Azure](https://manage.windowsazure.com/). O HDInsight do Azure é uma distribuição de nuvem de Hadoop de código-fonte aberto e Hortonworks Data Platform.
+Use esta página de índice para encontrar artigos que abordam o HDInsight no [Portal Clássico do Azure](https://manage.windowsazure.com/). O HDInsight do Azure é uma distribuição de nuvem de Hadoop de código-fonte aberto e Hortonworks Data Platform.
 
 
-> [AZURE.IMPORTANT]Esta página de índice da documentação é para clientes que já têm soluções implantadas no portal do Azure atual.
+> [AZURE.IMPORTANT]Esta página de índice da documentação destina-se a clientes que já têm soluções implantadas no atual Portal Clássico do Azure.
 >
-> A Microsoft recomenda usar o **portal de visualização do Azure** para novos clusters de HDInsight:
+> A Microsoft recomenda usar o **Portal do Azure** para novos clusters HDInsight:
 >
-> * [Vá para a documentação do portal de visualização do HDInsight](/documentation/services/hdinsight/)
-> * [Vá para o Portal de visualização do Azure](https://portal.azure.com/)
+> * [Vá para a documentação do Portal do HDInsight](/documentation/services/hdinsight/)
+> * [Vá para o Portal do Azure](https://portal.azure.com/)
 >
-> Para obter uma explicação das vantagens do portal de visualização, confira [DevOps ficou muito mais impressionante](/overview/preview-portal/).
+> Para obter uma explicação das vantagens do Portal, confira [DevOps ficou muito mais impressionante](/overview/preview-portal/).
 >
-> O HDInsight no portal do Azure não receberá atualizações depois de julho de 2015 e será substituído pelo portal de visualização do Azure.
+> O HDInsight no Portal Clássico do Azure não receberá atualizações após julho de 2015 e será substituído pelo Portal do Azure.
 
 ## Introdução
 
-Se você não estiver familiarizado com o Hadoop no HDInsight, vá para a [página de documentação do HDInsight](/documentation/services/hdinsight/) para começar a usar o portal de visualização do Azure.
+Se você não estiver familiarizado com o Hadoop no HDInsight, vá para a [página de documentação do HDInsight](/documentation/services/hdinsight/) para começar a usar o Portal do Azure.
 
 ## Linux
 
@@ -81,7 +81,7 @@ Para um conjunto completo de artigos sobre o uso do Linux e dos clusters do Linu
 
 ## Apache Spark
 
-Para obter artigos sobre o uso de clusters nativos do Apache Spark no portal de visualização do Azure, vá para a [página de documentação do HDInsight](/documentation/services/hdinsight/).
+Para ver artigos sobre como usar clusters nativos do Apache Spark no Portal do Azure, vá para a [página de documentação do HDInsight](/documentation/services/hdinsight/).
 
 * [Visão geral: Apache Spark no Azure HDInsight](hdinsight-apache-spark-overview.md)
 * [Instalar e usar o Spark em clusters Hadoop](hdinsight-hadoop-spark-install.md)
@@ -133,4 +133,4 @@ Para obter artigos sobre o uso de clusters nativos do Apache Spark no portal de 
 * [Mensagens de erro detalhadas](hdinsight-debug-jobs.md)
 * [Obtenha ajuda no fórum](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

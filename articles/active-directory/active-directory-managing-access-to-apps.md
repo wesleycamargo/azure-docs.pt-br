@@ -71,4 +71,4 @@ Recursos do AD do Azure que permitem o compartilhamento de contas incluem:
 - [Protegendo aplicativos com acesso condicional](active-directory-conditional-access.md)
 - [Gerenciamento de grupo de autoatendimento/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

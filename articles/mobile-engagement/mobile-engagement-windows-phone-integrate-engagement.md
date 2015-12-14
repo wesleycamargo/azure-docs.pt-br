@@ -69,7 +69,7 @@ Se você quiser especificá-lo em tempo de execução, você pode chamar o méto
 	/* Initialize Engagement agent with above configuration. */
 	EngagementAgent.Instance.Init(engagementConfiguration);
 
-A cadeia de conexão para o seu aplicativo é exibida no Portal de Gerenciamento do Azure.
+A cadeia de conexão do seu aplicativo é exibida no Portal Clássico do Azure.
 
 ### Inicialização do Engagement
 
@@ -247,4 +247,4 @@ O modo de intermitência aumenta ligeiramente a vida útil da bateria, mas tem u
 > [AZURE.WARNING]O limite de intermitência não pode ser configurado para um período menor que um segundo. Se você tentar fazer isso, o SDK mostrará um rastreamento com o erro e será redefinido automaticamente como o valor padrão, que é de, zero segundo. Isso irá disparar o SDK para relatar os logs em tempo real.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

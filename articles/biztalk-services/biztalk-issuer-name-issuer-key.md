@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="12/02/2015" 
 	ms.author="mandia"/>
 
 
@@ -27,7 +27,7 @@ Tarefa | Qual nome e chave do emissor
 --- | ---
 Implantando seu aplicativo do Visual Studio | Nome e chave do emissor do Controle de Acesso
 Configurando o Portal dos Serviços BizTalk do Azure | Nome e chave do emissor do Controle de Acesso
-Criando retransmissões de LOB com os Serviços do Adaptador do BizTalk no Visual Studio | Nome e chave do emissor do Service Bus
+Criando retransmissões de LOB com os Serviços do Adaptador do BizTalk no Visual Studio | Nome e chave do emissor do Barramento de Serviço
 
 Este tópico lista as etapas para recuperar o nome e a chave do emissor.
 
@@ -39,7 +39,7 @@ O nome e a chave do emissor do Controle de Acesso são usados pelo seguinte:
 
 ### Para copiar e colar o Nome e a Chave do emissor do Controle de Acesso
 
-1. Entre no [Portal de Gerenciamento do Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
+1. Entre no [portal clássico do Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. No painel de navegação à esquerda, selecione **Serviços do BizTalk**.
 3. Selecione o Serviço do BizTalk. 
 4. Selecione **Informação de Conexão** na barra de tarefas. O Namespace do Controle de Acesso, o Emissor Padrão (Nome do Emissor) e a Chave Padrão (Chave do Emissor) são listados e podem ser copiados e colados.  
@@ -49,7 +49,7 @@ Resumindo: Nome do Emissor = Emissor Padrão Chave do Emissor = Chave Padrão
 
 Você também pode selecionar **Abrir Portal de Gerenciamento ACS** para recuperar os valores de Controle de Acesso:
 
-1. Entre no [Portal de Gerenciamento do Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
+1. Entre no [portal clássico do Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. No painel de navegação à esquerda, selecione **Serviços do BizTalk**.
 3. Selecione o Serviço do BizTalk.
 4. Selecione o botão Informações de Conexão e selecione **Abrir Portal de Gerenciamento ACS**.
@@ -67,13 +67,11 @@ O nome e a chave do emissor do Barramento de Serviço são usados pelos Serviço
 
 ### Para recuperar o nome e a chave do emissor do Barramento de Serviço
 
-1. Entre no [Portal de Gerenciamento do Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
+1. Entre no [portal clássico do Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. No painel de navegação esquerdo, selecione **Barramento de Serviço**.
 3. Selecione seu namespace. Na barra de tarefas, selecione **Informações da Conexão**. Isso exibe o **Emissor padrão** (Nome do Emissor) e a **Chave Padrão** (Chave do Emissor). Os valores podem ser copiados.  
 
-Resumindo:  
-Nome do Emissor = Emissor Padrão  
-Chave do Emissor = Chave Padrão
+Resumindo: Nome do Emissor = Emissor Padrão Chave do Emissor = Chave Padrão
 
 ## Avançar
 Tópicos adicionais sobre Serviços BizTalk do Azure:
@@ -87,11 +85,11 @@ Tópicos adicionais sobre Serviços BizTalk do Azure:
 ## Consulte também
 -  [Como usar o Serviço de Gerenciamento do ACS para configurar identidades de serviço](http://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
 - [Serviços BizTalk: gráfico das edições Developer, Basic, Standard e Premium](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-- [Serviços BizTalk: provisionamento usando o Portal de Gerenciamento do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+- [Serviços BizTalk: provisionamento usando o portal clássico do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 - [Serviços BizTalk: gráfico do status do provisionamento](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
 - [Serviços BizTalk: guias Painel, Monitor e Escala](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 - [Serviços BizTalk: backup e restauração](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
 - [Serviços BizTalk: limitação](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

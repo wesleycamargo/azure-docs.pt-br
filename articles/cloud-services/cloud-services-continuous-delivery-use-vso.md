@@ -22,8 +22,7 @@ Você pode configurar seus projetos de equipe do Visual Studio Team Services par
 
 Este tutorial pressupõe que você possui o Visual Studio 2013 e o SDK do Azure instalados. Se você ainda não tiver o Visual Studio 2013, baixe-o selecionando o link **Introdução gratuita (a página pode estar em inglês)** em [www.visualstudio.com](http://www.visualstudio.com). Instale o SDK do Azure [aqui](http://go.microsoft.com/fwlink/?LinkId=239540).
 
-> [AZURE.NOTE]Você precisa de uma conta do Visual Studio online para concluir este tutorial:
-> Você pode [abrir uma conta do Visual Studio Online gratuitamente](http://go.microsoft.com/fwlink/p/?LinkId=512979).
+> [AZURE.NOTE]Você precisa de uma conta do Visual Studio Team Services para concluir este tutorial: você pode [abrir uma conta do Visual Studio Team Services gratuitamente](http://go.microsoft.com/fwlink/p/?LinkId=512979).
 
 Para configurar um serviço de nuvem para compilação e implantação automática no Azure usando o Visual Studio Team Services, siga essas etapas.
 
@@ -33,11 +32,7 @@ Siga as instruções contidas [aqui](http://go.microsoft.com/fwlink/?LinkId=5129
 
 ## Etapa 2: fazer check-in em um projeto para o controle do código-fonte
 
-1. No Visual Studio, abra a solução que você deseja implantar ou crie uma nova.
-Você pode implantar um aplicativo Web ou um serviço de nuvem (aplicativo do Azure) seguindo as etapas neste passo a passo.
-Se você desejar criar uma nova solução,crie um novo projeto de Serviço de Nuvem do Azure ou um novo projeto ASP.NET MVC. 
-Verifique se o projeto é direcionado para o .NET Framework 4 ou 4.5 e, se você estiver criando um projeto de serviço de nuvem, adicione uma função web e uma função de trabalho ASP.NET MVC e escolha o aplicativo da Internet para a função web. Quando solicitado, escolha **Aplicativo da Internet**.
-Se você quiser criar um aplicativo Web, escolha o modelo de projeto de Aplicativo Web ASP.NET e escolha MVC. Consulte [Criar um aplicativo web ASP.NET no Serviço de Aplicativo do Azure](../web-sites-dotnet-get-started.md).
+1. No Visual Studio, abra a solução que você deseja implantar ou crie uma nova. Você pode implantar um aplicativo Web ou um serviço de nuvem (aplicativo do Azure) seguindo as etapas neste passo a passo. Se você desejar criar uma nova solução, crie um novo projeto de Serviço de Nuvem do Azure ou um novo projeto ASP.NET MVC. Verifique se o projeto é direcionado para o .NET Framework 4 ou 4.5 e, se você estiver criando um projeto de serviço de nuvem, adicione uma função web e uma função de trabalho ASP.NET MVC e escolha o aplicativo da Internet para a função web. Quando solicitado, escolha **Aplicativo da Internet**. Se você quiser criar um aplicativo Web, escolha o modelo de projeto de Aplicativo Web ASP.NET e escolha MVC. Consulte [Criar um aplicativo web ASP.NET no Serviço de Aplicativo do Azure](../web-sites-dotnet-get-started.md).
 
 	> [AZURE.NOTE]O Visual Studio Team Services só suporta implantações de CI de aplicativos Web do Visual Studio no momento. Projetos de Site estão fora do escopo.
 
@@ -63,7 +58,7 @@ Se você quiser criar um aplicativo Web, escolha o modelo de projeto de Aplicati
 
 ## Etapa 3: conectar o projeto ao Azure
 
-1. Agora que você possui um projeto da equipe do VSTS com algum código-fonte nele, você está pronto para conectar seu projeto da equipe ao Azure. No [Portal de Gerenciamento do Azure](http://manage.windowsazure.com), selecione o serviço de nuvem ou site ou crie um novo selecionando o ícone **+** na parte inferior esquerda e escolhendo **Serviço de Nuvem** ou **Aplicativo Web** e **Criação Rápida**. Escolha o link **Configurar a publicação com o Visual Studio Team Services**.
+1. Agora que você possui um projeto da equipe do VSTS com algum código-fonte nele, você está pronto para conectar seu projeto da equipe ao Azure. No [portal clássico do Azure](http://manage.windowsazure.com), selecione o serviço de nuvem ou site ou crie um novo; para isso, selecione o ícone **+** na parte inferior esquerda e escolha **Serviço de Nuvem** ou **Aplicativo Web**, depois selecione **Criação Rápida**. Escolha o link **Configurar a publicação com o Visual Studio Team Services**.
 
 	![][10]
 
@@ -162,7 +157,7 @@ Se você quiser criar um aplicativo Web, escolha o modelo de projeto de Aplicati
 
 	![][29]
 
-1. No [Portal de Gerenciamento do Azure](http://manage.windowsazure.com), você poderá exibir a implantação associada na guia **Implantações** quando o ambiente de preparo estiver selecionado.
+1. No [portal clássico do Azure](http://manage.windowsazure.com), você poderá exibir a implantação associada na guia **Implantações** quando o ambiente de preparo estiver selecionado.
 
 	![][30]
 
@@ -178,15 +173,15 @@ Se você quiser criar um aplicativo Web, escolha o modelo de projeto de Aplicati
 
 	![][33]
 
-## Etapa 5:reimplantar uma compilação anterior
+## Etapa 5: reimplantar uma compilação anterior
 
-Esta etapa se aplica aos serviços de nuvem e é opcional. No Portal de Gerenciamento do Azure, selecione uma implantação anterior e clique no botão **Reimplantar** para retroceder seu site para um check-in anterior. Observe que isso vai disparar uma nova compilação no TFS e criará uma nova entrada em seu histórico de implantação.
+Esta etapa se aplica aos serviços de nuvem e é opcional. No portal clássico do Azure, selecione uma implantação anterior e clique no botão **Reimplantar** para retroceder seu site para um check-in anterior. Observe que isso vai disparar uma nova compilação no TFS e criará uma nova entrada em seu histórico de implantação.
 
 ![][34]
 
 ## Etapa 6: alterar a implantação de produção
 
-Esta etapa se aplica somente aos serviços de nuvem, não aos aplicativo Web. Quando estiver pronto, você pode promover o ambiente de preparo para o ambiente de produção escolhendo o botão **Permutar** no Portal de Gerenciamento. O ambiente de preparo recém-implantado é promovido para a produção e o ambiente de produção anterior, se houver, torna-se um ambiente de preparo. A implantação Ativa pode ser diferente dos ambientes de preparo e de produção, mas o histórico de implantação de compilações recentes é o mesmo, independentemente do ambiente.
+Esta etapa se aplica somente aos serviços de nuvem, não aos aplicativo Web. Quando estiver pronto, você pode promover o ambiente de preparo para o ambiente de produção escolhendo o botão **Permutar** no portal clássico do Azure. O ambiente de preparo recém-implantado é promovido para a produção e o ambiente de produção anterior, se houver, torna-se um ambiente de preparo. A implantação Ativa pode ser diferente dos ambientes de preparo e de produção, mas o histórico de implantação de compilações recentes é o mesmo, independentemente do ambiente.
 
 ![][35]
 
@@ -322,4 +317,4 @@ Para obter mais informações sobre o teste de unidade no Visual Studio Team Ser
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

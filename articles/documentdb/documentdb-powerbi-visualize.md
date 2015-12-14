@@ -39,7 +39,7 @@ Antes de seguir as instruções neste tutorial do Power BI, certifique-se de ter
 	- A conta de demonstração é populada com os dados do vulcão mostrados neste tutorial. Essa conta de demonstração não está vinculada por nenhum SLA e se destina apenas a fins de demonstração. Reservamos o direito de fazer modificações a essa conta de demonstração, incluindo, entre outros, encerramento da conta, alteração da chave, restrição do acesso, alteração e exclusão dos dados, a qualquer momento, sem aviso prévio ou justificativa. 
 		- URL: https://analytics.documents.azure.com
 		- Chave somente leitura: MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==
-	- Ou, para criar sua própria conta, veja [Criar uma conta de banco de dados do Banco de Dados de Documentos usando o portal de visualização do Azure](https://azure.microsoft.com/documentation/articles/documentdb-create-account/). Em seguida, para obter dados de vulcão de exemplo semelhantes aos que são usados neste tutorial (mas que não contêm os blocos GeoJSON), confira o [site da NOAA](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5) e importe os dados usando a [ferramenta de migração de dados do Banco de Dados de Documentos](https://azure.microsoft.com/documentation/articles/documentdb-import-data/).
+	- Ou então, para criar sua própria conta, veja [Criar uma conta de banco de dados do Banco de Dados de Documentos usando o Portal do Azure](https://azure.microsoft.com/documentation/articles/documentdb-create-account/). Em seguida, para obter dados de vulcão de exemplo semelhantes aos que são usados neste tutorial (mas que não contêm os blocos GeoJSON), confira o [site da NOAA](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5) e importe os dados usando a [ferramenta de migração de dados do Banco de Dados de Documentos](https://azure.microsoft.com/documentation/articles/documentdb-import-data/).
 
 
 Para compartilhar seus relatórios no PowerBI.com, você deve ter uma conta no PowerBI.com. Para saber mais sobre o Power BI Gratuito e o Power BI Pro, visite [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
@@ -86,7 +86,7 @@ Pronto para experimentar? Vamos começar.
 
 	![Obter Dados do Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbigetdata.png)
 
-6. Especifique a URL do ponto de extremidade da conta do Banco de Dados de Documentos da qual você gostaria de recuperar os dados, como mostrado abaixo, e clique em **OK**. Você pode recuperar a URL na caixa de URI na folha **Chaves** do portal de visualização do Azure ou usar as informações da conta de demonstração fornecidas acima. Para obter mais informações, veja [Chaves](documentdb-manage-account.md#keys).
+6. Especifique a URL do ponto de extremidade da conta do Banco de Dados de Documentos da qual você gostaria de recuperar os dados, como mostrado abaixo, e clique em **OK**. Você pode recuperar a URL na caixa de URI na folha **Chaves** do Portal do Azure ou usar as informações da conta de demonstração fornecidas acima. Para obter mais informações, veja [Chaves](documentdb-manage-account.md#keys).
 
 
 	*Observação. Neste tutorial, não especificaremos o nome do Banco de Dados, o nome da Coleção ou uma instrução SQL, já que esses campos são opcionais. Em vez disso, usaremos o Navegador para selecionar o Banco de Dados e a Coleção para identificar a origem dos dados.*
@@ -95,7 +95,7 @@ Pronto para experimentar? Vamos começar.
 
 7. Se estiver se conectando a este ponto de extremidade pela primeira vez, você será solicitado a fornecer a chave de conta. Insira a chave de conta e clique em **Conectar**.
 	
-	*Observação. Recomendamos que você use a chave somente leitura ao criar relatórios. Isso impedirá a exposição desnecessária da chave mestra a possíveis riscos de segurança. A chave somente leitura está disponível na folha Chaves Somente Leitura do portal de visualização do Azure, ou você pode usar as informações da conta de demonstração fornecidas acima.*
+	*Observação. Recomendamos que você use a chave somente leitura ao criar relatórios. Isso impedirá a exposição desnecessária da chave mestra a possíveis riscos de segurança. A chave somente leitura está disponível na folha Chaves Somente Leitura do Portal do Azure, ou você pode usar as informações da conta de demonstração fornecidas acima.*
 
     ![Chave de Conta do Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbidocumentdbkey.png)
 
@@ -194,4 +194,4 @@ Para compartilhar seu relatório, você deve ter uma conta no PowerBI.com.
 - Para saber mais sobre o Power BI, clique [aqui](https://support.powerbi.com/knowledgebase)
 - Para saber mais sobre o Banco de Dados de Documentos, clique [aqui](https://azure.microsoft.com/documentation/services/documentdb/).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

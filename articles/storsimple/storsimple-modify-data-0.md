@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/02/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Modificar as configurações de interface de rede DADOS 0 em seu dispositivo StorSimple
@@ -41,7 +41,7 @@ Você pode reconfigurar as definições de rede de DADOS 0 conectando-se à inte
 
 3. Um assistente de instalação aparecerá para lhe ajudar a configurar a interface dos DADOS 0 do seu dispositivo. Fornece novos valores para o endereço IP, gateway e máscara de rede.
 
-> [AZURE.NOTE]Os IPs de controladores fixos precisarão ser reconfigurados por meio da página **Configurar** do dispositivo StorSimple no Portal de Gerenciamento do Azure. Para obter mais informações, vá para [Modificar interfaces de rede](storsimple-modify-device-config.md#modify-network-interfaces).
+> [AZURE.NOTE]Os IPs de controladores fixos precisarão ser reconfigurados por meio da página **Configurar** do dispositivo StorSimple no Portal clássico do Azure. Para obter mais informações, vá para [Modificar interfaces de rede](storsimple-modify-device-config.md#modify-network-interfaces).
 
 
 ## Modificar as configurações de rede de DADOS 0 por meio do cmdlet Set-HcsNetInterface
@@ -69,6 +69,7 @@ Uma maneira alternativa de reconfigurar a interface de rede DADOS 0 é através 
 
 ## Próximas etapas
 
-Para configurar as interfaces de rede que não sejam DATA 0, você pode usar a [página Configurar no Portal de Gerenciamento](storsimple-modify-device-config.md). Se você tiver problemas ao configurar suas interfaces de rede, consulte [Solucionar problemas de implantação](storsimple-troubleshoot-deployment.md).
+- Para configurar as interfaces de rede que não sejam DATA 0, você pode usar a [página Configurar no Portal clássico do Azure](storsimple-modify-device-config.md). 
+- Se você tiver problemas ao configurar suas interfaces de rede, consulte [Solucionar problemas de implantação](storsimple-troubleshoot-deployment.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

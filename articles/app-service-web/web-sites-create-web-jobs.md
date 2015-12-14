@@ -22,7 +22,7 @@
 
 Você pode executar programas ou scripts em Trabalhos Web em seu aplicativo Web do [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) de três maneiras: sob demanda, continuamente ou em uma agenda. Não há nenhum custo adicional para usar Trabalhos Web.
 
-Este artigo mostra como implantar Trabalhos Web utilizando o [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Para obter informações sobre como implantar utilizando o Visual Studio ou um processo de entrega contínua, consulte [Como implantar Trabalhos Web do Azure em Aplicativos Web](websites-dotnet-deploy-webjobs.md).
+Este artigo mostra como implantar Trabalhos Web utilizando o [Portal do Azure](https://portal.azure.com). Para obter informações sobre como implantar utilizando o Visual Studio ou um processo de entrega contínua, consulte [Como implantar Trabalhos Web do Azure em Aplicativos Web](websites-dotnet-deploy-webjobs.md).
 
 O SDK de Trabalhos Web do Azure simplifica muitas tarefas de programação de Trabalhos Web. Para obter mais informações, consulte [O que é o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk.md).
 
@@ -97,16 +97,16 @@ Outros exemplos de agendamento CRON:
 - Às 9h30 todos os dias: `0 30 9 * * *`
 - Às 9h30 todos os dias de semana: `0 30 9 * * 1-5`
 
-**Observação**: ao implantar um Trabalho Web do Visual Studio, certifique-se de marcar as propriedades do arquivo `settings.job` como “Copiar se mais recente”.
+**Observação**: ao implantar um Trabalho Web do Visual Studio, certifique-se de marcar as propriedades do arquivo `settings.job` como "Copiar se mais recente".
 
 
 ## <a name="CreateScheduled"></a>Criar um Trabalho Web agendado usando o Agendador do Azure
 
 A técnica alternativa a seguir utiliza o Agendador do Azure. Nesse caso, seu Trabalho Web não tem nenhum conhecimento direto do agendamento. Em vez disso, o Agendador do Azure é configurado para disparar o Trabalho Web em um agendamento.
 
-O portal de gerenciamento do Azure ainda não tem a capacidade de criar um Trabalho Web agendado, mas até que esse recurso seja adicionado você pode fazê-lo usando o [portal antigo](http://manage.windowsazure.com).
+O Portal do Azure ainda não tem a capacidade de criar um Trabalho Web agendado, mas até que esse recurso seja adicionado você pode fazê-lo usando o [portal clássico](http://manage.windowsazure.com).
 
-1. No [portal antigo](http://manage.windowsazure.com) vá até a página do Trabalho Web e clique em **Adicionar**.
+1. No [portal clássico](http://manage.windowsazure.com) vá até a página do Trabalho Web e clique em **Adicionar**.
 
 1. Na caixa **Como Executar**, escolha **Executar em uma agenda**.
 	
@@ -152,7 +152,7 @@ O portal de gerenciamento do Azure ainda não tem a capacidade de criar um Traba
 	
 ### <a name="Scheduler"></a>Trabalhos agendados e o Agendador do Azure
 
-Os trabalhos agendados podem ser configurados mais detalhadamente nas páginas do Agendador do Azure do [portal antigo](http://manage.windowsazure.com).
+Os trabalhos agendados podem ser configurados mais detalhadamente nas páginas do Agendador do Azure do [portal clássico](http://manage.windowsazure.com).
 
 1.	Na página Trabalhos Web, clique no link **cronograma** do trabalho para navegar até a página do portal do Agendador do Azure. 
 	
@@ -201,14 +201,14 @@ Os trabalhos agendados podem ser configurados mais detalhadamente nas páginas d
 - Os modos Básico e Padrão oferecem o recurso Sempre Ativo que, quando habilitado, evita que os aplicativos Web fiquem ociosos.
 - Só é possível depurar continuamente os Trabalhos Web em execução. Não há suporte para a depuração Trabalhos Web agendados ou sob demanda.
 
->[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## <a name="NextSteps"></a>Próximas etapas
  
 Para obter mais informações, consulte [Recursos Recomendados para Trabalhos Web do Azure][WebJobsRecommendedResources].
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [PSonWebJobs]: http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx
@@ -239,4 +239,4 @@ Para obter mais informações, consulte [Recursos Recomendados para Trabalhos We
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

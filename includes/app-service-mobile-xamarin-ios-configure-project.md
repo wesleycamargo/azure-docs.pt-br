@@ -20,17 +20,20 @@
 
 1. No Visual Studio, clique com o botão direito do mouse no projeto e clique em **Propriedades**.
 
-3. Nas páginas de propriedades, clique na guia **Aplicativo iOS** e atualize o **Identificador** com a ID que você criou anteriormente.
+2. Nas páginas de propriedades, clique na guia **Aplicativo iOS** e atualize o **Identificador** com a ID que você criou anteriormente.
 
     ![](./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-23.png)
 
-4. Na guia **Assinatura do Pacote iOS**, selecione a **Identidade** e o **Perfil de provisionamento** correspondentes que você acabou de definir para este projeto.
+3. Na guia **Assinatura do Pacote iOS**, selecione a **Identidade** e o **Perfil de provisionamento** correspondentes que você acabou de definir para este projeto.
 
     ![](./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-24.png)
 
     Isso garantirá que o projeto use o novo perfil para a assinatura de código. Para obter a documentação oficial de provisionamento do dispositivo Xamarin, consulte [Provisionamento do dispositivo Xamarin].
 
+4. Clique duas vezes em Info.plist para abri-lo e habilite **RemoteNotifications** em Modos de Segundo Plano.
+
+
 
 [Provisionamento do dispositivo Xamarin]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

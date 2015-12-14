@@ -71,7 +71,7 @@ Veja a seguir as etapas para disparar as instâncias A8 ou A9 do Azure de um clu
 
 6. **Criar um novo serviço de nuvem e uma conta de armazenamento**
 
-    Use o portal do Azure para criar um serviço de nuvem e uma conta de armazenamento para a implantação em uma região em que as instâncias de computação intensiva estejam disponíveis. (Não associe o serviço de nuvem e a conta de armazenamento a um grupo de afinidades existente usado para outras implantações).
+    Use o portal clássico do Azure para criar um serviço de nuvem e uma conta de armazenamento para a implantação em uma região em que as instâncias de computação intensiva estejam disponíveis. (Não associe o serviço de nuvem e a conta de armazenamento a um grupo de afinidades existente usado para outras implantações).
 
 7. **Criar um modelo de nó do Azure**
 
@@ -246,4 +246,4 @@ Veja a seguir as considerações para execução de aplicativos MPI nas instânc
 [pingpong1]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong1.png
 [pingpong2]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong2.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

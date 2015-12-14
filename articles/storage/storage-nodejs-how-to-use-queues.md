@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="11/20/2015" 
+	ms.date="12/01/2015" 
 	ms.author="robmcm"/>
 
 
@@ -66,11 +66,11 @@ Usando o Bloco de Notas ou outro editor de texto, adicione o seguinte à parte s
 
 O módulo do azure lerá as variáveis de ambiente AZURE\_STORAGE\_ACCOUNT e AZURE\_STORAGE\_ACCESS\_KEY, ou AZURE\_STORAGE\_CONNECTION\_STRING para obter as informações necessárias para se conectar à sua conta de armazenamento do Azure. Se essas variáveis de ambiente não estiverem definidas, você deverá especificar as informações da conta ao chamar **createQueueService**.
 
-Para obter um exemplo de como definir variáveis de ambiente no portal de gerenciamento de um Site do Azure, consulte [Aplicativo Node.js na Web com armazenamento].
+Para ver um exemplo de como definir variáveis de ambiente no [portal do Azure](portal.azure.com) para um Site do Azure, veja [Aplicativo Web do Node.js com armazenamento]
 
 ## Como criar uma fila
 
-O código a seguir cria o objeto **QueueService**, permitindo que você trabalhe com filas.
+O código a seguir cria um objeto **QueueService**, permitindo que você trabalhe com filas.
 
     var queueSvc = azure.createQueueService();
 
@@ -309,16 +309,15 @@ Uma vez que a ACL foi definida, você pode criar uma SAS com base na ID de uma p
 
 Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga estes links para saber mais sobre tarefas de armazenamento mais complexas.
 
--   Consulte a referência do MSDN: [Armazenando e acessando dados no Azure][].
 -   Visite o [Blog da equipe do Armazenamento do Azure][].
 -   Visite o repositório [SDK de armazenamento do Azure para nó][] no GitHub.
 
   [SDK de armazenamento do Azure para nó]: https://github.com/Azure/azure-storage-node
   [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-  [Azure Management Portal]: http://manage.windowsazure.com
+  [Azure Portal]: portal.azure.com
   [Criar e implantar um aplicativo Node.js em um site do Azure]: ../web-sites-nodejs-develop-deploy-mac.md
   [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
-  [Aplicativo Node.js na Web com armazenamento]: ../storage-nodejs-use-table-storage-web-site.md
+  [Aplicativo Web do Node.js com armazenamento]: ../storage-nodejs-use-table-storage-web-site.md
 
   
   [Queue1]: ./media/storage-nodejs-how-to-use-queues/queue1.png
@@ -328,9 +327,8 @@ Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga es
   
   
   [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
-  [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Blog da equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
- [Site com o WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
+  [Site com o WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Relatórios do AD do Azure: Introdução"
+   pageTitle="Introdução aos relatórios do Active Directory do Azure | Microsoft Azure"
    description="Lista os diversos relatórios disponíveis nos relatórios do Active Directory do Azure"
    services="active-directory"
    documentationCenter=""
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
+   ms.date="12/01/2015"
    ms.author="curtand;kenhoff"/>
 
-# Introdução aos Relatórios do AD do Azure
+# Introdução aos Relatórios do Active Directory do Azure
 
 ## O que é
 
-O Active Directory do Azure inclui relatórios de auditoria, atividade e segurança para seu diretório. Aqui está uma lista dos relatórios incluídos:
+O Active Directory do Azure (Azure AD) inclui relatórios de auditoria, atividade e segurança para seu diretório. Aqui está uma lista dos relatórios incluídos:
 
 ### Relatórios de segurança
 
@@ -61,7 +61,7 @@ O pipeline de relatórios consiste em três etapas principais. Sempre que um usu
 
 - Primeiro, o usuário é autenticado (com êxito ou não), e o resultado é armazenado nos bancos de dados de serviço do Active Directory do Azure.
 - Em intervalos regulares, todas as entradas recentes são processadas. Neste ponto, nossos algoritmos de atividade anômala e segurança estão procurando atividades suspeitas em todas as entradas recentes.
-- Após o processamento, os relatórios são gravados, armazenados em cache e disponibilizados no Portal de Gerenciamento do Azure.
+- Após o processamento, os relatórios são gravados, armazenados em cache e disponibilizados no portal clássico do Azure.
 
 ### Tempos de geração dos relatórios
 
@@ -78,9 +78,9 @@ Devido ao grande volume de autenticações e entradas processadas pela plataform
 ## Introdução
 
 
-### Entre no Portal de Gerenciamento do Azure
+### Entre no portal clássico do Azure
 
-Primeiro, será necessário entrar no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com) como um administrador global ou de conformidade. Também será necessário ser um administrador ou coadministrador de serviço de assinatura do Azure ou usar a assinatura do Azure "Acesso ao AD do Azure".
+Primeiro, será necessário entrar no [portal clássico do Azure](https://manage.windowsazure.com) como administrador global ou de conformidade. Também será necessário ser um administrador ou coadministrador de serviço de assinatura do Azure ou usar a assinatura do Azure "Acesso ao AD do Azure".
 
 ### Navegue até Relatórios
 
@@ -156,4 +156,4 @@ Envie um email para [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@mic
 
 > [AZURE.TIP]Para obter mais documentação sobre os Relatórios do AD do Azure, consulte [Exibir relatórios de acesso e uso](active-directory-view-access-usage-reports.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

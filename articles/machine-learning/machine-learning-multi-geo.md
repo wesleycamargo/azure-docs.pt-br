@@ -23,7 +23,7 @@ Este artigo descreve como criar um espaço de trabalho e publicar um serviço We
 
 ## Criar um espaço de trabalho
 
-1. Entre no Portal de Gerenciamento do Azure.
+1. Entre no Portal Clássico do Azure.
 
 2.  Clique em **+NOVO** > **SERVIÇOS DE DADOS** > **APRENDIZADO DE MÁQUINA** > **CRIAÇÃO RÁPIDA**. Em **LOCAL**, selecione outra região, como **Sudeste da Ásia**. ![Imagem de Ajuda de várias áreas geográficas 1][1]
 3. Selecione o espaço de trabalho e, em seguida, clique em **Entrar no Estúdio AM**. ![Imagem de Ajuda de várias áreas geográficas 2][2]
@@ -57,4 +57,4 @@ Fazer uma pergunta no [fórum de Aprendizado de Máquina do Azure](https://socia
 [3]: ./media/machine-learning-multi-geo/multi-geo_3.png
 [4a]: ./media/machine-learning-multi-geo/multi-geo_4a.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

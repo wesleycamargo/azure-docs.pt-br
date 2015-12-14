@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Gerenciar a Análise Data Lake do Azure usando o Portal de Visualização do Azure | Azure" 
+   pageTitle="Gerenciar a Análise do Azure Data Lake usando o Portal do Azure | Azure" 
    description="Saiba como gerenciar contas, fontes de dados, usuários e trabalhos da Análise Data Lake." 
    services="data-lake-analytics" 
    documentationCenter="" 
@@ -16,17 +16,17 @@
    ms.date="10/27/2015"
    ms.author="jgao"/>
 
-# Gerenciar a Análise Data Lake do Azure usando o Portal de Visualização do Azure
+# Gerenciar a Análise do Azure Data Lake usando o Portal do Azure
 
 [AZURE.INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Saiba como gerenciar contas, fontes de dados, usuários e trabalhos da Análise Data Lake do Azure usando o Portal de Visualização do Azure. Para ver os tópicos de gerenciamento usando outras ferramentas, clique no seletor de guias acima.
+Saiba como gerenciar contas, fontes de dados, usuários e trabalhos da Análise do Azure Data Lake usando o Portal do Azure. Para ver os tópicos de gerenciamento usando outras ferramentas, clique no seletor de guias acima.
 
 **Pré-requisitos**
 
 Antes de começar este tutorial, você deve ter o seguinte:
 
-- **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pt-BR/pricing/free-trial/).
+- **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 
 
@@ -145,7 +145,7 @@ Quando você cria uma conta da Análise Data Lake, é necessário indicar uma co
 
 <a name="upload-data-to-adls"></a> **Para carregar arquivos na conta do Repositório Data Lake**
 
-1. No portal de visualização, clique em **Procurar** no menu à esquerda e clique em **Repositório Data Lake**.
+1. No Portal, clique em **Procurar** no menu à esquerda e clique em **Repositório do Data Lake**.
 2. Clique na conta do Repositório Data Lake na qual você deseja carregar dados. Para encontrar a conta de armazenamento padrão do Data Lake, clique [aqui](#default-adl-account).
 3. Clique em **Gerenciador de Dados** no menu superior.
 4. Clique em **Novo Diretório** para criar uma nova pasta ou clique no nome de uma pasta para alterar a pasta.
@@ -256,7 +256,7 @@ Consulte [Monitorar trabalhos de Análise Data Lake](#monitor-jobs).
 
 ##Exibir o catálogo do U-SQL
 
-O [catálogo do U-SQL](data-lake-analytics-use-u-sql-catalog.md) é usado para estruturar dados e código de modo que possam ser compartilhados por scripts U-SQL. O catálogo possibilita o melhor desempenho possível com dados no Azure Data Lake. No Portal de Visualização do Azure, você poderá exibir o catálogo de U-SQL.
+O [catálogo do U-SQL](data-lake-analytics-use-u-sql-catalog.md) é usado para estruturar dados e código de modo que possam ser compartilhados por scripts U-SQL. O catálogo possibilita o melhor desempenho possível com dados no Azure Data Lake. No Portal do Azure, você poderá exibir o catálogo do U-SQL.
 
 **Para navegar pelo catálogo de U-SQL**
 
@@ -290,9 +290,9 @@ Uma conta da Análise Data Lake e as contas de armazenamento dependentes devem s
 
 ##Consulte também 
 
-- [Visão geral da Análise Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-- [Introdução à Análise Data Lake usando o Portal de Visualização do Azure](data-lake-analytics-get-started-portal.md)
-- [Gerenciar a Análise Data Lake do Azure usando o Azure PowerShell](data-lake-analytics-use-powershell.md)
-- [Monitorar e solucionar problemas em trabalhos da Análise Data Lake do Azure usando o Portal de Visualização do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Visão geral da Análise do Microsoft Azure Data Lake](data-lake-analytics-overview.md)
+- [Introdução à Análise do Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md)
+- [Gerenciar a Análise Azure Data Lake usando o Azure PowerShell](data-lake-analytics-use-powershell.md)
+- [Monitorar e solucionar problemas em trabalhos da Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

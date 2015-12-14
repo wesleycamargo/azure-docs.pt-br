@@ -39,10 +39,10 @@ Ao provisionar um cluster HDInsight no HDInsight, você especifica uma conta de 
 
 **Para criar uma conta do Armazenamento do Azure**
 
-1. Entre no [Portal do Azure][azure-management-portal].
+1. Entre no [Portal Clássico do Azure][azure-management-portal].
 2. Clique em **NOVO** no canto inferior esquerdo e insira os valores conforme mostrado na imagem.
 
-	![Portal do Azure, no qual você pode usar a Criação rápida para configurar uma nova conta de armazenamento.](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/HDI.StorageAccount.QuickCreate.png "Portal do Azure, no qual você pode usar a Criação rápida para configurar uma nova conta de armazenamento.")
+	![Portal Clássico do Azure, em que você pode usar a Criação Rápida para configurar uma nova conta de armazenamento](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/HDI.StorageAccount.QuickCreate.png "Portal Clássico do Azure, em que você pode usar a Criação Rápida para configurar uma nova conta de armazenamento")
 
 >[AZURE.NOTE]Certifique-se de criar sua conta de armazenamento em um local compatível com o cluster.
 
@@ -57,7 +57,7 @@ Nesta seção, você provisiona um cluster do HDInsight versão 3.2, que é base
 
 **Para provisionar um cluster do Spark**
 
-1. Entre no [Portal do Azure][azure-management-portal]. 
+1. Entre no [Portal Clássico do Azure][azure-management-portal]. 
 
 2. Clique em **NOVO** no canto inferior esquerdo e insira os valores conforme mostrado na imagem.
 
@@ -70,7 +70,7 @@ Depois de ter provisionado um cluster, você pode usar um bloco de anotações Z
 
 >[AZURE.NOTE]O bloco de anotações criado seguindo as instruções abaixo também está disponível por padrão no cluster. Depois que você tiver iniciado o Zeppelin, encontrará esse bloco de anotações com o nome **Tutorial de HVAC do Zeppelin**.
 
-1. No [Portal de Visualização do Azure](https://portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**.   
+1. No [Portal do Azure](https://portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**.   
 
 2. Na folha do cluster Spark, clique em **Links Rápidos** e, na folha do **Painel de Cluster**, clique em **Bloco de Notas Zeppelin**. Se você receber uma solicitação, insira as credenciais de administrador para o cluster.
 
@@ -156,7 +156,7 @@ Nesta seção, você pode usar um bloco de anotações do Jupyter para executar 
 
 >[AZURE.NOTE]O bloco de anotações criado seguindo as instruções abaixo também está disponível por padrão no cluster. Depois que tiver iniciado o Jupyter, você encontrará esse bloco de anotações com o nome **HVACTutorial.ipynb**.
 
-1. No [Portal de Visualização do Azure](https://portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**.   
+1. No [Portal do Azure](https://portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**.   
 
 2. Na folha do cluster Spark, clique em **Links Rápidos** e, na folha do **Painel de Cluster**, clique em **Bloco de Notas Jupyter**. Se você receber uma solicitação, insira as credenciais de administrador para o cluster.
 
@@ -260,4 +260,4 @@ Nesta seção, você pode usar um bloco de anotações do Jupyter para executar 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

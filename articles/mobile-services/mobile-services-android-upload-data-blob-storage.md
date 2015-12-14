@@ -18,6 +18,10 @@
 
 # Carregar imagens no Armazenamento do Azure por meio de um dispositivo Android
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 [AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
 Este tópico mostra como habilitar o aplicativo de Serviços Móveis do Azure no Android para carregar imagens no Armazenamento do Azure.
@@ -39,7 +43,7 @@ Este tutorial também exige os seguintes itens:
 Carregar a imagem da foto é um processo que leva várias etapas:
 
 - Primeiro você tira uma foto e insere uma linha de TodoItem no banco de dados SQL que contém os novos campos de metadados usados pelo Armazenamento do Azure.
-- Um novo script de **inserção** do SQL do serviço móvel solicita uma Assinatura de Acesso Compartilhado (SAS) ao Armazenamento do Azure.
+- Um novo script de **inserção** do SQL do serviço móvel solicita uma SAS (Assinatura de Acesso Compartilhado) ao Armazenamento do Azure.
 - Esse script retorna a SAS e um URI para o blob ao cliente.
 - O cliente carrega a foto usando a SAS e o URI do blob.
 
@@ -48,9 +52,9 @@ O que é uma SAS?
 Não é seguro armazenar as credenciais necessárias para carregar dados no serviço do Armazenamento do Azure no seu aplicativo cliente. Em vez disso, armazene essas credenciais em seu serviço móvel e use-as para gerar uma Assinatura de Acesso Compartilhado (SAS) que concede permissão para carregar uma nova imagem. A SAS, uma credencial com expiração de 5 minutos, será retornada com segurança pelos Serviços Móveis para o aplicativo cliente. O aplicativo usará, então, essa credencial temporária para carregar a imagem. Para obter mais informações, veja [Assinaturas de Acesso Compartilhado, parte 1: entendendo o modelo SAS](storage-dotnet-shared-access-signature-part-1.md)
 
 ## Exemplo de código
-[Aqui](https://github.com/Azure/mobile-services-samples/tree/master/UploadImages) está a parte de código-fonte concluída do cliente desse aplicativo. Para executá-lo, você deve concluir as partes de back-end dos Serviços Móveis deste tutorial.
+[Aqui](https://github.com/Azure/mobile-services-samples/tree/master/UploadImages) está a parte concluída do código-fonte do cliente desse aplicativo. Para executá-lo, você deve concluir as partes de back-end dos Serviços Móveis deste tutorial.
 
-## Atualizar o script de inserção registrados no Portal de Gerenciamento
+## Atualizar o script de inserção registrado no Portal clássico do Azure
 
 [AZURE.INCLUDE [mobile-services-configure-blob-storage](../../includes/mobile-services-configure-blob-storage.md)]
 
@@ -88,7 +92,7 @@ Não é seguro armazenar as credenciais necessárias para carregar dados no serv
 	    <string name="preview_button_text">Take Photo</string>
 	    <string name="upload_button_text">Upload</string>
 
-2. No arquivo **activity\_to\_do.xml** da pasta **res => layout**, adicione este código antes do código existente no botão **Adicionar**.
+2. No arquivo **activity\_to\_do.xml** na pasta **res => layout**, adicione este código antes do código existente para o botão **Adicionar**.
 
          <Button
              android:id="@+id/buttonPreview"
@@ -155,7 +159,7 @@ Não é seguro armazenar as credenciais necessárias para carregar dados no serv
 ### Adicionar um código para carregar o arquivo de foto no armazenamento de blob
 
 
-1. Primeiro, adicione alguns novos campos de metadados ao objeto `ToDoItem` adicionando este código a **ToDoItem.java**.
+1. Primeiro, adicionamos alguns novos campos de metadados ao objeto `ToDoItem` adicionando este código a **ToDoItem.java**.
 
 		/**
 	     *  imageUri - points to location in storage where photo will go
@@ -363,13 +367,13 @@ Esse código envia uma solicitação ao serviço móvel para inserir um novo Tod
 
 1. No Android Studio, pressione **Executar**. Na caixa de diálogo, escolha o dispositivo que será usado.
 
-2. Quando a interface do usuário do aplicativo for exibida, digite o texto na caixa de texto rotulada **Adicionar um item ToDo**.
+2. Quando a interface do usuário do aplicativo for exibida, digite o texto na caixa de texto rotulada **Adicionar um item de Tarefas Pendentes**.
 
 3. Pressione **Tirar Foto**. Quando o aplicativo da câmera for iniciado, tire uma foto. Pressione a marca de seleção para aceitar a foto.
 
 4. Pressione **Carregar**. Vale lembrar que ToDoItem foi adicionado à lista, como de costume.
 
-5. No portal do Microsoft Azure, vá para a sua conta de armazenamento, pressione a guia **Contêineres** e depois o nome do seu contêiner na lista.
+5. No portal clássico do Azure, vá para a sua conta de armazenamento, pressione a guia **Contêineres** e, em seguida, o nome do seu contêiner na lista.
 
 6. Uma lista dos seus arquivos de blob carregados será exibida. Selecione um e pressione **Baixar**.
 
@@ -416,10 +420,10 @@ Agora que você conseguiu carregar as imagens com segurança, integrando seu ser
 [Referência de script de servidor dos Serviços Móveis]: mobile-services-how-to-use-server-scripts.md
 [Introdução aos Serviços Móveis]: mobile-services-javascript-backend-windows-store-dotnet-get-started.md
 
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [How To Create a Storage Account]: ../storage-create-storage-account.md
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
 [Referência conceitual do tutorial do .NET de Serviços Móveis]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

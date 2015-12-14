@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Introdução à autenticação personalizada | Microsoft Azure" 
-	description="Saiba como autenticar usuários com um nome de usuário e senha." 
-	documentationCenter="Mobile" 
-	authors="mattchenderson" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Introdução à autenticação personalizada | Microsoft Azure"
+	description="Saiba como autenticar usuários com um nome de usuário e senha."
+	documentationCenter="Mobile"
+	authors="mattchenderson"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="09/28/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-multiple"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="09/28/2015"
 	ms.author="mahender"/>
 
 # Introdução à autenticação personalizada
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 ## Visão geral
 Este tópico mostra como autenticar usuários no back-end .NET dos Serviços Móveis do Azure emitindo seu próprio token de autenticação dos Serviços Móveis. Neste tutorial, você adiciona autenticação ao projeto de Início rápido usando um nome de usuário e senha personalizados para seu aplicativo.
@@ -35,7 +40,7 @@ Como você está usando autenticação personalizada e não conta com outro prov
 
 2. Adicione a instrução `using` a seguir:
 
-		using Microsoft.WindowsAzure.Mobile.Service;  
+		using Microsoft.WindowsAzure.Mobile.Service;
 
 3. Substitua a definição da classe pelo seguinte código:
 
@@ -45,7 +50,7 @@ Como você está usando autenticação personalizada e não conta com outro prov
 	        public byte[] Salt { get; set; }
 	        public byte[] SaltedAndHashedPassword { get; set; }
 	    }
-    
+
     Isso representa uma linha em uma nova tabela Conta, que contém o nome de usuário, valor de sal do usuário, e a senha armazenada com segurança.
 
 2. Na pasta **Modelos** você encontrará uma classe **DbContext**, que leva o nome do seu serviço móvel. Abra seu contexto e adicione a tabela de contas em seu modelo de dados, incluindo o seguinte:
@@ -53,7 +58,7 @@ Como você está usando autenticação personalizada e não conta com outro prov
         public DbSet<Account> Accounts { get; set; }
 
 	>[AZURE.NOTE]Os trechos de código neste tutorial usam `todoContext` como nome de contexto. Você deve atualizar os trechos de código para o contexto do projeto. &nbsp; Em seguida, você configurará as funções de segurança para trabalhar com esses dados.
- 
+
 5. Crie uma classe chamada `CustomLoginProviderUtils` e adicione a seguinte instrução `using`:
 
 		using System.Security.Cryptography;
@@ -113,14 +118,14 @@ Nesse ponto, você tem todo o necessário para começar a criar contas do usuár
 		using <my_project_namespace>.Models;
 
 	No código acima, substitua o espaço reservado com o namespace do seu projeto.
- 
+
 4. Substitua a definição da classe pelo seguinte código:
 
 	    [AuthorizeLevel(AuthorizationLevel.Anonymous)]
 	    public class CustomRegistrationController : ApiController
 	    {
 	        public ApiServices Services { get; set; }
-	
+
 	        // POST api/CustomRegistration
 	        public HttpResponseMessage Post(RegistrationRequest registrationRequest)
 	        {
@@ -132,7 +137,7 @@ Nesse ponto, você tem todo o necessário para começar a criar contas do usuár
 	            {
 	                return this.Request.CreateResponse(HttpStatusCode.BadRequest, "Invalid password (at least 8 chars required)");
 	            }
-	
+
 	            todoContext context = new todoContext();
 	            Account account = context.Accounts.Where(a => a.Username == registrationRequest.username).SingleOrDefault();
 	            if (account != null)
@@ -154,7 +159,7 @@ Nesse ponto, você tem todo o necessário para começar a criar contas do usuár
 	                return this.Request.CreateResponse(HttpStatusCode.Created);
 	            }
 	        }
-	    }   
+	    }
 
     Lembre-se de substituir a variável *todoContext* com o nome de **DbContext** do seu projeto. Observe que este controlador usa o seguinte atributo para permitir tráfego para este ponto de extremidade:
 
@@ -164,7 +169,7 @@ Nesse ponto, você tem todo o necessário para começar a criar contas do usuár
 
 ## Criar o LoginProvider
 
-Uma das construções fundamentais no pipeline de autenticação dos Serviços Móveis é o **LoginProvider**. Nesta seção, você criará seu próprio `CustomLoginProvider`. Ele não será conectado ao pipeline como os provedores integrados, mas fornecerá a você uma funcionalidade conveniente. Se você usar o visual studio 2013, talvez precise instalar o `WindowsAzure.MobileServices.Backend.Security`pacote nuget para adicionar referências à `LoginProvider`classe.
+Uma das construções fundamentais no pipeline de autenticação dos Serviços Móveis é o **LoginProvider**. Nesta seção, você criará seu próprio `CustomLoginProvider`. Ele não será conectado ao pipeline como os provedores integrados, mas fornecerá a você uma funcionalidade conveniente. Se você usar o Visual Studio 2013, talvez precise instalar o pacote NuGet do `WindowsAzure.MobileServices.Backend.Security` para adicionar referências à classe `LoginProvider`.
 
 1. Crie uma nova classe, `CustomLoginProvider`, que é derivada de **LoginProvider**, e adicione as seguintes instruções `using`:
 
@@ -173,7 +178,7 @@ Uma das construções fundamentais no pipeline de autenticação dos Serviços M
 		using Newtonsoft.Json.Linq;
 		using Owin;
 		using System.Security.Claims;
- 
+
 3. substitua a definição da classe **CustomLoginProvider** pelo seguinte código:
 
         public class CustomLoginProvider : LoginProvider
@@ -250,12 +255,12 @@ Uma das construções fundamentais no pipeline de autenticação dos Serviços M
         }
 
 	Este método converte um [ClaimsIdentity] em um objeto [ProviderCredentials] que é usado na fase de emissão do token de autenticação. Novamente, você pode desejar capturar declarações adicionais neste método.
-	
+
 6. Abra o arquivo de projeto WebApiConfig.cs na pasta App\_Start e a seguinte linha de código após a **ConfigOptions** é criada:
-		
+
 		options.LoginProviders.Add(typeof(CustomLoginProvider));
 
-	
+
 
 ## Criar o ponto de extremidade de entrada
 
@@ -277,7 +282,7 @@ Em seguida, você pode criar um ponto de extremidade de entrada para os seus usu
 	    {
 	        public string UserId { get; set; }
 	        public string MobileServiceAuthenticationToken { get; set; }
-	
+
 	    }
 
 	Esta classe representa um logon com êxito com a ID de usuário e o token de autenticação. Observe que esta classe tem a mesma forma que a classe MobileServiceUser no cliente, o que facilita a distribuir resposta de logon em um cliente com linguagem de tipagem forte.
@@ -290,13 +295,13 @@ Em seguida, você pode criar um ponto de extremidade de entrada para os seus usu
 		using <my_project_namespace>.Models;
 
 3. Substitua a definição da classe **CustomLoginController** pelo seguinte código:
- 
+
 	    [AuthorizeLevel(AuthorizationLevel.Anonymous)]
 	    public class CustomLoginController : ApiController
 	    {
 	        public ApiServices Services { get; set; }
 	        public IServiceTokenHandler handler { get; set; }
-	
+
 	        // POST api/CustomLogin
 	        public HttpResponseMessage Post(LoginRequest loginRequest)
 	        {
@@ -307,7 +312,7 @@ Em seguida, você pode criar um ponto de extremidade de entrada para os seus usu
 	            {
 	                byte[] incoming = CustomLoginProviderUtils
 	                    .hash(loginRequest.password, account.Salt);
-	
+
 	                if (CustomLoginProviderUtils.slowEquals(incoming, account.SaltedAndHashedPassword))
 	                {
 	                    ClaimsIdentity claimsIdentity = new ClaimsIdentity();
@@ -342,7 +347,7 @@ Em seguida, você pode criar um ponto de extremidade de entrada para os seus usu
 
 No seu aplicativo cliente, será necessário desenvolver uma tela de entrada personalizada que obtenha os nomes de usuário e senhas e os envie a uma carga JSON para seus pontos de extremidade de registro e entrada. Para concluir este tutorial, será necessário apenas usar o cliente de teste integrado para o back-end .NET dos Serviços Móveis.
 
-1. No Visual Studio, clique com o botão direito no projeto do serviço móvel e, em seguida, clique em **Depurar** e em **Iniciar Nova Instância**.  
+1. No Visual Studio, clique com o botão direito no projeto do serviço móvel e, em seguida, clique em **Depurar** e em **Iniciar Nova Instância**.
 
 	Isso inicia uma nova instância de depuração do projeto de back-end do serviço móvel. Após o serviço ser iniciado com êxito, você verá uma página inicial afirmando que **Este serviço móvel está em execução**.
 
@@ -389,13 +394,13 @@ Esta seção descreve as etapas necessárias para acessar os pontos de extremida
 2. Use método **invokeApi** apropriado no **MobileServiceClient** na biblioteca de cliente para chamar o ponto de extremidade **CustomRegistration**, passando o nome de usuário fornecido pelo tempo de execução e a senha no corpo da mensagem.
 
 	Só é necessário chamar o ponto de extremidade **CustomRegistration** uma vez para criar uma conta para um determinado usuário, desde que você mantenha as informações de logon do usuário na tabela Contas. Para obter exemplos de como chamar uma API personalizada em várias plataformas de cliente com suporte, consulte o artigo [API Personalizada nos Serviços Móveis do Azure – SDKs cliente](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).
-	 
-	> [AZURE.IMPORTANT]Como esta etapa de provisionamento de usuário ocorre apenas uma vez, você deve considerar criar a conta de usuário usando um método diferente. Em um ponto de extremidade de registro público, você também deve considerar implementar um processo de verificação baseado em email ou SMS ou alguma outra proteção para evitar a geração de contas fraudulentas. Você pode usar o Twilio para enviar mensagens SMS a partir dos Serviços Móveis. Você também pode usar o SendGrid para enviar emails a partir do Mobile Services. Para saber mais sobre como usar o SendGrid, consulte [Enviar email a partir dos Serviços Móveis com o SendGrid](store-sendgrid-mobile-services-send-email-scripts.md).
-	
+
+	> [AZURE.IMPORTANT]Como esta etapa de provisionamento de usuário ocorre apenas uma vez, você deve considerar criar a conta de usuário usando um método diferente. Em um ponto de extremidade de registro público, você também deve considerar implementar um processo de verificação baseado em email ou SMS ou alguma outra proteção para evitar a geração de contas fraudulentas. Você pode usar o Twilio para enviar mensagens SMS a partir dos Serviços Móveis. Você também pode usar o SendGrid para enviar emails a partir do Mobile Services. Para obter mais informações sobre como usar o SendGrid, veja [Enviar email dos Serviços Móveis com o SendGrid](store-sendgrid-mobile-services-send-email-scripts.md).
+
 3. Use método **invokeApi** apropriado novamente, desta vez para chamar o ponto de extremidade **CustomRegistration**, passando o nome de usuário fornecido pelo tempo de execução e a senha no corpo da mensagem.
 
 	Desta vez, você deve capturar os valores *userId* e *authenticationToken* retornados no objeto de resposta após um logon bem-sucedido.
-	
+
 4. Use os valores *userId* e *authenticationToken* retornados para criar um novo objeto **MobileServiceUser** e defina-o como o usuário atual da sua instância de **MobileServiceClient**, conforme mostrado no tópico [Adicionar autenticação a um aplicativo existente](mobile-services-dotnet-backend-ios-get-started-users.md). Como o resultado de CustomLogin tem a mesma forma que o objeto **MobileServiceUser**, você deve ser capaz de fazer uma conversão direta do resultado.
 
 Assim, concluímos este tutorial.
@@ -418,6 +423,5 @@ Assim, concluímos este tutorial.
 
 [ClaimsIdentity]: https://msdn.microsoft.com/library/system.security.claims.claimsidentity(v=vs.110).aspx
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

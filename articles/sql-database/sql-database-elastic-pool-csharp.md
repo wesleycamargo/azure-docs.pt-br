@@ -14,13 +14,13 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management"
-    ms.date="11/06/2015"
+    ms.date="12/01/2015"
     ms.author="sstein"/>
 
 # C&#x23; desenvolvimento de banco de dados: criar e configurar um pool de banco de dados elástico para o banco de dados SQL
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-elastic-pool-portal.md)
+- [Azure portal](sql-database-elastic-pool-portal.md)
 - [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
@@ -56,7 +56,7 @@ Antes de começar o desenvolvimento do SQL em C#, você deve concluir algumas ta
 
 As [APIs REST do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx) usam o Active Directory do Azure para autenticação, em vez de certificados usados por APIs REST do Gerenciamento de Serviço do Azure anteriores.
 
-Para autenticar seu aplicativo cliente com base no usuário atual, primeiro você precisa registrar seu aplicativo no domínio AAD associado à assinatura sob a qual os recursos do Azure foram criados. Se sua assinatura do Azure tiver sido criada com uma conta da Microsoft em vez de uma conta de trabalho ou escolar, você já terá um domínio AAD padrão. O registro do aplicativo pode ser feito no [portal de gerenciamento](https://manage.windowsazure.com/).
+Para autenticar seu aplicativo cliente com base no usuário atual, primeiro você precisa registrar seu aplicativo no domínio AAD associado à assinatura sob a qual os recursos do Azure foram criados. Se sua assinatura do Azure tiver sido criada com uma conta da Microsoft em vez de uma conta de trabalho ou escolar, você já terá um domínio AAD padrão. O registro do aplicativo pode ser feito no [portal clássico](https://manage.windowsazure.com/).
 
 Para criar um novo aplicativo e registrá-lo no active directory correto, faça o seguinte:
 
@@ -106,7 +106,7 @@ Para criar um novo aplicativo e registrá-lo no active directory correto, faça 
 
 O nome de domínio é necessário para seu código. Uma maneira fácil de identificar o nome de domínio adequado é:
 
-1. Vá para o [Portal de visualização do Azure](https://portal.azure.com).
+1. Vá para o [Portal do Azure](https://portal.azure.com).
 2. Passe o mouse sobre o nome no canto superior direito e observe o Domínio que aparece na janela pop-up. Substitua **domain.onmicrosoft.com** no trecho de código abaixo pelo valor da sua conta.
 
     ![Identificar nome de domínio][3]
@@ -585,4 +585,4 @@ O exemplo a seguir descreve todos os bancos de dados em um pool:
 [8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
 [9]: ./media/sql-database-elastic-pool-csharp/clientid.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

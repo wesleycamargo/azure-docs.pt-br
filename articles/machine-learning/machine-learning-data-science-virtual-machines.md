@@ -37,7 +37,7 @@ São fornecidas instruções que descrevem como configurar uma VM do Azure e uma
 Uma vez provisionadas e configuradas, essas máquinas virtuais estão prontas para serem usadas como servidores IPython Notebook para a exploração e o processamento de dados e outras tarefas necessárias, juntamente com o Aprendizado de Máquina do Azure e o CAP (Processo do Cortana Analytics). As próximas etapas no processo de ciência de dados estão mapeados no [Roteiro de aprendizagem do CAP](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) e podem incluir etapas que movem dados para o SQL Server ou HDInsight, processam esses dados e criam amostras deles como preparação para o aprendizado com os dados no Aprendizado de Máquina do Azure.
 
 
-> [AZURE.NOTE]A cobrança das máquinas virtuais do Azure ocorre na forma **pague somente pelo que usa**. Para garantir que você não esteja sendo cobrado quando não estiver usando sua máquina virtual, ela deverá estar no estado **Parado (Desalocado)** do [Portal de Gerenciamento do Azure](http://manage.windowsazure.com/). Para obter instruções passo a passo ou como desalocar a sua máquina virtual, consulte [Desligar e desalocar máquina virtual quando não estiver em uso](machine-learning-data-science-setup-virtual-machine.md#shutdown)
+> [AZURE.NOTE]A cobrança das máquinas virtuais do Azure ocorre na forma **pague somente pelo que usa**. Para garantir que você não está sendo cobrado quando não estiver usando sua máquina virtual, ela deverá estar no estado **Parado (Desalocado)** do [Portal Clássico do Azure](http://manage.windowsazure.com/). Para obter instruções passo a passo ou como desalocar a sua máquina virtual, consulte [Desligar e desalocar máquina virtual quando não estiver em uso](machine-learning-data-science-setup-virtual-machine.md#shutdown)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

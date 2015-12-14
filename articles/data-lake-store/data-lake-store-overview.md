@@ -20,7 +20,7 @@
 
 O Repositório Azure Data Lake é um repositório em hiper-escala corporativo para cargas de trabalho de análise de big data. O Azure Data Lake permite que você capture dados de qualquer tamanho, tipo e velocidade de ingestão em um único lugar para análises operacionais e exploratórias.
 
-> [AZURE.TIP]Use o [Roteiro de aprendizagem do Repositório Data Lake](https://azure.microsoft.com/pt-BR/documentation/learning-paths/data-lake-store-self-guided-training/) para começar a explorar o serviço Repositório Azure Data Lake.
+> [AZURE.TIP]Use o [Roteiro de aprendizagem do Repositório do Data Lake](https://azure.microsoft.com/documentation/learning-paths/data-lake-store-self-guided-training/) para começar a explorar o serviço Repositório do Azure Data Lake.
 
 O Repositório Azure Data Lake pode ser acessado no Hadoop (disponível com o cluster HDInsight) usando as APIs REST compatíveis com WebHDFS. Ele foi especificamente desenvolvido para permitir a análise dos dados armazenados e está ajustado para trabalhar em cenários de análise de dados. Ele já inclui todos os recursos corporativos — segurança, capacidade de gerenciamento, escalabilidade, confiabilidade e disponibilidade — essenciais para casos de uso reais.
 
@@ -79,11 +79,11 @@ Você pode acessar seus dados no Repositório Data Lake usando `adl://<data_lake
 
 ## Como posso começar a usar o Repositório Azure Data Lake?
 
-Consulte [Introdução ao Repositório Data Lake usando o Portal de Visualização do Azure](data-lake-store-get-started-portal.md), com informações sobre como provisionar um Repositório Data Lake usando o Portal de Visualização do Azure. Depois de provisionar o Azure Data Lake, você aprenderá a usar ofertas de big data, como a Análise do Azure Data Lake ou o Azure HDInsight com o Repositório Data Lake. Você também pode criar um aplicativo .NET a fim de criar uma conta do Repositório Azure Data Lake e executar operações como carregar dados, baixar dados etc.
+Veja [Introdução ao Repositório do Data Lake usando o Portal do Azure](data-lake-store-get-started-portal.md), para obter informações sobre como provisionar um Repositório do Data Lake usando o Portal do Azure. Depois de provisionar o Azure Data Lake, você aprenderá a usar ofertas de big data, como a Análise do Azure Data Lake ou o Azure HDInsight com o Repositório Data Lake. Você também pode criar um aplicativo .NET a fim de criar uma conta do Repositório Azure Data Lake e executar operações como carregar dados, baixar dados etc.
 
 - [Introdução à Análise Data Lake do Azure](data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Introdução ao Repositório Azure Data Lake usando o SDK do .NET](data-lake-store-get-started-net-sdk.md)
   
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

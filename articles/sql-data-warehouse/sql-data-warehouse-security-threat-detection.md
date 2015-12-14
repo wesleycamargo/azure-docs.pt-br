@@ -30,7 +30,7 @@ Por exemplo, a Detecção de Ameaças detecta determinadas atividades anormais d
 
 ## Configurar a detecção de ameaças para seu banco de dados
 
-1. Inicialize o portal de Visualização do Azure em [https://portal.azure.com](https://portal.azure.com).
+1. Inicie o Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 2. Navegue até a folha de configuração do SQL Data Warehouse que você deseja monitorar. Na folha Configurações, selecione **Auditoria e Detecção de Ameaças**.
 
@@ -55,7 +55,7 @@ Por exemplo, a Detecção de Ameaças detecta determinadas atividades anormais d
 
 	![Painel de navegação][4]
 
-2. No email, clique no link **Log de Auditoria do SQL do Azure**, que iniciará o portal do Azure e mostrará os registros de Auditoria relevantes na época do evento suspeito.
+2. No email, clique no link **Log de Auditoria do SQL do Azure**, que iniciará o portal clássico do Azure e mostrará os registros de Auditoria relevantes na época do evento suspeito.
 
 	![Painel de navegação][5]
 
@@ -89,4 +89,4 @@ Por exemplo, a Detecção de Ameaças detecta determinadas atividades anormais d
 [8]: ./media/sql-data-warehouse-security-threat-detection/8_td_excel_fast_combine.png
 [9]: ./media/sql-data-warehouse-security-threat-detection/9_td_excel_parameters.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

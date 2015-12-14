@@ -3,7 +3,7 @@
 	description="Este tópico lista os locais POP da CDN (Rede de Distribuição de Conteúdo) do Azure" 
 	services="cdn" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="camsoper" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -11,10 +11,10 @@
 	ms.service="cdn" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="juliako"/>
+	ms.date="12/02/2015" 
+	ms.author="casoper"/>
 
 
 #Locais POP da CDN (Rede de Distribuição de Conteúdo) do Azure
@@ -25,7 +25,7 @@ Este tópico lista os locais atuais de POP (ponto de presença) da CDN do Micros
 ![Locais POP da CDN](./media/cdn-pop-locations/CDN_POP_locations_update.png)
 
 
-##Estados Unidos
+##América do Norte
 
 - Atlanta
 - Chicago
@@ -39,6 +39,10 @@ Este tópico lista os locais atuais de POP (ponto de presença) da CDN do Micros
 - Washington, D.C.
 - Boston
 
+##América do Sul
+
+- São Paulo
+- Quito
 
 ##Europa
 
@@ -64,11 +68,14 @@ Este tópico lista os locais atuais de POP (ponto de presença) da CDN do Micros
 - Seul
 - Cingapura
 - Tóquio
-
+- Bangalore
+- Chennai
+- Délhi
+- Mumbai
 
 ##Austrália
 
 - Melbourne
 - Sydney 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

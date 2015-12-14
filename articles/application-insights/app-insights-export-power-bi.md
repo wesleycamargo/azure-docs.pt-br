@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Usar o Stream Analytics para alimentar o Power BI por meio do Application Insights
@@ -40,6 +40,9 @@ Noam Ben Zeev mostra o que descrevemos neste artigo.
 
 > [AZURE.VIDEO export-to-power-bi-from-application-insights]
 
+
+**Amostragem.** Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Application Insights para o ASP.NET versão 2.0.0-beta3 ou posterior, o recurso de amostragem adaptável poderá operar e enviar apenas uma porcentagem de sua telemetria. [Saiba mais sobre amostragem.](app-insights-sampling.md)
+
 ## Monitorar seu aplicativo com o Application Insights
 
 Se você nunca experimentou, agora é o momento para começar. O Application Insights pode monitorar qualquer aplicativo Web ou dispositivo em uma grande variedade de plataformas, incluindo Windows, iOS, Android, J2EE e muito mais. [Introdução](app-insights-overview.md).
@@ -48,7 +51,7 @@ Se você nunca experimentou, agora é o momento para começar. O Application Ins
 
 Exportação contínua sempre gera dados para uma conta de armazenamento do Azure, por isso você precisa primeiro criar o armazenamento.
 
-1. Crie uma conta de armazenamento “clássica” na sua assinatura do [Portal do Azure](https://portal.azure.com).
+1. Crie uma conta de armazenamento "clássica" na sua assinatura do [Portal do Azure](https://portal.azure.com).
 
     ![No portal do Azure, escolha Novo, Dados e Armazenamento](./media/app-insights-export-power-bi/030.png)
 
@@ -266,4 +269,4 @@ Noam Ben Zeev mostra como exportar para o Power BI.
 * [Application Insights](app-insights-overview.md)
 * [Mais exemplos e explicações passo a passo](app-insights-code-samples.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

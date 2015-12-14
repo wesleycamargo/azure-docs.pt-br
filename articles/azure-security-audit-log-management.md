@@ -3,7 +3,7 @@
    description="O artigo oferece uma introdução à geração, coleta e análise de logs de segurança de serviços hospedados no Azure. Destina-se a profissionais de TI e a analistas de segurança que lidam diariamente com o gerenciamento de ativos de informação, incluindo as pessoas responsáveis por iniciativas de segurança e de conformidade da organização."
    services="virtual-machines, cloud-services, storage"
    documentationCenter="na"
-   authors="TerryLanfear"
+   authors="nayak-mahesh"
    manager="msStevenPo"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/13/2015"
+   ms.date="11/30/2015"
    ms.author="mnayak;tomsh;terrylan"/>
 
 # Gerenciamento de log de segurança e de auditoria do Microsoft Azure
@@ -614,4 +614,4 @@ Os recursos a seguir fornecem informações gerais sobre o Microsoft Azure e ser
 [19]: ./media/azure-security-audit-log-management/sec-view-blob-container.png
 [20]: ./media/azure-security-audit-log-management/sec-hdinsight-analysis.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

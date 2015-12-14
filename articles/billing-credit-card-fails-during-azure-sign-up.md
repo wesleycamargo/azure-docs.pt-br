@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="11/25/2015"
-	ms.author="rgarodia, azuresbcic"/>
+	ms.author="rgarodia"/>
 
 # Meu cartão de crédito não é aprovado ao tentar me inscrever no Azure
 Este artigo discute as causas comuns de problemas de inscrição usando um cartão de crédito ou de débito.
@@ -64,4 +64,4 @@ Se a ativação da avaliação gratuita falhar por você já ter ativado uma ass
 ## Entre em contato com o Suporte do Azure
 Se você continuar enfrentando problemas de inscrição após executar essas etapas de solução de problemas, entre em contato com o [Suporte do Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

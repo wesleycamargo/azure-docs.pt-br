@@ -205,7 +205,7 @@ Não. Um endereço MAC não pode ser configurado estaticamente.
 
 ### O endereço MAC permanecerá o mesmo para minha VM depois de criado?
 
-Não. O endereço MAC da VM pode mudar por diferentes motivos. Se a VM for colocada no status Parada (Desalocada), se você alterar o tamanho da VM, ou se houver recuperação de serviço ou manutenção planejada do servidor host, o endereço MAC não será mantido.
+Não, mas só será alterado se a VM for colocada no status Parado (Desalocado). Se você alterar o tamanho da VM, reinicializar ou, no caso da recuperação de serviço ou manutenção planejada do servidor host, o endereço MAC será retido.
 
 ### Posso me conectar à internet de uma VM em uma rede virtual?
 
@@ -222,7 +222,7 @@ Você só pode usar serviços de computação em redes virtuais. Os serviços de
 Sim. Você pode implantar Aplicativos Web em uma Rede Virtual usando o ASE (Ambiente do Serviço de Aplicativo). Além disso, os Aplicativos Web poderão se conectar e acessar os recursos na Rede Virtual do Azure se você tiver configurado o ponto a site para a sua Rede Virtual. Para saber mais, confira o seguinte:
 
 
-- [Criando Aplicativos Web em um Ambiente do Serviço de Aplicativo](https://azure.microsoft.com/pt-BR/documentation/articles/app-service-web-how-to-create-a-web-app-in-an-ase/)
+- [Criando Aplicativos Web em um Ambiente do Serviço de Aplicativo](app-service-web-how-to-create-a-web-app-in-an-ase.md)
 
 - [Integração da rede virtual de Aplicativos Web](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
 
@@ -266,4 +266,4 @@ Sim. Você pode usar APIs REST para gerenciar redes virtuais e conectividade ent
 
 Sim. Você pode usar ferramentas de linha de comando e o PowerShell para uma variedade de plataformas. Mais informações podem ser encontradas [aqui](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

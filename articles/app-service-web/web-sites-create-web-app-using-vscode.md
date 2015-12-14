@@ -139,13 +139,13 @@ Agora que criou o aplicativo Web e recuperou todos os pacotes do NuGet para o ap
 
 3. Feche o navegador. Na Janela Comando, pressione **Ctrl + C** para encerrar o aplicativo ou feche a Janela Comando.
 
-## Criar um aplicativo Web no portal de visualização do Azure
+## Criar um aplicativo Web no Portal do Azure
 
-As etapas a seguir o guiarão ao longo da criação de um aplicativo Web no portal de visualização do Azure.
+As etapas a seguir o guiarão ao longo da criação de um aplicativo Web no Portal do Azure.
 
-1. Faça logon no [Portal de Visualização do Azure](https://portal.azure.com).
+1. Faça logon no [Portal do Azure](https://portal.azure.com).
 
-2. Clique em **NOVO** na parte superior esquerda do portal.
+2. Clique em **NOVO** na parte superior esquerda do Portal.
 
 3. Clique em **Aplicativos Web > Aplicativo Web**.
 
@@ -165,7 +165,7 @@ As etapas a seguir o guiarão ao longo da criação de um aplicativo Web no port
 
 O Git é um sistema de controle de versão distribuído que você pode usar para implantar seu aplicativo Web do Serviço de Aplicativo do Azure. Você armazenará o código que você escreve para seu aplicativo Web em um repositório Git local e você implantará seu código no Azure enviando-o por push para um repositório remoto.
 
-1. Entre no [portal de visualização do Azure](https://portal.azure.com).
+1. Faça logon no [Portal do Azure](https://portal.azure.com).
 
 2. Clique em **Procurar**.
 
@@ -258,7 +258,7 @@ Isso pode ser feito de duas maneiras:
 
 		http://SampleWebAppDemo.azurewebsites.net
  
-* No portal de visualização do Azure, localize a folha de seu aplicativo Web e clique em **Procurar** para exibir seu aplicativo
+* No Portal do Azure, localize a folha de seu aplicativo Web e clique em **Procurar** para exibir seu aplicativo
 * no navegador padrão.
 
 ![Aplicativo Web do Azure](./media/web-sites-create-web-app-using-vscode/21-azurewebapp.png)
@@ -266,4 +266,4 @@ Isso pode ser feito de duas maneiras:
 ## Resumo
 Neste tutorial, você aprendeu a criar um aplicativo Web no código do VS e implantá-lo no Azure. Para obter mais informações sobre o Código do VS, confira o artigo [Por que o Código do Visual Studio?](https://code.visualstudio.com/Docs/) Para obter informações sobre os aplicativos Web do Serviço de Aplicativo, consulte [Visão geral de aplicativos Web](app-service-web-overview.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

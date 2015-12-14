@@ -1,6 +1,6 @@
 <properties
  pageTitle="Criar um nó principal do Pacote HPC em uma VM do Azure | Microsoft Azure"
- description="Saiba como usar o portal do Azure e o modelo clássico de implantação para criar um nó principal do Pacote HPC da Microsoft em uma VM do Azure."
+ description="Saiba como usar o portal clássico do Azure e o modelo clássico de implantação para criar um nó principal do Pacote HPC da Microsoft em uma VM do Azure."
  services="virtual-machines"
  documentationCenter=""
  authors="dlepow"
@@ -42,7 +42,7 @@ Para uma implantação de produção de um cluster de Pacote HPC no Azure, é re
 A seguir estão as etapas de nível superior para criar uma VM do Azure para o nó principal do Pacote HPC. Você pode usar uma variedade de ferramentas do Azure para realizar essas etapas no modelo de implantação clássico (Gerenciamento de Serviço) do Azure.
 
 
-1. Se você planeja criar uma VNet para a VM do nó principal, consulte [Criar uma rede virtual (clássica) usando o portal de visualização do Azure](../virtual-networks/virtual-networks-create-vnet-classic-pportal.md).
+1. Se você planeja criar uma rede virtual para a VM do nó principal, consulte [Criar uma rede virtual (clássica) usando o portal do Azure](../virtual-networks/virtual-networks-create-vnet-classic-pportal.md).
 
     **Considerações**
 
@@ -58,7 +58,7 @@ A seguir estão as etapas de nível superior para criar uma VM do Azure para o n
 
     * Para obter prova de implantação do conceito, você pode pular essa etapa e promover posteriormente a VM do nó principal como controlador de domínio.
 
-3. No portal do Azure ou no portal de visualização do Azure, crie uma VM clássica selecionando a imagem do Pacote HPC 2012 R2 no Azure Marketplace. (Consulte as etapas para o portal do Azure [aqui](virtual-machines-windows-tutorial-classic-portal.md).)
+3. No portal clássico do Azure ou portal do Azure, crie uma VM clássica selecionando a imagem do Pacote HPC 2012 R2 no Azure Marketplace. (Consulte as etapas para o portal clássico do Azure [aqui](virtual-machines-windows-tutorial-classic-portal.md).)
 
     **Considerações**
 
@@ -102,4 +102,4 @@ A seguir estão as etapas de nível superior para criar uma VM do Azure para o n
 <!--Image references-->
 [headnode]: ./media/virtual-machines-hpcpack-cluster-headnode/headnode.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

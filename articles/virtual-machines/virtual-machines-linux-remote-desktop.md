@@ -106,7 +106,7 @@ Reinicie o serviço xrdp, use:
 
 
 ##Conectar-se à VM Linux de uma máquina com Windows
-Em um computador com Windows, inicie o cliente de área de trabalho remota, insira o nome DNS da VM do Linux ou acesse `Dashboard` da VM no portal do Azure e clique em `Connect` para se conectar à VM do Linux. Você verá a janela de logon abaixo:
+Em um computador com Windows, inicie o cliente de área de trabalho remota, insira o nome DNS da VM do Linux ou acesse `Dashboard` da VM no portal clássico do Azure e clique em `Connect` para se conectar à VM do Linux. Você verá a janela de logon abaixo:
 
 ![imagem](./media/virtual-machines-linux-remote-desktop/no2.png)
 
@@ -116,4 +116,4 @@ Faça logon com o `user` e a `password` de sua VM do Linux e aproveite agora mes
 ##Avançar
 Para obter mais informações sobre como usar o xrdp, acesse [aqui](http://www.xrdp.org/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

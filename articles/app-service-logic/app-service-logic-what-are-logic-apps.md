@@ -21,7 +21,7 @@
 | Referência rápida |
 | --------------- |
 | [Linguagem de definição de aplicativos lógicos](https://msdn.microsoft.com/library/azure/dn948512.aspx?f=255&MSPPError=-2147217396) |
-| [Documentação do conector de aplicativos lógicos](https://azure.microsoft.com/pt-BR/documentation/articles/app-service-logic-connectors-list/) |
+| [Documentação do conector de aplicativos lógicos](https://azure.microsoft.com/documentation/articles/app-service-logic-connectors-list/) |
 | [Fórum de aplicativos lógicos](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=azurelogicapps) |
 
 O Serviço de Aplicativo do Azure é uma PaaS (plataforma como serviço) totalmente gerenciada para desenvolvedores que torna mais fácil compilar aplicativos Web, móveis e de integração. Os aplicativos lógicos são uma parte desse pacote e permitem que qualquer usuário técnico ou desenvolvedor automatize a execução do processo de negócios e o fluxo de trabalho por meio de um designer visual fácil de usar.
@@ -75,4 +75,4 @@ Para obter mais informações a respeito da plataforma de Serviço de Aplicativo
 [templates]: app-service-logic-use-logic-app-templates.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

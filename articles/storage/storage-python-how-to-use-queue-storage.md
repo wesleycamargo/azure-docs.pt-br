@@ -104,15 +104,13 @@ Para excluir uma fila e todas as mensagens contidas nela, chame o método **dele
 
 Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga estes links para saber mais sobre tarefas de armazenamento mais complexas.
 
--   Consulte a referência do MSDN: [Armazenando e acessando dados no Azure][]
 -   Visite o [Blog da Equipe de Armazenamento do Azure][]
 
-Para obter mais informações, veja também o [Centro de Desenvolvedores do Python](/develop/python/).
+Para obter mais informações, consulte também o [Python Developer Center](/develop/python/).
 
-[Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog da Equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [pacote do Python Azure]: https://pypi.python.org/pypi/azure
 [pacote de armazenamento do Python Azure]: https://pypi.python.org/pypi/azure-storage
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

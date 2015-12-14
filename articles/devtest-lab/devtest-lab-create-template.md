@@ -1,4 +1,4 @@
-    <properties
+<properties
 	pageTitle="Create VM templates | Microsoft Azure"
 	description="Learn how to create VM templates from VHD images"
 	services="devtest-lab,virtual-machines"
@@ -20,7 +20,7 @@
 
 ## Visão geral
 
-Depois que você tiver [criado um laboratório](devtest-lab-create-lab.md), é possível [adicionar VMs a esse laboratório](devtest-lab-add-vm-with-artifacts.md) a partir de uma lista de modelos de VM. Neste artigo, você aprenderá como carregar e configurar um arquivo de imagem de Disco Rígido Virtual (VHD) como um modelo do qual criar suas VMs. Caso não esteja familiarizado com imagens de VHD, consulte o artigo [Criar e carregar um VHD do Windows Server para o Azure](https://azure.microsoft.com/pt-BR/documentation/articles/virtual-machines-create-upload-vhd-windows-server/) para saber como criar uma imagem de VHD. Depois de criar ou obter acesso a uma imagem de VHD, este artigo o orientará você em relação a como carregá-la e criar um modelo a partir dela.
+Depois que você tiver [criado um laboratório](devtest-lab-create-lab.md), é possível [adicionar VMs a esse laboratório](devtest-lab-add-vm-with-artifacts.md) a partir de uma lista de modelos de VM. Neste artigo, você aprenderá como carregar e configurar um arquivo de imagem de Disco Rígido Virtual (VHD) como um modelo do qual criar suas VMs. Se você não estiver familiarizado com imagens de VHD, veja o artigo [Criar e carregar um VHD do Windows Server no Azure](../virtual-machines-create-upload-vhd-windows-server.md) para saber como criar uma imagem de VHD. Depois de criar ou obter acesso a uma imagem de VHD, este artigo o orientará você em relação a como carregá-la e criar um modelo a partir dela.
 
 ## Criar um modelo de VM
 
@@ -86,4 +86,4 @@ Para adicionar uma nova imagem de modelo, você precisará ter acesso a um arqui
 
 Depois de adicionar um modelo de VM para uso durante a criação de uma VM, a próxima etapa é [adicionar uma VM ao seu Laboratório de Desenvolvimento/Teste](devtest-lab-add-vm-with-artifacts).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -39,7 +39,7 @@ Os cenários descritos acima são:
 - **Identidades sincronizadas**: são identidades existentes no local e na nuvem. Com o Azure AD Connect, os usuários são criados ou associados a contas existentes do AD do Azure. A senha do usuário é sincronizada do ambiente local para a nuvem, ao que chamamos de hash de senha. A única ressalva para o uso da identidade sincronizada é que, quando um usuário está desabilitado no ambiente local, pode demorar até 3 horas para que o status da conta seja exibido no AD do Azure. Isso se deve ao intervalo de tempo de sincronização.
 - **Identidades federadas**: são identidades existentes no local e na nuvem. Com o Azure AD Connect, os usuários são criados ou associados a contas existentes do AD do Azure.  
  
->[AZURE.NOTE]Para saber mais sobre as opções de integração, leia o artigo [Integração de suas identidades locais com o Active Directory do Azure](https://azure.microsoft.com/pt-BR/documentation/articles/active-directory-aadconnect/).
+>[AZURE.NOTE]Para saber mais sobre as opções de integração, leia o artigo [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
 Confira as vantagens e as desvantagens de cada uma das estratégias na tabela abaixo:
 
@@ -114,7 +114,7 @@ Se esse o caso, considere a topologia de várias florestas do AD do Azure, caso 
 - Quando não há nenhuma caixa de correio do usuário, qualquer floresta pode ser usada para contribuir com esses valores
 - Caso tenha uma caixa de correio vinculada, haverá outra conta em outra floresta usada para iniciar sessão.
 
->[AZURE.NOTE]Os objetos existentes no local e na nuvem são "conectados" através de um identificador exclusivo. No contexto de sincronização de diretório, este identificador exclusivo é conhecido como SourceAnchor. No contexto de logon único, ele é conhecido como ImmutableId. Para saber mais sobre o uso do SourceAnchor, consulte o artigo [Conceitos de design do Azure AD Connect](https://azure.microsoft.com/pt-BR/documentation/articles/active-directory-aadconnect-design-concepts/#sourceanchor).
+>[AZURE.NOTE]Os objetos existentes no local e na nuvem são "conectados" através de um identificador exclusivo. No contexto de sincronização de diretório, este identificador exclusivo é conhecido como SourceAnchor. No contexto de logon único, ele é conhecido como ImmutableId. Para saber mais sobre o uso do SourceAnchor, consulte o artigo [Conceitos de design do Azure AD Connect](active-directory-aadconnect-design-concepts.md#sourceanchor).
 
 Caso a situação descrita anteriormente não se aplique e se você tiver mais de uma conta ativa ou mais de uma caixa de correio, o Azure AD Connect vai escolher uma delas e ignorar as outras. Se você tiver vinculado caixas de correio, mas não vincular nenhuma outra conta, essas contas não serão exportadas para o AD do Azure e esse usuário não será membro de nenhum grupo. Com esse processo, diferente da atuação anterior com o DirSync, temos um melhor suporte para os cenários de várias florestas. Confira um cenário de várias florestas na imagem abaixo.
  
@@ -176,7 +176,7 @@ Mesmo que defina uma solução para sua estratégia, você deve usar a avaliaç�
 | O AD do Azure e o AD local usando o Azure AD Connect com sincronização de senha | Ambos |
 | AD local | Servidor Multi-Factor Authentication |
 
->[AZURE.NOTE]Você deve garantir que a opção de design de autenticação multifator selecionada seja compatível com os recursos necessários para o seu design. Para saber mais, leia o artigo [Escolha a solução de segurança multifator mais adequada](https://azure.microsoft.com/documentation/articles/multi-factor-authentication-get-started/#what-am-i-trying-to-secure).
+>[AZURE.NOTE]Você deve garantir que a opção de design de autenticação multifator selecionada seja compatível com os recursos necessários para o seu design. Para saber mais, leia [Escolha a solução de segurança multifator mais adequada](../multi-factor-authentication-get-started.md#what-am-i-trying-to-secure).
 
 ## Provedor de Multi-Factor Authentication
 A autenticação multifator está disponível por padrão para administradores globais que tenham um locatário do Active Directory do Azure. No entanto, se desejar estender este recurso para todos os usuários ou se pretende permitir que os administradores globais aproveitem os recursos, como o portal de gerenciamento, saudações personalizadas e relatórios, você deve comprar e configurar o provedor de Multi-Factor Authentication.
@@ -187,6 +187,6 @@ A autenticação multifator está disponível por padrão para administradores g
 [Determinar os requisitos para proteção de dados](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
 ## Consulte também
-[Visão geral de considerações sobre design] ((active-directory-hybrid-identity-design-considerations-overview.md)
+[Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -58,13 +58,13 @@ O módulo do Azure lerá as variáveis de ambiente **AZURE\_STORAGE\_ACCOUNT** e
 
 Para obter esses valores:
 
-1. Faça logon no [Portal do Azure](https://manage.windowsazure.com/).
+1. Faça logon no [Portal do Azure](portal.azure.com).
 
-2. Navegue até a conta de armazenamento que você deseja usar.
+2. Navegue até sua conta de armazenamento.
 
-3. Clique em **GERENCIAR CHAVES** na parte inferior do painel de navegação.
+3. Na folha **Configurações**, selecione **Chaves**.
 
-4. Na caixa de diálogo pop-up, você verá o nome da conta de armazenamento, a tecla de acesso primária e a tecla de acesso secundária. Para a chave de acesso, você pode usar tanto a primária quanto a secundária.
+4. Copie o valor de chave de acesso desejado.
 
 ## Criar uma tabela
 
@@ -154,8 +154,7 @@ Para excluir uma tabela, use o método **delete\_table()** e passe o nome da tab
 
 Para saber mais sobre tarefas complexas de armazenamento, siga estes links:
 
-- Referência do MSDN: [Armazenamento do Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 - [Blog da equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
-- [SDK do Azure para o repositório Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) no GitHub
+- [SDK do Azure para repositório Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) no GitHub
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

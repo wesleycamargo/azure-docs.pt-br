@@ -18,11 +18,16 @@
 
 # Agendar trabalhos recorrentes nos Serviços Móveis
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 > [AZURE.SELECTOR]
 - [.NET backend](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
 - [Javascript backend](mobile-services-schedule-recurring-tasks.md)
 
-Este tópico mostra como usar a funcionalidade de agendador de trabalhos do Portal de Gerenciamento para definir o código de script que é executado com base em uma agenda definida por você. Neste caso, o script verifica periodicamente com um serviço remoto, neste caso, o Twitter, e armazena os resultados em uma nova tabela. Algumas outras tarefas periódicas que podem ser agendadas incluem:
+Este tópico mostra como usar a funcionalidade do agendador de trabalhos no portal clássico do Azure para definir o código de script do servidor que é executado com base em um agendamento definido por você. Neste caso, o script verifica periodicamente com um serviço remoto, neste caso, o Twitter, e armazena os resultados em uma nova tabela. Algumas outras tarefas periódicas que podem ser agendadas incluem:
 
 + Arquivamento de registros de dados duplicados ou antigos.
 + Solicitação e armazenamento de dados externos, como tweets, entradas RSS e informações sobre local.
@@ -38,11 +43,11 @@ Este tutorial mostra como usar o agendador de trabalhos para criar um trabalho a
 
 Em seguida, você precisa criar uma nova tabela na qual armazenar tweets.
 
-2. No Portal de Gerenciamento, clique na guia **Dados** de seu serviço móvel e clique em **+Criar**.
+2. No [Portal clássico do Azure], clique na guia **Dados** de seu serviço móvel e clique em **+Criar**.
 
 3. Em **Nome da tabela** digite _Atualizações_ e clique no botão de seleção.
 
-##<a name="add-job"></a>Criar um novo trabalho agendado  
+##<a name="add-job"></a>Criar um novo trabalho agendado
 
 Agora, você pode criar o trabalho agendado que acessa o Twitter e armazena dados de tweet na nova tabela Atualizações.
 
@@ -161,9 +166,9 @@ Parabéns, você criou com êxito um novo trabalho agendado em seu serviço móv
 <!-- URLs. -->
 [Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293
 [WindowsAzure.com]: http://www.windowsazure.com/
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Portal clássico do Azure]: https://manage.windowsazure.com/
 [Register your apps for Twitter login with Mobile Services]: /develop/mobile/how-to-guides/register-for-twitter-authentication
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

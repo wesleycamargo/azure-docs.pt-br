@@ -25,7 +25,7 @@ Gerenciamento e ajuste do desempenho de bancos de dados relacionais são uma tar
 - As consultas que consomem mais DTU, que potencialmente podem ser ajustadas para melhorar o desempenho. 
 - A capacidade de analisar os detalhes de uma consulta.
 
-> [AZURE.NOTE]A Visão do Desempenho de Consulta está atualmente em visualização e está disponível somente no [Portal de Visualização do Azure](https://portal.azure.com/).
+> [AZURE.NOTE]A Visão do Desempenho de Consulta está atualmente em visualização e está disponível somente no [Portal do Azure](https://portal.azure.com/).
 
 
 
@@ -62,7 +62,7 @@ A Visão do Desempenho de Consulta é fácil de usar:
 
 ## Examine as consultas que mais consomem DTU
 
-No [portal de visualização](https://portal.azure.com) faça o seguinte:
+No [portal](https://portal.azure.com), faça o descrito a seguir:
 
 1. Navegue para um banco de dados SQL e clique em **Visão do Desempenho de Consulta**. 
 
@@ -109,4 +109,4 @@ Confira o [Consultor de Índice](sql-database-index-advisor.md) para recomendaç
 [2]: ./media/sql-database-query-performance/top-queries.png
 [3]: ./media/sql-database-query-performance/query-details.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

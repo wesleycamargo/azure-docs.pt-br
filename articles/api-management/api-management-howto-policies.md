@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="12/02/2015" 
 	ms.author="sdanie"/>
 
 
@@ -36,7 +36,7 @@ O editor de políticas consiste em três seções principais: o escopo de polít
 
 ![Editor de políticas][policies-editor]
 
-Para começar a configurar uma política, você precisa antes selecionar o escopo ao qual ela deverá se aplicar. Na captura de tela abaixo, foi selecionado o produto Inicial. Observe que o símbolo de quadrado ao lado do nome da política indica que ela já está aplicada a este nível.
+Para começar a configurar uma política, você precisa antes selecionar o escopo ao qual ela deverá se aplicar. Na captura de tela abaixo, foi selecionado o produto **Inicial.** Observe que o símbolo de quadrado ao lado do nome da política indica que ela já está aplicada a este nível.
 
 ![Escopo][policies-scope]
 
@@ -48,17 +48,17 @@ Primeiro, a política é exibida em formato somente leitura. Para editar a defin
 
 ![Editar][policies-edit]
 
-A definição da política é um documento XML simples que descreve uma sequência de instruções de entrada e de saída. O XML pode ser editado diretamente na janela de definição. Uma lista de instruções é fornecida à direita e as declarações aplicáveis ao escopo atual ficam habilitadas e destacadas, conforme demonstrado pela instrução Limit Call Rate (Taxa limite de chamadas) na captura de tela acima.
+A definição da política é um documento XML simples que descreve uma sequência de instruções de entrada e de saída. O XML pode ser editado diretamente na janela de definição. Uma lista de instruções é fornecida à direita e as declarações aplicáveis ao escopo atual ficam habilitadas e destacadas, conforme demonstrado pela instrução **Limit Call Rate** (Taxa limite de chamadas) na captura de tela acima.
 
 Clicar em uma instrução habilitada adicionará o XML adequado ao local onde estiver o cursor na exibição de definição.
 
 Uma lista completa de instruções de políticas e suas configurações está disponível na [Referência de política][].
 
-Por exemplo, para adicionar uma nova instrução para restringir as solicitações de entrada a endereços IP especificados, posicione o cursor dentro do conteúdo do elemento XML "inbound" e clique na instrução correspondente a Restringir IPs de chamada.
+Por exemplo, para adicionar uma nova instrução para restringir as solicitações de entrada a endereços IP especificados, posicione o cursor dentro do conteúdo do elemento XML `inbound` e clique na instrução **Restringir IPs de chamada**.
 
 ![Políticas de restrição][policies-restrict]
 
-Isto adicionará um trecho XML ao elemento "inbound" que fornecerá diretrizes de como configurar a instrução.
+Isto adicionará um trecho XML ao elemento `inbound` que fornecerá diretrizes de como configurar a instrução.
 
 	<ip-filter action="allow | forbid">
 		<address>address</address>
@@ -73,24 +73,42 @@ Para limitar as solicitações de entrada e aceitar somente as provenientes de u
 
 ![Salvar][policies-save]
 
-Quando concluir a configuração das instruções da política, clique em Salvar para que as alterações sejam propagadas para o gateway de Gerenciamento de API imediatamente.
+Quando concluir a configuração das instruções da política, clique em **Salvar** para que as alterações sejam propagadas para o gateway de Gerenciamento de API imediatamente.
 
 ##<a name="sections"> </a>Compreendendo configuração de políticas
 
-Uma política é uma série de instruções que são executadas para uma solicitação e uma resposta. A configuração é dividida adequadamente entre de entrada (solicitação) e saída (política), conforme demonstrado na configuração.
+Uma política é uma série de instruções que são executadas para uma solicitação e uma resposta. A configuração é dividida adequadamente entre as seções `inbound`, `backend`, `outbound` e `on-error`, conforme demonstrado na configuração seguinte.
 
 	<policies>
-		<inbound>
-			<!-- statements to be applied to the request go here -->
-		</inbound>
-		<outbound>
-			<!-- statements to be applied to the response go here -->
-		</outbound>
-	</policies>
+	  <inbound>
+	    <!-- statements to be applied to the request go here -->
+	  </inbound>
+	  <backend>
+	    <!-- statements to be applied before the request is forwarded to 
+	         the backend service go here -->
+	  </backend>
+	  <outbound>
+	    <!-- statements to be applied to the response go here -->
+	  </outbound>
+	  <on-error>
+	    <!-- statements to be applied if there is an error condition go here -->
+	  </on-error>
+	</policies> 
+
+Se houver um erro durante o processamento de uma solicitação, quaisquer etapas restantes nas seções `inbound`, `backend` ou `outbound` serão ignoradas e a execução saltará para as instruções na seção `on-error`. Ao colocar instruções de políticas na seção `on-error`, você pode revisar o erro usando a propriedade `context.LastError`, inspecionar e personalizar a resposta de erro usando a política `set-body` e configurar o que acontece se ocorrer um erro. Há códigos de erro para obter as etapas internas e erros que podem ocorrer durante o processamento de instruções de política. Para obter mais informações, consulte [Tratamento de erros em políticas de gerenciamento de API](https://msdn.microsoft.com/library/azure/mt629506.aspx).
 
 Uma vez que as políticas podem ser especificadas em diferentes níveis (global, de produto, API e operação), a configuração oferece uma forma de especifica a ordem na qual as instruções dessa definição são executadas com relação à política pai.
 
-Por exemplo, se você tiver uma política no nível global e uma política configurada para uma API, sempre que a API em questão for utilizada as duas políticas serão aplicadas. O Gerenciamento de API permite uma ordenação determinista de instruções de política combinadas por meio do elemento base.
+Os escopos de política são avaliados na ordem a seguir.
+
+1. Escopo global
+2. Escopo do produto
+3. Escopo de API
+4. Escopo de operação
+
+As declarações dentro deles são avaliadas de acordo com o posicionamento do elemento `base`, se ele estiver presente.
+
+Por exemplo, se você tiver uma política a nível global e uma política configurada para uma API, então, sempre que essa API em particular for usado, ambas as políticas serão aplicadas. O Gerenciamento de API permite uma ordenação determinista de instruções de política combinadas por meio do elemento base.
 
 	<policies>
     	<inbound>
@@ -100,9 +118,11 @@ Por exemplo, se você tiver uma política no nível global e uma política confi
     	</inbound>
 	</policies>
 
-No exemplo de definição de política acima, a instrução entre domínios seria executada antes de quaisquer políticas mais elevadas que, por sua vez, seriam seguidas da política de “localizar e substituir”.
+No exemplo de definição de política acima, a instrução `cross-domain` seria executada antes de quaisquer políticas maiores que, por sua vez, seriam seguidas da política `find-and-replace`.
 
-Observação: uma política global não tem nenhuma política pai e usar o elemento `<base>` nela não tem nenhum efeito.
+Se a mesma política aparece duas vezes na declaração de política, a política avaliada mais recentemente é aplicada. Você pode usar isso para substituir políticas que são definidas em um escopo maior. Para ver as políticas no escopo atual no editor de política, clique em **Recalcular a política efetiva para o escopo selecionado**.
+
+Observe que uma política global não tem nenhuma política pai e que usar o elemento `<base>` nela não tem nenhum efeito.
 
 ## Próximas etapas
 
@@ -128,4 +148,4 @@ Confira o vídeo a seguir sobre expressões de política.
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

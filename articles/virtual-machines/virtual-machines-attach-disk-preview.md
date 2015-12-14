@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Anexar um disco de dados | Microsoft Azure"
-	description="Como anexar um disco de dados novo ou existente a uma VM no portal de visualização do Azure usando o modelo de implantação do Gerenciador de Recursos."
+	description="Como anexar um disco de dados novo ou existente a uma VM no portal do Azure usando o modelo de implantação do Gerenciador de Recursos."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,11 +17,11 @@
 	ms.date="09/14/2015"
 	ms.author="cynthn"/>
 
-# Como anexar um disco de dados no portal de visualização do Azure
+# Como anexar um disco de dados no portal do Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](storage-windows-attach-disk.md).
 
-Este artigo mostra como anexar discos novos e existentes em uma máquina virtual por meio do portal de visualização do Azure. Antes de fazer isso, revise estas dicas:
+Este artigo mostra como anexar discos novos e existentes em uma máquina virtual por meio do portal do Azure. Antes de fazer isso, revise estas dicas:
 
 - O tamanho da máquina virtual controla quantos discos de dados você pode anexar a ela. Para obter detalhes, consulte [Tamanhos das máquinas virtuais](virtual-machines-size-specs.md).
 - Para usar o Armazenamento Premium, você precisará de uma máquina virtual da série DS ou GS. Você pode usar discos de contas de armazenamento Premium e Standard com essas máquinas virtuais. O armazenamento Premium está disponível em determinadas regiões. Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para as cargas de trabalho das máquinas virtuais do Azure](../storage/storage-premium-storage-preview-portal.md).
@@ -31,7 +31,7 @@ Este artigo mostra como anexar discos novos e existentes em uma máquina virtual
 
 ## Localizar a máquina virtual
 
-1. Entre no portal de visualização do Azure.
+1. Entre no Portal do Azure.
 
 2. No menu Hub, clique em **Procurar**.
 
@@ -90,4 +90,4 @@ Depois que o disco é adicionado, é necessário prepará-lo para uso em um sist
 
 [Sobre as contas de armazenamento do Azure]: ../storage-whatis-account/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

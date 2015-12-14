@@ -47,7 +47,7 @@ A tabela a seguir descreve as cotas do Banco de Dados de Documentos que podem se
 ##<a id="RequestQuotaIncrease"></a> Solicitar um ajuste de cota
 As etapas a seguir mostram como solicitar um ajuste de cota.
 
-1. No [Portal de visualização do Azure](https://portal.azure.com), clique em **Navegar** e, em seguida, clique em **Ajuda + suporte**.
+1. No [Portal do Azure](https://portal.azure.com), clique em **Procurar** e em **Ajuda + suporte**.
 
 	![Captura de tela da inicialização da ajuda e suporte](media/documentdb-increase-limits/helpsupport.png)
 
@@ -75,4 +75,4 @@ Depois que o chamado de suporte tiver sido criado, você deve receber o número 
 ##<a name="NextSteps"></a> Próximas etapas
 - Para saber mais sobre o Banco de Dados de Documentos, clique [aqui](http://azure.com/docdb).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

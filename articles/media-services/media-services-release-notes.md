@@ -84,7 +84,7 @@ Observe que os serviços de entrega de licenças do Widevine fornecidos pelos Se
 
 ##<a id="oct_changes_15"></a>Versão de outubro de 2015
 
-O AMS (Serviços de Mídia do Azure) agora também está disponível nos seguintes datacenters: Sul do Brasil, Índia Ocidental, Sul da Índia e Índia Central. Agora você pode usar o Portal de Gerenciamento do Azure para [criar contas do Serviço de Mídia](media-services-create-account.md#create-a-media-services-account-using-quick-create) e executar as várias tarefas descritas [aqui](https://azure.microsoft.com/documentation/services/media-services/). No entanto, a Codificação Ativa não está habilitada nesses datacenters. Além disso, nem todos os tipos de Unidades Reservadas para Codificação estão disponíveis nesses datacenters.
+O AMS (Serviços de Mídia do Azure) agora também está disponível nos seguintes datacenters: Sul do Brasil, Índia Ocidental, Sul da Índia e Índia Central. Agora você pode usar o Portal Clássico do Azure para [criar contas do Serviço de Mídia](media-services-create-account.md#create-a-media-services-account-using-quick-create) e realizar as várias tarefas descritas [aqui](https://azure.microsoft.com/documentation/services/media-services/). No entanto, a Codificação Ativa não está habilitada nesses datacenters. Além disso, nem todos os tipos de Unidades Reservadas para Codificação estão disponíveis nesses datacenters.
 
 - Sul do Brasil: somente as Unidades Reservadas para Codificação Standard e Básico estão disponíveis
 - Índia Ocidental, Sul da Índia e Índia Central: somente as Unidades Reservadas para Codificação Básica estão disponíveis
@@ -275,15 +275,15 @@ SDK dos Serviços de Mídia para .NET agora está na versão 3.0.0.7
 ### <a id="sept_14_breaking_changes"></a>Alterações interruptivas
 
 * A **Origem** foi renomeada para [StreamingEndpoint].
-* Uma mudança no comportamento padrão ao usar o **Portal de Gerenciamento do Azure** para codificar e depois publicar arquivos MP4. 
+* Uma mudança no comportamento padrão ao usar o **Portal Clássico do Azure** para codificar e depois publicar arquivos MP4.
 
-	Anteriormente, ao usar o Portal de Gerenciamento para publicar um ativo de vídeo MP4 de arquivo único, uma URL SAS seria criada (URLs SAS permitem baixar o vídeo de um armazenamento blob). No momento, quando se usa o Portal de Gerenciamento para codificar e depois publicar um ativo de vídeo MP4 de arquivo único, a URL gerada aponta para um ponto de extremidade de streaming dos Serviços de Mídia do Azure. Essa mudança não afeta vídeos MP4 que são carregados diretamente para os Serviços de Mídia e publicados sem serem codificados pelos Serviços de Mídia do Azure.
-	
-	No momento, há as duas opções a seguir para solucionar o problema.
-	
-	* Habilitar unidades de streaming e usar empacotamento dinâmico para transmitir o ativo .mp4 como uma apresentação de smooth streaming.
-	
-	* Criar uma URL SAS para baixar (ou reproduzir progressivamente) o .mp4. Para obter mais informações sobre como criar um localizador SAS, consulte [Entregando Conteúdo].
+Anteriormente, ao usar o Portal Clássico do Azure para publicar um ativo de vídeo MP4 de arquivo único, uma URL SAS seria criada (as URLs SAS permitem baixar o vídeo de um armazenamento de blobs). No momento, ao usar o Portal Clássico do Azure para codificar e depois publicar um ativo de vídeo MP4 de arquivo único, a URL gerada aponta para um ponto de extremidade de transmissão dos Serviços de Mídia do Azure. Essa mudança não afeta vídeos MP4 que são carregados diretamente para os Serviços de Mídia e publicados sem serem codificados pelos Serviços de Mídia do Azure.
+
+No momento, há as duas opções a seguir para solucionar o problema.
+
+* Habilitar unidades de streaming e usar empacotamento dinâmico para transmitir o ativo .mp4 como uma apresentação de smooth streaming.
+
+* Criar uma URL SAS para baixar (ou reproduzir progressivamente) o .mp4. Para obter mais informações sobre como criar um localizador SAS, consulte [Entregando Conteúdo].
 
 
 ### <a id="sept_14_GA_changes"></a>Novos recursos\\cenários que fazem parte da versão do GA
@@ -603,7 +603,7 @@ A seguinte funcionalidade era nova na versão de novembro do SDK.
 [Preview features]: http://azure.microsoft.com/services/preview/
 [Visão geral do modelo de licença do PlayReady dos Serviços de Mídia]: http://msdn.microsoft.com/library/azure/dn783459.aspx
 [Streaming de conteúdo criptografado de armazenamento]: http://msdn.microsoft.com/library/azure/dn783451.aspx
-[Azure Management Portal]: https://manage.windowsazure.com
+[Azure Classic Portal]: https://manage.windowsazure.com
 [Empacotamento Dinâmico]: http://msdn.microsoft.com/library/azure/jj889436.aspx
 [Blog de Nick Drouin]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
 [Protegendo Smooth Stream com PlayReady]: http://msdn.microsoft.com/library/azure/dn189154.aspx
@@ -622,4 +622,4 @@ A seguinte funcionalidade era nova na versão de novembro do SDK.
 [Manipulando notificações de trabalho dos Serviços de Mídia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

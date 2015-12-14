@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/17/2015"
+   ms.date="12/01/2015"
    ms.author="tomfitz"/>
 
 # Criar o aplicativo do Active Directory e a entidade de serviço usando o portal
@@ -24,7 +24,7 @@ Quando tiver um aplicativo ou processo automatizado que precisa acessar ou modif
 Este tópico mostra como criar um novo aplicativo e uma nova entidade de serviço usando o Portal do Azure. Atualmente, você deve usar o portal do Microsoft Azure para criar um novo aplicativo do Active Directory. Essa capacidade será adicionada ao portal de visualização do Azure em uma versão posterior. Você pode usar o portal de visualização para atribuir o aplicativo a uma função. Você também pode executar essas etapas através do Azure PowerShell ou da CLI do Azure. Para obter mais informações, consulte [Autenticar uma entidade de serviço com o Gerenciador de Recursos do Azure](resource-group-authenticate-service-principal.md).
 
 ## Conceitos
-1. AAD (Active Directory do Azure) - um serviço de gerenciamento de identidades e acesso desenvolvido para a nuvem. Para mais detalhes, consulte: [O que é o Active Directory do Azure](active-directory/active-directory-whatis.md)
+1. AAD (Active Directory do Azure) - um serviço de gerenciamento de identidades e acesso desenvolvido para a nuvem. Para mais detalhes, confira: [O que é o Active Directory do Azure](active-directory/active-directory-whatis.md)
 2. Entidade de serviço - uma instância de um aplicativo em um diretório.
 3. Aplicativo do AD - um registro de diretório no AAD que identifica um aplicativo ao AAD. 
 
@@ -111,7 +111,7 @@ Selecione a função à qual você deseja atribuir o aplicativo e procure o apli
 
 ![Selecionar usuários](./media/resource-group-create-service-principal-portal/assign-to-role.png)
 
-Para obter mais informações sobre como trabalhar com usuários, aplicativos e funções, consulte [Gerenciar o acesso usando o Portal de gerenciamento do Azure](active-directory/role-based-access-control-configure/#manage-access-using-the-azure-management-portal).
+Para saber mais sobre como atribuir usuários e aplicativos para funções usando o portal, confira [Gerenciar o acesso usando o Portal de Gerenciamento do Azure](../role-based-access-control-configure/#manage-access-using-the-azure-management-portal).
 
 ## Obter o token de acesso no código
 
@@ -162,4 +162,4 @@ No aplicativo, adicione um método semelhante ao seguinte para recuperar o token
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -43,7 +43,7 @@ bus_service = ServiceBusService(
 	shared_access_key_value='sharedaccesskey')
 ```
 
-Você pode obter os valores do nome e do valor da chave de SAS do [portal do Azure][], na janela **Informações de Conexão**.
+Você pode obter os valores do nome e do valor da chave de SAS do [portal clássico do Azure][], na janela **Informações de Conexão**.
 
 ```
 bus_service.create_topic('mytopic')
@@ -157,7 +157,7 @@ Caso o aplicativo falhe após o processamento da mensagem, mas antes que o méto
 
 ## Excluir tópicos e assinaturas
 
-Os tópicos e as assinaturas são persistentes e devem ser explicitamente excluídos por meio do portal do Azure ou de forma programática. O seguinte exemplo mostra como excluir o tópico chamado `mytopic`:
+Os tópicos e as assinaturas são persistentes e devem ser explicitamente excluídos por meio do [portal clássico do Azure][] ou de forma programática. O seguinte exemplo mostra como excluir o tópico chamado `mytopic`:
 
 ```
 bus_service.delete_topic('mytopic')
@@ -176,10 +176,10 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
 -   Consulte [Filas, tópicos e assinaturas][].
 -   Referência para [SqlFilter.SqlExpression][].
 
-[portal do Azure]: http://manage.windowsazure.com
+[portal clássico do Azure]: http://manage.windowsazure.com
 [pacote do Python Azure]: https://pypi.python.org/pypi/azure
 [Filas, tópicos e assinaturas]: service-bus-queues-topics-subscriptions.md
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [Filas do Azure e filas do Barramento de Serviço]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

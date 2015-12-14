@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/13/2015"
+   ms.date="11/19/2015"
    ms.author="chackdan"/>
 
 # Configurar um cluster do Service Fabric usando um modelo de ARM
@@ -45,7 +45,7 @@ Esta página ajuda na configuração de um cluster do Service Fabric usando um m
 
 ## Implantar o modelo de ARM no Azure usando o Azure PS
 
-Consulte [Implantar modelos de ARM usando o PS](https://azure.microsoft.com/pt-BR/documentation/articles/resource-group-template-deploy/) para obter orientações detalhadas sobre como fazer isso.
+Consulte [Implantar modelos de ARM usando o PS](resource-group-template-deploy.md) para obter diretrizes detalhadas sobre como fazer isso.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Próximas etapas
@@ -56,4 +56,4 @@ Consulte [Implantar modelos de ARM usando o PS](https://azure.microsoft.com/pt-B
 <!--Image references-->
 [DownloadTemplate]: ./media/service-fabric-cluster-creation-via-arm/DownloadTemplate.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

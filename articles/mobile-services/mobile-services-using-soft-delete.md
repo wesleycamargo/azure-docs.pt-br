@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Usando exclusão reversível nos Serviços Móveis (Windows Store) | Microsoft Azure" 
-	description="Saiba como usar o recurso de exclusão reversível dos Serviços Móveis do Azure no seu aplicativo" 
-	documentationCenter="" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Usando exclusão reversível nos Serviços Móveis (Windows Store) | Microsoft Azure"
+	description="Saiba como usar o recurso de exclusão reversível dos Serviços Móveis do Azure no seu aplicativo"
+	documentationCenter=""
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/28/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/28/2015"
 	ms.author="wesmc"/>
 
 # Usando exclusão reversível nos Serviços Móveis
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 ##Visão geral
 
@@ -44,7 +49,7 @@ O suporte a exclusão reversível para o back-end do .NET foi lançado pela prim
 As seguintes etapas o conduzem sobre como habilitar a exclusão reversível para um serviço móvel do back-end do .NET.
 
 1. Abra seu projeto de serviço móvel de back-end do .NET no Visual Studio.
-2. Clique com o botão direito no projeto de back-end .NET e clique em **Gerenciar pacotes NuGet**. 
+2. Clique com o botão direito no projeto de back-end .NET e clique em **Gerenciar pacotes NuGet**.
 3. No diálogo do gerenciador de pacote, clique em **Nuget.org** sob as atualizações e instale a versão 1.0.402 ou posterior dos pacotes NuGet do [Back-end do .NET de Serviços Móveis do Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=513165).
 3. No Gerenciador de Soluções para o Visual Studio, expanda o nó **Controladores** sob seu projeto de back-end do .NET e abra a origem do controlador. Por exemplo, *TodoItemController.cs*.
 4. No método `Initialize()` do seu controlador, passe o parâmetro `enableSoftDelete: true` para o construtor EntityDomainManager.
@@ -65,7 +70,7 @@ Se estiver criando uma nova tabela para seu serviço móvel, é possível habili
 
 Para habilitar a exclusão reversível em uma tabela existente no back-end do JavaScript:
 
-1. No [Portal de Gerenciamento], clique no seu serviço móvel. Então clique na guia Dados.
+1. No [Portal clássico do Azure], clique em seu serviço móvel. Então clique na guia Dados.
 2. Na página de dados, clique para selecionar a tabela desejada. Então clique no botão **Habilitar Exclusão Reversível** na barra de comando. Se a tabela já tiver exclusão reversível habilitada, esse botão não aparecerá, mas você poderá ver a coluna *\_\_deleted* ao clicar na guia **Procurar** ou **Colunas** para a tabela.
 
     ![][0]
@@ -82,23 +87,23 @@ O seguinte trabalho agendado limpa registros de exclusão reversível com mais d
     public class SampleJob : ScheduledJob
     {
         private MobileService1Context context;
-     
-        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor, 
+
+        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor,
             CancellationToken cancellationToken)
         {
             base.Initialize(scheduledJobDescriptor, cancellationToken);
             context = new MobileService1Context();
         }
-     
+
         public override Task ExecuteAsync()
         {
             Services.Log.Info("Purging old records");
             var monthAgo = DateTimeOffset.UtcNow.AddDays(-30);
-     
+
             var toDelete = context.TodoItems.Where(x => x.Deleted == true && x.UpdatedAt <= monthAgo).ToArray();
             context.TodoItems.RemoveRange(toDelete);
             context.SaveChanges();
-     
+
             return Task.FromResult(true);
         }
     }
@@ -113,12 +118,12 @@ Para saber mais sobre como agendar trabalhos com serviços móveis de back-end d
 Você usa scripts de tabela para adicionar lógica em torno do recurso de exclusão reversível com os serviços móveis do back-end do JavaScript.
 
 Para detectar uma solicitação de cancelamento de exclusão, use a propriedade “restaurar” no script de atualizar tabela:
-    
+
     function update(item, user, request) {
         if (request.undelete) { /* any undelete specific code */; }
     }
 Para incluir registros excluídos no resultado da consulta em um script, defina o "includeDeleted" para true:
-    
+
     tables.getTable('softdelete_scenarios').read({
         includeDeleted: true,
         success: function (results) {
@@ -158,9 +163,6 @@ Para saber mais sobre os trabalhos agendados com Serviços Móveis de back-end d
 <!-- URLs. -->
 [tipo de bit SQL]: http://msdn.microsoft.com/library/ms177603.aspx
 [Sincronização de dados offline para Serviços Móveis]: mobile-services-windows-store-dotnet-get-started-offline-data.md
-[Portal de Gerenciamento]: https://manage.windowsazure.com/
+[Portal clássico do Azure]: https://manage.windowsazure.com/
 
-
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -18,7 +18,7 @@
 
 # Como pesquisar dados do StackExchange usando a Pesquisa do Azure
 
-Este artigo é um passo a passo que destaca alguns dos principais recursos de pesquisa de texto completo que podem ser realizados com a [Pesquisa do Azure](https://azure.microsoft.com/pt-BR/services/search/). Ele utiliza dados [disponibilizados](https://archive.org/details/stackexchange) pelo Stack Exchange para uso de licença Creative Commons com a [atribuição](http://blog.stackoverflow.com/2009/06/attribution-required/) a seguir.
+Este artigo é um passo a passo que destaca alguns dos principais recursos de pesquisa de texto completo que podem ser realizados com a [Pesquisa do Azure](https://azure.microsoft.com/services/search/). Ele utiliza dados [disponibilizados](https://archive.org/details/stackexchange) pelo Stack Exchange para uso de licença Creative Commons com a [atribuição](http://blog.stackoverflow.com/2009/06/attribution-required/) a seguir.
 
 ## Introdução
 
@@ -104,9 +104,9 @@ Brent já fez a maior parte do trabalho pesado mostrando como preparar os dados 
       on PA.[OwnerUserId] = PUA.Id
       WHERE PQ.PostTypeId = 1
 
-Depois de fazer isso, é possível usar o [Portal do Azure](https://portal.azure.com) “Importar dados” do Modo SQL do Azure acima que, por sua vez, criará um índice da Pesquisa do Azure com base no esquema dos campos no Modo. Se desejar usar o banco de dados SQL do Azure que eu preparei, veja abaixo a cadeia de conexão Somente Leitura que você pode usar:
+Depois de fazer isso, você poderá usar o [Portal clássico do Azure](https://portal.azure.com) para “Importar dados” da exibição do SQL do Azure acima que, por sua vez, criará um índice da Pesquisa do Azure com base no esquema dos campos na Exibição. Se desejar usar o banco de dados SQL do Azure que eu preparei, veja abaixo a cadeia de conexão Somente Leitura que você pode usar:
 
     Server=tcp:azs-playground.database.windows.net,1433;Database=StackExchange;User ID=reader@azs-playground;
     Password=EdrERBt3j6mZDP;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

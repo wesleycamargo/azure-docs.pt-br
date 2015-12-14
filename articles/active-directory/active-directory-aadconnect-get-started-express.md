@@ -49,7 +49,7 @@ Selecionar as configurações expressas é a opção padrão e é um dos cenári
 	- Na página “Pronto para configurar”, você pode desmarcar a caixa de seleção “**Iniciar o processo de sincronização assim que a configuração for concluída**”. Se você fizer isso, o assistente vai configurar a sincronização, mas deixará a tarefa desabilitada para que ela não seja executada até você habilitá-la manualmente no Agendador de Tarefas. Quando a tarefa estiver habilitada, a sincronização será executada a cada três horas.
 	- Também é possível configurar os serviços de sincronização para **implantação híbrida do Exchange** marcando a caixa de seleção correspondente. Se você não planeja ter caixas de correio do Exchange na nuvem e no local, isso não é necessário. ![Bem-vindo ao Azure AD Connect](./media/active-directory-aadconnect-get-started/readyinstall.png)<br>
 8. Quando a instalação for concluída, clique em **Sair**.
-
+9. Após a instalação, faça logoff e logon novamente antes de usar o Gerenciador de Serviços de Sincronização ou o Editor de Regra de Sincronização.
 
 <br> <br>
 
@@ -59,8 +59,8 @@ Para ver um vídeo sobre como usar a instalação expressa, verifique o seguinte
 
 
 ## Próximas etapas
-Agora que tem o Azure Connect AD instalado, você pode [verificar a instalação e atribuir licenças](active-directory-aadconnect-whats-next.md).
+Agora que você tem o Azure AD Connect instalado, é possível [verificar a instalação e atribuir licenças](active-directory-aadconnect-whats-next.md).
 
 Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

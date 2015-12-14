@@ -39,9 +39,9 @@ Para a versão 2.0, os dados incluem:
 
 
 ## Como habilitar a extensão
-A extensão pode ser habilitada por meio de [portal de visualização do Azure](https://ms.portal.azure.com/#), o Azure PowerShell ou scripts da CLI do Azure.
+A extensão pode ser habilitada por meio do [portal do Azure](https://ms.portal.azure.com/#), Azure PowerShell ou de scripts da CLI do Azure.
 
-Para exibir e configurar o sistema e dados de desempenho diretamente no portal de visualização do Azure, siga estas [etapas](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "URL para o blog do Windows").
+Para exibir e configurar os dados de desempenho e do sistema diretamente do portal do Azure, siga estas [etapas](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "URL para o blog do Windows").
 
 
 Este artigo se concentra na habilitação e configuração de extensão por meio de comandos da CLI do Azure. Isso permite ler e exibir os dados diretamente da tabela de armazenamento.
@@ -144,4 +144,4 @@ Se tiver habilitado fileCfg ou perfCfg especificado nos Cenários 2 e 3, você p
 - Para a versão 2.0, as informações do Rsyslog e o arquivo de log especificado pelo cliente só podem ser acessados por meio de scripts.
 - Para a versão 2.0, se você tiver habilitado primeiramente a extensão de diagnóstico do Linux por meio de script, não é possível ver os dados no portal. Se você tiver habilitado a extensão no portal primeiro, os scripts ainda funcionarão.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

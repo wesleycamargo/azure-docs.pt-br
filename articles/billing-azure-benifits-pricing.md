@@ -20,6 +20,6 @@
 
 #Onde posso encontrar informações sobre Benefícios e Preços para os Serviços do Azure?
 
-O Microsoft Azure ajuda você a implantar infraestruturas e serviços rapidamente para atender a todas as suas necessidades de negócios. Você pode executar aplicativos baseados em Windows e Linux nas 19 regiões de datacenter do Azure, fornecidos com SLAs de nível empresarial. Para obter informações sobre os benefícios dos serviços do Azure, veja [Detalhes da oferta do Microsoft Azure](https://azure.microsoft.com/pt-BR/support/legal/offer-details/). Para obter informações sobre preços, veja a [página de preços do Azure](https://azure.microsoft.com/pt-BR/pricing/).
+O Microsoft Azure ajuda você a implantar infraestruturas e serviços rapidamente para atender a todas as suas necessidades de negócios. Você pode executar aplicativos baseados em Windows e Linux nas 19 regiões de datacenter do Azure, fornecidos com SLAs de nível empresarial. Para saber mais sobre os benefícios dos serviços do Azure, confira [Detalhes da oferta do Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/). Para obter informações sobre preço, confira a [página de preços do Azure](https://azure.microsoft.com/pricing/).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

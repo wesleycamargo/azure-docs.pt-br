@@ -135,7 +135,7 @@ A edição do SO convidado de dezembro está prevista para começar em 9 de jane
 
 ## Informações de versão do SO convidado
 
-Esta seção lista as versões de SO convidado com suporte no momento. Versões e famílias de SO convidado têm uma data de lançamento, uma data de desabilitação e uma data de validade. A partir da data de lançamento, uma versão de SO convidado pode ser selecionada manualmente no portal de gerenciamento. Um SO convidado é removido do portal de gerenciamento em sua data de desabilitação ou após essa data. Ele fica então "em transição", mas tem suporte com capacidade limitada de atualizar uma implantação. A data de validade é quando uma versão ou família está agendada para ser completamente removida do sistema do Azure. Os serviços de nuvem ainda em execução em uma versão quando ela expira serão interrompidos, excluídos ou sofrerão atualização forçada para uma versão mais recente, conforme detalhado na [Política de suporte e desativação do SO convidado do Azure][retirepolicy].
+Esta seção lista as versões de SO convidado com suporte no momento. Versões e famílias de SO convidado têm uma data de lançamento, uma data de desabilitação e uma data de validade. A partir da data de lançamento, uma versão de SO convidado pode ser selecionada manualmente no portal clássico do Azure. Um SO convidado é removido do portal clássico do Azure em sua data de desabilitação ou após essa data. Ele fica então "em transição", mas tem suporte com capacidade limitada de atualizar uma implantação. A data de validade é quando uma versão ou família está agendada para ser completamente removida do sistema do Azure. Os serviços de nuvem ainda em execução em uma versão quando ela expira serão interrompidos, excluídos ou sofrerão atualização forçada para uma versão mais recente, conforme detalhado na [Política de suporte e desativação do SO convidado do Azure][retirepolicy].
 
 A Microsoft dá suporte a pelo menos duas versões recentes de cada família de SO convidado para a qual há suporte. A data de desabilitação de uma versão existente do SO convidado pode ser adiada para garantir que pelo menos duas versões permaneçam habilitadas para a implantação.
 
@@ -149,7 +149,7 @@ A **Família do SO convidado** corresponde a uma versão do sistema operacional 
 
 Uma **"Versão do SO convidado"** é a imagem do sistema operacional da família mais patches do [Microsoft Security Response Center (MSRC)][msrc] relevantes disponíveis na data em que a nova versão do SO convidado é produzida. Nem todos os patches estarão necessariamente incluídos. Os números começam em 0 e são incrementados em 1 cada vez que um novo conjunto de atualizações é adicionado. Os zeros à direita são mostrados apenas se forem importantes. Ou seja, a versão 2.10 é uma versão diferente e muito posterior à versão 2.1.
 
-Uma **"Versão do SO convidado"** refere-se a um relançamento de uma versão de sistema operacional convidado. Um relançamento ocorre quando a Microsoft encontra, durante os testes, problemas que exigem alterações. A versão mais recente sempre substitui quaisquer lançamentos anteriores, públicos ou não. O portal de gerenciamento só permitirá que os usuários escolham o lançamento mais recente de uma determinada versão. Implantações executadas em uma versão anterior geralmente não sofrem atualização forçada, o que depende da gravidade do bug.
+Uma **"Versão do SO convidado"** refere-se a um relançamento de uma versão de sistema operacional convidado. Um relançamento ocorre quando a Microsoft encontra, durante os testes, problemas que exigem alterações. A versão mais recente sempre substitui quaisquer lançamentos anteriores, públicos ou não. O portal clássico do Azure só permitirá que os usuários escolham o lançamento mais recente de uma determinada versão. Implantações executadas em uma versão anterior geralmente não sofrem atualização forçada, o que depende da gravidade do bug.
 
 No exemplo abaixo, 2 é a família, 12 é a versão e "rel2" é o lançamento.
 
@@ -282,7 +282,7 @@ Esta página contém informações sobre as próximas versões do SO convidado. 
 
 O Microsoft Azure está constantemente lançando atualizações. O SO convidado é apenas uma atualização desse tipo no pipeline. Uma versão pode ser afetada por um número muito grande de fatores para que se possa listá-los aqui. Além disso, o Azure é executado em literalmente centenas de milhares de computadores. Isso significa que é impossível fornecer uma data e hora exatas em que a função (ou funções) será reinicializada. Atualizaremos o [Feed RSS de atualização do SO convidado][rss] com as informações mais recentes que tivermos, mas considere esse horário como uma janela aproximada. Estamos cientes de que isso causa problemas para clientes e estamos trabalhando em um plano limitar ou programar as reinicializações.
 
-Quando um novo lançamento do SO convidado é realizado, pode levar tempo para que ele se propague totalmente pelo Azure. Como os serviços são atualizados para o novo SO convidado, eles são reinicializados respeitando os domínios de atualização. Os serviços nos quais está definido o uso de atualizações "Automáticas" receberão um lançamento primeiro. Após a atualização, você verá a nova versão do SO convidado listada para seu serviço no Portal de Gerenciamento do Azure. Relançamentos podem ocorrer durante esse período. Algumas versões podem ser implantadas por longos períodos de tempo e reinicializações de atualização automática podem não ocorrer por muitas semanas após a data de lançamento oficial. A partir do momento em que um SO convidado está disponível você pode escolher explicitamente essa versão a partir do portal ou em seu arquivo de configuração.
+Quando um novo lançamento do SO convidado é realizado, pode levar tempo para que ele se propague totalmente pelo Azure. Como os serviços são atualizados para o novo SO convidado, eles são reinicializados respeitando os domínios de atualização. Os serviços nos quais está definido o uso de atualizações "Automáticas" receberão um lançamento primeiro. Após a atualização, você verá a nova versão do SO convidado listada para seu serviço no portal clássico do Azure. Relançamentos podem ocorrer durante esse período. Algumas versões podem ser implantadas por longos períodos de tempo e reinicializações de atualização automática podem não ocorrer por muitas semanas após a data de lançamento oficial. A partir do momento em que um SO convidado está disponível você pode escolher explicitamente essa versão a partir do portal ou em seu arquivo de configuração.
 
 Para uma grande variedade de informações valiosas sobre reinicializações e indicações para mais detalhes técnicos sobre atualizações de SO de Host e de Convidado, consulte a postagem no blog MSDN intitulada [Instância de Função reinicia devido a atualizações do SO][restarts].
 
@@ -324,7 +324,7 @@ Devido à liberação parcial dos duas últimos lançamentos, as pessoas utiliza
 
 1. As alterações na codificação destacadas em Diferenças entre o SO convidado do Azure e padrão do Windows Server não foram distribuídos por todo o Azure. Os clientes que não utilizam as versões de agosto ou setembro receberão essas alterações na versão de outubro. 
 
-2. Os sistemas operacionais convidados de agosto e setembro foram desabilitados no Portal de Gerenciamento. Você não pode escolhê-los manualmente. Isso serve para proteger contra problemas que podem surgir se você selecionar essa versão de SO convidado.
+2. Os sistemas operacionais convidados de agosto e setembro foram desabilitados no portal clássico do Azure. Você não pode escolhê-los manualmente. Isso serve para proteger contra problemas que podem surgir se você selecionar essa versão de SO convidado.
 
 3. As datas desabilitadas algumas versões mais antigas foram ajustadas para frente. Isso é para garantir a disponibilidade contínua no portal e suporte para pelo menos duas versões já liberadas de SO convidado em cada família.
 
@@ -394,4 +394,4 @@ Devido à liberação parcial dos duas últimos lançamentos, as pessoas utiliza
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

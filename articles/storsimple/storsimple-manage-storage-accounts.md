@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="11/16/2015"
+   ms.date="12/01/2015"
    ms.author="v-sharos" />
 
 # Usar o serviço StorSimple Manager para gerenciar sua conta de armazenamento
@@ -113,7 +113,7 @@ Quando você cria uma conta de armazenamento, o Microsoft Azure gera duas chaves
 
 Normalmente, os aplicativos usam apenas uma das chaves para acessar seus dados. Após um determinado período de tempo, você pode fazer com que seus aplicativos passem a usar a segunda chave. Após os seus aplicativos terem trocado para a chave secundária, você pode desativar a primeira chave e, em seguida, gerar uma nova chave. Usar as duas chaves dessa maneira permite que seus aplicativos acessem os dados sem incorrer em nenhum tempo de inatividade.
 
-As chaves da conta de armazenamento são sempre armazenadas no serviço de forma criptografada. No entanto, elas podem ser redefinidas por meio do serviço StorSimple Manager. O serviço pode obter a chave primária e secundária para todas as contas de armazenamento na mesma assinatura, incluindo contas criadas no serviço de armazenamento, bem como as contas de armazenamento padrões geradas quando o serviço StorSimple Manager foi inicialmente criado. O serviço StorSimple Manager sempre receberá essas chaves do portal do Azure, em seguida, armazena-as de forma criptografada.
+As chaves da conta de armazenamento são sempre armazenadas no serviço de forma criptografada. No entanto, elas podem ser redefinidas por meio do serviço StorSimple Manager. O serviço pode obter a chave primária e secundária para todas as contas de armazenamento na mesma assinatura, incluindo contas criadas no serviço de armazenamento, bem como as contas de armazenamento padrões geradas quando o serviço StorSimple Manager foi inicialmente criado. O serviço StorSimple Manager sempre receberá essas chaves do portal clássico do Azure, em seguida, as armazenará de forma criptografada.
 
 ## Fluxo de trabalho de rotação
 
@@ -151,4 +151,4 @@ Para informar o serviço StorSimple Manager da alteração, será necessário ac
 - Saiba mais sobre a [segurança do StorSimple](storsimple-security.md).
 - Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

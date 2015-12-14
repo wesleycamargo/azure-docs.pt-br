@@ -37,7 +37,7 @@ Filas do Barramento de Serviço são uma tecnologia de uso geral que pode ser us
 O uso de filas permite uma maneira melhor de você escalar horizontalmente seus aplicativos e concede mais resiliência à sua arquitetura.
 
 ## Criar um namespace de serviço
-Para começar a usar filas do Barramento de Serviço no Azure, primeiro crie um namespace de serviço. Um namespace de serviço fornece um contêiner de controle para endereçamento dos recursos do Barramento de Serviço em seu aplicativo. Você deve criar o namespace através da interface de linha de comando porque o Portal não cria o barramento de serviço com uma conexão do ACS.
+Para começar a usar filas do Barramento de Serviço no Azure, primeiro crie um namespace de serviço. Um namespace de serviço fornece um contêiner de controle para endereçamento dos recursos do Barramento de Serviço em seu aplicativo. Você deve criar o namespace através da interface de linha de comando porque o portal não cria o barramento de serviço com uma conexão do ACS.
 
 Para criar um namespace de serviço:
 
@@ -56,7 +56,7 @@ O cmdlet do PowerShell que você executou para criar o namespace do barramento d
 
 ![Copiar chave](./media/service-bus-ruby-how-to-use-queues/defaultkey.png)
 
-> [AZURE.NOTE]Você também poderá encontrar essa chave se efetuar logon no [Portal do Azure](http://manage.windowsazure.com/) e navegar até as informações de conexão para seu namespace do barramento de serviço.
+> [AZURE.NOTE]Você também poderá encontrar essa chave se efetuar logon no [Portal clássico do Azure](http://manage.windowsazure.com/) e navegar até as informações de conexão para seu namespace do barramento de serviço.
 
 ## Criar um aplicativo Ruby
 
@@ -151,4 +151,4 @@ Agora que você já sabe as noções básicas das filas de Barramento de Serviç
 Para fazer uma comparação entre as filas de Service Bus do Azure discutidas nesse artigo e as filas do Azure discutidas no artigo [Como usar o serviço Fila do Azure](/develop/ruby/how-to-guides/queue-service/), consulte [Filas do Azure e filas de Service Bus do Azure - semelhanças e diferenças](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

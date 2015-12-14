@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="10/09/2015"
+   ms.date="12/01/2015"
    ms.author="sdanie" />
 
 # Como configurar o Cache Redis do Azure
 
 Este tópico descreve como examinar e atualizar a configuração para suas instâncias de Cache Redis do Azure e abrange a configuração do servidor Redis padrão para instâncias de Cache Redis do Azure.
 
->[AZURE.NOTE]A camada Premium do Cache Redis do Azure está atualmente em visualização. Durante o período de visualização, os recursos premium podem ser configurados apenas durante o processo de criação do cache. Para obter mais informações sobre como usar os recursos de cache premium, veja [Como configurar a persistência para um Cache Redis do Azure Premium](cache-how-to-premium-persistence.md), [Como configurar o clustering para um Cache Redis do Azure Premium](cache-how-to-premium-clustering.md) e [Como configurar o suporte da Rede Virtual para um Cache Redis do Azure Premium](cache-how-to-premium-vnet.md).
+>[AZURE.NOTE]Para obter mais informações sobre como configurar e usar os recursos de cache premium, veja [Como configurar a persistência para um Cache Redis do Azure Premium](cache-how-to-premium-persistence.md), [Como configurar o clustering para um Cache Redis do Azure Premium](cache-how-to-premium-clustering.md) e [Como configurar o suporte da Rede Virtual para um Cache Redis do Azure Premium](cache-how-to-premium-vnet.md).
 
 ## Definir configurações de cache Redis
 
@@ -102,13 +102,29 @@ Clique em **Configurações avançadas** para configurar as notificações de ke
 
 Para obter mais informações, veja [Notificações de Keyspace do Redis](http://redis.io/topics/notifications). Para o código de exemplo, veja o arquivo [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) no exemplo [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld).
 
+## Persistência de dados do Redis
+
+Clique em **Persistência de dados do Redis** para habilitar, desabilitar ou configurar a persistência de dados para o cache premium.
+
+![Persistência de dados do Redis](./media/cache-configure/redis-cache-persistence-settings.png)
+
+Para habilitar a persistência do Redis, clique em **Habilitado** para habilitar o backup do RDB (banco de dados do Redis). Para desabilitar a persistência do Redis, clique em **Desabilitado**.
+
+Para configurar o intervalo de backup, selecione uma **Frequência de Backup** na lista suspensa. As opções incluem **15 minutos**, **30 minutos**, **60 minutos**, **6 horas**, **12 horas** e **24 horas**. Esse intervalo inicia a contagem regressiva depois que a operação de backup anterior for concluída com êxito e quando ela expira, um novo backup é iniciado.
+
+Clique em **Conta de Armazenamento** para selecionar a conta de armazenamento a ser usada e escolha a **Chave primária** ou **Chave secundária** a ser usada na lista suspensa **Chave de Armazenamento**. Você deve escolher uma conta de armazenamento na mesma região que o cache e uma conta do **Armazenamento Premium** é recomendada, pois o armazenamento premium tem uma maior taxa de transferência. Sempre que a chave de armazenamento para a sua conta de persistência é regenerada, você deve escolher novamente a chave desejada no menu suspenso **Chave de Armazenamento**.
+
+Clique em **OK** para salvar a configuração de persistência.
+
+>[AZURE.IMPORTANT]A persistência de dados do Redis só está disponível para os caches Premium.
+
 ## Usuários e marcas
 
 ![Usuários e marcas de Cache Redis](./media/cache-configure/IC808320.png)
 
 A seção **Usuários** dá suporte ao RBAC (controle de acesso baseado em função) no portal de visualização para ajudar as organizações a atender aos seus requisitos de gerenciamento de acesso de maneira simples e precisa. Para obter mais informações, veja [Controle de acesso baseado em função no portal de visualização do Azure](http://go.microsoft.com/fwlink/?LinkId=512803).
 
-A seção **Marcas** ajuda você a organizar seus recursos. Para obter mais informações, veja [Usando marcas para organizar os recursos do Azure](../resource-group-using-tags.md).
+A seção **Marcas** o ajuda a organizar seus recursos. Para obter mais informações, veja [Usando marcas para organizar os recursos do Azure](../resource-group-using-tags.md).
 
 ## Configuração padrão do servidor Redis
 
@@ -167,8 +183,8 @@ Você pode emitir com segurança comandos para as suas instâncias do Cache Redi
 
 >[AZURE.IMPORTANT]O Console do Redis não funciona com VNET ou cluster.
 >
->-	[VNET](cache-how-to-premium-vnet.md) - quando o seu cache é parte de um VNET, somente clientes na VNET podem acessar o cache. Como o Console do Redis usa o cliente redis cli.exe hospedado em máquinas virtuais que não fazem parte da sua VNET, não pode se conectar ao seu cache.
->-	[Clusters](cache-how-to-premium-clustering.md) - O Console Redis usa o cliente de redis cli.exe que não dá suporte a clusters neste momento. O utilitário redis cli na ramificação [instável](http://redis.io/download) do repositório do Redis no GitHub implementa suporte básico quando iniciado com o `-c` switch. Para obter mais informações, consulte [Reprodução com o cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) em [http://redis.io](http://redis.io) no [tutorial de cluster Redis](http://redis.io/topics/cluster-tutorial).
+>-	[VNET](cache-how-to-premium-vnet.md) - quando o seu cache faz parte de uma VNET, somente os clientes na VNET podem acessar o cache. Como o Console do Redis usa o cliente redis cli.exe hospedado em máquinas virtuais que não fazem parte da sua VNET, não pode se conectar ao seu cache.
+>-	[Clustering](cache-how-to-premium-clustering.md) - O Console do Redis usa o cliente redis-cli.exe que não dá suporte ao clustering neste momento. O utilitário redis-cli na ramificação [instável](http://redis.io/download) do repositório do Redis no GitHub implementa um suporte básico quando iniciado com a opção `-c`. Para obter mais informações, veja [Reproduzindo com o cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) em [http://redis.io](http://redis.io) no [tutorial do cluster Redis](http://redis.io/topics/cluster-tutorial).
 
 Para acessar o Console do Redis, clique em **Console** na folha **Cache Redis**.
 
@@ -178,9 +194,9 @@ Para emitir comandos em sua instância de cache, simplesmente digite no comando 
 
 ![Console do Redis](./media/cache-configure/redis-console.png)
 
-Para obter a lista de comandos do Redis que estão desabilitados para o Cache Redis do Azure, veja a seção anterior [Comandos do Redis sem suporte no Cache Redis do Azure](#redis-commands-not-supported-in-azure-redis-cache). Para obter mais informações sobre os comandos do Redis, veja [http://redis.io/commands](http://redis.io/commands).
+Para obter uma lista de comandos do Redis que estão desabilitados para o Cache Redis do Azure, veja a seção anterior [Comandos do Redis sem suporte no Cache Redis do Azure](#redis-commands-not-supported-in-azure-redis-cache). Para obter mais informações sobre os comandos do Redis, veja [http://redis.io/commands](http://redis.io/commands).
 
 ## Próximas etapas
--	Para obter mais informações sobre como trabalhar com os comandos do Redis, veja [Como posso executar comandos do Redis?](cache-faq.md#how-can-i-run-redis-commands).
+-	Para obter mais informações sobre como trabalhar com os comandos do Redis, veja [Como faço para executar comandos do Redis?](cache-faq.md#how-can-i-run-redis-commands)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

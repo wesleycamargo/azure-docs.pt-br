@@ -1,7 +1,6 @@
 
-Azure Internal Load Balancing (ILB) provides network load balancing between virtual machines that reside inside a cloud service, a virtual network with a regional scope. An internal load balancer acts as a security boundary not allowing direct access to the virtual machines behind this type of load balancer from Internet.
+O ILB (Balanceamento de Carga Interno) do Azure fornece o balanceamento de carga de rede entre máquinas virtuais que residem em um serviço de nuvem, uma rede virtual com um escopo regional. Um balanceador de carga interno atua como uma barreira de segurança, não permitindo o acesso direto às máquinas virtuais por trás desse tipo de balanceador de carga da Internet.
 
-For information about the use and configuration of virtual networks with a regional scope, see [Regional Virtual Networks](virtual-networks-migrate-to-regional-vnet.md). Existing virtual networks that have been configured for an affinity group cannot use ILB.
+Para obter informações sobre o uso e a configuração de redes virtuais com um escopo regional, veja [Redes Virtuais Regionais](virtual-networks-migrate-to-regional-vnet.md). Redes virtuais existentes configuradas para um grupo de afinidade não podem usar o ILB.
 
-
-
+<!---HONumber=AcomDC_1203_2015-->

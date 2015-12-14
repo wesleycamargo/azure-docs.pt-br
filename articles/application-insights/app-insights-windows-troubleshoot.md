@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="11/24/2015" 
 	ms.author="awills"/>
  
 # Solução de problemas e Perguntas e Respostas do Application Insights para dispositivos Windows
@@ -25,7 +25,7 @@ Dúvidas ou problemas com o [Visual Studio Application Insights no Windows][wind
 
 *Adicionei o Application Insights com êxito e executei meu aplicativo, mas nunca vi dados no portal.*
 
-* Espere um minuto e clique em Atualizar. Atualmente, a atualização não é automática.
+* Espere um minuto e clique em Atualizar.
 * Verifique se você tem uma chave de instrumentação definida no arquivo ApplicationInsights.config e se ela é igual à chave no portal do Application Insights. Para ver a chave, clique em Essentials na folha de visão geral.
 * Verifique se seu aplicativo [solicita acesso de rede de saída](https://msdn.microsoft.com/library/windows/apps/hh452752.aspx).
 * Há um firewall entre o dispositivo emulador ou de teste e o portal do Application Insights? Talvez você tenha que abrir as portas TCP 80 e 443 para tráfego de saída de dc.services.visualstudio.com e f5.services.visualstudio.com.
@@ -40,7 +40,11 @@ Dúvidas ou problemas com o [Visual Studio Application Insights no Windows][wind
 
 ## Como adicionar o Application Insights a um Aplicativo Universal?
 
-Adicione manualmente os pacotes do NuGet para cada projeto de dispositivo em sua solução. Consulte [Guia de Introdução – Aplicativos universais][universal].
+Se você estiver criando uma nova solução no Visual Studio 2015, basta selecionar a opção Adicionar o Application Insights na caixa de diálogo Novo projeto. Isso enviará telemetria de todos os tipos de aplicativo de destino para o mesmo recurso do Application Insights.
+
+Se você já criar a solução de aplicativo universal, clique em cada projeto principal e selecione **Adicionar o Application Insights**.
+
+
 
 ## Desabilitando a telemetria
 
@@ -120,4 +124,4 @@ Consulte [Privacidade e retenção de dados][data].
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

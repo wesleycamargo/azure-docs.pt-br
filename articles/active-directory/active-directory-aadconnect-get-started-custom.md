@@ -51,7 +51,7 @@ Permissões | Por padrão o Azure Connect AD criará quatro grupos locais para o
 
 
 ## Entrada do usuário
-Depois de instalar os componentes necessários, você será solicitado a especificar o método de logon único que os usuários usarão. A tabela a seguir fornece uma breve descrição das opções disponíveis.
+Depois de instalar os componentes necessários, você será solicitado a especificar o método de logon único que os usuários usarão. A tabela a seguir fornece uma breve descrição das opções disponíveis. Para obter uma descrição completa dos métodos de entrada, consulte [Entrada do usuário](active-directory-aadconnect-user-signin.md).
 
 ![Entrada do usuário](./media/active-directory-aadconnect-get-started-custom/usersignin.png)
 
@@ -123,7 +123,7 @@ Implantação híbrida do Exchange |O recurso Implantação Híbrida do Exchange
 Aplicativo AD do Azure e filtragem de atributos|Ao habilitar o aplicativo AD do Azure e filtragem de atributo, o conjunto de atributos sincronizados pode ser adaptado para um conjunto específico em uma página subsequente do assistente. Isso abre duas páginas de configuração adicionais no assistente.  
 Sincronização de senha | Você pode habilitar essa opção se selecionou a federação como a solução de logon. Em seguida, a sincronização de senha pode ser usada como uma opção de backup. Para obter mais informações, veja [Sincronização de senha](active-directory-aadconnectsync-implement-password-synchronization.md).
 Write-back de senha|Ao habilitar o write-back de senha, as alterações de senha que se originam com o AD do Azure serão gravadas no diretório local. Para obter mais informações, veja [Introdução ao gerenciamento de senhas](active-directory-passwords-getting-started.md).
-Write-back de grupo |Se você usar o recurso **Grupos no Office 365**, você poderá ter esses grupos no Active Directory local como um grupo de distribuição. Essa opção só estará disponível se você tiver o Exchange presente no seu Active Directory local. Para obter mais informações, veja [Write-back de grupo](active-directory-aadconnect-feature-preview.md#group-writeback).
+Write-back de grupo |Se você usar o recurso **Grupos no Office 365**, você poderá ter esses grupos no Active Directory local como um grupo de distribuição. Essa opção só estará disponível se você tiver o Exchange presente no seu Active Directory local. Para saber mais, veja [Write-back de grupo](active-directory-aadconnect-feature-preview.md#group-writeback).
 Write-back de dispositivo | Permite o write-back de objetos de dispositivo no AD do Azure para seu Active Directory local para cenários de acesso condicional. Para obter mais informações, veja [Habilitando o write-back do dispositivo no Azure AD Connect](active-directory-aadconnect-get-started-custom-device-writeback.md)
 Sincronização de atributo de extensão de diretório|Ao habilitar a sincronização de atributo de extensão de diretório, os atributos adicionais especificados serão sincronizados com o AD do Azure. Para obter mais informações, veja [Extensões de diretório](active-directory-aadconnect-feature-preview.md#directory-extensions).
 
@@ -242,8 +242,10 @@ Além disso, execute as seguintes etapas de verificação:
 
 
 ## Próximas etapas
+Após a instalação, saia e entre novamente no Windows antes de usar o Gerenciador de Serviços de Sincronização ou o Editor de Regra de Sincronização.
+
 Agora que você tem o Azure AD Connect instalado, é possível [verificar a instalação e atribuir licenças](active-directory-aadconnect-whats-next.md).
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

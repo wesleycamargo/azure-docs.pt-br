@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/16/2015" 
+	ms.date="12/01/2015" 
 	ms.author="tomfitz"/>
 
 # Usando o Azure PowerShell com o Gerenciador de Recursos do Azure
@@ -34,11 +34,9 @@ Para concluir este tutorial, você precisará:
   + Você pode [abrir uma conta do Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F): você recebe créditos que podem ser usados para experimentar serviços pagos do Azure e, mesmo após eles serem utilizados, você pode manter a conta e usar os serviços gratuitos do Azure, como os Sites. Seu cartão de crédito nunca será cobrado, a menos que você altere explicitamente suas configurações, solicitando esse tipo de cobrança.
   
   + Você pode [ativar benefícios para assinantes do MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): todos os meses, sua assinatura do MSDN concede créditos que podem ser usados para serviços pagos do Azure.
-- PowerShell do Azure
+- Azure PowerShell 1.0. Para obter informações sobre essa versão e como instalá-la, confira [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
-[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
-
-Este tutorial foi criado para iniciantes do PowerShell, mas pressupõe que você compreende os conceitos básicos, como módulos, cmdlets e sessões. Para obter mais informações sobre o Windows PowerShell, consulte [Introdução ao PowerShell do Microsoft Azure (a página pode estar em inglês)](http://technet.microsoft.com/library/hh857337.aspx).
+Este tutorial foi criado para iniciantes do PowerShell, mas pressupõe que você compreende os conceitos básicos, como módulos, cmdlets e sessões. Para obter mais informações sobre o Windows PowerShell, consulte [Introdução ao PowerShell do Windows Azure (a página pode estar em inglês)](http://technet.microsoft.com/library/hh857337.aspx).
 
 ## O que você implantará
 
@@ -83,7 +81,7 @@ Para obter ajuda completa sobre um cmdlet, digite um comando com o formato:
 
 Antes de trabalhar em sua solução, você deve fazer logon em sua conta.
 
-Para fazer logon em sua conta do Azure, use o cmdlet **Login-AzureRmAccount**. Nas versões do Azure PowerShell antes da Visualização 1.0, use o comando **Add-AzureAccount**.
+Para fazer logon em sua conta do Azure, use o cmdlet **Login-AzureRmAccount**.
 
     PS C:\> Login-AzureRmAccount
 
@@ -162,13 +160,13 @@ Vamos executar o mesmo comando para o banco de dados:
 
 Parece que esses recursos estão disponíveis em várias regiões. Para este tópico, usaremos **Oeste dos EUA**, mas você pode especificar qualquer uma das regiões com suporte.
 
-## Criar um grupos de recursos
+## Criar um grupo de recursos
 
 Esta seção do tutorial fornece orientações sobre o processo de criação de um grupo de recursos. O grupo de recursos servirá como um contêiner para todos os recursos em sua solução que compartilham o mesmo ciclo de vida. Posteriormente no tutorial, você implantará o aplicativo Web e o banco de dados SQL neste grupo de recursos.
 
 Para criar um grupo de recursos, use o cmdlet **New-AzureRmResourceGroup**.
 
-O comando usa o parâmetro **Name** para especificar um nome para o grupo de recursos e o parâmetro **Location** para especificar o local. Com base no que descobrimos na seção anterior, usaremos “Oeste dos Estados Unidos” para o local.
+O comando usa o parâmetro **Name** para especificar um nome para o grupo de recursos e o parâmetro **Location** para especificar o local. Com base no que descobrimos na seção anterior, usaremos "Oeste dos Estados Unidos" para o local.
 
     PS C:\> New-AzureRmResourceGroup -Name TestRG1 -Location "West US"
     
@@ -188,7 +186,7 @@ O grupo de recursos foi criado com êxito.
 
 ## Obter as versões de API disponíveis para os recursos
 
-Ao implantar um modelo, você deve especificar uma versão de API a ser usada para criar o recurso. As versões disponíveis da API correspondem às versões das operações da API REST que são lançadas pelo provedor de recursos. À medida que os provedores de recursos habilitam novos recursos, eles lançarão novas versões da API REST. Portanto, a versão da API que você especificar em seu modelo afeta quais propriedades estão disponíveis para você durante a criação do modelo. Em geral, você desejará selecionar a versão mais recente da API ao criar novos modelos. Para os modelos existentes, você pode decidir se deseja continuar usando uma versão de API que você sabe que não alterará sua implantação, ou se deseja atualizar o modelo para a versão mais recente para aproveitar os novos recursos.
+Ao implantar um modelo, você deve especificar uma versão de API a ser usada para criar o recurso. As versões disponíveis da API correspondem às versões das operações da API REST que são lançadas pelo provedor de recursos. À medida que os provedores de recursos habilitam novos recursos, eles lançarão novas versões da API REST. Portanto, a versão da API que você especificar em seu modelo afeta quais propriedades estão disponíveis para você durante a criação do modelo. Em geral, você deve selecionar a versão mais recente da API ao criar novos modelos. Para os modelos existentes, você pode decidir se deseja continuar usando uma versão de API que você sabe que não alterará sua implantação, ou se deseja atualizar o modelo para a versão mais recente para aproveitar os novos recursos.
 
 Esta etapa pode parecer confusa, mas não é difícil descobrir as versões de API disponíveis para o recurso. Você usará novamente o comando **Get-AzureRmResourceProvider**.
 
@@ -214,7 +212,7 @@ Para o banco de dados, você verá:
 
 ## Criar seu modelo
 
-Este tópico não mostra como criar seu modelo nem discute a estrutura do modelo. Para obter essas informações, veja [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md). O modelo que você implantará é mostrado abaixo. Observe que o modelo usa as versões de API que você recuperou na seção anterior. Para garantir que todos os recursos residam na mesma região, usamos a expressão de modelo **resourceGroup().location** para usar o local do grupo de recursos.
+Este tópico não mostra como criar seu modelo nem discute a estrutura do modelo. Para obter essas informações, confira [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md). O modelo que você implantará é mostrado abaixo. Observe que o modelo usa as versões de API que você recuperou na seção anterior. Para garantir que todos os recursos residam na mesma região, usamos a expressão de modelo **resourceGroup().location** para usar o local do grupo de recursos.
 
 Observe, ainda, a seção de parâmetros. Esta seção define os valores que você pode fornecer ao implantar os recursos. Você usará esses valores posteriormente neste tutorial.
 
@@ -394,9 +392,9 @@ Depois de criar um grupo de recursos, você pode usar os cmdlets no módulo do G
 		
 		...
 
-- Para obter os recursos no grupo de recursos, use o cmdlet **Get-AzureRmResource** e seu parâmetro ResourceGroupName. Sem parâmetros, o Get-AzureRmResource obtém todos os recursos em sua assinatura do Azure.
+- Para obter os recursos no grupo de recursos, use o cmdlet **Find-AzureRmResource** e seu parâmetro **ResourceGroupNameContains**. Sem parâmetros, o Find-AzureRmResource obtém todos os recursos em sua assinatura do Azure.
 
-		PS C:\> Get-AzureRmResource -ResourceGroupName TestRG1
+		PS C:\> Find-AzureRmResource -ResourceGroupNameContains TestRG1
 		
 		Name              : exampleserver
                 ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Sql/servers/tfserver10
@@ -416,7 +414,7 @@ Para adicionar um recurso ao grupo de recursos, use o cmdlet **New-AzureRmResour
 
 ## Mover um recurso
 
-Você pode mover os recursos existentes para um novo grupo de recursos. Para obter exemplos, veja [Mover recursos para um novo grupo de recursos ou uma nova assinatura](resource-group-move-resources.md).
+Você pode mover os recursos existentes para um novo grupo de recursos. Para obter exemplos, confira [Mover recursos para um novo grupo de recursos ou uma nova assinatura](resource-group-move-resources.md).
 
 ## Excluir um grupo de recursos
 
@@ -438,9 +436,9 @@ Você pode mover os recursos existentes para um novo grupo de recursos. Para obt
 
 ## Próximas etapas
 
-- Para saber mais sobre como criar modelos do Gerenciador de Recursos, veja [Criando Modelos do Gerenciador de Recursos do Azure](./resource-group-authoring-templates.md).
-- Para saber mais sobre como implantar modelos, veja [Implantar um aplicativo com o Modelo do Gerenciador de Recursos do Azure](./resource-group-template-deploy.md).
+- Para saber mais sobre a criação de modelos do Gerenciador de Recursos, confira [Criando modelos do Gerenciador de Recursos do Azure](./resource-group-authoring-templates.md).
+- Para saber mais sobre como implantar modelos, confira [Implantar um aplicativo com o Modelo do Gerenciador de Recursos do Azure](./resource-group-template-deploy.md).
 - Para ver um exemplo detalhado da implantação de um projeto, confira [Implantar microsserviços de maneira previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
-- Para saber mais sobre como solucionar problemas de uma implantação com falha, veja [Solucionando problemas de implantações do grupo de recursos no Azure](./virtual-machines/resource-group-deploy-debug.md).
+- Para saber mais sobre como solucionar problemas de uma implantação com falha, confira [Solucionando problemas de implantações do grupo de recursos no Azure](./virtual-machines/resource-group-deploy-debug.md).
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -134,9 +134,9 @@ Lembre-se de que se você tiver recebido vários códigos de verificação, some
 Se, anteriormente, você configurou um telefone de backup, recomendamos que tente novamente selecionando esse telefone quando receber a solicitação na página de entrada. Se não houver outro método configurado, entre em contato com o administrador e peça que ele apague as configurações. Assim, na próxima vez que você entrar, você receberá uma solicitação para [configurar a autenticação multifator](multi-factor-authentication-manage-users-and-devices.md#require-selected-users-to-provide-contact-methods-again) novamente.
 
 ##As senhas de aplicativo não estão funcionando
-Primeiro, verifique se você inseriu a senha de aplicativo corretamente. Se isso ainda não funcionar, tente entrar e [criar uma nova senha de aplicativo](multi-factor-authentication-end-user-app-passwords). Se isso não funcionar, entre em contato com o administrador e peça que ele [exclua suas senhas de aplicativo existentes](multi-factor-authentication-manage-users-and-devices.md#delete-users-existing-app-passwords) e crie uma nova para usá-la.
+Primeiro, verifique se você inseriu a senha de aplicativo corretamente. Se isso ainda não funcionar, tente se conectar e [criar uma nova senha de aplicativo](multi-factor-authentication-end-user-app-passwords.md). Se isso não funcionar, entre em contato com o administrador e peça que ele [exclua suas senhas de aplicativo existentes](multi-factor-authentication-manage-users-and-devices.md#delete-users-existing-app-passwords) e crie uma nova para usá-la.
 
 ##Como limpar o Autenticador do Azure de meu dispositivo antigo e movê-lo para um novo?
 Quando você desinstala o aplicativo do dispositivo ou reinicia o dispositivo, ele não remove a ativação no back-end. Você deve usar as etapas descritas em [Movendo para um novo dispositivo](multi-factor-authentication-azure-authenticator.md#how-to-move-to-the-new-azure-authenticator-app).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

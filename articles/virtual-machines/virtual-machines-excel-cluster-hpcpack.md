@@ -39,15 +39,15 @@ Em um alto nível, o diagrama a seguir mostra o cluster de HPC Pack que você cr
 
 ## Etapa 1. Configurar um cluster de HPC Pack no Azure
 
-Mostraremos duas maneiras de configurar o cluster: primeiro, usando um modelo de início rápido do Azure e o portal de visualização do Azure; e segundo, usando um script de implantação do Azure PowerShell.
+Mostraremos duas maneiras de configurar o cluster: primeiro, usando um modelo de início rápido do Azure e o portal do Azure; e segundo, usando um script de implantação do Azure PowerShell.
 
 
 ### Usar um modelo de início rápido
-Use um modelo de início rápido do Azure para implantar de maneira rápida e fácil um cluster do HPC Pack no portal de visualização do Azure. Ao abrir o modelo no portal de visualização, você obtém uma interface do usuário simples na qual inserir as configurações para seu cluster. Siga estas etapas:
+Use um modelo de início rápido do Azure para implantar de maneira rápida e fácil um cluster do HPC Pack no portal do Azure. Ao abrir o modelo no portal de visualização, você obtém uma interface do usuário simples na qual inserir as configurações para seu cluster. Siga estas etapas:
 
 1. Visite a [página Criar modelo de Cluster de HPC no GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster). Se quiser, reveja as informações sobre o modelo e o código-fonte.
 
-2. Clique em **Implantar no Azure** para iniciar uma implantação com o modelo no portal de visualização do Azure.
+2. Clique em **Implantar no Azure** para iniciar uma implantação com o modelo no portal do Azure.
 
     ![Implantar o modelo no Azure][github]
 
@@ -81,7 +81,7 @@ Use um modelo de início rápido do Azure para implantar de maneira rápida e f�
 
 3.	Quando a implantação for concluída (normalmente leva cerca de 30 minutos), exporte o arquivo de certificado de cluster do nó principal do cluster. Em uma etapa posterior, este certificado público será importado no computador cliente para fornecer a autenticação do lado do servidor para a conexão segura de HTTP.
 
-    a. Conecte-se ao nó principal pela Área de Trabalho Remota no portal de visualização do Azure.
+    a. Conecte-se ao nó principal pela Área de Trabalho Remota no portal do Azure.
 
      ![Conectar-se ao nó principal][connect]
 
@@ -347,7 +347,7 @@ Para fazer isso, defina explicitamente um sinalizador UseAzureQueue para false n
 
 ### Usar associação NetTcp
 
-Para usar a ligação NetTcp, a configuração é como conectar-se a um cluster local. Você precisará abrir alguns pontos de extremidade na VM do nó principal. No portal do Azure, faça o descrito a seguir.
+Para usar a ligação NetTcp, a configuração é como conectar-se a um cluster local. Você precisará abrir alguns pontos de extremidade na VM do nó principal. No portal clássico do Azure, faça o descrito a seguir.
 
 
 1. Pare a VM.
@@ -381,4 +381,4 @@ O aplicativo cliente SOA não requer alterações, exceto do nome principal para
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

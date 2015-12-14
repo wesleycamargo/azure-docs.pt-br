@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/12/2015"
+   ms.date="12/02/2015"
    ms.author="tomfitz"/>
 
 # Funções do modelo do Gerenciador de Recursos do Azure
@@ -78,26 +78,44 @@ Retorna o índice atual de um loop de iteração. Para obter exemplos de como us
 
 Retorna informações sobre a operação de implantação atual.
 
-As informações sobre a implantação são retornadas como um objeto com as seguintes propriedades:
+Essa expressão retorna o objeto que é transmitido durante a implantação. As propriedades no objeto retornado vão variar dependendo se o objeto de implantação for transmitido como um link ou como um objeto na linha. Quando o objeto de implantação é passado na linha, como ao usar o parâmetro **- TemplateFile** no PowerShell do Azure para apontar para um arquivo local, o objeto retornado fica no seguinte formato:
 
     {
-      "name": "",
-      "properties": {
-        "template": {},
-        "parameters": {},
-        "mode": "",
-        "provisioningState": ""
-      }
+        "name": "",
+        "properties": {
+            "template": {
+                "$schema": "",
+                "contentVersion": "",
+                "resources": [
+                ],
+                "outputs": {}
+            },
+            "parameters": {},
+            "mode": "",
+            "provisioningState": ""
+        }
     }
 
-O exemplo a seguir mostra como retornar informações sobre a implantação da seção de saídas.
+Quando o objeto é transmitido como um link, como ao usar o parâmetro **- TemplateUri** para apontar para um objeto remoto, o objeto é retornado no seguinte formato.
 
-    "outputs": {
-      "exampleOutput": {
-        "value": "[deployment()]",
-        "type" : "object"
-      }
+    {
+        "name": "",
+        "properties": {
+            "templateLink": {
+                "uri": "",
+                "contentVersion": ""
+            },
+            "mode": "",
+            "provisioningState": ""
+        }
     }
+
+O exemplo a seguir mostra como usar a implantação() para um modelo aninhado com base no URI do modelo pai.
+
+    "variables": {  
+        "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
+    }  
+
 
 ## div
 
@@ -131,9 +149,25 @@ O exemplo a seguir converte o valor do parâmetro fornecido pelo usuário em Int
 
 ## length
 
-**length(array)**
+**comprimento (matriz ou cadeia de caracteres)**
 
-Retorna o número de elementos em uma matriz. Normalmente, é usado para especificar o número de iterações durante a criação de recursos. Para obter um exemplo de como usar essa função, veja [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
+Retorna o número de elementos em uma matriz ou o número de caracteres em uma cadeia de caracteres. Essa função pode ser usada com uma matriz para especificar o número de iterações durante a criação de recursos. No exemplo a seguir, o parâmetro **siteNames** faz referência a uma matriz de nomes a serem usados durante a criação de sites da web.
+
+    "copy": {
+        "name": "websitescopy",
+        "count": "[length(parameters('siteNames'))]"
+    }
+
+Para obter mais informações sobre como usar essa função com uma matriz, veja [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
+
+Ou você pode usar com uma cadeia de caracteres:
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "nameLength": "[length(parameters('appName'))]"
+    }
 
 ## listKeys
 
@@ -268,7 +302,7 @@ Habilita uma expressão a derivar seu valor do estado de tempo de execução do 
 
 A função **referência** deriva seu valor de um estado de tempo de execução e, portanto, não pode ser usada na seção de variáveis. Ela pode ser usada na seção de saídas de um modelo.
 
-Usando a expressão de referência, você declara implicitamente que um recurso depende de outro recurso se o recurso referenciado é provisionado no mesmo modelo. Você não precisa usar a propriedade **dependsOn** também. A expressão não é avaliada até que o recurso referenciado conclua a implantação.
+Usando a expressão de referência, você declara implicitamente que um recurso depende de outro recurso se o recurso referenciado é provisionado no mesmo modelo. Não é preciso usar a propriedade **dependsOn** também. A expressão não é avaliada até que o recurso referenciado conclua a implantação.
 
     "outputs": {
       "siteUri": {
@@ -559,9 +593,11 @@ Cria um URI absoluto, combinando o baseUri e a cadeia de caracteres relativeUri.
 | baseUri | Sim | Cadeia de caracteres do URI de base.
 | relativeUri | Sim | Cadeia de caracteres de uri relativo para adicionar a cadeia de caracteres do uri de base.
 
-O exemplo a seguir mostra como criar um URI absoluto no link do modelo. O resultado é ****http://contoso.com/resources/nested/azuredeploy.json**.
+O valor para o parâmetro **baseUri** pode incluir um arquivo específico, mas apenas o caminho base é usado ao construir a URI. Por exemplo, transmitir ****http://contoso.com/resources/azuredeploy.json** como parâmetro baseUri resultará em uma URI base ****http://contoso.com/resources/**.
 
-    "templateLink": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]"
+O exemplo a seguir mostra como criar um link para um modelo aninhado com base no valor do modelo pai.
+
+    "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
 
 
 ## variáveis
@@ -578,7 +614,7 @@ Retorna o valor da variável. O nome do parâmetro especificado deve ser definid
 ## Próximas etapas
 - Para obter uma descrição das seções de um modelo do Gerenciador de Recursos do Azure, veja a seção [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md)
 - Para mesclar diversos modelos, veja a seção [Usando modelos vinculados com o Gerenciador de Recursos do Azure](resource-group-linked-templates.md)
-- Para iterar um número de vezes especificado ao criar um tipo de recurso, veja [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
+- Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
 - Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o Modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

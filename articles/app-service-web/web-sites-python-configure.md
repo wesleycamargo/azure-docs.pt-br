@@ -36,11 +36,11 @@ O Azure Marketplace contém modelos para as estruturas Bottle, Django e Flask. S
 - [Criando aplicativos Web com Flask](web-sites-python-create-deploy-flask-app.md)
 
 
-## Criação de aplicativos Web no Portal de visualização do Azure
+## Criação de aplicativos Web no Portal do Azure
 
-Este tutorial assume uma assinatura existente do Azure e acesso ao Portal de Visualização do Azure.
+Este tutorial assume uma assinatura existente do Azure e acesso ao Portal do Azure.
 
-Se não tiver um aplicativo Web já existente, você poderá criar um por meio do [Portal de Visualização do Azure](https://portal.azure.com). Clique no botão NOVO no canto inferior esquerdo, clique em **Web + Mobile** > **aplicativo Web**.
+Se não tiver um aplicativo Web já existente, você poderá criar um no [Portal do Azure](https://portal.azure.com). Clique no botão NOVO no canto inferior esquerdo, clique em **Web + Mobile** > **aplicativo Web**.
 
 ## Publicação Git
 
@@ -372,13 +372,12 @@ Conteúdo de `ptvs_virtualenv_proxy.py`:
 
 ## Próximas etapas
 
-Para saber mais, consulte o [Centro de Desenvolvedores do Python](/develop/python/).
+Para saber mais, confira o [Centro de Desenvolvedores do Python](/develop/python/).
 
->[AZURE.NOTE]Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 
 
@@ -386,4 +385,4 @@ Para saber mais, consulte o [Centro de Desenvolvedores do Python](/develop/pytho
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

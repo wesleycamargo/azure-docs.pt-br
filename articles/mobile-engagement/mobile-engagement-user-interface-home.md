@@ -13,54 +13,75 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="08/10/2015"
+   ms.date="11/29/2015"
    ms.author="piyushjo"/>
 
 # Como gerenciar seus aplicativos e projetos existentes
-A seção da página inicial da interface do usuário contém a lista de todos os aplicativos em Meus aplicativos, bem como a capacidade de conceder a outros usuários permissões para seus aplicativos. Qualquer pessoa pode acessar a página inicial da interface do usuário ao criar uma conta, mas você precisa conceder aos outros usuários permissão para que eles tenham acesso aos seus aplicativos personalizados em Meus projetos.
 
-### Consulte também
--  [Guia solução de problemas - Serviço][Link 24]
+
+Este artigo descreve a Página **Inicial** do portal do **Mobile Engagement**. Você usa o portal do **Mobile Engagement** para monitorar e gerenciar seus aplicativos móveis. Observe que, para começar a usar o portal, primeiro é preciso criar uma conta do **Azure Mobile Engagement**. Para obter mais informações, veja [Criar uma conta do Azure Mobile Engagement](mobile-engagement-create-account.md).
+ 
+Para acessar a página inicial, clique em **Inicial** na parte superior esquerda da página. Ela contém a lista de todos os aplicativos que fazem parte da coleção escolhida. Nesta página tem-se uma visão geral de seus aplicativos.
+   
+A página inicial também contém todos os seus projetos que podem incluir quaisquer aplicativos que estejam em sua conta. Observe que qualquer pessoa pode acessar a página inicial da interface do usuário ao criar uma conta, mas você precisa conceder permissão aos outros usuários para que tenham acesso aos seus aplicativos personalizados em **Meus projetos**.
+
+Você também pode exibir o gráfico de comparação para os aplicativos selecionados. Ou optar por exibir o gráfico de comparação para os aplicativos selecionados em um projeto.
+
+![Home1][0]
+
 
 ## Meus aplicativos
-![Home1][2]
 
-Esta visão geral rápida dos seus aplicativos permite selecionar quais aplicativos você gostaria de abrir para exibir a faixa de opções detalhada. Você pode clicar no nome do seu aplicativo para retornar para o local da faixa de opções visitado recentemente em seu aplicativo ou clicar no ícone de engrenagem para ir diretamente para a página “Configurações” do seu aplicativo. Você pode pesquisar, filtrar ou classificar as informações exibidas nas tabelas de aplicativos. Você também pode arrastar e soltar os cabeçalhos de coluna para alterar a ordem.
+A visão geral rápida dos seus aplicativos permite selecionar quais aplicativos você gostaria de abrir para exibir a faixa de opções detalhada. Você pode clicar no nome do seu aplicativo para retornar para o local da faixa de opções visitado recentemente em seu aplicativo ou clicar no ícone de engrenagem para ir diretamente para a página “Configurações” do seu aplicativo. Você pode pesquisar, filtrar ou classificar as informações exibidas nas tabelas de aplicativos. Você também pode arrastar e soltar os cabeçalhos de coluna para alterar a ordem.
  
-A visão geral dos seus aplicativos inclui:
+Entre outras coisas, a visão geral dos seus aplicativos inclui:
 
-- Total de usuários (Número Total de usuários)
-- Nova tendência de usuários (evolução de novos usuários sobre as últimas duas semanas)
-- Usuários ativos (número de usuários ativos nos últimos 30 dias)
-- Tendência de usuários ativos (evolução de usuários ativos sobre as últimas duas semanas)
- 
-Você também pode ver um gráfico de comparação de seus aplicativos.
+- **Nova tendência de usuários**: evolução de novos usuários nas últimas duas semanas.
+- **Usuários ativos**: número de usuários ativos nos últimos 30 dias.
+- **Tendência de usuários ativos**: evolução de usuários ativos nas últimas duas semanas.
+- **Sessões**: uma sessão é um uso do aplicativo executado por um usuário, desde o momento em que ele começa a usá-lo até quando ele para. 
+- **Tendências de sessão**: evolução de sessões nas duas últimas semanas.
 
-- Mostrar gráfico de comparação (pode ser usado para mostrar os dados do aplicativo no formato de gráfico)
-- Caixas de seleção (adicionar/remover este aplicativo para o/do gráfico de comparação)
+Após clicar em um aplicativo, você pode começar a monitorar e gerenciar seus aplicativos por meio da interface do usuário. Por exemplo:
+
+- [Monitorar dados em tempo real sobre o seu aplicativo](mobile-engagement-user-interface-monitor.md)
+- [Analisar dados históricos sobre seu aplicativo](mobile-engagement-user-interface-analytics.md)
+- [Criar e gerenciar segmentos de usuários para identificar padrões de uso](mobile-engagement-user-interface-segments.md)
+- [Entrar em contato com os usuários do seu aplicativo com notificações por push](mobile-engagement-user-interface-reach.md)
  
+## Meus projetos
+
+Você pode usar os projetos para agrupar seus aplicativos e conceder permissões a outros usuários para que acessem seus aplicativos. Conceder permissões a outros usuários disponibilizando o endereço de e-mail. O botão de **Novo projeto** permite que você crie um novo projeto, inserindo apenas um “nome” e uma “descrição” do novo projeto. Quando um projeto é criado, você pode clicar no nome do projeto para editar o nome e a descrição do produto e selecionar todos os aplicativos que você deseja ver neste projeto.
+
+
+![Home6][60]
+
+As funções incluem:
+
+- **Visualizador**: Um Visualizador é um usuário que só pode visualizar os aplicativos associados a um Projeto. Um Visualizador pode acessar os dados da análise e monitoramento e examinar os resultados de Reach. Um Visualizador não pode alterar qualquer informação, nem gerenciar Aplicativos ou Usuários. Um Visualizador não pode criar ou alterar o status da campanha Reach.
+- **Desenvolvedor**: Um Desenvolvedor é um usuário que pode fazer tudo que um Visualizador pode fazer, bem como gerenciar Aplicativos. Um Desenvolvedor pode ativar e desativar aplicativos, alterar informações de aplicativos (como o pacote e assinatura) e criar campanhas Reach. Um Desenvolvedor não pode gerenciar Usuários. 
+- **Administrador**: Um Administrador é um usuário que pode fazer tudo o que um Desenvolvedor pode fazer, bem como gerenciar Usuários. Administrador: Um Administrador pode convidar usuários para ingressar em um projeto, pode alterar as funções de usuário e pode alterar informações do projeto. Permissões de nível de aplicativo também podem ser definidas em “configurações”.
+
+
+Clique em um projeto para exibir todos os aplicativos que fazem parte deste projeto. A imagem a seguir exibe o gráfico de comparação para os aplicativos selecionados.
+
 ![Home2][3]
 
-## Meus projetos
-![Home3][6]
 
-Você pode usar os projetos para agrupar seus aplicativos e conceder permissões aos seus aplicativos. O botão de Novos projetos permite que você crie um novo projeto, inserindo apenas um “nome” e uma “descrição” do novo projeto. Quando um projeto é criado, você pode clicar no nome do projeto para editar o nome e a descrição do produto e selecionar todos os aplicativos que você deseja ver neste projeto. Você também pode excluir este projeto, o que não destruirá os aplicativos referenciados por ele. No entanto, você perderá o acesso a todos os aplicativos que você não possui e que não são acessíveis a partir de outro projeto. Portanto, tenha cuidado! Você também pode convidar um usuário para o seu projeto com base em seu endereço de email.
+## Consulte também
 
-### As funções incluem:
-- Visualizador: Um Visualizador é um usuário que só pode visualizar os aplicativos associados a um Projeto. Um Visualizador pode acessar os dados da análise e monitoramento e examinar os resultados de Reach. Um Visualizador não pode alterar qualquer informação, nem gerenciar Aplicativos ou Usuários. Um Visualizador não pode criar ou alterar o status da campanha Reach.
-- Desenvolvedor: Um Desenvolvedor é um usuário que pode fazer tudo que um Visualizador pode fazer, bem como gerenciar Aplicativos. Um Desenvolvedor pode ativar e desativar aplicativos, alterar informações de aplicativos (como o pacote e assinatura) e criar campanhas Reach. Um Desenvolvedor não pode gerenciar Usuários. 
-- Administrador: Um Administrador é um usuário que pode fazer tudo o que um Desenvolvedor pode fazer, bem como gerenciar Usuários. Administrador: Um Administrador pode convidar usuários para ingressar em um projeto, pode alterar as funções de usuário e pode alterar informações do projeto. Permissões de nível de aplicativo também podem ser definidas em “configurações”.
- 
-### Consulte também
--  [Documentação da interface do usuário - Configurações][Link 20]
+- [Conceitos][Link 6]
+- [Serviço do Guia de Solução de Problemas][Link 24]
 
 <!--Image references-->
+[0]: ./media/mobile-engagement-user-interface-home/home0.png
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
 [2]: ./media/mobile-engagement-user-interface-home/home1.png
 [3]: ./media/mobile-engagement-user-interface-home/home2.png
 [4]: ./media/mobile-engagement-user-interface-home/home3.png
 [5]: ./media/mobile-engagement-user-interface-home/home4.png
 [6]: ./media/mobile-engagement-user-interface-home/home5.png
+[60]: ./media/mobile-engagement-user-interface-home/home6.png
 [7]: ./media/mobile-engagement-user-interface-my-account/myaccount1.png
 [8]: ./media/mobile-engagement-user-interface-my-account/myaccount2.png
 [9]: ./media/mobile-engagement-user-interface-my-account/myaccount3.png
@@ -153,4 +174,4 @@ Você pode usar os projetos para agrupar seus aplicativos e conceder permissões
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

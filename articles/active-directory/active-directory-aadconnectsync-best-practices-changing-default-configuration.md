@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Práticas recomendadas para alterar a configuração padrão | Microsoft Azure"
+	pageTitle="Sincronização do Azure AD Connect: práticas recomendadas para alterar a configuração padrão | Microsoft Azure"
 	description="Fornece práticas recomendadas para alterar a configuração padrão da sincronização do Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
@@ -83,4 +83,4 @@ Saiba mais sobre a configuração de [sincronização do Azure AD Connect](activ
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

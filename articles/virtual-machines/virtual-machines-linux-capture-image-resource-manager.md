@@ -65,7 +65,7 @@ Para realizar outras personalizações, você precisará conectar-se à VM usand
 
 	>[AZURE.NOTE]Nas próximas etapas, presumimos que você já [instalou a CLI do Azure](../xplat-cli-install.md) no computador cliente.
 
-5. No computador cliente, abra a CLI do Azure e faça logon com sua assinatura do Azure. Para obter detalhes, leia [Conectar-se a uma assinatura do Azure a partir da CLI do Azure](../xplat-cli-connect.md).
+5. No computador cliente, abra a CLI do Azure e faça logon com sua assinatura do Azure. Para obter detalhes, leia [Conectar-se a uma assinatura do Azure da CLI do Azure](../xplat-cli-connect.md).
 
 6. Verifique se você está no modo Gerenciador de Recursos:
 
@@ -176,7 +176,7 @@ Use a imagem capturada e o modelo para implantar VMs adicionais usando as etapas
 * Criar uma nova NIC na mesma rede virtual ou em uma diferente
 * Crie uma implantação no grupo de recursos no qual você configurou a rede virtual usando o arquivo de modelo modificado JSON
 
-Se você quiser a rede configurada automaticamente ao criar uma VM a partir da imagem, use o [101-vm-from-user-image template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) do GitHub. Esse modelo cria uma VM de sua imagem personalizada e da rede virtual necessária, endereço IP público e recursos da NIC. Para obter uma explicação sobre como usar o modelo no portal de visualização do Azure, confira [Como criar uma máquina virtual de uma imagem personalizada usando um modelo ARM](http://codeisahighway.com/how-to-create-a-virtual-machine-from-a-custom-image-using-an-arm-template/).
+Se você quiser a rede configurada automaticamente ao criar uma VM a partir da imagem, use o [101-vm-from-user-image template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) do GitHub. Esse modelo cria uma VM de sua imagem personalizada e da rede virtual necessária, endereço IP público e recursos da NIC. Para obter uma explicação sobre como usar o modelo no portal do Azure, confira [Como criar uma máquina virtual de uma imagem personalizada usando um modelo ARM](http://codeisahighway.com/how-to-create-a-virtual-machine-from-a-custom-image-using-an-arm-template/).
 
 ## Usar o comando azure vm create
 
@@ -190,7 +190,7 @@ Faça o seguinte antes de executar o **azure vm create** com a imagem:
 
 3.	Verifique se você copiou o VHD da imagem para um local de contêiner de blob que não tem pastas (diretórios virtuais). Por padrão, a imagem capturada é armazenada nas pastas aninhadas em um contêiner de armazenamento de blob (URI semelhante a `https://clixxxxxxxxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/your-prefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`. O comando **azure vm create** atualmente pode criar uma VM somente a partir de um VHD do disco do sistema operacional armazenado no nível superior de um contêiner de blob. Por exemplo, você pode copiar o VHD da imagem para `https://yourstorage.blob.core.windows.net/vhds/your-prefix-OsDisk.vhd`.
 
-Então, execute um comando semelhante ao seguinte:
+Então, execute um comando semelhante ao seguinte.
 
 	azure vm create -g <your-resource-group-name> -n <your-new-vm-name> -l eastus -y Linux -o <your-storage-account-name> -d "https://yourstorage.blob.core.windows.net/vhds/your-prefix-OsDisk.vhd" -z Standard_A1 -u <your-admin-name> -p <your-admin-password> -f <your-nic-name>
 	
@@ -200,4 +200,4 @@ Para obter opções adicionais de comando, execute `azure help vm create`.
 
 Para gerenciar suas VMs com a CLI, consulte as tarefas em [Implantar e gerenciar máquinas virtuais usando modelos do Gerenciador de Recursos do Azure e a CLI do Azure](virtual-machines-deploy-rmtemplates-azure-cli.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

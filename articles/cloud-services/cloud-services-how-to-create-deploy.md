@@ -19,15 +19,15 @@
 
 
 
-# Como criar e implantar um serviço de nuvem.
+# Como criar e implantar um serviço de nuvem
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-how-to-create-deploy.md)
-- [Azure Preview Portal](cloud-services-how-to-create-deploy-portal.md)
+- [Azure classic portal](cloud-services-how-to-create-deploy.md)
+- [Azure portal](cloud-services-how-to-create-deploy-portal.md)
 
-O Portal do Azure oferece duas maneiras de criar e implantar um serviço de nuvem: **Criação Rápida** e **Criação Personalizada**.
+O portal clássico do Azure oferece duas maneiras de criar e de implantar um serviço de nuvem: **Criação Rápida** e **Criação Personalizada**.
 
-Este tópico explica como usar o método Criação Rápida para criar um novo serviço de nuvem e usar **Carregar** para carregar e implantar um pacote de serviço de nuvem no Azure. Ao usar esse método, o Portal do Azure disponibiliza links convenientes para o cumprimento de todos os requisitos quando você precisar. Se você estiver pronto para implantar o serviço de nuvem ao criá-lo, é possível usar ambos ao mesmo tempo usando a **Criação Personalizada**.
+Este tópico explica como usar o método Criação Rápida para criar um novo serviço de nuvem e usar **Carregar** para carregar e implantar um pacote de serviço de nuvem no Azure. Ao usar esse método, o portal clássico do Azure disponibiliza links convenientes para o cumprimento de todos os requisitos quando você precisar. Se você estiver pronto para implantar o serviço de nuvem ao criá-lo, é possível usar ambos ao mesmo tempo usando a **Criação Personalizada**.
 
 > [AZURE.NOTE]Se você planeja publicar o serviço de nuvem do VSTS (Visual Studio Team Services), use a Criação Rápida e configure a publicação do VSTS no **Início Rápido** ou no painel. Para obter mais informações, veja [Entrega contínua para o Azure usando o Visual Studio Team Services][TFSTutorialForCloudService] ou confira a ajuda da página **Início Rápido**.
 
@@ -61,12 +61,12 @@ Três recursos de serviço de nuvem precisam de configurações especiais antes 
 
 - Se alguma instância de função precisar de certificados, crie-os. Os serviços de nuvem requerem um arquivo .pfx e uma chave privada. Você pode carregar os certificados para o Azure enquanto cria e implanta o serviço de nuvem. Para obter mais informações sobre os certificados, consulte [Gerenciar certificados](http://msdn.microsoft.com/library/gg981929.aspx).
 
-- Se você planeja implantar o serviço de nuvem em um grupo de afinidade, crie-o. Você pode usar um grupo de afinidade para implantar o serviço de nuvem e outros serviços do Azure no mesmo local em uma região. Você pode criar um grupo de afinidade na área **Redes** do Portal de Gerenciamento, na página **Grupos de Afinidade**. Para obter mais informações, consulte [Criar um grupo de afinidade no Portal de Gerenciamento](http://msdn.microsoft.com/library/jj156209.aspx).
+- Se você planeja implantar o serviço de nuvem em um grupo de afinidade, crie-o. Você pode usar um grupo de afinidade para implantar o serviço de nuvem e outros serviços do Azure no mesmo local em uma região. Você pode criar o grupo de afinidades na área **Redes** do portal clássico do Azure, na página **Grupos de Afinidades**. Para saber mais, confira [Criar um Grupo de Afinidades no portal clássico do Azure](http://msdn.microsoft.com/library/jj156209.aspx).
 
 
 ## Tutorial: Criar um serviço de nuvem com a Criação Rápida
 
-1. No [Portal de Gerenciamento](http://manage.windowsazure.com/), clique em **Novo**>**Computar**>**Serviço de Nuvem**>**Criação Rápida**.
+1. No [portal clássico do Azure](http://manage.windowsazure.com/), clique em **Novo**>**Computação**>**Serviço de Nuvem**>**Criação Rápida**.
 
 	![CloudServices\_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png)
 
@@ -87,7 +87,7 @@ Três recursos de serviço de nuvem precisam de configurações especiais antes 
 
 ## Tutorial: Carregar um certificado para um serviço de nuvem
 
-1. No [Portal de Gerenciamento](http://manage.windowsazure.com/), clique em **Serviços de Nuvem** e no nome do serviço de nuvem e depois em **Certificados**.
+1. No [portal clássico do Azure](http://manage.windowsazure.com/), clique em **Serviços de Nuvem** e no nome do serviço de nuvem e depois em **Certificados**.
 
 	![CloudServices\_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_EmptyDashboard.png)
 
@@ -108,7 +108,7 @@ Três recursos de serviço de nuvem precisam de configurações especiais antes 
 
 ## Tutorial: Implantar um serviço de nuvem
 
-1. No [Portal de Gerenciamento](http://manage.windowsazure.com/), clique em **Serviços de Nuvem**, no nome do serviço de nuvem e depois em **Painel**.
+1. No [portal clássico do Azure](http://manage.windowsazure.com/), clique em **Serviços de Nuvem**, no nome do serviço de nuvem e depois em **Painel**.
 
 	O painel é aberto no ambiente de Produção. Nesse momento, você pode selecionar Preparar para implantar seu aplicativo no ambiente de preparo. Para obter mais informações, consulte [Gerenciar implantações no Azure](http://msdn.microsoft.com/library/gg433027.aspx).
 
@@ -153,4 +153,4 @@ Três recursos de serviço de nuvem precisam de configurações especiais antes 
 * [Gerenciar seu serviço de nuvem](cloud-services-how-to-manage.md).
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Integração do SDK do Android do Azure Mobile Engagement" 
+<properties
+	pageTitle="Integração do SDK do Android do Azure Mobile Engagement"
 	description="Atualizações e procedimentos mais recentes para o SDK do Android do Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
 	ms.author="piyushjo" />
 
 #Como integrar o GCM ao Mobile Engagement
@@ -24,16 +24,11 @@
 
 ##Introdução
 
-A integração do GCM permite que seu aplicativo seja enviado mesmo quando não está em execução.
+A integração do GCM permite que o seu aplicativo seja enviado por push.
 
-Nenhum dado de campanha é realmente enviado por meio do GCM, é apenas um sinal em segundo plano informando ao aplicativo para buscar o push do Engagement. Se o aplicativo não está em execução ao receber um push GCM, ele dispara uma conexão com os servidores do Engagement para buscar o envio por push, a conexão com o Engagement permanece ativa por cerca de um minuto caso o usuário inicie o aplicativo em resposta ao envio.
+As cargas do GCM enviadas por push para o SDK sempre contêm a chave `azme` no objeto de dados. Portanto, se você usar o GCM para outra finalidade em seu aplicativo, é possível filtrar os pushes com base nessa chave.
 
-Para sua informação, o Engagement usa somente mensagens [Enviar para sincronização] com a chave de recolhimento `engagement.tickle`.
-
-> [AZURE.IMPORTANT]Somente os dispositivos que executam o Android 2.2 ou acima, tendo o Google Play instalado e tendo conexão de segundo plano do Google habilitada podem ser despertados pelo GCM; no entanto, você pode integrar esse código com segurança em versões mais antigas do SDK do Android e em dispositivos que não dão suporte a GCM (ele apenas utiliza intenções). Se o aplicativo não pode ser ativado pelo GCM, a notificação do Engagement será recebida na próxima vez que o aplicativo for iniciado.
-
-
-> [AZURE.WARNING]Se seu próprio código de cliente gerencia os identificadores de registro C2DM enquanto o SDK do Engagement é configurado para usar GCM, ocorre um conflito nos identificadores de registro; use o GCM em Engagement somente se o seu próprio código não usar C2DM.
+> [AZURE.IMPORTANT]Somente os dispositivos que executam Android 2.2 ou acima, com o Google Play instalado e com a conexão em tela de fundo do Google habilitada podem ser enviados por push pelo GCM; no entanto, você pode integrar esse código com segurança em dispositivos sem suporte (ele apenas utiliza intenções).
 
 ##Inscrever-se para o GCM e habilitar o serviço GCM
 
@@ -74,7 +69,7 @@ Para comunicar a ID de registro do dispositivo para o serviço de envio por push
 			    <action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT" />
 			  </intent-filter>
 			</receiver>
-			
+
 			<receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
 			  <intent-filter>
 			    <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
@@ -115,12 +110,9 @@ Agora você será capaz de selecionar "Qualquer hora" durante a criação de pes
 Agora, verifique sua integração lendo Como testar a integração do Engagement em Android.
 
 
-[Enviar para sincronização]: http://developer.android.com/google/gcm/adv.html#collapsible
 [< http://developer.android.com/guide/google/gcm/gs.html>]: http://developer.android.com/guide/google/gcm/gs.html
 [Google Developers Console]: https://cloud.google.com/console
 [Biblioteca de cliente GCM]: http://developer.android.com/guide/google/gcm/gs.html#libs
 [Console de Desenvolvedor do Google]: https://cloud.google.com/console
 
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -59,6 +59,10 @@ Os dados de telemetria incluem:
 
 Contagens de usuário e de sessão não são incluídas na cota para fins de preços.
 
+*O que acontece se o aplicativo exceder a taxa por segundo?*
+
+* O volume de dados que seu aplicativo envia é avaliado a cada minuto. Se ele exceder a taxa por segundo média por minuto, o servidor recusa algumas solicitações. Algumas versões do SDK tentam reenviar, criando uma sobretensão por alguns minutos; outras, como o SDK do JavaScript, simplesmente descartam os dados recusados.
+
 *Como posso saber quantos pontos de dados meu aplicativo está enviando?*
 
 * Abra Configurações/Cotas e Preços para ver o gráfico de Volume de dados.
@@ -66,7 +70,7 @@ Contagens de usuário e de sessão não são incluídas na cota para fins de pre
 
 *Como posso reduzir a quantidade de dados que meu aplicativo envia?*
 
-* Use [Amostragem](app-insights-sampling.md). Essa tecnologia reduz a taxa de dados sem distorcer suas métricas e sem afetar a capacidade de navegar entre itens relacionados na Pesquisa.
+* Use a [amostragem](app-insights-sampling.md). Essa tecnologia reduz a taxa de dados sem distorcer suas métricas e sem afetar a capacidade de navegar entre itens relacionados na Pesquisa. No SDK do ASP.NET 2.0.0-beta3, a amostragem adaptável é habilitada por padrão.
 * [Desative coletores de telemetria](app-insights-configuration-with-applicationinsights-config.md) que você não precisa.
 
 
@@ -245,7 +249,7 @@ Este produto inclui dados GeoLite2 criados pelo MaxMind, disponíveis em [http:/
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [config]: app-insights-configuration-with-applicationinsights-config.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
 [platforms]: app-insights-platforms.md
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
@@ -255,4 +259,4 @@ Este produto inclui dados GeoLite2 criados pelo MaxMind, disponíveis em [http:/
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

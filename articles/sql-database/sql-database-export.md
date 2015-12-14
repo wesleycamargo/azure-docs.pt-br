@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/23/2015"
+	ms.date="12/01/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -22,10 +22,10 @@
 **Banco de dados individual**
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-export.md)
+- [Azure portal](sql-database-export.md)
 - [PowerShell](sql-database-export-powershell.md)
 
-Este artigo fornece instruções para exportar um BACPAC do seu banco de dados SQL do Azure com o [portal de visualização do Azure](https://portal.azure.com).
+Este artigo fornece instruções para exportar um BACPAC do seu banco de dados SQL do Azure com o [portal do Azure](https://portal.azure.com).
 
 Um [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) é um arquivo .bacpac que contém um esquema de banco de dados e dados. O caso de uso primário para um BACPAC é mover um banco de dados de um servidor para outro, [migrar um banco de dados local para a nuvem](sql-database-cloud-migrate.md) e arquivar um banco de dados existente em um formato aberto.
 
@@ -47,7 +47,7 @@ Abra a folha do Banco de Dados SQL do banco de dados que você deseja exportar.
 
 > [AZURE.IMPORTANT]Para garantir um arquivo BACPAC com consistência transacional, primeiro você deve [criar uma cópia do banco de dados](sql-database-copy.md) e, em seguida, exportar essa cópia.
 
-1.	Vá para o [Portal de Visualização do Azure](https://portal.azure.com).
+1.	Vá para o [Portal do Azure](https://portal.azure.com).
 2.	Clique em **PROCURAR TUDO**.
 3.	Clique em **Banco de Dados SQL**.
 2.	Clique no banco de dados que deseja exportar como um BACPAC.
@@ -103,4 +103,4 @@ Clicar em **Criar** cria uma solicitação de exportação de banco de dados e a
 [4]: ./media/sql-database-export/export-status.png
 [5]: ./media/sql-database-export/bacpac-details.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

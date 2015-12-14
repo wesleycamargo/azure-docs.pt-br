@@ -154,14 +154,14 @@ Substitua os conteúdos do WorkerRole.cs pelo código a seguir. A classe SampleE
 4.	Na caixa de diálogo **Criar Serviço de Nuvem e Conta de Armazenamento**, insira um **Nome** (por exemplo, "WadExample") e selecione uma região ou grupo de afinidade.
 5.	Defina o **Ambiente** para **De Preparo**.
 6.	Modifique quaisquer outras **Configurações** conforme apropriado, e clique em **Publicar**.
-7.	Após a implantação ter sido concluída, verifique no Portal do Azure que seu serviço de nuvem está em um estado de **Execução**.
+7.	Após a implantação ter sido concluída, verifique no portal clássico do Azure se seu serviço de nuvem está em estado de **Execução**.
 
 ### Etapa 4: Criar seu arquivo de configuração do Diagnostics e instalar a extensão
 1.	Baixe a definição do esquema do arquivo de configuração pública ao executar o seguinte comando PowerShell:
 2.	
 		(Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd' 
 
-2.	Adicione um arquivo XML ao seu projeto **WorkerRole1** ao clicar com o botão direito do mouse no projeto **WorkerRole1** e selecione **Adicionar** -> **Novo Item…** -> **Itens Visual C#** -> **Dados** -> **Arquivo XML**. Nomeie o arquivo como “WadExample.xml”.
+2.	Adicione um arquivo XML ao seu projeto **WorkerRole1** ao clicar com o botão direito do mouse no projeto **WorkerRole1** e selecione **Adicionar** -> **Novo Item…** -> **Itens Visual C#** -> **Dados** -> **Arquivo XML**. Nomeie o arquivo como "WadExample.xml".
 
 	![CloudServices\_diag\_add\_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
 
@@ -191,7 +191,7 @@ Substitua os conteúdos do WorkerRole.cs pelo código a seguir. A classe SampleE
 		</PublicConfig>
 ```
 
-### Etapa 5: Instalar o Diagnostics em sua Função de Trabalho
+### Etapa 5: instalar o Diagnostics em sua Função de Trabalho
 Os cmdlets do PowerShell para gerenciar o diagnóstico em uma função web ou de trabalho são: Set-AzureServiceDiagnosticsExtension, Get-AzureServiceDiagnosticsExtension e Remove-AzureServiceDiagnosticsExtension.
 
 1.	Abra o PowerShell do Azure.
@@ -221,12 +221,12 @@ Esse passo a passo assume que você tem uma assinatura do Azure e está usando o
 3.	Selecione sua assinatura do Azure na caixa de diálogo **Escolher uma Assinatura** e clique em **Avançar**.
 4.	Selecione **Windows Server 2012 R2 Datacenter, novembro de 2014** na caixa de diálogo **Selecionar uma Imagem da Máquina Virtual** e clique em **Avançar**.
 5.	Nas **Configurações Básicas da Máquina Virtual**, defina o nome da máquina virtual para "wadexample". Defina o nome de usuário e senha do Administrador clique em **Avançar**.
-6.	Na caixa de diálogo **Configurações de Serviço de Nuvem**, crie um novo serviço de nuvem chamado “wadexampleVM”. Crie uma nova conta de Armazenamento chamada "wadexample" e clique em **Avançar**.
+6.	Na caixa de diálogo **Configurações de Serviço de Nuvem**, crie um novo serviço de nuvem chamado "wadexampleVM". Crie uma nova conta de Armazenamento chamada "wadexample" e clique em **Avançar**.
 7.	Clique em **Criar**.
 
 ### Etapa 2: Criar o seu aplicativo
 1.	No computador do desenvolvedor, inicie o Visual Studio 2013.
-2.	Crie um novo aplicativo de console do Visual C# que se destina ao .NET Framework 4.5. Atribua o nome “WadExampleVM” ao projeto. ![CloudServices\_diag\_new\_project](./media/cloud-services-dotnet-diagnostics/NewProject.png)
+2.	Crie um novo aplicativo de console do Visual C# que se destina ao .NET Framework 4.5. Atribua o nome "WadExampleVM" ao projeto. ![CloudServices\_diag\_new\_project](./media/cloud-services-dotnet-diagnostics/NewProject.png)
 3.	Substitua os conteúdos do Program.cs pelo código a seguir. A classe **SampleEventSourceWriter** implementa quatro métodos de registro em log: **SendEnums**, **MessageMethod**, **SetOther** e **HighFreq**. O primeiro parâmetro para o método WriteEvent define a ID para o respectivo evento. O método Executar implementa um loop infinito que chama cada um dos métodos de registro implementados na classe **SampleEventSourceWriter** a cada 10 segundos.
 
 		using System;
@@ -310,7 +310,7 @@ Esse passo a passo assume que você tem uma assinatura do Azure e está usando o
 
 		(Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd' 
 
-2.	Abra um novo arquivo XML no Visua Studio, seja em um projeto que você já abriu, ou em uma instância do Visual Studio com nenhum projeto aberto. No Visual Studio, selecione **Adicionar** -> **Novo Item…** -> **Itens do Visual C#** -> **Dados** -> **Arquivo XML**. Nomeie o arquivo como “WadExample.xml”
+2.	Abra um novo arquivo XML no Visua Studio, seja em um projeto que você já abriu, ou em uma instância do Visual Studio com nenhum projeto aberto. No Visual Studio, selecione **Adicionar** -> **Novo Item…** -> **Itens do Visual C#** -> **Dados** -> **Arquivo XML**. Nomeie o arquivo como "WadExample.xml"
 3.	Associe o WadConfig.xsd com o arquivo de configuração. Certifique-se de que a janela do editor WadExample.xml é uma janela ativa. Pressione **F4** para abrir a janela de **Propriedades**. Clique na propriedade **Esquemas** na janela **Propriedades**. Clique em **…** na propriedade **Esquemas**. Clique no botão **Adicionar…** e navegue até o local onde você salvou o arquivo XSD e selecione o arquivo WadConfig.xsd. Clique em **OK**.
 4.	Substitua os conteíudos do arquivo de configuração WadExample.xml com o seguinte XML e salve o arquivo. Este arquivo de configuração define dois contadores de desempenho a serem coletados: um relacionado à utilização da CPU e um ao uso de memória. Após a configuração, defina os quatro eventos correspondentes aos métodos na classe SampleEventSourceWriter.
 
@@ -337,7 +337,7 @@ Esse passo a passo assume que você tem uma assinatura do Azure e está usando o
 		</PublicConfig>
 ```
 
-### Etapa 5: Instalar remotamente o Diagnostics na sua Máquina Virtual do Azure
+### Etapa 5: instalar remotamente o Diagnostics na sua Máquina Virtual do Azure
 Os cmdlets do PowerShell para gerenciar Diagnostics em uma máquina virtual são: Set-AzureVMDiagnosticsExtension, Get-AzureVMDiagnosticsExtension e Remove-AzureVMDiagnosticsExtension.
 
 1.	No computador do desenvolvedor, abra o PowerShell do Azure.
@@ -416,7 +416,7 @@ A seguir estão algumas perguntas frequentes e suas respostas:
 
 **P.** Se eu já tiver instalado a extensão do Diagnóstico 1.1 em minha função ou VM, como eu atualizo para o Diagnóstico 1.2 ou 1.3?
 
-**A.** Se você tiver especificado “–Versão “1.*” quando você instalou o Diagnostics 1.1, a próxima vez que sua função reiniciar ou o VM reiniciar, será atualizado automaticamente para a versão mais recente correspondendo à versão regular “1.*” Se tiver especificado “–Versão “1.1”” quando instalou o Diagnostics 1.1, você pode atualizar para uma versão mais recente executando novamente o cmdlet Set- e especificando a versão que deseja instalar.
+**A.** Se você tiver especificado "–Versão "1.*” quando você instalou o Diagnostics 1.1, a próxima vez que sua função reiniciar ou o VM reiniciar, será atualizado automaticamente para a versão mais recente correspondendo à versão regular "1.*" Se tiver especificado "–Versão "1.1"" quando instalou o Diagnostics 1.1, você pode atualizar para uma versão mais recente executando novamente o cmdlet Set- e especificando a versão que deseja instalar.
 
 **P.** Como as tabelas são nomeadas?
 
@@ -446,9 +446,9 @@ Isso gerará 4 tabelas:
 
 Evento|Nome da tabela
 ---|---
-provider=”prov1” &lt;Event id=”1” /&gt;|WADEvent+MD5(“prov1”)+”1”
+provider=”prov1” &lt;Event id=”1” /&gt;|WADEvent+MD5("prov1")+"1"
 provider=”prov1” &lt;Event id=”2” eventDestination=”dest1” /&gt;|WADdest1
-provider=”prov1” &lt;DefaultEvents /&gt;|WADDefault+MD5(“prov1”)
+provider=”prov1” &lt;DefaultEvents /&gt;|WADDefault+MD5("prov1")
 provider=”prov2” &lt;DefaultEvents eventDestination=”dest2” /&gt;|WADdest2
 
 ## Comparando as versões de diagnóstico do Azure
@@ -512,4 +512,4 @@ Manifesto com base no ETW|Não|Tabela|Eventos ETW gerados por qualquer processo.
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495168.aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

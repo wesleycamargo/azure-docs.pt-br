@@ -78,11 +78,11 @@ Ao provisionar um cluster HDInsight, você especifica uma conta de Armazenamento
 
 **Para criar uma conta do Armazenamento do Azure**
 
-1. Entre no [portal de gerenciamento do Azure][azure-classic-portal].
+1. Faça logon no [Portal Clássico do Azure][azure-classic-portal].
 	
-	> [AZURE.NOTE]Atualmente, o Azure HDInsight tem suporte do portal de gerenciamento do Azure, enquanto o Banco de Dados de Documentos do Azure existe somente no Portal do Microsoft Azure.
+	> [AZURE.NOTE]Atualmente, há suporte para o Azure HDInsight no Portal Clássico do Azure, enquanto que o Banco de Dados de Documentos do Azure existe somente no Portal do Microsoft Azure.
 
-2. Clique em **+ NOVO** no canto inferior esquerdo, aponte para **SERVIÇOS DE DADOS**, aponte para **ARMAZENAMENTO** e, em seguida, clique em **CRIAÇÃO RÁPIDA**. ![Portal do Azure, em que você pode usar a criação rápida para configurar uma nova conta de armazenamento.][image-storageaccount-quickcreate]
+2. Clique em **+ NOVO** no canto inferior esquerdo, aponte para **SERVIÇOS DE DADOS**, aponte para **ARMAZENAMENTO** e, em seguida, clique em **CRIAÇÃO RÁPIDA**. ![Portal Clássico do Azure, em que você pode usar a Criação Rápida para configurar uma nova conta de armazenamento.][image-storageaccount-quickcreate]
 
 3. Insira a **URL**, selecione os valores de **LOCAL** e **REPLICAÇÃO** e clique em **CRIAR CONTA DE ARMAZENAMENTO**. Não há suporte para grupos de afinidade.
 	
@@ -93,9 +93,9 @@ Ao provisionar um cluster HDInsight, você especifica uma conta de Armazenamento
 4. Aguarde até que o **STATUS** da nova conta de armazenamento seja alterado para **Online**.
 
 ## <a name="ProvisionHDInsight"></a>Etapa 2: Criar um cluster HDInsight personalizado
-Este tutorial usa a ação de script do portal de gerenciamento do Azure para personalizar o cluster HDInsight. Neste tutorial, usaremos o portal de gerenciamento do Azure para criar o cluster personalizado. Para sabe como usar cmdlets do PowerShell ou a SDK .NET do HDInsight, veja o artigo [Personalizar clusters HDInsight usando Ação de Script][hdinsight-custom-provision].
+Este tutorial usa a Ação de Script do Portal Clássico do Azure para personalizar o cluster HDInsight. Neste tutorial, usaremos o Portal Clássico do Azure para criar o cluster personalizado. Para sabe como usar cmdlets do PowerShell ou a SDK .NET do HDInsight, veja o artigo [Personalizar clusters HDInsight usando Ação de Script][hdinsight-custom-provision].
 
-1. Entre no [portal de gerenciamento do Azure][azure-classic-portal]. Você pode já estar conectado desde a etapa anterior.
+1. Entre no [Portal Clássico do Azure][azure-classic-portal]. Você pode já estar conectado desde a etapa anterior.
 
 2. No final da página, clique em **+ NOVO**, em **SERVIÇOS DE DADOS**, em **HDINSIGHT** e em **CRIAÇÃO PERSONALIZADA**.
 
@@ -155,7 +155,7 @@ Este tutorial usa a ação de script do portal de gerenciamento do Azure para pe
 		<td>Especifica o contêiner padrão na conta de armazenamento usado como o sistema de arquivos padrão para o cluster HDInsight. Se você escolher <strong>Usar Armazenamento Existente</strong> para o campo <strong>Conta de Armazenamento</strong> e não houver contêineres na conta, o contêiner será criado por padrão com o mesmo nome do cluster. Se um contêiner com o nome do cluster já existir, será acrescentado um número de sequência ao nome do contêiner.
     </td></tr>
 	<tr><td>Contas de armazenamento adicionais</td>
-		<td>O HDInsight dá suporte a várias contas de armazenamento. Não há limites de contas de armazenamento adicionais que podem ser usadas por um cluster. No entanto, se criar um cluster usando o Portal do Azure, você terá um limite de sete contas devido às restrições da interface do usuário. Cada conta de armazenamento adicional que você especificar adiciona uma página extra de Conta de Armazenamento ao assistente, onde você pode especificar as informações da conta.</td></tr>
+		<td>O HDInsight dá suporte a várias contas de armazenamento. Não há limites de contas de armazenamento adicionais que podem ser usadas por um cluster. No entanto, se você criar um cluster usando o Portal Clássico do Azure, você terá um limite de sete, devido às restrições da interface do usuário. Cada conta de armazenamento adicional que você especificar adiciona uma página extra de Conta de Armazenamento ao assistente, onde você pode especificar as informações da conta.</td></tr>
 </table>Clique na seta à direita.
 
 7. Na página **Ações de Script**, clique em **adicionar ação de script** para fornecer detalhes sobre o script do PowerShell que você executará para personalizar o cluster quando ele estiver sendo criado. O script do PowerShell instala o conector para Hadoop do Banco de Dados de Documentos em seus clusters HDInsight durante a criação do cluster.
@@ -181,7 +181,7 @@ Este tutorial usa a ação de script do portal de gerenciamento do Azure para pe
 
 1. Instale o PowerShell do Azure. As instruções podem ser encontradas [aqui][powershell-install-configure].
 
-	> [AZURE.NOTE]Como alternativa, só para consultas Hive, você pode usar o Editor de Hive online do HDInsight. Para fazer isso, entre no [portal de gerenciamento do Azure][azure-classic-portal] e clique em **HDInsight** no painel esquerdo para exibir uma lista dos clusters HDInsight. Clique no cluster no qual deseja executar consultas Hive e clique em **Console de Consulta**.
+	> [AZURE.NOTE]Como alternativa, só para consultas Hive, você pode usar o Editor de Hive online do HDInsight. Para fazer isso, entre no [Portal Clássico do Azure][azure-classic-portal] e clique em **HDInsight** no painel esquerdo para exibir uma lista dos clusters HDInsight. Clique no cluster no qual deseja executar consultas Hive e clique em **Console de Consulta**.
 
 2. Abra o Ambiente de Script Integrado do PowerShell do Azure:
 	- Em um computador com Windows 8 ou Windows Server 2012 ou posterior, você pode usar a Pesquisa interna. Na tela Inicial, digite **powershell ise** e clique em **Inserir**. 
@@ -280,7 +280,7 @@ Este tutorial usa a ação de script do portal de gerenciamento do Azure para pe
 
 9. **Execute** seu novo script! **Clique** no botão de execução verde.
 
-10. Confira os resultados. Entre no [portal de Visualização do Azure][azure-portal].
+10. Confira os resultados. Faça logon no [Portal do Azure][azure-portal].
 	1. Clique em <strong>Procurar</strong> no painel do lado esquerdo. </br>
 	2. Clique em <strong>tudo</strong> na parte superior direita no painel de navegação. </br>
 	3. Encontre <strong>Contas de Banco de Dados de Documentos</strong> e clique neste item. </br>
@@ -362,7 +362,7 @@ Este tutorial usa a ação de script do portal de gerenciamento do Azure para pe
 		
 9. **Execute** seu novo script! **Clique** no botão de execução verde.
 
-10. Confira os resultados. Entre no [portal de Visualização do Azure][azure-portal].
+10. Confira os resultados. Faça logon no [Portal do Azure][azure-portal].
 	1. Clique em <strong>Procurar</strong> no painel do lado esquerdo. </br>
 	2. Clique em <strong>tudo</strong> na parte superior direita no painel de navegação. </br>
 	3. Encontre <strong>Contas de Banco de Dados de Documentos</strong> e clique neste item. </br>
@@ -405,7 +405,7 @@ Este tutorial usa a ação de script do portal de gerenciamento do Azure para pe
 
 5. **Execute** seu novo script! **Clique** no botão de execução verde.
 
-6. Confira os resultados. Entre no [portal de Visualização do Azure][azure-portal].
+6. Confira os resultados. Faça logon no [Portal do Azure][azure-portal].
 	1. Clique em <strong>Procurar</strong> no painel do lado esquerdo.
 	2. Clique em <strong>tudo</strong> na parte superior direita no painel de navegação.
 	3. Encontre <strong>Contas do Banco de Dados de Documentos</strong> e clique neste item.
@@ -470,4 +470,4 @@ Para saber mais, consulte os seguintes artigos:
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -49,7 +49,7 @@ Deseja uma análise ainda mais profunda? [Exporte](app-insights-export-telemetry
 
 Há SDKs para uma variedade cada vez maior de plataformas. Atualmente, a lista inclui:
 
- * [Servidores ASP.NET][greenbrown] no Azure ou servidor IIS
+ * [Servidores ASP.NET][greenbrown] no Azure ou o servidor IIS
  * [Serviços de nuvem do Azure](app-insights-cloudservices.md)
  * [Servidores J2EE][java]
  * [Páginas da Web][client]\: HTML+JavaScript
@@ -139,7 +139,7 @@ Para obter mais detalhes, escolha o tipo de aplicativo em Introdução na barra 
 [client]: app-insights-javascript.md
 [desktop]: app-insights-windows-desktop.md
 [detect]: app-insights-detect-triage-diagnose.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [ios]: https://github.com/Microsoft/ApplicationInsights-iOS
 [java]: app-insights-java-get-started.md
 [knowUsers]: app-insights-overview-usage.md
@@ -151,4 +151,4 @@ Para obter mais detalhes, escolha o tipo de aplicativo em Introdução na barra 
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/07/2015" 
+	ms.date="11/29/2015" 
 	ms.author="nitinme"/>
 
 # Usar o Hive com HDInsight para analisar os logs de Websites
@@ -39,7 +39,7 @@ Neste exemplo, você utilizará um cluster do HDInsight para analisar arquivos d
 
 ##Para executar a amostra
 
-1. Do [Portal de Visualização do Azure](https://ms.portal.azure.com/), no Quadro Inicial (caso você tenha fixado o cluster ali), clique no bloco do cluster no qual você deseja executar a amostra.
+1. No [Portal do Azure](https://ms.portal.azure.com/), no quadro inicial (caso você tenha fixado o cluster ali), clique no bloco do cluster no qual você deseja executar o exemplo.
 
 2. Na folha do cluster, em **Links Rápidos**, clique em **Painel do Cluster** e, na folha **Painel do Cluster**, clique em **Painel do Cluster HDInsight**. Como alternativa, você pode abrir diretamente o painel usando a seguinte URL:
 
@@ -61,4 +61,4 @@ Experimente o exemplo a seguir: [Analisando dados do sensor usando o Hive com HD
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

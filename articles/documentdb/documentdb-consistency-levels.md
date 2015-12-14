@@ -56,7 +56,7 @@ A consistência Eventual oferece a consistência de leitura mais fraca, mas ofer
 
 ### Alterando o nível de consistência do banco de dados
 
-1.  No [Portal de Visualização do Azure](https://portal.azure.com/), no Jumpbar, clique em **Contas de Banco de Dados de Documentos**.
+1.  No [Portal do Azure](https://portal.azure.com/), no Jumpbar, clique em **Contas do Banco de Dados de Documentos**.
 
 2. Na folha **Contas do Banco de Dados de Documentos**, selecione a conta do banco de dados a ser modificada.
 
@@ -88,4 +88,4 @@ Se você quiser ler mais sobre níveis de consistência e tradeoffs, recomendamo
 -	Werner Vogels. Eventual Consistent - Revisited. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -53,7 +53,7 @@ Insira os seguintes valores na próxima página:
 	- se o seu banco de dados do SQL Data Warehouse estiver na mesma assinatura que o trabalho do Stream Analytics, selecione Usar Banco de Dados SQL da Assinatura Atual.
 	- Se o seu banco de dados estiver em uma assinatura diferente, selecione Usar Banco de Dados SQL de Outra Assinatura.
 - *Banco de dados*: especifique o nome de um banco de dados de destino.
-- *Nome do servidor*: especifique o nome do servidor do banco de dados que você acabou de especificar. Você pode usar o Portal do Azure para encontrar isso.
+- *Nome do servidor*: especifique o nome do servidor do banco de dados que você acabou de especificar. Você pode usar o Portal clássico do Azure para encontrá-lo.
 
 ![][server-name]
 
@@ -96,4 +96,4 @@ Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvol
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

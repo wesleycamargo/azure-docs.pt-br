@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Como criar e implantar um serviço de nuvem (portal de visualização) | Microsoft Azure"
-	description="Saiba como criar e implantar um serviço de nuvem usando o método de Criação Rápida no Azure. Esses exemplos usam o portal de visualização do Azure."
+	pageTitle="Como criar e implantar um serviço de nuvem | Microsoft Azure"
+	description="Saiba como criar e implantar um serviço de nuvem usando o método de Criação Rápida no Azure. Esses exemplos usam o portal do Azure."
 	services="cloud-services"
 	documentationCenter=""
 	authors="Thraka"
@@ -22,8 +22,8 @@
 # Como criar e implantar um serviço de nuvem
 
 > [AZURE.SELECTOR]
-- [Azure portal](cloud-services-how-to-create-deploy.md)
-- [Azure preview portal](cloud-services-how-to-create-deploy-portal.md)
+- [Azure classic portal](cloud-services-how-to-create-deploy.md)
+- [Azure portal](cloud-services-how-to-create-deploy-portal.md)
 
 O Portal do Azure oferece duas maneiras de criar e de implantar um serviço de nuvem: *Criação Rápida* e *Criação Personalizada*.
 
@@ -61,12 +61,12 @@ Para criar um serviço de nuvem com implantações de funções Web ou de Trabal
 
 - Se alguma instância de função precisar de certificados, crie-os. Os serviços de nuvem requerem um arquivo .pfx e uma chave privada. Você pode carregar os certificados para o Azure enquanto cria e implanta o serviço de nuvem. Para obter mais informações sobre os certificados, consulte [Gerenciar certificados](http://msdn.microsoft.com/library/gg981929.aspx).
 
-- Se você planeja implantar o serviço de nuvem em um grupo de afinidade, crie-o. Você pode usar um grupo de afinidade para implantar o serviço de nuvem e outros serviços do Azure no mesmo local em uma região. Você pode criar o grupo de afinidades na área **Redes** do portal do Azure, na página **Grupos de Afinidade**. Para obter mais informações, consulte [Criar um grupo de afinidade no Portal de Gerenciamento](http://msdn.microsoft.com/library/jj156209.aspx).
+- Se você planeja implantar o serviço de nuvem em um grupo de afinidade, crie-o. Você pode usar um grupo de afinidade para implantar o serviço de nuvem e outros serviços do Azure no mesmo local em uma região. Você pode criar o grupo de afinidades na área **Redes** do portal do Azure, na página **Grupos de Afinidade**. Para saber mais, confira [Criar um grupo de afinidades no Portal do Azure](http://msdn.microsoft.com/library/jj156209.aspx).
 
 
 ## Etapa 3: criar um serviço de nuvem e carregar o pacote de implantação
 
-1. Faça logon no [portal de visualização do Azure][].
+1. Faça logon no [Portal do Azure][].
 2. Clique em **Novo > Computação** e role para baixo e clique em **Serviço de Nuvem**.
 
     ![Publicar o serviço de nuvem](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
@@ -114,4 +114,4 @@ Se o pacote de implantação tiver sido [configurado para usar certificados](clo
 * [Gerenciar seu serviço de nuvem](cloud-services-how-to-manage-portal.md).
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

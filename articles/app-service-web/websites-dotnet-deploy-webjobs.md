@@ -20,7 +20,7 @@
 
 ## Visão geral
 
-Este tópico explica como usar o Visual Studio para implantar um projeto de Aplicativo de Console em um aplicativo Web no [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) como um [Trabalho Web Azure](http://go.microsoft.com/fwlink/?LinkId=390226). Para obter informações sobre como implantar Trabalhos Web usando o [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715), consulte [Executar tarefas em segundo plano com Trabalhos Web](web-sites-create-web-jobs.md).
+Este tópico explica como usar o Visual Studio para implantar um projeto de Aplicativo de Console em um aplicativo Web no [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) como um [Trabalho Web Azure](http://go.microsoft.com/fwlink/?LinkId=390226). Para obter informações sobre como implantar Trabalhos Web usando o [Portal do Azure](https://portal.azure.com), consulte [Executar tarefas em segundo plano com Trabalhos Web](web-sites-create-web-jobs.md).
 
 Ao implantar um projeto do Aplicativo de Console habilitado para Trabalhos Web, o Visual Studio realiza duas tarefas:
 
@@ -127,7 +127,7 @@ A caixa de diálogo **Adicionar Trabalho Web do Azure** permite inserir as confi
 
 ![Caixa de diálogo Adicionar Trabalho Web do Azure](./media/websites-dotnet-deploy-webjobs/aaw2.png)
 
-Os campos nessa caixa de diálogo correspondem aos campos na caixa de diálogo **Novo Trabalho** do Portal de Gerenciamento do Azure. Para obter mais informações, consulte [Executar tarefas em segundo plano com o Trabalhos Web](web-sites-create-web-jobs.md).
+Os campos nessa caixa de diálogo correspondem aos campos na caixa de diálogo **Novo Trabalho** do Portal do Azure. Para obter mais informações, consulte [Executar tarefas em segundo plano com o Trabalhos Web](web-sites-create-web-jobs.md).
 
 Para um Trabalho Web agendado (e não para Trabalhos Web contínuos), o Visual Studio cria uma coleção de trabalhos do [Agendador do Azure](/services/scheduler/) caso ainda não exista uma e cria um trabalho na coleção:
 
@@ -189,15 +189,13 @@ Para implantar um projeto de Trabalhos Web propriamente dito, clique com o botã
 	
 Para um Trabalho Web independente, o mesmo assistente **Publicar Web** usado em projetos Web é exibido, mas com menos configurações disponíveis para serem alteradas.
 
->[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## <a id="nextsteps"></a>Próximas etapas
 
 Este artigo explicou como implantar WebJobs usando o Visual Studio. Para obter informações sobre como implantar o Azure WebJobs desde o Visual Studio usando um processo de entrega contínuo, consulte [Azure WebJobs — Recursos recomendados — Implantação](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying).
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia para a alteração do portal do Azure para o portal de visualização do Azure, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
- 
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

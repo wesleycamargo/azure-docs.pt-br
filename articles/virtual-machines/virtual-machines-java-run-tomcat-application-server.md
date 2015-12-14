@@ -40,7 +40,7 @@ Neste tutorial, um servidor de aplicativos Apache Tomcat será instalado em uma 
 
 ## Para criar uma máquina virtual
 
-1. Entre no [Portal do Azure](https://manage.windowsazure.com).
+1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
 2. Clique em **Nova**, clique em **Computação**, clique em **Máquina virtual** e, em seguida, clique em **Da Galeria**.
 3. Na caixa de diálogo **Seleção de imagem da máquina virtual**, selecione **JDK 7 Windows Server 2012**. É importante lembrar que o **JDK 6 Windows Server 2012** está disponível caso você tenha aplicativos herdados que ainda não estejam prontos para serem executados no JDK 7.
 4. Clique em **Próximo**.
@@ -63,7 +63,7 @@ Neste tutorial, um servidor de aplicativos Apache Tomcat será instalado em uma 
 
 ## Para entrar remotamente na máquina virtual
 
-1. Faça logon no [portal do Azure](https://manage.windowsazure.com).
+1. Faça logon no [portal clássico do Azure](https://manage.windowsazure.com).
 2. Clique em **Máquinas Virtuais**.
 3. Clique no nome da Máquina Virtual na qual você deseja entrar.
 4. Depois que a máquina virtual for iniciada, um menu pop-up aparecerá na parte inferior da página para permitir as conexões.
@@ -89,7 +89,7 @@ Agora você deverá ver o Tomcat em execução se executar o navegador da máqui
 Para ver o Tomcat em execução em máquinas externas, você precisará criar um ponto de extremidade e abrir uma porta.
 
 ## Para criar um ponto de extremidade para sua máquina virtual
-1. Entre no [Portal do Azure](https://manage.windowsazure.com).
+1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
 2. Clique em **Máquinas Virtuais**.
 3. Clique no nome da máquina virtual que está executando o servidor de aplicativos Java.
 4. Clique em **Pontos de Extremidade**.
@@ -114,7 +114,7 @@ Para ver o Tomcat em execução em máquinas externas, você precisará criar um
 9. Na tela **Perfil**, verifique se **Domínio**, **Privado** e **Público** estão marcados e clique em **Próximo**.![Novo perfil de regra de entrada][NewRuleProfile]
 10. Na tela **Nome**, especifique um nome para a regra, como **HttpIn** (no entanto, o nome da regra não precisa corresponder ao nome do ponto de extremidade) e clique em **Concluir**.![Nome da nova regra de entrada][NewRuleName]
 
-Neste ponto, o site do Tomcat deverá ser visto de um navegador externo usando uma URL no formato **http://*your\_DNS\_name*.cloudapp.net**, em que ***your\_DNS\_name*** é o nome DNS que você especificou ao criar a máquina virtual.
+Neste ponto, o site do Tomcat deverá ser visto de um navegador externo usando uma URL no formato ****http://*your\_DNS\_name*.cloudapp.net**, em que ***your\_DNS\_name*** é o nome DNS que você especificou ao criar a máquina virtual.
 
 ## Considerações sobre o ciclo de vida do aplicativo
 * Você pode criar seu próprio arquivo do aplicativo Web (WAR) e adicioná-lo à pasta **webapps**. Por exemplo, crie um projeto Web dinâmico JSP (página de serviço Java) básico e o exporte como um arquivo WAR, copie o WAR para a pasta **webapps** do Apache Tomcat na máquina virtual e o execute em um navegador.
@@ -146,4 +146,4 @@ Saiba mais sobre outros serviços (como o Armazenamento do Azure, o barramento d
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

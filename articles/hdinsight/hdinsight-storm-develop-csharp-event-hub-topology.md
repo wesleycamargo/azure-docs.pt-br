@@ -70,7 +70,7 @@ A versão mais recente do arquivo **eventhubs-storm-spout-0.9-jar-with-dependenc
 
 Hubs de Eventos é a fonte de dados para este exemplo. Use as seguintes etapas para criar um novo Hub de Eventos.
 
-1. No [portal do Azure](https://manage.windowsazure.com), selecione **NOVO** > **Barramento de Serviço** > **Hub de Eventos** | **Criação Personalizada**.
+1. No [Portal Clássico do Azure](https://manage.windowsazure.com), selecione **NOVO** > **Barramento de Serviço** > **Hub de Eventos** > **Criação Personalizada**.
 
 2. Na tela **Adicionar um novo Hub de Eventos**, insira um **Nome do Hub de Eventos**, selecione a **Região** na qual criar o hub e crie um novo namespace ou selecione um existente. Clique na **Seta** para continuar.
 
@@ -100,7 +100,7 @@ Hubs de Eventos é a fonte de dados para este exemplo. Use as seguintes etapas p
 
 O armazenamento de Tabela será usado para armazenar valores lidos de Hubs de Eventos, pois você pode exibir facilmente o armazenamento de Tabela no Visual Studio por meio do **Gerenciador de Servidores**. Use as seguintes etapas para criar um novo armazenamento de Tabela.
 
-1. No [portal do Azure](https://manage.windowsazure.com), selecione **NOVO** > **Serviços de Dados** > **Armazenamento** > **Criação Rápida**.
+1. No [Portal Clássico do Azure](https://manage.windowsazure.com), selecione **NOVO** > **Serviços de Dados** > **Armazenamento** > **Criação Rápida**.
 
 	![armazenamento de criação rápida](./media/hdinsight-storm-develop-csharp-event-hub-topology/storagecreate.png)
 
@@ -557,4 +557,4 @@ Neste documento, você aprendeu a usar o Bolt e o Spout dos Hub de Eventos Java 
 * [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

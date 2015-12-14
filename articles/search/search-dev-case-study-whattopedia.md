@@ -110,7 +110,7 @@ Depois de assistir ao vídeo, estávamos prontos para criar um protótipo com ba
 
 **Configurar o Serviço de Pesquisa do Azure**
 
-1. Faça logon no Portal do Azure e adicione o serviço de Pesquisa à nossa assinatura. Nós usamos a versão compartilhada (gratuita com nossa assinatura).
+1. Faça logon no Portal clássico do Azure e adicione o serviço de Pesquisa à nossa assinatura. Nós usamos a versão compartilhada (gratuita com nossa assinatura).
 2. Crie um índice. Para o protótipo, usamos o interface do usuário do portal para definir os campos de pesquisa e criar os perfis de pontuação. Nosso perfil de pontuação é baseado em dados de local: país | cidade |endereço (consulte: Adicionar perfis de pontuação).
 3. Copie a URL de serviço e a chave de Api de administrador para nossos arquivos de configuração. Essa chave está na página de serviço de Pesquisa no portal e é usada para autenticar o serviço.
 	
@@ -421,4 +421,4 @@ O código a seguir cria o indexador mencionado na seção sobre a criação do p
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

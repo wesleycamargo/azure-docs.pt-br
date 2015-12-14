@@ -1,10 +1,12 @@
 
-1. Visit the [Azure Portal]. Click **Browse All** > **Mobile Apps** > the backend that you just created. In the mobile app settings, click **Quickstart** > **Android)**. Under **Configure your client applicatoin**, click **Download**. This downloads a complete Android project for an app pre-configured to connect to your backend. Open the project using Android Studio, Import project (Eclipse ADT, Gradle, etc.).
+1. Visite o [Portal do Azure]. Clique em **Procurar Tudo** > **Aplicativos Móveis** > o back-end que você acabou de criar. Nas configurações do aplicativo móvel, clique em **Início Rápido** > **(Android)**. Em **Configurar seu aplicativo cliente**, clique em **Baixar**. Isso baixa um projeto completo do Android para um aplicativo pré-configurado, para conexão com o back-end. Abra o projeto usando o Android Studio, Importar projeto (Eclipse ADT, Gradle, etc.).
 
-2. Press the **Run 'app'** button to build the project and start the app in the Android simulator.
+2. Pressione o botão **Executar “aplicativo”** para compilar o projeto e iniciar o aplicativo no simulador de Android.
 
-3. In the app, type meaningful text, such as _Complete the tutorial_ and then click the 'Add' button. This sends a POST request to the Azure backend you deployed earlier. The backend inserts data from the request is into the TodoItem SQL table, and returns information about the newly stored items back to the mobile app. The mobile app displays this data in the list. 
+3. No aplicativo, digite um texto significativo, como _Concluir o tutorial_ e clique no botão “Adicionar”. Isso envia uma solicitação POST para o back-end do Azure implantado anteriormente. Os back-end insere dados da solicitação na tabela TodoItem SQL e retorna informações sobre os itens armazenados recentemente no aplicativo móvel. O aplicativo móvel exibe esses dados na lista.
 
     ![](./media/mobile-services-android-get-started/mobile-quickstart-startup-android.png)
 
-[Azure Portal]: https://portal.azure.com/
+[Portal do Azure]: https://portal.azure.com/
+
+<!---HONumber=AcomDC_1203_2015-->

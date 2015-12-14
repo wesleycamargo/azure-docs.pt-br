@@ -212,4 +212,4 @@ Para referência, o fluxo inteiro de entrada e aquisição de token do OpenID Co
 
 ![Raias do OpenId Connect](../media/active-directory-v2-flows/convergence_scenarios_webapp_webapi.png)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

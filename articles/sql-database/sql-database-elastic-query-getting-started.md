@@ -33,7 +33,7 @@ Aqui você vai criar um gerenciador de mapa de fragmentos juntamente com vários
 	![prompt de comando][1]
 
 2.  Na janela Comando, digite "1" e pressione **Enter**. Isso cria o gerenciador de mapa de fragmentos e adiciona dois fragmentos ao servidor. Em seguida, digite "3" e pressione **Enter**. Repita a ação mais quatro vezes. Isso insere linhas de dados de exemplo no seus fragmentos.
-3.  O [Portal de Visualização do Azure](https://portal.azure.com) deve mostrar três novos bancos de dados em seu servidor v12:
+3.  O [portal do Azure](https://portal.azure.com) deve mostrar três novos bancos de dados em seu servidor v12:
 
 	![Confirmação do Visual Studio][2]
 
@@ -43,7 +43,7 @@ Aqui você vai criar um gerenciador de mapa de fragmentos juntamente com vários
 
 ## Criar um banco de dados de consulta elástico
 
-1. Abra o [Portal de Visualização do Azure](https://portal.azure.com) e faça logon.
+1. Abra o [Portal do Azure](https://portal.azure.com) e faça logon.
 2. Crie um novo Banco de Dados SQL do Azure no mesmo servidor que a instalação do fragmento. Nomeie o banco de dados como "ElasticDBQuery". Para a camada de preços, você deve selecionar uma das ofertas Premium. A consulta de Banco de Dados Elástico está disponível apenas na camada Premium.
 
 	![Portal do Azure e camada de preços][3]
@@ -142,4 +142,4 @@ Para obter informações sobre os preços, consulte [Detalhes de preços do Banc
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

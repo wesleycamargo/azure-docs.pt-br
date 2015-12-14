@@ -41,7 +41,7 @@ A primeira etapa é criar uma VM (máquina virtual) que seja executada no Azure.
 
 Siga as instruções fornecidas [aqui][portal-vm-linux] para criar uma máquina virtual da distribuição *Ubuntu*. Este tutorial usa o Ubuntu Server 14.04 LTS. Vamos supor que o nome de usuário seja *azureuser*.
 
-Após a implantação da máquina virtual, precisamos abrir uma regra de segurança no grupo de segurança de rede. No portal de visualização do Azure, acesse **Grupos de Segurança de Rede** e abra a guia do Grupo de Segurança correspondente à sua VM. Você precisa adicionar uma regra de Segurança de Entrada com as seguintes configurações: **TCP** para o protocolo, ***** para a porta de origem (pública) e **9999** para a porta de destino (privada).
+Após a implantação da máquina virtual, precisamos abrir uma regra de segurança no grupo de segurança de rede. No portal do Azure, acesse **Grupos de Segurança de Rede** e abra a guia do Grupo de Segurança correspondente à sua VM. Você precisa adicionar uma regra de Segurança de Entrada com as seguintes configurações: **TCP** para o protocolo, ***** para a porta de origem (pública) e **9999** para a porta de destino (privada).
 
 ![Captura de tela](./media/virtual-machines-python-ipython-notebook/azure-add-endpoint.png)
 
@@ -199,4 +199,4 @@ Para saber mais, consulte o [Centro de Desenvolvedores do Python](/develop/pytho
 [repositório]: https://github.com/ipython/ipython
 [Ferramentas Python para Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -59,7 +59,7 @@ Essas etapas pressupõem que você já criou uma máquina virtual do Azure usand
 4. Digite **Exit** para fechar o cliente SSH.
 
 
-	>[AZURE.NOTE]Nas próximas etapas, presumimos que você já [instalou a CLI do Azure](../xplat-cli-install.md) no computador cliente. Todas as etapas abaixo também podem ser executadas no [portal do Azure][].
+	>[AZURE.NOTE]Nas próximas etapas, presumimos que você já [instalou a CLI do Azure](../xplat-cli-install.md) no computador cliente. Todas as etapas abaixo também podem ser executadas no [portal clássico do Azure][].
 
 5. No computador cliente, abra a CLI do Azure e faça logon com sua assinatura do Azure. Para obter detalhes, leia [Conectar-se a uma assinatura do Azure a partir da CLI do Azure](../xplat-cli-connect.md).
 
@@ -83,21 +83,21 @@ Essas etapas pressupõem que você já criou uma máquina virtual do Azure usand
 
 	`azure vm image list`
 
-	No [portal do Azure][], ela será exibida na lista **IMAGENS**.
+	No [portal clássico do Azure][], ela será exibida na lista **IMAGENS**.
 
 	![Captura de imagem bem-sucedida](./media/virtual-machines-linux-capture-image/VMCapturedImageAvailable.png)
 
 
 ## Próximas etapas
-A imagem está pronta para ser usada para criar máquinas virtuais. É possível usar o comando `azure vm create` da CLI do Azure e fornecer o nome da imagem que você acabou de criar. Consulte [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Serviços do Azure](virtual-machines-command-line-tools.md) para obter detalhes sobre o comando. Como alternativa, use o [portal do Azure][] para criar uma máquina virtual personalizada usando o método **Da galeria** e selecionando a imagem que você acabou de criar. Consulte [Como criar uma máquina virtual personalizada][] para obter mais detalhes.
+A imagem está pronta para ser usada para criar máquinas virtuais. É possível usar o comando `azure vm create` da CLI do Azure e fornecer o nome da imagem que você acabou de criar. Consulte [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Serviços do Azure](virtual-machines-command-line-tools.md) para obter detalhes sobre o comando. Como alternativa, use o [portal clássico do Azure][] para criar uma máquina virtual personalizada usando o método **Da galeria** e selecionando a imagem que você acabou de criar. Consulte [Como criar uma máquina virtual personalizada][] para obter mais detalhes.
 
 **Consulte também:** [Guia do usuário do agente Linux para o Azure](virtual-machines-linux-agent-user-guide.md)
 
-[portal do Azure]: http://manage.windowsazure.com
+[portal clássico do Azure]: http://manage.windowsazure.com
 [ Como fazer logon em uma máquina virtual executando o Linux]: virtual-machines-linux-how-to-log-on.md
 [Sobre imagens da máquina virtual no Azure]: virtual-machines-images.md
 [Como criar uma máquina virtual personalizada]: virtual-machines-linux-create-custom.md
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [Como criar uma máquina virtual que executa Linux]: virtual-machines-linux-tutorial.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

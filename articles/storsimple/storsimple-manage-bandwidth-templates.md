@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/12/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Usar o serviço StorSimple Manager para gerenciar modelos de largura de banda do StorSimple
@@ -35,7 +35,7 @@ Esse recurso está disponível somente para dispositivos físicos do StorSimple,
 
 - **Usado por**: o número de volumes usando os modelos de largura de banda.
 
-Use a página **Configurar** do serviço StorSimple Manager no Portal de Gerenciamento para gerenciar modelos de largura de banda. As tarefas mais comuns relacionadas aos modelos de largura de manda que podem ser executadas nesta página são:
+Use a página **Configurar** do serviço StorSimple Manager no Portal clássico do Azure para gerenciar modelos de largura de banda. As tarefas mais comuns relacionadas aos modelos de largura de manda que podem ser executadas nesta página são:
 
 - Adicionar um modelo de largura de banda
 - Editar um modelo de largura de banda
@@ -176,4 +176,4 @@ Siga estas práticas recomendadas para seu dispositivo StorSimple:
 
 Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

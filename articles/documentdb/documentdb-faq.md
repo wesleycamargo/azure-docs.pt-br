@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Perguntas de banco de dados sobre o Banco de Dados de Documentos — perguntas frequentes | Microsoft Azure" 
-	description="Obtenha respostas para perguntas frequentes sobre o serviço de banco de dados de documento NoSql do Banco de Dados de Documentos do Azure. Responda perguntas de banco de dados sobre capacidade, níveis de desempenho e dimensionamento." 
+	description="Obtenha respostas para perguntas frequentes sobre o Banco de Dados de Documentos, um serviço de banco de dados de documentos NoSql para o JSON. Responda perguntas de banco de dados sobre capacidade, níveis de desempenho e dimensionamento." 
 	keywords="Perguntas de banco de dados, perguntas frequentes, banco de dados de documentos, azure, Microsoft azure"
 	services="documentdb" 
 	authors="mimig1" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="11/30/2015" 
 	ms.author="mimig"/>
 
 
@@ -49,7 +49,7 @@ Contas do Banco de Dados de Documentos podem ser dimensionadas em termos de arma
 Consulte a página [Detalhes de preços do Banco de Dados de Documentos](http://go.microsoft.com/fwlink/p/?LinkID=402317) para obter mais informações. Os encargos pelo uso do Banco de Dados de Documentos são determinados pelo número de coleções em uso, o número de horas em que as coleções estiveram online e o [nível de desempenho](documentdb-performance-levels.md) de cada coleção.
 
 ### Existe uma avaliação gratuita disponível?
-Se for novo no Azure, você pode se inscrever para uma [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/), que dá a você 30 dias e US$ 200 para experimentar todos os serviços do Azure. Ou, se você tiver uma assinatura do MSDN, estará qualificado para receber [US$ 150 em créditos gratuitos do Azure por mês](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) a serem usados em qualquer serviço do Azure.
+Se for novo no Azure, você pode se inscrever para uma [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/), que dá a você 30 dias e US$ 200 para experimentar todos os serviços do Azure. Ou então, se tiver uma assinatura do Visual Studio, você estará qualificado para receber [US$ 150 em créditos Azure gratuitos por mês](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) a serem usados em qualquer serviço do Azure.
 
 ### Como obter ajuda adicional com o Banco de Dados de Documentos?
 Caso você precise de ajuda, entre em contato conosco no [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), nos [Fóruns de desenvolvedores do MSDN do Banco de Dados de Documentos do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB) ou marque um [chat com a equipe de engenharia do Banco de Dados de Documentos](http://www.askdocdb.com/). Para se manter atualizado quanto às últimas notícias e recursos do Banco de Dados de Documentos, siga-nos no [Twitter](https://twitter.com/DocumentDB).
@@ -57,13 +57,13 @@ Caso você precise de ajuda, entre em contato conosco no [Stack Overflow](http:/
 ## Configurar o Banco de Dados de Documentos do Microsoft Azure
 
 ### Como me inscrevo no Banco de Dados de Documentos do Microsoft Azure?
-O Banco de Dados de Documentos do Microsoft Azure está disponível no [Portal de visualização do Azure][azure-portal]. Primeiro, você precisa se inscrever para uma assinatura do Microsoft Azure. Após se inscrever para uma assinatura do Microsoft Azure, e possível adicionar uma conta do Banco de Dados de Documentos à sua assinatura do Azure. Para obter instruções sobre como adicionar uma conta do Banco de Dados de Documentos, consulte [Criar uma conta do Banco de Dados de Documentos](documentdb-create-account.md).
+O Banco de Dados de Documentos do Microsoft Azure está disponível no [Portal do Azure][azure-portal]. Primeiro, você precisa se inscrever para uma assinatura do Microsoft Azure. Após se inscrever para uma assinatura do Microsoft Azure, e possível adicionar uma conta do Banco de Dados de Documentos à sua assinatura do Azure. Para obter instruções sobre como adicionar uma conta do Banco de Dados de Documentos, consulte [Criar uma conta do Banco de Dados de Documentos](documentdb-create-account.md).
 
 ### O que é uma chave mestra?
-Uma chave mestra é um token de segurança para acessar todos os recursos de uma conta. As pessoas que possuem a chave têm acesso de leitura e gravação a todos os recursos na conta do banco de dados. Seja cauteloso ao distribuir chaves mestra. A chave mestra primária e a secundária estão disponíveis na folha **Chaves ** do [Portal de Visualização do Azure][azure-portal]. Para saber mais sobre as chaves, consulte [Exibir, copiar e regenerar chaves de acesso](documentdb-manage-account.md#keys).
+Uma chave mestra é um token de segurança para acessar todos os recursos de uma conta. As pessoas que possuem a chave têm acesso de leitura e gravação a todos os recursos na conta do banco de dados. Seja cauteloso ao distribuir chaves mestra. A chave mestra primária e a secundária estão disponíveis na folha **Chaves** do [Portal do Azure][azure-portal]. Para saber mais sobre as chaves, consulte [Exibir, copiar e regenerar chaves de acesso](documentdb-manage-account.md#keys).
 
 ### Como crio um banco de dados?
-Você pode criar bancos de dados usando o [Portal de Visualização do Azure]() conforme descrito em [Criar um banco de dados do Banco de Dados de Documentos](documentdb-create-database.md), um dos [SDKs do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn781482.aspx) ou por meio das [APIs REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
+Você pode criar bancos de dados usando o [Portal do Azure](), como descrito em [Criar um banco de dados do Banco de Dados de Documentos](documentdb-create-database.md), um dos [SDKs do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn781482.aspx) ou por meio das [APIs REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
 ### O que é uma coleção?
 Uma coleção é um contêiner de documentos JSON e uma lógica de aplicativo JavaScript associada. As consultas e transações estão dentro do escopo das coleções. Você pode armazenar um conjunto de documentos JSON heterogêneos em uma única coleção, sendo todos eles indexados automaticamente.
@@ -99,7 +99,7 @@ O Banco de Dados de Documentos suporta transações integradas de linguagens com
 Há três maneiras de inserir documentos em massa no Banco de Dados de Documentos:
 
 - A ferramenta de migração de dados, conforme descrito em [Importar dados para o Banco de Dados de Documentos](documentdb-import-data.md).
-- O Gerenciador de Documentos no Portal de Visualização do Azure, conforme descrito em [Adicionar documentos em massa com o Gerenciador de Documentos](documentdb-view-json-document-explorer.md#BulkAdd).
+- O Gerenciador de Documentos no Portal do Azure, como descrito em [Adicionar documentos em massa com o Gerenciador de Documentos](documentdb-view-json-document-explorer.md#BulkAdd).
 - Procedimentos armazenados, conforme descrito em [Programação de servidor do Banco de Dados de Documentos](documentdb-programming.md).
 
 ### O Banco de Dados de Documentos tem suporte para cache de link?
@@ -112,4 +112,4 @@ Sim, como o Banco de Dados de Documentos é um serviço RESTful, os links de rec
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

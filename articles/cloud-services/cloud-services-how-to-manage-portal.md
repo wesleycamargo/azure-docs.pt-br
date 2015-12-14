@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Como gerenciar um serviço de nuvem (portal de visualização) | Microsoft Azure" 
-	description="Saiba como gerenciar serviços de nuvem no Portal de Visualização do Azure. Esses exemplos usam o portal de visualização do Azure." 
+	pageTitle="Como gerenciar um serviço de nuvem | Microsoft Azure" 
+	description="Saiba como gerenciar serviços de nuvem no portal do Azure. Esses exemplos usam o portal do Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -20,17 +20,17 @@
 # Como gerenciar serviços de nuvem
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-how-to-manage.md)
-- [Azure Preview Portal](cloud-services-how-to-manage-portal.md)
+- [Azure classic portal](cloud-services-how-to-manage.md)
+- [Azure portal](cloud-services-how-to-manage-portal.md)
 
-Na área **Serviços de Nuvem** do Portal de Visualização do Azure, você pode atualizar uma função de serviço ou uma implantação, promover uma implantação de preparo para produção, vincular recursos ao Serviço de Nuvem para que você possa ver as dependências de recursos e dimensionar os recursos em conjunto, além de excluir um Serviço de Nuvem ou uma implantação.
+Na área **Serviços de Nuvem** do portal do Azure, você pode atualizar uma função de serviço ou uma implantação, promover uma implantação de preparo para produção, vincular recursos ao Serviço de Nuvem para que você possa ver as dependências de recursos e dimensionar os recursos em conjunto, além de excluir um Serviço de Nuvem ou uma implantação.
 
 
 ## Como atualizar uma função ou implantação de Serviço de Nuvem
 
 Se você precisar atualizar o código do aplicativo para o seu serviço de nuvem, use **Atualizar** na folha do serviço de nuvem. Você pode atualizar única função ou todas as funções. Você precisará carregar um novo pacote de serviços e o arquivo de configuração do serviço.
 
-1. No [Portal de Visualização do Azure][], selecione o serviço de nuvem que você deseja atualizar. Isso abrirá a folha da instância do serviço de nuvem.
+1. No [portal do Azure][], selecione o serviço de nuvem que você deseja atualizar. Isso abrirá a folha da instância do serviço de nuvem.
 
 2. Na folha, clique no botão **Atualizar**.
 
@@ -60,7 +60,7 @@ Use **Permutar** para promover uma implantação de preparo de um Serviço de Nu
 
 É possível permutar implantações na página **Serviços de Nuvem** ou no painel.
 
-1. No [Portal de Visualização do Azure][], selecione o serviço de nuvem que você deseja atualizar. Isso abrirá a folha da instância do serviço de nuvem.
+1. No [portal do Azure][], selecione o serviço de nuvem que você deseja atualizar. Isso abrirá a folha da instância do serviço de nuvem.
 
 2. Na folha, clique o botão **Trocar**.
 
@@ -78,7 +78,7 @@ Use **Permutar** para promover uma implantação de preparo de um Serviço de Nu
 
 ## Como vincular um recurso a um Serviço de Nuvem
 
-O Portal de Visualização do Azure não vinculada recursos como o Portal do Azure atual. Em vez disso, você deve implantar recursos adicionais para o mesmo grupo de recursos que está sendo usado pelo Serviço de Nuvem.
+O portal do Azure não vinculada recursos como o portal clássico do Azure atual. Em vez disso, você deve implantar recursos adicionais para o mesmo grupo de recursos que está sendo usado pelo Serviço de Nuvem.
 
 ## Como excluir implantações e um Serviço de Nuvem
 
@@ -88,7 +88,7 @@ Para economizar custos de computação, você pode excluir a implantação de pr
 
 Use o procedimento a seguir para excluir uma implantação ou seu serviço de nuvem.
 
-1. No [Portal de Visualização do Azure][], selecione o serviço de nuvem que você deseja excluir. Isso abrirá a folha da instância do serviço de nuvem.
+1. No [portal do Azure][], selecione o serviço de nuvem que você deseja excluir. Isso abrirá a folha da instância do serviço de nuvem.
 
 2. Na folha, clique no botão **Excluir**.
 
@@ -104,7 +104,7 @@ Use o procedimento a seguir para excluir uma implantação ou seu serviço de nu
 
 > [AZURE.NOTE]Se o monitoramento detalhado estiver configurado para seu serviço de nuvem, o Azure não exclui os dados de monitoramento de sua conta de armazenamento quando você exclui o serviço de nuvem. Você precisará excluir manualmente os dados. Para obter informações sobre onde encontrar as tabelas de métricas, consulte [este](cloud-services-how-to-monitor.md) artigo.
 
-[Portal de Visualização do Azure]: https://portal.azure.com
+[portal do Azure]: https://portal.azure.com
 
 ## Próximas etapas
 
@@ -113,4 +113,4 @@ Use o procedimento a seguir para excluir uma implantação ou seu serviço de nu
 * Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name-portal.md).
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

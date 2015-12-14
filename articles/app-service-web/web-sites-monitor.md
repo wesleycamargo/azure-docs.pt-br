@@ -32,7 +32,7 @@
 
 ##<a name="websitemetrics"></a>Como: adicionar métricas de aplicativo Web
 
-1. No [portal do Azure](https://manage.windowsazure.com), na página do aplicativo Web, clique na guia **Monitoramento** para exibir a página de gerenciamento **Monitorar**. Por padrão, o gráfico na página **Monitoramento** exibe as mesmas métricas do gráfico na página **Painel**.
+1. No [portal clássico](https://manage.windowsazure.com), na página do aplicativo Web, clique na guia **Monitoramento** para exibir a página de gerenciamento **Monitorar**. Por padrão, o gráfico na página **Monitoramento** exibe as mesmas métricas do gráfico na página **Painel**.
 
 2. Para exibir as métricas adicionais para o aplicativo Web, clique em **Adicionar métricas** na parte inferior da página para exibir a caixa de diálogo **Escolher métricas**.
 
@@ -48,18 +48,18 @@
 
 ##<a name="howtoreceivealerts"></a>Como: receber alertas de métricas de aplicativo Web
 
-No modo de aplicativo Web **Padrão**, você pode receber alertas com base nas métricas de monitoramento de seu aplicativo Web. O recurso de alerta requer que você primeiro configure um ponto de extremidade da web para monitoramento, que você pode fazer na seção **Monitoramento** da página **Configurar**. Também é possível optar por ter o email enviado quando uma métrica escolhida atingir um valor especificado. Para obter mais informações, consulte [Como: receber notificações de alerta e gerenciar regras de alerta no Azure](http://go.microsoft.com/fwlink/?LinkId=309356).
+No modo de aplicativo Web **Padrão**, você pode receber alertas com base nas métricas de monitoramento de seu aplicativo Web. O recurso de alerta requer que você primeiro configure um ponto de extremidade da web para monitoramento, que você pode fazer na seção **Monitoramento** da página **Configurar**. Também é possível optar por ter o email enviado quando uma métrica escolhida atingir um valor especificado. Para saber mais, confira [Como: receber notificações de alerta e gerenciar regras de alerta no Azure](http://go.microsoft.com/fwlink/?LinkId=309356).
 
 ##<a name="howtoviewusage"></a>Como: exibir cotas de uso de um site
 
-Os aplicativos Web podem ser configurados para serem executados no modo **Compartilhado** ou **Padrão** na página de gerenciamento **Escala** do aplicativo Web no [portal do Azure](https://manage.windowsazure.com). Cada assinatura do Azure tem acesso a um pool de recursos fornecidos com a finalidade de execução de até 100 aplicativos Web por região em modo **Compartilhado**. O pool de recursos disponíveis para cada assinatura de aplicativo Web para essa finalidade é compartilhado por outros aplicativos Web na mesma localização geográfica configurados para serem executados em modo **Compartilhado**. Como esses recursos são compartilhados para uso por outros aplicativos Web, todas as assinaturas são limitadas em termos de uso desses recursos. Limites aplicados ao uso da assinatura desses recursos são expressos como cotas de uso listadas na seção de visão geral sobre o uso da página de gerenciamento **Painel** de cada aplicativo Web.
+Os aplicativos Web podem ser configurados para execução no modo **Compartilhado** ou **Padrão** na página de gerenciamento **Escala** do aplicativo Web no [portal clássico](https://manage.windowsazure.com). Cada assinatura do Azure tem acesso a um pool de recursos fornecidos com a finalidade de execução de até 100 aplicativos Web por região em modo **Compartilhado**. O pool de recursos disponíveis para cada assinatura de aplicativo Web para essa finalidade é compartilhado por outros aplicativos Web na mesma localização geográfica configurados para serem executados em modo **Compartilhado**. Como esses recursos são compartilhados para uso por outros aplicativos Web, todas as assinaturas são limitadas em termos de uso desses recursos. Limites aplicados ao uso da assinatura desses recursos são expressos como cotas de uso listadas na seção de visão geral sobre o uso da página de gerenciamento **Painel** de cada aplicativo Web.
 
 >[AZURE.NOTE]Quando um aplicativo Web está configurado para executar no modo **Padrão**, são alocados recursos dedicados equivalentes aos tamanhos das máquinas virtuais **Pequeno** (padrão), **Médio** ou **Grande** na tabela em [Tamanhos de máquinas virtuais e do Serviço de Nuvem do Azure][vmsizes]. Não há limites para os recursos usados por uma assinatura para a execução de aplicativos Web no modo **Padrão**. No entanto, o número de aplicativos Web no modo **Padrão** que podem ser criados por região é 500.
 
 ### Como: exibir cotas de uso para aplicativos Web configurados para modo Compartilhado ###
 Para determinar a extensão do impacto de um aplicativo Web sobre cotas de uso de recursos, siga estas etapas:
 
-1. Abra a página de gerenciamento **Painel** do aplicativo Web no [portal do Azure](https://manage.windowsazure.com).
+1. Abra a página de gerenciamento **Painel** do aplicativo Web no [portal clássico](https://manage.windowsazure.com).
 2. Na seção **visão geral de uso**, as cotas de uso para seu respectivo plano de [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) são exibidas, as quais são um subconjunto dos seguintes itens:
 	-	**Saída de dados**, **Tempo de CPU** e **Memória** - quando a cota é excedida, o Azure interrompe o aplicativo Web para o restante do intervalo de cota atual. O Azure iniciará o aplicativo Web no início do próximo intervalo da cota.
 	-	**Armazenamento do sistema de arquivos** - quando essa cota é atingida o armazenamento do sistema de arquivos permanece acessível para operações de leitura, mas todas as operações de gravação, incluindo aquelas requeridas para atividade normal do aplicativo Web, são bloqueadas. As operações de gravação serão retomadas quando você reduzir o uso de arquivo ou mover o aplicativo Web para um Plano do Serviço de Aplicativo com uma cota mais alta.
@@ -76,7 +76,7 @@ As cotas não são uma questão de desempenho ou custo, mas a maneira como o Azu
 
 ##<a name="howtoconfigdiagnostics"></a>Como: configurar o diagnóstico e baixar para um aplicativo Web
 
-O diagnóstico é habilitado na guia **Configurar** do aplicativo Web no [portal do Azure](https://manage.windowsazure.com). Há dois tipos de diagnóstico: um **diagnóstico dos aplicativos** e **diagnósticos do site**.
+O diagnóstico é habilitado na guia **Configurar** do aplicativo Web no [portal clássico](https://manage.windowsazure.com). Há dois tipos de diagnóstico: um **diagnóstico dos aplicativos** e **diagnósticos do site**.
 
 #### Diagnóstico de Aplicativo ####
 
@@ -164,7 +164,7 @@ Os arquivos de log podem ser baixados usando FTP, PowerShell do Azure ou a CLI d
 
 **FTP**
 
-1. Abra a página de gerenciamento **Painel** do aplicativo Web no [portal do Azure](https://manage.windowsazure.com) e anote o site de FTP listado em **Logs de Diagnóstico** e a conta listada em **Usuário da Implantação**. O site FTP é onde os arquivos de log estão localizados e a conta listada no Usuário de Implantação é usada para autenticar o site FTP.
+1. Abra a página de gerenciamento **Painel** do aplicativo Web no [portal clássico](https://manage.windowsazure.com) e anote o site de FTP listado em **Logs de Diagnóstico** e a conta listada em **Usuário da Implantação**. O site FTP é onde os arquivos de log estão localizados e a conta listada no Usuário de Implantação é usada para autenticar o site FTP.
 2. Se você ainda não tiver criado credenciais de implantação, a conta listada em **Usuário de implantação** é listada como **Não definida**. Nesse caso, você deve criar credenciais de implantação conforme descrito na seção Redefinir credenciais de implantação do painel, pois essas credenciais devem ser usadas para autenticar o site FTP onde os arquivos de log são armazenados. O Azure não oferece suporte à autenticação para este site FTP usando credenciais do Live ID.
 3. Considere o uso de um cliente FTP como [FileZilla][fzilla] para se conectar ao site FTP. Um cliente de FTP oferece maior facilidade de uso para especificar as credenciais e exibir pastas em um site FTP, que é normalmente possível com um navegador.
 4. Copie os arquivos de log do site FTP no computador local.
@@ -279,14 +279,14 @@ Para obter mais informações sobre o monitoramento de pontos de extremidade do 
 
 - [Mantendo os sites do Azure ativos e monitorando pontos de extremidade - com Stefan Schackow](/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
 
->[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia para a alteração do portal do Azure para o portal de visualização do Azure, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia para a alteração do portal do Azure para o portal de visualização do Azure, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [fzilla]: http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

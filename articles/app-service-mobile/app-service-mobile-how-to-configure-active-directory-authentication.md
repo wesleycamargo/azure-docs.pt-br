@@ -29,7 +29,7 @@ Este tópico mostra como configurar os Serviços de Aplicativos do Azure para us
 
 ## <a name="express"> </a>Configurar o Active Directory do Azure usando configurações expressas
 
-13. No [Portal de Gerenciamento do Azure], navegue até o seu aplicativo. Clique em **Configurações** e em **Autenticação/Autorização**.
+13. No [Portal do Azure], navegue até o seu aplicativo. Clique em **Configurações** e depois em **Autenticação/Autorização**.
 
 14. Se o recurso Autenticação/Autorização não estiver habilitado, mude a opção para **Ativado**.
 
@@ -52,9 +52,9 @@ Você também pode optar por fornecer as configurações manualmente. Essa é a 
 
 ### <a name="register"> </a>Registrar seu aplicativo com o Active Directory do Azure
 
-1. Faça logon no [Portal de Gerenciamento de Visualização do Azure] e navegue até o seu aplicativo. Copie a **URL**. Você a utilizará para configurar seu aplicativo do Active Directory do Azure.
+1. Faça logon no [portal do Azure] e navegue até o seu aplicativo. Copie a **URL**. Você a utilizará para configurar seu aplicativo do Active Directory do Azure.
 
-3. Entre no [Portal de Gerenciamento do Azure] e navegue até o **Active Directory**.
+3. Entre no [portal clássico do Azure] e navegue até o **Active Directory**.
 
     ![][2]
 
@@ -85,7 +85,7 @@ Você também pode optar por fornecer as configurações manualmente. Essa é a 
 > [AZURE.NOTE]Se for usar o Gateway do Serviço de Aplicativo, ignore esta seção e navegue até o gateway no portal. Selecione **Configurações**, **Identidade** e **Active Directory do Azure**. Cole o ClientID e adicione a ID de locatário à lista **Locatários Permitidos**. Clique em **Salvar**.
 
 
-13. Novamente no [Portal de Gerenciamento de Visualização do Azure], navegue até o seu aplicativo. Clique em **Configurações** e em **Autenticação/Autorização**.
+13. De volta ao [portal do Azure], navegue até o seu aplicativo. Clique em **Configurações** e depois em **Autenticação/Autorização**.
 
 14. Se o recurso Autenticação/Autorização não estiver habilitado, mude a opção para **Ativado**.
 
@@ -101,6 +101,30 @@ Você também pode optar por fornecer as configurações manualmente. Essa é a 
 
 Agora você está pronto para usar um Active Directory do Azure para autenticação em seu aplicativo.
 
+## (Opcional) Configurar um aplicativo de cliente nativo
+
+O Active Directory do Azure também permite que você registre clientes nativos, o que oferece maior controle sobre o mapeamento de permissões. Isso é necessário se você desejar executar logons usando uma biblioteca, como a **Biblioteca de Autenticação do Active Directory**.
+
+1. Navegue até **Active Directory** no [portal clássico do Azure].
+
+2. Selecione o diretório e, em seguida, selecione a guia **Aplicativos** na parte superior. Clique em **ADICIONAR** na parte inferior para criar um novo registro de aplicativo.
+
+3. Clique em **Adicionar um aplicativo que a minha organização está desenvolvendo**.
+
+4. No Assistente para Adicionar aplicativo, insira um **Nome** para o seu aplicativo e clique no tipo **Aplicativo Cliente Nativo**. Em seguida, clique em continuar.
+
+5. Na caixa **URI de redirecionamento**, digite o ponto de extremidade do site _/.auth/login/done_, usando o esquema HTTPS. Esse valor deve ser similar a \__https://contoso.azurewebsites.net/.auth/login/done_.
+
+6. Depois que o aplicativo nativo tiver sido adicionado, clique na guia **Configurar**. Encontre a **ID do cliente** e anote esse valor.
+
+7. Role a página para baixo até a seção de **Permissões para outros aplicativos** e clique em **Adicionar aplicativo**.
+
+8. Procure o aplicativo Web que você registrou anteriormente e clique no ícone de adição. Em seguida, clique em verificar para fechar a caixa de diálogo.
+
+9. Na nova entrada que você acabou de adicionar, abra a lista suspensa **Permissões Delegadas** e selecione **Acessar (nome do aplicativo)**. Em seguida, clique em **Salvar**.
+
+Você configurou um aplicativo de cliente nativo que pode acessar o aplicativo de Serviço de Aplicativo.
+
 ## <a name="related-content"> </a>Conteúdo relacionado
 
 [AZURE.INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
@@ -114,9 +138,9 @@ Agora você está pronto para usar um Active Directory do Azure para autenticaç
 
 <!-- URLs. -->
 
-[Portal de Gerenciamento de Visualização do Azure]: https://portal.azure.com/
-[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
+[Portal do Azure]: https://portal.azure.com/
+[portal clássico do Azure]: https://manage.windowsazure.com/
 [ios-adal]: ../app-service-mobile-xamarin-ios-aad-sso.md
 [método alternativo]: #advanced
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

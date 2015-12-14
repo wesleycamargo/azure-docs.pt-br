@@ -351,4 +351,4 @@ Para um administrador de empresa remover o acesso de um aplicativo ao seu diret√
 
 - Visite o [Guia do desenvolvedor do Active Directory](active-directory-developers-guide.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

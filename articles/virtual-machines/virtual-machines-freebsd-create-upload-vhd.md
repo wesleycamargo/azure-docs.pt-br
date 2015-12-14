@@ -104,9 +104,9 @@ Na máquina virtual na qual o sistema operacional FreeBSD foi instalado, conclua
 
 ## Etapa 2: Criar uma conta de armazenamento no Azure ##
 
-Você precisa de uma conta de armazenamento no Azure para carregar um arquivo .vhd para que ele possa ser usado no Azure para criar uma máquina virtual. Você pode usar o portal do Azure para criar uma conta de armazenamento.
+Você precisa de uma conta de armazenamento no Azure para carregar um arquivo .vhd para que ele possa ser usado no Azure para criar uma máquina virtual. Você pode usar o portal clássico do Azure para criar uma conta de armazenamento.
 
-1. Entre no Portal do Azure.
+1. Entre no portal clássico do Azure.
 
 2. Na barra de comandos, clique em **Nova**.
 
@@ -181,7 +181,7 @@ Para poder carregar um arquivo .vhd, você precisa estabelecer uma conexão segu
 
 ## Etapa 4: carregar o arquivo .vhd ##
 
-Quando carrega o arquivo .vhd, você pode colocá-lo em qualquer lugar no seu armazenamento de blob. Nos exemplos de comando a seguir, **BlobStorageURL** é a URL da conta de armazenamento que você criou na Etapa 2, **YourImagesFolder** é o contêiner no armazenamento de blob onde você deseja armazenar as imagens. **VHDName** é o rótulo que aparece no portal do Azure para identificar o disco rígido virtual. **PathToVHDFile** é o caminho completo e o nome do arquivo .vhd.
+Quando carrega o arquivo .vhd, você pode colocá-lo em qualquer lugar no seu armazenamento de blob. Nos exemplos de comando a seguir, **BlobStorageURL** é a URL da conta de armazenamento que você criou na Etapa 2, **YourImagesFolder** é o contêiner no armazenamento de blob onde você deseja armazenar as imagens. **VHDName** é o rótulo que aparece no portal clássico do Azure para identificar o disco rígido virtual. **PathToVHDFile** é o caminho completo e o nome do arquivo .vhd.
 
 
 1. Na janela PowerShell do Azure que você usou na etapa anterior, digite:
@@ -197,7 +197,7 @@ Depois de carregar o VHD, você pode adicioná-lo como uma imagem à lista de im
 
     **Importante**: use o Linux como sistema operacional por enquanto, pois a versão atual do PowerShell do Azure aceita apenas "Linux" ou "Windows" como um parâmetro.
 
-2. Após concluir as etapas anteriores, a nova imagem será listada ao escolher a guia **Imagens** no portal do Azure.
+2. Após concluir as etapas anteriores, a nova imagem será listada ao escolher a guia **Imagens** no portal clássico do Azure.
 
     ![adicionar uma imagem](./media/virtual-machines-freebsd-create-upload-vhd/addfreebsdimage.png)
 
@@ -209,4 +209,4 @@ Depois de carregar o VHD, você pode adicioná-lo como uma imagem à lista de im
 
 	![imagem freebsd no azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

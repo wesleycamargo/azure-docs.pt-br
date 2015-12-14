@@ -22,7 +22,7 @@ Este tópico contém links para recursos para gerenciar um aplicativo Web no [Se
 
 Durante o ciclo de vida de um aplicativo Web, você realizará diferentes tarefas de gerenciamento, a medida em que você move da implantação inicial à operação normal, manutenção e atualizações.
 
-Muitas tarefas de gerenciamento de aplicativo Web podem ser realizadas no portal do Azure.
+Muitas tarefas de gerenciamento de aplicativo Web podem ser realizadas no Portal do Azure.
 
 ## Antes de implantar seu aplicativo Web para produção
 
@@ -35,7 +35,7 @@ O Serviço de Aplicativo do Azure é oferecido em cinco níveis: Gratuito, Compa
 
 ### Configuração
 
-Use o [portal de visualização do Azure](https://portal.azure.com/) para definir várias opções de configuração. Para obter detalhes, consulte [Configurar aplicativos Web no Serviço de Aplicativo do Azure](web-sites-configure.md). Aqui está uma lista de verificação rápida:
+Use o [Portal do Azure](https://portal.azure.com/) para definir várias opções de configuração. Para obter detalhes, consulte [Configurar aplicativos Web no Serviço de Aplicativo do Azure](web-sites-configure.md). Aqui está uma lista de verificação rápida:
 
 - Selecione **versões de tempo de execução** para .NET, PHP, Java ou Python, se necessário.
 - Habilite **WebSockets** se seu aplicativo Web usa o protocolo WebSocket. (Isto inclui aplicativos que usam o [ASP.NET SignalR](http://www.asp.net/signalr) ou [socket.io](web-sites-nodejs-chat-app-socketio.md).)
@@ -59,14 +59,14 @@ Enquanto seu aplicativo Web estiver em execução, verifique se ele está dispon
 
 ### Monitoramento
 
-- Por meio do portal de visualização do Azure, você pode [Adicionar métricas de desempenho](web-sites-monitor.md) como uso de CPU e o número de solicitações do cliente.
+- Usando o Portal do Azure, você pode [Adicionar métricas de desempenho](web-sites-monitor.md) como uso de CPU e o número de solicitações do cliente.
 - Para uma percepção mais aprofundada, use o New Relic para monitorar e gerenciar o desempenho. Consulte [Aplicativo Web do .NET no Serviço de Aplicativo do Azure com o gerenciamento de desempenho de aplicativo New Relic](store-new-relic-web-sites-dotnet-application-performance-management.md).
 - [Dimensione seu aplicativo Web](web-sites-scale.md) em resposta ao tráfego. Dependendo da sua faixa, você pode reduzir o número de VMs e/ou o tamanho das instâncias da VM. Nas camadas Padrão e Premium, você também pode configurar o dimensionamento automático, para que seu aplicativo Web seja dimensionado automaticamente, em uma agenda fixa ou em resposta à carga.  
  
 ### Backups
 
 - Defina [backups automáticos](web-sites-backup.md) de seu aplicativo Web. Saiba mais sobre backups [neste vídeo](http://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/).
-- Saiba sobre as opções para a [recuperação de banco de dados](https://azure.microsoft.com/pt-BR/documentation/articles/sql-database-business-continuity/) no Banco de dados SQL do Azure.
+- Saiba sobre as opções para a [recuperação de banco de dados](../sql-database-business-continuity.md) no Banco de dados SQL do Azure.
 
 ### Solucionar problemas
 
@@ -103,4 +103,4 @@ Se você usar o Visual Studio Team Services, é possível configurar a implanta�
 
   
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

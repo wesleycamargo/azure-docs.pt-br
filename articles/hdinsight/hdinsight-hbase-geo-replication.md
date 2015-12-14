@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/08/2015"
+   ms.date="12/02/2015"
    ms.author="jgao"/>
 
 # Configurar a replicação geográfica do HBase no HDInsight
@@ -67,7 +67,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 Em [Configurar uma conexão VPN entre duas redes virtuais do Azure][hdinsight-hbase-replication-vnet], você criou uma rede virtual em um datacenter na Europa e uma rede virtual em um datacenter nos EUA. As duas redes virtuais são conectadas via VPN. Nesta sessão, você provisionará um cluster HBase em cada uma das redes virtuais. Posteriormente neste tutorial, você criará um dos clusters HBase para replicar o cluster HBase.
 
-O Portal do Azure não oferece suporte a clusters de provisionamento de HDInsight com opções de configuração personalizadas. Por exemplo, defina *hbase.replication* para *true*. Se definir o valor no arquivo de configuração depois que um cluster for configurado, você perderá a configuração após o cluster ter tido a sua imagem recriada. Para obter mais informações, consulte [Clusters de provisão do Hadoop no HDInsight][hdinsight-provision]. Uma das opções para provisionar o cluster HDInsight com opções personalizadas é usando o PowerShell do Azure.
+O Portal Clássico do Azure não dá suporte ao provisionamento de clusters HDInsight com opções de configuração personalizadas. Por exemplo, defina *hbase.replication* para *true*. Se definir o valor no arquivo de configuração depois que um cluster for configurado, você perderá a configuração após o cluster ter tido a sua imagem recriada. Para obter mais informações, consulte [Clusters de provisão do Hadoop no HDInsight][hdinsight-provision]. Uma das opções para provisionar o cluster HDInsight com opções personalizadas é usando o PowerShell do Azure.
 
 
 **Para provisionar um HBase Cluster em Contoso-VNet-EU**
@@ -156,7 +156,7 @@ Para configurar o encaminhador condicional, você precisa saber os sufixos de do
 
 **Para localizar os sufixos de domínio dos dois clusters HBase**
 
-1. RDP no **Contoso-HBase-EU**. Para obter instruções, consulte [Gerenciar clusters Hadoop no HDInsight usando o Portal do Azure][hdinsight-manage-portal]. É realmente o headnode0 do cluster.
+1. RDP no **Contoso-HBase-EU**. Para obter instruções, veja [Gerenciar clusters Hadoop no HDInsight usando o Portal Clássico do Azure][hdinsight-manage-portal]. É realmente o headnode0 do cluster.
 2. Abra um console do Windows PowerShell ou um prompt de comando.
 3. Execute **ipconfig** e anote o **sufixo DNS específico da conexão**.
 4. Não feche a sessão RDP. Você precisará dela posteriormente para testar a resolução de nome de domínio.
@@ -311,4 +311,4 @@ Neste tutorial, você aprendeu a configurar a replicação do HBase entre dois d
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

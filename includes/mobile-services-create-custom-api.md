@@ -1,6 +1,6 @@
 
 
-1. Faça logon no Portal de Gerenciamento do Azure, clique em **Serviços Móveis** e selecione seu serviço móvel.
+1. Faça logon no [portal clássico do Azure](https://manage.windowsazure.com/), clique em **Serviços Móveis** e selecione seu serviço móvel.
 
 2. Clique na guia **API** e, em seguida, clique em **Criar**. Isso exibe a caixa de diálogo **Criar uma nova API personalizada**.
 
@@ -26,7 +26,7 @@
 		};
 
 
-> [AZURE.NOTE]O objeto de [solicitação](http://msdn.microsoft.com/library/windowsazure/jj554218.aspx) e [resposta](http://msdn.microsoft.com/library/windowsazure/dn303373.aspx) fornecido para funções da API personalizadas é implementado pela biblioteca [Express.js](http://go.microsoft.com/fwlink/p/?LinkId=309046).
+> [AZURE.NOTE]O objeto de [solicitação](http://msdn.microsoft.com/library/windowsazure/jj554218.aspx) e [resposta](http://msdn.microsoft.com/library/windowsazure/dn303373.aspx) fornecido para funções de API personalizadas é implementado pela [biblioteca Express.js](http://go.microsoft.com/fwlink/p/?LinkId=309046).
 
 <!-- Anchors. -->
 
@@ -35,4 +35,4 @@
 <!-- URLs. -->
 [objeto mssql]: http://msdn.microsoft.com/library/windowsazure/jj554212.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

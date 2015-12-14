@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/28/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Configurar o MPIO em um host do StorSimple executando o CentOS
@@ -62,7 +62,7 @@ O arquivo multipath.conf tem cinco seções:
 
 1. **Blacklisted devices** *(blacklist)*: você pode especificar a lista de dispositivos que não devem ser controlados pelo device-mapper.
 
-1. **Blacklist exceptions** *(blacklist\_exceptions)*: você pode identificar dispositivos específicos a serem tratados como dispositivos de vários caminhos, mesmo se relacionados na lista de bloqueados.
+1. **Blacklist exceptions** *(blacklist\_exceptions)*: você pode identificar dispositivos específicos a serem tratados como dispositivos de vários caminhos, mesmo se relacionados na lista negra.
 
 1. **Storage controller specific settings** *(devices)*: você pode especificar as definições de configuração que serão aplicadas a dispositivos com informações sobre o fornecedor e o produto.
 
@@ -163,9 +163,9 @@ Esta seção detalha os pré-requisitos de configuração para o servidor CentOS
 
 O dispositivo StorSimple deve ter:
 
-- No mínimo duas interfaces habilitadas para iSCSI. Para verificar se duas interfaces são habilitadas para iSCSI em seu dispositivo StorSimple, execute as seguintes etapas no Portal de Gerenciamento do seu dispositivo StorSimple:
+- No mínimo duas interfaces habilitadas para iSCSI. Para verificar se duas interfaces são habilitadas para iSCSI em seu dispositivo StorSimple, execute as seguintes etapas no Portal Clássico do Azure do seu dispositivo StorSimple:
 
-	1. Faça logon no Portal de Gerenciamento do seu dispositivo StorSimple.
+	1. Faça logon no Portal Clássico do seu dispositivo StorSimple.
 
 	1. Selecione o serviço StorSimple Manager, clique em **Dispositivos** e escolha o dispositivo StorSimple específico. Clique em **Configurar** e verifique as configurações da interface de rede. Uma captura de tela com duas interfaces de rede habilitadas para iSCSI é mostrada abaixo. Aqui, DATA 2 e DATA 3, ambas as interfaces 10 GbE estão habilitadas para iSCSI.
 	
@@ -249,13 +249,13 @@ Os dispositivos multipath-supported podem ser automaticamente descobertos e conf
 
 ### Etapa 2: Configurar vários caminhos para volumes StorSimple
 
-Por padrão, todos os dispositivos estão na lista de bloqueados no arquivo multipath.conf e serão ignorados. Será necessário criar exceções de lista de bloqueados para permitir vários caminhos para volumes desde dispositivos StorSimple.
+Por padrão, todos os dispositivos estão na lista negra no arquivo multipath.conf e serão ignorados. Será necessário criar exceções de lista negra para permitir vários caminhos para volumes desde dispositivos StorSimple.
 
 1. Edite o arquivo `/etc/mulitpath.conf`. Digite:
 
 	`vi /etc/multipath.conf`
 
-1. Localize a seção blacklist\_exceptions no arquivo multipath.conf. Seu dispositivo StorSimple precisa estar relacionado como uma exceção de lista de bloqueados nesta seção. Você pode retirar o comentário de linhas relevantes neste arquivo para modificá-lo como mostrado abaixo (use somente o modelo específico do dispositivo que você estiver usando):
+1. Localize a seção blacklist\_exceptions no arquivo multipath.conf. Seu dispositivo StorSimple precisa estar relacionado como uma exceção de lista negra nesta seção. Você pode retirar o comentário de linhas relevantes neste arquivo para modificá-lo como mostrado abaixo (use somente o modelo específico do dispositivo que você estiver usando):
 
     	blacklist_exceptions {
     	    device {
@@ -339,10 +339,10 @@ Esse algoritmo de balanceamento de carga usa todos os vários caminhos disponív
 	    		Login to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] successful.
 
 
-		Se você vir somente uma interface de host e dois caminhos aqui, precisará habilitar ambas as interfaces no host para iSCSI. Você pode seguir as [instruções detalhadas na documentação do Linux](https://access.redhat.com/documentation/pt-BR/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
+		Se você vir somente uma interface de host e dois caminhos aqui, precisará habilitar ambas as interfaces no host para iSCSI. Você pode seguir as [instruções detalhadas na documentação do Linux](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
 
 	
-	1. Um volume é exposto ao servidor CentOS do dispositivo StorSimple. Para saber mais, veja como [Etapa 6: Criar um volume](https://sandboxmsdnstage.redmond.corp.microsoft.com/pt-BR/library/azure/dn772357.aspx) por meio do Portal de Gerenciamento em seu dispositivo StorSimple.
+	1. Um volume é exposto ao servidor CentOS do dispositivo StorSimple. Para saber mais, veja como [Etapa 6: Criar um volume](storsimple-deployment-walkthrough.md#step-6-create-a-volume) por meio do Portal Clássico do Azure em seu dispositivo StorSimple.
 
 	1. Verifique os caminhos disponíveis. Digite:
 
@@ -418,9 +418,9 @@ Repita esse comando para todas as interfaces de rede conectadas no destino iSCSI
     iscsiadm -m node --login -T <TARGET_IQN>
 
 
-P. Não sei se meu dispositivo está na lista de autorizados.
+P. Não sei se meu dispositivo está na lista branca.
 
-R. Para verificar se seu dispositivo está na lista de autorizados, use o seguinte comando interativo de solução de problemas:
+R. Para verificar se seu dispositivo está na lista branca, use o seguinte comando interativo de solução de problemas:
 
 	multipathd –k
 	multipathd> show devices
@@ -459,7 +459,7 @@ R. Para verificar se seu dispositivo está na lista de autorizados, use o seguin
     dm-3 devnode blacklisted, unmonitored
 
 
-Para saber mais, veja como [usar o comando interativo de solução de problemas para vários caminhos](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html).
+Para saber mais, veja como [usar o comando interativo de solução de problemas para múltiplos caminhos](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html).
 
 ## Lista de comandos úteis
 
@@ -475,4 +475,4 @@ Já que você está configurando o MPIO no host Linux, talvez também seja neces
 - [Configurando o MPIO no CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 - [Guia de treinamento do Linux](http://linux-training.be/files/books/LinuxAdm.pdf)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

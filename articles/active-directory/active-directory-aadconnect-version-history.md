@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/03/2015"
+   ms.date="12/02/2015"
    ms.author="andkjell"/>
 
 # Azure AD Connect: histórico de lançamento de versão
@@ -26,6 +26,16 @@ Links relacionados:
 
 - Para obter permissões necessárias para aplicar uma atualização, veja [contas e permissões](active-directory-aadconnect-accounts-permissions.md#upgrade)
 - [Baixar o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+
+## 1\.0.9131.0
+Lançamento: dezembro de 2015
+
+**Problemas corrigidos:**
+
+- A sincronização de senha pode não funcionar quando você alterar as senhas no AD DS, mas funciona quando você define a senha.
+- Quando você tiver um servidor proxy, autenticação do AD do Azure pode falhar durante a instalação ou atualização na página de configuração.
+- A atualização de uma versão anterior do Azure AD Connect com um SQL Server completo falhará se você não for SA no SQL.
+- A atualização de uma versão anterior do Azure AD Connect com um SQL Server remoto mostrará o erro "Não é possível acessar o banco de dados SQL do ADSync".
 
 ## 1\.0.9125.0
 Lançado: novembro de 2015
@@ -44,7 +54,7 @@ Lançado: novembro de 2015
 
 **Novo cenário com suporte:**
 
-- Dá suporte a várias organizações local do Exchange. Veja [Implantações híbridas com várias florestas do Active Directory](https://technet.microsoft.com/pt-BR/library/jj873754.aspx) para obter mais informações.
+- Dá suporte a várias organizações local do Exchange. Veja [Implantações híbridas com várias florestas do Active Directory](https://technet.microsoft.com/library/jj873754.aspx) para obter mais informações.
 
 **Problemas corrigidos:**
 
@@ -94,7 +104,7 @@ Nome alterado de Azure AD Sync para Azure AD Connect.
 
 **Novos recursos:**
 
-- Instalação das [Configurações expressas](active-directory-aadconnect-get-started-express.md)
+- Instalação das [configurações expressas](active-directory-aadconnect-get-started-express.md)
 - É possível [configurar o ADFS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
 - É possível [atualizar do DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 - [Impedir exclusões acidentais](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
@@ -197,6 +207,6 @@ Lançamento: setembro de 2014
 **Versão inicial do Azure AD Sync.**
 
 ## Próximas etapas
-Saiba mais sobre [Como integrar suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
+Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

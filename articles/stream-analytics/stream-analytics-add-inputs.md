@@ -26,25 +26,25 @@ Os trabalhos do Stream Analytics do Azure podem ser conectados a uma ou mais ent
 
 Para adicionar uma entrada ao trabalho do Stream Analytics:
 
-1. No portal do Azure, clique em **Entradas** e, em seguida, em **Adicionar uma entrada** em seu trabalho do Stream Analytics.
+1. No portal clássico do Azure, clique em **Entradas** e, em seguida, em **Adicionar uma entrada** em seu trabalho do Stream Analytics.
 
     ![Adicionar Entradas](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)
 
-    No portal de visualização do Azure, clique no bloco **Entradas** no seu trabalho do Stream Analytics.
+    No portal do Azure, clique no bloco **Entradas** no seu trabalho do Stream Analytics.
 
-    ![Adicionar Entradas no portal de visualização do Azure](./media/stream-analytics-add-inputs/7-stream-analytics-add-inputs.png)
+    ![Adicionar Entradas no portal do Azure](./media/stream-analytics-add-inputs/7-stream-analytics-add-inputs.png)
 
 2. Especifique o tipo de entrada: qualquer **Fluxo de dados** ou **Dados de referência**.
 
     ![Adicionar dados](./media/stream-analytics-add-inputs/2-stream-analytics-add-inputs.png)
 
-    ![Adicionar dados no Portal de Visualização do Azure](./media/stream-analytics-add-inputs/8-stream-analytics-add-inputs.png)
+    ![Adicionar dados no portal do Azure](./media/stream-analytics-add-inputs/8-stream-analytics-add-inputs.png)
 
 3. Se criar uma entrada de Fluxo de Dados, especifique o tipo de fonte para a entrada. Essa etapa pode ser ignorada durante a criação dos Dados de Referência, pois atualmente há suporte apenas para o armazenamento de Blob.
 
     ![Adicionar fluxo de dados](./media/stream-analytics-add-inputs/3-stream-analytics-add-inputs.png)
 
-    ![Adicionar transmissão de dados no portal de visualização](./media/stream-analytics-add-inputs/9-stream-analytics-add-inputs.png)
+    ![Adicionar fluxo de dados ao Portal](./media/stream-analytics-add-inputs/9-stream-analytics-add-inputs.png)
 
 4. Forneça um nome amigável para essa entrada na caixa Alias de Entrada. Esse nome será usado na consulta do trabalho posteriormente para fazer referência à entrada.
 
@@ -58,13 +58,13 @@ Para adicionar uma entrada ao trabalho do Stream Analytics:
 
     ![Configurações da serialização de dados](./media/stream-analytics-add-inputs/5-stream-analytics-add-inputs.png)
 
-    ![Configurações de serialização de dados no portal de visualização do Azure](./media/stream-analytics-add-inputs/10-stream-analytics-add-inputs.png)
+    ![Configurações de serialização de dados no portal do Azure](./media/stream-analytics-add-inputs/10-stream-analytics-add-inputs.png)
 
 6. Depois de concluir a criação da entrada, o Stream Analytics verificará se ele pode se conectar à fonte de entrada. Você pode exibir o status da operação Testar Conexão no Hub de notificação.
 
     ![Testar conexão](./media/stream-analytics-add-inputs/6-stream-analytics-add-inputs.png)
 
-    ![Testar conexão no portal de visualização do Azure](./media/stream-analytics-add-inputs/11-stream-analytics-add-inputs.png)
+    ![Testar conexão no portal do Azure](./media/stream-analytics-add-inputs/11-stream-analytics-add-inputs.png)
 
 ## Obter ajuda
 Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureStreamAnalytics)
@@ -77,4 +77,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

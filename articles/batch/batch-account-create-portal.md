@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Criar uma conta do Lote do Azure | Microsoft Azure"
-	description="Aprenda a criar uma conta do Lote do Azure no portal de visualização do Azure para executar cargas de trabalho paralelas em larga escala na nuvem."
+	description="Aprenda a criar uma conta do Lote do Azure no portal do Azure para executar cargas de trabalho paralelas em larga escala na nuvem."
 	services="batch"
 	documentationCenter=""
 	authors="dlepow"
@@ -18,19 +18,19 @@
 
 
 
-# Criar e gerenciar uma conta do Lote do Azure no portal de visualização do Azure
+# Criar e gerenciar uma conta do Lote do Azure no portal do Azure
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](batch-account-create-portal.md)
+- [Azure portal](batch-account-create-portal.md)
 - [Batch Management .NET](batch-management-dotnet.md)
 
-Este artigo mostra como usar o [portal de visualização do Azure](https://portal.azure.com) para criar e gerenciar uma conta do Lote do Azure e configurações como chaves de conta. Você precisa de uma URL da conta do Lote e uma chave de acesso associada para autenticar todas as solicitações de API do Lote. E associar todos os recursos do Lote (como pools, trabalhos e tarefas) para seu Lote de carga de trabalho com uma conta específica do Lote.
+Este artigo mostra como usar o [portal do Azure](https://portal.azure.com) para criar e gerenciar uma conta do Lote do Azure e configurações como chaves de conta. Você precisa de uma URL da conta do Lote e uma chave de acesso associada para autenticar todas as solicitações de API do Lote. E associar todos os recursos do Lote (como pools, trabalhos e tarefas) para seu Lote de carga de trabalho com uma conta específica do Lote.
 
 >[AZURE.NOTE]Atualmente o portal de visualização dá suporte a recursos de gerenciamento de conta do Lote e a exibição de alguns recursos da conta. Os recursos completos do Lote estão disponíveis para desenvolvedores por meio de APIs do Lote.
 
 ## Criar uma conta do Batch
 
-1. Entre no [Portal de visualização do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 
 2. Clique em **Novo** > **Computação** > **Serviço de Lote**.
 
@@ -84,4 +84,4 @@ Para ver e gerenciar as chaves de acesso, clique no ícone da chave.
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

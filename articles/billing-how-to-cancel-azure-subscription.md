@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/21/2015"
+	ms.date="12/01/2015"
 	ms.author="genli"/>
 
 # Como cancelar sua assinatura do Azure
@@ -30,4 +30,4 @@ Se você cancelar sua assinatura, todos os seus serviços serão excluídos imed
 4. Selecione **Sim, cancelar minha assinatura**. </br> ![cancelbox](.\media\billing-how-to-cancel-azure-subscription\cancelbox.png)
 5. Clique em ![checkbutton](.\media\billing-how-to-cancel-azure-subscription\checkbutton.png) para fechar a janela de diálogo e retornar à página da assinatura.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

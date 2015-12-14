@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Redefinir senha da VM do Linux a partir da CLI do Azure | Microsoft Azure"
-	description="Como usar a extensão VMAccess no Portal do Azure ou na CLI para redefinir senhas de VM do Linux e chaves SSH, configurações de SSH e excluir contas de usuários."
+	description="Como usar a extensão VMAccess no portal clássico do Azure ou na CLI para redefinir senhas de VM do Linux e chaves SSH, configurações de SSH e excluir contas de usuários."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -22,15 +22,15 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
 
 
-Se você não pode se conectar a uma máquina virtual Linux devido a uma senha esquecida, uma chave do Secure Shell (SSH) incorreta ou um problema com a configuração do SSH, use o portal de visualização do Azure ou a extensão de VMAccessForLinux para redefinir a senha ou chave SSH ou corrigir a configuração do SSH. Observe que este artigo se refere às máquinas virtuais criadas usando o modelo de implantação **Clássico**.
+Se você não pode se conectar a uma máquina virtual Linux devido a uma senha esquecida, uma chave do Secure Shell (SSH) incorreta ou um problema com a configuração do SSH, use o portal do Azure ou a extensão de VMAccessForLinux para redefinir a senha ou chave SSH ou corrigir a configuração do SSH. Observe que este artigo se refere às máquinas virtuais criadas usando o modelo de implantação **Clássico**.
 
-## Portal de Visualização do Azure
+## Portal do Azure
 
-Para redefinir a configuração do SSH no [portal de visualização do Azure](https://portal.azure.com), clique em **Procurar** > **Máquinas virtuais** > *sua máquina virtual Linux* > **Redefinir Acesso Remoto**. Aqui está um exemplo.
+Para redefinir a configuração do SSH no [portal do Azure](https://portal.azure.com), clique em **Procurar** > **Máquinas virtuais** > *sua máquina virtual Linux* > **Redefinir Acesso Remoto**. Aqui está um exemplo.
 
 ![](./media/virtual-machines-linux-use-vmaccess-reset-password-or-ssh/Portal-RDP-Reset-Linux.png)
 
-Para redefinir o nome e a senha da conta de usuário com privilégios sudo ou a chave pública SSH no [portal de visualização do Azure](https://portal.azure.com), clique em **Procurar** > **Máquinas virtuais** > *sua máquina virtual Linux* > **Todas as configurações** > **Redefinição de senha**. Aqui está um exemplo.
+Para redefinir o nome e a senha da conta de usuário com privilégios sudo ou a chave pública SSH no [portal do Azure](https://portal.azure.com), clique em **Procurar** > **Máquinas virtuais** > *sua máquina virtual Linux* > **Todas as configurações** > **Redefinição de senha**. Aqui está um exemplo.
 
 ![](./media/virtual-machines-linux-use-vmaccess-reset-password-or-ssh/Portal-PW-Reset-Linux.png)
 
@@ -165,7 +165,7 @@ Se você não souber o nome da máquina virtual e serviço de nuvem, execute **G
 
 > [AZURE.NOTE]As linhas de comando que começam com $ definem variáveis do PowerShell que são usadas mais tarde em comandos do PowerShell.
 
-Se tiver criado a máquina virtual com o portal do Azure, execute o comando adicional a seguir:
+Se tiver criado a máquina virtual com o portal clássico do Azure, execute o comando adicional a seguir:
 
 	$vm.GetInstance().ProvisionGuestAgent = $true
 
@@ -266,4 +266,4 @@ Para exibir o status da extensão VMAccess, execute este comando.
 [Recursos e extensões de VM do Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Conectar-se a uma máquina virtual do Azure com RDP ou SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

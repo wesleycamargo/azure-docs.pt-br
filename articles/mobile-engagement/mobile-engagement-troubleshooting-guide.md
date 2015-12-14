@@ -29,7 +29,7 @@ Em geral, você deve sempre verificar o seguinte:
 2. Você está usando a versão mais recente dos SDKs da plataforma. 
 3. Teste em um dispositivo real e um emulador porque alguns problemas são específicos somente do emulador. 
 4. Você não está atingindo nenhum dos limites/restrições do Mobile Engagement documentados [aqui](azure-subscription-service-limits.md)
-5. Se você não consegue se conectar ao backend do serviço Mobile Engagement ou estiver vendo que os dados não estão sendo carregados continuamente, então certifique-se de que não há nenhum incidente de serviço contínuo, verificando [aqui](https://azure.microsoft.com/pt-BR/status/)
+5. Se você não consegue se conectar ao back-end de serviço do Mobile Engagement ou estiver vendo que os dados não estão sendo carregados de modo contínuo, certifique-se de que não há nenhum incidente de serviço contínuo verificando [aqui](https://azure.microsoft.com/status/)
 
 ## Problemas com o 'Monitor'
 
@@ -118,4 +118,4 @@ Se você não puder resolver o problema por conta própria, você pode:
 	- Versão do SDK do Mobile Engagement (por exemplo, Android SDK v2.1.0)
 	- Detalhes do erro com a mensagem de erro e cenário exatos
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

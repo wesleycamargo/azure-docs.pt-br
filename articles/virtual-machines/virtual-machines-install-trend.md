@@ -31,9 +31,9 @@ Se tiver uma assinatura existente da Trend Micro para uma solução local, você
 
 ## Instalar o Deep Security Agent em uma máquina virtual nova
 
-O [portal do Azure](http://manage.windowsazure.com) permite que você instale o agente de VM e a extensão de segurança Trend Micro, quando usa a opção **Da galeria** para criar a máquina virtual. Usar essa abordagem é uma maneira fácil de adicionar proteção da Trend Micro caso você esteja criando uma única máquina virtual.
+O [portal clássico do Azure](http://manage.windowsazure.com) permite que você instale o agente de VM e a extensão de segurança Trend Micro, quando usa a opção **Da galeria** para criar a máquina virtual. Usar essa abordagem é uma maneira fácil de adicionar proteção da Trend Micro caso você esteja criando uma única máquina virtual.
 
-Essa opção **Da Galeria** abre um assistente que ajuda você a configurar a máquina virtual. Você usa a última página do assistente para instalar o Agente de VM e a extensão de segurança da Trend Micro. Para obter instruções gerais, consulte [Criar uma máquina virtual executando o Windows no portal do Azure](virtual-machines-windows-tutorial-classic-portal.md). Quando chegar à última página do assistente, faça o seguinte:
+Essa opção **Da Galeria** abre um assistente que ajuda você a configurar a máquina virtual. Você usa a última página do assistente para instalar o Agente de VM e a extensão de segurança da Trend Micro. Para obter instruções gerais, consulte [Criar uma máquina virtual executando o Windows no portal clássico do Azure](virtual-machines-windows-tutorial-classic-portal.md). Quando chegar à última página do assistente, faça o seguinte:
 
 1.	Em **Agente de VM**, marque **Instalar o agente de VM**.
 
@@ -87,4 +87,4 @@ Leva alguns minutos para o agente abrir quando ele está instalado. Depois disso
 [Como fazer logon em uma máquina virtual executando o Windows Server]: virtual-machines-log-on-windows-server.md
 [Recursos e extensões de VM do Azure]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

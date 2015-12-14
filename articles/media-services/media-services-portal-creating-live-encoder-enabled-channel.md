@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Crie Canais que realizem Codificação Ativa de um fluxo com Taxa de Bits Única para um Fluxo com Múltiplas Taxas de Bits usando o Portal do Azure" 
-	description="Este tutorial fornece uma orientação pelas etapas de criação de um Canal que recebe uma transmissão ao vivo de taxa de bits única, e a codifica em um fluxo de múltiplas taxas de bits usando o Portal do Azure." 
+	pageTitle="Criar canais que realizam a codificação ativa de uma transmissão com taxa de bits única para uma transmissão com múltiplas taxas de bits usando o Portal Clássico do Azure" 
+	description="Este tutorial explica as etapas de criação de um Canal que recebe uma transmissão ao vivo de taxa de bits única e a codifica em uma transmissão de múltiplas taxas de bits usando o Portal Clássico do Azure." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako,anilmur" 
@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-#Crie canais que realizam codificação ativa de um fluxo com taxa de bits única para um fluxo com múltiplas taxas de bits usando o Portal do Azure
+#Criar canais que realizam a codificação ativa de uma transmissão com taxa de bits única para uma transmissão com múltiplas taxas de bits usando o Portal Clássico do Azure
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -58,7 +58,7 @@ A seguir, as etapas gerais envolvidas na criação de aplicativos comuns de stre
 
 ##Neste tutorial
 
-Neste tutorial, o Portal de Gerenciamento é usado para realizar as seguintes tarefas:
+Neste tutorial, o Portal Clássico do Azure é usado para realizar as seguintes tarefas:
 
 2.  Configure os pontos de extremidade de streaming.
 3.  Crie um canal que esteja habilitado para realizar a codificação ao vivo.
@@ -83,9 +83,9 @@ Ao trabalhar com a transmissão ao vivo, um codificador ao vivo local (no nosso 
 
 Para tirar proveito do empacotamento dinâmico, você precisa obter pelo menos uma unidade de streaming para o **ponto de extremidade** de streaming por meio do qual você planeja fornecer seu conteúdo.
 
-Para alterar o número de unidades reservadas para streaming, faça o seguinte:
+Para alterar o número de unidades de streaming reservadas, faça o seguinte:
 
-1. No [Portal de Gerenciamento](https://manage.windowsazure.com/), clique em **Serviços de Mídia**. Em seguida, clique no nome do serviço de mídia.
+1. No [Portal Clássico do Azure](https://manage.windowsazure.com/), clique em **Serviços de Mídia**. Em seguida, clique no nome do serviço de mídia.
 
 2. Selecione a página de PONTOS DE EXTREMIDADE DE STREAMING. Então, clique no ponto de extremidade que deseja modificar.
 
@@ -105,7 +105,7 @@ Para alterar o número de unidades reservadas para streaming, faça o seguinte:
  
 ##Criar um CANAL
 
-1.	No [Portal de Gerenciamento](http://manage.windowsazure.com/), clique em Serviços de Mídia e no nome da conta dos Serviços de Mídia.
+1.	No [Portal Clássico do Azure](http://manage.windowsazure.com/), clique em Serviços de Mídia e no nome da conta dos Serviços de Mídia.
 2.	Selecione a página CANAIS.
 3.	Selecione Adicionar+ para adicionar um novo canal.
 
@@ -276,4 +276,4 @@ Se você tiver terminado o fluxo de eventos e deseja limpar os recursos provisio
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

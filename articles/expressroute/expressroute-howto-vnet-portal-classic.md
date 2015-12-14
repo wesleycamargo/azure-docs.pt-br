@@ -23,7 +23,7 @@ Essas etapas o orientarão ao longo da configuração de uma rede virtual e de u
 
 >[AZURE.IMPORTANT]É importante saber que atualmente o Azure funciona com dois modelos de implantação: Gerenciador de Recursos e clássico. Antes de começar a configuração, entenda as ferramentas e os modelos de implantação. Para obter informações sobre os modelos de implantação, consulte [Modelos de implantação do Azure](../azure-classic-rm.md).
 
-1. Faça logon no **Portal do Azure**.
+1. Faça logon no **Portal Clássico do Azure**.
 
 2. No canto inferior esquerdo da tela, clique em **Nova**. No painel de navegação, clique em **Serviços de Rede** e, em seguida, clique em **Rede Virtual**. Clique em **Criação Personalizada** para iniciar o assistente de configuração.
 
@@ -53,7 +53,7 @@ Essas etapas o orientarão ao longo da configuração de uma rede virtual e de u
 	- **Adicionar sub-rede** – incluindo o IP Inicial e a Contagem de Endereços. Não são necessárias sub-redes adicionais, mas convém criar uma sub-rede separada para as VMs que terão DIPS (endereços IP dinâmicos). Ou você pode colocar suas VMs em uma sub-rede separada das instâncias de PaaS (Plataforma como um Serviço).
 	- **Adicionar sub-rede de gateway** - clique para adicionar a sub-rede de gateway. A sub-rede de gateway é usada apenas para o gateway de rede virtual e é necessária para esta configuração. ***Importante:*** O prefixo de sub-rede de gateway para a Rota Expressa deve ser /28 ou menor (/27, /26, etc.)
 
-7. Clique na marca de seleção na parte inferior da página e sua rede virtual começará a ser criada. Quando ela for concluída, você verá a indicação **Criada** listada em **Status** na página **Redes** no Portal de Gerenciamento.
+7. Clique na marca de seleção na parte inferior da página e sua rede virtual começará a ser criada. Quando ela for concluída, você verá **Criada** listada em **Status** na página **Redes** no Portal Clássico do Azure.
 
 8. Na página **Redes** página, clique na rede virtual que você acabou de criar e em **Painel**.
 9. Na parte inferior da página Painel, clique em **CRIAR GATEWAY** e em **Sim**.
@@ -70,4 +70,4 @@ Essas etapas o orientarão ao longo da configuração de uma rede virtual e de u
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

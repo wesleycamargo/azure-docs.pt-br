@@ -1,4 +1,4 @@
-## Enviar uma mensagem da nuvem para o dispositivo por meio do back-end do aplicativo
+## Enviar uma mensagem da nuvem para o dispositivo do back-end do aplicativo
 
 Nesta seção, você escreverá um aplicativo do console do Windows que envia mensagens da nuvem para o dispositivo ao aplicativo do dispositivo simulado.
 
@@ -18,7 +18,7 @@ Nesta seção, você escreverá um aplicativo do console do Windows que envia me
 
 		using Microsoft.Azure.Devices;
 
-5. Adicione os seguintes campos à classe **Programa**, substituindo os valores de espaço reservado pelo nome e cadeia de conexão do hub IoT da seção [Introdução ao Hub IoT]\:
+5. Adicione os seguintes campos à classe **Program**, substituindo os valores de espaço reservado pela cadeia de conexão do hub IoT na seção [Introdução ao Hub IoT]\:
 
 		static ServiceClient serviceClient;
         static string connectionString = "{iot hub connection string}";
@@ -50,7 +50,7 @@ Nesta seção, você escreverá um aplicativo do console do Windows que envia me
     ![][21]
 
 ## Recebendo comentários de entrega
-É possível solicitar a confirmação de entrega (ou expiração) de Hub IoT para cada mensagem da nuvem para o dispositivo. Isso permite que o back-end de nuvem para informar facilmente a lógica de repetição ou de compensação. Veja o [Guia do Desenvolvedor do Hub IoT][IoT Hub Developer Guide - C2D] para obter mais informações sobre comentários da nuvem para o dispositivo.
+É possível solicitar a confirmação de entrega (ou expiração) de Hub IoT para cada mensagem da nuvem para o dispositivo. Isso permite que o back-end de nuvem informe a lógica de repetição ou de compensação facilmente. Veja o [Guia do Desenvolvedor do Hub IoT][IoT Hub Developer Guide - C2D] para obter mais informações sobre comentários da nuvem para o dispositivo.
 
 Nesta seção, você modificará o aplicativo **SendCloudToDevice** para solicitar comentários e recebê-los do Hub IoT.
 
@@ -102,4 +102,4 @@ Nesta seção, você modificará o aplicativo **SendCloudToDevice** para solicit
 [21]: ./media/iot-hub-c2d-cloud-csharp/sendc2d1.png
 [22]: ./media/iot-hub-c2d-cloud-csharp/sendc2d2.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

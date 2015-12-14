@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD Connect Sync: noções básicas sobre expressões de provisionamento declarativo | Microsoft Azure"
+	pageTitle="Sincronização do Azure AD Connect: noções básicas sobre expressões de provisionamento declarativo | Microsoft Azure"
 	description="Explica as expressões de provisionamento declarativo."
 	services="active-directory"
 	documentationCenter=""
@@ -17,9 +17,9 @@
 	ms.author="markusvi;andkjell"/>
 
 
-# Azure AD Connect Sync: noções básicas sobre expressões de provisionamento declarativo
+# Sincronização do Azure AD Connect: noções básicas sobre expressões de provisionamento declarativo
 
-O Azure AD Connect Sync baseia-se no provisionamento declarativo introduzido pela primeira vez no Forefront Identity Manager 2010, para permitir que você implemente sua lógica de negócios de integração de identidade completa sem necessidade de escrever código compilado.
+A sincronização do Azure AD Connect baseia-se no provisionamento declarativo introduzido pela primeira vez no Forefront Identity Manager 2010, para permitir que você implemente sua lógica de negócios de integração de identidade completa sem necessidade de escrever código compilado.
 
 Uma parte essencial do provisionamento declarativo é a linguagem de expressão usada nos fluxos de atributo. A linguagem usada é um subconjunto de VBA (Visual Basic® for Applications) da Microsoft. Essa linguagem é usada no Microsoft Office e os usuários com experiência em VBScript também a reconhecerão. A Linguagem de expressão de provisionamento declarativo está apenas usando funções e não é uma linguagem estruturada; não existem métodos nem instruções. Em vez disso, as funções serão aninhadas no fluxo do programa expresso.
 
@@ -55,7 +55,7 @@ O Active Directory Connector forneceu os seguintes parâmetros para Regras de Si
 | Domain.Netbios | O formato NetBIOS do domínio que está sendo importado no momento, por exemplo, FABRIKAMSALES |
 | Domain.FQDN | O formato FQDN do domínio que está sendo importado no momento, por exemplo, sales.fabrikam.com |
 | Domain.LDAP | O formato LDAP do domínio que está sendo importado no momento, por exemplo, DC=sales,DC=fabrikam,DC=com |
-| Forest.Netbios | O formato NetBIOS do domínio que está sendo importado no momento, por exemplo, FABRIKAMCORP |
+| Forest.Netbios | O formato Netbios do domínio que está sendo importado no momento, por exemplo, FABRIKAMCORP |
 | Forest.FQDN | O formato FQDN do domínio que está sendo importado no momento, por exemplo, fabrikam.com |
 | Forest.LDAP | O formato LDAP do domínio que está sendo importado no momento, por exemplo, DC=fabrikam,DC=com |
 
@@ -89,7 +89,7 @@ Atributos de cadeia de caracteres são definidos por padrão para serem indexáv
 
 ### Alterando o userPrincipalSuffix
 
-O atributo userPrincipalName no Active Directory não é sempre conhecido pelos usuários e pode não ser adequado como a ID de logon. O guia de instalação do Azure AD Connect permite escolher um atributo diferente, por exemplo, email. Mas, em alguns casos, o atributo deve ser calculado. Por exemplo, a empresa Contoso tem dois diretórios do AD do Azure, um para produção e outro para testes. Eles querem que os usuários em seu locatário de teste apenas alteram o sufixo na ID de logon.
+O atributo userPrincipalName no Active Directory não é sempre conhecido pelos usuários e pode não ser adequado como a ID de logon. O guia de instalação da sincronização do Azure AD Connect permite escolher um atributo diferente, por exemplo, email. Mas, em alguns casos, o atributo deve ser calculado. Por exemplo, a empresa Contoso tem dois diretórios do AD do Azure, um para produção e outro para testes. Eles querem que os usuários em seu locatário de teste apenas alteram o sufixo na ID de logon.
 
 `userPrincipalName <- Word([userPrincipalName],1,"@") & "@contosotest.com"`
 
@@ -121,7 +121,7 @@ Um exemplo disso pode ser encontrado na Regra de Sincronização de Entrada inte
 
 `proxyAddresses <- RemoveDuplicates(Trim(ImportedValues("proxyAddresses")))`
 
-Para obter uma lista completa de funções, consulte [Azure AD Connect Sync: referência de funções](active-directory-aadconnectsync-functions-reference.md)
+Para obter uma lista completa de funções, consulte [Sincronização do Azure AD Connect: referência de funções](active-directory-aadconnectsync-functions-reference.md)
 
 
 ## Recursos adicionais
@@ -131,4 +131,4 @@ Para obter uma lista completa de funções, consulte [Azure AD Connect Sync: ref
 
 <!--Image references-->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

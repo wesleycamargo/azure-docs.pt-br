@@ -225,4 +225,4 @@ Para continuar aprendendo sobre a visualização do modelo de aplicativo v2.0, c
 - [Azure AD no Stack Overflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 - Documentação do Azure AD no [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

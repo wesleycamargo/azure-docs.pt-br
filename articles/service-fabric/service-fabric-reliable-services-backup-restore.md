@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/18/2015"
+   ms.date="12/01/2015"
    ms.author="mcoskun"/>
 
 # Reliable Services de Backup e Restauração
@@ -41,30 +41,37 @@ Para iniciar um backup, o serviço precisa chamar **IReliableStateManager.Backup
 
 Conforme mostrado abaixo, a sobrecarga mais simples de **BackupAsync** usa a Função<< BackupInfo  bool >> chamada **backupCallback**.
 
-        await this.StateManager.BackupAsync(this.BackupCallbackAsync);
+```C#
+await this.StateManager.BackupAsync(this.BackupCallbackAsync);
+```
 
 **BackupInfo** fornece informações sobre o backup, incluindo o local da pasta na qual o tempo de execução salvou o backup (BackupInfo.Directory). A função de retorno de chamada espera mover o BackupInfo.Directory para um Armazenamento externo ou outro local. Além disso, esta função retorna um booliano que indica se ele foi capaz de mover a pasta de backup para seu local de destino.
 
 O código a seguir demonstra como a backupCallback pode ser usada para carregar o backup no Armazenamento do Azure:
 
 ```C#
-        private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo)
-        {
-            var backupId = Guid.NewGuid();
+private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo)
+{
+    var backupId = Guid.NewGuid();
 
-            await externalBackupStore.UploadBackupFolderAsync(backupInfo.Directory, backupId, CancellationToken.None);
+    await externalBackupStore.UploadBackupFolderAsync(backupInfo.Directory, backupId, CancellationToken.None);
 
-            return true;
-        }
+    return true;
+}
 ```
 
 No exemplo acima, **ExternalBackupStore** é a classe de exemplo usada para realizar a interface com o Armazenamento de Blobs do Azure, e **UploadBackupFolderAsync** é o método que compacta a pasta e a coloca no Armazenamento de Blobs do Azure.
 
->[AZURE.NOTE]Pode haver apenas um **BackupAsync** por réplica em execução a qualquer momento. Mais de uma chamada de **BackupAsync** por vez lançará **FabricBackupInProgressException** para limitar a execução de backups para apenas uma.[AZURE.NOTE]Se uma réplica passar por failover enquanto um backup estiver em andamento, talvez o backup não tenha sido concluído. Portanto, após a conclusão do failover, é responsabilidade do serviço reiniciar o backup invocando **BackupAsync**, conforme necessário.
+Observação:
+
+- Pode haver apenas um **BackupAsync** por réplica em execução a qualquer momento. Mais de uma chamada de **BackupAsync** por vez lançará **FabricBackupInProgressException** para limitar a execução de backups para apenas uma.
+
+- Se uma réplica passar por failover enquanto um backup estiver em andamento, talvez o backup não tenha sido concluído. Portanto, após a conclusão do failover, é responsabilidade do serviço reiniciar o backup invocando **BackupAsync**, conforme necessário.
 
 ## Como restaurar dados
 
-É possível classificar da seguinte maneira os cenários de restauração nos quais o serviço em execução precisa restaurar os dados do repositório de backup:
+Em geral, os casos em que você talvez precise executar uma operação de restauração se enquadram em uma destas categorias:
+
 
 1. A partição do serviço perdeu os dados. Por exemplo, o disco de duas entre três réplicas de uma partição (incluindo a réplica primária) é corrompido/apagado. Pode ser necessário que a nova réplica primária restaure os dados a partir de um backup.
 
@@ -83,20 +90,20 @@ O autor do serviço deve realizar o seguinte para fazer a recuperação: – Sub
 Veja a seguir um exemplo de implementação do método **OnDataLossAsync** junto com a substituição de **IReliableStateManager**.
 
 ```C#
-        protected override IReliableStateManager CreateReliableStateManager()
-        {
-            return new ReliableStateManager(new ReliableStateManagerConfiguration(
-                    onDataLossEvent: this.OnDataLossAsync));
-        }
+protected override IReliableStateManager CreateReliableStateManager()
+{
+    return new ReliableStateManager(new ReliableStateManagerConfiguration(
+            onDataLossEvent: this.OnDataLossAsync));
+}
 
-        protected override async Task<bool> OnDataLossAsync(CancellationToken cancellationToken)
-        {
-            var backupFolder = await this.externalBackupStore.DownloadLastBackupAsync(cancellationToken);
+protected override async Task<bool> OnDataLossAsync(CancellationToken cancellationToken)
+{
+    var backupFolder = await this.externalBackupStore.DownloadLastBackupAsync(cancellationToken);
 
-            await this.StateManager.RestoreAsync(backupFolder);
+    await this.StateManager.RestoreAsync(backupFolder);
 
-            return true;
-        }
+    return true;
+}
 ```
 
 >[AZURE.NOTE]O RestorePolicy é definido como Seguro por padrão. Isso significa que a API RestoreAsync falhará com ArgumentException se detectar que a pasta de backups contém o estado mais antigo ou igual ao estado contido nesta réplica. RestorePolicy.Force pode ser usado para ignorar a verificação de segurança.
@@ -114,14 +121,15 @@ Se houver um bug na atualização do aplicativo implementado que possa causar da
 
 A primeira coisa a ser feita após a detecção de um bug tão sério e que causa a corrupção de dados é congelar o serviço no nível do aplicativo e, se possível, atualizar para a versão do código do aplicativo que não tenha o bug. No entanto, mesmo depois que o código do serviço é corrigido, os dados ainda podem estar corrompidos e, portanto, talvez seja necessário restaurá-los. Nesses casos, talvez não seja suficiente restaurar o backup mais recente, uma vez que os backups mais recentes também podem estar corrompidos. Assim, é necessário localizar o backup mais recente realizado antes de os dados serem corrompidos.
 
-Caso não saiba ao certo quais backups estão corrompidos ou não, implemente um novo cluster do Service Fabric e restaure os backups das partições afetadas, assim como o cenário descrito anteriormente para "Serviço Excluído". Para cada partição, comece a restaurar os backups a partir do mais recente. Caso encontre um backup sem danos, mova ou exclua todos os outros backups mais recentes dessa partição. Repita esse processo para cada partição. Agora, quando **OnDataLossAsync** for chamado na partição do cluster de produção, o último backup localizado no armazenamento externo será aquele escolhido de acordo com o processo acima.
+Caso não saiba ao certo quais backups estão corrompidos, implemente um novo cluster do Service Fabric e restaure os backups das partições afetadas, assim como o cenário descrito anteriormente para "Serviço Excluído". Para cada partição, comece a restaurar os backups a partir do mais recente. Caso encontre um backup sem danos, mova ou exclua todos os outros backups mais recentes dessa partição. Repita esse processo para cada partição. Agora, quando **OnDataLossAsync** for chamado na partição do cluster de produção, o último backup localizado no armazenamento externo será aquele escolhido de acordo com o processo acima.
 
 Agora, as etapas no "Serviço Excluído" podem ser usadas para restaurar o estado do backup do serviço para o estado anterior à corrupção do estado pelo código com bug.
 
+Observe que:
 
->[AZURE.NOTE]Sempre que restauramos há uma chance do backup restaurado ser mais antigo do que o estado da partição antes de os dados serem perdidos. Por isso, essa Restauração deve ser usada apenas como último recurso para recuperar o máximo possível de dados.
+- Sempre que você restaura há uma chance do backup restaurado ser mais antigo do que o estado da partição antes de os dados serem perdidos. Por isso, essa Restauração deve ser usada apenas como último recurso para recuperar o máximo possível de dados.
 
->[AZURE.NOTE]A cadeia de caracteres que representa o caminho da pasta de backup, bem como os caminhos dos arquivos dentro da pasta de backup pode ser maior do que 255 caracteres, dependendo do caminho de FabricDataRoot e do comprimento do nome do Tipo de Aplicativo. Isso pode fazer com que alguns métodos .Net, como **Directory.Move** lance o **PathTooLongException**. Como uma opção alternativa, é possível chamar diretamente as APIs kernel32, como **CopyFile**.
+- A cadeia de caracteres que representa o caminho da pasta de backup e os caminhos dos arquivos dentro da pasta de backup podem ser maiores do que 255 caracteres, dependendo do caminho de FabricDataRoot e do comprimento do nome do Tipo de Aplicativo. Isso pode fazer com que alguns métodos .Net, como **Directory.Move**, lancem o **PathTooLongException**. Uma solução alternativa é chamar diretamente as APIs do kernel32 como **CopyFile**.
 
 
 ## Nos bastidores: mais detalhes sobre backup e restauração
@@ -133,9 +141,9 @@ As transações confirmadas após o **BackupAsync** ser chamado podem ou não es
 
 ### Restaurar
 
-O Gerenciador de Estado Confiável permite a restauração de um backup usando a API IReliableStateManager.RestoreAsync. O método RestoreAsync só pode ser chamado dentro do método **OnDataLossAsync**. O booliano retornado por **OnDataLossAsync** indica se o serviço restaurou seu estado a partir de uma fonte externa. Quando o **OnDataLossAsync** retorna verdadeiro, o Service Fabric recompila todas as outras réplicas a partir da primária. O Service Fabric garante que as réplicas que devem receber **OnDataLossAsync** façam primeiro a transição para a função primária, embora elas não recebam status de leitura ou de gravação. Isso significa que, para os implementadores de StatefulService, o RunAsync não será chamado até que **OnDataLossAsync** seja concluído com êxito. Em seguida, **OnDataLossAsync** será invocado na nova primária. A API continua sendo chamada, até que um serviço conclua essa API com êxito, retornando verdadeiro ou falso, e conclua a reconfiguração relevante.
+O Gerenciador de Estado Confiável permite a restauração de um backup usando a API IReliableStateManager.RestoreAsync. O método RestoreAsync só pode ser chamado dentro do método **OnDataLossAsync**. O bool retornado por **OnDataLossAsync** indica se o serviço restaurou seu estado a partir de uma fonte externa. Quando o **OnDataLossAsync** retorna verdadeiro, o Service Fabric recompila todas as outras réplicas a partir da primária. O Service Fabric garante que as réplicas que devem receber **OnDataLossAsync** façam primeiro a transição para a função primária, embora não recebam status de leitura ou de gravação. Isso significa que, para os implementadores de StatefulService, o RunAsync não será chamado até que **OnDataLossAsync** seja concluído com êxito. Em seguida, **OnDataLossAsync** será invocado na nova primária. A API continua sendo chamada, até que um serviço conclua essa API com êxito, retornando verdadeiro ou falso, e conclua a reconfiguração relevante.
 
 
 Primeiro, RestoreAsync descarta todos os estados existentes na réplica Primária na qual foi chamado. Depois, o Gerenciador de Estado Confiável cria todos os Objetos Confiáveis que existem na pasta de backup. Em seguida, os Objetos Confiáveis são instruídos a restaurar a partir dos pontos de verificação na pasta de backup. Finalmente, o Gerenciador de Estado Confiável recupera seu próprio estado a partir dos registros de log na pasta de backup e executa a recuperação. Como parte do processo de recuperação, as operações que começaram do "ponto de partida" e confirmaram os registros de log na pasta de backup são reproduzidas aos Objetos Confiáveis. Essa etapa garante que o estado recuperado seja consistente.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

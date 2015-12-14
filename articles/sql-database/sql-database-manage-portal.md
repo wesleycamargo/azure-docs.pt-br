@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Gerenciar o Bancos de Dados SQL do Azure usando o Portal de Gerenciamento do Azure" 
-	description="Saiba como usar o Portal de Gerenciamento do Azure para gerenciar um banco de dados relacional na nuvem." 
+	pageTitle="Gerenciar Bancos de Dados SQL do Azure usando o Portal Clássico do Azure" 
+	description="Saiba como usar o Portal Clássico do Azure para gerenciar um banco de dados relacional na nuvem usando o Portal Clássico." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
@@ -17,24 +17,24 @@
 	ms.author="sstein"/>
 
 
-# Gerenciando Bancos de Dados SQL do Azure usando o Portal de Gerenciamento do Azure
+# Gerenciando Bancos de Dados SQL do Azure usando o Portal Clássico do Azure
 
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-manage-portal.md)
+- [Azure Portal](sql-database-manage-portal.md)
 - [SSMS](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
-O [Portal de Gerenciamento do Azure][Management Portal] permite que você crie, monitore e gerencie servidores e bancos de dados SQL do Azure. Este artigo destacará as operações de banco de dados que podem ser realizadas usando o Portal de Gerenciamento.
+O [Portal Clássico do Azure][Classic Portal] permite que você crie, monitore e gerencie servidores e bancos de dados SQL do Azure. Este artigo destacará as operações de banco de dados que podem ser realizadas usando o Portal Clássico.
 
->[AZURE.NOTE]Se você não estiver familiarizado com o Portal de Gerenciamento do Azure, este[tour em vídeo fornecerá uma visão geral][Azure Portal Tour] de seus recursos e conceitos gerais.
+>[AZURE.NOTE]Se você não estiver familiarizado com o Portal Clássico do Azure, este [tour em vídeo fornecerá uma visão geral][Azure Classic Portal Tour] de seus recursos e conceitos gerais.
 
 ![Visão geral sobre o banco de dados](./media/sql-database-manage-portal/sqldatabase_annotated.png)
 
 ## 1\. Ações de gerenciamento de banco de dados
 ![Ações de gerenciamento de banco de dados](./media/sql-database-manage-portal/sqldatabase_actions.png)
 
-O Portal de Gerenciamento do Azure fornece um conjunto de ações comuns de banco de dados acessíveis na parte superior da folha de um banco de dados. Você pode restaurar um banco de dados para um ponto anterior no tempo, abrir um banco de dados no Visual Studio, copiar um banco de dados para um novo servidor e exportar o banco de dados para uma conta de armazenamento do Azure.
+O Portal Clássico do Azure fornece um conjunto de ações comuns de banco de dados acessíveis na parte superior da folha de um banco de dados. Você pode restaurar um banco de dados para um ponto anterior no tempo, abrir um banco de dados no Visual Studio, copiar um banco de dados para um novo servidor e exportar o banco de dados para uma conta de armazenamento do Azure.
 
 - [Restaurar um banco de dados SQL](sql-database-point-in-time-restore-tutorial-management-portal.md)
 - [Abrir um banco de dados SQL no Visual Studio](sql-database-connect-query.md)
@@ -45,7 +45,7 @@ O Portal de Gerenciamento do Azure fornece um conjunto de ações comuns de banc
 
 Por padrão, os bancos de dados SQL do Azure apresentam gráficos de monitoramento de DTU (Unidade de taxa de transferência de banco de dados), do tamanho do banco de dados e da integridade da conexão. Esses gráficos de monitoramento podem ser personalizados e ampliados para mostrar a Porcentagem de CPU, Porcentagem de E/S de dados, Bloqueios, Porcentagem de E/S de log ou até mesmo a porcentagem de solicitações bloqueadas pelo firewall. Para saber mais sobre como personalizar os gráficos de monitoramento, clique [aqui][Azure part monitoring].
 
-Além disso, as regras de alerta podem ser configuradas para monitorar uma métrica especificada e alertar um administrador e coadministrador designados quando os limites predefinidos forem atingidos. Para saber mais sobre como configurar as regras de alerta no Portal de Gerenciamento do Azure, clique [aqui][Azure part monitoring].
+Além disso, as regras de alerta podem ser configuradas para monitorar uma métrica especificada e alertar um administrador e coadministrador designados quando os limites predefinidos forem atingidos. Para saber mais sobre como configurar as regras de alerta no Portal Clássico do Azure, clique [aqui][Azure part monitoring].
 
 ## 3\. Segurança e auditoria de banco de dados
 ![Segurança de banco de dados](./media/sql-database-manage-portal/sqldatabase_security.png)
@@ -62,7 +62,7 @@ Bancos de dados SQL do Azure também podem ser configurados para mascarar dados 
 ## 4\. Replicação geográfica
 ![Replicação geográfica](./media/sql-database-manage-portal/sqldatabase_georeplication.png)
 
-É possível configurar bancos de dados SQL do Azure para replicar de forma assíncrona as transações confirmadas para um banco de dados secundário. Parte de replicação geográfica no Portal de Gerenciamento permite que você selecione a região do Azure na qual gostaria de colocar o banco de dados secundário.
+É possível configurar bancos de dados SQL do Azure para replicar de forma assíncrona as transações confirmadas para um banco de dados secundário. Parte de replicação geográfica no Portal Clássico permite que você selecione a região do Azure na qual gostaria de colocar o banco de dados secundário.
 
 - [Replicação Geográfica](https://msdn.microsoft.com/library/azure/dn783447.aspx)
 
@@ -75,8 +75,8 @@ Bancos de dados SQL do Azure também podem ser configurados para mascarar dados 
 * [Monitorando o Banco de Dados SQL Usando Exibições de Gerenciamento Dinâmico][]   
 * [Referência Transact-SQL (Banco de Dados SQL)][]
   
-  [Azure Portal Tour]: https://go.microsoft.com/fwlink/?LinkID=522341
-  [Management Portal]: https://portal.azure.com
+  [Azure Classic Portal Tour]: https://go.microsoft.com/fwlink/?LinkID=522341
+  [Classic Portal]: https://portal.azure.com
   [Azure part monitoring]: ../documentdb-monitor-accounts.md
   [AzureDb management overview]: http://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/
   [Introducing SQL Database]: http://azure.microsoft.com/services/sql-database
@@ -90,4 +90,4 @@ Bancos de dados SQL do Azure também podem ser configurados para mascarar dados 
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

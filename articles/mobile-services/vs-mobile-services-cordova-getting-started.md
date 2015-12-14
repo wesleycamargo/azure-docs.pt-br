@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Introdução com um projeto de serviços móveis Cordova (Serviços Conectados do Visual Studio)" 
-	description="Descreve as primeiras etapas que você pode tomar depois de conectar seu projeto Cordova aos Serviços Móveis do Azure usando os Serviços Conectados do Visual Studio." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="TomArcher" 
-	manager="douge" 
+<properties
+	pageTitle="Introdução com um projeto de serviços móveis Cordova (Serviços Conectados do Visual Studio)"
+	description="Descreve as primeiras etapas que você pode tomar depois de conectar seu projeto Cordova aos Serviços Móveis do Azure usando os Serviços Conectados do Visual Studio."
+	services="mobile-services"
+	documentationCenter=""
+	authors="TomArcher"
+	manager="douge"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="09/17/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="vs-getting-started"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="09/17/2015"
 	ms.author="tarcher"/>
 
 # Introdução aos serviços móveis (Projetos Cordova)
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-mobile-services-cordova-getting-started.md)
@@ -47,7 +52,7 @@ Inserir um novo item em uma tabela de dados. Um id (um GUID da cadeia de caracte
         this.text = text;
         this.complete = false;
     }
-    
+
     var items = new Array();
     var insertTodoItem = function (todoItem) {
         todoTable.insert(todoItem).done(function (item) {
@@ -94,4 +99,4 @@ Exclua uma linha em uma tabela de dados usando o método **del**. Chame o métod
 
 [Saiba mais sobre serviços móveis](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

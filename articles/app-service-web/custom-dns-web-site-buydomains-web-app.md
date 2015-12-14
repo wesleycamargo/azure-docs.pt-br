@@ -41,12 +41,12 @@ Para um aplicativo Web de produção, é bem provável que você queira que os u
 
 > [AZURE.NOTE]Não tente adquirir um domínio usando uma assinatura que não tem um cartão de crédito ativo associado a ela. Isso pode resultar na desabilitação de sua assinatura.
 
-Se você não tiver um nome de domínio para seu aplicativo web, poderá comprar um facilmente no [Portal de Gerenciamento do Azure](https://portal.azure.com). Durante o processo de compra você pode optar para que os registros DNS do domínio raiz e WWW sejam mapeados automaticamente para seu aplicativo da web. Também é possível gerenciar seu direito de domínio dentro do Portal do Azure.
+Se você não tiver um nome de domínio para seu aplicativo web, poderá comprar um facilmente no [Portal do Azure](https://portal.azure.com). Durante o processo de compra você pode optar para que os registros DNS do domínio raiz e WWW sejam mapeados automaticamente para seu aplicativo da web. Também é possível gerenciar seu direito de domínio dentro do Portal do Azure.
 
 
 Use as etapas a seguir para comprar os nomes de domínio e atribuir ao seu aplicativo Web.
 
-1. No seu navegador, abra o [Portal de Gerenciamento do Azure](https://portal.azure.com).
+1. No seu navegador, abra o [Portal do Azure](https://portal.azure.com).
 
 2. Na guia **Aplicativos Web**, clique no nome do seu aplicativo Web, selecione **Configurações** e, em seguida, selecione **Domínios personalizados e SSL**
 
@@ -98,4 +98,4 @@ Depois que a configuração estiver concluída, o nome do domínio personalizado
 Nesse ponto, você deve poder inserir o nome de domínio personalizado no navegador e ver se ele te leva com êxito ao aplicativo Web.
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

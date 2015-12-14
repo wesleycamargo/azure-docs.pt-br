@@ -29,7 +29,7 @@ Um trabalho requer pelo menos uma fonte de entrada para streaming de dados. A fo
 ## Configurando unidades streaming ##
 Unidades de streaming (SUs) representam os recursos e a capacidade de executar um trabalho no Stream Analytics do Azure. As SUs fornecem uma maneira de descrever a capacidade de processamento de evento relativa, com base em uma medida combinada de CPU, memória e taxas de leitura e gravação. Cada unidade de streaming corresponde a aproximadamente 1MB/segundo de transferência.
 
-A escolha de quantas SUs são necessárias para um trabalho específico depende da configuração de partição das entradas e a consulta definida para o trabalho. Você pode selecionar até sua cota em unidades de streaming para um trabalho, usando o Portal do Azure. Cada assinatura do Azure por padrão tem uma cota de até 50 unidades de streaming para todos os trabalhos de análise em uma região específica. Para aumentar a unidades de streaming para suas assinaturas, entre em contato com o [Suporte da Microsoft](http://support.microsoft.com).
+A escolha de quantas SUs são necessárias para um trabalho específico depende da configuração de partição das entradas e a consulta definida para o trabalho. Você pode selecionar até sua cota em unidades de streaming para um trabalho, usando o Portal do Clássico Azure. Cada assinatura do Azure por padrão tem uma cota de até 50 unidades de streaming para todos os trabalhos de análise em uma região específica. Para aumentar a unidades de streaming para suas assinaturas, entre em contato com o [Suporte da Microsoft](http://support.microsoft.com).
 
 O número de unidades de streaming que um trabalho pode utilizar depende da configuração de partição de entradas e da consulta definida para o trabalho. Observe também que um valor válido para as unidades de fluxo deve ser usado. Os valores válidos começam em 1, 3, 6 e, em seguida, para cima em incrementos de 6, conforme mostrado abaixo.
 
@@ -147,20 +147,20 @@ Essa consulta pode ser dimensionada até 24 unidades de streaming.
 
 **Para ajustar a unidade de streaming de um trabalho**
 
-1. Entre no [Portal de Gerenciamento](https://manage.windowsazure.com).
+1. Entre no [Portal clássico](https://manage.windowsazure.com).
 2. Clique em **Análise de fluxo** no painel à esquerda.
 3. Clique no trabalho de Análise de fluxo que deseja dimensionar.
 4. Clique em **ESCALA** na parte superior da página.
 
 ![Dimensionamento de unidade de fluxo do Stream Analytics do Azure][img.stream.analytics.streaming.units.scale]
 
-No portal de visualização do Azure, as configurações de Escala podem ser acessadas em Configurações:
+No Portal do Azure, as configurações de Escala podem ser acessadas em Configurações:
 
-![Configuração de trabalho do Stream Analytics no Portal de Visualização do Azure][img.stream.analytics.preview.portal.settings.scale]
+![Configuração de trabalho do Stream Analytics no Portal do Azure][img.stream.analytics.preview.portal.settings.scale]
 
 ## Monitorar o desempenho do trabalho ##
 
-Usando o portal de gerenciamento, você pode acompanhar a taxa de transferência de um trabalho de eventos por segundo:
+Usando o Portal Clássico, você pode acompanhar a taxa de transferência de um trabalho de eventos por segundo:
 
 ![Análise de fluxo do Azure, monitorar trabalhos][img.stream.analytics.monitor.job]
 
@@ -265,4 +265,4 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

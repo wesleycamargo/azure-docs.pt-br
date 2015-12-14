@@ -33,7 +33,7 @@ Não há custo adicional ao enviar ou receber uma mensagem de uma fila ou um tó
 
 Para usar filas e tópicos particionados com o Barramento de Serviço do Microsoft Azure, use o Azure SDK versão 2.2 ou posterior ou especifique `api-version=2013-10` em suas solicitações HTTP.
 
-Você pode criar filas e tópicos do Barramento de Serviço em tamanhos de 1, 2, 3, 4 ou 5 GB (o padrão é 1 GB). Com o particionamento habilitado, o Barramento de Serviço cria 16 partições para cada GB especificado. Assim, se você criar uma fila que tenha 5 GB, com 16 partições, o tamanho máximo da fila será (5 * 16) = 80 GB. É possível ver o tamanho máximo da fila ou do tópico particionado observando sua entrada no [portal do Azure][].
+Você pode criar filas e tópicos do Barramento de Serviço em tamanhos de 1, 2, 3, 4 ou 5 GB (o padrão é 1 GB). Com o particionamento habilitado, o Barramento de Serviço cria 16 partições para cada GB especificado. Assim, se você criar uma fila que tenha 5 GB, com 16 partições, o tamanho máximo da fila será (5 * 16) = 80 GB. É possível ver o tamanho máximo da fila ou do tópico particionado observando sua entrada no [portal clássico do Azure][].
 
 Há várias maneiras de criar uma fila ou um tópico particionado. Ao criar a fila ou o tópico de seu aplicativo, você pode habilitar o particionamento para a fila ou tópico definindo respectivamente a propriedade [QueueDescription.EnablePartitioning][] ou [TopicDescription.EnablePartitioning][] como **true**. Essas propriedades devem ser definidas no momento em que a fila ou o tópico é criado. Não é possível alterar essas propriedades em uma fila ou um tópico existente. Por exemplo:
 
@@ -45,7 +45,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-Como alternativa, você pode criar uma fila ou um tópico particionado no Visual Studio ou no [portal do Azure][]. Ao criar uma nova fila ou tópico no portal, marque a opção **Habilitar Particionamento** na guia **Configurar** da janela da fila ou do tópico. No Visual Studio, clique na caixa de seleção **Habilitar Particionamento** da caixa de diálogo **Nova Fila** ou **Novo Tópico**.
+Como alternativa, você pode criar uma fila ou um tópico particionado no Visual Studio ou no [portal clássico do Azure][]. Ao criar uma nova fila ou tópico no portal, marque a opção **Habilitar Particionamento** na guia **Configurar** da janela da fila ou do tópico. No Visual Studio, clique na caixa de seleção **Habilitar Particionamento** da caixa de diálogo **Nova Fila** ou **Novo Tópico**.
 
 ## Uso de chaves de partição
 
@@ -128,7 +128,7 @@ Em sua implementação atual, o Barramento de Serviço impõe as seguintes limit
 Consulte a discussão sobre o suporte do AMQP 1.0 para tópicos e filas particionados do Barramento de Serviço (em breve!) para saber mais sobre o particionamento de entidades de mensagens.
 
   [Arquitetura do Barramento de Serviço]: service-bus-architecture.md
-  [portal do Azure]: http://manage.windowsazure.com
+  [portal clássico do Azure]: http://manage.windowsazure.com
   [QueueDescription.EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx
   [TopicDescription.EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablepartitioning.aspx
   [BrokeredMessage.SessionId]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx
@@ -144,4 +144,4 @@ Consulte a discussão sobre o suporte do AMQP 1.0 para tópicos e filas particio
   [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
   [AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-entities-amqp-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

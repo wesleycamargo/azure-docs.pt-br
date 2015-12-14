@@ -23,7 +23,7 @@
 
 Quando você cria uma VM, reinicia VMs paradas (desalocadas) ou redimensiona uma VM, o Microsoft Azure aloca recursos de computação para sua assinatura. Eventualmente, você pode receber mensagens de erro durante a execução dessas operações antes de alcançar os limites da assinatura do Microsoft Azure. Este artigo explica as causas das falhas de alocação mais comuns e sugere possíveis correções. As informações também poderão ser úteis caso você pretenda implantar serviços.
 
-Se você precisar de mais ajuda em qualquer momento neste artigo, você pode contatar os especialistas do Azure nos [fóruns do Azure MSDN e Excedente de Pilha](http://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure. Acesse o [site de Suporte do Azure](http://azure.microsoft.com/support/options/) e clique em **Obter Suporte**.
+Se precisar de mais ajuda em qualquer momento neste artigo, você pode contatar os especialistas do Azure nos [fóruns do Azure MSDN e Excedente de Pilha](http://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure. Acesse o [site de Suporte do Azure](http://azure.microsoft.com/support/options/) e clique em **Obter Suporte**.
 
 A seção "Solucionando falhas de alocação comuns" lista as etapas para solucionar problemas comuns. A seção "Solução de cenários de falha de alocação específica" fornece etapas de resolução por mensagem de erro específica. Antes de iniciar, aqui estão algumas informações básicas para entender como funciona a alocação e por que a falha de alocação acontece.
 
@@ -81,7 +81,7 @@ A solicitação de redimensionamento ou de adição de uma VM ou instância de f
 
 **Solução alternativa**
 
-Se o erro for Upgrade\_VMSizeNotSupported*, tente usar um tamanho de VM diferente. Quando não for possível usar um tamanho de VM diferente, mas for aceitável usar um endereço IP virtual diferente, crie um novo serviço de nuvem para hospedar a nova VM e adicione-o à Rede Virtual Regional na qual as VMs existentes estão em execução. Caso o serviço de nuvem existente não use a Rede Virtual Regional, você poderá criar uma nova Rede Virtual para o novo serviço de nuvem e conectá-la [à Rede Virtual existente](https://azure.microsoft.com/pt-BR/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Saiba mais sobre a [Rede Virtual Regional](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+Se o erro for Upgrade\_VMSizeNotSupported*, tente usar um tamanho de VM diferente. Quando não for possível usar um tamanho de VM diferente, mas for aceitável usar um endereço IP virtual diferente, crie um novo serviço de nuvem para hospedar a nova VM e adicione-o à Rede Virtual Regional na qual as VMs existentes estão em execução. Caso o serviço de nuvem existente não use a Rede Virtual Regional, você poderá criar uma nova Rede Virtual para o novo serviço de nuvem e conectá-la [à Rede Virtual existente](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Saiba mais sobre a [Rede Virtual Regional](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
 Se o erro for GeneralError*, é provável que o cluster tenha suporte para o tipo de recurso (como um determinado tamanho de VM), embora não tenha recursos gratuitos no momento. Como descrito anteriormente, tente adicionar o recurso de computação desejado criando um novo serviço de nuvem (o novo serviço de nuvem deve usar um endereço IP virtual diferente) e use a Rede Virtual Regional para conectar os Serviços de Nuvem.
 
@@ -93,11 +93,11 @@ GeneralError*
 
 **Causa de fixação de cluster**
 
-A desalocação **parcial** significa que você parou (desalocou) uma ou mais, mas **não todas** as VMs no serviço de nuvem. Quando você para (desaloca) uma VM, os recursos associados são liberados. Reiniciar a VM parada (desalocada), portanto, é uma nova solicitação de alocação. Reiniciar as VMs em um serviço de nuvem parcialmente desalocado é o mesmo que adicionar VMs em um serviço de nuvem existente. Nesse caso, a solicitação de alocação deve ser tentada no cluster original que hospeda este serviço. A criação de um serviço de nuvem diferente permite que a plataforma do Microsoft Azure localize outro cluster com recursos gratuitos ou um cluster compatível com o tamanho de VM solicitado.
+A desalocação **parcial** significa que você interrompeu (desalocou) uma ou mais, mas **não todas** as VMs no serviço de nuvem. Quando você para (desaloca) uma VM, os recursos associados são liberados. Reiniciar a VM parada (desalocada), portanto, é uma nova solicitação de alocação. Reiniciar as VMs em um serviço de nuvem parcialmente desalocado é o mesmo que adicionar VMs em um serviço de nuvem existente. Nesse caso, a solicitação de alocação deve ser tentada no cluster original que hospeda este serviço. A criação de um serviço de nuvem diferente permite que a plataforma do Microsoft Azure localize outro cluster com recursos gratuitos ou um cluster compatível com o tamanho de VM solicitado.
 
 **Solução alternativa**
 
-Se for aceitável usar um endereço IP virtual diferente, exclua as VMs paradas ou desalocadas (mas mantenha os discos associados) e adicione-as novamente através de outro serviço de nuvem. Use a Rede Virtual Regional para conectar os Serviços de Nuvem: 1. Quando o serviço de nuvem existente usa uma Rede Virtual Regional, basta adicionar o novo serviço de nuvem à mesma Rede Virtual. 2. Caso o serviço de nuvem existente não use a Rede Virtual Regional, você poderá criar uma nova Rede Virtual para o novo serviço de nuvem e [conectá-la à Rede Virtual existente](https://azure.microsoft.com/pt-BR/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Saiba mais sobre a [Rede Virtual Regional](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+Se for aceitável usar um endereço IP virtual diferente, exclua as VMs paradas ou desalocadas (mas mantenha os discos associados) e adicione-as novamente através de outro serviço de nuvem. Use a Rede Virtual Regional para conectar os Serviços de Nuvem: 1. Quando o serviço de nuvem existente usa uma Rede Virtual Regional, basta adicionar o novo serviço de nuvem à mesma Rede Virtual. 2. Caso o serviço de nuvem existente não use a Rede Virtual Regional, você poderá criar uma nova Rede Virtual para o novo serviço de nuvem e [conectá-la à Rede Virtual existente](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Saiba mais sobre a [Rede Virtual Regional](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
 ### Cenário de alocação: reiniciando VMs paradas (desalocadas) – desalocação completa
 **Erro**
@@ -149,7 +149,7 @@ Antes de a Rede Virtual Regional entrar em vigor, você era solicitado a associa
 
 **Solução alternativa**
 
-Se você não precisar do grupo de afinidade, crie uma nova Rede Virtual Regional para os novos recursos que está adicionando e [conecte sua Rede Virtual existente à nova](https://azure.microsoft.com/pt-BR/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Saiba mais sobre a [Rede Virtual Regional](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+Se você não precisar do grupo de afinidade, crie uma nova Rede Virtual Regional para os novos recursos que está adicionando e [conecte sua Rede Virtual existente à nova](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Saiba mais sobre a [Rede Virtual Regional](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
 Como alternativa, você pode [migrar a Rede Virtual com base em grupo de afinidade para a Rede Virtual Regional](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/). Em seguida, tente adicionar novamente os recursos desejados.
 
@@ -186,7 +186,7 @@ GeneralError*
 
 **Causa de fixação de cluster**
 
-A desalocação **parcial** significa que você parau (desalocou) uma ou mais, mas **não todas** as VMs no conjunto de disponibilidade. Quando você para (desaloca) uma VM, os recursos associados são liberados. Reiniciar a VM parada (desalocada), portanto, é uma nova solicitação de alocação. Reiniciar as VMs em um Conjunto de Disponibilidade parcialmente desalocado é o mesmo que adicionar VMs a um Conjunto de Disponibilidade existente. Nesse caso, a solicitação de alocação deve ser tentada no cluster original que hospeda este Conjunto de Disponibilidade existente.
+A desalocação **parcial** significa que você interrompeu (desalocou) uma ou mais, mas **não todas** as VMs no conjunto de disponibilidade. Quando você para (desaloca) uma VM, os recursos associados são liberados. Reiniciar a VM parada (desalocada), portanto, é uma nova solicitação de alocação. Reiniciar as VMs em um Conjunto de Disponibilidade parcialmente desalocado é o mesmo que adicionar VMs a um Conjunto de Disponibilidade existente. Nesse caso, a solicitação de alocação deve ser tentada no cluster original que hospeda este Conjunto de Disponibilidade existente.
 
 **Solução alternativa**
 
@@ -199,7 +199,7 @@ GeneralError*
 
 **Causa de fixação de cluster**
 
-A desalocação **total** significa que você parou (desalocou) **todas** as VMs no conjunto de disponibilidade. A solicitação de alocação para reiniciar essas VMs se destina a todos os clusters compatíveis com o tamanho desejado.
+A desalocação **total** significa que você interrompeu (desalocou) **todas** as VMs no conjunto de disponibilidade. A solicitação de alocação para reiniciar essas VMs se destina a todos os clusters compatíveis com o tamanho desejado.
 
 **Solução alternativa**
 
@@ -228,4 +228,4 @@ O servidor encontrou um erro interno. Repita a solicitação." ou "Falha na prod
 
 Caso este artigo não ajude a resolver o problema do Microsoft Azure, navegue pelos fóruns do Azure em [MSDN e Stack Overflow](http://azure.microsoft.com/support/forums/). Você pode também registrar uma ocorrência de suporte do Microsoft Azure sobre o problema. Acesse o site [Suporte do Microsoft Azure](http://azure.microsoft.com/support/options/) e clique em Obter suporte. Para obter informações sobre como usar o Suporte do Azure, leia as [Perguntas Frequentes de Suporte do Microsoft Azure](http://azure.microsoft.com/support/faq/).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

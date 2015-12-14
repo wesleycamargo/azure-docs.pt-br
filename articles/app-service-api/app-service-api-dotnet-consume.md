@@ -16,7 +16,9 @@
 	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
-# Consumir um aplicativo de API no serviço de aplicativo do Azure por meio de um cliente .NET 
+# Consumir um aplicativo de API no Serviço de Aplicativo do Azure por meio de um cliente .NET 
+
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
 
 ## Visão geral
 
@@ -205,4 +207,4 @@ Para obter exemplos adicionais de um código que chame um aplicativo de API de c
 Para obter informações sobre como usar a autenticação em aplicativos de API, consulte [Autenticação para aplicativos de API e aplicativos móveis no Serviço de Aplicativo do Azure](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -129,7 +129,7 @@ Essas capacidades frequentemente são migradas para ferramentas como [Puppet](ht
 
 Mais recentemente, o Azure lançou a API REST do [Gerenciamento de Recursos do Azure](virtual-machines-azurerm-versus-azuresm.md) e atualizou as ferramentas do PowerShell e da CLI do Azure para usá-las facilmente. Você pode implantar, modificar ou reimplantar topologias do aplicativo inteiras usando [Modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md) com a API de gerenciamento de recursos do Azure usando:
 
-- o [portal de visualização do Azure usando modelos](https://github.com/Azure/azure-quickstart-templates) - dica, use o botão "DeployToAzure"
+- o [portal do Azure usando modelos](https://github.com/Azure/azure-quickstart-templates) - dica, use o botão "DeployToAzure"
 - a [CLI do Azure](virtual-machines-deploy-rmtemplates-azure-cli.md)
 - os [módulos do Azure PowerShell](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
@@ -188,7 +188,7 @@ Docker no Microsoft Azure:
 - [Extensão VM Docker para Linux no Azure](virtual-machines-docker-vm-extension.md)
 - [Guia de Usuário da Extensão de VM Docker do Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md)
 - [Usando a extensão de VM Docker da interface de linha de comando do Azure (CLI do Azure)](virtual-machines-docker-with-xplat-cli-install.md)
-- [Usando a extensão de VM Docker no Portal de Visualização do Azure](virtual-machines-docker-with-portal.md)
+- [Usando a extensão de VM Docker do portal do Azure](virtual-machines-docker-with-portal.md)
 - [Introdução rápida ao Docker no Azure Marketplace](virtual-machines-docker-ubuntu-quickstart.md)
 - [Como usar a máquina docker no Azure](virtual-machines-docker-machine.md)
 - [Como usar o docker com avanço no Azure](virtual-machines-docker-swarm.md)
@@ -241,4 +241,4 @@ Confira o [Docker](https://www.docker.com) e os [Contêineres do Windows Server]
 [microsserviços]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

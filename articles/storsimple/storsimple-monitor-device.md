@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="11/05/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Usar o serviço StorSimple Manager para monitorar seu dispositivo StorSimple 
@@ -21,7 +21,7 @@
 
 Você pode usar o serviço StorSimple Manager para monitorar dispositivos específicos na sua solução do StorSimple. Você pode criar gráficos personalizados com base no desempenho de E/S, utilização da capacidade, taxa de transferência de rede e métricas de desempenho do dispositivo.
 
-Para exibir as informações de monitoramento de um dispositivo específico, no Portal do Azure, selecione o serviço StorSimple Manager, clique na guia **Monitor** e, em seguida, selecione na lista de dispositivos. A página **Monitor** contém as seguintes informações.
+Para exibir as informações de monitoramento de um dispositivo específico, no Portal clássico do Azure, selecione o serviço StorSimple Manager, clique na guia **Monitor** e, em seguida, selecione na lista de dispositivos. A página **Monitor** contém as seguintes informações.
 
 ## Desempenho de E/S 
 
@@ -87,7 +87,7 @@ Esses gráficos mostram a quantidade de armazenamento em nuvem usado. Esses dado
 
 ###Utilização da capacidade de armazenamento do dispositivo
 
-esses gráficos mostram a utilização total para o dispositivo mostra a utilização total para o dispositivo, que será maior do que a utilização do armazenamento principal porque inclui a camada SSD linear. Essa camada contém uma quantidade de dados que também existe nas outras camadas do dispositivo. A capacidade na camada SSD linear é alternada para que quando novos dados chegam, os dados antigos sejam movidos para a camada HDD (momento no qual eles passam por eliminação de duplicação e são compactados) e subsequentemente para a nuvem.
+Esses gráficos mostram a utilização total para o dispositivo mostra a utilização total para o dispositivo, que será maior do que a utilização do armazenamento principal porque inclui a camada SSD linear. Essa camada contém uma quantidade de dados que também existe nas outras camadas do dispositivo. A capacidade na camada SSD linear é alternada para que quando novos dados chegam, os dados antigos sejam movidos para a camada HDD (momento no qual eles passam por eliminação de duplicação e são compactados) e subsequentemente para a nuvem.
 
 Ao longo do tempo, utilização da capacidade principal e utilização da capacidade do dispositivo provavelmente aumentarão juntas até que os dados comecem a ser organizados em camadas na nuvem. Nesse ponto, a utilização da capacidade do dispositivo provavelmente começará a atingir a estabilidade, mas a utilização da capacidade principal aumentará conforme mais dados forem gravados.
 
@@ -121,4 +121,4 @@ O **desempenho do dispositivo** acompanha métricas relacionadas ao desempenho d
 
 - Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

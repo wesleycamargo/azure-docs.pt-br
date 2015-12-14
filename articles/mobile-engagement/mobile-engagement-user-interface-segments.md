@@ -17,10 +17,13 @@
    ms.author="piyushjo"/>
 
 # Como criar e gerenciar segmentos de usuários para identificar padrões de uso
+
+Este artigo descreve a guia **SEGMENTOS** do portal do **Mobile Engagement**. Você usa o portal do **Mobile Engagement** para monitorar e gerenciar seus aplicativos móveis. Observe que, para começar a usar o portal, primeiro você precisa criar uma conta do **Azure Mobile Engagement**. Para obter mais informações, veja [Criar uma conta do Azure Mobile Engagement](mobile-engagement-create-account.md).
+
 A seção de segmentos da interface do usuário permite que você trabalhe na segmentação dos usuários com base no comportamento diferente e na análise que você pode obter do aplicativo e também pode acessar por meio da API de segmentos. Os segmentos são primeiramente calculados 24 horas após terem sido criados e serão recalculados com base nas informações de análise mais recentes a cada 24 horas. Após um segmento ter sido calculado, ele exibe um gráfico de “Histórico diário" todos os dias.
 
-### Consulte também
-- [Documentação da API - Segmentos da API][Link 4], [Guia de solução de problemas - Análise][Link 21]
+
+>[AZURE.NOTE]Muitas seções da interface do usuário do portal do **Mobile Engagement** contêm o botão **MOSTRAR AJUDA**. Pressione este botão para obter mais informações contextuais sobre uma seção.
 
 ## Criação segmentos
 Você pode criar um segmento com base em até 10 critérios em um período específico de até 60 dias passados na seção de análise. Por exemplo, você pode criar um segmento com base em quem tiver visualizado determinadas páginas ou pesquisado um conteúdo específico em seu aplicativo nos últimos 10 dias. Essas informações estão disponíveis na seção de análise. Assim, você pode usá-las para criar um segmento e, em seguida, configurar uma notificação por push para atingir esse subconjunto de usuários para que eles voltem para o aplicativo.
@@ -91,6 +94,12 @@ Nomeie o critério para recuperá-la no funil completo e clique em Concluir.
  ![segments11][45]
 
 Quando você terminar de configurar o critério, ele aparecerá no funil do segmento. Como um segmento é baseado em dados de análise, os segmentos são calculados uma vez por dia. Neste exemplo, 47,7% do total dos usuários finais correspondente ao critério. Eles devem ser os usuários que tiveram uma boa experiência e provavelmente darão uma classificação alta se você lhes enviar uma notificação pedindo para avaliarem o aplicativo na loja.
+
+
+## Consulte também
+
+- [Conceitos][Link 6]
+- [Serviço do Guia de Solução de Problemas][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -188,4 +197,4 @@ Quando você terminar de configurar o critério, ele aparecerá no funil do segm
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

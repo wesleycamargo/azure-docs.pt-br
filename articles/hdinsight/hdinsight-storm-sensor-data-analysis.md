@@ -93,7 +93,7 @@ Antes de usar esse exemplo, você deve criar um Hub de Eventos do Azure que é l
 
 O Hub de Eventos é a fonte de dados para este exemplo. Use as seguintes etapas para criar um novo Hub de Eventos.
 
-1. No [Portal do Azure](https://manage.windowsazure.com), selecione **NOVO | Barramento de Serviço | Hub de Eventos | Criação Personalizada**.
+1. No [Portal Clássico do Azure](https://manage.windowsazure.com), selecione **NOVO | Barramento de Serviço | Hub de Eventos | Criação Personalizada**.
 
 2. Na caixa de diálogo **Adicionar um novo Hub de Eventos**, insira um **Nome do Hub de Eventos**, selecione a **Região** na qual criar o hub e crie um novo namespace ou selecione um existente. Clique na seta para continuar.
 
@@ -113,7 +113,7 @@ O Hub de Eventos é a fonte de dados para este exemplo. Use as seguintes etapas 
 
 ### Criar o Storm no cluster HDInsight
 
-1. Entre no [Portal do Azure](https://manage.windowsazure.com/).
+1. Entre no [Portal Clássico do Azure](https://manage.windowsazure.com/).
 
 2. Clique em **HDInsight** no painel à esquerda e depois em **+NOVO** no canto inferior esquerdo da página.
 
@@ -258,7 +258,7 @@ No seu ambiente de desenvolvimento, use as etapas a seguir para executar a topol
 
 1. Para implantá-lo em um site do Azure, siga as etapas em [Criar e implantar um site do Node.js no Azure](../web-sites-nodejs-develop-deploy-mac.md). Anote a URL do site, que será semelhante a **mywebsite.azurewebsites.net**.
 
-2. Quando o site for criado, vá para o site no Portal do Azure e selecione a guia **Configurar**. Habilite o **Web Sockets** e clique em **Salvar** na parte inferior da página.
+2. Quando o site for criado, vá para o site no Portal Clássico do Azure e selecione a guia **Configurar**. Habilite o **Web Sockets** e clique em **Salvar** na parte inferior da página.
 
 2. Abra **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts\\DashboardBolt.java** e altere a linha abaixo para apontar para a URL do painel publicado:
 
@@ -288,7 +288,7 @@ Para usar o Storm e o HBase juntos, você deve criar uma rede virtual do Azure e
 
 Se você planeja usar o HBase com este exemplo, você deve criar uma rede virtual do Azure que contenha um cluster Storm no HDInsight e um cluster HBase no HDInsight.
 
-1. Entre no [Portal do Azure](https://manage.windowsazure.com).
+1. Entre no [Portal Clássico do Azure](https://manage.windowsazure.com).
 
 2. No final da página, clique em **+NOVO** > **Serviços de Rede** > **Rede Virtual** > **Criação Rápida**.
 
@@ -324,7 +324,7 @@ Se você planeja usar o HBase com este exemplo, você deve criar uma rede virtua
 
 ### Criar um cluster Storm e HBase na rede virtual
 
-1. Entre no [Portal do Azure](https://manage.windowsazure.com/).
+1. Entre no [Portal Clássico do Azure](https://manage.windowsazure.com/).
 
 2. Clique em **HDInsight** no painel à esquerda e depois em **+NOVO** no canto inferior esquerdo da página.
 
@@ -422,4 +422,4 @@ Você agora aprendeu a usar o Storm para ler dados do Hub de Eventos, armazenar 
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -35,7 +35,7 @@ Para configurar um Ambiente do Serviço de Aplicativo, consulte a [nossa documen
 O Barracuda tem um [artigo detalhado](https://techlib.barracuda.com/WAF/AzureDeploy) sobre como implantar seu WAF em uma máquina virtual no Azure. Mas como queremos redundância, e não introduzir um único ponto de falha, você quer implantar pelo menos 2 VMs da instância WAF no mesmo Serviço de Nuvem ao seguir estas instruções.
 
 ### Adicionando pontos de extremidade ao Serviço de Nuvem ###
-Depois que você tiver 2 ou mais instâncias da VM WAF no seu Serviço de Nuvem, será possível usar o [Portal de Gerenciamento do Azure](https://portal.azure.com) para adicionar pontos de extremidade HTTP e HTTPS, que são usados pelo seu aplicativo, conforme mostrado na imagem abaixo.
+Depois que você tiver 2 ou mais instâncias da VM WAF no seu Serviço de Nuvem, será possível usar o [Portal do Azure](https://portal.azure.com) para adicionar pontos de extremidade HTTP e HTTPS, que são usados pelo seu aplicativo, conforme mostrado na imagem abaixo.
 
 ![Configurar ponto de extremidade][ConfigureEndpoint]
 
@@ -66,11 +66,11 @@ Clicar na guia Serviços permitirá configurar seu WAF para serviços que ele es
 > Observação: dependendo de como os aplicativos são configurados e de quais recursos estão sendo usados no Ambiente do Serviço de Aplicativo, você precisará encaminhar o tráfego para portas TCP que não sejam a 80 e a 443; por exemplo, se você tiver IP SSL configurada para um Aplicativo Web. Para obter uma lista de portas de rede usadas nos Ambientes do Serviço de Aplicativo, consulte a seção Portas de Rede da [documentação sobre como Controlar Tráfego de Entrada](app-service-app-service-environment-control-inbound-traffic.md).
 
 ## Configurando o Gerenciador de Tráfego do Microsoft Azure (OPCIONAL) ##
-Se seu aplicativo estiver disponível em várias regiões, convém balancear a carga dele no [Gerenciador de Tráfego do Azure](traffic-manager.md). Para isso, é possível adicionar um ponto de extremidade no [Portal de Gerenciamento do Azure](https://manage.azure.com) usando o nome do Serviço de Nuvem do seu WAF no perfil do Gerenciador de Tráfego, como mostrado na imagem abaixo.
+Se seu aplicativo estiver disponível em várias regiões, convém balancear a carga dele no [Gerenciador de Tráfego do Azure](traffic-manager.md). Para isso, é possível adicionar um ponto de extremidade no [portal clássico do Azure](https://manage.azure.com) usando o nome do Serviço de Nuvem do seu WAF no perfil do Gerenciador de Tráfego, como mostrado na imagem abaixo.
 
 ![Ponto de extremidade do Gerenciador de Tráfego][TrafficManagerEndpoint]
 
-Se seu aplicativo exigir autenticação, certifique-se de que você tem algum recurso que não exija autenticação para que o Gerenciador de Tráfego execute ping pela disponibilidade do seu aplicativo. Você pode configurar a URL na seção Configurar no [Portal de Gerenciamento do Azure](https://manage.azure.com), como mostrado abaixo.
+Se seu aplicativo exigir autenticação, certifique-se de que você tem algum recurso que não exija autenticação para que o Gerenciador de Tráfego execute ping pela disponibilidade do seu aplicativo. Você pode configurar a URL na seção Configurar no [portal clássico do Azure](https://manage.azure.com), como mostrado abaixo.
 
 ![Configurar o Gerenciador de Tráfego][ConfigureTrafficManager]
 
@@ -99,4 +99,4 @@ Substitua SourceAddressPrefix pelo VIP (Endereço IP Virtual) do Serviço de Nuv
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

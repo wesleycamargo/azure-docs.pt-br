@@ -33,9 +33,9 @@ Este tópico mostra como adicionar notificações por push ao [projeto de iníci
 
 ## <a id="update-scripts"></a>Atualizar o script de back-end para enviar notificações por push
 
-* No Portal de Gerenciamento, clique na guia **Dados** e em **TodoItem**. Em **todoitem**, clique na guia **Script** e selecione **Inserir**. Isso exibe a função que é chamada quando ocorre uma inserção na tabela **TodoItem**.
+* No [Portal clássico do Azure], clique na guia **Dados** e em **TodoItem**. Em **todoitem**, clique na guia **Script** e selecione **Inserir**. Isso exibe a função que é chamada quando ocorre uma inserção na tabela **TodoItem**.
 
-* Substitua a função de inserção pelo código a seguir e clique em **Salvar**. Isso registra um novo script de inserção, que usa o [objeto apns] para enviar uma notificação por push (o texto inserido) para o dispositivo fornecido na solicitação de inserção. Esse script atrasa o envio da notificação para que você tenha tempo de fechar o aplicativo para receber uma notificação por push.
+* Substitua a função de inserção com o seguinte código e, então, clique em **Salvar**. Isso registra um novo script de inserção, que usa o [objeto apns] para enviar uma notificação por push (o texto inserido) para o dispositivo fornecido na solicitação de inserção. Esse script atrasa o envio da notificação para que você tenha tempo de fechar o aplicativo para receber uma notificação por push.
 
 
 ```
@@ -106,7 +106,7 @@ Este tópico mostra como adicionar notificações por push ao [projeto de iníci
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 [Introdução aos Serviços Móveis]: mobile-services-ios-get-started.md
 [Get started with authentication]: mobile-services-ios-get-started-users.md
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Portal clássico do Azure]: https://manage.windowsazure.com/
 [objeto apns]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
@@ -117,4 +117,4 @@ Este tópico mostra como adicionar notificações por push ao [projeto de iníci
 [Send template-based notifications to subscribers]: ../notification-hubs-ios-send-localized-breaking-news.md
 [Mobile Services Objective-C how-to conceptual reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

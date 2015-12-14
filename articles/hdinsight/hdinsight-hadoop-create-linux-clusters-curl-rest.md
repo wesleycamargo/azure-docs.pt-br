@@ -274,7 +274,7 @@ Siga as etapas documentadas em [Conectar a uma assinatura do Azure por meio da C
 > * ID do aplicativo - retornado ao criar a entidade de serviço
 > * Senha para a entidade de serviço - usada ao criar o serviço principal
 
-Siga as etapas na seção _Autenticar entidade de serviço com uma senha - CLI do Azure_ do documento [Autenticação de uma entidade de serviço com o Gerenciador de Recursos do Azure](https://azure.microsoft.com/pt-BR/documentation/articles/resource-group-authenticate-service-principal/#authenticate-service-principal-with-password---azure-cli). Isso criará uma nova entidade de serviço que pode ser usada para autenticar a solicitação de criação de cluster.
+Siga as etapas na seção _Autenticar a entidade de serviço com uma senha - CLI do Azure_ do documento [Autenticando uma entidade de serviço com o Gerenciador de Recursos do Azure](https://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal/#authenticate-service-principal-with-password---azure-cli). Isso criará uma nova entidade de serviço que pode ser usada para autenticar a solicitação de criação de cluster.
 
 ##Obtenha um token de autenticação
 
@@ -355,4 +355,4 @@ Agora que você criou com êxito um cluster HDInsight, use o seguinte para apren
 * [Usar componentes de Python no Storm no HDInsight](hdinsight-storm-develop-python.md)
 * [Implantar e monitorar topologias com o Storm no HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

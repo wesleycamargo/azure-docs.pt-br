@@ -29,7 +29,7 @@ Saiba como usar o SDK do .NET do Repositório Azure Data Lake para criar uma con
 ## Pré-requisitos
 
 * Visual Studio 2013 ou 2015. As instruções abaixo usam o Visual Studio 2015.
-* **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pt-BR/pricing/free-trial/).
+* **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Habilite sua assinatura do Azure** para a visualização pública do Repositório Data Lake. Veja [instruções](data-lake-store-get-started-portal.md#signup).
 
 ## Criar um aplicativo .NET
@@ -223,4 +223,4 @@ Saiba como usar o SDK do .NET do Repositório Azure Data Lake para criar uma con
 - [Usar a Análise Data Lake do Azure com o Repositório Data Lake](data-lake-analytics-get-started-portal.md)
 - [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

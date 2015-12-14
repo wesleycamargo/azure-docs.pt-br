@@ -26,7 +26,7 @@ Este tutorial se baseia no código apresentado na [Introdução ao Hub IoT] para
 
 O primeiro padrão é o armazenamento confiável de mensagens do dispositivo para a nuvem em [Blobs do Azure]. Esse cenário é muito comum ao implementar a análise de *caminho frio*, em que os dados armazenados em blobs são usados como entrada para análise orientada por ferramentas como [Azure Data Factory] ou pilha de [Hadoop].
 
-O segundo padrão é o processamento confiável de mensagens *interativas* do dispositivo para nuvem. As mensagens de dispositivo na nuvem são chamadas de *interativas* quando forem disparadas imediatamente para um conjunto de ações no back-end de aplicativo, em oposição a uma mensagem de *ponto de dados* que é alimentada em um mecanismo de análise. Por exemplo, um alarme proveniente de um dispositivo tem de disparar a inserção de uma permissão em um sistema é uma mensagem dispositivo para nuvem *interativa*, em oposição à mensagem de telemetria contendo os exemplos de temperatura, que é a mensagem do *ponto de dados*.
+O segundo padrão é o processamento confiável de mensagens *interativas* do dispositivo para nuvem. As mensagens do dispositivo para a nuvem são chamadas de *interativas* quando forem disparadas imediatamente para um conjunto de ações no back-end do aplicativo, ao contrário de uma mensagem de *ponto de dados* que é alimentada em um mecanismo de análise. Por exemplo, um alarme proveniente de um dispositivo tem de disparar a inserção de uma permissão em um sistema é uma mensagem dispositivo para nuvem *interativa*, em oposição à mensagem de telemetria contendo os exemplos de temperatura, que é a mensagem do *ponto de dados*.
 
 Assim que o Hub IoT expõe um ponto de extremidade compatível com os Hubs de Eventos para receber mensagens do dispositivo para nuvem, este tutorial usa [EventProcessorHost] para hospedar uma classe de processador do evento, que:
 
@@ -99,18 +99,16 @@ Informações adicionais sobre o Hub IoT:
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 [Transient Fault Handling]: https://msdn.microsoft.com/pt-BR/library/hh680901(v=pandp.50).aspx
-[Tratamento de falhas transitórias]: https://msdn.microsoft.com/pt-BR/library/hh680901(v=pandp.50).aspx
 
 [Orientação Hub IoT - compatibilidade de Hubs de eventos]: iot-hub-guidance.md#eventhubcompatible
 
 [armazenamento do Azure]: https://azure.microsoft.com/pt-BR/documentation/services/storage/
 [Barramento de Serviço do Azure]: https://azure.microsoft.com/pt-BR/documentation/services/service-bus/
 
-[Azure preview portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 
 [Enviar mensagens de nuvem para o dispositivo com o Hub IoT]: iot-hub-csharp-csharp-c2d.md
 [Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
-[Processar mensagens do dispositivo para a nuvem]: iot-hub-csharp-csharp-process-d2c.md
 [Carregando arquivos de dispositivos]: iot-hub-csharp-csharp-file-upload.md
 
 [Visão geral do Hub IoT]: iot-hub-what-is-iot-hub.md
@@ -122,4 +120,4 @@ Informações adicionais sobre o Hub IoT:
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Centro de Desenvolvedores do IoT do Azure]: http://www.azure.com/develop/iot
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

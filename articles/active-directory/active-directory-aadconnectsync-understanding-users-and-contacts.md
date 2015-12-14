@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure AD Connect Sync: noções básicas sobre usuários e contatos | Microsoft Azure"
-	description="Explica usuários e contatos no Azure AD Connect Sync."
+	pageTitle="Sincronização do Azure AD Connect: noções básicas sobre usuários e contatos | Microsoft Azure"
+	description="Explica usuários e contatos na sincronização do Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
@@ -17,9 +17,9 @@
 	ms.author="markusvi;andkjell"/>
 
 
-# Azure AD Connect Sync: noções básicas de usuários e contatos
+# Azure AD Connect Sync: noções básicas sobre usuários e contatos
 
-Há vários motivos diferentes de por que existem várias florestas do Active Directory e várias topologias de implantação diferentes. Os modelos comuns incluem uma implantação do recurso em conta e florestas sincronizadas de GAL (Lista de Endereços Global) após uma fusão e aquisição. Mas mesmo que haja modelos puros, modelos híbridos são comuns também. A configuração padrão do Azure AD Connect Sync não assume nenhum modelo específico, mas dependendo de como a compatibilidade de usuário foi selecionada na guia de instalação, comportamentos diferentes podem ser observados.
+Há vários motivos diferentes de por que existem várias florestas do Active Directory e várias topologias de implantação diferentes. Os modelos comuns incluem uma implantação do recurso em conta e florestas sincronizadas de GAL (Lista de Endereços Global) após uma fusão e aquisição. Mas mesmo que haja modelos puros, modelos híbridos são comuns também. A configuração padrão da sincronização do Azure AD Connect não assume nenhum modelo específico, mas dependendo de como a compatibilidade de usuário foi selecionada na guia de instalação, comportamentos diferentes podem ser observados.
 
 Neste tópico, veremos como a configuração padrão se comporta em certas topologias. Veremos que a configuração e o Editor de regras de sincronização podem ser usados para examinar a configuração.
 
@@ -56,4 +56,4 @@ Quando um objeto é exportado para o AD do Azure, não é mais permitido alterar
 * [Azure AD Connect Sync: personalizando opções de sincronização](active-directory-aadconnectsync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

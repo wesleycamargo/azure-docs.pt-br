@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/12/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Conectar remotamente ao seu dispositivo StorSimple
@@ -37,9 +37,9 @@ Você pode se conectar remotamente à interface do Windows PowerShell. No entant
 
 Conectar-se ao Windows PowerShell para StorSimple por meio de uma sessão HTTP oferece mais segurança do que se conectar por meio do console serial do dispositivo StorSimple. Embora não seja o método mais seguro, é aceitável em redes confiáveis.
 
-Você pode usar o Portal do Azure ou o console serial para configurar o gerenciamento remoto. Escolha um dos seguintes procedimentos:
+Você pode usar o Portal Clássico do Azure ou o console serial para configurar o gerenciamento remoto. Escolha um dos seguintes procedimentos:
 
-- [Usar o Portal do Azure para habilitar o gerenciamento remoto via HTTP](#use-the-azure-portal-to-enable-remote-management-over-http)
+- [Usar o Portal Clássico do Azure para habilitar o gerenciamento remoto via HTTP](#use-the-azure-classic-portal-to-enable-remote-management-over-http)
 
 - [Usar o console serial para habilitar o gerenciamento remoto via HTTP](#use-the-serial-console-to-enable-remote-management-over-http)
 
@@ -47,11 +47,11 @@ Depois de habilitar o gerenciamento remoto, use o procedimento a seguir para pre
 
 - [Preparar o cliente para a conexão remota](#prepare-the-client-for-remote-connection)
 
-### Usar o Portal do Azure para habilitar o gerenciamento remoto via HTTP 
+### Usar o Portal Clássico do Azure para habilitar o gerenciamento remoto via HTTP 
 
-Realize as seguintes etapas no Portal do Azure para habilitar o gerenciamento remoto via HTTP.
+Realize as seguintes etapas no Portal Clássico do Azure para habilitar o gerenciamento remoto via HTTP.
 
-#### Para habilitar o gerenciamento remoto por meio do Portal do Azure
+#### Para habilitar o gerenciamento remoto por meio do Portal Clássico do Azure
 
 1. Acesse **Dispositivos** > **Configurar** do dispositivo.
 
@@ -122,9 +122,9 @@ Execute as seguintes etapas no cliente para habilitar o gerenciamento remoto.
 
 A conexão ao Windows PowerShell para StorSimple por meio de uma sessão HTTPS é o método mais seguro e recomendado de se conectar remotamente ao seu dispositivo Microsoft Azure StorSimple. Os procedimentos a seguir explicam como configurar os computadores de cliente e o console seriais para que você possa usar HTTPS para se conectar ao Windows PowerShell para StorSimple.
 
-Você pode usar o Portal do Azure ou o console serial para configurar o gerenciamento remoto. Escolha um dos seguintes procedimentos:
+Você pode usar o Portal Clássico do Azure ou o console serial para configurar o gerenciamento remoto. Escolha um dos seguintes procedimentos:
 
-- [Usar o Portal do Azure para habilitar o gerenciamento remoto via HTTPS](#use-the-azure-portal-to-enable-remote-management-over-https)
+- [Usar o Portal Clássico do Azure para habilitar o gerenciamento remoto via HTTPS](#use-the-azure-classic-portal-to-enable-remote-management-over-https)
 
 - [Usar o console serial para habilitar o gerenciamento remoto via HTTPS](#use-the-serial-console-to-enable-remote-management-over-https)
 
@@ -134,11 +134,11 @@ Depois de habilitar o gerenciamento remoto, use os procedimentos a seguir para p
 
 - [Conectar ao dispositivo a partir do host remoto](#connect-to-the-device-from-the-remote-host)
 
-### Usar o Portal do Azure para habilitar o gerenciamento remoto via HTTPS
+### Usar o Portal Clássico do Azure para habilitar o gerenciamento remoto via HTTPS
 
-Realize as seguintes etapas no Portal do Azure para habilitar o gerenciamento remoto via HTTPS.
+Realize as seguintes etapas no Portal Clássico do Azure para habilitar o gerenciamento remoto via HTTPS.
 
-#### Para habilitar o gerenciamento remoto via HTTPS do Portal do Azure
+#### Para habilitar o gerenciamento remoto via HTTPS do Portal Clássico do Azure
 
 1. Acesse **Dispositivos** > **Configurar** do dispositivo.
 
@@ -272,4 +272,4 @@ Execute o procedimento a seguir no computador do qual você deseja fazer a conex
 
 - Saiba mais sobre como [usar o serviço do StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

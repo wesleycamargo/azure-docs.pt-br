@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/17/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Alterar o modo do dispositivo StorSimple
@@ -63,7 +63,7 @@ Se o sistema entrar no modo de recuperação, você deverá contatar o Suporte d
 
 Você pode colocar o dispositivo StorSimple no modo de manutenção (do modo normal) para realizar a manutenção ou instalar atualizações do modo de manutenção. Execute os seguintes procedimentos para entrar ou sair do modo de manutenção.
 
-> [AZURE.IMPORTANT]Antes de entrar no modo de manutenção, verifique se ambos os controladores de dispositivo estão íntegros, acessando o **Status de Hardware** na página **Manutenção** no Portal de Gerenciamento. Se o controlador não estiver íntegro, contate o Suporte da Microsoft para as próximas etapas. Para obter mais informações, vá para [Contatar o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
+> [AZURE.IMPORTANT]Antes de entrar no modo de manutenção, verifique se ambos os controladores de dispositivo estão íntegros, acessando o **Status de Hardware** na página **Manutenção** no Portal clássico do Azure. Se o controlador não estiver íntegro, contate o Suporte da Microsoft para as próximas etapas. Para obter mais informações, vá para [Contatar o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
 
 #### Para entrar no modo de manutenção
 
@@ -75,7 +75,7 @@ Você pode colocar o dispositivo StorSimple no modo de manutenção (do modo nor
 
 	`Enter-HcsMaintenanceMode`
 
-4. Você verá uma mensagem de aviso informando que o modo de manutenção interromperá todas as solicitações de E/S e cortará a conexão com o Portal de Gerenciamento, e será exibido um prompt de confirmação. Digite **Y** para entrar no modo de manutenção.
+4. Você verá uma mensagem de aviso informando que o modo de Manutenção interromperá todas as solicitações de E/S e a conexão com o portal clássico do Azure, e você será solicitado a confirmar. Digite **Y** para entrar no modo de manutenção.
 
 5. Ambos os controladores serão reiniciados. Quando a reinicialização estiver concluída, outra mensagem será exibida indicando que o dispositivo está em modo de manutenção.
 
@@ -97,4 +97,4 @@ Você pode colocar o dispositivo StorSimple no modo de manutenção (do modo nor
 
 Saiba como [aplicar atualizações do modo normal e de manutenção](storsimple-update-device.md) no dispositivo StorSimple.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

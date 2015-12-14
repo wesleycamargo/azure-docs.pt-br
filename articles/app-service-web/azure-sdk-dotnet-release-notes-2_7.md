@@ -87,7 +87,7 @@ O Gerenciador de Nuvem dá suporte a:
 - Painel de propriedades integradas que mostra as propriedades voltadas para desenvolvedores comumente necessárias durante o desenvolvimento e teste 
 - A alternância rápida da conta a ser usada ao enumerar recursos (use o comando Configurações na barra de ferramentas) 
 - Filtragem de assinaturas a serem usadas ao enumerar recursos (use o comando Configurações na barra de ferramentas) 
-- Links profundos para o portal de visualização do Azure para gerenciamento de recursos e grupos de recursos 
+- Links profundos para o portal do Azure para gerenciamento de recursos e grupos de recursos 
  
  
 ###Ferramentas do gerenciador de recursos do Azure 
@@ -131,7 +131,7 @@ Para obter mais explicações sobre atualizações de ferramentas de HDInsight, 
 
 	Visualizar é muito importante quando você deseja verificar se a topologia está funcionando conforme o esperado. Nesta versão, adicionamos visualização para gráficos Storm. Você pode visualizar as métricas importantes para a sua topologia (por exemplo, uma cor indica se um determinado Bolt está "ocupado" ou não). Você pode também clicar duas vezes o Bolt/Spout para ver mais detalhes.
 
-- Suporte para clusters de HDInsight que foram criados no novo Portal do Azure (uma correção de erros)
+- Suporte para clusters de HDInsight que foram criados no Portal do Azure (uma correção de bug)
 
 	Agora você pode usar o Visual Studio para exibir e enviar trabalhos para todos os clusters de HDInsight, independentemente de onde o cluster foi criado.
 
@@ -159,4 +159,4 @@ Projetos do LightSwitch não são compatíveis com esta versão. Esse problema s
 
 [Informações de suporte e de desativação do SDK do Azure para .NET e APIs](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

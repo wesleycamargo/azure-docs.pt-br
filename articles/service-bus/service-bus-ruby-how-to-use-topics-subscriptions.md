@@ -36,7 +36,7 @@ As assinaturas e os tópicos do Barramento de Serviço permitem o dimensionament
 
 ## Criar um namespace de serviço
 
-Para começar a usar filas do Barramento de Serviço no Azure, primeiro crie um namespace de serviço. Um namespace de serviço fornece um contêiner de controle para endereçamento dos recursos do Barramento de Serviço em seu aplicativo. Você deve criar o namespace através da interface de linha de comando porque o Portal não cria o barramento de serviço com uma conexão do ACS.
+Para começar a usar filas do Barramento de Serviço no Azure, primeiro crie um namespace de serviço. Um namespace de serviço fornece um contêiner de controle para endereçamento dos recursos do Barramento de Serviço em seu aplicativo. Você deve criar o namespace através da interface de linha de comando porque o portal não cria o barramento de serviço com uma conexão do ACS.
 
 Para criar um namespace:
 
@@ -56,7 +56,7 @@ O cmdlet do PowerShell que você executou para criar o namespace do barramento d
 
       ![Copy key](./media/service-bus-ruby-how-to-use-topics-subscriptions/defaultkey.png)
 
-> [AZURE.NOTE]Você também poderá encontrar essa chave se efetuar logon no [Portal do Azure](http://manage.windowsazure.com/) e navegar até as informações de conexão para seu namespace do barramento de serviço.
+> [AZURE.NOTE]Você também poderá encontrar essa chave se efetuar logon no [Portal clássico do Azure](http://manage.windowsazure.com/) e navegar até as informações de conexão para seu namespace do barramento de serviço.
 
 ## Criar um aplicativo Ruby
 
@@ -199,7 +199,7 @@ Caso o aplicativo falhe após o processamento da mensagem, mas antes que o méto
 
 ## Como excluir tópicos e assinaturas
 
-Os tópicos e as assinaturas são persistentes e devem ser explicitamente excluídos por meio do [Portal do Azure](https://manage.windowsazure.com) ou de forma programática. O exemplo a seguir demonstra como excluir o tópico denominado "test-topic".
+Os tópicos e as assinaturas são persistentes e devem ser explicitamente excluídos por meio do [portal clássico do Azure](https://manage.windowsazure.com) ou de forma programática. O exemplo a seguir demonstra como excluir o tópico denominado "test-topic".
 
 	azure_service_bus_service.delete_topic("test-topic")
 
@@ -216,4 +216,4 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
 -	Visite o repositório do [SDK do Azure para o Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) no GitHub.
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

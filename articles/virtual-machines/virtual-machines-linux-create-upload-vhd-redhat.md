@@ -18,7 +18,7 @@
 
 
 # Preparar uma Máquina Virtual baseada no Red Hat para o Azure
-Neste artigo, você aprenderá como preparar uma Máquina Virtual do Red Hat Enterprise Linux (RHEL) para usar no Azure. As versões do RHEL abordadas neste artigo são 6.7 e 7.1 e os hipervisores de preparação abordados neste artigo são o Hyper-V, o KVM e o VMWare.
+Neste artigo, você aprenderá como preparar uma Máquina Virtual do Red Hat Enterprise Linux (RHEL) para usar no Azure. As versões do RHEL abordadas neste artigo são 6.7 e 7.1 e os hipervisores de preparação abordados neste artigo são o Hyper-V, o KVM e o VMWare. Para obter mais informações sobre requisitos de qualificação para participação no programa de Acesso à Nuvem do Red Hat (Red Hat's Cloud Access), consulte [Site de Acesso à Nuvem do Red Hat](http://www.redhat.com/en/technologies/cloud-computing/cloud-access).
 
 
 
@@ -469,7 +469,7 @@ Esta seção pressupõe que você já instalou uma imagem RHEL a partir de um ar
 
 ##Preparar uma imagem a partir do VMWare
 ###Pré-requisitos
-Esta seção pressupõe que você já instalou uma máquina virtual RHEL no VMWare. Para saber mais sobre como instalar um sistema operacional no VMWare, confira [Guia de instalação do sistema operacional convidado VMWare](http://partnerweb.vmware.com/GOSIG/home.html).
+Esta seção pressupõe que você já instalou uma máquina virtual RHEL no VMWare. Para saber mais sobre como instalar um sistema operacional no VMWare, confira o [Guia de instalação do sistema operacional convidado VMWare](http://partnerweb.vmware.com/GOSIG/home.html).
  
 - Ao instalar o sistema Linux, é recomendável que você use partições padrão em vez de LVM (geralmente o padrão para muitas instalações). Isso irá evitar conflitos de nome LVM com VMs clonadas, especialmente se um disco do sistema operacional precisar ser anexado a outra VM para solução de problemas. Se você preferir, é possível usar LVM ou RAID em discos de dados.
 
@@ -684,7 +684,7 @@ Esta seção pressupõe que você já instalou uma máquina virtual RHEL no VMWa
 ##Preparar a partir de um ISO usando o arquivo de início rápido automaticamente
 ###RHEL 7.1
 
-1.	Crie o arquivo de início rápido com o conteúdo abaixo e salve o arquivo. Para saber mais sobre a instalação do kickstart, confira [Guia de instalação do Kickstart](https://access.redhat.com/documentation/pt-BR/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
+1.	Crie o arquivo de início rápido com o conteúdo abaixo e salve o arquivo. Para saber mais sobre a instalação do kickstart, confira o [Guia de instalação do Kickstart](https://access.redhat.com/documentation/pt-BR/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
 
 
         # Kickstart for provisioning a RHEL 7 Azure VM
@@ -830,4 +830,4 @@ Este problema é intermitente, porém ocorre com mais frequência durante as ope
 
     # sudo yum update
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

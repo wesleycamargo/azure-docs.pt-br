@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/05/2015" 
+	ms.date="10/05/2015"
 	ms.author="ricksal"/>
 
 
 # Como usar a biblioteca de cliente Android para os serviços móveis
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
 
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
@@ -55,7 +59,7 @@ O código a seguir cria o objeto [MobileServiceClient](http://dl.windowsazure.co
 				"AppKey", 			// replace with the Application Key
 				this)
 
-No código acima, substitua `MobileServiceUrl` e `AppKey` pela URL e pela chave do aplicativo do serviço móvel, nessa ordem. Ambas estão disponíveis no Portal de Gerenciamento do Azure, selecionando seu serviço móvel e, em seguida, clicando em *Painel*.
+No código acima, substitua `MobileServiceUrl` e `AppKey` pela URL e pela chave do aplicativo do serviço móvel, nessa ordem. Ambas estão disponíveis no Portal clássico do Azure, selecionando seu serviço móvel e clicando em *Painel*.
 
 ##<a name="instantiating"></a>Como criar uma referência de tabela
 
@@ -133,7 +137,7 @@ O código a seguir retorna todos os itens da tabela *ToDoItem* cujo campo *compl
                     final MobileServiceList<ToDoItem> result =
 						mToDoTable.where().field("complete").eq(false).execute().get();
 					for (ToDoItem item : result) {
-                		Log.i(TAG, "Read object with ID " + item.id);  
+                		Log.i(TAG, "Read object with ID " + item.id);
 					}
                 } catch (Exception exception) {
                     createAndShowDialog(exception, "Error");
@@ -371,7 +375,7 @@ O código a seguir mostra como excluir dados de uma tabela. Ele exclui um item e
 	}
 
 
-O código a seguir ilustra uma outra maneira de fazer isso. Ele exclui um item existente da tabela ToDoItem, especificando o valor do campo id da linha para exclusão (pressupondo que seja igual a "2FA404AB-E458-44CD-BC1B-3BC847EF0902"). Em um aplicativo real, você deve pegar a ID de alguma forma e passá-la como uma variável. Aqui, para simplificar o teste, você pode ir ao portal de serviços móveis do Azure para seu serviço, clique em **Dados** e copie uma ID que você deseja testar.
+O código a seguir ilustra uma outra maneira de fazer isso. Ele exclui um item existente da tabela ToDoItem, especificando o valor do campo id da linha para exclusão (pressupondo que seja igual a "2FA404AB-E458-44CD-BC1B-3BC847EF0902"). Em um aplicativo real, você deve pegar a ID de alguma forma e passá-la como uma variável. Aqui, para simplificar o teste, você pode ir para o seu serviço no portal clássico do Azure, clicar em **Dados** e copiar uma ID com a qual deseja testar.
 
     public void deleteItem(View view) {
 
@@ -396,7 +400,7 @@ O código a seguir ilustra uma outra maneira de fazer isso. Ele exclui um item e
     }
 
 ##<a name="lookup"></a>Como pesquisar um item específico
-Às vezes, você deseja pesquisar um item específico por sua *id*, diferentemente da consulta where, você geralmente obtém uma coleção de itens que atendem a alguns critérios. O código a seguir mostra como fazer isso com um valor de *id* de `0380BAFB-BCFF-443C-B7D5-30199F730335`. Em um aplicativo real, você deve pegar a ID de alguma forma e passá-la como uma variável. Aqui, para simplificar o teste, você pode ir ao portal de serviços móveis do Azure para seu serviço, clique na guia **Dados** e copie uma ID que você deseja testar.
+Às vezes, você deseja pesquisar um item específico por sua *id*, diferentemente da consulta where, você geralmente obtém uma coleção de itens que atendem a alguns critérios. O código a seguir mostra como fazer isso com um valor de *id* de `0380BAFB-BCFF-443C-B7D5-30199F730335`. Em um aplicativo real, você deve pegar a ID de alguma forma e passá-la como uma variável. Aqui, para simplificar o teste, você pode ir para o seu serviço no portal clássico do Azure, clicar na guia **Dados** e copiar uma ID com a qual deseja testar.
 
     /**
      * Lookup specific item from table and UI
@@ -651,7 +655,7 @@ Você também deverá chamar o adaptador sempre que modificar a tabela *ToDoItem
 
 ##<a name="custom-api"></a>Chamar uma API personalizada
 
-Uma API personalizada permite que você defina pontos de extremidade personalizados que expõem a funcionalidade do servidor que não mapeia para uma inserção, atualização, exclusão ou operação de leitura. Usando uma API personalizada, você pode ter mais controle sobre mensagens, incluindo ler e definir cabeçalhos de mensagens HTTP e definir um formato de corpo de mensagem diferente do JSON. Para obter um exemplo de como criar uma API personalizada em seu serviço móvel, consulte [Como definir um ponto de extremidade de API personalizada](mobile-services-dotnet-backend-define-custom-api.md).
+Uma API personalizada permite que você defina pontos de extremidade personalizados que expõem a funcionalidade do servidor que não mapeia para uma inserção, atualização, exclusão ou operação de leitura. Usando uma API personalizada, você pode ter mais controle sobre mensagens, incluindo ler e definir cabeçalhos de mensagens HTTP e definir um formato de corpo de mensagem diferente do JSON. Para obter um exemplo de como criar uma API personalizada em seu serviço móvel, consulte [Como: definir um ponto de extremidade de API personalizado](mobile-services-dotnet-backend-define-custom-api.md).
 
 [AZURE.INCLUDE [mobile-services-android-call-custom-api](../../includes/mobile-services-android-call-custom-api.md)]
 
@@ -679,7 +683,7 @@ Os Serviços Móveis oferecem suporte aos seguintes provedores de identidade exi
 
 Você pode definir permissões em tabelas para restringir o acesso a operações específicas apenas para usuários autenticados. Você também pode usar a ID de um usuário autenticado para modificar solicitações.
 
-Essas duas primeiras tarefas são feitas usando o [Portal de Gerenciamento do Azure](https://manage.windowsazure.com/). Para obter mais informações, consulte [Comece a usar a autenticação](http://go.microsoft.com/fwlink/p/?LinkId=296316).
+Essas duas primeiras tarefas são feitas por meio do [portal clássico do Azure](https://manage.windowsazure.com/). Para obter mais informações, consulte [Comece a usar a autenticação](http://go.microsoft.com/fwlink/p/?LinkId=296316).
 
 ### <a name="caching"></a>Como adicionar código de autenticação para seu aplicativo
 
@@ -933,4 +937,4 @@ Esse método geral pode ser usado sempre que tivermos um objeto complexo não se
 [Introdução aos Serviços Móveis]: mobile-services-android-get-started.md
 [Códigos de controle ASCII C0 e C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

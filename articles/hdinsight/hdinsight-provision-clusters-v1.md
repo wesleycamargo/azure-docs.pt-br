@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Provisionar clusters do Hadoop de forma personalizada no HDInsight | Microsoft Azure" 
-   description="Saiba como provisionar de forma personalizada clusters do Azure HDInsight usando o Portal do Azure, o PowerShell do Azure, uma linha de comando ou o SDK do .NET." 
+   description="Saiba como provisionar de forma personalizada clusters para o Azure HDInsight usando o Portal Clássico do Azure, o Azure PowerShell, uma linha de comando ou o SDK do .NET." 
    services="hdinsight" 
    documentationCenter="" 
    authors="mumian" 
@@ -113,7 +113,7 @@ Antes de começar a seguir as instruções neste artigo, você deve ter o seguin
 
 	Os clusters do HDInsight permitem que você configure duas contas de usuário durante o provisionamento:
 
-	- Usuário HTTP. O nome de usuário padrão é admin, com a configuração básica do Portal do Azure.
+	- Usuário HTTP. O nome de usuário padrão é admin, com a configuração básica do Portal Clássico do Azure.
 	- Usuário RDP (clusters do Windows): é usado para conectar-se ao cluster usando o RDP. Quando cria a conta, você deve definir uma data de validade que esteja dentro de 90 dias a partir do dia atual. 
 	- Usuário SSH (clusters do Linux): é usado para conectar-se ao cluster usando SSH. Você pode criar contas de usuário SSH adicionais depois que o cluster for criado ao seguir as etapas em [Usar SSH com Hadoop baseado em Linux no HDInsight do Linux, do Unix ou do OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
   
@@ -199,7 +199,7 @@ Para obter mais informações, confira o blog de Azim Uddin chamado [Personaliza
 
 ### Personalizar clusters usando a ação de Script
 
-Você pode instalar componentes adicionais ou personalizar a configuração de cluster por meio de scripts durante o provisionamento. Tais scripts são chamados usando a **Ação de Script**, que é uma opção de configuração que pode ser usada no portal do Azure, cmdlets do Windows PowerShell do HDInsight ou SDK do .NET do HDInsight. Para obter mais informações, consulte [Personalizar cluster HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster.md).
+Você pode instalar componentes adicionais ou personalizar a configuração de cluster por meio de scripts durante o provisionamento. Esses scripts são chamados usando a **Ação de Script**, que é uma opção de configuração que pode ser usada no Portal Clássico do Azure, nos cmdlets do Windows PowerShell do HDInsight ou no SDK do .NET do HDInsight. Para obter mais informações, consulte [Personalizar cluster HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster.md).
 
 
 ### Usar redes virtuais do Azure
@@ -233,18 +233,18 @@ Para obter mais informações sobre os recursos, benefícios e capacidades das r
 
 ## Ferramentas de provisionamento
 
-- O Portal do Azure
+- O Portal Clássico do Azure
 - PowerShell do Azure
 - SDK .NET
 - CLI
 
-### Use o Portal do Azure
+### Use o Portal Clássico do Azure
 
 Você pode consultar as [opções de configuração básica] e as [opções de configuração avançada] para ver as explicações dos campos.
 
 **Para criar um cluster HDInsight usando a opção Criação Personalizada**
 
-1. Entre no [Portal do Azure][azure-management-portal].
+1. Entre no [Portal Clássico do Azure][azure-management-portal].
 2. No final da página, clique em **+ NOVO**, em **SERVIÇOS DE DADOS**, em **HDINSIGHT** e em **CRIAÇÃO PERSONALIZADA**.
 3. Na página **Detalhes do Cluster**, digite ou escolha os valores a seguir:
 
@@ -374,7 +374,7 @@ Depois de preparar a conta de armazenamento e o contêiner de Blob, você estar�
 		# Create a new HDInsight cluster
 		New-AzureHDInsightCluster -Name $clusterName -Credential $credential -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop
 
-	>[AZURE.NOTE]Os comandos $hadoopUserName e $hadoopUserPassword são usados para criar a conta de usuário do Hadoop para o cluster. Você usará essa conta para conectar-se ao cluster e executar trabalhos. Se você usar a opção Criação Rápida no portal do Azure para provisionar um cluster, o nome de usuário do Hadoop padrão é "admin". Não confunda essa conta com a conta de usuário do protocolo RDP. A conta de usuário do RDP deve ser diferente da conta de usuário do Hadoop. Para obter mais informações, confira [Gerenciar clusters Hadoop no HDInsight usando o Portal de Gerenciamento do Azure][hdinsight-admin-portal].
+	>[AZURE.NOTE]Os comandos $hadoopUserName e $hadoopUserPassword são usados para criar a conta de usuário do Hadoop para o cluster. Você usará essa conta para conectar-se ao cluster e executar trabalhos. Se você usar a opção Criação Rápida no Portal Clássico do Azure para provisionar um cluster, o nome de usuário padrão do Hadoop será “admin”. Não confunda essa conta com a conta de usuário do protocolo RDP. A conta de usuário do RDP deve ser diferente da conta de usuário do Hadoop. Para obter mais informações, confira [Gerenciar clusters Hadoop no HDInsight usando o Portal Clássico do Azure][hdinsight-admin-portal].
 
 	Pode levar vários minutos para que o provisionamento do cluster seja concluído.
 
@@ -574,7 +574,7 @@ O HDInsight usa um contêiner de Armazenamento de Blob do Azure como o sistema d
 
 	Quando um local for solicitado, selecione o local onde um cluster HDInsight pode ser provisionado. O armazenamento deve estar no mesmo local que o cluster HDInsight. Atualmente, apenas as regiões **Ásia Oriental**, **Sudeste da Ásia**, **Norte da Europa**, **Oeste da Europa**, **Leste dos EUA**, **Oeste dos EUA**, **Centro-Norte dos EUA** e **Centro-Sul dos EUA** podem hospedar clusters HDInsight.
 
-Para obter informações sobre como criar uma conta do Armazenamento do Azure usando o portal do Azure, consulte [Criar, gerenciar ou excluir uma conta de armazenamento](../storage-create-storage-account.md).
+Para obter informações sobre como criar uma conta do Armazenamento do Azure usando o Portal Clássico do Azure, veja [Criar, gerenciar ou excluir uma conta de armazenamento](../storage-create-storage-account.md).
 
 Se você já tem uma conta do Armazenamento, mas não se lembra do nome da conta e da chave de conta, você pode usar os seguintes comandos para recuperar as informações:
 
@@ -587,7 +587,7 @@ Se você já tem uma conta do Armazenamento, mas não se lembra do nome da conta
 	-- Lists the keys for a Storage account
 	azure storage account keys list <StorageAccountName>
 
-Para obter detalhes sobre como obter as informações usando o portal do Azure, consulte a seção *Exibir, copiar e regenerar chaves de acesso de armazenamento* de [Criar, gerenciar ou excluir uma conta de armazenamento](../storage-create-storage-account.md).
+Para obter detalhes sobre como obter as informações usando o Portal Clássico do Azure, veja a seção *Como: exibir, copiar e regenerar chaves de acesso de armazenamento* de [Criar, gerenciar ou excluir uma conta de armazenamento](../storage-create-storage-account.md).
 
 Um cluster HDInsight também requer um contêiner em uma conta do Armazenamento. Se a conta de armazenamento fornecida ainda não tiver um contêiner, o comando *azure hdinsight cluster create* solicitará um nome de contêiner e também o criará. No entanto, se você desejar criar o contêiner com antecedência, poderá usar o seguinte comando:
 
@@ -810,4 +810,4 @@ Neste artigo, você aprendeu várias maneiras de provisionar um cluster HDInsigh
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

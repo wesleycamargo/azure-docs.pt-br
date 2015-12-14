@@ -93,8 +93,7 @@ Para conjuntos com mais de 2 GB, faça upload dos dados para o armazenamento do 
 
 **Eu posso ler dados da Amazon S3?**
 
-Se tiver uma pequena quantidade de dados e quiser expô-los por meio de uma URL http, você pode usar o módulo [Leitor][reader]. Para qualquer quantidade maior de dados, transfira-os para o armazenamento do Azure primeiro e, em seguida, use o modulo [Leitor][reader] para colocá-los em seu experimento.
-<!--
+Se tiver uma pequena quantidade de dados e quiser expô-los por meio de uma URL http, você pode usar o módulo [Leitor][reader]. Para qualquer quantidade maior de dados, transfira-os para o armazenamento do Azure primeiro e, em seguida, use o modulo [Leitor][reader] para colocá-los em seu experimento. <!--
 <SEE CLOUD DS PROCESS>
 -->
 
@@ -213,14 +212,13 @@ Você também pode usar as APIs de novos treinamentos. O código de exemplo est�
 
 **Como posso monitorar meu serviço Web implantado na produção?**
 
-Após um modelo de previsão ser colocado em produção, você pode monitorá-lo no portal do Azure. Cada serviço implantado tem seu próprio painel, onde você pode ver informações de monitoramento do serviço.
+Depois que um modelo de previsão for colocado em produção, você pode monitorá-lo no Portal Clássico do Azure. Cada serviço implantado tem seu próprio painel, onde você pode ver informações de monitoramento do serviço.
 
 **Existe um lugar onde posso ver a saída do meu RRS/BES?**
 
 Para RRS, a resposta do serviço Web é normalmente onde você vê o resultado. Você também pode gravá-la em um blob. Para BES, a saída é gravada em um blob, por padrão. Você também pode gravar a saída em um banco de dados ou tabela usando o módulo Gravador.
 
- ** Posso criar serviços Web apenas de modelos criados no Estúdio? 
-Não. Você também pode criar serviços Web diretamente no bloco de notas Jupyter e no RStudio.
+ **** Posso criar serviços Web apenas de modelos criados no Estúdio? Não. Você também pode criar serviços Web diretamente no bloco de notas Jupyter e no RStudio.
 
 ## Escalabilidade
 
@@ -268,7 +266,7 @@ Nº
 
 **Quem tem acesso ao ponto de extremidade http para o serviço Web implantado na produção por padrão? Como fazer para restringir o acesso ao terminal?**
 
-Depois que um serviço Web for implantado, criamos um ponto de extremidade padrão para esse serviço. O ponto de extremidade padrão é implantado na produção e pode ser chamado usando sua chave de API. Pontos de extremidade extras podem ser adicionados com suas próprias chaves do Portal do Azure ou programaticamente usando as APIs de gerenciamento de serviço Web. Elas são necessárias para fazer chamadas ao serviço Web em produção e preparação. Para saber mais, consulte [Conectar a um serviço Web do Aprendizado de Máquina](machine-learning-connect-to-azure-machine-learning-web-service.md).
+Depois que um serviço Web for implantado, criamos um ponto de extremidade padrão para esse serviço. O ponto de extremidade padrão é implantado na produção e pode ser chamado usando sua chave de API. Outros pontos de extremidade podem ser adicionados com suas próprias chaves no Portal Clássico do Azure ou de forma programática usando as APIs de Gerenciamento de Serviço Web. Elas são necessárias para fazer chamadas ao serviço Web em produção e preparação. Para saber mais, consulte [Conectar a um serviço Web do Aprendizado de Máquina](machine-learning-connect-to-azure-machine-learning-web-service.md).
 
 
 **O que acontece se minha Conta de Armazenamento não puder ser encontrada?**
@@ -280,7 +278,7 @@ Se você excluir acidentalmente a Conta de armazenamento, a única maneira de re
 
 **O que acontece se a Chave de Acesso da minha Conta de Armazenamento não estiver sincronizada?** O Estúdio de Aprendizado de Máquina depende de uma Conta de Armazenamento do Azure fornecida pelo usuário para salvar dados intermediários ao executar o fluxo de trabalho. Esta Conta de Armazenamento é fornecida ao Estúdio de Aprendizado de Máquina no momento em um espaço de trabalho é criado e as Chaves de Acesso são associadas a esse espaço de trabalho. Após o espaço de trabalho ser criado, se as Chaves de Armazenamento foram alteradas, o espaço de trabalho não poderá mais acessar a Conta de Armazenamento, deixará de funcionar e todos os experimentos nele falharão.
 
-Se você tiver alterado as Chaves de Acesso da Conta de Armazenamento, certifique-se de ressincronizar as Chaves de Acesso na configuração do espaço de trabalho no Portal do Azure
+Se você tiver alterado as Chaves de Acesso da Conta de Armazenamento, certifique-se de ressincronizar as Chaves de Acesso na configuração do espaço de trabalho no Portal Clássico do Azure
 
 
 ## Azure Marketplace
@@ -312,4 +310,4 @@ O Aprendizado de Máquina do Azure também possui um fórum de comunidade no MSD
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

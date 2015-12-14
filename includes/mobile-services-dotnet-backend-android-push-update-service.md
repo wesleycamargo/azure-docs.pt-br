@@ -28,8 +28,8 @@
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-    Esse código irá enviar uma notificação por push (com o texto do item inserido) depois de inserir um item de tarefa pendente. Se ocorrer um erro, o código adicionará uma entrada no log de erros que pode ser visualizada na guia **Logs** do serviço móvel no Portal de Gerenciamento.
+    Esse código irá enviar uma notificação por push (com o texto do item inserido) depois de inserir um item de tarefa pendente. Se ocorrer um erro, o código adicionará uma entrada de log de erros que pode ser exibida na guia **Logs** do serviço móvel no [portal clássico do Azure](https://manage.windowsazure.com/).
 
 3. Republique o projeto de serviço móvel no Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

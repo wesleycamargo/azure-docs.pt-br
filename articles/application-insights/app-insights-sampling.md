@@ -67,6 +67,58 @@ Em [ApplicationInsights.config](app-insights-configuration-with-applicationinsig
 
     O valor atribuído quando o aplicativo acabou de ser iniciado. Não o reduza enquanto estiver depurando.
 
+### Alternativa: configurar amostragem adaptável no código
+
+Em vez de ajustar a amostragem no arquivo .config, você pode usar o código. Isso permite especificar uma função de retorno de chamada invocada sempre que a taxa de amostragem é avaliada novamente. Você pode usar isso, por exemplo, para descobrir qual taxa de amostragem está sendo usada.
+
+Remova o nó `AdaptiveSamplingTelemetryProcessor` do arquivo .config.
+
+
+
+*C#*
+
+```C#
+
+    using Microsoft.ApplicationInsights;
+    using Microsoft.ApplicationInsights.Extensibility;
+    using Microsoft.ApplicationInsights.WindowsServer.Channel.Implementation;
+    using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
+    ...
+
+    var adaptiveSamplingSettings = new SamplingPercentageEstimatorSettings();
+
+    // Optional: here you can adjust the settings from their defaults.
+
+    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    
+    builder.UseAdaptiveSampling(
+         adaptiveSamplingSettings,
+
+        // Callback on rate re-evaluation:
+        (double afterSamplingTelemetryItemRatePerSecond,
+         double currentSamplingPercentage,
+         double newSamplingPercentage,
+         bool isSamplingPercentageChanged,
+         SamplingPercentageEstimatorSettings s
+        ) =>
+        {
+          if (isSamplingPercentageChanged)
+          {
+             // Report the sampling rate.
+             telemetryClient.TrackMetric("samplingPercentage", newSamplingPercentage);
+          }
+      });
+
+    // If you have other telemetry processors:
+    builder.Use((next) => new AnotherProcessor(next));
+
+    builder.Build();
+
+```
+
+([Saiba mais sobre os processadores de telemetria](app-insights-api-filtering-sampling.md#filtering).)
+
+
 <a name="other-web-pages"></a>
 ## Amostragem para áginas da Web com JavaScript
 
@@ -132,7 +184,7 @@ Se você também habilitar a amostragem de taxa fixa no servidor, o cliente e o 
 
 
 
-### Alternativa: definir a amostragem no código do servidor
+### Alternativa: habilite a amostragem de taxa fixa no código do servidor
 
 
 Em vez de definir o parâmetro de amostragem no arquivo .config, você pode usar o código.
@@ -155,7 +207,7 @@ Em vez de definir o parâmetro de amostragem no arquivo .config, você pode usar
 
 ```
 
-([Saiba mais sobre os processadores de telemetria](app-insights-api-filtering-sampling/#filtering).)
+([Saiba mais sobre os processadores de telemetria](app-insights-api-filtering-sampling.md#filtering).)
 
 ## Quando usar a amostragem?
 
@@ -174,7 +226,7 @@ As principais vantagens da amostragem são:
 
 Use a amostragem de taxa fixa se:
 
-* Você quiser uma amostragem sincronizada entre cliente e servidor, para que quando estiver investigando eventos na [Pesquisa](app-insights-diagnostic-search.md), você possa navegar entre os eventos relacionados no cliente e no servidor, por exemplo, exibições de página e solicitações http.
+* Você quiser uma amostragem sincronizada entre cliente e servidor, para que, quando estiver investigando eventos na [Pesquisa](app-insights-diagnostic-search.md), possa navegar entre os eventos relacionados no cliente e no servidor, como exibições de página e solicitações http.
 * Você tiver certeza sobre a porcentagem de amostragem apropriada para seu aplicativo. Ela deve ser alta o suficiente para obter métricas precisas, mas abaixo da taxa que excede sua cota de preços e limitações. 
 * Você não está depurando seu aplicativo. Quando você pressiona F5 e experimenta algumas páginas de seu aplicativo, provavelmente deseja ver toda a telemetria.
 
@@ -221,11 +273,13 @@ O SDK do lado do cliente (JavaScript) participa da amostragem em conjunto com o 
 
 *Posso descobrir a taxa de amostragem que a amostragem adaptável está usando?*
 
- * Não na versão atual.
+ * Sim - use o método do código de configuração de amostragem adaptável para oferecer um retorno de chamada que obtenha a taxa de amostragem.
 
 *Se eu usar a amostragem de taxa fixa, como saber qual percentual de amostragem funcionará melhor para o meu aplicativo?*
 
-* Hoje, é preciso adivinhar. Analise seu uso atual de telemetria em AI, observe as remoções de dados relacionados à limitação e estime o volume da telemetria coletada. Essas três entradas, junto com o tipo de preço selecionado, sugerirão quanto você talvez deseje reduzir o volume da telemetria coletada. No entanto, uma mudança no padrão do volume telemetria pode invalidar o percentual de amostragem configurado de modo ideal (por exemplo, um aumento no número de usuários).
+* Uma maneira é iniciar com a amostragem adaptável, descobrir qual taxa se adequa (consulte a pergunta anterior) e, em seguida, alternar para a amostragem de taxa fixa usando essa taxa. 
+
+    Caso contrário, é preciso adivinhar. Analise o uso atual da telemetria na AI, observe qualquer limitação que esteja ocorrendo e estime o volume da telemetria coletada. Essas três entradas, junto com seu tipo de preço selecionado, sugerirá quanto você talvez queira reduzir o volume da telemetria coletada. No entanto, um aumento no número de usuários ou alguma outra mudança no volume de telemetria pode invalidar sua estimativa.
 
 *O que acontece se eu configurar o percentual de amostragem com um valor muito baixo?*
 
@@ -239,8 +293,8 @@ O SDK do lado do cliente (JavaScript) participa da amostragem em conjunto com o 
 
 * Atualmente, a amostragem adaptável está disponível para os lados do servidor de aplicativos Web ASP.NET (hospedados no Azure ou em seu próprio servidor). A amostragem de taxa fixa está disponível para todas as páginas Web e para os lados do servidor e do cliente de aplicativos Web .NET.
 
-*Há determinados eventos raros que eu sempre desejo ver. Como posso fazê-los passar pelo módulo de amostragem?*
+*Há alguns eventos raros que sempre desejo ver. Como posso fazê-los passar pelo módulo de amostragem?*
 
- * Crie uma instância separada de TelemetryClient com um TelemetryConfiguration separado. Use isso para enviar seus eventos raros.
+ * Inicialize uma instância separada de TelemetryClient com um novo TelemetryConfiguration (não o Active padrão). Use isso para enviar seus eventos raros.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -59,7 +59,7 @@ Se ainda não tiver uma conta do Azure, inscreva-se para obter uma avaliação g
 
 Primeiro, crie a rede virtual TestLab do Azure que hospedará a sub-rede Corpnet da configuração de base.
 
-1.	Na barra de tarefas do [Portal do Azure](https://manage.windowsazure.com), clique em **Novo > Serviços de Rede > Rede Virtual > Criação Personalizada**.
+1.	Na barra de tarefas do [portal clássico do Azure](https://manage.windowsazure.com), clique em **Novo > Serviços de Rede > Rede Virtual > Criação Personalizada**.
 2.	Na página Detalhes da Rede Virtual, digite **TestLab** em **Nome**.
 3.	Em **Local**, selecione a região apropriada.
 4.	Clique na seta Avançar.
@@ -126,7 +126,7 @@ Primeiro, preencha o nome de seu serviço de nuvem e execute estes comandos no p
 
 Em seguida, conecte-se à máquina virtual DC1.
 
-1.	No portal do Azure, clique em **máquinas virtuais** no painel esquerdo e, em seguida, clique **iniciado** na coluna **Status** para a máquina virtual DC1.  
+1.	No portal clássico do Azure, clique em **máquinas virtuais** no painel esquerdo e, em seguida, clique **iniciado** na coluna **Status** para a máquina virtual DC1.  
 2.	Na barra de tarefas, clique em **Conectar**.
 3.	Quando solicitado a abrir DC1.rdp, clique em **Abrir**.
 4.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota, clique em **Conectar**.
@@ -155,7 +155,7 @@ Em seguida, configure DC1 como um controlador de domínio e servidor DNS para o 
 
 Após a reinicialização de DC1, reconecte-se à máquina virtual DC1.
 
-1.	Na página de máquinas virtuais do portal do Azure, clique em **Executando** na coluna **Status** para a máquina virtual DC1.
+1.	Na página de máquinas virtuais do portal clássico do Azure, clique em **Executando** na coluna **Status** para a máquina virtual DC1.
 2.	Na barra de tarefas, clique em **Conectar**.
 3.	Quando solicitado a abrir DC1.rdp, clique em **Abrir**.
 4.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota, clique em **Conectar**.
@@ -288,4 +288,4 @@ Para iniciar as máquinas virtuais em ordem com o PowerShell do Azure, preencha 
 	Start-AzureVM -ServiceName $serviceName -Name "APP1"
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

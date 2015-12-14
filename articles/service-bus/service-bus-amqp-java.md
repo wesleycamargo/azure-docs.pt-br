@@ -82,9 +82,9 @@ Onde os parâmetros `[namespace]`, `[username]` e `[password]` têm os seguintes
 
 | Nome | Significado | | | | |
 |---------------|--------------------------------------------------------------------------------|---|---|---|---|
-| `[namespace]` | O namespace do Barramento de Serviço é obtido no portal do Azure. | | | | |
-| `[username]` | O emissor do Barramento de Serviço é obtido no portal do Azure. | | | | |
-| `[password]` | A forma codificada da URL da chave do emissor do Barramento de Serviço é obtida no portal do Azure. | | | | |
+| `[namespace]` | O namespace do Barramento de Serviço é obtido no [portal clássico do Azure][]. | | | | |
+| `[username]` | O namespace do Barramento de Serviço é obtido no [portal clássico do Azure.][]. | | | | |
+| `[password]` | A forma codificada da URL da chave do emissor do Barramento de Serviço é obtida no [portal clássico do Azure][]. | | | | |
 
 > [AZURE.NOTE]você deve executar uma codificação de URL da senha manualmente. Um utilitário útil de codificação de URL está disponível em [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 
@@ -153,7 +153,7 @@ producer.send(message);
 
 ### Recebendo mensagens com JMS
 
-O código a seguir mostra `how` para receber uma mensagem de uma assinatura de tópico do Barramento de Serviço. Supõe-se que `SBCONNECTIONFACTORY` e TOPIC são definidos em um arquivo de configuração **servicebus.properties**, conforme descrito na seção anterior. Presume-se também que o nome da assinatura é `subscription1`.
+O código a seguir mostra `how` para receber uma mensagem de uma assinatura de tópico do Barramento de Serviço. Supõe-se que `SBCONNECTIONFACTORY` e TOPIC são definidos em um arquivo de configuração **servicebus.properties**, conforme descrito na seção anterior. Presume-se também que o nome da assinatura seja `subscription1`.
 
 ```
 Hashtable<String, String> env = new Hashtable<String, String>(); 
@@ -186,7 +186,7 @@ A especificação JMS define como o contrato de exceção dos métodos de API e 
 
 ### Corpos de mensagens
 
-O JMS define cinco tipos diferentes de mensagens: **BytesMessage**, **MapMessage**, **ObjectMessage**, **StreamMessage** e **TextMessage**. A API .NET do Barramento de Serviço possui um tipo de mensagem, [BrokeredMessage][].
+O JMS define cinco tipos diferentes de mensagens: **BytesMessage**, **MapMessage**, **ObjectMessage**, **StreamMessage** e **TextMessage**. A API .NET do Barramento de Serviço tem um tipo único de mensagem, [BrokeredMessage][].
 
 #### JMS para API .NET do Barramento de Serviço
 
@@ -384,7 +384,7 @@ As tabelas a seguir mostram como os cabeçalhos JMS padrões e as propriedades p
 
 As restrições a seguir ocorrem durante o uso do JMS sobre o AMQP 1.0 com o Barramento de Serviço, ou seja:
 
--   Apenas um **MessageProducer** ou **MessageConsumer** é permitido por sessão. Se precisar criar vários objetos **MessageProducer** ou **MessageConsumer** em um aplicativo, crie sessões dedicadas para cada um deles.
+-   Apenas um **MessageProducer** ou **MessageConsumer** é permitido por Sessão. Se precisar criar vários objetos **MessageProducer** ou **MessageConsumer** em um aplicativo, crie sessões dedicadas para cada um deles.
 
 -   Assinaturas de tópico voláteis atualmente não têm suporte.
 
@@ -407,5 +407,7 @@ Está pronto(a) para saber mais? Visite os links a seguir:
 [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
 [Visão geral do AMQP do Barramento de Serviço]: service-bus-amqp-overview.md
+[portal clássico do Azure]: http://manage.windowsazure.com
+[portal clássico do Azure.]: http://manage.windowsazure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

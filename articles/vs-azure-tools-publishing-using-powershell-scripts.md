@@ -349,6 +349,6 @@ Para obter ajuda para as funções que você pode usar no prompt de comando do W
 
 ## Próximas etapas
 
-Saiba mais sobre os scripts do PowerShell lendo [Scripts com o Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx) e consulte outros scripts do Azure PowerShell no [Script Center](https://azure.microsoft.com/pt-BR/documentation/scripts/).
+Saiba mais sobre os scripts do PowerShell ao ler [Criando scripts com o Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx) e confira outros scripts do Azure PowerShell no [Script Center](https://azure.microsoft.com/documentation/scripts/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

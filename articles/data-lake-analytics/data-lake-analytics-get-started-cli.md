@@ -38,7 +38,7 @@ Neste tutorial, você desenvolverá um trabalho que lê um arquivo TSV (valores 
 
 Antes de começar este tutorial, você deve ter o seguinte:
 
-- **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pt-BR/pricing/free-trial/).
+- **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **CLI do Azure**. Consulte [Instalar e configurar a CLI do Azure](xplat-cli.md).
 	- Baixe e instale o **pré-lançamento das** [ferramentas de CLI do Azure](https://github.com/MicrosoftBigData/AzureDataLake/releases) para concluir esta demonstração.
 - **Autenticação**, usando o seguinte comando:
@@ -95,7 +95,7 @@ Você deve ter uma conta da Análise Data Lake antes de executar trabalhos. Para
 
 Neste tutorial, você processará alguns logs de pesquisa. O log de pesquisa pode ser armazenado no Repositório Data Lake ou no Armazenamento de Blob do Azure.
 
-O portal de Visualização do Azure fornece uma interface de usuário para copiar alguns arquivos de dados de exemplo para a conta padrão do Data Lake, e isso inclui um arquivo de log de pesquisa. Consulte [Preparar dados de origem](data-lake-analytics-get-started-portal.md#prepare-source-data) para carregar os dados na conta do Repositório Data Lake.
+O Portal do Azure fornece uma interface do usuário para copiar alguns arquivos de dados de exemplo na conta padrão do Data Lake, o que inclui um arquivo de log de pesquisa. Consulte [Preparar dados de origem](data-lake-analytics-get-started-portal.md#prepare-source-data) para carregar os dados na conta do Repositório Data Lake.
 
 Para carregar arquivos usando a CLI, use o seguinte comando:
 
@@ -166,7 +166,7 @@ Depois que o trabalho for concluído, você poderá usar os seguintes cmdlets pa
 - Para ver uma consulta mais complexa, veja [Analisar logs de site usando a Análise Azure Data Lake](data-lake-analytics-analyze-weblogs.md).
 - Para começar a desenvolver aplicativos U-SQL, consulte [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - Para aprender a usar o U-SQL, consulte [Introdução à linguagem U-SQL da Análise Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
-- Para obter tarefas de gerenciamento, consulte [Gerenciar a Análise Azure Data Lake usando o Portal de Visualização do Azure](data-lake-analytics-manage-use-portal.md).
+- Para obter as tarefas de gerenciamento, veja [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-manage-use-portal.md).
 - Para obter uma visão geral da Análise Data Lake, consulte [Visão geral da Análise Azure Data Lake](data-lake-analytics-overview.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

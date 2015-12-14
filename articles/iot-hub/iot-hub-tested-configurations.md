@@ -130,4 +130,4 @@ Cada dispositivo foi certificado para trabalhar com o SDK no sistema operacional
 
 Saiba mais sobre como desenvolver soluções usando **Certificado para os dispositivos IoT** [aqui](http://azure.com/iotdev).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

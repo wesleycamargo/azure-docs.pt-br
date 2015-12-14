@@ -31,7 +31,7 @@ Para concluir o procedimento neste tópico, você deve ter uma conta do Google c
 
 ## <a name="register"> </a>Registre seu aplicativo com o Google
 
-1. Faça logon no [Portal de Gerenciamento do Azure] e navegue até o seu aplicativo. Copie a **URL**. Você o usará para configurar o seu aplicativo Google.
+1. Faça logon no [portal do Azure] e navegue até o seu aplicativo. Copie a **URL**. Você o usará para configurar o seu aplicativo Google.
  
 2. Vá até o site [Google apis](http://go.microsoft.com/fwlink/p/?LinkId=268303) faça logon com suas credenciais de conta do Google, clique em **Criar projeto**, forneça um **Nome do projeto** e clique em **Criar**.
 
@@ -58,7 +58,7 @@ Para concluir o procedimento neste tópico, você deve ter uma conta do Google c
 > [AZURE.NOTE]Se for usar o Gateway do Serviço de Aplicativo, ignore esta seção e navegue até o gateway no portal. Selecione **Configurações**, **Identidade**, e então **Google**. Cole os valores obtidos anteriormente e clique em **Salvar**.
 
 
-8. De volta ao [Portal de Gerenciamento do Azure], navegue até o aplicativo. Clique em **Configurações** e em **Autenticação / Autorização**.
+8. De volta ao [portal do Azure], navegue até o seu aplicativo. Clique em **Configurações** e em **Autenticação / Autorização**.
 
 9. Se o recurso Autenticação / Autorização não estiver habilitado, mude a opção para **Ativado**.
 
@@ -90,7 +90,7 @@ Agora você está pronto para usar o Google para autenticação em seu aplicativ
 
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 
-[Portal de Gerenciamento do Azure]: https://portal.azure.com/
+[portal do Azure]: https://portal.azure.com/
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

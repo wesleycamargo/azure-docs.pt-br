@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.date="12/01/2015"
 	ms.author="sidneyh; ddove" />
 
 # Introdução a trabalhos de Banco de Dados Elástico
@@ -27,21 +27,21 @@ Baixe e execute a [exemplo da Introdução às ferramentas de Banco de Dados El�
 
 ## Criar um gerenciador de mapa de fragmentos usando o aplicativo de exemplo
 
-Aqui você vai criar um gerenciador de mapa de fragmentos juntamente com vários fragmentos, seguido pela inserção de dados nos fragmentos. Se você já tem fragmentos configurados com dados fragmentados, poderá ignorar as etapas a seguir e mover para a próxima seção.
+Aqui você vai criar um gerenciador de mapa de fragmentos juntamente com vários fragmentos, seguido pela inserção de dados nos fragmentos. Se você já tem fragmentos configurados com dados fragmentados, poderá ignorar as etapas a seguir e ir para a próxima seção.
 
 1. Compile e execute o aplicativo de exemplo da **Introdução às ferramentas de Banco de Dados Elástico**. Siga as etapas até a etapa 7 na seção [Baixe e execute o aplicativo de exemplo](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools). No final da etapa 7, você verá o seguinte prompt de comando:
 
 	![prompt de comando][1]
 
-2.  Na janela Comando, digite "1" e pressione **Enter**. Isso cria o gerenciador de mapa de fragmentos e adiciona dois fragmentos ao servidor. Em seguida, digite "3" e pressione **Enter**. Repita a ação mais quatro vezes. Isso insere linhas de dados de exemplo no seus fragmentos.
+2.  Na janela Comando, digite "1" e pressione **Enter**. Isso cria o gerenciador de mapa de fragmentos e adiciona dois fragmentos ao servidor. Em seguida, digite "3" e pressione **Enter**. Repita essa ação quatro vezes. Isso insere linhas de dados de exemplo no seus fragmentos.
 
-3.  O [Portal de Visualização do Azure](https://portal.azure.com) deve mostrar três novos bancos de dados em seu servidor v12:
+3.  O [portal do Azure](https://portal.azure.com) deve mostrar três novos bancos de dados em seu servidor v12:
 
 	![Confirmação do Visual Studio][2]
 
 	Neste ponto, vamos criar uma coleção de bancos de dados personalizados que reflete todos os bancos de dados no mapa de fragmentos. Isso nos permitirá criar e executar um trabalho que adicione uma nova tabela em fragmentos.
 
-Agora, normalmente criaríamos aqui um destino para o mapa de fragmentos, usando o cmdlet **New-AzureSqlJobTarget**. O banco de dados do gerenciador do mapa de fragmentos deve ser definido como um destino de banco de dados e, em seguida, o mapa de fragmentos específico é especificado como um destino. Em vez disso, vamos enumerar todos os bancos de dados no servidor e adicionar os bancos de dados à nova coleção personalizada, com a exceção de banco de dados mestre.
+Normalmente, criaríamos aqui um destino para o mapa de fragmentos, usando o cmdlet **New-AzureSqlJobTarget**. O banco de dados do gerenciador do mapa de fragmentos deve ser definido como um destino de banco de dados e, em seguida, o mapa de fragmentos específico é especificado como um destino. Em vez disso, vamos enumerar todos os bancos de dados no servidor e adicionar os bancos de dados à nova coleção personalizada, com a exceção de banco de dados mestre.
 
 ##Cria uma coleção personalizada e adiciona todos os bancos de dados no servidor ao destino de coleção personalizada, com exceção do mestre.
 
@@ -276,7 +276,7 @@ Atualize a política de execução que deseja atualizar:
  
 ## Cancelar um trabalho
 
-O recurso trabalhos de Banco de Dados Elástico dá suporte a solicitações de cancelamento de trabalhos. Se o recurso trabalhos de Banco de Dados Elástico detecta uma solicitação de cancelamento de um trabalho que está atualmente em execução, ele tenta interromper o trabalho.
+Os Trabalhos de Banco de Dados Elástico dão suporte a solicitações de cancelamento de trabalhos. Se o recurso trabalhos de Banco de Dados Elástico detecta uma solicitação de cancelamento de um trabalho que está atualmente em execução, ele tenta interromper o trabalho.
 
 Há duas maneiras diferentes pelas quais o recurso Trabalhos de Banco de Dados Elástico pode executar um cancelamento:
 
@@ -354,7 +354,7 @@ Use o cmdlet **New-AzureSqlJob** para criar um trabalho para um grupo de bancos 
 
 **Trabalhos do Banco de Dados Elástico** dá suporte à execução de uma consulta em um grupo de bancos de dados e envia os resultados a uma tabela do banco de dados especificado. A tabela pode ser consultada após o fato para ver os resultados da consulta provenientes de cada banco de dados. Isso fornece um mecanismo assíncrono para executar uma consulta em vários bancos de dados. Casos de falha - como, por exemplo, um dos bancos de dados estar temporariamente indisponível - são tratados automaticamente por meio de novas tentativas.
 
-A tabela de destino especificada será criada automaticamente se ela ainda não existir correspondendo ao esquema do conjunto de resultados retornado. Se uma execução de script retornar vários conjuntos de resultados, o recurso trabalhos de Banco de Dados Elástico enviará somente o primeiro à tabela de destino fornecida.
+A tabela de destino especificada será criada automaticamente, se ela ainda não existir, correspondendo ao esquema do conjunto de resultados retornado. Se uma execução de script retornar vários conjuntos de resultados, o recurso trabalhos de Banco de Dados Elástico enviará somente o primeiro à tabela de destino fornecida.
 
 O script PowerShell a seguir pode ser usado para executar um script coletando os resultados em uma tabela especificada. Este script presume que foi criado um script T-SQL, que produz um único conjunto de resultados; além disso, um destino de coleção de bancos de dados personalizada foi criado.
 
@@ -447,4 +447,4 @@ Para obter informações sobre os preços, consulte [Detalhes de preços do Banc
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

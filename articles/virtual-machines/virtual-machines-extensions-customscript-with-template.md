@@ -27,7 +27,7 @@ Para obter uma visão geral da extensão de Script Personalizado, consulte o art
 
 Desde seu lançamento, a extensão de Script Personalizado foi amplamente usada para configurar as cargas de trabalho de VMs do Windows e do Linux. Com a introdução dos modelos do Gerenciador de Recursos do Azure, os usuários agora podem criar um modelo único que não apenas provisiona a VM, mas também configura as cargas de trabalho nela.
 
-## Visão geral dos modelos do Gerenciador de Recursos do Azure
+## Sobre os modelos do Gerenciador de Recursos do Azure
 
 O modelo do Gerenciador de Recursos do Azure permite que você especifique de forma declarativa a infraestrutura IaaS do Azure na linguagem JSON definindo as dependências entre recursos. Para obter uma visão geral detalhada dos modelos do Gerenciador de Recursos do Azure, consulte os seguintes artigos:
 
@@ -35,7 +35,7 @@ O modelo do Gerenciador de Recursos do Azure permite que você especifique de fo
 - [Implantação de modelos com CLI do Azure](virtual-machines-deploy-rmtemplates-azure-cli)
 - [Implantação de modelos com Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell)
 
-### Pré-requisitos para execução da extensão de Script Personalizado
+### Pré-requisitos
 
 1. Instalar os Cmdlets do Azure PowerShell ou CLI do Azure mais recentes [aqui](http://azure.microsoft.com/downloads).
 2. Se os scripts forem executados em uma VM existente, verifique se o agente de VM está habilitado na VM, caso contrário, siga [este procedimento](virtual-machines-extensions-install) para instalar uma.
@@ -43,11 +43,11 @@ O modelo do Gerenciador de Recursos do Azure permite que você especifique de fo
 4. Como alternativa, os scripts também podem ser carregados para uma conta do Github.
 5. O script deve ser criado de forma que o script de entrada que por sua vez é iniciado pela extensão inicia outros scripts.
 
-## Visão geral do uso da extensão de Script Personalizado com Modelos:
+## Usando a extensão de script personalizado
 
 Para implantar com modelos, usamos a mesma versão da Extensão de Script Personalizado disponível para APIs de Gerenciamento de Serviços do Azure. A extensão dá suporte os mesmos parâmetros e cenários de como carregar arquivos para a conta de Armazenamento do Azure ou local do Github. A principal diferença ao usar modelos é que a versão exata da extensão deve ser especificada, em vez de especificar a versão do formato de majorversion.*.
 
- ## Trecho do modelo da extensão de Script Personalizado em uma VM do Linux
+ ## Exemplo de modelo para uma VM do Linux
 
 Defina o recurso de extensão a seguir na seção de Recursos do modelo
 
@@ -69,7 +69,7 @@ Defina o recurso de extensão a seguir na seção de Recursos do modelo
     }
     }
 
-## Trecho do modelo da extensão de Script Personalizado em uma VM do Windows
+## Exemplo de modelo para uma VM do Windows
 
 Defina o recurso a seguir na seção de Recursos do modelo
 
@@ -102,4 +102,4 @@ Confira os exemplos abaixo para ver amostras completas de configuração de apli
 
 <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Extensão de Script personalizado em uma VM do Linux</a>. </br> <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Extensão de Script personalizado em uma VM do Windows</a>.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

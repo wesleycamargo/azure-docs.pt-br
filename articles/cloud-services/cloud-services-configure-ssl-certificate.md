@@ -22,8 +22,8 @@
 # Configurando SSL para um aplicativo no Azure
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-configure-ssl-certificate.md)
-- [Azure Preview Portal](cloud-services-configure-ssl-certificate-portal.md)
+- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
+- [Azure portal](cloud-services-configure-ssl-certificate-portal.md)
 
 A criptografia SSL (Secure Socket Layer) é o método mais usado para proteger dados enviados pela Internet. Esta tarefa comum aborda como especificar um ponto de extremidade HTTPS para uma função Web e como carregar um certificado SSL para proteger seu aplicativo.
 
@@ -114,9 +114,9 @@ Agora que os arquivos de definição e configuração do serviço foram atualiza
 
 ## Etapa 3: Carregar um certificado
 
-O pacote de implantação foi atualizado para usar o certificado, e um ponto de extremidade HTTPS foi adicionado. Agora é possível carregar o pacote e o certificado no Azure com o Portal de Gerenciamento.
+O pacote de implantação foi atualizado para usar o certificado, e um ponto de extremidade HTTPS foi adicionado. Agora é possível carregar o pacote e o certificado no Azure com o portal clássico do Azure.
 
-1. Faça logon no [Portal de Gerenciamento do Azure][]. 
+1. Faça logon no [portal clássico do Azure][]. 
 2. Clique em **Serviços de Nuvem** no painel de navegação à esquerda.
 3. Clique no serviço de nuvem desejado.
 4. Clique na guia **Certificados**.
@@ -133,7 +133,7 @@ O pacote de implantação foi atualizado para usar o certificado, e um ponto de 
 
 Agora que sua implantação está ativa e em execução no Azure, você pode se conectar a ela usando HTTPS.
 
-1.  No Portal de Gerenciamento, selecione a implantação e clique no link em **URL do Site**.
+1.  No portal clássico do Azure, selecione a implantação e clique no link em **URL do Site**.
 
     ![Determinar URL do site][2]
 
@@ -143,7 +143,7 @@ Agora que sua implantação está ativa e em execução no Azure, você pode se 
 
     ![Site de exemplo SSL][3]
 
-Se quiser usar SSL em uma implantação de preparação em lugar de uma implantação da produção, você precisará determinar primeiro o URL usado na implantação de preparação. Implante o serviço de nuvem no ambiente de preparação sem incluir um certificado ou qualquer informação de certificado. Depois de implantado, você poderá determinar a URL baseada em GUID, listada no campo **URL do Site** do portal de gerenciamento. Crie um certificado com o nome comum (CN) igual a URL baseada em GUID (por exemplo, **32818777-6e77-4ced-a8fc-57609d404462.cloudapp.net**), use o portal de gerenciamento para adicionar o certificado ao serviço de nuvem de preparação, adicione as informações de certificado aos arquivos CSDEF e CSCFG, reempacote o aplicativo e atualize a implantação de preparação para usar o novo pacote e o arquivo CSCFG.
+Se quiser usar SSL em uma implantação de preparação em lugar de uma implantação da produção, você precisará determinar primeiro o URL usado na implantação de preparação. Implante o serviço de nuvem no ambiente de preparação sem incluir um certificado ou qualquer informação de certificado. Depois de implantado, você poderá determinar a URL baseada em GUID, listada no campo **URL do Site** do portal clássico do Azure. Crie um certificado com o nome comum (CN) igual a URL baseada em GUID (por exemplo, **32818777-6e77-4ced-a8fc-57609d404462.cloudapp.net**), use o portal clássico do Azure para adicionar o certificado ao serviço de nuvem de preparação, adicione as informações de certificado aos arquivos CSDEF e CSCFG, reempacote o aplicativo e atualize a implantação de preparação para usar o novo pacote e o arquivo CSCFG.
 
 ## Próximas etapas
 
@@ -153,11 +153,11 @@ Se quiser usar SSL em uma implantação de preparação em lugar de uma implanta
 * [Gerenciar seu serviço de nuvem](cloud-services-how-to-manage.md).
 
 
-  [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
+  [portal clássico do Azure]: http://manage.windowsazure.com
   [0]: ./media/cloud-services-configure-ssl-certificate/CreateCloudService.png
   [1]: ./media/cloud-services-configure-ssl-certificate/AddCertificate.png
   [2]: ./media/cloud-services-configure-ssl-certificate/CopyURL.png
   [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

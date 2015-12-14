@@ -615,4 +615,4 @@ Agora você pode ir para tópicos mais avançados sobre o B2C. Você pode deseja
 
 [Personalizando seu aplicativo de experiência do usuário do B2C >>]()
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,5 +1,5 @@
 <properties 
-pageTitle="Operações de Indexador (API REST do Serviço Azure Search 2015-02-28-Preview) | Microsoft Azure | Serviço de pesquisa de nuvem hospedado" 
+pageTitle="Operações de Indexador (API REST do Serviço de pesquisa do Azure, Visualização 2015-02-28) | Microsoft Azure | Serviço de pesquisa de nuvem hospedado" 
 description="Operações de indexador (API REST do serviço Azure Search: 2015-02-28-Preview)" 
 services="search" 
 documentationCenter="" 
@@ -92,7 +92,7 @@ A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcion
 - `Content-Type`: obrigatório. Defina-o como `application/json`
 - `api-key`: obrigatório. A `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo de seu serviço. A solicitação **Criar Fonte de Dados** deve incluir um cabeçalho de `api-key` definido como sua chave de administração (em vez de uma chave de consulta). 
  
-Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no [Portal de gerenciamento do Azure](https://portal.azure.com/). Consulte [Criar um serviço de pesquisa no portal](search-create-service-portal.md) para obter ajuda sobre a navegação na página.
+Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no [Portal clássico do Azure](https://portal.azure.com/). Consulte [Criar um serviço de pesquisa no portal](search-create-service-portal.md) para obter ajuda sobre a navegação na página.
 
 <a name="CreateDataSourceRequestSyntax"></a> **Sintaxe do Corpo da Solicitação**
 
@@ -120,8 +120,8 @@ A contém as seguintes propriedades:
 	- `documentdb` ‒ Banco de Dados de Documentos do Azure
 - `credentials`:
 	- A propriedade `connectionString` obrigatória especifica a cadeia de conexão da fonte de dados. O formato da cadeia de conexão depende do tipo de fonte de dados: 
-		- Para o Azure SQL, essa é a cadeia de conexão do SQL Server normal. Se você estiver usando o portal de gerenciamento do Azure para recuperar a cadeia de conexão, use a opção `ADO.NET connection string`.
-		- Para DocumentDB, a cadeia de conexão deve estar no seguinte formato: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Todos os valores são obrigatórios. Você pode encontrá-los no [portal de gerenciamento do Azure](https://portal.azure.com/).   
+		- Para o Azure SQL, essa é a cadeia de conexão do SQL Server normal. Se você estiver usando o portal clássico do Azure para recuperar a cadeia de conexão, use a opção `ADO.NET connection string`.
+		- Para DocumentDB, a cadeia de conexão deve estar no seguinte formato: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Todos os valores são obrigatórios. Você pode encontrá-las no [Portal clássico do Azure](https://portal.azure.com/).   
 		
 - `container`:
 	- A propriedade obrigatória `name` especifica a tabela ou o modo de exibição (para a fonte de dados do Azure SQL) ou uma coleção (para uma fonte de dados DocumentDB) que será indexado. 
@@ -776,4 +776,4 @@ Código de status: 204 sem Conteúdo para uma resposta bem-sucedida.
 </tr>
 </table>
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

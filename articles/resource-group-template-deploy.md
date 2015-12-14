@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/13/2015"
+   ms.date="12/02/2015"
    ms.author="tomfitz"/>
 
 # Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure
 
-Este tópico explica como usar modelos do Gerenciador de recursos do Azure para implantar seu aplicativo no Azure. Ele mostra como implantar seu aplicativo usando o PowerShell do Azure, a CLI do Azure, a API REST ou o portal de visualização do Microsoft Azure.
+Este tópico explica como usar modelos do Gerenciador de recursos do Azure para implantar seu aplicativo no Azure. Ele mostra como implantar seu aplicativo usando o Azure PowerShell, a CLI do Azure, a API REST ou o portal do Azure.
 
 Para obter uma introdução ao Gerenciador de Recursos, confira [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md). Para saber mais sobre como criar modelos, veja [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 
@@ -32,17 +32,7 @@ Ao implantar um aplicativo com um modelo, você pode fornecer valores de parâme
 
 1. Faça logon em sua conta do Azure. Depois de fornecer suas credenciais, o comando retornará informações sobre sua conta.
 
-    Anterior à visualização do Azure PowerShell 1.0:
-
-        PS C:\> Switch-AzureMode AzureResourceManager
-        ...
-        PS C:\> Add-AzureAccount
-
-        Id                             Type       ...
-        --                             ----    
-        someone@example.com            User       ...   
-
-    Visualização do Azure PowerShell 1.0:
+    Azure PowerShell 1.0:
 
          PS C:\> Login-AzureRmAccount
 
@@ -217,15 +207,15 @@ Se você não utilizou anteriormente a CLI do Azures com o Gerenciamento de Recu
 
 Com o Visual Studio você pode criar um projeto do grupo de recursos e implantá-lo ao Azure por meio da interface do usuário. Selecione o tipo de recursos a serem incluídos em seu projeto e os recursos serão adicionados automaticamente ao modelo do Gerenciador de recursos. O projeto também fornece um script do PowerShell para implantar o modelo.
 
-Para obter uma introdução ao uso do Visual Studio com grupos de recursos, consulte [Criar e implantar grupos de recursos do Azure por meio do Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
+Para obter uma introdução ao uso do Visual Studio com grupos de recursos, confira [Criando e implantando grupos de recursos do Azure usando o Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
-## Implantar com o portal de visualização
+## Faça a implantação com o portal
 
-E adivinhe? Todos os aplicativos que você cria por meio do [portal de visualização](https://portal.azure.com/) têm suporte de um modelo do Gerenciador de Recursos do Azure! Ao simplesmente criar uma Máquina Virtual, Rede Virtual, Conta de Armazenamento, Serviço de Aplicativo ou banco de dados por meio do portal, você já está colhendo os benefícios do Gerenciador de recursos do Azure sem muito esforço. Basta selecionar o ícone **Novo** para estar a caminho da implantação de um aplicativo por meio do Gerenciador de Recursos do Azure.
+E adivinhe? Todos os aplicativos que você cria por meio do [portal](https://portal.azure.com/) têm suporte de um modelo do Gerenciador de Recursos do Azure! Ao simplesmente criar uma Máquina Virtual, Rede Virtual, Conta de Armazenamento, Serviço de Aplicativo ou banco de dados por meio do portal, você já está colhendo os benefícios do Gerenciador de recursos do Azure sem muito esforço. Basta selecionar o ícone **Novo** para estar a caminho da implantação de um aplicativo por meio do Gerenciador de Recursos do Azure.
 
 ![Novo](./media/resource-group-template-deploy/new.png)
 
-Para obter mais informações sobre como usar o portal com o Gerenciador de Recursos do Azure, confira [Usando o Portal de Visualização do Azure para gerenciar os recursos do Azure](azure-portal/resource-group-portal.md).
+Para saber mais sobre como usar o portal com o Gerenciador de Recursos do Azure, confira [Usando o Portal do Azure para gerenciar os recursos do Azure](azure-portal/resource-group-portal.md).
 
 
 ## Arquivo de parâmetro.
@@ -252,11 +242,11 @@ O tamanho do arquivo de parâmetro não pode ser superior a 64 KB.
 
 ## Próximas etapas
 - Para obter um exemplo de como implantar recursos por meio da biblioteca de cliente do .NET, confira [Implantar recursos usando bibliotecas .NET e um modelo](arm-template-deployment.md)
-- Para ver um exemplo detalhado da implantação de um aplicativo, confira [Provisionar e implantar microsserviços de modo previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
-- Para obter orientação sobre como implantar sua solução em ambientes diferentes, consulte [Ambientes de desenvolvimento e de teste no Microsoft Azure](solution-dev-test-environments-preview-portal.md).
-- Para saber mais sobre as seções do modelo do Gerenciador de Recursos do Azure, veja [Criando modelos](resource-group-authoring-templates.md)
-- Para obter uma lista das funções que você pode usar em um modelo do Gerenciador de Recursos do Azure, veja [Funções do modelo](resource-group-template-functions.md)
+- Para obter um exemplo detalhado de implantação de um aplicativo, confira [Provisionar e implantar microsserviços de forma previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
+- Para obter orientação sobre como implantar sua solução em ambientes diferentes, confira [Ambientes de desenvolvimento e de teste no Microsoft Azure](solution-dev-test-environments-preview-portal.md).
+- Para saber mais sobre as seções do modelo do Gerenciador de Recursos do Azure, confira [Criando modelos](resource-group-authoring-templates.md)
+- Para obter uma lista das funções que você pode usar em um modelo do Gerenciador de Recursos do Azure, confira [Funções do modelo](resource-group-template-functions.md)
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

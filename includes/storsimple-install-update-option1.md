@@ -23,7 +23,7 @@
 
     6. Clique em **Download**. Especifique ou **navegue** até o local onde deseja que o download apareça. A atualização será baixada em uma pasta do **pacote de Atualização de Dispositivo do StorSimple Atualização 1.2** (KB3063418) no local escolhido. A pasta também pode ser copiada para um compartilhamento de rede que seja acessível do dispositivo.
     
-	Esse procedimento descreve como instalar a atualização do dispositivo de software como um hotfix, as atualizações de firmware de disco do servidor Microsoft Update, bem como o driver LSI e as Atualizações do Windows do portal do Azure. No entanto, você pode optar por instalar as atualizações de software, driver e firmware de disco como hotfixes. Em seguida, você precisará baixar a Atualização do Controlador SAS do StorSimple 1.2 SAS (KB3043005) e a Atualização de Firmware de Disco do StorSimple 1.2 (KB3063416) e copiá-los para a mesma pasta compartilhada. Para instalar as atualizações de firmware de disco como um hotfix, siga as instruções em [instalando hotfixes do modo de manutenção por meio do Windows PowerShell para StorSimple](storsimple-update-device.md#install-hotfixes-via-windows-powershell-for-storsimple).
+	Esse procedimento descreve como instalar a atualização do dispositivo de software como um hotfix, as atualizações de firmware de disco do Microsoft Update Server, bem como o driver LSI e os Windows Updates no portal clássico do Azure. No entanto, você pode optar por instalar as atualizações de software, driver e firmware de disco como hotfixes. Em seguida, você precisará baixar a Atualização do Controlador SAS do StorSimple 1.2 SAS (KB3043005) e a Atualização de Firmware de Disco do StorSimple 1.2 (KB3063416) e copiá-los para a mesma pasta compartilhada. Para instalar as atualizações de firmware de disco como um hotfix, siga as instruções em [instalando hotfixes do modo de manutenção por meio do Windows PowerShell para StorSimple](storsimple-update-device.md#install-hotfixes-via-windows-powershell-for-storsimple).
     
 	> [AZURE.NOTE]O hotfix deve estar acessível nos dois controladores para detectar possíveis mensagens de erro dos controladores pares.
             
@@ -101,7 +101,7 @@
     
 9. Agora, você vai instalar as atualizações de firmware de disco que foram interrompidas e isso levará de 30 a 45 minutos. Você pode optar por instalá-las em uma janela de manutenção planejada conectando-se ao console serial do dispositivo. Para instalar atualizações do firmware de disco, siga as instruções em [Instalar atualizações do modo de manutenção por meio do Windows PowerShell para StorSimple](storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple).
 
-10. Depois que as atualizações do firmware de disco forem aplicadas com êxito e o dispositivo tiver saído do modo de manutenção, retorne ao portal do Azure. As atualizações do modo de manutenção são atualizadas no portal somente depois de 24 horas. Talvez seja preciso aguardar para aplicar as atualizações não interrompidas restantes no portal do Azure.
+10. Depois que as atualizações do firmware de disco forem aplicadas com êxito e o dispositivo tiver saído do modo de manutenção, retorne ao portal clássico do Azure. As atualizações do modo de manutenção são atualizadas no portal somente depois de 24 horas. Talvez seja preciso aguardar para aplicar as atualizações sem interrupção restantes no portal clássico do Azure.
 
 11. Quando estiver pronto para aplicar as atualizações, navegue até a página **Manutenção** e, na parte inferior da página, clique em **Verificar Atualizações**. Você será notificado que as atualizações estão disponíveis, que incluem o driver e as Atualizações do Windows. Clique em **Instalar Atualizações** para iniciar a instalação. Você termina depois que todas as atualizações forem instaladas com êxito.
 
@@ -112,4 +112,4 @@
  
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->
