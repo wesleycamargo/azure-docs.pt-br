@@ -1,4 +1,4 @@
-<properties
+    <properties
 	pageTitle="Create VM templates | Microsoft Azure"
 	description="Learn how to create VM templates from VHD images"
 	services="devtest-lab,virtual-machines"
