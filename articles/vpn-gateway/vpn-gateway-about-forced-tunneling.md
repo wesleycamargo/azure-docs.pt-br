@@ -1,13 +1,13 @@
 <properties 
    pageTitle="Configurar o túnel forçado para Gateways de VPN usando o PowerShell | Microsoft Azure" 
    description="Se tiver uma rede virtual com um gateway de VPN entre locais, você pode redirecionar ou "forçar" todo o tráfego direcionado à Internet para seu local. Este artigo se aplica a gateways VPN criados usando o modelo de implantação clássico"
-   services ="vpn-gateway"
+   services="vpn-gateway"
    documentationCenter ="na"
-   authors ="cherylmc"
-   manager ="carolz"
+   authors="cherylmc"
+   manager="carolz"
    editor=""
-   tags ="azure-service-management"/>
-<tags  
+   tags="azure-service-management"/>
+<tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
@@ -161,4 +161,4 @@ Abaixo estão alguns cmdlets adicionais do PowerShell que podem ser úteis ao tr
 
 	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
 
-<!------HONumber=AcomDC_1203_2015-->
+<!-------HONumber=AcomDC_1203_2015-->
