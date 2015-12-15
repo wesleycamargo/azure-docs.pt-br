@@ -161,4 +161,4 @@ Abaixo estão alguns cmdlets adicionais do PowerShell que podem ser úteis ao tr
 
 	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
 
-<!-----HONumber=AcomDC_1203_2015-->
+<!------HONumber=AcomDC_1203_2015-->
