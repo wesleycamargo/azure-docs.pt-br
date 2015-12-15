@@ -58,13 +58,22 @@ Em seguida, você criará um arquivo `docker-compose.yml`, que é apenas um arqu
 
 Crie um diretório de trabalho na sua VM e use seu editor de texto favorito para criar `docker-compose.yml`. Para testar um exemplo simples, copie o texto a seguir no arquivo. Essa configuração usa imagens do [Registro do DockerHub](https://registry.hub.docker.com/_/wordpress/) para instalar o WordPress (o sistema de blog e gerenciamento de conteúdo de software livre) e um banco de dados MariaDB de back-end vinculado.
 
- ``` wordpress: image: wordpress links: - db:mysql ports: - 8080:80
+ ```
+ wordpress: 
+  image: wordpress
+  links:
+     - db:mysql
+  ports:
+ - 8080:80
 
-db: image: mariadb environment: MYSQL\_ROOT\_PASSWORD: <your password>
+db:
+  image: mariadb
+  environment: 
+    MYSQL\_ROOT\_PASSWORD: <your password>
 
 ```
 
-## Step 4: Start the containers with Compose
+## Etapa 4: Start the containers with Compose
 
 In the working directory on your VM, simply run the following command.
 
@@ -73,7 +82,7 @@ $ docker-compose up -d
 
 ```
 
-This starts the Docker containers specified in `docker-compose.yml`. You'll see output similar to:
+This starts the Docker containers specified in `docker-compose.yml`. Você verá uma saída semelhante a:
 
 ```
 Creating wordpress\_db\_1... Creating wordpress\_wordpress\_1... ```
