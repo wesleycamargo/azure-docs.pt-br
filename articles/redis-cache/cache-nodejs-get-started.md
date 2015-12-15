@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="10/23/2015"
+	ms.date="12/03/2015"
 	ms.author="sdanie"/>
 
 # Como usar o Cache Redis do Azure com Node.js
@@ -39,34 +39,34 @@ Este tutorial usa [node\_redis](https://github.com/mranney/node_redis), mas voc�
 
 ## Criar um cache Redis no Azure
 
-No [portal de visualização do Azure](http://go.microsoft.com/fwlink/?LinkId=398536), clique em **Novo**, **Dados + Armazenamento** e selecione **Cache Redis**.
+No [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=398536), clique em **Novo**, **Dados + Armazenamento** e selecione **Cache Redis**.
 
   ![][1]
 
-Insira um nome de host DNS. Ele terá o formato `<name>.redis.cache.windows.net`. Clique em **Criar**.
+Insira um nome de host DNS. Ele terá o formato `<name>
+  .redis.cache.windows.net`. Clique em **Criar**.
 
   ![][2]
 
 
-Depois de criar o cache, clique nele no portal de visualização para exibir as configurações do cache. Clique no link em **Chaves** e copie a chave primária. Ela será necessária para autenticar as solicitações.
+  Depois de criar o cache, [navegue até ele](cache-configure.md#configure-redis-cache-settings) para exibir as configurações de cache. Clique no link em **Chaves** e copie a chave primária. Ela será necessária para autenticar as solicitações.
 
   ![][4]
 
 
-## Habilitar o ponto de extremidade não SSL
+  ##Habilitar o ponto de extremidade não SSL
 
 
-Clique no link em **Portas** e clique em **Não** para "Permitir acesso somente via SSL". Isso habilita a porta não SSL para o cache. O cliente node\_redis atualmente não dá suporte a SSL.
+  Clique no link em **Portas** e clique em **Não** para "Permitir acesso somente via SSL". Isso habilita a porta não SSL para o cache. O cliente node\_redis atualmente não dá suporte a SSL.
 
   ![][3]
 
 
-## Adicionar algo ao cache e recuperá-lo
+  ##Adicionar algo ao cache e recuperá-lo
 
-	var redis = require("redis");
+  var redis = require("redis");
 
-    // Add your cache name and access key.
-	var client = redis.createClient(6379,'<name>.redis.cache.windows.net', {auth_pass: '<key>' });
+  // Adicione a chave de acesso e o nome do cache. var client= redis.createClient(6379,'<name>.redis.cache.windows.net', {auth\_pass: '<key>' });
 
 	client.set("foo", "bar", function(err, reply) {
 	    console.log(reply);
@@ -97,4 +97,4 @@ Saída:
 
 [Criar um aplicativo de chat do Node.js com Socket.IO em um site do Azure]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

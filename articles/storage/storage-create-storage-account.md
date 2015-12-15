@@ -3,8 +3,8 @@
 	description="Crie uma nova conta de armazenamento, gerencie suas chaves de acesso ou exclua uma conta de armazenamento no Portal do Azure."
 	services="storage"
 	documentationCenter=""
-	authors="tamram"
-	manager="adinah"
+	authors="robinsh"
+	manager="carmonm"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+	ms.date="12/04/2015" 
+	ms.author="robinsh"/>
 
 
 # Sobre as contas de armazenamento do Azure
@@ -138,4 +138,4 @@ Para remover uma conta de armazenamento que você não estiver mais usando, nave
 - Para saber mais sobre o Armazenamento do Azure, consulte a documentação do Armazenamento do Azure em [Azure.com](http://azure.microsoft.com/documentation/services/storage/).
 - Visite o [Blog da equipe do Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

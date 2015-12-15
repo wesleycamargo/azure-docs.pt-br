@@ -186,7 +186,7 @@ Seu hub de notificação agora está configurado para funcionar com o APNS e voc
 ## Enviando notificações
 
 
-Você pode testar o recebimento de notificações em seu aplicativo ao enviar notificações no portal do Azure usando a guia de depuração no hub de notificação, como mostrado na tela abaixo.
+Você pode testar o recebimento de notificações no aplicativo enviando notificações no [Portal Clássico do Azure] por meio da guia de depuração no hub de notificação, como mostrado na tela abaixo.
 
 ![](./media/notification-hubs-ios-get-started/notification-hubs-debug-hub-ios.png)
 
@@ -196,11 +196,11 @@ Neste tutorial, optamos pela simplicidade e só demonstraremos os testes do apli
 
 * **Interface REST**: você pode dar suporte à notificação em qualquer plataforma de back-end usando a [interface REST](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
 
-* **SDK dos Hubs de Notificações do Microsoft Azure**: no Gerenciador de Pacotes do Nuget para o Visual Studio, execute [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+* **SDK dos Hubs de Notificação do Microsoft Azure**: no Gerenciador de Pacotes do Nuget para o Visual Studio, execute [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 * **Node.js**: [Como usar os Hubs de Notificação de Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md).
 
-* **Serviços Móveis do Azure**: para obter um exemplo de como enviar notificações de um back-end de Serviços Móveis do Azure integrado aos Hubs de Notificação, confira "Introdução às notificações por push nos Serviços Móveis" ([back-end do .NET](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) | [back-end do JavaScript](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md)).
+* **Serviços Móveis do Azure**: para obter um exemplo de como enviar notificações de um Back-end dos Serviços Móveis do Azure integrado aos Hubs de Notificação, confira "Introdução às notificações por push nos Serviços Móveis" ([back-end do .NET](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) | [back-end do JavaScript](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md)).
 
 * **Java/PHP**: para obter um exemplo de como enviar notificações usando as APIs REST, confira "Como usar os Hubs de Notificação do Java/PHP" ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
 
@@ -213,11 +213,11 @@ Nesta seção, enviaremos as notificações usando um aplicativo de console .NET
 
    	![][213]
 
-2. No Visual Studio, clique em **Ferramentas**, em **Gerenciador de Pacotes do NuGet** e em **Console do Gerenciador de Pacotes**.
+2. No Visual Studio, clique em **Ferramentas**, em **Gerenciador de Pacotes NuGet** e em **Console do Gerenciador de Pacotes**.
 
 	Isso exibe o Console do Gerenciador de Pacotes no Visual Studio.
 
-3. Na janela do Console do Gerenciador de Pacotes, defina o **Projeto padrão** como o seu novo projeto de aplicativo do console e execute o seguinte comando na janela do console:
+3. Na janela do Console do Gerenciador de Pacotes, defina o **Projeto padrão** como o novo projeto de aplicativo do console e execute o seguinte comando na janela do console:
 
         Install-Package Microsoft.Azure.NotificationHubs
 
@@ -230,7 +230,7 @@ Nesta seção, enviaremos as notificações usando um aplicativo de console .NET
 
         using Microsoft.Azure.NotificationHubs;
 
-3. Em sua classe `Program`, adicione o seguinte método:
+3. Na classe `Program`, adicione o seguinte método:
 
         private static async void SendNotificationAsync()
         {
@@ -239,7 +239,7 @@ Nesta seção, enviaremos as notificações usando um aplicativo de console .NET
             await hub.SendAppleNativeNotificationAsync(alert);
         }
 
-4. Adicione as seguintes linhas a seu método `Main`:
+4. Adicione as seguintes linhas ao método `Main`:
 
          SendNotificationAsync();
 		 Console.ReadLine();
@@ -255,7 +255,7 @@ Nesta seção, nós enviaremos notificações usando um serviço móvel por meio
 
 Para enviar uma notificação usando um serviço móvel, acompanhe [Introdução aos Serviços Móveis] e:
 
-1. Entre no [portal do Azure] e selecione seu serviço móvel.
+1. Entre no [Portal Clássico do Azure] e selecione o serviço móvel.
 
 2. Selecione a guia **Agendador** na parte superior.
 
@@ -314,7 +314,7 @@ Neste exemplo simples, você envia notificações para todos os seus dispositivo
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Introdução aos Serviços Móveis]: /develop/mobile/tutorials/get-started-xamarin-ios
-[portal do Azure]: https://manage.windowsazure.com/
+[Portal Clássico do Azure]: https://manage.windowsazure.com/
 [Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/library/jj927170.aspx
 [Instruções sobre Hubs de Notificação para iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
@@ -331,4 +331,4 @@ Neste exemplo simples, você envia notificações para todos os seus dispositivo
 [Xamarin.iOS]: http://xamarin.com/download
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

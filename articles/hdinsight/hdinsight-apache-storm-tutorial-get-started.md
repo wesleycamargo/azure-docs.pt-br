@@ -15,19 +15,13 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/09/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 
 # Tutorial do Apache Storm: Introdução a exemplos do Storm Starter para análise de big data no HDInsight
 
 O Apache Storm é um sistema de computação escalável, tolerante a falhas, distribuído e em tempo real para o processamento de fluxos de dados. Com o Storm no Microsoft Azure HDInsight, você pode criar um cluster Storm baseado em nuvem que execute análise de big data em tempo real.
-
-[AZURE.INCLUDE [Portal](../../includes/hdinsight-azure-preview-portal.md)]
-
-* [Tutorial do Apache Storm: Introdução a exemplos do Storm Starter para análise de big data no HDInsight](hdinsight-apache-storm-tutorial-get-started-v1.md)
-
-   
 
 > [AZURE.NOTE]As etapas deste artigo criam um cluster HDInsight baseado no Windows. Para as etapas criarem um Storm baseado em Linux no cluster HDInsight, confira [Tutorial do Apache Storm: Introdução ao exemplo do Storm Starter usando a análise de dados no HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md)
 
@@ -43,7 +37,7 @@ O Storm no HDInsight usa o armazenamento de Blobs do Azure para armazenar arquiv
 
 1. Entre no [Portal do Azure][preview-portal].
 
-2. Selecione **NOVO**, selecione __Análises de Dados__ e, em seguida, selecione __HDInsight__.
+2. Selecione **NOVO**, selecione __Análises de Dados__ e, em seguida, selecione __HDInsight__
 
 	![Criar um novo cluster no Portal do Azure](./media/hdinsight-apache-storm-tutorial-get-started/new-cluster.png)
 
@@ -67,7 +61,7 @@ O Storm no HDInsight usa o armazenamento de Blobs do Azure para armazenar arquiv
 
 	No momento, você pode selecionar uma conta de armazenamento do Azure como fonte de dados para um cluster HDInsight. Use o item a seguir para entender as entradas na folha __Fonte de Dados__.
 
-	- __Método de Seleção__: defina-o como __De todas as assinaturas__ para habilitar a procura de contas de armazenamento em suas assinaturas. Defina-o como __Chave de Acesso__ se você desejar inserir o __Nome de Armazenamento__ e a __Chave de Acesso__ de uma conta de armazenamento existente.
+	- __Método de Seleção__: defina essa opção como __De todas as assinaturas__ para habilitar a procura de contas de armazenamento em suas assinaturas. Defina-o como __Chave de Acesso__ se você desejar inserir o __Nome de Armazenamento__ e a __Chave de Acesso__ de uma conta de armazenamento existente.
 
 	- __Criar Novo__: use essa opção para criar uma nova conta de armazenamento. Use o campo exibido para inserir o nome da conta de armazenamento. Uma marca de seleção verde é exibida se o nome estiver disponível.
 
@@ -83,9 +77,9 @@ O Storm no HDInsight usa o armazenamento de Blobs do Azure para armazenar arquiv
 
 	![Folha de camadas de preços de nó](./media/hdinsight-apache-storm-tutorial-get-started/nodepricingtiers.png)
 
-	Use __Selecionar__ para salvar as informações das __Camadas de Preços de Nó__.
+	Use __Selecionar__ para salvar as informações das __Camadas de Preços do Nó__.
 
-8. Selecione __Configuração opcional__. Esta folha permite que você selecione a versão do cluster, defina outras configurações opcionais, como adicionar uma __Rede Virtual__ ou configurar um __Metastore externo__ para manter dados de Hive e Oozie.
+8. Selecione __Configuração opcional__. Esta folha permite que você selecione a versão do cluster, defina outras configurações opcionais, como adicionar uma __Rede Virtual__ ou configurar um __Metastore externo__ para manter dados do Hive e Oozie.
 
 	![Folha de configuração opcional](./media/hdinsight-apache-storm-tutorial-get-started/optionalconfiguration.png)
 
@@ -170,7 +164,7 @@ A interface do usuário do Storm pode ser usada para monitorar a topologia.
 
 	* **Desativar** - pausa uma topologia em execução.
 
-	* **Reequilibrar** - ajusta o paralelismo da topologia. Você deve reequilibrar topologias em execução depois de alterar o número de nós no cluster. Isso permite que a topologia ajuste o paralelismo para compensar o aumento/diminuição do número de nós no cluster. Para saber mais, confira [Noções básicas sobre o paralelismo de uma topologia Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+	* **Reequilibrar** - ajusta o paralelismo da topologia. Você deve reequilibrar topologias em execução depois de alterar o número de nós no cluster. Isso permite que a topologia ajuste o paralelismo para compensar o aumento/diminuição do número de nós no cluster. Para saber mais, consulte [Noções básicas sobre o paralelismo de uma topologia do Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
 	* **Eliminar** - encerra uma topologia do Storm após o tempo limite especificado.
 
@@ -203,7 +197,7 @@ A interface do usuário do Storm pode ser usada para monitorar a topologia.
 		2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [seven]
 		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [seven, 1493957]
 
-	Desses dados, você pode ver que a palavra **sete** ocorreu 1.493.957 vezes. Essa é a quantidade de vezes em que ela foi encontrada desde que a topologia foi iniciada.
+	A partir desses dados, você pode ver que a palavra **seven** ocorreu 1.493.957 vezes. Essa é a quantidade de vezes em que ela foi encontrada desde que a topologia foi iniciada.
 
 ### Parar a topologia
 
@@ -245,4 +239,4 @@ Neste tutorial sobre o Storm Apache, você usou o Storm Starter para aprender a 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

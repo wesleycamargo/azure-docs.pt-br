@@ -67,8 +67,8 @@ Se estiver interessado em obter mais informações sobre como gerenciar o SQL Da
 [carregar dados de amostra]: https://azure.microsoft.com/pt-BR/documentation/articles/sql-data-warehouse-get-started-manually-load-samples/
 [Powershell]: https://azure.microsoft.com/pt-BR/documentation/articles/sql-data-warehouse-reference-powershell-cmdlets/
 [API REST]: https://msdn.microsoft.com/library/azure/dn505719.aspx
-[MSDN]: https://msdn.microsoft.com/pt-BR/library/azure/dn546722.aspx
+[MSDN]: https://msdn.microsoft.com/library/azure/dn546722.aspx
 [firewall rules]: https://azure.microsoft.com/pt-BR/documentation/articles/sql-database-configure-firewall-settings/
 [Como instalar e configurar o PowerShell do Azure]: powershell-install-configure.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

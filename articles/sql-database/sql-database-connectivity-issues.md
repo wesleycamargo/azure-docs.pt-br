@@ -3,8 +3,8 @@
 	description="Ações para solucionar, diagnosticar e impedir erros de conexão e outras falhas transitórias ao interagir com o Banco de Dados SQL do Azure."
 	services="sql-database"
 	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
+	authors="dalechen"
+	manager="msmets"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/30/2015"
-	ms.author="genemi"/>
+	ms.date="12/10/2015"
+	ms.author="daleche"/>
 
 
 # Solucionar falhas transitórias e erros de conexão com o Banco de Dados SQL
@@ -514,4 +514,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying* é uma biblioteca de tentativas de repetições de finalidade geral licenciada do Apache 2.0, escrita em **Python**, para simplificar a tarefa de adicionar comportamento de tentativa de repetição para quase tudo.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article"
- ms.date="08/04/2015"
+ ms.date="12/04/2015"
  ms.author="krisragh"/>
 
 # Conceitos, terminologia e hierarquia de entidades do Agendador
@@ -190,8 +190,8 @@ Intervalo de nova tentativa, especificado com o objeto **retryInterval**, que é
 ## Consulte também
 
  [O que é o Agendador?](scheduler-intro.md)
-
- [Introdução à utilização do Agendador do Azure no Portal do Azure](scheduler-get-started-portal.md)
+ 
+ [Introdução à utilização do Agendador no Portal do Azure](scheduler-get-started-portal.md)
 
  [Planos e Cobrança no Agendador do Azure](scheduler-plans-billing.md)
 
@@ -207,4 +207,4 @@ Intervalo de nova tentativa, especificado com o objeto **retryInterval**, que é
 
  [Autenticação de saída do Agendador do Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

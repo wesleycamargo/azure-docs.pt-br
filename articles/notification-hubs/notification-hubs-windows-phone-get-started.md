@@ -51,8 +51,7 @@ A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais 
 
 O hub foi criado e configurado para enviar a notificação não autenticada para o Windows Phone.
 
-> [AZURE.NOTE]Este tutorial usa MPNS no modo não autenticado. O modo não autenticado MPNS é fornecido com restrições nas notificações que você pode enviar para cada canal. Os Hubs de Notificação oferecem suporte ao [Modo autenticado MPNS](http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx).
-<!--Refer to [Notification Hubs How-To for Windows Phone 8] for more information on how to use MPNS authenticated mode.-->
+> [AZURE.NOTE]Este tutorial usa MPNS no modo não autenticado. O modo não autenticado MPNS é fornecido com restrições nas notificações que você pode enviar para cada canal. Os Hubs de Notificação dão suporte ao [modo autenticado do MPNS](http://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx), permitindo que você carregue seu certificado.
 
 ##Conectando seu aplicativo ao Hub de Notificação
 
@@ -190,7 +189,6 @@ Neste exemplo simples, você transmite notificações para todos os seus disposi
 
 <!-- URLs. -->
 [Visual Studio 2012 Express para Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
-[Azure portal]: https://manage.windowsazure.com/
 [Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/library/jj927170.aspx
 [MPNS authenticated mode]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
 [Usar Hubs de Notificação para enviar notificações por push aos usuários]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
@@ -199,4 +197,4 @@ Neste exemplo simples, você transmite notificações para todos os seus disposi
 [catálogo de blocos]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [Notification Hub - WP Silverlight tutorial]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

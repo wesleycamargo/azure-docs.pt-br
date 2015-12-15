@@ -12,26 +12,22 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="08/18/2015"
+ ms.date="12/04/2015"
  ms.author="krisragh"/>
 
-# Introdução à utilização do Agendador do Azure no Portal do Azure
-
-## Configurar o Agendador usando o portal do Azure para criar trabalhos de forma rápida e fácil
-
-Para concluir este tutorial, você precisa de uma conta do Azure com o recurso Agendador do Azure habilitado. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte a [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+# Introdução à utilização do Agendador do Azure no portal clássico do Azure
 
 ## Introdução
 
-É fácil criar trabalhos e coleções de trabalhos no Agendador do Azure usando o Portal do Azure. Este tutorial orienta você durante a criação da coleção de trabalhos você usará para armazenar trabalhos, a criação de um trabalho em uma coleção de trabalhos e uma visão geral das tarefas de gerenciamento e monitoramento do trabalho disponíveis por meio do portal. Não é necessário experiência anterior com o Azure para usar este tutorial.
+É fácil criar trabalhos e coleções de trabalhos no Agendador do Azure. Este tutorial orienta você durante a criação da coleção de trabalhos você usará para armazenar trabalhos, a criação de um trabalho em uma coleção de trabalhos e uma visão geral das tarefas de gerenciamento e monitoramento do trabalho disponíveis. Não é necessário experiência anterior com o Azure para usar este tutorial.
 
-Na primeira vez que você abre o Portal do Azure, você é levado automaticamente para a guia **TODOS OS ITENS**. As colunas da guia **TODOS OS ITENS** podem ser classificadas. Para exibir seus trabalhos do Agendador e coleções de trabalhos, clique na guia **AGENDADOR**.
+Ao abrir o portal clássico do Azure pela primeira vez, você é levado automaticamente para a guia **TODOS OS ITENS**. As colunas da guia **TODOS OS ITENS** podem ser classificadas. Para exibir seus trabalhos do Agendador e coleções de trabalhos, clique na guia **AGENDADOR**.
 
 ![][1]
 
 ## Criar um conjunto de trabalhos e um trabalho
 
-1.  Entre no [Portal do Azure](https://manage.windowsazure.com/).  
+1.  Entre no [portal clássico do Azure](https://manage.windowsazure.com/).  
 
 2.  Clique em **Serviços de Aplicativos** > **Criar Novo** > **Agendador** e clique em **Criação Personalizada**. <br /><br /> ![][2]
 
@@ -127,13 +123,13 @@ Uma tabela que mostra uma lista fixa de status e métricas de configuração. Es
 
 ### Escala
 
-Na guia **Escala**, você pode alterar as configurações e a camada de serviço usada pelo seu Agendador.
+Na guia **Escala**, você pode alterar as configurações e a camada de serviço usada pelo Agendador.
 
 ![][10]
 
 #### Geral
 
-Isso indica se você está no plano **Gratuito** ou **Padrão**.
+Isso indica se você está no plano **Gratuito** ou **Standard**.
 
 #### Cotas
 
@@ -261,4 +257,4 @@ Por fim, para todos os tipos de ação, você pode alterar o agendamento em si e
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

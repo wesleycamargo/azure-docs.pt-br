@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="11/19/2015" 
+	ms.date="12/10/2015" 
 	ms.author="billmath"/>
 
 # Introdução ao Servidor Azure Multi-Factor Authentication na nuvem
@@ -25,13 +25,13 @@
 Agora que definimos que estamos usando a autenticação multifator na nuvem, vamos começar! Observe que, se estiver usando o Multi-Factor Authentication para Office 365 ou Multi-Factor Authentication para Administradores do Azure, você poderá pular para a etapa 3. Além disso, este documento lida com
 
 
-1. **Fazer uma assinatura do Azure**
+1. [Fazer uma assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/)
 	- Se você ainda não tiver uma assinatura do Azure, será necessário fazer uma. Se você estiver apenas começando e explorando usando o Azure MFA, use uma assinatura de avaliação.
-2. **Criar um Provedor do Multi-Factor Auth ou atribuir aos usuários uma licença do Azure AD Premium ou Enterprise Mobility Suite**
+2. [Criar um Provedor do Multi-Factor Auth](#creating-an-azure-multi-factor-auth-provider) ou [atribuir aos usuários uma licença do Azure AD Premium ou Enterprise Mobility Suite](#assigning-an-azure-ad-premium-or-enterprise-mobility-license-top-users)
 	- Você precisará criar um Provedor do Azure Multi-Factor Auth e atribuí-lo a seu diretório ou atribuir aos usuários licenças do Azure AD Premium ou EMS. O Azure Multi Factor Authentication está incluído no Azure Active Directory Premium e, consequentemente, também está incluído no Enterprise Mobility Suite. Se tiver o Azure AD Premium ou o EMS, você não precisará criar um Provedor do Multi-Factor Auth; em vez de habilitar o MFA para um usuário do Azure AD Premium ou EMS, uma licença do Azure AD Premium ou EMS precisará ser atribuída a esse usuário e, em seguida, um Administrador poderá atribuir o MFA ao usuário por meio do portal de gerenciamento. Consulte a seção abaixo sobre como atribuir licenças a usuários.
-3. **Ativar o Multi-Factor Authentication para seus usuários** 
+3. [Ativar o Multi-Factor Authentication para seus usuários](#turn-on-multi-factor-authentication-for-users)
 	- Habilite o Azure MFA para seus usuários por meio do Office 365 ou portal do Azure. Consulte a seção abaixo para obter informações sobre como fazer isso.
-4. **Enviar um email aos usuários finais para notificá-los sobre o MFA**
+4. [Enviar um email aos usuários finais para notificá-los sobre o MFA](#send-email-to-end-users)
 	- Depois que um usuário tiver ativado o Multi-Factor Authentication para a conta, é recomendável enviar a ele um email notificando-o sobre isso. O usuário será solicitado a concluir o processo na próxima vez que se conectar, de modo que ele não tenha que ficar esperando. Consulte a seção abaixo para ver um exemplo de modelo de email.
 
 
@@ -68,7 +68,7 @@ A autenticação multifator está disponível por padrão para administradores g
 
 Se tiver o Azure AD Premium ou o Enterprise Mobility Suite, você não precisará criar um Provedor do Multi-Factor Auth. Você só precisa atribuir uma licença aos usuários e começar a ativar o MFA para eles.
 
-### Para atribuir uma licença do Azure AD Premium ou Enterprise Mobility Suite
+### Como atribuir uma licença do Enterprise Mobility Suite ou do Azure AD Premium
 --------------------------------------------------------------------------------
 <ol>
 
@@ -156,4 +156,4 @@ Depois de habilitar os usuários, aconselhamos que você envie a eles um email i
 ## Próximas etapas
 Agora que você configurou o Multi-Factor Authentication na nuvem, é possível seguir adiante acessando [Configurando o Azure Multi-Factor Authentication.](multi-factor-authentication-whats-next.md) Nesse documento, você aprenderá sobre relatórios, alertas de fraude, personalização de mensagens de voz e todos os recursos oferecidos pelo Azure Multi-Factor Authentication.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

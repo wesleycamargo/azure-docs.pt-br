@@ -3,8 +3,8 @@
 	description="Saiba como usar o armazenamento de fila do Microsoft Azure para criar e excluir filas e inserir, espiar, obter e excluir mensagens de fila."
 	services="storage"
 	documentationCenter=".net"
-	authors="tamram"
-	manager="adinah"
+	authors="robinsh"
+	manager="carmonm"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="10/21/2015"
-	ms.author="tamram"/>
+	ms.date="12/04/2015"
+	ms.author="robinsh"/>
 
 # Como usar o armazenamento de Fila do .NET
 
@@ -261,4 +261,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Fila, siga es
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

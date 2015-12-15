@@ -237,7 +237,10 @@ Com os recursos internos de fornecimento contínuo do Serviço de Aplicativo do 
 
     ![Postman acessando Api](media/app-service-api-nodejs-api-app/postman-hitting-api.png)
 
-## Resumo
-Agora, você já criou e implantou com êxito seu primeiro Aplicativo de API usando o Node.js. A partir daqui, você pode adicionar código aos manipuladores para armazenar os dados em um banco de dados ou no disco de sua instância de Aplicativo de API. Agora que você a Implantação Contínua está conectada, a alteração da funcionalidade do Aplicativo de API e sua extensão será tão fácil quanto a alterar e enviar seu código por push ao repositório Git.
+## Próximas etapas
 
-<!---HONumber=AcomDC_1203_2015-->
+Agora, você já criou e implantou com êxito seu primeiro Aplicativo de API usando o Node.js. O próximo tutorial na série de introdução aos Aplicativos de API mostra como [consumir aplicativos de API de clientes JavaScript usando CORS](app-service-api-cors-consume-javascript.md).
+
+Para expandir esse exemplo, você pode adicionar código aos manipuladores para armazenar os dados em um banco de dados ou no disco da instância de Aplicativo de API. Agora que você a Implantação Contínua está conectada, a alteração da funcionalidade do Aplicativo de API e sua extensão será tão fácil quanto a alterar e enviar seu código por push ao repositório Git.
+
+<!---HONumber=AcomDC_1210_2015-->

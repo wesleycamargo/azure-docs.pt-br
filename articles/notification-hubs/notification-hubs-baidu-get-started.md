@@ -141,7 +141,7 @@ Você verá a mensagem **保存成功！** (**Salvo com êxito!**).
 
 ##Configurar seu Hub de Notificação
 
-1. Entre no [portal do Azure] e clique em **+NOVO** na parte inferior da tela.
+1. Entre no [Portal Clássico do Azure] e clique em **+NOVO** na parte inferior da tela.
 
 2. Clique em **Serviços de Aplicativos**, em **Barramento de Serviço**, em **Hub de Notificação** e em **Criação Rápida**.
 
@@ -264,7 +264,7 @@ Você verá a mensagem **保存成功！** (**Salvo com êxito!**).
 				public static String NotificationHubConnectionString = "...";
 			}
 
-	Defina o valor de **API\_KEY** com o que você recuperou do projeto de nuvem do Baidu anteriormente, **NotificationHubName** com o nome de seu hub de notificação do portal do Azure e **NotificationHubConnectionString** com a DefaultListenSharedAccessSignature do portal do Azure.
+	Defina o valor de **API\_KEY** com o que você recuperou do projeto de nuvem do Baidu anteriormente, **NotificationHubName** com o nome do hub de notificação do Portal Clássico do Azure e **NotificationHubConnectionString** com a DefaultListenSharedAccessSignature do Portal Clássico do Azure.
 
 11. Adicione uma nova classe chamada **DemoApplication.java** e adicione o seguinte código a ela:
 
@@ -399,7 +399,7 @@ Você verá a mensagem **保存成功！** (**Salvo com êxito!**).
 ##Enviar notificações para seu aplicativo
 
 
-Você pode testar o recebimento de notificações em seu aplicativo ao enviar notificações no portal do Azure usando a guia de depuração no hub de notificação, como mostrado na tela abaixo.
+Você pode testar o recebimento de notificações no aplicativo enviando notificações no Portal Clássico do Azure por meio da guia de depuração no hub de notificação, como mostra a tela abaixo.
 
 ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-debug.png)
 
@@ -413,7 +413,7 @@ Neste tutorial, optamos pela simplicidade e só demonstraremos os testes do apli
 
 * **Node.js**: [Como usar os Hubs de Notificação de Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md).
 
-* **Serviços Móveis do Azure**: para obter um exemplo de como enviar notificações de um back-end dos Serviços Móveis do Azure integrado aos Hubs de Notificação, confira "Introdução às notificações por push nos Serviços Móveis" ([back-end do .NET](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) | [back-end do JavaScript](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md)).
+* **Serviços Móveis do Azure**: para obter um exemplo de como enviar notificações de um Back-end dos Serviços Móveis do Azure integrado aos Hubs de Notificação, confira "Introdução às notificações por push nos Serviços Móveis" ([back-end do .NET](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) | [back-end do JavaScript](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md)).
 
 * **Java/PHP**: para obter um exemplo de como enviar notificações usando as APIs REST, confira "Como usar os Hubs de Notificação do Java/PHP" ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
 
@@ -459,7 +459,7 @@ Para testar este aplicativo com o emulador, na barra de ferramentas superior do 
 
 O aplicativo recupera 'userId' e 'channelId' do serviço de notificação por push do Baidu e é registrado no hub de notificação.
 
-Para enviar uma notificação de teste, você poderá usar a guia de depuração do portal. Se você criar o aplicativo de console do .NET para o Visual Studio, bastará pressionar a tecla F5 no Visual Studio para executar o aplicativo. O aplicativo enviará uma notificação que será exibida na área superior da notificação do seu dispositivo ou emulador.
+Para enviar uma notificação de teste, você poderá usar a guia de depuração do Portal Clássico do Azure. Se você criar o aplicativo de console do .NET para o Visual Studio, bastará pressionar a tecla F5 no Visual Studio para executar o aplicativo. O aplicativo enviará uma notificação que será exibida na área superior da notificação do seu dispositivo ou emulador.
 
 
 <!-- Images. -->
@@ -501,7 +501,7 @@ Para enviar uma notificação de teste, você poderá usar a guia de depuração
 [SDK para Android de Serviços Móveis]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [SDK de Push do Baidu do Android]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
 [SDK do Android Push Baidu]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
-[portal do Azure]: https://manage.windowsazure.com/
+[Portal Clássico do Azure]: https://manage.windowsazure.com/
 [portal do Baidu]: http://www.baidu.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

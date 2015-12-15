@@ -157,7 +157,7 @@ Seu hub de notificação agora está configurado para funcionar com o APNS e voc
 ## Enviar notificações
 
 
-Você pode testar o recebimento de notificações em seu aplicativo ao enviar notificações no portal do Azure usando a guia de depuração no hub de notificação, como mostrado na tela abaixo.
+Você pode testar o recebimento de notificações no aplicativo enviando notificações no [Portal Clássico do Azure] por meio da guia de depuração no hub de notificação, como mostrado na tela abaixo.
 
 ![][30]
 
@@ -205,12 +205,12 @@ Se você quiser enviar notificações em um aplicativo. Esta seção fornece um 
 		#define API_VERSION @"?api-version=2015-01"
 		#define HUBFULLACCESS @"<Enter Your DefaultFullSharedAccess Connection string>"
 
-4. Adicione as instruções `#import`a seguir ao seu arquivo ViewController.h.
+4. Adicione as instruções `#import`a seguir ao arquivo ViewController.h.
 
 		#import <CommonCrypto/CommonHMAC.h>
 		#import "HubInfo.h"
 
-5. Em ViewController.m, adicione o código a seguir à implementação da interface. Esse código analisará sua cadeia de conexão *DefaultFullSharedAccessSignature*. Como mencionamos na [referência da API REST](http://msdn.microsoft.com/library/azure/dn495627.aspx), essas informações analisadas serão usadas para gerar um token SaS para o cabeçalho de solicitação da **Autorização**.
+5. Em ViewController.m, adicione o código a seguir à implementação da interface. Esse código analisará a cadeia de conexão *DefaultFullSharedAccessSignature*. Como mencionamos na [referência da API REST](http://msdn.microsoft.com/library/azure/dn495627.aspx), essas informações analisadas serão usadas para gerar um token SaS para o cabeçalho de solicitação da **Autorização**.
 
 		NSString *HubEndpoint;
 		NSString *HubSasKeyName;
@@ -446,7 +446,7 @@ Para testar as notificações por push no iOS, você deve implantar o aplicativo
 
 	![][33]
 
-2. Você pode enviar uma notificação de teste do portal do Azure. Se você adicionou o código para enviar a notificação no aplicativo, toque dentro do campo de texto para inserir uma mensagem de notificação. Em seguida, pressione o botão **Enviar** no teclado ou o botão **Enviar Notificação** no modo de exibição para enviar a mensagem de notificação.
+2. Você pode enviar uma notificação de teste do [Portal Clássico do Azure]. Se você adicionou o código para enviar a notificação no aplicativo, toque dentro do campo de texto para inserir uma mensagem de notificação. Em seguida, pressione o botão **Enviar** no teclado ou o botão **Enviar Notificação** no modo de exibição para enviar a mensagem de notificação.
 
 	![][34]
 
@@ -494,7 +494,7 @@ Para obter informações mais gerais sobre os Hubs de Notificação, consulte [D
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[Azure portal]: https://manage.windowsazure.com/
+[Portal Clássico do Azure]: https://manage.windowsazure.com/
 [Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/library/jj927170.aspx
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
@@ -505,4 +505,4 @@ Para obter informações mais gerais sobre os Hubs de Notificação, consulte [D
 
 [Guia de programação de notificação local e por push]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

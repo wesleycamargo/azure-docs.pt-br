@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/01/2015"
+   ms.date="12/07/2015"
    ms.author="joaoma" />
 
 # Gerenciar um perfil de Gerenciador de tráfego do Azure
@@ -21,23 +21,23 @@ Você utiliza um perfil do Gerenciador de Tráfego para especificar quais pontos
 
 ## Criar um perfil do Gerenciador de Tráfego usando a Criação Rápida
 
-Você pode criar rapidamente um perfil do Gerenciador de Tráfego usando a Criação Rápida no portal do Azure. Criação Rápida permite criar perfis com configurações básicas. No entanto, você não pode usar a Criação Rápida para configurações como do conjunto de pontos de extremidade (serviços de nuvem e sites), da ordem de failover para o método de roteamento de tráfego de failover ou configurações de monitoramento. Depois de criar seu perfil, você pode definir essas configurações no Portal do Azure. O Gerenciador de Tráfego dá suporte a até 200 pontos de extremidade por perfil. No entanto, a maioria dos cenários de uso exigem apenas um pequeno número de pontos de extremidade.
+Você pode criar rapidamente um perfil do Gerenciador de Tráfego usando a Criação Rápida no portal clássico do Azure. Criação Rápida permite criar perfis com configurações básicas. No entanto, você não pode usar a Criação Rápida para configurações como do conjunto de pontos de extremidade (serviços de nuvem e sites), da ordem de failover para o método de roteamento de tráfego de failover ou configurações de monitoramento. Depois de criar seu perfil, você pode definir essas configurações no portal clássico do Azure. O Gerenciador de Tráfego dá suporte a até 200 pontos de extremidade por perfil. No entanto, a maioria dos cenários de uso exigem apenas um pequeno número de pontos de extremidade.
 
 ### Para criar um novo perfil do Gerenciador de Tráfego
 
 1. **Implante seus serviços de nuvem e sites no ambiente de produção.** Para obter mais informações sobre serviços de nuvem, consulte [Serviços de Nuvem](http://go.microsoft.com/fwlink/p/?LinkId=314074). Para obter mais informações sobre serviços de nuvem, consulte [Melhores práticas](https://msdn.microsoft.com/library/azure/5229dd1c-5a91-4869-8522-bed8597d9cf5#bkmk_TrafficManagerBestPracticesProfile). Para obter mais informações sobre sites, consulte [Sites](http://go.microsoft.com/fwlink/p/?LinkId=393327).
 
-2. **Faça logon no Portal do Azure.** Para criar um novo perfil do Gerenciador de Tráfego, clique em **Novo** no canto inferior esquerdo do portal, clique em **Serviços de Rede > Gerenciador de Tráfego** e depois clique em **Criação Rápida** para começar a configurar seu perfil.
+2. Faça logon no **portal clássico do Azure** Para criar um novo perfil do Gerenciador de Tráfego, clique em **Novo** no canto inferior esquerdo do portal, clique em **Serviços de Rede > Gerenciador de Tráfego** e depois clique em **Criação Rápida** para começar a configurar seu perfil.
 3. **Configure o prefixo DNS.** Dê ao seu perfil do gerenciador de tráfego um nome do prefixo DNS único. Você pode especificar apenas o prefixo para um nome de domínio do Gerenciador de Tráfego.
 4. **Selecione a assinatura.** Selecione a assinatura do Azure apropriada. Cada perfil está associado uma única assinatura. Se você tiver apenas uma assinatura, esta opção não aparecerá.
 5. **Selecione o método de roteamento de tráfego.** Selecione o método de roteamento de tráfego em **Política de roteamento de tráfego**. Para obter mais informações sobre os métodos de roteamento de tráfego, consulte [Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-load-balancing-methods.md).
-6. **Clique em "Criar" para criar seu novo perfil**. Quando a configuração do perfil for concluída, você poderá localizar seu perfil no painel do Gerenciador de Tráfego, no Portal do Azure.
-7. **Configure pontos de extremidade, monitoramento e configurações adicionais no Portal do Azure.** Como você só pode definir configurações básicas usando a Criação Rápida, é necessário definir configurações adicionais, como a lista de pontos de extremidade e a ordem de failover do ponto de extremidade, para concluir a configuração desejada. 
+6. **Clique em "Criar" para criar seu novo perfil**. Quando a configuração do perfil for concluída, você poderá localizar seu perfil no painel do Gerenciador de Tráfego, no portal clássico do Azure.
+7. **Configure pontos de extremidade, monitoramento e configurações adicionais no portal clássico do Azure.** Como você só pode definir configurações básicas usando a Criação Rápida, é necessário definir configurações adicionais, como a lista de pontos de extremidade e a ordem de failover do ponto de extremidade, para concluir a configuração desejada. 
 
 
 ## Desabilitar, habilitar ou excluir um perfil
 
-Você pode desabilitar um perfil existente do Gerenciador de Tráfego para que ele não referencie solicitações de usuários para seus pontos de extremidade configurados. Quando você desabilita um perfil do Gerenciador de Tráfego, o próprio perfil e as informações contidas nele permanecem intactos e podem ser editados na interface do Gerenciador de Tráfego. Quando quiser habilitar o perfil novamente, você poderá fazer isso facilmente no Portal do Azure, e as referências serão retomadas. Quando você cria um perfil do Gerenciador de Tráfego no Portal do Azure, ele é automaticamente habilitado. Se você decidir que um perfil não é mais necessário, você poderá excluí-lo.
+Você pode desabilitar um perfil existente do Gerenciador de Tráfego para que ele não referencie solicitações de usuários para seus pontos de extremidade configurados. Quando você desabilita um perfil do Gerenciador de Tráfego, o próprio perfil e as informações contidas nele permanecem intactos e podem ser editados na interface do Gerenciador de Tráfego. Quando quiser habilitar o perfil novamente, você poderá fazer isso facilmente no portal clássico do Azure, e as referências serão retomadas. Quando você cria um perfil do Gerenciador de Tráfego no portal clássico do Azure, ele é automaticamente habilitado. Se você decidir que um perfil não é mais necessário, você poderá excluí-lo.
 
 ### Para desabilitar um perfil
 
@@ -61,11 +61,11 @@ Você pode desabilitar um perfil existente do Gerenciador de Tráfego para que e
 
 ## Exibir histórico de alterações de perfil do Gerenciador de Tráfego
 
-Você pode exibir o histórico de alterações para o perfil do Gerenciador de Tráfego no Portal do azure nos Serviços de Gerenciamento.
+Você pode exibir o histórico de alterações para o perfil do Gerenciador de Tráfego no portal clássico do Azure nos Serviços de Gerenciamento.
 
 ### Para exibir o histórico de alterações do Gerenciador de Tráfego
 
-1. No painel esquerdo do Portal do Azure, clique em **Serviços de Gerenciamento**.
+1. No painel esquerdo do portal clássico do Azure, clique em **Serviços de Gerenciamento**.
 2. Na página dos Serviços de Gerenciamento, clique em **Logs de Operação**.
 3. Na página Logs de Operação, você pode filtrar para exibir o histórico de alterações para o seu perfil do Gerenciador de Tráfego. Depois de selecionar as opções de filtragem, clique na marca de seleção para exibir os resultados.
    - Para exibir alterações do perfil para todos os perfis, selecione o intervalo de tempo e a assinatura e selecione **Gerenciador de Tráfego** no menu de atalho **Tipo**.
@@ -85,4 +85,4 @@ Você pode exibir o histórico de alterações para o perfil do Gerenciador de T
 
 [Solucionando problemas de estado degradado do Gerenciador de Tráfego](traffic-manager-troubleshooting-degraded.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -32,7 +32,7 @@ Um domínio é um nome exclusivo no sistema de nome de domínio, por exemplo "co
 
 Uma zona DNS é usada para hospedar os registros DNS para um domínio específico. Por exemplo, o domínio "contoso.com" pode conter uma série de registros DNS, como “mail.contoso.com” (para um servidor de email) e “www.contoso.com” (para um site da Web).
 
-O Azure DNS permite hospedar uma zona DNS e, portanto, gerenciar os registros DNS para um domínio no Azure. Tenha em mente que o Azure DNS não é um registrador de domínio.
+O Azure DNS permite hospedar uma zona DNS e, portanto, gerenciar os registros DNS para um domínio no Azure. Tenha em mente que o Azure DNS não é o registrador de domínio.
 
 O Sistema de nomes de domínio é uma hierarquia de domínios. A hierarquia começa no domínio “raiz”, cujo nome é simplesmente “.”. Abaixo dele vêm domínios de nível superior, como “com”, “net”, “org”, “uk” ou “jp”. Abaixo desses estão domínios de segundo nível, como “org.uk” ou “co.jp”. E assim por diante.
 
@@ -159,4 +159,4 @@ Da mesma forma que é feito ao delegar usando um registrador, podemos verificar 
 
 [Referência da API REST do Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

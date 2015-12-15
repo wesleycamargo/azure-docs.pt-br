@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
 	ms.topic="get-started-article" 
-	ms.date="11/06/2015"
+	ms.date="11/30/2015"
 	ms.author="glenga"/>
 
 
@@ -90,7 +90,7 @@ O estágio final deste tutorial consiste em hospedar e executar seu novo aplicat
 
 1. Navegue até o local onde salvou os arquivos de projeto compactados, expanda os arquivos em seu computador e inicie um dos arquivos de comando a seguir da subpasta **server**.
 
-	+ **.\\start-iisexpress.ps1** (computadores com o Windows)
+	+ ** launch-windows** (computadores com Windows)
 	+ ** launch-mac.command** (computadores com Mac OS X)
 	+ ** launch-linux.sh** (computadores com Linux)
 
@@ -154,4 +154,4 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

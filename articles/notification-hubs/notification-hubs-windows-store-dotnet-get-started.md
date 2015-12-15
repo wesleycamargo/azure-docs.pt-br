@@ -143,7 +143,7 @@ O hub de notificação agora está configurado para trabalhar com o WNS e você 
 
     Esse código recupera no WNS o URI do canal para o aplicativo e registra esse URI do canal no hub de notificação.
 
-    >[AZURE.NOTE]Certifique-se de substituir o espaço reservado "nome do hub" pelo nome do hub de notificação que é exibido no portal na guia **Hubs de Notificação** (por exemplo, **mynotificationhub2** no exemplo anterior). Aém disso, substitua o espaço reservado da cadeia de conexão com a cadeia de conexão chamada **DefaultListenSharedAccessSignature** que você obteve na seção anterior.
+    >[AZURE.NOTE]Substitua o espaço reservado "nome do hub" pelo nome do hub de notificação que é exibido no [Portal Clássico do Azure] na guia **Hubs de Notificação** (por exemplo, **mynotificationhub2** no exemplo anterior). Aém disso, substitua o espaço reservado da cadeia de conexão com a cadeia de conexão chamada **DefaultListenSharedAccessSignature** que você obteve na seção anterior.
 
 5. Na parte superior do manipulador de eventos **OnLaunched** no App.xaml.cs, adicione a seguinte chamada para o novo método **InitNotificationsAsync**:
 
@@ -171,7 +171,7 @@ Seu aplicativo agora está pronto para receber notificações do sistema.
 
 ##Enviar notificações 
 
-Você pode testar o recebimento de notificações em seu aplicativo ao enviar notificações no portal do Azure usando a guia de depuração no hub de notificação, como mostrado na tela abaixo.
+Você pode testar o recebimento de notificações no aplicativo enviando notificações no [Portal Clássico do Azure] por meio da guia de depuração no hub de notificação, como mostrado na tela abaixo.
 
 ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-debug.png)
 
@@ -181,11 +181,11 @@ Neste tutorial, optamos pela simplicidade e só demonstraremos os testes do apli
 
 * **Interface REST**: você pode dar suporte à notificação em qualquer plataforma de back-end usando a [interface REST](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
 
-* **SDK dos Hubs de Notificações do Microsoft Azure**: no Gerenciador de Pacotes do Nuget para o Visual Studio, execute [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+* **SDK dos Hubs de Notificação do Microsoft Azure**: no Gerenciador de Pacotes do Nuget para o Visual Studio, execute [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 * **Node.js**: [Como usar os Hubs de Notificação de Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md).
 
-* **Serviços Móveis do Azure**: para obter um exemplo de como enviar notificações de um back-end de Serviços Móveis do Azure integrado aos Hubs de Notificação, confira "Introdução às notificações por push nos Serviços Móveis" ([back-end do .NET](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) | [back-end do JavaScript](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md)).
+* **Serviços Móveis do Azure**: para obter um exemplo de como enviar notificações de um Back-end dos Serviços Móveis do Azure integrado aos Hubs de Notificação, confira "Introdução às notificações por push nos Serviços Móveis" ([back-end do .NET](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) | [back-end do JavaScript](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md)).
 
 * **Java/PHP**: para obter um exemplo de como enviar notificações usando as APIs REST, confira "Como usar os Hubs de Notificação do Java/PHP" ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
 
@@ -205,7 +205,7 @@ Para enviar notificações usando um aplicativo de console .NET, siga estas etap
 
 	Isso exibe o Console do Gerenciador de Pacotes no Visual Studio.
 
-3. Na janela do Console do Gerenciador de Pacotes, defina o **Projeto padrão** como o seu novo projeto de aplicativo do console e execute o seguinte comando na janela do console:
+3. Na janela do Console do Gerenciador de Pacotes, defina o **Projeto padrão** como o novo projeto de aplicativo do console e execute o seguinte comando na janela do console:
 
         Install-Package Microsoft.Azure.NotificationHubs
 
@@ -228,7 +228,7 @@ Para enviar notificações usando um aplicativo de console .NET, siga estas etap
             await hub.SendWindowsNativeNotificationAsync(toast);
         }
 
-   	Substitua o espaço reservado de "nome do hub" pelo nome do hub de notificação que aparece no portal, na guia **Hubs de Notificação**. Além disso, substitua o espaço reservado da cadeia de conexão pela cadeia de conexão chamada **DefaultFullSharedAccessSignature** que você obteve na seção “Configurar seu hub de notificação”.
+   	Substitua o espaço reservado "nome do hub" pelo nome do hub de notificação que aparece no [Portal Clássico do Azure], na guia **Hubs de Notificação**. Além disso, substitua o espaço reservado da cadeia de conexão pela cadeia de conexão chamada **DefaultFullSharedAccessSignature** que você obteve na seção “Configurar seu hub de notificação”.
 
 	>[AZURE.NOTE]Verifique se você está usando a cadeia de conexão com o acesso **Completo** e não com o acesso **Escuta**. A cadeia de acesso de escuta não tem permissões para enviar notificações.
 
@@ -273,7 +273,7 @@ Para obter mais informações gerais sobre os Hubs de Notificação, confira [Di
 [20]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-universal-app-install-package.png
 
 <!-- URLs. -->
-[Azure portal]: https://manage.windowsazure.com/
+[Portal Clássico do Azure]: https://manage.windowsazure.com/
 [Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/library/jj927170.aspx
 
 [Usar Hubs de Notificação para enviar notificações por push aos usuários]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
@@ -284,4 +284,4 @@ Para obter mais informações gerais sobre os Hubs de Notificação, confira [Di
 [catálogo de blocos]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [visão geral de emblema]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

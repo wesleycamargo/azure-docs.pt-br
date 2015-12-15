@@ -37,9 +37,8 @@ Este artigo mostrará como criar tudo o que você precisa (incluindo o servidor 
 
 As etapas individuais para criar um pool de banco de dados elástico com o Azure PowerShell são divididas e explicadas por proporcionar clareza. Para quem deseja apenas uma lista concisa de comandos, confira a seção **Juntando as peças** ao final deste artigo.
 
-> [AZURE.IMPORTANT]A partir da liberação da Visualização do Azure PowerShell 1.0, o cmdlet Switch-AzureMode não está mais disponível, e os cmdlets contidos no módulo do Gerenciador de Recursos do Azure foram renomeados. Os exemplos neste artigo usam a nova convenção de nomenclatura do PowerShell 1.0 Preview. Para obter informações detalhadas, consulte [Substituição de Switch-AzureMode no Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
-Para executar os cmdlets do PowerShell, você precisa ter o Azure PowerShell instalado e em execução, e devido à remoção de Switch-AzureMode, você deve baixar e instalar o Azure PowerShell mais recente executando o [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
+Para executar os cmdlets do PowerShell, você precisa ter o Azure PowerShell instalado e em execução. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 
 
 
@@ -55,14 +54,14 @@ Após entrar, você verá algumas informações na tela, incluindo a ID usada pa
 
 ### Selecionar sua assinatura do Azure
 
-Para selecionar a assinatura, será necessário ter a ID ou o nome da assinatura (**-SubscriptionName**). Você pode copiar essas informações da etapa anterior, ou, se tiver várias assinaturas, poderá executar o cmdlet **Get-AzureSubscription** e copiar as informações da assinatura desejada do resultado. Quando tiver sua assinatura, execute o seguinte cmdlet:
+Para selecionar a assinatura, é necessário ter a ID ou o nome da assinatura (**-SubscriptionName**). Você pode copiar essas informações da etapa anterior, ou, se tiver várias assinaturas, poderá executar o cmdlet **Get-AzureSubscription** e copiar as informações da assinatura desejada do resultado. Quando tiver sua assinatura, execute o seguinte cmdlet:
 
 	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
 
 ## Criar um grupo de recursos, servidor e regra de firewall
 
-Agora que você tem acesso para executar cmdlets em sua assinatura do Azure, a próxima etapa é estabelecer o grupo de recursos que contém o servidor no qual o pool de banco de dados elástico será criado para conter vários bancos de dados. Você pode editar o próximo comando a fim de usar qualquer local válido de sua escolha. Execute **(Get-AzureRMLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** para obter uma lista de locais válidos.
+Agora que você tem acesso para executar cmdlets em sua assinatura do Azure, a próxima etapa é estabelecer o grupo de recursos que contém o servidor no qual o pool de banco de dados elástico será criado para conter vários bancos de dados. Você pode editar o próximo comando a fim de usar qualquer local válido de sua escolha. Execute **(Get-AzureRmLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** para obter uma lista de locais válidos.
 
 Se você já tiver um grupo de recursos, poderá ir até a próxima etapa ou executar o comando a seguir para criar um novo grupo de recursos:
 
@@ -79,7 +78,7 @@ Ao executar esse comando, uma janela é aberta solicitando um **Nome de usuário
 
 ### Configurar uma regra de firewall de servidor para permitir o acesso ao servidor
 
-Estabeleça uma regra de firewall para acessar o servidor. Execute o comando [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603586.aspx) substituindo os endereços IP inicial e final pelos valores válidos para o seu computador.
+Estabeleça uma regra de firewall para acessar o servidor. Execute o comando [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603586.aspx) substituindo os endereços IP inicial e final pelos valores válidos para o computador.
 
 Se o servidor precisar permitir o acesso a outros serviços do Azure, adicione a opção **- AllowAllAzureIPs** que adicionará uma regra de firewall especial e permitirá que todo o tráfego do azure acesse o servidor.
 
@@ -100,7 +99,7 @@ Agora que você tem um grupo de recursos, um servidor e uma regra de firewall co
 
 O pool criado na etapa anterior está vazio, ele não contém bancos de dados elásticos. As seções a seguir mostram como criar novos bancos de dados elásticos dentro do pool e também como adicionar bancos de dados existentes ao pool.
 
-*Depois de criar um pool, você também pode usar o Transact-SQL para criar novos bancos de dados elásticos no pool e mover bancos de dados existentes para dentro e fora de um pool. Para obter mais detalhes, consulte [Referência do pool de banco de dados elástico - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+*Depois de criar um pool, você também pode usar o Transact-SQL para criar novos bancos de dados elásticos no pool e mover bancos de dados existentes para dentro e fora de um pool. Para saber mais, confira [Referência do Pool de Banco de Dados Elástico – Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
 ### Criar um novo banco de dados elástico dentro de um pool de banco de dados elástico
 
@@ -236,4 +235,4 @@ Depois de criar um pool de banco de dados elástico, você pode gerenciar os ban
 
 Para saber mais sobre pools de banco de dados elásticos e bancos de dados elásticos, incluindo detalhes sobre APIs e erros, confira a [Referência de bancos de dados elásticos](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

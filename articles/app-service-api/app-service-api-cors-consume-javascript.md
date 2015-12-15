@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/27/2015"
+	ms.date="12/04/2015"
 	ms.author="tdykstra"/>
 
 # Consumir um aplicativo de API do JavaScript usando CORS
@@ -26,19 +26,23 @@ Este tutorial mostra como consumir um aplicativo de API usando código JavaScrip
 
 ![](./media/app-service-api-cors-consume-javascript/homepageazure.png)
  
-Este é o segundo de uma série de tutoriais que mostram como trabalhar com aplicativos de API no Serviço de Aplicativo do Azure. Para saber mais sobre a série, confira [Introdução aos Aplicativos de API e ao ASP.NET no Serviço de Aplicativo do Azure](app-service-api-dotnet-get-started.md).
+Este é o segundo de uma série de tutoriais sobre como trabalhar com aplicativos de API no Serviço de Aplicativo do Azure. Para ir para o primeiro da série, escolha o primeiro tópico da lista suspensa **Tópico** na parte superior da página.
 
-## Introdução ao CORS
+## Suporte a CORS no Serviço de Aplicativo do Azure
 
 Por motivos de segurança, o comportamento padrão dos navegadores impede que o JavaScript chame APIs para um domínio diferente daquele de onde ele vem. Por exemplo, você pode fazer uma chamada de uma página Web para um ponto de extremidade de API contoso.com, mas não para um ponto de extremidade fabrikam.com. O CORS (Compartilhamento de Recursos Entre Origens) é um protocolo de internet que foi projetado para permitir cenários em que é necessário fazer chamadas de API entre domínios. No Serviço de Aplicativo do Azure, um exemplo desse cenário é o cliente JavaScript estar em execução em um aplicativo Web enquanto a API está em execução em um aplicativo de API.
 
-Em um projeto de API Web, você pode instalar pacotes NuGet CORS que permitem a especificação, no código, dos domínios dos quais a API aceitará chamadas JavaScript. Como alternativa, você pode usar o recurso CORS incorporado no Serviço de Aplicativo do Azure para especificar de quais domínios o aplicativo de API aceitará chamadas. A primeira metade deste tutorial mostra como usar o recurso do Azure, que funciona em todos os idiomas com suporte do serviço dos Aplicativos de API. A segunda metade é opcional e mostra o método do pacote NuGet que funciona com a API Web ASP.NET.
+O Serviço de Aplicativo do Azure oferece uma maneira fácil de configurar os domínios que têm permissão para chamar um aplicativo de API e o recurso CORS funciona da mesma forma para todas as linguagens às quais o serviço de Aplicativos de API oferece suporte, como Java e Node.js.
+
+## Como acompanhar este tutorial
+
+Este tutorial trabalha com um aplicativo de exemplo que você baixa e cria um aplicativo de API para ele no [primeiro tutorial da versão ASP.NET desta série](app-service-api-dotnet-get-started.md). Se você quiser trabalhar com Java ou Node.js, consulte a [seção de configuração de CORS](#corsconfig) abaixo para obter instruções gerais que se aplicam a todos os aplicativos de API.
 
 ## O projeto de exemplo ContactsList.Angular
 
-Neste tutorial, você usa os projetos de exemplo que baixou no primeiro tutorial desta série e os recursos do Azure (aplicativo de API e aplicativo Web) que criou no primeiro tutorial.
+No [aplicativo de exemplo ContactsList](https://github.com/Azure-Samples/app-service-api-dotnet-contact-list), o projeto ContactsList.Angular é um cliente simples do AngularJS para o projeto de API Web ContactsList.API.
 
-O projeto ContactsList.Angular é um cliente simples do AngularJS para o projeto de API Web ContactsList.API. O código JavaScript do AngularJS que chama a API está no arquivo *index.html* no projeto ContactsList.Angular. O código define as funções e adiciona-as ao objeto `$scope`, como mostrado aqui, em que o método Get da API é definido como `$scope.refresh()`.
+O código JavaScript do AngularJS que chama a API está no arquivo *index.html* no projeto ContactsList.Angular. O código define as funções e adiciona-as ao objeto `$scope`, como mostrado aqui, em que o método Get da API é definido como `$scope.refresh()`.
 
 		angular.module('myApp', []).controller('contactListCtrl', function ($scope, $http) {
 		    $scope.baseurl = 'http://localhost:51864';
@@ -64,7 +68,7 @@ O projeto ContactsList.Angular é um cliente simples do AngularJS para o projeto
 		    $scope.refresh();
 		});
 
-O código chama o método $scope.refresh() quando a página carrega (no final do trecho de código mostrado acima) e é conectado ao botão **Atualizar** na interface do usuário.
+O código chama o método $scope.refresh() quando a página é carregada (no fim do trecho de código mostrado acima) e é conectado ao botão **Atualizar** na interface do usuário.
 
 		<th><button class="btn btn-sm btn-info" ng-click="refresh()">Refresh</button></th>
 
@@ -88,16 +92,16 @@ Em seguida, execute o front-end AngularJS na nuvem e chame o back-end da API que
 
 1. No projeto ContactsList.Angular, abra *index.html*.
 
-2. Comente a linha que define `baseUrl` como URL localhost, remova a linha que define `baseUrl` como uma URL de azurewebsites.net e substitua o espaço reservado pelo nome real do aplicativo de API criado anteriormente. Se você nomeou o aplicativo de API ContactsListAPI, o código agora se parece com o trecho a seguir.
+2. Marque como comentário a linha que define `baseUrl` como URL localhost, remova a marca de comentário da linha que define `baseUrl` como uma URL de azurewebsites.net e substitua o espaço reservado pelo nome real do aplicativo de API criado anteriormente. Se você nomeou o aplicativo de API ContactsListAPI, o código agora se parece com o trecho a seguir.
 
 		$scope.baseUrl = 'https://ContactsListAPI.azurewebsites.net';
 		//$scope.baseUrl = 'http://localhost:51864';
 
 ### Implantar o projeto ContactsList.Angular no aplicativo Web
 
-Você pode criar um novo aplicativo Web no qual implantar o projeto AngularJS, mas, para este tutorial, ele será implantado no mesmo aplicativo Web criado anteriormente. O nome do aplicativo Web pode indicar que você implantou um projeto MVC ASP.NET nele anteriormente, mas, após essa implantação, ele executará o código AngularJS.
+Você pode criar um novo aplicativo Web no qual implantar o projeto AngularJS, mas, para este tutorial, ele será implantado no mesmo aplicativo Web criado no tutorial anterior. O nome do aplicativo Web pode indicar que você implantou um projeto MVC ASP.NET nele anteriormente, mas, após essa implantação, ele executará o código AngularJS.
 
-8. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto ContactsList.Angular e clique em **Publicar**.
+8. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto ContactsList.Angular e em **Publicar**.
 
 9. Clique na guia **Perfil**.
 
@@ -107,11 +111,11 @@ Você pode criar um novo aplicativo Web no qual implantar o projeto AngularJS, m
 
 5. Depois de definir **Exibição** com o valor **Grupo de Recursos** padrão, expanda o grupo de recursos que você criou para esta série de tutoriais.
 
-7. Selecione o aplicativo Web que você criou no primeiro tutorial (não selecione o aplicativo de API) e clique em **OK**.
+7. Escolha o aplicativo Web que você criou no primeiro tutorial (não selecione o aplicativo de API) e clique em **OK**.
 
 8. Clique na guia **Configurações**.
 
-9. Expanda **Opções de Publicação do Arquivo** e selecione **Remover arquivos adicionais no destino**.
+9. Expanda **Opções de Publicação do Arquivo** e escolha **Remover arquivos adicionais no destino**.
 
 	![](./media/app-service-api-cors-consume-javascript/removeadditionalfiles.png)
 
@@ -123,17 +127,17 @@ Você pode criar um novo aplicativo Web no qual implantar o projeto AngularJS, m
 
 	![](./media/app-service-api-cors-consume-javascript/corserror.png)
 
-## Configurar o CORS para o aplicativo de API de destino no Azure
+## <a id="corsconfig"></a> Configurar o CORS para o aplicativo de API de destino no Azure
 
 8. Em outra janela do navegador, vá para o [portal do Azure](https://portal.azure.com/).
 
-9. Navegue até a folha de aplicativo de API do aplicativo de API que você criou no primeiro tutorial.
+9. Clique em **Procurar > Aplicativos de API** e escolha o aplicativo de API de destino. Para este tutorial, esse é o aplicativo de API que você criou no primeiro tutorial para o projeto ContactsList.API.
 
-10. Clique em **Configurações**.
+10. Na folha **Aplicativo de API**, clique em **Configurações**.
 
-11. Encontre a seção **API** e clique em **CORS**.
+11. Localize a seção **API** e clique em **CORS**.
 
-12. Na caixa de texto, insira a URL do aplicativo Web que você criou no primeiro tutorial para o front-end MVC ASP.NET. Por exemplo, se você nomeou o aplicativo Web ContactsListMVC, digite "http://contactslistmvc.azurewebsites.net".
+12. Na caixa de texto, digite a URL da qual você deseja permitir chamadas. Por exemplo, se você implantou o aplicativo JavaScript para um aplicativo Web chamado ContactsListMVC, digite "http://contactslistmvc.azurewebsites.net".
 
 	Observe que, como alternativa a digitar uma URL, você pode inserir um asterisco (*) para especificar que todos os domínios de origem são aceitos.
 
@@ -141,35 +145,34 @@ Você pode criar um novo aplicativo Web no qual implantar o projeto AngularJS, m
 
 	![](./media/app-service-api-cors-consume-javascript/corsinportal.png)
 
-14. Volte para a janela do navegador que exibe o cliente AngularJS em execução no aplicativo Web do Azure e atualize a página ou clique no botão **Atualizar**.
+14. Vá para a janela do navegador que exibe o cliente AngularJS e atualize a página ou clique no botão **Atualizar**.
 
 	A página agora mostra os contatos armazenados no sistema de arquivos do aplicativo de API do Azure.
 
 	![](./media/app-service-api-cors-consume-javascript/homepageazure.png)
 
-## Configurar o CORS para o aplicativo de API de destino no código API Web
+### CORS no Gerenciador de Recursos do Azure
 
-Se você não quiser usar o suporte de CORS do Serviço de Aplicativo do Azure, uma alternativa é habilitar CORS em seu código de API Web ASP.NET. Esse processo está documentado com profundidade em [Habilitando solicitações entre origens na API Web ASP.NET 2](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api). Para aplicativos de API construídos usando a API Web do ASP.NET, o processo é exatamente o mesmo, mas será resumido aqui.
+Você também pode configurar o CORS para um aplicativo de API usando ferramentas do Gerenciador de Recursos do Azure, como o Azure PowerShell, a CLI ou o [Gerenciador de Recursos](https://resources.azure.com/).
 
-Nesta seção, você irá desabilitar o suporte a CORS do Serviço de Aplicativo do Azure e habilitar o suporte a CORS da API Web. Observe que desabilitar o suporte a CORS do Azure não é uma etapa opcional antes de ativar o suporte da API Web. Se você usar ambos os métodos ao mesmo tempo, o CORS do Azure terá precedência e CORS da API Web não funcionará. Por exemplo, se você habilitar um domínio de origem no Azure e habilitar todos os domínios de origem no código de API Web, o aplicativo de API do Azure aceitará somente chamadas de domínio especificado no Azure.
+Defina a propriedade `cors` no tipo de recurso Microsoft.Web/sites/config para o recurso <site name>/web. Por exemplo, no **Gerenciador de Recursos**, vá para **assinaturas > {sua assinatura} > resourceGroups > {seu grupo de recursos} > provedores > Microsoft.Web > sites > {seu site} > configuração > web** e você verá a propriedade cors:
 
-### Desabilitar o suporte a CORS do Azure
+		"cors": {
+		    "allowedOrigins": [
+		        "contactslistmvc.azurewebsites.net"
+		    ]
+		}
 
-1. Para desabilitar o suporte a CORS do Azure, volte ao portal do Azure, limpe a URL que você inseriu na folha CORS e clique em **Salvar**.
- 
-3.  Volte para a URL do aplicativo Web em que você implantou o aplicativo AngularJS e atualize a página ou clique no botão **Atualizar**.
+### CORS do Serviço de Aplicativo versus CORS da API Web
 
-	Você verá "Erro ao carregar contatos" novamente.
+Para projetos de API Web ASP.NET, também é fácil configurar CORS no código, como você verá na seção a seguir. No entanto, se você usar CORS do Serviço de Aplicativo e CORS da API Web juntos, o CORS do Serviço de Aplicativo terá precedência e o CORS da API Web não terá efeito. Por exemplo, se você habilitar um domínio de origem no Serviço de Aplicativo e habilitar todos os domínios de origem no código de API Web, o aplicativo de API do Azure aceitará somente chamadas de domínio especificadas no Azure.
 
-	![](./media/app-service-api-cors-consume-javascript/corserror.png)
 
-### Habilitar suporte a CORS da API Web
+## Como configurar CORS no código de API Web
 
-A funcionalidade CORS para API Web é fornecida pelo pacote do NuGet [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/). O pacote já está instalado no aplicativo de exemplo baixado e tudo o que você precisa fazer para habilitar o CORS é remover os comentários de alguns códigos.
+Em um projeto de API Web, você pode instalar o pacote NuGet [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/) que o habilita a especificar no código de quais domínios a API aceitará chamadas JavaScript. Esse processo está documentado de forma aprofundada em [Habilitando solicitações entre origens na API Web ASP.NET 2](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api). Para aplicativos de API construídos usando a API Web do ASP.NET, o processo é exatamente o mesmo, mas será resumido aqui.
 
-1. No projeto ContactsList.API, abra o arquivo *App\_Start/WebApiConfig.cs*. Remova a linha de código config.EnableCors do método **Register** em **WebApiConfig**. 
-
-	Depois que o arquivo é atualizado, o código deve se parecer com o seguinte:
+1. Em um projeto de API Web, inclua uma linha de código `config.EnableCors()` no método **Register** de **WebApiConfig**, como no exemplo a seguir. 
 
 		public static class WebApiConfig
 	    {
@@ -177,7 +180,7 @@ A funcionalidade CORS para API Web é fornecida pelo pacote do NuGet [Microsoft.
 	        {
 	            // Web API configuration and services
 	            
-		        // Uncomment the following line to control CORS by using Web API code
+		        // The following line enables you to control CORS by using Web API code
 				config.EnableCors();
 	
 	            // Web API routes
@@ -191,7 +194,7 @@ A funcionalidade CORS para API Web é fornecida pelo pacote do NuGet [Microsoft.
 	        }
 	    }
 
-1. Abra o arquivo *Controllers/ContactsController.cs* e remova a linha que adiciona o atributo `EnableCors` à classe `ContactsController`.
+1. No controlador de API Web, adicione o atributo `EnableCors` à classe `ContactsController` ou métodos de ação individuais. No exemplo a seguir, o suporte a CORS aplica-se ao controlador inteiro.
 
 		namespace ContactList.Controllers
 		{
@@ -199,40 +202,10 @@ A funcionalidade CORS para API Web é fornecida pelo pacote do NuGet [Microsoft.
 		    [EnableCors(origins:"*", headers:"*", methods: "*")]
 		    public class ContactsController : ApiController
  
-	Você pode aplicar o atributo a métodos de ação individuais em vez de a todo o controlador, se preferir.
-
-	> **Observação**: o uso de curingas para todos os parâmetros com o atributo `EnableCors` serve somente para demonstração e abrirá a sua API para todas as origens e solicitações HTTP. Use esse atributo com cuidado.
-
-### Implantar a API do Azure e testar o front-end novamente
-
-8. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto ContactsList.API e clique em **Publicar**.
-
-	O assistente **Publicar Web** abre automaticamente na etapa **Visualização** do perfil de publicação para o aplicativo de API que você criou anteriormente, já que é o último destino para o qual você implantou esse projeto.
-
-3.  Clique em **Publicar**.
-
-	![](./media/app-service-api-cors-consume-javascript/pubapi.png)
-
-	Depois que a implantação for concluída, o navegador abrirá uma janela para a URL de aplicativo de API que exibirá uma página de "aplicativo Web criado com êxito".
-
-3.  Volte para a URL do aplicativo Web em que você implantou o aplicativo AngularJS e atualize a página ou clique no botão **Atualizar**.
-
-	A página é carregada com êxito novamente.
-
-	![](./media/app-service-api-cors-consume-javascript/homepageazure.png)
-
-## Habilitar novamente o suporte a CORS do Azure
-
-Para usar os serviços internos de autenticação do Azure nos tutoriais a seguir, você precisará usar o CORS do Azure em vez do CORS da API Web.
- 
-1. Para habilitar o suporte a CORS do Azure, volte à folha CORS no portal do Azure para seu aplicativo de API e insira novamente a URL do aplicativo Web.
-
-13. Clique em **Salvar**.
-
-	![](./media/app-service-api-cors-consume-javascript/corsinportal.png)
+	> **Observação**: o uso de curingas para todos os parâmetros com o atributo `EnableCors` serve somente para demonstração e abrirá a API para todas as origens e solicitações HTTP. Use esse atributo com cuidado.
 
 ## Próximas etapas 
 
-Neste tutorial, você viu duas maneiras de habilitar o suporte a CORS para que o código cliente JavaScript possa chamar uma API em um domínio diferente. No próximo tutorial, você aprenderá como [restringir o acesso ao aplicativo de API para que somente usuários autenticados possam acessá-lo](app-service-api-dotnet-user-principal-auth.md).
+Neste tutorial, você viu como habilitar o suporte a CORS do Serviço de Aplicativo para que o código cliente JavaScript possa chamar uma API em um domínio diferente. No próximo artigo da série de introdução a Aplicativos de API, você saberá mais sobre [Autenticação para aplicativos de API do Serviço de Aplicativo](app-service-api-authentication.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

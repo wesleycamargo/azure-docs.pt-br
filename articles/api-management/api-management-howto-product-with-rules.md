@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/27/2015"
+	ms.date="12/07/2015"
 	ms.author="sdanie"/>
 
 # Proteja sua API com limites de taxa usando o Gerenciamento de API do Azure
@@ -28,7 +28,7 @@ Neste tutorial, você criará um produto de API “Avaliação gratuita” que p
 
 Nesta etapa você criará um produto de avaliação gratuita que não requer aprovação de assinatura.
 
-Para começar, clique em **Gerenciar** no Portal do Azure para o serviço de Gerenciamento de API. Isso levará você ao portal do editor de Gerenciamento de API.
+Para começar, clique em **Gerenciar** no Portal Clássico do Azure para acessar o serviço de Gerenciamento de API. Isso levará você ao portal do editor de Gerenciamento de API.
 
 ![Portal do editor][api-management-management-console]
 
@@ -291,4 +291,4 @@ Quando a política de limite de taxa de 10 chamadas por minuto estiver em vigor,
 [Limitar taxa de chamada]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Definir cota de uso]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/09/2015"
+   ms.date="12/08/2015"
    ms.author="tomfitz"/>
 
 # Visão geral do Gerenciador de Recursos do Azure
@@ -65,7 +65,7 @@ Dentro do modelo, você pode definir a infraestrutura do seu aplicativo, como co
 
 Você não precisa definir toda a sua infraestrutura em um único modelo. Muitas vezes, faz sentido dividir seus requisitos de implantação em um conjunto de modelos com destinação e fins específicos. Você pode facilmente reutilizar esses modelos para soluções diferentes. Para implantar uma solução específica, você deve criar um modelo mestre que vincule todos os modelos necessários. Para saber mais, confira [Usando modelos vinculados com o Gerenciador de Recursos do Azure](resource-group-linked-templates.md).
 
-Você também pode usar o modelo para atualizações de infraestrutura. Por exemplo, você pode adicionar um novo recurso ao seu aplicativo e adicionar regras de configuração para os recursos que já foram implantados. Se o modelo especificar a criação de um novo recurso, mas esse recurso já existe, o Gerenciador de Recursos do Azure executa uma atualização em vez de criar um novo ativo. O Gerenciador de Recursos do Azure atualiza o ativo existente para o mesmo estado de um novo.
+Você também pode usar o modelo para atualizações de infraestrutura. Por exemplo, você pode adicionar um novo recurso ao seu aplicativo e adicionar regras de configuração para os recursos que já foram implantados. Se o modelo especificar a criação de um novo recurso, mas esse recurso já existe, o Gerenciador de Recursos do Azure executa uma atualização em vez de criar um novo ativo. O Gerenciador de Recursos do Azure atualiza o ativo existente para o mesmo estado de um novo. Ou então, você pode especificar que o Gerenciador de Recursos deve excluir os recursos que não estão especificados no modelo. Para entender as diferentes opções na implantação, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 
 Você pode especificar parâmetros em seu modelo para conferir personalização e flexibilidade à implantação. Por exemplo, você pode passar valores de parâmetro para personalizar a implantação para seu ambiente de teste. Especificando os parâmetros, você pode usar o mesmo modelo para a implantação em todos os ambientes do seu aplicativo.
 
@@ -81,9 +81,9 @@ Para esquemas de modelo, confira [Esquemas do Gerenciador de Recursos do Azure](
 
 Para saber mais sobre como usar um modelo de implantação, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 
-Para obter orientações sobre como estruturar seus modelos, confira [Práticas recomendadas para a criação de modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-design-templates.md).
+Para obter orientações sobre como estruturar os modelos, confira [Práticas recomendadas para a criação de modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-design-templates.md).
 
-Para obter orientação sobre como implantar sua solução em ambientes diferentes, consulte [Ambientes de desenvolvimento e de teste no Microsoft Azure](solution-dev-test-environments-preview-portal.md).
+Para obter orientação sobre como implantar a solução em ambientes diferentes, confira [Ambientes de desenvolvimento e de teste no Microsoft Azure](solution-dev-test-environments-preview-portal.md).
 
 ## Marcas
 
@@ -127,13 +127,13 @@ O Gerenciador de Recursos do Azure oferece suporte a compartilhamento de recurso
 
 ## Próximas etapas
 
-- Para saber mais sobre a criação de modelos, consulte [Criando modelos](./resource-group-authoring-templates.md).
+- Para saber mais sobre a criação de modelos, confira [Criando modelos](./resource-group-authoring-templates.md).
 - Para implantar o modelo criado, consulte [Implantando modelos](resource-group-template-deploy.md)
-- Para entender as funções que você pode usar em um modelo, consulte [Funções de modelo](./resource-group-template-functions.md)
-- Para obter orientação sobre como criar seus modelos, consulte [Práticas recomendadas para a criação de modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-design-templates.md)
+- Para entender as funções que você pode usar em um modelo, confira [Funções de modelo](./resource-group-template-functions.md)
+- Para obter diretrizes sobre como criar os modelos, confira [Práticas recomendadas para a criação de modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-design-templates.md)
 
 Veja uma demonstração em vídeo desta visão geral:
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->
