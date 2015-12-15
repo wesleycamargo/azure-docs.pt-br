@@ -68,7 +68,7 @@ Esta seção mostra a criação de um novo hub de notificação e a configuraç�
 
 
 
-Seu hub de notificação agora está configurado para funcionar com o APNS e você tem as cadeias de conexão para registrar seu aplicativo e enviar notificações.
+Seu hub de notificação agora está configurado para funcionar com o APNs e você tem as cadeias de conexão para registrar seu aplicativo e enviar notificações.
 
 ##Conectar seu aplicativo ao hub de notificação
 
@@ -433,7 +433,7 @@ Se você quiser enviar notificações em um aplicativo. Esta seção fornece um 
 11. Compile o projeto e verifique se não há erros.
 
 
-> [AZURE.NOTE]Se você encontrar um erro de compilação em Xcode7 sobre o suporte de bitcode, deverá alterar as "Configurações de Compilação" -> "Habilitar Bitcode"(ENABLE\_BITCODE) como ‘NO’ no Xcode. No momento, o SDK de Hubs de Notificação não oferece suporte a bitcode.
+> [AZURE.NOTE] Se você encontrar um erro de compilação em Xcode7 sobre o suporte de bitcode, deverá alterar as "Configurações de Compilação" -> "Habilitar Bitcode"(ENABLE\_BITCODE) como ‘NO’ no Xcode. No momento, o SDK de Hubs de Notificação não oferece suporte a bitcode.
 
 Você encontrará todas as cargas de notificação possíveis no [Guia de programação de notificação local e por push] da Apple.
 

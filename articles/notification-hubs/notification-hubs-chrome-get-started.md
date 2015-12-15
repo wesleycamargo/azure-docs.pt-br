@@ -24,7 +24,7 @@ Este tópico mostra como usar os Hubs de notificação do Azure para enviar noti
 
 Um dos principais benefícios do uso de notificações do Aplicativo Chrome é que as notificações aparecem dentro do contexto do navegador Google Chrome. Você não precisa executar o Aplicativo Chrome ou abrir o navegador (embora o próprio navegador Chrome precise estar em execução). Você também pode obter uma exibição consolidada de todas as suas notificações na janela de notificações do Chrome.
 
->[AZURE.NOTE]Esta não é uma notificação por push genérica no navegador, mas específica aos Aplicativos Chrome – veja [Visão geral dos Aplicativos Chrome] para obter mais detalhes. Os aplicativos de Chrome eram anteriormente conhecidos como “Aplicativos empacotados” e são diferentes dos “aplicativos hospedados”, mais simples. Consulte [Aplicativos Web instaláveis] para saber a diferença. Os Aplicativos Chrome também podem ser executados em dispositivos móveis (Android e iOS) por meio do Apache Cordova. Consulte [Aplicativos do Chrome em Dispositivos móveis] para obter mais informações.
+>[AZURE.NOTE] Esta não é uma notificação por push genérica no navegador, mas específica aos Aplicativos Chrome – veja [Visão geral dos Aplicativos Chrome] para obter mais detalhes. Os aplicativos de Chrome eram anteriormente conhecidos como “Aplicativos empacotados” e são diferentes dos “aplicativos hospedados”, mais simples. Consulte [Aplicativos Web instaláveis] para saber a diferença. Os Aplicativos Chrome também podem ser executados em dispositivos móveis (Android e iOS) por meio do Apache Cordova. Consulte [Aplicativos do Chrome em Dispositivos móveis] para obter mais informações.
 
 Neste tutorial, criaremos um Aplicativo Chrome que recebe notificações por push usando o Google Cloud Messaging (GCM). Ao concluir o tutorial, você poderá difundir notificações por push a todos os usuários do Chrome que instalaram esse Aplicativo Chrome.
 
@@ -40,7 +40,7 @@ Este tutorial demonstra o cenário de transmissão simples usando Hubs de Notifi
 
 Lembre-se de seguir os tutoriais na seção “Próximas etapas” para saber como usar os hubs de notificação para abordar usuários e grupos de dispositivos específicos.
 
->[AZURE.NOTE]Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F).
+>[AZURE.NOTE] Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F).
 
 ##<a id="register"></a>Habilitar as mensagens em nuvem do Google
 
@@ -368,7 +368,16 @@ O Aplicativo Chrome é criado por meio do JavaScript, e você pode usar um de se
 		  }
 		}
 
-	O script acima tem os seguintes argumentos: - *window.onload* define os eventos de clique de botão dos dois botões da interface do usuário. Um deles faz o registro no GCM e o outro usa a ID de registro retornada após o registro no GCM para fazer o registro nos Hubs de Notificação do Azure. - *updateLog* é a função que define uma função simples de registro em log. - *registerWithGCM* é o primeiro manipulador de clique de botão, que faz a chamada de **chrome.gcm.register** para o GCM para registrar essa instância do Aplicativo Chrome. - *registerCallback* é a função de retorno de chamada que é chamada quando a chamada de registro do GCM acima é retornada. - *registerWithNH* é o segundo manipulador de clique de botão, que faz o registro nos Hubs de Notificação. Ele obtém **hubName** e **connectionString** (que o usuário especificou) e cria a chamada à API REST do Registro nos Hubs de Notificação. - *splitConnectionString* e *generateSaSToken* são a implementação de JavaScript da criação de um token de SaS que deve ser enviado em todas as chamadas à API REST. Para obter mais informações, veja [Conceitos comuns](http://msdn.microsoft.com/library/dn495627.aspx). - *sendNHRegistrationRequest* é a função que faz uma chamada a HTTP REST. - *registrationPayload* define a carga de XML do registro. Para obter mais informações, veja [Criar um registro da API REST NH]. Atualizamos a ID do registro com o que recebemos do GCM. - *client* é uma instância de **XMLHttpRequest** que usamos para fazer a solicitação HTTP POST. Vale lembrar que atualizamos o cabeçalho **Authorization** com **sasToken**. A conclusão bem-sucedida dessa chamada registrará essa instância do aplicativo Chrome com os Hubs de notificação do Azure.
+	O script acima tem os seguintes argumentos: 
+	- *window.onload* define os eventos de clique de botão dos dois botões da interface do usuário. Um deles faz o registro no GCM e o outro usa a ID de registro retornada após o registro no GCM para fazer o registro nos Hubs de Notificação do Azure. 
+	- *updateLog* é a função que define uma função simples de registro em log. 
+	- *registerWithGCM* é o primeiro manipulador de clique de botão, que faz a chamada de **chrome.gcm.register** para o GCM para registrar essa instância do Aplicativo Chrome. 
+	- *registerCallback* é a função de retorno de chamada que é chamada quando a chamada de registro do GCM acima é retornada. 
+	- *registerWithNH* é o segundo manipulador de clique de botão, que faz o registro nos Hubs de Notificação. Ele obtém **hubName** e **connectionString** (que o usuário especificou) e cria a chamada à API REST do Registro nos Hubs de Notificação. 
+	- *splitConnectionString* e *generateSaSToken* são a implementação de JavaScript da criação de um token de SaS que deve ser enviado em todas as chamadas à API REST. Para obter mais informações, veja [Conceitos comuns](http://msdn.microsoft.com/library/dn495627.aspx). 
+	- *sendNHRegistrationRequest* é a função que faz uma chamada a HTTP REST. 
+	- *registrationPayload* define a carga de XML do registro. Para obter mais informações, veja [Criar um registro da API REST NH]. Atualizamos a ID do registro com o que recebemos do GCM. 
+	- *client* é uma instância de **XMLHttpRequest** que usamos para fazer a solicitação HTTP POST. Vale lembrar que atualizamos o cabeçalho **Authorization** com **sasToken**. A conclusão bem-sucedida dessa chamada registrará essa instância do aplicativo Chrome com os Hubs de notificação do Azure.
 
 
 Você deverá ver a seguinte exibição para a sua pasta ao final desta configuração: ![][21]
@@ -399,7 +408,7 @@ Você deverá ver a seguinte exibição para a sua pasta ao final desta configur
 
 Neste tutorial, você envia as notificações com um aplicativo de console .NET. No entanto, você pode enviar notificações usando os Hubs de Notificação de qualquer back-end por meio da <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">interface REST</a>.
 
-Para ver um exemplo de como enviar notificações de um Back-end dos Serviços Móveis do Azure integrado aos Hubs de Notificação, veja “Introdução às notificações por push nos Serviços Móveis” ([back-end do .NET](../mobile-services-javascript-backend-android-get-started-push.md) | [back-end do JavaScript](../mobile-services-javascript-backend-android-get-started-push.md)). Para ver um exemplo de como enviar notificações usando as APIs REST, veja “Como usar os Hubs de Notificação por meio do Java/PHP/Python” ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md) | [Python](notification-hubs-python-backend-how-to.md)).
+Para ver um exemplo de como enviar notificações de um back-end dos Serviços Móveis do Azure integrado aos Hubs de Notificação, veja “Introdução às notificações por push nos Serviços Móveis” ([back-end do .NET](../mobile-services-javascript-backend-android-get-started-push.md) | [back-end do JavaScript](../mobile-services-javascript-backend-android-get-started-push.md)). Para ver um exemplo de como enviar notificações usando as APIs REST, veja “Como usar os Hubs de Notificação por meio do Java/PHP/Python” ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md) | [Python](notification-hubs-python-backend-how-to.md)).
 
 1. No Visual Studio, no menu **Arquivo**, selecione **Novo** e **Projeto**. Em **Visual C#**, clique em **Windows** e **Aplicativo do Console** e depois clique em **OK**. Isso cria um novo projeto de aplicativo de console.
 
@@ -426,7 +435,7 @@ Para ver um exemplo de como enviar notificações de um Back-end dos Serviços M
 
    	Lembre-se de substituir o espaço reservado *nome do hub* pelo nome do hub de notificação que aparece no portal, na guia **Hubs de Notificação**. Além disso, substitua o espaço reservado da cadeia de conexão pela cadeia de conexão chamada **DefaultFullSharedAccessSignature** obtida na seção “Configurar seu hub de notificação”.
 
-	>[AZURE.NOTE]Verifique se você está usando a cadeia de conexão com acesso **Completo**, não com acesso para **Escutar**. A cadeia de acesso **Escutar** não tem permissões para enviar notificações.
+	>[AZURE.NOTE] Verifique se você está usando a cadeia de conexão com acesso **Completo**, não com acesso para **Escutar**. A cadeia de acesso **Escutar** não tem permissões para enviar notificações.
 
 5. Adicione as seguintes linhas no método **Main**:
 
@@ -443,7 +452,9 @@ Para ver um exemplo de como enviar notificações de um Back-end dos Serviços M
 
 ## <a name="next-steps"> </a>Próximas etapas
 
-Neste exemplo simples, você transmitiu notificações para o seu Aplicativo Chrome. Saiba mais sobre os Hubs de Notificação em [Visão geral dos Hubs de Notificação]. Para ter como alvo usuários específicos, consulte o tutorial [Notificação de usuários nos Hubs de Notificação do Azure]. Se desejar segmentar os usuários por grupos de interesse, você poderá ler as [Notícias mais recentes dos Hubs de Notificação do Azure].
+Neste exemplo simples, você transmitiu notificações para o seu Aplicativo Chrome.
+Saiba mais sobre os Hubs de Notificação em [Visão geral dos Hubs de Notificação].
+Para ter como alvo usuários específicos, consulte o tutorial [Notificação de usuários nos Hubs de Notificação do Azure]. Se desejar segmentar os usuários por grupos de interesse, você poderá ler as [Notícias mais recentes dos Hubs de Notificação do Azure].
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-chrome-get-started/GoogleConsoleCreateProject.PNG
