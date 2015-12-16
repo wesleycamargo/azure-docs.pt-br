@@ -178,11 +178,14 @@ Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPath -A
 Register your application type with service fabric.
 
 ```powershell
-Register-ServiceFabricApplicationType -ApplicationPathInImageStore "WordCount" ````
+Register-ServiceFabricApplicationType -ApplicationPathInImageStore "WordCount"
+````
 
 Crie uma nova instância no tipo de Aplicativo que você acabou de registrar.
 
-```powershell New-ServiceFabricApplication -ApplicationName fabric:/WordCount -ApplicationTypeName WordCount -ApplicationTypeVersion 1.0.0.0 ````
+```powershell
+New-ServiceFabricApplication -ApplicationName fabric:/WordCount -ApplicationTypeName WordCount -ApplicationTypeVersion 1.0.0.0
+````
 
 Agora abra o navegador de sua escolha e conecte-se ao ponto de extremidade que o aplicativo está escutando. Para a minha contagem de aplicativo de exemplo, o URL parece o seguinte.
 
@@ -208,4 +211,4 @@ http://sfcluster4doc.westus.cloudapp.azure.com:31000
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
