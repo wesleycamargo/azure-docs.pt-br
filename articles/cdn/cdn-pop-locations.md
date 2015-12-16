@@ -30,8 +30,8 @@ Este tópico lista os locais atuais de POP (ponto de presença) da CDN do Micros
 - Atlanta
 - Chicago
 - Dallas
-- Rio de janeiro
-- São Paulo
+- Filadélfia
+- Los Angeles
 - Miami
 - Nova Iorque
 - San Jose
