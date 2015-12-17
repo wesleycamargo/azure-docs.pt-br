@@ -83,13 +83,28 @@ Os novos recursos, funcionalidades e otimizações são adicionados apenas ao SD
 
 As solicitações feitas ao Banco de Dados de Documentos usando um SDK obsoleto serão rejeitadas pelo serviço.
 
-> [AZURE.WARNING]Todas as versões do SDK do Banco de Dados de Documentos do Azure para Node.js anteriores à versão **1.0.0** serão desativadas em **29 de fevereiro de 2016**.
+> [AZURE.WARNING]
+Todas as versões do SDK do Banco de Dados de Documentos do Azure para Node.js anteriores à versão **1.0.0** serão desativadas em **29 de fevereiro de 2016**.
 
 <br/>
 
 | Versão | Data do lançamento | Data de desativação 
 | ---	  | ---	         | ---
-| [1\.4.0](#1.4.0) | 06 de outubro de 2015 |--- | [1\.3.0](#1.3.0) | 06 de outubro de 2015 |--- | [1\.2.2](#1.2.2) | 10 de setembro de 2015 |--- | [1\.2.1](#1.2.1) | 15 de agosto de 2015 |--- | [1\.2.0](#1.2.0) | 05 de agosto de 2015 |--- | [1\.1.0](#1.1.0) | 09 de julho de 2015 |--- | [1\.0.3](#1.0.3) | 04 de junho de 2015 |--- | [1\.0.2](#1.0.2) | 23 de maio de 2015 |--- | [1\.0.1](#1.0.1) | 15 de maio de 2015 |--- | [1\.0.0](#1.0.0) | 08 de abril de 2015 |--- | 0.9.4-prelease | 06 de abril de 2015 | 29 de fevereiro de 2016 | 0.9.3-prelease | 14 de janeiro de 2015 | 29 de fevereiro de 2016 | 0.9.2-prelease | 18 de dezembro de 2014 | 29 de fevereiro de 2016 | 0.9.1-prelease | 22 de agosto de 2014 | 29 de fevereiro de 2016 | 0.9.0-prelease | 21 de agosto de 2014 | 29 de fevereiro de 2016
+| [1\.4.0](#1.4.0) | 06 de outubro de 2015 |---
+| [1\.3.0](#1.3.0) | 06 de outubro de 2015 |---
+| [1\.2.2](#1.2.2) | 10 de setembro de 2015 |---
+| [1\.2.1](#1.2.1) | 15 de agosto de 2015 |---
+| [1\.2.0](#1.2.0) | 05 de agosto de 2015 |---
+| [1\.1.0](#1.1.0) | 09 de julho de 2015 |---
+| [1\.0.3](#1.0.3) | 04 de junho de 2015 |---
+| [1\.0.2](#1.0.2) | 23 de maio de 2015 |---
+| [1\.0.1](#1.0.1) | 15 de maio de 2015 |---
+| [1\.0.0](#1.0.0) | 08 de abril de 2015 |---
+| 0.9.4-prelease | 06 de abril de 2015 | 29 de fevereiro de 2016
+| 0.9.3-prelease | 14 de janeiro de 2015 | 29 de fevereiro de 2016
+| 0.9.2-prelease | 18 de dezembro de 2014 | 29 de fevereiro de 2016
+| 0.9.1-prelease | 22 de agosto de 2014 | 29 de fevereiro de 2016
+| 0.9.0-prelease | 21 de agosto de 2014 | 29 de fevereiro de 2016
 
 
 ## Perguntas frequentes

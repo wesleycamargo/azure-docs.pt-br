@@ -23,7 +23,8 @@ Este artigo fornece uma visão geral de como usar a extensão de Script Personal
 
 As extensões de VM (máquina virtual) são criadas pela Microsoft e por editores confiáveis de terceiros para estender a funcionalidade da VM. Para obter uma visão geral das extensões de VM, veja [Recursos e extensões de VM do Azure](virtual-machines-extensions-features.md).
 
-Link:[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-extensions-customscript%20-with%20template.md).
+Link:
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Modelo do Gerenciador de Recursos](virtual-machines-extensions-customscript%20-with%20template.md).
 
 
 ## Visão geral da extensão de Script Personalizado
@@ -92,3 +93,4 @@ Para saber como usar a extensão de Script Personalizado com modelos, confira a 
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
 
 <!---HONumber=AcomDC_1203_2015-->
+
