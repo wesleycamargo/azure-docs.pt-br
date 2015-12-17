@@ -47,9 +47,9 @@ O aplicativo completo também é fornecido no final deste tutorial.
 - Clique na guia **Aplicativos** e clique em adicionar na lista de botões.
 - Siga os prompts e crie um novo **Aplicativo Web e/ou WebAPI**.  
 
-    - O **nome** do aplicativo descreverá seu aplicativo para os usuários finais
+    -  **nome** do aplicativo descreverá seu aplicativo para os usuários finais
     -	A **URL de logon** é a URL base do seu aplicativo. O padrão do esqueleto é http://localhost:3000/auth/openid/return``.
-    - O **URI da ID do aplicativo** é um identificador exclusivo para seu aplicativo. A convenção é usar `https://<tenant-domain>/<app-name>`, por exemplo, `https://contoso.onmicrosoft.com/my-first-aad-app`
+    -  **URI da ID do aplicativo** é um identificador exclusivo para seu aplicativo. A convenção é usar `https://<tenant-domain>/<app-name>`, por exemplo, `https://contoso.onmicrosoft.com/my-first-aad-app`
 - Depois de concluir o registro, o AAD atribuirá a seu aplicativo um identificador de cliente único. Você precisará desse valor nas próximas seções, então copie-o da guia Configurar.
 
 ## 2. Adicionar pré-requisitos ao seu diretório
@@ -75,9 +75,9 @@ Isso instalará as bibliotecas das quais o passport-azure-ad depende.
 Aqui, configuraremos o middleware Express para usar o protocolo de autenticação OpenID Connect.  O Passport será usado para emitir solicitações de entrada e saída, gerenciar a sessão do usuário e obter informações sobre o usuário, entre outras coisas.
 
 -	Para começar, abra o arquivo `config.js` na raiz do projeto e insira os valores de configuração do aplicativo na seção `exports.creds`.
-    -	O `clientID:` é a **ID do Aplicativo** atribuída ao seu aplicativo no portal de registro.
-    -	O `returnURL` é o **URI de Redirecionamento** inserido no portal.
-    - O `clientSecret` é o segredo gerado no portal
+    -	 `clientID:` é a **ID do Aplicativo** atribuída ao seu aplicativo no portal de registro.
+    -	 `returnURL` é o **URI de Redirecionamento** inserido no portal.
+    -  `clientSecret` é o segredo gerado no portal
 
 - Em seguida, abra o arquivo `app.js` na raiz do projeto e adicione a seguinte chamada para invocar a estratégia `OIDCStrategy` que vem com `passport-azure-ad`
 
@@ -280,7 +280,7 @@ app.get('/logout', function(req, res){
     -	A rota `/`  redirecionará para o modo de exibição index.ejs passando o usuário na solicitação (se houver).
     - A rota `/account` primeiro ***garantirá que sejamos autenticados*** (implementamos isso abaixo) e passará o usuário na solicitação para que possamos obter informações adicionais sobre ele.
     - A rota `/login` chamará nosso autenticador azuread-openidconnect de `passport-azuread`  e, se não tiver êxito, redirecionará o usuário para /login.
-    - O `/logout` simplesmente chamará logout.ejs (e a rota), o que limpa os cookies e, em seguida, retorna o usuário para index. ejs.
+    -  `/logout` simplesmente chamará logout.ejs (e a rota), o que limpa os cookies e, em seguida, retorna o usuário para index. ejs.
 
 
 - Para a última parte do `app.js`, vamos adicionar o método EnsureAuthenticated que é usado em `/account`  acima.
@@ -417,4 +417,4 @@ Agora você pode ir para tópicos mais avançados. Você pode desejar experiment
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_1125_2015-->
+<!----HONumber=AcomDC_1125_2015-->

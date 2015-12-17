@@ -71,4 +71,4 @@ Se estiver interessado em obter mais informações sobre como gerenciar o SQL Da
 [firewall rules]: https://azure.microsoft.com/pt-BR/documentation/articles/sql-database-configure-firewall-settings/
 [Como instalar e configurar o PowerShell do Azure]: powershell-install-configure.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->
