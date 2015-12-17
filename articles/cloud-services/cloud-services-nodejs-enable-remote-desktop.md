@@ -74,7 +74,7 @@ Depois de publicar a definição do serviço de atualização, você pode se con
 
     ![Prompt de segurança do Windows][5]
 
-4.  Clique em **Conectar** e será exibido um prompt de segurança para a inserção das credenciais para acessar a instância. Digite a senha criada na [Etapa1](Etapa 1: Configurar o serviço para acesso à Área de Trabalho Remota usando o PowerShell do Azure) e, em seguida, clique em **OK**.
+4.  Clique em **Conectar** e será exibido um prompt de segurança para a inserção das credenciais para acessar a instância. Digite a senha criada na [Etapa1][Etapa 1: Configurar o serviço para acesso à Área de Trabalho Remota usando o PowerShell do Azure] e, em seguida, clique em **OK**.
 
     ![prompt de nome de usuário/senha][6]
 
