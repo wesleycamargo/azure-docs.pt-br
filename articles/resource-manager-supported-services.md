@@ -29,10 +29,12 @@ As tabelas a seguir listam quais serviços suportam a implantação e o gerencia
 
 | O Barramento de | Gerenciador de Recursos habilitado | Portal | Mover recursos | API REST | Esquema |
 | ------- | ------------------------ | -------------- | -------------- |-------- | ------ |
-| Máquinas Virtuais | Sim | Sim, várias opções | Não | [Criar VM](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
-| Batch | Sim | [Sim (somente clássicas)](https://portal.azure.com/#create/Microsoft.BatchAccount) | Sim | [REST do Lote](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
-| Serviços de ciclo de vida do Dynamics | Sim | Não | | | |
-| Máquinas Virtuais (clássicas) | Limitado | Sim, várias opções | Parcial (veja abaixo) | - | - | | Aplicativo Remoto | Não | Não | - | - | - | | Service Fabric | Não | Não | - | - | - |
+| Máquinas Virtuais | Sim | Sim, várias opções | Não       | [Criar VM](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
+| Batch   | Sim     | [Sim (somente clássicas)](https://portal.azure.com/#create/Microsoft.BatchAccount) | Sim | [REST do Lote](https://msdn.microsoft.com/library/azure/dn820158.aspx) |        |
+| Serviços de ciclo de vida do Dynamics | Sim | Não |    |      |        |
+| Máquinas Virtuais (clássicas) | Limitado | Sim, várias opções | Parcial (veja abaixo) | - | - |
+| Aplicativo Remoto | Não   | Não | -              | -        | -      |
+| Service Fabric | Não | Não | -           | -        | -      |
 
 Máquinas virtuais (clássico) refere-se aos recursos que foram implantados por meio do modelo de implantação clássico, não por meio do modelo de implantação do Gerenciador de Recursos. Em geral, esses recursos não oferecem suporte a operações do Gerenciador de Recursos, mas existem algumas operações que foram habilitadas. Para saber mais sobre esses modelos de implantação, confira [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](resource-manager-deployment-model.md).
 
@@ -81,11 +83,12 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 
 | O Barramento de | Gerenciador de Recursos habilitado | Portal | Mover recursos | API REST | Esquema |
 | ------- | ------- | --------- | -------------- | -------- | ------ |
-| Hub de evento | Sim | Não | | [Criar Hub de eventos](https://msdn.microsoft.com/library/azure/dn790676.aspx) | |
-| Análise de fluxo | Sim | [Sim](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) | | | |
-| HDInsights | Sim | [Sim](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | Sim | | |
-| Data Factory | Sim | [Sim](https://portal.azure.com/#create/Microsoft.DataFactory) | Sim | [Criar fábrica de dados](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
-| Aprendizado de Máquina | Não | Não | - | - | - | | Catálogo de Dados | Não | Não | - | - | - |
+| Hub de evento | Sim   | Não |         | [Criar Hub de eventos](https://msdn.microsoft.com/library/azure/dn790676.aspx) |        |
+| Análise de fluxo | Sim | [Sim](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) |        |          |        |
+| HDInsights | Sim  | [Sim](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | Sim     |          |        |
+| Data Factory | Sim | [Sim](https://portal.azure.com/#create/Microsoft.DataFactory) | Sim | [Criar fábrica de dados](https://msdn.microsoft.com/library/azure/dn906717.aspx) |    |
+| Aprendizado de Máquina | Não | Não | -          | -        | -      |
+| Catálogo de Dados | Não | Não |  -             | -        | -       |
 
 ## Mídia e CDN
 
