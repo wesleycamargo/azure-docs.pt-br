@@ -20,7 +20,8 @@
 # Carregar dados com o PolyBase
 A tecnologia PolyBase permite consultar e unir dados de várias fontes tudo usando os comandos Transact-SQL.
 
-Usando o PolyBase, você pode consultar dados armazenados no armazenamento de blob do Azure e carregá-lo nos banco de dados do SQL Data Warehouse seguindo estas etapas:
+Usando o PolyBase, você pode consultar dados armazenados no armazenamento de blob do Azure e carregá-lo nos banco de dados do SQL Data 
+Warehouse seguindo estas etapas:
 
 - Criar a chave mestra e as credenciais do banco de dados.
 - Criar objetos do PolyBase: fonte de dados externa, formato de arquivo externo e tabela externa. 
@@ -61,11 +62,15 @@ Para acessar o armazenamento de blob do Azure, você precisa criar uma credencia
     ```
     -- Verifique as credenciais existentes com escopo de banco de dados.
     SELECT * FROM sys.database\_credentials;
-    ```
 
 3. Use [CREATE CREDENTIAL (Transact-SQL)][] para criar uma credencial com escopo de banco de dados para cada conta de armazenamento do Azure que deseja acessar. Neste exemplo, IDENTITY é um nome amigável para a credencial. Ele não afeta a autenticação no Armazenamento do Azure. SECRET é sua chave de conta de armazenamento do Azure.
 
-    -- Criar uma credencial com escopo de banco de dados CREATE DATABASE SCOPED CREDENTIAL ASBSecret WITH IDENTITY = 'joe' , Secret = '<azure_storage_account_key>' ; ```
+    -- Criar uma credencial com escopo de banco de dados
+    CREATE DATABASE SCOPED CREDENTIAL ASBSecret 
+    WITH IDENTITY = 'joe'
+    ,    Secret = '<azure_storage_account_key>'
+    ;
+    ```
 
 1. Se você precisar remover uma credencial com escopo de banco de dados, use [DROP CREDENTIAL (Transact-SQL)][]\:
 
@@ -360,4 +365,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->
