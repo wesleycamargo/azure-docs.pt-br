@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="12/07/2015" 
 	ms.author="ryancraw"/>
 
 # SDK do Banco de Dados de Documentos
@@ -29,6 +29,9 @@
 <table> <tr><td>**Download**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr> <tr><td>**Colabore**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr> <tr><td>**Documentação**</td><td>[Documentação de referência do SDK Java](http://azure.github.io/azure-documentdb-java/)</td></tr> <tr><td>**Introdução**</td><td>[Introdução ao SDK do Java](documentdb-java-application.md)</td></tr> <tr><td>**Temp de execução com suporte no momento**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr> </table></br>
 
 ## Notas de versão
+
+### <a name="1.5.0"/>[1\.5.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.0)
+- Adicionar resolvedores de hash e intervalo para ajudar com a fragmentação de arquivos em várias partições.
 
 ### <a name="1.4.0"/>[1\.4.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.4.0)
 - Implementar o Upsert. Novos métodos upsertXXX adicionados para dar suporte ao recurso Upsert.
@@ -61,18 +64,7 @@ As solicitações feitas ao Banco de Dados de Documentos usando um SDK obsoleto 
 
 | Versão | Data do lançamento | Data de desativação 
 | ---	  | ---	         | ---
-| [1\.4.0](#1.4.0) | 05 de outubro de 2015 |---
-| [1\.3.0](#1.3.0) | 05 de outubro de 2015 |---
-| [1\.2.0](#1.2.0) | 05 de agosto de 2015 |---
-| [1\.1.0](#1.1.0) | 09 de julho de 2015 |---
-| [1\.0.1](#1.0.1) | 12 de maio de 2015 |---
-| [1\.0.0](#1.0.0) | 07 de abril de 2015 |---
-| 0.9.5-prelease | 09 de março de 2015 | 29 de fevereiro de 2016
-| 0.9.4-prelease | 17 de fevereiro de 2015 | 29 de fevereiro de 2016
-| 0.9.3-prelease | 13 de janeiro de 2015 | 29 de fevereiro de 2016
-| 0.9.2-prelease | 19 de dezembro de 2014 | 29 de fevereiro de 2016
-| 0.9.1-prelease | 19 de dezembro de 2014 | 29 de fevereiro de 2016
-| 0.9.0-prelease | 10 de dezembro de 2014 | 29 de fevereiro de 2016
+| [1\.5.0](#1.5.0) | 04 de dezembro de 2015 |--- | [1\.4.0](#1.4.0) | 05 de outubro de 2015 |--- | [1\.3.0](#1.3.0) | 05 de outubro de 2015 |--- | [1\.2.0](#1.2.0) | 05 de agosto de 2015 |--- | [1\.1.0](#1.1.0) | 09 de julho de 2015 |--- | [1\.0.1](#1.0.1) | 12 de maio de 2015 |--- | [1\.0.0](#1.0.0) | 07 de abril de 2015 |--- | 0.9.5-prelease | 09 de março de 2015 | 29 de fevereiro de 2016 | 0.9.4-prelease | 17 de fevereiro de 2015 | 29 de fevereiro de 2016 | 0.9.3-prelease | 13 de janeiro de 2015 | 29 de fevereiro de 2016 | 0.9.2-prelease | 19 de dezembro de 2014 | 29 de fevereiro de 2016| 0.9.1-prelease | 19 de dezembro de 2014 | 29 de fevereiro de 2016 | 0.9.0-prelease | 10 de dezembro de 2014 | 29 de fevereiro de 2016
 
 ## Perguntas frequentes
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -81,4 +73,4 @@ As solicitações feitas ao Banco de Dados de Documentos usando um SDK obsoleto 
 
 Para saber mais sobre o Banco de Dados de Documentos, confira a página de serviço do [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/).
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -1,19 +1,19 @@
 
-<properties 
-    pageTitle="Práticas recomendadas para clientes do RemoteApp do Azure"
-    description="Saiba mais sobre práticas recomendadas para usar os clientes do RemoteApp" 
-    services="remoteapp" 
-    documentationCenter="" 
-    authors="lizap" 
+<properties
+    pageTitle="Práticas recomendadas para clientes do RemoteApp do Azure | Microsoft Azure"
+    description="Saiba mais sobre práticas recomendadas para usar os clientes do RemoteApp"
+    services="remoteapp"
+    documentationCenter=""
+    authors="lizap"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/12/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 
@@ -25,6 +25,5 @@ As informações a seguir podem ajudá-lo a usar clientes do RemoteApp do Azure:
 - Sempre use a versão mais recente do cliente. Isso garante que você está executando a versão do cliente que tem as últimas correções, aprimoramentos e recursos. Você precisará se inscrever para receber atualizações automaticamente para o cliente no Armazenamento apropriado.
 
 - O RemoteApp desconectará automaticamente se você estiver inativo por um determinado período de tempo. Para evitar a perda de dados, é recomendável fechar os aplicativos quando você terminar de usar o serviço.
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

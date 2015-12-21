@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="12/03/2015"
 	ms.author="yuaxu"/>
 
 # Adicionar notificações por push a seu aplicativo de Serviços Móveis
@@ -160,7 +160,7 @@ Após registrar seu aplicativo com o APNS e configurar seu projeto, configure se
 
     Anote o nome do arquivo e o local do certificado exportado.
 
-2. Faça logon no [Portal clássico do Azure], clique em **Serviços Móveis** e clique em seu aplicativo.
+2. Faça logon no [Portal clássico do Azure], clique em **Serviços Móveis** e então clique em seu aplicativo.
 
     ![][18]
 
@@ -267,7 +267,7 @@ Agora, seu serviço móvel está configurado para funcionar com o APNS.
             }
         }
 
-8. Em **TodoListViewController**, modifique a ação **OnAdd** para obter o token do dispositivo armazenado em **AppDelegeate** e armazene-o no **TodoItem** que estiver sendo adicionado.
+8. Em **QSTodoListViewController**, modifique a ação **OnAdd** para obter o token do dispositivo armazenado em **AppDelegeate** e armazene-o no **TodoItem** que estiver sendo adicionado.
 
         string deviceToken = ((AppDelegate)UIApplication.SharedApplication.Delegate).DeviceToken;
 
@@ -282,7 +282,7 @@ Seu aplicativo foi atualizado para oferecer suporte a notificações de push.
 
 ## <a name="update-scripts"></a>Atualizar o script de inserção registrado no Portal clássico do Azure
 
-1. No [portal clássico do Azure], clique na guia **Dados** e, em seguida, clique na tabela **TodoItem**.
+1. No [Portal clássico do Azure], clique na guia **Dados** e, em seguida, clique na tabela **TodoItem**.
 
     ![][21]
 
@@ -403,4 +403,4 @@ Este tutorial foi concluído com êxito.
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

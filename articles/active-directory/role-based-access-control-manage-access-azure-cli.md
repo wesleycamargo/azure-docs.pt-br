@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="10/12/2015"
+	ms.date="12/04/2015"
 	ms.author="inhenk"/>
 
 # Gerenciar função com base no Controle de Acesso (RBAC) com a Interface de Linha de Comando (CLI) do Azure
@@ -107,7 +107,50 @@ O exemplo a seguir remove a atribuição da função *Colaborador de Máquina Vi
 
 ![](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-assignment-delete.png)
 
+## Criar uma função personalizada
+Para criar uma função personalizada, use o comando `azure role create`.
+
+O exemplo a seguir cria uma função personalizada chamada *Operador de Máquina Virtual* que concede acesso a todas as operações de leitura dos provedores de recursos *Microsoft.Compute*, *Microsoft.Storage* e *Microsoft.Network* e concede acesso para iniciar, reiniciar e monitorar máquinas virtuais. A função personalizada que pode ser usada em duas assinaturas. Este exemplo utiliza um arquivo json como entrada.
+
+![](./media/role-based-access-control-manage-access-azure-cli/2-azure-role create-1.png)
+
+![](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-2.png)
+
+## Modificar uma função personalizada
+
+Para modificar uma função personalizada, use o comando show da função do Azure para recuperar a definição da função. Em seguida, faça as alterações desejadas na definição de função. Por fim, use o comando set da função do Azure para salvar a definição da função modificada.
+
+O exemplo a seguir adiciona a operação Microsoft.Insights/diagnosticSettings/* para as Ações e uma assinatura do Azure para o AssignableScopes da função personalizada Operador de Máquina Virtual.
+
+![](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set-1.png)
+
+![](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set2.png)
+
+## Excluir uma função personalizada
+
+Para excluir uma função personalizada, primeiro use o comando `azure role show` para determinar a **Id** da função. Em seguida, use o comando `azure role delete` para excluir a função especificando a **Id**.
+
+O exemplo a seguir remove a função personalizada *Operador de Máquina Virtual*.
+
+![](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-delete.png)
+
+## Listar funções personalizadas
+
+Para listar as funções disponíveis para atribuição em um escopo, use o comando `azure role list`.
+
+O exemplo a seguir lista todas as funções disponíveis para atribuição na assinatura selecionada.
+
+![](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)
+
+No exemplo a seguir, a função personalizada *Operador de Máquina Virtual* não está disponível na assinatura *Production4*, pois essa assinatura não está no **AssignableScopes** da função.
+
+![](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)
+
+
+
+
+
 ## Tópicos RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -161,8 +161,8 @@ As referências relevantes da API .NET gerenciada para notificações push estã
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
   [Aplicativos Móveis do Serviço de Aplicativo]: https://azure.microsoft.com/pt-BR/documentation/articles/app-service-mobile-value-prop/
-  [modelos]: https://msdn.microsoft.com/pt-BR/library/azure/dn530748.aspx
+  [modelos]: https://msdn.microsoft.com/library/azure/dn530748.aspx
   [Portal do Azure]: https://portal.azure.com
   [marcas]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Como criar APIs no Gerenciamento de API do Azure
@@ -24,7 +24,7 @@ Este guia mostra a primeira etapa do processo: como criar e configurar uma nova 
 
 ## <a name="create-new-api"> </a>Criar uma nova API
 
-APIs são criadas e configuradas no Portal do editor. Para acessar o Portal do editor, clique em **Gerenciar** no Portal do Azure para acessar o serviço de Gerenciamento de API.
+APIs são criadas e configuradas no Portal do editor. Para acessar o portal do editor, clique em **Gerenciar** no Portal Clássico do Azure do serviço de Gerenciamento de API.
 
 ![Portal do editor][api-management-management-console]
 
@@ -40,7 +40,7 @@ Use a janela **Adicionar nova API** para configurar a nova API.
 
 Os campos a seguir são usados para configurar a nova API.
 
--	O **Nome da API Web** fornece um nome descritivo exclusivo para a API. Esse nome será exibido nos portais de gerenciamento e do desenvolvedor.
+-	O **Nome da API Web** fornece um nome descritivo exclusivo para a API. Esse nome será exibido nos portais do desenvolvedor e do editor.
 -	O **URL de Serviço Web** utiliza como referência o serviço HTTP que está implementando a API. O gerenciamento de API envia as solicitações para esse endereço.
 -	**O sufixo da URL da API Web** está anexado à URL base do serviço de gerenciamento de API. A URL base é comum para todas as APIs hospedadas por uma instância de um serviço de Gerenciamento de API. O Gerenciamento de API diferencia as APIs pelo sufixo e, portanto, o sufixo deve ser único para cada API para um editor específico.
 -	O **Esquema de URL da API da Web** determina quais protocolos podem ser usados para acessar a API. A HTTPs é especificada por padrão.
@@ -97,4 +97,4 @@ Após criar uma API e definir as configurações, as próximas etapas são adici
 [Como garantir serviços de back-end usando autenticação de certificados do cliente no Gerenciamento de API do Azure]: api-management-howto-mutual-certificates.md
 [Como autorizar contas de desenvolvedor usando o OAuth 2.0 no Gerenciamento de API do Azure]: api-management-howto-oauth2.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

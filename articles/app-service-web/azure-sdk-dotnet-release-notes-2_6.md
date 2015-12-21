@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="12/01/2015"
+   ms.date="12/02/2015"
    ms.author="juliako"/>
 
 
@@ -62,6 +62,8 @@ Com o SDK do Azure 2.6, você pode desenvolver aplicativos de serviço de nuvem 
 
 	No momento, a versão 2011-08-18 do Armazenamento do Azure está agendada para ser removida em 1º de agosto de 2016. As migrações de Cache na Função do Azure SDK 2.5 ou versão anterior a 2.6 devem ser concluídas antes deste momento. Para saber mais sobre a desativação do armazenamento do Azure versão 2011-08-18, confira [Atualização sobre a remoção de versão do Serviço de Armazenamento do Microsoft Azure: extensão até 2016](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
 
+>[AZURE.IMPORTANT]Estamos anunciando a desativação de 30 de novembro de 2016, para o Serviço de Cache Gerenciado do Azure e o Cache na Função do Azure. É recomendável que você migre para o Cache Redis do Azure em preparação para essa desativação. Para obter mais informações sobre datas e diretrizes sobre migração, consulte [Qual oferta de Cache do Azure é adequada para mim?](../redis-cache/cache-faq.md#which-azure-cache-offering-is-right-for-me)
+
 ##Ferramentas do Serviço de Aplicativo do Azure
 
 Os seguintes itens foram atualizados na versão 2.6 do SDK do Azure.
@@ -106,4 +108,4 @@ A conta de armazenamento de diagnóstico agora pode ser especificada no arquivo 
 
 [Informações de suporte e de desativação do SDK do Azure para .NET e APIs](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

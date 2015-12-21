@@ -3,8 +3,8 @@
 	description="Aprenda a usar os cmdlets do PowerShell do Azure para Armazenamento do Azure, para criar e gerenciar contas de armazenamento; trabalhar com tabelas, blobs, filas e arquivos; configurar e consultar a análise de armazenamento e criar assinaturas de acesso compartilhado."
 	services="storage"
 	documentationCenter="na"
-	authors="tamram" 
-	manager="adinah"/>
+	authors="robinsh" 
+	manager="carmonm"/>
 
 <tags
 	ms.service="storage"
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
-	ms.author="selcint"/>
+	ms.date="12/07/2015"
+	ms.author="robinsh"/>
 
 # Usando o PowerShell do Azure com o Armazenamento do Azure
 
@@ -236,7 +236,7 @@ Para obter mais informações sobre como configurar uma cadeia de conexão, cons
 Agora você configurou o seu computador e sabe como gerenciar assinaturas e contas de armazenamento usando o PowerShell do Azure. Vá para a próxima seção para aprender a gerenciar blobs do Azure e instantâneos de blob.
 
 ## Como gerenciar blobs do Azure
-A Armazenamento de Blob do Azure é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários, que podem ser acessados de qualquer lugar do mundo por meio de HTTP ou HTTPS. Esta seção pressupõe que você já esteja familiarizado com os conceitos do serviço de Armazenamento de Blob do Azure. Para obter informações detalhadas, confira [Como usar o Armazenamento de Blob do .NET](storage-dotnet-how-to-use-blobs.md) e [Conceitos do serviço Blob](http://msdn.microsoft.com/library/azure/dd179376.aspx).
+O Armazenamento de Blobs do Azure é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários, que podem ser acessados de qualquer lugar do mundo por meio de HTTP ou HTTPS. Esta seção pressupõe que você já esteja familiarizado com os conceitos do serviço de Armazenamento de Blobs do Azure. Para obter informações detalhadas, confira [Como usar o Armazenamento de Blobs do .NET](storage-dotnet-how-to-use-blobs.md) e [Conceitos do serviço Blob](http://msdn.microsoft.com/library/azure/dd179376.aspx).
 
 ### Como criar um contêiner
 Todos os blobs no armazenamento do Azure devem residir em um contêiner. Você pode criar um contêiner privado usando o cmdlet New-AzureStorageContainer:
@@ -247,7 +247,7 @@ Todos os blobs no armazenamento do Azure devem residir em um contêiner. Você p
 > [AZURE.NOTE]Há três níveis de acesso de leitura anônimo: **Desativado**, **Blob** e **Contêiner**. Para evitar o acesso anônimo a blobs, defina o parâmetro de permissão como **Desativado**. Por padrão, o novo contêiner é privado e pode ser acessado apenas pelo proprietário da conta. Para permitir acesso de leitura público anônimo a recursos de blob, mas não aos metadados do contêiner ou à lista de blobs no contêiner, defina o parâmetro de permissão como **Blob**. Para permitir acesso de leitura público completo a recursos, metadados do contêiner e à lista de blobs no contêiner, defina o parâmetro de permissão como **Contêiner**. Para saber mais, confira [Gerenciar o acesso aos recursos de Armazenamento do Azure](storage-manage-access-to-resources.md).
 
 ### Como carregar um blob para um contêiner
-O Armazenamento de Blob do Azure oferece suporte a blobs de blocos e a blobs de páginas. Para saber mais, confira [Noções básicas sobre blobs de blocos e blobs de páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+O Armazenamento de Blobs do Azure oferece suporte a blobs de blocos e a blobs de páginas. Para saber mais, confira [Noções básicas sobre blobs de blocos e blobs de páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 Para carregar blobs em um contêiner, você pode usar o cmdlet [Set-AzureStorageBlobContent](http://msdn.microsoft.com/library/azure/dn806379.aspx). Por padrão, esse comando carrega os arquivos locais para um blob de blocos. Para especificar o tipo do blob, você pode usar o parâmetro -BlobType.
 
@@ -516,7 +516,7 @@ Você pode excluir uma entidade usando suas chaves de partição e de linha. O e
 ## Como gerenciar filas do Azure e mensagens da fila
 O armazenamento de filas do Azure é um serviço para armazenamento de um grande número de mensagens que podem ser acessadas de qualquer lugar do mundo por meio de chamadas autenticadas usando HTTP ou HTTPS. Esta seção pressupõe que você já esteja familiarizado com os conceitos do serviço de Armazenamento de Filas do Azure. Para obter informações detalhadas, consulte [Como usar o Armazenamento de Filas do .NET](storage-dotnet-how-to-use-queues.md).
 
-Esta seção mostrará como gerenciar o serviço de armazenamento de fila do Azure usando o PowerShell do Azure. Os cenários abordados incluem **inserção** e **exclusão** de mensagens da fila, bem como a **criação**, **exclusão** e **recuperação de filas**.
+Esta seção mostrará como gerenciar o serviço de armazenamento de filas do Azure usando o PowerShell do Azure. Os cenários abordados incluem **inserção** e **exclusão** de mensagens da fila, bem como a **criação**, **exclusão** e **recuperação de filas**.
 
 ### Como criar uma fila
 O exemplo a seguir primeiro estabelece uma conexão com o armazenamento do Azure usando o contexto de conta de armazenamento, que inclui o nome da conta de armazenamento e sua chave de acesso primária. Em seguida, ele chama o cmdlet [New-AzureStorageQueue](http://msdn.microsoft.com/library/azure/dn806382.aspx) para criar uma fila denominada 'queuename'.
@@ -730,4 +730,4 @@ Neste guia, você aprendeu como gerenciar o armazenamento do Azure com o PowerSh
 [Next Steps]: #next
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

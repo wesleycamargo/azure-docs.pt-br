@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="12/08/2015" 
 	ms.author="cephalin"/>
 
 # Fornecer conteúdo da CDN do Azure em seu aplicativo Web #
@@ -271,4 +271,4 @@ Sem integração aos Aplicativos Web do Serviço de Aplicativo ou aos Serviços 
 - [Usando a CDN para Azure](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

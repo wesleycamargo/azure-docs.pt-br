@@ -20,6 +20,25 @@
 
 # Notas de versão dos componentes do Hadoop no Azure HDInsight
 
+## Notas da versão de 02/12/2015 do HDInsight
+
+Os números completos da versão dos clusters HDInsight implantados com essa versão são:
+
+* HDInsight (Windows) 2.1.10.763.1931434 (HDP 1.3.12.0-01795 - inalterado)
+* HDInsight (Windows) 3.0.6.763.1931434 (HDP 2.0.13.0-2117 - inalterado)
+* HDInsight (Windows) 3.1.4.763.1931434 (HDP 2.1.15.0-2374 - inalterado)
+* HDInsight (Windows) 3.2.7.763.1931434 (HDP 2.2.7.1-34 - inalterado)
+* HDInsight (Windows) 3.3.1000.0 (HDP 2.3.3.1-5)
+* HDInsight (Linux) 3.2.1000.0.6392801 (HDP 2.2.7.1-34 - inalterado)
+* HDInsight (Linux) 3.3.1000.0 (HDP 2.3.3.0-3039)
+* SDK 1.5.8
+
+Esta versão contém as atualizações a seguir.
+
+| Title | Descrição | Área afetada (por exemplo, serviço, componente ou SDK) | Tipo de cluster (por exemplo, Hadoop, HBase ou Storm) | JIRA (se aplicável) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Versão do HDInsight 3.3 adicionada e versões atualizadas do HDInsight para todos os clusters de HDInsight | Com esta versão, adicionamos o HDInsight v3.3 (baseado no HDP 2.3) e também atualizamos outras versões do HDP. As notas de versão do HDP 2.3 estão disponíveis [aqui](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html) e mais informações sobre versões do HDInsight podem ser encontradas [aqui](https://azure.microsoft.com/pt-BR/documentation/articles/hdinsight-component-versioning/).| O Barramento de | Todos| N/D
+
 ## Notas da versão de 30/11/2015 do HDInsight
 
 Os números completos da versão dos clusters HDInsight implantados com essa versão são:
@@ -38,6 +57,25 @@ Esta versão contém as atualizações a seguir.
 | Versões atualizadas do HDInsight para todos os clusters HDInsight e versões do HDP para clusters HDInsight 3.2 (Windows e Linux) | Com esta versão, as versões do HDInsight e do HDP foram atualizadas | O Barramento de | Todos| N/D
 
 
+## Notas da versão de 27/10/2015 do HDInsight
+
+Os números completos da versão dos clusters HDInsight implantados com essa versão são:
+
+* HDInsight (Windows) 2.1.10.726.1866228 (HDP 1.3.12.0-01795 - inalterado)
+* HDInsight (Windows) 3.0.6.726.1866228 (HDP 2.0.13.0-2117 - inalterado)
+* HDInsight (Windows) 3.1.4.726.1866228 (HDP 2.1.15.0-2374 - inalterado)
+* HDInsight (Windows) 3.2.7.726.1866228 (HDP 2.2.7.1-33)
+* HDInsight (Linux) 3.2.1000.0.6035701 (HDP 2.2.7.1-33)
+* SDK 1.5.8
+
+Esta versão contém as atualizações a seguir.
+
+| Title | Descrição | Área afetada (por exemplo, serviço, componente ou SDK) | Tipo de cluster (por exemplo, Hadoop, HBase ou Storm) | JIRA (se aplicável) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Versões atualizadas do HDInsight para todos os clusters HDInsight (Windows e Linux) | Com esta versão, as versões do HDInsight e do HDP foram atualizadas | O Barramento de | Todos| N/D
+| Jupyter corrigido para clusters Spark do Windows com clusters de letras maiúsculas | Os clusters com nomes DNS especificados em letras maiúsculas tinham problemas com os blocos de anotações Jupyter devido a uma verificação de solicitação de origem. A correção foi alterar o nome DNS da configuração do Jupyter para letras minúsculas. | O Barramento de | HDInsight Spark (Windows)| N/D
+
+
 ## Notas da versão de 20/10/2015 do HDInsight
 
 Os números completos da versão dos clusters HDInsight implantados com essa versão são:
@@ -54,8 +92,8 @@ Esta versão contém as atualizações a seguir.
 | Title | Descrição | Área afetada (por exemplo, serviço, componente ou SDK) | Tipo de cluster (por exemplo, Hadoop, HBase ou Storm) | JIRA (se aplicável) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
 | Versão do HDP padrão alterado para HDP 2.2 | A versão padrão para clusters HDInsight do Windows foi alterada para HDP 2.2. O HDInsight versão 3.2 (HDP 2.2) está disponível desde fevereiro de 2015. Essa alteração só inverte a versão padrão do cluster quando uma seleção explícita não é feita durante o provisionamento de cluster usando o portal do Azure, cmdlets do PowerShell ou o SDK. | O Barramento de | Todos| N/D |
-|Alterações no formato de nome de VM para a implantação de vários HDInsight em clusters Linux em uma única rede virtual | O suporte para a implantação de vários clusters HDInsight Linux em uma única rede virtual está sendo adicionado nesta versão. Como parte disso, o formato de nomes de máquina virtual do cluster foi alterado de headnode * workernode * e zookeepernode para * hn * *wn e zk *, respectivamente. Não é uma prática recomendada formar uma dependência direta do formato de nomes de máquina virtual, já que isso está sujeito a alterações. Use "hostname -f" no computador local ou nas APIs Ambari para determinar a lista de hosts e o mapeamento de componentes para hosts. Você pode encontrar mais informações em [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md) and [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md). | O Barramento de | Clusters HDInsight no Linux | N/D |
-| Alterações de configuração | Para clusters HDInsight 3.1, as configurações a seguir agora estão habilitadas: <ul><li>tez.yarn.ats.enabled e yarn.log.server.url. Isso permite que o Servidor de Linha do Tempo do Aplicativo e o servidor de Log possam fornecer logs.</li></ul>Para clusters HDInsight 3.2, as seguintes configurações foram modificadas: <ul><li>mapreduce.fileoutputcommitter.algorithm.version foi definida como 2. Isso permite o uso da versão V2 do FileOutputCommitter.</li></ul> | O Barramento de | Todos | N/D |
+|Alterações no formato de nome de VM para a implantação de vários HDInsight em clusters Linux em uma única rede virtual | O suporte para a implantação de vários clusters HDInsight Linux em uma única rede virtual está sendo adicionado nesta versão. Como parte disso, o formato de nomes de máquina virtual do cluster foi alterado de headnode * workernode * e zookeepernode para * hn * *wn e zk *, respectivamente. Não é uma prática recomendada formar uma dependência direta do formato de nomes de máquina virtual, já que isso está sujeito a alterações. Use "hostname -f" no computador local ou nas APIs Ambari para determinar a lista de hosts e o mapeamento de componentes para hosts. Você pode encontrar mais informações em [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md) e em [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md). | O Barramento de | Clusters HDInsight no Linux | N/D |
+| Alterações de configuração | Para clusters HDInsight 3.1, agora as configurações a seguir estão habilitadas: <ul><li>tez.yarn.ats.enabled e yarn.log.server.url. Isso permite que o Servidor de Linha do Tempo do Aplicativo e o servidor de Log possam servir logs.</li></ul>Para clusters HDInsight 3.2, as seguintes configurações foram modificadas: <ul><li>mapreduce.fileoutputcommitter.algorithm.version foi definida como 2. Isso permite o uso da versão V2 do FileOutputCommitter.</li></ul> | O Barramento de | Todos | N/D |
 
 
 ## Notas da versão de 09/09/2015 do HDInsight
@@ -651,7 +689,7 @@ Esta versão contém as atualizações a seguir.
 
 <tr>
 <td>Clusters do HDInsight 3.2</td>
-<td>O Hadoop 2.6/HDP2.2 está disponível com clusters do HDInsight 3.2. Ele contém atualizações importantes para todos os componentes de código-fonte aberto. Para obter mais detalhes, veja Novidades no HDInsight e <a href ="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.2.0/HDP_2.2.0_Release_Notes_20141202_version/index.html" target="_blank">Notas de versão do HDP 2.2.0.0</a>.</td>
+<td>O Hadoop 2.6/HDP2.2 está disponível com clusters do HDInsight 3.2. Ele contém atualizações importantes para todos os componentes de código-fonte aberto. Para obter mais detalhes, veja Novidades no HDInsight e as <a href ="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.2.0/HDP_2.2.0_Release_Notes_20141202_version/index.html" target="_blank">Notas de versão do HDP 2.2.0.0</a>.</td>
 <td>Software livre</td>
 <td>Todos</td>
 <td>N/D</td>
@@ -683,7 +721,7 @@ Esta versão contém as atualizações a seguir.
 
 <tr>
 <td>Dimensionamento de cluster</td>
-<td>Você pode alterar o número de nós de dados para um cluster HDInsight em execução sem precisar excluí-lo ou recriá-lo. Atualmente, somente os tipos de cluster Hadoop Query e Apache Storm têm essa capacidade, mas o Apache HBase logo deverá ter também. Para obter mais informações, veja Gerenciar clusters HDInsight.</td>
+<td>Você pode alterar o número de nós de dados para um cluster HDInsight em execução sem precisar excluí-lo ou recriá-lo. Atualmente, somente os tipos de cluster Hadoop Query e Apache Storm têm essa capacidade, mas o Apache HBase logo deverá ter também. Para saber mais, veja Gerenciar clusters HDInsight.</td>
 <td>O Barramento de</td>
 <td>Hadoop, Storm</td>
 <td>N/D</td>
@@ -691,7 +729,7 @@ Esta versão contém as atualizações a seguir.
 
 <tr>
 <td>Ferramentas do Visual Studio</td>
-<td>Além de ferramentas completas para o Apache Storm, as ferramentas para Apache Hive no Visual Studio foram atualizadas para incluir o preenchimento de declaração, validação local e suporte aprimorado de depuração. Para obter mais informações, veja Introdução às ferramentas do Hadoop HDInsight para o Visual Studio.</td>
+<td>Além de ferramentas completas para o Apache Storm, as ferramentas para Apache Hive no Visual Studio foram atualizadas para incluir o preenchimento de declaração, validação local e suporte aprimorado de depuração. Para saber mais, veja Introdução às ferramentas do Hadoop HDInsight para o Visual Studio.</td>
 <td>Ferramentas</td>
 <td>O Hadoop</td>
 <td>N/D</td>
@@ -699,7 +737,7 @@ Esta versão contém as atualizações a seguir.
 
 <tr>
 <td>Conector de Hadoop para Banco de Dados de Documentos</td>
-<td>Com o conector de Hadoop para Banco de Dados de Documentos, você pode executar agregações complexas, análise e manipulações de seus documentos JSON sem esquema armazenados nas coleções de Banco de Dados de Documentos ou entre contas de banco de dados. Para obter mais informações e um tutorial, veja Executar trabalhos do Hadoop usando o Banco de Dados de Documentos e o HDInsight.</td>
+<td>Com o conector de Hadoop para Banco de Dados de Documentos, você pode executar agregações complexas, análise e manipulações de seus documentos JSON sem esquema armazenados nas coleções de Banco de Dados de Documentos ou entre contas de banco de dados. Para saber mais e obter um tutorial, veja Executar trabalhos do Hadoop usando o Banco de Dados de Documentos e o HDInsight.</td>
 <td>O Barramento de</td>
 <td>O Hadoop</td>
 <td>N/D</td>
@@ -1384,4 +1422,4 @@ As notas de versão para os HDPs (plataformas de dados Hortonworks) que são usa
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

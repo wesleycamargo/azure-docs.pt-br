@@ -107,7 +107,7 @@ Isso cria um logon para o usuário especificado, usando a senha ou a chave públ
 
 ###Interface de linha de comando do Azure para Mac, Linux e Windows
 
-Você pode usar a [CLI do Azure para Mac, Linux e Windows](../xplat.md) para criar um novo cluster usando o comando `azure hdinsight cluster create`.
+Você pode usar a [CLI do Azure para Mac, Linux e Windows](../xplat-cli.md) para criar um novo cluster usando o comando `azure hdinsight cluster create`.
 
 Para obter mais informações sobre como usar esse comando, veja [Provisionar clusters Hadoop do Linux no HDInsight usando opções personalizadas](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -238,4 +238,4 @@ Agora que você entende como autenticar usando uma chave SSH, aprenda a usar Map
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

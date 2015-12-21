@@ -15,16 +15,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="12/03/2015" 
 	ms.author="mimig"/>
 
-# Automatizar a criação de conta de banco de dados do Banco de Dados de Documentos usando modelos do Gerenciador de Recursos do Azure e a CLI do Azure
+# Automatizar a criação de conta do Banco de Dados de Documentos usando modelos do Gerenciador de Recursos do Azure e a CLI do Azure
 
 > [AZURE.SELECTOR]
 - [Azure Portal](documentdb-create-account.md)
 - [Azure CLI and ARM](documentdb-automation-resource-manager-cli.md)
 
-Este artigo mostra como criar uma conta de Banco de Dados de Documentos usando modelos do Gerenciador de Recursos do Azure ou a CLI (Interface de Linha de Comando) do Azure.
+Este artigo mostra como criar uma conta de Banco de Dados de Documentos usando modelos do Gerenciador de Recursos do Azure ou a CLI (Interface de Linha de Comando) do Azure. Para criar uma conta do Banco de Dados de Documentos usando o Portal do Azure, confira [Criar uma conta de banco de dados do Banco de Dados de Documentos usando o portal do Azure](documentdb-create-account.md).
 
 - [Criar uma conta do Banco de Dados de Documentos usando a CLI](#quick-create-documentdb-account)
 - [Criar uma conta do Banco de Dados de Documentos usando um modelo ARM](#deploy-documentdb-from-a-template)
@@ -42,7 +42,7 @@ No prompt de comando, digite `azure --version` para ver se você já tem a vers�
 	azure --version
     0.9.11 (node: 0.12.7)
 
-Se a sua versão não for a 0.9.11 ou posterior, será necessário [instalar a CLI do Azure](../xplat-cli-install.md) ou atualizá-la usando um dos instaladores nativos, ou por meio de **npm** digitando `npm update -g azure-cli` para atualizar ou `npm install -g azure-cli` para instalar.
+Se a sua versão não for a 0.9.11 ou posterior, será necessário [instalar a CLI do Azure](../xplat-cli-install.md) ou atualizá-la usando um dos instaladores nativos, ou por meio do **npm** digitando `npm update -g azure-cli` para atualizar ou `npm install -g azure-cli` para instalar.
 
 ### Definir sua conta e assinatura do Azure
 
@@ -79,7 +79,7 @@ O shell de comando também fornece a saída a seguir.
 	+
 	info:    login command OK
 
-Além do método de logon interativo descrito aqui, há métodos adicionais de logon disponíveis na CLI do Azure. Para saber mais sobre os outros métodos e informações sobre como lidar com várias assinaturas, confira [Conectar uma assinatura do Azure a partir da CLI (Interface de linha de comando) do Azure](../xplat-cli-connect.md).
+Além do método de logon interativo descrito aqui, há métodos adicionais de logon disponíveis na CLI do Azure. Para saber mais sobre os outros métodos e informações sobre como lidar com várias assinaturas, confira [Conectar uma assinatura do Azure da CLI (Interface de Linha de Comando) do Azure](../xplat-cli-connect.md).
 
 ### Alternar para o modo de grupo de recursos da CLI do Azure
 
@@ -93,13 +93,13 @@ Que fornece esta saída:
 
 Você pode alternar de volta para o conjunto de comandos padrão digitando `azure config mode asm`.
 
-## <a id="quick-create-documentdb-account"></a>Tarefa: Criar uma conta do Banco de Dados de Documentos usando a CLI
+## <a id="quick-create-documentdb-account"></a>Tarefa: criar uma conta do Banco de Dados de Documentos usando a CLI do Azure
 
 Use as instruções nesta seção para criar uma conta do Banco de Dados de Documentos com a CLI do Azure.
 
 ### Etapa 1: criar ou recuperar o grupo de recursos
 
-Para criar uma conta do Banco de Dados de Documentos, primeiro você precisará de um grupo de recursos. Se você já souber o nome do grupo de recursos que quer usar, vá para a [Etapa 2](#create-documentdb-account-cli).
+Para criar uma conta do Banco de Dados de Documentos, primeiro você precisará de um grupo de recursos. Se você já souber o nome do grupo de recursos que deseja usar, pule para a [Etapa 2](#create-documentdb-account-cli).
 
 Para examinar uma lista de todos os grupos de recursos atuais, execute o seguinte comando e anote o nome do grupo de recursos que você deseja usar:
 
@@ -107,9 +107,12 @@ Para examinar uma lista de todos os grupos de recursos atuais, execute o seguint
 
 Para criar um novo grupo de recursos, execute o seguinte comando, especifique o nome do novo grupo de recursos a ser criado e a região na qual você quer criar o grupo de recursos:
 
-	azure group create <resourcegroupname> <location>
+	azure group create <resourcegroupname> <resourcegrouplocation>
 
-Por exemplo:
+ - `<resourcegroupname>` pode usar apenas caracteres alfanuméricos, pontos, sublinhados, o caractere '-' e parênteses, e não pode terminar em um ponto. 
+ - `<resourcegrouplocation>` deve ser uma das regiões na qual o Banco de Dados de Documentos normalmente está disponível. Confira a lista atual de regiões na [página Regiões do Azure](https://azure.microsoft.com/regions/#services).
+
+Entrada de exemplo:
 
 	azure group create new_res_group westus
 
@@ -129,15 +132,19 @@ Que produz esta saída:
 
 Se você encontrar erros, confira a [Solução de problemas](#troubleshooting).
 
-### <a id="create-documentdb-account-cli"></a>Etapa 2: Criar uma conta do Banco de Dados de Documentos usando a CLI
+### <a id="create-documentdb-account-cli"></a>Etapa 2: criar uma conta do Banco de Dados de Documentos usando a CLI
 
 Crie uma conta do Banco de Dados de Documentos no grupo de recursos novo ou existente inserindo o seguinte comando no prompt de comando:
 
 > [AZURE.TIP]Se você executar este comando no Azure PowerShell ou no Windows PowerShell, receberá um erro sobre um token inesperado. Em vez disso, execute este comando no Prompt de Comando do Windows.
 
-    azure resource create -g <resourceGroupName> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o "2015-04-08" -l <databaseaccountlocation> -p "{"databaseAccountOfferType":"Standard"}" 
+    azure resource create -g <resourcegroupname> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o "2015-04-08" -l <databaseaccountlocation> -p "{"databaseAccountOfferType":"Standard"}" 
 
-Por exemplo:
+ - `<resourcegroupname>` pode usar apenas caracteres alfanuméricos, pontos, sublinhados, o caractere '-' e parênteses, e não pode terminar em um ponto. 
+ - `<databaseaccountname>` pode usar apenas letras minúsculas, números, o caractere '-' e deve ter entre três e 50 caracteres.
+ - `<databaseaccountlocation>` deve ser uma das regiões na qual o Banco de Dados de Documentos normalmente está disponível. Confira a lista atual de regiões na [página Regiões do Azure](https://azure.microsoft.com/regions/#services).
+
+Entrada de exemplo:
 
     azure resource create -g new_res_group -n samplecliacct -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08  -l westus -p "{"databaseAccountOfferType":"Standard"}"
 
@@ -161,7 +168,7 @@ Se você encontrar erros, confira a [Solução de problemas](#troubleshooting).
 
 Após o retorno do comando, a conta ficará no estado **Criando** por alguns minutos antes de mudar para o estado **Online**, no qual estará pronta para uso. Você pode verificar o status da conta no [portal do Azure](https://portal.azure.com), na folha **Contas do Banco de Dados de Documentos**.
 
-## <a id="deploy-documentdb-from-a-template"></a>Tarefa: Criar uma conta do Banco de Dados de Documentos usando um modelo ARM
+## <a id="deploy-documentdb-from-a-template"></a>Tarefa: criar uma conta do Banco de Dados de Documentos usando um modelo ARM
 
 Use as instruções nesta seção para criar uma conta do Banco de Dados de Documentos com um modelo ARM (Gerenciador de Recursos do Azure) e um arquivo de parâmetros opcionais, ambos arquivos JSON. O uso de um modelo permite a descrição exata do que você deseja e também a repetição sem erros.
 
@@ -171,7 +178,7 @@ A maioria dos aplicativos é criada a partir de uma combinação de diferentes t
 
 Com os *modelos do Gerenciador de Recursos do Azure*, é possível implantar e gerenciar esses diferentes recursos como uma unidade lógica de implantação de forma declarativa. Em vez de informar imperativamente ao Azure o que implantar, em um comando após o outro, você descreve a implantação inteira em um arquivo JSON (todos os recursos e configurações e parâmetros de implantação associados) e instrui o Azure a implantar esses recursos como um grupo.
 
-Você poderá saber muito mais sobre os grupos de recursos do Azure e o que eles podem fazer por você na [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md). Se você estiver interessado na criação de modelos, consulte [Criando modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
+Você pode saber muito mais sobre os grupos de recursos do Azure e o que eles podem fazer por você na [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md). Se você estiver interessado na criação de modelos, confira [Criando modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
 ### Etapa 1: criar um modelo e um arquivo de parâmetro
 
@@ -216,13 +223,11 @@ Para criar um arquivo de parâmetro, copie o seguinte conteúdo em um novo arqui
         }
     }
 
-No arquivo azuredeploy.parameters.json, atualize o valor "samplearmacct" com o nome do banco de dados que você gostaria de usar e salve o arquivo.
-
-> [AZURE.TIP]Os nomes de conta de banco de dados podem usar apenas letras minúsculas, números, o caractere '-' e devem ter entre três e 50 caracteres.
+No arquivo azuredeploy.parameters.json, atualize o valor "samplearmacct" com o nome do banco de dados que você deseja usar e salve o arquivo. O `<databaseAccountName>` pode usar apenas letras minúsculas, números, o caractere '-' e deve conter entre três e 50 caracteres.
 
 ### Etapa 2: criar ou recuperar o grupo de recursos
 
-Para criar uma conta do Banco de Dados de Documentos, primeiro você precisará de um grupo de recursos. Se você já souber o nome do grupo de recursos que quer usar, vá para a [Etapa 3](#create-account-from-template).
+Para criar uma conta do Banco de Dados de Documentos, primeiro você precisará de um grupo de recursos. Se você já souber o nome do grupo de recursos que deseja usar, verifique se o local é uma [região na qual o Banco de Dados de Documentos normalmente está disponível](https://azure.microsoft.com/regions/#services) e pule para a [Etapa 3](#create-account-from-template). No modelo, o local da conta é criado na mesma região do grupo de recursos, portanto, tentar criar uma conta em uma região na qual o Banco de Dados de Documentos não está disponível resultará em um erro de implantação.
 
 Para examinar uma lista de todos os grupos de recursos atuais, execute o seguinte comando e anote o nome do grupo de recursos que você deseja usar:
 
@@ -230,9 +235,12 @@ Para examinar uma lista de todos os grupos de recursos atuais, execute o seguint
 
 Para criar um novo grupo de recursos, execute o seguinte comando, especifique o nome do novo grupo de recursos a ser criado e a região na qual você quer criar o grupo de recursos:
 
-	azure group create <resourcegroupname> <location>
+	azure group create <resourcegroupname> <databaseaccountlocation>
 
-Por exemplo:
+ - `<resourcegroupname>` pode usar apenas caracteres alfanuméricos, pontos, sublinhados, o caractere '-' e parênteses, e não pode terminar em um ponto. 
+ - `<databaseaccountlocation>` deve ser uma das regiões na qual o Banco de Dados de Documentos normalmente está disponível. Confira a lista atual de regiões na [página Regiões do Azure](https://azure.microsoft.com/regions/#services).
+
+Entrada de exemplo:
 
 	azure group create new_res_group westus
 
@@ -260,7 +268,12 @@ Para usar um arquivo de parâmetro:
 
     azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g <resourcegroupname> -n <deploymentname>
 
-Por exemplo:
+ - `<PathToTemplate>` é o caminho até o arquivo azuredeploy.json criado na Etapa 1.
+ - `<PathToParameterFile>` é o caminho até o arquivo azuredeploy.parameters.json criado na Etapa 1.
+ - `<resourcegroupname>` é o nome do grupo de recursos existente no qual você quer adicionar uma conta de banco de dados do Banco de Dados de Documentos. 
+ - `<deploymentname>` é o nome opcional da implantação.
+
+Entrada de exemplo:
 
     azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json -g new_res_group -n azuredeploy
 
@@ -268,12 +281,12 @@ OU para especificar o parâmetro de nome de conta do banco de dados sem um arqui
 
     azure group deployment create -f <PathToTemplate> -g <resourcegroupname> -n <deploymentname>
 
-Por exemplo (que exibe o prompt e a entrada de uma conta de banco de dados denominada new\_db\_acct):
+Exemplo de entrada que exibe o prompt e a entrada de uma conta de banco de dados denominada new\_db\_acct:
 
     azure group deployment create -f azuredeploy.json -g new_res_group -n azuredeploy
     info:    Executing command group deployment create
     info:    Supply values for the following parameters
-    databaseAccountName: newarmacct
+    databaseAccountName: samplearmacct
 
 À medida que a conta for provisionada, você receberá as seguintes informações:
 
@@ -289,7 +302,7 @@ Por exemplo (que exibe o prompt e a entrada de uma conta de banco de dados denom
     data:    Mode               : Incremental
     data:    Name                 Type    Value
     data:    -------------------  ------  ------------------
-    data:    databaseAccountName  String  newarmacct
+    data:    databaseAccountName  String  samplearmacct
     data:    location             String  West US
     info:    group deployment create command OK
 
@@ -299,21 +312,25 @@ Após o retorno do comando, a conta ficará no estado **Criando** por alguns min
 
 ## Solucionar problemas
 
-Se você receber erros como `Deployment provisioning state was not successful` ao criar sua conta de banco de dados ou grupo de recursos, use o seguinte comando para exibir o log do grupo de recursos.
+Se você receber erros como `Deployment provisioning state was not successful` ao criar sua conta de banco de dados ou grupo de recursos, poderá usar algumas opções para a solução do problema.
 
-    azure group log show <resourcegroupname> --last-deployment
+> [AZURE.NOTE]O fornecimento de caracteres incorretos no nome da conta de banco de dados ou o fornecimento de um local no qual o Banco de Dados de Documentos não está disponível causará erros de implantação. Os nomes de conta de banco de dados podem usar apenas letras minúsculas, números, o caractere '-' e devem ter entre três e 50 caracteres. Todos os locais de conta do banco de dados válidos são listados na [página Regiões do Azure](https://azure.microsoft.com/regions/#services).
 
-Por exemplo:
+- Se a saída apresentar o seguinte `Error information has been recorded to C:\Users\wendy\.azure\azure.err`, examine as informações de erro no arquivo azure.err.
 
-    azure group log show new_res_group --last-deployment
+- Você pode encontrar informações úteis no arquivo de log do grupo de recursos. Para exibir o arquivo de log, execute o seguinte comando:
 
-Em seguida, confira [Solucionando problemas de implantações do grupo de recursos no Azure](../resource-group-deploy-debug.md) para saber mais.
+    	azure group log show <resourcegroupname> --last-deployment
 
-Lembre-se de que os nomes de conta de banco de dados podem usar apenas letras minúsculas, números, o caractere '-' e devem ter entre três e 50 caracteres.
+    Entrada de exemplo:
 
-As informações sobre o erro também estão disponíveis no Portal do Azure, conforme mostra a seguinte captura de tela. Para navegar até as informações sobre o erro: clique em Grupos de Recursos na Jumpbar, selecione o Grupo de Recursos que apresentou o erro e, na área Essentials da folha Grupo de Recursos, clique na data da Última Implantação. Na folha Histórico de implantação escolha a implantação com falha e, na folha Implantação, clique no Detalhe da operação com o ponto de exclamação vermelho. A Mensagem de Status da implantação com falha é exibida na folha Detalhes da operação.
+    	azure group log show new_res_group --last-deployment
 
-![Captura de tela do portal do Azure mostrando como navegar até a mensagem de erro de implantação](media/documentdb-automation-resource-manager-cli/portal-troubleshooting-deploy.png)
+    Em seguida, confira [Solucionando problemas de implantações do grupo de recursos no Azure](../resource-group-deploy-debug.md) para saber mais.
+
+- As informações sobre o erro também estão disponíveis no Portal do Azure, conforme mostra a seguinte captura de tela. Para navegar até as informações sobre o erro: clique em Grupos de Recursos na Jumpbar, selecione o Grupo de Recursos que apresentou o erro e, na área Essentials da folha Grupo de Recursos, clique na data da Última Implantação. Na folha Histórico de implantação escolha a implantação com falha e, na folha Implantação, clique no Detalhe da operação com o ponto de exclamação vermelho. A Mensagem de Status da implantação com falha é exibida na folha Detalhes da operação.
+
+    ![Captura de tela do portal do Azure mostrando como navegar até a mensagem de erro de implantação](media/documentdb-automation-resource-manager-cli/portal-troubleshooting-deploy.png)
 
 ## Próximas etapas
 
@@ -332,6 +349,6 @@ Para saber mais sobre o Banco de Dados de Documentos, explore estes recursos:
 -	[Roteiro de aprendizagem para o Banco de Dados de Documentos](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[Conceitos e modelo de recursos do Banco de Dados de Documentos](documentdb-resources.md)
 
-Para obter mais modelos que você possa usar, confira [Modelos de início rápido do Azure](http://azure.microsoft.com/documentation/templates/).
+Para obter mais modelos que você possa usar, confira [Modelos de Início Rápido do Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="10/08/2015"
+      ms.date="12/06/2015"
       ms.author="v-jeana; hascipio"/>
 
 # Como solucionar problemas comuns de editora do Azure Marketplace
@@ -63,12 +63,12 @@ Em algumas circunstâncias, talvez seja necessário validar os detalhes da assin
 
 ## Como faço para atualizar meu perfil de editora?
 
-Se você quiser atualizar seu perfil de editora, faça isso por meio do Painel do Vendedor:
+Se você quiser atualizar seu perfil do editor, faça isso por meio do Centro do Desenvolvedor da Microsoft:
 
-**1. Entre no Painel do Vendedor**.
+**1. Entre no Centro do Desenvolvedor da Microsoft**.
 
 - Abra uma nova sessão de Janela anônima do Chrome ou navegação InPrivate do Internet Explorer para garantir que você não esteja conectado a uma conta pessoal.
-- Vá para http://sellerdashboard.microsoft.com.
+- Vá para [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)
 
 ![InPrivate][4]
 
@@ -120,4 +120,4 @@ Para os problemas a seguir, crie uma solicitação de suporte em [http://go.micr
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

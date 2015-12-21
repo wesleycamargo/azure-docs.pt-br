@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/15/2015"
-	ms.author="ggailey777"/>
+	ms.date="12/07/2015"
+	ms.author="glenga"/>
 
 # Armazenar o código de seu projeto de serviço móvel no controle do código-fonte
 
@@ -158,4 +158,4 @@ Agora que concluiu este tutorial, você sabe como armazenar seus scripts no cont
 [Módulos]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,21 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/30/2015"
+   ms.date="12/07/2015"
    ms.author="kenhoff"/>
 
 # Visualizações de relatório do Active Directory do Azure
 
-## Artigos de documentação de relatório
-
- - [API de Relatório](active-directory-reporting-api-getting-started.md)
- - [Eventos de Auditoria](active-directory-reporting-audit-events.md)
- - [Retenção](active-directory-reporting-retention.md)
- - [Visualizações](active-directory-reporting-previews.md)
- - [Pesquisar](active-directory-reporting-search.md)
- - [Aterramento](active-directory-reporting-backfill.md)
- - [Latências](active-directory-reporting-latencies.md)
- - [Evento "Ator Desconhecido"](active-directory-reporting-unknown-actor.md)
+*Esta documentação é parte do [Guia de Relatórios do Active Directory do Azure](active-directory-reporting-guide.md).*
 
 Relatório | Disponibilidade
 ------------------------------------------------------- | --------------------
@@ -63,4 +54,4 @@ Uso de aplicativos habilitados para RMS | Visualização pública
 **Relatórios de visualização particular** |
 Atividade de entrada de todos os usuários | Visualização particular
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

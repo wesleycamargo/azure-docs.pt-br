@@ -384,8 +384,8 @@ Nesta etapa, você criará um **pipeline** com uma **Atividade de Cópia** que u
  
 	- Na seção de atividades, há somente uma atividade cujo **type** é definido como **Copy**.
 	- A **entrada** da atividade é definida como **EmpOnPremSQLTable** e a **saída** da atividade é definida como **OutputBlobTable**.
-	- Na seção **transformation**, **SqlSource** é especificado como o **source type** e **BlobSink** é especificado como o **sink type**.
-	- A consulta SQL **select * from emp** é especificada para a propriedade **sqlReaderQuery** de **SqlSource**.
+	- Na seção **transformation**, **SqlSource** é especificado como o **source type** e **BlobSink **é especificado como o **sink type**.
+- A consulta SQL **select * from emp** é especificada para a propriedade **sqlReaderQuery** de **SqlSource**.
 
 	Substitua o valor da propriedade **início** pelo dia atual e o valor de **término** pelo dia seguinte. Ambos os valores de data/hora de início e de término devem estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. A hora de **end** é opcional, mas nós o usaremos neste tutorial.
 	
@@ -401,7 +401,7 @@ Nesta etapa, você criará um **pipeline** com uma **Atividade de Cópia** que u
 
 **Parabéns!** Você criou um data factory do Azure, serviços vinculados, tabelas e uma pipeline e a pipeline agendada com êxito.
 
-#### Visualizar a data factory em um modo de exibição de diagrama 
+#### Exibir a data factory em um Modo de Exibição de Diagrama 
 1. No **Portal do Azure**, clique no bloco **Diagrama** na página inicial da data factory **ADFTutorialOnPremDF**.
 
 	![Link do diagrama](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramLink.png)
@@ -413,7 +413,7 @@ Nesta etapa, você criará um **pipeline** com uma **Atividade de Cópia** que u
 	É possível ampliar, reduzir, aplicar zoom de 100%, ajustar nível de zoom, posicionar pipelines e tabelas automaticamente, bem como mostrar informações de linhagem (realça itens upstream e downstream dos itens selecionados). Você pode clicar duas vezes em um objeto (pipeline ou tabela de entrada/saída) para ver as propriedades dele.
 
 ### Etapa 6: Monitorar os conjuntos de dados e os pipelines
-Nesta etapa, você usará o Portal Clássico do Azure para monitorar o que está acontecendo em um Azure data factory. Você também pode usar os cmdlets do PowerShell para monitorar conjuntos de dados e pipelines. Para obter detalhes sobre monitoramento, consulte [Monitorar e gerenciar pipelines](monitor-manage-pipelines.md).
+Nesta etapa, você usará o Portal Clássico do Azure para monitorar o que está acontecendo em uma data factory do Azure. Você também pode usar os cmdlets do PowerShell para monitorar conjuntos de dados e pipelines. Para obter detalhes sobre monitoramento, consulte [Monitorar e gerenciar pipelines](monitor-manage-pipelines.md).
 
 1. Navegue até o **Portal do Azure** (se você o fechou)
 2. Se a folha para **ADFTutorialOnPremDF** não estiver aberta, abra-a clicando em **ADFTutorialOnPremDF** no **Quadro Inicial**.
@@ -431,7 +431,7 @@ Nesta etapa, você usará o Portal Clássico do Azure para monitorar o que está
 	Ambas as listas **Fatias atualizadas recentemente** e **Fatias com falha recente** são classificadas segundo o **HORÁRIO DA ÚLTIMA ATUALIZAÇÃO**. A hora de atualização de uma fatia é alterada nas situações a seguir.
     
 
-	-  Você atualiza o status da fatia manualmente, por exemplo, usando o **Set-AzureDataFactorySliceStatus** (ou) clicando em **EXECUTAR** na folha **FATIA** da fatia.
+	-  Você atualiza o status da fatia manualmente, por exemplo, usando o **Set-AzureRmDataFactorySliceStatus** (ou) clicando em **EXECUTAR** na folha **FATIA** da fatia.
 	-  A fatia é alterada devido a uma execução (por exemplo, uma execução iniciada, uma execução finalizada e com falha, uma execução finalizada e bem-sucedida, etc).
  
 	Clique no título das listas ou em **... (reticências)** para ver a lista maior de fatias. Clique em **Filtrar** na barra de ferramentas para filtrar as fatias.
@@ -514,21 +514,16 @@ Você também pode criar um serviço do SQL Server vinculado usando a folha de s
 7.	Na folha **Credenciais**, clique em **Clique aqui para definir credenciais**.
 8.	Na caixa de diálogo **Definindo Credenciais**, faça o seguinte:
 
-	![Caixa de diálogo de Configurando Credenciais](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
-	1.	Selecione a **autenticação** que você deseja que o serviço de Data Factory use para se conectar ao banco de dados. 
-	2.	Insira o nome do usuário que tem acesso ao banco de dados para a configuração **NOME DE USUÁRIO**. 
-	3.	Insira a senha do usuário para a configuração **SENHA**.  
-	4.	Clique em **OK** para fechar a caixa de diálogo. 
+	![Caixa de diálogo de Configurando Credenciais](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 1. Selecione a **autenticação** que você deseja que o serviço de Data Factory use para se conectar ao banco de dados. 2. Insira o nome do usuário que tem acesso ao banco de dados para a configuração **NOME DE USUÁRIO**. 3. Insira a senha do usuário para a configuração **SENHA**. 4. Clique em **OK** para fechar a caixa de diálogo. 
 4. Clique em **OK** para fechar a folha **Credenciais**. 
 5. Clique em **OK** na folha **Novo armazenamento de dados**. 	
-6. Confirme se o status de **SqlServerLinkedService** está definido como Online na folha Serviços Vinculados.
-	![Status do serviço vinculado do SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
+6. Confirme se o status de **SqlServerLinkedService** está definido como Online na folha Serviços Vinculados.![Status do serviço vinculado do SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
 
 Se você acessar o portal de um computador diferente do computador do gateway, você deve garantir que o aplicativo Gerenciador de credenciais possa se conectar ao computador do gateway. Se o aplicativo não puder acessar o computador do gateway, ele não permitirá que você defina credenciais da fonte de dados teste a conexão à fonte de dados.
 
 Quando você usa o aplicativo “Configurando Credenciais” iniciado pelo Portal Clássico do Azure para configurar credenciais para uma fonte de dados local, o portal criptografa as credenciais com o certificado especificado na guia Certificado do Gerenciador de Configuração do Gateway de Gerenciamento de Dados no computador do gateway.
 
-Se você estiver procurando uma abordagem baseada em API para criptografar as credenciais, poderá usar o cmdlet [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/azure/dn834940.aspx) do PowerShell para criptografar as credenciais. O cmdlet usa o certificado que esse gateway está configurado para usar para criptografar as credenciais. Você pode obter as credenciais criptografadas retornadas por esse cmdlet e adicioná-las ao elemento EncryptedCredential de connectionString do arquivo JSON que será usado com o cmdlet [New-AzureDataFactoryLinkedService](https://msdn.microsoft.com/library/azure/dn820246.aspx) ou no trecho de código JSON no editor de Data Factory no portal.
+Se você estiver procurando uma abordagem baseada em API para criptografar as credenciais, poderá usar o cmdlet [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) do PowerShell para criptografar as credenciais. O cmdlet usa o certificado que esse gateway está configurado para usar para criptografar as credenciais. Você pode obter as credenciais criptografadas retornadas por esse cmdlet e adicioná-las ao elemento EncryptedCredential de connectionString do arquivo JSON que será usado com o cmdlet [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) ou no trecho de código JSON no editor da Data Factory no portal.
 
 	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 
@@ -546,14 +541,14 @@ Esta seção descreve como criar e registrar um gateway usando cmdlets do PowerS
         switch-azuremode AzureResourceManager
 
 
-2. Use o cmdlet **New-AzureDataFactoryGateway** para criar um gateway lógico da seguinte maneira:
+2. Use o cmdlet **New-AzureRmDataFactoryGateway** para criar um gateway lógico da seguinte maneira:
 
-		New-AzureDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
+		New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
 
 	**Exemplo de comando e saída**:
 
 
-		PS C:\> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+		PS C:\> New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
 		Name              : MyGateway
 		Description       : gateway for walkthrough
@@ -567,15 +562,15 @@ Esta seção descreve como criar e registrar um gateway usando cmdlets do PowerS
 		ProvisioningState : Succeeded
 
 
-3. Use o cmdlet **New-AzureDataFactoryGatewayKey** para gerar uma chave de registro para o gateway recém-criado e armazenar a chave em uma variável local **$Key**:
+3. Use o cmdlet **New-AzureRmDataFactoryGatewayKey** para gerar uma chave de registro para o gateway recém-criado e armazenar a chave em uma variável local **$Key**:
 
-		New-AzureDataFactoryGatewayKey -GatewayName <gatewayname> -ResourceGroupName ADF -DataFactoryName <dataFactoryName>
+		New-AzureRmDataFactoryGatewayKey -GatewayName <gatewayname> -ResourceGroupName ADF -DataFactoryName <dataFactoryName>
 
 	
 	**Exemplo de saída de comando:**
 
 
-		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
+		PS C:\> $Key = New-AzureRmDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
 4. No Azure PowerShell, alterne para a pasta **C:\\Arquivos de Programas\\Microsoft Data Management Gateway\\1.0\\PowerShellScript** e execute o script **RegisterGateway.ps1** associado à variável local **$Key** conforme mostrado no seguinte comando para registrar o agente cliente instalado no computador com o gateway lógico criado anteriormente.
@@ -584,18 +579,17 @@ Esta seção descreve como criar e registrar um gateway usando cmdlets do PowerS
 		
 		Agent registration is successful!
 
-5. Você pode usar o cmdlet **Get-AzureDataFactoryGateway** para obter a lista de gateways na data factory. Quando o **Status** mostra **online**, isso significa que seu gateway está pronto para uso.
+5. Você pode usar o cmdlet **Get-AzureRmDataFactoryGateway** para obter a lista de gateways no data factory. Quando o **Status** mostra **online**, isso significa que seu gateway está pronto para uso.
 
-		Get-AzureDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
+		Get-AzureRmDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
 
-Você pode remover um gateway usando o cmdlet **Remove-AzureDataFactoryGateway** e atualizar a descrição de um gateway usando os cmdlets **Set-AzureDataFactoryGateway**. Para sintaxe e outros detalhes sobre esses cmdlets, consulte Referência de Cmdlet de Data Factory.
+Você pode remover um gateway usando o cmdlet **Remove-AzureRmDataFactoryGateway** e atualizar a descrição de um gateway com os cmdlets **Set-AzureRmDataFactoryGateway**. Para sintaxe e outros detalhes sobre esses cmdlets, consulte Referência de Cmdlet de Data Factory.
 
 
 ## Fluxo de dados de cópia usando o Gateway de Gerenciamento de Dados
 Quando você usa uma atividade de cópia em um pipeline de dados para incluir dados locais na nuvem para processamento adicional, ou exportar dados de resultado na nuvem de volta para um armazenamento de dados local, a atividade de cópia usa internamente um gateway para transferir os dados da fonte de dados local para a nuvem e vice-versa.
 
-Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a cópia com o gateway de dados:
-![Fluxo de dados usando o gateway](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
+Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a cópia com o gateway de dados: ![Fluxo de dados usando o gateway](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
 
 1.	O desenvolvedor de dados cria um novo gateway para um Azure Data Factory usando o [Portal Clássico do Azure](http://portal.azure.com) ou o [Cmdlet do PowerShell](https://msdn.microsoft.com/library/dn820234.aspx). 
 2.	O desenvolvedor de dados usa o painel "Serviços vinculados" para definir um novo serviço vinculado para um armazenamento de dados local com o gateway. Como parte da configuração de dados do serviço vinculado, o desenvolvedor usa o aplicativo Configurando Credenciais como mostrado no tutorial passo a passo para especificar as credenciais e tipos de autenticação. A caixa de diálogo do aplicativo Configurando Credenciais se comunicará com o armazenamento de dados para testar a conexão e o gateway para salvar as credenciais.
@@ -609,7 +603,7 @@ Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a có
 1. Conforme mencionado anteriormente no tutorial passo a passo, há várias maneiras de configurar credenciais para armazenamentos de dados locais com a data factory. As considerações de porta variam para essas opções.	
 
 	- Usando o aplicativo **Definindo Credenciais**: o programa de instalação do Gateway de Gerenciamento de Dados por padrão abre as portas **8050** e **8051** no firewall do Windows local para o computador do gateway. Essas portas são usadas pelo aplicativo Configurando Credenciais para retransmitir as credenciais para o gateway. Essas portas estão abertas somente para o computador no firewall do Windows local. Elas não podem ser acessadas da Internet e você não precisa mantê-las abertas no firewall corporativo.
-	2.	Usando o cmdlet do PowerShell [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx): a. Se você estiver usando o comando do PowerShell para criptografar as credenciais e como resultado não deseja que a instalação do gateway abra as portas de entrada no computador do gateway no firewall do Windows, pode fazer isso usando o comando a seguir durante a instalação:
+	2.	Usar o cmdlet do PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx): a. Se você estiver usando o comando do PowerShell para criptografar as credenciais e como resultado não deseja que a instalação do gateway abra as portas de entrada no computador do gateway no firewall do Windows, pode fazer isso usando o comando a seguir durante a instalação:
 	
 			msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 3.	Se estiver usando o aplicativo **Definindo Credenciais**, você deve iniciá-lo em um computador que pode se conectar ao Gateway de Gerenciamento de Dados para poder configurar credenciais para a fonte de dados e para testar a conexão com a fonte de dados.
@@ -618,4 +612,4 @@ Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a có
 	- 	Defina as [Configurações de firewall do Azure SQL](https://msdn.microsoft.com/library/azure/jj553530.aspx) para adicionar o **endereço IP do computador do gateway** aos **endereços IP permitidos**.
 5.	Ao copiar dados para/de um SQL Server local para qualquer destino quando os computadores do gateway e do SQL Server forem diferentes, faça o seguinte: [configure o Firewall do Windows](https://msdn.microsoft.com/library/ms175043.aspx) no computador do SQL Server para que o gateway possa acessar o banco de dados por meio de portas que a instância do SQL Server escuta. Para a instância padrão, é a porta 1433.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="dotnet"
-	ms.date="10/01/2015"
+	ms.date="12/09/2015"
 	ms.author="krisragh"/>
 
 # Autorização de serviço de usuários nos Serviços Móveis
@@ -41,7 +41,7 @@ Esse tutorial se baseia no Início Rápido dos Serviços Móveis e elabora o tut
 
 2. No Visual Studio, expanda a pasta Controladores, abra **TodoItemController.cs** e adicione a seguinte instrução using:
 
-		using Microsoft.Azure.Mobile.Server.Security;
+		using Microsoft.WindowsAzure.Mobile.Service.Security;
 
 3. Localize o método **PostTodoItem** e adicione o código a seguir no começo do método.
 
@@ -85,4 +85,4 @@ Esse tutorial se baseia no Início Rápido dos Serviços Móveis e elabora o tut
 [Adicionar autenticação ao aplicativo de Serviços Móveis existentes]: mobile-services-dotnet-backend-ios-get-started-users.md
 [Adicionar autenticação ao aplicativo de serviços móveis existente]: mobile-services-dotnet-backend-ios-get-started-users.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

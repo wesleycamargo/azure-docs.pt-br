@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/24/2015"
+   ms.date="12/03/2015"
    ms.author="hascipio; avikova" />
 
 # Testando sua oferta do Serviço de Dados no preparo
-Depois de concluir as duas primeiras etapas de [Criando suas Contas de Vendedor da Microsoft no Painel do Vendedor](marketplace-publishing-accounts-creation-registration.md) e [Criando sua oferta de Serviço de Dados no Portal de Publicação](marketplace-publishing-data-service-creation.md), você estará pronto para disponibilizar sua oferta no Azure Marketplace. Este tópico explica a primeira etapa, intermediária chamada “Preparo”
+Depois de concluir as duas primeiras etapas de [Criar sua conta de Desenvolvedor da Microsoft](marketplace-publishing-accounts-creation-registration.md) e [Criar sua oferta de Serviço de Dados no Portal de Publicação](marketplace-publishing-data-service-creation.md), você estará pronto para disponibilizar sua oferta no Azure Marketplace. Este tópico explica a primeira etapa, intermediária, chamada “Preparo”
 
 Preparo significa implantar a sua oferta em uma "área restrita" privada, em que você poderá testar e verificar sua funcionalidade antes de publicá-la para produção. A oferta aparecerá no preparo como se o cliente tivesse implantado.
 
 ## Etapa 1. Enviando por push sua oferta para preparo
-Enviar sua oferta para o preparo permite que você teste a oferta antes que ela se torne disponível para futuros assinantes. Você pode ver como sua oferta será exibida e como ela funcionará para os usuários que se inscreverem nos seus dados.
+O envio da sua oferta para o preparo permite que você teste a oferta antes que ela se torne disponível para futuros assinantes. Você pode ver como sua oferta será exibida e como ela funcionará para os usuários que se inscreverem nos seus dados.
 
   ![desenho](media/marketplace-publishing-data-service-test-in-staging/step-1.1.png)
 
@@ -74,7 +74,7 @@ Teste ou verifique cada um dos 12 itens marcados acima para garantir que todos o
 
 Por fim, verifique se o serviço funcionará por meio do Datamarket, clicando no link “EXPLORAR ESTE CONJUNTO DE DADOS”. Uma nova janela será aberta na ferramenta que chamamos de “Gerenciador de Serviços”, para que possa visualizar os resultados de uma consulta em seu serviço. Nessa janela, você pode inserir os parâmetros necessários e ver os resultados exibidos em uma consulta em seu serviço. Além disso, é exibida a URL de sua Consulta.
 
-> [AZURE.NOTE]Certifique-se de examinar a descrição textual do serviço exibida na parte superior. E se a sua oferta consistir em mais de uma chamada de serviço, clique nas guias na parte inferior para alternar para o próximo serviço para examinar e testar.
+> [AZURE.NOTE]Examinar a descrição textual do serviço exibida na parte superior. E se a sua oferta consistir em mais de uma chamada de serviço, clique nas guias na parte inferior para alternar para o próximo serviço para examinar e testar.
 
 
 
@@ -86,4 +86,4 @@ Se você estiver satisfeito e pronto para publicar sua oferta, leia a documenta�
 ## Consulte também
 - [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

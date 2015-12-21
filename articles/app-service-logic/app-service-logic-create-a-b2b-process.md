@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Criando um processo B2B no Serviço de Aplicativo do Microsoft Azure" 
-   description="Visão geral da criação de um processo entre empresas" 
+   pageTitle="Criando um processo B2B no Serviço de Aplicativo do Azure | Microsoft Azure" 
+   description="Visão geral de como criar um processo entre empresas" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="10/01/2015"
+   ms.date="12/07/2015"
    ms.author="rajram"/>
 
 
@@ -44,7 +44,7 @@ Este tutorial supõe que você tenha uma compreensão básica dos Serviços de A
 1. Crie uma instância do **Conector de Blob de Armazenamento do Azure**. Isso exige credenciais para uma conta de Armazenamento do Azure. Certifique-se de que elas estejam prontas antes de começar a criar a instância.
 2. Crie uma instância do **Gerenciamento de Parceiros Comerciais do BizTalk**. Isso requer um Banco de Dados SQL em branco para funcionar. Certifique-se de que isso esteja pronto antes de começar a criar a instância.
 3. Crie uma instância do **Conector AS2**. Isso também requer um Banco de Dados SQL em branco para funcionar. Certifique-se de que isso esteja pronto antes de começar a criar a instância. Além disso, se desejar arquivar mensagens como parte do processamento AS2, você pode fornecer credenciais para um Blob do Azure durante sua criação.
-4. Configure o serviço de TPM (Gerenciamento de Parceiro Comercial) criado:
+4. Configure o serviço de TPM (Gerenciamento de Parceiro Comercial) criado:  
 	1. Navegue até a instância do serviço de TPM criado como parte das etapas acima.
 	2. Use a opção **Parceiros** em *Componentes* para **Adicionar** um novo parceiro denominado **Contoso** e em seu perfil adicione a entidade AS2 necessária.
 	3. Use a opção **Parceiros** em *Componentes* para **Adicionar** um novo parceiro denominado **Northwind** e em seu perfil adicione a entidade AS2 necessária.
@@ -52,13 +52,9 @@ Este tutorial supõe que você tenha uma compreensão básica dos Serviços de A
 
 
 ## Criar um fluxo/processo empresarial
-1. Crie um novo fluxo no qual a primeira etapa é AS2. Arraste e solte o **Conector AS2** e escolha a instância já criada. Escolha o gatilho como funcionalidade
-
-![][1]
-
-2. Em seguida, arraste e solte o **Conector do Blob de Armazenamento do Azure** e escolha a instância criada. Escolha ação como funcionalidade e, dentro dela, selecione Carregar Blob como a funcionalidade desejada. Configure conforme apropriado
-
-3. Agora, crie/implante o fluxo
+1. Crie um novo fluxo no qual a primeira etapa é AS2. Arraste e solte o **Conector AS2** e escolha a instância já criada. Escolha o gatilho como a funcionalidade: ![][1]  
+2. Em seguida, arraste e solte o **Conector do Blob de Armazenamento do Azure** e escolha a instância criada. Escolha ação como funcionalidade e, dentro dela, selecione **Carregar Blob** como a funcionalidade desejada. Configure conforme apropriado.
+3. Agora, crie/implante o fluxo.
 
 
 ## Processamento de mensagens e solução de problemas
@@ -69,8 +65,8 @@ Este tutorial supõe que você tenha uma compreensão básica dos Serviços de A
 ![][2]
 
 <!--Image references-->
-[1]: ./media/app-service-logic-create-a-b2b-process/Flow.jpg
-[2]: ./media/app-service-logic-create-a-b2b-process/Tracking.jpg
+[1]: ./media/app-service-logic-create-a-b2b-process/Flow.png
+[2]: ./media/app-service-logic-create-a-b2b-process/Tracking.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

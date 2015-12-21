@@ -30,9 +30,8 @@ Para concluir este tutorial, você também precisa do seguinte:
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [Conta de armazenamento do Azure](../storage-create-storage-account.md)
-- [Windows Management Framework 3.0](http://www.microsoft.com/pt-BR/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/pt-BR/download/details.aspx?id=40855)
-
-[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
+- [Windows Management Framework 3.0](http://www.microsoft.com/pt-br/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/pt-br/download/details.aspx?id=40855)
+- [PowerShell do Azure](../install-configure-powershell.md)
 
 São necessários cerca de 30 minutos para a conclusão destas etapas.
 
@@ -86,7 +85,16 @@ Agora que o aplicativo Active Directory do Azure foi criado e a biblioteca de au
 
 1.	Abra o arquivo Program.cs para o projeto que você criou e, em seguida, adicione o seguinte usando instruções na parte superior do arquivo:
 
-    usando Microsoft. Azure; usando Microsoft.IdentityModel.Clients.ActiveDirectory; usando Microsoft.Azure.Management.Resources; usando Microsoft.Azure.Management.Resources.Models; usando Microsoft.Azure.Management.Storage; usando Microsoft.Azure.Management.Storage.Models; usando Microsoft.Azure.Management.Network; usando Microsoft.Azure.Management.Network.Models; usando Microsoft.Azure.Management.Compute; usando Microsoft.Azure.Management.Compute.Models;
+        using Microsoft.Azure;
+        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+		using Microsoft.Azure.Management.Resources;
+		using Microsoft.Azure.Management.Resources.Models;
+		using Microsoft.Azure.Management.Storage;
+		using Microsoft.Azure.Management.Storage.Models;
+		using Microsoft.Azure.Management.Network;
+		using Microsoft.Azure.Management.Network.Models;
+		using Microsoft.Azure.Management.Compute;
+		using Microsoft.Azure.Management.Compute.Models;
 
 
 2. Adicione o seguinte método à classe Program para obter o token necessário para criar as credenciais:
@@ -340,7 +348,7 @@ Agora que você criou todos os recursos de suporte, você pode criar uma máquin
 2.	Adicione o seguinte código ao método Main para chamar o método que você acabou de adicionar:
 
 		CreateVirtualMachine(credential);
-    Console.ReadLine();
+        Console.ReadLine();
 
 ##Etapa 5: adicionar código para excluir os recursos
 
@@ -375,4 +383,4 @@ Como você é cobrado pelos recursos usados no Azure, sempre é uma boa prática
 
 	![Criar um aplicativo do AD](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

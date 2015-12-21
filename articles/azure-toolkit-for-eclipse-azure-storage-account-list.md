@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Lista da Conta de Armazenamento do Azure"
+    pageTitle="Lista de contas do Armazenamento do Azure"
     description="Gerenciar as configurações de conta de armazenamento usando o Kit de Ferramentas do Azure para o Eclipse"
     services=""
     documentationCenter="java"
@@ -16,9 +16,9 @@
     ms.date="11/19/2015" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/pt-BR/library/azure/dn205108.aspx -->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn205108.aspx -->
 
-# Lista da Conta de Armazenamento do Azure #
+# Lista de contas do Armazenamento do Azure #
 
 As contas de armazenamento do Azure permitem que os locais de download sejam usados para o seu JDK, servidor de aplicativos e componentes arbitrários, bem como para armazenar o estado ao usar o caching. O Eclipse mantém uma lista de contas de armazenamento conhecidas que estão disponíveis para seus projetos no espaço de trabalho do Eclipse. Para abrir o diálogo **Contas de Armazenamento**, que é usado para gerenciar essa lista, no Eclipse, clique em **Janela**, clique em **Preferências**, expanda **Azure**, e clique em **Contas de Armazenamento**.
 
@@ -36,7 +36,7 @@ Essa caixa de diálogo também pode ser aberta a partir de um link **Contas** na
 ## Para importar suas contas de armazenamento usando um arquivo de configurações de publicação ##
 
 1. No diálogo **Contas de Armazenamento**, clique em **Importar do arquivo de CONFIGURAÇÕES DE PUBLICAÇÃO**.
-2. (Ignore esta etapa se você já tiver salvo um arquivo de configurações de publicação em seu computador local.) No diálogo **Importar Informações de Assinatura**, clique em **Baixar Arquivo de CONFIGURAÇÕES DE PUBLICAÇÃO**. Se você ainda não estiver conectado à sua conta do Azure, você será solicitado para fazer logon. Em seguida, você será solicitado a salvar um arquivo de configurações de publicação do Azure. (Você pode ignorar as instruções resultantes mostradas nas páginas de logon - elas são fornecidas pelo portal do Azure e são destinadas aos usuários do Visual Studio.) Salve-o em seu computador local.
+2. (Ignore esta etapa se você já tiver salvo um arquivo de configurações de publicação em seu computador local.) No diálogo **Importar Informações de Assinatura**, clique em **Baixar Arquivo de CONFIGURAÇÕES DE PUBLICAÇÃO**. Se você ainda não estiver conectado à sua conta do Azure, receberá uma solicitação para fazer logon. Em seguida, você receberá uma solicitação para salvar um arquivo de configurações de publicação do Azure. (Você pode ignorar as instruções resultantes mostradas nas páginas de logon - elas são fornecidas pelo portal do Azure e são destinadas aos usuários do Visual Studio.) Salve-o em seu computador local.
 3. Ainda no diálogo **Importar Informações de Assinatura**, clique no botão **Procurar**, selecione o arquivo de configurações de publicação que você salvou localmente na etapa anterior e clique em **Abrir**.
 4. Clique em **OK** para fechar o diálogo **Importar Informações de Assinatura**.
 
@@ -80,9 +80,9 @@ Pode levar vários minutos para que a sua conta de armazenamento seja criada. De
 
 [Kit de ferramentas do Azure para Eclipse][]
 
-[Instalando o Kit de Ferramentas do Azure para o Eclipse][]
+[Instalação do Kit de Ferramentas do Azure para o Eclipse][]
 
-[Criando um aplicativo do Hello World para o Azure no Eclipse][]
+[Criação de um aplicativo Hello World do Azure no Eclipse][]
 
 Para obter mais informações sobre como usar o Azure com o Java, confira a [Central de desenvolvimento Java do Azure][].
 
@@ -91,8 +91,8 @@ Para obter mais informações sobre como usar o Azure com o Java, confira a [Cen
 [Central de desenvolvimento Java do Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Kit de ferramentas do Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
 [Portal de Gerenciamento do Azure]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Criando um aplicativo do Hello World para o Azure no Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Instalando o Kit de Ferramentas do Azure para o Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Criação de um aplicativo Hello World do Azure no Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Instalação do Kit de Ferramentas do Azure para o Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 [What's New in the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
 <!-- IMG List -->
@@ -100,4 +100,4 @@ Para obter mais informações sobre como usar o Azure com o Java, confira a [Cen
 [ic719496]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719496.png
 [ic719497]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719497.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

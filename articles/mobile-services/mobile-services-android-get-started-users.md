@@ -55,15 +55,15 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
 
 ## Adicionar autenticação ao aplicativo
 
-[AZURE.INCLUDE [mobile-services-android-authenticate-app](../../includes/mobile-services-android-authenticate-app.md)]
+[AZURE.INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
 
 ## <a name="cache-tokens"></a>Armazenar em cache tokens de autenticação no cliente
 
-[AZURE.INCLUDE [mobile-services-android-authenticate-app-with-token](../../includes/mobile-services-android-authenticate-app-with-token.md)]
+[AZURE.INCLUDE [mobile-android-authenticate-app-with-token](../../includes/mobile-android-authenticate-app-with-token.md)]
 
 ## <a name="refresh-tokens"></a>Atualizar o token armazenado em cache
 
-[AZURE.INCLUDE [mobile-services-android-authenticate-app-refresh-token](../../includes/mobile-services-android-authenticate-app-refresh-token.md)]
+[AZURE.INCLUDE [mobile-android-authenticate-app-refresh-token](../../includes/mobile-android-authenticate-app-refresh-token.md)]
 
 
 
@@ -106,4 +106,4 @@ No próximo tutorial, [Autorizar usuários com scripts], você irá obter o valo
 [Introdução aos Serviços Móveis]: mobile-services-android-get-started.md
 [Autorizar usuários com scripts]: mobile-services-javascript-backend-service-side-authorization.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

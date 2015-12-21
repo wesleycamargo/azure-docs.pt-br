@@ -28,7 +28,7 @@ Este artigo descreve as diferentes maneiras de marcar uma máquina virtual no Az
 
 Primeiramente, vamos observar uma marcação por meio de modelos. [Este modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm) coloca marcas nos seguintes recursos: Computação (Máquina Virtual), Armazenamento (Conta de Armazenamento) e Rede (Endereço IP Público, Rede Virtual e Interface de Rede).
 
-Clique no botão **Implantar no Azure** no [link do modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm). Você será direcionado para o [portal do Azure](http://portal.azure.com/), onde poderá implantar esse modelo.
+Clique no botão **Implantar no Azure** no [link do modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm). Você será direcionado para o [Portal do Azure](http://portal.azure.com/), onde poderá implantar esse modelo.
 
 ![Implantação simples com marcas](./media/virtual-machines-tagging-arm/deploy-to-azure-tags.png)
 
@@ -47,7 +47,7 @@ Salve o arquivo de modelo quando terminar de editá-lo com as marcas de sua esco
 
 Em seguida, na seção **Editar Parâmetros**, você pode preencher os valores de suas marcas.
 
-![Editar marcas no portal do Azure](./media/virtual-machines-tagging-arm/edit-tags-in-azure-portal.png)
+![Editar marcas no Portal do Azure](./media/virtual-machines-tagging-arm/edit-tags-in-azure-portal.png)
 
 Clique em **Criar** para implantar esse modelo com seus valores de marca.
 
@@ -58,15 +58,15 @@ Depois de criar seus recursos com marcas, você pode exibir, adicionar e excluir
 
 Selecione o ícone de marcas para exibir suas marcas:
 
-![Ícone de marcas no portal do Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-icon.png)
+![Ícone de marcas no Portal do Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-icon.png)
 
 Adicione uma nova marca por meio do portal definindo seu próprio par de chave/valor e salve-a.
 
-![Adicionar nova marca no portal do Azure](./media/virtual-machines-tagging-arm/azure-portal-add-new-tag.png)
+![Adicionar nova marca no Portal do Azure](./media/virtual-machines-tagging-arm/azure-portal-add-new-tag.png)
 
 Agora, a nova marca deve aparecer na lista de marcas do seu recurso.
 
-![Nova marca salva no portal do Azure](./media/virtual-machines-tagging-arm/azure-portal-saved-new-tag.png)
+![Nova marca salva no Portal do Azure](./media/virtual-machines-tagging-arm/azure-portal-saved-new-tag.png)
 
 
 ## Marcação com o PowerShell
@@ -159,15 +159,15 @@ As marcas colocadas nos recursos de Computação, Rede e Armazenamento por meio 
 
 Clique em **Baixar detalhes de uso** para exibir os detalhes de uso da assinatura.
 
-![Detalhes de uso no portal do Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-usage-details.png)
+![Detalhes de uso no Portal do Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-usage-details.png)
 
 Selecione o demonstrativo e os detalhes de uso da **Versão 2**:
 
-![Detalhes de uso da versão de visualização 2 no portal do Azure](./media/virtual-machines-tagging-arm/azure-portal-version2-usage-details.png)
+![Detalhes de uso da versão de visualização 2 no Portal do Azure](./media/virtual-machines-tagging-arm/azure-portal-version2-usage-details.png)
 
 Nos detalhes de uso, você pode ver todas as marcas na coluna **Marcas**:
 
-![Coluna Marcas no portal do Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-column.png)
+![Coluna Marcas no Portal do Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-column.png)
 
 Ao analisar essas marcas juntamente com o uso, as organizações poderão adquirir novas percepções sobre os respectivos dados de consumo.
 
@@ -183,11 +183,11 @@ Ao analisar essas marcas juntamente com o uso, as organizações poderão adquir
 
 
 [ambiente do PowerShell com o Gerenciador de Recursos do Azure]: ../powershell-azure-resource-manager.md
-[Cmdlets de recursos do Azure]: https://msdn.microsoft.com/pt-BR/library/azure/dn757692.aspx
+[Cmdlets de recursos do Azure]: https://msdn.microsoft.com/library/azure/dn757692.aspx
 [ambiente da CLI do Azure]: ./xplat-cli-azure-resource-manager.md
 [Visão Geral do Gerenciador de Recursos do Azure]: ../resource-group-overview.md
 [Usando marcas para organizar os recursos do Azure]: ../resource-group-using-tags.md
 [Noções básicas de sua fatura do Azure]: ../billing-understand-your-bill.md
 [Obtenha informações sobre o consumo de recursos do Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

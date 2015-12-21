@@ -39,17 +39,20 @@ Para mostrar esses recursos funcionando na telemetria de dispositivo coletada po
 
 A solução pré-configurada de manutenção preditiva do Azure IoT usa o modelo de regressão criado com base neste modelo; ele é implantado em sua assinatura do Azure e exposto por meio de uma API publicada. A solução inclui um subconjunto dos dados de teste que representa quatro (de um total de 100) de mecanismos e as quatro (de um total de 21) transmissões de dados de sensor que fornece um resultado preciso do modelo treinado.
 
-*[1] A. Saxena and K. Goebel (2008). “Conjunto de dados da simulação de degradação do turbofan”, Repositório de dados de prognóstico da NASA Ames (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), NASA Ames Research Center, Moffett Field, CA*
+*[1] A. Saxena e K. Goebel (2008). “Conjunto de dados da simulação de degradação do turbofan”, Repositório de dados de prognóstico da NASA Ames (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), NASA Ames Research Center, Moffett Field, CA*
 
 ## Próximas etapas
 
-Para saber mais sobre como o Azure IoT permite cenários de manutenção preditiva, leia [Capturar o valor da Internet das Coisas][lnk_capture_value].
+Para saber mais sobre como o Azure IoT habilita cenários de manutenção preditiva, leia [Capturar o valor da Internet das Coisas][lnk_capture_value].
 
+Faça um [passo a passo][lnk-predictive-walkthrough] da solução pré-configurada de manutenção preditiva.
+
+[lnk-predictive-walkthrough]: iot-suite-predictive-walkthrough.md
 [lnk_preconfigured_solutions]: iot-suite-what-are-preconfigured-solutions.md
 [lnk_iot_suite]: iot-suite-overview.md
 [lnk_machine_learning]: https://azure.microsoft.com/services/machine-learning/
-[lnk_infographic]: https://www.microsoft.com/server-cloud/predictivemaintenance/Index.html
+[lnk_infographic]: https://www.microsoft.com/pt-BR/server-cloud/predictivemaintenance/Index.html
 [lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
 [lnk_capture_value]: http://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

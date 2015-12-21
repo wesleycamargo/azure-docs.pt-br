@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="12/07/2015"
 	ms.author="glenga"/>
 
 # Armazenar o código de seu projeto de serviço móvel no controle do código-fonte
@@ -103,4 +103,4 @@ Agora, seu projeto de serviço móvel é mantido no controle de origem e você p
 [Introdução aos Serviços Móveis]: mobile-services-dotnet-backend-ios-get-started.md
 [Como fazer alterações no modelo de dados para um serviço móvel de back-end do .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

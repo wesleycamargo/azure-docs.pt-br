@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # Como dimensionar o Cache Redis do Azure
 
->[AZURE.NOTE]O recurso de dimensionamento do Cache Redis do Azure está atualmente na visualização. Durante o período de visualização, não é possível escalonar para, de ou em um cache da camada premium.
+>[AZURE.NOTE]O recurso de dimensionamento do Cache Redis do Azure está atualmente na visualização. Durante o período de visualização, não é possível dimensionar para ou de um cache de camada premium, mas você pode alterar o tipo de preço em um cache premium.
 
-O Cache Redis do Azure tem diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho do e dos recursos de cache. Se os requisitos de seu aplicativo se alterarem depois que um cache for criado, você poderá dimensionar o tamanho do cache usando a folha **Alterar camada de preços** no [portal de visualização do Azure](https://portal.azure.com).
+O Cache Redis do Azure tem diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho do e dos recursos de cache. Se os requisitos de seu aplicativo se alterarem depois que um cache for criado, você poderá dimensionar o tamanho do cache usando a folha **Alterar tipo de preço** no [Portal do Azure](https://portal.azure.com).
 
 ## Quando dimensionar
 
@@ -36,7 +36,7 @@ Você pode monitorar as métricas a seguir para ajudá-lo a determinar se é pre
 Se determinar que o cache não atende mais aos requisitos de seu aplicativo, você poderá mudar para uma camada de preços cache maior ou menor que seja adequada ao aplicativo. Para obter mais informações sobre como determinar qual camada de preços de cache usar, consulte [Qual oferta e tamanho do Cache Redis devo usar](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
 ## Dimensionar um cache
-Para dimensionar seu cache, [navegue até o cache](cache-configure.md#configure-redis-cache-settings) no [portal de visualização](https://portal.azure.com) e clique em **Configurações**, **Camada de preços**.
+Para dimensionar seu cache, [navegue até o cache](cache-configure.md#configure-redis-cache-settings) no [Portal do Azure](https://portal.azure.com) e clique em **Configurações**, **Tipo de preços**.
 
 Você também pode clicar na parte **Camada padrão** ou **Camada básica** na folha **Cache Redis**.
 
@@ -61,7 +61,7 @@ Quando o dimensionamento for concluído, o status será alterado de **Dimensiona
 
 ## Como automatizar uma operação de dimensionamento
 
-Além de escalonar sua instância do Cache Redis do Azure no portal de visualização, é possível escalonar usando a [MAML (Bibliotecas de Gerenciamento do Microsoft Azure)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/). Para dimensionar seu cache, chame o método `IRedisOperations.CreateOrUpdate` e passeo novo tamanho para `RedisProperties.SKU.Capacity`.
+Além de dimensionar sua instância de Cache Redis do Azure no Portal do Azure, você pode dimensionar usando [MAML (Bibliotecas de Gerenciamento do Microsoft Azure)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/). Para dimensionar seu cache, chame o método `IRedisOperations.CreateOrUpdate` e passeo novo tamanho para `RedisProperties.SKU.Capacity`.
 
     static void Main(string[] args)
     {
@@ -89,7 +89,7 @@ A lista a seguir contém as respostas a perguntas frequentes sobre o dimensionam
 
 ## Posso escalonar para um cache Premium, por meio dele ou nele?
 
-Durante o período de visualização, a escala não está disponível para os caches **Premium**.
+Durante o período de visualização, não é possível dimensionar para ou de caches **Premium**, mas você pode alterar o tipo de preço em um cache premium.
 
 ## Depois do dimensionamento, é necessário alterar minhas chaves de acesso ou o nome do cache?
 
@@ -121,7 +121,7 @@ Os caches **Básicos** ficam offline durante as operações de escala para um ta
 
 ## Operações que não têm suporte
 
-Não é possível escalonar para, de ou em um cache **Premium**.
+Não é possível dimensionar para ou de um cache **Premium**.
 
 Não é possível alterar de um cache **Standard** para um **Básico**.
 
@@ -137,7 +137,7 @@ O dimensionamento leva aproximadamente 20 minutos, dependendo da quantidade de d
 
 ## Como saber quando o dimensionamento é concluído?
 
-No portal de visualização, você pode ver a operação de dimensionamento em andamento. Quando o dimensionamento for concluído, o status do cache será alterado para **Executando**.
+No Portal do Azure, você pode ver a operação de dimensionamento em andamento. Quando o dimensionamento for concluído, o status do cache será alterado para **Executando**.
 
 ## Por que esse recurso está na visualização?
 
@@ -155,4 +155,4 @@ Estamos lançando esse recurso para obter comentários. Com base nos comentário
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

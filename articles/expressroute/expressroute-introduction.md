@@ -63,7 +63,7 @@ As conexões da Rota Expressa permitem o acesso aos seguintes serviços.
 
 - Serviços do Microsoft Azure
 - Serviços do Microsoft Office 365
-- Serviços do Microsoft CRM Online (em breve) 
+- Serviços do Microsoft CRM Online 
  
 Visite a página de [Perguntas frequentes sobre a Rota Expressa](expressroute-faqs.md) para obter uma lista detalhada dos serviços com suporte por meio da Rota Expressa.
 
@@ -124,4 +124,4 @@ Escolha o modelo de cobrança que funcione melhor para você. Escolha um dos mod
 	- [Configurar o roteamento](expressroute-howto-routing-classic.md)
 	- [Vincular uma rede virtual a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

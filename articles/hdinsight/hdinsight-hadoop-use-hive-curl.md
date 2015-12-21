@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/09/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 #Executar consultas Hive com Hadoop no HDInsight com Curl
@@ -116,7 +116,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
 
 4. Depois que o estado do trabalho for alterado para **SUCCEEDED**, você poderá recuperar os resultados do trabalho do Armazenamento de Blobs do Azure. O parâmetro `statusdir` passado com a consulta contém o local do arquivo de saída; nesse caso, ****wasb:///example/curl**. Esse endereço armazena a saída do trabalho no diretório **example/curl** do contêiner de armazenamento padrão usado pelo cluster HDInsight.
 
-    Você pode listar e baixar esses arquivos usando a [CLI do Azure para Mac, Linux e Windows](xplat-cli-install.md). Por exemplo, para listar arquivos em **example/curl**, use o seguinte comando:
+    Você pode listar e baixar esses arquivos usando a [CLI do Azure para Mac, Linux e Windows](../xplat-cli-install.md). Por exemplo, para listar arquivos em **example/curl**, use o seguinte comando:
 
 		azure storage blob list <container-name> example/curl
 
@@ -180,18 +180,11 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 
 
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
 
-[Powershell-install-configure]: ../install-configure-powershell.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-[image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
-[img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
-[image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

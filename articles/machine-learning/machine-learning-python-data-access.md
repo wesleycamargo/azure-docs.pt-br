@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="12/04/2015" 
 	ms.author="huvalo;bradsev" />
 
 
@@ -82,7 +82,7 @@ Para obter o token de autorização, você pode fazer o seguinte:
 
 1. Solicitar um token de um proprietário. Os proprietários podem acessar seus tokens de autorização na página Configurações do seu espaço de trabalho no Estúdio. Selecione **Configurações** no painel esquerdo e clique em **TOKENS DE AUTORIZAÇÃO** para ver os tokens primários e secundários. Embora os tokens de autorização primários ou secundários possam ser usados no trecho de código, é recomendável que os proprietários compartilham somente os tokens de autorização secundários.
 
-    ![](http://i.imgur.com/h33GoZX.jpg)
+![](./media/machine-learning-python-data-access/ml-python-access-settings-tokens.png)
 
 2. Peça para ser promovido à função do proprietário. Para fazer isso, um proprietário atual do espaço de trabalho precisa primeiro remover você do espaço de trabalho e depois convidá-lo novamente como um proprietário.
 
@@ -367,4 +367,4 @@ Se os seus dados já estiverem serializados, use `update_from_raw_data` em vez d
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

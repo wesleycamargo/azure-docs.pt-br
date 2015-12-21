@@ -237,7 +237,6 @@ Agora que o aplicativo cliente foi atualizado, retorne para [Notificar os usuár
 [Notificar os usuários com os Hubs de Notificação]: /manage/services/notification-hubs/notify-users-aspnet
 [Notificar usuários com Hubs de Notificação]: /manage/services/notification-hubs/notify-users-aspnet
 
-[Azure Management Portal]: https://manage.windowsazure.com/
 [Introdução aos Hubs de Notificação]: /manage/services/notification-hubs/get-started-notification-hubs-ios
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

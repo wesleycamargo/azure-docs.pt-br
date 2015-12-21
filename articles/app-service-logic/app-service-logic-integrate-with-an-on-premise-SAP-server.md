@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Integrar com um servidor SAP local no serviço de aplicativo do Microsoft Azure"
+	pageTitle="Integrar com um servidor SAP local no Serviço de Aplicativo do Azure | Microsoft Azure"
 	description="Saiba como integrar um servidor SAP local"
 	authors="rajeshramabathiran"
 	manager="dwrede"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="12/07/2015"
 	ms.author="sameerch"/>
 
 
@@ -40,15 +40,13 @@ As bibliotecas de cliente específicas do SAP são necessárias no computador cl
 
 
 ## Criar um novo conector SAP
-1. Entre no Portal de Gerenciamento do Microsoft Azure.
+1. Entre no Portal do Azure.
 2. Selecione **Novo**.
 3. Na folha de criação, selecione **Computação** > **Azure Marketplace**.
-4. Na folha do Marketplace, selecione **Aplicativos de API** e procure SAP na barra de pesquisa:
-
-	![Aplicativo de API do Conector SAP][2]
+4. Na folha do Marketplace, selecione **Aplicativos de API** e procure SAP na barra de pesquisa: ![Aplicativo de API do Conector SAP][2]
 5. Selecione o **Conector SAP** publicado pela Microsoft.
 6. Na folha do conector SAP, selecione **Criar**.
-7. Na nova folha que se abre, insira as seguintes informações:
+7. Na nova folha que se abre, insira as seguintes informações:  
 	1. **Local** - escolha a região geográfica na qual você quer que o conector seja implantado
 	2. **Assinatura** - escolha uma assinatura na qual você deseja que esse conector seja criado
 	3. **Grupo de recursos** - selecione ou crie um grupo de recursos onde o conector deve residir
@@ -71,7 +69,7 @@ As bibliotecas de cliente específicas do SAP são necessárias no computador cl
 
 
 ## Instalar o ouvinte híbrido
-Navegue até o conector SAP criado acessando **Procurar** > **Aplicativos de API** > *nome do seu conector*
+Navegue até o conector SAP criado: **Procurar** > **Aplicativos de API** > *nome do seu conector*
 
 Na folha do conector, observe que o status da conexão híbrida é pendente. Selecione a conexão híbrida. A folha de Conexão Híbrida se abre:
 
@@ -94,7 +92,7 @@ Selecione **Instalar** para concluir a configuração do Gerenciador de conexão
 ![Instalação do gerenciador de conexão híbrida concluída][7]
 
 ## Validar a conexão híbrida
-Navegue até o conector SAP criado acessando **Procurar** > **Aplicativos de API** > *nome do seu conector*
+Navegue até o conector SAP criado: **Procurar** > **Aplicativos de API** > *nome do seu conector*
 
 Na folha do conector, observe que o status da conexão híbrida é *Conectado*:
 
@@ -123,4 +121,4 @@ Para a ação selecionada, você verá os parâmetros de entrada e saída. Você
 [8]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG
 [9]: http://download.microsoft.com/download/2/D/7/2D7CE8DF-A6C5-45F0-8319-14C3F1F9A0C7/InstallationGuide.htm
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

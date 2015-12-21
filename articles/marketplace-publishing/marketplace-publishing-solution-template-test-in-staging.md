@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/08/2015"
+   ms.date="12/04/2015"
    ms.author="hascipio; v-divte" />
 
 # Testar a oferta de modelo de solução em preparo
 Preparo significa implantar a sua oferta em uma "área restrita" privada, em que você poderá testar e verificar sua funcionalidade antes de publicá-la para produção. A oferta aparece em preparo como apareceria para um cliente que a tivesse implantado. Sua oferta deve estar certificada para ser enviada por push para preparação.
 
-Depois que a oferta for preparada, você poderá exibir e testar a oferta no [portal de visualização do Azure](https://ms.portal.azure.com/).
+Depois que a oferta for preparada, você poderá exibir e testar a oferta no [Portal do Azure](https://portal.azure.com/).
 
-Siga as etapas abaixo para enviar por push sua oferta de preparo e testá-la no [Portal de visualização do Azure](https://ms.portal.azure.com/):
+Siga as etapas abaixo para enviar por push sua oferta de preparo e testá-la no [Portal do Azure](https://portal.azure.com/):
 
 1.	Vá para o [Portal de Publicação](https://publish.windowsazure.com) > guia **Modelos de Solução** > sua oferta > **Publicar** > **Enviar por Push para Preparação**.
 2.	Forneça a lista de assinaturas do Azure que você usará para visualizar e testar sua oferta.
@@ -39,4 +39,4 @@ Se você estiver satisfeito com os resultados, poderá prosseguir para a fase de
 
 Confira [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md) para obter um guia para todas as tarefas de editor.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

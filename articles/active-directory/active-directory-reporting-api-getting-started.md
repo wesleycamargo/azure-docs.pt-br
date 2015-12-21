@@ -13,22 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/30/2015"
+   ms.date="12/07/2015"
    ms.author="kenhoff"/>
 
 
 # Introdução à API de relatório do AD do Azure
 
-## Artigos de documentação de relatório
-
- - [API de Relatório](active-directory-reporting-api-getting-started.md)
- - [Eventos de Auditoria](active-directory-reporting-audit-events.md)
- - [Retenção](active-directory-reporting-retention.md)
- - [Visualizações](active-directory-reporting-previews.md)
- - [Pesquisar](active-directory-reporting-search.md)
- - [Aterramento](active-directory-reporting-backfill.md)
- - [Latências](active-directory-reporting-latencies.md)
- - [Evento "Ator Desconhecido"](active-directory-reporting-unknown-actor.md)
+*Esta documentação é parte do [Guia de Relatórios do Active Directory do Azure](active-directory-reporting-guide.md).*
 
 O Active Directory do Azure fornece uma variedade de relatórios de atividade, segurança e auditoria. Esses dados podem ser consumidos por meio do portal do Azure, mas também podem ser muito úteis em vários outros aplicativos, como sistemas SIEM, ferramentas de auditoria e de business intelligence.
 
@@ -179,4 +170,4 @@ O script retorna listas de todos os relatórios disponíveis e retorna a saída 
 - Consulte [Eventos de relatório de auditoria do AD do Azure](active-directory-reporting-audit-events.md) para obter mais detalhes sobre o relatório de auditoria
 - Consulte [Eventos e relatórios de auditoria do AD do Azure (visualização)](https://msdn.microsoft.com/library/azure/mt126081.aspx) para obter mais detalhes sobre o serviço REST de Graph API
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

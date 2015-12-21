@@ -1,8 +1,8 @@
 <properties 
 	pageTitle="Usando importação/exportação para transferir dados para o Armazenamento de Blob | Microsoft Azure" 
-	description="Saiba como criar trabalhos de importação e exportação no Portal do Azure para transferir dados para o armazenamento de blobs." 
-	authors="tamram" 
-	manager="adinah" 
+	description="Saiba como criar trabalhos de importação e exportação no Portal do Azure para transferir dados para o Armazenamento de Blobs." 
+	authors="robinsh" 
+	manager="carmonm" 
 	editor="" 
 	services="storage" 
 	documentationCenter=""/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+	ms.date="12/04/2015" 
+	ms.author="robinsh"/>
 
 
 # Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados para o Armazenamento de Blob
@@ -54,7 +54,7 @@ Ao criar um trabalho de importação ou de exportação, você também precisar�
 1.	**Assinatura e contas de armazenamento:** você deve ter uma assinatura do Azure e uma ou mais contas de armazenamento existentes para usar o serviço de Importação/Exportação. Cada trabalho pode ser usado para transferir dados para apenas uma conta de armazenamento, ou por meio dela. Em outras palavras, um trabalho não pode se estender por várias contas de armazenamento. Para obter informações sobre como criar uma nova conta de armazenamento, consulte [Como criar uma conta de armazenamento](storage-create-storage-account.md).
 2.	**Discos rígidos:** somente discos rígidos SATA II/III internos de 3,5 polegadas têm suporte para uso com o serviço Importação/Exportação. São suportados discos rígidos até 6 TB. Para trabalhos de importação, somente o primeiro volume de dados na unidade será processado. O volume de dados deve ser formatado com NTFS. Você pode anexar um disco SATA II/III externamente à maioria dos computadores usando um adaptador USB para SATA II/III externo.
 3.	**Criptografia BitLocker:** todos os dados armazenados em discos rígidos devem ser criptografados usando o BitLocker com chaves de criptografia protegidas com senhas numéricas.
-4.	**Destinos de armazenamento de blobs:** é possível carregar dados para blobs de blocos e blobs de páginas e baixar dados desses blobs. 
+4.	**Destinos de Armazenamento de Blobs:** é possível carregar dados para blobs de blocos e blobs de páginas e baixar dados desses blobs. 
 5.	**Número de trabalhos:** um cliente pode ter até 20 trabalhos ativos por conta de armazenamento.
 6.	**Tamanho máximo de um trabalho:** o tamanho de um trabalho é determinado pela capacidade dos discos rígidos usados e pela quantidade máxima de dados que podem ser armazenados em uma conta de armazenamento. Cada trabalho pode conter, no máximo, 10 discos rígidos.
 
@@ -269,4 +269,4 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

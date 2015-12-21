@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/24/2015"
+	ms.date="12/07/2015"
 	ms.author="yuridio"/>
 
 # Considerações do design de identidade híbrida do Active Directory do Azure
@@ -55,4 +55,4 @@ Você pode baixar uma versão em pdf do guia de Considerações de Design de Ide
 
                                                              
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

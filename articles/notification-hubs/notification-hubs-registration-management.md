@@ -128,7 +128,7 @@ Você também pode usar o método PATCH com o [padrão JSON-Patch](https://tools
         if (deviceInstallation.installationId == null)
             return HttpStatusCode.BadRequest;
 
-        // Parse connection string (https://msdn.microsoft.com/pt-BR/library/azure/dn495627.aspx)
+        // Parse connection string (https://msdn.microsoft.com/library/azure/dn495627.aspx)
         ConnectionStringUtility connectionSaSUtil = new ConnectionStringUtility(listenConnectionString);
         string hubResource = "installations/" + deviceInstallation.installationId + "?";
         string apiVersion = "api-version=2015-04";
@@ -137,7 +137,7 @@ Você também pode usar o método PATCH com o [padrão JSON-Patch](https://tools
         string uri = connectionSaSUtil.Endpoint + hubName + "/" + hubResource + apiVersion;
 
         //=== Generate SaS Security Token for Authorization header ===
-		// See, https://msdn.microsoft.com/pt-BR/library/azure/dn495627.aspx
+		// See, https://msdn.microsoft.com/library/azure/dn495627.aspx
         string SasToken = connectionSaSUtil.getSaSToken(uri, 60);
 
         using (var httpClient = new HttpClient())
@@ -332,4 +332,4 @@ No back-end do aplicativo, você pode executar operações básicas de CRUDS nos
 
 O back-end deve manipular a simultaneidade entre as atualizações do registro. O Barramento de Serviço oferece um controle de simultaneidade otimista para gerenciamento de registro. No nível HTTP, isso é implementado com o uso de ETag nas operações de gerenciamento de registro. Esse recurso é usado de forma transparente pelos SDKs da Microsoft, que lançam uma exceção se uma atualização for rejeitada por motivos de simultaneidade. O back-end é responsável por manipular essas exceções e tentar atualizar novamente, se isso for necessário.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

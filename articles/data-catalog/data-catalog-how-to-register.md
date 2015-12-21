@@ -37,6 +37,7 @@ Na visualização atual, o **Catálogo de Dados do Azure** dá suporte ao regist
 * Tabelas tabulares do SQL Server Analysis Services
 * Relatórios do SQL Server Reporting Services
 * Diretórios e Blobs do Armazenamento do Azure
+* Repositório Azure Data Lake
 * Arquivos e diretórios HDFS
 * Tabelas do Apache Hive
 * Tabelas e exibições do Teradata
@@ -95,4 +96,4 @@ O novo registro de uma fonte de dados já registrada executa uma operação de m
 ## Resumo
 Registrar uma fonte de dados no **Catálogo de Dados do Azure** facilita a descoberta e a compreensão desta fonte de dados ao copiar os metadados estruturais e descritivos da fonte de dados no serviço do catálogo. Depois que uma fonte de dados tiver sido registrada, ela poderá ser anotada, gerenciada e descoberta usando o portal do **Catálogo de Dados do Azure**.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/25/2015"
+	ms.date="12/07/2015"
 	ms.author="donnam"/>
 
 # Usando sincronização de dados offline em Serviços Móveis
@@ -137,7 +137,7 @@ Nesta seção você reconectará o aplicativo ao serviço móvel. Isso simula o 
 
 3. Faça logon no [Portal clássico do Azure] e examine o banco de dados para o seu serviço móvel. Se o serviço usar o back-end do JavaScript, você poderá procurar os dados na guia **Dados** do serviço móvel.
 
-    Se você estiver usando o back-end do .NET para o serviço móvel, no Visual Studio, acesse **Gerenciador de servidores** > **Azure** > **Bancos de dados SQL**. Clique com o botão direito do mouse em seu Banco de Dados e selecione **Abrir no Gerenciador de Objetos do SQL Server**.
+    Se você estiver usando o back-end do .NET para o serviço móvel, no Visual Studio, acesse **Gerenciador de Servidores** > **Azure** > **Bancos de dados SQL**. Clique com o botão direito do mouse em seu Banco de Dados e selecione **Abrir no Gerenciador de Objetos do SQL Server**.
 
     Observe que os dados *não* foram sincronizados entre o banco de dados e o repositório local.
 
@@ -178,4 +178,4 @@ Nesta seção você reconectará o aplicativo ao serviço móvel. Isso simula o 
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
 [Portal clássico do Azure]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

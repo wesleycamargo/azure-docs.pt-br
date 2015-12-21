@@ -1,18 +1,18 @@
-<properties 
-    pageTitle="Como migrar de uma coleção híbrida de uma VNET RemoteApp para uma VNET do Azure"
-    description="Aprenda como migrar de uma coleção híbrida de uma VNET RemoteApp para uma VNET do Azure" 
-    services="remoteapp" 
-	documentationCenter="" 
-    authors="lizap" 
+<properties
+    pageTitle="Como migrar de uma coleção híbrida de uma VNET RemoteApp para uma VNET do Azure | Microsoft Azure"
+    description="Aprenda como migrar de uma coleção híbrida de uma VNET RemoteApp para uma VNET do Azure"
+    services="remoteapp"
+	documentationCenter=""
+    authors="lizap"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/02/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/02/2015"
     ms.author="elizapo" />
 
 
@@ -48,6 +48,5 @@ Alternativamente, se você PRECISA migrar informações do usuário da coleção
 E pronto!
 
 Se você tiver dúvidas ou precisar de ajuda especial, envie um email para [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com?subject=Azure%20RemoteApp%20VNET%20migration%20help).
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

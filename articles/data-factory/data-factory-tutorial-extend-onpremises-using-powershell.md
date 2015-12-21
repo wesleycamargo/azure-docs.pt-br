@@ -24,12 +24,6 @@ Na última etapa do cenário de processamento de log do primeiro passo a passo c
  
 Para copiar dados de eficácia de campanha de marketing do Blob do Azure para o SQL Server local, você precisa criar Serviço Vinculado local, Tabela e Pipeline adicionais usando o mesmo conjunto de cmdlets introduzidos no primeiro passo a passo.
 
-> [AZURE.IMPORTANT]Este artigo não cobre todos os cmdlets de Data Factory. Consulte [Referência de cmdlet de Data Factory][cmdlet-reference] para obter uma documentação abrangente sobre os cmdlets de Data Factory.
->    
-> Se estiver usando o Azure PowerShell 1.0, precisará usar os cmdlets documentados [aqui](https://msdn.microsoft.com/library/dn820234.aspx). Por exemplo, use New-AzureRMDataFactory em vez de New-AzureDataFactory.
-
-## Pré-requisitos
-
 Você **deve** executar o passo a passo no [Tutorial: Mover e processar arquivos de log usando Data Factory][datafactorytutorial] antes de executar o passo a passo deste artigo.
 
 **(recomendado)** Examine e pratique o passo a passo no artigo [Habilitar seus pipelines para trabalhar com dados locais][useonpremisesdatasources] para ver um passo a passo sobre como criar um pipeline para mover dados do SQL Server local para um armazenamento de blob do Azure.
@@ -120,22 +114,22 @@ Para começar, você precisa criar o banco de dados SQL Server, a tabela, os tip
 ### Criar a tabela lógica local
 
 1.	No **PowerShell do Azure**, alterne para a pasta **C:\\ADFWalkthrough\\OnPremises**. 
-2.	Use o cmdlet **New-AzureDataFactoryDataset** para criar as Tabelas para **MarketingCampaignEffectivenessOnPremSQLTable.json**, como descrito a seguir.
+2.	Use o cmdlet **New-AzureRmDataFactoryDataset** para criar as Tabelas para **MarketingCampaignEffectivenessOnPremSQLTable.json**, como descrito a seguir.
 
 			
-		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
+		New-AzureRmDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
 	 
 #### Criar o pipeline para copiar os dados do Blob do Azure para o SQL Server
 
-1.	Use o cmdlet **New-AzureDataFactoryPipeline** para criar o Pipeline da seguinte maneira para **EgressDataToOnPremPipeline.json**.
+1.	Use o cmdlet **New-AzureRmDataFactoryPipeline** para criar o Pipeline para **EgressDataToOnPremPipeline.json**, conforme descrito a seguir.
 
 			
-		New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EgressDataToOnPremPipeline.json
+		New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EgressDataToOnPremPipeline.json
 	 
-2. Use o cmdlet **Set-AzureDataFactoryPipelineActivePeriod** para especificar o período ativo de **EgressDataToOnPremPipeline**.
+2. Use o cmdlet **Set-AzureRmDataFactoryPipelineActivePeriod** para especificar o período ativo para **EgressDataToOnPremPipeline**.
 
 			
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name EgressDataToOnPremPipeline
+		Set-AzureRmDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name EgressDataToOnPremPipeline
 
 	Pressione **‘Y’** para continuar.
 	
@@ -169,9 +163,11 @@ Parabéns! Você verificou com êxito o passo a passo para usar sua fonte de dad
 [download-azure-powershell]: http://azure.microsoft.com/documentation/articles/install-configure-powershell
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
+[old-cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
+
 
 [image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial-extend-onpremises-using-powershell/DataManagementGatewayConfigurationManager.png
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

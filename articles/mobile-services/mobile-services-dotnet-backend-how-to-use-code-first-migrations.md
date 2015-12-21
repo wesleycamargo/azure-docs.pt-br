@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/14/2015"
+	ms.date="12/07/2015"
 	ms.author="glenga"/>
 
 # Como fazer alterações no modelo de dados para um serviço móvel de back-end do .NET
@@ -46,7 +46,7 @@ Os Serviços Móveis fornecem duas classes básicas do inicializador do modelo d
 
 Ambos os inicializadores excluem do banco de dados todas as tabelas, exibições, funções e procedimentos no esquema usado pelo serviço móvel.
 
-+ **ClearDatabaseSchemaIfModelChanges** <br/> Os objetos de esquema são excluídos somente quando o Code First detecta uma alteração no modelo de dados. O inicializador padrão em um projeto de back-end do .NET baixado no [portal clássico do Azure] herda desta classe base.
++ **ClearDatabaseSchemaIfModelChanges** <br/> Os objetos de esquema são excluídos somente quando o Code First detecta uma alteração no modelo de dados. O inicializador padrão em um projeto de back-end do .NET baixado no [Portal clássico do Azure] herda desta classe base.
 
 + **ClearDatabaseSchemaAlways**: <br/> os objetos de esquema são excluídos sempre que o modelo de dados é acessado. Use esta classe base para redefinir o banco de dados sem ter que fazer uma alteração no modelo de dados.
 
@@ -175,11 +175,11 @@ Esse código chama o método de extensão auxiliar [AddOrUpdate] para adicionar 
 <!-- URLs -->
 [DropCreateDatabaseIfModelChanges]: http://msdn.microsoft.com/library/gg679604(v=vs.113).aspx
 [Seed]: http://msdn.microsoft.com/library/hh829453(v=vs.113).aspx
-[portal clássico do Azure]: https://manage.windowsazure.com/
+[Portal clássico do Azure]: https://manage.windowsazure.com/
 [DbContext]: http://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.113).aspx
 [AddOrUpdate]: http://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx
 [TableController<TEntity>]: https://msdn.microsoft.com/library/azure/dn643359.aspx
 [EntityData]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.entitydata.aspx
 [DbSet<T>]: https://msdn.microsoft.com/library/azure/gg696460.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

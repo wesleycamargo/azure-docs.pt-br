@@ -1,5 +1,5 @@
 <properties 
-pageTitle="Responder a eventos de ciclo de vida para Serviços de Nuvem usando o .NET" 
+pageTitle="Tratar eventos de ciclo de vida do Serviço de Nuvem | Microsoft Azure" 
 description="Saiba como os métodos de ciclo de vida de uma função de Serviço de Nuvem podem ser usados no .NET" 
 services="cloud-services" 
 documentationCenter=".net" 
@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="09/08/2015" 
+ms.date="12/07/2015" 
 ms.author="adegeo"/>
 
 # Personalizar o ciclo de vida de uma função Web ou de trabalho no .NET
@@ -80,4 +80,4 @@ Você pode usar os métodos de ciclo de vida do ASP.NET além daqueles fornecido
 ## Próximas etapas
 Saiba como [criar um pacote de serviços de nuvem](cloud-services-model-and-package.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

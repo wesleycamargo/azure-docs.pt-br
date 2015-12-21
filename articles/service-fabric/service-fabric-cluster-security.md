@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Como tornar o cluster de Serviço de Malha seguro | Microsoft Azure"
-   description="Como tornar o cluster de Serviço de Malha seguro Quais são as opções?"
+   pageTitle="Como proteger um cluster do Service Fabric | Microsoft Azure"
+   description="Como proteger um cluster do Service Fabric. Quais são as opções?"
    services="service-fabric"
    documentationCenter=".net"
    authors="ChackDan"
@@ -16,9 +16,34 @@
    ms.date="11/10/2015"
    ms.author="chackdan"/>
 
-# Como proteger um cluster de Malha de Serviço usando certificados.
+# Protegendo um cluster do Service Fabric
 
-Para configurar um cluster de malha de serviço seguro, você precisará de pelo menos um servidor / certificado X509. Que você, em seguida, carrega no cofre da chave do azure e usa no processo de criação de cluster descrito em [Processo de criação de Cluster de Malha de Serviço](service-fabric-cluster-creation-via-portal.md)
+Um cluster do Service Fabric é um recurso que pertence a você. Para impedir o acesso não autorizado ao recurso, você deverá protegê-lo, especialmente quando ele tiver cargas de trabalho de produção em execução. Este documento orienta você durante o processo.
+
+##  Sobre quais cenários de segurança de cluster você deveria pensar?
+
+O Service Fabric oferece segurança para os seguintes cenários:
+
+1. **Segurança de Nó para Nó** ou Protegendo um cluster para comunicação de nó para nó. Protege a comunicação entre computadores/VMs no cluster. Isso faz com que somente os computadores autorizados a ingressar no cluster possam hospedar aplicativos e serviços no cluster
+
+	![Nó para Nó][Node-to-Node]
+
+2. **Segurança de Cliente para Nó** ou Proteger a comunicação de um cliente de malha com um nó específico no cluster. Autentica e protege as comunicações de clientes, o que garante que somente usuários autorizados possam acessar o cluster e os aplicativos implantados no cluster do Windows Fabric. Os clientes são identificados exclusivamente por meio de suas credenciais de segurança do Windows ou pelas credenciais de segurança do certificado deles.
+
+	![Cliente para Nó][Client-to-Node]
+
+	Para qualquer um desses cenários de comunicação (Nó para Nó ou Cliente para Nó), o Service Fabric dá suporte ao uso do [Certificado de Segurança](https://msdn.microsoft.com/library/ff649801.aspx) ou da [Segurança do Windows](https://msdn.microsoft.com/library/ff649396.aspx). As opções de segurança em nó para nó ou em cliente para nó são independentes umas das outras e podem ser iguais ou diferentes para cada cenário.
+
+	No Azure, o Service Fabric utiliza os certificados do Servidor X509 que você especifica como parte das configurações do Tipo de Nó ao criar um cluster. Para obter uma visão geral rápida sobre o que esses certificados são e como você pode adquirir/criá-los, role até a parte inferior desta página.
+
+3. **RBAC (Controle de Acesso Baseado em Função)**: capacidade de restringir as operações de administração de operações de somente leitura no cluster para um conjunto de certificados.
+
+4. **Contas de Serviço e RunAs** : o próprio Service Fabric é executado como um processo do serviço Windows (Fabric.exe), e a conta de segurança na qual o processo do Fabric.exe é executado pode ser configurada. As contas de processo em que o Fabric.exe é executado em cada nó do cluster podem ser protegidas, bem como os processos de host de serviço que são ativados para cada serviço. Veja o documento [Segurança de aplicativo e RunAs](service-fabric-application-runas-security.md) para obter mais detalhes
+  
+
+## Como proteger um cluster de Malha de Serviço usando certificados.
+
+Para configurar um cluster de malha de serviço seguro, você precisará de pelo menos um servidor / certificado X509. Você poderá, então, carregá-lo no Cofre da Chave do Azure e usá-lo no processo de criação do cluster
 
 Há três etapas distintas
 
@@ -26,52 +51,98 @@ Há três etapas distintas
 2. Carregar o certificado no Cofre da Chave do Azure:
 3. Fornecer o local e os detalhes do certificado para o processo de criação de cluster de malha de serviço.
 
-Antes de entrarmos em detalhes, vamos obter algumas noções básicas dos cenários.
-
-##  Quais são os cenários abordados?
-
-A Malha de Serviço oferece segurança para os seguintes cenários:
-
-1. Proteger um cluster para comunicação de nó para nó.
-2. Proteger a comunicação de um cliente de malha com um nó específico no cluster
-3. Controle de acesso com base em funções (RBAC) - Capacidade de restringir as operações de administração de operações de somente leitura no cluster para um conjunto de certificados.   
-
-A Malha de Serviço utiliza os certificados do Servidor X509 que você especifica como parte das configurações de Tipo de nó quando você cria um cluster. Para obter uma visão geral rápida sobre o que esses certificados são e como você pode adquirir/criá-los, role até a parte inferior desta página.
-
  
-## Adquirir o(s) certificado(s) X509
+## Etapa 1: Adquirir os certificados X509
 
-1. Para clusters que executam cargas de trabalho de produção, você deve usar um certificado x509 da [Autoridade de Certificação (CA)](https://en.wikipedia.org/wiki/Certificate_authority) assinado para proteger o cluster. Para obter detalhes sobre como obter esses certificados, vá para [http://msdn.microsoft.com/library/aa702761.aspx](http://msdn.microsoft.com/library/aa702761.aspx).
-2. Para clusters que usados apenas para fins de teste, você pode optar por usar um certificado assinado automaticamente.
+1. Para os clusters que executam cargas de trabalho de produção, você deve usar um certificado x509 assinado pela [AC (Autoridade de Certificação)](https://en.wikipedia.org/wiki/Certificate_authority) para proteger o cluster. Para obter detalhes sobre como obter esses certificados, vá para [http://msdn.microsoft.com/library/aa702761.aspx](http://msdn.microsoft.com/library/aa702761.aspx).
+2. Para clusters que usados apenas para fins de teste, você pode optar por usar um certificado assinado automaticamente. A Etapa 2.5 guiará você pelas etapas do procedimento.
 
 
-## Criando um certificado assinado automaticamente para fins de teste
+## Etapa 2: Carregar o certificado X509 no Cofre da Chave
 
-Os detalhes sobre como criar um certificado assinado automaticamente estão em [https://technet.microsoft.com/library/hh848633.aspx](https://technet.microsoft.com/library/hh848633.aspx)
-    
-Aqui está o PS usado para criar meus certificados de Teste, mas certifique-se de ler o documento acima para garantir que ele atenda às suas necessidades. ```
-$password = Read-Host -AsSecureString 
-``` ```
-New-SelfSignedCertificate -CertStoreLocation Cert:\CurrentUser\My -DnsName ChackdanTestCertificate | Export-PfxCertificate -FilePath E:\MyCertificates\ChackdanTestCertificate.pfx -Password $password
+Esse é um processo complicado; portanto, temos um módulo do PowerShell carregado em um repositório Git que faz isso para você.
+
+**Etapa 2.1**: copiar esta pasta para o computador desde este [repositório Git](https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers).
+
+**Etapa 2.2**: verificar se o SDK do Azure 1.0 ou superior está instalado em seu computador.
+
+**Etapa 2.3**: abrir uma janela do Powershell e importar o ServiceFabricRPHelpers.psm
+
+```
+Remove-Module ServiceFabricRPHelpers
 ```
 
-**Observação** O DnsName <String> especifica um ou mais nomes DNS para colocar na extensão de nome alternativo do assunto do certificado quando um certificado a ser copiado não é especificado por meio do parâmetro CloneCert. O primeiro nome DNS também é salvo como o Nome da assunto. Se nenhum certificado de autenticação for especificado, o primeiro nome DNS também será salvo como o Nome do emissor.
+Copie o seguinte e altere o caminho para o. psm1 de forma que fique igual ao do seu computador. Veja um exemplo ```
+Import-Module "C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
+```
+  
 
-## Carregando o certificado X509 no Cofre da Chave
-
-Instruções sobre como carregar um certificado no cofre da chave no [link para a documentação do cofre da chave](https://azure.microsoft.com/documentation/articles/key-vault-get-started/).
-
-Certifique-se de observar a URL do Cofre de Origem, a URL de certificado e a impressão digital do certificado. elas serão necessárias na configuração do cluster de Malha de Serviço seguro. Os dados que você precisa serão semelhantes ao seguinte
-
+**Etapa 2.4**: se você estiver usando um certificado já adquirido, siga estas etapas ou vá para a Etapa 2.5.
 
 
-1. **ID do recurso da URL de Cofre da Chave/Cofre de Origem** : /subscriptions/6c653126-e4ba-42cd-a1dd-f7bf96af7a47/resourceGroups/chackdan-keyvault/providers/Microsoft.KeyVault/vaults/chackdan-kmstest
-2. **URL para o local do Certificado no Cofre da Chave** : https://chackdan-kmstest.vault.azure.net:443/secrets/MyCert/dcf17bdbb86b42ad864e8e827c268431 
-3. **Impressão digital do certificado** : 2118C3BCE6541A54A0236E14ED2CCDD77EA4567A
+Faça logon na sua Conta do Azure
+
+```
+Login-AzureRmAccount
+```
+
+O script criará um novo grupo de recursos e/ou um cofre, se já não existirem.
+
+```
+Invoke-AddCertToKeyVault -SubscriptionId <you subscription id> -ResourceGroupName <string> -Location <region> -VaultName <Name of the Vault> -CertificateName <Name of the Certificate> -Password <Certificate password> -UseExistingCertificate -ExistingPfxFilePath <Full path to the .pfx file> 
+```
+Veja um script preenchido como exemplo. ```
+Invoke-AddCertToKeyVault -SubscriptionId 35389201-c0b3-405e-8a23-9f1450994307 -ResourceGroupName chackdankeyvault4doc -Location westus -VaultName chackdankeyvault4doc  -CertificateName chackdantestcertificate2 -Password (Read-Host -AsSecureString -Prompt "Enter Certificate Password ") -UseExistingCertificate -ExistingPfxFilePath C:\MyCertificates\ChackdanTestCertificate.pfx 
+```
+
+Depois que o script é concluído com êxito, você obtém uma saída semelhante à mostrada abaixo. Ela será necessária na Etapa 3.
+
+1. **Impressão Digital do Certificado**: 2118C3BCE6541A54A0236E14ED2CCDD77EA4567A
+2. **SourceVault** /ID do Recurso do Cofre da Chave: /subscriptions/35389201-c0b3-405e-8a23-9f1450994307/resourceGroups/chackdankeyvault4doc/providers/Microsoft.KeyVault/vaults/chackdankeyvault4doc
+3. **URL do Certificado**/URL para o local do Certificado no Cofre da Chave: https://chackdankeyvalut4doc.vault.azure.net:443/secrets/chackdantestcertificate3/ebc8df6300834326a95d05d90e0701ea 
+
+Você tem as informações necessárias para configurar um cluster seguro. Vá para a Etapa 3.
 
 
+**Etapa 2.5**: se você quiser criar um novo certificado autoassinado e carregá-lo no Cofre da Chave.
 
-##Configurando um cluster seguro 
+Faça logon na sua Conta do Azure
+
+```
+Login-AzureRmAccount
+```
+
+O script criará um novo grupo de recursos e/ou um cofre, se já não existirem.
+
+```
+Invoke-AddCertToKeyVault -SubscriptionId <you subscription id> -ResourceGroupName <string> -Location <region> -VaultName <Name of the Vault> -CertificateName <Name of the Certificate> -Password <Certificate password> -CreateSelfSignedCertificate -DnsName <string- see note below.> -OutputPath <Full path to the .pfx file> 
+```
+O OutputPath que você deu ao script conterá o novo certificado autoassinado carregado no Cofre da Chave.
+
+
+**Observação** O DnsName <Cadeia de caracteres> especifica um ou mais nomes DNS a serem colocados na extensão de nome alternativo do assunto do certificado quando um certificado a ser copiado não for especificado por meio do parâmetro CloneCert. O primeiro nome DNS também é salvo como o Nome da assunto. Se nenhum certificado de autenticação for especificado, o primeiro nome DNS também será salvo como o Nome do emissor.
+
+Você pode saber mais sobre como criar um certificado autoassinado em termos gerais em [https://technet.microsoft.com/library/hh848633.aspx](https://technet.microsoft.com/library/hh848633.aspx)
+
+Veja um script preenchido como exemplo. ```
+Invoke-AddCertToKeyVault -SubscriptionId 35389201-c0b3-405e-8a23-9f1450994307 -ResourceGroupName chackdankeyvault4doc -Location westus -VaultName chackdankeyvault4doc  -CertificateName chackdantestcertificate3 -Password (Read-Host -AsSecureString -Prompt "Enter Certificate Password ") -CreateSelfSignedCertificate -DnsName www.chackdan.westus.azure.com -OutputPath C:\MyCertificates
+```
+
+Como é um certificado autoassinado, você precisará importá-lo para seu repositório de computadores de "pessoas confiáveis" antes de usá-lo para se conectar a um cluster seguro. ```
+Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople -FilePath C:C:\MyCertificates\ChackdanTestCertificate.pfx -Password (Read-Host -AsSecureString -Prompt "Enter Certificate Password ")
+``` ```
+Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My -FilePath C:C:\MyCertificates\ChackdanTestCertificate.pfx -Password (Read-Host -AsSecureString -Prompt "Enter Certificate Password ")
+```
+
+Depois que o script é concluído com êxito, você obtém uma saída semelhante à mostrada abaixo. Ela será necessária na Etapa 3.
+
+1. **Impressão Digital do Certificado**: 64881409F4D86498C88EEC3697310C15F8F1540F
+2. **SourceVault** /ID do Recurso do Cofre da Chave: /subscriptions/35389201-c0b3-405e-8a23-9f1450994307/resourceGroups/chackdankeyvault4doc/providers/Microsoft.KeyVault/vaults/chackdankeyvault4doc
+3. **URL do Certificado**/URL para o local do Certificado no Cofre da Chave: https://chackdankeyvalut4doc.vault.azure.net:443/secrets/chackdantestcertificate3/fvc8df6300834326a95d05d90e0720ea 
+
+##Etapa 3: Configurar um cluster seguro 
+
+Siga as etapas descritas no documento [Processo de criação de Cluster do Service Fabric](service-fabric-cluster-creation-via-portal.md) até chegar em Configurações de Segurança. A seguir, os passos para definir as Configurações de Segurança.
 
 Os certificados que precisam ser usados são especificados no nível NodeType sob as Configurações de segurança. Você precisa especificar isso para cada NodeType no cluster. Embora este documento explique como fazer isso usando o portal, você pode fazer o mesmo usando um modelo ARM.
 
@@ -79,45 +150,47 @@ Os certificados que precisam ser usados são especificados no nível NodeType so
 
 Parâmetros obrigatórios
 
-- **Modo de segurança** certifique-se de selecionar 'x509 certificate'. ele indica ao serviço de malha que você pretende configurar um cluster seguro. 
-- **Nível de proteção de cluster** consulte este [documento de Nível de proteção](https://msdn.microsoft.com/library/aa347692.aspx) para entender o que cada um desses valores significam. Apesar de permitimos três valores aqui - EncryptAndSign, Sign, None. É melhor manter o padrão de "EncryptAndSign", a menos que você saiba o que está fazendo.
-- **Cofre de Origem** refere-se à ID de recurso do cofre de chave e deve estar no formato de ```
+- **Modo de segurança** não deixe de selecionar ‘certificado x509’. Ele indica ao Service Fabric que você pretende configurar um cluster seguro. 
+- **Nível de proteção de cluster** consulte este [documento de Nível de Proteção](https://msdn.microsoft.com/library/aa347692.aspx) para entender o que cada um desses valores significa. No entanto, permitimos três valores aqui: EncryptAndSign, Sign, None. É melhor manter o padrão de "EncryptAndSign", a menos que você saiba o que está fazendo.
+- **Cofre de Origem** refere-se à ID do Recurso do cofre da chave e deve estar no formato do ```
 /subscriptions/<Sub ID>/resourceGroups/<Resource group name>/providers/Microsoft.KeyVault/vaults/<vault name>
 ```
 
-- **Certificado URL** refere-se à URL de local no seu cofre da chave onde o certificado foi carregado, e deve estar no formato de ```
+- **Certificado URL** refere-se à URL de local no seu cofre da chave para onde o certificado foi carregado e deve estar no formato do ```
 https://<name of the vault>.vault.azure.net:443/secrets/<exact location>
 https://chackdan-kmstest-eastus.vault.azure.net:443/secrets/MyCert/6b5cc15a753644e6835cb3g3486b3812
 ```
-- **Impressão digital do certificado** refere-se à impressão digital do certificado, que pode ser encontrada no URL especificado anteriormente.
+- **Impressão Digital do Certificado** refere-se à impressão digital do certificado, que pode ser encontrada na URL especificada anteriormente.
 
 Parâmetros opcionais - você pode opcionalmente especificar certificados adicionais que as máquinas do cliente usam para executar operações no cluster. Por padrão, a impressão digital que você especificou nos parâmetros obrigatórios é adicionada à lista autorizada de impressões digitais que são permitidas conforme as operações do cliente.
 
 Cliente de administração - essas informações são usadas para validar se o cliente que está conectando-se ao ponto de extremidade de gerenciamento de cluster está, de fato, apresentando a credencial correta para executar ações de administrador e somente de leitura no cluster. você pode especificar mais de um certificado que você deseja autorizar para operações de Administração.
 
 
-- **Autorizar por** - indica para a malha de serviço se a mesma precisa buscar esse certificado usando o nome do assunto ou pela impressão digital. O uso do nome do assunto para autorizar é não uma boa prática de segurança, no entanto, permite mais flexibilidade.
+- **Autorizar por** – indica ao Service Fabric se ele precisa buscar esse certificado usando o nome do assunto ou a impressão digital. O uso do nome do assunto para autorizar é não uma boa prática de segurança, no entanto, permite mais flexibilidade.
 
 
-- **Nome de assunto** só é necessário caso você tenha especificado que a autorização é pelo Nome do assunto
-- **Impressão digital do emissor** isso possibilita um nível adicional de verificação que o servidor pode executar quando um cliente apresenta suas credenciais para o servidor.
+- **Nome de assunto** só será necessário caso você tenha especificado a autorização pelo Nome do assunto
+- **Impressão Digital do Emissor** possibilita um nível adicional de verificação que o servidor pode executar quando um cliente apresenta suas credenciais ao servidor.
 
 Cliente de Somente Leitura - essas informações são usadas para validar se o cliente que está conectando-se ao ponto de extremidade de gerenciamento de cluster está, de fato, apresentando a credencial correta para executar ações de administrador e somente de leitura no cluster. você pode especificar mais de um certificado que você deseja autorizar para operações de somente leitura.
 
 
-- **Autorizar por** - indica para a malha de serviço se a mesma precisa buscar esse certificado usando o nome do assunto ou pela impressão digital. O uso do nome do assunto para autorizar é não uma boa prática de segurança, no entanto, permite mais flexibilidade.
+- **Autorizar por** – indica ao Service Fabric se ele precisa buscar esse certificado usando o nome do assunto ou a impressão digital. O uso do nome do assunto para autorizar é não uma boa prática de segurança, no entanto, permite mais flexibilidade.
 
-- **Nome de assunto** só é necessário caso você tenha especificado que a autorização é pelo Nome do assunto
-- **Impressão digital do emissor** isso possibilita um nível adicional de verificação que o servidor pode executar quando um cliente apresenta suas credenciais para o servidor.
+- **Nome de assunto** só será necessário caso você tenha especificado a autorização pelo Nome do assunto
+- **Impressão Digital do Emissor** possibilita um nível adicional de verificação que o servidor pode executar quando um cliente apresenta suas credenciais ao servidor.
 
 
 ## Como atualizar os certificados no cluster
 
-A malha de serviços permite que você especifique dois certificados, um principal e um secundário. O que você especificou no momento da criação é, por padrão, o principal Para adicionar outro certificado, você precisa implantar esse certificado para as VMs no cluster. Consulte o documento [Implantar certificados para VMs do cofre da chave gerenciado pelo cliente](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
+A malha de serviços permite que você especifique dois certificados, um principal e um secundário. O que você especificou no momento da criação é, por padrão, o principal Para adicionar outro certificado, você precisa implantar esse certificado para as VMs no cluster. A Etapa 2 acima descreve como você pode carregar um novo certificado para o cofre da chave. Você pode usar o mesmo cofre da chave usado para o primeiro certificado.
+
+Consulte o documento [Implantar certificados para VMs do cofre da chave gerenciado pelo cliente](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
 
 Depois que a operação for concluída com êxito, vá para o portal ou por meio do ARM, indique na Malha de serviço que você possui um certificado secundário que pode ser usado também. Tudo o que você precisa é uma impressão digital.
 
-No portal, navegue até o recurso de cluster para o qual você deseja adicionar esse certificado, clique na configuração de certificado e insira a impressão digital do certificado secundário e pressione salvar. Uma implantação será iniciada e após uma conclusão bem sucedida da implantação, você pode usar o certificado principal ou o secundário para realizar operações de gerenciamento no cluster.
+Eis o processo: no portal, navegue até o recurso de cluster para o qual você deseja adicionar esse certificado, clique na configuração de certificado, insira a impressão digital do certificado secundário e pressione Salvar. Uma implantação será iniciada e após uma conclusão bem sucedida da implantação, você pode usar o certificado principal ou o secundário para realizar operações de gerenciamento no cluster.
 
 ![SecurityConfigurations\_02][SecurityConfigurations_02]
 
@@ -129,16 +202,16 @@ Há um evento de diagnóstico que permite que você saiba se qualquer um dos cer
 
 ## O que são certificados X509?
 
-Os certificados digitais X509 são usados para autenticar clientes e servidores, criptografar e assinar mensagens digitalmente. Para saber mais detalhes sobre esses certificados, vá para [http://msdn.microsoft.com/library/ms731899.aspx](http://msdn.microsoft.com/library/ms731899.aspx)
+Os certificados digitais X509 são usados para autenticar clientes e servidores, criptografar e assinar mensagens digitalmente. Para obter mais detalhes sobre esses certificados, vá para [http://msdn.microsoft.com/library/ms731899.aspx](http://msdn.microsoft.com/library/ms731899.aspx)
 
 **Observação**
 
-1. Os certificados usados em clusters que executam cargas de trabalho de produção devem ser criados usando um serviço de certificado do Windows Server configurado corretamente ou através de uma [Autoridade de Certificação (CA)](https://en.wikipedia.org/wiki/Certificate_authority) aprovada.
+1. Os certificados usados em clusters que executam cargas de trabalho de produção. Eles devem ser criados usando um serviço de certificado do Windows Server configurado corretamente ou por meio de uma [AC (Autoridade de Certificação)](https://en.wikipedia.org/wiki/Certificate_authority) aprovada.
 2. Nunca use certificados temporários ou de teste criados com ferramentas como MakeCert.exe em produção
 3. Para clusters que usados apenas para fins de teste, você pode optar por usar um certificado assinado automaticamente. 
 
 
-##O que são Certificados do servidor e Certificados do cliente?
+## O que são Certificados do servidor e Certificados do cliente?
 
 **Certificados do Servidor/X509**
 
@@ -146,7 +219,7 @@ Os Certificados de servidor têm a tarefa principal de autenticar o servidor (n�
 
 O artigo a seguir descreve como gerar certificados com nomes alternativos de assunto (SAN). [http://support.microsoft.com/kb/931351](http://support.microsoft.com/kb/931351)
  
-**Observação:** o campo assunto pode conter vários valores, cada um prefixado com uma inicialização para indicar o valor. Geralmente, a inicialização é "CN" para o nome comum, por exemplo, "CN = www.contoso.com". Também é possível deixar o campo Assunto em branco. Observe também o campo de Nome alternativo da assunto opcional; se usado, deve conter o nome comum do certificado e uma entrada por nome alternativo do assunto. Eles são inseridos como valores de Nome DNS.
+**Observação:** o campo assunto pode conter vários valores, cada um prefixado com iniciais para indicar o valor. Geralmente, a inicialização é "CN" para o nome comum, por exemplo, "CN = www.contoso.com". Também é possível deixar o campo Assunto em branco. Observe também o campo de Nome alternativo da assunto opcional; se usado, deve conter o nome comum do certificado e uma entrada por nome alternativo do assunto. Eles são inseridos como valores de Nome DNS.
 
 Além disso, observe que o valor do campo Finalidades pretendidas do certificado deve incluir um valor apropriado, como "Autenticação do servidor" ou "Autenticação do cliente".
 
@@ -164,5 +237,7 @@ Normalmente, os certificados de cliente não são emitidos por uma autoridade de
 <!--Image references-->
 [SecurityConfigurations_01]: ./media/service-fabric-cluster-security/SecurityConfigurations_01.png
 [SecurityConfigurations_02]: ./media/service-fabric-cluster-security/SecurityConfigurations_02.png
+[Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
+[Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

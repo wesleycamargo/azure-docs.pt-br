@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gerenciar o Azure RemoteApp usando a Automação do Azure"
+	pageTitle="Gerenciar RemoteApp do Azure usando a Automação do Azure | Microsoft Azure"
 	description="Saiba mais sobre como o serviço de Automação do Azure pode ser usado para gerenciar o Azure RemoteApp."
 	services="remoteapp, automation"
 	documentationCenter=""
@@ -42,4 +42,4 @@ Agora que você aprendeu os fundamentos de Automação do Azure e como ela pode 
 
 * Confira o [Guia de introdução](../automation-create-runbook-from-samples.md) da Automação do Azure.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="12/01/2015"
+   ms.date="12/03/2015"
    ms.author="sdanie" />
 
 # Como configurar o Cache Redis do Azure
@@ -23,7 +23,7 @@ Este tópico descreve como examinar e atualizar a configuração para suas inst�
 
 ## Definir configurações de cache Redis
 
-Os caches podem ser acessados no [portal de visualização do Azure](https://portal.azure.com) usando a folha **Procurar**.
+Os caches podem ser acessados no [Portal do Azure](https://portal.azure.com) usando a folha **Procurar**.
 
 ![Folha de navegação de Cache Redis do Azure](./media/cache-configure/IC796920.png)
 
@@ -122,7 +122,7 @@ Clique em **OK** para salvar a configuração de persistência.
 
 ![Usuários e marcas de Cache Redis](./media/cache-configure/IC808320.png)
 
-A seção **Usuários** dá suporte ao RBAC (controle de acesso baseado em função) no portal de visualização para ajudar as organizações a atender aos seus requisitos de gerenciamento de acesso de maneira simples e precisa. Para obter mais informações, veja [Controle de acesso baseado em função no portal de visualização do Azure](http://go.microsoft.com/fwlink/?LinkId=512803).
+A seção **Usuários** dá suporte ao RBAC (controle de acesso baseado em função) no Portal do Azure para ajudar as organizações a atender aos seus requisitos de gerenciamento de acesso de maneira simples e precisa. Para saber mais, confira [Controle de acesso baseado em função no Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=512803).
 
 A seção **Marcas** o ajuda a organizar seus recursos. Para obter mais informações, veja [Usando marcas para organizar os recursos do Azure](../resource-group-using-tags.md).
 
@@ -134,13 +134,13 @@ Novas instâncias de Cache Redis do Azure são configuradas com os seguintes val
 >
 >`StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 >  
->Todos os valores que podem ser configurados, como **max-memory-policy**, podem ser configurados por meio do portal de visualização.
+>Todos os valores que podem ser configurados, como **max-memory-policy**, podem sê-lo no Portal do Azure.
 
 |Configuração|Valor padrão|Descrição|
 |---|---|---|
 |databases|16|O banco de dados padrão é o DB 0. você pode selecionar um valor diferente por conexão usando connection.GetDataBase(dbid), em que dbid é um número entre 0 e 15.|
 |maxclients|Depende do tipo de preço<sup>1</sup>|Esse é o número máximo de clientes conectados permitidos ao mesmo tempo. Quando o limite é atingido, Redis fecha todas as novas conexões enviando um erro "número máximo de clientes atingido".|
-|maxmemory-policy|volatile-lru|A política MaxMemory é a configuração de como o Redis seleciona o que remover quando maxmemory (o tamanho da oferta de cache que você selecionou quando criou o cache) é atingido. Com o Cache Redis do Azure, a configuração padrão é volatile-lru, que remove as chaves com um conjunto de expiração usando um algoritmo LRU. Essa configuração pode ser definida no portal de visualização. Para obter mais informações, veja [Maxmemory-policy e maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved).|
+|maxmemory-policy|volatile-lru|A política MaxMemory é a configuração de como o Redis seleciona o que remover quando maxmemory (o tamanho da oferta de cache que você selecionou quando criou o cache) é atingido. Com o Cache Redis do Azure, a configuração padrão é volatile-lru, que remove as chaves com um conjunto de expiração usando um algoritmo LRU. Essa configuração pode ser definida no portal do Azure. Para obter mais informações, veja [Maxmemory-policy e maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved).|
 |maxmemory-samples|3|LRU e algoritmos TTL mínimos não são algoritmos precisos, mas aproximados (para economizar memória), para que você possa selecionar também o tamanho da amostra para verificar. Por exemplo, por padrão, o Redis verificará três chaves e escolherá aquela que foi usada menos recentemente.|
 |lua-time-limit|5\.000|Tempo máximo de execução de um script Lua em milissegundos. Se o tempo de execução máximo for atingido, o Redis registrará em log que um script ainda está em execução depois do tempo máximo permitido e começará a responder a consultas com um erro.|
 |lua-event-limit|500|Esse é o tamanho máximo da fila de eventos de script.|
@@ -164,7 +164,7 @@ Novas instâncias de Cache Redis do Azure são configuradas com os seguintes val
 
 ## Comandos Redis não têm suporte no Cache Redis do Azure
 
->[AZURE.IMPORTANT]Como a configuração e o gerenciamento de instâncias de Cache Redis do Azure são feitas usando o portal de visualização, os comandos a seguir são desabilitados. Se tentar invocá-los, você receberá uma mensagem de erro semelhante a `"(error) ERR unknown command"`.
+>[AZURE.IMPORTANT]Como a configuração e o gerenciamento de instâncias de Cache Redis do Azure são feitas usando o Portal do Azure, os comandos a seguir são desabilitados. Se tentar invocá-los, você receberá uma mensagem de erro semelhante a `"(error) ERR unknown command"`.
 >
 >-	BGREWRITEAOF
 >-	BGSAVE
@@ -199,4 +199,4 @@ Para obter uma lista de comandos do Redis que estão desabilitados para o Cache 
 ## Próximas etapas
 -	Para obter mais informações sobre como trabalhar com os comandos do Redis, veja [Como faço para executar comandos do Redis?](cache-faq.md#how-can-i-run-redis-commands)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

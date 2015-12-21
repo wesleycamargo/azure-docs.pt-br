@@ -213,7 +213,7 @@ O código de exemplo completo está disponível em [Exemplos do Hub de Notifica�
 
 	![][3]
 
-	g. Configure o trabalho para ser “Executado Continuamente” para que, quando fizer logon no portal de gerenciamento do Azure, você veja algo semelhante ao seguinte:
+	g. Configure o trabalho para ser “Executado Continuamente” para que, quando fizer logon no [Portal Clássico do Azure], você veja algo semelhante ao seguinte:
 
 	![][4]
 
@@ -250,7 +250,7 @@ O código de exemplo completo está disponível em [Exemplos do Hub de Notifica�
 
 	![][5]
 
-4. Originalmente, as mensagens foram enviadas para os tópicos do Barramento de Serviço que estava sendo monitorado por assinaturas do Barramento de Serviço no seu WebJob. Depois que uma mensagem foi recebida, uma notificação foi criada e enviada ao aplicativo móvel. Você pode verificar os logs do WebJob para confirmar o processamento quando for para o link Logs no portal de Gerenciamento do Azure para seu WebJob:
+4. Originalmente, as mensagens foram enviadas para os tópicos do Barramento de Serviço que estava sendo monitorado por assinaturas do Barramento de Serviço no seu WebJob. Depois que uma mensagem foi recebida, uma notificação foi criada e enviada ao aplicativo móvel. Você pode verificar os logs do WebJob para confirmar o processamento quando for para o link Logs no [Portal Clássico do Azure] para seu WebJob:
 
 	![][6]
 
@@ -270,5 +270,6 @@ O código de exemplo completo está disponível em [Exemplos do Hub de Notifica�
 [Trabalho Web do Azure]: http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/
 [Hubs de Notificação - tutorial do Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Hubs de Notificação - tutorial universal do Windows]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Portal Clássico do Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

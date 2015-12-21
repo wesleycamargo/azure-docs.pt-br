@@ -80,4 +80,4 @@ O modelo de programação dos Reliable Actors foi criado para orientar os progra
 
 * *Assincronismo explícito.* O modelo de programação de Reliable Actors torna explícita a natureza assíncrona de um aplicativo distribuído e orienta os programadores a produzirem códigos assíncronos sem bloqueio. Isso permite um alto grau de paralelismo distribuído e produtividade geral sem o uso explícito de vários threads.
 
-<!----HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

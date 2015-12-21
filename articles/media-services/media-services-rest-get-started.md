@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/18/2015" 
+	ms.date="12/05/2015" 
 	ms.author="juliako"/>
 
 #Introdução ao fornecimento de conteúdo sob demanda usando API REST
@@ -1204,4 +1204,4 @@ Se este tópico não contiver o que você esperava, se estiver faltando alguma i
 <!-- URLs. -->
   [Portal Clássico do Azure]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

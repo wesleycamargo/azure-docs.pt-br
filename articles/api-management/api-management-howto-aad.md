@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Como autorizar contas de desenvolvedor usando o Active Directory do Azure no Gerenciamento de API do Azure
@@ -26,7 +26,7 @@ Este guia mostra como habilitar o acesso ao portal do desenvolvedor para todos o
 
 ## Como autorizar contas de desenvolvedor usando o Active Directory do Azure
 
-Para começar, clique em **Gerenciar** no Portal do Azure para acessar o serviço de Gerenciamento de API. Isso levará você ao portal do editor de Gerenciamento de API.
+Para começar, clique em **Gerenciar** no Portal Clássico do Azure para acessar o serviço de Gerenciamento de API. Isso levará você ao portal do editor de Gerenciamento de API.
 
 ![Portal do editor][api-management-management-console]
 
@@ -36,7 +36,7 @@ Clique em **Segurança** no menu **Gerenciamento de API** à esquerda e clique e
 
 ![Identidades externas][api-management-security-external-identities]
 
-Clique em **Active Directory do Azure**. Anote a **URL de redirecionamento** e alterne para seu Active Directory do Azure no Portal do Azure.
+Clique em **Active Directory do Azure**. Anote a **URL de redirecionamento** e alterne para seu Active Directory do Azure no Portal Clássico do Azure.
 
 ![Identidades externas][api-management-security-aad-new]
 
@@ -228,4 +228,4 @@ Agora, o usuário está conectado no portal do desenvolvedor para a instância d
 
 [Efetuar logon no portal do desenvolvedor usando uma conta do Active Directory do Azure]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

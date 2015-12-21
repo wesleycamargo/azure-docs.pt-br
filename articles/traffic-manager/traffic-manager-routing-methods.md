@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/01/2015"
+   ms.date="12/07/2015"
    ms.author="joaoma" />
 
 # Métodos de roteamento do Gerenciador de Tráfego
@@ -37,7 +37,7 @@ Observe que os sites do Azure já fornecem método de roteamento de tráfego de 
 
 Geralmente, uma organização deseja fornecer confiabilidade para seus serviços. Ela faz isso fornecendo serviços de backup no caso de seu serviço principal falhar. Um padrão comum para failover de serviço é fornecer um conjunto de pontos de extremidade idênticos hospedados idênticos e enviar tráfego para um serviço primário, com uma lista de um ou mais backups. Se o serviço primário não estiver disponível, os clientes solicitantes serão referenciados para o próximo serviço, em ordem. Se o primeiro e o segundo serviço na lista não estiverem disponíveis, o tráfego passará para o terceiro e assim por diante.
 
-Ao se configurar o método de roteamento de tráfego de failover, a ordem dos pontos de extremidade selecionados é importante. Usando o portal do Azure, você pode configurar a ordem de failover na página Configuração para o perfil.
+Ao se configurar o método de roteamento de tráfego de failover, a ordem dos pontos de extremidade selecionados é importante. Usando o portal clássico do Azure, você pode configurar a ordem de failover na página Configuração para o perfil.
 
 A Figura 1 mostra um exemplo do método de roteamento de tráfego de failover para um conjunto de pontos de extremidade.
 
@@ -81,7 +81,7 @@ O roteamento de tráfego de round robin ponderado permite distribuir a carga par
 - Perfil de migração para o Azure: crie um perfil com pontos de extremidade do Azure e externos e especifique o peso do tráfego que é roteado para cada ponto de extremidade.
 - Estouro de nuvem para capacidade adicional: expanda rapidamente uma implantação local na nuvem colocando-a atrás de um perfil do Gerenciador de Tráfego. Quando precisar de capacidade extra na nuvem, você poderá adicionar ou habilitar mais pontos de extremidade e especificar qual parte do tráfego vai para cada ponto de extremidade.
 
-No momento, não é possível usar o portal do Azure para configurar o roteamento de tráfego ponderado. O Azure fornece acesso programático a esse método usando a API REST do Gerenciamento de Serviço e os cmdlets do PowerShell do Azure associados.
+No momento, não é possível usar o portal clássico do Azure para configurar o roteamento de tráfego ponderado. O Azure fornece acesso programático a esse método usando a API REST do Gerenciamento de Serviço e os cmdlets do PowerShell do Azure associados.
 
 Para obter informações sobre como usar as APIs REST, consulte [Operações no Gerenciador de Tráfego (referência de API REST)](http://go.microsoft.com/fwlink/p/?LinkId=313584).
 
@@ -130,4 +130,4 @@ Se você quiser obter as figuras deste tópico como slides do PowerPoint para su
 [Adicionar um ponto de extremidade](traffic-manager-endpoints.md)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

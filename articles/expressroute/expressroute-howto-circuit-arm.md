@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/06/2015"
+   ms.date="12/04/2015"
    ms.author="cherylmc"/>
 
 # Criar e modificar um circuito da Rota Expressa usando o Gerenciador de recursos do Azure e PowerShell
@@ -219,7 +219,7 @@ Este artigo fornece uma orientação pelas etapas de criação de um circuito da
 
 7. **Vincule uma Rede Virtual a um circuito da Rota Expressa.**
 
-	Em seguia, vincule uma Rede Virtual ao seu circuito da Rota Expressa. Veja [Vinculando circuitos da Rota Expressa a redes virtuais](expressroute-howto-linkvnet-arm.md) para obter instruções passo a passo. Se precisar criar uma rede virtual para a Rota Expressa, consulte [Criando uma rede virtual para a Rota Expressa](expressroute-howto-createvnet-classic.md) para obter instruções.
+	Em seguia, vincule uma Rede Virtual ao seu circuito da Rota Expressa. Você pode usar [esse modelo](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection) ao trabalhar com o modo de implantação do Gerenciador de Recursos do Azure. Atualmente estamos trabalhando em etapas do PowerShell.
 
 ##  Obter o status de um circuito da Rota Expressa
 
@@ -357,4 +357,4 @@ Se o provedor de serviços tiver desprovisionado o circuito (o estado de provisi
 
 - [Configurar o roteamento](expressroute-howto-routing-arm.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -15,14 +15,14 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="12/08/2015"
 	ms.author="szark"/>
 
 
 
 #Linux em distribuições endossadas pelo Azure
 
-As imagens Linux na Galeria do Azure são fornecidas por alguns parceiros, e estamos trabalhando com várias comunidades Linux para adicionar ainda mais opções à lista de Distribuições Endossadas. Enquanto isso, para distribuições não disponíveis na Galeria, você sempre pode Trazer o Próprio Linux seguindo as diretrizes [nesta página](virtual-machines-linux-create-upload-vhd.md).
+As imagens Linux na Galeria do Azure ou no Marketplace são fornecidas por alguns parceiros e estamos trabalhando com várias comunidades Linux para adicionar ainda mais opções à lista de Distribuições Endossadas. Enquanto isso, para distribuições não disponíveis na Galeria, você sempre pode Trazer o Próprio Linux seguindo as diretrizes [nesta página](virtual-machines-linux-create-upload-vhd.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -37,23 +37,20 @@ O Agente Linux do Azure já vem pré-instalado nas imagens da Galeria do Azure e
 
 Distribuição|Versão|Drivers|Agente
 ---|---|---|---
-Ubuntu|Ubuntu 12.04, 14.04, 15.04 e 15.10|No kernel|Pacote: no repositório, em "walinuxagent" <p><p>Fonte: [GitHub](https://github.com/Azure/WALinuxAgent)
-CentOS by OpenLogic |CentOS 6.3+, 7.0+| CentOS 6.3: [download do LIS](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 +: no Kernel|Pacote: no repositório <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic, em "WALinuxAgent"<p><p>Fonte: [GitHub](https://github.com/Azure/WALinuxAgent)
-[CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)|494\.4.0+ |No kernel|Fonte: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent)
-Oracle Linux| 6\.4+, 7.0+|No kernel|Pacote: no repositório, em "WALinuxAgent" <p><p>Fonte: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
-SUSE Linux Enterprise |SLES 11 SP3+, SLES 12+ e <p><p> SLES para SAP 11.3+ |No kernel|Pacote: no repositório [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) em "WALinuxAgent"<p><p>Fonte: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
-openSUSE |openSUSE 13.1+|No kernel|Pacote: no repositório [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) em "WALinuxAgent" <p><p>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent)
+CentOS by OpenLogic |CentOS 6.3+, 7.0+| CentOS 6.3: [download do LIS](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 +: no Kernel|Pacote: no repositório <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic, em "WALinuxAgent"<p><p>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent)
+[CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)|494\.4.0+ |No kernel|Código-fonte: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent)
 Debian da Credativ |Debian 7.9+, 8.2+|No kernel|Pacote: no repositório, em "waagent" <p><p>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent)
-
+Oracle Linux| 6\.4+, 7.0+|No kernel|Pacote: no repositório, em "WALinuxAgent" <p><p>Código-fonte: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+Red Hat Enterprise Linux |RHEL 6.7+, 7.1+|No kernel|Pacote: no repositório, em "WALinuxAgent" <p><p>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent)
+SUSE Linux Enterprise |SLES 11 SP3+, SLES 12+ e <p><p> SLES para SAP 11.3+ |No kernel|Pacote: no repositório [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) em "WALinuxAgent" <p><p>Código-fonte: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+openSUSE |openSUSE 13.1+|No kernel|Pacote: no repositório [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) em "WALinuxAgent" <p><p>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent)
+Ubuntu|Ubuntu 12.04, 14.04, 15.04 e 15.10|No kernel|Pacote: no repositório, em "walinuxagent" <p><p>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent)
 ## Parceiros
 
-### Canonical
-[http://www.ubuntu.com/cloud/azure](http://www.ubuntu.com/cloud/azure)
+### OpenLogic
+[http://www.openlogic.com/azure](http://www.openlogic.com/azure)
 
-O controle aberto da comunidade e a engenharia da Canonical impulsionam o sucesso do Ubuntu no cliente, no servidor e na computação em nuvem, incluindo serviços de nuvem pessoais para os consumidores. A visão da Canonical de uma plataforma livre unificada no Ubuntu, do telefone à nuvem, com uma família de interfaces coerentes para telefone, tablet, TV e área de trabalho, torna o Ubuntu a primeira opção para diversas instituições que vão desde provedores de nuvem pública até fabricantes de aparelhos eletrônicos e um favorito entre tecnólogos individuais.
-
-Com desenvolvedores e centros de engenharia no mundo inteiro, a Canonical está posicionada exclusivamente para fazer parceria com fabricantes de hardware, provedores de conteúdo e desenvolvedores de software para oferecer soluções de Ubuntu no mercado, de PCs a servidores e dispositivos portáteis.
-
+O OpenLogic é líder no fornecimento de soluções empresariais de software livre para a nuvem e o data center. Ele ajuda centenas de empresas líderes de inúmeros setores a adquirir, dar suporte e controlar com segurança o software livre. O OpenLogic oferece suporte técnico de nível comercial e indenização para 600 pacotes de software livre com suporte da OpenLogic Expert Community, inclusive suporte de nível empresarial para CentOS, bem como o parceiro de lançamento para fornecer imagens baseadas no CentOS no Azure.
 
 ### CoreOS
 [https://coreos.com/docs/running-coreos/cloud-providers/azure/](https://coreos.com/docs/running-coreos/cloud-providers/azure/)
@@ -63,26 +60,31 @@ No site CoreOS:
 *O CoreOS foi projetado para segurança, consistência e confiabilidade. Em vez de instalar os pacotes por meio de yum ou apt, o CoreOS usa contêineres do Linux para gerenciar seus serviços em um nível mais alto de abstração. Um único código de serviço e todas as dependências são empacotados em um contêiner que pode ser executado em uma ou várias máquinas CoreOS.*
 
 
-### OpenLogic
-[http://www.openlogic.com/azure](http://www.openlogic.com/azure)
+### Credativ
+[http://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure](http://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure)
 
-O OpenLogic é líder no fornecimento de soluções empresariais de software livre para a nuvem e o data center. Ele ajuda centenas de empresas líderes de inúmeros setores a adquirir, dar suporte e controlar com segurança o software livre. O OpenLogic oferece suporte técnico de nível comercial e indenização para 600 pacotes de software livre com suporte da OpenLogic Expert Community, inclusive suporte de nível empresarial para CentOS, bem como o parceiro de lançamento para fornecer imagens baseadas no CentOS no Azure.
-
+A Credativ é uma empresa de serviços e consultoria independente, especializada no desenvolvimento e na implementação de soluções profissionais com o uso de software gratuito. A Credative, por ser especialista líder em software livre, é reconhecida internacionalmente e vários departamentos de TI usam o suporte que a empresa fornece. Em conjunto com a Microsoft, a Credativ está preparando imagens correspondentes do Debian para Debian 8 (Jessie) e Debian antes do 7 (Wheezy), projetadas especialmente para execução no Azure e facilmente gerenciadas por meio da plataforma. A empresa também dará suporte a atualização e manutenção de longo prazo das imagens Debian para Azure por meio de seus Centros de Suporte de Software Livre.
 
 ### Oracle
 [http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html)
 
 A estratégia da Oracle consiste em oferecer um amplo portfólio de soluções para nuvens públicas e privadas, ao mesmo tempo em que dá aos clientes opção e flexibilidade na maneira como eles implantam um software Oracle em nuvens Oracle, bem como em outras nuvens. A parceria da Oracle com a Microsoft permite aos clientes implantar um software Oracle em nuvens públicas e privadas da Microsoft com a certeza da certificação e do suporte da Oracle. O compromisso e o investimento da Oracle em soluções de nuvem pública e privada Oracle permanecem inalterados.
 
+### Red Hat
+[http://www.redhat.com/en/partners/strategic-alliance/microsoft](http://www.redhat.com/en/partners/strategic-alliance/microsoft)
+
+A Red Hat, a principal provedora de soluções de software livre do mundo, ajuda mais de 90% das empresas da Fortune 500 a resolver desafios comerciais, a alinhar suas estratégias comerciais e de TI e a preparar-se para o futuro da tecnologia. A empresa faz isso fornecendo soluções seguras por meio de um modelo de negócios aberto e um modelo de assinatura acessível e previsível.
 
 ### SUSE
 [http://www.suse.com/suse-linux-enterprise-server-on-azure](http://www.suse.com/suse-linux-enterprise-server-on-azure)
 
 O SUSE Linux Enterprise Server no Azure é uma plataforma testada que fornece confiabilidade e segurança superiores para a computação em nuvem. A plataforma Linux versátil do SUSE se integra perfeitamente aos serviços de nuvem do Azure para oferecer um ambiente de nuvem facilmente gerenciável. E, com mais de 9.200 aplicativos certificados de mais de 1.800 fornecedores de software independentes para SUSE Linux Enterprise Server, o SUSE garante que as cargas de trabalho em execução compatíveis no datacenter podem ser implantadas com segurança no Azure.
 
-### Credativ
-[http://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure](http://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure)
+### Canonical
+[http://www.ubuntu.com/cloud/azure](http://www.ubuntu.com/cloud/azure)
 
-A Credativ é uma empresa de serviços e consultoria independente, especializada no desenvolvimento e na implementação de soluções profissionais com o uso de software gratuito. Como especialistas líderes em software livre, temos reconhecimento internacional, com vários departamentos de TI usando nosso suporte. Em conjunto com a Microsoft, a credativ está preparando o imagens correspondentes do Debian para Debian 8 (Jessie) e Debian antes do 7 (Wheezy), projetadas especialmente para execução no Azure e facilmente gerenciadas por meio da plataforma. A credativ também dará suporte a manutenção de longo prazo e fará a atualização das imagens Debian para Azure por meio de seus Centros de suporte de software livre.
+O controle aberto da comunidade e a engenharia da Canonical impulsionam o sucesso do Ubuntu no cliente, no servidor e na computação em nuvem, incluindo serviços de nuvem pessoais para os consumidores. A visão da Canonical de uma plataforma livre unificada no Ubuntu, do telefone à nuvem, com uma família de interfaces coerentes para telefone, tablet, TV e área de trabalho, torna o Ubuntu a primeira opção para diversas instituições que vão desde provedores de nuvem pública até fabricantes de aparelhos eletrônicos e um favorito entre tecnólogos individuais.
 
-<!---HONumber=AcomDC_1203_2015-->
+Com desenvolvedores e centros de engenharia no mundo inteiro, a Canonical está posicionada exclusivamente para fazer parceria com fabricantes de hardware, provedores de conteúdo e desenvolvedores de software para oferecer soluções de Ubuntu no mercado, de PCs a servidores e dispositivos portáteis.
+
+<!---HONumber=AcomDC_1210_2015-->

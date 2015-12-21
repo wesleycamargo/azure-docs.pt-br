@@ -3,7 +3,7 @@
    description="Fornece informações sobre a que a Microsoft dará suporte como relação ao sistema operacional convidado do Azure usado pelos Serviços de Nuvem." 
    services="cloud-services" 
    documentationCenter="na" 
-   authors="Thraka" 
+   authors="yuemlu" 
    manager="timlt" 
    editor=""/>
 
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="08/18/2015"
-   ms.author="adegeo"/>
+   ms.date="12/07/2015"
+   ms.author="yuemlu"/>
 
 # Capacidade de suporte e política de desativação do SO convidado do Azure
-As informações nesta página se relacionam ao sistema operacional convidado do Azure [(SO Convidado)](https://msdn.microsoft.com/library/azure/ff729422.aspx) para serviços de nuvem funções web e de trabalho (PaaS). Não se aplicam às Máquinas Virtuais (IaaS).
+As informações nesta página se relacionam ao sistema operacional convidado do Azure [(SO Convidado)](cloud-services-guestos-update-matrix.md) para serviços de nuvem funções web e de trabalho (PaaS). Não se aplicam às Máquinas Virtuais (IaaS).
 
 A Microsoft tem uma [política de suporte para o SO convidado](http://support.microsoft.com/gp/azure-cloud-lifecycle-faq) publicada. A página que você está lendo agora descreve como a política é implementada.
 
@@ -81,13 +81,13 @@ Você deve usar a família mais recente do sistema operacional convidado para cr
 
 1. Comece cedo a planejar a migração para uma família mais recente. 
 2. Configure implantações de teste temporárias para testar seu serviço de nuvem em execução na nova família. 
-3. [Defina a versão do SO convidado](https://msdn.microsoft.com/library/azure/gg433101.aspx) para "Automática" (osVersion=* no arquivo [.CSCFG](https://msdn.microsoft.com/library/azure/gg456324.aspx)) para que a migração para novas versões de SO convidado ocorra automaticamente.
+3. Defina a versão do SO convidado para **Automática** (osVersion=* no arquivo [.cscfg](cloud-services-model-and-package.md#cscfg)) para que a migração para novas versões de SO convidado ocorra automaticamente.
 
 **E se meu aplicativo Web exigir uma integração mais profunda com o sistema operacional?**
 
-Se a arquitetura do aplicativo Web exigir uma dependência mais profunda do sistema operacional subjacente, use os recursos de suporte de plataforma como "[Tarefas de Inicialização](https://msdn.microsoft.com/library/windowsazure/gg456327.aspx)" ou outros mecanismos de extensibilidade que possam existir no futuro. Como alternativa, você também pode usar [Máquinas Virtuais do Azure](http://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS - Infraestrutura como serviço), em que você é responsável por manter o sistema operacional subjacente.
+Se a arquitetura do aplicativo Web exigir uma dependência mais profunda do sistema operacional subjacente, use os recursos de suporte de plataforma como [tarefas de inicialização](cloud-services-startup-tasks.md) ou outros mecanismos de extensibilidade que possam existir no futuro. Como alternativa, você também pode usar [Máquinas Virtuais do Azure](http://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS - Infraestrutura como serviço), em que você é responsável por manter o sistema operacional subjacente.
  
 ## Próximas etapas
 Examine as últimas [versões do SO convidado](cloud-services-guestos-update-matrix.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

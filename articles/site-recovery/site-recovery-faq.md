@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Site Recovery: perguntas frequentes" 
+	pageTitle="Recuperação de Site: perguntas frequentes | Microsoft Azure" 
 	description="Este artigo aborda dúvidas comuns sobre o Azure Site Recovery." 
 	services="site-recovery" 
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na" 
 	ms.workload="storage-backup-recovery"
-	ms.date="12/01/2015" 
+	ms.date="12/07/2015" 
 	ms.author="raynew"/>
 
 
@@ -43,9 +43,9 @@ Depende do cenário de implantação.
 
 Verifique os pré-requisitos de servidor host do Hyper-V:
 
-- [Replicando VMs Hyper-V no Azure (sem VMM)](site-recovery-hyper-v-site-to-azure/#before-you-start)
-- [Replicando VMs Hyper-V no Azure (com VMM)](site-recovery-vmm-to-azure/#before-you-start)
-- [Replicando VMs Hyper-V em um datacenter secundário](site-recovery-vmm-to-vmm/#before-you-start)
+- [Replicando VMs Hyper-V no Azure (sem VMM)](site-recovery-hyper-v-site-to-azure.md/#before-you-start)
+- [Replicando VMs Hyper-V no Azure (com VMM)](site-recovery-vmm-to-azure.md/#before-you-start)
+- [Replicando VMs Hyper-V em um datacenter secundário](site-recovery-vmm-to-vmm.md/#before-you-start)
 
 Em relação ao sistemas operacionais convidados:
 
@@ -74,17 +74,17 @@ Sim. Você pode a replicar máquinas virtuais Hyper-V em nuvem no servidor VMM n
 
 ### Quais servidores físicos posso proteger?
 
-Você pode proteger servidores físicos que executem Windows e Linux no Azure ou em site secundário. Para obter os requisitos do sistema operacional, leia [Do que eu preciso?](site-recovery-vmware-to-azure/#what-do-i-need) As mesmas limitações se aplicam independentemente de se estar replicando servidores físicos para o Azure ou para um site secundário.
+Você pode proteger servidores físicos que executem Windows e Linux no Azure ou em site secundário. Para obter os requisitos do sistema operacional, leia [Do que eu preciso?](site-recovery-vmware-to-azure.md/#what-do-i-need). As mesmas limitações se aplicam independentemente de se estar replicando servidores físicos para o Azure ou para um site secundário.
 
 Observe que servidores físicos serão executados como VMs no Azure se seu servidor local ficar inativo. Atualmente, não há suporte de failback para um servidor físico local, mas você pode executar failback para uma máquina virtual em execução no Hyper-V ou no VMware.
 
 ### Quais VMs VMware posso proteger?
 
-Para esse cenário, você precisará de um servidor vCenter VMware, de um hipervisor vSphere e de máquinas virtuais com ferramentas VMware em execução. Para verificar os requisitos exatos, confira [Do que eu preciso?](site-recovery-vmware-to-azure/#what-do-i-need) As mesmas limitações se aplicam independentemente de se estar replicando servidores físicos para o Azure ou para um site secundário.
+Para esse cenário, você precisará de um servidor vCenter VMware, de um hipervisor vSphere e de máquinas virtuais com ferramentas VMware em execução. Para verificar os requisitos exatos, confira [Do que eu preciso?](site-recovery-vmware-to-azure.md/#what-do-i-need). As mesmas limitações se aplicam independentemente de se estar replicando servidores físicos para o Azure ou para um site secundário.
 
 ### Há algum pré-requisito para replicar máquinas virtuais no Azure?
 
-As máquinas virtuais que você deseja replicar no Azure devem estar em conformidade com os [requisitos do Azure](site-recovery-best-practices/#virtual-machines).
+As máquinas virtuais que você deseja replicar no Azure devem estar em conformidade com os [requisitos do Azure](site-recovery-best-practices.md/#virtual-machines).
 
 ### Posso replicar máquinas virtuais Hyper-V de segunda geração no Azure?
 
@@ -127,7 +127,7 @@ Quando a replicação de máquinas virtuais e servidores físicos é feita entre
 
 ### Se eu replicar no Azure, de que tipo de conta de armazenamento preciso?
 
-Você precisará de uma conta de armazenamento com [armazenamento com redundância geográfica padrão](../storage/storage-redundancy/#geo-redundant-storage). Uma [conta de armazenamento premium](../storage/storage-premium-storage-preview-portal/) tem suporte se você estiver replicando máquinas virtuais VMware ou servidores físicos Windows/Linux no Azure.
+Você precisará de uma conta de armazenamento com [armazenamento com redundância geográfica padrão](../storage/storage-redundancy.md/#geo-redundant-storage). Uma [conta de armazenamento premium](../storage/storage-premium-storage-preview-portal/) tem suporte se você estiver replicando máquinas virtuais VMware ou servidores físicos Windows/Linux no Azure.
 
 O suporte para armazenamento com redundância local padrão está na lista de pendências; envie comentários sobre esse recurso no [Fórum de comentários](http://feedback.azure.com/forums/256299-site-recovery/suggestions/7204469-local-redundant-type-azure-storage-support).
 
@@ -154,7 +154,7 @@ Os discos dinâmicos têm suporte na replicação de máquinas virtuais Hyper-V.
 
 ### Se estou fazendo failover no Azure, como posso acessar as máquinas virtuais do Azure após o failover? 
 
-Você pode acessar as VMs do Azure em uma conexão segura de Internet ou em uma VPN site a site (ou na Rota Expressa do Azure) se tiver uma. A comunicação em uma conexão VPN é enviada a portas internas na rede do Azure na qual a máquina virtual está localizada. As comunicações pela internet são mapeadas para os pontos de extremidade públicos no serviço de nuvem do Azure para máquinas virtuais. [Leia mais](site-recovery-network-design/#connectivity-after-failover)
+Você pode acessar as VMs do Azure em uma conexão segura de Internet ou em uma VPN site a site (ou na Rota Expressa do Azure) se tiver uma. A comunicação em uma conexão VPN é enviada a portas internas na rede do Azure na qual a máquina virtual está localizada. As comunicações pela internet são mapeadas para os pontos de extremidade públicos no serviço de nuvem do Azure para máquinas virtuais. [Leia mais](site-recovery-network-design.md/#connectivity-after-failover)
 
 ### Se eu fizer failover no Azure, como o Azure poderá garantir a resiliência dos meus dados?
 
@@ -223,4 +223,4 @@ Sim, você pode replicar máquinas virtuais Hyper-V e o Azure, ou entre os sites
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

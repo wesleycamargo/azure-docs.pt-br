@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/05/2015" 
 	ms.author="juliako"/>
 
 #Como fornecer um ativo por Download
@@ -87,4 +87,4 @@ Este exemplo mostra como baixar ativos de mídia dos Serviços de Mídia no comp
 
 [Fornecer conteúdo de streaming](media-services-deliver-streaming-content.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

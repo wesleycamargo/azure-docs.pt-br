@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="12/09/2015"
 	ms.author="juliako"/>
 
 
@@ -23,6 +23,7 @@
 > [AZURE.SELECTOR]
 - [Portal](media-services-manage-origins.md)
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+- [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 
 Nos Serviços de Mídia do Microsoft Azure, um **Ponto de Extremidade de Streaming** representa um serviço de streaming que pode fornecer conteúdo diretamente a um aplicativo de player de cliente ou à CDN (Rede de Distribuição de Conteúdo) para a distribuição posterior. Os Serviços de Mídia também fornecem integração perfeita da CDN do Azure. O fluxo de saída do serviço StreamingEndpoint pode ser um fluxo ao vivo ou um ativo de vídeo por demanda na sua conta dos Serviços de Mídia.
 
@@ -30,7 +31,7 @@ Além disso, você pode controlar a capacidade do serviço de ponto de extremida
 
 Observe que você será cobrado apenas quando seu StreamingEndpoint estiver em estado de execução.
 
-Este tópico fornece uma visão geral das principais funcionalidades fornecidas pelos Pontos de Extremidade de Streaming. O tópico também mostra como usar o Portal Clássico do Azure para gerenciar pontos de extremidade da transmissão.
+Este tópico fornece uma visão geral das principais funcionalidades fornecidas pelos Pontos de Extremidade de Streaming. O tópico também mostra como usar o Portal Clássico do Azure para gerenciar pontos de extremidade de streaming.
 
 
 ##Adicionando e excluindo pontos de extremidade de streaming
@@ -54,7 +55,7 @@ Por padrão, você pode ter até dois pontos de extremidade de streaming. Se voc
 
 As unidades para Streaming fornecem capacidade de egresso dedicada que pode ser comprada em incrementos de 200 Mbps e funcionalidade adicional que, atualmente, inclui [recursos de empacotamento dinâmico](media-services-dynamic-packaging-overview.md). Por padrão, o streaming é configurado em um modelo de instância compartilhada para a qual os recursos do servidor (por exemplo, computação, capacidade de egresso, etc.) são compartilhados com todos os outros usuários. Para melhorar uma taxa de transferência de streaming, é recomendável adquirir unidades de Streaming.
 
-Você pode escalar usando o SDK do .NET, a API REST ou o Portal Clássico do Azure.
+Você pode dimensionar usando o SDK do .NET, a API REST ou o Portal Clássico do Azure.
 
 Para alterar o número de unidades de streaming usando o Portal, faça o seguinte:
 
@@ -149,4 +150,4 @@ Para obter mais informações, consulte [Anunciando a integração dos Serviços
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

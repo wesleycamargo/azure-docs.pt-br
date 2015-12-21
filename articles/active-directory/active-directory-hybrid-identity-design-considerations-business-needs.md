@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="12/07/2015"
 	ms.author="billmath"/>
 
 # Determinar requisitos de identidade para sua solução de identidade híbrida
@@ -96,4 +96,4 @@ Você também precisa avaliar os requisitos do usuário. Essa avaliação é imp
 ## Consulte também
 [Visão geral de considerações sobre design] ((active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

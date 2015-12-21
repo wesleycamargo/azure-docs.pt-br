@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="12/09/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Migrar seu código SQL para o SQL Data Warehouse
@@ -34,8 +34,8 @@ A lista a seguir resume os principais recursos que não têm suporte no SQL Data
 - cláusula output
 - funções definidas pelo usuário embutidas
 - funções com várias instruções
+- [expressões de tabela comuns](#Common-table-expressions)
 - [CTE (expressão de tabela comum) recursiva] (#Recursive-common-table-expressions-(CTE)
-- [atualizações por meio de CTEs](#Updates-through-CTEs)
 - procedimentos e funções CLR
 - função $partition
 - variáveis de tabela
@@ -52,13 +52,16 @@ A lista a seguir resume os principais recursos que não têm suporte no SQL Data
 
 Felizmente, a maioria dessas limitações pode ser solucionada. Foram fornecidas explicações nos artigos de desenvolvimento relevantes mencionados acima.
 
+### Expressões de tabela comuns
+A implementação atual das CTEs (expressões de tabela comuns) no SQL Data Warehouse tem as seguintes funcionalidades e limitações:
+
+**Funcionalidade de CTE** + Uma CTE pode ser especificada em uma instrução SELECT. + Uma CTE pode ser especificada em uma instrução CREATE VIEW. + Uma CTE pode ser especificada em uma instrução CREATE TABLE AS SELECT (CTAS). + Uma CTE pode ser especificada em uma instrução CREATE REMOTE TABLE AS SELECT (CRTAS). + Uma CTE pode ser especificada em uma instrução CREATE EXTERNAL TABLE AS SELECT (CETAS). + Uma tabela remota pode ser referenciada de uma CTE. + Uma tabela externa pode ser referenciada de uma CTE. + Várias definições de consulta de CTE podem ser definidas em uma CTE.
+
+**Limitações da CTE** + Uma CTE deve ser seguida por uma única instrução SELECT. Não há suporte para as instruções INSERT, UPDATE, DELETE e MERGE. + Não há suporte para uma expressão de tabela comum que inclua referências a si mesma (uma expressão de tabela comum recursiva) (veja a seção abaixo). + Não é permitido especificar mais de uma cláusula WITH em uma CTE. Por exemplo, se uma CTE\_query\_definition contiver uma subconsulta, essa subconsulta não poderá conter um cláusula WITH aninhada que defina outra CTE. + Uma cláusula ORDER BY não pode ser usada na CTE\_query\_definition, exceto quando uma cláusula TOP for especificada. + Quando uma CTE for usada em uma instrução que faz parte de um lote, a instrução antes dela deverá ser seguida por um ponto e vírgula. + Quando forem usadas em instruções preparadas por sp\_prepare, as CTEs se comportarão da mesma forma que outras instruções SELECT no PDW. No entanto, se as CTEs forem usadas como parte das CETAS preparadas por sp\_prepare, o comportamento poderá ser diferente do SQL Server e de outras instruções de PDW, devido ao modo como a associação é implementada por sp\_prepare. Se a instrução SELECT que faz referência à CTE estiver usando uma coluna incorreta que não existe na CTE, o sp\_prepare passará sem detectar o erro, mas o erro será gerado durante sp\_execute.
+
 ### CTE (expressão de tabela comum) recursiva
 
-Esse é um cenário complexo sem uma correção rápida. A CTE precisará ser dividida e manipulada em etapas. Normalmente, você pode usar um loop bastante complexo; preenchendo uma tabela temporária conforme itera sobre consultas recursivas provisórias. Depois que a tabela temporária for preenchida, você pode retornar os dados como um único conjunto de resultados. Uma abordagem semelhante foi usada para resolver `GROUP BY WITH CUBE` no artigo [Agrupar por cláusula com opções de conjuntos de rollup/cubo/agrupamento][].
-
-### Atualizações por meio de CTEs
-
-Se a CTE não for recursiva, você pode gravar novamente a consulta para usar subconsultas. Para CTEs recursivas, será necessário criar o conjunto de resultados pela primeira vez, conforme descrito acima. Então ingresse o conjunto de resultados final à tabela de destino e execute a atualização.
+Esse é um cenário complexo de migração e o melhor processo é ter a CTE dividida e tratada em etapas. Normalmente, você pode usar um loop e preencher uma tabela temporária à medida que você itera sobre as consultas recursivas provisórias. Depois que a tabela temporária for preenchida, você pode retornar os dados como um único conjunto de resultados. Uma abordagem semelhante foi usada para resolver o `GROUP BY WITH CUBE` no artigo [Agrupar por cláusula com opções de conjuntos de rollup/cubo/agrupamento][].
 
 ### Funções do sistema
 
@@ -114,4 +117,4 @@ Para obter orientação sobre como desenvolver seu código, confira a [visão ge
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

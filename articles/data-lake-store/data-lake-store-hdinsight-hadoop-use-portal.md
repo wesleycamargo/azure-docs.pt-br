@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Provisão de clusters Hadoop do HDInsight com Repositório Data Lake do Azure usando o portal | Azure" 
-   description="Usar o Portal do Azure para configurar e usar clusters HDInsight Hadoop com o Repositório do Azure Data Lake" 
+   description="Usar o Portal do Azure para configurar e usar clusters HDInsight Hadoop com o Repositório Azure Data Lake" 
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
@@ -16,21 +16,21 @@
    ms.date="11/13/2015"
    ms.author="nitinme"/>
 
-# Provisionar um cluster HDInsight com o Repositório do Data Lake usando o Portal do Azure
+# Provisionar um cluster HDInsight com o Repositório Data Lake usando o Portal do Azure
 
 > [AZURE.SELECTOR]
 - [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-Saiba como usar o Portal do Azure para configurar um cluster HDInsight (Hadoop, HBase ou Storm) para trabalhar com um Repositório do Azure Data Lake. Algumas considerações importantes para esta versão:
+Saiba como usar o Portal do Azure para configurar um cluster HDInsight (Hadoop, HBase ou Storm) para trabalhar com um Repositório Azure Data Lake. Algumas considerações importantes para esta versão:
 
 * **Para clusters Hadoop e Storm (Windows e Linux)**, o Repositório Data Lake só pode ser usado como uma conta de armazenamento adicional. A conta de armazenamento padrão para esses clusters ainda será o WASB (Blobs de Armazenamento do Azure).
 
 * **Para clusters HBase (Windows e Linux)**, o Repositório Data Lake pode ser usado como um armazenamento padrão ou armazenamento adicional.
 
 
-Neste artigo, provisionaremos um cluster Hadoop com o Repositório Data Lake como armazenamento adicional. A configuração do HDInsight para funcionar com o Repositório do Data Lake usando o Portal do Azure envolve as seguintes etapas:
+Neste artigo, provisionaremos um cluster Hadoop com o Repositório Data Lake como armazenamento adicional. A configuração do HDInsight para funcionar com o Repositório Data Lake usando o Portal do Azure envolve as seguintes etapas:
 
 * Criar um cluster HDInsight com autenticação para uma Entidade de Serviço do Active Directory do Azure
 * Configurar o acesso ao Repositório Data Lake usando a mesma Entidade de Serviço
@@ -85,7 +85,7 @@ Nesta seção, você cria um cluster HDInsight Hadoop que usa o Repositório Dat
 
 1. Entre no novo [Portal do Azure](https://portal.azure.com).
 
-2. Se você não tiver uma conta do Repositório Data Lake, crie uma. Siga as instruções em [Introdução ao Repositório do Azure Data Lake usando o Portal do Azure](data-lake-store-get-started-portal.md).
+2. Se você não tiver uma conta do Repositório Data Lake, crie uma. Siga as instruções em [Introdução ao Repositório Azure Data Lake usando o Portal do Azure](data-lake-store-get-started-portal.md).
 
 	Se você já tiver uma conta do Repositório Data Lake, no painel esquerdo, clique em **Procurar**, clique em **Repositório Data Lake**, e, em seguida, clique no nome de conta ao qual você deseja conceder acesso.
 
@@ -204,7 +204,7 @@ Para obter instruções sobre como adicionar uma entidade de serviço a um siste
 
 * [PowerShell: Criar um cluster HDInsight para usar o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
-[makecert]: https://msdn.microsoft.com/pt-BR/library/windows/desktop/ff548309(v=vs.85).aspx
-[pvk2pfx]: https://msdn.microsoft.com/pt-BR/library/windows/desktop/ff550672(v=vs.85).aspx
+[makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
+[pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

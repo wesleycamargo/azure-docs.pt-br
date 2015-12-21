@@ -16,7 +16,7 @@
     ms.date="11/30/2015" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/pt-BR/library/azure/hh690949.aspx -->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690949.aspx -->
 
 # Depuração de aplicativos do Azure no Eclipse #
 
@@ -131,4 +131,4 @@ Para saber mais sobre como usar o Azure com Java, confira a [Central de Desenvol
 [ic719504]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic719504.png
 [ic551537]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic551537.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

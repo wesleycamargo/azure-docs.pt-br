@@ -66,6 +66,8 @@ Você pode atualizar facilmente os certificados primário ou secundário no port
 
 ![CertificateUpgrade][CertificateUpgrade]
 
+**Observação** Antes de você identificar os certificados que você deseja usar para os recursos de cluster, você precisará concluir as etapas a seguir; caso contrário, o novo certificado não será usado. 1) carregue o novo certificado para o keyvault - consulte a [Segurança do Service Fabric](service-fabric-cluster-security.md) para instruções - comece com a etapa #2 nesse documento. 2) atualize todas as Máquinas Virtuais que compõem o nosso cluster, para que o certificado seja implantado nelas. Consulte [esta postagem de blog](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx) sobre como fazer.
+
 ### Portas do Aplicativo
 
 Você pode fazer isso alterando as propriedades de recurso do balanceador de carga associadas ao Tipo de Nó. É possível usar o portal ou o ARM PowerShell diretamente.
@@ -113,4 +115,4 @@ Se for necessário atualizar a imagem do sistema operacional usada, você será 
 [AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes.png
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

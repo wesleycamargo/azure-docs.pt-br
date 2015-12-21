@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Criando e implantando projetos de implantação de Grupo de Recursos do Azure | Microsoft Azure"
-   description="Criando e implantando projetos de implantação de Grupo de Recursos do Azure"
+   pageTitle="Criação e implantação de projetos do Visual Studio no Grupo de Recursos do Azure | Microsoft Azure"
+   description="Use o Visual Studio para criar um projeto do grupo de recursos do Azure e implantar os recursos no Azure."
    services="visual-studio-online"
    documentationCenter="na"
    authors="kempb"
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/02/2015"
+   ms.date="11/13/2015"
    ms.author="kempb" />
 
-# Criando e implantando projetos de implantação de Grupo de Recursos do Azure
+# Criação e implantação de grupos de recurso do Azure por meio do Visual Studio
 
 O modelo de projeto de implantação de **grupo de recursos do Azure** está disponível no Visual Studio quando o Azure SDK 2.6 está instalado. Os projetos do grupo de recursos do Azure permitem agrupar e publicar vários recursos do Azure relacionados em uma única operação de implantação. Os projetos do grupo de recursos do Azure usam uma tecnologia chamada **Gerenciador de Recursos do Azure** para realizar seu trabalho. O **Gerenciador de Recursos do Azure** é um serviço de API REST que permite que você defina grupos de recursos do Azure, que contêm vários recursos do Azure que normalmente são usados juntos e têm um ciclo de vida semelhante. Usando grupos de recursos, você pode operar em todos os recursos em um grupo com uma única chamada de função, em vez de chamar funções diferentes para cada recurso individual. Para saber mais sobre grupos de recursos do Azure, consulte [Usando o Portal de visualização do Azure para gerenciar os recursos do Azure](resource-group-portal.md). Para um cenário ponta a ponta de implantação de Grupo de Recursos do Azure mais detalhado, confira [Grupo de Recursos do Azure para Visual Studio](https://azure.microsoft.com/blog/azure-resource-manager-2-5-for-visual-studio/).
 
@@ -49,9 +49,10 @@ Neste procedimento, você aprenderá a criar um projeto de Grupo de Recursos do 
 
     |Nome do arquivo|Descrição|
     |---|---|
-    |Deploy-AzureResourceGroup.ps1|Um script do PowerShell que invoca comandos do PowerShell a implantar para o Gerenciador de Recursos do Azure.
-
-    **Observação**: esse script do PowerShell é usado pelo Visual Studio para implantar o seu modelo. Qualquer alteração que você faça a esse script também afetará a implantação no Visual Studio, então tome cuidado. | ! WebSite.json|Um arquivo de configuração que especifica todos os detalhes que você deseja que sejam implantados no Gerenciador de Recursos do Azure.| |WebSite.param.dev.json|Um arquivo de parâmetros que contém valores específicos requeridos pelo arquivo de configuração.| |AzCopy.exe|Uma ferramenta usada pelo script do PowerShell para copiar arquivos do caminho de depósito de armazenamento local para o contêiner da conta de armazenamento. Essa ferramenta é usada somente se você configurar o projeto de implantação para implantar seu código juntamente com o modelo.|
+    |Deploy-AzureResourceGroup.ps1|Um script do PowerShell que invoca comandos do PowerShell para implantar no Gerenciador de Recursos do Azure.<br />**Observação** Esse script do PowerShell é usado pelo Visual Studio para implantar o modelo. As alterações feitas no script também afetarão a implantação no Visual Studio. Portanto, tenha cuidado.|
+    !WebSite.json|Um modelo que define a infraestrutura que você deseja implantar no Azure.|
+    |WebSite.param.dev.json|Um arquivo de parâmetros que contém valores específicos necessários para o arquivo de configuração.|
+    |AzCopy.exe|Uma ferramenta usada pelo script do PowerShell para copiar arquivos do caminho de depósito do armazenamento local para o contêiner da conta de armazenamento. Essa ferramenta será usada somente se você configurar o projeto de implantação para implantar seu código juntamente com o modelo.|
 
     Todos os projetos de implantação de Grupo de Recursos do Azure contêm esses quatro arquivos básicos. Outros projetos podem conter arquivos adicionais para dar suporte a outras funcionalidades.
 
@@ -61,7 +62,7 @@ Você pode personalizar um projeto de implantação modificando os arquivos de m
 
 Os projetos do Grupo de Recursos do Azure têm dois arquivos de modelo sob o nó **modelos** no Gerenciador de Soluções que podem ser modificados: um arquivo de modelo do Gerenciador de Recursos do Azure e um arquivo de parâmetros.
 
-- **Arquivos de modelo do Gerenciador de Recursos do Azure** (que tem a extensão .json) especificam o(s) arquivo(s) contendo os recursos desejados, bem como os parâmetros necessários para o projeto de implantação, como o local e nome do site. Eles também especificam as dependências dos componentes do Grupo de Recursos do Azure e suas propriedades, como nomes, marcas e regras para gatilhos. Você pode modificar esse arquivo para adicionar sua própria funcionalidade. Por exemplo, você pode adicionar um banco de dados ao modelo. Consulte a documentação de cada provedor de recursos para descobrir os parâmetros que você precisa fornecer. Consulte [Provedores de Recursos](https://msdn.microsoft.com/library/azure/dn790572.aspx) para obter mais informações.
+- **Arquivos de modelo do Gerenciador de Recursos do Azure** (que tem a extensão .json) especificam o(s) arquivo(s) contendo os recursos desejados, bem como os parâmetros necessários para o projeto de implantação, como o local e nome do site. Eles também especificam as dependências dos componentes do Grupo de Recursos do Azure e suas propriedades, como nomes, marcas e regras para gatilhos. Você pode modificar esse arquivo para adicionar sua própria funcionalidade. Por exemplo, você pode adicionar um banco de dados ao modelo. Consulte a documentação de cada provedor de recursos para descobrir os parâmetros que você precisa fornecer. Confira [Provedores de Recursos](https://msdn.microsoft.com/library/azure/dn790572.aspx) para saber mais.
 
 - **Arquivos de parâmetros** (que têm a extensão `.param.*.json`) contêm valores para os parâmetros especificados no arquivo de configuração que são necessários para cada provedor de recursos. Neste exemplo, o arquivo de configuração para um aplicativo Web (WebSite.json) define parâmetros para *siteName* e *siteLocation*. Durante a implantação, você é solicitado a fornecer valores para os parâmetros no arquivo de modelo e esses valores são armazenados no arquivo de parâmetros. Você também pode editar o arquivo de parâmetros diretamente.
 
@@ -107,7 +108,7 @@ Quando você implanta um projeto do Grupo de Recursos do Azure, você o implanta
 
     - O parâmetro *siteName* é a primeira parte da URL da página da Web. Por exemplo, para a URL nomedomeusite.azurewebsites.net, o nome do site é **nomedomeusite**.
 
-    - O parâmetro *hostingPlanName* especifica seu plano de hospedagem. Para este exemplo, você pode usar o valor "Free" (gratuito). Para obter mais informações sobre os planos de hospedagem, consulte [Visão geral dos planos de Serviço de Aplicativo do Azure](http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/)
+    - O parâmetro *hostingPlanName* especifica seu plano de hospedagem. Para este exemplo, você pode usar o valor "Free" (gratuito). Para saber mais sobre os planos de hospedagem, consulte [Visão geral dos planos de Serviço de Aplicativo do Azure](http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/)
 
     - O parâmetro *siteLocation* refere-se à região do Azure, onde o site está hospedado, como "West US" (Oeste dos Estados Unidos). Para obter uma lista de regiões disponíveis, consulte [Regiões do Azure](http://azure.microsoft.com/regions/).
 
@@ -193,6 +194,6 @@ Também foram feitos ajustes em alguns nomes de variáveis e tarefas de compila�
 
 ## Próximas etapas
 
-Para saber como adicionar recursos ao seu Grupo de Recursos do Azure no Visual Studio, consulte [Adicionar recursos a um Grupo de Recursos do Azure](vs-azure-tools-resource-group-adding-resources.md).
+Para saber como adicionar recursos ao seu Grupo de Recursos do Azure no Visual Studio, confira [Edição de modelos do Gerenciador de Recursos com o Visual Studio](vs-azure-tools-resource-group-adding-resources.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

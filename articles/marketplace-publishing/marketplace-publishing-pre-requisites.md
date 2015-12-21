@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="11/17/2015"
+  ms.date="12/06/2015"
   ms.author="hascipio; v-divte"/>
 
 # Pré-requisitos gerais para a criação de uma oferta para o Azure Marketplace
@@ -29,9 +29,9 @@ Para obter instruções detalhadas sobre como registrar uma conta do vendedor co
 
 > [AZURE.IMPORTANT]Você não precisa concluir o imposto da empresa e informações bancárias, se você estiver planejando publicar apenas ofertas gratuitas (ou traga sua própria licença).
 
-> O registro da empresa deve ser concluído para começar. No entanto, enquanto sua empresa funcionar nas informações de imposto e bancárias na conta do Painel do Vendedor, os desenvolvedores podem começar a trabalhar na criação da imagem de máquina virtual no [portal de publicação](https://publish.windowsazure.com), deixando-os certificados e testando-os no Ambiente de Preparo do Azure. Você precisará de aprovação da conta do vendedor completa apenas para a etapa final da publicação da sua oferta no Azure Marketplace.
+> O registro da empresa deve ser concluído para começar. No entanto, enquanto a sua empresa trabalha com as informações bancárias e de impostos na conta de desenvolvedor da Microsoft, os desenvolvedores podem começar a trabalhar na criação da imagem de máquina virtual no [portal de publicação](https://publish.windowsazure.com), obter certificação e testá-lo no ambiente de preparo do Azure. Você precisará de aprovação da conta do vendedor completa apenas para a etapa final da publicação da sua oferta no Azure Marketplace.
 
-> Se você tiver problemas com o registro do vendedor, registre um tíquete de suporte como a seguir: 1. Contate [o suporte](http://go.microsoft.com/fwlink?LinkId=272975) 2. Escolha o **Registro do Painel do Vendedor e sua conta**. 3. Escolha **Registrar-se em uma conta de desenvolvedor**. 4. Escolha o método de contato.
+> Se você tiver problemas com o registro do vendedor, registre um tíquete de suporte como a seguir: 1. Entre em contato com [Suporte](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=pt-BR&pesid=15635&ccsid=635847950577064286). 2. Escolha **Centro de Desenvolvedores**. 3. Escolha **Perfil do Editor**. 4. Escolha o método de contato.
 
 
 ## Adquira uma assinatura "pré-paga" do Azure
@@ -50,4 +50,4 @@ Em seguida, estão os pré-requisitos técnicos para cada tipo de oferta. Clique
 ## Consulte também
 - [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

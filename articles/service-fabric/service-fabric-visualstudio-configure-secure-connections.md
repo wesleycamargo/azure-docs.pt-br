@@ -46,9 +46,9 @@ A caixa de diálogo **Selecionar Cluster do Service Fabric** valida automaticame
 
 4.	[Opcional]: você pode editar o perfil de publicação para especificar uma conexão segura de cluster.
 
-    Como você está editando manualmente o arquivo XML do Perfil de Publicação a fim de especificar as informações do certificado, anote o nome do repositório de certificados, do local de armazenamento e a impressão digital do certificado. Você precisará fornecer esses valores para o nome e o local do repositório do certificado. Confira [Como recuperar a impressão digital de um certificado] (https://msdn.microsoft.com/pt-BR/library/ms734695(v=vs.110).aspx) para saber mais.
+    Como você está editando manualmente o arquivo XML do Perfil de Publicação a fim de especificar as informações do certificado, anote o nome do repositório de certificados, do local de armazenamento e a impressão digital do certificado. Você precisará fornecer esses valores para o nome e o local do repositório do certificado. Confira [Como recuperar a impressão digital de um certificado] (https://msdn.microsoft.com/library/ms734695(v=vs.110).aspx) para obter mais informações.
 
-    Os parâmetros *ClusterConnectionParameters* permitem que você especifique os parâmetros do PowerShell a serem usados na conexão ao cluster do Service Fabric. Os parâmetros válidos são aqueles aceitos pelo cmdlet Connect-ServiceFabricCluster. Confira [Connect-ServiceFabricCluster](https://msdn.microsoft.com/pt-BR/library/mt125938.aspx) para obter uma lista dos parâmetros disponíveis.
+    Os parâmetros *ClusterConnectionParameters* permitem que você especifique os parâmetros do PowerShell a serem usados na conexão ao cluster do Service Fabric. Os parâmetros válidos são aqueles aceitos pelo cmdlet Connect-ServiceFabricCluster. Confira [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) para obter uma lista dos parâmetros disponíveis.
 
     Se você estiver publicando em um cluster remoto, será necessário especificar os parâmetros adequados para o cluster específico. Veja a seguir um exemplo de conexão a um cluster não seguro:
 
@@ -76,4 +76,4 @@ Para saber mais sobre como acessar os clusters do Service Fabric, confira [Visua
 [publishdialog]: ./media/service-fabric-visualstudio-configure-secure-connections/publishdialog.png
 [selectsfcluster]: ./media/service-fabric-visualstudio-configure-secure-connections/selectsfcluster.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

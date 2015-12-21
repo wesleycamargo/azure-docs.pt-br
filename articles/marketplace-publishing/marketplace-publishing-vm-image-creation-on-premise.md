@@ -138,4 +138,4 @@ Com a [ferramenta de linha de comando do Linux](../virtual-machines/command-line
 - [Criar uma imagem de máquina virtual para o Marketplace](marketplace-publishing-vm-image-creation.md)
 - [Configurando o PowerShell do Azure](marketplace-publishing-powershell-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

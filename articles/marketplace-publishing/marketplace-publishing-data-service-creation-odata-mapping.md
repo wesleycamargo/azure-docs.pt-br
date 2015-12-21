@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="11/30/2015"
+      ms.date="12/06/2015"
       ms.author="hascipio; avikova" />
 
 # Mapeamento de um serviço Web existente para OData por meio de CSDL
@@ -72,11 +72,9 @@ Permite definir funções (SPROCs) e entidades expostas por meio de um banco de 
 > [AZURE.TIP]Clique na lista suspensa **outras versões** e selecione uma versão, se você não vir o artigo.
 
 ### EDM - Modelo de Dados de Entrada
-- Visão geral: [http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx](OverviewLink)
-[OverviewLink]:http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
-- Visualização: [http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx](PreviewLink)
-[PreviewLink]:http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
-- Tipos de dados: [http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx](DataTypesLink) [DataTypesLink]:http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
+- Visão geral: [http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx][OverviewLink] [OverviewLink]:http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
+- Visualização: [http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx][PreviewLink] [PreviewLink]:http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
+- Tipos de dados: [http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx][DataTypesLink] [DataTypesLink]:http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
 
 Veja a seguir o fluxo detalhado da Esquerda para a Direita de onde o cliente insere a declaração do OData (chamada ao serviço Web do provedor de conteúdo) a fim de obter os resultados/dados de volta:
 
@@ -122,9 +120,9 @@ O documento de metadados/mapeamento é usado para mapear os serviços Web existe
 
 Veja a seguir um exemplo de CSDL: (copie e cole o exemplo de CSDL abaixo em um editor de XML e altere-o para corresponder ao seu Serviço. Em seguida, cole no Mapeamento de CSDL, na guia DataService, ao criar seu serviço no [Portal de Publicação do Azure Marketplace](https://publish.windowsazure.com)).
 
-**Termos:** relacionando os termos da CSDL aos termos de interface de usuário do [Portal de Publicação](https://publish.windowsazure.com) (PPUI). - O "Título" da oferta no PPUI está relacionado à MyWebOffer - MyCompany no PPUI está relacionado ao Nome da Empresa na interface de usuário do [Painel do Vendedor](https://sellerdashboard.microsoft.com) – Sua API está relacionada a um Serviço Web ou de Dados (um Plano no PPUI)
+**Termos:** relacionando os termos da CSDL aos termos de interface do usuário do [Portal de Publicação](https://publish.windowsazure.com) (PPUI). - O "Título" da oferta no PPUI está relacionado à MyWebOffer - MyCompany no PPUI está relacionado ao **Nome de Exibição do Editor** na interface do usuário do [Centro do Desenvolvedor da Microsoft](http://dev.windows.com/registration?accountprogram=azure) – Sua API está relacionada a um Serviço Web ou de Dados (um Plano no PPUI)
 
-**Hierarquia:** uma Empresa (Provedor de Conteúdo) possui Ofertas com Planos, ou seja, Serviços, que se alinham a uma API.
+**Hierarquia:** uma Empresa (Provedor de Conteúdo) tem Ofertas com Planos, ou seja, Serviços, que se alinham a uma API.
 
 ### Exemplo de CSDL de Serviço Web
 
@@ -300,4 +298,4 @@ Conecta-se a um serviço que expõe uma tabela ou modo de exibição de banco de
 - Se estiver interessado em examinar exemplos, leia este artigo [Exemplos de mapeamento OData de Serviço de Dados](marketplace-publishing-data-service-creation-odata-mapping-examples.md) para ver um código de exemplo e compreender a sintaxe do código e o contexto.
 - Para retornar ao caminho indicado para a publicação de um Serviço de Dados no Azure Marketplace, leia este artigo [Guia de publicação de Serviço de Dados](marketplace-publishing-data-service-creation.md).
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

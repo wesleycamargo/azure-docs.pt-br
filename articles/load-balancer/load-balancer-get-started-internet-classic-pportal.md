@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Introdução à criação de balanceador de carga para a Internet no modelo de implantação clássico usando o portal de visualização | Microsoft Azure"
-   description="Saiba como criar um balanceador de carga para a Internet no modelo de implantação clássico usando o portal de visualização"
+   pageTitle="Introdução à criação de balanceador de carga para a Internet no modelo de implantação clássico usando o Portal do Azure | Microsoft Azure"
+   description="Saiba como criar um balanceador de carga para a Internet no modelo de implantação clássico usando o portal do Azure"
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="12/07/2015"
    ms.author="joaoma" />
 
-# Introdução à criação de um balanceador de carga para a Internet (clássico) no portal de visualização
+# Introdução à criação de um balanceador de carga para a Internet (clássico) no Portal do Azure
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
@@ -30,9 +30,9 @@
 
 
 
-## Introdução à criação de um ponto de extremidade do balanceador de carga usando o portal de Visualização	
+## Introdução à criação de um ponto de extremidade do balanceador de carga usando o Portal do Azure	
 
-Para criar um modelo de implantação (clássico) de balanceador de carga para a Internet no portal de visualização, siga as etapas abaixo.
+Para criar um modelo de implantação (clássico) de balanceador de carga para a Internet no Portal do Azure, siga as etapas abaixo.
 
 1. Em um navegador, navegue até http://portal.azure.com e, se necessário, entre com sua conta do Azure.
 
@@ -66,4 +66,4 @@ Para criar um modelo de implantação (clássico) de balanceador de carga para a
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

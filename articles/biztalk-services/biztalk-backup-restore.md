@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="12/08/2015" 
 	ms.author="mandia"/>
 
 
@@ -23,11 +23,11 @@ Os Serviços BizTalk do Azure incluem recursos de backup e restauração. Este t
 
 Você também pode fazer backup dos Serviços do BizTalk usando os [API REST dos Serviços do BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325584).
 
+> [AZURE.NOTE]NÃO se faz backup das conexões híbridas, independentemente da Edição. Você deve recriar suas conexões híbridas.
+
 ## Antes de começar
 
 - É possível que o backup e a restauração não estejam disponíveis para todas as edições. Consulte [Serviços BizTalk: gráfico de edições](biztalk-editions-feature-chart.md).
-
-	**Observação** As conexões híbridas não feitas backup, independentemente da Edição.
 
 - Usando o portal clássico do Azure, você pode criar um backup sob demanda ou criar um backup agendado.
 
@@ -55,7 +55,7 @@ Um backup pode ser obtido a qualquer momento e é totalmente controlado por voc�
 [Agendar um backup](#backupschedule)
 
 #### <a name="backupnow"></a>Backup sob demanda
-1. No portal clássico do Azure, selecione **Serviços BizTalk ** e, em seguida, selecione o Serviço BizTalk do você quer fazer backup.
+1. No Portal clássico do Azure, selecione **Serviços BizTalk** e, em seguida, selecione o Serviço BizTalk do qual você quer fazer backup.
 2. Na guia **Painel**, selecione **Backup** na parte inferior da página.
 3. Insira um nome de backup. Por exemplo, insira *meuServiçoBizTalk*BU*Data*.
 4. Escolha uma conta de armazenamento de blob e selecione a marca de seleção para iniciar o backup.
@@ -64,7 +64,7 @@ Quando o backup for concluído, um contêiner com o nome do backup inserido ser�
 
 #### <a name="backupschedule"></a>Agendar um backup
 
-1. No portal clássico do Azure, selecione **Serviços de BizTalk**, selecione o nome do Serviço de BizTalk que você deseja fazer backup e, em seguida, selecione a guia **Configurar**.
+1. No portal clássico do Azure, selecione **Serviços BizTalk**, selecione o nome do Serviço BizTalk do qual você deseja fazer backup e, em seguida, selecione a guia **Configurar**.
 2. Defina o **Status de Backup** para **Automático**. 
 3. Selecione a **Conta de Armazenamento** para armazenar o backup, insira a **Frequência** para criar o backup, e quanto tempo manter os backups (**Dias de retenção**):
 
@@ -86,7 +86,7 @@ O link abre os Logs de Operação de Serviços de Gerenciamento para ajudar solu
 
 ## Restaurar
 
-Você pode fazer backups no portal clássico do Azure ou em [Restaurar na API REST do Serviço do BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325582). Esta seção lista as etapas para restaurar usando o portal clássico.
+Você pode fazer backups no portal clássico do Azure ou em [Restaurar API REST do Serviço do BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325582). Esta seção lista as etapas para restaurar usando o portal clássico.
 
 #### Antes de restaurar um backup
 
@@ -96,7 +96,7 @@ Você pode fazer backups no portal clássico do Azure ou em [Restaurar na API RE
 
 #### Restaurar um backup
 
-1. No portal clássico do Azure, selecione **Novo** > **Serviços de Aplicativos** > **Serviço do BizTalk** > **Restaurar**:
+1. No Portal clássico do Azure, selecione **Novo** > **Serviços de Aplicativos** > **Serviço do BizTalk** > **Restaurar**:
 
 	![Restaurar um backup][Restore]
 
@@ -135,7 +135,7 @@ O Serviço BizTalk sempre é restaurado em um estado **Suspenso**. Neste estado,
 
 - É uma boa prática configurar backups automáticos no ambiente do Serviço do BizTalk Service recém-restaurado.
 
-Para iniciar o Serviço do BizTalk no portal clássico do Azure, selecione o Serviço de BizTalk e selecione **Reiniciar** na barra de tarefas.
+Para iniciar o Serviço do BizTalk no portal clássico do Azure, selecione o Serviço de BizTalk e selecione **Retomar** na barra de tarefas.
 
 
 
@@ -214,7 +214,7 @@ Se o Banco de Dados de Acompanhamento for excluído e o banco de dados precisar 
 
 ## Avançar
 
-Para criar os Serviços BizTalk do Azure no portal clássico do Azure, confira [Serviços BizTalk: provisionando com o portal clássico do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280). Para começar a criar aplicativos, visite [Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+Para criar os Serviços BizTalk do Azure no portal clássico do Azure, confira [Serviços BizTalk: provisionando com o portal clássico do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280). Para começar a criar aplicativos, visite [Serviços BizTalk do Azure (a página pode estar em inglês)](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## Consulte também
 - [Fazer o backup do Serviço BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325584)
@@ -233,4 +233,4 @@ Para criar os Serviços BizTalk do Azure no portal clássico do Azure, confira [
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

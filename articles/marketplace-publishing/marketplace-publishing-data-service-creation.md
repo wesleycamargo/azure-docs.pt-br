@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="11/24/2015"
+      ms.date="12/03/2015"
       ms.author="hascipio; avikova" />
 
 # Guia de publicação do Serviço de Dados para o Azure Marketplace
@@ -23,7 +23,7 @@ Após concluir a etapa 1, [Criação e registro de conta][link-acct-creation], o
 
 Vá para [https://publish.windowsazure.com](https://publish.windowsazure.com.)
 
-**Ao fazer logon pela primeira vez no Portal de Publicação, use a mesma conta utilizada para o registro de Perfil de Vendedor de sua empresa no Painel do Vendedor.** (Posteriormente, você poderá adicionar qualquer funcionário de sua empresa como um coadministrador no Portal de Publicação). Você precisa aceitar o Contrato do Editor antes de poder começar a criar ofertas no Portal de Publicação.
+**Ao fazer logon pela primeira vez no Portal de Publicação, use a mesma conta utilizada para o registro de Perfil de Vendedor de sua empresa na Central de desenvolvedores.** (Posteriormente, você poderá adicionar qualquer funcionário de sua empresa como um coadministrador no Portal de Publicação).
 
 Clique no bloco **Publicar Serviços de Dados** se esse for o primeiro logon no portal de publicação.
 
@@ -146,4 +146,4 @@ Agora que você criou sua oferta de Serviço de Dados, não deixe de concluir as
 [link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

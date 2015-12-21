@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/16/2015"
+   ms.date="12/06/2015"
    ms.author="seanmck"/>
 
 # O seu aplicativo do Service Fabric e as próximas etapas
@@ -59,6 +59,10 @@ O Service Fabric fornece integração com o ASP.NET 5 para a criação de pontos
 ### Criar um cluster do Azure
 O SDK do Service Fabric fornece um cluster local para desenvolvimento e teste. Para criar um cluster no Azure, confira [Configurando um cluster do Service Fabric no portal do Azure][create-cluster-in-portal]
 
+### Tente implantar no Azure gratuitamente com clusters de terceiros
+
+Se você quiser experimentar implantação e gerenciamento de aplicativos no Azure sem configurar seus próprios clusters, você pode usar o [serviço de cluster de terceiros](http://aka.ms/tryservicefabric) gratuito.
+
 ### Publicar seu aplicativo no Azure
 Você pode publicar o seu aplicativo diretamente do Visual Studio para um cluster do Azure. Para saber como, confira [Publicando o aplicativo no Azure][publish-app-to-azure].
 
@@ -81,4 +85,4 @@ Para saber como definir um processo de integração contínuo para o aplicativo 
 [reliable-services-webapi]: ./service-fabric-reliable-services-communication-webapi.md
 [app-upgrade-tutorial]: ./service-fabric-application-upgrade-tutorial.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

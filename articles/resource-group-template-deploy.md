@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="12/08/2015"
    ms.author="tomfitz"/>
 
 # Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure
@@ -24,6 +24,21 @@ Para obter uma introdução ao Gerenciador de Recursos, confira [Visão geral do
 
 Ao implantar um aplicativo com um modelo, você pode fornecer valores de parâmetro para personalizar como os recursos são criados. Você especifica valores para esses parâmetros embutidos ou em um arquivo de parâmetros.
 
+## Implantações incrementais e completas
+
+Por padrão, o Gerenciador de Recursos trata as implantações como atualizações incrementais para o grupo de recursos. Com a implantação incremental, o Gerenciador de Recursos:
+
+- **deixa inalterados** os recursos existentes no grupo de recursos, mas que não foram especificados no modelo
+- **adiciona** os recursos especificados no modelo, mas que não existem no grupo de recursos 
+- **não reprovisiona** os recursos existentes no grupo de recursos na mesma condição definida no modelo
+
+Por meio do Azure PowerShell ou da API REST, você pode especificar uma atualização completa para o grupo de recursos. No momento, a CLI do Azure não dá suporte a implantações completas. Com a implantação completa, o Gerenciador de Recursos:
+
+- **exclui** os recursos existentes no grupo de recursos, mas que não foram especificados no modelo
+- **adiciona** os recursos especificados no modelo, mas que não existem no grupo de recursos 
+- **não reprovisiona** os recursos existentes no grupo de recursos na mesma condição definida no modelo
+ 
+Especifique o tipo de implantação por meio da propriedade **Mode**.
 
 ## Implantação com o PowerShell
 
@@ -59,7 +74,7 @@ Ao implantar um aplicativo com um modelo, você pode fornecer valores de parâme
                     *
         ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 
-5. Para criar uma nova implantação para seu grupo de recursos, execute o comando **New-AzureRmResourceGroupDeployment** e forneça os parâmetros necessários. Os parâmetros incluirão um nome para sua implantação, o nome do seu grupo de recursos, o caminho ou a URL para o modelo criado e qualquer outro parâmetro necessário para seu cenário.
+5. Para criar uma nova implantação para seu grupo de recursos, execute o comando **New-AzureRmResourceGroupDeployment** e forneça os parâmetros necessários. Os parâmetros incluirão um nome para sua implantação, o nome do seu grupo de recursos, o caminho ou a URL para o modelo criado e qualquer outro parâmetro necessário para seu cenário. O parâmetro **Mode** não está especificado, o que significa que o valor padrão **Incremental** será usado.
    
      Você tem as seguintes opções para fornecer valores de parâmetro:
    
@@ -85,10 +100,18 @@ Ao implantar um aplicativo com um modelo, você pode fornecer valores de parâme
           Mode              : Incremental
           ...
 
+     Para executar uma implantação completa, defina **Mode** como **Complete**.
+
+          PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -Mode Complete
+          Confirm
+          Are you sure you want to use the complete deployment mode? Resources in the resource group 'ExampleResourceGroup' which are not
+          included in the template will be deleted.
+          [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
+
 6. Para obter informações sobre falhas de implantação.
 
         PS C:\> Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -Name ExampleDeployment
-
+        
         
 ### Vídeo
 
@@ -180,7 +203,7 @@ Se você não utilizou anteriormente a CLI do Azures com o Gerenciamento de Recu
              }
            }
    
-3. Criar um novo grupo de recursos. Forneça seu id de assinatura, o nome do grupo dos recursos para a serem implantados, o nome da implantação e o local do seu modelo. Para obter informações sobre o arquivo de modelo, consulte [Arquivo de parâmetro](./#parameter-file). Para obter mais informações sobre a API REST para criar um grupo de recursos, consulte [Criar uma implantação de modelo](https://msdn.microsoft.com/library/azure/dn790564.aspx).
+3. Criar um novo grupo de recursos. Forneça seu id de assinatura, o nome do grupo dos recursos para a serem implantados, o nome da implantação e o local do seu modelo. Para obter informações sobre o arquivo de modelo, consulte [Arquivo de parâmetro](./#parameter-file). Para obter mais informações sobre a API REST para criar um grupo de recursos, consulte [Criar uma implantação de modelo](https://msdn.microsoft.com/library/azure/dn790564.aspx). Para executar uma implantação completa, defina **mode** como **Complete**.
     
          PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
             <common headers>
@@ -211,7 +234,7 @@ Para obter uma introdução ao uso do Visual Studio com grupos de recursos, conf
 
 ## Faça a implantação com o portal
 
-E adivinhe? Todos os aplicativos que você cria por meio do [portal](https://portal.azure.com/) têm suporte de um modelo do Gerenciador de Recursos do Azure! Ao simplesmente criar uma Máquina Virtual, Rede Virtual, Conta de Armazenamento, Serviço de Aplicativo ou banco de dados por meio do portal, você já está colhendo os benefícios do Gerenciador de recursos do Azure sem muito esforço. Basta selecionar o ícone **Novo** para estar a caminho da implantação de um aplicativo por meio do Gerenciador de Recursos do Azure.
+E adivinhe? Todos os aplicativos criados por meio do [portal](https://portal.azure.com/) têm suporte de um modelo do Gerenciador de Recursos do Azure! Ao simplesmente criar uma Máquina Virtual, Rede Virtual, Conta de Armazenamento, Serviço de Aplicativo ou banco de dados por meio do portal, você já está colhendo os benefícios do Gerenciador de recursos do Azure sem muito esforço. Basta selecionar o ícone **Novo** para estar a caminho da implantação de um aplicativo por meio do Gerenciador de Recursos do Azure.
 
 ![Novo](./media/resource-group-template-deploy/new.png)
 
@@ -243,10 +266,10 @@ O tamanho do arquivo de parâmetro não pode ser superior a 64 KB.
 ## Próximas etapas
 - Para obter um exemplo de como implantar recursos por meio da biblioteca de cliente do .NET, confira [Implantar recursos usando bibliotecas .NET e um modelo](arm-template-deployment.md)
 - Para obter um exemplo detalhado de implantação de um aplicativo, confira [Provisionar e implantar microsserviços de forma previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
-- Para obter orientação sobre como implantar sua solução em ambientes diferentes, confira [Ambientes de desenvolvimento e de teste no Microsoft Azure](solution-dev-test-environments-preview-portal.md).
+- Para obter orientação sobre como implantar a solução em ambientes diferentes, confira [Ambientes de desenvolvimento e de teste no Microsoft Azure](solution-dev-test-environments-preview-portal.md).
 - Para saber mais sobre as seções do modelo do Gerenciador de Recursos do Azure, confira [Criando modelos](resource-group-authoring-templates.md)
 - Para obter uma lista das funções que você pode usar em um modelo do Gerenciador de Recursos do Azure, confira [Funções do modelo](resource-group-template-functions.md)
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

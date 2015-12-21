@@ -28,7 +28,7 @@ Quando um back-end móvel é atualizado para o Serviço de Aplicativo do Azure, 
 
 [AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
->[AZURE.TIP]Recomendamos a [execução de uma migração](app-service-mobile-dotnet-backend-migrating-from-mobile-services.md) antes de executar uma atualização. Dessa forma, você pode colocar as duas versões de seu aplicativo no mesmo Plano de Serviço de Aplicativo sem qualquer custo adicional.
+>[AZURE.TIP]Recomendamos a [execução de uma migração](app-service-mobile-migrating-from-mobile-services.md) antes da execução de uma atualização. Dessa forma, você pode colocar as duas versões de seu aplicativo no mesmo Plano de Serviço de Aplicativo sem qualquer custo adicional.
 
 ### Aprimoramentos no SDK do servidor Node.js de Aplicativos Móveis
 
@@ -244,10 +244,9 @@ Quando a nova versão do cliente estiver pronta, faça um teste em seu projeto d
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Agendador do Azure]: /pt-BR/documentation/services/scheduler/
 [Trabalho Web]: ../app-service-web/websites-webjobs-resources.md
-[Send cross-platform push notifications]: app-service-mobile-xamarin-ios-push-notifications-to-user.md
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
-[Migrate your existing Mobile Service to App Service]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
+[Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
+[Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [preços do Serviço de Aplicativo]: https://azure.microsoft.com/pt-BR/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
@@ -265,4 +264,4 @@ Quando a nova versão do cliente estiver pronta, faça um teste em seu projeto d
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

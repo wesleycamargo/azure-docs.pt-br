@@ -243,17 +243,20 @@ O serviço Data Factory do Azure dá suporte à criação de um cluster sob dema
 	5. Para o **linkedServiceName**, especifique **HDInsightStorageLinkedService** que você criou no tutorial do guia de Introdução. 
 
 			{
-		    	"name": "HDInsightLinkedService",
-				    "properties": {
-		    	    "type": "HDInsightOnDemandLinkedService",
-		    	    "clusterSize": "4",
-		    	    "timeToLive": "00:05:00",
-		    	    "version": "3.2",
-		    	    "linkedServiceName": "HDInsightStorageLinkedService"
-		    	}
+			    "name": "HDInsightOnDemandLinkedService",
+			    "properties": {
+			        "type": "HDInsightOnDemand",
+			        "description": "",
+			        "typeProperties": {
+			            "clusterSize": "4",
+			            "timeToLive": "00:30:00",
+			            "version": "3.2",
+			            "linkedServiceName": "StorageLinkedService"
+			        }
+			    }
 			}
 
-		Observe que o **type** do serviço vinculado é definido como **HDInsightOnDemandLinkedService**.
+		Observe que o **type** do serviço vinculado é definido como **HDInsightOnDemand**.
 
 2. Clique em **Implantar** na barra de comandos para implantar o serviço vinculado.
    
@@ -321,12 +324,13 @@ Nesta etapa, você criará os seguintes pipelines:
         "isPaused": false
 
 	Observe que os momentos de início e término são definidos como 01/05/2014 e 05/05/2014, porque os dados de exemplo neste passo a passo são de 01/05/2014 a 05/05/2014.
- 
+ 	
+	Se você estiver usando o serviço vinculado do HDInsight sob demanda, defina a propriedade **linkedServiceName** como **HDInsightOnDemandLinkedService**.
 3. Clique em **Implantar** na barra de ferramentas para implantar o pipeline. Confirme que você vê a mensagem **PIPELINE CRIADO COM ÊXITO** na barra de título do Editor.
 4. Repita as etapas 1 a 3 com o conteúdo dos arquivos a seguir: 
 	1. EnrichGameLogsPipeline.json
 	2. AnalyzeMarketingCampaignPipeline.json
-4. Feche as folhas do Data Factory pressionando **X** (canto superior direito) para ver a home page (folha **DATA FACTORY **) do seu Data Factory.
+4. Feche as folhas do Data Factory pressionando **X** (canto superior direito) para ver a página inicial (folha **DATA FACTORY) do seu Data Factory.
 
 ### Exibição de diagrama
 
@@ -355,11 +359,7 @@ Nesta etapa, você criará os seguintes pipelines:
 
 		![Monitorando Quadro Inicial][image-data-factory-monitoring-startboard]
 
-	2. Clique no hub **PROCURAR** e clique em **Tudo**.
-	 	
-		![Monitorando Hub Tudo][image-data-factory-monitoring-hub-everything]
-
-		Na folha **Procurar**, selecione **Data factories** e selecione **LogProcessingFactory** na folha **Data factories**.
+	2. Clique em **PROCURAR**; na folha **Procurar**, selecione **Data factories** e selecione **LogProcessingFactory** na folha **Data factories**.
 
 		![Monitorando Procurar Data Factories][image-data-factory-monitoring-browse-datafactories]
 2. Você pode monitorar seu data factory de várias maneiras. Você pode iniciar com pipelines ou conjuntos de dados. Vamos começar com Pipelines e analisar mais. 
@@ -375,7 +375,7 @@ Nesta etapa, você criará os seguintes pipelines:
 
 	Ambas as listas **Fatias atualizadas recentemente** e **Fatias com falha recente** são classificadas segundo o **HORÁRIO DA ÚLTIMA ATUALIZAÇÃO**. A hora de atualização de uma fatia é alterada nas situações a seguir.
 
-	-  Você atualiza o status da fatia manualmente, por exemplo, usando o **Set-AzureDataFactorySliceStatus** (ou) clicando em **EXECUTAR** na folha **FATIA** da fatia.
+	-  Você atualiza o status da fatia manualmente, por exemplo, usando o **Set-AzureRmDataFactorySliceStatus** (ou) clicando em **EXECUTAR** na folha **FATIA** da fatia.
 	-  A fatia é alterada devido a uma execução (por exemplo, uma execução iniciada, uma execução finalizada e com falha, uma execução finalizada e bem-sucedida, etc).
  
 	Clique no título das listas ou em **... (reticências)** para ver a lista maior de fatias. Clique em **Filtrar** na barra de ferramentas para filtrar as fatias.
@@ -524,4 +524,4 @@ Pratique o [Guia passo a passo: usando a fonte de dados local][tutorial-onpremis
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

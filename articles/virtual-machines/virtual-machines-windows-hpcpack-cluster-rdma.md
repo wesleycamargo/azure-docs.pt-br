@@ -63,7 +63,7 @@ Veja a seguir as etapas para disparar as instâncias A8 ou A9 do Azure de um clu
 
 4. **Implantar e configurar um nó de cabeçalho do HPC Pack 2012 R2**
 
-    Baixe o pacote de instalação mais recente do HPC Pack do [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=47755). Para ver requisitos e instruções de como se preparar para uma implantação de disparo do Azure, consulte [Guia de Introdução ao HPC Pack](https://technet.microsoft.com/library/jj884144.aspx) e [Disparar no Azure com o Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
+    Baixe o pacote de instalação mais recente do HPC Pack do [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=49922). Para ver requisitos e instruções de como se preparar para uma implantação de disparo do Azure, consulte [Guia de Introdução ao HPC Pack](https://technet.microsoft.com/library/jj884144.aspx) e [Disparar no Azure com o Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
 
 5. **Configurar um certificado de gerenciamento na assinatura do Azure**
 
@@ -114,7 +114,7 @@ Neste cenário, você implanta o nó de cabeçalho do HPC Pack e os nós de comp
 
 1. **Criar um nó de cabeçalho de cluster e VM de nó de computação executando o script de implantação de IaaS do HPC Pack em um computador cliente**
 
- Baixe o pacote Script de Implantação de IaaS do HPC do [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=47755).
+ Baixe o pacote Script de Implantação de IaaS do HPC do [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=49922).
 
  Para preparar o computador cliente, criar o arquivo de configuração de script e executar o script, consulte [Criar um cluster de HPC com o script de implantação de IaaS do HPC Pack](virtual-machines-hpcpack-cluster-powershell-script.md). Para implantar os nós de computação A8 e A9, consulte as considerações adicionais, mais adiante neste artigo.
 
@@ -198,8 +198,12 @@ Para executar mpipingpong no cluster:
 
     Em um cluster do HPC Pack implantado em VMs do Azure, modifique o comando, como observado na etapa 2.
 
-5. Quando o trabalho for concluído, para exibir a saída (nesse caso, a saída da tarefa 1 do trabalho), digite o seguinte: task view &lt;JobID&gt;.1
+5. Quando o trabalho for concluído, para exibir a saída (nesse caso, a saída da tarefa 1 do trabalho), digite o seguinte:
 
+    ```
+    task view &lt;JobID&gt;.1
+    ```
+    
   A saída incluirá resultados de taxa de transferência semelhantes ao seguinte.
 
   ![Taxa de transferência de ping pong][pingpong2]
@@ -246,4 +250,4 @@ Veja a seguir as considerações para execução de aplicativos MPI nas instânc
 [pingpong1]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong1.png
 [pingpong2]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong2.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

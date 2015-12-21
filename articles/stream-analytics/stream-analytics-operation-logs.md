@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Logs de Operação | Microsoft Azure" 
-	description="Logs de Operação do Stream Analytics" 
-	keywords="análise de big data, serviço de nuvem, internet das coisas, serviço gerenciado, processamento de fluxo, streaming analytics, dados de streaming"
+	pageTitle="Utilizar logs de operação e serviço no Stream Analytics | Microsoft Azure" 
+	description="Como usar logs de operação do Stream Analytics" 
+	keywords="logs de serviço"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,70 +14,70 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/23/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
-# Compreender os logs de operação do Stream Analytics
+# Compreender os logs de operação e serviço do Stream Analytics
 
 Todos os serviços do Azure fornecem mensagens em log operacionais aos usuários para registrar detalhes relacionados às operações de gerenciamento. No Stream Analytics, essas informações podem ser usadas para fins de depuração, como exibir o status do trabalho, o progresso do trabalho e as mensagens de falha para rastrear o andamento de um trabalho ao longo do tempo, do início do processamento até a saída.
 
-## Encontre logs de operação no Portal Clássico do Azure
+## Encontre logs de operação no Portal de Gerenciamento do Azure
 
 Os Logs de Operação podem ser acessados de duas maneiras:
 
 - Painel do trabalho do Stream Analytics  
-- Serviços de Gerenciamento no Portal Clássico do Azure  
+- Serviços de Gerenciamento no Portal do Azure  
 
 ## Painel do trabalho do Stream Analytics
 
 Um link para os logs correspondentes de um trabalho do Stream Analytics é exibido na guia Painel do trabalho. Se você clicar nesse link, ele definirá os filtros para mostrar os últimos logs desse trabalho específico.
 
-  ![Selecionar Serviços de Gerenciamento](./media/stream-analytics-operation-logs/01-stream-analytics-operation-logs.png)
+  ![Selecionar logs dos Serviços de Gerenciamento](./media/stream-analytics-operation-logs/01-stream-analytics-operation-logs.png)
 
 ## Serviços de Gerenciamento
 
-Para navegar manualmente até os Logs de Operação do Stream Analytics e outros serviços no Portal Clássico do Azure:
+Para navegar manualmente até os Logs de Operação do Stream Analytics e outros serviços no Portal do Azure:
 
-1.	Clique em **Serviços de Gerenciamento** no [Portal Clássico do Azure](https://manage.windowsazure.com).
+1.	Clique em **Serviços de Gerenciamento** no [Portal do Azure](https://manage.windowsazure.com).
 2.	Selecione **Stream Analytics** para **Tipo** e o nome do trabalho para **Nome do Serviço**.  
 
   ![Selecionar Stream Analytics](./media/stream-analytics-operation-logs/02-stream-analytics-operation-logs.png)
 
-## Encontre logs de auditoria no portal do Azure ##
+## Encontre logs de auditoria no portal de Visualização do Azure ##
 
-Para encontrar logs operacionais para seu trabalho do Stream Analytics no portal, do Azure, clique em **Procurar** e selecione **Logs de auditoria**.
+Para encontrar logs operacionais para seu trabalho do Stream Analytics no portal de Visualização do Azure, clique em **Procurar** e selecione **Logs de auditoria**.
 
-  ![Selecionar Stream Analytics no portal do Azure](./media/stream-analytics-operation-logs/06-stream-analytics-operation-logs.png)
+  ![Selecionar Stream Analytics no portal de visualização do Azure](./media/stream-analytics-operation-logs/06-stream-analytics-operation-logs.png)
 
 Isso abrirá uma folha que mostra os eventos dos últimos sete dias para todos os recursos em sua assinatura. É possível filtrar para ver os eventos de um tipo ou período especificado clicando no comando **Filtro**.
 
-  ![Selecionar Stream Analytics no portal do Azure](./media/stream-analytics-operation-logs/07-stream-analytics-operation-logs.png)
+  ![Selecionar Stream Analytics no portal de visualização do Azure](./media/stream-analytics-operation-logs/07-stream-analytics-operation-logs.png)
 
 ## Obter detalhes de log
 
 Você pode filtrar por Intervalo de Tempo e Status para exibir os logs do seu trabalho.
 
-No portal clássico do Azure, clique no botão **Detalhes** na parte inferior da janela para exibir mais detalhes sobre um evento selecionado.
+No portal de Gerenciamento do Azure, clique no botão **Detalhes** na parte inferior da janela para exibir mais detalhes sobre um evento selecionado.
 
   ![Selecionar Detalhes](./media/stream-analytics-operation-logs/03-stream-analytics-operation-logs.png)
 
-No portal do Azure, clique em uma entrada de log para ver os eventos detalhados dentro dela.
+No portal de Visualização do Azure, clique em uma entrada de log para ver os eventos detalhados dentro dela.
 
-  ![Detalhes de seleção do Portal do Azure](./media/stream-analytics-operation-logs/08-stream-analytics-operation-logs.png)
+  ![Selecionar Detalhes no portal de visualização do Azure](./media/stream-analytics-operation-logs/08-stream-analytics-operation-logs.png)
 
 A partir daí, você pode abrir a folha **Detalhes** clicando no evento.
 
-  ![Detalhes de seleção do Portal do Azure](./media/stream-analytics-operation-logs/09-stream-analytics-operation-logs.png)
+  ![Selecionar Detalhes no portal de visualização do Azure](./media/stream-analytics-operation-logs/09-stream-analytics-operation-logs.png)
 
 ## Depurar um trabalho com falha
 
-No portal clássico do Azure, clique no ícone Pesquisa e digite 'com falha'. Isso fornece um resultado de todos os logs com falhas.
+No portal de Gerenciamento do Azure, clique no ícone Pesquisa e digite “com falha”. Isso fornece um resultado de todos os logs com falhas.
 
   ![Depurando um trabalho com falha](./media/stream-analytics-operation-logs/04-stream-analytics-operation-logs.png)
 
-No portal do Azure, é possível filtrar por nível de mensagem para exibir eventos **Críticos**.
+No portal de Visualização do Azure, é possível filtrar por nível de mensagem para exibir eventos **Críticos**.
 
-  ![Depurar o Portal do Azure](./media/stream-analytics-operation-logs/10-stream-analytics-operation-logs.png)
+  ![Depurar no portal de visualização do Azure](./media/stream-analytics-operation-logs/10-stream-analytics-operation-logs.png)
 
 É possível selecionar qualquer uma das falhas e clicar nos **Detalhes** para obter mais informações sobre o erro. Algumas mensagens de erro também fornecem informações sobre como a minimizar o problema.
 
@@ -96,4 +96,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/29/2015"
+   ms.date="12/09/2015"
    ms.author="guayan"/>
 
 # Registre uma API gerenciada pela Microsoft ou por TI
@@ -24,13 +24,13 @@ Ao usar as APIs gerenciadas pela TI, você controla e monitora tudo, incluindo a
 
 Para usar as APIs **gerenciadas pela Microsoft** ou **gerenciadas pela TI**, você deve “registrar” as APIs no portal do Azure. Depois de registradas, você pode usar essas APIs em seus aplicativos. As opções a seguir estão disponíveis:
 
-- Registre uma API gerenciada pela Microsoft ou por TI
-- Registre uma API hospedada em [seu ambiente de serviço de aplicativo](powerapps-register-api-hosted-in-app-service.md)
-- Registre-se usando uma [definição de API do Swagger 2.0](powerapps-register-existing-api-from-api-definition.md)
+- Registre uma API gerenciada pela Microsoft ou gerenciada por TI pré-criada (neste tópico).
+- Registre um aplicativo Web, um aplicativo de API e um aplicativo móvel hospedado no [seu Ambiente do Serviço de Aplicativo](powerapps-register-api-hosted-in-app-service.md).
+- Registre uma de suas próprias APIs do Swagger usando uma [definição da API do Swagger 2.0](powerapps-register-existing-api-from-api-definition.md).
 
-Este artigo ressalta **como registrar as APIs gerenciadas pela Microsoft e pela IT**.
+Este artigo se concentra no **registro de APIs gerenciadas pela Microsoft e de APIs gerenciadas por TI pré-criadas**.
 
-#### Pré-requisitos para iniciar
+#### Pré-requisitos para começar
 
 - Inscreva-se no [PowerApps Enterprise](powerapps-get-started-azure-portal.md).
 - Crie um [ambiente de serviço de aplicativo](powerapps-get-started-azure-portal.md).
@@ -97,10 +97,10 @@ A tabela a seguir compara os recursos das APIs gerenciadas pela Microsoft e pela
 | Recurso | Gerenciado pela Microsoft | TI gerenciada |
 | ---------- | ----------------- | ------------ |
 | Limites de chamada à API | Definidos pela Microsoft | Definidos por conta própria (por meio de políticas) |
-| Traga sua própria chave ao se conectar ao SaaS | Sem suporte | Suportado |
+| Traga sua própria chave ao se conectar ao SaaS | Sem suporte | Com suporte |
 | Acesso de usuário da API | Habilitado para todos | Totalmente gerenciável no nível de usuário e do grupo do AAD |
-| Monitoramento da API | Sem suporte | Suportado |
-| Políticas de API | Sem suporte | Suportado |
+| Monitoramento da API | Sem suporte | Com suporte |
+| Políticas de API | Sem suporte | Com suporte |
 | Acesso de usuário de conexão | Somente exibição | Totalmente gerenciável no nível de usuário e do grupo do AAD |
 | Gerenciamento de conexão | Somente exibição | Totalmente gerenciável |
 
@@ -124,8 +124,11 @@ A tabela a seguir compara os recursos das APIs gerenciadas pela Microsoft e pela
 
 Neste tópico, você viu como registrar sua própria instância das APIs disponíveis que o PowerApps fornece integradas. Estes são alguns tópicos e recursos relacionados para saber mais sobre o PowerApps:
 
-- [Configurar APIs](powerapps-configure-apis.md)
-- [Adicionar uma nova API](powerapps-register-from-available-apis.md)
+
+- [Configurar as propriedades da API](powerapps-configure-apis.md)
+- [Dar aos usuários acesso à API](powerapps-manage-api-connection-user-access.md)
+- [Começar a criar seus aplicativos no PowerApps](https://powerapps.microsoft.com/tutorials/)
+
 
 <!--References-->
 
@@ -148,4 +151,4 @@ Neste tópico, você viu como registrar sua própria instância das APIs dispon�
 [42]: ./media/powerapps-register-from-available-apis/sqlserver.png
 [43]: ./media/powerapps-register-from-available-apis/twitter.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/08/2015" 
 	ms.author="juliako"/>
 
 
@@ -22,7 +22,9 @@
 > [AZURE.SELECTOR]
 - [Portal](media-services-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
-- [REST](https://msdn.microsoft.com/library/azure/dn167014.aspx)
+- [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
+
+> [AZURE.NOTE]Para poder criar uma conta de Serviços de Mídia do Azure, você deve ter uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Avaliação Gratuita do Azure</a>.
 
 ##Visão geral 
 
@@ -32,7 +34,7 @@ Este artigo mostra como usar cmdlets do PowerShell para gerenciar contas dos Ser
 
 ##Instalar cmdlets do PowerShell do Microsoft Azure
 
-Para instalar os últimos cmdlets do PowerShell do Azure, consulte [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md)
+Para instalar os últimos cmdlets do Azure PowerShell, consulte [Como instalar e configurar o Azure PowerShell ](../powershell-install-configure.md)
 
 ##Selecione Assinatura do Azure
 
@@ -96,7 +98,7 @@ Fornecendo o parâmetro Name, você obterá informações mais detalhadas, inclu
 
 ##Gerar novamente as chaves de acesso dos Serviços de Mídia
 
-Para atualizar a chave de acesso primária ou secundária dos Serviços de Mídia, use [New-AzureMediaServicesKey](https://msdn.microsoft.com/library/azure/dn495215.aspx). Você precisa fornecer o nome da conta e especificar qual chave deseja gerar novamente (primária ou secundária).
+Para atualizar a tecla de acesso primária ou secundária dos Serviços de Mídia, use [New-AzureMediaServicesKey](https://msdn.microsoft.com/library/azure/dn495215.aspx). Você precisa fornecer o nome da conta e especificar qual chave deseja gerar novamente (primária ou secundária).
 
 Especifique a opção -Force se não desejar que o PowerShell faça perguntas de confirmação.
 
@@ -119,4 +121,4 @@ Quando você estiver pronto para excluir a conta de mídia do Azure, use [Remove
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

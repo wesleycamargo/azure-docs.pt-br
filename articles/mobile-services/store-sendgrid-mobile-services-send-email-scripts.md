@@ -7,13 +7,14 @@
 	manager="sendgrid"
 	editor=""/>
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="07/31/2015"
+
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/30/2015" 
 	ms.author="Erikre"/>
 
 
@@ -42,9 +43,9 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
 
 ## <a name="add-script"></a>Registrar um novo script que envia emails
 
-1. Faça logon no [portal clássico do Azure], clique em **Serviços Móveis** e clique em seu serviço móvel.
+1. Faça logon no [Portal clássico do Azure], clique em **Serviços Móveis** e clique em seu serviço móvel.
 
-2. No portal clássico do Azure, clique na guia **Dados** e, em seguida, clique na tabela **TodoItem**.
+2. No Portal clássico do Azure, clique na guia **Dados** e, em seguida, clique na tabela **TodoItem**.
 
 	![][1]
 
@@ -136,8 +137,8 @@ Agora que você já viu como é fácil usar o serviço de emails do SendGrid com
 [Introdução aos Serviços Móveis]: /develop/mobile/tutorials/get-started
 [sign up page]: https://sendgrid.com/windowsazure.html
 [Multiple User Credentials page]: https://sendgrid.com/credentials
-[portal clássico do Azure]: https://manage.windowsazure.com/
+[Portal clássico do Azure]: https://manage.windowsazure.com/
 [serviço de e-mail baseado em nuvem]: https://sendgrid.com/email-solutions
 [entrega de e-mail transacional]: https://sendgrid.com/transactional-email
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

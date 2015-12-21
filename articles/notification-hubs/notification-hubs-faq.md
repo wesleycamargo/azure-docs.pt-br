@@ -40,7 +40,7 @@ Temos um número de clientes usando Hubs de Notificação com alguns importantes
 * Aplicativos Bing – dezenas de milhões de dispositivos, enviando 3 milhões de notificações por dia
 
 ###4\. Como faço para atualizar ou fazer downgrade dos meus Hubs de Notificação para alterar minha camada de serviço?
-Vá para o [Portal do Azure], clique em Barramento de Serviço, clique em seu namespace e no hub de notificação. Na guia Escala, você poderá alterar a camada de serviço dos Hubs de Notificação.
+Acesse o [Portal Clássico do Azure], clique em Barramento de Serviço, clique no namespace e no hub de notificação. Na guia Escala, você poderá alterar a camada de serviço dos Hubs de Notificação.
 
 ##Design e Desenvolvimento
 ###1\. Quais plataformas do lado do serviço você oferece suporte?
@@ -67,14 +67,14 @@ Os Hubs de Notificação do Azure conseguem processar pelo menos 1 milhão envio
 ###8\. Há qualquer garantia de latência?
 Devido à natureza das notificações por push que são entregues por uma plataforma externa específica o Serviço de Notificações por Push, não há nenhuma garantia de latência. Normalmente, a maioria das notificações são entregues em alguns minutos.
 
-###9\. Quais são as considerações que precisamos levar em conta com a criação de uma solução com namespaces e hubs de notificação?
+###9\. Que considerações devemos fazer durante a criação de uma solução com namespaces e Hubs de Notificação?
 *Aplicativos móveis/Ambiente:* deve haver um Hub de Notificação por aplicativo móvel e ambiente. Em um cenário de multilocatário - cada locatário deve ter um hub separado. Você nunca deve compartilhar o mesmo Hub de Notificação entre ambientes de teste e produção, visto que isso pode causar problemas futuros durante o envio de notificações. Por exemplo, a Apple oferece pontos de extremidade de área restrita e push de produção, cada qual com credenciais separadas. Se o hub foi originalmente configurado com certificado de área restrita da Apple e depois reconfigurado para usar o certificado de produção da Apple, os tokens de dispositivo antigos se tornariam inválidos com o novo certificado e causariam falhas de envios por push. É melhor separar a produção e ambientes de teste e usar os hubs diferentes para ambientes diferentes.
 
-*Credenciais de PNS:* quando um aplicativo móvel é registrado no portal do desenvolvedor da plataforma (por exemplo, Apple ou Google, etc.), você obtém um identificador de aplicativos e tokens de segurança que um back-end do aplicativo precisa fornecer aos serviços de Notificação por Push da Plataforma para poder enviar notificações por push para os dispositivos. Esses tokens de segurança que podem ser apresentados na forma de certificados (por exemplo, para Apple iOS ou Windows Phone) ou chaves de segurança (Google Android, Windows, etc.) precisam ser configurados nos hubs de notificação. Isso é normalmente feito no nível do hub de notificação, mas também pode ser feito no nível de namespace em um cenário de multilocatário.
+*Credenciais de PNS:* quando um aplicativo móvel é registrado no portal do desenvolvedor da plataforma (por exemplo, Apple ou Google, etc.), você obtém um identificador de aplicativos e tokens de segurança que um back-end do aplicativo precisa fornecer aos serviços de Notificação por Push da Plataforma para poder enviar notificações por push para os dispositivos. Esses tokens de segurança que podem ser apresentados na forma de certificados (por exemplo, para Apple iOS ou Windows Phone) ou chaves de segurança (Google Android, Windows, etc.) precisam ser configurados nos Hubs de Notificação. Isso é normalmente feito no nível do hub de notificação, mas também pode ser feito no nível de namespace em um cenário de multilocatário.
 
 *Namespaces:* os namespaces também podem ser usados para o agrupamento de implantação. Também pode ser usado para representar todos os hubs de notificação para todos os locatários do mesmo aplicativo no cenário de multilocatário.
 
-*Distribuição geográfica:* a distribuição geográfica nem sempre é crítica em caso de notificações por push. Deve-se observar as vários serviços de Notificação por push (por exemplo, APNS, GCM etc.) que, por fim, entregam as notificações por push aos dispositivos que não são igualmente distribuídos. No entanto, se você tiver um aplicativo que é usado em todo o mundo, você poderá criar vários hubs em namespaces diferentes, aproveitando a disponibilidade do serviço de Hubs de notificação em diferentes regiões do Azure no mundo todo. Observe que isso aumentará o custo de gerenciamento principalmente em torno de registros, então isso realmente não é recomendado e só deve ser feito se for realmente necessário.
+*Distribuição geográfica:* a distribuição geográfica nem sempre é crítica em caso de notificações por push. Deve-se observar as vários serviços de Notificação por push (por exemplo, APNS, GCM etc.) que, por fim, entregam as notificações por push aos dispositivos que não são igualmente distribuídos. No entanto, se você tiver um aplicativo usado no mundo inteiro, você poderá criar vários hubs em namespaces diferentes, aproveitando a disponibilidade do serviço de Hubs de Notificação em diferentes regiões do Azure no mundo todo. Observe que isso aumentará o custo de gerenciamento principalmente em torno de registros, então isso realmente não é recomendado e só deve ser feito se for realmente necessário.
 
 ###10\. Devemos fazer registros de back-end do aplicativo ou diretamente dispositivos?
 Registros de back-end do aplicativo são úteis quando você precisa fazer uma autenticação de cliente antes de criar o registro ou quando há marcas que devem ser criadas ou modificadas pelo back-end do aplicativo, com base em alguma lógica de aplicativo. Encontre mais orientações aqui - [Orientações sobre registro de back-end] e [Orientações sobre registro de back-end - 2]
@@ -83,7 +83,7 @@ Registros de back-end do aplicativo são úteis quando você precisa fazer uma a
 Os Hubs de Notificação do Azure usam um modelo de segurança baseado em Assinatura de Acesso Compartilhado (SAS). Você pode usar os tokens SAS no nível do namespace raiz ou no nível de hubs de notificação granular. Esses tokens SAS podem ser definidos com diferentes regras de autorização por exemplo, as permissões para enviar mensagens, permissões para ouvir notificação etc. Mais detalhes aqui - [Modelo de segurança NH]
 
 ###12\. Como lidar com a carga confidencial nas notificações?
-Todas as notificações são entregues aos dispositivos pelos Serviços de Notificações das plataformas (PNS). Quando um remetente enviar uma notificação para os Hubs de Notificação do Azure, processamos e transmitimos a notificação ao respectivo PNS. Todas as conexões do remetente para os Hubs de Notificações do Azure e para o PNS usam HTTPS. Os Hubs de Notificações do Azure não registram a carga da mensagem de forma alguma. Para o envio de cargas confidenciais no entanto, recomendamos que um padrão de Enviar por push seguro em que o remetente envia uma notificação 'ping' com um identificador de mensagem para o dispositivo sem a carga confidencial e quando o aplicativo no dispositivo recebe essa carga, então ele chama uma API de back-end do aplicativo seguro diretamente para buscar os detalhes da mensagem. O tutorial para implementar o padrão está aqui - [NH - Tutorial de envio por push seguro]
+Todas as notificações são entregues aos dispositivos pelos Serviços de Notificações das plataformas (PNS). Quando um remetente enviar uma notificação para os Hubs de Notificação do Azure, processamos e transmitimos a notificação ao respectivo PNS. Todas as conexões do remetente para os Hubs de Notificações do Azure e para o PNS usam HTTPS. Os Hubs de Notificações do Azure não registram a carga da mensagem de forma alguma. Para o envio de cargas confidenciais no entanto, recomendamos que um padrão de Enviar por push seguro em que o remetente envia uma notificação 'ping' com um identificador de mensagem para o dispositivo sem a carga confidencial e quando o aplicativo no dispositivo recebe essa carga, então ele chama uma API de back-end do aplicativo seguro diretamente para buscar os detalhes da mensagem. O tutorial para implementar o padrão está aqui - [HN - tutorial de Envio por Push Seguro]
 
 ##Operações
 ###1\. O que é a história de Recuperação de Desastres (DR)?
@@ -104,16 +104,16 @@ Recomenda-se usar um back-end do aplicativo que:
 Se você não tiver um back-end quando o aplicativo é iniciado nos dispositivos, então você fará um novo registro no NH secundário e eventualmente o NH secundário terá todos os dispositivos ativos registrados, mas a desvantagem é que haverá um período de tempo quando os dispositivos onde os aplicativos ainda não abriram não receberão notificações.
 
 ###2\. Há algum recurso de log de auditoria?
-Todas as operações de gerenciamento de Hubs de notificação vão para Logs de operação que são expostos no Portal de Gerenciamento do Azure.
+Todas as operações de Gerenciamento de Hubs de Notificação vão para Logs de Operação expostos no [Portal Clássico do Azure].
 
 ##Monitoramento e Solução de Problemas
 ###1\. Quais recursos de solução de problemas estão disponíveis?
-Os Hubs de Notificação do Azure fornecem vários recursos para executar solução de problemas comuns principalmente no cenário em torno de notificações removidas. Veja detalhes neste white paper sobre solução de problemas - [NH - Solução de problemas]
+Os Hubs de Notificação do Azure fornecem vários recursos para executar solução de problemas comuns principalmente no cenário em torno de notificações removidas. Veja detalhes neste white paper sobre solução de problemas - [HN - solução de problemas]
 
 ###2\. Quais recursos de telemetria estão disponíveis?
-Os Hubs de Notificação do Azure permitem a exibição de dados de telemetria no portal de gerenciamento do Azure. Detalhes das métricas disponíveis estão disponíveis aqui - [NH - Métricas]. Observe que as notificações de sucesso indicam apenas que as notificações foram entregues ao Serviço de notificação por push externo (por exemplo, APNS para Apple, GCM para Google, etc.) e então, cabe ao PNS entregar a notificação aos dispositivos e o PNS não expõe essas métricas para nós. Ele também fornece o recurso de exportar a telemetria programaticamente (na camada Padrão). Veja este exemplo para obter detalhes - [NH - Exemplo de métricas]
+Os Hubs de Notificação do Azure permitem a exibição de dados de telemetria no [Portal Clássico do Azure]. Há detalhes das métricas disponíveis aqui - [HN - métricas]. Observe que as notificações de sucesso indicam apenas que as notificações foram entregues ao Serviço de Notificação por Push externo (por exemplo, APNS para Apple, GCM para Google, etc.) e então, cabe ao PNS entregar a notificação aos dispositivos e o PNS não expõe essas métricas para nós. Ele também fornece o recurso de exportar a telemetria programaticamente (na camada Padrão). Veja este exemplo para obter detalhes - [HN - exemplo de métricas]
 
-[Portal do Azure]: https://manage.windowsazure.com
+[Portal Clássico do Azure]: https://manage.windowsazure.com
 [Preços de Hubs de Notificação]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Preços dos Hubs de Notificação]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [SLA de Hubs de Notificação]: http://azure.microsoft.com/support/legal/sla/
@@ -129,10 +129,10 @@ Os Hubs de Notificação do Azure permitem a exibição de dados de telemetria n
 [Orientações sobre registro de back-end]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [Orientações sobre registro de back-end - 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
 [Modelo de segurança NH]: https://msdn.microsoft.com/library/azure/dn495373.aspx
-[NH - Tutorial de envio por push seguro]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
-[NH - Solução de problemas]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
-[NH - Métricas]: https://msdn.microsoft.com/library/dn458822.aspx
-[NH - Exemplo de métricas]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
+[HN - tutorial de Envio por Push Seguro]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
+[HN - solução de problemas]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
+[HN - métricas]: https://msdn.microsoft.com/library/dn458822.aspx
+[HN - exemplo de métricas]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [Importação/Exportação de Registros]: https://msdn.microsoft.com/library/dn790624.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

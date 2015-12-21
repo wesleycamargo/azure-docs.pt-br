@@ -127,7 +127,7 @@ Esses parâmetros têm os seguintes significados:
 
 -   *backlogQueueCount*: o número de filas de lista de pendências a serem criadas. Esse valor deve ser pelo menos 1. Ao serem enviadas mensagens à lista de pendências, umas dessas filas é escolhida aleatoriamente. Se você definir o valor como 1, somente uma fila poderá ser usada. Quando isso acontece e a fila de lista de pendências gera erros, o cliente não pode tentar uma fila de lista de pendências diferente e pode não enviar a mensagem. É recomendável definir esse valor como algum valor maior e usar como padrão o valor de 10. Você pode alterar isso para um valor maior ou menor, dependendo de quantos dados seu aplicativo envia por dia. Cada fila de lista de pendências pode manter até 5 GB de mensagens.
 
--   *failoverInterval*: o tempo pelo qual você aceitará falhas no namespace principal antes de alternar qualquer entidade para o namespace secundário. Os failovers ocorrem em entidades individuais. Entidades em um único namespace frequentemente estão em nós diferentes no Barramento de Serviço. Uma falha em uma entidade não implica falha em outra. Você pode definir esse valor como [System.TimeSpan.Zero][] para realizar o failover para o secundário imediatamente após a primeira falha não transitória. Falhas que disparam o timer de failover são qualquer [MessagingException][] em que a propriedade [IsTransient][] é falsa ou um [System. TimeoutException][]. Outras exceções, como [UnauthorizedAccessException][], não causam o failover, pois indicam que o cliente está configurado incorretamente. Um [ServerBusyException][] não causa failover porque o padrão correto é esperar 10 segundos e, em seguida, enviar a mensagem novamente.
+-   *failoverInterval*: o tempo pelo qual você aceitará falhas no namespace principal antes de alternar qualquer entidade para o namespace secundário. Os failovers ocorrem em entidades individuais. Entidades em um único namespace frequentemente estão em nós diferentes no Barramento de Serviço. Uma falha em uma entidade não implica falha em outra. Você pode definir esse valor como [System.TimeSpan.Zero][] para realizar o failover para o secundário imediatamente após a primeira falha não transitória. Falhas que disparam o temporizador de failover são qualquer [MessagingException][] em que a propriedade [IsTransient][] é falsa ou um [System.TimeoutException][]. Outras exceções, como [UnauthorizedAccessException][], não causam o failover, pois indicam que o cliente está configurado incorretamente. Um [ServerBusyException][] não causa failover porque o padrão correto é esperar 10 segundos e, em seguida, enviar a mensagem novamente.
 
 -   *enableSyphon*: indica que esse emparelhamento específico também deve encaminhar mensagens do namespace secundário de volta ao namespace primário. Em geral, aplicativos que enviam mensagens devem definir esse valor como **false**; aplicativos que recebem mensagens devem definir esse valor como **true**. A razão disso é que, com frequência, há menos receptores de mensagens do que remetentes de mensagens. Dependendo do número de destinatários, você pode optar por ter uma única instância do aplicativo lidando com as tarefas de encaminhamento. Usar muitos receptores tem implicações de cobranças para cada fila de lista de pendências.
 
@@ -153,8 +153,9 @@ if (sendAvailabilityOptions.BacklogQueueCount < 1)
 Agora que você aprendeu os conceitos básicos de mensagens assíncronas no Barramento de Serviço, leia mais detalhes sobre [namespaces emparelhados e implicações de custo].
 
   [ServerBusyException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.serverbusyexception.aspx
+  [System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx
   [System. TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx
-  [MessagingException]: https://msdn.microsoft.com/pt-BR/library/azure/microsoft.servicebus.messaging.messagingexception.aspx
+  [MessagingException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingexception.aspx
   [Práticas recomendadas para isolar aplicativos do Barramento de Serviço contra interrupções de serviço e desastres]: service-bus-outages-disasters.md
   [Microsoft.ServiceBus.Messaging.MessagingFactory]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx
   [MessageReceiver]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx
@@ -172,4 +173,4 @@ Agora que você aprendeu os conceitos básicos de mensagens assíncronas no Barr
   [BacklogQueueCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.backlogqueuecount.aspx
   [namespaces emparelhados e implicações de custo]: service-bus-paired-namespaces.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -43,7 +43,7 @@ Tarefas por nó de computação|4 vezes o número de núcleos de nó
 
 Exibir suas cotas de conta do Lote no [portal do Azure](https://portal.azure.com).
 
-1. No portal de visualização, clique em **contas do Lote** e, em seguida, no nome da sua conta do Lote.
+1. No portal, clique em **contas do Lote** e, em seguida, no nome da sua conta do Lote.
 
 2. Na folha da conta, clique em **Configurações** > **Propriedades**.
 
@@ -95,4 +95,4 @@ O suporte do Azure entrará em contato com você. A conclusão do pedido pode le
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

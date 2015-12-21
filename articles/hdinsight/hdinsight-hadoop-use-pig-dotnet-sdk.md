@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/02/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 #Executar trabalhos do Pig usando o SDK do .NET para Hadoop no HDInsight
@@ -49,7 +49,7 @@ Para obter instruções sobre como fazer isso, confira [Criar um certificado aut
 
 Cada assinatura do Azure é identificada por um valor GUID, conhecido como a ID da assinatura. Use as etapas a seguir para encontrar esse valor.
 
-1. Visite o [Portal do Azure](portal de visualização).
+1. Visite o [Portal do Azure][portal de visualização].
 
 2. Na barra à esquerda do portal, selecione __PROCURAR TUDO__ e selecione __Assinaturas__ na folha __Procurar__.
 
@@ -157,4 +157,4 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 
 * [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md) [portal-de-visualização]: https://portal.azure.com/
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

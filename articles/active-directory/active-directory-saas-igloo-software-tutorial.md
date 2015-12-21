@@ -2,17 +2,17 @@
     pageTitle="Tutorial: integração do Active Directory do Azure ao Igloo Software | Microsoft Azure" 
     description="Saiba como usar o Igloo Software com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="prasannas"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="12/04/2015" 
+    ms.author="jeedes" />
 
 #Tutorial: integração do Active Directory do Azure ao Igloo Software
   
@@ -37,7 +37,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos com o Igloo Software, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-igloo-software-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **Igloo Software**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No Portal clássico do Azure, na página de integração de aplicativos do **Igloo Software**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-igloo-software-tutorial/IC783964.png "Configurar o logon único")
 
@@ -103,14 +103,14 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
     ![Configuração Geral](./media/active-directory-saas-igloo-software-tutorial/IC783970.png "Configuração Geral")
 
     1.  Na caixa de texto **Nome da Conexão**, digite um nome personalizado para a sua configuração.
-    2.  No portal do Azure, na página do diálogo **Configurar logon único no Igloo Software**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon do IdP**.
-    3.  No portal do Azure, na página do diálogo **Configurar logon único no Igloo Software**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Logoff do IdP**.
+    2.  No Portal clássico do Azure, na página do diálogo **Configurar logon único no Igloo Software**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon do IdP**.
+    3.  No Portal clássico do Azure, na página do diálogo **Configurar logon único no Igloo Software**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Logoff do IdP**.
     4.  Para **Tipo de HTTP de Solicitação e Resposta de Logoff**, selecione **POST**.
     5.  Crie um arquivo de texto do certificado baixado.
         
 		>[AZURE.TIP]Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
-    6.  Remova a primeira linha (**) e a última linha (**) da versão do arquivo de texto do seu certificado, copie o texto restante do certificado e cole-o na caixa de texto **Certificado Público**.
+    6.  Remova a primeira e a última linhas da versão do arquivo de texto do seu certificado, copie o texto restante do certificado e cole-o na caixa de texto **Certificado Público**.
 
 10. Em **Configuração de Resposta e Autenticação**, realize as seguintes etapas:
 
@@ -130,7 +130,7 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
     2.  Para **Configurações de Entrada**, selecione **Usar botão do SAML na tela “Entrar”**.
     3.  Clique em **Salvar**.
 
-12. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar o diálogo **Configurar Logon Único**.
+12. No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-igloo-software-tutorial/IC783973.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -142,16 +142,16 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
 
 ###Para atribuir usuários ao Igloo Software, execute as seguintes etapas:
 
-1.  No portal do Azure AD, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
 2.  Na página de integração de aplicativos do **Igloo Software**, clique em **Atribuir usuários**.
 
     ![Atribuir Usuários](./media/active-directory-saas-igloo-software-tutorial/IC783974.png "Atribuir Usuários")
 
-3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar a atribuição.
+3.  Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
 
     ![Sim](./media/active-directory-saas-igloo-software-tutorial/IC767830.png "Sim")
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/07/2015"
 	ms.author="wesmc"/>
 
 # Controle de acesso baseado em função nos Serviços Móveis usando o JavaScript e o Active Directory do Azure
@@ -393,4 +393,4 @@ Nesta seção, você criará um novo atributo de autorização personalizado que
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [ADAL para .NET]: https://msdn.microsoft.com/library/azure/jj573266.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

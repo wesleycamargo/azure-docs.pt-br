@@ -40,26 +40,26 @@ Um simulador de telemática do veículo é incluído como parte desta solução.
 
 Este é um conjunto de dados no formato JSON e contém o esquema abaixo.
 
-Coluna | Descrição | Valores |  
-------- | ----------- | --------- | 
-VIN | Número de Identificação do Veículo gerado aleatoriamente | É obtido em uma lista principal de 10.000 números de identificação do veículo gerados aleatoriamente | 
-Temperatura externa | A temperatura externa onde o veículo está sendo conduzido | Número gerado aleatoriamente de 0 a 100 | 
-Temperatura do motor | Temperatura do motor do veículo | Número gerado aleatoriamente de 0 a 500 | 
-Velocidade | A velocidade do motor na qual o veículo está sendo conduzido | Número gerado aleatoriamente de 0 a 100 | 
-Combustível | Nível de combustível do veículo | Número gerado aleatoriamente de 0 a 100 (indica a porcentagem do nível de combustível) | 
-Óleo do Motor | Nível de óleo do motor do veículo | Número gerado aleatoriamente de 0 a 100 (indica a porcentagem do nível de óleo do motor) | 
-Pressão do pneu | Pressão do pneu do veículo | Número gerado aleatoriamente de 0 a 50 (indica a porcentagem do nível de pressão do pneu) | 
-Hodômetro | Leitura do hodômetro do veículo | Número gerado aleatoriamente de 0 a 200.000 | 
-Accelerator\_pedal\_position | Posição do pedal do acelerador do veículo | Número gerado aleatoriamente de 0 a 100 (indica a porcentagem do nível do acelerador) | 
-Parking\_brake\_status | Indica se o veículo está estacionado ou não | Verdadeiro ou Falso | 
-Headlamp\_status | Indica se o farol está ativado ou não | Verdadeiro ou Falso | 
-Brake\_pedal\_status | Indica se o pedal do freio está pressionado ou não | Verdadeiro ou Falso | 
-Transmission\_gear\_position | Posição da marcha do veículo | Estados: primeira, segunda, terceira, quarta, quinta, sexta, sétima, oitava | 
-Ignition\_status | Indica se o veículo está em movimento ou parado | Verdadeiro ou Falso | 
-Windshield\_wiper\_status | Indica se o limpador de para-brisas está ativado ou não | Verdadeiro ou Falso | 
-ABS | Indica se o ABS está engatado ou não | Verdadeiro ou Falso | 
-Timestamp | Carimbo de data/hora quando o ponto de dados é criado | Data | 
-City | Local do veículo | Quatro cidades nesta solução: Bellevue, Redmond, Sammamish, Seattle | 
+Coluna | Descrição | Valores   
+ ------- | ----------- | ---------  
+VIN | Número de Identificação do Veículo gerado aleatoriamente | É obtido em uma lista principal de 10.000 números de identificação do veículo gerados aleatoriamente
+Temperatura externa | A temperatura externa onde o veículo está sendo conduzido | Número gerado aleatoriamente de 0 a 100
+Temperatura do motor | Temperatura do motor do veículo | Número gerado aleatoriamente de 0 a 500
+Velocidade | A velocidade do motor na qual o veículo está sendo conduzido | Número gerado aleatoriamente de 0 a 100
+Combustível | Nível de combustível do veículo | Número gerado aleatoriamente de 0 a 100 (indica a porcentagem do nível de combustível)
+Óleo do Motor | Nível de óleo do motor do veículo | Número gerado aleatoriamente de 0 a 100 (indica a porcentagem do nível de óleo do motor)
+Pressão do pneu | Pressão do pneu do veículo | Número gerado aleatoriamente de 0 a 50 (indica a porcentagem do nível de pressão do pneu)
+Hodômetro | Leitura do hodômetro do veículo | Número gerado aleatoriamente de 0 a 200.000
+Accelerator\_pedal\_position | Posição do pedal do acelerador do veículo | Número gerado aleatoriamente de 0 a 100 (indica a porcentagem do nível do acelerador)
+Parking\_brake\_status | Indica se o veículo está estacionado ou não | Verdadeiro ou Falso
+Headlamp\_status | Indica se o farol está ativado ou não | Verdadeiro ou Falso
+Brake\_pedal\_status | Indica se o pedal do freio está pressionado ou não | Verdadeiro ou Falso
+Transmission\_gear\_position | Posição da marcha do veículo | Estados: primeira, segunda, terceira, quarta, quinta, sexta, sétima, oitava
+Ignition\_status | Indica se o veículo está em movimento ou parado | Verdadeiro ou Falso
+Windshield\_wiper\_status | Indica se o limpador de para-brisas está ativado ou não | Verdadeiro ou Falso
+ABS | Indica se o ABS está engatado ou não | Verdadeiro ou Falso
+Timestamp | Carimbo de data/hora quando o ponto de dados é criado | Data
+City | Local do veículo | Quatro cidades nesta solução: Bellevue, Redmond, Sammamish, Seattle
 
 
 O conjunto de dados de referência do modelo do veículo contém o VIN para o mapeamento do modelo.
@@ -696,4 +696,4 @@ Clique aqui para obter instruções detalhadas sobre como configurar os relatór
 
 Este documento contém um detalhamento da Solução de Análise da Telemetria do Veículo. Isto apresenta um padrão de arquitetura lambda para a análise em tempo real e em lote com previsões e ações. Esse padrão se aplica a uma ampla variedade de casos de uso que exigem as análises de afunilamento (em tempo real) e de ampliação (em lote).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

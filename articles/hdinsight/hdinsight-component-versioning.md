@@ -14,31 +14,31 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="12/03/2015"
 	ms.author="jgao"/>
 
 
 #O que há de novo nas versões de cluster Hadoop fornecidas pelo HDInsight?
 
 ##Versões do HDInsight e componentes do Hadoop
-O HDInsight do Azure dá suporte a várias versões do cluster Hadoop que podem ser implantadas a qualquer momento. Cada opção de versão cria uma versão específica da distribuição de HDP (Hortonworks Data Platform) e um conjunto de componentes contidos nessa distribuição. As versões do componente associadas às versões do cluster HDInsight são detalhadas na tabela a seguir. Observe que a versão padrão do cluster usada pelo Azure HDInsight atualmente é a 3.2 e, a partir de 19/11/2015, baseada em HDP 2.2.
+O HDInsight do Azure dá suporte a várias versões do cluster Hadoop que podem ser implantadas a qualquer momento. Cada opção de versão cria uma versão específica da distribuição de HDP (Hortonworks Data Platform) e um conjunto de componentes contidos nessa distribuição. As versões do componente associadas às versões do cluster HDInsight são detalhadas na tabela a seguir. Observe que a versão padrão do cluster usada pelo Azure HDInsight atualmente é a 3.2 e, a partir de 03/12/2015, baseada em HDP 2.2.
 
 
-Componente|HDInsight versão 3.2|HDInsight versão 3.1 (padrão)|HDInsight versão 3,0|HDInsight versão 2.1
+Componente|HDInsight versão 3.3 | HDInsight versão 3.2 (padrão)|HDInsight versão 3.1 |HDInsight versão 3,0|
 ---|---|---|---|---
-Hortonworks Data Platform|2\.2|2\.1.7|2,0|1,3
-Apache Hadoop e YARN|2\.6.0|2\.4.0|2\.2.0|1\.2.0
-Apache Tez|0\.5.2|0\.4.0||
-Apache Pig|0\.14.0|0\.12.1|0\.12.0|0\.11.0
-Apache Hive e HCatalog|0\.14.0|0\.13.1|0\.12.0|0\.11.0
-HBase no Apache |0\.98.4|0\.98.0||
-Apache Sqoop|1\.4.5|1\.4.4|1\.4.4|1\.4.3
-Apache Oozie|4\.1.0|4\.0.0|4\.0.0|3\.3.2
-O Apache Zookeeper|3\.4.6|3\.4.5|3\.4.5|
-Apache Storm|0\.9.3|0\.9.1||
-O Apache Mahout|0\.9.0|0\.9.0||
-Apache Phoenix|4\.2.0|4\.0.0.2.1.7.0-2162||
-Apache Spark|1\.3.1|||
+Hortonworks Data Platform|2\.3|2\.2|2\.1.7|2,0|
+Apache Hadoop e YARN|2\.7.1|2\.6.0|2\.4.0|2\.2.0|
+Apache Tez|0\.7.0 | 0\.5.2|0\.4.0||
+Apache Pig|0\.15.0|0\.14.0|0\.12.1|0\.12.0|
+Apache Hive e HCatalog|1\.2.1|0\.14.0|0\.13.1|0\.12.0|
+HBase no Apache |1\.1.1|0\.98.4|0\.98.0||
+Apache Sqoop|1\.4.6|1\.4.5|1\.4.4|1\.4.4|1\.4.3
+Apache Oozie|4\.2.0|4\.1.0|4\.0.0|4\.0.0|
+O Apache Zookeeper|3\.4.6|3\.4.6|3\.4.5|3\.4.5|
+Apache Storm|0\.10.0|0\.9.3|0\.9.1||
+O Apache Mahout|0\.9.0+|0\.9.0|0\.9.0||
+Apache Phoenix|4\.4.0|4\.2.0|4\.0.0.2.1.7.0-2162||
+Apache Spark|1\.3.1|1\.3.1|||
 
 
 **Obter informações atuais sobre a versão do componente**
@@ -103,13 +103,14 @@ A tabela a seguir lista as versões do HDInsight disponíveis no momento, as ver
 * Clusters altamente disponíveis com dois headnodes são implantados por padrão para clusters HDInsight 2.1 e superiores. Eles não estão disponíveis para clusters HDInsight 1.6.
 * Depois que o suporte expirar para uma determinada versão, ele poderá não estar disponível pelo Portal do Azure. A tabela a seguir indica quais versões estão disponíveis no Portal Clássico do Azure. As versões do cluster continuarão disponíveis usando o parâmetro `Version` no comando do Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) e o SDK .NET até sua data de substituição.
 
-Versão do HDInsight|Versão do HDP|Alta Disponibilidade|Data do lançamento|Disponível no Portal Clássico do Azure|Data de validade do suporte|Data de reprovação
+Versão do HDInsight|Versão do HDP|Alta Disponibilidade|Data do lançamento|Disponível no Portal do Azure|Data de validade do suporte|Data de reprovação
 ---|---|---|---|---|---|---
+HDI 3.3|HDP 2.3|Sim|02/12/2015|Sim||
 HDI 3.2|HDP 2.2|Sim|18/02/2015|Sim||
 HDI 3,1|HDP 2,1|Sim|24/06/2014|Sim||
 HDI 3,0|HDP 2,0|Sim|11/02/2014|Sim|17/09/2014|30/06/2015
-HDI 2,1|HDP 1,3|Sim|28/10/2013|Não|12/05/2014|31/05/2015
-HDI 1.6|HDP 1.1|Não|28/10/2013|Não|26/04/2014|31/05/2015
+HDI 2,1|HDP 1,3|Sim|28/10/2013|Sim|12/05/2014|31/05/2015
+HDI 1.6|HDP 1.1|Não|28/10/2013|Sim|26/04/2014|31/05/2015
 
 **Implantação de clusters não padrão**
 
@@ -126,12 +127,16 @@ A **Data de Reprovação** é a data após a qual a versão do cluster não pode
 
 ## Notas de versão do Hortonworks associadas a versões do HDInsight##
 
-* O cluster HDInsight versão 3.2 usa uma distribuição do Hadoop baseada em [Hortonworks Data Platform 2.2][hdp-2-2].
+* O cluster HDInsight versão 3.3 usa uma distribuição do Hadoop baseada em [Hortonworks Data Platform 2.3](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html).
+	* As notas de versão do Apache Storm estão disponíveis [aqui](https://storm.apache.org/2015/11/05/storm0100-released.html).
+	* As notas de versão do Apache Hive estão disponíveis [aqui](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12332384&styleName=Text&projectId=12310843).
+
+* O cluster HDInsight versão 3.2 usa uma distribuição do Hadoop baseada em [Hortonworks Data Platform 2.2][hdp-2-2]. Esse é o cluster Hadoop **padrão** criado ao usar o portal.
 
 	* Notas de versão para componentes específicos do Apache - [Hive 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310843&version=12326450), [Pig 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310730&version=12326954), [HBase 0.98.4](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310753&version=12326810), [Phoenix 4.2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12315120&version=12327581), [M/R 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310941&version=12327180), [HDFS 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310942&version=12327181), [YARN 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12313722&version=12327197), [Common](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310240&version=12327179), [Tez 0.5.2](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314426&version=12328742), [Ambari 2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12312020&version=12327486), [Storm 0.9.3](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314820&version=12327112), [Oozie 4.1.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12324960&projectId=12311620).
 
 
-* O cluster HDInsight versão 3.1 usa uma distribuição do Hadoop baseada em [Hortonworks Data Platform 2.1.7][hdp-2-1-7]. Esse é o cluster Hadoop **padrão** criado ao usar o portal após 07/11/2014. Os clusters do HDInsight 3.1 criados antes de 07/11/2014 eram baseados no [Hortonworks Data Platform 2.1.1][hdp-2-1-1].
+* O cluster HDInsight versão 3.1 usa uma distribuição do Hadoop baseada em [Hortonworks Data Platform 2.1.7][hdp-2-1-7]. Clusters do HDInsight 3.1 criados antes de 07/11/2014 eram baseados em [Hortonworks Data Platform 2.1.1][hdp-2-1-1].
 
 * O cluster HDInsight versão 3.0 usa uma distribuição do Hadoop baseada em [Hortonworks Data Platform 2.0][hdp-2-0-8].
 
@@ -162,4 +167,4 @@ A **Data de Reprovação** é a data após a qual a versão do cluster não pode
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

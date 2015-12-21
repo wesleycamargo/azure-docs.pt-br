@@ -27,21 +27,7 @@ Execuções padrão em máquinas dedicadas que são usadas apenas pelo seu servi
 
 Os assinantes do Azure podem usar o serviço de pesquisa (multilocatário) compartilhado para desenvolvimento ou aplicativos de pesquisa muito pequenos. O serviço compartilhado é fornecido com sua assinatura do Azure. É uma opção sem custos que permite experimentar o serviço antes de inscrever-se. Ela oferece:
 
-Objeto|Limite
-------|-----
-Número máximo de índices|3
-Número máximo de campos por índice|1000
-Contagem máxima de documento|10\.000
-Tamanho máximo de armazenamento|50 MB
-Máximo de partições|N/D
-Máximo de réplicas|N/D
-Máximo de unidades de pesquisa|N/D
-Número máximo de indexadores|3
-Número máximo de fontes de dados do indexador|3
-Número máximo de documentos indexados por invocação do indexador|10\.000
-Tempo de execução máximo do Indexador|3 minutos
-Numero máximo de perfis de pontuação por índice|16
-Número máximo de funções por perfil|8
+[AZURE.INCLUDE [azure-search-limits](../../includes/azure-search-limits-free.md)]
 
 Observe que não há cotas nem limites máximos associados a consultas. As QPSs (consultas por segundo) variam, dependendo da largura de banda disponível e da competição por recursos do sistema. Os recursos de computação e armazenamento do Azure que apoiam o serviço compartilhado são compartilhados por vários assinantes, portanto, a QPS para sua solução vai variar conforme o número de outras cargas de trabalho em execução ao mesmo tempo.
 
@@ -49,23 +35,9 @@ Observe que não há cotas nem limites máximos associados a consultas. As QPSs 
 
 Na camada de preços Standard, um serviço de pesquisa dedicado armazena somente dados e executa apenas as cargas de trabalho. Diferente do serviço compartilhado, a alocação de recurso para um serviço de pesquisa dedicado é ajustável, podendo ser dimensionada para qualquer nível necessário. Você pode definir de modo independente os níveis de recurso para partições (para escalar verticalmente o armazenamento) e réplicas (para fornecer alta disponibilidade e escalar verticalmente QPS e desempenho de indexação). Veja [Gerenciar sua solução de pesquisa](search-manage.md) para obter informações sobre configurações de diferentes recursos.
 
-A tabela a seguir é uma lista de limites superiores, mas examine o gráfico de matriz detalhadamente para entender a capacidade em termos de [combinações de partições e réplicas](#chart) permitidas.
+A tabela a seguir é uma lista de limites superiores, mas examine o gráfico de matriz mais detalhadamente para entender a capacidade em termos de [combinações de partições e réplicas](#chart) permitidas.
 
-Objeto|Limite
-------|----
-Número máximo de índices|50 por serviço de Pesquisa
-Número máximo de campos por índice|1000
-Contagem máxima de documento|15 milhões por partição
-Tamanho máximo de armazenamento|25 GB por partição
-Máximo de partições|12 por serviço de Pesquisa
-Máximo de réplicas|12 por serviço de Pesquisa
-Máximo de unidades de pesquisa|36 por serviço de Pesquisa
-Máximo de serviços de pesquisa|12 por assinatura do Azure
-Número máximo de indexadores|50 por serviço de Pesquisa
-Número máximo de fontes de dados do indexador|50 por serviço de Pesquisa
-Número máximo de documentos indexados por invocação do indexador|Ilimitado
-Numero máximo de perfis de pontuação por índice|16
-Número máximo de funções por perfil|8
+[AZURE.INCLUDE [azure-search-limits](../../includes/azure-search-limits-standard.md)]
 
 A capacidade na Pesquisa do Azure pode ser adquirida em incrementos chamados de unidades de pesquisa. A camada de preços Standard permite até 36 unidades de pesquisa por serviço de pesquisa. Esse limite substitui os limites individuais em partições e réplicas. Por exemplo, você não pode dimensionar seu serviço até 12 partições e 6 réplicas, já que fazer isso exigiria 72 unidades de pesquisa (12 x 6), excedendo o limite de 36 unidades de pesquisa por serviço.
 
@@ -116,7 +88,7 @@ Recomendações gerais para alta disponibilidade são:
 
 Atualmente, não há mecanismo integrado para recuperação de desastres. Adicionar partições ou réplicas seria a estratégia incorreta para atingir os objetivos de recuperação de desastres. Em vez disso, você pode adicionar redundância no nível de serviço. Para obter uma discussão mais aprofundada da soluções alternativas, veja [esta postagem no fórum](https://social.msdn.microsoft.com/Forums/ee108a26-00c5-49f6-b1ff-64c66c8b828a/dr-and-high-availability-for-azure-search?forum=azuresearch).
 
-> [AZURE.NOTE]Lembre-se de que a escalabilidade e os contratos de nível de serviço são recursos do serviço padrão. O serviço gratuito é oferecido em um nível de recurso fixo, com partições e réplicas compartilhadas por vários assinantes. Se você tiver iniciado com o serviço gratuito e agora desejar atualizar, precisará criar um novo serviço de Pesquisa do Azure no nível padrão e, em seguida, recarregar índices e dados para o novo serviço. Veja [Criar um serviço da Pesquisa do Azure no portal](search-create-portal.md) para obter instruções sobre o provisionamento do serviço.
+> [AZURE.NOTE]Lembre-se de que a escalabilidade e os contratos de nível de serviço são recursos do serviço padrão. O serviço gratuito é oferecido em um nível de recurso fixo, com partições e réplicas compartilhadas por vários assinantes. Se você tiver iniciado com o serviço gratuito e agora desejar atualizar, precisará criar um novo serviço de Pesquisa do Azure no nível padrão e, em seguida, recarregar índices e dados para o novo serviço. Veja [Criar um serviço da Pesquisa do Azure no portal](search-create-service-portal.md) para obter instruções sobre o provisionamento do serviço.
 
 ## Limites de chave de API
 
@@ -127,7 +99,7 @@ As chaves de API são usadas para autenticação de serviço. Há dois tipos. Ch
 
 ## Limites de solicitação
 
-- Máximo de 16 MB por solicitação
+- Máximo de 16 MB por solicitação <sup>1</sup>
 - Comprimento máximo da URL de 8 KB
 - Máximo de 1000 documentos por lote de carregamentos, mesclagens ou exclusões de índice
 - Máximo de 32 campos na cláusula $orderby
@@ -138,4 +110,6 @@ As chaves de API são usadas para autenticação de serviço. Há dois tipos. Ch
 - Máximo de 1000 documentos retornados por página de resultados da pesquisa
 - Máximo de 100 sugestões retornadas por solicitação de Sugerir API
 
-<!---HONumber=AcomDC_1125_2015-->
+<sup>1</sup> na Pesquisa do Azure, o corpo de uma solicitação está sujeito a um limite superior de 16 MB, impondo um limite prático no conteúdo de campos individuais ou Coleções que, caso contrário, não são limitadas por limites teóricos (consulte [Tipos de dados com suporte](https://msdn.microsoft.com/library/azure/dn798938.aspx) para obter mais informações sobre restrições e composição de campos).
+
+<!---HONumber=AcomDC_1210_2015-->

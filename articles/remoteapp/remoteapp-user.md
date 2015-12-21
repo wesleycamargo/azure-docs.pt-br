@@ -1,18 +1,18 @@
-<properties 
-    pageTitle="Adicionar um usuário à sua coleção do RemoteApp do Azure" 
-    description="Saiba como adicionar usuários à sua coleção do RemoteApp do Azure" 
-    services="remoteapp" 
-	documentationCenter="" 
-    authors="lizap" 
+<properties
+    pageTitle="Adicionar um usuário à sua coleção do RemoteApp do Azure | Microsoft Azure"
+    description="Saiba como adicionar usuários à sua coleção do RemoteApp do Azure"
+    services="remoteapp"
+	documentationCenter=""
+    authors="lizap"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/12/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 # Como adicionar um usuário à sua coleção do RemoteApp do Azure
@@ -36,12 +36,12 @@ Você pode usar essa tabela como uma referência rápida sobre qual identidade t
 |Contas de usuário |Nuvem |Híbrido|
 |--------------|--------|------|
 |Conta da Microsoft| 	Sim|	Não|
-|Active Directory do Azure (Azure AD)| | |	
+|Active Directory do Azure (Azure AD)| | |
 |Somente nuvem do Azure AD |Sim |Não |
 |ADsync com sincronização de senha |Sim |Sim |
 |ADsync sem sincronização de senha|	Sim |Não |
 |ADsync com o AD FS |Sim |Sim |
-|Azure de terceiros com suporte a provedores de identidade (por exemplo, Ping) |Sim |Sim|	
+|Azure de terceiros com suporte a provedores de identidade (por exemplo, Ping) |Sim |Sim|
 |Multi-Factor Authentication |Sim |Sim |
 
 Verifique [obter mais informações](remoteapp-ad.md) sobre a configuração do Active Directory para o RemoteApp.
@@ -51,6 +51,5 @@ Verifique [obter mais informações](remoteapp-ad.md) sobre a configuração do 
 
 ## Informações de conta de usuário do Office 365 ProPlus
 Se você estiver usando a imagem do modelo do Office 365 ProPlus em sua coleção *ou* se você criou uma imagem personalizada que usa o Office 365, é possível adicionar apenas usuários do Active Directory do Azure que têm assinaturas do Office 365 para o domínio padrão da sua assinatura. Consulte [Usando o Office 365 com o Azure RemoteApp](remoteapp-o365.md) para obter mais informações.
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

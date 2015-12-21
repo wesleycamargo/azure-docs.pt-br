@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/20/2015"
+   ms.date="12/07/2015"
    ms.author="mmercuri"/>
 
 # Definindo dependências em modelos do Gerenciador de Recursos do Azure
@@ -49,6 +49,8 @@ Se você precisar definir uma dependência entre um recurso e os recursos criado
 
 A propriedade resources permite especificar os recursos filho relacionados ao recurso que está sendo definido. Os recursos filho só podem ser definidos em 5 níveis de profundidade. É importante observar que não é criada uma dependência implícita entre um recurso filho e o pai. Se precisar que o recurso filho seja implantado após o recurso pai, você deve declarar explicitamente essa dependência com a propriedade dependsOn.
 
+Cada recurso pai aceita somente determinados tipos de recurso como recursos filho. Os tipos de recurso aceitos são especificados no [esquema do modelo](https://github.com/Azure/azure-resource-manager-schemas) do recurso pai. O nome do tipo de recurso de filho inclui o nome do tipo de recurso pai, assim como **Microsoft.Web/sites/config** e **Microsoft.Web/sites/extensions** são ambos recursos filho do **Microsoft.Web/sites**.
+
 ## Função reference
 
 A função reference permite que uma expressão derive seu valor de outro nome JSON e de pares de valor ou de recursos de tempo de execução. Expressões de referência declaram de maneira implícita que um recurso depende de outro. A propriedade representada por **propertyPath** abaixo é opcional e, se não for especificada, a referência será ao recurso.
@@ -64,4 +66,4 @@ Para saber mais, consulte [Função de referência](../resource-group-template-f
 - Para saber mais sobre a criação de modelos do Gerenciador de Recursos do Azure, consulte [Criando modelos](resource-group-authoring-templates.md). 
 - Para obter uma lista das funções disponíveis em um modelo, consulte [Funções de modelo](resource-group-template-functions.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->
