@@ -162,11 +162,11 @@ Um novo aplicativo do serviço de back-end é criado no diretório do AD do Azur
 
 ![Aplicativo][api-management-aad-backend-app]
 
-Clique no nome do aplicativo para configurar as permissões necessárias. Navegue até a guia **Configurar** e role para baixo até a seção **permissões para outros aplicativos**. Clique em **Permissões de aplicativo** suspenso ao lado do **Active Directory do** **Windows Azure**, marque a caixa **Ler dados do diretório** e clique em **Salvar**.
+Clique no nome do aplicativo para configurar as permissões necessárias. Navegue até a guia **Configurar** e role para baixo até a seção **permissões para outros aplicativos**. Clique em **Permissões de aplicativo** suspenso ao lado do **Active Directory do** **Microsoft Azure**, marque a caixa **Ler dados do diretório** e clique em **Salvar**.
 
 ![Adicionar permissões][api-management-aad-add-permissions]
 
->[AZURE.NOTE]Se **Active Directory do** **Windows Azure** não estiver listado em permissões para outros aplicativos, clique em **Adicionar aplicativo** e adicione-o da lista.
+>[AZURE.NOTE]Se **Active Directory do** **Microsoft Azure** não estiver listado em permissões para outros aplicativos, clique em **Adicionar aplicativo** e adicione-o da lista.
 
 Anote a **URI da Id do aplicativo** para uso em uma etapa posterior, quando um aplicativo do AD do Azure é configurado para o portal do desenvolvedor de Gerenciamento de API.
 

@@ -289,7 +289,7 @@ Quando você seleciona a opção Usar o Azure Acesse Controle e executa o aplica
 
 Você pode revisar e alterar essas configurações no Portal de Gerenciamento do ACS. Use as etapas a seguir para revisar as alterações no portal.
 
-1.	Faça logon no [Portal de Gerenciamento do Windows Azure](http://manage.WindowsAzure.com).
+1.	Faça logon no [Portal de Gerenciamento do Microsoft Azure](http://manage.WindowsAzure.com).
 
 2.	Clique em **Active Directory**.
 

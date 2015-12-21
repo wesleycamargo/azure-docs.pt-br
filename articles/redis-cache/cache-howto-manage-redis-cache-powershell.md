@@ -32,7 +32,7 @@ Para poder usar o Windows PowerShell com o Gerenciador de Recursos do Azure, voc
 
 - PowerShell do Azure, versão 0.8.0 ou posterior. Para instalar a versão mais recente e associá-la à sua assinatura do Azure, consulte [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 
-Este tutorial é projetado para iniciantes do Windows PowerShell. Para obter mais informações sobre o Windows PowerShell, consulte [Introdução ao PowerShell do Windows Azure (a página pode estar em inglês)](http://technet.microsoft.com/library/hh857337.aspx).
+Este tutorial é projetado para iniciantes do Windows PowerShell. Para obter mais informações sobre o Windows PowerShell, consulte [Introdução ao PowerShell do Microsoft Azure (a página pode estar em inglês)](http://technet.microsoft.com/library/hh857337.aspx).
 
 Para obter ajuda detalhada sobre qualquer cmdlet que você vir neste tutorial, use o cmdlet Get-Help.
 

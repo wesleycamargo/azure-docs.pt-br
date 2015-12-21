@@ -18,7 +18,8 @@
 
 # Suporte do Gerenciador de Recursos do Azure para serviços, regiões e versões de API
 
-O Gerenciador de Recursos do Azure fornece uma nova maneira de implantar e gerenciar os serviços que compõem seus aplicativos. A maioria (não todos) dos serviços suporta o Gerenciador de Recursos e alguns serviços suportam o Gerenciador de Recursos apenas parcialmente. A Microsoft habilitará o Gerenciador de Recursos para todos os serviços importantes para soluções futuras, mas, até que o suporte seja consistente, você precisa saber o status atual de cada serviço. Este tópico fornece uma lista de provedores de recursos com suporte para o Gerenciador de Recursos do Azure.
+O Gerenciador de Recursos do Azure fornece uma nova maneira de implantar e gerenciar os serviços que compõem seus aplicativos.
+A maioria (não todos) dos serviços suporta o Gerenciador de Recursos e alguns serviços suportam o Gerenciador de Recursos apenas parcialmente. A Microsoft habilitará o Gerenciador de Recursos para todos os serviços importantes para soluções futuras, mas, até que o suporte seja consistente, você precisa saber o status atual de cada serviço. Este tópico fornece uma lista de provedores de recursos com suporte para o Gerenciador de Recursos do Azure.
 
 Ao implantar seus recursos, você também precisa saber quais são as regiões que oferecem suporte a esses recursos e quais versões de API estão disponíveis para os recursos. A seção [Regiões com suporte](#supported-regions) mostra como descobrir quais regiões funcionarão para sua assinatura e seus recursos. A seção [Versões de API com suporte](#supported-api-versions) mostra como determinar quais versões de API você pode usar.
 
@@ -27,14 +28,16 @@ As tabelas a seguir listam quais serviços suportam a implantação e o gerencia
 
 ## Computação
 
-| O Barramento de | Gerenciador de Recursos habilitado | Portal | Mover recursos | API REST | Esquema |
+| O Barramento de | Gerenciador de Recursos habilitado | Portal de Visualização | Mover recursos | API REST | Esquema |
 | ------- | ------------------------ | -------------- | -------------- |-------- | ------ |
 | Máquinas Virtuais | Sim | Sim, várias opções | Não | [Criar VM](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
 | Batch | Sim | [Sim (somente clássicas)](https://portal.azure.com/#create/Microsoft.BatchAccount) | Sim | [REST do Lote](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Serviços de ciclo de vida do Dynamics | Sim | Não | | | |
-| Máquinas Virtuais (clássicas) | Limitado | Sim, várias opções | Parcial (veja abaixo) | - | - | | Aplicativo Remoto | Não | Não | - | - | - | | Service Fabric | Não | Não | - | - | - |
+| Máquinas Virtuais (clássicas) | Limitado | Sim, várias opções | Parcial (veja abaixo) | - | - |
+| Aplicativo Remoto | Não | Não | - | - | - |
+| Service Fabric | Não | Não | - | - | - |
 
-Máquinas virtuais (clássico) refere-se aos recursos que foram implantados por meio do modelo de implantação clássico, não por meio do modelo de implantação do Gerenciador de Recursos. Em geral, esses recursos não oferecem suporte a operações do Gerenciador de Recursos, mas existem algumas operações que foram habilitadas. Para saber mais sobre esses modelos de implantação, confira [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](resource-manager-deployment-model.md).
+Máquinas virtuais (clássico) refere-se aos recursos que foram implantados por meio do modelo de implantação clássico, não por meio do modelo de implantação do Gerenciador de Recursos. Em geral, esses recursos não oferecem suporte a operações do Gerenciador de Recursos, mas existem algumas operações que foram habilitadas. Para obter mais informações sobre esses modelos de implantação, veja [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](resource-manager-deployment-model.md).
 
 Recursos de máquinas virtuais (clássico) podem ser movidos para um novo grupo de recursos, mas não uma nova assinatura.
 
@@ -58,8 +61,9 @@ Recursos de máquinas virtuais (clássico) podem ser movidos para um novo grupo 
 | Cache Redis | Sim | [Sim](https://portal.azure.com/#create/Microsoft.Cache.1.0.4) | Sim | | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Cache.json) |
 | Banco de dados SQL | Sim | [Sim](https://portal.azure.com/#create/Microsoft.SQLDatabase.1.0.3) | Sim | [Criar banco de dados](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
 | Pesquisar | Sim | [Sim](https://portal.azure.com/#create/Microsoft.Search) | Sim | [REST de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
-| SQL Data Warehouse | Sim | [Sim](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.13-preview) | | | |
-| StorSimple | Não | Não | - | - | - | | Cache gerenciado | Não | Não | - | - | - |
+| SQL Data Warehouse | Sim | [Sim](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
+| StorSimple | Não | Não | - | - | - |
+| Cache gerenciado | Não | Não | - | - | - |
 
 ## Web e serviços móveis
 
@@ -85,7 +89,8 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 | Análise de fluxo | Sim | [Sim](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) | | | |
 | HDInsights | Sim | [Sim](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | Sim | | |
 | Data Factory | Sim | [Sim](https://portal.azure.com/#create/Microsoft.DataFactory) | Sim | [Criar fábrica de dados](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
-| Aprendizado de Máquina | Não | Não | - | - | - | | Catálogo de Dados | Não | Não | - | - | - |
+| Aprendizado de Máquina | Não | Não | - | - | - |
+| Catálogo de Dados | Não | Não | - | - | - |
 
 ## Mídia e CDN
 
@@ -101,13 +106,16 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
 | Serviços do BizTalk | Sim | Não | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |
 | Barramento de Serviço | Sim | Não | | [REST do Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh780717.aspx) | |
-| Backup | Não | Não | - | - | - | | Recuperação de Site | Não | Não | - | - | - |
+| Backup | Não | Não | - | - | - |
+| Recuperação de Site | Não | Não | - | - | - |
 
 ## Gerenciamento de acesso e identidade 
 
 | O Barramento de | Gerenciador de Recursos habilitado | Portal | Mover recursos | API REST | Esquema |
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
-| Active Directory do Azure | Não | Não | - | - | - | | Actice Directory B2C do Azure | Não | Não | - | - | - | | Autenticação multifator | Não | Não | - | - | - |
+| Active Directory do Azure | Não | Não | - | - | - |
+| Actice Directory B2C do Azure | Não | Não | - | - | - |
+| Autenticação multifator | Não | Não | - | - | - |
 
 ## Serviços para Desenvolvedores 
 

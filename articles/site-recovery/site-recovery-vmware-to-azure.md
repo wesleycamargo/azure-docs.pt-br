@@ -273,11 +273,11 @@ O servidor de configuração é implantado em um serviço de nuvem do Azure cria
 	- Quando você clicar em **Avançar**, um teste será executado para verificar a conexão proxy.
 	- Se você usar um proxy personalizado ou se o seu proxy padrão exigir autenticação, será preciso inserir os detalhes do proxy, incluindo o endereço, a porta e as credenciais.
 	- As URLs a seguir devem poder ser acessadas pelo proxy:
-		- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
+		- *.hypervrecoverymanager.windowsazure.com
+		- *.accesscontrol.windows.net
+		- *.backup.windowsazure.com
+		- *.blob.core.windows.net
+		- *.store.core.windows.net
 - Se você tiver regras de firewall baseadas no endereço IP, verifique se as regras estão definidas para permitir a comunicação do servidor de configuração com os endereços IP descritos em [Intervalos IP do Datacenter do Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) e o protocolo HTTPS (443). Você terá que colocar os intervalos IP em uma lista de permissões da região do Azure que planeja usar e uma para o Oeste dos EUA.
 
 	![Registro do proxy](./media/site-recovery-vmware-to-azure/ASRVMWare_RegistrationProxy.png)
@@ -379,9 +379,9 @@ Observe que os quatro primeiros endereços IP em qualquer sub-rede são reservad
 	![Servidor de destino mestre Windows](./media/site-recovery-vmware-to-azure/ASRVMWare_TSRegister.png)
 
 8. Se você estiver executando o Linux:
-	1. Certifique-se de ter os LIS (Linux Integration Services) mais recentes instalados antes de instalar o Software do servidor de destino mestre. Você pode encontrar a versão mais recente dos LIS com instruções sobre como instalá-los [aqui](https://www.microsoft.com/pt-BR/download/details.aspx?id=46842). Reinicie a máquina após instalar os LIS.
+	1. Certifique-se de ter os LIS (Linux Integration Services) mais recentes instalados antes de instalar o Software do servidor de destino mestre. Você pode encontrar a versão mais recente dos LIS com instruções sobre como instalá-los [aqui](https://www.microsoft.com/pt-br/download/details.aspx?id=46842). Reinicie a máquina após instalar os LIS.
 	2. Em **Preparar Recursos de Destino do Azure**, clique em **Baixar e Instalar software adicional (somente para o Servidor de Destino Mestre Linux)** para baixar o pacote do servidor de destino mestre do Linux. Copie o arquivo tar baixado na máquina virtual usando um cliente sftp. Como alternativa, você pode fazer logon no servidor de destino mestre Linux implantado e usar *wget http://go.microsoft.com/fwlink/?LinkID=529757&clcid=0x409* para baixar o arquivo.
-2. Faça logon no servidor usando um cliente do Secure Shell. Observe que, se você estiver conectado à rede do Azure pela VPN, use o endereço IP interno. Caso contrário, use o endereço IP externo e o ponto de extremidade público do SSH.
+	2. Faça logon no servidor usando um cliente do Secure Shell. Observe que, se você estiver conectado à rede do Azure pela VPN, use o endereço IP interno. Caso contrário, use o endereço IP externo e o ponto de extremidade público do SSH.
 	3. Extraia os arquivos do instalador compactado executando **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64*** ![Servidor de destino mestre Linux](./media/site-recovery-vmware-to-azure/ASRVMWare_TSLinuxTar.png)
 	4. Verifique se você está no diretório no qual extraiu o conteúdo do arquivo tar.
 	5. Copie a senha do servidor de configuração para um arquivo local usando o comando **echo *`<passphrase>`* >passphrase.txt**
@@ -607,7 +607,7 @@ Os pacotes de software usados para instalar o Serviço de Mobilidade estão no s
 
 	![Instalar serviço de mobilidade](./media/site-recovery-vmware-to-azure/ASRVMWare_MobilityServiceInstall2.png)
 
-7. Especifique a senha do servidor de configuração e clique em **OK** para registrar o Serviço Mobilidade no servidor de configuração.
+7. Especifique a senha do servidor de configuração e clique em **OK** para registrar o serviço Mobilidade no servidor de configuração.
 
 **Para executar da linha de comando:**
 
@@ -615,7 +615,7 @@ Os pacotes de software usados para instalar o Serviço de Mobilidade estão no s
 
     `C:\Microsoft-ASR_UA_8.2.0.0_Windows_PREVIEW_20Mar2015_Release.exe" -ip 104.40.75.37 -port 62519 -mode UA /LOG="C:\stdout.txt" /DIR="C:\Program Files (x86)\Microsoft Azure Site Recovery" /VERYSILENT  /SUPPRESSMSGBOXES /norestart  -usesysvolumes  /CommunicationMode https /PassphrasePath "C:\connection.passphrase"`
 
-**Instalar o Serviço de Mobilidade manualmente em um servidor Linux**:
+**Instalar o serviço de Mobilidade manualmente em um servidor Linux**:
 
 1. Copie o arquivo tar apropriado, com base na tabela acima, do servidor de processo no computador de origem.
 2. Abra um programa de shell e extraia o arquivo tar compactado em um caminho local executando `tar -xvzf Microsoft-ASR_UA_8.2.0.0*`

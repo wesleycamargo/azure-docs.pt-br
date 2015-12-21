@@ -92,7 +92,7 @@ Para começar a usar o ACS (Access Control Service) no Azure, você deve criar u
 6. Se você tiver mais de uma assinatura, selecione a assinatura que você deseja usar para o namespace do ACS.
 7. Clique em **Criar**.
 
-O Windows Azure cria e ativa o namespace. Aguarde até que o status do novo namespace seja **Ativo** para continuar.
+O Microsoft Azure cria e ativa o namespace. Aguarde até que o status do novo namespace seja **Ativo** para continuar.
 
 ## Adicionar provedores de identidade
 

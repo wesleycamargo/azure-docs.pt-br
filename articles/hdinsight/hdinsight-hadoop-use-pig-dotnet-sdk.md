@@ -43,7 +43,7 @@ Para autenticar o aplicativo no Azure HDInsight, você deve criar um certificado
 
 Para obter instruções sobre como fazer isso, confira [Criar um certificado autoassinado](http://go.microsoft.com/fwlink/?LinkId=511138).
 
-> [AZURE.NOTE]Ao criar o certificado, certifique-se de observar o nome amigável usado, pois ele será usado posteriormente.
+> [AZURE.NOTE] Ao criar o certificado, certifique-se de observar o nome amigável usado, pois ele será usado posteriormente.
 
 ##<a id="subscriptionid"></a>Localizar sua ID de assinatura
 
@@ -60,7 +60,9 @@ Salve a ID da assinatura, que será usada mais tarde.
 ##<a id="create"></a>Criar o aplicativo
 
 1. Abrir o Visual Studio 2012 ou 2013
+
 2. No menu **Arquivo**, selecione **Novo** e **Projeto**.
+
 3. Para o novo projeto, digite ou selecione os valores a seguir.
 
 	<table>
@@ -81,8 +83,11 @@ Salve a ID da assinatura, que será usada mais tarde.
 <th>SubmitPigJob</th>
 </tr>
 </table>
+
 4. Clique em **OK** para criar o projeto.
+
 5. No menu **Ferramentas**, selecione **Gerenciador de Pacotes da Biblioteca** ou **Gerenciador de Pacotes NuGet** e depois selecione **Console do Gerenciador de Pacotes**.
+
 6. Execute o seguinte comando no console para instalar os pacotes do SDK do .NET.
 
 		Install-Package Microsoft.Azure.Management.HDInsight.Job -Pre
@@ -155,6 +160,7 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 
 * [Usar o Hive com Hadoop no HDInsight](hdinsight-use-hive.md)
 
-* [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md) [portal-de-visualização]: https://portal.azure.com/
+* [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
+[portal de visualização]: https://portal.azure.com/
 
 <!---HONumber=AcomDC_1210_2015-->

@@ -37,7 +37,7 @@ Para acompanhar este tutorial, você precisará:
 
 Primeiramente, você criará os objetos que o PolyBase exige para se conectar e consultar dados no armazenamento de blob do Azure.
 
-> [AZURE.IMPORTANT]Os tipos de conta de Armazenamento do Azure com suporte do PolyBase são:
+> [AZURE.IMPORTANT] Os tipos de conta de Armazenamento do Azure com suporte do PolyBase são:
 > 
 > + Armazenamento com redundância local padrão (Standard-LRS)
 > + Armazenamento com redundância geográfica padrão (Standard-GRS)
@@ -58,11 +58,14 @@ Para acessar o armazenamento de blob do Azure, você precisa criar uma credencia
 
 1. Verifique se você já tem alguma credencial de banco de dados. Para fazer isso, use o modo de exibição do sistema sys.database\_credentials em vez de sys.credentials, que mostra apenas as credenciais do servidor.
 
-    ``` - Verifique as credenciais existentes com escopo de banco de dados. SELECT * FROM sys.database\_credentials;
+    ```
+    -- Verifique as credenciais existentes com escopo de banco de dados.
+    SELECT * FROM sys.database\_credentials;
+    ```
 
-3. Use [CREATE CREDENTIAL (Transact-SQL)][] para criar uma credencial com escopo de banco de dados para cada conta de armazenamento do Azure que deseja acessar. Neste exemplo, IDENTITY é um nome amigável para a credencial. Ele não afeta a autenticação no armazenamento do Azure. SECRET é sua chave de conta de armazenamento do Azure.
+3. Use [CREATE CREDENTIAL (Transact-SQL)][] para criar uma credencial com escopo de banco de dados para cada conta de armazenamento do Azure que deseja acessar. Neste exemplo, IDENTITY é um nome amigável para a credencial. Ele não afeta a autenticação no Armazenamento do Azure. SECRET é sua chave de conta de armazenamento do Azure.
 
-    - Criar uma credencial com escopo de banco de dados CREATE DATABASE SCOPED CREDENTIAL ASBSecret WITH IDENTITY = 'joe' , Secret = '<azure_storage_account_key>' ; ```
+    -- Criar uma credencial com escopo de banco de dados CREATE DATABASE SCOPED CREDENTIAL ASBSecret WITH IDENTITY = 'joe' , Secret = '<azure_storage_account_key>' ; ```
 
 1. Se você precisar remover uma credencial com escopo de banco de dados, use [DROP CREDENTIAL (Transact-SQL)][]\:
 
@@ -134,7 +137,7 @@ A definição de tabela externa é semelhante a uma definição de tabela relaci
 
 Use [CREATE EXTERNAL TABLE (Transact-SQL)][] para definir a tabela externa.
 
-A opção LOCATION especifica o caminho para os dados a partir da raiz da fonte de dados. Neste exemplo, os dados estão localizados em 'wasbs://mycontainer@test.blob.core.windows.net/path/Demo/'. Todos os arquivos para a mesma tabela precisam estar na mesma pasta lógica no Armazenamento de Blobs do Azure.
+A opção LOCATION especifica o caminho para os dados a partir da raiz da fonte de dados. Neste exemplo, os dados estão localizados em 'wasbs://mycontainer@test.blob.core.windows.net/path/Demo/'. Todos os arquivos para a mesma tabela precisam estar na mesma pasta lógica no armazenamento de blobs do Azure.
 
 Como alternativa, você também pode especificar opções de rejeitar (REJECT\_TYPE, REJECT\_VALUE, REJECT\_SAMPLE\_VALUE) que determinam como o PolyBase manipulará os registros sujos recebidos da fonte de dados externa.
 
