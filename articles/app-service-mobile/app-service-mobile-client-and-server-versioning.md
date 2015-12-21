@@ -92,11 +92,11 @@ Observação: as SDKs do cliente dos Serviços Móveis *não* enviam um valor de
 | ---------------- | ---------------------------- | -------- |
 | Não especificado | Qualquer | 200 - OK |
 | Qualquer valor | Verdadeiro | 200 - OK |
-| Qualquer valor | Falso/não especificado | 400 - solicitação incorreta | 
+| Qualquer valor | Falso/não especificado | 400 - solicitação inválida | 
 
 ## <a name="2.0.0"></a>Servidor e cliente de Aplicativos Móveis do Azure
 
-### <a name="MobileAppsClients"></a>SDKs de cliente de *Aplicativos* Móveis
+### <a name="MobileAppsClients"></a> SDKs de cliente de *Aplicativos* Móveis
 
 A verificação de versão foi introduzida começando com as seguintes versões do SDK do cliente para **Aplicativos Móveis do Azure**:
 
@@ -109,7 +109,7 @@ A verificação de versão foi introduzida começando com as seguintes versões 
 
 <!-- TODO: add Android and HTML versions when released -->
 
-### SDK de servidor de *Aplicativos* Móveis
+### SDKs de servidor de *Aplicativos* Móveis
 
 A verificação de versão está incluída nas seguintes versões do SDK do servidor:
 
@@ -123,10 +123,10 @@ A verificação de versão está incluída nas seguintes versões do SDK do serv
 | ZUMO-API-VERSION | Valor de MS\_SkipVersionCheck | Resposta |
 | ---------------- | ---------------------------- | -------- |
 | x.y.z ou Null | Verdadeiro | 200 - OK |
-| Nulo | Falso/não especificado | 400 - solicitação incorreta |
-| 1\.x.y | Falso/não especificado | 400 - solicitação incorreta |
+| Nulo | Falso/não especificado | 400 - solicitação inválida |
+| 1\.x.y | Falso/não especificado | 400 - solicitação inválida |
 | 2\.0.0-2.x.y | Falso/não especificado | 200 - OK |
-| 3\.0.0-3.x.y | Falso/não especificado | 400 - solicitação incorreta |
+| 3\.0.0-3.x.y | Falso/não especificado | 400 - solicitação inválida |
 
 
 ## Próximas etapas
@@ -139,6 +139,6 @@ A verificação de versão está incluída nas seguintes versões do SDK do serv
 
 
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[Migrar um Serviço Móvel para o Serviço de Aplicativo do Azure]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
+[Migrar um Serviço Móvel para o Serviço de Aplicativo do Azure]: app-service-mobile-migrating-from-mobile-services.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

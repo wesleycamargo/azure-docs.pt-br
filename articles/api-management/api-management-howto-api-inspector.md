@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/14/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # Como usar o Inspetor de API para rastrear chamadas no Gerenciamento de API do Azure
@@ -34,7 +34,7 @@ Este tutorial mostra como usar o Inspetor de API para operações de rastreament
 
 
 
-Para começar, clique em **portal do desenvolvedor** no Portal do Azure para acessar o serviço de Gerenciamento de API. As operações podem ser chamadas diretamente do portal do desenvolvedor, que fornece uma maneira conveniente de exibir e testar as operações de uma API.
+Para começar, clique em **portal do desenvolvedor** no Portal Clássico do Azure para acessar o serviço de Gerenciamento de API. As operações podem ser chamadas diretamente do portal do desenvolvedor, que fornece uma maneira conveniente de exibir e testar as operações de uma API.
 
 >Se você ainda não criou uma instância do serviço de Gerenciamento de API, veja [Criar uma instância do serviço de Gerenciamento de API][] no tutorial [Introdução ao Gerenciamento de API do Azure][].
 
@@ -245,7 +245,7 @@ Para revisar os valores no rastreamento, baixe o arquivo de rastreamento da URL 
 [Introdução ao Gerenciamento de API do Azure]: api-management-get-started.md
 [Criar uma instância do serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
 [Introdução à configuração avançada de API]: api-management-get-started-advanced.md
-[Management Portal]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
 
 [api-management-developer-portal-menu]: ./media/api-management-howto-api-inspector/api-management-developer-portal-menu.png
@@ -261,4 +261,4 @@ Para revisar os valores no rastreamento, baixe o arquivo de rastreamento da URL 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

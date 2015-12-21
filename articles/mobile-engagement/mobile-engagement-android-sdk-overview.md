@@ -35,11 +35,7 @@ Clique para ver o [Conteúdo do SDK](mobile-engagement-android-sdk-content.md).
 
 ##Notas de versão
 
-##4\.1.2 (25/11/2015)
-
-- Aprimoramentos de estabilidade.
-
-##4\.1.1 (04/11/2015)
+##4\.1.3 (09/12/2015)
 
 - Aprimoramentos de estabilidade.
 
@@ -56,4 +52,4 @@ Para versões anteriores, consulte as [notas de versão completas](mobile-engage
 
 Se você já tiver integrado uma versão mais antiga do nosso SDK em seu aplicativo, consulte os [Procedimentos de Atualização](mobile-engagement-android-upgrade-procedure.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

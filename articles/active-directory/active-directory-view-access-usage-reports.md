@@ -13,22 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="12/07/2015"
 	ms.author="kenhoff;Justinha;curtand"/>
 
 
 # Exibir relatórios de acesso e uso
 
-## Artigos de documentação de relatório
-
- - [API de Relatório](active-directory-reporting-api-getting-started.md)
- - [Eventos de Auditoria](active-directory-reporting-audit-events.md)
- - [Retenção](active-directory-reporting-retention.md)
- - [Visualizações](active-directory-reporting-previews.md)
- - [Pesquisar](active-directory-reporting-search.md)
- - [Aterramento](active-directory-reporting-backfill.md)
- - [Latências](active-directory-reporting-latencies.md)
- - [Evento "Ator Desconhecido"](active-directory-reporting-unknown-actor.md)
+*Esta documentação é parte do [Guia de Relatórios do Active Directory do Azure](active-directory-reporting-guide.md).*
 
 Você pode usar os relatórios de uso e de acesso do Active Directory do Azure para obter visibilidade quanto à integridade e a segurança do diretório da sua organização. Com essas informações, um administrador de diretório pode determinar melhor onde possíveis riscos de segurança podem estar, de modo que pode fazer planos adequados para mitigar esses riscos.
 
@@ -272,7 +263,7 @@ Se você suspeitar que uma conta de usuário pode estar comprometida ou qualquer
 	- Até 1.000 eventos serão mostrados no Portal de Gerenciamento do Azure.
 5. Se aplicável, clique em **Baixar** para baixar o relatório em um arquivo compactado no formato de valores separados por vírgulas (CSV) para visualização offline ou para fins de arquivamento.
 	- Até 75.000 eventos serão incluídos no arquivo baixado.
-	- Para obter mais dados, confira a [API de Relatórios do Azure AD](active-directory-reporting-api-getting-started.md).
+	- Para obter mais dados, confira a [API de Relatórios do AD do Azure](active-directory-reporting-api-getting-started.md).
 
 ## Ignorar um evento
 
@@ -280,11 +271,11 @@ Se você estiver exibindo os relatórios de anomalias, perceba que você pode ig
 
 ## Notificações automáticas por email
 
-Para saber mais sobre as notificações de relatórios do Azure AD, confira [Notificações de relatórios do Active Directory do Azure](active-directory-reporting-notifications.md).
+Para saber mais sobre as notificações de relatórios do AD do Azure, confira [Notificações de relatórios do Active Directory do Azure](active-directory-reporting-notifications.md).
 
 ## O que vem a seguir
 
 - [Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

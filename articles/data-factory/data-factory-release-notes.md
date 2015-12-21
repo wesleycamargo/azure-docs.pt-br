@@ -263,9 +263,9 @@ As atividades do HDInsight (Hive, Pig, MapReduce, Streaming do Hadoop) oferecem 
      
 
 ## Notas da versão de 10/04/2015 da Data Factory
-Você verá as listas **Fatias atualizadas recentemente** e **Fatias com falha recente** na folha **TABELA** agora. Essas listas são classificadas segundo o horário de atualização da fatia. O horário de atualização de uma fatia é alterado nas situações a seguir.
+Você verá as listas **Fatias atualizadas recentemente** e **Fatias com falha recente** na folha **TABELA** agora. Essas listas são classificadas segundo o horário de atualização da fatia. A hora de atualização de uma fatia é alterada nas situações a seguir.
 
--  Você atualiza o status da fatia manualmente, por exemplo, usando o **Set-AzureDataFactorySliceStatus** (ou) clicando em **EXECUTAR** na folha **FATIA** da fatia.
+-  Você atualiza o status da fatia manualmente, por exemplo, usando o **Set-AzureRmDataFactorySliceStatus** (ou) clicando em **EXECUTAR** na folha **FATIA** da fatia.
 -  A fatia é alterada devido a uma execução (por exemplo, uma execução iniciada, uma execução finalizada e com falha, uma execução finalizada e bem-sucedida, etc).
 
 Clique no título das listas ou em **... (reticências)** para ver a lista maior de fatias. Clique em **Filtrar** na barra de ferramentas para filtrar as fatias.
@@ -307,7 +307,7 @@ Consulte a postagem de blog: [Atualização da Azure Data Factory - novos armaze
 - **SqlSink** dá suporte a uma nova propriedade: **WriteBatchTimeout**. Essa propriedade oferece a flexibilidade para configurar quanto tempo esperar para que a operação de inserção em lotes seja concluída antes da operação expirar. Para obter uma cópia híbrida (operação de cópia que envolve uma fonte de dados local e uma fonte de dados na nuvem), você deve ter o gateway da versão 1.4 ou superior para usar esta propriedade. 
 - O **serviço vinculado do SQL Server** agora dá suporte a **autenticação do Windows**. 
 	- Ao criar um serviço vinculado do SQL Server usando o portal, você agora pode optar por usar a autenticação do Windows e definir as credenciais apropriadas. Isso requer que você tenha o gateway de versão 1.4 ou superior. 
-	- Ao criar um serviço vinculado do SQL Server usando o PowerShell do Azure, você pode especificar informações de conexão em texto sem formatação ou criptografar as informações de conexão usando um [cmdlet New-AzureDataFactoryEncryptValue][adf-encrypt-value-cmdlet] atualizado e, em seguida, usar a cadeia de caracteres criptografada para a propriedade Cadeia de Conexão no serviço vinculado JSON. Consulte [Serviços vinculados][adf-msdn-linked-services] para obter detalhes sobre como definir um serviço vinculado em JSON. O recurso de criptografia ainda não tem suporte pelo cmdlet New-AzureDataFactoryEncryptValue. 
+	- Ao criar um serviço vinculado do SQL Server usando o Azure PowerShell, você pode especificar informações de conexão em texto sem formatação ou criptografar as informações de conexão usando um [cmdlet New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) atualizado e, em seguida, usar a cadeia de caracteres criptografada para a propriedade Cadeia de Conexão no serviço vinculado JSON. O recurso de criptografia ainda não tem suporte pelo cmdlet New-AzureRmDataFactoryEncryptValue. 
 
 ## Notas da versão de 12/11/2014 da Data Factory ##
 
@@ -316,16 +316,16 @@ Consulte a postagem de blog: [Atualização da Azure Data Factory - novos armaze
 - Integração de Aprendizado de Máquina do Azure
 	- Esta versão do serviço Azure Data Factory permite que você integre a Azure Data Factory com o AM (Aprendizado de Máquina) do Azure usando **AzureMLLinkedService** e **AzureMLBatchScoringActivity**. Consulte [Criar pipelines de previsão usando a Data Factory e o Aprendizado de Máquina do Azure][adf-azure-ml] para obter detalhes. 
 - É fornecido o status da versão do gateway
-	- O status de "NewVersionAvailable" será mostrado no Portal do Azure e na saída do cmdlet Get-AzureDataFactoryGateway, se houver uma versão mais recente do gateway disponível do que a que está instalada no momento. Você pode seguir o trajeto do portal para baixar o novo arquivo de instalação (. msi) e executá-lo para instalar o gateway mais recente. Não é necessária nenhuma configuração adicional.
+	- O status de "NewVersionAvailable" será mostrado no Portal do Azure e na saída do cmdlet Get-AzureRmDataFactoryGateway, se houver uma versão mais recente do gateway disponível do que a que está instalada no momento. Você pode seguir o trajeto do portal para baixar o novo arquivo de instalação (. msi) e executá-lo para instalar o gateway mais recente. Não é necessária nenhuma configuração adicional.
 
 ### Alterações
 
 - O JobsContainer em HdInsightOnDemandLinkedService é removido.
-	- Na definição de JSON para um HDInsightOnDemandLinkedService, você não precisa mais especificar a propriedade **jobsContainer**. Se você tiver a propriedade especificada para um serviço vinculado sob demanda, a propriedade será ignorada. Você pode remover a propriedade da definição do JSON para o serviço vinculado e atualizar a definição de serviço vinculada usando o cmdlet New-AzureDataFactoryLinkedService.
+	- Na definição de JSON para um HDInsightOnDemandLinkedService, você não precisa mais especificar a propriedade **jobsContainer**. Se você tiver a propriedade especificada para um serviço vinculado sob demanda, a propriedade será ignorada. Você pode remover a propriedade da definição do JSON para o serviço vinculado e atualizar a definição de serviço vinculada usando o cmdlet New-AzureRmDataFactoryLinkedService.
 - Parâmetros de configuração opcional para HDInsightOnDemandLinkedService
 	- Esta versão apresenta suporte para alguns parâmetros de configuração opcional para HDInsightOnDemandLinked (cluster de HDInsight sob demanda). Consulte [Propriedades ClusterCreateParameters][on-demand-hdi-parameters] para obter detalhes.
 - O gateway local foi removido
-	- Ao criar um gateway do Data Factory do Azure por meio do portal ou do PowerShell (New-AzureDataFactoryGateway), você não precisa mais especificar o local para o gateway. A região do Data Factory será herdada. Da mesma forma, para configurar um serviço vinculado do SQL Server usando JSON, a propriedade "gatewayLocation" não é mais necessária. O SDK do .NET do Data Factory também é atualizado para refletir essas alterações.
+	- Ao criar um gateway do Azure Data Factory por meio do portal ou do PowerShell (New-AzureRmDataFactoryGateway), você não precisa mais especificar o local para o gateway. A região do Data Factory será herdada. Da mesma forma, para configurar um serviço vinculado do SQL Server usando JSON, a propriedade "gatewayLocation" não é mais necessária. O SDK do .NET do Data Factory também é atualizado para refletir essas alterações.
 	- Se você usar uma versão anterior do SDK e do PowerShell do Azure, ainda será necessário que você forneça a configuração local.
  
      
@@ -357,4 +357,4 @@ Consulte a postagem de blog: [Atualização da Azure Data Factory - novos armaze
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

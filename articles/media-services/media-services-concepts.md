@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="12/05/2015" 
 	ms.author="juliako"/>
 
 #Conceitos de serviços de mídia do Azure 
@@ -67,7 +67,7 @@ Um contêiner de blob fornece um agrupamento de um conjunto de blobs. Contêiner
 
 >[AZURE.NOTE]Você não deve tentar alterar o conteúdo de contêineres de blob que foram gerados pelos serviços de mídia sem o uso de APIs de serviços de mídia.
 
-###<a id="locators">Localizadores
+###<a id="locators"></a>Localizadores
 
 Os [localizadores](https://msdn.microsoft.com/library/azure/hh974308.aspx) fornecem um ponto de entrada para acessar os arquivos contidos em um ativo. Uma política de acesso é usada para definir as permissões e a duração pela qual um cliente tem acesso a um determinado ativo. Os localizadores podem ter de uma a muitas relações com uma política de acesso, de modo que diferentes localizadores podem fornecer diferentes horas de início e tipos de conexão para diferentes clientes, ao mesmo tempo usando a mesma permissão e as mesmas configurações de duração; no entanto, devido a uma restrição de política de acesso compartilhado definida pelos serviços de armazenamento do Azure, você não pode ter mais do que cinco localizadores exclusivos associados a um determinado ativo ao mesmo tempo.
 
@@ -104,9 +104,11 @@ Para saber mais sobre codificadores com suporte, consulte [Codificadores](media-
 
 ##Transmissão ao vivo
 
-###Transcodificador ao vivo local (de terceiros)
+Nos Serviços de Mídia do Azure, um Canal representa um pipeline para processamento de conteúdo de streaming ao vivo. Um Canal recebe transmissões de entrada ao vivo de uma das duas maneiras a seguir:
 
-Um codificador ao vivo (ou transcodificador) converte o áudio e/ou vídeo que é transmitido da câmera em um formato de Smooth Streaming ou RTMP com múltiplas taxas de bits. O transcodificador então envia a taxa de bits adaptável RTMP ou Smooth Streaming em um canal dos Serviços de Mídia. Os Serviços de Mídia então transmitem o evento ao vivo.
+- Um codificador local ao vivo envia RTMP ou Smooth Streaming (MP4 fragmentado) com múltiplas taxas de bits para o Canal. Você pode usar os codificadores ao vivo a seguir, que produz Smooth Streaming com múltiplas taxas de bits: Elemental, Envivio, Cisco. Os codificadores ao vivo a seguir produzem RTMP: transcodificadores Adobe Flash Live, Telestream Wirecast e Tricaster. Os fluxos ingeridos passam por Canais sem processamento adicional. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
+
+- Um fluxo de taxa de bits única (em um dos seguintes formatos: RTP (MPEG TS)), RTMP ou Smooth Streaming (MP4 fragmentado)) é enviado para o Canal que está habilitado a realizar a codificação ativa com os Serviços de Mídia. O Canal então realiza a codificação ao vivo do fluxo de entrada com taxa de bits única em um fluxo de vídeo (adaptável) de múltiplas taxas de bits. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
 
 ###Canal
 
@@ -116,9 +118,6 @@ Você pode obter a URL de ingestão e a URL de visualização prévia quando voc
 
 Cada conta dos Serviços de Mídia pode conter vários canais, vários programas e vários StreamingEndpoints. Dependendo das necessidades de largura de banda e segurança, serviços de StreamingEndpoint podem ser dedicados a um ou mais canais. Qualquer StreamingEndpoint pode executar pull de qualquer canal.
 
-Por padrão, você pode adicionar até cinco canais à sua conta de Serviços de Mídia. Para solicitar um limite superior, consulte [Cotas e limitações](media-services-quotas-and-limitations.md).
-
-Você será cobrado apenas quando seu canal estiver em estado de execução.
 
 ###Programa 
 
@@ -128,39 +127,39 @@ ArchiveWindowLength também determina que a quantidade máxima de clientes de te
 
 Cada programa está associado um Ativo. Para publicar o programa, você deve criar um localizador para o ativo associado. Ter esse localizador permitirá que você compile um URL de transmissão que você poderá fornecer aos seus clientes.
 
-Um canal dá suporte a até três programas em execução simultânea, para que você possa criar diversos arquivos no mesmo fluxo de entrada. Isso permite que você publique e arquive diferentes partes de um evento, conforme necessário. Por exemplo, o requisito de negócios é arquivar 6 horas de um programa, mas transmitir apenas os últimos 10 minutos. Para fazer isso, você precisa criar dois programas em execução simultânea. Um programa é definido para arquivar 6 horas do evento, mas o programa não é publicado. Outro programa é definido para arquivar para 10 minutos, e esse programa é publicado.
+Um canal dá suporte a até três programas em execução simultânea, para que você possa criar diversos arquivos no mesmo fluxo de entrada. Isso permite que você publique e arquive diferentes partes de um evento, conforme necessário. Por exemplo, o requisito de negócios é arquivar 6 horas de um programa, mas transmitir apenas os últimos 10 minutos. Para fazer isso, você precisa criar dois programas em execução simultânea. Um programa é definido para arquivar 6 horas do evento, mas o programa não é publicado. Outro programa é definido para 10 minutos e esse programa é publicado.
+
+
+Para obter mais informações, confira:
+
+- [Trabalhando com canais habilitados a executar codificação ao vivo com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md)
+- [Trabalhando com Canais que recebam transmissão ao vivo de múltiplas taxas de bits de codificadores locais](media-services-manage-channels-overview.md)
+- [Cotas e limitações](media-services-quotas-and-limitations.md).  
 
 ##Proteção de conteúdo
 
 ###Criptografia dinâmica
 
-Os Serviços de Mídia do Microsoft Azure permitem distribuir o conteúdo criptografado dinamicamente com criptografia AES (padrão avançado), usando chaves de criptografia de 128 bits e PlayReady DRM.
+Os Serviços de Mídia do Azure permitem proteger a mídia desde o momento em que ela deixa computador e durante o armazenamento, processamento e entrega. Os Serviços de Mídia permitem distribuir o conteúdo criptografado dinamicamente com criptografia AES (usando chaves de criptografia de 128 bits) e CENC (criptografia comum) usando PlayReady e/ou Widevine DRM. Os serviços de mídia também fornecem um serviço de distribuição de chaves AES e licenças do PlayReady aos clientes autorizados. Atualmente, os serviços de entrega de licenças do Widevine fornecidos pelos Serviços de Mídia do Azure estão em versão de visualização.
 
 Observe que, no momento, você pode criptografar o seguintes formatos de streaming: HLS, MPEG DASH, e Smooth Streaming. Você não pode criptografar o formato de streaming HDSou fazer o download progressivo.
 
 Se você desejar que os Serviços de Mídia criptografem um ativo, você precisa associar uma chave de criptografia (CommonEncryption ou EnvelopeEncryption) ao ativo e também configurar políticas de autorização para a chave.
 
-Você também precisa configurar a política de entrega do ativo. Se você deseja transmitir um ativo de armazenamento criptografado, certifique-se de especificar como deseja entregá-lo configurando a política de entrega de ativos.
+Para transmitir por streaming de um ativo de armazenamento criptografado, você deve configurar a política de entrega do ativo para especificar como você deseja distribuir seu ativo.
 
-Quando um fluxo é solicitado por um player, os serviços de mídia usam a chave especificada para criptografar dinamicamente o conteúdo usando a criptografia AES ou PlayReady. Para descriptografar o fluxo, o player solicitará a chave do serviço de distribuição de chaves. Para decidir se o usuário está autorizado para obter a chave ou não, o serviço avalia as políticas de autorização que você especificou para a chave.
+Quando um fluxo é solicitado por um player, os Serviços de Mídia usam a chave especificada para criptografar dinamicamente o conteúdo usando criptografia de envelope (com AES) ou a criptografia comum (com PlayReady ou Widevine). Para descriptografar o fluxo, o player solicitará a chave do serviço de distribuição de chaves. Para decidir se o usuário está autorizado para obter a chave ou não, o serviço avalia as políticas de autorização que você especificou para a chave.
 
-###Serviços de entrega de licenças PlayReady DRM e chaves liberadas AES
-
-Os Serviços de Mídia também fornecem um serviço de distribuição de chaves e licenças do PlayReady aos clientes autorizados. Você pode usar o Portal Clássico do Azure, a API REST ou o SDK dos Serviços de Mídia para .NET para configurar políticas de autorização e autenticação para suas licenças e chaves.
-
-Observe que se você estiver usando o Portal, você pode configurar uma política AES (que será aplicada a todo o conteúdo criptografado do AES) e uma política do PlayReady (que será aplicada a todo o conteúdo PlayReady criptografado). Use o SDK dos Serviços de Mídia para .NET se quiser mais controle sobre as configurações.
-
-###Modelo de licença do PlayReady
-
-Os Serviços de Mídia fornecem um serviço de distribuição de licenças do PlayReady. Quando o player de usuário final (por exemplo, Silverlight) tenta reproduzir o conteúdo protegido por PlayReady, uma solicitação é enviada para o serviço de entrega de licença para obtenção de uma. Se o serviço de licença aprova a solicitação, ele emite a licença que é enviada ao cliente e pode ser usada para descriptografar e reproduzir o conteúdo especificado.
-
-As licenças contêm os direitos e restrições que você deseja que o tempo de execução do PlayReady DRM imponha quando um usuário está tentando reproduzir conteúdo protegido. Os Serviços de Mídia fornecem APIs que permitem que você configure suas licenças do PlayReady. Para obter mais informações, consulte [Visão geral do modelo de licença do PlayReady dos Serviços de Mídia](https://msdn.microsoft.com/library/azure/dn783459.aspx)
 
 ###Restrição de token
 
 A política de autorização de chave de conteúdo pode ter uma ou mais restrições de autorização: aberta, restrição de token ou restrição de IP. A política restrita do token deve ser acompanhada por um token emitido por um Secure Token Service (STS). Os serviços de mídia oferecem suporte a tokens no formato Simple Web Tokens (SWT) e no formato JSON Web Token (JWT). Os serviços de mídia não fornecem Secure Token Services. Você pode criar um STS personalizado ou usar o Microsoft Azure ACS para emitir tokens. O STS deve ser configurado para criar um token assinado com as a chave especificada e declarações de emissão que você especificou na configuração de restrição do token. O serviço de distribuição de chaves dos Serviços de Mídia retornará a chave de criptografia para o cliente se o token for válido e as declarações no token corresponderem àquelas configuradas para a chave (ou licença).
 
 Ao configurar a política restrita do token, você deve especificar os parâmetros da chave de verificação primária, emissor e audiência. A chave de verificação primária contém a chave que o token foi assinado, o emissor é o serviço de token seguro que emite o token. A audiência (às vezes chamada de escopo) descreve a intenção do token ou o recurso que o token autoriza o acesso. O serviço de distribuição de chaves dos serviços de mídia valida que esses valores no token correspondem aos valores no modelo.
+
+Para obter mais informações, consulte os seguintes artigos:
+
+[Visão geral da proteção de conteúdo](media-services-content-protection-overview.md) [Proteger com o AES-128](media-services-protect-with-aes128.md) [Proteger com DRM](media-services-protect-with-drm.md)
 
 ##Fornecimento
 
@@ -249,4 +248,4 @@ A lista a seguir descreve os diferentes formatos de streaming e fornece exemplos
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

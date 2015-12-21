@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/05/2015" 
 	ms.author="juliako"/>
 
 #Trabalhando com trabalhos do Serviços de Mídia do Azure
@@ -55,6 +55,18 @@ Monitore o andamento do trabalho usando o **Portal Clássico do Azure**, o **.NE
 
 [AZURE.INCLUDE [media-services-selector-job-progress](../../includes/media-services-selector-job-progress.md)]
 
+##Listagem 
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-manage-entities.md/#list-jobs-and-assets)
+- [REST](media-services-rest-manage-entities.md/#querying-entities)
+
+##Excluir trabalhos
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-manage-entities.md/#delete-a-job)
+- [REST](media-services-rest-manage-entities.md/##deleting-entities)
+
 ##Links relacionados
 
 [Cotas e limitações](media-services-quotas-and-limitations.md)– Descreve as cotas usadas e limitações do Codificador dos Serviços de Mídia
@@ -68,4 +80,4 @@ Monitore o andamento do trabalho usando o **Portal Clássico do Azure**, o **.NE
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

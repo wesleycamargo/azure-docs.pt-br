@@ -35,9 +35,9 @@ As transações de banco de dados elástico do BD SQL permitem que os aplicativo
 
 ## Instalação e migração
 
-Os recursos das transações de banco de dados elástico no BD SQL são fornecidos por meio de atualizações das bibliotecas .NET System.Data.dll e System.Transactions.dll. As DLLs garantem que o protocolo 2PC seja usado quando necessário para garantir a atomicidade. Para começar a desenvolver aplicativos usando as transações de banco de dados elástico, instale o [.NET 4.6.1 Release Candidate](http://blogs.msdn.com/b/dotnet/archive/2015/10/29/announcing-net-framework-4-6-1-rc.aspx) ou uma versão posterior do .NET Framework. Quando executadas em uma versão anterior do .NET Framework, as transações não serão promovidas a uma transação distribuída, e uma exceção será gerada.
+Os recursos das transações de banco de dados elástico no BD SQL são fornecidos por meio de atualizações das bibliotecas .NET System.Data.dll e System.Transactions.dll. As DLLs garantem que o protocolo 2PC seja usado quando necessário para garantir a atomicidade. Para começar a desenvolver aplicativos usando as transações de banco de dados elástico, instale o [.NET Framework 4.6.1](https://www.microsoft.com/pt-BR/download/details.aspx?id=49981) ou uma versão posterior. Quando executadas em uma versão anterior do .NET Framework, as transações não serão promovidas a uma transação distribuída, e uma exceção será gerada.
 
-Após a instalação, você pode usar as APIs de transação distribuída em System.Transactions com conexões ao BD SQL. Se você já tiver aplicativos do MSDTC usando essas APIs, basta recompilar os aplicativos existentes para o .NET 4.6 depois de instalar a versão Release Candidate. Se seus projetos visam o .NET 4.6, eles usarão automaticamente as DLLs atualizadas da Release Candidate, e as chamadas de API de transação distribuída em conjunto com as conexões ao BD SQL passarão a funcionar.
+Após a instalação, você pode usar as APIs de transação distribuída em System.Transactions com conexões ao BD SQL. Se você já tiver aplicativos do MSDTC usando essas APIs, basta recompilar os aplicativos existentes para o .NET 4.6 depois de instalar o .NET Framework 4.6.1. Se seus projetos visam o .NET 4.6, eles usarão automaticamente as DLLs atualizadas da nova versão do Framework, e as chamadas à API de transação distribuída em conjunto com as conexões ao BD SQL passarão a funcionar.
 
 Lembre-se de que as transações de banco de dados elástico não requerem a instalação do MSDTC. Em vez disso, as transações de banco de dados elástico são gerenciadas diretamente pelo BD SQL, dentro dele. Isso simplifica significativamente os cenários de nuvem, já que a implantação de um MSDTC não é necessária para o uso das transações distribuídas com o BD SQL. A Seção 4 explica detalhadamente como implantar as transações de banco de dados elástico e o .NET Framework necessário juntamente com seus aplicativos em nuvem no Azure.
 
@@ -96,7 +96,7 @@ As transações de banco de dados elástico do BD SQL também oferecem suporte a
 
 ## Configuração das funções de trabalho no Azure
 
-Você pode automatizar a instalação e a implantação da versão e das bibliotecas .NET necessárias para as transações de banco de dados elástico no Azure (no SO convidado do seu serviço de nuvem). Para funções de trabalho no Azure, use as tarefas de inicialização. Os conceitos e as etapas estão documentados em [Instalar o .NET em uma Função do Serviço de Nuvem](https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/).
+Você pode automatizar a instalação e a implantação da versão e das bibliotecas .NET necessárias para as transações de banco de dados elástico no Azure (no SO convidado do seu serviço de nuvem). Para funções de trabalho no Azure, use as tarefas de inicialização. Os conceitos e as etapas estão documentados em [Instalar o .NET em uma Função do Serviço de Nuvem](../cloud-services/cloud-services-dotnet-install-dotnet.md).
 
 Observe que o instalador do .NET 4.6.1 requer mais armazenamento temporário durante o processo de inicialização nos serviços de nuvem do Azure que o instalador para .NET 4.6. Para garantir uma instalação bem-sucedida, você precisa aumentar o armazenamento temporário para o serviço de nuvem do Azure no seu arquivo ServiceDefinition.csdef na seção LocalResources e nas configurações do ambiente de sua tarefa de inicialização, conforme mostrado no exemplo a seguir:
 
@@ -140,9 +140,9 @@ As seguintes limitações se aplicam atualmente para as transações de banco de
 
 ## Saiba mais
 
-Você ainda não está usando os recursos de banco de dados elástico nos seus aplicativos do Azure? Confira o nosso [Mapa da Documentação](https://azure.microsoft.com/documentation/articles/sql-database-elastic-scale-documentation-map/). Em caso de dúvidas, entre em contato conosco pelo fórum [Banco de Dados SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) e, para solicitações de recursos, adicione-as ao [Fórum de comentários do SQL Database](http://feedback.azure.com/forums/217321-sql-database).
+Você ainda não está usando os recursos de banco de dados elástico nos seus aplicativos do Azure? Confira o nosso [Mapa da Documentação](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/). Em caso de dúvidas, entre em contato conosco pelo fórum [Banco de Dados SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) e, para solicitações de recursos, adicione-as ao [Fórum de comentários do SQL Database](http://feedback.azure.com/forums/217321-sql-database).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

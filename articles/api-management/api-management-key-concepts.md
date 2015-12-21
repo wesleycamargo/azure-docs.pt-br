@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/05/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 #O que é Gerenciamento de API?
@@ -88,7 +88,7 @@ Para obter uma lista completa de políticas de Gerenciamento de API, consulte [R
 
 ## <a name="developer-portal"> </a> Portal do desenvolvedor
 
-O portal do desenvolvedor é onde os desenvolvedores podem aprender sobre suas operações de APIs, visualização e atendimento e assinar produtos. Clientes potenciais podem visitar o portal do desenvolvedor, exibir APIs e operações e fazer inscrição. A URL para o seu portal do desenvolvedor está localizada no painel no portal do Azure da sua instância de serviço de Gerenciamento de API.
+O portal do desenvolvedor é onde os desenvolvedores podem aprender sobre suas operações de APIs, visualização e atendimento e assinar produtos. Clientes potenciais podem visitar o portal do desenvolvedor, exibir APIs e operações e fazer inscrição. A URL para o seu portal do desenvolvedor está localizada no painel no Portal Clássico do Azure da sua instância de serviço de Gerenciamento de API.
 
 Você pode personalizar a aparência do portal do desenvolvedor adicionando conteúdo personalizado, personalização de estilo e adicionando sua marca.
 
@@ -114,4 +114,4 @@ Você pode personalizar a aparência do portal do desenvolvedor adicionando cont
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

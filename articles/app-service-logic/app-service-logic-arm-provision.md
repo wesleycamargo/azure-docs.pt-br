@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Criar um aplicativo lógico" 
+	pageTitle="Criar um aplicativo lógico usando modelos do Gerenciador de Recursos do Azure no Serviço de Aplicativo do Azure | Microsoft Azure" 
 	description="Use um modelo do Gerenciador de Recursos do Azure para implantar um Aplicativo Lógico vazio para definir fluxos de trabalho." 
 	services="app-service\logic" 
 	documentationCenter="" 
@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="12/07/2015" 
 	ms.author="tomfitz"/>
 
 # Crie um Aplicativo Lógico usando um modelo
 
-Neste tópico, você aprenderá como criar um modelo do Gerenciador de Recursos do Azure para criar um aplicativo lógico vazio que pode ser usado para definir os fluxos de trabalho. Você aprenderá como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
+Use um modelo do Gerenciador de Recursos do Azure para criar um aplicativo lógico vazio que possa ser usado para definir os fluxos de trabalho. Você pode definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
 
-Para obter mais detalhes sobre as propriedades do Aplicativo lógico, consulte [API de Gerenciamento de Fluxo de Trabalho de Aplicativo Lógico](https://msdn.microsoft.com/library/azure/dn948513.aspx). Para obter exemplos da definição em si, consulte [Criar definições de Aplicativos Lógicos](app-service-logic-author-definitions.md).
+Para obter mais detalhes sobre as propriedades do Aplicativo lógico, consulte [API de Gerenciamento de Fluxo de Trabalho de Aplicativo Lógico](https://msdn.microsoft.com/library/azure/dn948513.aspx).
+
+Para obter exemplos da definição em si, consulte [Criar definições de Aplicativos Lógicos](app-service-logic-author-definitions.md).
 
 Para obter mais informações sobre a criação de modelos, consulte [Criação de Modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
@@ -28,9 +30,9 @@ Para o modelo completo, consulte [Modelo de Aplicativo Lógico](https://github.c
 
 ## O que você implantará
 
-Neste modelo, você implantará um aplicativo lógico.
+Neste modelo, você implanta um aplicativo lógico.
 
-Para executar a implantação automaticamente, clique no seguinte botão:
+Para executar a implantação automaticamente, selecione o seguinte botão:
 
 [![Implantar no Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
@@ -75,7 +77,7 @@ Cria o aplicativo lógico.
 
 Os modelos usam um valor de parâmetro para o nome do aplicativo lógico. Ele define o local do aplicativo lógico para o mesmo local que o grupo de recursos.
 
-Essa definição específica será executada uma vez por hora e executará ping do local especificado no parâmetro **testUri**.
+Essa definição específica é executada uma vez por hora e executa ping do local especificado no parâmetro **testUri**.
 
     {
         "type": "Microsoft.Logic/workflows",
@@ -140,4 +142,4 @@ Essa definição específica será executada uma vez por hora e executará ping 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

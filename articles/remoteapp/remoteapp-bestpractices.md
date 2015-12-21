@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Práticas recomendadas do RemoteApp do Azure"
+    pageTitle="Práticas recomendadas do RemoteApp do Azure | Microsoft Azure"
     description="Práticas recomendadas para configurar e usar o RemoteApp do Azure"
     services="remoteapp"
     documentationCenter=""
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/12/2015" 
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 # Práticas recomendadas para configurar e usar o RemoteApp do Azure
@@ -42,6 +42,5 @@ As informações a seguir podem ajudá-lo a configurar e usar o RemoteApp do Azu
 	- Armazene dados compartilhados em locais de armazenamento externos para o serviço, como compartilhamentos de arquivo local ou OneDrive.
 	- Configure quaisquer configurações gerais do sistema na imagem do modelo em vez de em máquinas virtuais individuais em um serviço.
 	- Desabilite atualizações automáticas de software para aplicativos publicados - em vez disso, aplique-as manualmente à imagem do modelo e teste-as antes da implantação do modelo.
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

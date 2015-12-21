@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # Como monitorar o Cache Redis do Azure
@@ -24,11 +24,11 @@ Quando o diagnóstico de cache é habilitado, métricas para instâncias do Cach
 
 As métricas de cache são coletadas usando o comando [INFO](http://redis.io/commands/info) do Redis. Para obter mais informações sobre os diferentes comandos INFO usados para cada métrica de cache, consulte [Métricas disponíveis e intervalos de relatórios](#available-metrics-and-reporting-intervals).
 
-Para exibir as métricas de cache [procure](cache-configure.md) sua instância de cache no [portal de visualização do Azure](https://portal.azure.com). As métricas para instâncias do Cache Redis do Azure são acessadas na folha do **Cache Redis**.
+Para exibir as métricas de cache [procure](cache-configure.md) sua instância de cache no [Portal do Azure](https://portal.azure.com). As métricas para instâncias do Cache Redis do Azure são acessadas na folha do **Cache Redis**.
 
 ![Monitoramento][redis-cache-monitor-overview]
 
->[AZURE.IMPORTANT]Se a mensagem a seguir for exibida no portal de visualização, siga as etapas na seção [Habilitar o diagnóstico de cache](#enable-cache-diagnostics) para habilitar o diagnóstico de cache.
+>[AZURE.IMPORTANT]Se a mensagem a seguir for exibida no Portal do Azure, siga as etapas na seção [Habilitar o diagnóstico de cache](#enable-cache-diagnostics) para habilitar o diagnóstico de cache.
 >
 >`Monitoring may not be enabled. Click here to turn on Diagnostics.`
 
@@ -36,7 +36,7 @@ A folha do **Cache Redis** tem gráficos de **Monitoramento** e **Uso** que exib
 
 ## Habilitar o diagnóstico de cache
 
-O Cache Redis do Azure fornece a capacidade de ter dados de diagnóstico armazenados em uma conta de armazenamento para que você possa usar as ferramentas desejadas para acessar e processar os dados diretamente. Para que o diagnóstico de cache seja coletado, armazenado e exibido no portal de visualização do Azure, uma conta de armazenamento deve ser configurada. Os caches na mesma região e assinatura compartilham a mesma conta de armazenamento de diagnóstico e, quando a configuração é alterada, se aplica a todos os caches na assinatura que estão nessa região.
+O Cache Redis do Azure fornece a capacidade de ter dados de diagnóstico armazenados em uma conta de armazenamento para que você possa usar as ferramentas desejadas para acessar e processar os dados diretamente. Para que o diagnóstico de cache seja coletado, armazenado e exibido no Portal do Azure, uma conta de armazenamento deve ser configurada. Os caches na mesma região e assinatura compartilham a mesma conta de armazenamento de diagnóstico e, quando a configuração é alterada, se aplica a todos os caches na assinatura que estão nessa região.
 
 Para habilitar e configurar o diagnóstico de cache, navegue até a folha do **Cache Redis** de sua instância de cache. Se o diagnóstico ainda não estiver habilitado, uma mensagem será exibida em vez de um gráfico de diagnóstico.
 
@@ -56,9 +56,9 @@ Quando as configurações de diagnóstico estiverem definidas, clique em **Salva
 
 >[AZURE.IMPORTANT]Os caches na mesma região e assinatura compartilham a mesma conta de armazenamento de diagnóstico e, quando a configuração é alterada, se aplica a todos os caches na assinatura que estão nessa região.
 
-Para exibir as métricas armazenadas, examine as tabelas em sua conta de armazenamento com nomes que começam com `WADMetrics`. Para obter mais informações sobre como acessar as métricas armazenadas fora do portal de visualização, consulte o exemplo [Acessar dados de monitoramento do Cache Redis](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring).
+Para exibir as métricas armazenadas, examine as tabelas em sua conta de armazenamento com nomes que começam com `WADMetrics`. Para obter mais informações sobre como acessar as métricas armazenadas fora do Portal do Azure, consulte o exemplo [Acessar dados de monitoramento do Cache Redis](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring).
 
->[AZURE.NOTE]Apenas as métricas que estão armazenadas na conta de armazenamento selecionada são exibidas no portal de visualização. Se você alterar contas de armazenamento, os dados na conta de armazenamento configurada anteriormente permanecerão disponíveis para download, mas não serão exibidos no portal de visualização.
+>[AZURE.NOTE]Apenas as métricas que estão armazenadas na conta de armazenamento selecionada são exibidas no Portal do Azure. Se você alterar contas de armazenamento, os dados na conta de armazenamento configurada anteriormente permanecerão disponíveis para download, mas não serão exibidos no Portal do Azure.
 
 ## Métricas disponíveis e intervalos de relatórios
 
@@ -259,4 +259,4 @@ Para obter mais informações sobre os alertas no Azure, consulte [Receber notif
 
 [redis-cache-premium-point-shard]: ./media/cache-how-to-monitor/redis-cache-premium-point-shard.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

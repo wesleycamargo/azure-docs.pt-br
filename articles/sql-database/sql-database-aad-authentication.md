@@ -153,42 +153,41 @@ Para remover o administrador mais tarde, na parte superior da folha **Administra
 
 ### Provisionar um administrador do AD do Azure para o Azure SQL Server usando o PowerShell 
 
-> [AZURE.IMPORTANT]A partir da liberação do Azure PowerShell 1.0 Preview, o cmdlet Switch-AzureMode não é mais necessário, e os cmdlets contidos no módulo do Gerenciador de Recursos do Azure foram renomeados. Os exemplos neste artigo usam a nova convenção de nomenclatura do PowerShell 1.0 Preview. Para obter informações detalhadas, consulte [Substituição de Switch-AzureMode no Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
 
-Para executar os cmdlets do PowerShell, você precisará ter o Azure PowerShell instalado e em execução e, devido à remoção de Switch-AzureMode, você deverá baixar e instalar o Azure PowerShell mais recente executando o [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
+Para executar os cmdlets do PowerShell, você precisa ter o Azure PowerShell instalado e em execução. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 
 Para provisionar um administrador do AD do Azure, você deve executar os seguintes comandos do Azure PowerShell:
 
-- Add-AzureAccount
-- Select-AzureSubscription
+- Add-AzureRmAccount
+- Select-AzureRmSubscription
 
 
 Cmdlets usados para provisionar e gerenciar o administrador do AD do Azure:
 
 | Nome do cmdlet | Descrição |
 |---------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
-| [Set-AzureRMSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt603544.aspx) | Configura um administrador do Active Directory do Azure para o Azure SQL Server. (Precisa ser da assinatura atual.) |
-| [Remove-AzureRMSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt619340.aspx) | Remove um administrador do Active Directory do Azure para o Azure SQL Server. |
-| [Get-AzureRMSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt603737.aspx) | Retorna informações sobre um administrador do Active Directory do Azure atualmente configurado para o Azure SQL Server. |
+| [Set-AzureRmSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt603544.aspx) | Configura um administrador do Active Directory do Azure para o Azure SQL Server. (Precisa ser da assinatura atual.) |
+| [Remove-AzureRmSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt619340.aspx) | Remove um administrador do Active Directory do Azure para o Azure SQL Server. |
+| [Get-AzureRmSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt603737.aspx) | Retorna informações sobre um administrador do Active Directory do Azure atualmente configurado para o Azure SQL Server. |
 
-Use o comando get-help do PowerShell para ver mais detalhes sobre cada um desses comandos, por exemplo, ``get-help Set-AzureRMSqlServerActiveDirectoryAdministrator``.
+Use o comando get-help do PowerShell para ver mais detalhes sobre cada um desses comandos, por exemplo, ``get-help Set-AzureRmSqlServerActiveDirectoryAdministrator``.
 
 O seguinte script provisiona um grupo de administradores do Azure AD chamado **DBA\_Group** (ID de objeto `40b79501-b343-44ed-9ce7-da4c8cc7353f`) para o servidor **demo\_server** em um grupo de recursos chamado **Group-23**:
 
 ```
-Set-AzureRMSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" 
+Set-AzureRmSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" 
 –ServerName "demo_server" -DisplayName "DBA_Group"
 ```
 
-O parâmetro de entrada **DisplayName** aceita o nome para exibição do Azure AD ou o Nome UPN. Por exemplo, ``DisplayName="John Smith"`` e ``DisplayName="johns@contoso.com"``. Para grupos do AD do Azure, há suporte apenas para o nome de exibição do AD do Azure.
+O parâmetro de entrada **DisplayName** aceita o nome de exibição do Azure AD ou o Nome UPN. Por exemplo, ``DisplayName="John Smith"`` e ``DisplayName="johns@contoso.com"``. Para grupos do AD do Azure, há suporte apenas para o nome de exibição do AD do Azure.
 
-> [AZURE.NOTE]O comando ```Set-AzureRMSqlServerActiveDirectoryAdministrator``` do Azure PowerShell não impedirá que você provisione administradores do Azure AD para usuários para os quais não há suporte. Um usuário para o qual não há suporte pode ser provisionado, mas não poderá se conectar a um banco de dados. (Consulte a lista de administradores com suporte em **Limitações e recursos do AD do Azure** acima.)
+> [AZURE.NOTE]O comando ```Set-AzureRmSqlServerActiveDirectoryAdministrator``` do Azure PowerShell não impede que você provisione administradores do Azure AD para usuários para os quais não há suporte. Um usuário para o qual não há suporte pode ser provisionado, mas não poderá se conectar a um banco de dados. (Consulte a lista de administradores com suporte em **Limitações e recursos do AD do Azure** acima.)
 
 O seguinte exemplo usa a **ObjectID** opcional:
 
 ```
-Set-AzureRMSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" 
+Set-AzureRmSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" 
 –ServerName "demo_server" -DisplayName "DBA_Group" -ObjectId "40b79501-b343-44ed-9ce7-da4c8cc7353f"
 ```
 
@@ -197,11 +196,11 @@ Set-AzureRMSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23"
 O exemplo a seguir retorna informações sobre o administrador atual do AD do Azure para o Azure SQL Server:
 
 ```
-Get-AzureRMSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" –ServerName "demo_server" | Format-List
+Get-AzureRmSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" –ServerName "demo_server" | Format-List
 ```
 
 O seguinte exemplo remove um administrador do Azure AD: ```
-Remove-AzureRMSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" –ServerName "demo_server"
+Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" –ServerName "demo_server"
 ```
 
 ## 5\. Configurar os computadores cliente
@@ -222,7 +221,7 @@ Em todos os computadores cliente, dos quais seus aplicativos ou usuários se con
 
 ### Sobre usuários de bancos de dados independentes
 
-A autenticação do Active Directory do Azure exige que os usuários do banco de dados sejam criados como usuários do banco de dados independente. Um usuário de banco de dados independente com base em uma identidade do AD do Azure é um usuário de banco de dados que não tem um logon no banco de dados mestre e que mapeia para uma identidade no diretório do AD do Azure que está associada ao banco de dados. A identidade do AD do Azure pode ser uma conta de usuário individual ou um grupo. Para obter mais informações sobre usuários de bancos de dados independentes, veja [Usuários do bancos de dados independentes - Tornando seu banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx). Os usuários do banco de dados (com a expectativa dos administradores) não podem ser criados usando o portal, e as funções RBAC não são propagadas para o SQL Server.
+A autenticação do Active Directory do Azure exige que os usuários do banco de dados sejam criados como usuários do banco de dados independente. Um usuário de banco de dados independente com base em uma identidade do AD do Azure é um usuário de banco de dados que não tem um logon no banco de dados mestre e que mapeia para uma identidade no diretório do AD do Azure que está associada ao banco de dados. A identidade do AD do Azure pode ser uma conta de usuário individual ou um grupo. Para saber mais sobre usuários de bancos de dados independentes, veja [Usuários do bancos de dados independentes - Tornando seu banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx). Os usuários do banco de dados (com a expectativa dos administradores) não podem ser criados usando o portal, e as funções RBAC não são propagadas para o SQL Server.
 
 ### Conectar-se ao banco de dados de usuário usando o SQL Server Management Studio
  
@@ -257,7 +256,7 @@ Para criar um usuário de banco de dados independente baseado no Azure AD (que n
 	FROM EXTERNAL PROVIDER;
 
 
-*Azure\_AD\_principal\_name* pode ser o nome UPN de um usuário do Azure AD ou o nome para exibição de um grupo do Azure AD.
+*Azure\_AD\_principal\_name* pode ser o nome UPN de um usuário do Azure AD ou o nome de exibição de um grupo do Azure AD.
 
 **Exemplos:** para criar um usuário de banco de dados independente que representa um usuário de domínio federado ou gerenciado pelo Azure AD:
 
@@ -269,11 +268,11 @@ Para criar um usuário de banco de dados independente representando um grupo de 
 	CREATE USER [Nurses] FROM EXTERNAL PROVIDER;
 
 
-Para obter mais informações sobre como criar usuários de bancos de dados independentes baseados em identidades do Active Directory do Azure, veja [CREATE USER (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx).
+Para saber mais sobre como criar usuários de bancos de dados independentes baseados em identidades do Active Directory do Azure, confira [CREATE USER (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx).
 
-Quando você cria um usuário de banco de dados, o usuário recebe a permissão **CONNECT** e pode se conectar a esse banco de dados como membro da função **PUBLIC**. Inicialmente, as únicas permissões disponíveis para o usuário são as permissões concedidas à função **PUBLIC** ou as permissões concedidas a quaisquer grupos do Windows dos quais esse usuário faz parte. A partir do momento que você provisionar um usuário de banco de dados independente baseado no AD do Azure, você pode conceder ao usuário permissões adicionais, do mesmo modo que você concede permissões para qualquer outro tipo de usuário. Normalmente, conceda permissões para funções de banco de dados e adicione usuários a funções. Para obter mais informações, veja [Noções básicas sobre permissões do Mecanismo de Banco de Dados](http://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). Para obter mais informações sobre funções especiais do Banco de dados SQL, veja [Gerenciando bancos de dados e logons no Banco de Dados SQL do Azure](sql-database-manage-logins.md). Um usuário de domínio federado que é importado para um domínio gerenciado deve usar a identidade do domínio gerenciado.
+Quando você cria um usuário de banco de dados, o usuário recebe a permissão **CONNECT** e pode se conectar a esse banco de dados como membro da função **PUBLIC**. Inicialmente, as únicas permissões disponíveis para o usuário são as permissões concedidas à função **PUBLIC** ou as permissões concedidas a quaisquer grupos do Windows dos quais esse usuário faz parte. A partir do momento que você provisionar um usuário de banco de dados independente baseado no AD do Azure, você pode conceder ao usuário permissões adicionais, do mesmo modo que você concede permissões para qualquer outro tipo de usuário. Normalmente, conceda permissões para funções de banco de dados e adicione usuários a funções. Para saber mais, confira [Noções básicas sobre permissões do Mecanismo de Banco de Dados](http://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). Para saber mais sobre funções especiais do Banco de Dados SQL, confira [Gerenciando bancos de dados e logons no Banco de Dados SQL do Azure](sql-database-manage-logins.md). Um usuário de domínio federado que é importado para um domínio gerenciado deve usar a identidade do domínio gerenciado.
 
-> [AZURE.NOTE]Usuários do AD do Azure são marcados nos metadados do banco de dados com tipo E (EXTERNAL\_USER) e para grupos com o tipo X (EXTERNAL\_GROUPS). Para obter mais informações, veja [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
+> [AZURE.NOTE]Usuários do AD do Azure são marcados nos metadados do banco de dados com tipo E (EXTERNAL\_USER) e para grupos com o tipo X (EXTERNAL\_GROUPS). Para saber mais, confira [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
 
 
 ## 7\. Conectar-se ao banco de dados usando identidades do Active Directory do Azure
@@ -327,4 +326,4 @@ Para exemplos de código específicos relacionados à autenticação do Azure AD
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="12/03/2015"
 	ms.author="mandia"/>
 
 
@@ -67,10 +67,10 @@ Nome | Descrição
 [BizTalk X12](app-service-logic-connector-x12.md) | Recebe e envia mensagens usando o protocolo X12 em comunicações entre empresas.
 [Validador de XML do BizTalk](app-service-logic-xml-validator.md) | Valida os dados XML com relação a esquemas XML predefinidos. Você pode usar esquemas existentes ou gerar esquemas com base em uma instância de arquivo simples, instância JSON ou em conectores existentes.
 [Extrator de XPath do BizTalk](app-service-logic-xpath-extract.md) | Procura e extrai dados de conteúdo XML com base em um XPath que você escolher.
-Conector do DB2 | Conecta-se a um banco de dados IBM DB2, local e em uma máquina virtual do Azure executando um sistema operacional Windows. Ele pode mapear operações de API Web e OData para comandos de Linguagem de Consulta Estruturada Informix. <br/><br/>Sem gatilhos. As ações incluem as instruções de tabela selecionar, inserir, atualizar, excluir e personalizar<br/><br/>Esse conector também inclui o Microsoft Client para DRDA para conectar a um servidor Informix em uma rede TCP/IP.
+[Conector do DB2](app-service-logic-connector-db2.md) | Conecta-se a um banco de dados IBM DB2, local e em uma máquina virtual do Azure executando um sistema operacional Windows. Ele pode mapear operações de API Web e OData para comandos de Linguagem de Consulta Estruturada Informix. <br/><br/>Sem gatilhos. As ações incluem as instruções de tabela selecionar, inserir, atualizar, excluir e personalizar<br/><br/>Esse conector também inclui o Microsoft Client para DRDA para conectar a um servidor Informix em uma rede TCP/IP.
 [Arquivo](app-service-logic-connector-file.md) | Usando esse conector, você pode se conectar ao sistema de arquivos local ou em rede e concluir diferentes tarefas de arquivo, incluindo carregar, excluir, listar arquivos e muito mais.
 [FTP<br/>FTPS](app-service-logic-connector-ftp.md) | Conecta-se a um servidor FTP / FTPS e executa tarefas FTP diferentes, incluindo carregar, obter, excluir arquivos e muito mais.
-Informix | Conecta-se a um banco de dados IBM Informix, local e em uma máquina virtual do Azure executando um sistema operacional Windows. Ele pode mapear operações de API Web e OData para comandos de Linguagem de Consulta Estruturada Informix.<br/><br/>Sem gatilhos. As ações incluem as instruções de tabela selecionar, inserir, atualizar, excluir e personalizar.<br/><br/>Ao usar localmente, a Rota Expressa do Azure ou a VPN podem ser usadas. Esse conector também inclui um Microsoft Client para DRDAA para conectar a um servidor do Informix em uma rede TCP/IP.
+[Informix](app-service-logic-connector-informix.md) | Conecta-se a um banco de dados IBM Informix, local e em uma máquina virtual do Azure executando um sistema operacional Windows. Ele pode mapear operações de API Web e OData para comandos de Linguagem de Consulta Estruturada Informix.<br/><br/>Sem gatilhos. As ações incluem as instruções de tabela selecionar, inserir, atualizar, excluir e personalizar.<br/><br/>Ao usar localmente, a Rota Expressa do Azure ou a VPN podem ser usadas. Esse conector também inclui um Microsoft Client para DRDAA para conectar a um servidor do Informix em uma rede TCP/IP.
 [Microsoft SQL Server](app-service-logic-connector-sql.md) | Conecta-se ao SQL Server local ou a um Banco de Dados SQL do Azure. Você pode criar, atualizar, obter e excluir entradas em uma tabela de banco de dados SQL.
 MQ | Conecta-se ao IBM WebSphere MQ Server versão 8, localmente e em uma máquina virtual do Azure executando um sistema operacional Windows. Ao usar localmente, a Rota Expressa do Azure ou a VPN podem ser usadas. O conector também inclui o Microsoft Client para MQ.<br/><br/>Sem gatilhos. Sem ações.<br/><br/>**Observação** Atualmente não pode ser usado com Aplicativos Lógicos.
 [Banco de Dados do Oracle](app-service-logic-connector-oracle.md) | Conecta-se ao banco de dados do Oracle no local e pode criar, atualizar, obter e excluir as entradas em uma tabela de banco de dados.
@@ -94,4 +94,4 @@ Os conectores também podem ser usados como ações dentro do Aplicativo Lógico
 ## Mais informações sobre conectores e aplicativos de API
 [O que são aplicativos de API do BizTalk e conectores](app-service-logic-what-are-biztalk-api-apps.md) [Usando o Gerenciador de Conexão Híbrida no Serviço de Aplicativo do Azure](app-service-logic-hybrid-connection-manager.md) [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

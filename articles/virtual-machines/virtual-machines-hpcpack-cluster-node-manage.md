@@ -31,18 +31,19 @@ Se você criou um cluster HPC Pack em VMs do Azure, pode ser conveniente encontr
 
 * **Certificado de gerenciamento ou arquivo de configurações de publicação do Azure** - Você precisa fazer o seguinte no nó de cabeçalho:
 
-    * **Importe o arquivo de configurações de publicação do Azure**. Para fazer isso, execute os seguintes cmdlets do Azure PowerShell no nó de cabeçalho: ```
-        Get-AzurePublishSettingsFile  
-Import-AzurePublishSettingsFile –PublishSettingsFile <publish settings file>
-        ```
+    * **Importe o arquivo de configurações de publicação do Azure**. Para fazer isso, execute os seguintes cmdlets do Azure PowerShell no nó de cabeçalho:
+
+    ```
+    Get-AzurePublishSettingsFile 
+         
+    Import-AzurePublishSettingsFile –PublishSettingsFile <publish settings file>
+    ```
+    
     * **Configure o certificado de gerenciamento do Azure no nó de cabeçalho**. Se você tiver o arquivo .cer, importe-o no repositório de certificados CurrentUser\\My e, em seguida, execute o seguinte cmdlet do Azure PowerShell para seu ambiente do Azure (AzureCloud ou AzureChinaCloud):
 
     ```
     Set-AzureSubscription -SubscriptionName <Sub Name> -SubscriptionId <Sub ID> -Certificate (Get-Item Cert:\CurrentUser\My<Cert Thrumbprint>) -Environment <AzureCloud | AzureChinaCloud>
     ```
-
-
-
 
 ## Adicionar VMs de nó de computação
 
@@ -178,4 +179,4 @@ Stop-HPCIaaSNode.ps1 –Name HPCNodeCN-* -Force
 
 * Se desejar uma maneira de aumentar ou reduzir automaticamente os recursos de computação do Azure de acordo com a atual carga de trabalho de trabalhos e tarefas no cluster, veja [Aumentar e reduzir os recursos de computação do Azure em um cluster HPC Pack](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -33,7 +33,7 @@ Para começar, você precisa do seguinte:
 
 No portal do Azure, copie a cadeia de conexão SAS da raiz do Barramento de Serviço. Essa cadeia de conexão conecta o conector do Azure ao seu sistema local.
 
-1. No [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885), selecione o namespace do Barramento de Serviço e selecione **Informações de Conexão**:
+1. No [Portal clássico do Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885), selecione o namespace do Barramento de Serviço e selecione **Informações de Conexão**:
 
 	![][SB_ConnectInfo]
 
@@ -43,7 +43,7 @@ No portal do Azure, copie a cadeia de conexão SAS da raiz do Barramento de Serv
 
 ## Instalar o Gerenciador de Conexão Híbrida
 
-1. Na visualização do [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), selecione o conector que você criou. Para abri-lo, você pode selecionar **Procurar**, selecionar **Aplicativos de API** e selecionar o conector ou aplicativo de API. <br/><br/> Em **Conexão híbrida**, a configuração está **incompleta**: <br/> ![][2] 
+1. No [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), selecione o conector que você criou. Para abri-lo, você pode selecionar **Procurar**, selecionar **Aplicativos de API** e selecionar o conector ou aplicativo de API. <br/><br/> Em **Conexão híbrida**, a configuração está **incompleta**: <br/> ![][2] 
 
 2. Selecione **Conexão híbrida**. A cadeia de conexão do Barramento de Serviço inserida anteriormente é listada.
 3. Copie a **cadeia de configuração principal**: <br/> ![][PrimaryConfigString]
@@ -98,7 +98,7 @@ Porta do sistema local | No sistema local, abra a porta usada pelo sistema. Por 
 
 
 
-### No portal do Azure
+### No Portal clássico do Azure
 
 1. Confirme se o namespace do Barramento de Serviço está em estado **Ativo**.
 2. Ao criar o conector, insira a cadeia de conexão SAS do Barramento de Serviço. Não insira a cadeia de conexão do ACS.
@@ -133,4 +133,4 @@ Se sua API personalizada usar uma porta TCP ou HTTP, você poderá usar [conexõ
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

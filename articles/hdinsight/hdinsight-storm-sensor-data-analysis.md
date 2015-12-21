@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/23/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 # Analisar dados de sensor com o Apache Storm e com o HBase no HDInsight (Hadoop)
@@ -422,4 +422,4 @@ Você agora aprendeu a usar o Storm para ler dados do Hub de Eventos, armazenar 
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

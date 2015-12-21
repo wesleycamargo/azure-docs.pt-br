@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/05/2015" 
 	ms.author="juliako"/>
 
 
@@ -29,7 +29,7 @@ Ao criar um novo ativo (por exemplo, antes de [carregar arquivos](media-services
 
 Quando você fornece ativos para seus clientes, você pode [configurar para que os ativos sejam criptografados](media-services-dotnet-configure-asset-delivery-policy.md) dinamicamente com uma das duas criptografias a seguir: **DynamicEnvelopeEncryption** ou **DynamicCommonEncryption**.
 
-Os ativos criptografados precisam ser associados ao **ContentKey**s. Este artigo descreve como criar uma chave de conteúdo.
+Os ativos criptografados precisam ser associados a **ContentKey**s. Este artigo descreve como criar uma chave de conteúdo.
 
 >[AZURE.NOTE]Ao criar um novo ativo **StorageEncrypted** usando o SDK do .NET dos Serviços de Mídia, a **ContentKey** é automaticamente criada e vinculada ao ativo.
 
@@ -37,9 +37,6 @@ Os ativos criptografados precisam ser associados ao **ContentKey**s. Este artigo
 
 Um dos valores que você deve definir ao criar um conteúdo da chave é o tipo de chave de conteúdo. Escolha um dos seguintes valores.
 
-    /// <summary>
-    /// Specifies the type of a content key.
-    /// </summary>
     public enum ContentKeyType
     {
         /// <summary>
@@ -54,9 +51,14 @@ Um dos valores que você deve definir ao criar um conteúdo da chave é o tipo d
         StorageEncryption = 1,
 
         /// <summary>
-        /// Specifies a content key for encrypting encoding configuration data that may contain sensitive preset information. 
+        /// Specifies a content key for configuration encryption.
         /// </summary>
         ConfigurationEncryption = 2,
+
+        /// <summary>
+        /// Specifies a content key for Envelope encryption.  Only used internally.
+        /// </summary>
+        EnvelopeEncryption = 4
     }
 
 ##<a id="envelope_contentkey"></a>Criar um tipo de envelope de ContentKey
@@ -144,4 +146,4 @@ chamada
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

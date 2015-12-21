@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="javascript" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/17/2015" 
+	ms.date="12/01/2015" 
 	ms.author="ricksal"/>
 
 
@@ -89,7 +89,7 @@ Todos os scripts de servidor possuem uma função principal e podem ter funçõe
 
 Você pode definir scripts de servidor que são registrados para uma operação de tabela em uma das seguintes maneiras:
 
-+ No [portal clássico do Azure]. Scripts para operações de tabela são acessadas na guia **Scripts** de uma determinada tabela. Aqui é mostrado o código padrão registrado para o script de inserção da tabela `TodoItem`. Você pode substituir esse código pela sua própria lógica de negócios personalizada.
++ No [Portal clássico do Azure]. Scripts para operações de tabela são acessadas na guia **Scripts** de uma determinada tabela. Aqui é mostrado o código padrão registrado para o script de inserção da tabela `TodoItem`. Você pode substituir esse código pela sua própria lógica de negócios personalizada.
 
 	![1][1]
 	
@@ -289,7 +289,7 @@ Em JavaScript é uma versão compacta do equivalente mais demorado:
 
 ###<a name="work-with-users"></a>Como trabalhar com usuários
 
-Nos Serviços Móveis do Azure, você pode usar um provedor de identidade para autenticar usuários. Para obter mais informações, consulte [Comece a usar a autenticação]. Quando um usuário autenticado chama uma operação de tabela, os Serviços Móveis usam o [objeto de usuário] para fornecer informações sobre o usuário para a função de script registrado. A propriedade **userId** pode ser usada para armazenar e recuperar informações específicas do usuário. O exemplo a seguir define a propriedade do proprietário de um item com base no userId de um usuário autenticado:
+Nos Serviços Móveis do Azure, você pode usar um provedor de identidade para autenticar usuários. Para obter mais informações, consulte [Comece a usar a autenticação]. Quando um usuário autenticado chama uma operação de tabela, os Serviços Móveis usam o [objeto de usuário] para fornecer informações sobre o usuário para a função de script registrado. A propriedade **userId** pode ser usada para armazenar e recuperar informações específicas do usuário. O exemplo a seguir define a propriedade do proprietário de um item com base no **userId** de um usuário autenticado:
 
 	function insert(item, user, request) {
 	    item.owner = user.userId;
@@ -336,7 +336,7 @@ O estado global é mantido entre as execuções.
 
 Você pode definir scripts de servidor que são registrados para métodos HTTP em um ponto de extremidade de API personalizada em uma das seguintes maneiras:
 
-+ No [portal clássico do Azure]. Scripts de API personalizadas são criados e modificados na guia **API**. O código de script de servidor está na guia **Scripts** de uma determinada API personalizada. Aqui está o script invocado por uma solicitação POST para o ponto de extremidade da API personalizada `CompleteAll`. 
++ No [Portal clássico do Azure]. Scripts de API personalizadas são criados e modificados na guia **API**. O código de script de servidor está na guia **Scripts** de uma determinada API personalizada. Aqui está o script invocado por uma solicitação POST para o ponto de extremidade da API personalizada `CompleteAll`. 
 
 	![2][2]
 	
@@ -378,7 +378,7 @@ Esta função de API personalizada é chamada por uma solicitação HTTP GET par
 
 Nos Serviços Móveis do Azure, você pode usar um provedor de identidade para autenticar usuários. Para obter mais informações, consulte [Comece a usar a autenticação]. Quando um usuário autenticado solicita uma API personalizada, os Serviços Móveis usam o [objeto de usuário] para fornecer informações sobre o usuário para o código de API personalizada. O [objeto de usuário] é acessado a partir da propriedade do usuário do [objeto de solicitação]. A propriedade **userId** pode ser usada para armazenar e recuperar informações específicas do usuário.
 
-A seguinte função de API personalizada **OrderPizza** define a propriedade do proprietário de um item com base no userId de um usuário autenticado:
+A seguinte função de API personalizada **OrderPizza** define a propriedade do proprietário de um item com base no **userId** de um usuário autenticado:
 
 		exports.post = function(request, response) {
 			var userTable = request.service.tables.getTable('user');
@@ -443,17 +443,17 @@ As duas rotas no exemplo acima de API personalizada podem ser chamadas por solic
 
 ##<a name="scheduler-scripts"></a>Agendador de Trabalhos
 
-Os Serviços Móveis permitem que você defina os scripts de servidor que são executados como trabalhos em um agendamento fixo ou sob demanda do portal clássico do Azure. Trabalhos agendados são úteis para a execução de tarefas periódicas como limpeza de dados de tabela e processamento em lote. Para obter mais informações, consulte [Agendar trabalhos].
+Os Serviços Móveis permitem que você defina os scripts de servidor que são executados como trabalhos em um agendamento fixo ou sob demanda do Portal clássico do Azure. Trabalhos agendados são úteis para a execução de tarefas periódicas como limpeza de dados de tabela e processamento em lote. Para obter mais informações, consulte [Agendar trabalhos].
 
 Scripts registrados para trabalhos agendados têm uma função principal com o mesmo nome que trabalho. Como um script agendado não é chamado por uma solicitação HTTP, não há nenhum contexto que possa ser transmitido pelo tempo de execução do servidor e a função não usa nenhum parâmetro. Como outros tipos de scripts, você pode ter funções de sub-rotina e requerem que os módulos sejam compartilhados. Para obter mais informações, consulte [Controle do código-fonte, código compartilhado e funções do auxiliar].
 
 ###<a name="scheduler-scripts"></a>Como definir scripts de trabalho agendados
 
-Um script de servidor pode ser atribuído a um trabalho que está definido no Agendador dos Serviços Móveis. Esses scripts pertencem ao trabalho e são executados de acordo com o plano de trabalho. (Você também pode usar o [portal clássico do Azure] para executar trabalhos sob demanda.) Um script que define um trabalho agendado não tem parâmetros porque os Serviços Móveis não transmitem nenhum dado; ele é executado como uma função JavaScript normal e não interage diretamente com os Serviços Móveis.
+Um script de servidor pode ser atribuído a um trabalho que está definido no Agendador dos Serviços Móveis. Esses scripts pertencem ao trabalho e são executados de acordo com o plano de trabalho. (Você também pode usar o [Portal clássico do Azure] para executar trabalhos sob demanda.) Um script que define um trabalho agendado não tem parâmetros porque os Serviços Móveis não transmitem nenhum dado; ele é executado como uma função JavaScript normal e não interage diretamente com os Serviços Móveis.
 
 Você pode definir os trabalhos agendados das seguintes maneiras:
 
-+ No [portal clássico do Azure] na guia **Script** do agendador:
++ No [Portal clássico do Azure] na guia **Script** do agendador:
 
 	![3][3]
 
@@ -924,7 +924,7 @@ A principal maneira para depurar e solucionar problemas de scripts de servidor �
 
 Para gravar nos logs, use o [objeto console] global. Use a função **log** ou **info** para registrar avisos de nível de informação. As funções **warning** e **error** registram seus respectivos níveis, que são chamados nos logs.
 
-> [AZURE.NOTE]Para exibir os logs do serviço móvel, faça logon no [portal clássico do Azure](https://manage.windowsazure.com/), selecione o serviço móvel e escolha a guia **Logs**.
+> [AZURE.NOTE]Para exibir os logs do serviço móvel, faça logon no [Portal clássico do Azure](https://manage.windowsazure.com/), selecione o serviço móvel e escolha a guia **Logs**.
 
 Você também pode usar as funções de registro do [objeto de console] para formatar suas mensagens usando parâmetros. O exemplo a seguir fornece um objeto JSON como um parâmetro para a cadeia de caracteres da mensagem:
 
@@ -1021,7 +1021,7 @@ Para evitar sobrecarregar o log, você deve remover ou desabilitar chamadas para
 [Validar dados]: http://msdn.microsoft.com/library/windowsazure/jj631638.aspx
 [Modificar a solicitação]: http://msdn.microsoft.com/library/windowsazure/jj631635.aspx
 [Modificar a resposta]: http://msdn.microsoft.com/library/windowsazure/jj631631.aspx
-[portal clássico do Azure]: https://manage.windowsazure.com/
+[Portal clássico do Azure]: https://manage.windowsazure.com/
 [Agendar trabalhos]: http://msdn.microsoft.com/library/windowsazure/jj860528.aspx
 [Validar e modificar dados em Serviços Móveis usando scripts de servidor]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
 [Comandos para gerenciar os Serviços Móveis do Azure]: ../virtual-machines-command-line-tools.md#Mobile_Scripts
@@ -1052,4 +1052,4 @@ Para evitar sobrecarregar o log, você deve remover ou desabilitar chamadas para
 [Suporte para package.json nos Serviços Móveis do Azure]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

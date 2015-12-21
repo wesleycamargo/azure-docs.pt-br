@@ -7,13 +7,13 @@
 	manager="dwrede"
 	editor=""/>
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="NA"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="11/15/2015"
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="NA" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/30/2015" 
 	ms.author="glenga"/>
 
 # Registrar seu aplicativo para usar a conta da Microsoft para autenticação
@@ -76,7 +76,7 @@ A primeira etapa nesta seção se aplica apenas ao Windows Phone 8, ao Windows P
 
     > [AZURE.NOTE]O segredo do cliente é uma credencial de segurança importante. Não compartilhe o segredo do cliente com ninguém nem o distribua com seu aplicativo. Somente os registros de aplicativo Windows Store verão um campo de SID do pacote.
 
-4. No [portal clássico do Azure], clique na guia **Identidade** do serviço móvel, insira a ID do cliente, o segredo do cliente e o SID do pacote obtido de seu provedor de identidade e clique em **Salvar**.
+4. No [Portal clássico do Azure], clique na guia **Identidade** do serviço móvel, insira a ID do cliente, o segredo do cliente e o SID do pacote obtido de seu provedor de identidade e clique em **Salvar**.
 
 	>[AZURE.NOTE]Você não precisa fornecer um valor de SID de pacote para um Windows Phone 8, um Windows Phone Store 8.1 Silverlight ou um aplicativo não Windows.
 
@@ -91,6 +91,6 @@ O serviço móvel e o seu aplicativo agora estão configurados para trabalhar co
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 
-[portal clássico do Azure]: https://manage.windowsazure.com/
+[Portal clássico do Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

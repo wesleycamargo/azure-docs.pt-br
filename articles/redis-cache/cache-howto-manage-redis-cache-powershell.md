@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="multiple"
-   ms.date="12/02/2015"
+   ms.date="12/03/2015"
    ms.author="riande"/>
 
 # Gerenciar o Cache Redis do Azure com o PowerShell do Azure
@@ -32,7 +32,7 @@ Para poder usar o Windows PowerShell com o Gerenciador de Recursos do Azure, voc
 
 - PowerShell do Azure, versão 0.8.0 ou posterior. Para instalar a versão mais recente e associá-la à sua assinatura do Azure, consulte [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 
-Este tutorial é projetado para iniciantes do Windows PowerShell. Para obter mais informações sobre o Windows PowerShell, consulte [Introdução ao PowerShell do Windows Azure (a página pode estar em inglês)](http://technet.microsoft.com/library/hh857337.aspx).
+Este tutorial é projetado para iniciantes do Windows PowerShell. Para obter mais informações sobre o Windows PowerShell, consulte [Introdução ao PowerShell do Microsoft Azure (a página pode estar em inglês)](http://technet.microsoft.com/library/hh857337.aspx).
 
 Para obter ajuda detalhada sobre qualquer cmdlet que você vir neste tutorial, use o cmdlet Get-Help.
 
@@ -94,9 +94,9 @@ Para saber mais sobre como usar o Windows PowerShell com o Azure, consulte os se
 
 - [Documentação de cmdlet do Cache Redis do Azure no MSDN](https://msdn.microsoft.com/library/azure/mt634513.aspx)
 - [Cmdlets do Gerenciador de Recursos do Azure (a página pode estar em inglês)](http://go.microsoft.com/fwlink/?LinkID=394765): saiba usar os cmdlets no módulo AzureResourceManager.
-- [Usando Grupos de recursos para gerenciar seus recursos do Azure](../azure-portal/resource-group-portal.md): saiba como criar e gerenciar grupos de recursos no portal de visualização do Azure.
+- [Usando Grupos de recursos para gerenciar seus recursos do Azure](../azure-portal/resource-group-portal.md): saiba como criar e gerenciar grupos de recursos no Portal do Azure.
 - [Blog do Azure](http://blogs.msdn.com/windowsazure): obtenha informações sobre os novos recursos no Azure.
 - [Blog do Windows PowerShell](http://blogs.msdn.com/powershell): obtenha informações sobre os novos recursos do Windows PowerShell.
 - [Blog "Hey, Scripting Guy!" Blog](http://blogs.technet.com/b/heyscriptingguy/): obtenha dicas reais e truques da comunidade.do Windows PowerShell.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

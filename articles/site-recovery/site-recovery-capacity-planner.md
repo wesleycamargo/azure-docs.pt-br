@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Planejador de Capacidade do Site Recovery | Microsoft Azure" 
+	pageTitle="Planejar a capacidade de proteção da máquina virtual e do servidor físico no Azure Site Recovery | Microsoft Azure"
 	description="O Azure Site Recovery coordena a replicação, o failover e a recuperação de máquinas virtuais e servidores físicos locais para o Azure ou para um site local secundário." 
 	services="site-recovery" 
 	documentationCenter="" 
-	authors="prateek9us" 
-	manager="abhiag" 
+	authors="rayne-wiselman" 
+	manager="jwhit" 
 	editor=""/>
 
 <tags 
@@ -13,99 +13,124 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="11/27/2015" 
-	ms.author="pratshar"/>
+	ms.date="12/07/2015" 
+	ms.author="raynew"/>
 
-# Planejador de Capacidade do Site Recovery
+# Planejar a capacidade de proteção da máquina virtual e do servidor físico no Azure Site Recovery
 
-Este documento explica o uso da ferramenta de planejamento de capacidade do Microsoft ASR, o que oferece diretrizes sobre os recursos que precisam ser provisionados para operações contínuas do Site Recovery. A ferramenta de planejamento de capacidade pode ser usada para analisar o ambiente de origem (cargas de trabalho), os requisitos de largura de banda, os requisitos de recursos (VMs e armazenamento) no destino e recursos de servidor adicionais que serão necessários na origem (VMMs SC, Servidores de Configuração, Servidores de Processo etc.) Baixe a ferramenta [Planejador de Capacidade do Azure Site Recovery](http://aka.ms/asr-capacity-planner-excel)
- 
-Há dois modos de usar o planejador de capacidade:
- 
-- **Planejamento rápido**: obtenha as projeções de rede e de servidor baseadas no número médio de VMs, de discos, da taxa de alteração e de armazenamento. 
-- **Planejamento detalhado**: forneça os detalhes de cada carga de trabalho no nível da VM. Analise a compatibilidade no nível da VM e obtenha também as projeções da rede e dos servidores.
-     
-Este documento presume que o usuário esteja familiarizado com o Azure Site Recovery. Consulte a [Visão geral do Azure Site Recovery](site-recovery-overview.md)
+A ferramenta Planejador de Capacidade ajuda você a descobrir os requisitos de capacidade para proteger VMs Hyper-V, VMs VMware e servidores físicos Windows/Linux com o Azure Site Recovery.
 
-## Introdução
-###Pré-requisitos
-Dependendo do modo de planejador desejado, os detalhes necessários para continuar serão diferentes. Além dos detalhes de infraestrutura, como VMs, Discos por VM, Armazenamento por disco, há mais alguns detalhes necessários. O principal é a taxa de alteração diária ou taxa de variação. Se o ambiente de origem for o Hyper-V, use a [ferramenta de planejamento de capacidade do Hyper-V](https://www.microsoft.com/en-in/download/details.aspx?id=39057) para obter a taxa de variação. Leia as instruções para usar a [ferramenta de planejamento de capacidade do Hyper-v](site-recovery-capacity-planning-for-hyper-v-replication.md). Para o VMWare, use a [ferramenta de dispositivo Planejamento de Capacidade do VMware](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance)
 
-##Planejador Rápido
-1.	Abra o arquivo **ASR Capacity Planner.xlsm**. Isso requer a execução de macros. Portanto, selecione **"habilitar edição"** e **"habilitar conteúdo"** quando solicitado 
-1.	Selecione **Planejador Rápido** na caixa de listagem. Isso abrirá outra planilha denominada **Planejador de Capacidade**
+## Visão geral
+
+Use a ferramenta para analisar o ambiente de origem e as cargas de trabalho a fim de descobrir as necessidades de largura de banda, de recursos de servidor necessários no local de origem e de recursos (máquinas virtuais e armazenamento, etc.) necessários no local de destino.
+
+Você pode executar a ferramenta em dois modos:
+
+- **Planejamento rápido**: execute a ferramenta nesse modo para obter as projeções de rede e de servidor baseadas no número médio de VMs, de discos, de armazenamento e da taxa de alteração.
+- **Planejamento detalhado**: execute a ferramenta nesse modo e forneça detalhes de cada carga de trabalho no nível da VM. Analise a compatibilidade da VM e obtenha as projeções de rede e de servidor.
+
+## Antes de começar
+
+Antes de executar a ferramenta:
+
+1. Reúna informações sobre seu ambiente, inclusive VMs, discos por VM e armazenamento por disco.
+2. Identifique sua taxa de alteração (variação) diária de dados replicados. Para fazer isso:
+
+	- Se você estiver replicando máquinas virtuais Hyper-V, baixe a [ferramenta Planejador de Capacidade do Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057) para obter a taxa de alteração. [Saiba mais](site-recovery-capacity-planning-for-hyper-v-replication.md) sobre essa ferramenta. Recomendamos que você execute essa ferramenta durante uma semana para capturar as médias.
+	- Se você estiver replicando máquinas virtuais VMware, use a [solução de planejamento de capacidade vSphere](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance) para calcular a taxa de variação.
+	- Se você estiver replicando servidores físicos, precisará estimá-la manualmente.
+
+## Execute o Planejador Rápido
+1.	Baixe e abra a ferramenta [Planejador de Capacidade do Azure Site Recovery](http://aka.ms/asr-capacity-planner-excel). Você precisará executar macros; portanto, habilite a edição e o conteúdo quando solicitado. 
+2.	Em **Selecionar um tipo de planejador**, selecione **Planejador Rápido** na caixa de listagem.
 
 	![Introdução](./media/site-recovery-capacity-planner/getting-started.png)
 
-1.	Na planilha "Planejador de Capacidade", insira as informações como necessário. Todos os campos circulados são os campos de entrada obrigatórios.
-	1.	A caixa de listagem Selecionar seu cenário pode ser usada para alterar o ambiente de origem entre 'Hyper-V para Azure' e 'VMware/Físico para Azure'.
-	1. 	A taxa média de Alteração Diária precisa ser medida. Em ambientes do Hyper-V, a ferramenta de planejamento de capacidade do Hyper-V pode ser usada. No caso do VMWare, a ferramenta de planejamento de capacidade do VMWare pode ser usada. Geralmente, é aconselhável executar a ferramenta pelo menos uma vez por semana para que os picos possam ser capturados e uma média possa ser estabelecida. 
-	1. 	Compactação – é a compactação oferecida pelo ASR no cenário VMWare/Físico para Azure. No Hyper-V para Azure, isso pode ser obtido usando dispositivo de terceiros, como o Riverbed. 
-	1. No cenário VMWare/Físico para Azure, a entrada do número de retenção deve feita ser em dias. No cenário do Hyper-V, a entrada será feita em horas. 
-	1. As duas últimas entradas são usadas para computar a RI (replicação inicial). Quando a instalação do ASR é implantada, o conjunto inteiro de dados inicial deve ser carregado. O Número de horas em que a replicação inicial para o lote de máquinas virtuais deve ser concluída e o Número de máquinas virtuais por lote de replicação inicial – são as entradas ideais. Por outro lado, esses números podem ser regulados para ajustar a largura de banda existente. 
+3.	Na planilha **Planejador de Capacidade**, insira as informações necessárias. Preencha todos os campos envoltos em vermelho na captura de tela abaixo.
+
+	- Em **Selecionar seu cenário**, escolha **Hyper-V para Azure** ou **VMware/físico para Azure**.
+	- Em **Taxa média diária de alteração de dados**, coloque as informações reunidas usando a [ferramenta Planejador de capacidade do Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) ou a [solução de planejamento de capacidade vSphere](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance).  
+	- A configuração **Compactação** se aplica somente à compactação oferecida ao replicar VMs VMware ou servidores físicos para o Azure. Estimamos em 30% ou mais. Modifique a configuração de acordo com a necessidade. Para replicar VMs Hyper-V para compactação do Azure, você pode usar uma solução de terceiros, como o Riverbed. 
+	-  Em **Número de retenção**, especifique por quanto tempo as réplicas devem ser retidas. Se você estiver replicando VMware ou servidores físicos, insira o valor em dias. Se você estiver replicando Hyper-V, especificar o tempo em horas.
+	-  Em **Número de horas em que a replicação inicial para o lote de máquinas virtuais deve ser concluída** e em **Número de máquinas virtuais por lote de replicação inicial**, você insere as configurações usadas para calcular os requisitos de replicação inicial. Quando a instalação da Recuperação de Site é implantada, o conjunto inteiro de dados inicial deve ser carregado. 
 
 	![Entradas](./media/site-recovery-capacity-planner/inputs.png)
 
-1. Depois de inserir os detalhes do ambiente de origem, a saída exibida terá as diretrizes, que incluem
-	1.	Requisitos de largura de banda de rede
-		1. Largura de banda necessária para a replicação delta (Megabits/s) Isso é calculado baseado na taxa média de alteração diária de dados. 
-		1. A largura de banda necessária para a replicação inicial (em Megabits/s) também é apresentada. Isso é calculado com base em entradas de replicação inicial apresentadas (duas últimas linhas) nas entradas. 
-	1.	Requisitos do Azure
-		1. 	Esta seção detalha o Armazenamento, o IOPS, as Contas de Armazenamento e os Discos exigidos no Azure. 
-	1. 	Outros requisitos de infraestrutura 
-		1. Os requisitos adicionais no cenário VMware/físicos para Azure, como os requisitos de servidores de configuração e os servidores de processo. 
-		1. 	Os requisitos adicionais no cenário do Hyper-V para Azure, como o armazenamento adicional exigido na origem.
+2.	Depois de inserir os valores para o ambiente de origem, a saída exibida incluirá:
+
+	- Requisitos de largura de banda de rede:
+		- **Largura de banda necessária para a replicação delta** (MB/s). Isso é calculado baseado na taxa média de alteração diária de dados.
+		- **Largura de banda necessária para a replicação inicial** (MB/s). Isso é calculado usando os valores de replicação inicial que você inseriu. 
+	- Requisitos do Azure: fornece detalhes sobre armazenamento, IOPS, contas de armazenamento e discos necessários no Azure.
+		- **Armazenamento necessário (em GB)** é o armazenamento do Azure total necessário.
+		- **IOPS total nas contas de armazenamento padrão** é calculado baseado no tamanho da unidade IOPS 8K no total de contas de armazenamento padrão. Para o Planejador Rápido, o número é calculado baseado em todos os discos de VMs de origem e na taxa diária de alteração dos dados. Para o Planejador Detalhado, o número é calculado baseado no número total de VMs mapeadas para as VMs padrão do Azure e na taxa diária de alteração dessas VMs. 
+		- O **Número de contas de armazenamento padrão** fornece o número total de contas de armazenamento padrão necessárias para proteger as VMs. Observe que uma conta de armazenamento padrão pode conter até 20 mil IOPS em todas as VMs em um armazenamento padrão e dar suporte a um máximo de 500 IOPS por disco. 
+		- O **Número de discos de blob necessários** retorna o número de discos que serão criados no armazenamento do Azure.
+		- O **Número de contas de armazenamento premium necessárias** fornece o número total de contas de armazenamento premium necessárias para proteger as VMs. Observe que uma VM com IOPS alto (maior que 20 mil) precisa de uma conta de armazenamento premium. Uma conta de armazenamento premium pode armazenar até 80 mil IOPS.
+		- O **IOPS total em contas de armazenamento premium** é calculado baseado no tamanho da unidade IOPS 256K no total de contas de armazenamento premium. Para o Planejador Rápido, o número é calculado baseado em todos os discos de VMs de origem e na taxa diária de alteração dos dados. Para o Planejador Detalhado, o número é calculado baseado no número total de VMs mapeadas para as VMs premium do Azure (séries DS e GS) e na taxa diária de alteração dessas VMs. 
+
+	- Outros requisitos de infraestrutura:
+		- Inclui requisitos adicionais para replicação de VMware/física para o Azure, incluindo servidores de configuração e de processo.
+		- Número de servidores de processo adicionais necessários: mostra se há a necessidade de servidores de processo adicionais. Isso em relação a e além do servidor de processo que está configurado no servidor de configuração por padrão. N
+		- Inclui requisitos adicionais na replicação Hyper-V para Azure, por exemplo, se é necessário armazenamento adicional na origem.
 			
 	![Saída](./media/site-recovery-capacity-planner/output.png)
  
-##Planejador Detalhado
+## Executar o Planejador Detalhado
 
-1.	Abra o arquivo **ASR Capacity Planner.xlsm**. Isso requer a execução de macros. Portanto, selecione **"habilitar edição"** e **"habilitar conteúdo"** quando solicitado 
-1.	Selecione **Planejador Detalhado** na caixa de listagem. Isso abrirá outra planilha denominada **Qualificação de Carga de Trabalho**
+
+1.	Baixe e abra a ferramenta [Planejador de Capacidade do Azure Site Recovery](http://aka.ms/asr-capacity-planner-excel). Você precisará executar macros; portanto, habilite a edição e o conteúdo quando solicitado. 
+2.	Em **Selecionar um tipo de planejador**, selecione **Planejador Detalhado** na caixa de listagem.
 
 	![Introdução](./media/site-recovery-capacity-planner/getting-started-2.png)
 
+3.	Na planilha **Qualificação de Carga de Trabalho**, insira as informações necessárias. Preencha todos os campos marcados.
 
-1.	Na planilha Qualificação de Carga de Trabalho, insira as informações como necessário. Todas as colunas marcadas em vermelho são campos obrigatórios. Outras colunas são opcionais.
-	1.	Núcleos de processo: fornecem o número total de núcleos de um servidor de origem
-	1. Alocação de memória em MB: fornece o tamanho da RAM de um servidor de origem.
-	1.	Número de NICs: fornece o número de NICS de um servidor de origem.
-	1. Total de armazenamento (em GB): fornece o tamanho total do armazenamento da VM. Por exemplo, se o servidor de origem tiver três discos, cada um com 500 GB, o tamanho total de armazenamento será de 1500 GB.
-	1. Número de discos anexados: fornece o número total de discos de um servidor de origem.
-	1. Utilização da capacidade do disco: fornece a utilização média 
-	1. Taxa de alteração diária (%): fornece a taxa diária de alteração de dados de um servidor de origem.
-	1. Mapeamento do tamanho do Azure: você pode inserir o tamanho da VM do Azure que deseja mapear ou usar o botão Computar VMs IaaS para calcular a melhor correspondência possível. 
+	- Em **Núcleos de processador**, especifique o número total de núcleos em um servidor de origem.
+	- Em **Alocação de memória em MB**, especifique o tamanho da RAM de um servidor de origem. 
+	- O **Número de NICs** especifica o número de adaptadores de rede em um servidor de origem. 
+	-  Em **Total de armazenamento (em GB)**, especifique o tamanho do armazenamento da VM. Por exemplo, se o servidor de origem tiver três discos, cada um com 500 GB, o tamanho total de armazenamento será de 1500 GB.
+	-  Em **Número de discos anexados**, especifique o número total de discos de um servidor de origem.
+	-  Em **Utilização da capacidade do disco**, especifique a utilização média.
+	-  Em **Taxa de alteração diária (%)**, especifique a taxa diária de alteração de dados de um servidor de origem.
+	-  Em **Tamanho do mapeamento do Azure**, digite o tamanho da VM do Azure que você deseja mapear. Se não quiser fazer isso manualmente, clique em **Computar VMs IaaS**.
+
+4.	Se você clicar em **Computar VMs IaaS**, eis o que essa opção faz:
+
+	- Valida suas entradas e obtém a melhor correspondência de VM do Azure em relação a cada VMs qualificada para ser replicada para o Azure. Se não for possível detectar um tamanho adequado de VM do Azure, um erro será emitido. Por exemplo, se o número de discos anexados for 65, um erro será emitido, já que o maior tamanho de VM do Azure é 64.
+	- Sugere uma conta de armazenamento que pode ser usada para uma VM do Azure.
+	- Calcula quantas contas de armazenamento standard e premium são necessárias para a carga de trabalho. Role para baixo à direita a fim de exibir o tipo de armazenamento do Azure e a conta de armazenamento que podem ser usadas em um servidor de origem
+	- Conclui e classifica o restante da tabela baseado no tipo de armazenamento necessário (standard ou premium) atribuído a uma máquina virtual e no número de discos anexados. Para todas as VMs que atendem aos requisitos para fazer backup no Azure, a coluna A (A VM está qualificada?) mostra Sim. Se uma máquina virtual não puder ter o backup feito no Azure, um erro é exibido.
 
 	![Qualificação de Carga de Trabalho](./media/site-recovery-capacity-planner/workload-qualification.png)
- 
-
-1. Clicar no botão **Computar VMs IaaS** valida as entradas acima e sugere a melhor correspondência de VM do Azure possível. Se a opção não localizar o tamanho apropriado da VM do Azure para um servidor de origem, ela informará um erro para o servidor. Por exemplo, quando o Número de discos anexados a uma VM de origem for 65, ela retornará um erro, já que o número máximo de discos que podem ser anexados à VM do Azure de maior tamanho é 64
 
 
-**Computar VMs IaaS** também calcula se uma VM precisa de conta de armazenamento standard ou premium do Azure. Ela também sugere quantas contas de armazenamento standard e premium são necessárias para a carga de trabalho. Role para baixo e para a direita a fim de exibir o tipo de armazenamento do Azure e a conta de armazenamento que podem ser usadas em um servidor de origem
- 
-**Exemplo**: para cinco VMs com os valores a seguir, a ferramenta calculou e atribuiu a melhor correspondência de tamanho de VM do Azure e sugeriu o armazenamento padrão ou o premium para a VM de acordo com a necessidade
+- **Exemplo**: para seis VMs com os valores mostrados na tabela, a ferramenta calcula e atribui a melhor correspondência de VM do Azure e os requisitos de armazenamento do Azure.
 
-![Qualificação de Carga de Trabalho](./media/site-recovery-capacity-planner/workload-qualification-2.png)
+	![Qualificação de Carga de Trabalho](./media/site-recovery-capacity-planner/workload-qualification-2.png)
 
-Este exemplo precisa de duas contas de armazenamento padrão e de uma conta de armazenamento premium para cinco VMs. A VM1 e a VM2 podem usar a primeira conta de armazenamento padrão; a VM3 pode usar a segunda conta de armazenamento padrão. A VM4 e a VM5 precisam de contas de armazenamento premium e podem ser acomodadas em uma única conta de armazenamento premium.
+- Na saída, por exemplo, observe o seguinte:
+	- São necessárias duas contas de armazenamento padrão e uma conta de armazenamento premium para cinco VMs. 
+	-  A VM3 não se qualifica para proteção, pois um ou mais discos tem mais de 1 TB.
+	-  A VM1 e a VM2 podem usar a primeira conta de armazenamento padrão
+	-  A VM4 pode usar a segunda conta de armazenamento padrão.
+	-  A VM5 e a VM6 precisam de uma conta de armazenamento premium e podem usar a mesma conta.
 
-![Qualificação de Carga de Trabalho](./media/site-recovery-capacity-planner/workload-qualification-3.png)
+	![Qualificação de Carga de Trabalho](./media/site-recovery-capacity-planner/workload-qualification-3.png)
+
+	>[AZURE.NOTE]O IOPS de armazenamento é calculado no nível da VM e não no nível do disco. Se um dos discos de IOPS VM de origem for maior que 500, mas o IOPS total da VM estiver dentro da faixa com suporte da VM do Azure padrão (e todos os outros valores, como número de discos, número de NICs, número de núcleos de CPU, tamanho de memória estiverem dentro do limite padrão da VM), a ferramenta selecionará uma VM padrão em vez do armazenamento premium. Você precisa atualizar manualmente a célula de tamanho do mapeamento do Azure com a VM série DS ou GS apropriada
+
+	>[AZURE.NOTE]A primeira coluna é uma coluna de validação para VMs, discos e variação. O IOPS de armazenamento é calculado no nível da VM e não no nível do disco. Se um dos discos de IOPS VM de origem for maior que 500, mas o IOPS total da VM estiver dentro da faixa com suporte da VM do Azure padrão (e todos os outros valores, como número de discos, número de NICs, número de núcleos de CPU, tamanho de memória estiverem dentro do limite padrão da VM), a ferramenta selecionará uma VM padrão em vez do armazenamento premium. Você precisa atualizar manualmente a célula de tamanho do mapeamento do Azure com a VM série DS ou GS apropriada
+
+5. Depois que todos os detalhes estão prontos, clique em **Enviar dados para a ferramenta de planejamento** a fim de abrir o **Planejador de Capacidade**. As cargas de trabalho são realçadas para mostrar se estão qualificadas para proteção ou não.
 
 
->[AZURE.NOTE]O IOPS é calculado no nível da VM e não em nível de disco. Se um dos discos de IOPS VM de origem for > 500, mas o IOPS total da VM estiver dentro do que tem suporte pela VM Azure padrão, e todos os outros valores (número de discos, número de NICs, número de núcleos de CPU, tamanho de memória) estiverem dentro de um padrão de limite da VM, a ferramenta selecionará uma VM padrão em vez do armazenamento premium. O usuário precisa atualizar manualmente a célula de tamanho do mapeamento do Azure com a VM série DS ou GS apropriada
+### Executar o Planejador de Capacidade
 
-
-1.	A primeira coluna é uma coluna de validação para VMs, discos e variação. 
-1.	Depois que todos os detalhes estiverem prontos, pressione o botão **Enviar dados para a ferramenta de planejamento** na parte superior. Isso abrirá a planilha **Planejador de Capacidade** com as médias preenchidas automaticamente, como mostrado na figura abaixo. 
-1.	Essa ação também realçará quais cargas de trabalho são qualificadas para proteção e quais não são.
-
-
-###Planejador de Capacidade
-
-1.	Na planilha **Planejador de Capacidade**, a **Carga de trabalho** na primeira linha de Entradas de Infraestrutura sugere que as informações de entrada são populadas usando a planilha **Qualificação de Carga de Trabalho**.  
-1.	Sempre que houver a necessidade de alterações, faça as alterações necessárias na planilha **Qualificação de carga de trabalho** e pressione o botão **Enviar dados para a ferramenta de planejamento**. 
+1.	Preencha a planilha **Planejador de Capacidade**. As palavras “Carga de trabalho” aparecem na célula de entrada de infraestrutura para mostrar a planilha de entrada **Qualificação de Carga de Trabalho**.  
+2.	Modifique as configurações que você deseja alterar e clique em **Enviar dados para a ferramenta de planejamento**. 
 
 	![Planejador de Capacidade](./media/site-recovery-capacity-planner/capacity-planner.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/27/2015" 
+	ms.date="12/07/2015" 
 	ms.author="mahender"/>
 
 # Adicione autenticação ao aplicativo Xamarin.Android
@@ -97,7 +97,11 @@ O aplicativo é atualizado para exigir que os usuários toquem no botão **Entra
             android:onClick="LoginUser"
             android:text="@string/login_button_text" />
 
-4. No Visual Studio ou Xamarin Studio, execute o projeto cliente em um dispositivo ou emulador e entre com o seu provedor de identidade preferido.
+5. Adicione o elemento a seguir no arquivo de recursos de Strings.xml:
+
+		<string name="login_button_text">Sign in</string> 
+
+6. No Visual Studio ou Xamarin Studio, execute o projeto cliente em um dispositivo ou emulador e entre com o seu provedor de identidade preferido.
 
    	Quando você entrar com êxito, o aplicativo exibirá o sua ID de logon e a lista de itens de tarefas e você poderá fazer atualizações aos dados.
 
@@ -106,4 +110,4 @@ O aplicativo é atualizado para exigir que os usuários toquem no botão **Entra
 [Criar um aplicativo Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
  
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1210_2015--->

@@ -18,7 +18,11 @@
 
 # Configurar o túnel forçado usando o PowerShell e Gerenciador de Recursos do Azure
 
-Este artigo se aplica aos Gateways de Redes Virtuais e de VPN criados com o modelo de implantação do Gerenciador de Recursos do Azure. Caso pretenda configurar o túnel forçado usando o modelo de implantação do Gerenciamento de Serviços, confira [Configurar o túnel forçado](vpn-gateway-about-forced-tunneling.md).
+> [AZURE.SELECTOR]
+- [PowerShell - Service Management](vpn-gateway-about-forced-tunneling.md)
+- [PowerShell - Resource Manager](vpn-gateway-forced-tunneling-rm.md)
+
+Este artigo se aplica aos Gateways de Redes Virtuais e de VPN criados com o modelo de implantação do Gerenciador de Recursos do Azure. Caso pretenda configurar o túnel forçado para redes virtuais que foram criadas usando o Gerenciamento de Serviços (também conhecido como modelo de implantação clássico), confira [Configurar o túnel forçado](vpn-gateway-about-forced-tunneling.md).
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
@@ -34,7 +38,7 @@ No exemplo acima, a sub-rede Front-end não é um túnel forçado. As cargas de 
 
 ## Requisitos e considerações
 
-O túnel forçado no Azure é configurado por meio de rotas de rede virtual definidas pelo usuário. Redirecionar o tráfego para um site local é expressado como uma Rota Padrão para o gateway de VPN do Azure. Para saber mais sobre rotas definidas pelo usuário, confira [Rotas definidas pelo usuário e Encaminhamento IP](../virtual-network/virtual-networks-udr-overview.md).
+O túnel forçado no Azure é configurado por meio de rotas de rede virtual definidas pelo usuário. Redirecionar o tráfego para um site local é expressado como uma Rota Padrão para o gateway de VPN do Azure. Para saber mais sobre rotas definidas pelo usuário e redes virtuais, confira [Rotas definidas pelo usuário e Encaminhamento IP](../virtual-network/virtual-networks-udr-overview.md).
 
 - Cada sub-rede de rede virtual tem uma tabela de roteamento interna do sistema. A tabela de roteamento do sistema tem estes três grupos de rotas:
 
@@ -65,9 +69,9 @@ Antes de começar a configurar, verifique se você tem os itens a seguir.
 
 - Uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [benefícios de assinante do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
-- Cmdlets do Azure PowerShell (1.0 ou posterior). Você pode baixar e instalar essa versão na seção Windows PowerShell da [página Download](http://azure.microsoft.com/downloads/). Esta documentação foi desenvolvida para o PowerShell 1.0 ou posterior. Os cmdlets necessários para esta configuração não estão incluídos nas versões anteriores.
+- Cmdlets do Azure PowerShell (1.0 ou posterior) Você pode baixar e instalar essa versão na seção Windows PowerShell da [página Download](http://azure.microsoft.com/downloads/). Esta documentação foi desenvolvida para o PowerShell 1.0 ou posterior. Os cmdlets necessários para esta configuração não estão incluídos nas versões anteriores.
 
-- Caso não esteja familiarizado com o Gerenciador de Recursos do Azure e no PowerShell, confira [este artigo](../articles/powershell-azure-resource-manager.md) para saber mais.
+- Caso seja iniciante no Gerenciador de Recursos do Azure e no PowerShell, confira [este artigo](../articles/powershell-azure-resource-manager.md) para saber mais.
 
 ### Etapas da configuração
 
@@ -79,7 +83,7 @@ Antes de começar a configurar, verifique se você tem os itens a seguir.
 
 		Get-AzureRmSubscription
 
-2. Especifique a assinatura que você quer usar.
+2. Especifique a assinatura que você deseja usar.
 
 		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 		
@@ -140,4 +144,4 @@ Antes de começar a configurar, verifique se você tem os itens a seguir.
 		Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
 		
 
-<!----HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/13/2015"
+   ms.date="12/04/2015"
    ms.author="nitinme"/>
 
 # Provisionar um cluster HDInsight com o Repositório Data Lake usando o Azure PowerShell
@@ -46,7 +46,38 @@ Antes de começar este tutorial, você deve ter o seguinte:
 - **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Habilite sua assinatura do Azure** para a visualização pública do Repositório Data Lake. Veja [instruções](data-lake-store-get-started-portal.md#signup).
 - **SDK do Windows**. Você pode instalá-lo clicando [aqui](https://dev.windows.com/pt-BR/downloads). Use isso para criar um certificado de segurança.
-- **Azure PowerShell 1.0 ou posterior**. Veja [Instalar e configurar o Azure PowerShell](../install-configure-powershell.md) para obter instruções.
+
+
+##Instalar o Azure PowerShell 1.0 e superior
+
+Para começar, você deve desinstalar as versões 0.9x do Azure PowerShell. Para verificar a versão do PowerShell instalado, execute o seguinte comando em uma janela do PowerShell:
+
+	Get-Module *azure*
+	
+Para desinstalar a versão mais antiga, execute **Programas e Recursos** no painel de controle e remove a versão instalada se ela for anterior ao PowerShell 1.0.
+
+Há duas opções principais para a instalação do Azure PowerShell.
+
+- [Galeria do PowerShell](https://www.powershellgallery.com/). Execute os seguintes comandos no PowerShell ISE elevado ou no console Windows PowerShell elevado:
+
+		# Install the Azure Resource Manager modules from PowerShell Gallery
+		Install-Module AzureRM
+		Install-AzureRM
+		
+		# Install the Azure Service Management module from PowerShell Gallery
+		Install-Module Azure
+		
+		# Import AzureRM modules for the given version manifest in the AzureRM module
+		Import-AzureRM
+		
+		# Import Azure Service Management module
+		Import-Module Azure
+
+	Para obter mais informações, veja [Galeria do PowerShell](https://www.powershellgallery.com/).
+
+- [Microsoft Web Platform Installer (WebPI)](http://aka.ms/webpi-azps). Se você tem o Azure PowerShell 0.9.x instalado, será solicitado a desinstalar o 0.9.x. Se tiver instalado os módulos do Azure PowerShell na Galeria do PowerShell, o instalador exigirá que os módulos sejam removidos antes da instalação para assegurar a consistência do Ambiente do Azure PowerShell. Para obter instruções, veja [Instalar o Azure PowerShell 1.0 via WebPI](https://azure.microsoft.com/blog/azps-1-0/).
+
+A WebPI receberá atualizações mensais. A Galeria do PowerShell receberá atualizações continuamente. Se você estiver familiarizado com a instalação a partir da Galeria do PowerShell, esse será o primeiro canal para os melhores e mais recentes recursos do Azure PowerShell.
  
 
 ## Criar um Repositório Azure Data Lake
@@ -107,7 +138,7 @@ Para configurar a autenticação do Active Directory para o Azure Data Lake, voc
 
 Verifique se o [SDK do Windows](https://dev.windows.com/pt-BR/downloads) está instalado antes de continuar com as etapas nesta seção. Você também deve ter criado um diretório, como **C:\\mycertdir**, no qual o certificado será criado.
 
-1. Na janela do PowerShell, navegue até o local onde você instalou o SDK do Windows (normalmente, `C:\Program Files (x86)\Windows Kits\10\bin\x86` e use o utilitário [MakeCert][makecert] para criar um certificado autoassinado e uma chave privada. Use os seguintes comandos.
+1. Na janela do PowerShell, navegue até o local em que você instalou o SDK do Windows (normalmente, `C:\Program Files (x86)\Windows Kits\10\bin\x86` e use o utilitário [MakeCert][makecert] para criar um certificado autoassinado e uma chave privada. Use os seguintes comandos.
 
 		$certificateFileDir = "<my certificate directory>"
 		cd $certificateFileDir
@@ -162,7 +193,7 @@ Nesta seção, você executará as etapas para criar uma entidade de serviço pa
 		
 		Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path / -AceType User -Id $objectId -Permissions All
 
-	No prompt **Y** para confirmar:
+	No prompt, insira **Y** para confirmar.
 
 ## Criar um cluster HDInsight com a autenticação para o Repositório Data Lake
 
@@ -269,7 +300,7 @@ Após a configuração do cluster HDInsight para usar o Repositório Data Lake, 
 
 2. Clique em **Procurar**, em **Clusters HDInsight** e clique no cluster HDInsight que você criou.
 
-3. Na folha do cluster, clique em **Área de Trabalho Remota** e na folha **Área de Trabalho Remota**, clique em **Conectar**.
+3. Na folha do cluster, clique em **Área de Trabalho Remota** e então, na folha **Área de Trabalho Remota**, clique em **Conectar**.
 
 	![Remoto em cluster HDI](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.HDI.PS.Remote.Desktop.png "Criar um grupo de recursos do Azure")
 
@@ -291,7 +322,7 @@ Após a configuração do cluster HDInsight para usar o Repositório Data Lake, 
 
 * [Portal: criar um cluster HDInsight para usar o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-[makecert]: https://msdn.microsoft.com/pt-BR/library/windows/desktop/ff548309(v=vs.85).aspx
-[pvk2pfx]: https://msdn.microsoft.com/pt-BR/library/windows/desktop/ff550672(v=vs.85).aspx
+[makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
+[pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

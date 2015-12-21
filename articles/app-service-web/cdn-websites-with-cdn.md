@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="12/08/2015" 
 	ms.author="cephalin"/>
 
 
@@ -39,7 +39,7 @@ Você implantará um aplicativo Web para o Serviço de Aplicativo do Azure usand
 Este tutorial tem os seguintes pré-requisitos:
 
 -	Uma [conta do Microsoft Azure](/account/) ativa
--	Visual Studio 2013 com o [SDK do Azure para .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
+-	Visual Studio 2015 com o [SDK do Azure para .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) Se você usar o Visual Studio, as etapas poderão variar.
 
 > [AZURE.NOTE]Você precisa de uma conta do Azure para concluir este tutorial: + Você pode [abrir uma conta do Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F) – Você recebe créditos que podem ser usados para experimentar os serviços pagos do Azure e, mesmo depois que tiverem se esgotado, você pode manter a conta e usar serviços gratuitos do Azure, como Aplicativos Web. + Você pode [ativar os benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) – A cada mês, a sua assinatura do Visual Studio fornece créditos que podem ser usados para serviços pagos do Azure.
 >
@@ -49,30 +49,29 @@ Este tutorial tem os seguintes pré-requisitos:
 
 Nesta seção, você implantará o modelo de aplicativo ASP.NET MVC padrão no Visual Studio 2013 ao Serviço de Aplicativo e, depois, o integrará a um novo ponto de extremidade da CDN. Siga as instruções abaixo:
 
-1. No Visual Studio 2013, crie um novo aplicativo Web ASP.NET na barra de menus selecionando **Arquivo > Novo > projeto > Web > aplicativo Web ASP.NET**. Dê um nome a ele e clique em **OK**.
+1. No Visual Studio 2015, crie um novo aplicativo Web ASP.NET na barra de menus selecionando **Arquivo > Novo > Projeto > Web > Aplicativo Web ASP.NET**. Dê um nome a ele e clique em **OK**.
 
 	![](media/cdn-websites-with-cdn/1-new-project.png)
 
-3. Selecione **MVC** e clique em **Gerenciar Assinaturas**.
+3. Selecione **MVC** e clique em **OK**.
 
 	![](media/cdn-websites-with-cdn/2-webapp-template.png)
 
-4. Clique em **Entrar**.
+4. Se ainda não estiver conectado à sua conta do Azure, clique no ícone de conta no canto superior direito e siga a caixa de diálogo para fazer logon em sua conta do Azure. Quando terminar, configure o aplicativo conforme mostrado abaixo e clique em **Novo** para criar um novo plano de Serviço de Aplicativo para ele.
 
-	![](media/cdn-websites-with-cdn/3-manage-subscription.png)
+	![](media/cdn-websites-with-cdn/3-configure-webapp.png)
 
-6. Na página de entrada, entre com a conta da Microsoft que você utilizou para ativar a conta do Azure.
-7. Depois de entrar, clique em **Fechar**. Então clique em **OK** para continuar.
+5. Configure um novo plano de Serviço de Aplicativo na caixa de diálogo, conforme mostrado abaixo, e clique em **OK**.
 
-	![](media/cdn-websites-with-cdn/4-signed-in.png)
+	![](media/cdn-websites-with-cdn/4-app-service-plan.png)
 
-8. Supondo que você não tenha criado um aplicativo Web no Azure, o Visual Studio poderá ajudá-lo a criá-lo. Na caixa de diálogo **Configurar o site do Microsoft Azure**, verifique se o que nome do site é exclusivo. Em seguida, clique em **OK**.
+8. Clique em **Criar** para criar o aplicativo Web.
 
-	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/5-create-website.png)
+	![](media/cdn-websites-with-cdn/5-create-website.png)
 
-9. Depois de criar seu aplicativo ASP.NET, publique-o no Azure no painel Atividade de Publicação na Web, clicando em **Publicar `<app name>` para esse site agora**. Clique em **Publicar** para concluir o processo.
+9. Depois de criar seu aplicativo ASP.NET, publique-o no Azure, no painel Atividade do Serviço de Aplicativo do Azure, clicando em **Publicar `<app name>` para esse aplicativo Web agora**. Clique em **Publicar** para concluir o processo.
 
-	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/6-publish-website.png)
+	![](media/cdn-websites-with-cdn/6-publish-website.png)
 
 	Quando a publicação estiver concluída, você verá seu aplicativo Web publicado no navegador.
 
@@ -83,7 +82,7 @@ Nesta seção, você implantará o modelo de aplicativo ASP.NET MVC padrão no V
 
 	> [AZURE.NOTE]Após a criação do ponto de extremidade da CDN, o portal clássico mostrará sua URL e o domínio de origem ao qual ele está integrado. No entanto, pode levar algum tempo para que a configuração do novo ponto de extremidade da CDN seja totalmente propagada a todos os locais de nó da CDN.
 
-3. No portal clássico, na guia **CDN**, clique no nome do ponto de extremidade CDN que você acabou de criar.
+3. No portal clássico, na guia **CDN**, clique no nome do ponto de extremidade da CDN que você acabou de criar.
 
 	![](media/cdn-websites-with-cdn/8-select-cdn.png)
 
@@ -378,7 +377,7 @@ Siga as etapas abaixo para integrar agrupamento e minificação ASP.NET ao ponto
 
           // Use the development version of Modernizr to develop with and learn from. Then, when you're
           // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-          bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")).Include(
+          bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizr")).Include(
                 "~/Scripts/modernizr-*"));
 
           bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")).Include(
@@ -443,7 +442,7 @@ Quando seu ponto de extremidade da CDN do Azure falhar por qualquer motivo, é m
 
 A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) contém uma propriedade chamada [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) que permite que você configure o mecanismo de fallback para falha da CDN. Para usar essa propriedade, siga as etapas abaixo:
 
-1. No projeto ASP.NET, abra *App\_Start\\BundleConfig.cs*, onde você adicionou uma URL da CDN a cada [Construtor de pacotes](http://msdn.microsoft.com/library/jj646464.aspx), e adicione o código `CdnFallbackExpression` em quatro lugares como mostrado para adicionar um mecanismo de fallback aos pacotes padrão.  
+1. No projeto ASP.NET, abra *App\_Start\\BundleConfig.cs*, no qual você adicionou uma URL da CDN a cada [Construtor de pacotes](http://msdn.microsoft.com/library/jj646464.aspx), e adicione o código `CdnFallbackExpression` em quatro lugares, como mostrado, para adicionar um mecanismo de fallback aos pacotes padrão.  
 	
         public static void RegisterBundles(BundleCollection bundles)
         {
@@ -505,27 +504,8 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 4. Republique seu aplicativo Web do Azure e acesse a página inicial.
 5. Exiba o código HTML da página. Você deve encontrar scripts injetados semelhantes ao seguinte:    
 	
-	```
-	...
-	<link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
-<script>(function() {
-                var loadFallback,
-                    len = document.styleSheets.length;
-                for (var i = 0; i < len; i++) {
-                    var sheet = document.styleSheets[i];
-                    if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) {
-                        var meta = document.createElement('meta');
-                        meta.className = 'sr-only';
-                        document.head.appendChild(meta);
-                        var value = window.getComputedStyle(meta).getPropertyValue('width');
-                        document.head.removeChild(meta);
-                        if (value !== '1px') {
-                            document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />');
-                        }
-                    }
-                }
-                return true;
-            }())||document.write('<script src="/Content/css"><\/script>');</script>
+	``` ... <link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
+<script>(function() { var loadFallback, len = document.styleSheets.length; for (var i = 0; i < len; i++) { var sheet = document.styleSheets[i]; if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) { var meta = document.createElement('meta'); meta.className = 'sr-only'; document.head.appendChild(meta); var value = window.getComputedStyle(meta).getPropertyValue('width'); document.head.removeChild(meta); if (value !== '1px') { document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />'); } } } return true; }())||document.write('<script src="/Content/css"><\\/script>');</script>
 
 	<script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474"></script>
  	<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
@@ -542,7 +522,7 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 
 		}())||document.write('<script src="/Content/css"><\/script>');</script>
 
-	Mas como a primeira parte da expressão || sempre retornará o valor verdadeiro (na linha diretamente acima), a função document.write() nunca será executada.
+	But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
 
 6. Para testar se o script de fallback está funcionando, vá até o painel de controle do ponto de extremidade da CDN e clique em **Desabilitar Ponto de Extremidade**.
 
@@ -558,8 +538,8 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 - [Usando a CDN para Azure](../cdn-how-to-use-cdn.md)
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="O painel do Power BI na Stream Analytics | Microsoft Azure" 
 	description="Use um painel de Power BI de transmissão em tempo real para reunir inteligência comercial e analisar grandes volumes de dados de um trabalho de Stream Analytics." 
-	keywords="ferramentas de business intelligence, power bi, streaming de dados, painel do power bi"	
+	keywords="painel de análise, painel em tempo real"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,18 +14,18 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/23/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 	
-# Stream Analytics do Azure e Power BI: Painel Dinâmico em Análise em Tempo real de Dados de Streaming
+# Azure Stream Analytics e Power BI: um painel de análise em tempo real para visibilidade em tempo real dos dados de streaming
 
-A Stream Analytics do Azure permite aproveitar uma das principais ferramentas de business intelligence, o Microsoft Power BI. Saiba como usar a Stream Analytics do Azure para analisar grandes volumes, dados de streaming e obter insight em um painel do Power BI em tempo real.
+A Stream Analytics do Azure permite aproveitar uma das principais ferramentas de business intelligence, o Microsoft Power BI. Saiba como usar a Stream Analytics do Azure para analisar grandes volumes, dados de streaming e obter insight em um painel de análise do Power BI em tempo real.
 
 Use o [Microsoft Power BI](https://powerbi.com/) para criar um painel dinâmico rapidamente. [Assista a um vídeo que ilustra o cenário](https://www.youtube.com/watch?v=SGUpT-a99MA).
 
-Neste artigo, saiba como criar suas próprias ferramentas de inteligência de negócios personalizadas usando o Power BI como uma saída de seus trabalhos da Stream Analytics do Azure.
+Neste artigo, saiba como criar suas próprias ferramentas de inteligência de negócios personalizadas usando o Power BI como uma saída de seus trabalhos da Stream Analytics do Azure e utilize um painel em tempo real.
 
-> [AZURE.NOTE]A Saída de da Power BI é um recurso de visualização da Stream Analytics do Azure. No momento, não há suporte para a criação e configuração das saídas do Power BI no Portal do Azure.
+> [AZURE.NOTE]A Saída de da Power BI é um recurso de visualização da Stream Analytics do Azure. No momento, não há suporte para a criação e configuração das saídas do Power BI no Portal de Visualização do Azure.
 
 ## Pré-requisitos ##
 
@@ -35,7 +35,7 @@ Neste artigo, saiba como criar suas próprias ferramentas de inteligência de ne
 
 ## Criar Trabalho do Azure Stream Analytics ##
 
-No [Portal clássico do Azure](https://manage.windowsazure.com), clique em **Novo, Serviços de Dados, Stream Analytics, Criação Rápida**.
+No [Portal do Azure](https://manage.windowsazure.com), clique em **Novo, Serviços de Dados, Stream Analytics, Criação Rápida**.
 
 Especifique os valores a seguir, então clique em **Criar trabalho do Stream Analytics**:
 
@@ -99,11 +99,11 @@ Forneça valores como a seguir:
 * **Nome do Conjunto de Dados** -Forneça um nome de conjunto de dados que você deseja que a saída do Power BI tenha. Por exemplo, usaremos “pbidemo”.
 *	**Nome da Tabela** - Forneça um nome de tabela sob o conjunto de dados da sua saída do Power BI. Digamos que nós a chamaremos de “pbidemo”. Atualmente, a saída do Power BI de trabalhos do Stream Analytics só podem ter uma tabela em um conjunto de dados.
 
->	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
+>	[AZURE.NOTE] Não crie explicitamente este conjunto de dados e esta tabela na conta do Power BI. Eles serão criados automaticamente quando você iniciar o trabalho do Stream Analytics e este começar a colocar a saída no Power BI. Se sua consulta de trabalhar não retornar nenhum resultado, o conjunto de dados e a tabela não serão criados.
 
 *	Clique em **OK**, **Testar Conexão** e agora sua configuração de saída está concluída.
 
->	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
+>	[AZURE.WARNING] Tenha em mente também que se o Power BI já tiver um conjunto de dados e uma tabela com o mesmo nome fornecido no trabalho do Stream Analytics, os dados existentes serão substituídos.
 
 
 ## Gravar Consultas ##
@@ -221,4 +221,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

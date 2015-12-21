@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="10/28/2015" 
+    ms.date="12/04/2015" 
     ms.author="elizapo" />
 
 
@@ -27,6 +27,9 @@ Os discos de perfil do usuário são completamente transparentes para o usuário
 Cada UPD tem 50 GB de armazenamento persistente e contém as configurações de dados e aplicativos do usuário.
 
 Continue lendo para obter informações específicas sobre os dados de perfil do usuário.
+
+>[AZURE.NOTE]Precisa desabilitar o UPD? Você pode fazer isso agora - confira a postagem do blog de Pavithra, [Desabilitar Discos de Perfil de Usuário (UPDs) no Azure RemoteApp](http://blogs.msdn.com/b/rds/archive/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp.aspx), para obter detalhes.
+
 
 ## Como um administrador pode chegar aos dados?
 
@@ -47,11 +50,13 @@ O Azure RemoteApp salva o estado do Outlook (caixas de correio, PSTs) entre as s
 
 Também recomendamos que você use o modo "cache" no Outlook e o modo de "servidor/online" para pesquisar.
 
+Confira [este artigo](remoteapp-outlook.md) para obter mais informações sobre como usar o Outlook e o Azure RemoteApp.
+
 ## Podemos usar soluções de dados compartilhados?
 Sim, o Azure RemoteApp é compatível com o uso de soluções de dados compartilhados; particularmente o OneDrive for Business e Dropbox. No entanto, observe que o consumidor do OneDrive (a versão pessoal) e o Box não são compatíveis.
 
 ## E quanto ao redirecionamento?
-Você pode configurar o RemoteApp do Azure para permitir que os usuários acessem dispositivos locais configurando [redirecionamento](remoteapp-redirection.md). Depois, os dispositivos locais podem acessar os dados no UPD.
+Você pode configurar o Azure RemoteApp para permitir que os usuários acessem dispositivos locais configurando o [redirecionamento](remoteapp-redirection.md). Depois, os dispositivos locais podem acessar os dados no UPD.
 
 ## Posso usar meu UPD como um compartilhamento de rede?
 Não. Os UPDs não podem ser usados como um compartilhamento de rede. Um UPD só é disponibilizado ao usuário quando ele está conectado ativamente ao Azure RemoteApp.
@@ -64,7 +69,7 @@ Se você precisar excluir um UPD de uma coleção, entre em contato com o Azure 
 
 ## Posso acessar os UPDs dos meus usuários (usuários atuais ou excluídos)?
 
-Sim, basta entrar em contato com o [Azure RemoteApp](mailto:remoteappforum@microsoft.com); podemos configurar uma URL para você acessar os dados. Você tem cerca de 10 horas baixar dados ou arquivos do UPD antes que o acesso expire.
+Sim, se você entrar em contato com o [Azure RemoteApp](mailto:remoteappforum@microsoft.com), poderemos configurar uma URL para você acessar os dados. Você tem cerca de 10 horas baixar dados ou arquivos do UPD antes que o acesso expire.
 
 ## UPDs ficam disponíveis offline?
 
@@ -76,6 +81,14 @@ Sim, todos os elementos escritos em HKEY\_Current\_User fazem parte do UPD.
 ## Posso desativar UPDs para uma coleção?
 
 Sim, você pode pedir ao Azure RemoteApp para desabilitar UPDs para uma assinatura, mas não pode fazer isso por conta própria. Isso significa que os UPDs serão desabilitados para todas as coleções da assinatura.
+
+Talvez você queira desabilitar UPDs em qualquer uma das seguintes situações:
+
+- Você precisa concluir o acesso e o controle de dados do usuário (para fins de auditoria e de revisão, como instituições financeiras).
+- Você tem soluções de terceiros para o gerenciamento de perfis de usuário e deseja continuar usando-as na implantação do Azure RemoteApp ingressado no domínio. Isso exige que o agente de perfil seja carregado na imagem dourada. 
+- Você não precisa de qualquer armazenamento de dados local ou ter todos os dados na nuvem (como no OneDrive for Business) ou em um compartilhamento de arquivos e gostaria de controlar o salvamento de dados no local usando o Azure RemoteApp.
+
+Veja [Desabilitar Discos de Perfil de Usuário (UPDs) no Azure RemoteApp](http://blogs.msdn.com/b/rds/archive/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp.aspx) para saber mais.
 
 ## Posso impedir que os usuários salvem dados na unidade do sistema?
 
@@ -104,7 +117,7 @@ Você também pode usar aplicativos de sincronização de dados como o OneDrive 
 
 ## Como posso executar um script de inicialização no Azure RemoteApp?
 
-Se você quiser executar um script de inicialização, comece criando uma tarefa agendada na imagem do modelo que você vai usar para a coleção. (Faça isso *antes* de executar o sysprep.)
+Se você quiser executar um script de inicialização, comece criando uma tarefa agendada na imagem do modelo que você vai usar para a coleção. (Faça isso *antes* de executar o sysprep).
 
 ![Criar uma tarefa do sistema](./media/remoteapp-upd/upd1.png)
 
@@ -126,4 +139,4 @@ Não, não há suporte para isso com o Azure RemoteApp, que usa RDSH, que també
 
 Não, não há suporte para isso com o Azure RemoteApp.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

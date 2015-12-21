@@ -1,24 +1,24 @@
-Our token cache should work in a simple case but, what happens when the token expires or is revoked? The token could expire when the app is not running. This would mean the token cache is invalid. The token could also expire while the app is actually running. The result is an HTTP status code 401 "Unauthorized". 
+Nosso cache de token deve funcionar em casos simples, mas o que acontece quando o token expira ou é revogado? O token pode expirar quando o aplicativo não está em execução. Isso significa que o cache de token é inválido. O token também pode expirar enquanto o aplicativo estiver realmente em execução. O resultado é um código de status HTTP 401, "Não autorizado".
 
-We need to be able to detect an expired token, and refresh it. To do this we use a [ServiceFilter](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/ServiceFilter.html) from the [Android client library](http://dl.windowsazure.com/androiddocs/).
+Precisamos ser capazes de detectar um token expirado e atualizá-lo. Para fazer isso, usamos um [ServiceFilter](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/ServiceFilter.html) da [biblioteca cliente do Android](http://dl.windowsazure.com/androiddocs/).
 
-In this section you will define a ServiceFilter that will detect a HTTP status code 401 response and trigger a refresh of the token and the token cache. Additionally, this ServiceFilter will block other outbound requests during authentication so that those requests can use the refreshed token.
+Nesta seção, você definirá um ServiceFilter que detectará uma resposta de código de status HTTP 401 e acionará uma atualização do token e do cache de token. Além disso, este ServiceFilter bloqueará outras solicitações de saída durante a autenticação, de modo que essas solicitações possam usar o token atualizado.
 
-1. Open the ToDoActivity.java file and add the following import statements:
+1. Abra o arquivo ToDoActivity.java e adicione as seguintes instruções de importação:
  
         import java.util.concurrent.atomic.AtomicBoolean;
 		import java.util.concurrent.ExecutionException;
 
 		import com.microsoft.windowsazure.mobileservices.MobileServiceException;
  
-2. Add the following members to the `ToDoActivity` class. 
+2. Adicione os seguintes membros à classe `ToDoActivity`:
 
     	public boolean bAuthenticating = false;
 	    public final Object mAuthenticationLock = new Object();
 
-    These will be used to help synchronize the authentication of the user. We only want to authenticate once. Any calls during an authentication should wait and use the new token from the authentication in progress.
+    Eles serão usados para sincronizar a autenticação do usuário. É necessário autenticar somente uma vez. Quaisquer chamadas realizadas durante uma autenticação devem aguardar e usar o novo token da autenticação em andamento.
 
-3. In the ToDoActivity.java file, add the following method to the ToDoActivity class that will be used to block outbound calls on other threads while authentication is in progress.
+3. No arquivo ToDoActivity.java, adicione o seguinte método à classe ToDoActivity, que será usado para bloquear chamadas de saída em outros threads enquanto a autenticação estiver em andamento.
 
 	    /**
     	 * Detects if authentication is in progress and waits for it to complete. 
@@ -49,7 +49,7 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
     	}
     	
 
-4. In the ToDoActivity.java file, add the following method to the ToDoActivity class. This method triggers the wait and then update the token on outbound requests when authentication is complete. 
+4. No arquivo ToDoActivity.java, adicione o seguinte método à classe ToDoActivity. Este método desencadeará a espera e atualizará o token em solicitações de saída quando a autenticação estiver concluída.
 
     	
     	/**
@@ -74,7 +74,7 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
     	}
 
 
-5. In the ToDoActivity.java file, update the `authenticate` method of the ToDoActivity class so that it accepts a boolean parameter to allow forcing the refresh of the token and token cache. We also need to notify any blocked threads when authentication is completed so they can pick up the new token.
+5. No arquivo ToDoActivity.java, atualize o método `authenticate` da classe ToDoActivity para que ela aceite um parâmetro booliano, permitindo que a atualização do token e do cache de token seja forçada. Nós também precisamos notificar os threads bloqueados quando a autenticação for concluída para que eles possam obter o novo token.
 
 	    /**
     	 * Authenticates with the desired login provider. Also caches the token. 
@@ -127,7 +127,7 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
 
 
 
-6. In the ToDoActivity.java file, add this code for a new `RefreshTokenCacheFilter` class inside the ToDoActivity class:
+6. No arquivo ToDoActivity.java, adicione este código para uma nova classe `RefreshTokenCacheFilter` na classe ToDoActivity:
 
 		/**
 		* The RefreshTokenCacheFilter class filters responses for HTTP status code 401. 
@@ -202,9 +202,9 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
 		}
 
 
-    This service filter will check each response for HTTP status code 401 "Unauthorized". If a 401 is encountered, a new login request to obtain a new token will be setup on the UI thread. Other calls will be blocked until the login is completed, or until 5 attempts have failed. If the new token is obtained, the request that triggered the 401 will be retried with the new token and any blocked calls will be retried with the new token. 
+    Este filtro de serviço verificará cada resposta ao código de status HTTP 401, “Não autorizado”. Se um 401 for encontrado, um novo login solicita a obtenção de um novo token, que será configurado no thread de IU. Outras chamadas serão bloqueadas até que o logon seja concluído ou até 5 tentativas falharem. Quando o novo token é obtido, a solicitação que desencadeou o 401 será realizada novamente com o novo token e quaisquer chamadas bloqueadas serão realizadas novamente com o novo token.
 
-7. In the ToDoActivity.java file, add this code for a new `ProgressFilter` class inside the ToDoActivity class:
+7. No arquivo ToDoActivity.java, adicione este código para uma nova classe `ProgressFilter` na classe ToDoActivity:
 		
 		/**
 		* The ProgressFilter class renders a progress bar on the screen during the time the App is waiting for the response of a previous request.
@@ -250,9 +250,9 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
 			}
 		}
 		
-	This filter will show the progress bar on the beginning of the request and will hide it when the response arrived.
+	Esse filtro mostrará a barra de progresso no início da solicitação e a ocultará quando chegar a resposta.
 
-8. In the ToDoActivity.java file, update the `onCreate` method as follows:
+8. No arquivo ToDoActivity.java, atualize o método `onCreate` da seguinte maneira:
 
 		@Override
 	    public void onCreate(Bundle savedInstanceState) {
@@ -283,6 +283,6 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
 	    }
 
 
-       In this code, `RefreshTokenCacheFilter` is used in addition to `ProgressFilter`. Also during `onCreate` we want to load the token cache. So `false` is passed in to the `authenticate` method.
+       Nesse código, `RefreshTokenCacheFilter` é usado além do `ProgressFilter`. Também durante o `onCreate`, queremos carregar o cache de token. Então `false` é passado para o método `authenticate`.
 
-
+<!---HONumber=AcomDC_1210_2015-->

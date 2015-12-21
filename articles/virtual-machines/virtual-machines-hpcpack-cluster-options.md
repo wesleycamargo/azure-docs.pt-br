@@ -49,11 +49,13 @@ Aproveite os serviços de computação e de infraestrutura do Microsoft HPC Pack
 
 ### Tutoriais
 
-* [Tutorial: Introdução a nós de computação Linux em um cluster de HPC Pack no Azure](../virtual-machines/virtual-machines-linux-cluster-hpcpack.md)
+* [Tutorial: Introdução a nós de computação Linux em um cluster de HPC Pack no Azure](virtual-machines-linux-cluster-hpcpack.md)
 
-* [Tutorial: executar o NAMD com o Microsoft HPC Pack em nós de computação Linux no Azure](../virtual-machines/virtual-machines-linux-cluster-hpcpack-namd.md)
+* [Tutorial: executar o NAMD com o Microsoft HPC Pack em nós de computação Linux no Azure](virtual-machines-linux-cluster-hpcpack-namd.md)
 
-* [Tutorial: Introdução com um cluster de HPC Pack no Azure para executar cargas de trabalho do Excel e SOA](../virtual-machines/virtual-machines-excel-cluster-hpcpack.md)
+* [Tutorial: Executar OpenFOAM com o Microsoft HPC Pack em um cluster de RDMA do Linux no Azure](virtual-machines-linux-cluster-hpcpack-openfoam.md)
+
+* [Tutorial: Introdução com um cluster de HPC Pack no Azure para executar cargas de trabalho do Excel e SOA](virtual-machines-excel-cluster-hpcpack.md)
 
 
 
@@ -97,4 +99,4 @@ Aproveite os serviços de computação e de infraestrutura do Microsoft HPC Pack
 
 <!-- * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-hpcpack-cluster-rdma.md) -->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

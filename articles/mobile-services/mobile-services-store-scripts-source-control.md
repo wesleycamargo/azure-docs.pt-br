@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/15/2015"
-	ms.author="ggailey777"/>
+	ms.date="12/07/2015"
+	ms.author="glenga"/>
 
 # Armazenar o código de seu projeto de serviço móvel no controle do código-fonte
 
@@ -37,7 +37,7 @@ Para concluir este tutorial, você já deve ter criado um serviço móvel por me
 
 ##<a name="clone-repo"></a>Instalar o Git e criar o repositório local
 
-1. Instale o Git no seu computador local.
+1. Instale o Git no seu computador local. 
 
 	As etapas necessárias para instalar o Git variam de acordo com o sistema operacional. Consulte [Instalando o Git] para distribuições específicas de sistemas operacionais e orientações de instalação.
 
@@ -80,13 +80,13 @@ Agora que criou seu repositório local, você pode fazer alterações nos script
 		    request.execute();
 		    console.log(JSON.stringify(item, null, 4));
 		}
-
+	
 	Esse código simplesmente grava o item inserido no log. Se esse arquivo já contiver código, basta adicionar um código JavaScript válido a ele, por exemplo, uma chamada para `console.log()`, e salvar as alterações.
 
 3. No prompt de comando do Git, digite o comando a seguir para iniciar o acompanhamento do novo arquivo de script:
 
 		$ git add .
-
+	
 
 4. Digite o comando a seguir para confirmar as alterações:
 
@@ -158,4 +158,4 @@ Agora que concluiu este tutorial, você sabe como armazenar seus scripts no cont
 [Módulos]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

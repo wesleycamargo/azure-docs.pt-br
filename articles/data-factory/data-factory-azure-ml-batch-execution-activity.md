@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Criar pipelines de previsão usando a atividade de Execução em Lote de Aprendizado de Máquina do Azure | Microsoft Azure" 
-	description="Descreve como criar pipelines de previsão usando a Azure Data Factory e o Aprendizado de Máquina do Azure" 
+	description="Descreve como criar pipelines de previsão usando o Azure Data Factory e o Aprendizado de Máquina do Azure" 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="12/06/2015" 
 	ms.author="spelluru"/>
 
 # Criar pipelines preditivos usando as atividades do Aprendizado de Máquina do Azure   
@@ -623,4 +623,4 @@ Se você deseja continuar usando a atividade AzureMLBatchScoring, veja o artigo 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/14/2015"
+   ms.date="12/07/2015"
    ms.author="telmos"/>
 
 # Modelos de implantação do Azure
@@ -68,4 +68,4 @@ Você pode criar e configurar recursos do Azure de computadores com Windows, OS 
 - Entenda como [criar modelos](/best-practices-resource-manager-design-templates.md).
 - Use as [práticas recomendadas](/best-practices-resource-manager-examples.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

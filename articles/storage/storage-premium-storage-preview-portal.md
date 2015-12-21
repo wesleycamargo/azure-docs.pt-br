@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
-	ms.author="tamram;selcint"/>
+	ms.date="12/04/2015"
+	ms.author="robinsh;selcint"/>
 
 
 # Armazenamento Premium: armazenamento de alto desempenho para as cargas de trabalho da máquina virtual do Azure
@@ -393,4 +393,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

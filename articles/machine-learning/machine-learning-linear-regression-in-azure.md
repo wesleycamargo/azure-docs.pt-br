@@ -3,7 +3,6 @@
 	description="Uma comparação dos modelos de regressão linear no Excel e no Estúdio de Aprendizado de Máquina do Azure " 
 	metaKeywords="" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="garyericson" 
 	manager="paulettm" 
@@ -15,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="12/11/2015" 
 	ms.author="kbaroni;garye" />
 
 # Usando regressão linear no Aprendizado de Máquina do Azure
@@ -141,4 +140,4 @@ São listados alguns recursos para ajudá-lo a trabalhar com a regressão:
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2015" 
+	ms.date="12/06/2015" 
 	ms.author="genemi"/>
 
 
@@ -80,15 +80,13 @@ Erros de falha transitória devem solicitar que o programa cliente execute a *l�
 |49919|16|Não é possível criar o processo ou atualizar a solicitação. Muitas operações de criação ou atualização em andamento para a assinatura "%ld".<br/><br/>O serviço está ocupado processando várias solicitações de criação ou atualização para a assinatura ou o servidor. As solicitações estão bloqueadas no momento para a otimização de recursos. Consulte [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) para operações pendentes. Espere até que as solicitações pendentes de criação ou atualização sejam concluídas ou exclua uma das suas solicitações pendentes e tente a solicitação novamente mais tarde. |
 |49920|16|Não é possível processar a solicitação. Muitas operações em andamento para assinatura "% ld".<br/><br/>O serviço está ocupado processando várias solicitações para essa assinatura. As solicitações estão bloqueadas no momento para a otimização de recursos. Consulte [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) para status de operação. Espere até que as solicitações pendentes estejam concluídas ou exclua uma das suas solicitações pendentes e tente a solicitação novamente mais tarde. |
 
-**Observação:** erros 10053 e 10054 podem também necessitar de inclusão em sua lógica de repetição.
-
 
 <a id="bkmk_b_database_copy_errors" name="bkmk_b_database_copy_errors">&nbsp;</a>
 
 ## Erros de cópia de banco de dados
 
 
-A tabela a seguir abrange vários erros que você pode encontrar ao copiar um banco de dados no Banco de Dados SQL do Azure. Para obter mais informações, consulte [Copiar um banco de dados SQL do Azure](sql-database-copy.md).
+A tabela a seguir abrange vários erros que você pode encontrar ao copiar um banco de dados no Banco de Dados SQL do Azure. Para saber mais, confira [Copiar um Banco de Dados SQL do Azure](sql-database-copy.md).
 
 
 |Número do erro|Severidade|Descrição|
@@ -130,8 +128,8 @@ A tabela a seguir abrange os erros causados pelo uso excessivo de recursos enqua
 
 |Número do erro|Severidade|Descrição|
 |---:|---:|:---|
-|10928|20|ID do recurso: %d. O limite de %s para o banco de dados é %d e foi atingido. Para saber mais, consulte [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>A ID do recurso qual dos recursos atingiu o limite. Para threads de trabalho, a ID do recurso é igual a 1. Para sessões, a ID do recurso é igual a 2.<br/><br/>*Observação:* para obter mais informações sobre esse erro e como resolvê-lo, consulte:<br/>•[Limites de recursos do Banco de Dados SQL do Azure](sql-database-resource-limits.md). |
-|10929|20|ID do recurso: %d. A garantia mínima de %s é %d, o limite máximo é %d e o uso atual do banco de dados é %d. No entanto, o servidor está muito ocupado para dar suporte a solicitações maiores que %d para este banco de dados. Para saber mais, consulte [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Caso contrário, tente novamente mais tarde.<br/><br/>A ID do recurso indica qual dos recursos atingiu o limite. Para threads de trabalho, a ID do recurso é igual a 1. Para sessões, a ID do recurso é igual a 2.<br/><br/>*Observação:* para obter mais informações sobre esse erro e como resolvê-lo, consulte:<br/>•[Limites de recursos do Banco de Dados SQL do Azure](sql-database-resource-limits.md).|
+|10928|20|ID do recurso: %d. O limite de %s para o banco de dados é %d e foi atingido. Para saber mais, confira [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>A ID do recurso indica qual dos recursos atingiu o limite. Para threads de trabalho, a ID do recurso é igual a 1. Para sessões, a ID do recurso é igual a 2.<br/><br/>*Observação:* para saber mais sobre esse erro e como resolvê-lo, confira:<br/>•[Limites de recursos do Banco de Dados SQL do Azure](sql-database-resource-limits.md). |
+|10929|20|ID do recurso: %d. A garantia mínima de %s é %d, o limite máximo é %d e o uso atual do banco de dados é %d. No entanto, o servidor está muito ocupado para dar suporte a solicitações maiores que %d para este banco de dados. Para saber mais, confira [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Caso contrário, tente novamente mais tarde.<br/><br/>A ID do recurso indica qual dos recursos atingiu o limite. Para threads de trabalho, a ID do recurso é igual a 1. Para sessões, a ID do recurso é igual a 2.<br/><br/>*Observação:* para saber mais sobre esse erro e como resolvê-lo, confira:<br/>•[Limites de recursos do Banco de Dados SQL do Azure](sql-database-resource-limits.md).|
 |40544|20|O banco de dados atingiu sua cota de tamanho. Particione ou exclua dados, descarte índices ou consulte a documentação para conhecer as possíveis resoluções.|
 |40549|16|A sessão foi encerrada porque você tem uma transação de longa duração. Tente encurtar a transação.|
 |40550|16|A sessão foi encerrada porque adquiriu muitos bloqueios. Tente ler ou modificar menos linhas em uma única transação.|
@@ -143,7 +141,7 @@ A tabela a seguir abrange os erros causados pelo uso excessivo de recursos enqua
 Para ver uma discussão adicional sobre a governança de recursos e os erros associados a ela, consulte:
 
 
-- [Limites de Recurso de Banco de Dados SQL do Azure](sql-database-resource-limits.md).
+- [Limites de recursos do Banco de Dados SQL do Azure](sql-database-resource-limits.md)
 
 
 
@@ -203,7 +201,7 @@ A tabela a seguir lista todos os erros gerais que não se enquadram em nenhuma c
 |40632|16|Falha na validação da senha. A senha não atende aos requisitos da política porque não é complexa o suficiente.|
 |40636|16|Não é possível usar um nome de banco de dados reservado '%.&#x2a;ls' nesta operação.|
 |40638|16|Id de assinatura inválida <subscription-id>. A assinatura não existe.|
-|40639|16|Solicitação não corresponde ao esquema: <schema error>.|
+|40639|16|A solicitação não corresponde ao esquema: <schema error>.|
 |40640|20|O servidor encontrou uma exceção inesperada.|
 |40641|16|O local especificado é inválido.|
 |40642|17|O servidor está muito ocupado no momento. Tente novamente mais tarde.|
@@ -214,12 +212,11 @@ A tabela a seguir lista todos os erros gerais que não se enquadram em nenhuma c
 |40647|16|A assinatura <id da assinatura> não tem um nome de servidor.|
 |40648|17|Muitas solicitações foram executadas. Tente novamente mais tarde.|
 |40649|16|Tipo de conteúdo inválido especificado. Somente aplicativo/xml tem suporte.|
-|40650|16|Assinatura <subscription-id> não existe ou não está pronta para a operação.|
+|40650|16|A assinatura <subscription-id> não existe ou não está pronta para a operação.|
 |40651|16|Falha ao criar o servidor porque a assinatura <subscription-id> está desabilitada.|
 |40652|16|Não é possível mover ou criar o servidor. Assinatura <subscription-id> excederá a cota do servidor.|
 |40671|17|Falha de comunicação entre o gateway e o serviço de gerenciamento. Tente novamente mais tarde.|
-|45168|16|O sistema do SQL Azure está sob carga e está estabelecendo um limite superior para operações CRUD de BD simultâneas para um único servidor (por exemplo, criar banco de dados). O servidor especificado na mensagem de erro ultrapassou o número máximo de conexões simultâneas. Tente novamente mais tarde.|
-|45169|16|O sistema SQL Azure está sob carga e está estabelecendo um limite superior para o número de operações CRUD de servidor simultâneas para uma única assinatura (por exemplo, criar servidor). A assinatura especificada na mensagem de erro ultrapassou o número máximo de conexões simultâneas e a solicitação foi negada. Tente novamente mais tarde.|
+|40852|16|Não é possível abrir o banco de dados '%.*ls' no servidor '%.*ls' solicitado pelo logon. O acesso ao banco de dados é permitido apenas usando uma cadeia de conexão habilitada para segurança. Para acessar esse banco de dados, modifique as cadeias de conexão para conter “secure” no FQDN do servidor. 'server name'.database.windows.net deve ser modificado para 'server name'.database.`secure`.windows.net.| |45168|16| O sistema do SQL Azure está sob carga e está estabelecendo um limite superior em operações CRUD simultâneas de BD para um único servidor (por exemplo, criar banco de dados). O servidor especificado na mensagem de erro ultrapassou o número máximo de conexões simultâneas. Tente novamente mais tarde.| |45169|16|O sistema SQL Azure está sob carga e está estabelecendo um limite superior para o número de operações CRUD de servidor simultâneas para uma única assinatura (por exemplo, criar servidor). A assinatura especificada na mensagem de erro ultrapassou o número máximo de conexões simultâneas e a solicitação foi negada. Tente novamente mais tarde.|
 
 
 ## Links relacionados
@@ -227,4 +224,4 @@ A tabela a seguir lista todos os erros gerais que não se enquadram em nenhuma c
 - [Diretrizes e limitações gerais do Banco de Dados SQL do Azure](sql-database-general-limitations.md)
 - [Limites de recursos do Banco de Dados SQL do Azure](sql-database-resource-limits.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

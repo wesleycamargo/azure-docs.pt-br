@@ -87,11 +87,11 @@ A operação POST conterá o seguinte esquema e conteúdo JSON para todos os ale
 |conditionType |S |“Metric”, “Event” |Há suporte para dois tipos de alertas. Um baseado em métrica e outro baseado em evento. No futuro, daremos suporte a alertas para Eventos, então use este valor para verificar se o alerta se baseia em métrica ou evento|
 |condition |S | |Terá os campos específicos de verificação com base no conditionType|
 |metricName |para alertas de Métrica | |O nome da métrica define o que a regra monitora.|
-|metricUnit |para alertas de Métrica |"Bytes", "BytesPerSecond" , "Count" , "CountPerSecond" , "Percent", "Seconds"|	 A unidade permitida na métrica. Valores permitidos: https://msdn.microsoft.com/pt-BR/library/microsoft.azure.insights.models.unit.aspx|
+|metricUnit |para alertas de Métrica |"Bytes", "BytesPerSecond" , "Count" , "CountPerSecond" , "Percent", "Seconds"|	 A unidade permitida na métrica. Valores permitidos: https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx|
 |metricValue |para alertas de Métrica | |O valor real da métrica que causou o alerta|
 |threshold |para alertas de Métrica | |O valor de limite que ativa o alerta|
 |windowSize |para alertas de Métrica | |O período de tempo que é usado para monitorar a atividade de alerta com base no limite. Deve estar entre 5 minutos e 1 dia. Formato de duração ISO 8601.|
-|timeAggregation |para alertas de Métrica |"Average", "Last" , "Maximum" , "Minimum" , "None", "Total" |	Como os dados coletados devem ser combinados ao longo do tempo. O valor padrão é Average. Valores permitidos: https://msdn.microsoft.com/pt-BR/library/microsoft.azure.insights.models.aggregationtype.aspx|
+|timeAggregation |para alertas de Métrica |"Average", "Last" , "Maximum" , "Minimum" , "None", "Total" |	Como os dados coletados devem ser combinados ao longo do tempo. O valor padrão é Average. Valores permitidos: https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx|
 |operator |para alertas de Métrica | |O operador usado para comparar os dados e o limite.|
 |subscriptionId |S | |GUID da assinatura do Azure|
 |resourceGroupName |S | |resource-group-name do recurso afetado|
@@ -123,4 +123,4 @@ Use os Alertas do Azure para enviar mensagens para outros serviços. Use os mode
 
 [Usar Aplicativo Lógico para enviar mensagens para uma Fila do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

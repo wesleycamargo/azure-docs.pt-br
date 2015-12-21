@@ -18,7 +18,7 @@
 
 
 # Preparar uma Máquina Virtual baseada no Red Hat para o Azure
-Neste artigo, você aprenderá como preparar uma Máquina Virtual do Red Hat Enterprise Linux (RHEL) para usar no Azure. As versões do RHEL abordadas neste artigo são 6.7 e 7.1 e os hipervisores de preparação abordados neste artigo são o Hyper-V, o KVM e o VMWare. Para obter mais informações sobre requisitos de qualificação para participação no programa de Acesso à Nuvem do Red Hat (Red Hat's Cloud Access), consulte [Site de Acesso à Nuvem do Red Hat](http://www.redhat.com/en/technologies/cloud-computing/cloud-access).
+Neste artigo, você aprenderá como preparar uma Máquina Virtual do Red Hat Enterprise Linux (RHEL) para usar no Azure. As versões do RHEL abordadas neste artigo são 6.7, 7.1 e 7.2 e os hipervisores de preparação abordados neste artigo são o Hyper-V, o KVM e o VMWare. Para saber mais sobre os requisitos de qualificação para participação no programa de Acesso à Nuvem do Red Hat (Red Hat's Cloud Access), confira [Site Red Hat's Cloud Access](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) e [Running RHEL on Azure](https://access.redhat.com/articles/1989673).
 
 
 
@@ -134,9 +134,9 @@ Esta seção pressupõe que você já instalou uma imagem RHEL a partir de um ar
 
 16.	Clique em **Ação -> Desligar** no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
 
-###RHEL 7.1
+###RHEL 7.1/7.2
 
-1. No Gerenciador do Hyper-V, selecione a máquina virtual.
+1.  No Gerenciador do Hyper-V, selecione a máquina virtual.
 
 2.	Clique em Conectar para abrir a janela do console para a máquina virtual.
 
@@ -335,9 +335,9 @@ Esta seção pressupõe que você já instalou uma imagem RHEL a partir de um ar
          # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.7.raw rhel-6.7.vhd
 
 
-###RHEL 7.1
+###RHEL 7.1/7.2
 
-1.	Baixe a imagem KVM do RHEL 7.1 no site do Red Hat.
+1.	Baixe a imagem KVM do RHEL 7.1 (ou 7.2) no site da web da Red Hat, usaremos RHEL 7.1 como exemplo.
 
 2.	Definir uma senha raiz
 
@@ -469,13 +469,13 @@ Esta seção pressupõe que você já instalou uma imagem RHEL a partir de um ar
 
 ##Preparar uma imagem a partir do VMWare
 ###Pré-requisitos
-Esta seção pressupõe que você já instalou uma máquina virtual RHEL no VMWare. Para saber mais sobre como instalar um sistema operacional no VMWare, confira o [Guia de instalação do sistema operacional convidado VMWare](http://partnerweb.vmware.com/GOSIG/home.html).
+Esta seção pressupõe que você já instalou uma máquina virtual RHEL no VMWare. Para saber mais sobre como instalar um sistema operacional no VMWare, confira o [Guia de Instalação do Sistema Operacional Convidado VMWare](http://partnerweb.vmware.com/GOSIG/home.html).
  
 - Ao instalar o sistema Linux, é recomendável que você use partições padrão em vez de LVM (geralmente o padrão para muitas instalações). Isso irá evitar conflitos de nome LVM com VMs clonadas, especialmente se um disco do sistema operacional precisar ser anexado a outra VM para solução de problemas. Se você preferir, é possível usar LVM ou RAID em discos de dados.
 
 - Não configure uma partição de permuta no disco do SO. O agente Linux pode ser configurado para criar um arquivo de permuta no disco de recursos temporários. Verifique as etapas a seguir para obter mais informações a esse respeito.
 
-- Ao criar o disco rígido virtual, selecione **Armazenar disco virtual como um único arquivo**.
+- Ao criar o disco rígido virtual, escolha **Armazenar disco virtual como um único arquivo**.
 
 ###RHEL 6.7
 1.	Desinstale o NetworkManager executando o seguinte comando:
@@ -578,7 +578,7 @@ Esta seção pressupõe que você já instalou uma máquina virtual RHEL no VMWa
 
         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.7.raw rhel-6.7.vhd
 
-###RHEL 7.1
+###RHEL 7.1/7.2
 
 1.	Crie um arquivo chamado **network** no diretório /etc/sysconfig/ com o seguinte texto:
 
@@ -682,9 +682,9 @@ Esta seção pressupõe que você já instalou uma máquina virtual RHEL no VMWa
 
 
 ##Preparar a partir de um ISO usando o arquivo de início rápido automaticamente
-###RHEL 7.1
+###RHEL 7.1/7.2
 
-1.	Crie o arquivo de início rápido com o conteúdo abaixo e salve o arquivo. Para saber mais sobre a instalação do kickstart, confira o [Guia de instalação do Kickstart](https://access.redhat.com/documentation/pt-BR/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
+1.	Crie o arquivo de início rápido com o conteúdo abaixo e salve o arquivo. Para saber mais sobre a instalação do kickstart, confira o [Guia de Instalação pelo Kickstart](https://access.redhat.com/documentation/pt-BR/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
 
 
         # Kickstart for provisioning a RHEL 7 Azure VM
@@ -798,17 +798,17 @@ Esta seção pressupõe que você já instalou uma máquina virtual RHEL no VMWa
 
 2.	Coloque o arquivo de início rápido em um local acessível no sistema de instalação.
  
-3.	No Gerenciador do Hyper-V, crie uma nova VM. Na página **Conectar Disco Rígido Virtual**, selecione **Anexar um disco rígido virtual posteriormente** e conclua o Assistente de Nova Máquina Virtual.
+3.	No Gerenciador do Hyper-V, crie uma nova VM. Na página **Conectar Disco Rígido Virtual**, escolha **Anexar um disco rígido virtual posteriormente** e conclua o Assistente de Nova Máquina Virtual.
 
 4.	Abra as configurações da VM:
 
-    a. Anexe um novo disco rígido virtual à VM, não deixe de selecionar **Formato VHD** e **Tamanho Fixo**.
+    a. Anexe um novo disco rígido virtual à VM e não deixe de escolher **Formato VHD** e **Tamanho Fixo**.
     
     b. Anexe o ISO de instalação ISO à unidade de DVD.
 
     c. Configure o BIOS para inicializar no CD.
 
-5.	Inicie a VM e quando o guia de instalação for exibido, pressione **Tab** para configurar as opções de inicialização.
+5.	Inicie a VM e, quando o guia de instalação for exibido, pressione **Tab** para configurar as opções de inicialização.
 
 6.	Insira `inst.ks=<the location of the Kickstart file>` no final das opções de inicialização e pressione **Enter**.
 
@@ -830,4 +830,8 @@ Este problema é intermitente, porém ocorre com mais frequência durante as ope
 
     # sudo yum update
 
-<!---HONumber=AcomDC_1203_2015-->
+
+## Próximas etapas
+Agora você está pronto para usar o .vhd do Red Hat Enterprise Linux para criar novas Máquinas Virtuais do Azure. Para obter mais detalhes sobre os hipervisores certificados para execução do Red Hat Enterprise Linux, visite [o site da Red Hat](https://access.redhat.com/certified-hypervisors).
+
+<!---HONumber=AcomDC_1210_2015-->

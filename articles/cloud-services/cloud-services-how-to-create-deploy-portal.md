@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="12/07/2015"
 	ms.author="adegeo"/>
 
 
@@ -47,39 +47,40 @@ Antes de poder implantar um serviço de nuvem, você deve criar o pacote do serv
 
 Três recursos de serviço de nuvem precisam de configurações especiais antes que você exporte um pacote de serviço:
 
-- Se você desejar implantar um serviço de nuvem que usa protocolo SSL para a criptografia de dados, configure seu aplicativo para SSL. Para obter mais informações, consulte [Como configurar um certificado SSL em um ponto de extremidade HTTPS](http://msdn.microsoft.com/library/azure/ff795779.aspx).
+- Se você desejar implantar um serviço de nuvem que usa protocolo SSL para a criptografia de dados, [configure seu aplicativo](cloud-services-configure-ssl-certificate-portal.md#modify) para SSL.
 
-- Se você desejar configurar conexões de área de trabalho remota para as instâncias de função, configure as funções para área de trabalho remota. Para obter mais informações sobre como preparar o arquivo da definição de serviço para acesso remoto, consulte [Configuração de uma conexão de área de trabalho remota para uma função no Azure](http://msdn.microsoft.com/library/hh124107.aspx).
+- Se você desejar configurar conexões de área de trabalho remota para as instâncias de função, [configure as funções](cloud-services-role-enable-remote-desktop.md) para Área de Trabalho Remota. Isso só pode ser feito no portal clássico.
 
 - Se você desejar configurar o monitoramento detalhado para o seu serviço de nuvem, habilite o Diagnóstico do Azure para o serviço de nuvem. *Monitoramento mínimo* (o nível de monitoramento padrão) usa contadores de desempenho coletados dos sistemas operacionais do host para as instâncias de função (máquinas virtuais). O *Monitoramento detalhado* coleta métricas adicionais baseadas nos dados de desempenho nas instâncias de função para habilitar uma análise mais próxima dos problemas que ocorrem durante o processamento do aplicativo. Para saber como habilitar o Diagnóstico do Azure, confira [Habilitando o diagnóstico no Azure](cloud-services-dotnet-diagnostics.md).
 
-Para criar um serviço de nuvem com implantações de funções Web ou de Trabalho, você deve criar o pacote de serviço. Para mais informações sobre os arquivos relacionados ao pacote, consulte [Configuração de um serviço de nuvem para o Azure](http://msdn.microsoft.com/library/hh124108.aspx). Para criar o arquivo de pacote, veja [Empacotar um aplicativo do Microsoft Azure](http://msdn.microsoft.com/library/hh403979.aspx). Se estiver usando o Visual Studio para desenvolver seu aplicativo, consulte [Publicando um serviço de nuvem usando as ferramentas do Azure](http://msdn.microsoft.com/library/ff683672.aspx).
+Para criar um serviço de nuvem com implantações de funções Web ou de Trabalho, você deve [criar o pacote de serviço](cloud-services-model-and-package.md#servicepackagecspkg).
 
 ## Antes de começar
 
 - Se você não instalou o SDK do Azure, clique em **Instalar SDK do Azure** para abrir a[página de Downloads do Azure](http://azure.microsoft.com/downloads/) e baixar o SDK para o idioma em que você preferir desenvolver seu código. (Você terá uma oportunidade de fazer isso posteriormente).
 
-- Se alguma instância de função precisar de certificados, crie-os. Os serviços de nuvem requerem um arquivo .pfx e uma chave privada. Você pode carregar os certificados para o Azure enquanto cria e implanta o serviço de nuvem. Para obter mais informações sobre os certificados, consulte [Gerenciar certificados](http://msdn.microsoft.com/library/gg981929.aspx).
+- Se alguma instância de função precisar de certificados, crie-os. Os serviços de nuvem requerem um arquivo .pfx e uma chave privada. [Você pode carregar os certificados para o Azure]() enquanto cria e implanta o serviço de nuvem.
 
-- Se você planeja implantar o serviço de nuvem em um grupo de afinidade, crie-o. Você pode usar um grupo de afinidade para implantar o serviço de nuvem e outros serviços do Azure no mesmo local em uma região. Você pode criar o grupo de afinidades na área **Redes** do portal do Azure, na página **Grupos de Afinidade**. Para saber mais, confira [Criar um grupo de afinidades no Portal do Azure](http://msdn.microsoft.com/library/jj156209.aspx).
+- Se você planeja implantar o serviço de nuvem em um grupo de afinidade, crie-o. Você pode usar um grupo de afinidade para implantar o serviço de nuvem e outros serviços do Azure no mesmo local em uma região. Você pode criar o grupo de afinidade na área **Redes** do Portal clássico do Azure, na página **Grupos de Afinidade**.
 
 
 ## Etapa 3: criar um serviço de nuvem e carregar o pacote de implantação
 
 1. Faça logon no [Portal do Azure][].
-2. Clique em **Novo > Computação** e role para baixo e clique em **Serviço de Nuvem**.
+2. Clique em **Novo > Computação**, role para baixo e clique em **Serviço de Nuvem**.
 
     ![Publicar o serviço de nuvem](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 
-3. Na nova folha **Serviço de Nuvem**, insira um valor em **Nome DNS**.
-4. Crie um novo **Grupo de Recursos** ou selecione um existente.
-5. Selecione um **Local**.
-6. Selecione **Pacote** na folha **Carregar um pacote** e preencha os campos obrigatórios.  
+3. Na parte inferior da página de informações que é exibida, clique em **Criar**.
+4. Na nova folha **Serviço de Nuvem**, insira um valor em **Nome DNS**.
+5. Crie um novo **Grupo de Recursos** ou selecione um existente.
+6. Selecione um **Local**.
+7. Selecione **Pacote** na folha **Carregar um pacote** e preencha os campos obrigatórios.  
 
      Se alguma das funções contiver uma única instância, verifique se **Implantar mesmo se uma ou mais funções contiverem uma única instância** está marcado.
 
-7. Verifique se a opção **Iniciar implantação** está selecionada.
-8. Clique em **OK**.
+8. Verifique se a opção **Iniciar implantação** está selecionada.
+9. Clique em **OK**.
 
     ![Publicar o serviço de nuvem](media/cloud-services-how-to-create-deploy-portal/select-package.png)
 
@@ -87,9 +88,9 @@ Para criar um serviço de nuvem com implantações de funções Web ou de Trabal
 
 Se o pacote de implantação tiver sido [configurado para usar certificados](cloud-services-configure-ssl-certificate-portal.md#modify), você poderá carregar o certificado agora.
 
-9. Selecione **Certificados** e, na folha **Adicionar certificados**, selecione o arquivo .pfx do certificado SSL e forneça a **Senha** do certificado,
-10. Clique em **Anexar certificado** e clique em **OK** na folha **Adicionar certificados**.
-11. Clique em **Criar** na folha **Serviço de Nuvem**. Quando a implantação alcançar o status **Pronto**, será possível passar às próximas etapas.
+1. Selecione **Certificados** e, na folha **Adicionar certificados**, selecione o arquivo .pfx do certificado SSL e forneça a **Senha** do certificado.
+2. Clique em **Anexar certificado** e clique em **OK** na folha **Adicionar certificados**.
+3. Clique em **Criar** na folha **Serviço de Nuvem**. Quando a implantação alcançar o status **Pronto**, será possível passar às próximas etapas.
 
     ![Publicar o serviço de nuvem](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 
@@ -105,7 +106,7 @@ Se o pacote de implantação tiver sido [configurado para usar certificados](clo
     ![CloudServices\_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
 
 
-[TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
+[TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796
 
 ## Próximas etapas
 
@@ -114,4 +115,4 @@ Se o pacote de implantação tiver sido [configurado para usar certificados](clo
 * [Gerenciar seu serviço de nuvem](cloud-services-how-to-manage-portal.md).
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

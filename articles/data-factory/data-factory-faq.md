@@ -132,11 +132,11 @@ No exemplo acima, otherLinkedServiceName1 e otherLinkedServiceName2 representam 
 Você pode executar novamente uma fatia de uma das seguintes maneiras:
 
 - Clique em **Executar** na barra de comando na folha **FATIA DE DADOS** para a fatia no portal. 
-- Execute o cmdlet **Set-AzureDataFactorySliceStatus** com Status definido como **PendingExecution** para a fatia.   
+- Execute o cmdlet **Set-AzureRmDataFactorySliceStatus** com Status definido como **PendingExecution** para a fatia.   
 	
-		Set-AzureDataFactorySliceStatus -Status PendingExecution -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
+		Set-AzureRmDataFactorySliceStatus -Status PendingExecution -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
 
-Confira [Set-AzureDataFactorySliceStatus][set-azure-datafactory-slice-status] para obter detalhes sobre o cmdlet.
+Confira [Set-AzureRmDataFactorySliceStatus][set-azure-datafactory-slice-status] para obter detalhes sobre o cmdlet.
 
 ### Quanto tempo levou para processar uma fatia?
 1. Clique no bloco **Conjuntos de dados** da folha **DATA FACTORY** da sua fábrica de dados.
@@ -147,7 +147,7 @@ Confira [Set-AzureDataFactorySliceStatus][set-azure-datafactory-slice-status] pa
 6. Você deve ver o campo **DURAÇÃO** com um valor. Isso é o tempo necessário para processar a fatia.   
 
 ### Como parar uma fatia em execução?
-Se você precisar interromper a execução do pipeline, poderá usar o cmdlet [Suspend-AzureDataFactoryPipeline](https://msdn.microsoft.com/library/dn834939.aspx). Atualmente, suspender o pipeline não interrompe as execuções de fatia que estão em andamento. Depois de concluir as execuções em andamento, nenhuma fatia extra é coletada.
+Se você precisar interromper a execução do pipeline, poderá usar o cmdlet [Suspend-AzureRmDataFactoryPipeline](https://msdn.microsoft.com/library/mt603721.aspx). Atualmente, suspender o pipeline não interrompe as execuções de fatia que estão em andamento. Depois de concluir as execuções em andamento, nenhuma fatia extra é coletada.
 
 Se você realmente desejar parar todas as execuções imediatamente, a única maneira seria excluir o pipeline e criá-lo novamente. Se você optar por excluir o pipeline, não é necessário excluir tabelas e serviços vinculados usados pelo pipeline.
 
@@ -169,7 +169,7 @@ Se você realmente desejar parar todas as execuções imediatamente, a única ma
 [adf-powershell-reference]: https://msdn.microsoft.com/library/dn820234.aspx
 [adf-documentation-landingpage]: http://go.microsoft.com/fwlink/?LinkId=516909
 [azure-portal]: http://portal.azure.com
-[set-azure-datafactory-slice-status]: https://msdn.microsoft.com/library/azure/dn835095.aspx
+[set-azure-datafactory-slice-status]: https://msdn.microsoft.com/library/mt603522.aspx
 
 [adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
 [hdinsight-supported-regions]: http://azure.microsoft.com/pricing/details/hdinsight/
@@ -177,4 +177,4 @@ Se você realmente desejar parar todas as execuções imediatamente, a única ma
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

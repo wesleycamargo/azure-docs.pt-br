@@ -76,7 +76,7 @@ Para concluir as tarefas deste guia, você precisará do seguinte:
 - Um IDE do Eclipse para desenvolvedores do Java EE, Indigo ou posterior. Isso pode ser baixado em <http://www.eclipse.org/downloads/>. 
 - Uma distribuição de um servidor web baseado em Java ou servidor de aplicativo, como o Apache Tomcat, o GlassFish, o Servidor de Aplicativo JBoss ou o Jetty.
 - Uma assinatura do Azure, a qual pode ser adquirida em <http://www.microsoft.com/windowsazure/offers/>.
-- O Kit de Ferramentas do Azure para Eclipse, versão de abril de 2014 ou posterior. Para obter mais informações, veja [Instalar o Kit de Ferramentas do Azure para Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
+- O Kit de Ferramentas do Azure para Eclipse, versão de abril de 2014 ou posterior. Para saber mais, confira [Instalação do Kit de Ferramentas do Azure para Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
 - Um certificado X.509 para uso com o aplicativo. Você precisará desse certificado no certificado público (.cer) e no formato Troca de Informações Pessoais (.PFX). (As opções para criação desse certificado serão descritas posteriormente neste tutorial).
 - Familiaridade com emulador de computação do Azure e com as técnicas de implantação discutidas em [Criando um aplicativo Hello World para o Azure no Eclipse (a página pode estar em inglês)](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx).
 
@@ -92,7 +92,7 @@ Para começar a usar o ACS (Access Control Service) no Azure, você deve criar u
 6. Se você tiver mais de uma assinatura, selecione a assinatura que você deseja usar para o namespace do ACS.
 7. Clique em **Criar**.
 
-O Windows Azure cria e ativa o namespace. Aguarde até que o status do novo namespace seja **Ativo** para continuar.
+O Microsoft Azure cria e ativa o namespace. Aguarde até que o status do novo namespace seja **Ativo** para continuar.
 
 ## Adicionar provedores de identidade
 
@@ -310,4 +310,4 @@ Neste ponto, seu certificado seria incluído em sua implantação. Observe que, 
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

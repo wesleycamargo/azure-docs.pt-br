@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/31/2015"
+   ms.date="12/04/2015"
    ms.author="heeldin;motanv"/>
 
 # Ações da Possibilidade de Teste
@@ -232,6 +232,5 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
 - Como testar seu serviço
    - [Simular falhas durante cargas de trabalho de serviço](service-fabric-testability-workload-tests.md)
    - [Falhas de comunicação entre serviços](service-fabric-testability-scenarios-service-communication.md)
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

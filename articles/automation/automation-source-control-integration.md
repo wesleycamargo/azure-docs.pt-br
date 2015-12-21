@@ -19,7 +19,7 @@
 
 A integração de controle de origem permite que você associe runbooks em sua conta de Automação a um repositório de controle de origem do GitHub. O controle de origem permite que você colabore com facilidade com sua equipe, controle alterações e reverta para versões anteriores de seus runbooks. Por exemplo, o controle de origem permite a sincronização de ramificações diferentes no controle de origem para suas contas de desenvolvimento, teste ou produção da Automação, facilitando a promoção do código testado em seu ambiente de desenvolvimento para o ambiente de produção da Automação.
 
-O controle de origem permite que você envie código por push da Automação do Azure para o controle de origem ou efetue o pull de seus runbooks do controle de origem para a Automação do Azure. Este artigo descreve como configurar o controle de origem no seu ambiente da Automação do Azure. Vamos começar configurando a Automação do Azure para acessar seu repositório do GitHub e analisar operações diferentes que podem ser feitas usando a integração de controle de origem.
+O controle do código-fonte permite que você envie código por push da Automação do Azure para o controle do código-fonte ou efetue o pull de seus runbooks do controle do código-fonte para a Automação do Azure. Este artigo descreve como configurar o controle de origem no seu ambiente da Automação do Azure. Vamos começar configurando a Automação do Azure para acessar seu repositório do GitHub e analisar operações diferentes que podem ser feitas usando a integração de controle de origem.
 
 
 >[AZURE.NOTE]O controle de origem dá suporte a efetuar pull e a enviar por push de [Runbooks de fluxo de trabalho do PowerShell](automation-runbook-types.md#powershell-workflow-runbooks), bem como de [Runbooks do PowerShell](automation-runbook-types.md#powershell-runbooks), mas os [runbooks do Gráfico](automation-runbook-types.md#graphical-runbooks) ainda não têm suporte.<br><br>
@@ -60,7 +60,7 @@ Se você já tiver uma conta do GitHub e um repositório que deseja vincular à 
     ![Configurar Folha](media/automation-source-control-integration/automation_02_SourceControlConfigure.png)
 
 
-5. Depois de clicar em OK, a integração do controle de origem estará configurada para a sua conta de automação e deverá ser atualizada com as informações do GitHub; agora você pode clicar nessa parte para exibir todo o seu histórico de trabalhos de sincronização de controle de origem.
+5. Depois de clicar em OK, a integração do controle do código-fonte estará configurada para a sua conta de automação e deverá ser atualizada com as informações do GitHub. Agora você pode clicar nessa parte para exibir todo o seu histórico de trabalhos de sincronização de controle do código-fonte.
 
     ![Valores de Repositório](media/automation-source-control-integration/automation_03_RepoValues.png)
 
@@ -126,7 +126,7 @@ O check-in de runbook permite que você envie por push as alterações feitas em
 
 ### Sincronizar runbooks do controle de origem para a Automação do Azure 
 
-O botão de sincronização na folha Sincronização do Runbook permite efetuar pull em todos os runbooks no caminho da pasta do runbook do seu repositório para sua Conta de Automação. O mesmo repositório pode ser sincronizado em mais de uma Conta de Automação. A seguir, as etapas para sincronizar um runbook:
+O botão de sincronização na folha Sincronização do repositório permite efetuar pull em todos os runbooks no caminho da pasta do runbook do seu repositório para sua Conta de Automação. O mesmo repositório pode ser sincronizado em mais de uma Conta de Automação. A seguir, as etapas para sincronizar um runbook:
 
 1. Na Conta de Automação onde você configura o controle de origem, abra a **folha Integração de Controle de Origem/Sincronização de Repositórios** e clique em **Sincronizar** e será exibida uma mensagem de confirmação, clique em **Sim** para continuar.  
 
@@ -158,4 +158,4 @@ Para se desconectar de sua conta do GitHub, abra a folha Sincronização de Repo
 
 Para saber mais sobre a integração de controle de origem, confira os seguintes recursos:- [Automação do Azure: integração de controle de origem na Automação do Azure](https://azure.microsoft.com/blog/azure-automation-source-control-13/) - [Vote em seu sistema de controle de origem favorito](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d) - [Automação do Azure: integrando o controle de origem de runbook usando o Visual Studio Online](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

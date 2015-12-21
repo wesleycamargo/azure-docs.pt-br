@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/14/2015" 
+	ms.date="12/03/2015" 
 	ms.author="antonba"/>
 
 # Como delegar o registro de usuário e a assinatura do produto
@@ -117,7 +117,7 @@ Depois, certifique-se de que o ponto de extremidade de delegação realize as a�
 
 ## <a name="delegate-example-code"> </a> Código de exemplo ##
 
-Estes códigos de exemplo mostram como usar a *chave de validação de delegação*, que é definida na tela Delegação do Portal de Gerenciamento de API, para criar um HMAC que será usado para validar a assinatura, comprovando a validade da returnUrl passada. O mesmo código funciona para productId e userId com pequenas modificações.
+Estes códigos de exemplo mostram como usar a *chave de validação de delegação*, que é definida na tela Delegação do Portal do editor, para criar um HMAC que será usado para validar a assinatura, comprovando a validade da returnUrl passada. O mesmo código funciona para productId e userId com pequenas modificações.
 
 **Código C# para gerar hash de returnUrl**
 
@@ -166,4 +166,4 @@ Para obter mais informações sobre delegação, consulte o vídeo a seguir.
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

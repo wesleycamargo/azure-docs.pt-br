@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/18/2015"
+   ms.date="12/10/2015"
    ms.author="lodipalm;barbkess;twounder;JRJ@BigBangData.co.uk;"/>
 
 
@@ -29,9 +29,9 @@ Em seu núcleo, o SQL Data Warehouse é executado usando uma arquitetura MPP (pr
 
 ![Arquitetura do SQL Data Warehouse][1]
 
-- **Nó de controle:** você se conecta ao nó de controle usando o SQL Data Warehouse com quaisquer ferramentas de desenvolvimento, carregamento ou business intelligence. No SQL Data Warehouse, o nó de computação é um Banco de Dados SQL e ao se conectar ele se parece com um Banco de Dados SQL padrão. No entanto, em segundo plano, ele coordena toda a movimentação e computação de dados que ocorrem no sistema. Quando um comando é emitido para o nó de controle, ele o divide em um conjunto de consultas que serão passados para os nós de computação do serviço.
+- **Nó de controle:** você se conecta ao nó de controle usando o SQL Data Warehouse com quaisquer ferramentas de desenvolvimento, carregamento ou business intelligence. No SQL Data Warehouse, o nó de controle é um Banco de Dados SQL e ao se conectar ele se parece com um Banco de Dados SQL padrão. No entanto, em segundo plano, ele coordena toda a movimentação e computação de dados que ocorrem no sistema. Quando um comando é emitido para o nó de controle, ele o divide em um conjunto de consultas que serão passados para os nós de computação do serviço.
 
-- **Nós de computação:** como o nó de controle, os nós de computação do SQL Data Warehouse são ativados usando bancos de dados SQL. O trabalho deles é servir como a potência de computação do serviço. Nos bastidores, sempre que os dados são carregados no SQL Data Warehouse, eles são distribuídos entre os nós do serviço. Em seguida, sempre que o nó de controle recebe um comando ,ele o divide em partes para cada nó de computação, e os nós de computação operam em seus dados correspondentes. Depois de concluir a computação, os nós de computação passam os resultados parciais para o nó de controle que agrega os resultados antes de retornar uma resposta.
+- **Nós de computação:** como o nó de controle, os nós de computação do SQL Data Warehouse são ativados usando Bancos de Dados SQL. O trabalho deles é servir como a potência de computação do serviço. Nos bastidores, sempre que os dados são carregados no SQL Data Warehouse, eles são distribuídos entre os nós do serviço. Em seguida, sempre que o nó de controle recebe um comando ,ele o divide em partes para cada nó de computação, e os nós de computação operam em seus dados correspondentes. Depois de concluir a computação, os nós de computação passam os resultados parciais para o nó de controle que agrega os resultados antes de retornar uma resposta.
 
 - **Armazenamento:** todo o armazenamento para o SQL Data Warehouse é um Blobs de armazenamento do Azure padrão. Isso significa que, ao interagir com dados, os nós de computação são gravados e lidos diretamente nos/dos Blobs. A capacidade do Armazenamento do Azure de expandir de forma transparente e permitir quase sem limite o dimensionamento automático do armazenamento, e fazer isso separadamente da computação. O Armazenamento do Azure também permite a manutenção do armazenamento durante a expansão ou pausa, simplificar nosso processo de backup e restauração, e ter um armazenamento mais seguro e mais tolerante a falhas.
 
@@ -138,4 +138,4 @@ Agora que você sabe um pouco sobre o SQL Data Warehouse, saiba mais sobre a [ca
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="12/05/2015"
 	ms.author="juliako"/>
 
 #Visão geral do modelo de licença do PlayReady dos Serviços de Mídia
@@ -76,9 +76,9 @@ Esta é a classe de "nível superior" na hierarquia de modelo. O que significa q
 
 >[AZURE.IMPORTANT]Esses tipos de restrições podem ser muito poderosos, mas também podem afetar a experiência do usuário. Se as proteções de saída são configuradas de maneira muito restritiva, o conteúdo pode ser impagável no caso de alguns clientes. Para obter mais informações, consulte o documento [Regras de conformidade do PlayReady](https://www.microsoft.com/playready/licensing/compliance/).
 
-Para obter um exemplo de quais níveis de proteção o suporte do Silverlight oferece, consulte: [Suporte do Silverlight para proteções de saída](http://go.microsoft.com/fwlink/?LinkId=617318).
+Para obter um exemplo de quais níveis de proteção o Silverlight dá suporte, consulte: [Suporte do Silverlight para proteções de saída](http://go.microsoft.com/fwlink/?LinkId=617318).
 
-##<a id="schema"></a>Esquema de XML do modelo de licença do PlayReady
+##<a id="schema"></a>Esquema XML do modelo de licença do PlayReady
 	
 	<?xml version="1.0" encoding="utf-8"?>
 	<xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -311,4 +311,4 @@ Para obter um exemplo de quais níveis de proteção o suporte do Silverlight of
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

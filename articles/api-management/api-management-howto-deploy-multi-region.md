@@ -13,26 +13,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="12/07/2015"
 	ms.author="sdanie"/>
 
 # Como implantar uma instância do serviço de Gerenciamento de API do Azure em múltiplas regiões do Azure
 
 O Gerenciamento de API dá suporte à implantação multirregião, que permite a editores de API distribuir um único serviço de gerenciamento de API por qualquer número desejado de regiões do Azure. Isso ajuda a reduzir a solicitação de latência percebida pelos consumidores de API distribuídos geograficamente e também melhora a disponibilidade do serviço se uma região ficar offline.
 
-Quando um serviço de Gerenciamento de API é inicialmente criado, ele contém apenas uma [unidade][] e reside em uma única região do Azure, que é designada como a Região Primária. Regiões adicionais podem ser facilmente adicionados por meio do Portal do Azure. Um servidor de gateway do Gerenciamento de API é implantado em cada região e o tráfego de chamada será encaminhado para o gateway mais próximo. Se uma região fica offline, o tráfego é automaticamente redirecionado para o gateway mais próximo entre os demais.
+Quando um serviço de Gerenciamento de API é inicialmente criado, ele contém apenas uma [unidade][] e reside em uma única região do Azure, que é designada como a Região Primária. Regiões adicionais podem ser facilmente acrescentadas por meio do Portal clássico do Azure. Um servidor de gateway do Gerenciamento de API é implantado em cada região e o tráfego de chamada será encaminhado para o gateway mais próximo. Se uma região fica offline, o tráfego é automaticamente redirecionado para o gateway mais próximo entre os demais.
 
 > [AZURE.IMPORTANT]A implantação multirregião só está disponível na camada **[Premium][]**.
 
 ## <a name="add-region"> </a>Implantar uma instância do serviço de Gerenciamento de API em uma nova região
 
-Para começar, clique em **Gerenciar** no Portal do Azure para acessar o serviço de Gerenciamento de API. Isso levará você ao portal do editor de Gerenciamento de API.
+Para começar, clique em **Gerenciar** no Portal Clássico do Azure para acessar o serviço de Gerenciamento de API. Isso levará você ao portal do editor de Gerenciamento de API.
 
 ![Portal do editor][api-management-management-console]
 
 >Se você ainda não criou uma instância de serviço de Gerenciamento de API, consulte [Criar uma instância de serviço de Gerenciamento de API][] no tutorial [Introdução ao Gerenciamento de API do Azure][].
 
-Navegue até a guia **Escala** no Portal do Azure para sua instância do serviço de Gerenciamento de API.
+Navegue até a guia **Escala** no Portal Clássico do Azure para sua instância do serviço de Gerenciamento de API.
 
 ![Guia Escala][api-management-scale-service]
 
@@ -48,7 +48,7 @@ Após configurar as regiões e unidades desejadas, clique em **Salvar**.
 
 ## <a name="remove-region"> </a>Excluir uma instância do serviço de Gerenciamento de API de uma região
 
-Para remover uma instância do serviço de Gerenciamento de API de uma região, navegue até a guia **Escala** no Portal do Azure para sua instância do serviço de Gerenciamento de API.
+Para remover uma instância do serviço de Gerenciamento de API de uma região, navegue até a guia **Escala** no Portal Clássico do Azure para sua instância do serviço de Gerenciamento de API.
 
 ![Guia Escala][api-management-scale-service]
 
@@ -75,4 +75,4 @@ Depois que as regiões desejadas forem removidas, clique em **Salvar**.
 [unidade]: http://azure.microsoft.com/pricing/details/api-management/
 [Premium]: http://azure.microsoft.com/pricing/details/api-management/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

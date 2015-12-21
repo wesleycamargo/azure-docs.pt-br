@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="11/30/2015" 
 	ms.author="donnam"/>
 
 # Adicionar autenticação ao aplicativo de Serviços Móveis
@@ -33,7 +33,7 @@ Este tutorial apresenta e explica as etapas básicas para habilitar a autentica�
 2. [Restringir permissões de tabela para usuários autenticados]
 3. [Adicionar autenticação ao aplicativo]
 
-Este tutorial baseia-se no início rápido dos Serviços Móveis. Primeiramente, você também deve concluir o tutorial [Introdução aos Serviços Móveis].
+Este tutorial baseia-se no quickstart dos Serviços Móveis. Você também deve primeiro concluir o tutorial [Introdução aos Serviços Móveis].
 
 Para concluir este tutorial, é necessário ter Xamarin.Android e SDK do Android 4.2 ou uma versão posterior.
 
@@ -47,9 +47,9 @@ Para concluir este tutorial, é necessário ter Xamarin.Android e SDK do Android
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
-3. No Eclipse, abra o projeto que você criou quando concluiu o tutorial [Introdução aos Serviços Móveis].
+3. No Xamarin Studio, abra o projeto criado quando você concluiu o tutorial [Introdução aos Serviços Móveis].
 
-4. No menu **Executar**, clique em **Executar** para iniciar o aplicativo. Verifique se uma exceção não tratada com um código de status de 401 (não autorizado) é acionada depois que o aplicativo é iniciado.
+4. No menu **Executar**, clique em **Iniciar depuração** para iniciar o aplicativo. Verifique se uma exceção sem tratamento com um código de status de 401 (não autorizado) é acionada depois que o aplicativo é iniciado.
 
 	 Isso acontece porque o aplicativo tenta acessar os Serviços Móveis como um usuário não autenticado, mas a tabela _TodoItem_ agora exige autenticação.
 
@@ -94,7 +94,7 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
             await InitLocalStoreAsync();
 
             // Get the Mobile Service Table instance to use
-            toDoTable = client.GetTable<ToDoItem>();
+            toDoTable = client.GetSyncTable<ToDoItem>();
 
             textNewToDo = FindViewById<EditText>(Resource.Id.textNewToDo);
 
@@ -112,7 +112,7 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
 		await CreateTable();
 
 
-6. No menu **Executar**, clique em **Executar** para iniciar o aplicativo e entrar com seu provedor de identidade escolhido.
+6. No menu **Executar**, clique em **Iniciar depuração** para iniciar o aplicativo e entrar com seu provedor de identidade escolhido.
 
    	Ao entrar com êxito, o aplicativo deve ser executado sem erros, e você deve ser capaz de consultar os Serviços Móveis e fazer atualizações de dados.
 
@@ -138,7 +138,8 @@ No próximo tutorial, [Autorizar usuários com scripts], você irá obter o valo
 [15]: ./media/partner-xamarin-mobile-services-android-get-started-users/mobile-portal-change-table-perms.png
 
 <!-- URLs. -->
+[Introdução aos Serviços Móveis]: partner-xamarin-mobile-services-android-get-started.md
 [Autorizar usuários com scripts]: mobile-services-javascript-backend-service-side-authorization.md
 [o projeto de exemplo concluído]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

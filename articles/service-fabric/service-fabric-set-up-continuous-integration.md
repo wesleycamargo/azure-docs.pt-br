@@ -3,8 +3,8 @@
    description="Obtenha uma visão geral de como configurar a integração contínua para um aplicativo do Service Fabric usando o Visual Studio Online (VSO)."
    services="service-fabric"
    documentationCenter="na"
-   authors="cawa"
-   manager="paulyuk"
+   authors="cawams"
+   manager="timlt"
    editor="" />
 <tags
    ms.service="multiple"
@@ -339,4 +339,4 @@ As instruções anteriores criam um novo cluster para cada build e o remove ao f
 
 Para saber mais sobre a integração contínua com aplicativos do Service Fabric, leia os seguintes artigos. [Documentação base sobre build](https://msdn.microsoft.com/Library/vs/alm/Build/overview) - [Implantar um agente de build](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows) - [Criar e configurar uma definição de build](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

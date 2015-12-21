@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="12/07/2015" 
 	ms.author="femila"/>
 
 # Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Junção do Active Directory do Azure
@@ -66,7 +66,7 @@ Com a Junção do Azure AD, você obtém o seguinte:
 | Os usuários entram no Windows com as credenciais de trabalho (como fazem hoje) | Os usuários podem entrar no Windows com as credenciais de trabalho que são gerenciadas no AD do Azure. Isso é relevante para dispositivos corporativos em três casos: a organização não tem o AD local (por exemplo, pequenas empresas), a organização não cria todas as contas de usuário no AD (por exemplo, alunos, consultores, trabalhadores sazonais), dispositivos corporativos que não podem ser associados a um domínio (local), como telefones ou tablets que executam um SKU móvel. Por exemplo, um dispositivo secundário levado ao chão de fábrica/varejo, funciona para organizações gerenciadas e federadas. | Os usuários entram no Windows com suas credenciais pessoais do MSA (sem alteração) |
 | Os usuários têm acesso ao roaming de configurações e à Windows Store – esses serviços funcionam com a conta de trabalho (sem necessidade de uma MSA pessoal). Exige que as empresas conectem seu AD local ao Azure AD | Configuração de autoatendimento – os usuários podem ir para a FRX (tela de apresentação) por meio de suas contas de trabalho (como alternativa ao provisionamento dos dispositivos pela TI – os dois métodos têm suporte) | É muito fácil adicionar uma conta de trabalho gerenciada no AD ou Azure AD |
 | SSO da área de trabalho para sites/aplicativos/recursos de trabalho, localmente ou nos aplicativos em nuvem que usam o Azure AD para autenticação | Registro automático no diretório corporativo (Azure AD) e autorregistro no MDM. (recurso do Azure AD Premium) | Fornece o SSO entre aplicativos e sites/recursos com essa conta de trabalho |
-| Os usuários podem adicionar sua MSA pessoal para acessar suas imagens/arquivos pessoais sem afetar os dados da empresa (as configurações de roaming continuam funcionando com a conta de trabalho). A conta de MSA habilita o SSO e não exige mais o roaming das configurações | SSPR (redefinição de senha de autoatendimento) no winlogon (capacidade de redefinir senha esquecida) (é necessário o AzureAD Premium para isso) | Fornece acesso à seção/frente da Store para que os usuários possam obter e usar aplicativos de LoB em seus dispositivos pessoais | |
+| Os usuários podem adicionar sua MSA pessoal para acessar suas imagens/arquivos pessoais sem afetar os dados da empresa (as configurações de roaming continuam funcionando com a conta de trabalho). A conta de MSA habilita o SSO e não exige mais o roaming das configurações | SSPR (redefinição de senha de autoatendimento) no winlogon (capacidade de redefinir senha esquecida) (é necessário o AzureAD Premium para isso) | Fornece acesso ao repositório corporativo para que os usuários possam obter e usar aplicativos de LoB em seus dispositivos pessoais | |
 
 
 ## Informações adicionais
@@ -77,4 +77,4 @@ Com a Junção do Azure AD, você obtém o seguinte:
 * [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -24,13 +24,13 @@ Uma das perguntas mais comuns que ouvimos de nossos clientes de Hubs de Notifica
 
 Em primeiro lugar, é fundamental entender como os Hubs de Notificação do Azure envia notificações para os dispositivos. ![][0]
 
-Em um fluxo de notificação de envio típico, a mensagem é enviada do **back-end do aplicativo** para o **Hub de Notificação do Azure (NH)** que por sua vez faz algum processamento em todos os registros levando em conta as marcas configuradas e expressões de marca para determinar “destinos”, ou seja, todos os registros que devem receber a notificação por push. Esses registros podem ser distribuídos em qualquer uma ou todas as nossas plataformas com suporte - iOS, Google, Windows, Windows Phone, Kindle e Baidu para Android na China. Depois que as metas forem estabelecidas, o NH enviará notificações, divididas em vários lotes de registros, para a plataforma de dispositivo específica **Serviço de Notificação por Push (PNS)** - por exemplo, APNS para Apple, GCM para Google, etc. O NH autentica com o respectivo PNS com base nas credenciais definidas no Portal do Azure na página Configurar o Hub de Notificação. O PNS encaminha as notificações para os respectivos **dispositivos cliente**. Essa é a forma de plataforma recomendada para enviar notificações por push e observar que o segmento final da entrega da notificação ocorre entre a plataforma PNS e o dispositivo. Portanto, temos quatro componentes principais - *cliente*, *back-end do aplicativo*, *Hubs de Notificação do Azure (NH)* e *Serviços de Notificação por Push (PNS)* e qualquer um deles pode fazer com que as notificações sejam descartadas. Mais detalhes sobre essa arquitetura estão disponíveis em [Visão Geral dos Hubs de Notificação].
+Em um fluxo de notificação de envio típico, a mensagem é enviada do **back-end do aplicativo** para o **Hub de Notificação do Azure (NH)** que por sua vez faz algum processamento em todos os registros levando em conta as marcas configuradas e expressões de marca para determinar “destinos”, ou seja, todos os registros que devem receber a notificação por push. Esses registros podem ser distribuídos em qualquer uma ou todas as nossas plataformas com suporte - iOS, Google, Windows, Windows Phone, Kindle e Baidu para Android na China. Depois que as metas forem estabelecidas, o NH enviará notificações, divididas em vários lotes de registros, para a plataforma de dispositivo específica **Serviço de Notificação por Push (PNS)** - por exemplo, APNS para Apple, GCM para Google, etc. O NH autentica com o respectivo PNS com base nas credenciais definidas no Portal Clássico do Azure na página Configurar Hub de Notificação. O PNS encaminha as notificações para os respectivos **dispositivos cliente**. Essa é a forma de plataforma recomendada para enviar notificações por push e observar que o segmento final da entrega da notificação ocorre entre a plataforma PNS e o dispositivo. Portanto, temos quatro componentes principais - *cliente*, *back-end do aplicativo*, *Hubs de Notificação do Azure (NH)* e *Serviços de Notificação por Push (PNS)* e qualquer um deles pode fazer com que as notificações sejam descartadas. Mais detalhes sobre essa arquitetura estão disponíveis em [Visão Geral dos Hubs de Notificação].
 
 Falha para entregar notificações pode ocorrer durante o teste/teste inicial que pode indicar um problema de configuração da fase ou pode acontecer na produção onde todas ou algumas das notificações podem estar sendo descartadas indicando um problema maior no aplicativo ou problema no padrão de mensagens. Na seção abaixo veremos vários cenários de notificações descartadas desde comuns ao tipo mais raro, que talvez você encontre óbvio e outros não tão óbvios.
 
 ##Configuração incorreta do Hub de Notificações do Azure 
 
-Os Hubs de Notificação do Azure precisam se autenticar no contexto do aplicativo do desenvolvedor para poder enviar notificações com êxito ao respectivo PNS. Isso é possibilitado pelo desenvolvedor criando uma conta de desenvolvedor com as respectivas plataformas (Google, Apple Windows, etc.) e, em seguida, registrando seu aplicativo onde eles obtém credenciais que devem ser configuradas no portal do Azure na seção Configuração dos Hubs de Notificação. Se nenhuma notificação estiver passando, a primeira etapa deve ser garantir que as credenciais corretas sejam configuradas no Hub de Notificação, comparando-as com o aplicativo criado em sua conta de desenvolvedor específica de plataforma. Você achará os [Tutoriais de Introdução] úteis para acessar esse processo de maneira passo a passo. Aqui estão algumas configurações incorretas comuns:
+Os Hubs de Notificação do Azure precisam se autenticar no contexto do aplicativo do desenvolvedor para poder enviar notificações com êxito ao respectivo PNS. Isso é possibilitado pelo desenvolvedor criando uma conta de desenvolvedor com as respectivas plataformas (Google, Apple Windows, etc.) e, em seguida, registrando seu aplicativo onde eles obtém credenciais que devem ser configuradas no portal, na seção Configuração dos Hubs de Notificação. Se nenhuma notificação estiver passando, a primeira etapa deve ser garantir que as credenciais corretas sejam configuradas no Hub de Notificação, comparando-as com o aplicativo criado em sua conta de desenvolvedor específica de plataforma. Você achará os [Tutoriais de Introdução] úteis para acessar esse processo de maneira passo a passo. Aqui estão algumas configurações incorretas comuns:
 
 1. **Geral**
  
@@ -97,7 +97,7 @@ Aqui examinaremos os vários caminhos para diagnosticar e verificar a causa raiz
 
 	Verifique-os no respectivo portal do desenvolvedor PNS (WNS, APNS, GCM, etc.) usando nossos [Tutoriais de Introdução].
 
-2. **Portal de gerenciamento do Azure**
+2. **Portal clássico do Azure**
 
 	Vá para a guia Configurar para revisar e corresponder com as credenciais obtidas no portal do desenvolvedor do PNS.
 
@@ -123,7 +123,7 @@ Aqui examinaremos os vários caminhos para diagnosticar e verificar a causa raiz
 
 ###Verificar as notificações de mensagem
 
-1. **Portal do Azure**
+1. **Portal Clássico do Azure**
 
 	Você pode ir para a guia “Depuração" para enviar notificações de teste para seus clientes sem a necessidade de qualquer back-end de serviço funcionando e em execução.
 
@@ -183,9 +183,9 @@ Essa mensagem indica que qualquer credenciais inválidas são configuradas no hu
 
 ###Telemetria de revisão 
 
-1. **Usar o Portal do Azure**
+1. **Usar o Portal Clássico do Azure**
 
-	O portal do Azure permite que você obtenha uma visão geral rápida de todas as atividades em seu Hub de Notificação.
+	O portal permite que você obtenha uma visão geral rápida de todas as atividades em seu Hub de Notificação.
 	
 	a) Na guia "Painel", você pode exibir uma exibição agregada de registros, notificações, bem como erros por plataforma.
 	
@@ -206,7 +206,7 @@ Mais detalhes aqui -
 - [Acesso Programático de Telemetria]
 - [Acesso de Telemetria por meio do exemplo de APIs] 
 
-> [AZURE.NOTE]Várias telemetrias relacionados a recursos como **Importação/Exportação de Registros**, **Acesso de Telemetria via APIs** etc., só estão disponíveis na camada Standard. Se você tentar usar esses recursos se estiver na camada Free ou Basic, receberá a mensagem de exceção para esse efeito ao usar o SDK e um HTTP 403 (Proibido) quando usá-los diretamente pelas APIs REST. Certifique-se de que você atualizou para a camada Standard via portal de Gerenciamento do Azure.
+> [AZURE.NOTE]Várias telemetrias relacionados a recursos como **Importação/Exportação de Registros**, **Acesso de Telemetria via APIs** etc., só estão disponíveis na camada Standard. Se você tentar usar esses recursos se estiver na camada Free ou Basic, receberá a mensagem de exceção para esse efeito ao usar o SDK e um HTTP 403 (Proibido) quando usá-los diretamente pelas APIs REST. Certifique-se de que você atualizou para a camada Standard via portal Clássico do Azure.
 
 <!-- IMAGES -->
 [0]: ./media/notification-hubs-diagnosing/Architecture.png
@@ -239,4 +239,4 @@ Mais detalhes aqui -
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

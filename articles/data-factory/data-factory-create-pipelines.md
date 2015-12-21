@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" y
-	ms.date="10/20/2015" 
+	ms.date="12/08/2015" 
 	ms.author="spelluru"/>
 
 # Noções básicas sobre Pipelines e Atividades
@@ -238,7 +238,7 @@ isPaused | Se definido como verdadeiro, o pipeline não será executado. Valor p
 Agendador | A propriedade "Agendador" é usada para definir o agendamento desejado para a atividade. Suas subpropriedades são as mesmas na [propriedade de disponibilidade em um conjunto de dados](data-factory-create-datasets.md#Availability). | Não |   
 
 ### Tipos de atividade
-O Azure Data Factory fornece uma ampla gama de atividades de [Movimentação de dados](data-factory-data-movement-activities.md) e [Transformação de dados](data-factory-data-transformation-activities.md).
+O Azure Data Factory fornece uma ampla gama de atividades de [movimentação de dados](data-factory-data-movement-activities.md) e [transformação de dados](data-factory-data-transformation-activities.md).
 
 ### Políticas
 As políticas afetam o comportamento de tempo de execução de uma atividade, especialmente quando a divisão de uma tabela é processada. A tabela a seguir fornece os detalhes.
@@ -260,7 +260,7 @@ O Azure Data Factory fornece vários mecanismos para criar e implantar pipelines
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 2. Navegue até sua instância do Azure Data Factory na qual você deseja criar um pipeline
-3. Clique no bloco **Criar e Implantar** na lente **Resumo**. 
+3. Clique no bloco **Criar e implantar** na lente **Resumo**. 
  
 	![Bloco Criar e implantar](./media/data-factory-create-pipelines/author-deploy-tile.png)
 
@@ -282,9 +282,9 @@ Você pode usar o Visual Studio para criar e implantar pipelines no Azure Data F
 ### Usando o PowerShell do Azure
 Você pode usar o Azure PowerShell para criar pipelines no Azure Data Factory. Digamos que você definiu o pipeline JSON em um arquivo em c:\\DPWikisample.json. Você pode carregá-lo na sua instância do Azure Data Factory, conforme mostrado no exemplo a seguir.
 
-	New-AzureDataFactoryPipeline -ResourceGroupName ADF -Name DPWikisample -DataFactoryName wikiADF -File c:\DPWikisample.json
+	New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -Name DPWikisample -DataFactoryName wikiADF -File c:\DPWikisample.json
 
-Para saber mais sobre esse cmdlet, confira [New-AzureDataFactoryPipeline cmdlet](https://msdn.microsoft.com/library/dn820227.aspx).
+Para saber mais sobre esse cmdlet, confira [cmdlet New-AzureRmDataFactoryPipeline](https://msdn.microsoft.com/library/mt619358.aspx).
 
 ### Usando a API REST
 Você também pode criar e implantar o pipeline usando APIs REST. Esse mecanismo pode ser utilizado para criar pipelines programaticamente. Para saber mais, confira [Criar ou atualizar um pipeline](https://msdn.microsoft.com/library/azure/dn906741.aspx).
@@ -301,7 +301,7 @@ Um pipeline está ativo somente entre sua hora de início e de término. Ele nã
 Na verdade, não é o pipeline que é executado. São as atividades no pipeline que são executadas. Entretanto, elas fazem isso no contexto geral do pipeline. Confira [Agendamento e Execução](data-factory-scheduling-and-execution.md) para saber como funciona o agendamento e a execução no Azure Data Factory.
 
 ## Gerenciar e monitorar  
-Quando um pipeline é implantado, você pode gerenciar e monitorar seu pipeline, divisões e execuções. Leia mais sobre isso aqui: [Monitorar e gerenciar pipelines](data-factory-monitor-manage-pipelines.md).
+Quando um pipeline é implantado, você pode gerenciar e monitorar seu pipeline, divisões e execuções. Leia mais sobre isso aqui: [Monitorar e Gerenciar Pipelines](data-factory-monitor-manage-pipelines.md).
 
 ## Próximas etapas
 
@@ -335,4 +335,4 @@ Quando um pipeline é implantado, você pode gerenciar e monitorar seu pipeline,
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

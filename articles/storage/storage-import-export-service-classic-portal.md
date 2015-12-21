@@ -1,8 +1,8 @@
 <properties 
 	pageTitle="Usando importação/exportação para transferir dados para o Armazenamento de Blob | Microsoft Azure" 
 	description="Saiba como criar trabalhos de importação e exportação no Portal de Gerenciamento do Azure para transferir dados para o armazenamento de blob." 
-	authors="tamram" 
-	manager="adinah" 
+	authors="robinsh" 
+	manager="carmonm" 
 	editor="" 
 	services="storage" 
 	documentationCenter=""/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+	ms.date="12/04/2015" 
+	ms.author="robinsh"/>
 
 
 # Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados para o Armazenamento de Blob
@@ -275,4 +275,4 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

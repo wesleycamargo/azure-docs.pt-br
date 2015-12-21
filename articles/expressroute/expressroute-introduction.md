@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Introdução à Rota Expressa | Microsoft Azure"
-   description="Esta página fornece uma visão geral do serviço Rota Expressa, incluindo o modo de funcionamento de uma conexão da Rota Expressa."
-   documentationCenter="na"
-   services="expressroute"
-   authors="cherylmc"
-   manager="carolz"
-   editor=""/>
+	pageTitle="Introdução à Rota Expressa | Microsoft Azure"
+	description="Esta página fornece uma visão geral do serviço Rota Expressa, incluindo o modo de funcionamento de uma conexão da Rota Expressa."
+	documentationCenter="na"
+	services="expressroute"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""/>
 <tags 
-   ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article" 
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="09/22/2015"
-   ms.author="cherylmc"/>
+	ms.service="expressroute"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="09/22/2015"
+	ms.author="cherylmc"/>
 
 # Visão Geral Técnica da Rota Expressa
 
@@ -63,7 +63,7 @@ As conexões da Rota Expressa permitem o acesso aos seguintes serviços.
 
 - Serviços do Microsoft Azure
 - Serviços do Microsoft Office 365
-- Serviços do Microsoft CRM Online (em breve) 
+- Serviços do Microsoft CRM Online 
  
 Visite a página de [Perguntas frequentes sobre a Rota Expressa](expressroute-faqs.md) para obter uma lista detalhada dos serviços com suporte por meio da Rota Expressa.
 
@@ -124,4 +124,4 @@ Escolha o modelo de cobrança que funcione melhor para você. Escolha um dos mod
 	- [Configurar o roteamento](expressroute-howto-routing-classic.md)
 	- [Vincular uma rede virtual a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

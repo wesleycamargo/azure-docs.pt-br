@@ -38,10 +38,7 @@ Para configurar a replicação geográfica, você precisará do seguinte:
 
 - Uma assinatura do Azure. Se você precisar de uma assinatura do Azure basta clicar em **AVALIAÇÃO GRATUITA** na parte superior desta página e, em seguida, voltar para concluir este artigo.
 - Um Banco de Dados SQL do Azure - o banco de dados primário que você deseja replicar para uma região geográfica diferente.
-- Azure PowerShell 1.0 Preview. Você pode baixar e instalar os módulos do Azure PowerShell seguindo [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md).
-
-> [AZURE.IMPORTANT]A partir da liberação da Visualização do Azure PowerShell 1.0, o cmdlet Switch-AzureMode não está mais disponível, e os cmdlets contidos no módulo do Gerenciador de Recursos do Azure foram renomeados. Os exemplos neste artigo usam a nova convenção de nomenclatura do PowerShell 1.0 Preview. Para obter informações detalhadas, veja [Substituição de Switch-AzureMode no Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
-
+- Azure PowerShell 1.0 ou posterior. Você pode baixar e instalar os módulos do Azure PowerShell seguindo [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md).
 
 
 
@@ -58,7 +55,7 @@ Depois de se conectar com êxito, você verá algumas informações na tela, inc
 
 ### Selecionar sua assinatura do Azure
 
-Para selecionar a assinatura, você precisa da ID da assinatura. É possível copiar a Id da assinatura nas informações exibidas na etapa anterior ou, se tiver várias assinaturas e precisar de mais detalhes, você pode executar o cmdlet **Get-AzureRmSubscription** e copiar as informações da assinatura desejada do resultset. O cmdlet a seguir usa a Id de assinatura para definir a assinatura atual:
+Para selecionar a assinatura, você precisa da ID da assinatura. É possível copiar a ID da assinatura nas informações exibidas na etapa anterior ou, se tiver várias assinaturas e precisar de mais detalhes, você pode executar o cmdlet **Get-AzureRmSubscription** e copiar as informações da assinatura desejada do conjunto de resultados. O cmdlet a seguir usa a Id de assinatura para definir a assinatura atual:
 
 	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
@@ -151,7 +148,7 @@ O comando executa o seguinte fluxo de trabalho:
 
 2. Alterne as funções dos dois bancos de dados na parceria de replicação geográfica.
 
-Essa sequência garante que não ocorrerá nenhuma perda de dados. Há um breve período durante o qual os bancos de dados não estão disponíveis (na ordem de 0 a 25 segundos) enquanto as funções são alternadas. A operação inteira deve levar menos de um minuto para ser concluída em circunstâncias normais. Para saber mais, consulte [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx).
+Essa sequência garante que não ocorrerá nenhuma perda de dados. Há um breve período durante o qual os bancos de dados não estão disponíveis (na ordem de 0 a 25 segundos) enquanto as funções são alternadas. A operação inteira deve levar menos de um minuto para ser concluída em circunstâncias normais. Para obter mais informações, consulte [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx).
 
 
 > [AZURE.NOTE]Se o banco de dados primário não estiver disponível quando o comando for emitido, ele falhará com uma mensagem de erro indicando que o servidor primário não está disponível. Em situações raras, é possível que a operação não seja concluída e pareça paralisada. Nesse caso, o usuário poderá executar o comando de failover à força e aceitar a perda de dados.
@@ -218,4 +215,4 @@ O comando a seguir recupera o status do link de replicação entre o banco de da
 - [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
 - [Documentação do Banco de Dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

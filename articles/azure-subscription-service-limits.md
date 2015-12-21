@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.date="12/03/2015"
 	ms.author="jroth"/>
 
 # Assinatura do Azure e limite de serviços, cotas e restrições
@@ -180,9 +180,17 @@ A tabela a seguir mostra os limites para os serviços Biztalk do Azure.
 
 ### Limites de pesquisa
 
-[AZURE.INCLUDE [azure-search-limits](../includes/azure-search-limits.md)]
+O tipo de preço determina a capacidade e os limites de seu serviço de pesquisa.
 
-Para obter informações adicionais sobre os limites máximos para o serviço compartilhado ou uma divisão dos limites em chaves, solicitações e respostas, consulte [Limites de serviço na Pesquisa do Azure](search/search-limits-quotas-capacity.md).
+####Camada padrão
+
+[AZURE.INCLUDE [azure-search-limits-standard](../includes/azure-search-limits-standard.md)]
+
+####Camada compartilhada (parte de um serviço multilocatário, gratuita para assinantes do Azure)
+
+[AZURE.INCLUDE [azure-search-limits-free](../includes/azure-search-limits-free.md)]
+
+Para saber mais sobre limites em chaves, combinações réplica-partição, solicitações, respostas e como obter alta disponibilidade para diferentes cargas de trabalho, consulte [Limites de serviço na Pesquisa do Azure](search/search-limits-quotas-capacity.md).
 
 ### Limites de serviços de mídia
 
@@ -265,7 +273,7 @@ Para obter informações adicionais sobre os limites máximos para o serviço co
 
 ### Limites de banco de dados SQL
 
-Para obter os limites do Banco de Dados SQL, veja [Limites de recursos do Banco de Dados SQL](sql-database/sql-database-resource-limits.md).
+Para obter os limites do Banco de Dados SQL, veja [Limites de recurso de Banco de Dados SQL](sql-database/sql-database-resource-limits.md).
 
 ## Consulte também
 
@@ -273,4 +281,4 @@ Para obter os limites do Banco de Dados SQL, veja [Limites de recursos do Banco 
 
 [Tamanhos de máquinas virtuais e serviços de nuvem do Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

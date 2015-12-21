@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/13/2015"
+   ms.date="12/04/2015"
    ms.author="nitinme"/>
 
 # Introdução ao Repositório Azure Data Lake usando o Azure PowerShell
@@ -32,7 +32,38 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 - **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Habilite sua assinatura do Azure** para a visualização pública do Repositório Data Lake. Veja [instruções](data-lake-store-get-started-portal.md#signup).
-- **Azure PowerShell 1.0 ou posterior**. Veja [Instalar e configurar o Azure PowerShell](../install-configure-powershell.md) para obter instruções.
+
+
+##Instalar o Azure PowerShell 1.0 e superior
+
+Para começar, você deve desinstalar as versões 0.9x do Azure PowerShell. Para verificar a versão do PowerShell instalado, execute o seguinte comando em uma janela do PowerShell:
+
+	Get-Module *azure*
+	
+Para desinstalar a versão mais antiga, execute **Programas e Recursos** no painel de controle e remove a versão instalada se ela for anterior ao PowerShell 1.0.
+
+Há duas opções principais para a instalação do Azure PowerShell.
+
+- [Galeria do PowerShell](https://www.powershellgallery.com/). Execute os seguintes comandos no PowerShell ISE elevado ou no console Windows PowerShell elevado:
+
+		# Install the Azure Resource Manager modules from PowerShell Gallery
+		Install-Module AzureRM
+		Install-AzureRM
+		
+		# Install the Azure Service Management module from PowerShell Gallery
+		Install-Module Azure
+		
+		# Import AzureRM modules for the given version manifest in the AzureRM module
+		Import-AzureRM
+		
+		# Import Azure Service Management module
+		Import-Module Azure
+
+	Para obter mais informações, veja [Galeria do PowerShell](https://www.powershellgallery.com/).
+
+- [Microsoft Web Platform Installer (WebPI)](http://aka.ms/webpi-azps). Se você tem o Azure PowerShell 0.9.x instalado, será solicitado a desinstalar o 0.9.x. Se tiver instalado os módulos do Azure PowerShell na Galeria do PowerShell, o instalador exigirá que os módulos sejam removidos antes da instalação para assegurar a consistência do Ambiente do Azure PowerShell. Para obter instruções, veja [Instalar o Azure PowerShell 1.0 via WebPI](https://azure.microsoft.com/blog/azps-1-0/).
+
+A WebPI receberá atualizações mensais. A Galeria do PowerShell receberá atualizações continuamente. Se você estiver familiarizado com a instalação a partir da Galeria do PowerShell, esse será o primeiro canal para os melhores e mais recentes recursos do Azure PowerShell.
 
 ## Criar uma conta do Repositório Azure Data Lake
 
@@ -141,4 +172,4 @@ Quando solicitado, insira **Y** para excluir a conta.
 - [Usar a Análise Data Lake do Azure com o Repositório Data Lake](data-lake-analytics-get-started-portal.md)
 - [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

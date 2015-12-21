@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="12/06/2015"
 	ms.author="ricksal"/>
 
 # Adicionar a sincronização de dados Offline para seu aplicativo de serviços móveis Android
@@ -107,7 +107,7 @@ Para enviar por push e receber alterações entre o dispositivo e os Serviços M
 		}
 
 
-7. Adicione este método para sincronizar entre o armazenamento de *SQL Light* local e o SQL Server do Azure:
+7. Adicione este método para sincronizar entre o repositório de *SQL Light* local e o SQL Server do Azure:
 
 		public void syncAsync(){
 			if (isNetworkAvailable()) {
@@ -156,7 +156,7 @@ Para enviar por push e receber alterações entre o dispositivo e os Serviços M
 
 Nesta seção, você testará o comportamento com WiFi ativo e, depois, com ele desativo para criar um cenário offline.
 
-Quando você adiciona itens de dados, eles são mantidos no armazenamento local do SQL Light, mas não são sincronizados para o serviço móvel até que você pressione o botão **Atualizar**. Outros aplicativos podem ter necessidades diferentes em relação a quando os dados precisam ser sincronizados, mas para fins de demonstração neste tutorial o usuário tem que solicitá-lo explicitamente.
+Quando você adiciona itens de dados, eles são mantidos repositório local do SQL Light, mas não são sincronizados para o serviço móvel até que você pressione o botão **Atualizar**. Outros aplicativos podem ter necessidades diferentes em relação a quando os dados precisam ser sincronizados, mas para fins de demonstração neste tutorial o usuário tem que solicitá-lo explicitamente.
 
 Quando você pressiona o botão, uma nova tarefa em segundo plano é iniciada e envia primeiro todas as alterações feitas no armazenamento local, usando o contexto de sincronização e, em seguida, recebe todos os dados alterados do Azure para a tabela local.
 
@@ -223,4 +223,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [tutorial de Início Rápido dos Serviços Móveis]: mobile-services-android-get-started.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

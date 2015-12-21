@@ -166,19 +166,19 @@ Por exemplo: na captura de tela abaixo, foi identificado um problema com **Parti
 
 Execute o comando do PowerShell a seguir para suspender **PartitionProductsUsagePipeline**.
 
-	Suspend-AzureDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
+	Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 
 Por exemplo:
 
-	Suspend-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
+	Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
 
 Depois que o problema com **PartitionProductsUsagePipeline** for corrigido, o pipeline suspenso poderá ser retomado executando o comando do PowerShell abaixo.
 
-	Resume-AzureDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
+	Resume-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 
 Por exemplo:
 
-	Resume-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
+	Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
 
 
 ## Depurar pipelines
@@ -210,26 +210,26 @@ Se a execução da atividade falhar em um pipeline, o conjunto de dados produzid
 2.	Alterne para o modo **AzureResourceManager**, pois os cmdlets da Data Factory estão disponíveis somente nesse modo.
 
 		switch-azuremode AzureResourceManager
-3.	Execute o comando **Get-AzureDataFactorySlice** para ver as fatias e seus status. Você deve ver uma fatia com o status: **com falha**.
+3.	Execute o comando **Get-AzureDataFactorySlice** para ver as fatias e seus status. Você deve ver uma fatia com o status: **Falha**.
 
-		Get-AzureDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
+		Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
 	
 	Por exemplo:
 
 
-		Get-AzureDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
+		Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
 
-	Substitua **StartDateTime** pelo valor StartDateTime especificado para Set-AzureDataFactoryPipelineActivePeriod.
-4. Agora, execute o cmdlet **Get-AzureDataFactoryRun** para obter detalhes sobre a execução de atividade da fatia.
+	Substitua **StartDateTime** pelo valor StartDateTime especificado para Set-AzureRmDataFactoryPipelineActivePeriod.
+4. Agora, execute o cmdlet **Get-AzureRmDataFactoryRun** para obter detalhes sobre a execução da atividade para a fatia.
 
-		Get-AzureDataFactoryRun [-ResourceGroupName] <String> [-
+		Get-AzureRmDataFactoryRun [-ResourceGroupName] <String> [-
 		DataFactoryName] <String> [-TableName] <String> [-StartDateTime] 
 		<DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
 	
 	Por exemplo:
 
 
-		Get-AzureDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
+		Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
 
 	O valor de StartDateTime é a hora de início do erro/fatia com problema observada na etapa anterior. A data e hora devem ser colocadas entre aspas duplas.
 5. 	Você deve ver a saída com detalhes sobre o erro (semelhante ao seguinte):
@@ -256,9 +256,9 @@ Se a execução da atividade falhar em um pipeline, o conjunto de dados produzid
 		Type                	:
 	
 	
-6. 	Você pode executar o cmdlet **Save-AzureDataFactoryLog** com o valor Id que você vê da saída acima e baixar os arquivos de log usando a opção **-DownloadLogsoption** para o cmdlet.
+6. 	Você pode executar o cmdlet **Save-AzureRmDataFactoryLog** com o valor de Id que você vê na saída acima e baixar os arquivos de log usando a opção **-DownloadLogsoption** para o cmdlet.
 
-	Save-AzureDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\\Test"
+	Save-AzureRmDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\\Test"
 
 
 ## Executar novamente as falhas em um pipeline
@@ -273,15 +273,15 @@ Em caso de falha na validação da fatia devido a uma falha de política (por ex
 
 ### Usando o PowerShell do Azure
 
-Você pode executar novamente a falhas usando o cmdlet 'Set-AzureDataFactorySliceStatus'.
+Você pode executar novamente as falhas usando o cmdlet 'Set-AzureRmDataFactorySliceStatus'.
 
-	Set-AzureDataFactorySliceStatus [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Status] <String> [[-UpdateType] <String> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
+	Set-AzureRmDataFactorySliceStatus [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Status] <String> [[-UpdateType] <String> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
 
 **Exemplo:** o exemplo a seguir define o status de todas as fatias da tabela 'DAWikiAggregatedData' para 'PendingExecution' na Azure Data Factory 'WikiADF'.
 
 **Observação:** o UpdateType é definido como UpstreamInPipeline, o que significa que o status de cada fatia da tabela e todas as tabelas dependentes (upstream) que são usadas como tabelas de entrada para as atividades no pipeline é definido como "PendingExecution". Outro valor possível para esse parâmetro é "Individual".
 
-	Set-AzureDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status PendingExecution -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
+	Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status PendingExecution -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 
 
 ## Criar alertas
@@ -323,7 +323,7 @@ Para especificar uma definição de alerta, você deve criar um arquivo JSON que
 	                        "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource",
 	                        "operationName": "RunFinished",
 	                        "status": "Failed",
-	                            "subStatus": "FailedExecution"   
+	                        "subStatus": "FailedExecution"   
 	                    }
 	                },
 	                "action": 
@@ -354,10 +354,12 @@ OnDemandClusterCreateStarted | Iniciado
 OnDemandClusterCreateSuccessful | Bem-sucedido
 OnDemandClusterDeleted | Bem-sucedido
 
+Confira [Criar regra de alerta](https://msdn.microsoft.com/library/azure/dn510366.aspx) para obter detalhes sobre os elementos JSON usados no exemplo acima.
+
 #### Implantando o Alerta 
 Para implantar o alerta, use o cmdlet do Azure PowerShell: **New-AzureResourceGroupDeployment**, conforme mostrado no exemplo a seguir:
 
-	New-AzureResourceGroupDeployment -ResourceGroupName adf     -TemplateFile .\ADFAlertFailedSlice.json  
+	New-AzureResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
 
 Depois que a implantação do grupo de recursos for concluída com êxito, você verá as seguintes mensagens:
 
@@ -394,13 +396,40 @@ Para recuperar a lista de implantações do grupo de recursos do Azure já impla
 #### Solucionando problemas de eventos de usuário
 
 
-- Você pode ver todos os eventos gerados depois de clicar no bloco **Operações**, e os alertas podem ser configurados em qualquer uma dessas operações visíveis na folha **Eventos**:
+- Você pode ver todos os eventos gerados depois de clicar no bloco **Operações**, e os alertas podem ser configurados em qualquer uma das operações visíveis na folha **Eventos**:
 
 	![Operações](./media/data-factory-monitor-manage-pipelines/operations.png)
 
 
-- Veja o artigo [Cmdlets do Azure Insight](https://msdn.microsoft.com/library/mt282452.aspx) para obter os cmdlets do PowerShell que você pode usar para adicionar/obter/remover alertas. Aqui estão alguns exemplos de como usar o cmdlet **Get-AlertRule**:
+- Veja o artigo [Cmdlets do Azure Insight](https://msdn.microsoft.com/library/mt282452.aspx) sobre os cmdlets do PowerShell que você pode usar para adicionar/obter/remover alertas. Aqui estão alguns exemplos de como usar o cmdlet **Get-AlertRule**:
 
+
+		PS C:\> get-alertrule -res $resourceGroup -n ADFAlertsSlice -det
+			
+				Properties :
+		        Action      : Microsoft.Azure.Management.Insights.Models.RuleEmailAction
+		        Condition   :
+				DataSource :
+				EventName             :
+				Category              :
+				Level                 :
+				OperationName         : RunFinished
+				ResourceGroupName     :
+				ResourceProviderName  :
+				ResourceId            :
+				Status                : Failed
+				SubStatus             : FailedExecution
+				Claims                : Microsoft.Azure.Management.Insights.Models.RuleManagementEventClaimsDataSource
+		        Condition  	:
+				Description : One or more of the data slices for the Azure Data Factory has failed processing.
+				Status      : Enabled
+				Name:       : ADFAlertsSlice
+				Tags       :
+				$type          : Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage
+				Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/ADFAlertsSlice
+				Location   : West US
+				Name       : ADFAlertsSlice
+		
 		PS C:\> Get-AlertRule -res $resourceGroup
 	
 				Properties : Microsoft.Azure.Management.Insights.Models.Rule
@@ -453,7 +482,7 @@ Uma vez salvas, pode levar uma hora para que as métricas fiquem visíveis na fo
 
 ### Configurando alertas no Metrics:
 
-Para configurar alertas no Metrics, clique no seguinte na folha Data Factory: **Monitoramento** -> **Métrica** -> **Adicionar alerta** -> **Adicionar uma regra de alerta**.
+Para configurar alertas no Metrics, siga esta ordem de cliques na folha Data Factory: **Monitoramento** -> **Métrica** -> **Adicionar alerta** -> **Adicionar uma regra de alerta**.
 
 Preencha os detalhes da regra de alerta, especifique os emails e clique em **OK**.
 
@@ -540,4 +569,4 @@ Você verá a seguinte mensagem após a implantação bem-sucedida:
 	Parameters        :
 	Outputs           
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -55,9 +55,7 @@ Após a atualização para V12, as [recomendações de nível de serviço](sql-d
 
 Para atualizar um servidor para a V12 com o PowerShell, você precisa ter o Azure PowerShell instalado e em execução e, dependendo da versão, talvez seja preciso alterná-lo para o modo de gerenciador de recursos, a fim de acessar os Cmdlets do PowerShell do Gerenciador de Recursos do Azure.
 
-> [AZURE.IMPORTANT]A partir da liberação da Visualização do Azure PowerShell 1.0, o cmdlet Switch-AzureMode não está mais disponível, e os cmdlets contidos no módulo do Gerenciador de Recursos do Azure foram renomeados. Os exemplos neste artigo usam a nova convenção de nomenclatura do PowerShell 1.0 Preview. Para obter informações detalhadas, confira [Substituição de Switch-AzureMode no Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
-
-Para executar os cmdlets do PowerShell, você precisará ter o Azure PowerShell instalado e em execução e, devido à remoção de Switch-AzureMode, você deverá baixar e instalar o Azure PowerShell mais recente executando o [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
+Para executar os cmdlets do PowerShell, você precisa ter o Azure PowerShell instalado e em execução. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 
 
 ## Configurar suas credenciais e selecionar sua assinatura
@@ -162,10 +160,10 @@ Os parâmetros ElasticPoolCollection e DatabaseCollection são opcionais:
 
 Após a atualização, é recomendável monitorar o banco de dados ativamente para garantir que aplicativos estão sendo executados no desempenho esperado e uso ideal conforme necessário.
 
-Além de monitorar os bancos de dados individuais, você pode monitorar os pools de banco de dados elásticos [usando o portal](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool) ou com o [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools)
+Além de monitorar os bancos de dados individuais, você pode monitorar os pools de banco de dados elástico [usando o portal](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool) ou com o [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools)
 
 
-**Dados de consumo de recursos:** para os bancos de dados Basic, Standard e Premium, os dados de consumo de recursos estão disponíveis por meio do DMV [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) no banco de dados do usuário. Essa DMV oferece, quase em tempo real, informações sobre consumo de recurso na granularidade a 15 segundos para a hora da operação anterior. O consumo de percentual de DTU para um intervalo é calculado como o consumo de percentual máxima das dimensões de CPU, E/S e log. Aqui está uma consulta para calcular o consumo médio de porcentagem de DTU na última hora:
+**Dados de consumo de recursos:** para recursos de banco de dados Básico, Standard e Premium, os dados de consumo estão disponíveis através do DMV [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) no banco de dados do usuário. Essa DMV oferece, quase em tempo real, informações sobre consumo de recurso na granularidade a 15 segundos para a hora da operação anterior. O consumo de percentual de DTU para um intervalo é calculado como o consumo de percentual máxima das dimensões de CPU, E/S e log. Aqui está uma consulta para calcular o consumo médio de porcentagem de DTU na última hora:
 
     SELECT end_time
     	 , (SELECT Max(v)
@@ -179,12 +177,12 @@ Além de monitorar os bancos de dados individuais, você pode monitorar os pools
 Informações adicionais de monitoramento:
 
 - [Diretrizes de desempenho do Banco de Dados SQL do Azure para bancos de dados individuais](http://msdn.microsoft.com/library/azure/dn369873.aspx).
-- [Considerações de preço e desempenho para um pool de banco de dados elástico](sql-database=elastic-pool-guidance.md)
+- [Considerações de preço e desempenho para um pool de banco de dados elástico](sql-database=elastic-pool-guidance.md).
 - [Monitoramento de Banco de Dados SQL usando exibições de gerenciamento dinâmico](sql-database-monitoring-with-dmvs.md)
 
 
 
-**Alertas:** configurar “Alertas” no Portal do Azure para ser notificado quando o consumo de DTU de um banco de dados atualizado aproximar-se de certo nível alto. Alertas de banco de dados podem ser configurados no Portal do Azure para várias métricas de desempenho como Log, CPU, E/S e DTU. Navegue até o banco de dados e selecione **Regras de alerta** na folha **Configurações**.
+**Alertas:** configurar 'Alertas' no Portal do Azure para ser notificado quando consumo de DTU para um banco de dados atualizado se aproximar de certo alto nível. Alertas de banco de dados podem ser configurados no Portal do Azure para várias métricas de desempenho como Log, CPU, E/S e DTU. Navegue até o banco de dados e selecione **Regras de alerta** na folha **Configurações**.
 
 Por exemplo, você pode configurar um alerta por email sobre “Porcentagem DTU” se o valor da porcentagem média de DTU exceder 75% nos últimos 5 minutos. Confira [Receber notificações de alerta](insights-receive-alert-notifications.md) para saber mais sobre como configurar notificações de alerta.
 
@@ -203,4 +201,4 @@ Por exemplo, você pode configurar um alerta por email sobre “Porcentagem DTU�
 - [Start-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
 - [Stop-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

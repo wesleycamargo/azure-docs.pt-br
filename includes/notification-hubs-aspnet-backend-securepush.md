@@ -1,7 +1,7 @@
 ## Projeto WebAPI
 
 1. No Visual Studio, abra o projeto **AppBackend** que você criou no tutorial **Notificar Usuários**.
-2. Em Notifications.cs, substitua toda a classe **Notifications** pelo código a seguir. Certifique-se de substituir os espaços reservados por sua cadeia de conexão (com acesso completo) para seu hub de notificação e pelo nome do hub. Você pode obter esses valores do [Portal de Gerenciamento do Azure](http://manage.windowsazure.com). Esse módulo agora representa as diferentes notificações seguras que serão enviadas. Em uma implementação completa, as notificações são armazenadas em um banco de dados; por questão de simplicidade, neste caso as armazenaremos na memória.
+2. Em Notifications.cs, substitua toda a classe **Notifications** pelo código a seguir. Certifique-se de substituir os espaços reservados por sua cadeia de conexão (com acesso completo) para seu hub de notificação e pelo nome do hub. Você pode obter esses valores do [Portal clássico do Azure](http://manage.windowsazure.com). Esse módulo agora representa as diferentes notificações seguras que serão enviadas. Em uma implementação completa, as notificações são armazenadas em um banco de dados; por questão de simplicidade, neste caso as armazenaremos na memória.
 
 		public class Notification
 	    {
@@ -84,4 +84,4 @@ Observe que agora o método `Post` não envia uma notificação de sistema. Ele 
 
 24. Selecione o Site do Azure como seu destino de publicação. Faça logon em sua conta do Azure e selecione um site novo ou existente, então anote a propriedade **URL de destino** na guia **Conexão**. Iremos nos referir a essa URL, posteriormente neste tutorial, como seu *ponto de extremidade de back-end*. Clique em **Publicar**.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

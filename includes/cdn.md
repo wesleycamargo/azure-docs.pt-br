@@ -14,7 +14,7 @@ Os benefícios do uso da CDN para armazenar dados do Azure em cache incluem:
 -   Melhor desempenho e experiência de usuário para usuários finais que estão longe de uma fonte de conteúdo e estão usando aplicativos onde muitas 'viagens de internet' são necessárias para carregar conteúdo
 -   Grande escala distribuída para lidar melhor com alta carga instantânea, digamos, no início de um evento, como o lançamento de um produto
 
-Os clientes atuais da CDN agora podem usar a CDN do Azure no [Portal de Gerenciamento do Azure]. A CDN é um recurso suplementar à sua assinatura e tem um [plano de faturamento] separado.
+Clientes atuais da CDN agora podem usar a CDN do Azure no [Portal clássico do Azure]. A CDN é um recurso suplementar à sua assinatura e tem um [plano de faturamento] separado.
 
 <a id="Step1"> </a> <h2>Etapa 1: Criar uma conta de armazenamento</h2>
 
@@ -26,7 +26,7 @@ Para criar uma conta de armazenamento, você deve ser o administrador de serviç
 
 **Para criar uma conta de armazenamento para uma assinatura do Azure**
 
-1.  Faça logon no [Portal de Gerenciamento do Azure].
+1.  Faça logon no [portal clássico do Azure].
 2.  No canto inferior esquerdo, clique em **Novo**. Na caixa de diálogo **Novo**, selecione **Serviços de Dados** e, em seguida, clique em **Armazenamento** e em **Criação Rápida**.
 
     A caixa de diálogo **Criar Conta de Armazenamento** é exibida.
@@ -57,7 +57,7 @@ Depois que você habilitar o acesso à CDN para uma conta de armazenamento ou se
 
 **Para criar um novo ponto de extremidade CDN para sua conta de armazenamento**
 
-1. No [Portal de Gerenciamento do Azure], no painel de navegação, clique em **CDN**.
+1. No [Portal clássico do Azure], no painel de navegação, clique em **CDN**.
 
 2. Na faixa de opções, clique em **Novo**. Na caixa de diálogo **novo**, selecione **Serviços de Aplicativo**, **CDN** e, em seguida, em **Criação Rápida**.
 
@@ -100,7 +100,7 @@ A capacidade de limpar imediatamente o conteúdo não tem suporte atualmente no 
 
   [Create Storage Account]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
   [Locais de nós da CDN do Azure]: http://msdn.microsoft.com/library/windowsazure/gg680302.aspx
-  [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
+  [Portal clássico do Azure]: https://manage.windowsazure.com/
   [plano de faturamento]: /pricing/calculator/?scenario=full
   [Como Criar um Grupo de Afinidade no Azure]: http://msdn.microsoft.com/library/azure/ee460798.aspx
   [Overview of the Azure CDN]: http://msdn.microsoft.com/library/windowsazure/ff919703.aspx
@@ -111,4 +111,4 @@ A capacidade de limpar imediatamente o conteúdo não tem suporte atualmente no 
 [create-new-storage-account]: ./media/cdn/CDN_CreateNewStorageAcct.png
 [Previous Management Portal]: ../../Shared/Media/previous-portal.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

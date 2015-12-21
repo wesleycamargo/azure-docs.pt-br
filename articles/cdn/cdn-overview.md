@@ -20,7 +20,7 @@
 
 A CDN (Rede de Distribuição de Conteúdo) do Azure armazena em cache conteúdo estático e blobs do Azure usados por serviços de nuvem em locais estrategicamente posicionados para fornecer largura de banda máxima para o fornecimento de conteúdo aos usuários.
 
-Se você for um cliente CDN, poderá gerenciar seus pontos de extremidade de CDN por meio do [Portal de Gerenciamento do Microsoft Azure](https://portal.azure.com).
+Se você for um cliente CDN, poderá gerenciar seus pontos de extremidade de CDN por meio do [Portal do Microsoft Azure](https://portal.azure.com).
 
 
 A CDN oferece aos desenvolvedores uma solução global de fornecimento de conteúdo de alta largura de banda armazenando em cache o conteúdo em nós físicos em todo o mundo. Para obter uma lista atual dos locais de nós CDN, consulte [Locais POP da CDN (Rede de Distribuição de Conteúdo) do Azure](cdn-pop-locations.md).
@@ -48,15 +48,15 @@ A camada CDN Standard inclui os seguintes recursos:
 - [Suporte para HTTPS](cdn-how-to-use-cdn.md#accessing-cached-content-over-https)
 - Balanceamento de carga
 - Proteção DDOS
-- Limpeza rápida
+- [Limpeza rápida](cdn-purge-endpoint.md)
 
  
 ## Recursos Premium
 
-A camada CDN Premium inclui todos os recursos da camada Standard, além destes recursos adicionais:
+A camada CDN Premium inclui todos os recursos da camada Standard, além desses recursos adicionais:
 
 - [Mecanismo de distribuição de conteúdo personalizável e baseado em regras](cdn-rules-engine.md)
 - [Relatórios avançados de HTTP](cdn-advanced-http-reports.md)
 - [Estatísticas em tempo real](cdn-read-time-stats.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

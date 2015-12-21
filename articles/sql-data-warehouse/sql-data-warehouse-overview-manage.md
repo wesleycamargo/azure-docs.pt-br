@@ -43,9 +43,9 @@ Para começar a usar essas ferramentas, vá até o tópico [conexão][].
 [conexão]: sql-data-warehouse-develop-connections.md
 
 <!--MSDN references-->
-[SQL Server Data Tools]: https://msdn.microsoft.com/pt-BR/library/mt204009.aspx
+[SQL Server Data Tools]: https://msdn.microsoft.com/library/mt204009.aspx
 
 <!--Other web references-->
 [Portal Clássico do Azure]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

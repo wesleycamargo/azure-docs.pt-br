@@ -7,13 +7,14 @@
 	manager="dwrede"
 	editor="mollybos"/>
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="08/08/2015"
+
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="12/01/2015" 
 	ms.author="donnam;ricksal"/>
 
 # Escalar serviços móveis suportados pelo Banco de Dados SQL do Azure
@@ -37,7 +38,7 @@ Este tópico apresenta e explica as seguintes seções básicas:
 <a name="Diagnosing"></a>
 ## Diagnosticando problemas
 
-Se você suspeitar que seu serviço móvel está com problemas de carga, o primeiro lugar a verificar é a guia **Painel** de seu serviço no [Portal clássico do Azure]. Algumas das coisas a verificar são se:
+Se você suspeita que seu serviço móvel está com problemas de carga, o primeiro lugar a verificar é a guia **Painel** de seu serviço no [portal clássico do Azure]. Algumas das coisas a verificar são se:
 
 - As medidas de uso, incluindo **Chamadas de API** e **Dispositivos Ativos**, não estão acima da cota
 - O status do **Monitoramento de ponto de extremidade** indica que o serviço está apto (somente disponível se o serviço estiver usando a camada padrão e se o Monitoramento de ponto de extremidade estiver habilitado)
@@ -46,20 +47,12 @@ Se alguma das opções acima não for verdadeira, considere ajustar suas configu
 
 ### Escolhendo a camada certa do Banco de Dados SQL
 
-É importante entender as diferentes camadas de banco de dados que você tem a sua disposição para garantir que você escolha a camada certa para atender às necessidades de seu aplicativo. O Banco de Dados SQL do Azure oferece duas edições de banco de dados diferentes e três camadas de serviço diferentes:
+É importante entender as diferentes camadas de banco de dados que você tem a sua disposição para garantir que você escolha a camada certa para atender às necessidades de seu aplicativo. O Banco de Dados SQL do Azure oferece três camadas de serviço diferentes:
 
-- Web e Business Editions (descontinuadas)
-- Camadas de serviço Basic, Standard e Premium
+- Básico
+- Standard
+- Premium
 
-Embora as edições Web e Business tenham suporte completo, elas serão desativadas até 12 de setembro de 2015, conforme abordado em [Perguntas frequentes da descontinuação das edições Web e Business](http://msdn.microsoft.com/library/azure/dn741330.aspx). Encorajamos que os clientes novos comecem a usar as camadas de serviço Basic, Standard e Premium em preparação para essa alteração. Elas fornecem uma variedade de recursos de monitoramento que facilitam ainda mais a compreensão e solução de problemas de desempenho do banco de dados. Todos os novos serviços móveis são criados usando uma das novas camadas de serviço.
-
-Para converter um serviço móvel usando a Web e a Business Edition para as camadas de serviço Basic, Standard e Premium, siga essas etapas.
-
-1. Iniciar o [Portal clássico do Azure].
-2. Selecione **+NOVO** na barra de ferramentas e escolha **Serviços de Dados**, **Banco de Dados SQL**, **Criação Rápida**.
-3. Insira um nome de banco de dados e selecione **Novo servidor de Banco de Dados SQL** no campo **Servidor**. Isso criará um servidor que esteja usando a nova camada de serviço Basic, Standard ou Premium.
-4. Preencha o restante dos campos e selecione **Criar Banco de Dados SQL**. Isso criará um banco de dados de 100 MB usando uma camada Basic.
-5. Configure seu serviço móvel para usar o banco de dados que você acabou de criar. Navegue até a guia **Configurar** para o serviço e selecione **Alterar o Banco de Dados** na barra de ferramentas. Na tela seguinte, selecione **Usar um banco de dados SQL existente** no campo **Banco de Dados SQL** e selecione **Avançar**. Na tela seguinte, certifique-se de escolher o banco de dados criado na etapa 5 e selecione **OK**.
 
 Aqui estão algumas recomendações sobre como selecionar a camada certa para seu banco de dados:
 
@@ -67,29 +60,30 @@ Aqui estão algumas recomendações sobre como selecionar a camada certa para se
 - **Standard** – use para serviços de produção em que você espera várias consultas simultâneas ao banco de dados
 - **Premium** – use para serviços de produção em grande escala com muitas consultas simultâneas, carga em alto pico e baixa latência esperada em toda consulta.
 
-Para obter mais informações sobre quando usar cada camada, consulte [Razões para usar as novas camadas de serviço](http://msdn.microsoft.com/library/azure/dn369873.aspx#Reasons)
+Para obter mais informações sobre quando usar cada camada, consulte [Razões para usar as novas camadas de serviço]
 
 ### Analisando as métricas do banco de dados
 
 Quando estiver familiarizado com as diferentes camadas do banco de dados, podemos explorar as métricas de desempenho do banco de dados para nos ajudar a entender sobre como escalar dentro e entre as camadas.
 
-1. Iniciar o [Portal clássico do Azure].
+1. Inicie o [portal clássico do Azure].
 2. Na guia Serviços Móveis, selecione o serviço com o qual deseja trabalhar.
 3. Selecione a guia **Configurar**.
 4. Selecione o nome **Banco de Dados SQL** na seção **Configurações do Banco de Dados**. Com isso, você irá até a guia Banco de Dados SQL do Azure no portal.
 5. Navegue até a guia **Monitorar**
 6. Verifique se as métricas relevantes são exibidas usando o botão **Adicionar Métricas**. Inclua o seguinte
     - *Porcentagem de CPU* (disponível apenas nas camadas Basic/Standard/Premium)
-    - *Porcentagem de Leituras de Dados Físicos* (disponível apenas nas camadas Basic/Standard/Premium)
-    - *Porcentagem de Gravação de Log* (disponível apenas nas camadas Basic/Standard/Premium)
-    - *Armazenamento*
-7. Inspecione as métricas pela janela de tempo quando seu serviço estiver passando por problemas.
 
-    ![Portal clássico do Azure – métricas do banco de dados SQL][PortalSqlMetrics]
+    - *Porcentagem de E/S de Dados * (disponível apenas nos tipos Básico/Standard/Premium)
+    - *Porcentagem de E/S de Log * (disponível apenas nos tipos Básico/Standard/Premium)
+    - *Armazenamento* 
+7. Inspecione as métricas pela janela de tempo quando seu serviço estiver passando por problemas. 
+
+    ![Portal clássico do Azure – métricas do Banco de Dados SQL][PortalSqlMetrics]
 
 Se qualquer métrica exceder os 80% de utilização por um longo período, isso pode indicar um problema de desempenho. Para obter informações mais detalhadas sobre como entender a utilização do banco de dados, consulte [Entendendo o uso dos recursos](http://msdn.microsoft.com/library/azure/dn369873.aspx#Resource).
 
-Se as métricas indicarem que seu banco de dados está com alta utilização, considere **expandi-lo a uma camada de serviço mais elevada** como uma primeira etapa de redução. Para resolver os problemas imediatamente, considere usar a guia **Escala** de seu banco de dados para expandi-lo. Isso resulta em um aumento na sua conta. ![Portal clássico do Azure – escala do banco de dados SQL][PortalSqlScale]
+Se as métricas indicarem que seu banco de dados está com alta utilização, considere **expandi-lo a uma camada de serviço mais elevada** como uma primeira etapa de redução. Para resolver os problemas imediatamente, considere usar a guia **Escala** de seu banco de dados para expandi-lo. Isso resulta em um aumento na sua conta. ![Portal clássico do Azure – escala do Banco de Dados SQL][PortalSqlScale]
 
 Assim que possível, considere essas etapas adicionais de redução:
 
@@ -105,9 +99,16 @@ Muitas vezes, é interessante configurar alertas para as principais métricas do
 
 1. Navegue até a guia **Monitoramento** do banco de dados para o qual deseja configurar alertas
 2. Verifique se as métricas relevantes são exibidas conforme descrito na seção anterior
-3. Selecione a métrica para a qual você deseja definir um alerta e selecione **Adicionar regra** ![Portal clássico do Azure – alerta do SQL][PortalSqlAddAlert]
-4. Forneça um nome e descrição para o alerta ![Portal clássico do Azure - nome e descrição de alerta do SQL][PortalSqlAddAlert2]
-5. Especifique o valor a ser usado como o limite do alerta. Considere usar **80%** para permitir algum tempo de reação. Não deixe também de especificar um endereço de email que você monitore ativamente. ![Portal clássico do Azure - Limite e email de alerta do SQL][PortalSqlAddAlert3]
+3. Selecione a métrica para a qual você deseja definir um alerta e selecione **Adicionar Regra**
+
+    ![Portal de Gerenciamento do Azure – Alerta do SQL][PortalSqlAddAlert]
+
+4. Forneça um nome e descrição para o alerta ![Portal de Gerenciamento do Azure - Nome e descrição de Alerta do SQL][PortalSqlAddAlert2]
+
+5. Especifique o valor a ser usado como o limite do alerta. Considere usar **80%** para permitir algum tempo de reação. Certifique-se também especificar um endereço de email que você monitore ativamente.
+ 
+    ![Portal de Gerenciamento do Azure - Limite e email de alerta do SQL][PortalSqlAddAlert3]
+
 
 Para obter mais informações sobre como diagnosticar problemas de SQL, consulte [Diagnósticos avançados](#AdvancedDiagnosing) na parte inferior deste documento.
 
@@ -148,7 +149,7 @@ A indexação de pequenas tabelas pode não ser otimizada, pois o otimizador de 
 
 Para configurar um índice para uma coluna no back-end do JavaScript, faça o seguinte:
 
-1. Abra seu serviço móvel no [Portal clássico do Azure].
+1. Abra seu serviço móvel no [portal clássico do Azure].
 2. Clique na guia **Dados**.
 3. Selecione a tabela que deseja modificar.
 4. Clique na guia **Colunas**.
@@ -189,8 +190,10 @@ Aqui estão algumas orientações a serem consideradas ao consultar o banco de d
     - Não execute junções no código de seu aplicativo
     - Não execute junções no código de seu serviço móvel. Ao usar o back-end do JavaScript, saiba que o [objeto de tabela](http://msdn.microsoft.com/library/windowsazure/jj554210.aspx) não manipula junções. Não se esqueça de usar o [objeto mssql](http://msdn.microsoft.com/library/windowsazure/jj554212.aspx) diretamente para garantir que a junção ocorra no banco de dados. Para obter mais informações, consulte [Juntar tabelas relacionais](mobile-services-how-to-use-server-scripts.md#joins). Se estiver usando o back-end do .NET e consultando com LINQ, as junções serão automaticamente manipuladas no nível do banco de dados pelo Entity Framework.
 - **Implementar paginação.** Às vezes, consultar o banco de dados pode resultar em um grande número de registros retornado ao cliente. Para minimizar o tamanho e a latência das operações, considere implementar a paginação.
-    - Por padrão, seu serviço móvel limitará quaisquer consultas de entrada para uma página de tamanho 50 e você pode solicitar manualmente até 1.000 registros. Para obter mais informações, consulte "Retornar dados em páginas" para [Windows Store](mobile-services-windows-dotnet-how-to-use-client-library.md#paging), [iOS](mobile-services-ios-how-to-use-client-library.md#paging), [Android](mobile-services-android-how-to-use-client-library.md#paging), [HTML/JavaScript](mobile-services-html-how-to-use-client-library/#paging) e [Xamarin](partner-xamarin-mobile-services-how-to-use-client-library.md#paging).
-    - Não existe um tamanho de página padrão para as consultas feitas de seu código de serviço móvel. Se o seu aplicativo não implementar a paginação, ou como uma medida defensiva, considere aplicar limites padrão em suas consultas. No back-end do JavaScript, use o operador **take** no [objeto de consulta](http://msdn.microsoft.com/library/azure/jj613353.aspx). Se estiver usando o back-end do .NET, considere usar o [método Take](http://msdn.microsoft.com/library/vstudio/bb503062(v=vs.110).aspx) como parte de sua consulta LINQ.
+
+    - Por padrão, seu serviço móvel limitará quaisquer consultas de entrada para uma página de tamanho 50 e você pode solicitar manualmente até 1.000 registros. Para obter mais informações, consulte "Retornar dados em páginas" para [Windows Store](mobile-services-windows-dotnet-how-to-use-client-library.md#paging), [iOS](mobile-services-ios-how-to-use-client-library.md#paging), [Android](mobile-services-android-how-to-use-client-library.md#paging), [HTML/JavaScript](mobile-services-html-how-to-use-client-library#paging) e [Xamarin](partner-xamarin-mobile-services-how-to-use-client-library.md#paging).
+    - Não existe um tamanho de página padrão para as consultas feitas de seu código de serviço móvel. Se o seu aplicativo não implementar a paginação, ou como uma medida defensiva, considere aplicar limites padrão em suas consultas. No back-end do JavaScript, use o operador **take** no [objeto de consulta](http://msdn.microsoft.com/library/azure/jj613353.aspx). Se estiver usando o back-end do .NET, considere usar o [método Take] como parte de sua consulta LINQ.  
+
 
 Para obter mais informações sobre como melhorar o design da consulta, inclusive como analisar os planos de consulta, consulte [Design de consulta avançada](#AdvancedQuery) na parte inferior deste documento.
 
@@ -208,16 +211,16 @@ Imagine um cenário em que você esteja prestes a enviar uma notificação por p
 Essa seção abrange algumas das tarefas de diagnóstico mais avançadas, as quais podem ser úteis se as etapas anteriores não tratarem completamente do problema.
 
 ### Pré-requisitos
-Para executar algumas das tarefas de diagnóstico nesta seção, você precisa acessar uma ferramenta de gerenciamento de bancos de dados SQL, como o **SQL Server Management Studio**, ou a funcionalidade interna de gerenciamento do **Portal clássico do Azure**.
+Para executar algumas das tarefas de diagnóstico nesta seção, você precisa acessar uma ferramenta de gerenciamento de bancos de dados SQL, como o **SQL Server Management Studio**, ou a funcionalidade interna de gerenciamento do **portal clássico do Azure**.
 
 O SQL Server Management Studio é um aplicativo gratuito do Windows que oferece os recursos mais avançados. Se você não tiver acesso a um computador Windows (por exemplo, se você estiver usando um Mac), considere provisionar uma Máquina Virtual no Azure, conforme mostrado em [Criar uma máquina virtual executando o Windows Server](../virtual-machines-windows-tutorial.md) e, em seguida, conecte-se remotamente a ela. Se você pretender usar a MV com a finalidade principal de executar o SQL Server Management Studio, uma instância **A0 Básica** (anteriormente chamada de "Extra Pequena") deve ser suficiente.
 
-O Portal clássico do Azure oferece uma experiência de gerenciamento interna que é mais limitada, mas está disponível sem a necessidade de uma instalação local.
+O portal clássico do Azure oferece uma experiência de gerenciamento interna que é mais limitada, mas está disponível sem a necessidade de uma instalação local.
 
 As etapas a seguir explicam como obter informações de conexão para o banco de dados SQL que dá suporte a seu serviço móvel para que, em seguida, você use qualquer uma das duas ferramentas para se conectar a ele. Você pode escolher a ferramenta que preferir.
 
 #### Obter informações de conexão SQL
-1. Iniciar o [Portal clássico do Azure].
+1. Inicie o [portal clássico do Azure].
 2. Na guia Serviços Móveis, selecione o serviço com o qual deseja trabalhar.
 3. Selecione a guia **Configurar**.
 4. Selecione o nome **Banco de Dados SQL** na seção **Configurações do Banco de Dados**. Com isso, você navegará até a guia Banco de Dados SQL do Azure no portal.
@@ -247,12 +250,12 @@ As etapas a seguir explicam como obter informações de conexão para o banco de
     - Senha: *senha escolhida ao criar o servidor*
 3. Agora você deve estar conectado.
 
-    ![Portal clássico do Azure - banco de dados SQL][PortalSqlManagement]
+    ![Portal clássico do Azure - Banco de Dados SQL][PortalSqlManagement]
 
 <a name="AdvancedDiagnosing" />
 ### Diagnósticos avançados
 
-Várias tarefas de diagnóstico podem ser facilmente concluídas da maneira correta no **Portal clássico do Azure**. No entanto, algumas tarefas avançadas de diagnóstico somente são possíveis no **SQL Server Management Studio** ou no **Portal de Gerenciamento do Banco de Dados SQL**. Aproveitaremos as exibições de gerenciamento dinâmico, um conjunto de exibições preenchidas automaticamente com informações de diagnóstico sobre seu banco de dados. Esta seção fornece um conjunto de consultas que pode ser executado nessas exibições para examinar diversas métricas. Para obter mais informações, consulte [Monitorando o Banco de Dados SQL usando a Exibição de Gerenciamento Dinâmico (a página pode estar em inglês)][].
+Várias tarefas de diagnóstico podem ser facilmente concluídas da maneira correta no **portal clássico do Azure**. No entanto, algumas tarefas avançadas de diagnóstico somente são possíveis no **SQL Server Management Studio** ou no **Portal de Gerenciamento do Banco de Dados SQL**. Aproveitaremos as exibições de gerenciamento dinâmico, um conjunto de exibições preenchidas automaticamente com informações de diagnóstico sobre seu banco de dados. Esta seção fornece um conjunto de consultas que pode ser executado nessas exibições para examinar diversas métricas. Para obter mais informações, consulte [Monitorando o Banco de Dados SQL usando a Exibição de Gerenciamento Dinâmico (a página pode estar em inglês)][].
 
 Após concluir as etapas na seção anterior para se conectar ao banco de dados no SQL Server Management Studio, selecione seu banco de dados no **Pesquisador de Objetos**. Expanda as **Exibições** e as **Exibições do Sistema** mostrarão uma lista de exibições de gerenciamento. Para executar as consultas abaixo, selecione **Nova Consulta**, enquanto estiver com seu banco de dados selecionado no **Pesquisador de Objetos**, cole a consulta e selecione **Executar**.
 
@@ -268,7 +271,8 @@ Para executar qualquer uma das consultas abaixo, cole-as na janela e selecione *
 
 #### Métricas avançadas
 
-O portal clássico do Azure disponibiliza determinadas métricas para leitura se você estiver usando as camadas Basic, Standard e Premium. No entanto, se estiver usando as camadas Web e Business, apenas a métrica Armazenamento estará disponível no portal. Felizmente, é fácil obter essas e outras métricas usando a exibição de gerenciamento **[sys.resource\_stats](http://msdn.microsoft.com/library/dn269979.aspx)**, independentemente de qual camada você está usando. Considere a seguinte consulta:
+
+O portal de gerenciamento disponibiliza determinadas métricas para leitura se você estiver usando as camadas Basic, Standard e Premium. É fácil obter essas e outras métricas usando a exibição de gerenciamento **[sys.resource\_stats](http://msdn.microsoft.com/library/dn269979.aspx)**, independentemente de qual camada você esteja usando. Considere a seguinte consulta:
 
     SELECT TOP 10 *
     FROM sys.resource_stats
@@ -290,7 +294,7 @@ A exibição **[sys.event\_log](http://msdn.microsoft.com/library/azure/jj819229
 
 > [AZURE.NOTE]Execute essa consulta no banco de dados **mestre** de seu servidor, uma vez que a exibição **sys.event\\_log** está presente apenas nesse banco de dados.
 
-<a name="AdvancedIndexing" />
+<a name="AdvancedIndexing" ></a>
 ### Indexação avançada
 
 Uma tabela ou exibição pode conter os seguintes tipos de índices:
@@ -371,12 +375,13 @@ A consulta de exemplo a seguir executa uma junção entre estas tabelas para obt
       AND migs_adv.index_advantage > 10
     ORDER BY migs_adv.index_advantage DESC;
 
-Para obter mais informações, consulte [Monitorando o Banco de Dados SQL usando a Exibição de Gerenciamento Dinâmico][] e [Exibições de gerenciamento dinâmico de índice ausente](sys-missing-index-stats).
+Para obter mais informações, consulte [Monitorando o Banco de Dados SQL usando a Exibição de Gerenciamento Dinâmico][] e [Exibições de gerenciamento dinâmico de índice ausente][].
 
-<a name="AdvancedQuery" />
-### Design de consulta avançada
+<a name="AdvancedQuery" ></a>
+### Design de consulta avançada 
 
 Frequentemente, é difícil diagnosticar quais consultas são as mais dispendiosas para o banco de dados.
+
 
 #### Localizando as principais consultas N
 
@@ -397,7 +402,7 @@ O exemplo a seguir retorna informações sobre as cinco principais consultas cla
 	GROUP BY query_stats.query_hash
 	ORDER BY 2 DESC;
 
-Para obter mais informações, consulte [Monitorando o Banco de Dados SQL usando a Exibição de Gerenciamento Dinâmico (a página pode estar em inglês)][]. Além de executar a consulta, o **Portal de Gerenciamento do Banco de Dados SQL** fornece um bom atalho para ver esses dados, ao selecionar **Resumo** para seu banco de dados e, em seguida, **Desempenho da Consulta**:
+Para obter mais informações, consulte [Monitorando o Banco de Dados SQL usando a Exibição de Gerenciamento Dinâmico (a página pode estar em inglês)][]. Além de executar a consulta, o **Portal de Gerenciamento do Banco de Dados SQL** fornece um bom atalho para ver esses dados, ao selecionar **Resumo** para seu banco de dados e **Desempenho da Consulta**:
 
 ![Portal de Gerenciamento do Banco de Dados SQL – desempenho da consulta][PortalSqlManagementQueryPerformance]
 
@@ -407,7 +412,7 @@ Quando tiver identificado as consultas dispendiosas ou se estiver prestes a impl
 
 ![SQL Server Management Studio – plano de consulta][SSMSQueryPlan]
 
-Para analisar o plano de consulta no **Portal de Gerenciamento do Banco de Dados SQL**, use os botões da barra de ferramentas em destaque.
+Para analisar o plano de consulta no **Portal de Gerenciamento do Banco de Dados SQL**, use os botões da barra de ferramentas realçados.
 
 ![Portal de Gerenciamento do Banco de Dados SQL – plano de consulta][PortalSqlManagementQueryPlan]
 
@@ -449,7 +454,7 @@ Para analisar o plano de consulta no **Portal de Gerenciamento do Banco de Dados
 
 <!-- LINKS -->
 
-[Portal clássico do Azure]: http://manage.windowsazure.com
+[portal clássico do Azure]: http://manage.windowsazure.com
 
 [Documentação do Banco de dados SQL do Azure]: http://azure.microsoft.com/documentation/services/sql-database/
 [Managing SQL Database using SQL Server Management Studio]: http://go.microsoft.com/fwlink/p/?linkid=309723&clcid=0x409
@@ -457,6 +462,9 @@ Para analisar o plano de consulta no **Portal de Gerenciamento do Banco de Dados
 [Monitorando o Banco de Dados SQL usando a Exibição de Gerenciamento Dinâmico (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/p/?linkid=309725&clcid=0x409
 [Desempenho e escalonamento do Banco de Dados SQL do Azure]: http://go.microsoft.com/fwlink/p/?linkid=397217&clcid=0x409
 [Solucionando problemas do Banco de Dados SQL do Azure]: http://msdn.microsoft.com/library/azure/ee730906.aspx
+[Razões para usar as novas camadas de serviço]: http://msdn.microsoft.com/library/azure/dn369873.aspx#Reasons
+
+[método Take]: http://msdn.microsoft.com/library/vstudio/bb503062(v=vs.110).aspx
 
 <!-- MSDN -->
 [Criando e modificando restrições de CHAVE PRIMÁRIA]: http://technet.microsoft.com/library/ms181043(v=sql.105).aspx
@@ -471,7 +479,7 @@ Para analisar o plano de consulta no **Portal de Gerenciamento do Banco de Dados
 [Orientações de design de índices exclusivos]: http://technet.microsoft.com/library/ms187019(v=sql.105).aspx
 [Orientações de design de índices clusterizados]: http://technet.microsoft.com/library/ms190639(v=sql.105).aspx
 
-[sys-missing-index-stats]: http://technet.microsoft.com/library/ms345421.aspx
+[Exibições de gerenciamento dinâmico de índice ausente]: http://technet.microsoft.com/library/ms345421.aspx
 
 <!-- EF -->
 [Considerações de desempenho do Entity Framework 5]: http://msdn.microsoft.com/data/hh949853
@@ -481,4 +489,4 @@ Para analisar o plano de consulta no **Portal de Gerenciamento do Banco de Dados
 <!-- BLOG LINKS -->
 [Quanto custa essa chave?]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

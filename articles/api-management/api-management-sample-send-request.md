@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="12/03/2015"
    ms.author="v-darmi"/>
 
 
@@ -24,7 +24,7 @@ As políticas disponíveis no serviço de Gerenciamento de API do Azure permitem
 Vimos anteriormente como podemos interagir com o [serviço Hub de Eventos do Azure para registro em log, monitoramento e análise](api-management-sample-logtoeventhub.md). Neste artigo, demonstraremos as políticas que permitem a interação com qualquer serviço externo baseado em HTTP. Essas políticas podem ser usadas para disparar eventos remotos ou para recuperar informações que serão usadas para manipular a solicitação e resposta originais de alguma forma.
 
 ## Send-One-Way-Request
-Possivelmente, a interação externa mais simples é o estilo de solicitação "disparar e esquecer" que permite que um serviço externo seja notificado sobre algum tipo de evento importante. Podemos usar a política de fluxo de controle <choose> para detectar qualquer tipo de condição de nosso interesse e, então, se a condição for atendida, podemos fazer uma solicitação HTTP externa. Isso inclui uma solicitação para um sistema de mensagens como Hipchat ou Slack, ou uma API de email como SendGrid ou MailChimp, ou para incidentes de suporte críticos, algo como o PagerDuty. Todos esses sistemas de mensagens têm APIs HTTP simples que podemos facilmente invocar.
+Possivelmente, a interação externa mais simples é o estilo de solicitação "disparar e esquecer" que permite que um serviço externo seja notificado sobre algum tipo de evento importante. Podemos usar a política de fluxo de controle `choose` para detectar qualquer tipo de condição de nosso interesse; se a condição for atendida, poderemos fazer uma solicitação HTTP externa usando a política [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest). Isso inclui uma solicitação para um sistema de mensagens como Hipchat ou Slack, ou uma API de email como SendGrid ou MailChimp, ou para incidentes de suporte críticos, algo como o PagerDuty. Todos esses sistemas de mensagens têm APIs HTTP simples que podemos facilmente invocar.
 
 ### Alertas com Slack
 O exemplo a seguir demonstra como enviar uma mensagem a uma sala de bate-papo do Slack, se o código de status de resposta HTTP for maior ou igual a 500. Um erro de intervalo 500 indica um problema com nossa API de back-end que o cliente de nossa API não consegue resolver sozinho. Isso geralmente exige algum tipo de intervenção de nossa parte.
@@ -57,13 +57,13 @@ O Slack tem a noção de ganchos de entrada da Web. Ao configurar um gancho de e
 ![Gancho da Web do Slack](./media/api-management-sample-send-request/api-management-slack-webhook.png)
 
 ### O método "disparar e esquecer" é o suficiente?
-Há certas compensações ao usar um estilo de solicitação "disparar e esquecer". Se, por algum motivo, a solicitação falhar, a falha não será registrada. Nessa situação específica, a complexidade de ter um sistema de relatório de falhas secundário e o custo adicional de desempenho de ter que espera por uma resposta não oferecem garantias. Para cenários nos quais é essencial verificar a resposta, a política `send-request` é uma opção mais adequada.
+Há certas compensações ao usar um estilo de solicitação "disparar e esquecer". Se, por algum motivo, a solicitação falhar, a falha não será registrada. Nessa situação específica, a complexidade de ter um sistema de relatório de falhas secundário e o custo adicional de desempenho de ter que espera por uma resposta não oferecem garantias. Para cenários nos quais é essencial verificar a resposta, a política [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) é uma opção mais adequada.
 
 ## Send-Request
 A política `send-request` permite o uso de um serviço externo para executar funções complexas de processamento e retornar dados para o serviço de gerenciamento de API, que pode ser usado para um processamento adicional da política.
 
 ### Autorizando tokens de referência
-Uma função importante do Gerenciamento de API é proteger os recursos de back-end. Se o servidor de autorização usado pela sua API criar [tokens JWT](http://jwt.io/) como parte de seu fluxo do OAuth2, assim como o faz o [Active Directory do Azure](../active-directory/active-directory-aadconnect.md), você poderá usar a política `validate-jwt` para verificar a validade do token. No entanto, alguns servidores de autorização criam algo que é chamado de [tokens de referência](http://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) que não podem ser verificados sem a realização de uma chamada para o servidor de autorização.
+Uma função importante do Gerenciamento de API é proteger os recursos de back-end. Se o servidor de autorização usado pela sua API criar [tokens JWT](http://jwt.io/) como parte de seu fluxo do OAuth2, assim como faz o [Active Directory do Azure](../active-directory/active-directory-aadconnect.md), você poderá usar a política `validate-jwt` para verificar a validade do token. No entanto, alguns servidores de autorização criam algo chamado [tokens de referência](http://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) que não podem ser verificados sem a realização de uma chamada para o servidor de autorização.
 
 ### Introspecção padronizada
 No passado, não havia uma forma padronizada de verificar um token de referência com um servidor de autorização. No entanto, um padrão proposto recentemente, o [RFC 7662](https://tools.ietf.org/html/rfc7662), foi publicado pela IETF definindo como um servidor de recursos pode verificar a validade de um token.
@@ -89,9 +89,9 @@ Após a obtenção do token de autorização, podemos fazer a solicitação para
     </send-request>
 
 ### Verificação da resposta
-O atributo `response-variable-name` é usado para fornecer acesso à resposta retornada. O nome definido nessa propriedade pode ser usado como uma chave para o dicionário `context.Variables` a fim de acessar o objeto `IResponse`.
+O atributo `response-variable-name` é usado para dar acesso à resposta retornada. O nome definido nessa propriedade pode ser usado como uma chave para o dicionário `context.Variables` a fim de acessar o objeto `IResponse`.
 
-Do objeto de resposta podemos recuperar o corpo e a RFC 7622 nos informa de que a resposta deve ser um objeto JSON e deve conter pelo menos uma propriedade chamada `active`, que é um valor booliano. Quando `active` é verdadeiro, o token é considerado válido.
+Do objeto de resposta, podemos recuperar o corpo e a RFC 7622 nos informa de que a resposta deve ser um objeto JSON e deve conter pelo menos uma propriedade chamada `active`, que é um valor booliano. Quando `active` é verdadeiro, o token é considerado válido.
 
 ### Indicação de falha
 Usamos uma política `<choose>` para detectar se o token é inválido e, em caso positivo, retornar uma resposta 401.
@@ -107,7 +107,7 @@ Usamos uma política `<choose>` para detectar se o token é inválido e, em caso
       </when>
     </choose>
 
-Conforme a [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3). que descreve como os tokens `bearer` devem ser usados, também retornamos um cabeçalho `WWW-Authenticate` com a resposta 401. O WWW-Authenticate tem como intenção instruir um cliente sobre como construir uma solicitação devidamente autorizada. Devido à ampla variedade de abordagens possíveis com a estrutura OAuth2, é difícil comunicar todas as informações necessárias. Felizmente, há esforços sendo realizados para ajudar os [clientes a descobrirem como autorizar corretamente as solicitações para um servidor de recursos](http://tools.ietf.org/html/draft-jones-oauth-discovery-00).
+Conforme a [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3), que descreve como os tokens `bearer` devem ser usados, também retornamos um cabeçalho `WWW-Authenticate` com a resposta 401. O WWW-Authenticate tem como intenção instruir um cliente sobre como construir uma solicitação devidamente autorizada. Devido à ampla variedade de abordagens possíveis com a estrutura OAuth2, é difícil comunicar todas as informações necessárias. Felizmente, há esforços sendo realizados para ajudar os [clientes a descobrirem como autorizar corretamente as solicitações para um servidor de recursos](http://tools.ietf.org/html/draft-jones-oauth-discovery-00).
 
 ### Solução final
 Juntando todas as peças, temos a seguinte política:
@@ -144,7 +144,7 @@ Juntando todas as peças, temos a seguinte política:
       <base />
     </inbound>
 
-Este é apenas um dos muitos exemplos de como a política `send-request` pode ser usada para integrar serviços externos úteis ao processo de solicitações e respostas que fluem pelo serviço de Gerenciamento de API.
+Este é apenas um dos muitos exemplos de como a política `send-request` pode ser usada para integrar serviços externos úteis ao processo de solicitações e respostas que fluem pelo serviço Gerenciamento de API.
 
 ## Composição da resposta
 A política `send-request` pode ser usada para melhorar a uma solicitação primária para um sistema back-end, como vimos no exemplo anterior, ou pode ser usada como uma substituição completa para a chamada back-end. Com essa técnica podemos criar facilmente recursos de composição agregados de vários sistemas diferentes.
@@ -162,7 +162,7 @@ Após a criação da operação `dashboard`, podemos configurar uma política es
 
 ![Operação de painel](./media/api-management-sample-send-request/api-management-dashboard-policy.png)
 
-A primeira etapa é extrair quaisquer parâmetros de consulta da solicitação de entrada, para que possamos encaminhá-las ao nosso back-end. Neste exemplo, nosso painel está mostrando informações com base em um período, portanto, apresenta os parâmetros `fromDate` e `toDate`. Podemos usar a política `set-variable` para extrair as informações da URL de solicitação.
+A primeira etapa é extrair quaisquer parâmetros de consulta da solicitação de entrada, para que possamos encaminhá-las ao nosso back-end. Neste exemplo, nosso painel está mostrando informações baseadas em um período; portanto, ele apresenta os parâmetros `fromDate` e `toDate`. Podemos usar a política `set-variable` para extrair as informações da URL de solicitação.
 
     <set-variable name="fromDate" value="@(context.Request.Url.Query["fromDate"].Last())">
     <set-variable name="toDate" value="@(context.Request.Url.Query["toDate"].Last())">
@@ -193,7 +193,7 @@ Essas solicitações serão executadas em sequência, o que não é ideal. Em um
 
 ### Respondendo
 
-Para construir a resposta composta, podemos usar a política `return-response`. O elemento `set-body` pode usar uma expressão para construir um novo `JObject` com todas as representações de componente incorporadas como propriedades.
+Para construir a resposta composta, podemos usar a política [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse). O elemento `set-body` pode usar uma expressão para construir um novo `JObject` com todas as representações de componente incorporadas como propriedades.
 
     <return-response response-variable-name="existing response variable">
       <set-status code="200" reason="OK" />
@@ -262,6 +262,6 @@ A política completa tem a seguinte aparência:
 Na configuração da operação de espaço reservado podemos configurar o recurso de painel para ser armazenado em cache durante pelo menos uma hora, pois entendemos que a natureza dos dados significa que mesmo se estiver uma hora desatualizado, ainda será suficientemente eficaz para transmitir as informações valiosas aos usuários.
 
 ## Resumo
-O serviço de Gerenciamento de API do Azure fornece políticas flexíveis que podem ser aplicadas seletivamente ao tráfego HTTP e permite a composição de serviços back-end. Se você quiser aprimorar seu gateway de API com funções de alerta, verificação e recursos de validação, ou criar novos recursos compostos com base em vários serviços back-end, a política `send-request` e políticas relacionadas disponibilizam um mundo de possibilidades.
+O serviço de Gerenciamento de API do Azure fornece políticas flexíveis que podem ser aplicadas seletivamente ao tráfego HTTP e permite a composição de serviços back-end. Se você quiser aprimorar seu gateway de API com funções de alerta, verificação e recursos de validação, ou criar novos recursos compostos baseados em vários serviços back-end, a política `send-request` e as políticas relacionadas abrirão um mundo de oportunidades.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

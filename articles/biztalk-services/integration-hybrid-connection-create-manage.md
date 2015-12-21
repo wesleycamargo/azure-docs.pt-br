@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/24/2015" 
+	ms.date="12/03/2015" 
 	ms.author="mandia"/>
 
 
@@ -41,7 +41,7 @@ Este tópico lista estas etapas.
 2. Selecione **Serviços do BizTalk** no painel de navegação à esquerda e selecione o seu Serviço do BizTalk. 
 
 	Se não tiver um Serviço BizTalk, você poderá [Criar um Serviço BizTalk](biztalk-provision-services.md).
-3. Selecione a guia Conexões Híbridas: ![Guia de Conexões Híbridas][HybridConnectionTab]
+3. Selecione a guia **Conexões Híbridas**: ![Guia de Conexões Híbridas][HybridConnectionTab]
 
 4. Selecione **Criar uma Conexão Híbrida** ou selecione o botão **ADD** na barra de tarefas. Insira o seguinte:
 
@@ -70,7 +70,7 @@ Para conectar os Aplicativos Móveis do Azure a uma Conexão Híbrida existente,
 
 Após uma Conexão Híbrida ser criada, instale o Gerenciador de Conexões Híbridas no recurso local. É possível fazer o download por meio dos Aplicativos Web do Azure ou por meio de seu Serviço BizTalk. Etapas dos Serviços BizTalk:
 
-1. Entre no [portal clássico do Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
+1. Entre no [Portal clássico do Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Selecione **Serviços do BizTalk** no painel de navegação à esquerda e selecione o seu Serviço do BizTalk. 
 3. Selecione a guia **Conexões Híbridas**: ![Guia de Conexões Híbridas][HybridConnectionTab]
 4. Na barra de tarefas, selecione **Configuração Local**: ![Configuração Local][HCOnPremSetup]
@@ -112,14 +112,14 @@ Para gerenciar suas Conexões Híbridas, você pode:
 
 #### Copiar/regenerar as cadeias de conexão híbrida
 
-1. Entre no [portal clássico do Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
+1. Entre no [Portal clássico do Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Selecione **Serviços do BizTalk** no painel de navegação à esquerda e selecione o seu Serviço do BizTalk. 
 3. Selecione a guia **Conexões Híbridas**: ![Guia de Conexões Híbridas][HybridConnectionTab]
 4. Selecione a Conexão Híbrida. Na barra de tarefas, selecione **Gerenciar Conexão**: ![Gerenciar opções][HCManageConnection]
 
 	**Gerenciar Conexão** lista as cadeias de conexão do aplicativo e local. É possível copiar as cadeias de conexão ou regenerar a chave de acesso usada na cadeia de conexão.
 
-	**Se você selecionar Regenerar**, a Chave de Acesso compartilhada usada na Cadeia de Conexão será alterada. Faça o seguinte: - no portal clássico do Azure, selecione **Sincronizar Chaves** no aplicativo do Azure. - Execute novamente a **Configuração Local**. Ao executar novamente a Configuração Local, o recurso local é configurado automaticamente para usar a cadeia de conexão primária atualizada.
+	**Se você selecionar Regenerar**, a Tecla de Acesso compartilhada usada na Cadeia de Conexão será alterada. Faça o seguinte: - no Portal clássico do Azure, selecione **Sincronizar Chaves** no aplicativo do Azure. - Execute novamente a **Configuração Local**. Ao executar novamente a Configuração Local, o recurso local é configurado automaticamente para usar a cadeia de conexão primária atualizada.
 
 
 #### Use a Política de Grupo para controlar os recursos locais utilizados por uma Conexão Híbrida
@@ -143,11 +143,11 @@ Após tê-los copiado, você pode usar o Editor de políticas de grupo para muda
 
 ## Consulte também
 
-[API REST para gerenciar Serviços BizTalk no Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx) [Serviços BizTalk: gráfico de edições](biztalk-editions-feature-chart.md) [Criar um Serviço BizTalk usando o portal clássico do Azure](biztalk-provision-services.md) [Serviços BizTalk: guias Painel, Monitor e Escala](biztalk-dashboard-monitor-scale-tabs.md)
+[API REST para gerenciar Serviços BizTalk do Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx) [Serviços BizTalk: gráfico de edições](biztalk-editions-feature-chart.md) [Criar um Serviço BizTalk usando o portal clássico do Azure](biztalk-provision-services.md) [Serviços BizTalk: guias Painel, Monitor e Escala](biztalk-dashboard-monitor-scale-tabs.md)
 
 
 [HybridConnectionTab]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

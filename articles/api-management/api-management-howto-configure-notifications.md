@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Como configurar notificações e modelos de email no Gerenciamento de API do Azure
@@ -22,7 +22,7 @@ O Gerenciamento de API possibilita configurar notificações de eventos específ
 
 ## <a name="publisher-notifications"> </a>Configurar notificações do editor
 
-Para configurar as notificações, clique em **Gerenciar** no Portal do Azure para seu serviço de Gerenciamento de API. Isso levará você ao portal do editor de Gerenciamento de API.
+Para configurar as notificações, clique em **Gerenciar** no Portal Clássico do Azure para seu serviço de Gerenciamento de API. Isso levará você ao portal do editor de Gerenciamento de API.
 
 ![Portal do editor][api-management-management-console]
 
@@ -54,7 +54,7 @@ Para especificar os usuários a serem notificados, clique em **adicionar destina
 
 Após configurar os destinatários da notificação, clique em **Salvar** para aplicar a atualização dos destinatários da notificação.
 
->Se você navegar para fora da guia **Notificações do editor**, o Portal de gerenciamento de API o alertará se houver alterações não salvas.
+>Se você navegar para fora da guia **Notificações do editor**, o Portal do editor o alertará se houver alterações não salvas.
 
 ## <a name="email-templates"> </a>Configurar modelos de email
 
@@ -114,4 +114,4 @@ Clique em **Visualização** ou **Enviar um teste** para ver como o email ficar�
 [Introdução ao Gerenciamento de API do Azure]: api-management-get-started.md
 [Criar uma instância de serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

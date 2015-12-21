@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/14/2015"
+	ms.date="12/07/2015"
 	ms.author="glenga"/>
 
 # Agendar trabalhos recorrentes nos Serviços Móveis
@@ -27,7 +27,7 @@
 - [.NET backend](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
 - [Javascript backend](mobile-services-schedule-recurring-tasks.md)
 
-Este tópico mostra como usar a funcionalidade do agendador de trabalhos no portal clássico do Azure para definir o código de script do servidor que é executado com base em um agendamento definido por você. Neste caso, o script verifica periodicamente com um serviço remoto, neste caso, o Twitter, e armazena os resultados em uma nova tabela. Algumas outras tarefas periódicas que podem ser agendadas incluem:
+Este tópico mostra como usar a funcionalidade de agendador de trabalho no Portal clássico do Azure para definir o código de script de servidor que é executado com base em uma agenda definida por você. Neste caso, o script verifica periodicamente com um serviço remoto, neste caso, o Twitter, e armazena os resultados em uma nova tabela. Algumas outras tarefas periódicas que podem ser agendadas incluem:
 
 + Arquivamento de registros de dados duplicados ou antigos.
 + Solicitação e armazenamento de dados externos, como tweets, entradas RSS e informações sobre local.
@@ -105,7 +105,7 @@ Em seguida, você pode criar o trabalho agendado que acessa o Twitter e armazena
 
 1. Expanda a pasta ScheduledJobs e abra o arquivo do projeto SampleJob.cs.
 
-	Essa classe, que herda de **ScheduledJob**, representa um trabalho que pode ser agendado, no portal clássico do Azure, para ser executado em um agendamento fixo ou sob demanda.
+	Essa classe, que herda de **ScheduledJob**, representa um trabalho que pode ser agendado, no Portal clássico do Azure, para ser executado em um agendamento fixo ou sob demanda.
 
 2. Substitua o conteúdo do arquivo SampleJob.cs pelo código a seguir:
 
@@ -250,7 +250,7 @@ O trabalho deve ser registrado na guia **Agendador** para que os Serviços Móve
 
 3. Republique o projeto de serviço móvel no Azure.
 
-4. No [portal clássico do Azure], clique em Serviços Móveis e em seu aplicativo.
+4. No [Portal clássico do Azure], clique em Serviços Móveis e em seu aplicativo.
 
 2. Clique na guia **Agendador** e clique em **+Criar**.
 
@@ -268,11 +268,11 @@ O trabalho deve ser registrado na guia **Agendador** para que os Serviços Móve
 
 	>[AZURE.NOTE]Uma solicitação POST ainda pode ser usada para iniciar o trabalho agendado. No entanto, a autorização padroniza para o usuário, o que significa que a solicitação deve incluir a chave do aplicativo no cabeçalho.
 
-4. (Opcional) No [portal clássico do Azure], clique em gerenciar para o banco de dados associado ao seu serviço móvel.
+4. (Opcional) No [Portal clássico do Azure], clique em gerenciar para o banco de dados associado ao seu serviço móvel.
 
     ![][6]
 
-5. No portal clássico do Azure, execute uma consulta para exibir as alterações feitas pelo aplicativo. A sua consulta será semelhante à consulta a seguir, mas use o nome do seu serviço móvel como o nome do esquema em vez de `todolist`.
+5. No Portal clássico do Azure, execute uma consulta para exibir as alterações feitas pelo aplicativo. A sua consulta será semelhante à consulta a seguir, mas use o nome do seu serviço móvel como o nome do esquema em vez de `todolist`.
 
         SELECT * FROM [todolist].[Updates]
 
@@ -299,10 +299,10 @@ Parabéns, você criou com êxito um novo trabalho agendado em seu serviço móv
 [9]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/mobile-service-try-this-out.png
 
 <!-- URLs. -->
-[portal clássico do Azure]: https://manage.windowsazure.com/
+[Portal clássico do Azure]: https://manage.windowsazure.com/
 [Register your apps for Twitter login with Mobile Services]: mobile-services-how-to-register-twitter-authentication.md
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [LINQ para projeto CodePlex do Twitter]: http://linqtotwitter.codeplex.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -34,7 +34,7 @@ Os aplicativos de API oferecem os seguintes recursos:
 
 - **Integração do Visual Studio** -Ferramentas dedicadas no Visual Studio simplificam o trabalho de criação, implantação, consumo, depuração e gerenciamento de aplicativos de API. Para obter mais informações, consulte [Anunciando o SDK 2.8.1 do Azure para .NET](/blog/announcing-azure-sdk-2-8-1-for-net/).
 
-- **Integração com Aplicativos lógicos** - Aplicativos de API criados por você podem ser consumidos por [Aplicativos lógicos do Serviço de Aplicativo](../app-service-logic/app-service-logic-what-are-logic-apps.md). Para obter informações sobre mudanças contínuas sobre como os aplicativos de API se integram com aplicativos lógicos, consulte [Aplicativos da API do Serviço de Aplicativo - O que mudou](app-service-api-whats-changed.md).
+- **Integração com Aplicativos lógicos** - Aplicativos de API criados por você podem ser consumidos por [Aplicativos lógicos do Serviço de Aplicativo](../app-service-logic/app-service-logic-what-are-logic-apps.md). Aprenda como em [Usando a API personalizada hospedada no Serviço de Aplicativo com Aplicativos Lógicos](../app-service-logic/app-service-logic-custom-hosted-api.md). Para obter informações sobre mudanças contínuas sobre como os aplicativos de API se integram com aplicativos lógicos, consulte [Aplicativos de API do Serviço de Aplicativo - O que mudou](app-service-api-whats-changed.md).
 
 - **Coloque sua API existente como ela está** - Você não precisa alterar nenhum código em suas APIs existentes para tirar proveito dos recursos de Aplicativos de API. Basta implantar seu código em um aplicativo de API. Sua API pode usar qualquer linguagem ou estrutura com suporte do Serviço de Aplicativo, incluindo ASP.NET e C#, Java, PHP, Node.js e Python.
 
@@ -45,7 +45,7 @@ Além disso, os recursos oferecidos por Aplicativos de API, Aplicativos Web e Ap
 ## Conceitos de aplicativos de API ##
 
 - **Swagger** - Uma estrutura para a documentação e descoberta de uma API RESTful usada por padrão em Aplicativos de API. Para obter mais informações, consulte [http://swagger.io/](http://swagger.io/).
-- **CORS (Compartilhamento de Recursos entre Origens)** - Um mecanismo que permite que o JavaScript executado em um navegador faça chamadas para uma API hospedada em um domínio diferente daquele do qual a página da Web foi carregada. Para obter mais informações, consute [Consumir um aplicativo de API do JavaScript usando CORS](app-service-api-cors-consume-javascript.md). 
+- **CORS (Compartilhamento de Recursos entre Origens)** - um mecanismo que permite que o JavaScript executado em um navegador faça chamadas para uma API hospedada em um domínio diferente daquele do qual a página da Web foi carregada. Para obter mais informações, consute [Consumir um aplicativo de API do JavaScript usando CORS](app-service-api-cors-consume-javascript.md). 
 - **Gatilho** - A API REST que os [aplicativos lógicos](../app-service-logic/app-service-logic-what-are-logic-apps.md) podem chamar para iniciar um processo de fluxo de trabalho quando determinada condição é atendida. Por exemplo, um aplicativo de API pode fornecer um método que o aplicativo lógico chama periodicamente para procurar uma frase determinada em um feed do Twitter. Para obter mais informações, consulte [Gatilhos de aplicativo de API](app-service-api-dotnet-triggers.md).
 - **Ação** - Uma API REST que [aplicativos lógicos](../app-service-logic/app-service-logic-what-are-logic-apps.md) podem chamar para processar dados depois que um fluxo de trabalho foi iniciado por um gatilho. Por exemplo, um aplicativo de API pode fornecer um método que chama o aplicativo lógico para responder a um tweet encontrada pelo gatilho Twitter. Ações são métodos de API expostos por uma definição de API de Swagger.
 
@@ -57,4 +57,4 @@ Para ver uma lista de problemas conhecidos dos Aplicativos de API, confira [a po
 
 Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Azure, consulte [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

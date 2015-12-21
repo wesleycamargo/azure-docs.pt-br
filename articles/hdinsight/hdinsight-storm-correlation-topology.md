@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="10/30/2015"
+ ms.date="12/04/2015"
  ms.author="larryfr"/>
 
 # Correlacionar eventos ao longo do tempo com o Storm e o HBase no HDInsight
@@ -200,4 +200,4 @@ Quando você estiver pronto para parar a topologia, volte para o projeto **Corre
 Para obter mais exemplos de topologias Storm, consulte [Exemplo de topologias para Storm no HDInsight](hdinsight-storm-example-topology.md).
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Análise de sentimento Twitter em tempo real com a Stream Analytics | Microsoft Azure"
 	description="Saiba como usar a Stream Analytics para análise de sentimento Twitter em tempo real. Orientações passo a passo de geração de eventos aos dados em um painel em tempo real."
-	keywords="twitter em tempo real, análise de sentimento, análise de mídia social, ferramenta de análise de mídia social"
+	keywords="análise de tendência do twitter em tempo real, análise de sentimento, análise de mídia social, exemplo de análise de tendência"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,19 +14,19 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="11/23/2015"
+	ms.date="12/04/2015"
 	ms.author="jeffstok"/>
 
 
 # Análise de mídia social: análise de sentimento do Twitter em tempo real na Stream Analytics do Azure
 
-Neste tutorial, você aprenderá a criar uma solução de análise de sentimento em tempo real no Twitter em Hubs de Eventos, gravando consultas de Stream Analytics para analisar os dados e, em seguida, armazenando os resultados ou usando um painel para fornecer percepções em tempo real.
+Aprenda a compilar uma solução de análise de sentimento para análise de mídia social colocando os eventos em tempo real do Twitter nos Hubs de Eventos. Você escreverá uma consulta do Stream Analytics para analisar os dados e, em seguida, armazenar os resultados para uma leitura minuciosa posterior ou usar um painel para fornecer percepções em tempo real usando o [Power BI](https://powerbi.com/).
 
-Ferramentas de análise de mídias sociais ajudam as organizações a compreender tópicos tendências, assuntos significados e atitudes com um alto volume de postagens em mídia social. Análise de sentimento - também chamado de "mineração opinião" - usa as ferramentas de análise de mídia social para determinar as atitudes em direção a um produto, ideia e assim por diante.
+Ferramentas de análise de mídias sociais ajudam as organizações a compreender tópicos tendências, assuntos significados e atitudes com um alto volume de postagens em mídia social. Análise de sentimento - também chamado de "mineração opinião" - usa as ferramentas de análise de mídia social para determinar as atitudes em direção a um produto, ideia e assim por diante. A análise de tendência do Twitter em tempo real é um ótimo exemplo porque o modelo de assinatura com hashtag permite que você ouça palavras-chave em particular e desenvolva a análise de sentimento no feed.
 
-## Cenário
+## Cenário - análise de sentimento em tempo real
 
-Um site de mídia de notícias está interessado em obter uma vantagem sobre seus concorrentes apresentando conteúdo do site que é imediatamente relevante para seus leitores. Eles usam percepções de mídia social sobre tópicos relevantes para seus leitores fazendo uma análise de sentimento em tempo real sobre dados do Twitter. Especificamente, para identificar quais são os tópicos mais populares, eles precisam de análise em tempo real no Twitter sobre o volume de tweets e de sentimento para os tópicos principais.
+Um site de mídia de notícias está interessado em obter uma vantagem sobre seus concorrentes apresentando conteúdo do site que é imediatamente relevante para seus leitores. Eles usam percepções de mídia social sobre tópicos relevantes para seus leitores fazendo uma análise de sentimento em tempo real sobre dados do Twitter. Especificamente, para identificar quais são os tópicos mais populares, eles precisam de análise em tempo real no Twitter sobre o volume de tweets e de sentimento para os tópicos principais. Então, essencialmente eles precisam de um mecanismo de análise para análise de sentimento baseado nesse feed de mídia social.
 
 ## Pré-requisitos
 1.	É necessária uma conta do Twitter para este tutorial.  
@@ -38,7 +38,7 @@ O aplicativo de exemplo gerará eventos e os enviará a uma instância de Hubs d
 
 Siga as etapas abaixo para criar um Hub de Eventos.
 
-1.	No portal do Azure, clique em **NOVO** > **SERVIÇOS DE APLICATIVOS** > **BARRAMENTO DE SERVIÇO** > **HUB DE EVENTOS** > **CRIAÇÃO RÁPIDA** e forneça um nome, uma região e um namespace novo ou existente para criar um novo Hub de Eventos.  
+1.	No Portal do Azure, clique em **NOVO** > **SERVIÇOS DE APLICATIVOS** > **BARRAMENTO DE SERVIÇO** > **HUB DE EVENTOS** > **CRIAÇÃO RÁPIDA** e forneça um nome, uma região e um namespace novo ou existente para criar um novo Hub de Eventos.  
 2.	Como prática recomendada, cada trabalho de Stream Analytics deve ser lido de um único Grupo de Consumidores de Hubs de Eventos. Vamos orientá-lo ao longo do processo de criação de um Grupo de Consumidores abaixo, e você poderá saber mais sobre eles aqui. Para criar um Grupo de Consumidores, navegue até o Hub de Eventos recém-criado e clique na guia **GRUPOS DE CONSUMIDORES**. Em seguida, clique em **CRIAR** na parte inferior da página e forneça um nome para o Grupo de Consumidores.
 3.	Para conceder acesso ao Hub de Eventos, precisamos criar uma política de acesso compartilhado. Clique na guia **CONFIGURAR** de seu Hub de Eventos.
 4.	Em **POLÍTICAS DE ACESSO COMPARTILHADO**, crie uma nova política com permissões para **GERENCIAR**.
@@ -236,4 +236,4 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

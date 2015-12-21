@@ -35,11 +35,11 @@ As etapas neste documento fornecem orientação durante o processo de criação 
 
 - **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- __CLI do Azure__. Para obter informações sobre como instalar a CLI, consulte [Instalar a CLI do Azure](xplat-cli-install.md).
+- __CLI do Azure__. Para obter informações sobre como instalar a CLI, consulte [Instalar a CLI do Azure](../xplat-cli-install.md).
 
 ##Faça logon na sua assinatura do Azure
 
-Siga as etapas documentadas em [Conectar a uma assinatura do Azure por meio da CLI do Azure (Interface de Linha de Comando do Azure)](xplat-cli-connect.md) e conecte à sua assinatura usando o método de __logon__.
+Siga as etapas documentadas em [Conectar a uma assinatura do Azure por meio da CLI do Azure (Interface de Linha de Comando do Azure)](../xplat-cli-connect.md) e conecte à sua assinatura usando o método de __logon__.
 
 ##Criar um cluster
 
@@ -112,13 +112,13 @@ Agora que você criou com êxito um cluster HDInsight, use o seguinte para apren
 
 ###Clusters do HBase
 
-* [Introdução ao HBase no HDInsight](hdinsight-hbase-tutorial-get-stared-linux.md)
-* [Desenvolvimento de aplicativos Java para HBase no HDInsight](hdinsight-hbase-build-java-maven-linux)
+* [Introdução ao HBase no HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
+* [Desenvolvimento de aplicativos Java para HBase no HDInsight](hdinsight-hbase-build-java-maven-linux.md)
 
 ###Clusters Storm
 
 * [Desenvolver topologias Java para Storm no HDInsight](hdinsight-storm-develop-java-topology.md)
-* [Usar componentes de Python no Storm no HDInsight](hdinsight-storm-develop-python.md)
+* [Usar componentes de Python no Storm no HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Implantar e monitorar topologias com o Storm no HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

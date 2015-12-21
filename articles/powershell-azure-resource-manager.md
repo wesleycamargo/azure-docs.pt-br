@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="12/08/2015" 
 	ms.author="tomfitz"/>
 
 # Usando o Azure PowerShell com o Gerenciador de Recursos do Azure
@@ -36,7 +36,7 @@ Para concluir este tutorial, você precisará:
   + Você pode [ativar benefícios para assinantes do MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): todos os meses, sua assinatura do MSDN concede créditos que podem ser usados para serviços pagos do Azure.
 - Azure PowerShell 1.0. Para obter informações sobre essa versão e como instalá-la, confira [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
-Este tutorial foi criado para iniciantes do PowerShell, mas pressupõe que você compreende os conceitos básicos, como módulos, cmdlets e sessões. Para obter mais informações sobre o Windows PowerShell, consulte [Introdução ao PowerShell do Windows Azure (a página pode estar em inglês)](http://technet.microsoft.com/library/hh857337.aspx).
+Este tutorial foi criado para iniciantes do PowerShell, mas pressupõe que você compreende os conceitos básicos, como módulos, cmdlets e sessões. Para obter mais informações sobre o Windows PowerShell, consulte [Introdução ao PowerShell do Microsoft Azure (a página pode estar em inglês)](http://technet.microsoft.com/library/hh857337.aspx).
 
 ## O que você implantará
 
@@ -338,7 +338,7 @@ Você tem o grupo de recursos e o seu modelo, portanto agora está pronto para i
 
     PS C:\> New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -TemplateFile c:\Azure\Templates\azuredeploy.json
 
-Especifique o grupo de recursos e o local do modelo. Se o seu modelo não for local, você poderá usar o parâmetro -TemplateUri e especificar um URI para o modelo.
+Especifique o grupo de recursos e o local do modelo. Se o seu modelo não for local, você poderá usar o parâmetro **-TemplateUri** e especificar um URI para o modelo. Você pode definir o parâmetro **-Mode** como **Incremental** ou **Complete**. Por padrão, o Gerenciador de Recursos executa uma atualização incremental durante a implantação; portanto, não é essencial definir **-Mode** quando quiser a opção **Incremental**. Para entender as diferenças entre esses modos de implantação, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 
 ###Parâmetros de modelo dinâmico
 
@@ -436,9 +436,9 @@ Você pode mover os recursos existentes para um novo grupo de recursos. Para obt
 
 ## Próximas etapas
 
-- Para saber mais sobre a criação de modelos do Gerenciador de Recursos, confira [Criando modelos do Gerenciador de Recursos do Azure](./resource-group-authoring-templates.md).
+- Para saber mais sobre a criação de modelos do Gerenciador de Recursos, confira [Criando Modelos do Gerenciador de Recursos do Azure](./resource-group-authoring-templates.md).
 - Para saber mais sobre como implantar modelos, confira [Implantar um aplicativo com o Modelo do Gerenciador de Recursos do Azure](./resource-group-template-deploy.md).
 - Para ver um exemplo detalhado da implantação de um projeto, confira [Implantar microsserviços de maneira previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
-- Para saber mais sobre como solucionar problemas de uma implantação com falha, confira [Solucionando problemas de implantações do grupo de recursos no Azure](./virtual-machines/resource-group-deploy-debug.md).
+- Para saber mais sobre como solucionar problemas de uma implantação com falha, confira [Solucionando problemas de implantações de grupos de recursos no Azure](./virtual-machines/resource-group-deploy-debug.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

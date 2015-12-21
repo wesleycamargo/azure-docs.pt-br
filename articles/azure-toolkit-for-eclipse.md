@@ -16,7 +16,7 @@
     ms.date="11/20/2015" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/pt-BR/library/azure/hh694271.aspx -->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694271.aspx -->
 
 # Kit de ferramentas do Azure para Eclipse #
 
@@ -93,4 +93,4 @@ Para saber mais sobre como usar o Azure com Java, confira a [Central de Desenvol
 [Usando a biblioteca de tempo de execução de serviços do Azure no JSP]: http://go.microsoft.com/fwlink/?LinkID=699551
 [Novidades no Kit de Ferramentas do Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

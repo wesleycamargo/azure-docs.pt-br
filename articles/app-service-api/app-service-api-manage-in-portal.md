@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="09/08/2015" 
+	ms.date="12/04/2015" 
 	ms.author="tdykstra"/>
 
 # Gerenciar aplicativos de API no Serviço de Aplicativo do Azure
@@ -136,4 +136,4 @@ Este artigo mostra como usar o portal do Azure para executar tarefas de gerencia
 
 Para obter informações sobre como gerenciar aplicativos de API usando a linha de comando, consulte os artigos na seção **Automatizar** do menu que aparece no lado esquerdo do artigo (em janelas de navegador largas) ou na parte superior do artigo (em janelas de navegador estreitas).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

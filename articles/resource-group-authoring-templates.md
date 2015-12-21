@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/30/2015"
+   ms.date="12/07/2015"
    ms.author="tomfitz"/>
 
 # Criando modelos do Gerenciador de Recursos do Azure
@@ -236,7 +236,7 @@ Você define recursos com a seguinte estrutura:
 | comentários | Não | Suas anotações para documentar os recursos em seu modelo
 | dependsOn | Não | Recursos dos quais o recurso que está sendo definido depende. As dependências entre recursos são avaliadas e os recursos são implantados na ordem de dependência. Quando os recursos não dependem uns dos outros, é possível que tentem ser implantados paralelamente. O valor pode ser uma lista separada por vírgulas de nomes de recursos ou identificadores exclusivos de recursos.
 | propriedades | Não | Definições de configuração específicas do recurso.
-| recursos | Não | Recursos filho que dependem do recurso que está sendo definido.
+| recursos | Não | Recursos filho que dependem do recurso que está sendo definido. Você pode fornecer apenas os tipos de recurso permitidos pelo esquema do recurso pai. O nome totalmente qualificado do tipo de recurso filho inclui o tipo de recurso pai, como **Microsoft.Web/sites/extensions**.
 
 Se o nome do recurso não for exclusivo, você poderá usar a função auxiliar **resourceId** (descrita abaixo) para obter o identificador exclusivo de qualquer recurso.
 
@@ -278,6 +278,9 @@ O exemplo a seguir mostra um recurso **Microsoft.Web/serverfarms** e um recurso 
                   "apiVersion": "2014-06-01",
                   "type": "Extensions",
                   "name": "MSDeploy",
+                  "dependsOn": [
+                      "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
+                  ],
                   "properties": {
                     "packageUri": "https://auxmktplceprod.blob.core.windows.net/packages/StarterSite-modified.zip",
                     "dbType": "None",
@@ -324,7 +327,7 @@ O exemplo a seguir mostra um valor que é retornado na seção de saídas.
 ## Cenários mais avançados.
 Este tópico fornece uma introdução do modelo. No entanto, o cenário pode exigir tarefas mais avançadas.
 
-Talvez seja necessário mesclar dois modelos ou usar um modelo filho dentro de um modelo pai. Para obter mais informações, consulte [Usando modelos vinculados com o Gerenciador de Recursos do Azure](resource-group-linked-templates.md).
+Talvez seja necessário mesclar dois modelos ou usar um modelo filho dentro de um modelo pai. Para saber mais, confira [Usando modelos vinculados com o Gerenciador de Recursos do Azure](resource-group-linked-templates.md).
 
 Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
 
@@ -418,4 +421,4 @@ O modelo a seguir implanta um aplicativo Web e o provisiona com o código de um 
 - Para obter um exemplo detalhado de implantação de um aplicativo, confira [Provisionar e implantar microsserviços de forma previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
 - Para ver os esquemas disponíveis, consulte [Esquemas do Gerenciador de Recursos do Azure](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

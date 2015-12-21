@@ -20,7 +20,8 @@
 # Carregar dados com o PolyBase
 A tecnologia PolyBase permite consultar e unir dados de várias fontes tudo usando os comandos Transact-SQL.
 
-Usando o PolyBase, você pode consultar dados armazenados no armazenamento de blob do Azure e carregá-lo nos banco de dados do SQL Data Warehouse seguindo estas etapas:
+Usando o PolyBase, você pode consultar dados armazenados no armazenamento de blob do Azure e carregá-lo nos banco de dados do SQL Data 
+Warehouse seguindo estas etapas:
 
 - Criar a chave mestra e as credenciais do banco de dados.
 - Criar objetos do PolyBase: fonte de dados externa, formato de arquivo externo e tabela externa. 
@@ -64,7 +65,7 @@ Para acessar o armazenamento de blob do Azure, você precisa criar uma credencia
 
 3. Use [CREATE CREDENTIAL (Transact-SQL)][] para criar uma credencial com escopo de banco de dados para cada conta de armazenamento do Azure que deseja acessar. Neste exemplo, IDENTITY é um nome amigável para a credencial. Ele não afeta a autenticação no Armazenamento do Azure. SECRET é sua chave de conta de armazenamento do Azure.
 
-    - Criar uma credencial com escopo de banco de dados
+    -- Criar uma credencial com escopo de banco de dados
     CREATE DATABASE SCOPED CREDENTIAL ASBSecret 
     WITH IDENTITY = 'joe'
     ,    Secret = '<azure_storage_account_key>'
@@ -355,13 +356,13 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx
 [CREATE EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx
 
-[DROP EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/pt-BR/library/mt146367.aspx
-[DROP EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/pt-BR/library/mt146379.aspx
-[DROP EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/pt-BR/library/mt130698.aspx
+[DROP EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/library/mt146367.aspx
+[DROP EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/mt146379.aspx
+[DROP EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/mt130698.aspx
 
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
-[CREATE MASTER KEY (Transact-SQL)]: https://msdn.microsoft.com/pt-BR/library/ms174382.aspx
-[CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/pt-BR/library/ms189522.aspx
-[DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/pt-BR/library/ms189450.aspx
+[CREATE MASTER KEY (Transact-SQL)]: https://msdn.microsoft.com/library/ms174382.aspx
+[CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189522.aspx
+[DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!-------HONumber=Nov15_HO3-->
+<!----HONumber=AcomDC_1210_2015-->

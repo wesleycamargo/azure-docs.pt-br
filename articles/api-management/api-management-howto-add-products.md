@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Como criar e publicar um produto no Gerenciamento de API do Azure
@@ -22,7 +22,7 @@ No Gerenciamento de API, um produto contém uma ou mais APIs, bem como uma quota
 
 ## <a name="create-product"> </a>Criar um produto
 
-Operações são adicionadas e configuradas em uma API no Portal do editor. Para acessar o Portal do editor, clique em **Gerenciar** no Portal do Azure para acessar o serviço de Gerenciamento de API.
+Operações são adicionadas e configuradas em uma API no Portal do editor. Para acessar o portal do editor, clique em **Gerenciar** no Portal Clássico do Azure do serviço de Gerenciamento de API.
 
 ![Portal do editor][api-management-management-console]
 
@@ -148,4 +148,4 @@ Para obter mais informações sobre como trabalhar com produtos, consulte o víd
 [Como criar e usar grupos para gerenciar contas de desenvolvedor no Gerenciamento de API do Azure]: api-management-howto-create-groups.md
 [Como criar e definir configurações avançadas no Gerenciamento de API do Azure]: api-management-howto-product-with-rules.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

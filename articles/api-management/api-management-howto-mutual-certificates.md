@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Como garantir serviços de back-end usando autenticação de certificado do cliente no Gerenciamento de API do Azure
@@ -28,7 +28,7 @@ Este guia mostra como configurar sua instância de serviço de Gerenciamento de 
 
 ## <a name="step1"> </a>Carregar um certificado do cliente
 
-Para começar, clique em **Gerenciar** no Portal do Azure para acessar o serviço de Gerenciamento de API. Isso levará você ao portal do editor de Gerenciamento de API.
+Para começar, clique em **Gerenciar** no Portal Clássico do Azure para acessar o serviço de Gerenciamento de API. Isso levará você ao portal do editor de Gerenciamento de API.
 
 ![Portal do editor de API][api-management-management-console]
 
@@ -141,4 +141,4 @@ Para obter mais informações sobre outras maneiras de proteger seu serviço de 
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

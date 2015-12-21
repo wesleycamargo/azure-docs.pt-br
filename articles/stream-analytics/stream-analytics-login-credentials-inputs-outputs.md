@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Stream Analytics: alternar as credenciais de logon para entradas e saídas | Microsoft Azure" 
-	description="Saiba como atualizar as credenciais para as entradas e saídas do Stream Analytics." 
+	description="Saiba como atualizar as credenciais para as entradas e saídas do Stream Analytics."
+	keywords="credenciais de logon"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,15 +14,15 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
-#Girar credenciais de entrada/saída
+#Rotação de credenciais de logon
 
 ##Resumo
 No momento, o Azure Stream Analytics não permite a substituição das credenciais em uma entrada/saída durante a execução do trabalho.
 
-Embora o Azure Stream Analytics ofereça suporte à retomada de um trabalho desde a última saída, queremos compartilhar o processo inteiro para minimizar a latência entre a parada e o início do trabalho.
+Embora o Azure Stream Analytics ofereça suporte à retomada de um trabalho desde a última saída, queremos compartilhar o processo inteiro para minimizar a latência entre a parada e o início do trabalho e fazer a rotação de credenciais de logon.
 
 ##Parte 1 - Preparar o novo conjunto de credenciais:
 Essa parte é aplicável às seguintes entradas/saídas:
@@ -34,7 +35,7 @@ Essa parte é aplicável às seguintes entradas/saídas:
 Para outras entradas/saídas, prossiga para a Parte 2.
 
 ###Armazenamento de blog/Armazenamento de tabela
-1.  Vá para a extensão Armazenamento no Portal Clássico do Azure: ![elementográfico1][graphic1]
+1.  Vá para a extensão Armazenamento no Portal de Gerenciamento do Azure: ![elementográfico1][graphic1]
 2.  Localize o armazenamento usado por seu trabalho e acesse-o: ![elementográfico2][graphic2]
 3.  Clique no comando Gerenciar Chaves de Acesso: ![elementográfico3][graphic3]
 4.  Entre a Chave de Acesso Primária e a Chave de Acesso Secundária, **escolha a que não é usada por seu trabalho**.
@@ -43,7 +44,7 @@ Para outras entradas/saídas, prossiga para a Parte 2.
 7.  Prossiga para a Parte 2.
 
 ###Hubs de evento
-1.  Vá para a extensão Barramento de Serviço no Portal Clássico do Azure: ![elementográfico6][graphic6]
+1.  Vá para a extensão Barramento de Serviço no Portal de Gerenciamento do Azure: ![elementográfico6][graphic6]
 2.  Localize o Namespace do Barramento de Serviço usado por seu trabalho e acesse-o: ![elementográfico7][graphic7]
 3.  Se seu trabalho usar uma política de acesso compartilhado no Namespace de Barramento de Serviço, vá para a etapa 6  
 4.  Vá para a guia Hubs de Eventos: ![elementográfico8][graphic8]
@@ -57,9 +58,9 @@ Para outras entradas/saídas, prossiga para a Parte 2.
 
 ###Banco de dados SQL
 
->[AZURE.NOTE]Observação: será necessário se conectar ao Serviço de Banco de Dados SQL. Vamos mostrar como fazer isso usando a experiência de gerenciamento no Portal de Clássico do Azure, mas você também pode optar por usar uma ferramenta do lado cliente, como o SQL Server Management Studio.
+>[AZURE.NOTE]Observação: será necessário se conectar ao Serviço de Banco de Dados SQL. Vamos mostrar como fazer isso usando a experiência de gerenciamento no Portal de Gerenciamento do Azure, mas você também pode optar por usar uma ferramenta do lado cliente, como o SQL Server Management Studio.
 
-1.  Vá para a extensão Bancos de Dados SQL no Portal Clássico do Azure: ![elementográfico14][graphic14]
+1.  Vá para a extensão Bancos de Dados SQL no Portal de Gerenciamento do Azure: ![elementográfico14][graphic14]
 2.  Localize o Banco de Dados SQL usado por seu trabalho e **clique no link do servidor** na mesma linha: ![elementográfico15][graphic15]
 3.  Clique no comando Gerenciar: ![elementográfico16][graphic16]
 4.  Digite o Banco de Dados Mestre: ![elementográfico17][graphic17]
@@ -77,7 +78,7 @@ Para outras entradas/saídas, prossiga para a Parte 2.
 16. Prossiga para a Parte 2.
 
 ##Parte 2: Interrompendo o trabalho do Stream Analytics
-1.  Vá para a extensão Stream Analytics no Portal Clássico do Azure: ![elementográfico26][graphic26]
+1.  Vá para a extensão Stream Analytics no Portal de Gerenciamento do Azure: ![elementográfico26][graphic26]
 2.  Localize seu trabalho e acesse-o: ![elementográfico27][graphic27]
 3.  Vá para a guia Entradas ou para a guia Saídas se você estiver fazendo uma rotação das credenciais em uma Entrada ou em uma Saída. ![elementográfico28][graphic28]
 4.  Clique no comando Parar e confirme se o trabalho foi interrompido: ![elementográfico29][graphic29] Aguarde a interrupção do trabalho.
@@ -193,4 +194,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

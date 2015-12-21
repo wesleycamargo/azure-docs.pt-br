@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/07/2015"
+	ms.date="12/05/2015"
 	ms.author="juliako"/>
 
 
-#Empacotamento dinâmico
+#Empacotamento dinâmico 
 
 ##Visão geral
 
@@ -39,13 +39,13 @@ O diagrama a seguir mostra o fluxo de trabalho de empacotamento dinâmico.
 ##Cenário comum
 
 1. Carrega um arquivo de entrada (chamado de arquivo de mezanino). Por exemplo, H.264, MP4 ou WMV (para obter a lista de formatos com suporte, consulte [Formatos com suporte do Codificador dos Serviços de Mídia](media-services-azure-media-encoder-formats)).
-
+ 
 1. Codifique o arquivo de mezanino para conjuntos de taxa de bits adaptável MP4 H.264.
-
+ 
 1. Publique o ativo que contém a taxa de bits adaptável MP4 definida ao criar o localizador OnDemand.
-
+ 
 1. Crie as URLs de streaming para acessar e transmitir seu conteúdo.
-
+ 
 >[AZURE.NOTE]Nem todos os formatos de arquivo MP4 têm suporte pelo empacotamento dinâmico; para obter mais informações, consulte [Formatos para empacotamento dinâmico sem suporte](media-services-dynamic-packaging-overview.md#unsupported_formats).
 
 ##Preparação de ativos para streaming dinâmico
@@ -95,7 +95,8 @@ Publicar ativos (pela criação de localizadores) usando o **Portal Clássico do
 Os formatos de arquivo de origem a seguir não têm suporte pelo empacotamento dinâmico.
 
 - Arquivos mp4 Dolby digital plus.
-- Dolby digital mais arquivos smooth.
+- Dolby digital mais arquivos smooth. 
+
 
 ##Roteiros de aprendizagem dos Serviços de Mídia
 
@@ -105,4 +106,4 @@ Os formatos de arquivo de origem a seguir não têm suporte pelo empacotamento d
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

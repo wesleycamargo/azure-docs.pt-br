@@ -29,8 +29,8 @@ Neste tutorial, você adicionará notificações por push ao projeto de [início
 
 Para concluir este tutorial, você precisará do seguinte:
 
-* [Conta do Google](http://go.microsoft.com/fwlink/p/?LinkId=268302) com um endereço de email verificado
-* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934)
+* [Conta do Google](http://go.microsoft.com/fwlink/p/?LinkId=268302) com um endereço de email verificado.
+* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) - não é necessário para um projeto de back-end Node.js.
 * Conclua o [tutorial de início rápido](../app-service-mobile-android-get-started.md).
 
 ##<a name="create-hub"></a>Criar um Hub de notificação
@@ -82,4 +82,4 @@ Você pode testar o aplicativo anexando um telefone Android com um cabo USB dire
 <!-- URLs -->
 [início rápido do Android]: app-service-mobile-android-get-started.md
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1210_2015--->

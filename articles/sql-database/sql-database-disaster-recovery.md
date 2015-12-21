@@ -23,7 +23,7 @@ O Banco de Dados SQL do Azure oferece os seguintes recursos para a recuperação
 - Replicação geográfica ativa [(blog)](http://azure.microsoft.com/blog/2014/07/12/spotlight-on-sql-database-active-geo-replication/)
 - Replicação geográfica padrão [(blog)](http://azure.microsoft.com/blog/2014/09/03/azure-sql-database-standard-geo-replication/)
 - Restauração geográfica [(blog)](http://azure.microsoft.com/blog/2014/09/13/azure-sql-database-geo-restore/)
-- Novos recursos de replicação geográfica [(blog)](https://azure.microsoft.com/blog/azure-sql-database-geo-replication-october-2015-update/)
+- Novos recursos de replicação geográfica [(blog)](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 
 Para saber mais sobre a preparação para desastres e quando recuperar o banco de dados, visite nossa página [Design para continuidade dos negócios](sql-database-business-continuity-design.md).
 
@@ -40,7 +40,7 @@ A operação de recuperação afeta o aplicativo. Ele exige a alteração da cad
 > [AZURE.NOTE]Deve ser configurado para ter um banco de dados secundário a ser usado para failover. A replicação geográfica só está disponível para bancos de dados Standard e Premium. Saiba [como configurar a replicação geográfica](sql-database-business-continuity-design.md)
 
 ###Portal Clássico do Azure
-Use o Portal Clássico do Azure para encerrar o relacionamento de cópia contínua com o banco de dados secundário replicado geograficamente.
+Use o Portal Clássico do Azure para encerrar o relacionamento de cópia contínuo com o banco de dados secundário replicado geograficamente.
 
 1. Faça logon no [Portal Clássico do Azure](https://portal.Azure.com)
 2. No lado esquerdo da tela, selecione **PROCURAR** e selecione **Bancos de Dados SQL**
@@ -131,4 +131,4 @@ Para obter mais informações sobre regras de alerta de banco de dados, consulte
 
 Se a auditoria for necessária para acessar o banco de dados, você precisará habilitar a auditoria após a recuperação do banco de dados. Um bom indicador de auditoria é obrigatório, pois os aplicativos cliente usam cadeias de conexão seguras em um padrão *.database.secure.windows.net. Para saber mais, confira [Introdução à Auditoria do Banco de Dados SQL](sql-database-auditing-get-started.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

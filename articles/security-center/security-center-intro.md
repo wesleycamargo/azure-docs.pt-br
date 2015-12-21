@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Introdução à Central de segurança do Azure | Microsoft Azure"
-   description="Saiba mais sobre a Central de segurança do Azure, seus principais recursos e como ela funciona."
+   pageTitle="Introdução à Central de Segurança do Azure | Microsoft Azure"
+   description="Saiba mais sobre a Central de Segurança do Azure, seus principais recursos e como ela funciona."
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="stevenpo"
+   manager="StevenPo"
    editor=""/>
 
 <tags
@@ -16,14 +16,14 @@
    ms.date="12/02/2015"
    ms.author="terrylan"/>
 
-# Introdução à Central de segurança do Azure
+# Introdução à Central de Segurança do Azure
 
-Saiba mais sobre a Central de segurança do Azure, seus principais recursos e como ela funciona.
+Saiba mais sobre a Central de Segurança do Azure, seus principais recursos e como ela funciona.
 
 > [AZURE.NOTE]As informações neste documento se aplicam à versão de visualização da Central de Segurança do Azure. Esta é uma introdução ao serviço usando um exemplo de implantação.
 
-## O que é a Central de segurança do Azure?
-A Central de Segurança do Azure ajuda você a impedir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Azure. Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
+## O que é a Central de Segurança do Azure?
+A Central de Segurança do Azure ajuda você a impedir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Azure Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
 
 ##	Principais recursos
 A Central de segurança do Azure oferece uma prevenção contra ameaças eficiente, além de recursos de detecção e resposta que estão incorporados no Azure. Os principais recursos são:
@@ -42,7 +42,7 @@ A Central de segurança do Azure oferece uma prevenção contra ameaças eficien
 | | Sugere maneiras para interromper o ataque atual e ajudar a evitar ataques futuros |
 
 ## Passo a passo introdutório
-A Central de segurança do Azure é acessada do [portal de visualização do Microsoft Azure](http://azure.microsoft.com/features/azure-portal/). Para acessar, [conecte-se no portal do Azure](https://ms.portal.azure.com/), selecione **Navegar** e role até a opção **Central de segurança** ou selecione o bloco **Central de segurança** fixado anteriormente no painel do portal de visualização do Azure.
+A Central de Segurança do Azure é acessada pelo [Portal do Azure](http://azure.microsoft.com/features/azure-portal/). Para acessar, [entre no portal](https://portal.azure.com), selecione **Navegar** e role até a opção **Central de Segurança** ou escolha o bloco **Central de Segurança** fixado anteriormente ao painel do Portal.
 
 ![][1]
 
@@ -104,7 +104,7 @@ Selecionar um alerta mostra mais informações sobre o ataque e sugestões sobre
 ## Introdução
 Para começar com a Central de segurança do Azure, você deve ter uma assinatura do Microsoft Azure. A Central de segurança do Azure é habilitada com sua assinatura do Azure. Se você não tiver uma assinatura, você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial).
 
-A Central de segurança do Azure é acessada do [portal de visualização do Microsoft Azure](http://azure.microsoft.com/features/azure-portal/). Consulte a [documentação do portal de visualização do Azure](https://azure.microsoft.com/documentation/services/azure-portal/) para saber mais.
+A Central de Segurança do Azure é acessada pelo [Portal do Azure](http://azure.microsoft.com/features/azure-portal/). Confira a [documentação do portal](https://azure.microsoft.com/documentation/services/azure-portal/) para saber mais.
 
 O [Introdução à Central de segurança do Azure](security-center-get-started.md) orienta você rapidamente através do monitoramento de segurança e dos componentes de gerenciamento da política da Central de Segurança do Azure.
 
@@ -116,7 +116,7 @@ Neste documento, você foi apresentado à Central de segurança do Azure, seus p
 - [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) – saiba como monitorar a integridade dos recursos do Azure
 - [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e a responder a alertas de segurança
 - [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre as perguntas frequentes sobre como usar o serviço de localização
-- [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – obtenha as últimas notícias de segurança e informações do Azure
+- [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – obtenha as últimas notícias de segurança e informações do Azure
 
 <!--Image references-->
 [1]: ./media/security-center-intro/security-tile.PNG
@@ -126,4 +126,4 @@ Neste documento, você foi apresentado à Central de segurança do Azure, seus p
 [5]: ./media/security-center-intro/security-alert.png
 [6]: ./media/security-center-intro/security-alert-detail.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

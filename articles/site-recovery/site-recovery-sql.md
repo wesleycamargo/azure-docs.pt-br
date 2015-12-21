@@ -126,14 +126,14 @@ A seguir, as etapas para integrar o SQL AlwaysOn ao ASR.
 - Configuração do Grupo de Disponibilidade do SQL entre o SQL Server local e o SQL Server em execução no Azure
 - O PowerShell remoto deve ser habilitado no SQL Server local. O Servidor VMM deve ser capaz de fazer chamadas remotas do PowerShell para o SQL Server
 - No SQL Server local, será necessário adicionar aos grupos de usuários do SQL uma conta de usuário com pelo menos as permissões a seguir
-	- ALTER AVAILABILITY GROUP – [referência 1](https://msdn.microsoft.com/pt-BR/library/hh231018.aspx), [referência 2](https://msdn.microsoft.com/pt-BR/library/ff878601.aspx#Anchor_3)
-	- ALTER DATABASE – [referência 1](https://msdn.microsoft.com/pt-BR/library/ff877956.aspx#Security)
+	- ALTERAR GRUPO DE DISPONIBILIDADE – [referência 1](https://msdn.microsoft.com/library/hh231018.aspx), [referência 2](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
+	- ALTERAR BANCO DE DADOS – [referência 1](https://msdn.microsoft.com/library/ff877956.aspx#Security)
 - Uma conta Executar como deve ser criada no Servidor VMM para a conta da etapa anterior
 - O módulo PS do SQL deve ser instalado em SQL Servers em execução no local e em máquinas virtuais do Azure
 - O Agente de VM deve ser instalado nas máquinas virtuais em execução no Azure
 - NTAUTHORITY\\System deve ter as seguintes permissões no SQL Server em execução em máquinas virtuais no Azure
-	- ALTER AVAILABILITY GROUP – [referência 1](https://msdn.microsoft.com/pt-BR/library/hh231018.aspx), [referência 2](https://msdn.microsoft.com/pt-BR/library/ff878601.aspx#Anchor_3)
-	- ALTER DATABASE – [referência 1](https://msdn.microsoft.com/pt-BR/library/ff877956.aspx#Security)
+	- ALTERAR GRUPO DE DISPONIBILIDADE – [referência 1](https://msdn.microsoft.com/library/hh231018.aspx), [referência 2](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
+	- ALTERAR BANCO DE DADOS – [referência 1](https://msdn.microsoft.com/library/ff877956.aspx#Security)
 
 ##### 1\. Adicionando um SQL Server
 
@@ -374,4 +374,4 @@ Para clusters padrão do SQL, a realização do failback após um failover não 
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->
