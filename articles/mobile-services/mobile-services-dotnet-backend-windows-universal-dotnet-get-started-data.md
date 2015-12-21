@@ -98,11 +98,14 @@ Isso conclui o tutorial.
 
 Este tutorial demonstrou os conceitos básicos de como habilitar um projeto do aplicativo Windows universal para trabalhar com dados nos Serviços Móveis. Em seguida, considere a leitura de um destes outros tópicos:
 
-* [Introdução à autenticação] <br/>Saiba como autenticar usuários de seu aplicativo.
+* [Introdução à autenticação]
+  <br/>Saiba como autenticar usuários de seu aplicativo.
 
-* [Introdução às notificações por push] <br/>Saiba como enviar uma notificação por push bastante básica a seu aplicativo.
+* [Introdução às notificações por push]
+  <br/>Saiba como enviar uma notificação por push bastante básica a seu aplicativo.
 
-* [Referência conceitual de tutorial de C# dos Serviços Móveis](mobile-services-windows-dotnet-how-to-use-client-library.md) <br/>Saiba mais sobre como usar os Serviços Móveis com o .NET.
+* [Referência conceitual de tutorial de C# dos Serviços Móveis](mobile-services-windows-dotnet-how-to-use-client-library.md)
+  <br/>Saiba mais sobre como usar os Serviços Móveis com o .NET.
 
 
 <!-- Images. -->
@@ -116,11 +119,12 @@ Este tutorial demonstrou os conceitos básicos de como habilitar um projeto do a
 [Introdução à autenticação]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
 [Introdução às notificações por push]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
 
-[Get started with offline data sync]: mobile-services-windows-store-dotnet-get-started-offline-data.md
+[Começar a usar a sincronização de dados offline]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
-[Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkID=510826
+[site de exemplos de código do desenvolvedor]: http://go.microsoft.com/fwlink/p/?LinkID=510826
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
 <!---HONumber=AcomDC_1203_2015-->
+
