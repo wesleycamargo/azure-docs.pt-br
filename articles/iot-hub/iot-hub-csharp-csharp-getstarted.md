@@ -118,7 +118,7 @@ Informações adicionais sobre o Hub IoT:
 [portal do Azure]: https://portal.azure.com/
 
 [Enviar mensagens da nuvem para o dispositivo com o Hub IoT]: iot-hub-csharp-csharp-c2d.md
-[Mensagens do processo de dispositivo para nuvem]: iot-hub-csharp-csharp-process-d2c.md
+[Processar mensagens do dispositivo para a nuvem]: iot-hub-csharp-csharp-process-d2c.md
 [Carregando arquivos de dispositivos]: iot-hub-csharp-csharp-file-upload.md
 
 [Visão geral do Hub IoT]: iot-hub-what-is-iot-hub.md
