@@ -189,7 +189,9 @@ Essas APIs são as mesmas que as APIs (V12) atuais usadas para monitorar a utili
 
 * Para essa API as métricas recuperadas são expressas como um percentual do databaseDtuMax (ou limite equivalente para a métrica subjacente, como CPU, ES etc) definido para esse pool de banco de dados elástico. Por exemplo, 50% da utilização de qualquer uma dessas métricas indica que o consumo do recursos específico é de 50% do limite por banco de dados desse recurso no pool de banco de dados elástico pai. 
 
-Obtenha as métricas: $metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015")
+Obtenha as métricas:
+
+    $metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
 
 Obtenha mais dias se for necessário repetindo a chamada e acrescentando os dados:
 
@@ -235,4 +237,4 @@ Depois de criar um pool de banco de dados elástico, você pode gerenciar os ban
 
 Para saber mais sobre pools de banco de dados elásticos e bancos de dados elásticos, incluindo detalhes sobre APIs e erros, confira a [Referência de bancos de dados elásticos](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -135,11 +135,16 @@ Você pode mapear o ponto de extremidade HTTP da CDN para um nome de domínio pe
 
 Para saber mais sobre como mapear um domínio personalizado, consulte [Como mapear conteúdo da CDN (Rede de Distribuição de Conteúdo) para um domínio personalizado](cdn-map-content-to-custom-domain.md).
 
+## Gerenciamento da CDN de forma programática
+
+A CDN do Microsoft Azure pode ser gerenciada de forma programática usando a [API REST do Provedor de Recursos da CDN](https://msdn.microsoft.com/library/mt634456.aspx).
+
+
 ## Consulte também
 
 - [Como habilitar a Rede de Distribuição de Conteúdo para o Azure](cdn-create-new-endpoint.md)
 - [Visão geral da Rede de Distribuição de Conteúdo (CDN) do Azure](cdn-overview.md)
 - [Limpar um ponto de extremidade CDN do Azure](cdn-purge-endpoint.md)
- 
+- [API REST do Provedor de Recursos CDN](https://msdn.microsoft.com/library/mt634456.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

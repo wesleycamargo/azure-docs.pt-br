@@ -1,5 +1,5 @@
 <properties
-	pageTitle="O que é a Recuperação de Site?" 
+	pageTitle="O que é o Site Recovery? | Microsoft Azure" 
 	description="O Azure Site Recovery coordena a replicação, o failover e a recuperação de máquinas virtuais e servidores físicos locais para o Azure ou para um site local secundário." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="11/29/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
 #  O que é a Recuperação de Site?
@@ -22,6 +22,7 @@ A Recuperação de Site é um serviço do Azure que colabora com sua estratégia
 
 
 ## Por que usar a Recuperação de Site? 
+
 - **BCDR mais simples** - a Recuperação de Site facilita o manuseio da replicação, do failover e da recuperação para suas cargas de trabalho e seus aplicativos locais.
 - **Replicação flexível** - você pode replicar servidores locais, máquinas virtuais do Hyper-V e máquinas virtuais VMware. A Recuperação de Site usa a replicação inteligente, replicando apenas os blocos de dados e não todo o VHD para a replicação inicial. Somente as alterações delta são replicadas durante a replicação contínua. A Recuperação de Site dá suporte à transferência de dados offline e funciona com otimizadores WAN. 
 - **Eliminar a necessidade de um datacenter secundário** - a Recuperação de Site pode automatizar a replicação entre datacenters, mas também oferece a oportunidade de abrir mão de um local de site secundário por meio da replicação no Azure. Os dados replicados são guardados no Armazenamento do Azure, com toda resiliência que ele oferece.
@@ -37,10 +38,10 @@ Máquinas virtuais da VMware | Servidor VMware local | Armazenamento do Azure | 
 Servidor físico do Windows/Linux | Servidor físico local | Armazenamento do Azure | [Implantar](site-recovery-vmware-to-azure.md)
 Máquinas virtuais do Hyper-V | Servidor de host Hyper-V local em nuvem de VMM | Armazenamento do Azure | [Implantar](site-recovery-vmm-to-azure.md)
 Máquinas virtuais do Hyper-V | Site do Hyper-V local (um ou mais servidores de host do Hyper-V) | Armazenamento do Azure | [Implantar](site-recovery-hyper-v-site-to-azure.md)
-Máquinas virtuais do Hyper-V locais| Servidor de host Hyper-V local em nuvem de VMM | Servidor de host Hyper-V local em nuvem de VMM no datacenter secundário | [Implantar](site-recovery-vmm-to-vmm)
+Máquinas virtuais do Hyper-V locais| Servidor de host Hyper-V local em nuvem de VMM | Servidor de host Hyper-V local em nuvem de VMM no datacenter secundário | [Implantar](site-recovery-vmm-to-vmm.md)
 Máquinas virtuais do Hyper-V | Servidor de host Hyper-V local em nuvem de VMM com armazenamento SAN| Servidor de host Hyper-V local em nuvem de VMM com armazenamento SAN no datacenter secundário | [Implantar](site-recovery-vmm-san.md)
-Máquinas virtuais da VMware | Servidor VMware local | Datacenter secundário executando o VMware | [Implantar](https://microsoft.sharepoint.com/sites/academy/media/AEVD-3-85237) 
-Servidor físico do Windows/Linux | Servidor físico local | Armazenamento de dados secundário | [Implantar](https://microsoft.sharepoint.com/sites/academy/media/AEVD-3-85237) 
+Máquinas virtuais da VMware | Servidor VMware local | Datacenter secundário executando o VMware | [Implantar](site-recovery-vmware-to-vmware.md) 
+Servidor físico do Windows/Linux | Servidor físico local | Armazenamento de dados secundário | [Implantar](site-recovery-vmware-to-vmware.md) 
 
 Eles serão resumidos nos diagramas a seguir.
 
@@ -67,4 +68,4 @@ Leia mais em [Quais cargas de trabalho a Recuperação de Site pode proteger?](s
 Depois de concluir esta visão geral, [saiba mais](site-recovery-components.md) sobre a arquitetura da Recuperação de Site.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

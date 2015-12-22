@@ -40,9 +40,11 @@ Para cenários de API, há diversos recursos novos relevantes:
 - **Suporte ao uso direto do Active Directory do Azure**, sem precisar trocar o token AAD no código do cliente por um token de sessão: seu cliente pode incluir apenas os tokens AAD no cabeçalho de Autorização, de acordo com a especificação de token de portador. Isso também significa que um SDK específico ao Serviço de Aplicativo é exigido no lado do cliente ou do servidor. 
 - **Acesso entre serviços ou "Interno"**: se você tiver um processo de daemon ou algum outro cliente que precise de acesso às APIs sem uma interface, você poderá solicitar um token usando uma entidade de serviço do AAD e passá-lo ao Serviço de Aplicativo para autenticação com seu aplicativo.
 - **Autorização adiada**: muitos aplicativos têm restrições de acesso diferentes para partes diferentes do aplicativo. Talvez você queira que algumas APIs estejam disponíveis publicamente, enquanto outras exijam o logon. O recurso de Autenticação/Autorização original era tudo ou nada, e todo o site exigia o logon. Essa opção ainda existe, mas você também pode permitir, como alternativa, que o código do aplicativo processe as decisões de acesso depois que o Serviço de Aplicativo tiver autenticado o usuário.
-
+ 
+Para saber mais sobre os novos recursos de autenticação, veja [Autenticação e autorização para Aplicativos de API no Serviço de Aplicativo do Azure](app-service-api-authentication.md). Para saber mais sobre como migrar aplicativos de API existentes do modelo de aplicativos de API anterior para o novo, confira [Migração de aplicativos de API existentes](#migrating-existing-api-apps) posteriormente neste artigo.
+ 
 ### CORS
-Em vez de uma configuração de aplicativo **MS\_CrossDomainOrigins** delimitada por vírgula, agora há uma folha no Portal de Gerenciamento do Azure para configuração de CORS. Como alternativa, é possível configurá-lo usando as ferramentas do Gerenciador de Recursos, como o Azure PowerShell, a CLI ou o [Gerenciador de Recursos](https://resources.azure.com/). Defina a propriedade **cors** no tipo de recurso **Microsoft.Web/sites/config** como o recurso **&lt;nome do site&gt;/web**. Por exemplo:
+Em vez de uma configuração de aplicativo **MS\_CrossDomainOrigins** delimitada por vírgula, agora há uma folha no portal de Gerenciamento do Azure para a configuração do CORS. Como alternativa, é possível configurá-lo usando as ferramentas do Gerenciador de Recursos, como o Azure PowerShell, a CLI ou o [Gerenciador de Recursos](https://resources.azure.com/). Defina a propriedade **cors** no tipo de recurso **Microsoft.Web/sites/config** para o recurso **&lt;nome do site&gt;/web**. Por exemplo:
 
     {
         "cors": {
@@ -53,7 +55,7 @@ Em vez de uma configuração de aplicativo **MS\_CrossDomainOrigins** delimitada
     } 
 
 ### Metadados da API
-Agora, a folha de definição da API está disponível em Aplicativos Web, Móveis e de API. No Portal de Gerenciamento, você pode especificar uma URL relativa ou uma URL absoluta apontando para um ponto de extremidade que hospeda a representação Swagger 2.0 de sua API. Como alternativa, ela pode ser configurada usando as ferramentas do Gerenciador de Recursos. Defina a propriedade **apiDefinition** no tipo de recurso **Microsoft.Web/sites/config** de seu recurso **&lt;nome do site&gt;/web**. Por exemplo:
+Agora, a folha de definição da API está disponível em Aplicativos Web, Móveis e de API. No Portal de Gerenciamento, você pode especificar uma URL relativa ou uma URL absoluta apontando para um ponto de extremidade que hospeda a representação Swagger 2.0 de sua API. Como alternativa, ela pode ser configurada usando as ferramentas do Gerenciador de Recursos. Defina a propriedade **apiDefinition** no tipo de recurso **Microsoft.Web/sites/config** do recurso **&lt;nome do site&gt;/web**. Por exemplo:
 
     {
         "apiDefinition":
@@ -62,10 +64,10 @@ Agora, a folha de definição da API está disponível em Aplicativos Web, Móve
         }
     }
 
-Neste momento, o ponto de extremidade de metadados deve estar publicamente acessível sem autenticação para que vários clientes downstream (por exemplo, geração de código do Visual Studio e fluxo de "Adição de API" de PowerApps) o consumam. Isso significa que se você estiver usando a autenticação do Serviço de Aplicativo e quiser expor a definição da API de dentro do próprio aplicativo, será necessário usar a opção Autenticação Adiada descrita anteriormente para que a rota até os metadados do Swagger seja pública.
+Neste momento, o ponto de extremidade de metadados deve estar publicamente acessível sem autenticação para que vários clientes downstream (por exemplo, a geração de cliente de API REST do Visual Studio e o fluxo de "Adicionar API" do PowerApps) o consumam. Isso significa que se você estiver usando a autenticação do Serviço de Aplicativo e quiser expor a definição da API de dentro do próprio aplicativo, será necessário usar a opção Autenticação Adiada descrita anteriormente para que a rota até os metadados do Swagger seja pública.
 
 ## Portal de Gerenciamento
-A seleção de **Novo > Web + Móvel > Aplicativos de API** no portal criará aplicativos de API que refletem os novos recursos descritos neste artigo. **Procurar > Aplicativos de API** mostrará apenas esses novos aplicativos de API. Quando você navega em um aplicativo de API, a folha compartilha o mesmo layout e recursos dos Aplicativos Web e Móveis. As únicas diferenças são o conteúdo de início rápido e a organização das configurações.
+A seleção de **Novo > Web + Móvel > Aplicativo de API** no portal criará aplicativos de API que refletem os novos recursos descritos neste artigo. **Procurar > Aplicativos de API** mostrará apenas esses novos aplicativos de API. Quando você navega em um aplicativo de API, a folha compartilha o mesmo layout e recursos dos Aplicativos Web e Móveis. As únicas diferenças são o conteúdo de início rápido e a organização das configurações.
 
 Os Aplicativos de API existentes (ou aplicativos de API do Marketplace, criados a partir de Aplicativos Lógicos) com os recursos da Visualização anterior ainda estarão visíveis no designer dos Aplicativos Lógicos e ao navegar por todos os recursos em um grupo de recursos. Se você precisar criar um Aplicativo de API com os recursos de visualização anteriores, o pacote estará disponível e poderá ser pesquisado no Azure Marketplace como **Web + Móvel > Aplicativos de API (Visualização)**.
 
@@ -77,11 +79,11 @@ Com a racionalização dos tipos de Serviço de Aplicativo, a publicação tamb�
 
 ![Publicação de Aplicativos de API](./media/app-service-api-whats-changed/api-apps-publish.png)
 
-Para saber mais sobre o SDK 2.8.1, leia a [postagem de blog](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-1-for-net) com o anúncio.
+Para saber mais sobre o SDK 2.8.1, leia a [postagem de blog](https://azure.microsoft.com/blog/announcing-azure-sdk-2-8-1-for-net/) do comunicado.
 
 Como alternativa, você pode importar manualmente o perfil de publicação no portal de gerenciamento a fim de habilitar a publicação. No entanto, o Gerenciador de Nuvem, a geração de código e aseleção/criação de aplicativos de API exigirão o SDK 2.8.1 ou superior.
 
-A capacidade de publicar em aplicativos de API existentes com os recursos de visualização anteriores permanece disponível no SDK 2.8.1. Se você já publicou o projeto, nenhuma ação adicional será necessária. Para configurar a publicação, escolha **Aplicativos de API (clássico)** na lista suspensa **Mais Opções** na caixa de diálogo Publicar.
+A capacidade de publicar em aplicativos de API existentes com os recursos de visualização anteriores permanece disponível no SDK 2.8.1. Se você já publicou o projeto, nenhuma ação adicional será necessária. Para configurar a publicação, escolha **Aplicativos de API (clássico)** na lista suspensa **Mais Opções** no diálogo de publicação.
 
 ## Migrando aplicativos de API existentes
 Se a sua API personalizada for implantada para a versão de visualização anterior dos Aplicativos de API, solicitamos que você migre para o novo modelo de Aplicativos de API até 31 de dezembro de 2015. Como o modelo antigo e o novo têm base nas APIs Web hospedadas no Serviço de Aplicativo, grande parte do código existente pode ser reutilizada.
@@ -90,7 +92,7 @@ Se a sua API personalizada for implantada para a versão de visualização anter
 As etapas para reimplantação são iguais à implantação de qualquer API Web existente no Serviço de Aplicativo. Etapas:
 
 1. Criar um aplicativo de API vazio. Isso pode ser feito no portal, em Novo > Aplicativo de API, no Visual Studio desde a publicação, ou nas ferramentas do Gerenciador de Recursos. Ao usar as ferramentas ou modelos do Gerenciador de Recursos, defina o valor de **tipo** como **api** no tipo de recurso **Microsoft.Web/sites** para que os guias de início rápido e as configurações no Portal de Gerenciamento sejam orientados para cenários de API.
-2. Conecte e implante seu projeto no aplicativo de API vazio usando qualquer um dos mecanismos de implantação com suporte do Serviço de Aplicativo. Leia a [Documentação de implantação do Serviço de Aplicativo do Azure](../app-service-web/web-sites-deploy.md) para saber mais. 
+2. Conecte e implante seu projeto no aplicativo de API vazio usando qualquer um dos mecanismos de implantação com suporte do Serviço de Aplicativo. Leia a [documentação de implantação do Serviço de Aplicativo do Azure](../app-service-web/web-sites-deploy.md) para saber mais. 
   
 ### Autenticação
 Os serviços de autenticação do Serviço de Aplicativo oferecem suportam aos mesmos recursos disponíveis no modelo anterior dos Aplicativos de API. Se você estiver usando tokens de sessão e precisar de SDKs, use os seguintes SDKs de cliente e servidor:
@@ -119,10 +121,24 @@ O modelo anterior de Aplicativos de API apresentava APIs para a descoberta de ou
 ### Aplicativos Lógicos
 O designer de Aplicativos Lógicos adicionará integração perfeita com o novo modelo de Aplicativos de API no início de 2016. Dito isso, o conector HTTP incorporado aos Aplicativos Lógicos pode invocar qualquer ponto de extremidade HTTP e oferece suporte à autenticação de entidade de serviço, que também recebe suporte nativo dos serviços de autenticação do Serviço de Aplicativo. Saiba como consumir uma API hospedada no Serviço de Aplicativo em Aplicativos Lógicos em [Usando a API personalizada hospedada no Serviço de Aplicativo com aplicativos lógicos](../app-service-logic/app-service-logic-custom-hosted-api.md).
 
+### <a id="documentation"></a> Documentação para o modelo anterior de Aplicativos de API
+Alguns artigos de [azure.microsoft.com](https://azure.microsoft.com) que foram escritos para o antigo modelo de Aplicativos de API não se aplicam mais ao novo modelo e serão removidos do site. As URLs serão redirecionadas para o equivalente mais próximo que funcione com o novo modelo, mas você ainda poderá ver os artigos antigos no [Repositório de documentação do GitHub para azure.microsoft.com](https://github.com/Azure/azure-content). A maioria dos artigos desejados será encontrada na pasta [articles/app-service-api](https://github.com/Azure/azure-content/tree/master/articles/app-service-api). Estes são os links diretos para alguns dos artigos que talvez ainda estejam em uso caso você esteja dando suporte a aplicativos de API mais antigos ou se você criar novos aplicativos de API de conector do Marketplace.
+
+* [Visão geral de autenticação](https://github.com/Azure/azure-content/tree/master/articles/app-service/app-service-authentication-overview.md)
+* [Proteger um aplicativo de API](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-dotnet-add-authentication.md)
+* [Consumir um aplicativo de API interno](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-dotnet-consume-internal.md)
+* [Consumir usando a autenticação do fluxo de cliente](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-authentication-client-flow.md)
+* [Implantar e configurar um aplicativo de API de conector SaaS](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-connnect-your-app-to-saas-connector.md)
+* [Provisionar um aplicativo de API com um novo gateway](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-arm-new-gateway-provision.md)
+* [Depurar um Aplicativo de API](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-dotnet-debug.md)
+* [Conectar-se a uma plataforma SaaS](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-dotnet-connect-to-saas.md)
+* [Aprimorar um Aplicativo de API para Aplicativos Lógicos](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-optimize-for-logic-apps.md)
+* [Gatilhos de aplicativo de API](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-dotnet-triggers.md)
+
 ## Próximas etapas
-Para saber mais, leia os artigos na seção [Documentação de Aplicativos da API](https://azure.microsoft.com/documentation/services/app-service/api/). Eles foram atualizados para refletir o novo modelo para Aplicativos de API. Além disso, acesse os fóruns para obter detalhes adicionais ou orientação sobre migração:
+Para saber mais, leia os artigos na seção [Documentação de Aplicativos de API](https://azure.microsoft.com/documentation/services/app-service/api/). Eles foram atualizados para refletir o novo modelo para Aplicativos de API. Além disso, acesse os fóruns para obter detalhes adicionais ou orientação sobre migração:
 
 - [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureAPIApps)
 - [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-apps)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

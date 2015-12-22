@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="get-started-article" 
-	ms.date="10/07/2015" 
+	ms.date="12/07/2015" 
 	ms.author="riande"/>
 
 # Criar um aplicativo ASP.NET MVC com autenticação e o banco de dados SQL e implantar no Serviço de Aplicativo do Azure
@@ -43,7 +43,7 @@ O que você aprenderá:
 
 Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [ativar os benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [inscrever-se em uma avaliação gratuita](/pricing/free-trial/?WT.mc_id=A261C142F).
 
-Para configurar o ambiente de desenvolvimento, você deve instalar o [Visual Studio 2013 Atualização 4](http://go.microsoft.com/fwlink/?LinkId=390521) ou superior e a versão mais recente do [SDK do Azure para .NET](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). Este artigo foi escrito para o Visual Studio Atualização 4 e para o SDK 2.7.1. As mesmas instruções servem para o Visual Studio 2015 com a versão mais recente do [SDK do Azure para .NET](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409) instalado, mas algumas telas terão uma aparência diferente das ilustrações.
+Para configurar o ambiente de desenvolvimento, você deve instalar o [Visual Studio 2013 Atualização 5](http://go.microsoft.com/fwlink/?LinkId=390521) ou superior e a versão mais recente do [SDK do Azure para .NET](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). Este artigo foi escrito para o Visual Studio Atualização 4 e para o SDK 2.8.1. As mesmas instruções servem para o Visual Studio 2015 com a versão mais recente do [SDK do Azure para .NET](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409) instalado, mas algumas telas terão uma aparência diferente das ilustrações.
 
 ## Criar um aplicativo ASP.NET MVC 5
 
@@ -61,7 +61,7 @@ Para configurar o ambiente de desenvolvimento, você deve instalar o [Visual Stu
  
 	**Observação:** não deixe de inserir "ContactManager". Os blocos de código que você irá copiar posteriormente supõem que o nome do projeto seja ContactManager.
 
-1. Na caixa de diálogo **Novo Projeto ASP.NET**, selecione o modelo **MVC**. Verifique se a **Autenticação** está definida como **Contas de Usuário Individuais**, se a opção **Host na nuvem** está marcada e se **Aplicativo Web** está selecionado.
+1. Na caixa de diálogo **Novo Projeto ASP.NET**, selecione o modelo **MVC**. Verifique se a **Autenticação** está definida para **Contas Individuais de Usuário**, o **Host na nuvem** é verificado e o **Serviço de Aplicativo** está selecionado.
 
 	![Caixa de diálogo Novo Projeto ASP .NET](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/newproject.png)
 
@@ -712,7 +712,7 @@ Nesta seção, você aplica o atributo [Authorize](http://msdn.microsoft.com/lib
 
 Se tiver problemas, veja algumas sugestões que você pode experimentar.
 
-* Erros durante o provisionamento do Banco de Dados SQL - Verifique se você tem o SDK atual instalado. Versões anteriores a 2.7.1 contêm um bug que, em alguns cenários, causa erros quando o VS tenta criar o servidor de banco de dados ou o banco de dados.
+* Erros durante o provisionamento do Banco de Dados SQL - Verifique se você tem o SDK atual instalado. As versões anteriores a 2.8.1 contêm um bug que, em alguns cenários, causa erros quando o VS tenta criar o servidor de banco de dados ou o banco de dados.
 * Mensagem de erro “Não há suporte para a operação para o seu tipo de oferta de assinatura” ao criar recursos do Azure - O mesmo que o descrito acima.
 * Erros durante a implantação - Considere a leitura do artigo [Implantação básica do ASP.NET](web-sites-dotnet-get-started.md). Esse cenário de implantação é mais simples e, se você tiver o mesmo problema lá, pode ser mais fácil de isolá-lo. Por exemplo, em alguns ambientes empresariais, um firewall corporativo pode impedir que o Web Deploy estabeleça os tipos de conexões necessárias com o Azure.
 * Nenhuma opção para selecionar a cadeia de conexão no Assistente de Publicação na Web ao implantar - se você tiver usado um método diferente para criar os recursos do Azure (por exemplo, você está tentando implantar um aplicativo Web e um banco de dados SQL criado no portal), o banco de dados SQL pode não ser associado ao aplicativo Web. A solução mais fácil é criar um novo aplicativo Web e banco de dados usando o VS, como mostrado no tutorial. Você não precisa iniciar o tutorial novamente – no Assistente de Publicação na Web, você pode optar por criar um novo aplicativo Web e receber o mesmo diálogo de criação de recursos do Azure que você recebe quando cria o projeto.
@@ -797,4 +797,4 @@ Este tutorial foi escrito por [Rick Anderson](http://blogs.msdn.com/b/rickandy/)
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

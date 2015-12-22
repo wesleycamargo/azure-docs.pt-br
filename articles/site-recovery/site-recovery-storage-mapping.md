@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="11/24/2015"
+	ms.date="12/14/2015"
 	ms.author="raynew"/>
 
 
@@ -35,7 +35,7 @@ O mapeamento de armazenamento só será relevante quando você estiver replicand
 	- **Posicionamento das máquinas virtuais de réplica** — o Mapeamento de armazenamento é usado para posicionar de forma ideal as máquinas virtuais de réplica em servidores host Hyper-V. As máquinas virtuais de réplica serão colocadas em hosts que possam acessar as redes VM mapeadas.
 	- **Nenhum mapeamento de armazenamento** — se você não configurar o mapeamento de armazenamento, as máquinas virtuais serão replicadas para o local de armazenamento padrão especificado no servidor host Hyper-V associado à máquina virtual de réplica.
 
-- **Replicação de local para local com SAN** — você configura o mapeamento de armazenamento ao mapear os pools de matrizes de armazenamento em servidores VMM de origem e de destino para especificar
+- **Replicação de local para local com SAN** — você configura o mapeamento de armazenamento ao mapear os pools de matrizes de armazenamento em servidores VMM de origem e de destino.
 	- **Especificar pool** — especifica qual pool de armazenamento secundário receberá os dados de replicação do pool principal.
 	- **Identificar pools de armazenamento de destino** — garante que os LUNs em um grupo de replicação serão replicados no pool de armazenamento de destino mapeado.
 
@@ -98,4 +98,4 @@ VM5 | C:\\ClusterStorage\\SourceVolume3 | N/D | Nenhum mapeamento; sendo assim, 
 
 Agora que você compreende melhor o mapeamento de armazenamento, [prepare-se para implantar o Azure Site Recovery](site-recovery-best-practices.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

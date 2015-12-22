@@ -171,5 +171,6 @@ Para remover uma conta de armazenamento que você não esteja mais usando, use *
 
 - Para saber mais sobre o Armazenamento do Azure, consulte a documentação do Armazenamento do Azure em [Azure.com](http://azure.microsoft.com/documentation/services/storage/).
 - Visite o [Blog da equipe do Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/).
+- [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

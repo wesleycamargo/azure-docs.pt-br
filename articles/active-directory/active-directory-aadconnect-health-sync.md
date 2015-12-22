@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="09/25/2015" 
+	ms.date="12/16/2015" 
 	ms.author="billmath"/>
 
 # Usando o Azure AD Connect Health para sincronização
@@ -29,12 +29,30 @@ Ao selecionar um alerta, você receberá informações adicionais, bem como etap
 
 ![Erro de sincronização do Azure AD Connect](./media/active-directory-aadconnect-health-sync/alert.png)
 
+## Detalhes da sincronização
+Com a versão mais recente do Azure AD Connect Health para sincronização, estes recursos novos foram adicionados:
+
+- Latência de operações de sincronização
+- Tendência de alteração de objeto
+
+### Latência de Sincronização
+Esse recurso oferece uma tendência gráfica de latência das operações de sincronização (importação, exportação etc.) para conectores. Isso oferece uma maneira rápida e fácil de entender não apenas a latência das operações (ótimo se você tiver um grande conjunto de alterações), mas também uma maneira de detectar anomalias na latência que possam exigir mais investigação.
+
+![Latência de Sincronização](./media/active-directory-aadconnect-health-sync/synclatency.png)
+
+Por padrão, somente a latência da operação 'Exportar' para o conector do AD do Azure é mostrada. Para ver mais operações no conector ou para exibir as operações de outros conectores, clique com o botão direito do mouse no gráfico e escolha a operação e o conector específicos.
+
+### Alterações de objeto de sincronização
+Esse recurso oferece uma tendência gráfica do número de alterações que estão sendo avaliadas e exportadas para o AD do Azure. Hoje, é difícil tentar coletar essas informações de logs de sincronização. O gráfico oferece não só uma maneira mais simples de monitorar o número de alterações que estão ocorrendo em seu ambiente, como também uma exibição visual das falhas ocorridas.
+
+![Latência de Sincronização](./media/active-directory-aadconnect-health-sync/syncobjectchanges.png)
+
 ## Links relacionados
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
-* [Instalação do Agente do Azure AD Connect Health](active-directory-aadconnect-health-install.md)
+* [Instalação do Agente do Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Operações de Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 * [Usando o Azure AD Connect Health com o AD FS](active-directory-aadconnect-health-adfs.md)
 * [Perguntas frequentes do Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

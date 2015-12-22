@@ -26,7 +26,7 @@ Este tutorial mostra como usar os recursos de autenticação e autorização do 
 
 ## Autenticação e autorização no Serviço de Aplicativo
 
-Para obter uma introdução aos recursos de autenticação usados neste tutorial, consulte o tutorial anterior desta série, [Autenticação e autorização para Aplicativos de API no Serviço de Aplicativo do Azure](app-service-api-dotnet-get-started.md).
+Para obter uma introdução aos recursos de autenticação usados neste tutorial, consulte o tutorial anterior desta série, [autenticação e autorização para Aplicativos de API no Serviço de Aplicativo do Azure](app-service-api-authentication.md).
 
 ## Como acompanhar este tutorial
 
@@ -304,4 +304,4 @@ Este é o último tutorial da série de Introdução aos aplicativos de API. Est
 	* [Configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure](web-sites-custom-domain-name.md)
 	* [Habilitar HTTPS para um site do Azure](web-sites-configure-ssl-certificate.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

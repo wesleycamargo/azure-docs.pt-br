@@ -19,7 +19,7 @@
 
 # Criar um serviço Pesquisa do Azure no Portal Clássico do Azure
 
-A Pesquisa do Microsoft Azure é um novo serviço de pesquisa de nuvem hospedado que permite que você insira a funcionalidade de pesquisa em aplicativos personalizados. Ele fornece um mecanismo de pesquisa e armazenamento para seus dados de pesquisa, os quais você pode acessar e gerenciar por meio do Portal Clássico do Azure, um SDK do .NET ou uma API REST. Os principais recursos incluem consultas de preenchimento automático, correspondência difusa, realce de ocorrências, navegação facetada, perfis de pontuação e suporte a vários idiomas. Para saber mais sobre o que a Pesquisa do Azure faz, confira [O que é a Pesquisa do Azure](seach-what-is-search.md).
+A Pesquisa do Microsoft Azure é um novo serviço de pesquisa de nuvem hospedado que permite que você insira a funcionalidade de pesquisa em aplicativos personalizados. Ele fornece um mecanismo de pesquisa e armazenamento para seus dados de pesquisa, os quais você pode acessar e gerenciar por meio do Portal Clássico do Azure, um SDK do .NET ou uma API REST. Os principais recursos incluem consultas de preenchimento automático, correspondência difusa, realce de ocorrências, navegação facetada, perfis de pontuação e suporte a vários idiomas. Para saber mais sobre o que a Pesquisa do Azure faz, confira [O que é a Pesquisa do Azure](search-what-is-azure-search.md).
 
 ## Adicionar a Pesquisa do Azure à sua assinatura gratuitamente
 
@@ -123,4 +123,4 @@ As informações a seguir mostram como compilar e gerenciar aplicativos de pesqu
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

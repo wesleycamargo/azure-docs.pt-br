@@ -205,10 +205,10 @@ Se você tiver uma rede virtual existente conectada via conexão VPN de Rota Exp
 		          </ConnectionsToLocalNetwork>
 		        </Gateway>
 
-5. Neste ponto, você terá uma VNet sem nenhum gateway. Para criar novos gateways e concluir suas conexões, vá até a **Etapa 3** desta seção do artigo, [Criar uma nova rede virtual com a Rota Expressa e a conectividade site a site](#create-a-new-virtual-network-with-both-expressroute-and-site-to-site-connectivity).
+5. Neste ponto, você terá uma VNet sem nenhum gateway. Para criar novos gateways e concluir suas conexões, vá até a **Etapa 4** desta seção do artigo, [Criar uma nova rede virtual com a Rota Expressa e a conectividade site a site](#create-a-new-virtual-network-with-both-expressroute-and-site-to-site-connectivity).
 
 ## Próximas etapas
 
 Para saber mais sobre a Rota Expressa, confira [Perguntas frequentes sobre Rota Expressa](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Site Recovery: teste de desempenho e resultados de escala para a replicação Hyper-V do local para o local"
+	pageTitle="Resultados do teste de desempenho e de escala para a replicação Hyper-V do local para o local com o Site Recovery ! Microsoft Azure"
 	description="Este artigo fornece informações sobre os testes de desempenho para a replicação de no local para no local usando o Azure Site Recovery."
 	services="site-recovery" 
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="12/01/2015"
+	ms.date="12/14/2015"
 	ms.author="raynew"/>
 
-# Azure Site Recovery: teste de desempenho e resultados de escala para a replicação Hyper-V do local para o local
+# Resultados do teste de desempenho e de escala para a replicação Hyper-V do local para o local com o Site Recovery
 
 Você pode usar o Microsoft Azure Site Recovery para orquestrar e gerenciar a replicação de máquinas virtuais e de servidores físicos para o Azure ou em um datacenter secundário. Este artigo fornece os resultados do teste de desempenho que fizemos ao replicar máquinas virtuais do Hyper-V entre dois datacenters locais.
 
@@ -195,13 +195,7 @@ A tabela resume as métricas e os contadores de desempenho medidos na implantaç
 
 |Métrica|Contador|
 |---|---|
-|CPU|\\Processor(\_Total)\\% Processor Time|
-|Available memory|\\Memory\\Available MBytes|
-|IOPS|\\PhysicalDisk(\_Total)\\Disk Transfers/sec|
-|VM read (IOPS) operations/sec|\\Hyper-V Virtual Storage Device(<VHD>)\\Read Operations/Sec|
-|VM write (IOPS) operations/sec|\\Hyper-V Virtual Storage Device(<VHD>)\\Write Operations/S|
-|VM read throughput|\\Hyper-V Virtual Storage Device(<VHD>)\\Read Bytes/sec|
-|VM write throughput|\\Hyper-V Virtual Storage Device(<VHD>)\\Write Bytes/sec|
+|CPU|\\Processor(\_Total)\\% Processor Time| |Available memory|\\Memory\\Available MBytes| |IOPS|\\PhysicalDisk(\_Total)\\Disk Transfers/sec| |VM read (IOPS) operations/sec|\\Hyper-V Virtual Storage Device(<VHD>)\\Read Operations/Sec| |VM write (IOPS) operations/sec|\\Hyper-V Virtual Storage Device(<VHD>)\\Write Operations/S| |VM read throughput|\\Hyper-V Virtual Storage Device(<VHD>)\\Read Bytes/sec| |VM write throughput|\\Hyper-V Virtual Storage Device(<VHD>)\\Write Bytes/sec|
 
 
 ## Próximas etapas
@@ -210,4 +204,4 @@ A tabela resume as métricas e os contadores de desempenho medidos na implantaç
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

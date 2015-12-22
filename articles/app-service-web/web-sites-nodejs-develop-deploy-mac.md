@@ -47,7 +47,7 @@ Para obter tutoriais e código de exemplo com aplicativos mais complexos do Node
 
 Siga estas etapas para criar um aplicativo Web no Serviço de Aplicativo do Azure e habilitar a publicação no Git.
 
-[O Git](http://git-scm.com/%20target="_blank) é um sistema de controle de versão distribuído que você pode usar para implantar seu Site do Azure. Você armazenará o código que você escreve para seu aplicativo Web em um repositório Git local e você implantará seu código no Azure enviando-o por push para um repositório remoto. Esse método de implantação é um recurso de aplicativos Web do Serviço de Aplicativo.
+[O Git](http://git-scm.com/) é um sistema de controle de versão distribuído que você pode usar para implantar seu Site do Azure. Você armazenará o código que você escreve para seu aplicativo Web em um repositório Git local e você implantará seu código no Azure enviando-o por push para um repositório remoto. Esse método de implantação é um recurso de aplicativos Web do Serviço de Aplicativo.
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 
@@ -224,4 +224,4 @@ Para saber mais sobre como desenvolver aplicativos do Node.js no Azure, confira 
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

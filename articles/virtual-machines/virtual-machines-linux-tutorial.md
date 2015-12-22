@@ -21,10 +21,15 @@
 # Criar uma máquina virtual que executa Linux
 
 > [AZURE.SELECTOR]
+- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
+- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
 - [Azure CLI](virtual-machines-linux-tutorial.md)
-- [Azure portal](virtual-machines-linux-tutorial-portal-rm.md)
 
-<br> É fácil criar uma máquina virtual (VM) do Azure que execute Linux, da linha de comando ou do portal. Este tutorial mostra como usar a interface de linha de comando do Azure (CLI) para Mac, Linux e Windows para criar rapidamente uma VM do Ubuntu Server em execução no Azure, conectar-se a ele usando **ssh** e criar e montar um novo disco. Este tópico usa uma VM do Ubuntu Server, mas é possível também criar uma máquina virtual do Linux usando [suas próprias imagens como modelos](virtual-machines-linux-create-upload-vhd.md).
+<br>
+
+É fácil criar uma máquina virtual (VM) do Azure que executa Linux, a partir da linha de comando ou do portal. Este tutorial mostra como usar a interface de linha de comando do Azure (CLI) para Mac, Linux e Windows para criar rapidamente uma VM do Ubuntu Server em execução no Azure, conectar-se a ele usando **ssh** e criar e montar um novo disco. Este tópico usa uma VM do Ubuntu Server, mas é possível também criar uma máquina virtual do Linux usando [suas próprias imagens como modelos](virtual-machines-linux-create-upload-vhd.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
 
@@ -40,9 +45,9 @@ Veja um passo a passo deste tutorial.
 
 A primeira etapa é [instalar a CLI do Azure](../xplat-cli-install.md).
 
-Muito bem. Agora, certifique-se de que você esteja no modo do Gerenciador de Recursos digitando `azure config mode arm`.
+Muito bem. Agora, verifique se você está no modo do Gerenciador de Recursos ao digitar `azure config mode arm`.
 
-Melhor ainda. Agora, [faça logon com sua ID de trabalho ou escolar](../xplat-cli-connect.md#use-the-log-in-method) digitando `azure login` e seguindo as instruções para uma experiência de logon interativo para sua conta do Azure.
+Melhor ainda. [Faça logon com sua ID de trabalho ou escolar](../xplat-cli-connect.md#use-the-log-in-method) digitando `azure login` e seguindo as instruções para uma experiência de logon interativo para sua conta do Azure.
 
 > [AZURE.NOTE]Se você tiver uma ID de trabalho ou escolar e se souber que não tem a autenticação de dois fatores habilitada, poderá usar `azure login -u` juntamente com a ID de trabalho ou escolar para efetuar logon sem uma sessão interativa. Se você não tiver uma ID de trabalho ou escolar, poderá [criar uma ID de trabalho ou escolar de sua conta da Microsoft pessoal](resource-group-create-work-id-from-personal.md).
 
@@ -323,4 +328,4 @@ Para saber mais sobre o Linux no Azure, confira:
 
 - [A extensão de máquina virtual Docker para Linux no Azure](virtual-machines-docker-vm-extension.md)
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->
