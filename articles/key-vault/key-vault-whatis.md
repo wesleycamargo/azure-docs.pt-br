@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/12/2015"
+	ms.date="12/11/2015"
 	ms.author="cabailey"/>
 
 
@@ -24,7 +24,7 @@ O Cofre da Chave do Azure está disponível na maioria das regiões. Para obter 
 
 ## Introdução
 
-O Cofre da Chave do Azure ajuda a proteger chaves criptográficas e segredos usados por aplicativos e serviços em nuvem. Usando o Cofre da Chave, você pode criptografar chaves e segredos (como chaves de autenticação, chaves de conta de armazenamento, chaves de criptografia de dados, arquivos .PFX e senhas) usando chaves que são protegidas por HSMs (módulos de segurança de hardware). Para garantia extra, você pode importar ou gerar chaves em HSMs (as chaves nunca deixam os limites do HSM). Os HSMs têm certificação FIPS 140-2 Nível 2.
+O Cofre da Chave do Azure ajuda a proteger chaves criptográficas e segredos usados por aplicativos e serviços em nuvem. Usando o Cofre da Chave, você pode criptografar chaves e segredos (como chaves de autenticação, chaves de conta de armazenamento, chaves de criptografia de dados, arquivos .PFX e senhas) usando chaves que são protegidas por HSMs (módulos de segurança de hardware). Para garantia extra, você pode importar ou gerar chaves em HSMs. Se você optar por fazer isso, a Microsoft processará suas chaves em HSMs FIPS 140-2 Nível 2 validados (hardware e firmware).
 
 O Cofre da Chave simplifica o processo de gerenciamento de chaves e permite que você tenha controle das chaves que acessam e criptografam seus dados. Desenvolvedores podem criar chaves para desenvolvimento e teste em minutos e depois migrá-las diretamente para chaves de produção. Administradores de segurança podem conceder (e revogar) permissão a chaves conforme for necessário.
 
@@ -53,7 +53,7 @@ Esse administrador, então, forneceria aos desenvolvedores URIs a serem chamados
 
    ![Visão geral da o Cofre da Chave do Azure][1]
 
-Os desenvolvedores também podem gerenciar as chaves diretamente, por meio de APIs. Para obter mais informações, consulte o [Guia do desenvolvedor do Cofre da Chave](key-vault-developers-guide.md).
+Os desenvolvedores também podem gerenciar as chaves diretamente, por meio de APIs. Para saber mais, confira o [guia do desenvolvedor do Cofre da Chave](key-vault-developers-guide.md).
 
 ## Próximas etapas
 
@@ -65,4 +65,4 @@ Para saber mais sobre o uso de chaves e segredos com o Cofre da Chave do Azure, 
 <!--Image references-->
 [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

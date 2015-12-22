@@ -14,12 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/20/2015"
+	ms.date="12/11/2015"
 	ms.author="jodebrui"/>
 
 
 # Introdução a Na Memória (visualização) no Banco de Dados SQL
-
 
 Os recursos Na Memória melhoram muito o desempenho de cargas de trabalho transacionais e analíticas nas situações certas.
 
@@ -28,6 +27,7 @@ Este tópico enfatiza duas demonstrações, uma para o OLTP Na Memória e outro 
 - Usar o código para testar as variações e ver as diferenças nos resultados de desempenho ou
 - Ler o código para entender o cenário e para saber como criar e utilizar os objetos Na Memória.
 
+> [AZURE.VIDEO azure-sql-database-in-memory-technologies]
 
 #### OLTP Na Memória
 
@@ -82,7 +82,7 @@ Visualização:
 As considerações sobre os recursos Na Memória em versão de visualização serão descritas [mais adiante neste tópico](#preview_considerations_for_in_memory).
 
 
-> [AZURE.NOTE]Esses recursos em Visualização estão disponíveis apenas para bancos de dados SQL do Azure [*Premium*](sql-database-service-tiers.md) e não para bancos de dados na camada de serviço Standard ou Basic.
+> [AZURE.NOTE]Esses recursos em Visualização estão disponíveis apenas para bancos de dados SQL do Azure [*Premium*](sql-database-service-tiers.md) e não para bancos de dados na camada de serviço Standard ou Básico.
 
 
 
@@ -241,9 +241,9 @@ O ideal é você planejar executar o ostress.exe em uma VM do Azure. Você criar
 
 Na VM ou em qualquer host que você escolher, instale os utilitários RML (Replay Markup Language), que incluem o ostress.exe.
 
-- Consulte a discussão sobre ostress.exe no [Banco de dados de exemplo para OLTP Na Memória](http://msdn.microsoft.com/library/mt465764.aspx).
- - Ou consulte [Banco de dados de exemplo para OLTP Na Memória](http://msdn.microsoft.com/library/mt465764.aspx).
- - Ou consulte [Blog da instalação do ostress.exe](http://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx)
+- Veja a discussão sobre ostress.exe no [Banco de dados de exemplo para OLTP Na Memória](http://msdn.microsoft.com/library/mt465764.aspx).
+ - Ou veja [Banco de dados de exemplo para OLTP Na Memória](http://msdn.microsoft.com/library/mt465764.aspx).
+ - Ou veja [Blog da instalação do ostress.exe](http://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx)
 
 
 
@@ -329,7 +329,7 @@ Nesta seção, você vai comparar os resultados de E/S e de Estatísticas ao usa
 Os índices columnstore são logicamente iguais aos índices regulares, mas fisicamente são diferentes. Um índice columnstore organiza os dados de forma exótica para compactá-los bastante. Isso oferece grandes aprimoramentos de desempenho.
 
 
-Para fazer uma análise em tempo real em uma carga de trabalho OLTP, quase sempre será melhor usar um índice columnstore NÃO clusterizado. Para obter detalhes, consulte [Índices columnstore descritos](http://msdn.microsoft.com/library/gg492088.aspx).
+Para fazer uma análise em tempo real em uma carga de trabalho OLTP, quase sempre será melhor usar um índice columnstore NÃO clusterizado. Para obter detalhes, veja [Índices columnstore descritos](http://msdn.microsoft.com/library/gg492088.aspx).
 
 
 
@@ -525,4 +525,4 @@ Se um banco de dados contiver qualquer um dos seguintes tipos de objetos ou de t
 
 - [Monitorar o Armazenamento Na Memória](sql-database-in-memory-oltp-monitoring.md) para o OLTP Na Memória.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

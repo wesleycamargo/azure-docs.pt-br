@@ -186,7 +186,7 @@ Se você preferir permitir que o Visual Studio execute as etapas de configuraç�
 
 Na caixa de diálogo Novo Projeto, selecione Application Insights.
 
-Se for solicitado que você faça logon, use as credenciais da conta do Azure (que é separada da sua conta do Visual Studio Online).
+Se for solicitado que você faça logon, use as credenciais da conta do Azure (que é separada da sua conta do Visual Studio Team Services).
 
 ![](./media/app-insights-windows-get-started/appinsights-d21-new.png)
 
@@ -231,4 +231,4 @@ Quando uma [nova versão do SDK é lançada](app-insights-release-notes-windows.
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

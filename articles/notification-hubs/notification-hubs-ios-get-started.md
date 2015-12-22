@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="11/30/2015"
+	ms.date="12/15/2015"
 	ms.author="wesmc"/>
 
 # Introdução aos Hubs de Notificação para aplicativos do iOS
@@ -88,9 +88,11 @@ Seu hub de notificação agora está configurado para funcionar com o APNs e voc
 
 4. Baixe a [versão 1.2.4 do SDK do iOS dos Serviços Móveis] e descompacte o arquivo. No Xcode, clique com o botão direito do mouse no projeto e clique na opção **Adicionar Arquivos a** para adicionar a pasta **WindowsAzureMessaging.framework** ao seu projeto do Xcode. Selecione **Copiar itens se necessário** e depois clique em **Adicionar**.
 
+	>[AZURE.NOTE]No momento, o SDK de hubs de notificação não oferece suporte a bitcode em Xcode 7. Você deve definir **Habilitar Bitcode** como **Não** nas **Opções de compilação** para seu projeto.
+
    	![][10]
 
-5. Adicione um novo arquivo de cabeçalho ao seu projeto chamado **HubInfo.h**. Esse arquivo conterá as constantes para o hub de notificação. Adicione as seguintes definições e substitua os espaços reservados da cadeia de caracteres literal pelo *nome do hub* e a *DefaultListenSharedAccessSignature* que você anotou anteriormente.
+5. Adicione ao seu projeto um novo arquivo de cabeçalho chamado **HubInfo.h**. Esse arquivo conterá as constantes para o hub de notificação. Adicione as seguintes definições e substitua os espaços reservados da cadeia de caracteres literal pelo *nome do hub* e a *DefaultListenSharedAccessSignature* que você anotou anteriormente.
 
 		#ifndef HubInfo_h
 		#define HubInfo_h
@@ -105,7 +107,7 @@ Seu hub de notificação agora está configurado para funcionar com o APNs e voc
          #import <WindowsAzureMessaging/WindowsAzureMessaging.h> 
 		 #import "HubInfo.h"
 		
-7. No arquivo AppDelegate.m, adicione o seguinte código ao método `didFinishLaunchingWithOptions` de acordo com a sua versão do iOS. Esse código registra seu identificador de dispositivo nas APNs:
+7. No arquivo AppDelegate.m, adicione o código a seguir ao método `didFinishLaunchingWithOptions` de acordo com a sua versão do iOS. Esse código registra seu identificador de dispositivo nas APNs:
 
 	Para iOS 8:
 
@@ -157,7 +159,7 @@ Seu hub de notificação agora está configurado para funcionar com o APNs e voc
 ## Enviar notificações
 
 
-Você pode testar o recebimento de notificações no aplicativo enviando notificações no [Portal Clássico do Azure] por meio da guia de depuração no hub de notificação, como mostrado na tela abaixo.
+Você pode testar o recebimento de notificações no aplicativo enviando notificações no [Portal Clássico do Azure] por meio da guia de depuração no hub de notificação, como mostra a tela abaixo.
 
 ![][30]
 
@@ -205,12 +207,12 @@ Se você quiser enviar notificações em um aplicativo. Esta seção fornece um 
 		#define API_VERSION @"?api-version=2015-01"
 		#define HUBFULLACCESS @"<Enter Your DefaultFullSharedAccess Connection string>"
 
-4. Adicione as instruções `#import`a seguir ao arquivo ViewController.h.
+4. Adicione as instruções `#import` a seguir ao arquivo ViewController.h.
 
 		#import <CommonCrypto/CommonHMAC.h>
 		#import "HubInfo.h"
 
-5. Em ViewController.m, adicione o código a seguir à implementação da interface. Esse código analisará a cadeia de conexão *DefaultFullSharedAccessSignature*. Como mencionamos na [referência da API REST](http://msdn.microsoft.com/library/azure/dn495627.aspx), essas informações analisadas serão usadas para gerar um token SaS para o cabeçalho de solicitação da **Autorização**.
+5. Em ViewController.m, adicione o código a seguir à implementação da interface. Esse código analisará a cadeia de conexão *DefaultFullSharedAccessSignature*. Como mencionado na [referência da API REST](http://msdn.microsoft.com/library/azure/dn495627.aspx), essas informações analisadas serão usadas para gerar um token SaS para o cabeçalho de solicitação da **Autorização**.
 
 		NSString *HubEndpoint;
 		NSString *HubSasKeyName;
@@ -246,13 +248,14 @@ Se você quiser enviar notificações em um aplicativo. Esta seção fornece um 
 			}
 		}
 
-6. No ViewController.m, atualize o método `viewDidLoad` para analisar a cadeia de conexão quando a exibição for carregada. além disso, adicione os métodos de utilitário, mostrados abaixo, à implementação da interface.
+6. No arquivo ViewController.m, atualize o método `viewDidLoad` para analisar a cadeia de conexão quando a exibição for carregada. além disso, adicione os métodos de utilitário, mostrados abaixo, à implementação da interface.
 
 
 		- (void)viewDidLoad
 		{
 			[super viewDidLoad];
 			[self ParseConnectionString];
+			[_notificationMessage setDelegate:self];
 		}
 
 		-(NSString *)CF_URLEncodedString:(NSString *)inputString
@@ -272,7 +275,7 @@ Se você quiser enviar notificações em um aplicativo. Esta seção fornece um 
 
 
 
-7. NoViewController.m, adicione o código a seguir à implementação da interface para gerar o token de autorização de SaS que será fornecido no cabeçalho da **Autorização**, como mencionamos na [Referência da API REST](http://msdn.microsoft.com/library/azure/dn495627.aspx).
+7. Em ViewController.m, adicione o código a seguir à implementação da interface para gerar o token de autorização de SaS que será fornecido no cabeçalho da **Autorização**, como mencionamos na [Referência da API REST](http://msdn.microsoft.com/library/azure/dn495627.aspx).
 
 		-(NSString*) generateSasToken:(NSString*)uri
 		{
@@ -321,7 +324,7 @@ Se você quiser enviar notificações em um aplicativo. Esta seção fornece um 
 		}
 
 
-8. Ctrl+arraste do botão **Enviar Notificação** para ViewController.m para adicionar uma ação chamada **SendNotificationMessage** para o **Tocar**. Atualize o método com o código a seguir para enviar a notificação usando a API REST.
+8. Ctrl+arraste do botão **Enviar Notificação** para o ViewController.m para adicionar uma ação chamada **SendNotificationMessage** para **Tocar**. Atualize o método com o código a seguir para enviar a notificação usando a API REST.
 
 		- (IBAction)SendNotificationMessage:(id)sender
 		{
@@ -391,7 +394,7 @@ Se você quiser enviar notificações em um aplicativo. Esta seção fornece um 
 		}
 
 
-10. No ViewController.m, adicione os métodos de representante a seguir para dar suporte à análise da resposta usando o `NSXMLParser`.
+10. Em ViewController.m, adicione os métodos de representante a seguir para dar suporte à análise da resposta usando o `NSXMLParser`.
 
 		//===[ Implement NSXMLParserDelegate methods ]===
 
@@ -433,9 +436,10 @@ Se você quiser enviar notificações em um aplicativo. Esta seção fornece um 
 11. Compile o projeto e verifique se não há erros.
 
 
-> [AZURE.NOTE] Se você encontrar um erro de compilação em Xcode7 sobre o suporte de bitcode, deverá alterar as "Configurações de Compilação" -> "Habilitar Bitcode"(ENABLE\_BITCODE) como ‘NO’ no Xcode. No momento, o SDK de Hubs de Notificação não oferece suporte a bitcode.
+> [AZURE.NOTE]Se você encontrar um erro de compilação em Xcode7 sobre o suporte de bitcode, deverá alterar as "Configurações de Compilação" -> "Habilitar Bitcode"(ENABLE\_BITCODE) como ‘NO’ no Xcode. No momento, o SDK de Hubs de Notificação não oferece suporte a bitcode.
 
 Você encontrará todas as cargas de notificação possíveis no [Guia de programação de notificação local e por push] da Apple.
+
 
 
 ##Testar seu aplicativo
@@ -463,7 +467,7 @@ Neste exemplo simples, você envia notificações para todos os seus dispositivo
 
 Se desejar segmentar os usuários por grupos de interesse, você também poderá mudar para [Usar Hubs de Notificação para enviar as últimas notícias].
 
-Para obter informações mais gerais sobre os Hubs de Notificação, consulte [Diretrizes dos Hubs de Notificação].
+Para obter informações mais gerais sobre os Hubs de Notificação, veja [Diretrizes dos Hubs de Notificação].
 
 
 
@@ -505,4 +509,4 @@ Para obter informações mais gerais sobre os Hubs de Notificação, consulte [D
 
 [Guia de programação de notificação local e por push]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

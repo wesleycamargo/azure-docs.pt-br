@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Visão geral do portal de visualização do Microsoft Azure"
-	description="Aprenda como usar o portal de visualização do Microsoft Azure."
+	pageTitle="Visão geral do portal do Microsoft Azure"
+	description="Saiba como usar o portal do Microsoft Azure."
 	services=""
 	documentationCenter=""
 	authors="davidwrede"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na" 
 	ms.topic="hero-article"
-	ms.date="04/28/2015"
+	ms.date="12/16/2015"
 	ms.author="dwrede"/>
 
-# Visão geral do portal de visualização do Microsoft Azure
+# Visão geral do portal do Microsoft Azure
 
-O portal de visualização do Microsoft Azure é um local central no qual você pode provisionar e gerenciar os recursos do Azure. Este tutorial vai familiarizá-lo com o portal e mostrar como usar alguns desses recursos principais: - um **marketplace abrangente** que permite que você procure entre milhares de itens da Microsoft e outros fornecedores que podem ser adquiridos e/ou provisionados. - uma **experiência de procura unificada e escalonável** que facilita a localização dos recursos de seu interesse e a execução de várias operações de gerenciamento. - **páginas de gerenciamento consistentes** (ou folhas) que permitem que você gerencie uma grande variedade de serviços do Azure através de um uma maneira consistente de expor configurações, ações, informações de cobrança, dados de uso e monitoramento de integridade e muito mais. - uma **experiência pessoal** que permite que você crie uma tela inicial personalizada que mostra as informações que você deseja ver sempre que fizer logon. Você também pode personalizar qualquer uma das folhas gerenciamento que contêm blocos.
+O portal do Microsoft Azure é um local central no qual você pode provisionar e gerenciar os recursos do Azure. Este tutorial vai familiarizá-lo com o portal e mostrar como usar alguns desses recursos principais: - um **marketplace abrangente** que permite que você procure entre milhares de itens da Microsoft e outros fornecedores que podem ser adquiridos e/ou provisionados. - uma **experiência de procura unificada e escalonável** que facilita a localização dos recursos de seu interesse e a execução de várias operações de gerenciamento. - **páginas de gerenciamento consistentes** (ou folhas) que permitem que você gerencie uma grande variedade de serviços do Azure através de um uma maneira consistente de expor configurações, ações, informações de cobrança, dados de uso e monitoramento de integridade e muito mais. - uma **experiência pessoal** que permite que você crie uma tela inicial personalizada que mostra as informações que você deseja ver sempre que fizer logon. Você também pode personalizar qualquer uma das folhas gerenciamento que contêm blocos.
 
  ![Orientação da interface do usuário do Portal do Azure][UIOrientation]
 
@@ -78,7 +78,7 @@ Se você tiver um problema, estamos à sua disposição. O portal tem uma págin
 
 Vamos revisar o que você aprendeu nesse tutorial: - você aprendeu como se inscrever, obter uma assinatura e navegar até o portal - você recebeu orientações sobre a interface do usuário do portal e aprendeu como criar e procurar recursos - você aprendeu como criar um recurso e procurar recursos - você aprendeu sobre as folhas de gerenciamento ou estrutura e como é possível gerenciar diferentes tipos de recursos de forma consistente - você aprendeu como personalizar o portal para trazer as informações de seu interesse para o primeiro plano - você aprendeu como controlar o acesso aos recursos usando o acesso baseado em função (RBAC) - você aprendeu como obter ajuda e suporte
 
-O portal de visualização do Microsoft Azure simplifica radicalmente a criação e o gerenciamento de seus aplicativos na nuvem. Dê uma olhada no [blog de gerenciamento de](http://azure.microsoft.com/blog/topics/management/) para se manter atualizado, uma vez que estamos constantemente [ouvindo comentários](http://feedback.azure.com/forums/223579-azure-preview-portal) e fazendo melhorias. O [ScottGu’s blog (Blog do ScottGu)](http://weblogs.asp.net/scottgu) é outro ótimo lugar para procurar todas as atualizações do Azure.
+O portal do Microsoft Azure simplifica radicalmente a criação e o gerenciamento de seus aplicativos na nuvem. Dê uma olhada no [blog de gerenciamento de](http://azure.microsoft.com/blog/topics/management/) para se manter atualizado, uma vez que estamos constantemente [ouvindo comentários](http://feedback.azure.com/forums/223579-azure-preview-portal) e fazendo melhorias. O [ScottGu’s blog (Blog do ScottGu)](http://weblogs.asp.net/scottgu) é outro ótimo lugar para procurar todas as atualizações do Azure.
 
 [UIOrientation]: ./media/azure-portal-how-to-use/azure_portal_1.png
 [PortalCategories]: ./media/azure-portal-how-to-use/azure_portal_2.png
@@ -87,4 +87,4 @@ O portal de visualização do Microsoft Azure simplifica radicalmente a criaçã
 [CustomizeBlades]: ./media/azure-portal-how-to-use/azure_portal_5.png
 [HelpSupport]: ./media/azure-portal-how-to-use/azure_portal_6.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

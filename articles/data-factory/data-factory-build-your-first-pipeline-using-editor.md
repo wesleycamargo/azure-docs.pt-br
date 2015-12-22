@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Criar seu primeiro pipeline do Azure Data Factory usando o Data Factory Editor"
-	description="Neste tutorial, você criará um pipeline de exemplo do Azure Data Factory usando o Data Factory Editor no Portal Clássico do Azure."
+	description="Neste tutorial, você criará um pipeline de exemplo do Azure Data Factory usando o Data Factory Editor no Portal do Azure."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -16,12 +16,13 @@
 	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
-# Criar seu primeiro pipeline do Azure Data Factory usando o Data Factory Editor (Portal Clássico do Azure)
+# Criar seu primeiro pipeline do Azure Data Factory usando o Data Factory Editor (Portal do Azure)
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
 - [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 
 
 Neste artigo, você aprenderá a usar o [Portal do Azure](https://portal.azure.com/) para criar seu primeiro pipeline. Este tutorial consiste nas seguintes etapas:
@@ -206,7 +207,7 @@ Nesta etapa, você criará seu primeiro pipelines.
 
 	As propriedades **start** e **end** do pipeline especificam o período ativo do pipeline.
 
-	Na atividade de JSON, você especifica que o script do Hive deve ser executado na computação especificada pelo serviço vinculado – **HDInsightOnDemandLinkedService**.
+	Na atividade de JSON, você especifica que o script do Hive deve ser executado na computação especificada pelo serviço vinculado –**HDInsightOnDemandLinkedService**.
 3. Clique em **Implantar** na barra de comandos para implantar o pipeline.
 4. Confirme que você vê o pipeline no modo de exibição de árvore.
 
@@ -218,7 +219,7 @@ Nesta etapa, você criará seu primeiro pipelines.
 7. Na Exibição de diagrama, você terá uma visão geral dos pipelines e conjuntos de dados usados neste tutorial.
 	
 	![Exibição de diagrama](./media/data-factory-build-your-first-pipeline-using-editor/diagram-view-2.png) 
-8. Na Exibição de Diagrama, clique duas vezes no conjunto de dados **AzureBlobOutput**. Você verá que a fatia que está sendo processada.
+8. Na Exibição de diagrama, clique duas vezes no conjunto de dados **AzureBlobOutput**. Você verá que a fatia que está sendo processada.
 
 	![Conjunto de dados](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
 9. Quando o processamento for concluído, você verá a fatia no estado **Pronto**. Observe que a criação de um cluster do HDInsight sob demanda geralmente leva algum tempo. 
@@ -233,4 +234,4 @@ Nesta etapa, você criará seu primeiro pipelines.
 Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script Hive em um cluster do HDInsight sob demanda. Para saber como usar uma Atividade de Cópia para copiar dados de um Blob do Azure para o SQL do Azure, confira [Tutorial: copiar dados de um Blob do Azure para o SQL do Azure](./data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

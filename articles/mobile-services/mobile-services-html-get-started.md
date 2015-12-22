@@ -82,7 +82,7 @@ Nesta seção, você criará um novo aplicativo HTML que está conectado ao seu 
 
   	![][9]
 
-	> [AZURE.IMPORTANT]Se você implantar o aplicativo quickstart em um servidor web que não seja o localhost, adicione o nome do host do servidor web à lista **Permitir solicitações de nomes de host**. Para obter mais informações, consulte [Compartilhamento de recursos entre origens](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx"%20target="_blank).
+	> [AZURE.IMPORTANT]Se você implantar o aplicativo quickstart em um servidor web que não seja o localhost, adicione o nome do host do servidor web à lista **Permitir solicitações de nomes de host**. Para obter mais informações, consulte [Compartilhamento de recursos entre origens](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx).
 
 ## Hospedar e executar seu aplicativo HTML
 
@@ -154,4 +154,4 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

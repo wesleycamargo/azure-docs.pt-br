@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Considerações de infraestrutura de rede para Recuperação de Site" 
+	pageTitle="Considerações de infraestrutura de rede para o Site Recovery | Microsoft Azure" 
 	description="Este artigo aborda considerações de design de rede práticas para failover com Recuperação de Site" 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,12 +13,12 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="08/10/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
 #  Considerações de infraestrutura de rede para Recuperação de Site
 
-O serviço de Azure Site Recovery contribui para uma solução robusta de recuperação de desastre e continuidade de negócios (BCDR), através da proteção e recuperação de seus servidores físicos locais e máquinas virtuais com orquestração e automação de replicação e failover no Azure ou em um datacenter local secundário.
+O serviço de Azure Site Recovery contribui para uma solução robusta de recuperação de desastre e continuidade de negócios (BCDR), através da proteção e recuperação de seus servidores físicos locais e máquinas virtuais com orquestração e automação de replicação e failover no Azure ou em um data center local secundário.
 
 Este artigo destina-se à equipe de virtualização responsável pela arquitetura, pela implementação e pelo suporte a uma solução BCDR e pela infraestrutura que inclui o System Center VMM e o Azure Site Recovery.
 
@@ -62,7 +62,7 @@ No caso de um desastre, as cargas de trabalho podem ser recuperadas da seguinte 
 ### Servidor VMM clusterizado.
 
 
-[Implantar o VMM em um cluster](https://technet.microsoft.com/pt-BR/library/gg610675.aspx) fornece alta disponibilidade e proteção contra failover de hardware. Se você estiver implantando o cluster do VMM com a Recuperação de Site, observerá que:
+[Implantar o VMM em um cluster](https://technet.microsoft.com/library/gg610675.aspx) fornece alta disponibilidade e proteção contra failover de hardware. Se você estiver implantando o cluster do VMM com a Recuperação de Site, observerá que:
 
 O servidor do VMM deve ser implantado em um cluster ampliado em sites geograficamente separados. O banco de dados SQL Server usados pelo VMM deve ser protegido com os grupos de disponibilidade AlwaysOn do SQL Server com uma réplica no site secundário. Se o desastre ocorrer o servidor VMM e o SQL Server correspondente irão automaticamente fazer failover para o site de recuperação. Em seguida, é possível realizar failover de cargas de trabalho com a Recuperação de Site.
 
@@ -190,4 +190,4 @@ A configuração de infra-estrutura de rede do Azure como uma [postagem de blog]
 
 [Saiba](site-recovery-network-mapping.md) como a Recuperação de Site mapeia redes de origem e destino.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

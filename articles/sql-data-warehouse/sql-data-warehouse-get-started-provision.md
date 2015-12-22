@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/19/2015"
+   ms.date="12/15/2015"
    ms.author="lodipalm;barbkess"/>
 
 # Criar um SQL Data Warehouse
@@ -29,6 +29,10 @@ Neste tutorial, você irá:
 
 - Crie um servidor que hospedará o banco de dados.
 - Crie um banco de dados que contém dados de exemplo de AdventureWorksDW.
+
+Se você estiver tentando migrar um banco de dados existente para o SQL Data Warehouse, confira a [Visão geral de migração](./sql-data-warehouse-get-started-overview-migrate.md) ou use o [Utilitário de migração](./sql-data-warehouse-migrate-migration-utility.md).
+
+Para carregar dados no SQL Data Warehouse, veja a [visão geral de carregamento](./sql-data-warehouse-overview-load.md).
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
@@ -71,7 +75,7 @@ No Banco de Dados SQL e no SQL Data Warehouse, cada banco de dados é atribuído
 
     >[AZURE.NOTE]Lembre-se de armazenar o nome do servidor, o nome do administrador do servidor e a senha em algum lugar. Você precisará dessas informações para fazer logon no servidor.
 
-1. Clique em **OK** para salvar as definições de configuração de servidor SQL lógico e retornar à folha do SQL Data Warehouse.
+1. Clique em **OK** para salvar as definições de configuração de servidor SQL lógico e retornar à folha SQL Data Warehouse.
 
     ![Configurar novo servidor](./media/sql-data-warehouse-get-started-provision/configure-server.png)
 
@@ -83,7 +87,7 @@ Agora que selecionou o servidor SQL lógico, você está pronto para concluir a 
 
     ![Criar banco de dados](./media/sql-data-warehouse-get-started-provision/create-database.png)
     
-    - **Desempenho**: é recomendável iniciar com 400 DWUs. Você pode mover o controle deslizante para a esquerda ou direita a fim de ajustar o nível de desempenho do banco de dados, agora e depois que o banco de dados for criado. 
+    - **Desempenho**: é recomendável começar com 400 DWUs. Você pode mover o controle deslizante para a esquerda ou direita a fim de ajustar o nível de desempenho do banco de dados, agora e depois que o banco de dados for criado. 
 
         > [AZURE.NOTE]O SQL Data Warehouse mede o desempenho em DWUs (Unidades do Data Warehouse). À medida que você aumenta as DWUs, o SQL Data Warehouse aumenta os recursos de computação disponíveis para as operações de banco de dados. Ao executar a carga de trabalho, você poderá ver como as DWUs estão relacionadas ao desempenho da carga de trabalho.
         > 
@@ -126,8 +130,9 @@ Para se conectar ao servidor usando seu endereço IP atual, adicione o endereço
 
 Agora que você configurou o firewall poderá fazer conexões da área de trabalho do banco de dados do Azure SQL Data Warehouse que você acabou de criar.
 
+
 ## Próximas etapas
 
 Agora que você criou um banco de dados de exemplo para o SQL Data Warehouse, está pronto para [Conectar](./sql-data-warehouse-get-started-connect.md) ao seu banco de dados.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->
