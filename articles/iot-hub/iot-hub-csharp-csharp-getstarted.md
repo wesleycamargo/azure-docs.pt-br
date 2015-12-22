@@ -54,16 +54,17 @@ Você precisa criar um hub IoT ao qual o dispositivo simulado se conectará. As 
 
 2. Na barra de navegação, clique em **Novo**, em seguida em **Internet das Coisas** e em **Hub IoT do Azure**.
 
-    ![][1]
+   	![][1]
 
 3. Na folha **Hub IoT**, escolha a configuração para o hub IoT.
 
-    ![][2]
+   	![][2]
 
     * Na caixa **Nome**, insira um nome para identificar seu hub IoT. Se o **Nome** for válido e se estiver disponível, aparecerá uma marca de seleção verde na caixa **Nome**.
     * Selecione um **Tipo de preço e de dimensionamento**. Este tutorial não requer uma camada específica.
     * No **Grupo de recursos**, crie um novo grupo de recursos ou selecione um existente. Para obter mais informações, consulte [Usando os grupos de recursos para gerenciar seus recursos do Azure][lnk-resource-groups].
     * Em **Local**, selecione o local para hospedar o hub IoT.  
+
 
 4. Quando você tiver escolhido as opções de configuração do hub IoT, clique em **Criar**. O Azure poderá demorar alguns minutos para criar seu hub IoT. Para verificar o status, você pode monitorar o progresso no quadro inicial ou no painel Notificações.
 
@@ -71,11 +72,11 @@ Você precisa criar um hub IoT ao qual o dispositivo simulado se conectará. As 
 
 5. Quando o hub IoT tiver sido criado com êxito, abra a folha do novo hub IoT, anote o **Nome do host** e clique no ícone **Chaves**.
 
-    ![][4]
+   	![][4]
 
 6. Clique na política **iothubowner**, copie e anote a cadeia de conexão na folha **iothubowner**.
 
-    ![][5]
+   	![][5]
 
 Agora você criou o hub IoT e tem o nome do hosto e a cadeia de conexão de que precisa para concluir este tutorial.
 
@@ -118,19 +119,20 @@ Veja mais informações sobre o hub IoT nos seguintes artigos:
 [3]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub3.png
 [4]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub4.png
 [5]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub5.png
+
 [41]: ./media/iot-hub-csharp-csharp-getstarted/run-apps1.png
 [42]: ./media/iot-hub-csharp-csharp-getstarted/run-apps2.png
 
 <!-- Links -->
-[lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
-[lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
-[lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md
+[Enviar mensagens da nuvem para o dispositivo com o Hub IoT]: iot-hub-csharp-csharp-c2d.md
+[Processar mensagens do dispositivo para a nuvem]: iot-hub-csharp-csharp-process-d2c.md
+[Carregando arquivos de dispositivos]: iot-hub-csharp-csharp-file-upload.md
 
-[lnk-hub-overview]: iot-hub-what-is-iot-hub.md
-[lnk-hub-guidance]: iot-hub-guidance.md
-[lnk-hub-dev-guide]: iot-hub-devguide.md
+[Visão geral do Hub IoT]: iot-hub-what-is-iot-hub.md
+[Orientação sobre o Hub IoT]: iot-hub-guidance.md
+[Guia do desenvolvedor do Hub IoT]: iot-hub-devguide.md
 [lnk-supported-devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[lnk-dev-center]: http://www.azure.com/develop/iot
+[Centro de Desenvolvedores do IoT do Azure]: http://www.azure.com/develop/iot
 [lnk-hub-sdks]: iot-hub-sdks-summary.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-resource-groups]: resource-group-portal.md

@@ -22,7 +22,7 @@ Nesta seção, você criará um aplicativo do console do Windows que simula um d
 
 		static DeviceClient deviceClient;
         static string iotHubUri = "{iot hub hostname}";
-        static string deviceKey = "{device key}";
+        static string deviceKey = "{deviceKey}";
 
 6. Adicione o seguinte método à classe **Programa**:
 

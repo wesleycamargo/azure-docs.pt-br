@@ -65,7 +65,7 @@ Nesta etapa, você vinculará sua conta do Armazenamento do Azure e um cluster d
 #### Criar o serviço vinculado do armazenamento do Azure
 
 
-4. Clique com o botão direito do mouse em **Serviços Vinculados** no gerenciador de soluções, aponte para **Adicionar** e clique em **Novo Item**.      
+4. Clique com o botão direito do mouse em **Serviços Vinculados** no Gerenciador de Soluções, aponte para **Adicionar** e clique em **Novo Item**.      
 5. Na caixa de diálogo **Adicionar Novo Item**, selecione **Serviço Vinculado de Armazenamento do Azure** na lista e clique em **Adicionar**. 
 
 	![Novo serviço vinculado](./media/data-factory-build-your-first-pipeline-using-vs/new-linked-service-dialog.png)

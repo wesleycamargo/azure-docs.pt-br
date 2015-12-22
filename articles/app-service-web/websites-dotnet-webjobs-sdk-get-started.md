@@ -73,11 +73,13 @@ Em um aplicativo real, você normalmente cria contas à parte para dados de apli
 
 1. Abra a janela **Gerenciador de Servidores** no Visual Studio.
 
-2. Clique com o botão direito do mouse no nó **Azure** e clique em **Conectar ao Microsoft Azure**. ![Conecte-se ao Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
+2. Clique com o botão direito do mouse no nó **Azure** e clique em **Conectar ao Microsoft Azure**.
+![Conecte-se ao Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. Entre utilizando suas credenciais do Azure.
 
-5. Clique com o botão direito do mouse em **Armazenamento** sob o nó do Azure e clique em **Criar Conta de Armazenamento**. ![Criar Conta de Armazenamento](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+5. Clique com botão direito do mouse em **Armazenamento** sob o nó do Azure e, em seguida, clique em **Criar conta de armazenamento**. 
+![Criar Conta de Armazenamento](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. Na caixa de diálogo **Criar conta de armazenamento**, digite um nome para a conta de armazenamento.
 
@@ -142,7 +144,17 @@ Em um aplicativo real, você normalmente cria contas à parte para dados de apli
 
 6. Abra o arquivo *App.config* no projeto ContosoAdsWebJob.
 
-	Esse arquivo tem duas cadeias de conexão de armazenamento: uma para dados do aplicativo e outra para registro em log. Você pode usar contas de armazenamento separadas para dados de aplicativo e registro em log, além de usar [várias contas de armazenamento para dados](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs). Neste tutorial, você usará uma única conta de armazenamento. As cadeias de conexão têm espaços reservados para as chaves de conta de armazenamento. <pre class="prettyprint">&lt;configuration&gt; &lt;connectionStrings&gt; &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt; &lt;/connectionStrings&gt; &lt;startup&gt; &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt; &lt;/startup&gt; &lt;/configuration&gt;</pre>
+	Esse arquivo tem duas cadeias de conexão de armazenamento: uma para dados do aplicativo e outra para registro em log. Para este tutorial você vai usar a mesma conta em ambas. As cadeias de conexão têm espaços reservados para as chaves de conta de armazenamento.
+  	<pre class="prettyprint">&lt;configuration&gt;
+    &lt;connectionStrings&gt;
+        &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
+        &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
+        &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt;
+    &lt;/connectionStrings&gt;
+        &lt;startup&gt;
+            &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt;
+    &lt;/startup&gt;
+&lt;/configuration&gt;</pre>
 
 	Por padrão, o SDK de Trabalhos Web procura cadeias de conexão chamadas AzureWebJobsStorage e AzureWebJobsDashboard. Como alternativa, é possível [armazenar a cadeia de conexão, por mais que você queira passá-la explicitamente para o `JobHost` objeto](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config).
 
@@ -299,7 +311,7 @@ Nesta seção, você usa o **Gerenciador de Servidores** para definir os valores
 
 9. Clique em **Salvar**.
 
-	![Cadeias de conexão no Portal do Azure](./media/websites-dotnet-webjobs-sdk-get-started/azconnstr.png)
+	![Cadeias de conexão no portal do Azure](./media/websites-dotnet-webjobs-sdk-get-started/azconnstr.png)
 
 10. No **Gerenciador de Servidores**, clique com o botão direito do mouse no aplicativo Web e clique em **Parar**.
 
@@ -456,7 +468,7 @@ Para adicionar arquivos a um projeto ou a uma pasta, clique com o botão direito
 	- *Global.asax.cs*  
 	- Na pasta *Controllers*: *AdController.cs*
 	- Na pasta *Views\\Shared*: arquivo *\_Layout.cshtml*
-- Na pasta *Views\\Home*: *Index.cshtml*.
+	- Na pasta *Views\\Home*: *Index.cshtml*.
 	- Na pasta *Views\\Ad* (crie a pasta primeiro): cinco arquivos *.cshtml*<br/><br/>
 
 3. No projeto ContosoAdsWebJob, adicione os seguintes arquivos do projeto baixado.

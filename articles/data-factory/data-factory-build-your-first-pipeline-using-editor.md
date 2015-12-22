@@ -207,7 +207,7 @@ Nesta etapa, você criará seu primeiro pipelines.
 
 	As propriedades **start** e **end** do pipeline especificam o período ativo do pipeline.
 
-	Na atividade de JSON, você especifica que o script do Hive deve ser executado na computação especificada pelo serviço vinculado – **HDInsightOnDemandLinkedService**.
+	Na atividade de JSON, você especifica que o script do Hive deve ser executado na computação especificada pelo serviço vinculado –**HDInsightOnDemandLinkedService**.
 3. Clique em **Implantar** na barra de comandos para implantar o pipeline.
 4. Confirme que você vê o pipeline no modo de exibição de árvore.
 
@@ -219,7 +219,7 @@ Nesta etapa, você criará seu primeiro pipelines.
 7. Na Exibição de diagrama, você terá uma visão geral dos pipelines e conjuntos de dados usados neste tutorial.
 	
 	![Exibição de diagrama](./media/data-factory-build-your-first-pipeline-using-editor/diagram-view-2.png) 
-8. Na Exibição de Diagrama, clique duas vezes no conjunto de dados **AzureBlobOutput**. Você verá que a fatia que está sendo processada.
+8. Na Exibição de diagrama, clique duas vezes no conjunto de dados **AzureBlobOutput**. Você verá que a fatia que está sendo processada.
 
 	![Conjunto de dados](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
 9. Quando o processamento for concluído, você verá a fatia no estado **Pronto**. Observe que a criação de um cluster do HDInsight sob demanda geralmente leva algum tempo. 
