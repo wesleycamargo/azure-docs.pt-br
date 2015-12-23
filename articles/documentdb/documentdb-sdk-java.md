@@ -64,6 +64,7 @@ As solicitações feitas ao Banco de Dados de Documentos usando um SDK obsoleto 
 
 | Versão | Data do lançamento | Data de desativação 
 | ---	  | ---	         | ---
+| [1\.5.0](#1.5.0) | 04 de dezembro de 2015 |---
 | [1\.4.0](#1.4.0) | 05 de outubro de 2015 |---
 | [1\.3.0](#1.3.0) | 05 de outubro de 2015 |---
 | [1\.2.0](#1.2.0) | 05 de agosto de 2015 |---
