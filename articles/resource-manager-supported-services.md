@@ -85,12 +85,12 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 
 | O Barramento de | Gerenciador de Recursos habilitado | Portal | Mover recursos | API REST | Esquema |
 | ------- | ------- | --------- | -------------- | -------- | ------ |
-| Hub de evento | Sim | Não | | [Criar Hub de eventos](https://msdn.microsoft.com/library/azure/dn790676.aspx) | |
-| Análise de fluxo | Sim | [Sim](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) | | | |
-| HDInsights | Sim | [Sim](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | Sim | | |
-| Data Factory | Sim | [Sim](https://portal.azure.com/#create/Microsoft.DataFactory) | Sim | [Criar fábrica de dados](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
-| Aprendizado de Máquina | Não | Não | - | - | - |
-| Catálogo de Dados | Não | Não | - | - | - |
+| Hub de evento | Sim   | Não |         | [Criar Hub de eventos](https://msdn.microsoft.com/library/azure/dn790676.aspx) |        |
+| Análise de fluxo | Sim | [Sim](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) |        |          |        |
+| HDInsights | Sim  | [Sim](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | Sim     |          |        |
+| Data Factory | Sim | [Sim](https://portal.azure.com/#create/Microsoft.DataFactory) | Sim | [Criar fábrica de dados](https://msdn.microsoft.com/library/azure/dn906717.aspx) |    |
+| Aprendizado de Máquina | Não | Não | -          | -        | -      |
+| Catálogo de Dados | Não | Não |  -             | -        | -       |
 
 ## Mídia e CDN
 
@@ -241,4 +241,4 @@ Você pode abrir o arquivo e localizar o elemento **apiVersions**
 - Para saber mais sobre a criação de modelos do Gerenciador de Recursos, confira [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 - Para saber mais sobre como implantar recursos, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->
