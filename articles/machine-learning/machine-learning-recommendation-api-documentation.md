@@ -799,11 +799,13 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 </pre>
 
 ##7\. Regras de negócio do modelo
-Há quatro tipos de regras:
-<strong>BlockList</strong> - BlockList permite fornecer uma lista de itens cujos resultados não devem ser retornados nos resultados de recomendação.
-<strong>Upsale</strong> - Upsale permite reforçar os itens a serem retornados nos resultados de recomendação.
-<strong>WhiteList</strong> - White List permite fornecer uma lista de itens na qual apenas os itens presentes nesta lista podem ser retornados como resultados de recomendação (o oposto de BlockList).
-<strong>PerSeedBlockList</strong> - Per Seed Block List permite fornecer por itens uma lista dos itens que não podem ser retornados como resultados de recomendação.
+Estes são os tipos de regras com suporte:
+- <strong>BlockList</strong> - BlockList permite fornecer uma lista de itens cujos resultados não devem ser retornados nos resultados de recomendação.
+- <strong>FeatureBlockList</strong> - Feature BlockList permite que você bloqueie itens com base nos valores de seus recursos.
+- <strong>Upsale</strong> - Upsale permite reforçar os itens a serem retornados nos resultados de recomendação.
+- <strong>WhiteList</strong> - White List permite fornecer uma lista de itens na qual apenas os itens presentes nesta lista podem ser retornados como resultados de recomendação (o oposto de BlockList).
+- <strong>FeatureWhiteList</strong> - Feature White List permite que você só recomende itens com valores de recurso específicos.
+- <strong>PerSeedBlockList</strong> - Per Seed Block List permite fornecer por itens uma lista dos itens que não podem ser retornados como resultados de recomendação.
 
 
 ###7\.1. Obter regras de modelo
@@ -877,7 +879,18 @@ XML de OData
 ||| 
 | Corpo da Solicitação | 
 <ins>Sempre que fornecer Ids de Item para regras de negócio, certifique-se de usar a Id externa do item (a mesma Id que você usou no arquivo de catálogo)</ins><br>
-<ins>Para adicionar a regra BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>Para adicionar a regra Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>Para adicionar a regra WhiteList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>Para adicionar a regra PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+<ins>Para adicionar a regra BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>
+<ins>Para adicionar uma regra FeatureBlockList:</ins><br>
+<br>
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins>
+Para adicionar a regra Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br>
+<ins>Para adicionar a regra WhiteList:</ins><br>
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>
+<ins>Para adicionar uma regra FeatureWhiteList:</ins><br>
+<br>
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins>
+Para adicionar a regra PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+
 
 **Resposta**:
 
@@ -2053,7 +2066,7 @@ A resposta inclui uma entrada por compilação. Cada entrada tem os seguintes da
 - `feed/entry/content/properties/ModelId` – Identificador exclusivo do modelo.
 - `feed/entry/content/properties/IsDeployed` – Se a compilação é implantada (ou seja, uma compilação ativa).
 - `feed/entry/content/properties/BuildId` – Identificador exclusivo da compilação.
-- `feed/entry/content/properties/BuildType` - Tipo de compilação.
+- `feed/entry/content/properties/BuildType` – Tipo de compilação.
 - `feed/entry/content/properties/Status` – Status da compilação. Este pode ser uma das seguintes opções: Erro, Criando, Na fila, Cancelando, Cancelado e Êxito.
 - `feed/entry/content/properties/StatusMessage` – Mensagem de status detalhada (aplica-se somente a estados específicos).
 - `feed/entry/content/properties/Progress` – Andamento da compilação (%).
@@ -2137,7 +2150,7 @@ A resposta inclui uma entrada por compilação. Cada entrada tem os seguintes da
 - `feed/entry/content/properties/ModelId` – Identificador exclusivo do modelo.
 - `feed/entry/content/properties/IsDeployed` – Se a compilação é implantada.
 - `feed/entry/content/properties/BuildId` – Identificador exclusivo da compilação.
-- `feed/entry/content/properties/BuildType` - Tipo de compilação.
+- `feed/entry/content/properties/BuildType` – Tipo de compilação.
 - `feed/entry/content/properties/Status` – Status da compilação. Este pode ser uma das seguintes opções: Erro, Criando, Na fila, Cancelado, Cancelando e Êxito.
 - `feed/entry/content/properties/StatusMessage` – Mensagem de status detalhada (aplica-se somente a estados específicos).
 - `feed/entry/content/properties/Progress` – Andamento da compilação (%).
@@ -2839,8 +2852,8 @@ Código de status HTTP: 200
 A resposta inclui uma entrada por item recomendado. Cada entrada tem os seguintes dados:
 - `Feed\entry\content\properties\Id` – ID do item recomendado
 - `Feed\entry\content\properties\Name` – Nome do item.
-- `Feed\entry\content\properties\Rating` – Classificação da recomendação; quanto mais alto o número, maior a confiança. - `Feed\entry\content\properties\Reasoning`
-- Raciocínio da recomendação (ou seja, explicações de recomendação).
+- `Feed\entry\content\properties\Rating` – Classificação da recomendação; quanto mais alto o número, maior a confiança.
+- `Feed\entry\content\properties\Reasoning` – Raciocínio da recomendação (ou seja, explicações de recomendação).
 
 Veja um exemplo de resposta no 12.1
 
@@ -2980,7 +2993,7 @@ XML de OData
 As Recomendações do Aprendizado de Máquina do Azure criam notificações quando erros persistentes ocorrem no sistema. Há três tipos de notificações:
 1.	Falha na compilação – Essa notificação é disparada para cada falha de compilação.
 2.	Falha no processo de aquisição de dados - Essa notificação é disparada quando há mais de 100 erros nos últimos 5 minutos no processamento de eventos de uso por modelo.
-2.	Falha de consumo de recomendação - Essa notificação é disparada quando há mais de 100 erros nos últimos 5 minutos no processamento de solicitações de recomendação por modelo.
+3.	Falha de consumo de recomendação - Essa notificação é disparada quando há mais de 100 erros nos últimos 5 minutos no processamento de solicitações de recomendação por modelo.
 
 
 ###14\.1. Obter notificações
