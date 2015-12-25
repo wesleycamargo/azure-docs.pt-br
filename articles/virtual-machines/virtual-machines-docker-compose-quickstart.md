@@ -85,7 +85,9 @@ $ docker-compose up -d
 This starts the Docker containers specified in `docker-compose.yml`. Você verá uma saída semelhante a:
 
 ```
-Creating wordpress\_db\_1... Creating wordpress\_wordpress\_1... ```
+Creating wordpress_db_1...
+Creating wordpress_wordpress_1...
+```
 
 >[AZURE.NOTE]Não se esqueça de usar a opção **-d** na inicialização para que os contêineres sejam executados continuamente em segundo plano.
 
