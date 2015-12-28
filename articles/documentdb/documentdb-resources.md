@@ -32,9 +32,10 @@ Após ler este artigo, você poderá responder as perguntas a seguir:
 ## Modelo de recursos hierárquico
 Como o diagrama a seguir ilustra, o **modelo de recursos** hierárquico do Banco de Dados de Documentos é formado por conjuntos de recursos em uma conta de banco de dados, cada um podendo ser acessado por meio de um URI lógico e estável. Neste artigo, um conjunto de recursos será chamado de **feed**.
 
->[AZURE.NOTE]Ele oferece um protocolo TCP altamente eficiente que também possui o modelo de comunicação RESTful, disponível por meio do [SDK do cliente .NET.](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+>[AZURE.NOTE]Ele oferece um protocolo TCP altamente eficiente que também possui o modelo de comunicação RESTful, disponível por meio do [SDK do cliente .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-![Modelo de recursos hierárquico do Banco de Dados de Documentos][1] **Modelo de recursos hierárquico**
+![Modelo de recursos hierárquico do Banco de Dados de Documentos][1]  
+**Modelo de recursos hierárquico**   
 
 Para começar a trabalhar com os recursos, você deve [criar uma conta de banco de dados do Banco de Dados de Documentos](documentdb-create-account.md) usando sua assinatura do Azure. Uma conta do banco de dados pode consistir em um conjunto de **bancos de dados**, cada um contendo diversas **coleções**, cada uma delas, por sua vez, contendo **procedimentos armazenados, gatilhos, UDFs, documentos** e **anexos** relacionados. Um banco de dados também tem **usuários** associados, cada um com um conjunto de **permissões** para acessar coleções, procedimentos armazenados, gatilhos, UDFs, documentos ou anexos. Enquanto bancos de dados, usuários, permissões e coleções são recursos definidos pelo sistema com esquemas bastante conhecidos, os documentos e anexos possuem conteúdos JSON arbitrários, definidos pelo usuário.
 
@@ -60,15 +61,30 @@ Recursos como contas do banco de dados, bancos de dados, coleções, usuários, 
 
 Propriedade |Configurável pelo usuário ou gerada pelo sistema?|Finalidade
 ---|---|---
-_\_rid|Gerado pelo sistema|Gerado pelo sistema, identificador exclusivo e hierárquico do recurso. \_etag|Gerado pelo sistema|etag do recurso necessário para o controle de simultaneidade otimista. \_ts|Gerado pelo sistema|Carimbo de data/hora da última atualização do recurso. \_self|Gerado pelo sistema|URI endereçável exclusivo do recurso. id|Configurável pelo usuário|Nome exclusivo do recurso definido pelo usuário. Se o usuário não especificar uma id, uma id será gerada pelo sistema
+\_rid|Gerado pelo sistema|Gerado pelo sistema, identificador exclusivo e hierárquico do recurso.
+\_etag|Gerado pelo sistema|etag do recurso necessário para o controle de simultaneidade otimista.
+\_ts|Gerado pelo sistema|Carimbo de data/hora da última atualização do recurso.
+\_self|Gerado pelo sistema|URI endereçável exclusivo do recurso.
+id|Configurável pelo usuário|Nome exclusivo do recurso definido pelo usuário. Se o usuário não especificar uma id, uma id será gerada pelo sistema
 
 ### Representação da conexão dos recursos
 O Banco de Dados de Documentos não obriga nenhuma extensão proprietária para o padrão JSON nem codificações especiais; ele trabalha com documentos JSON compatíveis padrão.
  
 ### Endereçamento de um recurso
-Todos os recursos são endereçáveis pelo URI. O valor da propriedade **\_self** de um recurso representa o URI relativo do recurso. O formato do URI consiste nos segmentos do caminho /<feed>/{\_rid}:
+Todos os recursos são endereçáveis pelo URI. O valor da propriedade **\_self** de um recurso representa o URI relativo do recurso. O formato do URI consiste nos segmentos do caminho /\<feed\>/{_rid}:
 
-|Valor de \_self |Descrição |-------------------|----------- |/dbs |Feed de bancos de dados em uma conta de banco de dados |/dbs/{\_rid-db} |Banco de dados com uma id correspondente ao valor {\_rid-db} |/dbs/{\_rid-db}/colls/ |Feed de coleções em um banco de dados |/dbs/{\_rid-db}/colls/{\_rid-coll} |Coleção com uma id correspondente ao valor {\_rid-coll} |/dbs/{\_rid-db}/colls/{\_rid-coll}/docs |Feed de documentos em uma coleção |/dbs/{\_rid-db}/colls/{\_rid-coll}/docs/{\_rid-doc} |Documento com uma id correspondente ao valor {\_rid-doc} |/dbs/{\_rid-db}/users/ |Feed de usuários em um banco de dados |/dbs/{\_rid-db}/users/{\_rid-user} |Usuário com uma id correspondente ao valor {\_rid-user} |/dbs/{\_rid-db}/users/{\_rid-user}/permissions |Feed de permissões em um usuário |/dbs/{\_rid-db}/users/{\_rid-user}/permissions/{\_rid-permission} |Permissão com uma id correspondente ao valor {\_rid-permission}
+|Valor de \_self |Descrição
+|-------------------|-----------
+|/dbs |Feed de bancos de dados em uma conta de banco de dados
+|/dbs/{\_rid-db} |Banco de dados com uma id correspondente ao valor {\_rid-db}
+|/dbs/{\_rid-db}/colls/ |Feed de coleções em um banco de dados
+|/dbs/{\_rid-db}/colls/{\_rid-coll} |Coleção com uma id correspondente ao valor {\_rid-coll}
+|/dbs/{\_rid-db}/colls/{\_rid-coll}/docs |Feed de documentos em uma coleção
+|/dbs/{\_rid-db}/colls/{\_rid-coll}/docs/{\_rid-doc} |Documento com uma id correspondente ao valor {\_rid-doc}
+|/dbs/{\_rid-db}/users/ |Feed de usuários em um banco de dados
+|/dbs/{\_rid-db}/users/{\_rid-user} |Usuário com uma id correspondente ao valor {\_rid-user}
+|/dbs/{\_rid-db}/users/{\_rid-user}/permissions |Feed de permissões em um usuário
+|/dbs/{\_rid-db}/users/{\_rid-user}/permissions/{\_rid-permission} |Permissão com uma id correspondente ao valor {\_rid-permission}
   
 Cada recurso tem um nome de usuário exclusivo definido exposto por meio da propriedade id. Observação: para documentos, se o usuário não especificar uma id, o sistema gerará automaticamente uma id exclusiva para o documento. A ID é uma cadeia de caracteres definida pelo usuário, com até 256 caracteres e exclusiva no contexto de um recurso pai específico. Por exemplo, o valor da propriedade de ID de todos os documentos dentro de uma determinada coleção é exclusivo, mas não é garantido que seja exclusivo nas coleções. Do mesmo modo, o valor da propriedade de ID de todas as permissões para um determinado usuário é exclusivo, mas não é garantido que seja exclusivo em todos os usuários. A propriedade \_rid é usada para construir o link endereçável \_self de um recurso.
 
@@ -96,7 +112,8 @@ Observe que, além de provisionar, configurar e gerenciar sua conta de banco de 
 ## Bancos de dados
 Um banco de dados do Banco de Dados de Documentos é um contêiner lógico de uma ou mais coleções e usuários, conforme mostrado no diagrama a seguir. Você pode criar qualquer número de bancos de dados em uma conta de banco de dados do Banco de Dados de Documentos, sujeito aos limites de oferta.
 
-![Modelo hierárquico de coleções e conta de banco de dados][2] **Um banco de dados é um contêiner lógico de usuários e coleções**
+![Modelo hierárquico de coleções e conta de banco de dados][2]  
+**Um banco de dados é um contêiner lógico de usuários e coleções**
 
 Um banco de dados pode conter praticamente um armazenamento de documentos ilimitado, particionado por coleções, que formam os domínios de transação para os documentos contidos neles.
 
@@ -364,6 +381,7 @@ Observe que os exemplos utilizam IDs amigáveis para transmitir a hierarquia de 
 Para a mídia gerenciada pelo Banco de Dados de Documentos, a propriedade \_media do anexo fará referência à mídia por meio de seu URI. O Banco de Dados de Documentos irá garantir que a mídia será jogada na lixeira quando todas as referências pendentes forem ignoradas. O Banco de Dados de Documentos gera automaticamente o anexo ao fazer o upload da nova mídia e preencher \_media para indicar a mídia recém-adicionada. Se escolher armazenar a mídia em um armazenamento de blob remoto por conta própria (p. ex., OneDrive, Azure Storage, DropBox, etc.), você ainda poderá usar os anexos para fazer referência à mídia. Nesse caso, você criará o anexo por conta própria e preencherá a propriedade its \_media.
 
 Assim como todos os outros recursos, os anexos podem ser criados, substituídos, excluídos, lidos ou enumerados facilmente usando as APIs REST ou qualquer SDK do cliente. Assim como com os documentos, o nível de consistência de leitura dos anexos segue a política de consistência na conta do banco de dados. Essa política pode ser substituída com base em cada solicitação, dependendo dos requisitos de consistência de dados de seu aplicativo. Ao consultar anexos, a consistência de leitura segue o conjunto do modo de indexação na coleção. Para fins de “consistência”, a política de consistência da conta é seguida.
+
 ## Usuários
 Um usuário do Banco de Dados de Documentos representa um namespace lógico para agrupar permissões. Um usuário do Banco de Dados de Documentos pode corresponder a um usuário em um sistema de gerenciamento de identidades ou uma função de aplicativo predefinida. Para o Banco de Dados de Documentos, um usuário simplesmente representa uma abstração para agrupar um conjunto de permissões em um banco de dados.
 
@@ -378,7 +396,8 @@ Como seus aplicativos precisam ser escalados conforme o crescimento do usuário,
 
 Independentemente da estratégia de fragmentação específica escolhida, você pode modelar seus usuários reais como usuários no banco de dados do Banco de Dados de Documentos e associar permissões de refinamento a cada usuário.
 
-![Coleções do usuário][3] **Estratégias de fragmentação e modelagem de usuários**
+![Coleções do usuário][3]  
+**Estratégias de fragmentação e modelagem de usuários**
 
 Assim como todos os outros recursos, os usuários no Banco de Dados de Documentos podem ser criados, substituídos, excluídos, lidos ou enumerados facilmente usando as APIs REST ou qualquer SDK do cliente. O Banco de Dados de Documentos sempre oferece uma forte consistência para leitura ou consulta dos metadados de um recurso do usuário. Vale destacar que excluir um usuário automaticamente assegura que você não poderá acessar nenhuma das permissões contidas nele. Embora o Banco de Dados de Documentos recupere a cota das permissões como parte do usuário excluído em segundo plano, as permissões excluídas estão disponíveis imediatamente mais uma vez para uso.
 

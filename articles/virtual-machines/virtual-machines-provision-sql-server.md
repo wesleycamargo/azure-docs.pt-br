@@ -28,6 +28,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
 
+
 A galeria de Máquinas Virtuais do Azure inclui várias imagens que contêm o Microsoft SQL Server. Você pode selecionar uma das imagens de máquina virtual da galeria e, com apenas alguns cliques, provisioná-la para o ambiente do Azure.
 
 Neste tutorial, você irá:
@@ -77,7 +78,7 @@ Para obter as informações mais atualizadas sobre as imagens do SQL Server com 
 	- Na caixa **Serviço de Nuvem**, selecione **Criar um novo serviço de nuvem**.
 	- Na caixa **Nome DNS do Serviço de Nuvem**, forneça a primeira parte de um nome DNS de sua escolha, para que ele complete um nome no formato **TESTNAME.cloudapp.net** 
 	- Selecione uma **ASSINATURA**, se você tiver várias assinaturas para escolher. A escolha determina quais **contas de armazenamento** estão disponíveis.
-- Na caixa **Região/Grupo de Afinidade/Rede Virtual**, selecione uma região onde essa imagem virtual será hospedada.
+	- Na caixa **Região/Grupo de Afinidade/Rede Virtual**, selecione uma região onde essa imagem virtual será hospedada.
 	- Na **conta de armazenamento**, gere automaticamente uma conta, ou selecione uma na lista. Altere a **ASSINATURA** para ver mais contas. 
 	- Na caixa **CONJUNTO DE DISPONIBILIDADE**, selecione **(nenhum)**.
 	- Leia e aceite o termos legais.
