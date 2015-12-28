@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="12/11/2015" 
 	ms.author="sdanie"/>
 
 # Como configurar o clustering do Redis para um Cache Redis do Azure Premium
@@ -36,11 +36,11 @@ Consulte [Perguntas frequentes sobre o Cache Redis do Azure](cache-faq.md#what-r
 No Azure, o cluster Redis é oferecido como um modelo primário/de réplica em que cada fragmento tem um par primário/de réplica, com a replicação gerenciada pelo serviço de Cache Redis do Azure.
 
 ## Clustering
-O clustering é configurado na folha **Novo Cache Redis** durante a criação do cache. Para criar um cache, entre no [Portal do Azure](https://portal.azure.com) e clique em **Novo**->**Dados + Armazenamento**>**Cache Redis**.
+O clustering é habilitado na folha **Novo Cache Redis** durante a criação do cache. Para criar um cache, entre no [Portal do Azure](https://portal.azure.com) e clique em **Novo**->**Dados + Armazenamento**>**Cache Redis**.
 
 ![Criar um Cache Redis][redis-cache-new-cache-menu]
 
-Para configurar o clustering, primeiro selecione um dos caches **Premium** na folha **Escolha o Tipo de preço**.
+Para configurar o clustering, primeiro selecione um dos caches **Premium** na folha **Escolha o tipo de preço**.
 
 ![Escolha sua camada de preço][redis-cache-premium-pricing-tier]
 
@@ -78,6 +78,16 @@ Depois que o cache for criado, conecte-se a ele e use-o apenas como um cache nã
 	    }
 	}
 
+## Adicionar ou remover fragmentos de um cache premium em execução
+
+Clique em **Tamanho do Cluster Redis (VISUALIZAÇÃO)**, na folha **Configurações**, para adicionar ou remover fragmentos de um cache premium em execução com clustering habilitado.
+
+>[AZURE.NOTE]Observe que, enquanto a camada Cache Redis do Azure Premium foi liberada para disponibilidade geral, o recurso de Tamanho do Cluster Redis está atualmente em visualização.
+
+![Tamanho do cluster Redis][redis-cache-redis-cluster-size]
+
+Para alterar a contagem de fragmento, use o controle deslizante ou digite um número entre 1 e 10 na caixa de texto **Contagem de fragmentos** e clique em **OK** para salvar.
+
 ## Perguntas frequentes sobre clustering
 
 A lista a seguir contém respostas para perguntas frequentes sobre o clustering do Cache Redis do Azure.
@@ -86,9 +96,9 @@ A lista a seguir contém respostas para perguntas frequentes sobre o clustering 
 
 -	Quando o clustering estiver habilitado, somente o banco de dados 0 estará disponível. Se seu aplicativo cliente usa vários bancos de dados e tenta ler ou gravar em um banco de dados diferente de 0, a seguinte exceção é lançada. `Unhandled Exception: StackExchange.Redis.RedisConnectionException: ProtocolFailure on GET --->` `StackExchange.Redis.RedisCommandException: Multiple databases are not supported on this server; cannot switch to database: 6`
 -	Se você estiver usando [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/), use a versão 1.0.481 ou posterior. É possível conectar-se ao cache usando os mesmos [pontos de extremidade, portas e chaves](cache-configure.md#properties) usados ao conectar-se a um cache que não tem o clustering habilitado. A única diferença é que todas as leituras e gravações devem ser feitas no banco de dados 0.
-	-	Outros clientes podem ter requisitos diferentes. Confira [Todos os clientes do Redis dão suporte ao clustering?](#do-all-redis-clients-support-clustering)
--	Se seu aplicativo usa várias operações de chave em lote em um único comando, todas as chaves devem estar localizadas no mesmo fragmento. Para fazer isso, confira [Como as chaves são distribuídas em um cluster?](#how-are-keys-distributed-in-a-cluster)
--	Se você estiver usando o provedor de Estado de Sessão do Redis ASP.NET, deverá usar a versão 2.0.0 ou superior. Confira [Posso usar clustering com os provedores de Estado de Sessão ASP.NET Redis e Caching de Saída?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
+	-	Outros clientes podem ter requisitos diferentes. Confira [Todos os clientes do Redis dão suporte ao clustering?](#do-all-redis-clients-support-clustering).
+-	Se seu aplicativo usa várias operações de chave em lote em um único comando, todas as chaves devem estar localizadas no mesmo fragmento. Para fazer isso, confira [Como as chaves são distribuídas em um cluster?](#how-are-keys-distributed-in-a-cluster).
+-	Se você estiver usando o provedor de Estado de Sessão do Redis ASP.NET, deverá usar a versão 2.0.0 ou superior. Confira [Posso usar clustering com os provedores de Estado de Sessão ASP.NET Redis e cache de saída?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers).
 
 ## Como as chaves são distribuídas em um cluster?
 
@@ -117,7 +127,7 @@ Você pode se conectar ao seu cache usando os mesmos [pontos de extremidade, por
 
 ## Posso me conectar diretamente aos fragmentos individuais do meu cache?
 
-Oficialmente, não há suporte para isso. Dito isso, cada fragmento consiste em um par de cache primário/de réplica que é conhecido coletivamente como uma instância de cache. Você pode se conectar a essas instâncias de cache usando o utilitário redis-cli na ramificação [instável](http://redis.io/download) do repositório do Redis no GitHub. Esta versão implementa suporte básico quando iniciado com o `-c` switch. Para obter mais informações, consulte [Reprodução com o cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) em [http://redis.io](http://redis.io) no [tutorial de cluster Redis](http://redis.io/topics/cluster-tutorial).
+Oficialmente, não há suporte para isso. Dito isso, cada fragmento consiste em um par de cache primário/de réplica que é conhecido coletivamente como uma instância de cache. Você pode se conectar a essas instâncias de cache usando o utilitário redis-cli na ramificação [instável](http://redis.io/download) do repositório do Redis no GitHub. Esta versão implementa suporte básico quando iniciado com o `-c` switch. Para obter mais informações, veja [Reproduzindo com o cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) em [http://redis.io](http://redis.io) no [tutorial do cluster Redis](http://redis.io/topics/cluster-tutorial).
 
 Para não SSL, use os comandos a seguir.
 
@@ -131,7 +141,7 @@ Para SSL, substitua `1300N` por `1500N`.
 
 ## Posso configurar o clustering para um cache criado anteriormente?
 
-Neste momento, você pode habilitar e configurar o clustering apenas durante a criação de um cache.
+Neste momento, você pode habilitar e configurar o clustering apenas durante a criação de um cache. Você pode alterar a contagem de fragmentos depois que o cache é criado, mas não pode adicionar nem remover clustering de um cache premium após esse cache ser criado. Um cache premium com clustering habilitado e apenas um fragmento é diferente de um cache premium do mesmo tamanho sem clustering.
 
 ## Posso configurar o clustering para um cache básico ou standard?
 
@@ -166,4 +176,6 @@ Aprenda a usar mais recursos de cache premium.
 
 [redis-cache-clustering-selected]: ./media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png
 
-<!---HONumber=AcomDC_1210_2015-->
+[redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png
+
+<!---HONumber=AcomDC_1217_2015-->

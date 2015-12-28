@@ -19,14 +19,21 @@
 
 # Exemplos de configuração de extensão de VM Linux.
 
+> [AZURE.SELECTOR]
+- [Azure PowerShell - Template](virtual-machines-extensions-configuration-samples-windows.md)
+- [Azure CLI - Template](virtual-machines-extensions-configuration-samples-linux.md)
+
+<br>
+
+
 Este artigo fornece um exemplo de configuração para configurar extensões de VM do Azure para VMs do Linux.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
 
 
-Para saber mais sobre estas extensões, clique aqui: [Visão geral de extensões de VM do Azure.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
+Para saber mais sobre estas extensões, clique aqui: [Visão geral de extensões de VM do Azure.](virtual-machines-extensions-features.md)
 
-Para saber mais sobre a criação de modelos de extensão, clique aqui: [Criação de modelos de extensão.](virtual-machines-extensions-authoring-templates.md)
+Para saber mais sobre a criação de modelos de extensão, clique aqui: [Criando modelos de extensão.](virtual-machines-extensions-authoring-templates.md)
 
 Este artigo lista os valores de configuração esperados para algumas das Extensões do Linux.
 
@@ -142,7 +149,7 @@ Para obter o esquema atualizado, consulte a [Documentação do OSPatching](https
         }
 
 ### Extensão do Docker
-Para obter o esquema atualizado, consulte a [Documentação da Extensão do Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md#1-configuration-schema)
+Para obter o esquema atualizado, consulte [Documentação de extensão do Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md#1-configuration-schema)
 
         {
           "publisher": "Microsoft.Azure.Extensions ",
@@ -190,4 +197,4 @@ Veja abaixo um modelo de VM completo para a criação de uma VM do Linux com uma
 
 [Extensão de script personalizado em uma VM do Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="12/15/2015"
 	ms.author="mahender"/>
 
 # Autenticar o seu aplicativo com Logon Único da biblioteca de autenticação do diretório ativo
@@ -42,6 +42,7 @@ Este tutorial exige o seguinte:
 
 * XCode 4.5 e iOS 6.0 (ou versões posteriores)
 * Conclusão do tutorial [Introdução aos Serviços Móveis].
+* Conclusão de [Registrar seus aplicativos para usar um logon de conta do Active Directory do Azure]
 * SDK de Serviços Móveis do Microsoft Azure
 * A [Biblioteca de Autenticação do Active Directory para iOS]
 
@@ -95,7 +96,7 @@ Este tutorial exige o seguinte:
         }
 
 
-6. No código para o método `loginAndGetData` acima, substitua **INSERIR-AUTORIDADE-AQUI** pelo nome do locatário em que você provisionou seu aplicativo, o formato deve ser https://login.windows.net/tenant-name.onmicrosoft.com. Este valor pode ser copiado da guia Domínio do Active Directory do Azure no [Portal clássico do Azure].
+6. No código para o método `loginAndGetData` acima, substitua **INSERIR-AUTORIDADE-AQUI** pelo nome do locatário em que você provisionou seu aplicativo, o formato deve ser https://login.windows.net/tenant-name.onmicrosoft.com. Este valor pode ser copiado da guia Domínio no Active Directory do Azure no [Portal clássico do Azure].
 
 7. No código para o método `loginAndGetData` acima, substitua **INSIRA-RECURSO-URI-AQUI** com o **URI do ID do aplicativo** para o seu serviço móvel. Se seguiu o tópico [Como se registrar com o Active Directory do Azure], sua URI da ID do aplicativo deverá ser semelhante a https://todolist.azure-mobile.net/login/aad.
 
@@ -120,8 +121,9 @@ Este tutorial exige o seguinte:
 
 <!-- URLs. -->
 [Introdução aos serviços móveis]: mobile-services-dotnet-backend-ios-get-started.md
+[Registrar seus aplicativos para usar um logon de conta do Active Directory do Azure]: mobile-services-how-to-register-active-directory-authentication.md
 [Como se registrar com o Active Directory do Azure]: mobile-services-how-to-register-active-directory-authentication.md
 [Portal clássico do Azure]: https://manage.windowsazure.com/
 [Biblioteca de Autenticação do Active Directory para iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

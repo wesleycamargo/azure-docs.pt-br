@@ -63,6 +63,7 @@ O mecanismo de regras permite que você personalize a forma como as solicitaçõ
 - A ordem na qual são listadas várias regras afeta como elas são manipuladas. Uma regra subsequente poderá substituir as ações especificadas por uma regra anterior.
 
 ## Consulte também
+* [Condição de correspondência do mecanismo de regras e detalhes do recurso](cdn-rules-engine-details.md)
 * [Visão geral da CDN do Azure](cdn-overview.md)
 * [Estatísticas em tempo real na CDN do Microsoft Azure](cdn-real-time-stats.md)
 * [Relatórios avançados de HTTP](cdn-advanced-http-reports.md)
@@ -71,4 +72,4 @@ O mecanismo de regras permite que você personalize a forma como as solicitaçõ
 
 	
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

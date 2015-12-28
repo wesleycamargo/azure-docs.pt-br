@@ -25,7 +25,7 @@
  
 2. Selecione **Procurar** na barra de tarefas: ![][14]
 
-3. Na lista, você pode usar a barra de rolagem para localizar o PowerApps ou digitar *powerapps*: ![][15]
+3. Na lista, você pode usar a barra de rolagem para localizar PowerApps ou digitar *powerapps*: ![][15]
 
 4. Em **PowerApps**, selecione **Gerenciar APIs**: ![Navegue até as APIs registradas][1]
 
@@ -84,7 +84,7 @@ Se não tiver um aplicativo do AAD existente com a chave e valores do segredo, e
 Um novo aplicativo do Active Directory do Azure é criado. Você pode usar esse aplicativo em sua configuração da API dos Usuários do Office 365 no portal do Azure.
 
 ## Resumo e próximas etapas
-Neste tópico, você adicionou a API do Outlook do Office 365 ao PowersApps Enterprise. Em seguida, disponibilize aos usuários acesso à API para que ela possa ser adicionada aos seus aplicativos:
+Neste tópico, você adicionou a API dos Usuários do Office 365 ao PowersApps Enterprise. Em seguida, disponibilize aos usuários acesso à API para que ela possa ser adicionada aos seus aplicativos:
 
 [Adicione uma conexão e disponibilize acesso aos usuários](powerapps-manage-api-connection-user-access.md)
 
@@ -101,9 +101,5 @@ Neste tópico, você adicionou a API do Outlook do Office 365 ao PowersApps Ente
 [9]: ./media/powerapps-create-api-office365-users/aad-tenant-applications-add-app-properties.PNG
 [10]: ./media/powerapps-create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/powerapps-create-api-office365-users/contoso-aad-app-configure.PNG
-[12]: ./media/powerapps-create-api-office365-users/contoso-aad-app-delegate-office365-users.PNG
-[13]: ./media/powerapps-create-api-office365-users/contoso-aad-app-delegate-office365-users-permissions.PNG
-[14]: ./media/powerapps-create-api-office365-outlook/browseall.png
-[15]: ./media/powerapps-create-api-office365-outlook/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

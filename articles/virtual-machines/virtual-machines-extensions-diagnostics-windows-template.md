@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/13/2015"
+	ms.date="12/15/2015"
 	ms.author="saurabh"/>
 
 # Criar uma máquina virtual do Windows com monitoramento e diagnóstico usando o modelo do Gerenciador de Recursos do Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda o uso do modelo de implantação do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
 
 A extensão de diagnóstico do Microsoft Azure fornece recursos de monitoramento e diagnóstico em uma Máquina Virtual do Microsoft Azure baseada no Windows. Para habilitar esses recursos na máquina virtual, inclua a extensão como parte do modelo do Gerenciador de Recursos do Azure. Para saber mais sobre como incluir extensões como parte de um modelo de máquina virtual, confira [Criando modelos do Gerenciador de Recursos do Azure com extensões de VM](virtual-machines-extensions-authoring-templates.md). Este artigo descreve como adicionar a extensão de diagnóstico do Microsoft Azure para a um modelo de máquina virtual do Windows.
   
@@ -119,7 +119,9 @@ O exemplo a seguir descreve a configuração de diagnóstico XML que coleta cont
         "wadmetricsresourceid": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name , '/providers/', 'Microsoft.Compute/virtualMachines/')]",
         "wadcfgxend": ""><MetricAggregation scheduledTransferPeriod="PT1H"/><MetricAggregation scheduledTransferPeriod="PT1M"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>"
 
-O nó xml de definição Métrica na configuração acima é um elemento de configuração importante, pois determina a forma de agregação e de armazenamento dos contadores de desempenho definidos anteriormente no xml, no nó *PerformanceCounter*. Essas métricas são elementos que orientam os gráficos e alertas no portal do Azure. Portanto, é importante incluí-las na configuração, caso pretenda ver os dados de monitoramento no portal.
+O nó xml de definição Métrica na configuração acima é um elemento de configuração importante, pois determina a forma de agregação e de armazenamento dos contadores de desempenho definidos anteriormente no xml, no nó *PerformanceCounter*.
+
+> [AZURE.IMPORTANT]Essas métricas conduzem os gráficos de monitoramento e alertas no portal do Azure. O nó **Métricas** com o *resourceID* e **MetricAggregation** deve ser incluído na configuração de diagnóstico de sua VM se você quiser ver os dados de monitoramento da VM no portal do Azure.
 
 Este é um exemplo do XML para definições de métricas:
 
@@ -134,8 +136,9 @@ Se estiver criando várias máquinas virtuais em um loop, você deve preencher o
 
 	"xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), concat(parameters('vmNamePrefix'), copyindex()), variables('wadcfgxend')))]", 
 
-
 O valor MetricAggregation de *PT1H* e *PT1M* significa uma agregação durante uma hora e uma agregação durante um minuto.
+
+## Tabelas WADMetrics no armazenamento
 
 A configuração de métricas acima vai gerar tabelas na conta de armazenamento de diagnóstico com as seguintes convenções de nomenclatura:
 
@@ -165,4 +168,4 @@ Cada tabela WADMetrics inclui as seguintes colunas:
 - Implante o modelo do Gerenciador de Recursos usando o [Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md) ou a [Linha de Comando do Azure](virtual-machines-deploy-rmtemplates-powershell.md)
 - Saiba mais sobre a [Criação de modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

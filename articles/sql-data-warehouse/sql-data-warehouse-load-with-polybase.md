@@ -20,8 +20,7 @@
 # Carregar dados com o PolyBase
 A tecnologia PolyBase permite consultar e unir dados de várias fontes tudo usando os comandos Transact-SQL.
 
-Usando o PolyBase, você pode consultar dados armazenados no armazenamento de blob do Azure e carregá-lo nos banco de dados do SQL Data 
-Warehouse seguindo estas etapas:
+Usando o PolyBase, você pode consultar dados armazenados no armazenamento de blob do Azure e carregá-lo nos banco de dados do SQL Data Warehouse seguindo estas etapas:
 
 - Criar a chave mestra e as credenciais do banco de dados.
 - Criar objetos do PolyBase: fonte de dados externa, formato de arquivo externo e tabela externa. 
@@ -38,7 +37,7 @@ Para acompanhar este tutorial, você precisará:
 
 Primeiramente, você criará os objetos que o PolyBase exige para se conectar e consultar dados no armazenamento de blob do Azure.
 
-> [AZURE.IMPORTANT] Os tipos de conta de Armazenamento do Azure com suporte do PolyBase são:
+> [AZURE.IMPORTANT]Os tipos de conta de Armazenamento do Azure com suporte do PolyBase são:
 > 
 > + Armazenamento com redundância local padrão (Standard-LRS)
 > + Armazenamento com redundância geográfica padrão (Standard-GRS)
@@ -53,19 +52,21 @@ Para acessar o armazenamento de blob do Azure, você precisa criar uma credencia
 2. Use [CREATE MASTER KEY (Transact-SQL)][] para criar uma chave mestra para o banco de dados. Se seu banco de dados já tem uma chave mestra, não é necessário criar outra. Essa chave é usada para criptografar sua credencial como “secreta” na próxima etapa.
 
     ```
-    -- Create a E master key
+    -- Create a master key
     CREATE MASTER KEY;
     ```
 
 1. Verifique se você já tem alguma credencial de banco de dados. Para fazer isso, use o modo de exibição do sistema sys.database\_credentials em vez de sys.credentials, que mostra apenas as credenciais do servidor.
 
     ```
-    -- Verifique as credenciais existentes com escopo de banco de dados.
-    SELECT * FROM sys.database\_credentials;
+    -- Check for existing database-scoped credentials.
+    SELECT * FROM sys.database_credentials;
+    ```
 
-3. Use [CREATE CREDENTIAL (Transact-SQL)][] para criar uma credencial com escopo de banco de dados para cada conta de armazenamento do Azure que deseja acessar. Neste exemplo, IDENTITY é um nome amigável para a credencial. Ele não afeta a autenticação no Armazenamento do Azure. SECRET é sua chave de conta de armazenamento do Azure.
+3. Use [CREATE CREDENTIAL (Transact-SQL)][] para criar uma credencial com escopo de banco de dados para cada conta de armazenamento do Azure que deseja acessar. Neste exemplo, IDENTITY é um nome amigável para a credencial. Ele não afeta a autenticação no armazenamento do Azure. SECRET é sua chave de conta de armazenamento do Azure.
 
-    -- Criar uma credencial com escopo de banco de dados
+    ```
+    -- Create a database scoped credential
     CREATE DATABASE SCOPED CREDENTIAL ASBSecret 
     WITH IDENTITY = 'joe'
     ,    Secret = '<azure_storage_account_key>'
@@ -142,7 +143,7 @@ A definição de tabela externa é semelhante a uma definição de tabela relaci
 
 Use [CREATE EXTERNAL TABLE (Transact-SQL)][] para definir a tabela externa.
 
-A opção LOCATION especifica o caminho para os dados a partir da raiz da fonte de dados. Neste exemplo, os dados estão localizados em 'wasbs://mycontainer@test.blob.core.windows.net/path/Demo/'. Todos os arquivos para a mesma tabela precisam estar na mesma pasta lógica no armazenamento de blobs do Azure.
+A opção LOCATION especifica o caminho para os dados a partir da raiz da fonte de dados. Neste exemplo, os dados estão localizados em 'wasbs://mycontainer@test.blob.core.windows.net/path/Demo/'. Todos os arquivos para a mesma tabela precisam estar na mesma pasta lógica no Armazenamento de Blobs do Azure.
 
 Como alternativa, você também pode especificar opções de rejeitar (REJECT\_TYPE, REJECT\_VALUE, REJECT\_SAMPLE\_VALUE) que determinam como o PolyBase manipulará os registros sujos recebidos da fonte de dados externa.
 
@@ -365,4 +366,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

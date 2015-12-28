@@ -3,7 +3,7 @@
 	description="Etapas rápidas para solucionar problemas comuns de permissão, acesso, usuário e logon"
 	services="sql-database"
 	documentationCenter=""
-	authors="dalechen"
+	authors="v-shysun"
 	manager="msmets"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
-	ms.author="daleche"/>
+	ms.date="12/11/2015"
+	ms.author="v-shysun"/>
 
 #Solucionar problemas comuns de permissões e acesso ao Banco de Dados SQL do Azure
 Use este tópico para conhecer as etapas rápidas de concessão e remoção do acesso de um Banco de Dados SQL do Azure. Para obter informações mais completas, confira:
@@ -37,4 +37,4 @@ Use este tópico para conhecer as etapas rápidas de concessão e remoção do a
 ## Para criar logons adicionais para usuários com privilégios elevados no banco de dados mestre virtual
 -Use a instrução [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) e confira a seção Gerenciamento de Logons de [Gerenciamento de bancos de dados e logons no Banco de Dados SQL do Azure](sql-database-manage-logins.md) para obter mais detalhes.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

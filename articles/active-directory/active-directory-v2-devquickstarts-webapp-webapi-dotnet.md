@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # Visualização do modelo de aplicativo v2.0: chamando uma API Web de um aplicativo Web .NET
@@ -46,13 +46,13 @@ Como alternativa, você pode [baixar o aplicativo concluído como. zip](https://
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
-## 1. Registrar um aplicativo
+## 1\. Registrar um aplicativo
 Crie um novo aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.com) ou siga estas [etapas detalhadas](active-directory-v2-app-registration.md). Não se esqueça de:
 
 - Copiar a **ID do Aplicativo** designada ao seu aplicativo, você precisará dela logo.
 - Crie um **Segredo de Aplicativo** do tipo **Senha** e anote seu valor para uso posterior.
 - Adicionar a plataforma **Web** para seu aplicativo.
-- Inserir o **URI de Redirecionamento** correto. O URI de redirecionamento indica ao AD do Azure para onde as respostas de autenticação devem ser direcionadas — o padrão para este tutorial é `https://localhost:44326/`.
+- Inserir o **URI de Redirecionamento** correto. O uri de redirecionamento indica ao AD do Azure para onde as respostas de autenticação devem ser direcionadas — o padrão para este tutorial é `https://localhost:44326/`.
 
 
 ## 2\. Conectar o usuário com o OpenID Connect
@@ -114,14 +114,14 @@ public void ConfigureAuth(IAppBuilder app)
 ...
 ```
 
-## 3\. Usar o ADAL para obter um token de acesso quando o usuário se conecta
+## 3. Usar o ADAL para obter um token de acesso quando o usuário se conecta
 Na notificação `AuthorizationCodeReceived`, queremos usar [OAuth 2.0 em conjunto com o OpenID Connect](active-directory-v2-protocols.md#openid-connect-with-oauth-code-flow) para resgatar o authorization\_code de um token de acesso para o Serviço Lista de Tarefas Pendentes. O ADAL pode facilitar esse processo para você:
 
 - Primeiramente, instale a versão de visualização do ADAL:
 
 ```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease```
-- And add another `using` statement to the `App_Start\Startup.Auth.cs` file for ADAL.
-- Now add a new method, the `OnAuthorizationCodeReceived` event handler.  This handler will use ADAL to acquire an access token to the To-Do List API, and will store the token in ADAL's token cache for later:
+- E adicione outra instrução `using` para o arquivo `App_Start\Startup.Auth.cs` para ADAL. 
+- Agora, adicione um novo método, o manipulador de eventos `OnAuthorizationCodeReceived`. Esse manipulador usará o ADAL para adquirir um token de acesso para a API Lista de Tarefas Pendentes e armazenará o token no cache do token do ADAL para depois:
 
 ```C#
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
@@ -144,13 +144,13 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 
 
 ## 4. Chamar a API Web da Lista de Tarefas
-Agora é hora de usar de fato o access\_token que você acabou de adquirir na etapa 3. Abra o arquivo `Controllers\TodoListController.cs` do aplicativo Web, que faz todas as solicitações CRUD à API da Lista de Tarefas.
+Agora é hora de usar de fato o access\_token que você acabou de adquirir na etapa 3. Abra o arquivo `Controllers\TodoListController.cs` do aplicativo Web, que faz todas as solicitações CRUD à API da Lista de Tarefas Pendentes.
 
 - Aqui, você pode usar o ADAL novamente para buscar access\_tokens no cache do ADAL. Primeiramente, adicione uma instrução `using` para ADAL a este arquivo.
 
     `using Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory;`
 
-- Na ação `Index`, use o método `AcquireTokenSilentAsync`do ADAL para obter um access\_token que possa ser usado para ler dados no serviço Lista de Tarefas:
+- Na ação `Index`, use o método `AcquireTokenSilentAsync` do ADAL para obter um access\_token que possa ser usado para ler dados no serviço Lista de Tarefas Pendentes:
 
 ```C#
 ...
@@ -207,4 +207,4 @@ Para obter recursos adicionais, confira:
 - [A visualização do modelo de aplicativo v2.0 >>](active-directory-appmodel-v2-overview.md)
 - [Marca "adal" da StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

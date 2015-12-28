@@ -274,11 +274,11 @@ Os campos que são usados nesta consulta são coordenadas de GPS de locais de sa
 		and dropoff_latitude between 30 and 90
 		limit 10; 
 
-As equações matemáticas do cálculo da distância entre duas coordenadas de GPS podem ser encontradas [aqui](http://www.movable-type.co.uk/scripts/latlong.html), as quais foram criadas por Peter Lapisu. No Javascript dele, a função toRad() é apenas `lat_or_lon*pi/180`, que converte graus em radianos. Aqui, `lat_or_lon` é a latitude ou a longitude. Como o Hive não fornece a função `atan2`, mas fornece a função `atan`, a função `atan2` é implementada pela função `atan` na consulta de Hive acima, com base na definição fornecida na [Wikipédia](http://en.wikipedia.org/wiki/Atan2).
+As equações matemáticas do cálculo da distância entre duas coordenadas de GPS podem ser encontradas em [Scripts de Tipo Móvel](http://www.movable-type.co.uk/scripts/latlong.html), e elas foram criadas por Peter Lapisu. No Javascript dele, a função toRad() é apenas `lat_or_lon*pi/180`, que converte graus em radianos. Aqui, `lat_or_lon` é a latitude ou a longitude. Como o Hive não fornece a função `atan2`, mas fornece a função `atan`, a função `atan2` é implementada pela função `atan` na consulta de Hive acima, com base na definição fornecida na [Wikipédia](http://en.wikipedia.org/wiki/Atan2).
 
 ![Criar espaço de trabalho][1]
 
-Uma lista completa de UDFs de Hive inseridas pode ser encontrada [aqui](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions).
+Uma lista completa de UDFs de Hive inseridas pode ser encontrada no [Manual de linguagem UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions).
 
 ## <a name="tuning"></a> Tópicos avançados: ajustar parâmetros de Hive para melhorar a velocidade de consulta
 
@@ -325,4 +325,4 @@ As configurações de parâmetro padrão do cluster de Hive talvez não sejam ad
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

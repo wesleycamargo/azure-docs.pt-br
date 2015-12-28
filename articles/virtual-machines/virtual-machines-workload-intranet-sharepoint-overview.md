@@ -6,7 +6,7 @@
 	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="12/11/2015"
 	ms.author="josephd"/>
 
 # Implantando o SharePoint com Grupos de Disponibilidade AlwaysOn do SQL Server no Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]Modelo de implantação do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
 
-Este tópico contém links com instruções passo a passo para implantar um farm do SharePoint 2013 somente intranet com Grupos de Disponibilidade AlwaysOn do SQL Server com o modelo de implantação clássico. O farm contém estes computadores:
+Este tópico contém links para instruções passo a passo para implantar um farm do SharePoint 2013 somente para intranet com Grupos de Disponibilidade AlwaysOn do SQL Server. O farm contém estes computadores:
 
 - Dois servidores Web do SharePoint
 - Dois servidores de aplicativos do SharePoint
@@ -29,7 +29,7 @@ Este tópico contém links com instruções passo a passo para implantar um farm
 - Servidores de nós principais de um cluster
 - Dois controladores de domínio
 
-Essa é a configuração, com nomes de espaço reservado para cada servidor:
+Essa é a configuração, com nomes de espaço reservado para cada servidor.
 
 ![](./media/virtual-machines-workload-intranet-sharepoint-overview/workload-spsqlao_05.png)
 
@@ -37,7 +37,7 @@ Duas máquinas para cada função asseguram a alta disponibilidade. Todas as má
 
 Implante essa configuração nas seguintes fases:
 
-- [Fase 1: configurar o Azure](virtual-machines-workload-intranet-sharepoint-phase1.md). Crie uma conta de armazenamento, serviços de nuvem e uma rede virtual entre locais.
+- [Fase 1: configurar o Azure](virtual-machines-workload-intranet-sharepoint-phase1.md). Crie uma conta de armazenamento, conjuntos de disponibilidade e uma rede virtual entre os locais.
 - [Fase 2: configurar os controladores de domínio](virtual-machines-workload-intranet-sharepoint-phase2.md). Crie e configure os controladores de domínio dos Serviços de Domínio do Active Directory (AD DS).
 - [Fase 3: configurar a infraestrutura do SQL Server](virtual-machines-workload-intranet-sharepoint-phase3.md). Crie e configure as máquinas virtuais do SQL Server, prepare-as para uso com o SharePoint e crie o cluster.
 - [Fase 4: configurar os servidores do SharePoint](virtual-machines-workload-intranet-sharepoint-phase4.md). Crie e configure as quatro máquinas virtuais do SharePoint.
@@ -50,8 +50,8 @@ Essa configuração é um guia prescritivo de cada fase cujo objetivo é desenvo
 Lembre-se:
 
 - Se você tiver experiência com o SharePoint, fique à vontade para adaptar as instruções das Fases 3 a 5 e criar o farm da maneira que melhor atenda às suas necessidades.
-- Se você já tiver uma implementação de nuvem híbrida do Azure, fique à vontade para adaptar ou ignorar as instruções das Fases 1 e 2 para hospedar o novo farm do SharePoint na sub-rede apropriada.
-- Todos os servidores estão localizados em uma só sub-rede da rede virtual do Azure. Se você quiser fornecer segurança adicional equivalente ao isolamento de sub-rede, será possível usar [grupos de segurança de rede](virtual-networks-nsg.md).
+- Se você já tiver uma implantação de nuvem híbrida do Azure, fique à vontade para adaptar ou ignorar as instruções das Fases 1 e 2 para hospedar o novo farm do SharePoint na sub-rede apropriada.
+- Todos os servidores estão localizados em uma só sub-rede da rede virtual do Azure. Se você quiser fornecer segurança adicional equivalente ao isolamento de sub-rede, use os [grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md).
 
 Para criar um ambiente de desenvolvimento/teste ou uma verificação de conceito dessa configuração, consulte [Configurar um farm de intranet do SharePoint em uma nuvem híbrida para teste](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md).
 
@@ -61,19 +61,6 @@ Para saber mais sobre o SharePoint com Grupos de Disponibilidade AlwaysOn do SQL
 
 ## Próxima etapa
 
-Para iniciar a configuração dessa carga de trabalho, vá para [Fase 1: configurar o Azure](virtual-machines-workload-intranet-sharepoint-phase1.md).
+- Inicie a configuração desta carga de trabalho com [Fase 1](virtual-machines-workload-intranet-sharepoint-phase1.md).
 
-
-## Recursos adicionais
-
-[Infográfico do SharePoint com SQL Server AlwaysOn](http://go.microsoft.com/fwlink/?LinkId=394788)
-
-[Arquiteturas do Microsoft Azure para SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
-
-[Farms do SharePoint hospedados nos serviços de infraestrutura do Azure](virtual-machines-sharepoint-infrastructure-services.md)
-
-[Diretrizes de implementação dos Serviços de Infraestrutura do Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-workload-high-availability-lob-application.md)
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

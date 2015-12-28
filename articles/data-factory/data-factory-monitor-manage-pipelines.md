@@ -348,13 +348,11 @@ Nome da operação | Status | Substatus
 -------------- | ------ | ----------
 RunStarted | Iniciado | Iniciando
 RunFinished | Falhou / Bem-sucedido | <p>FailedResourceAllocation</p><p>Succeeded</p><p>FailedExecution</p><p>TimedOut</p><p><Canceled/p><p>FailedValidation</p><p>Abandoned</p>
-SliceOnTime | Em Andamento | OnTime
-SliceDelayed | Em Andamento | Atrasado
 OnDemandClusterCreateStarted | Iniciado
 OnDemandClusterCreateSuccessful | Bem-sucedido
 OnDemandClusterDeleted | Bem-sucedido
 
-Confira [Criar regra de alerta](https://msdn.microsoft.com/library/azure/dn510366.aspx) para obter detalhes sobre os elementos JSON usados no exemplo acima.
+Veja [Criar Regra de Alerta](https://msdn.microsoft.com/library/azure/dn510366.aspx) para obter detalhes sobre os elementos JSON usados no exemplo acima.
 
 #### Implantando o Alerta 
 Para implantar o alerta, use o cmdlet do Azure PowerShell: **New-AzureResourceGroupDeployment**, conforme mostrado no exemplo a seguir:
@@ -545,7 +543,7 @@ Você pode implantar alertas para métricas da mesma maneira como faz para event
  
 Substitua subscriptionId, resourceGroupName e dataFactoryName no exemplo acima pelos valores adequados.
 
-*metricName*, a partir de agora, dá suporte a dois valores: - FailedRuns - SuccessfulRuns
+A partir de agora, *metricName* dá suporte a dois valores: - FailedRuns - SuccessfulRuns
 
 **Implantando o alerta:**
 
@@ -569,4 +567,4 @@ Você verá a seguinte mensagem após a implantação bem-sucedida:
 	Parameters        :
 	Outputs           
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

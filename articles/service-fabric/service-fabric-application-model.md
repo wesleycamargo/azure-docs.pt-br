@@ -3,7 +3,7 @@
    description="Como modelar e descrever aplicativos e serviços no Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
-   authors="alexwun"
+   authors="seanmck"
    manager="timlt"
    editor="mani-ramaswamy"/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/02/2015"
-   ms.author="alexwun"/>
+   ms.date="12/10/2015"   
+   ms.author="seanmck"/>
 
 # Modelar um aplicativo no Malha do Serviço
 
@@ -39,7 +39,7 @@ Pode haver uma ou mais instâncias de um tipo de serviço ativo no cluster. Por 
 
 O diagrama a seguir mostra a relação entre aplicativos e instâncias de serviço, partições e réplicas.
 
-![Partições e réplicas dentro de um serviço][Image2]
+![Partições e réplicas dentro de um Serviço][Image2]
 
 
 ## Descrever um serviço
@@ -104,7 +104,8 @@ For more information about other features supported by service manifests, refer 
 ## Descrever um aplicativo
 
 
-O manifesto do aplicativo declarativamente descreve o tipo de aplicativo e a versão. Ele especifica os metadados de composição de serviço, como nomes estáveis, esquema de particionamento, fator de replicação/contagem de instância, política de segurança/isolamento, restrições de posicionamento, substituições de configuração e tipos de serviço membro. Também são descritos os domínios de balanceamento de carga no qual o aplicativo é colocado. Portanto, um manifesto de aplicativo descreve os elementos no nível do aplicativo e faz referência a um ou mais manifestos do serviço para compor um tipo de aplicativo. Aqui está um manifesto de aplicativo de exemplo simples:
+O manifesto do aplicativo declarativamente descreve o tipo de aplicativo e a versão. Ele especifica os metadados de composição de serviço, como nomes estáveis, esquema de particionamento, fator de replicação/contagem de instância, política de segurança/isolamento, restrições de posicionamento, substituições de configuração e tipos de serviço membro. Também são descritos os domínios de balanceamento de carga no qual o aplicativo é colocado.
+Portanto, um manifesto de aplicativo descreve os elementos no nível do aplicativo e faz referência a um ou mais manifestos do serviço para compor um tipo de aplicativo. Aqui está um manifesto de aplicativo de exemplo simples:
 
 ~~~
 <?xml version="1.0" encoding="utf-8" ?>
@@ -184,7 +185,7 @@ Cenários típicos de uso do **SetupEntryPoint** quando você precisa executar u
 
 Se você usar o Visual Studio 2015 para criar o seu aplicativo, pode usar o comando Package para criar automaticamente um pacote que corresponda ao layout descrito acima.
 
-Para criar um pacote, clique com o botão direito do mouse no projeto de aplicativo no Gerenciador de Soluções e escolha o comando de Pacote, conforme mostrado abaixo:
+Para criar um pacote, clique com o botão direito do mouse no projeto de aplicativo no Gerenciador de Soluções e escolha o comando de pacote, conforme mostrado abaixo:
 
 ![][2]
 
@@ -248,4 +249,4 @@ Depois que o aplicativo é empacotado corretamente e passa pela verificação, e
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

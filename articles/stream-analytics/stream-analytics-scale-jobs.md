@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="12/04/2015"
+	ms.date="12/16/2015"
 	ms.author="jeffstok"/>
 
 # Dimensionar trabalhos do Stream Analytics do Azure para aumentar a produtividade do processamento de dados do fluxo #
@@ -61,7 +61,7 @@ A consulta anterior tem duas etapas.
 
 Particionamento de uma etapa exige as seguintes condições:
 
-- A fonte de entrada deve ser particionada. Para saber mais, consulte [Guia do desenvolvedor de Análise de fluxo do Azure](../stream-analytics-developer-guide.md) e [Guia de programação de hubs de evento](../azure-event-hubs-developer-guide.md).
+- A fonte de entrada deve ser particionada. Para saber mais, consulte [Guia do desenvolvedor de Análise de fluxo do Azure](../stream-analytics-developer-guide.md) e [Guia de programação de hubs de evento](../event-hubs/event-hubs-programming-guide.md).
 - A instrução SELECT da consulta deve ser lidos de uma origem de entrada particionada.
 - A consulta dentro da etapa deve ter a palavra-chave **Partition By**
 
@@ -265,4 +265,4 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

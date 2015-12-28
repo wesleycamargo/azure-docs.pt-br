@@ -14,17 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure"
-   ms.date="09/01/2015"
+   ms.date="12/08/2015"
    ms.author="rasquill"/>
 
 # Criando uma identidade corporativa ou de estudante no Active Directory do Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Se você criou uma conta pessoal do Azure ou tiver uma assinatura pessoal do MSDN e criou a conta do Azure para aproveitar os créditos Azure no MSDN, você usou uma identidade da *conta da Microsoft* para criá-la. Para que muitos recursos excelentes do Azure (como os [modelos de grupo de recursos](../resource-group-overview.md)) funcionem, é necessário ter uma conta corporativa ou de estudante (uma identidade gerenciada pelo Active Directory do Azure).
+Se você criou uma conta pessoal do Azure ou tiver uma assinatura pessoal do MSDN e criou a conta do Azure para aproveitar os créditos Azure no MSDN, você usou uma identidade da *conta da Microsoft* para criá-la. Para que muitos recursos excelentes do Azure (como os [modelos de grupo de recursos](../resource-group-overview.md)) funcionem, é necessário ter uma conta corporativa ou de estudante (uma identidade gerenciada pelo Active Directory do Azure). Você pode seguir as instruções abaixo para criar uma nova conta corporativa ou de estudante, porque, felizmente, uma das melhores coisas sobre sua conta pessoal do Azure pessoal é que ela vem com um domínio do Active Directory do Azure padrão, que você pode usar para criar uma nova corporativa ou de estudante, que pode usar com os recursos do Azure que necessitam dela.
 
-
-Felizmente, uma das melhores vantagens da conta pessoal do Azure é que ela vem com um domínio do Active Directory do Azure que pode ser usado para criar uma nova conta corporativa ou de estudante que, por sua vez, pode ser usada com recursos do Azure que a exigem.
+No entanto, alterações recentes possibilitam gerenciar sua assinatura com qualquer tipo de conta do Azure usando o `azure login` método de logon interativo descrito [aqui](../xplat-cli-connect.md). Você pode usar esse mecanismo, ou seguir as instruções abaixo.
 
 > [AZURE.NOTE]Se você recebeu um nome de usuário e uma senha de um administrador, há boas chances de que você já tenha uma ID corporativa ou de estudante (às vezes também chamada de *ID organizacional*). Nesse caso, você pode começar a usar sua conta do Azure imediatamente para acessar recursos do Azure que a exigem. Se não for possível usar esses recursos, talvez você precise retornar a este artigo para obter ajuda. Para obter mais informações, veja [Contas que você pode usar para entrar](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SignInAccounts) e [Como uma assinatura do Azure está relacionada ao Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SubRelationToDir).
 
@@ -32,7 +31,7 @@ As etapas são simples. Você precisa localizar sua identidade de conexão no po
 
 ## Localize seu diretório padrão no portal clássico do Azure
 
-Comece fazendo logon no [portal clássico do Azure](https://manage.windowsazure.com) com a identidade de sua conta pessoal da Microsoft. Quando estiver conectado, role para baixo no painel azul do lado esquerdo e clique em **ACTIVE DIRECTORY**.
+Comece fazendo logon no [Portal clássico do Azure](https://manage.windowsazure.com) com a identidade de sua conta pessoal da Microsoft. Quando estiver conectado, role para baixo no painel azul do lado esquerdo e clique em **ACTIVE DIRECTORY**.
 
 ![Azure Active Directory](./media/resource-group-create-work-id-from-personal/azureactivedirectorywidget.png)
 
@@ -62,7 +61,7 @@ No fim da página, clique em **+ADICIONAR USUÁRIO**. Na página que aparece, di
 
 ![](./media/resource-group-create-work-id-from-personal/addingauserwithdirectorydropdown.png)
 
-Adicione mais detalhes para Ahmet, mas certifique-se de selecionar o valor apropriado de **ROLE**. É fácil usar **Administrador Global** para garantir que tudo esteja funcionando, mas, se possível, use uma função com menos privilégios. Este exemplo usa a função **Usuário**. (Saiba mais sobre essas funções [aqui](https://msdn.microsoft.com/library/azure/dn468213.aspx#BKMK_1).) Não habilite a autenticação multifator, a menos que queira usá-la para cada log em operação. Clique na seta para avançar quando tiver terminado.
+Adicione mais detalhes para Ahmet, mas certifique-se de selecionar o valor apropriado de **FUNÇÃO**. É fácil usar **Administrador Global** para garantir que tudo esteja funcionando, mas, se possível, use uma função com menos privilégios. Este exemplo usa a função **Usuário**. (Saiba mais em [Permissões de administrador por função](https://msdn.microsoft.com/library/azure/dn468213.aspx#BKMK_1).) Não habilite a autenticação multifator, a menos que queira usá-la para cada log em operação. Clique na seta para avançar quando tiver terminado.
 
 ![](./media/resource-group-create-work-id-from-personal/userprofileuseradmin.png)
 
@@ -113,9 +112,9 @@ Uma mensagem de que você foi bem-sucedido deverá ser exibida, como mostrado ab
 
 ## Próximas etapas
 
-Agora você pode usar sua nova identidade do Active Directory do Azure para usar os [modelos de grupo de recursos do Azure](xplat-cli-azure-resource-manager.md).
+Agora você pode usar sua nova identidade do Active Directory do Azure para usar os [Modelos de grupo de recursos do Azure](../xplat-cli-azure-resource-manager.md).
 
-     azure login
+    azure login
     info:    Executing command login
     warn:    Please note that currently you can login only via Microsoft organizational account or service principal. For instructions on how to set them up, please read http://aka.ms/Dhf67j.
     Username: ahmet@aztrainpassxxxxxoutlook.onmicrosoft.com
@@ -144,4 +143,4 @@ Agora você pode usar sua nova identidade do Active Directory do Azure para usar
     data:
     info:    group create command OK
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

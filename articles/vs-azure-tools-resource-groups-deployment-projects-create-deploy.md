@@ -3,9 +3,9 @@
    description="Use o Visual Studio para criar um projeto do grupo de recursos do Azure e implantar os recursos no Azure."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags
    ms.service="azure-resource-manager"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="11/13/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Criação e implantação de grupos de recurso do Azure por meio do Visual Studio
 
@@ -196,4 +196,4 @@ Também foram feitos ajustes em alguns nomes de variáveis e tarefas de compila�
 
 Para saber como adicionar recursos ao seu Grupo de Recursos do Azure no Visual Studio, confira [Edição de modelos do Gerenciador de Recursos com o Visual Studio](vs-azure-tools-resource-group-adding-resources.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

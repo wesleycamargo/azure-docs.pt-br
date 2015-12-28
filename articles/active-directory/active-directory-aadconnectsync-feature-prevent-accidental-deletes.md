@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/20/2015"
+   ms.date="12/16/2015"
    ms.author="andkjell"/>
 
 # Sincronização do Azure AD Connect: impedir exclusões acidentais
@@ -25,7 +25,7 @@ O valor padrão de 500 objetos pode ser alterado com o PowerShell, usando `Enabl
 
 Com esse recurso habilitado, se houver muitas exclusões preparadas para exportação no Azure AD, a exportação não continuará e você receberá um email como este:
 
-![Email de exclusões acidentais](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/email.png)
+![Hello. No momento, o Serviço de sincronização de identidade detectou que o número de exclusões excedeu o limite configurado para fabrikam.com. Um total de objetos 1234 foram enviadas para exclusão nesta execução da sincronização de Identidade. Isso atingiu ou excedeu o valor de limite de exclusão configurado de 500 objetos. Precisamos que você forneça a confirmação de que essas exclusões devem ser processadas antes de continuarmos. Veja Impedindo exclusões acidentais para obter mais informações sobre o erro listado nesta mensagem de email.](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/email.png)
 
 Caso isso não seja esperado, investigue e tome medidas corretivas. Para ver quais objetos estão prestes a ser excluídos, siga este procedimento:
 
@@ -48,4 +48,4 @@ Saiba mais sobre a configuração de [sincronização do Azure AD Connect](activ
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

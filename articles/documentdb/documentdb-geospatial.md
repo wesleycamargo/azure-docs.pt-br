@@ -163,7 +163,7 @@ O Banco de Dados de Documentos dá suporte às seguintes funções internas do O
 </tr>
 </table>
 
-As funções espaciais podem ser usadas para executar consultas espaciais em consultas de proximidade. Por exemplo, veja uma consulta que retorna todos os documentos de família que estejam em um raio de 30 km do local especificado usando a função interna ST\_DISTANCE.
+As funções espaciais podem ser usadas para executar consultas de proximidade em consultas espaciais. Por exemplo, veja uma consulta que retorna todos os documentos de família que estejam em um raio de 30 km do local especificado usando a função interna ST\_DISTANCE.
 
 **Consulta**
 
@@ -355,4 +355,4 @@ Agora que você já aprendeu como começar a usar o suporte geoespacial no Banco
 - Saiba mais sobre [consultas do Banco de Dados de Documentos](documentdb-sql-query.md)
 - Saiba mais sobre [Políticas de indexação do Banco de Dados de Documentos](documentdb-indexing-policies.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

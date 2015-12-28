@@ -1,6 +1,6 @@
 <properties
    pageTitle="Integração contínua para o Service Fabric | Microsoft Azure"
-   description="Obtenha uma visão geral de como configurar a integração contínua para um aplicativo do Service Fabric usando o Visual Studio Online (VSO)."
+   description="Obtenha uma visão geral de como configurar a integração contínua para um aplicativo do Service Fabric usando o VSTS (Visual Studio Team Services)."
    services="service-fabric"
    documentationCenter="na"
    authors="cawams"
@@ -15,19 +15,19 @@
    ms.date="10/16/2015"
    ms.author="cawa" />
 
-# Configurar a integração contínua para um aplicativo do Service Fabric usando o Visual Studio Online (VSO)
+# Configurar a integração contínua para um aplicativo do Service Fabric usando o VSTS Visual Studio Team Services
 
-Este artigo fornece uma orientação pela configuração da CI (integração contínua) para um aplicativo de Service Fabric usando o Visual Studio Online (VSO), para que seu aplicativo possa ser desenvolvido, empacotado e implantado de uma forma automatizada. Observe que este documento reflete a experiência atual e deve ser alterado à medida que o desenvolvimento progride. Além disso, estas instruções recriam o cluster do zero todas as vezes.
+Este artigo fornece uma orientação pela configuração da CI (integração contínua) para um aplicativo de Service Fabric usando o VSTS (Visual Studio Team Services), para que seu aplicativo possa ser desenvolvido, empacotado e implantado de um modo automatizado. Observe que este documento reflete a experiência atual e deve ser alterado à medida que o desenvolvimento progride. Além disso, estas instruções recriam o cluster do zero todas as vezes.
 
 ## Pré-requisitos
 
-Para começar, configure seu projeto no Visual Studio Online.
+Para começar, configure seu projeto no Visual Studio Team Services.
 
-1. Se você ainda não fez isso, crie uma conta do VSO usando sua [conta da Microsoft](http://www.microsoft.com/account).
-2. Crie um novo projeto no VSO usando a conta da Microsoft.
+1. Se você ainda não fez isso, crie uma conta do Team Services usando sua [conta da Microsoft](http://www.microsoft.com/account).
+2. Crie um novo projeto no Team Services usando a conta da Microsoft.
 3. Envie a fonte para o seu aplicativo do Service Fabric novo ou existente para este projeto.
 
-Consulte [Conectar-se ao Visual Studio](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online) para saber mais sobre como trabalhar com projetos do VSO.
+Consulte [Conectar-se ao Visual Studio](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online) para saber mais sobre como trabalhar com projetos do Team Services.
 
 ## Etapas de configuração
 
@@ -192,7 +192,7 @@ Para instalar o Azure PowerShell, execute as etapas da seção anterior **Instal
 ### Registrar o agente de build
 
 1.	Baixe o agent.zip. Para fazer isso:
-    1.	Faça logon em seu projeto de equipe, como ****https://[your-VSO-account-name].visualstudio.com**.
+    1.	Faça logon em seu projeto de equipe, como ****https://[your-VSTS-account-name].visualstudio.com**.
 1.	Escolha o ícone de “engrenagem” no canto superior direito da tela.
     1.	No painel de controle, escolha a guia **Pools de agente**.
     1.	Escolha **Baixar agente** para baixar o arquivo agent.zip.
@@ -206,7 +206,7 @@ Para instalar o Azure PowerShell, execute as etapas da seção anterior **Instal
     |Parâmetro|Valor|
     |---|---|
     |Nome do Agente|Aceite o valor padrão, `Agent-[machine name]`.)
-    |Url do TFS|Insira a URL de seu projeto de equipe, por exemplo, `https://[your-VSO-account-name].visualstudio.com`.
+    |Url do TFS|Insira a URL de seu projeto de equipe, por exemplo, `https://[your-VSTS-account-name].visualstudio.com`.
     |Pool de Agente|Insira o nome de seu pool de agente. (Se você ainda não criou um pool de agente, aceite o valor padrão).|
     |Pasta de trabalho|Aceite o valor padrão. Essa é a pasta na qual o agente de build realmente criará seu aplicativo. Observação: se você planeja compilar Serviços Web do ASP.NET 5, é recomendável que você escolha os nome mais curtos possíveis para essa pasta, a fim de evitar erros de PathTooLongExceptions durante a implantação.|
     |Instalar como Serviço do Windows?|O valor padrão é N. Alterar o valor para Y.|
@@ -216,9 +216,9 @@ Para instalar o Azure PowerShell, execute as etapas da seção anterior **Instal
 1. Você receberá uma solicitação pelas credenciais. Insira as credenciais de sua conta da Microsoft que tenha direitos para seu projeto de equipe.
 1. Verifique se o agente de build foi registrado. Para fazer isso:
 
-    1. Volte para o navegador da Web (deve estar na página `https://[your-VSO-account-name].visualstudio.com/_admin/_AgentPool`) e atualize a página.
+    1. Volte para o navegador da Web (deve estar na página `https://[your-VSTS-account-name].visualstudio.com/_admin/_AgentPool`) e atualize a página.
     1. Escolha o pool de agente que você selecionou ao executar ConfigureAgent.ps1 anteriormente.
-    1. Verifique se o agente de build aparece na lista e tem um status verde realçado. Se o realce for vermelho, o agente de build estará enfrentando problemas para se conectar ao VSO.
+    1. Verifique se o agente de build aparece na lista e tem um status verde realçado. Se o realce for vermelho, o agente de build estará enfrentando problemas para se conectar ao Team Services.
 
 ![](media/service-fabric-set-up-continuous-integration/vso-configured-agent.png)
 
@@ -233,7 +233,7 @@ Para instalar o Azure PowerShell, execute as etapas da seção anterior **Instal
 ### Criar a definição de build
 
 1.	Crie uma definição de build vazia. Para fazer isso:
-    1.	Abra o projeto no Visual Studio Online.
+    1.	Abra o projeto no Visual Studio Team Services.
     1.	Escolha a guia **Build**.
     1.	Escolha o sinal **+** verde para criar uma nova definição de build.
     1.	Escolha **Vazio** e o botão **Avançar**.
@@ -339,4 +339,4 @@ As instruções anteriores criam um novo cluster para cada build e o remove ao f
 
 Para saber mais sobre a integração contínua com aplicativos do Service Fabric, leia os seguintes artigos. [Documentação base sobre build](https://msdn.microsoft.com/Library/vs/alm/Build/overview) - [Implantar um agente de build](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows) - [Criar e configurar uma definição de build](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

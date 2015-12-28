@@ -504,8 +504,7 @@ O seguinte exemplo mostra como usar o Live SDK com APIs do WinJS para fornecer u
 	// Start the sign-in process.
 	authenticate();
 
-Isso inicializa o cliente do Live Connect, envia uma nova solicitação de logon à conta da Microsoft, envia o token de autenticação retornado aos Serviços Móveis e, em seguida, exibe informações sobre o usuário conectado. O aplicativo não é iniciado até que a autenticação seja bem-sucedida.
-<!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
+Isso inicializa o cliente do Live Connect, envia uma nova solicitação de logon à conta da Microsoft, envia o token de autenticação retornado aos Serviços Móveis e, em seguida, exibe informações sobre o usuário conectado. O aplicativo não é iniciado até que a autenticação seja bem-sucedida. <!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
 ###Caching the authentication token
 In some cases, the call to the login method can be avoided after the first time the user authenticates. We can use [sessionStorage] or [localStorage] to cache the current user identity the first time they log in and every subsequent time we check whether we already have the user identity in our cache. If the cache is empty or calls fail (meaning the current login session has expired), we still need to go through the login process.
 
@@ -666,4 +665,4 @@ Para controlar quais sites podem interagir e enviar solicitações para o seu se
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [referência de opções de consulta do sistema OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

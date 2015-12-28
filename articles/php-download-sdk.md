@@ -2,18 +2,18 @@
 	pageTitle="Baixar o SDK do Azure para PHP"
 	description="Saiba como baixar e instalar o SDK do Azure para PHP."
 	documentationCenter="php"
-	services=""
+	services="app-service\web"
 	authors="tfitzmac"
 	manager="wpickett"
 	editor=""/>
 
 <tags
-	ms.service="multiple"
+	ms.service="app-service-web"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.date="12/16/2015"
 	ms.author="tomfitz"/>
 
 #Baixar o SDK do Azure para PHP
@@ -130,4 +130,4 @@ Para obter mais informações, consulte o [Centro de Desenvolvimento PHP](/devel
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

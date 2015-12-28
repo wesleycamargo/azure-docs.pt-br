@@ -13,24 +13,37 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="11/13/2015"
+   ms.date="12/15/2015"
    ms.author="yuemlu"/>
 
 # Sistema operacional convidado do Azure 
 
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] em particular na qual foram introduzidas.
 
+## SO convidado de dezembro
+
+| ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-124 | [3116180] | Atualização de segurança cumulativa do Internet Explorer | 4\.27, 3.34, 2.46 | 8 de dezembro de 2015 |
+| MS15-126 | [3116178] | Atualização de segurança para Microsoft VBScript e JScript para abordar a execução remota de código | 2\.46 | 8 de dezembro de 2015 |
+| MS15-127 | [3100465] | Atualização de segurança para Microsoft Windows DNS para abordar a execução remota de código | 4\.27, 3.34, 2.46 | 8 de dezembro de 2015 |
+| MS15-128 | [3104503] | Atualizações de segurança para Componente Gráfico da Microsoft para abordar a execução remota de código | 4\.27, 3.34, 2.46 | 8 de dezembro de 2015 |
+| MS15-132 | [3116162] | Atualização de segurança para Windows para abordar a execução remota de código | 4\.27, 3.34, 2.46 | 8 de dezembro de 2015 |
+| MS15-133 | [3116130] | Atualização de segurança para Windows PGM para abordar a elevação de privilégio | 4\.27, 3.34, 2.46 | 8 de dezembro de 2015 |
+| MS15-134 | [3108669] | Atualização de segurança para Windows Media Center para abordar a execução remota de código | 4\.27, 3.34, 2.46 | 8 de dezembro de 2015 |
+| MS15-135 | [3119075] | Atualização de segurança para Drivers de Modo Kernel do Windows para abordar a elevação de privilégio | 4\.27, 3.34, 2.46 | 8 de dezembro de 2015 |
+
 ## SO convidado de novembro
 
 | ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
 | MS15-112 | [3104517] | Atualização de segurança cumulativa do Internet Explorer | 4\.26, 3.33, 2.45 | 10 de novembro de 2015 |
-| MS15-114 | [3100213] | Atualização de segurança para o Windows Journal para solucionar a execução remota de código | 4\.26, 3.33, 2.45 | 10 de novembro de 2015 |
+| MS15-114 | [3100213] | Atualização de segurança para o Windows Journal para solucionar a execução remota de código | 2\.45 | 10 de novembro de 2015 |
 | MS15-115 | [3105864] | Atualização de segurança para o Microsoft Windows para solucionar a execução remota de código | 4\.26, 3.33, 2.45 | 10 de novembro de 2015 |
-| MS15-117 | [3101722] | Atualização de segurança para o NDIS para resolver a elevação de privilégio | 4\.26, 3.33, 2.45 | 10 de novembro de 2015 |
+| MS15-117 | [3101722] | Atualização de segurança para o NDIS para resolver a elevação de privilégio | 2\.45 | 10 de novembro de 2015 |
 | MS15-118 | [3104507] | Atualização de segurança para o .NET Framework para resolver a elevação de privilégio | 4\.26, 3.33, 2.45 | 10 de novembro de 2015 |
 | MS15-119 | [3104521] | Atualização de segurança para o Winsock para resolver a elevação de privilégio | 4\.26, 3.33, 2.45 | 10 de novembro de 2015 |
-| MS15-120 | [3102939] | Atualização de segurança para o IPSec para resolver a negação de serviço | 4\.26, 3.33, 2.45 | 10 de novembro de 2015 |
+| MS15-120 | [3102939] | Atualização de segurança para o IPSec para resolver a negação de serviço | 4\.26, 3.33 | 10 de novembro de 2015 |
 | MS15-121 | [3081320] | Atualização de segurança para o Schannel para resolver a falsificação | 4\.26, 3.33, 2.45 | 10 de novembro de 2015 |
 | MS15-122 | [3105256] | Atualização de segurança para o Kerberos para resolver o bypass do recurso de segurança | 4\.26, 3.33, 2.45 | 10 de novembro de 2015 |
 | Comunicado de Segurança da Microsoft | [3097966] | Certificados digitais divulgados inadvertidamente podem permitir a falsificação | 4\.26, 3.33, 2.45 | 10 de novembro de 2015 |
@@ -198,6 +211,16 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | N/D | [2999802][2999802] | Linhas sólidas, em vez de linhas pontilhadas, são impressas no Windows | 4\.15, 3.22, 2.34 | 13 de janeiro de 2015 |
 | N/D | [2896881][2896881] | Longo tempo de logon quando você usa o comando VBScript AddPrinterConnection para mapear impressoras para usuários durante o processo de logon do Windows | 4\.15, 3.22, 2.34 | 13 de janeiro de 2015 |
 
+
+[3116180]: http://support.microsoft.com/kb/3116180
+[3116178]: http://support.microsoft.com/kb/3116178
+[3100465]: http://support.microsoft.com/kb/3100465
+[3104503]: http://support.microsoft.com/kb/3104503
+[3116162]: http://support.microsoft.com/kb/3116162
+[3116130]: http://support.microsoft.com/kb/3116130
+[3108669]: http://support.microsoft.com/kb/3108669
+[3119075]: http://support.microsoft.com/kb/3119075
+
 [3104517]: http://support.microsoft.com/kb/3104517
 [3100213]: http://support.microsoft.com/kb/3100213
 [3105864]: http://support.microsoft.com/kb/3105864
@@ -331,4 +354,4 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

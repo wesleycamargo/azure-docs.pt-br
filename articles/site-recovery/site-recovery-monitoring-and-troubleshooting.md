@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Guia de monitoramento e solução de problemas de proteção dos sites VMM e Hyper-V" 
+	pageTitle="Monitorar e solucionar problemas de proteção para máquinas virtuais e sites físicos | Microsoft Azure" 
 	description="O Azure Site Recovery coordena a replicação, o failover e a recuperação de máquinas virtuais localizadas em servidores locais no Azure ou em um armazenamento de dados secundário. Use este artigo para monitorar e solucionar problemas de proteção de sites do VMM ou do Hyper-V." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="09/01/2015" 
+	ms.date="12/14/2015" 
 	ms.author="anbacker"/>
 	
-# Monitorar e solucionar problemas de proteção para VMware, VMM, Hyper-V e sites físicos
+# Monitorar e solucionar problemas de proteção para máquinas virtuais e sites físicos
 
 Este guia de solução de problemas e monitoramento permite que você aprenda sobre o acompanhamento da integridade da replicação e sobre técnicas de solução de problemas do Azure Site Recovery.
 
@@ -199,4 +199,4 @@ Servidor de Configuração (CS), Servidor de Processo (PS), Destino Mestre (MT) 
 ### Solução de problemas da área de trabalho remota após failover
 -   Muitos clientes têm enfrentado problemas para conexão com a VM com failover no Azure. [Use o documento de solução de problemas para fazer o RDP na VM](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

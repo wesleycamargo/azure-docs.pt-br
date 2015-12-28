@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Criando planos de recuperação" 
+	pageTitle="Criar planos de recuperação | Microsoft Azure" 
 	description="O Azure Site Recovery coordena a replicação, o failover e a recuperação de máquinas virtuais localizadas em servidores locais no Azure ou em um armazenamento de dados secundário." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="10/07/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
-# Criando planos de recuperação
+# Criar planos de recuperação
 
 O serviço Recuperação de Site contribui para uma solução robusta de BCDR (continuidade dos negócios e recuperação de desastres) que protege servidores físicos locais e máquinas virtuais, administrando e automatizando a replicação e o failover no Azure ou em um datacenter local secundário. Para obter uma introdução aos cenários de implantação de Recuperação de Site, leia [Visão geral da Recuperação de Site](site-recovery-overview.md).
 
@@ -54,7 +54,7 @@ Crie um plano de recuperação da seguinte forma:
 	- Se estiver replicando do VMM no VMM usando SAN, selecione VMM em **Tipo de Origem** e os servidores VMM de origem e de destino. Clique em **SAN** para ver as nuvens que estão configuradas para a replicação SAN.
 	- Se estiver replicando do VMM no Azure, selecione VMM em **Tipo de Origem**. Selecione o servidor do VMM de origem e **Azure** como o destino.
 	- Se estiver replicando de um site do Hyper-V, selecione site do Hyper-V em Tipo de Origem. Selecione o site como a origem e **Azure **como o destino.
-	- Se estiver replicando do site VMware ou de um servidor local físico no Azure, selecione um servidor de configuração como a origem e **Azure** como o destino.
+- Se estiver replicando do site VMware ou de um servidor local físico no Azure, selecione um servidor de configuração como a origem e **Azure** como o destino.
 
 2\. Em **Selecionar máquinas virtuais**, selecione as máquinas virtuais (ou o grupo de replicação) que deseja adicionar ao grupo padrão (Grupo 1) no plano de recuperação.
 
@@ -63,7 +63,7 @@ Crie um plano de recuperação da seguinte forma:
 Depois de adicionar máquinas virtuais protegidas ou grupos de replicação ao grupo de planos de recuperação padrão e criar o plano, você pode personalizá-lo:
 
 - **Adicionar novos grupos**: você pode incluir grupos de plano de recuperação adicionais. Os grupos adicionados são numerados na ordem em que você os adiciona. É possível adicionar até sete grupos. Você pode adicionar mais computadores ou grupos de replicação a esses novos grupos. Observe que uma máquina virtual ou um grupo de replicação pode ser incluído apenas em um grupo de planos de recuperação.
-- **Adicionar um script **: você pode adicionar scripts antes ou depois de um grupo de planos de recuperação. Quando você adiciona um script, este adiciona um novo conjunto de ações para o grupo. Por exemplo, um conjunto de pré-etapas do Grupo 1 será criado com o nome: Grupo 1: pré-etapas. Todas as pré-etapas serão listadas dentro desse conjunto. Observe que só será possível adicionar um script no site primário se você tiver um servidor VMM implantado.
+- ****Adicionar um script **: você pode adicionar scripts antes ou depois de um grupo de planos de recuperação. Quando você adiciona um script, este adiciona um novo conjunto de ações para o grupo. Por exemplo, um conjunto de pré-etapas do Grupo 1 será criado com o nome: Grupo 1: pré-etapas. Todas as pré-etapas serão listadas dentro desse conjunto. Observe que só será possível adicionar um script no site primário se você tiver um servidor VMM implantado.
 - **Adicionar uma ação manual**: você pode adicionar ações manuais que são executadas antes ou depois de um grupo de planos de recuperação. Quando o plano de recuperação é executado, ele é interrompido no ponto em que você inseriu a ação manual, e uma caixa de diálogo solicita que você especifique que a ação manual foi concluída.
 
 ### Estender os planos de recuperação com scripts
@@ -124,4 +124,4 @@ Você pode estender o seu plano de recuperação executando um runbook da automa
 
  
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

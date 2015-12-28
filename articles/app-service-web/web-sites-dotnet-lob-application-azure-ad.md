@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="10/14/2015" 
+	ms.date="12/10/2015" 
 	ms.author="cephalin"/>
 
 # Criar um aplicativo Web .NET MVC no Serviço de Aplicativo do Azure com a autenticação do Active Directory do Azure #
@@ -46,8 +46,8 @@ Você compilará um aplicativo simples de linha de negócios CRUD (Create-Read-U
 
 - Um locatário do Active Directory do Azure com usuários em vários grupos
 - Permissões para criar aplicativos no locatário do Active Directory do Azure
-- Visual Studio 2013
-- [SDK do Azure 2.5.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) ou posterior
+- Visual Studio 2013 ou posterior.
+- [SDK do Azure 2.8.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) ou posterior
 
 <a name="bkmk_sample"></a>
 ## Usar o aplicativo de exemplo para modelo de linha de negócios ##
@@ -63,8 +63,7 @@ O aplicativo de exemplo neste tutorial [WebApp-RoleClaims-DotNet](https://github
 
 1.	Clone ou baixe a solução de exemplo em [WebApp-RoleClaims-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) em seu diretório local.
 
-2.	Siga as instruções em [Como executar o exemplo como um aplicativo de locatário único](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#how-to-run-the-sample-as-a-single-tenant-app) para configurar o aplicativo do Active Directory do Azure e o projeto.
-Certifique-se de seguir todas as instruções para converter o aplicativo de multilocatário em único locatário.
+2.	Siga as instruções em [Como executar o exemplo como um aplicativo de locatário único](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#how-to-run-the-sample-as-a-single-tenant-app) para configurar o aplicativo do Active Directory do Azure e o projeto. Certifique-se de seguir todas as instruções para converter o aplicativo de multilocatário em único locatário.
 
 3.	Na exibição do [portal clássico do Azure](https://manage.windowsazure.com) do aplicativo do Active Directory do Azure que você acabou de criar, clique na guia **USUÁRIOS**. Em seguida, atribua os usuários desejados às funções desejadas.
 
@@ -91,9 +90,17 @@ Aqui, você publicará o aplicativo para um Aplicativo Web no Serviço de Aplica
 
 4. Depois de conectado, clique em **Novo** para criar um novo aplicativo Web no Azure.
 
-5. Preencha todos os campos obrigatórios. Você precisará de uma conexão de banco de dados para esse aplicativo para armazenar os dados de aplicativo, tokens em cache e mapeamentos de função.
+5. Em **Hospedagem**, preencha todos os campos obrigatórios.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/4-create-website.png)
+
+5. Você precisará de uma conexão de banco de dados para esse aplicativo para armazenar os dados de aplicativo, tokens em cache e mapeamentos de função. No diálogo **Criar Serviço de Aplicativo**, clique em **Serviços**. Ao lado de **Banco de Dados SQL**, clique no sinal de adição para adicionar um novo banco de dados.
+
+	![](./media/web-sites-dotnet-lob-application-azure-ad/4-create-database.png)
+
+5. No diálogo **Configurar Banco de Dados SQL**, selecione ou crie um servidor, defina um nome e clique em **OK**.
+
+	 ![](./media/web-sites-dotnet-lob-application-azure-ad/4-config-database.png)
 
 6. Clique em **Criar**. Depois que o aplicativo Web for criado, a caixa de diálogo **Publicar Web** será aberta.
 
@@ -105,7 +112,7 @@ Aqui, você publicará o aplicativo para um Aplicativo Web no Serviço de Aplica
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/6-enable-code-first-migrations.png)
 
-8. Expanda **RoleClaimContext** e selecione **Executar Migrações do Code First (executado na inicialização do aplicativo)**. As [Migrações do Code First](https://msdn.microsoft.com/data/jj591621.aspx) ajudam a atualizar o esquema de banco de dados do aplicativo no Azure ao definir modelos de dados adicionais do Code First posteriormente.
+8. Expanda **RoleClaimContext** e selecione **Executar Migrações do Code First (executado na inicialização do aplicativo)**. As [Migrações do Code First](https://msdn.microsoft.com/data/jj591621.aspx) ajudam a atualizar o esquema de banco de dados de seu aplicativo no Azure ao definir modelos de dados adicionais do Code First posteriormente.
 
 9. Em vez de clicar em **Publicar** para continuar com a publicação da web, clique em **Fechar**. Clique em **Sim** para salvar as alterações no perfil de publicação.
 
@@ -123,9 +130,9 @@ Aqui, você publicará o aplicativo para um Aplicativo Web no Serviço de Aplica
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/7-app-properties.png)
 
-2.	Depois que o aplicativo for criado, atualize o manifesto do aplicativo da mesma maneira que você fazia anteriormente, usando as instruções em [Definir as funções do seu aplicativo](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#step-2-define-your-application-roles).
+2.	Depois que o aplicativo for criado, atualize o manifesto do aplicativo da mesma maneira que você fez anteriormente, usando as instruções em [Definir as funções do seu aplicativo](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#step-2-define-your-application-roles).
 
-3.	Na exibição do [portal clássico do Azure](https://manage.windowsazure.com) do aplicativo do Active Directory do Azure que você acabou de criar, clique na guia **USUÁRIOS**. Em seguida, atribua os usuários desejados às funções desejadas.
+3.	No modo de exibição do [portal clássico do Azure](https://manage.windowsazure.com) de seu aplicativo do Active Directory do Azure que acabou de criar, clique na guia **USUÁRIOS**. Em seguida, atribua os usuários desejados às funções desejadas.
 
 6. Clique na guia **CONFIGURAR**.
 
@@ -148,9 +155,7 @@ Aqui, você publicará o aplicativo para um Aplicativo Web no Serviço de Aplica
    &lt;add key="ida:ClientId" value="<mark>[e.g. 82692da5-a86f-44c9-9d53-2f88d52b478b]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
    &lt;add key="ida:AppKey" value="<mark>[e.g. rZJJ9bHSi/cYnYwmQFxLYDn/6EfnrnIfKoNzv9NKgbo=]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
    &lt;add key="ida:PostLogoutRedirectUri" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
-&lt;/appSettings></pre>
-
-	Certifique-se de que o valor de ida: PostLogoutRedirectUri termine com uma barra "/".
+&lt;/appSettings></pre>Certifique-se de que o valor de ida: PostLogoutRedirectUri termine com uma barra "/".
 
 1. Clique duas vezes com o botão direito em seu projeto e selecione **Publicar**.
 
@@ -215,11 +220,11 @@ public class RoleClaimContext : DbContext
 
 11. Adicione as decorações [Authorize] destacadas nas respectivas ações a seguir.
 	<pre class="prettyprint">
-	...
+...
 
-	<mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
-	public class WorkItemsController : Controller
-	{
+<mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
+public class WorkItemsController : Controller
+{
 	...
 
     <mark>[Authorize(Roles = "Admin, Writer")]</mark>
@@ -245,16 +250,11 @@ public class RoleClaimContext : DbContext
     <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
     public async Task&lt;ActionResult> DeleteConfirmed(int id)
     ...
-	}</pre>
+}</pre>Como você cuida dos mapeamentos de função na interface do usuário do portal clássico do Azure, basta garantir que cada ação autorize as funções certas.
 
-	Como você cuida dos mapeamentos de função na interface do usuário do portal clássico do Azure, basta garantir que cada ação autorize as funções certas.
+	> [AZURE.NOTE]Você talvez tenha observado a decoração <code>[ValidateAntiForgeryToken]</code> em algumas das ações. Devido ao comportamento descrito por [Brock Allen](https://twitter.com/BrockLAllen) em [MVC 4, AntiForgeryToken e declarações](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/), seu HTTP POST poderá ser reprovado na validação de token antifalsificação porque: + o Active Directory do Azure não envia o http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, que é necessário por padrão para o token antifalsificação. + Se o Active Directory do Azure for o diretório sincronizado com o AD FS, a relação de confiança do AD FS, por padrão, também não enviará a declaração http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, embora você possa configurar manualmente o AD FS para enviar essa declaração. Você cuidará disso na próxima etapa.
 
-	> [AZURE.NOTE]Você talvez tenha observado a decoração <code>[ValidateAntiForgeryToken]</code> em algumas das ações. Devido ao comportamento descrito por [Brock Allen](https://twitter.com/BrockLAllen) em [MVC 4, AntiForgeryToken e declarações](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/), seu HTTP POST poderá ser reprovado na validação de token antifalsificação porque:
-	> + o Active Directory do Azure não envia o http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, que é necessário por padrão para o token antifalsificação.
-	> + Se o Active Directory do Azure for o diretório sincronizado com o AD FS, a relação de confiança do AD FS, por padrão, também não enviará a declaração http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, embora você possa configurar manualmente o AD FS para enviar essa declaração.
-	> Você cuidará disso na próxima etapa.
-
-12.  Em App\_Start\\Startup.Auth.cs, adicione a linha de código a seguir no método `ConfigureAuth`. Clique com o botão direito do mouse em cada erro de resolução de nomes para corrigi-lo.
+12.  Em App\_Start\\Startup.Auth.cs, adicione a linha de código a seguir ao método `ConfigureAuth`. Clique com o botão direito do mouse em cada erro de resolução de nomes para corrigi-lo.
 
 		AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
 	
@@ -265,7 +265,7 @@ public class RoleClaimContext : DbContext
         ViewData["token"] = AcquireToken(ClaimsPrincipal.Current.FindFirst(Globals.ObjectIdClaimType).Value);
         ViewData["tenant"] = ConfigHelper.Tenant;
 
-13.	O método `AcquireToken()` ainda não foi definido, portanto defina-o na classe `WorkItemsController` agora. Clique com o botão direito do mouse em cada erro de resolução de nomes para corrigi-lo.
+13.	O método `AcquireToken()` ainda não foi definido; portanto, defina-o na classe `WorkItemsController` agora. Clique com o botão direito do mouse em cada erro de resolução de nomes para corrigi-lo.
 
         static string AcquireToken(string userObjectId)
         {
@@ -278,7 +278,7 @@ public class RoleClaimContext : DbContext
 		
 14.	Em Views\\WorkItems\\Create.cshtml (um item automaticamente submetido a scaffolding), localize o método auxiliar `Html.BeginForm` e modifique-o da seguinte maneira:
 	<pre class="prettyprint">@using (Html.BeginForm(<mark>"Create", "WorkItems", FormMethod.Post, new { id = "main-form" }</mark>))
-	{
+{
     @Html.AntiForgeryToken()
 
     &lt;div class="form-horizontal">
@@ -341,11 +341,9 @@ public class RoleClaimContext : DbContext
             });
     &lt;/script></mark>
 
-	}</pre>
+}</pre>No script, o objeto AadPicker chama a [Graph API do Active Directory do Azure](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) para pesquisar usuários e grupos que correspondem à entrada.
 
-	No script, o objeto AadPicker chama a [Graph API do Active Directory do Azure](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) para pesquisar usuários e grupos que correspondem à entrada.
-
-15. Abra o [Console do Gerenciador de Pacotes](http://docs.nuget.org/Consume/Package-Manager-Console) e execute **Enable-Migrations –EnableAutomaticMigrations**. Semelhante à opção selecionada quando você publicou o aplicativo no Azure, este comando ajuda a atualizar o esquema de banco de dados do aplicativo em [LocalDB](https://msdn.microsoft.com/library/hh510202.aspx) quando você o depura no Visual Studio.
+15. Abra o [Console do Gerenciador de Pacotes](http://docs.nuget.org/Consume/Package-Manager-Console) e execute **Enable-Migrations –EnableAutomaticMigrations**. Semelhante à opção selecionada quando você publicou o aplicativo no Azure, este comando ajuda a atualizar o esquema de banco de dados de seu aplicativo em [LocalDB](https://msdn.microsoft.com/library/hh510202.aspx) quando você o depura no Visual Studio.
 
 15. Agora execute o aplicativo no depurador do Visual Studio ou publique-o novamente nos Aplicativos Web do Serviço de Aplicativo. Faça logon como o proprietário do aplicativo e navegue até `https://<webappname>.azurewebsites.net/WorkItems/Create`. Você verá agora que pode selecionar um usuário ou grupo do Active Directory do Azure na lista suspensa ou digitar algo para filtrar a lista.
 
@@ -382,4 +380,4 @@ Agora que você configurou as autorizações e a funcionalidade de linha de neg�
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

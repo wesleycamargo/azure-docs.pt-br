@@ -20,7 +20,6 @@
 # Carga de trabalho de aplicativo de linha de negócios fase 4: configurar os servidores Web
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
- 
 
 Nesta fase de implantação de um aplicativo de linha de negócios de alta disponibilidade nos Serviços de Infraestrutura do Azure, você criará os servidores Web e carregará seu aplicativo de linha de negócios neles.
 
@@ -30,11 +29,21 @@ Conclua esta fase antes de passar para a [Fase 5](virtual-machines-workload-high
 
 Há duas máquinas virtuais de servidor Web nas quais você pode implantar aplicativos ASP.NET ou aplicativos mais antigos que podem ser hospedados pelo IIS (Serviços de Informações da Internet) 8 no Windows Server 2012 R2.
 
-> [AZURE.NOTE]Este artigo contém comandos para o Azure PowerShell Preview 1.0. Para executar esses comandos no Azure PowerShell 0.9.8 e em versões anteriores, substitua todas as instâncias de "-AzureRM" por "-Azure" e adicione o comando **Switch-AzureMode AzureResourceManager** antes de executar quaisquer comandos. Para saber mais, consulte [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/).
-
 Primeiro, você configurar o balanceamento de carga interno para que o Azure distribua o tráfego do cliente para o aplicativo de linha de negócios uniformemente entre os dois servidores Web. Isso requer que você especifique uma instância de balanceamento de carga interno, que consiste em um nome e o seu próprio endereço IP, atribuído por meio do espaço de endereço de sub-rede que você designou para sua rede virtual do Azure.
 
-Preencha as variáveis e execute o seguinte conjunto de comandos:
+> [AZURE.NOTE]O comando a seguir define o uso do Azure PowerShell 1.0 e posterior. Para obter mais informações, consulte [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
+
+Especifique os valores para as variáveis, removendo os caracteres < and >. Observe que esse conjunto de comandos do Azure PowerShell usa valores das seguintes tabelas:
+
+- Tabela M para as máquinas virtuais
+- Tabela V para as configurações da rede virtual
+- Tabela S para a sub-rede
+- Tabela ST para suas contas de armazenamento
+- Tabela A para os conjuntos de disponibilidade
+
+Lembre-se de que você definiu a Tabela M na [fase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) e as Tabelas V, S, ST e A na [fase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
+
+Quando você tiver fornecido a todos os valores adequados, execute o bloco resultante no prompt de comando do Azure PowerShell.
 
 	# Set up key variables
 	$rgName="<resource group name>"
@@ -53,15 +62,7 @@ Preencha as variáveis e execute o seguinte conjunto de comandos:
 
 Em seguida, adicione um registro de endereço DNS na infraestrutura DNS interna da sua organização, o qual resolve o nome de domínio totalmente qualificado do aplicativo de linha de negócios (como lobapp.corp.contoso.com) para o endereço IP atribuído ao balanceador de carga interno (o valor de $privIP no bloco de comando anterior do Azure PowerShell).
 
-Use o seguinte bloco de comandos do PowerShell para criar as máquinas virtuais para os dois servidores Web. Observe que esse conjunto de comandos do PowerShell usa os valores das seguintes tabelas:
-
-- Tabela M para as máquinas virtuais
-- Tabela V para as configurações da rede virtual
-- Tabela S para a sub-rede
-- Tabela ST para suas contas de armazenamento
-- Tabela A para os conjuntos de disponibilidade
-
-Lembre-se de que você definiu a Tabela M na [Fase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) e as Tabelas V, S, ST e A na [Fase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
+Use o seguinte bloco de comandos do PowerShell para criar as máquinas virtuais para os dois servidores Web.
 
 Quando você tiver fornecido a todos os valores adequados, execute o bloco resultante no prompt do Azure PowerShell.
 
@@ -99,7 +100,7 @@ Quando você tiver fornecido a todos os valores adequados, execute o bloco resul
 	$vmSize="<Table M – Item 7 - Minimum size column>"
 	$nic=New-AzureRMNetworkInterface -Name ($vmName + "-NIC") -ResourceGroupName $rgName -Location $locName -Subnet $backendSubnet -LoadBalancerBackendAddressPool $webLB.BackendAddressPools[0]
 	$vm=New-AzureRMVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
-	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the second second SQL Server computer." 
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the second SQL Server computer." 
 	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
 	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
@@ -132,7 +133,7 @@ Em seguida, para cada servidor Web, instale e configure o IIS.
 6. Quando solicitado, clique em **Adicionar Recursos** e clique em **Avançar**.
 7. Na página Selecionar recursos, clique em **Avançar**.
 8. Na página Servidor Web (IIS), clique em **Avançar**.
-9. Na página Selecionar serviços da função, marque ou desmarque as caixas de seleção dos serviços que você precisa para testar seu aplicativo LOB e clique em **Avançar**. 10. Na página Confirmar seleções da instalação, clique em **Instalar**.
+9. Na página Selecionar serviços da função, marque ou desmarque as caixas de seleção dos serviços que você precisa para testar seu aplicativo LOB e, em seguida, clique em **Avançar**. 10. Na página Confirmar seleções da instalação, clique em **Instalar**.
 
 ## Implantar seu aplicativo de linha de negócios nas máquinas virtuais do servidor Web
 
@@ -148,18 +149,6 @@ Este diagrama é a configuração resultante da conclusão bem-sucedida desta fa
 
 ## Próxima etapa
 
-Para continuar com a configuração dessa carga de trabalho, vá para a [Fase 5: Criar o grupo de disponibilidade e adicionar os bancos de dados do aplicativo](virtual-machines-workload-high-availability-LOB-application-phase5.md).
+- Use a [Fase 5](virtual-machines-workload-high-availability-LOB-application-phase5.md) para concluir a configuração desta carga de trabalho.
 
-## Recursos adicionais
-
-[Implantar um aplicativo de linha de negócios de alta disponibilidade no Azure](virtual-machines-workload-high-availability-LOB-application-overview.md)
-
-[Plano gráfico da arquitetura de aplicativos de linha de negócios](http://msdn.microsoft.com/dn630664)
-
-[Configurar um aplicativo LOB baseado na Web em uma nuvem híbrida para teste](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Diretrizes de implementação dos Serviços de Infraestrutura do Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Carga de trabalho de serviços de infraestrutura do Azure: farm do SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

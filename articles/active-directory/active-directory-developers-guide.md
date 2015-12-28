@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/06/2015"
+   ms.date="12/10/2015"
    ms.author="mbaldwin"/>
 
 
@@ -29,16 +29,14 @@ Como uma plataforma IDMaaS (Gerenciamento de Identidade como um Serviço), o Act
 
 1. [Integrando aplicativos ao Active Directory do Azure](active-directory-integrating-applications.md): saiba mais sobre como adicionar, atualizar e remover aplicativos do Active Directory do Azure e sobre as diretrizes de identidade visual para aplicativos integrados.
 
-1. [Graph API do Active Directory do Azure](active-directory-graph-api.md): use a Graph API do Active Directory do Azure para acessar programaticamente o Active Directory do Azure por meio de pontos de extremidade da API REST.
-
-    > [AZURE.IMPORTANT]A funcionalidade API do Azure AD Graph também está disponível por meio do [Microsoft Graph](https://graph.microsoft.io/), uma API unificada que inclui APIs de outros serviços da Microsoft, como o Outlook, o OneDrive, o OneNote, o Planner e o Office Graph, e está acessível por meio de um único ponto de extremidade e com um token de acesso único.
+1. [Graph API do Active Directory do Azure](active-directory-graph-api.md): use a Graph API do Active Directory do Azure para acessar programaticamente o Active Directory do Azure por meio de pontos de extremidade da API REST. Observe que a Graph API do Azure AD também é acessível por meio da [Microsoft Graph](https://graph.microsoft.io/), uma API unificada que permite acesso a várias APIs do serviço de nuvem da Microsoft por meio de um único ponto de extremidade da API REST e com um token de acesso único.
 
 1. [Bibliotecas de autenticação do Active Directory do Azure](active-directory-authentication-libraries.md): autentique facilmente os usuários para obter tokens de acesso usando as bibliotecas de autenticação do Azure.
 
 
 ## Introdução
 
-Esses tutoriais são adaptados para várias plataformas e permitem que você comece a desenvolver rapidamente com o Active Directory do Azure. Como um pré-requisito, você deve [obter um locatário do Active Directory do Azure](active-directory-howto-tenant.md).
+Esses tutoriais são adaptados para várias plataformas e permitem que você comece a desenvolver rapidamente com o Active Directory do Azure. Como um pré-requisito, é necessário [obter um locatário do Active Directory do Azure](active-directory-howto-tenant.md).
 
 ### Guias de início rápido para aplicativo móvel ou PC
 
@@ -86,7 +84,7 @@ Esses artigos fornecem referências básicas para REST e biblioteca de autentica
 
 ### Código
 
-- [Bibliotecas de software livre do Active Directory do Azure](http://github.com/AzureAD): a maneira mais fácil de encontrar a fonte de uma biblioteca é usando nossa [lista de bibliotecas](active-directory-authentication-libraries.md).
+- [Bibliotecas de código aberto do Active Directory do Azure](http://github.com/AzureAD): a maneira mais fácil de encontrar a fonte de uma biblioteca é usando nossa [lista de bibliotecas](active-directory-authentication-libraries.md).
 
 - [Exemplos do Active Directory do Azure](http://github.com/AzureADSamples): a maneira mais fácil de navegar pela lista de exemplos é usando o [índice de exemplos de código](active-directory-code-samples.md).
 
@@ -111,7 +109,7 @@ Esses artigos fornecem referências básicas para REST e biblioteca de autentica
 
 - [Referência do protocolo WS-Federation 1.2](https://msdn.microsoft.com/library/azure/dn903702.aspx): o protocolo WS-Federation 1.2 é descrito na especificação Web Services Federation Versão 1.2.
 
-- [Tipos de token e declaração com suporte](active-directory-token-and-claims.md): você pode usar este guia para entender e avaliar as declarações nos tokens SAML 2.0 e JWT (Tokens Web JSON).
+- [Tipos de token e de declaração com suporte](active-directory-token-and-claims.md): você pode usar este guia para entender e avaliar as declarações nos tokens SAML 2.0 e JWT (Tokens Web JSON).
 
 ## Vídeos
 
@@ -134,10 +132,10 @@ O [Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/) 
 
 - [Blog da equipe do Active Directory](http://blogs.technet.com/b/ad/): os desenvolvimentos mais recentes no mundo do Active Directory do Azure.
 
-- [Blog da equipe do Azure Active Directory Graph](http://blogs.msdn.com/b/aadgraphteam): informações do Active Directory do Azure específicas à Graph API.
+- [Blog da equipe da Graph do Azure Active Directory](http://blogs.msdn.com/b/aadgraphteam): informações do Active Directory do Azure específicas à Graph API.
 
-- [Cloud Identity](http://www.cloudidentity.net): considerações sobre o gerenciamento de identidades como serviço de um PM principal do Active Directory do Azure.
+- [Identidade de nuvem](http://www.cloudidentity.net): considerações sobre o gerenciamento de identidades como serviço de um PM principal do Active Directory do Azure de entidade de segurança.
 
-- [Active Directory do Azure no Twitter](https://twitter.com/azuread): avisos do Active Directory do Azure em 140 caracteres ou menos.
+- [Active Directory do Azure no Twitter](https://twitter.com/azuread): comunicados do Active Directory do Azure em 140 caracteres ou menos.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1217_2015-->

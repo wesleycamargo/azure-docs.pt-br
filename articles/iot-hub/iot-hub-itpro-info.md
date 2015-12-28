@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="09/28/2015"
+ ms.date="12/15/2015"
  ms.author="dobett"/>
 
 # Configurando e gerenciando o acesso ao Hub IoT
@@ -42,11 +42,11 @@ O acesso a outros pontos de extremidade de gerenciamento em um hub IoT também �
 Este artigo contém informações específicas para os profissionais de TI e desenvolvedores para configurar seus ambientes de desenvolvimento e teste. Siga estes links para saber mais sobre o serviço do Hub IoT do Azure:
 
 - [O que é o Hub IoT do Azure?][lnk-iothub]
-- A seção ["Segurança" no guia do desenvolvedor do Hub IoT do Azure][lnk-devguide] fornece informações adicionais sobre os tokens e o sistema de permissão no Hub IoT.
+- A [seção Segurança no guia do desenvolvedor do Hub IoT do Azure][lnk-devguide] fornece informações adicionais sobre os tokens e o sistema de permissão no Hub IoT.
 - [Gerenciar o Hub IoT pelo portal do Azure][lnk-manage-portal] descreve como usar o portal do Azure para gerenciar seu hub IoT.
 
 [lnk-iothub]: iot-hub-what-is-iot-hub.md
 [lnk-devguide]: iot-hub-devguide.md#security
 [lnk-manage-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

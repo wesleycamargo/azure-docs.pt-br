@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="12/11/2015" 
 	ms.author="wesmc"/>
 
 # Enviar notificações entre plataformas a usuários com Hubs de Notificação
@@ -88,9 +88,6 @@ Agora que você concluiu este tutorial, saiba mais sobre Hubs de Notificação e
 
 +  **[Visão geral de Hubs de Notificação do Azure][Templates]**<br/>O tópico Visão Geral tem informações mais detalhadas sobre modelos.
 
-+  **[Instruções sobre Hub de Notificação para a Windows Store]**<br/>Inclui uma referência de linguagem de expressão do modelo.
-
-
 
 <!-- Anchors. -->
 
@@ -108,6 +105,6 @@ Agora que você concluiu este tutorial, saiba mais sobre Hubs de Notificação e
 [Azure Notification Hubs]: http://go.microsoft.com/fwlink/p/?LinkId=314257
 [Notificar usuários com Hubs de Notificação]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Templates]: http://go.microsoft.com/fwlink/p/?LinkId=317339
-[Instruções sobre Hub de Notificação para a Windows Store]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
+[Notification Hub How to for Windows Store]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

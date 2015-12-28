@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Navegando e gerenciando recursos de armazenamento com o Gerenciador de Servidores"
+   pageTitle="Navegando e gerenciando recursos de armazenamento com o Gerenciador de Servidores | Microsoft Azure"
    description="Navegando e gerenciando recursos de armazenamento com o Gerenciador de Servidores"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags
    ms.service="storage"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/24/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Navegando e gerenciando recursos de armazenamento com o Gerenciador de Servidores
 
@@ -313,4 +313,4 @@ Há duas maneiras de adicionar contas de armazenamento usando o Gerenciador de S
 
 Para saber mais sobre como usar os serviços de armazenamento do Azure, consulte [Acessando os serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

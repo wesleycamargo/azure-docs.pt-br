@@ -1,0 +1,230 @@
+<properties
+   pageTitle="Modelo do Gerenciador de Recursos para um segredo em um cofre da chave | Microsoft Azure"
+   description="Mostra o esquema de segredos do cofre da chave do Gerenciador de Recursos."
+   services="azure-resource-manager,key-vault"
+   documentationCenter="na"
+   authors="tfitzmac"
+   manager="wpickett"
+   editor=""/>
+
+<tags
+   ms.service="azure-resource-manager"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="12/15/2015"
+   ms.author="tomfitz"/>
+
+# Esquema de modelo do segredo do cofre da chave
+
+Cria um segredo que é armazenado em um cofre da chave. Esse tipo de recurso é implantado com frequência como um recurso filho do [cofre da chave](resource-manager-template-keyvault.md).
+
+## Formato de esquema
+
+Para criar um segredo do cofre da chave, adicione o seguinte esquema ao modelo. O segredo pode ser definido como um recurso filho de um cofre da chave ou como um recurso de nível superior. Você pode defini-lo como um recurso filho quando o cofre da chave é implantado no mesmo modelo. Você precisará definir o segredo como um recurso de nível superior quando a chave do cofre não estiver implantada no mesmo modelo, ou quando você precisar criar vários segredos fazendo um loop no tipo de recurso.
+
+    {
+        "type": enum,
+        "apiVersion": "2015-06-01",
+        "name": string,
+        "properties": {
+            "value": string
+        },
+        "dependsOn": [ array values ]
+    }
+
+## Valores
+
+As tabelas a seguir descrevem os valores necessários para definir no esquema.
+
+| Nome | Tipo | Obrigatório | Valores permitidos | Descrição |
+| ---- | ---- | -------- | ---------------- | ----------- |
+| type | enum | Sim | Como o recurso filho do cofre da chave:<br />**secrets**<br /><br />Como recurso de nível superior:<br />**Microsoft.KeyVault/vaults/secrets** | O tipo de recurso a ser criado. |
+| apiVersion | enum | Sim | **2015-06-01** <br /> **2014-12-19-preview** | A versão da API a ser usada para criar o recurso. | 
+| name | cadeia de caracteres | Sim | | O nome do segredo a ser criado. Se você estiver implantando o segredo como um recurso filho de um cofre da chave, basta fornecer um nome para o segredo. Se estiver implantando o segredo como um recurso de nível superior, os nomes devem estar no formato **{nome-cofre-chave}/{nome-segredo}**. |
+| propriedades | objeto | Sim | (mostrado abaixo) | Um objeto que especifica o valor do segredo a ser criado. |
+| dependsOn | array | Não | Uma lista separada por vírgulas de nomes de recursos ou identificadores exclusivos de recursos. | A coleção de recursos do qual este vínculo depende. Se a chave do cofre do segredo for implantada no mesmo modelo, inclua o nome do cofre da chave neste elemento para garantir que ele é implantado primeiro. |
+
+### properties object
+
+| Nome | Tipo | Obrigatório | Valores permitidos | Descrição |
+| ---- | ---- | -------- | ---------------- | ----------- |
+| value | cadeia de caracteres | Sim | | O valor do segredo a ser armazenado no cofre da chave. Ao transmitir um valor para essa propriedade, use um parâmetro do tipo **securestring**. |
+
+	
+## Exemplos
+
+O primeiro exemplo implanta um segredo como um recurso filho de um cofre da chave.
+
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "keyVaultName": {
+                "type": "string",
+                "metadata": {
+                    "description": "Name of the vault"
+                }
+            },
+            "tenantId": {
+                "type": "string",
+                "metadata": {
+                   "description": "Tenant Id for the subscription and use assigned access to the vault. Available from the Get-AzureRMSubscription PowerShell cmdlet"
+                }
+            },
+            "objectId": {
+                "type": "string",
+                "metadata": {
+                    "description": "Object Id of the AAD user or service principal that will have access to the vault. Available from the Get-AzureRMADUser or the Get-AzureRMADServicePrincipal cmdlets"
+                }
+            },
+            "keysPermissions": {
+                "type": "array",
+                "defaultValue": [ "all" ],
+                "metadata": {
+                    "description": "Permissions to grant user to keys in the vault. Valid values are: all, create, import, update, get, list, delete, backup, restore, encrypt, decrypt, wrapkey, unwrapkey, sign, and verify."
+                }
+            },
+            "secretsPermissions": {
+                "type": "array",
+                "defaultValue": [ "all" ],
+                "metadata": {
+                    "description": "Permissions to grant user to secrets in the vault. Valid values are: all, get, set, list, and delete."
+                }
+            },
+            "vaultSku": {
+                "type": "string",
+                "defaultValue": "Standard",
+                "allowedValues": [
+                    "Standard",
+                    "Premium"
+                ],
+                "metadata": {
+                    "description": "SKU for the vault"
+                }
+            },
+            "enabledForDeployment": {
+                "type": "bool",
+                "defaultValue": false,
+                "metadata": {
+                    "description": "Specifies if the vault is enabled for VM or Service Fabric deployment"
+                }
+            },
+            "enabledForTemplateDeployment": {
+                "type": "bool",
+                "defaultValue": false,
+                "metadata": {
+                    "description": "Specifies if the vault is enabled for ARM template deployment"
+                }
+            },
+            "enableVaultForVolumeEncryption": {
+                "type": "bool",
+                "defaultValue": false,
+                "metadata": {
+                    "description": "Specifies if the vault is enabled for volume encryption"
+                }
+            },
+            "secretName": {
+                "type": "string",
+                "metadata": {
+                    "description": "Name of the secret to store in the vault"
+                }
+            },
+            "secretValue": {
+                "type": "securestring",
+                "metadata": {
+                    "description": "Value of the secret to store in the vault"
+                }
+            }
+        },
+        "resources": [
+        {
+            "type": "Microsoft.KeyVault/vaults",
+            "name": "[parameters('keyVaultName')]",
+            "apiVersion": "2015-06-01",
+            "location": "[resourceGroup().location]",
+            "tags": {
+                "displayName": "KeyVault"
+            },
+            "properties": {
+                "enabledForDeployment": "[parameters('enabledForDeployment')]",
+                "enabledForTemplateDeployment": "[parameters('enabledForTemplateDeployment')]",
+                "enabledForVolumeEncryption": "[parameters('enableVaultForVolumeEncryption')]",
+                "tenantId": "[parameters('tenantId')]",
+                "accessPolicies": [
+                {
+                    "tenantId": "[parameters('tenantId')]",
+                    "objectId": "[parameters('objectId')]",
+                    "permissions": {
+                        "keys": "[parameters('keysPermissions')]",
+                        "secrets": "[parameters('secretsPermissions')]"
+                    }
+                }],
+                "sku": {
+                    "name": "[parameters('vaultSku')]",
+                    "family": "A"
+                }
+            },
+            "resources": [
+            {
+                "type": "secrets",
+                "name": "[parameters('secretName')]",
+                "apiVersion": "2015-06-01",
+                "tags": { "displayName": "secret" },
+                "properties": {
+                    "value": "[parameters('secretValue')]"
+                },
+                "dependsOn": [
+                    "[concat('Microsoft.KeyVault/vaults/', parameters('keyVaultName'))]"
+                ]
+            }]
+        }]
+    }
+
+O segundo exemplo implanta o segredo como um recurso de nível superior que é armazenado em um cofre da chave existente.
+
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "keyVaultName": {
+                "type": "string",
+                "metadata": {
+                    "description": "Name of the existing vault"
+                }
+            },
+            "secretName": {
+                "type": "string",
+                "metadata": {
+                    "description": "Name of the secret to store in the vault"
+                }
+            },
+            "secretValue": {
+                "type": "securestring",
+                "metadata": {
+                    "description": "Value of the secret to store in the vault"
+                }
+            }
+        },
+        "variables": {},
+        "resources": [
+            {
+                "type": "Microsoft.KeyVault/vaults/secrets",
+                "apiVersion": "2015-06-01",
+                "name": "[concat(parameters('keyVaultName'), '/', parameters('secretName'))]",
+                "properties": {
+                    "value": "[parameters('secretValue')]"
+                }
+            }
+        ],
+        "outputs": {}
+    }
+
+
+## Próximas etapas
+
+- Para obter informações gerais sobre cofres de chave, veja [Introdução ao Cofre da Chave do Azure](./key-vault/key-vault-get-started.md).
+- Para obter um exemplo de como fazer referência a um segredo do cofre da chave durante a implantação de modelos, veja [Transmitir valores seguros durante a implantação](resource-manager-keyvault-parameter.md).
+
+<!---HONumber=AcomDC_1217_2015-->

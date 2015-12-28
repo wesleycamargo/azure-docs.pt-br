@@ -51,11 +51,11 @@ Em [ApplicationInsights.config](app-insights-configuration-with-applicationinsig
 
     Quando o valor da porcentagem de amostragem muda, quanto tempo depois temos permissão para aumentar a porcentagem de amostragem novamente a fim de capturar mais dados.
 
-* `<MinSamplingPercentage>0.1<\MinSamplingPercentage>`
+* `<MinSamplingPercentage>0.1</MinSamplingPercentage>`
 
     À medida que a porcentagem de amostragem varia, qual é o valor mínimo que podemos definir.
 
-* `<MaxSamplingPercentage>100.0<\MaxSamplingPercentage>`
+* `<MaxSamplingPercentage>100.0</MaxSamplingPercentage>`
 
     À medida que a porcentagem de amostragem varia, qual é o valor máximo que podemos definir.
 
@@ -63,7 +63,7 @@ Em [ApplicationInsights.config](app-insights-configuration-with-applicationinsig
 
     No cálculo da média móvel, o peso atribuído ao valor mais recente. Use um valor menor ou igual a 1. Valores menores tornam o algoritmo menos reativo a mudanças repentinas.
 
-* `<InitialSamplingPercentage>100<\InitialSamplingPercentage>`
+* `<InitialSamplingPercentage>100</InitialSamplingPercentage>`
 
     O valor atribuído quando o aplicativo acabou de ser iniciado. Não o reduza enquanto estiver depurando.
 
@@ -297,4 +297,4 @@ O SDK do lado do cliente (JavaScript) participa da amostragem em conjunto com o 
 
  * Inicialize uma instância separada de TelemetryClient com um novo TelemetryConfiguration (não o Active padrão). Use isso para enviar seus eventos raros.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # Visualização do modelo de aplicativo v2.0: limitações e restrições
@@ -85,4 +85,4 @@ O modelo de aplicativo v2.0 é compatível com Open ID Connect e OAuth 2.0. No e
 
 Para entender melhor o escopo da funcionalidade de protocolo compatível no modelo de aplicativo v2.0, leia nossa [Referência de Protocolo do OpenID Connect e OAuth 2.0](active-directory-v2-protocols.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

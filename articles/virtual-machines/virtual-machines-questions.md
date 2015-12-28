@@ -69,7 +69,7 @@ Você precisa estabelecer uma conexão remota para fazer logon na máquina virtu
 - [Como fazer logon em uma máquina virtual executando o Windows Server](virtual-machines-log-on-windows-server.md). Há suporte para o máximo de duas conexões simultâneas, a menos que o servidor esteja configurado como um host de sessão dos Serviços de Área de Trabalho Remota.  
 - [Como fazer logon em uma máquina virtual que executa o Linux](virtual-machines-linux-how-to-log-on.md). Por padrão, o SSH permite um máximo de 10 conexões simultâneas. Você pode aumentar esse número editando o arquivo de configuração.
 
-Se tiver problemas com a Área de Trabalho Remota ou o SSH, instale e use a extensão [VMAccess](http://go.microsoft.com/fwlink/p/?LinkId=396856) para ajudar a corrigir o problema.
+Se tiver problemas com a Área de Trabalho Remota ou o SSH, instale e use a extensão [VMAccess](virtual-machines-extensions-features.md) para ajudar a corrigir o problema.
 
 Para VMs Windows, as opções adicionais incluem:
 
@@ -102,7 +102,7 @@ Para obter detalhes gerais sobre o processo e as ferramentas para migrar um Wind
 
 As imagens fornecidas pelo Azure não têm um nome de usuário e uma senha pré-configurados. Quando cria a máquina virtual usando uma dessas imagens, você precisa fornecer um nome de usuário e senha que você usará para fazer logon na máquina virtual.
 
-Se você esqueceu o nome de usuário ou senha e instalou o agente de VM, você pode instalar e usar a extensão [VMAccess](http://go.microsoft.com/fwlink/p/?LinkId=396856) para corrigir o problema.
+Se você esqueceu o nome de usuário ou senha e instalou o agente de VM, você pode instalar e usar a extensão [VMAccess](virtual-machines-extensions-features.md) para corrigir o problema.
 
 Detalhes adicionais:
 
@@ -158,4 +158,4 @@ Para fornecer redundância, coloque duas ou mais VMs configuradas de forma semel
 
 [Diferentes maneiras de criar uma máquina virtual Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

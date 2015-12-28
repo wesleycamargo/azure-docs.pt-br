@@ -49,8 +49,9 @@ A camada CDN Standard inclui os seguintes recursos:
 - Balanceamento de carga
 - Proteção DDOS
 - [Limpeza rápida](cdn-purge-endpoint.md)
+- [Gerenciamento por meio da API REST](https://msdn.microsoft.com/library/mt634456.aspx)
 
- 
+
 ## Recursos Premium
 
 A camada CDN Premium inclui todos os recursos da camada Standard, além desses recursos adicionais:
@@ -59,4 +60,4 @@ A camada CDN Premium inclui todos os recursos da camada Standard, além desses r
 - [Relatórios avançados de HTTP](cdn-advanced-http-reports.md)
 - [Estatísticas em tempo real](cdn-read-time-stats.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Como atualizar projetos para a versão atual das ferramentas do Azure"
+   pageTitle="Como atualizar projetos para a versão atual das ferramentas do Azure | Microsoft Azure"
    description="Aprenda como atualizar um projeto do Azure no Visual Studio para a versão atual das ferramentas do Azure"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/28/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Como atualizar projetos para a versão atual das ferramentas do Azure para Visual Studio
 
@@ -51,4 +51,4 @@ Se um projeto é atualizado automaticamente ou se você especificar que deseja a
 
 1. Compile o projeto e resolva os erros resultantes das alterações de API. Para obter informações sobre como modificar seu código para a nova versão, consulte a documentação da API específica.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

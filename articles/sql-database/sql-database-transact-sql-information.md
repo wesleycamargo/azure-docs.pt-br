@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Informações de Transact-SQL de Banco de Dados SQL do Azure | Microsoft Azure"
-   description="Instruções Transact-SQL no Banco de Dados SQL do Azure"
+   pageTitle="Sem suporte no T-SQL de Banco de Dados SQL do Azure | Microsoft Azure"
+   description="Instruções Transact-SQL que têm suporte menor que o total pelo Banco de Dados SQL"
    services="sql-database"
    documentationCenter=""
    authors="BYHAM"
@@ -14,12 +14,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="11/09/2015"
+   ms.date="12/14/2015"
    ms.author="rick.byham@microsoft.com"/>
 
-# Informações de Transact-SQL de Banco de Dados SQL do Azure
+# Diferenças de Transact-SQL de Banco de Dados SQL do Azure
 
-No Banco de Dados SQL do Microsoft Azure, há suporte total para a maioria das instruções Transact-SQL do SQL Server 2016. Isso inclui os tipos de dados do SQL Server, seus operadores e as funções de cadeia de caracteres, aritméticas, lógicas e de cursor, além de outros elementos Transact-SQL que dependem da maioria dos aplicativos. Funções com suporte parcial ou sem suporte geralmente estão relacionadas às diferenças no modo como o Banco de Dados SQL gerencia o banco de dados (como recursos de segurança, de alta disponibilidade e de arquivos) ou para recursos de finalidade especial, como o service broker. Já que o Banco de Dados SQL isola muitos recursos de dependência no banco de dados mestre, muitas atividades de nível de servidor são inadequadas e sem suporte. O Banco de Dados SQL geralmente não dá suporte a recursos preteridos no SQL Server.
+
+Há suporte, tanto no Microsoft SQL Server quanto no Banco de Dados SQL, para a maioria dos recursos Transact-SQL dos quais os aplicativos dependem. A seguir, uma lista parcial dos recursos com suporte para aplicativos:
+
+- Tipos de dados.
+- Operadores.
+- Funções de cadeia de caracteres, aritmética, lógica e de cursor.
+
+No entanto, o Banco de Dados SQL foi projetado para isolar recursos de qualquer dependência no banco de dados **mestre**. Como consequência, muitas atividades de nível de servidor são inapropriadas para o Banco de Dados SQL e não têm suporte. Este tópico fornece detalhes sobre os recursos que não têm suporte total no Banco de Dados SQL.
+
+Além disso, o Banco de Dados SQL geralmente não dá suporte a recursos preteridos no SQL Server.
 
 ## Atualizando para o Banco de Dados SQL V12
 
@@ -65,6 +74,7 @@ O Banco de Dados SQL V12 dá suporte a alguns, mas não todos os argumentos exis
 - KILL STATS JOB
 - Servidores vinculados, OPENQUERY, OPENROWSET, OPENDATASOURCE, BULK INSERT, nomes de 3 e 4 partes
 - Servidores mestre/de destino
+- [integração CLR com o SQL Server](http://msdn.microsoft.com/library/ms254963.aspx) do .NET framework
 - Administrador de recursos
 - Pesquisa semântica
 - Credenciais do servidor
@@ -87,12 +97,14 @@ O Banco de Dados SQL V12 dá suporte a alguns, mas não todos os argumentos exis
 
 ## Referência completa do Transact-SQL
 
-Para obter mais informações sobre gramática, uso e exemplos do Transact-SQL, consulte [Referência do Transact-SQL (mecanismo de banco de dados)](https://msdn.microsoft.com/library/bb510741.aspx) nos Manuais Online do SQL Server.
+Para obter mais informações sobre gramática, uso e exemplos do Transact-SQL, veja [Referência do Transact-SQL (mecanismo de banco de dados)](https://msdn.microsoft.com/library/bb510741.aspx) nos Manuais Online do SQL Server.
 
 ### Sobre as marcas "Aplica-se a"
 
-A referência do Transact-SQL inclui tópicos relacionados ao SQL Server 2008, SQL Server 2008 R2, SQL Server 2012, SQL Server 2014 e Banco de Dados SQL do Microsoft Azure. Na parte superior de cada tópico há uma seção indicando quais produtos dão suporte ao assunto do tópico. Se um produto é omitido, o recurso descrito pelo tópico não está disponível nesse produto. Por exemplo, grupos de disponibilidade foram introduzidos no SQL Server 2012. O tópico **CRIAR GRUPO DE DISPONIBILIDADE** indica que ele se aplica ao **SQL Server (desde o SQL Server 2012 até a versão atual)**, porque ele não se aplica ao SQL Server 2008, SQL Server 2008 R2, nem ao Banco de Dados SQL do Microsoft Azure.
+A referência do Transact-SQL inclui tópicos relacionados a versões do SQL Server da 2008 à atual. Sob o título do tópico normalmente há uma linha "Aplica-se a" que lista as versões do SQL Server e talvez outros nomes de produtos também. Geralmente, as mesmas marcas "Aplica-se a" também listam o Banco de Dados SQL do Azure. Se uma "Aplica-se a" não lista um Banco de Dados SQL do Azure, o conteúdo do tópico não se aplica ao Banco de dados SQL do Azure. Às vezes, você poderá ver uma linha "Aplica-se a" que lista vários produtos, cada um com um pequeno ícone para indicar se o tópico se aplica a cada produto.
 
-Em alguns casos, o assunto geral do tópico pode ser usado em um produto, mas não há suporte para todos os argumentos. Por exemplo, usuários de bancos de dados independentes foram introduzidos no SQL Server 2012. A instrução **CREATE USER** pode ser usada em qualquer produto SQL Server; no entanto, a sintaxe **WITH PASSWORD** não pode ser usada com versões anteriores. Nesse caso, seções **Aplica-se a** adicionais são inseridas nas descrições apropriadas do argumento no corpo do tópico.
+ Por exemplo, grupos de disponibilidade foram introduzidos no SQL Server 2012. O tópico **CRIAR GRUPO DE DISPONIBILIDADE** indica que ele se aplica ao **SQL Server (desde o SQL Server 2012 até a versão atual)**, pois ele não se aplica ao SQL Server 2008, SQL Server 2008 R2, nem ao Banco de Dados SQL do Microsoft Azure.
 
-<!---HONumber=Nov15_HO3-->
+Em alguns casos, o assunto geral de um tópico pode ser usado em um produto, mas há pequenas diferenças entre produtos. As diferenças são indicadas em pontos médios no tópico, conforme apropriado.
+
+<!---HONumber=AcomDC_1217_2015-->

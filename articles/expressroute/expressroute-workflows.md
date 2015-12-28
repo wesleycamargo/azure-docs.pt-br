@@ -86,7 +86,7 @@ Provisionado e Habilitado são os únicos estados nos quais o circuito pode esta
 
 Você verá o circuito da Rota Expressa no estado descrito abaixo assim que executar o cmdlet do PowerShell para excluir o circuito da Rota Expressa.
 
-	ServiceProviderProvisioningState : Provisioning
+	ServiceProviderProvisioningState : Provisioned
 	Status                           : Disabling
 
 Entre em contato com seu provedor de conectividade para desprovisionar o circuito da Rota Expressa. **Importante:** a Microsoft continuará a cobrar pelo circuito até que você execute o cmdlet do PowerShell para desprovisioná-lo.
@@ -121,4 +121,4 @@ Se o estado de prefixo público anunciado for definido como *validação necess�
 	- [Configurar o roteamento](expressroute-howto-routing-classic.md)
 	- [Vincular uma Rede Virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

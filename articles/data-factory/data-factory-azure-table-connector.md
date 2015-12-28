@@ -317,8 +317,7 @@ O pipeline contém uma Atividade de Cópia que está configurada para usar os co
 	        ],
 	        "typeProperties": {
 	          "source": {
-	            "type": "BlobSource",
-	            "blobColumnSeparators": ","
+	            "type": "BlobSource"
 	          },
 	          "sink": {
 	            "type": "AzureTableSink",
@@ -370,8 +369,7 @@ As propriedades disponíveis na seção typeProperties da atividade, por outro l
 
 Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | Utiliza a consulta personalizada para ler os dados. | <p>Cadeia de caracteres de consulta de tabela do Azure.</p>**Exemplo:**<br/> "azureTableSourceQuery": "PartitionKey eq 'DefaultPartitionKey'" <br/><br/>"azureTableSourceQuery": "$$Text.Format('PartitionKey ge \\'{0:yyyyMMddHH00_0000}\\' and PartitionKey le \\'{0:yyyyMMddHH00_9999}\\')', SliceStart)" | Não
-azureTableSourceIgnoreTableNotFound | Indique se assimilar a exceção da tabela não existe. | TRUE<br/>FALSE | Não |
+azureTableSourceQuery | Utiliza a consulta personalizada para ler os dados. | <p>Cadeia de consulta de tabela do Azure.</p>* * Exemplos: * ***<br/> "azureTableSourceQuery": "eq PartitionKey 'DefaultPartitionKey'" <br/><br/>"azureTableSourceQuery": "$$Text.Format ('PartitionKey ge \\'{0:yyyyMMddHH00\_0000}\\ 'e PartitionKey le \\'{0:yyyyMMddHH00\_9999}\\')', SliceStart)" | Nenhum azureTableSourceIgnoreTableNotFound | Indique se assimilar a exceção da tabela não existe. | TRUE<br/>FALSE | Não |
 
 **AzureTableSink** dá suporte às seguintes propriedades na seção typeProperties:
 
@@ -505,4 +503,4 @@ Nesse caso, a fábrica dados fará automaticamente as conversões de tipo, inclu
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -161,7 +161,7 @@ Em seguida, você pode usar o arquivo .pem com o portal clássico ou com o modo 
 
 ## Conectar-se à sua VM
 
-O comando **ssh** usa um nome de usuário para fazer logon, endereço de rede do computador e a porta com a qual se conectar ao endereço – além de muitas outras variações especiais. (Para saber mais sobre **ssh**, comece [aqui](https://en.wikipedia.org/wiki/Secure_Shell))
+O comando **ssh** usa um nome de usuário para fazer logon, endereço de rede do computador e a porta com a qual se conectar ao endereço – além de muitas outras variações especiais. (Para obter mais informações sobre **ssh**, você pode começar com este [artigo sobre Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell))
 
 Um uso típico com a implantação do Gerenciador de Recursos pode parecer com o seguinte, se você tiver especificado apenas um subdomínio e um local de implantação:
 
@@ -298,4 +298,4 @@ Leia as sugestões em [Solucionando problemas de conexões SSH](virtual-machines
  
 Agora que você conectou-se à sua VM, atualize sua distribuição escolhida antes de continuar a usá-la.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

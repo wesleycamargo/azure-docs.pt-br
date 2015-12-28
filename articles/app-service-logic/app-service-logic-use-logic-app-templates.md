@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="12/09/2015"
 	ms.author="klam"/>
 
 # Usar modelos de aplicativos lógicos
@@ -44,4 +44,4 @@ Modelos simples que se integram a serviços de mídia social, como Twitter, Yamm
 Após selecionar um dos modelos, conclua a implantação como você faria se criasse seu próprio aplicativo lógico. As etapas detalhadas estão em [Criar um aplicativo lógico](app-service-logic-create-a-logic-app.md).
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

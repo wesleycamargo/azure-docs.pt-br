@@ -80,7 +80,7 @@ Observe que servidores físicos serão executados como VMs no Azure se seu servi
 
 ### Quais VMs VMware posso proteger?
 
-Para esse cenário, você precisará de um servidor vCenter VMware, de um hipervisor vSphere e de máquinas virtuais com ferramentas VMware em execução. Para verificar os requisitos exatos, confira [Do que eu preciso?](site-recovery-vmware-to-azure.md/#what-do-i-need). As mesmas limitações se aplicam independentemente de se estar replicando servidores físicos para o Azure ou para um site secundário.
+Para esse cenário, você precisará de um servidor vCenter VMware, de um hipervisor vSphere e de máquinas virtuais executando ferramentas VMware. Para verificar os requisitos exatos, confira [Do que eu preciso?](site-recovery-vmware-to-azure.md/#what-do-i-need). As mesmas limitações se aplicam independentemente de se estar replicando servidores físicos para o Azure ou para um site secundário.
 
 ### Há algum pré-requisito para replicar máquinas virtuais no Azure?
 
@@ -98,7 +98,7 @@ Durante a replicação normal, os dados são replicados no armazenamento do Azur
 
 Sim. Ao usar o Site Recovery para administrar a replicação e o failover em suas filiais, você poderá visualizar e administrar unificadamente todas as suas cargas de trabalho corporativas em um local centralizado. Você pode executar failovers e administrar a recuperação de desastre de todas as ramificações do escritório principal facilmente, sem precisar fazer visitas locais.
 
-### Há um SDK que posso usar para automatizar o fluxo de trabalho do ASR?
+### Há um SDK que posso usar para automatizar o fluxo de trabalho do Site Recovery?
 
 Sim. Você pode automatizar fluxos de trabalho do Site Recovery usando a API Rest, o PowerShell ou o SDK do Azure. Saiba mais em [Implantar o Site Recovery com o PowerShell](site-recovery-deploy-with-powershell.md)
 
@@ -223,4 +223,4 @@ Sim, você pode replicar máquinas virtuais Hyper-V e o Azure, ou entre os sites
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

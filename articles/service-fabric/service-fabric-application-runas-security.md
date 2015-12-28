@@ -91,13 +91,13 @@ Agora, vamos adicionar o arquivo MySetup.bat ao projeto do Visual Studio para te
 Agora, abra o arquivo MySetup.bat e adicione os comandos a seguir.
 
 ~~~
-REM Defina uma variável de ambiente do sistema. Isso requer privilégios de administrador
+REM Set a system environment variable. This requires administrator privilege
 setx -m TestVariable "MyValue"
 echo System TestVariable set to > test.txt
 echo %TestVariable% >> test.txt
 
-REM Para excluir essa variável do sistema use
-REM REG delete "HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment" /v TestVariable /f
+REM To delete this system variable us
+REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
 ~~~
 
 Em seguida, compile e implante a solução em um cluster de desenvolvimento local. Após a inicialização do serviço, conforme visto no Gerenciador do Service Fabric, veja que MySetup.bat foi bem-sucedido de duas maneiras. Abra um prompt de comando do PowerShell e digite
@@ -272,7 +272,7 @@ O manifesto do aplicativo abaixo mostra várias configurações diferentes descr
       </Users>
    </Principals>
    <Policies>
-      <DefaultRunAsPolicy UserRef="MyDefaultAccount" />
+      <DefaultRunAsPolicy UserRef="LocalAdmin" />
    </Policies>
    <Certificates>
 	 <EndpointCertificate Name="Cert1" X509FindValue="FF EE E0 TT JJ DD JJ EE EE XX 23 4T 66 "/>
@@ -290,4 +290,4 @@ O manifesto do aplicativo abaixo mostra várias configurações diferentes descr
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

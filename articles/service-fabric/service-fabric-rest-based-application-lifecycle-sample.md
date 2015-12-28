@@ -18,16 +18,16 @@
 
 # Exemplo do ciclo de vida de aplicativo baseado em REST
 
-Este exemplo demonstra o ciclo de vida do aplicativo da Malha de Serviço por meio de chamadas à API REST. Para obter mais informações sobre o ciclo de vida do aplicativo da Malha de Serviço, consulte [Ciclo de vida do aplicativo da Malha de Serviço](service-fabric-application-lifecycle.md).
+Este exemplo demonstra o ciclo de vida do aplicativo da Malha de Serviço por meio de chamadas à API REST. Para obter mais informações sobre o ciclo de vida do aplicativo da Malha de Serviço, consulte [Ciclo de vida do aplicativo do Service Fabric](service-fabric-application-lifecycle.md).
 
 Este exemplo realiza as seguintes tarefas:
 
-* Provisiona o exemplo do WordCount 1.0.0 do pacote de aplicativos WordCount no ImageStore.
+* Provisiona o exemplo do **WordCount 1.0.0** do pacote de aplicativos WordCount no repositório de imagens.
 * Exibe a lista de tipos de aplicativo, que inclui o WordCount 1.0.0.
-* Cria o aplicativo WordCount como malha:/WordCount.
+* Cria o aplicativo WordCount como **malha:/WordCount**.
 * Exibe a lista de aplicativos, que inclui malha:/WordCount versão 1.0.0.
-* Provisiona a versão 1.1.0 do exemplo do WordCount do pacote de aplicativos WordCountUpgrade no ImageStore.
-* Exibe a lista de tipos de aplicativo, que inclui o WordCount 1.0.0 e o WordCount 1.1.0.
+* Provisiona a versão 1.1.0 do exemplo do WordCount do pacote de aplicativos **WordCountUpgrade** no repositório de imagens.
+* Exibe a lista de tipos de aplicativo, que inclui o WordCount 1.0.0 e o **WordCount 1.1.0**.
 * Atualiza o aplicativo WordCount para a versão 1.1.0.
 * Exibe a lista de aplicativos, que inclui o WordCount versão 1.1.0, mas não inclui mais o WordCount versão 1.0.0.
 * Exclui o aplicativo WordCount.
@@ -40,21 +40,21 @@ Este exemplo realiza as seguintes tarefas:
 
 ## Pré-requisitos
 
-Este exemplo usa o [exemplo do WordCount](http://aka.ms/servicefabricsamples) (encontrado nos exemplos da Introdução). O exemplo do WordCount deve ser criado primeiro e, em seguida, dois pacotes de aplicativos devem ser copiados no ImageStore.
+Este exemplo usa o [exemplo do WordCount](http://aka.ms/servicefabricsamples) (encontrado nos exemplos da **Introdução**). O exemplo do WordCount deve ser criado primeiro e, em seguida, dois pacotes de aplicativos devem ser copiados no repositório de imagens.
 
 |Pasta|Descrição|
 |------|-----------|
-|WordCount|O aplicativo de exemplo do WordCount. O ApplicationManifest.xml contém ApplicationTypeVersion="1.0.0".|
-|WordCountUpgrade|O aplicativo de exemplo do WordCount. O arquivo ApplicationManifest.xml deve ser alterado para ApplicationTypeVersion="1.1.0" para permitir que a atualização do aplicativo ocorra.|
+|WordCount|O aplicativo de exemplo do WordCount. O **ApplicationManifest.xml** contém **ApplicationTypeVersion="1.0.0"**.|
+|WordCountUpgrade|O aplicativo de exemplo do WordCount. O arquivo ApplicationManifest.xml deve ser alterado para **ApplicationTypeVersion="1.1.0"** para permitir que a atualização do aplicativo ocorra.|
 
-Para criar os pacotes de aplicativos e copiá-los no ImageStore, execute as seguintes etapas:
+Para criar os pacotes de aplicativos e copiá-los no repositório de imagens, execute as seguintes etapas:
 
-1. Copie C:\\ServiceFabricSamples\\Services\\WordCount\\WordCount\\pkg\\Debug em C:\\Temp\\WordCount. Isso cria o pacote de aplicativos WordCount.
-2. Copie C:\\Temp\\WordCount em C:\\Temp\\WordCountUpgrade. Isso cria o pacote de aplicativos WordCountUpgrade
-3. Abra C:\\Temp\\WordCountUpgrade\\ApplicationManifest.xml em um editor de texto.
-4. No elemento ApplicationManifest, altere o atributo ApplicationTypeVersion para "1.1.0". Isso atualiza o número da versão do aplicativo.
+1. Copie **C:\\ServiceFabricSamples\\Services\\WordCount\\WordCount\\pkg\\Debug** em **C:\\Temp\\WordCount**. Isso cria o pacote de aplicativos WordCount.
+2. Copie C:\\Temp\\WordCount em **C:\\Temp\\WordCountUpgrade**. Isso cria o pacote de **aplicativos WordCountUpgrade**.
+3. Abra **C:\\Temp\\WordCountUpgrade\\ApplicationManifest.xml** em um editor de texto.
+4. No elemento **ApplicationManifest**, altere o atributo **ApplicationTypeVersion** para **"1.1.0"**. Isso atualiza o número da versão do aplicativo.
 5. Salve o arquivo ApplicationManifest.xml alterado.
-6. Execute o seguinte script do PowerShell como administrador para copiar os aplicativos no ImageStore:
+6. Execute o seguinte script do PowerShell como administrador para copiar os aplicativos no repositório de imagens:
 
 ```powershell
 # Deploy the WordCount and upgrade applications
@@ -707,6 +707,6 @@ namespace ServiceFabricRestCaller
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Próximas etapas
 
-[Ciclo de vida do aplicativo da Malha de Serviço](service-fabric-application-lifecycle.md)
+[Ciclo de vida do aplicativo do Service Fabric](service-fabric-application-lifecycle.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

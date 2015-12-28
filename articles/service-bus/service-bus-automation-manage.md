@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gerenciar Barramento de Serviço do Azure usando a Automação do Azure"
+	pageTitle="Gerenciar Barramento de Serviço do Azure usando a Automação do Azure | Microsoft Azure"
 	description="Saiba mais sobre como o serviço de Automação do Azure pode ser usado para gerenciar o Barramento de Serviço do Azure."
 	services="service-bus, automation"
 	documentationCenter=""
@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="core"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/28/2015"
+	ms.date="12/09/2015"
 	ms.author="csand"/>
 
 
@@ -42,4 +42,4 @@ Agora que você aprendeu os fundamentos de Automação do Azure e como ele pode 
 * Confira o artigo sobre [Gerenciar Barramento de Serviço com o PowerShell](service-bus-powershell-how-to-provision.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

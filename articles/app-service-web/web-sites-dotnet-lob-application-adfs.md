@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="09/29/2015" 
+	ms.date="12/15/2015" 
 	ms.author="cephalin"/>
 
 # Criar um aplicativo Web .NET MVC no Serviço de Aplicativo do Azure com autenticação do AD FS
@@ -48,7 +48,7 @@ Você criará um aplicativo básico do ASP.NET nos Aplicativos Web do Serviço d
 <a name="bkmk_sample"></a>
 ## Usar o aplicativo de exemplo para modelo de linha de negócios ##
 
-O aplicativo de exemplo neste tutorial, [WebApp-WSFederation-DotNet)](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet), foi criado pela equipe do Active Directory do Azure. Como o AD FS dá suporte a WS-Federation, é possível criá-lo como um modelo para criar novos aplicativos de linha de negócios com facilidade. Ele tem as seguintes vantagens:
+O aplicativo de exemplo neste tutorial, [WebApp-WSFederation-DotNet)](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet), foi criado pela equipe do Active Directory do Azure. Como o AD FS dá suporte ao Web Services Federation, é possível usá-lo como um modelo para criar novos aplicativos de linha de negócios com facilidade. Ele tem as seguintes vantagens:
 
 - Usa [WS-Federation](http://msdn.microsoft.com/library/bb498017.aspx) para autenticar com uma implantação do AD FS local
 - Funcionalidade de entrada e saída
@@ -74,7 +74,7 @@ O aplicativo de exemplo neste tutorial, [WebApp-WSFederation-DotNet)](https://gi
                 MetadataAddress = metadata                                      
             });
 
-	No mundo OWIN, isso é realmente o mínimo necessário para configurar a autenticação do WS-Federation. Isso é mais simples e mais elegante que WIF, onde o Web.config é injetado com XML em todos os lugares. A única informação que você precisa é o identificador da terceira parte confiável (RP) e a URL do arquivo de metadados do serviço do AD FS. Aqui está um exemplo:
+	No mundo OWIN, isso é realmente o mínimo necessário para configurar a autenticação do WS-Federation. Isso é mais simples e mais elegante que o WIF, em que o Web.config é injetado com XML em todos os lugares. A única informação que você precisa é o identificador da terceira parte confiável (RP) e a URL do arquivo de metadados do serviço do AD FS. Aqui está um exemplo:
 
 	-	Identificador RP: `https://contoso.com/MyLOBApp`
 	-	Endereço de metadados: `http://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
@@ -119,7 +119,7 @@ Aqui, você publicará o aplicativo para um aplicativo Web nos Aplicativos Web d
 
 	![](./media/web-sites-dotnet-lob-application-adfs/01-publish-website.png)
 
-2. Selecione **Aplicativos Web do Microsoft Azure**.
+2. Clique em **Serviço de Aplicativo do Microsoft Azure**.
 3. Se você não tiver se inscrito no Azure, clique em **Entrar** e use a conta da Microsoft para sua assinatura do Azure para entrar.
 4. Depois de conectado, clique em **Novo** para criar um novo aplicativo Web.
 5. Preencha todos os campos obrigatórios. Você pretende se conectar a dados locais posteriormente, para não criar um banco de dados para este aplicativo Web.
@@ -144,7 +144,7 @@ Se você deseja anexar o aplicativo Web publicado no Azure ao depurador (ou seja
 <a name="bkmk_rptrusts"></a>
 ## Configurar a terceira parte confiável no gerenciamento do AD FS ##
 
-Agora você precisa configurar uma relação de confiança RP no gerenciamento do AD FS antes de seu aplicativo de exemplo poder realmente autenticar com o AD FS. Você precisará configurar duas relações de confiança RP separadas, uma para o seu ambiente de depuração e outra para seu aplicativo Web publicado.
+Agora você precisa configurar uma relação de confiança de RP no Gerenciamento do AD FS antes de poder usar seu aplicativo de exemplo realmente se autenticar no AD FS. Você precisará configurar duas relações de confiança RP separadas, uma para o seu ambiente de depuração e outra para seu aplicativo Web publicado.
 
 > [AZURE.NOTE]Certifique-se de que você repita as etapas abaixo para ambos os ambientes.
 
@@ -343,4 +343,4 @@ Os Aplicativos Web do Serviço de Aplicativo do Azure dão suporte ao acesso a b
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

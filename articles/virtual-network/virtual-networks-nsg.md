@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # O que é um NSG (grupo de segurança de rede)?
@@ -248,4 +248,4 @@ Uma vez que alguns dos NSGs acima precisam estar associados a NICs individuais, 
 - [Implantar NSGs no Gerenciador de Recursos](virtual-networks-create-nsg-arm-pportal.md).
 - [Gerenciar logs do NSG](virtual-network-nsg-manage-log.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->
