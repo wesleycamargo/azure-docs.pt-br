@@ -103,7 +103,7 @@ Para saber mais, confira [Modelo de distribuição de chaves](http://redis.io/to
 
 ## Qual é o maior tamanho de cache que eu posso criar?
 
-O maior tamanho de cache premium é de 53 GB. Você pode criar até 10 fragmentos, fornecendo um tamanho máximo de 530 GB. Se precisar de um tamanho maior, você pode [solicitar mais](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). Para obter mais informações, veja Preço do Cache Redis do Azure.
+O maior tamanho de cache premium é de 53 GB. Você pode criar até 10 fragmentos, fornecendo um tamanho máximo de 530 GB. Se precisar de um tamanho maior, você pode [solicitar mais](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). Para obter mais informações, veja [Preço do Cache Redis do Azure](https://azure.microsoft.com/pricing/details/cache/).
 
 ## Todos os clientes do Redis dão suporte ao clustering?
 

@@ -95,7 +95,7 @@ Não há suporte para a instalação de software personalizado no cluster usando
 	- Para personalizar o menu, clique com o botão direito do mouse em qualquer parte do menu e clique em **Personalizar**.
 	- **Configurações** e **Todas as Configurações**: exibem a folha **Configurações** do cluster, o que permite acessar informações de configuração detalhadas do cluster.
 	- **Painel**, **Painel do Cluster** e **URL: são maneiras de acessar o painel do cluster, que é o Ambari Web para clusters baseados em Linux.
-- **Área de Trabalho Remota**: conecte-se ao cluster usando a Área de Trabalho Remota.
+	- **Área de Trabalho Remota**: conecte-se ao cluster usando a Área de Trabalho Remota.
 	- **Dimensionar o Cluster**: permite alterar o número de nós de trabalho para o cluster.
 	- **Excluir**: exclui o cluster.
 	- **Início Rápido (![ícone de nuvem e raio = início rápido](./media/hdinsight-administer-use-portal-linux/quickstart.png))**: exibe informações que ajudarão você a começar a usar o HDInsight.
@@ -211,7 +211,8 @@ O impacto da alteração do número de nós de dados em cada tipo de cluster com
 
 ##Pausar/desligar clusters
 
-A maioria dos trabalhos do Hadoop é composta por trabalhos em lotes que só são executados ocasionalmente. Para a maioria dos clusters do Hadoop, há grandes períodos de tempo em que o cluster não está sendo usado para processamento. Com o HDInsight, seus dados são armazenados no Armazenamento do Azure, assim você pode excluir, com segurança, um cluster quando ele não está em uso. Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes maiores do que os encargos para armazenamento, faz sentido, do ponto de vista econômico, excluir os clusters quando não estiverem em uso.
+A maioria dos trabalhos do Hadoop é composta por trabalhos em lotes que só são executados ocasionalmente. Para a maioria dos clusters do Hadoop, há grandes períodos de tempo em que o cluster não está sendo usado para processamento. Com o HDInsight, seus dados são armazenados no Armazenamento do Azure, assim você pode excluir, com segurança, um cluster quando ele não está em uso.
+Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes maiores do que os encargos para armazenamento, faz sentido, do ponto de vista econômico, excluir os clusters quando não estiverem em uso.
 
 Há várias maneiras de programar o processo:
 
@@ -291,7 +292,7 @@ O console de Consulta do HDInsight inclui os seguintes recursos:
 
 	![histórico de trabalhos do portal do hdinsight](./media/hdinsight-administer-use-management-portal/hdinsight-job-history.png)
 
-	Clique em **Nome da Consulta** para mostrar os detalhes, incluindo propriedades do trabalho, **Consulta de Trabalho** e **Saída do Trabalho. Você também pode baixar a consulta e a saída para sua estação de trabalho.
+	Clique em **Nome da Consulta** para mostrar os detalhes, incluindo propriedades do trabalho, **Consulta de Trabalho** e **Saída do Trabalho**. Você também pode baixar a consulta e a saída para sua estação de trabalho.
 
 - **Navegador de Arquivos**: procure a conta de armazenamento padrão e as contas de armazenamento vinculadas.
 
@@ -303,7 +304,7 @@ O console de Consulta do HDInsight inclui os seguintes recursos:
 
 	![IU do Hadoop do portal do hdinsight](./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-ui.png)
 	
-	Na **IU do Hadoop*, você pode procurar arquivos e verificar logs.
+	Na *IU do Hadoop*, você pode procurar arquivos e verificar logs.
 
 - **IU do Yarn**.
 
