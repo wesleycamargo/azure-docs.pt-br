@@ -7,7 +7,7 @@ Ativos por tarefa||50
 Ativos por trabalho||100
 Trabalhos por conta AMS ||50\.000<sup>2</sup>
 Localizadores exclusivos associados a um ativo simultaneamente||5<sup>4</sup>
-Canais ao vivo por conta AMS </p></td>|5</p></td>|N/A<sup>1</sup>
+Canais ao vivo por conta AMS</p></td>|5</p></td>|N/A<sup>1</sup>
 Programas no estado interrompido por canal </p></td>|50</p></td>|N/A<sup>1</sup>
 Programa em estado de execução por canal </p></td>|3</p></td>|3
 Pontos de extremidade de streaming no estado “executando” por conta AMS</p></td>|2</p></td>|N/A<sup>1</sup>

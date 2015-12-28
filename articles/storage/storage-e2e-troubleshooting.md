@@ -351,7 +351,7 @@ Para obter mais informações sobre cenários de ponta a ponta para solução de
 - [Monitorar, diagnosticar e solucionar problemas de Armazenamento](storage-monitoring-diagnosing-troubleshooting.md)
 - [Análise de Armazenamento](http://msdn.microsoft.com/library/azure/hh343270.aspx)
 - [Como monitorar uma conta de armazenamento](storage-monitor-storage-account.md)
-- [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy)
+- [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md)
 - [Guia Operacional do Analisador de Mensagem da Microsoft](http://technet.microsoft.com/library/jj649776.aspx)
  
  

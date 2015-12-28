@@ -252,7 +252,7 @@ As etapas a seguir permitirão que você utilize o Scaffolder de Web Forms.
 2. A partir do painel esquerdo da caixa de diálogo, selecione **Online** -> **Galeria do Visual Studio** -> **Ferramentas** -> **Scaffolding**.
 3. Se você não vê 'Scaffolding de Web Forms' na lista, insira 'Scaffolding de Web Forms' na caixa de pesquisa, à direita da caixa de diálogo.  
 4. Se o Scaffolder de Web Forms ainda não está instalado, selecione **Download** para baixar e instalar o 'Scaffolding de Web Forms'. Reinicie o Visual Studio se necessário. Certifique-se de salvar as alterações para o projeto quando solicitado. ![Caixa de diálogo Extensões e Atualizações](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/ExtensionsAndUpdatesDB.png)  
-5. Compile o projeto **(Ctrl+Shift+B)**. Você deve compilar o projeto antes de usar o mecanismo de scaffolding.  
+5. Compile o projeto (**Ctrl+Shift+B**). Você deve compilar o projeto antes de usar o mecanismo de scaffolding.  
 6. No **Gerenciador de Soluções**, clique com botão direito do mouse em *projeto* e, em seguida, selecione **Adicionar** -> **Novo Item de Scaffold**. A caixa de diálogo **Adicionar Scaffold** é exibida.
 7. Selecione **Web Forms** a partir do painel esquerdo e selecione **Páginas Web Forms utilizando Entity Framework** a partir do painel central. Clique em **Adicionar**. ![Caixa de diálogo Adicionar Scaffold](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13a.png)A caixa de diálogo **Adicionar Páginas de Web Forms** é exibida.  
 

@@ -52,7 +52,7 @@ Para acessar o armazenamento de blob do Azure, você precisa criar uma credencia
 2. Use [CREATE MASTER KEY (Transact-SQL)][] para criar uma chave mestra para o banco de dados. Se seu banco de dados já tem uma chave mestra, não é necessário criar outra. Essa chave é usada para criptografar sua credencial como “secreta” na próxima etapa.
 
     ```
-    -- Create a master key
+    -- Create a E master key
     CREATE MASTER KEY;
     ```
 

@@ -96,7 +96,6 @@ As fatias de conjunto de dados na data factory podem ter um dos seguintes status
 <td>ValidationRetry</td><td>Aguardando a validação ser repetida.</td>
 </tr>
 <tr>
-&lt;tr
 <td rowspan="2">InProgress</td><td>Validando</td><td>Validação em andamento.</td>
 </tr>
 <td></td>
@@ -543,7 +542,9 @@ Você pode implantar alertas para métricas da mesma maneira como faz para event
  
 Substitua subscriptionId, resourceGroupName e dataFactoryName no exemplo acima pelos valores adequados.
 
-A partir de agora, *metricName* dá suporte a dois valores: - FailedRuns - SuccessfulRuns
+A partir de agora, *metricName* dá suporte a dois valores:
+- FailedRuns
+- SuccessfulRuns
 
 **Implantando o alerta:**
 

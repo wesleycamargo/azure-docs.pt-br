@@ -58,7 +58,7 @@ Esta seção descreve como criar um comando do MSBuild que compila um pacote do 
 
     Você também pode especificar o nome do projeto como um parâmetro do MSBuild. Se não for especificado, o diretório atual é usado. Para obter mais informações sobre as opções da linha de comando do MSBuild, consulte [Referência da linha de comando do MSBuild][1].
 
-4.  Localize a saída. Por padrão, esse comando cria um diretório relacionado à pasta raiz do projeto, como *ProjectDir*\\bin\*Configuration*\\app.publish\\. Ao criar um projeto do Azure, você gera dois arquivos, o arquivo do pacote propriamente dito e o arquivo de configuração que o acompanha:
+4.  Localize a saída. Por padrão, esse comando cria um diretório relacionado à pasta raiz do projeto, como *ProjectDir*\\bin\\*Configuration*\\app.publish\\. Ao criar um projeto do Azure, você gera dois arquivos, o arquivo do pacote propriamente dito e o arquivo de configuração que o acompanha:
 
     -   Project.cspkg
     -   ServiceConfiguration.*TargetProfile*.cscfg
@@ -93,7 +93,7 @@ Para configurar o TFS para compilar pacotes do Azure, execute as seguintes etapa
 
 5.  Escolha a guia **Processo**. Na guia Processo, selecione o modelo padrão, em **Compilação**, selecione o projeto se ele ainda não estiver selecionado e expanda a seção **Avançado** na seção **Compilação** da grade.
 
-6.  Escolha **Argumentos do MSBuild**e defina os argumentos da linha de comando do MSBuild apropriados, conforme descrito na Etapa 2 acima. Por exemplo, insira **/t:Publish /p:PublishDir=\\\myserver\\drops\** para compilar um pacote e copie os arquivos de pacote para o local \\\myserver\\drops\\:
+6.  Escolha **Argumentos do MSBuild**e defina os argumentos da linha de comando do MSBuild apropriados, conforme descrito na Etapa 2 acima. Por exemplo, insira **/t:Publish /p:PublishDir=\\\myserver\\drops\\** para compilar um pacote e copie os arquivos de pacote para o local \\\myserver\\drops\\:
 
     ![][2]
 
