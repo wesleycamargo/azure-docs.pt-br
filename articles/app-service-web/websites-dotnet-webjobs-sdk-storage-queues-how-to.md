@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="12/14/2015" 
 	ms.author="tdykstra"/>
 
 # Como usar o armazenamento de fila do Azure com o SDK de Trabalhos Web
@@ -22,7 +22,7 @@
 
 Este guia fornece exemplos de código em C# que mostram como usar o SDK de Trabalhos Web do Azure versão 1.x com o serviço de armazenamento de fila do Azure.
 
-O guia pressupõe que você saiba [como criar um projeto de Trabalho Web no Visual Studio com cadeias de conexão que apontam para sua conta de armazenamento](websites-dotnet-webjobs-sdk-get-started.md).
+Com esse guia, pressupomos que você saiba [como criar um projeto do Trabalho Web no Visual Studio com cadeias de conexão que apontam para sua conta de armazenamento](websites-dotnet-webjobs-sdk-get-started.md#configure-storage) ou [várias contas de armazenamento](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).
 
 A maioria dos trechos de código mostra somente funções, não o código que cria o `JobHost` objeto como neste exemplo:
 
@@ -62,7 +62,8 @@ O guia inclui os seguintes tópicos:
 	- Definir configurações de QueueTrigger
 	- Definir valores para parâmetros do construtor do SDK WebJobs no código
 -   [Como acionar uma função manualmente](#manual)
--   [Como gravar logs](#logs)
+-   [Como gravar logs](#logs) 
+-   [Como tratar erros e configurar tempos limite](#errors)
 -   [Próximas etapas](#nextsteps)
 
 ## <a id="trigger"></a>Como acionar uma função quando uma mensagem da fila é recebida
@@ -131,13 +132,15 @@ O SDK implementa um algoritmo exponencial aleatório de retirada para reduzir o 
 
 ### <a id="instances"></a> Várias instâncias
 
-Se o seu aplicativo Web for executado em várias instâncias, um Trabalho Web contínuo será executado em todos os computadores, e cada computador aguardará os gatilhos e tentará executar as funções. Em alguns cenários, isso pode fazer com que algumas funções processem os mesmos dados duas vezes. Assim, as funções devem ser idempotentes (escritas de forma que chamá-las repetidamente com os mesmos dados de entrada não produza resultados duplicados).
+Se seu aplicativo Web for executado em várias instâncias, um Trabalho Web contínuo será executado em todos os computadores, e cada computador aguardará os gatilhos e tentará executar as funções. O gatilho de fila do SDK dos Trabalhos Web impede automaticamente que uma função processe uma mensagem da fila várias vezes; as funções não precisam ser escritas para ser idempotentes. No entanto, se desejar garantir que apenas uma instância de uma função é executada, mesmo quando houver várias instâncias do aplicativo Web host, é possível usar o atributo `Singleton`.
 
 ### <a id="parallel"></a> Execução paralela
 
 Se você tiver várias funções escutando em filas diferentes, o SDK as chamará em paralelo quando as mensagens forem recebidas simultaneamente.
 
-O mesmo é verdadeiro quando várias mensagens são recebidas para uma única fila. Por padrão, o SDK obtém um lote de 16 mensagens de fila por vez e executa a função que as processa em paralelo. [O tamanho do lote é configurável](#config). Quando o número que está sendo processado chega até a metade do tamanho do lote, o SDK obtém outro lote e começa a processar as mensagens. Portanto, o número máximo de mensagens simultâneas que estão sendo processadas por função é uma vez e meia o tamanho do lote. Esse limite se aplica separadamente a cada função que tem um atributo `QueueTrigger`. Se você não quiser uma execução paralela para mensagens recebidas em uma fila, defina o tamanho do lote como 1.
+O mesmo é verdadeiro quando várias mensagens são recebidas para uma única fila. Por padrão, o SDK obtém um lote de 16 mensagens de fila por vez e executa a função que as processa em paralelo. [O tamanho do lote é configurável](#config). Quando o número que está sendo processado chega até a metade do tamanho do lote, o SDK obtém outro lote e começa a processar as mensagens. Portanto, o número máximo de mensagens simultâneas que estão sendo processadas por função é uma vez e meia o tamanho do lote. Esse limite se aplica separadamente a cada função que tem um atributo `QueueTrigger`.
+
+Se não desejar uma execução paralela para mensagens recebidas em uma fila, é possível definir o tamanho do lote como 1. Veja também **Mais controle sobre o processamento de fila** no [RTM 1.1.0 do SDK dos Trabalhos Web do Azure](/blog/azure-webjobs-sdk-1-1-0-rtm/).
 
 ### <a id="queuemetadata"></a>Obter fila ou metadados de mensagem da fila
 
@@ -581,9 +584,31 @@ E em uma tabela do Azure, os logs `Console.Out` e `Console.Error` têm esta apar
 
 ![Log de erros na tabela](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/tableerror.png)
 
+Se você desejar conectar seu próprio agente, veja [este exemplo](http://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/MiscOperations/Program.cs).
+
+## <a id="errors"></a>Como tratar erros e configurar tempos limite
+
+O SDK dos Trabalhos Web também inclui um atributo [Timeout](http://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/MiscOperations/Functions.cs) que pode ser usado para fazer com que uma função seja cancelada se não for concluída em um período especificado. E se você desejar gerar um alerta quando um número excessivo de erros ocorrerem em um período especificado, é possível usar o atributo `ErrorTrigger`. Este é um [exemplo de ErrorTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Error-Monitoring).
+
+```
+public static void ErrorMonitor(
+[ErrorTrigger("00:01:00", 1)] TraceFilter filter, TextWriter log,
+[SendGrid(
+    To = "admin@emailaddress.com",
+    Subject = "Error!")]
+ SendGridMessage message)
+{
+    // log last 5 detailed errors to the Dashboard
+   log.WriteLine(filter.GetDetailedMessage(5));
+   message.Text = filter.GetDetailedMessage(1);
+}
+```
+
+Você também pode desabilitar e habilitar de modo dinâmico funções para controlar se eles podem ser disparados, usando uma opção de configuração que pode ser uma configuração de aplicativo ou um nome de variável de ambiente. Para obter o código de exemplo, veja o atributo `Disable` no [repositório de exemplos de SDK dos Trabalhos Web](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/MiscOperations/Functions.cs).
+
 ## <a id="nextsteps"></a> Próximas etapas
 
 Este guia forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com filas do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure – Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

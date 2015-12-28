@@ -18,7 +18,7 @@
 
 # Guia de início rápido para a API de recomendações de aprendizado de máquina
 
-Este documento descreve como integrar o seu serviço ou aplicativo para usar as Recomendações de Aprendizado de Máquina do Microsoft Azure.
+Este documento descreve como integrar o seu serviço ou aplicativo para usar as Recomendações de Aprendizado de Máquina do Microsoft Azure. Você pode encontrar mais detalhes sobre a API de Recomendações na [galeria](http://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -34,7 +34,7 @@ Para usar as Recomendações de Aprendizado de Máquina do Azure, você precisa 
 * Criar um modelo de recomendação – Esta é uma operação assíncrona, em que o sistema de recomendação emprega todos os dados de uso e cria um modelo de recomendação. Essa operação pode levar vários minutos ou várias horas, dependendo do tamanho dos dados e dos parâmetros de configuração da compilação. Ao disparar a compilação, você receberá uma ID de compilação. Use-o para verificar quando o processo de compilação foi concluído antes de começar a consumir recomendações.
 * Consumir recomendações - Obtenha recomendações para um item específico ou uma lista de itens.
 
-Todas as etapas acima são feitas por meio da API de Recomendações do Aprendizado de Máquina do Azure.
+Todas as etapas acima são feitas por meio da API de Recomendações do Aprendizado de Máquina do Azure. Você pode baixar um aplicativo de exemplo que implementa cada uma dessas etapas da [galeria também.](http://1drv.ms/1xeO2F3)
 
 ##Limitações
 
@@ -47,24 +47,23 @@ Todas as etapas acima são feitas por meio da API de Recomendações do Aprendiz
 ##Integração
 
 ###Autenticação
-O Microsoft Azure Marketplace dá suporte ao método de autenticação Básico ou OAuth.
+O Microsoft Azure Marketplace dá suporte ao método de autenticação Básico ou OAuth. Você pode localizar facilmente as chaves de conta, navegando até as chaves no marketplace [nas configurações da conta](https://datamarket.azure.com/account/keys).
 ####Autenticação básica
 Adicione o cabeçalho de autorização:
 
 	Authorization: Basic <creds>
                
-	Where <creds> = ConvertToBase64(“AccountKey:” + yourAccountKey);  
+	Where <creds> = ConvertToBase64("AccountKey:" + yourAccountKey);  
 	
 Converta em Base64 (c#)
 
-	var bytes = Encoding.UTF8.GetBytes(“AccountKey:” + yourAccountKey);
+	var bytes = Encoding.UTF8.GetBytes("AccountKey:" + yourAccountKey);
 	var creds = Convert.ToBase64String(bytes);
 	
 Converta em Base64 (JavaScript)
 
 	var creds = window.btoa("AccountKey" + ":" + yourAccountKey);
 	
-Obtenha a chave de conta [aqui](https://datamarket.azure.com/account/keys).
 
 
 
@@ -80,18 +79,15 @@ Cada chamada à API terá, por fim, um parâmetro de consulta chamado apiVersion
 IDs, retornados por qualquer uma das APIS, diferenciam minúsculas de maiúsculas e devem ser usados desta maneira quando passados como parâmetros nas chamadas de API subsequentes. Por exemplo, IDS d modelo e de catálogo diferenciam maiúsculas de minúsculas.
 
 ###Criar um modelo
-Criar uma solicitação "criar modelo":
+Criando uma solicitação para "criar modelo":
 
 | Método HTTP | URI |
 |:--------|:--------|
-|POST     |`<rootURI>/CreateModel?modelName=%27<model_name>%27&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/CreateModel?modelName=%27MyFirstModel%27&apiVersion=%271.0%27`|
+|POST |`<rootURI>/CreateModel?modelName=%27<model_name>%27&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/CreateModel?modelName=%27MyFirstModel%27&apiVersion=%271.0%27`|
 
-|	Nome do Parâmetro	|	Valores Válidos						|
+|	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
-|	modelName	|	Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (\_).<br>Comprimento máximo: 20 |
-| apiVersion | 1.0 |
-|||
-| Corpo da Solicitação | NENHUM |
+|	modelName |	Somente letras (A-Z, a-z), números (0-9), hifens (-) e o sublinhado (\_) são permitidos.<br>Comprimento máximo: 20 | | apiVersion | 1.0 | ||| | Corpo da Solicitação | NENHUM |
 
 
 **Resposta**:
@@ -137,9 +133,9 @@ Se você carregar vários arquivos de catálogo para o mesmo modelo com várias 
 
 | Método HTTP | URI |
 |:--------|:--------|
-|POST     |`<rootURI>/ImportCatalogFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
+|POST |`<rootURI>/ImportCatalogFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
 
-|	Nome do Parâmetro	|	Valores Válidos						|
+|	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
 |	modelId	|	O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas)  |
 | nome do arquivo | Identificador textual do catálogo.<br>Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados<br>Comprimento máximo: 50 |
@@ -186,9 +182,9 @@ Esta seção mostra como carregar dados de uso usando um arquivo. Você pode cha
 
 | Método HTTP | URI |
 |:--------|:--------|
-|POST     |`<rootURI>/ImportUsageFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/ImportUsageFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27ImplicitMatrix10_Guid_small.txt%27&apiVersion=%271.0%27`|
+|POST |`<rootURI>/ImportUsageFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/ImportUsageFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27ImplicitMatrix10_Guid_small.txt%27&apiVersion=%271.0%27`|
 
-|	Nome do Parâmetro	|	Valores Válidos						|
+|	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
 |	modelId	|	O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
 | nome do arquivo | Identificador textual do catálogo.<br>Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados<br>Comprimento máximo: 50 |
@@ -235,9 +231,9 @@ Esta seção mostra como enviar eventos em tempo real para as Recomendações do
 
 | Método HTTP | URI |
 |:--------|:--------|
-|POST     |`<rootURI>/AddUsageEvent?apiVersion=%271.0%27-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
+|POST |`<rootURI>/AddUsageEvent?apiVersion=%271.0%27-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
 
-|	Nome do Parâmetro	|	Valores Válidos						|
+|	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
 |	apiVersion		| 1\.0 |
 |||
@@ -324,11 +320,11 @@ Esta seção mostra como enviar eventos em tempo real para as Recomendações do
 
 | Método HTTP | URI |
 |:--------|:--------|
-|POST     |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27`|
+|POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27`|
 
-|	Nome do Parâmetro	|	Valores Válidos						|
+|	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
-| modelId |	O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas)  |
+| modelId |	O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
 | userDescription | Identificador textual do catálogo. Observe que se você usar espaços você deve codificá-los com 20%. Consulte o exemplo acima.<br>Comprimento máximo: 50 |
 | apiVersion | 1\.0 |
 |||
@@ -398,15 +394,15 @@ XML de OData
 
 | Método HTTP | URI |
 |:--------|:--------|
-|GET     |`<rootURI>/GetModelBuildsStatus?modelId=%27<modelId>%27&onlyLastBuild=<bool>&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/GetModelBuildsStatus?modelId=%279559872f-7a53-4076-a3c7-19d9385c1265%27&onlyLastBuild=true&apiVersion=%271.0%27`|
+|GET |`<rootURI>/GetModelBuildsStatus?modelId=%27<modelId>%27&onlyLastBuild=<bool>&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/GetModelBuildsStatus?modelId=%279559872f-7a53-4076-a3c7-19d9385c1265%27&onlyLastBuild=true&apiVersion=%271.0%27`|
 
 
 
-|	Nome do Parâmetro	|	Valores Válidos						|
+|	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
-|	modelId			|	O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas)	|
-|	onlyLastBuild |	Indica se é necessário retornar todo o histórico de compilação do modelo ou apenas o status da compilação mais recente.	|
-|	apiVersion		|	1\.0									 |
+|	modelId |	O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
+|	onlyLastBuild |	Indica se é necessário retornar todo o histórico de compilação do modelo ou apenas o status da compilação mais recente. |
+|	apiVersion |	1\.0 |
 
 
 **Resposta**:
@@ -473,11 +469,11 @@ XML de OData
 
 | Método HTTP | URI |
 |:--------|:--------|
-|GET     |`<rootURI>/ItemRecommend?modelId=%27<modelId>%27&itemIds=%27<itemId>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/ItemRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&itemIds=%271003%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
+|GET |`<rootURI>/ItemRecommend?modelId=%27<modelId>%27&itemIds=%27<itemId>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/ItemRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&itemIds=%271003%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
 
 
 
-|	Nome do Parâmetro	|	Valores Válidos						|
+|	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
 | modelId | O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
 | itemIds | Lista separada por vírgulas dos itens a serem recomendados.<br>Comprimento máximo: 1024 |
@@ -656,10 +652,10 @@ Esse mecanismo permite, depois de ter um modelo de recomendação em produção,
 
 | Método HTTP | URI |
 |:--------|:--------|
-|PUT     |`<rootURI>/UpdateModel?id=%27<modelId>%27&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/UpdateModel?id=%279559872f-7a53-4076-a3c7-19d9385c1265%27&apiVersion=%271.0%27`|
+|PUT |`<rootURI>/UpdateModel?id=%27<modelId>%27&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/UpdateModel?id=%279559872f-7a53-4076-a3c7-19d9385c1265%27&apiVersion=%271.0%27`|
 
 
-|	Nome do Parâmetro	|	Valores Válidos						|
+|	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
 | ID | O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
 | apiVersion | 1\.0 |
@@ -685,4 +681,4 @@ XML de OData
 Este documento é fornecido "no estado em que se encontra". As informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio. Alguns exemplos aqui representados são fornecidos somente para fins de ilustração e são fictícios. Nenhuma associação ou conexão real é intencional ou deve ser inferida. Este documento não fornece a você nenhum direito legal a qualquer propriedade intelectual de qualquer produto da Microsoft. Você pode copiar e usar este documento para fins de consulta interna. © 2014 Microsoft. Todos os direitos reservados.
  
 
-<!----HONumber=AcomDC_1125_2015--->
+<!---HONumber=AcomDC_1217_2015-->

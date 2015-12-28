@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Navegando e gerenciando recursos de armazenamento com o Gerenciador de Servidores"
+   pageTitle="Navegando e gerenciando recursos de armazenamento com o Gerenciador de Servidores | Microsoft Azure"
    description="Navegando e gerenciando recursos de armazenamento com o Gerenciador de Servidores"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags
    ms.service="storage"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/24/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Navegando e gerenciando recursos de armazenamento com o Gerenciador de Servidores
 
@@ -167,7 +167,7 @@ Para saber mais sobre as filas de serviço de armazenamento, consulte [Como usar
 
 ### Trabalhar com recursos de tabela
 
-O serviço de armazenamento Tabela do Windows Azure armazena grandes quantidades de dados estruturados. O serviço é um repositório de dados NoSQL que aceita chamadas autenticadas de dentro e de fora da nuvem do Azure. As tabelas do Azure são ideais para armazenar dados estruturados não relacionais.
+O serviço de armazenamento Tabela do Microsoft Azure armazena grandes quantidades de dados estruturados. O serviço é um repositório de dados NoSQL que aceita chamadas autenticadas de dentro e de fora da nuvem do Azure. As tabelas do Azure são ideais para armazenar dados estruturados não relacionais.
 
 ### Para criar uma tabela
 
@@ -313,4 +313,4 @@ Há duas maneiras de adicionar contas de armazenamento usando o Gerenciador de S
 
 Para saber mais sobre como usar os serviços de armazenamento do Azure, consulte [Acessando os serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=AcomDC_1217_2015-->

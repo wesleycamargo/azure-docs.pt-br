@@ -78,7 +78,9 @@ Abaixo estão mais instruções de solução de problemas relacionados à plataf
 
 	- Verifique se os certificados são válidos e não expirados para notificações por Push do iOS. 
 	- Certifique-se de que você está configurando corretamente um certificado de *Produção* em seu aplicativo Mobile Engagement. 
+	- Certifique-se de que você esteja testando em um *dispositivo real, físico.* O simulador de iOS não pode processar mensagens por push.
 	- Certifique-se de que o Identificador de pacote está configurado corretamente no aplicativo móvel. Veja as instruções [aqui](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
+	- Durante o teste, use a distribuição "Ad Hoc" em seu perfil de provisionamento móvel. Você não poderá receber uma notificação se seu aplicativo for compilado usando "Depurar"
 
 2. **Android**
 
@@ -107,8 +109,8 @@ Isso costuma acontecer durante o teste e se você estiver usando emuladores ou a
 
 Se você não puder resolver o problema por conta própria, você pode:
 
-1. Procurar seu problema nos threads existentes no fórum StackOverflow e no [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/windows/pt-BR/home?forum=azuremobileengagement) e o mesmo não estiver presente faça uma pergunta nos mesmos. 
-2. Se você encontrar um recurso ausente, então adicione/vote para a solicitação no nosso [Fórum UserVoice](http://feedback.azure.com/forums/285737-mobile-engagement)
+1. Pesquise pelo seu problema nos threads existentes no fórum StackOverflow e no [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/windows/pt-BR/home?forum=azuremobileengagement) e, se não entrá-lo, faça uma pergunta nesses fóruns. 
+2. Se você encontrar um recurso ausente, então adicione a solicitação/vote para ela no nosso [Fórum UserVoice](http://feedback.azure.com/forums/285737-mobile-engagement)
 3. Se você tiver o Suporte da Microsoft abra um incidente de suporte fornecendo os seguintes detalhes: 
 	- ID de assinatura do Azure
 	- Plataforma (por exemplo, iOS, Android, etc.)
@@ -118,4 +120,4 @@ Se você não puder resolver o problema por conta própria, você pode:
 	- Versão do SDK do Mobile Engagement (por exemplo, Android SDK v2.1.0)
 	- Detalhes do erro com a mensagem de erro e cenário exatos
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

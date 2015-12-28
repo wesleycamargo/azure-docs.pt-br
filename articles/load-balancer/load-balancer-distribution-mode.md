@@ -40,14 +40,14 @@ Para máquinas virtuais, você pode usar o PowerShell para alterar as configura�
  
 Adicione um ponto de extremidade do Azure a uma máquina virtual e defina o modo de distribuição do balanceador de carga
 
-	Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution “sourceIP”| Update-AzureVM
+	Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
 
 >[AZURE.NOTE]LoadBalancerDistribution pode ser definido como sourceIP para balanceamento de carga de tupla 2 (IP de origem, IP de destino), balanceamento de carga, sourceIPProtocol para tupla 3 (IP de origem, IP DestinaDestination, protocolo) ou nenhum se você quiser o comportamento padrão de balanceamento de carga de tupla 5
 
 
 Recupee uma configuração de modo de distribuição do balanceador de carga do ponto de extremidade
 
-	PS C:\> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
+	PS C:\> Get-AzureVM –ServiceName MyService –Name MyVM | Get-AzureEndpoint
 
 	VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
 	LBSetName : MyLoadBalancedSet
@@ -74,7 +74,7 @@ Se o elemento LoadBalancerDistribution não estiver presente, o balanceador de c
 
 Se os pontos de extremidade forem parte de um conjunto de pontos de extremidade de balanceamento de carga, o modo de distribuição deverá ser definido no conjunto de pontos de extremidade de balanceamento de carga:
 
-	Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution "sourceIP"
+	Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol TCP -LocalPort 80 -ProbeProtocol TCP -ProbePort 8080 –LoadBalancerDistribution sourceIP
 
 ### Configuração de serviço de nuvem para alterar o modo de distribuição
 
@@ -99,7 +99,7 @@ Você pode aproveitar o SDK do Azure para .NET 2.5 (a ser lançado em novembro) 
 
 ## Exemplo de API
 
-Você pode configurar a distribuição do balanceador de carga usando a API de gerenciamento de serviços. Certifique-se de adicionar o cabeçalho x-ms-version, definido para a versão de 01-09-2014 ou posterior.
+Você pode configurar a distribuição do balanceador de carga usando a API de gerenciamento de serviços. Certifique-se de adicionar o cabeçalho `x-ms-version`, definido para a versão de `2014-09-01` ou posterior.
  
 Atualize a configuração do conjunto de balanceamento de carga especificado em uma implantação
 
@@ -149,4 +149,4 @@ O valor de LoadBalancerDistribution pode ser sourceIP para afinidade de 2 tuplas
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -97,7 +97,7 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal do
     > [AZURE.NOTE]Entre em contato com a equipe de suporte do StatusPage em [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io)para solicitar os metadados necessários para a configuração do logon único.
 
 
-    a. Nos metadados, copie o valor de Emissor e cole-o na caixa de texto **Emissor**.
+    a. Nos metadados, copie o valor de Issuer e cole-o na caixa de texto **Identificador**.
 
     b. Nos metadados, copie o valor a URL de Resposta e cole-a na caixa de texto **URL de Resposta**.
 
@@ -244,4 +244,4 @@ O objetivo desta seção é testar sua configuração de logon único do AD do A
 [204]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

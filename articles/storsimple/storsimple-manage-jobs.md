@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/14/2015"
    ms.author="alkohli" />
 
 # Use o serviço StorSimple Manager para exibir e gerenciar trabalhos do StorSimple
+
+[AZURE.INCLUDE [storsimple-version-selector-manage-jobs](../../includes/storsimple-version-selector-manage-jobs.md)]
 
 ## Visão geral
 
@@ -25,27 +27,27 @@ A página **Trabalhos** oferece um portal central único para visualização e g
 
 Você pode localizar rapidamente os trabalhos nos quais está interessado filtrando os campos, como:
 
-- **Status** – Os trabalhos podem estar em execução, agendados, com falha, concluídos, em cancelamento ou cancelados.
+- **Status** – os trabalhos podem estar em execução, agendados, com falha, concluídos, em cancelamento ou cancelados.
 
-- **Tipo** – Os trabalhos podem ser criados como resultado de um backup sob demanda ou agendado (**Fazer Backup**), clonagem, uma restauração de dispositivo ou uma operação de atualização.
+- **Tipo** – os trabalhos podem ser criados como resultado de um backup sob demanda ou agendado (**Fazer Backup**), clonagem, uma restauração de dispositivo ou uma operação de atualização.
 
-- **Dispositivos** – Os trabalhos são iniciados em um determinado dispositivo conectado ao seu serviço.
+- **Dispositivos** – os trabalhos são iniciados em um determinado dispositivo conectado ao seu serviço.
 
-- **De e Para** – Os trabalhos podem ser filtrados com base no intervalo de data e hora.
+- **De e Para** – os trabalhos podem ser filtrados com base no intervalo de data e hora.
 
 Os trabalhos filtrados são então tabulados com base nos seguintes atributos:
 
-- **Tipo** – Backup, clone, restauração, failover ou atualização.
+- **Tipo** – backup, clone, restauração, failover ou atualização.
 
-- **Status** – Em execução, agendado, com falha, concluído, em cancelamento ou cancelado.
+- **Status** – em execução, agendado, com falha, concluído, em cancelamento ou cancelado.
 
-- **Entidade** – Os trabalhos podem ser associados a um volume, uma política de backup ou um dispositivo. Um trabalho de clone é associado a um volume, enquanto um trabalho de backup agendado é associado a uma política de backup. Um trabalho de dispositivo é criado como resultado de uma recuperação de desastres (DR) ou uma operação de restauração.
+- **Entidade** – os trabalhos podem ser associados a um volume, uma política de backup ou um dispositivo. Um trabalho de clone é associado a um volume, enquanto um trabalho de backup agendado é associado a uma política de backup. Um trabalho de dispositivo é criado como resultado de uma recuperação de desastres (DR) ou uma operação de restauração.
 
-- **Dispositivo** – O nome do dispositivo no qual o trabalho foi iniciado.
+- **Dispositivo** – o nome do dispositivo no qual o trabalho foi iniciado.
 
-- **Iniciado em** – A hora em que o trabalho foi iniciado.
+- **Iniciado em** – a hora em que o trabalho foi iniciado.
 
-- **Progresso** – A porcentagem de conclusão de um trabalho em execução. Para um trabalho concluído, sempre deve ser 100%.
+- **Andamento** – o percentual de conclusão de um trabalho em execução. Para um trabalho concluído, sempre deve ser 100%.
 
 A lista de trabalhos é atualizada a cada 30 segundos.
 
@@ -61,7 +63,7 @@ Execute as etapas a seguir para exibir os detalhes de qualquer trabalho.
 
 #### Para exibir detalhes do trabalho
 
-1. Na página **Trabalhos**, exiba os trabalhos nos quais está interessado executando uma consulta com os filtros apropriados. É possível pesquisar trabalhos concluídos, em execução ou cancelados.
+1. Na página **Trabalhos**, exiba o(s) trabalho(s) no(s) qual(is) está interessado executando uma consulta com os filtros apropriados. É possível pesquisar trabalhos concluídos, em execução ou cancelados.
 
 2. Selecione um trabalho.
 
@@ -75,7 +77,7 @@ Realize as etapas a seguir para cancelar um trabalho em execução.
 
 ### Para cancelar um trabalho
 
-1. Na página **Trabalhos**, exiba os trabalhos em execução que você deseja cancelar executando uma consulta com os filtros apropriados.
+1. Na página **Trabalhos**, exiba o(s) trabalho(s) em execução que você deseja cancelar executando uma consulta com os filtros apropriados.
 
 1. Selecione o trabalho.
 
@@ -91,4 +93,4 @@ Este trabalho agora está cancelado.
 
 - Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

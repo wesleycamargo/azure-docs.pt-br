@@ -20,9 +20,11 @@
 # Gerenciar máquinas virtuais usando o PowerShell e o Gerenciador de Recursos do Azure
 
 > [AZURE.SELECTOR]
-- [Azure portal](virtual-machines-windows-tutorial.md)
-- [PowerShell - Windows](virtual-machines-deploy-rmtemplates-powershell.md)
+- [Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 - [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
+
+<br>
+
 
 Usar modelos do Azure PowerShell e do Gerenciador de Recursos fornece muita eficiência e flexibilidade ao gerenciar recursos no Microsoft Azure. Você pode usar as tarefas neste artigo para criar e gerenciar recursos de máquina virtual.
 
@@ -53,9 +55,9 @@ A maioria dos aplicativos em execução no Microsoft Azure é criada por meio de
 
 Depois de definir um modelo de recurso com base em JSON, você pode usá-lo com um comando do PowerShell para implantar os recursos definidos no Azure. Você pode executar esses comandos separadamente no shell de comando do PowerShell ou integrá-los a um script que contenha lógica de automação adicional.
 
-Os recursos que você criar usando os modelos do Gerenciador de Recursos do Azure são implantados em um *grupo de recursos do Azure* novo ou existente. Um grupo de recursos permite que você gerencie vários recursos implantados juntos como um grupo lógico. Isso significa que você pode gerenciar o ciclo de vida total do grupo/aplicativo.
+Os recursos que você criar usando os modelos do Gerenciador de Recursos do Azure são implantados em um *Grupo de recursos do Azure* novo ou existente. Um grupo de recursos permite que você gerencie vários recursos implantados juntos como um grupo lógico. Isso significa que você pode gerenciar o ciclo de vida total do grupo/aplicativo.
 
-Se você estiver interessado na criação de modelos, consulte [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
+Se você estiver interessado na criação de modelos, confira [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 
 ### Criar um grupos de recursos
 
@@ -79,7 +81,7 @@ Aqui está um exemplo:
 
 	New-AzureRmResourceGroupDeployment -Name "TestDeployment" -ResourceGroupName "TestRG" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
 
-Será solicitado que você forneça os valores dos parâmetros na seção **parameters** do arquivo JSON:
+Será solicitado que você forneça os valores de parâmetros na seção **parâmetros** do arquivo JSON:
 
 	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
@@ -126,7 +128,7 @@ Se você gostaria de ver um vídeo desta tarefa sendo realizada, dê uma olhada 
 
 ## <a id="customvm"></a>TAREFA: Criar uma máquina virtual com um disco especializado
 
-Essa tarefa usa um modelo da galeria de modelos. Para saber mais sobre o modelo, consulte [Criar uma máquina virtual de um disco VHD especializado](https://azure.microsoft.com/documentation/templates/201-vm-from-specialized-vhd/).
+Essa tarefa usa um modelo da galeria de modelos. Para saber mais sobre o modelo, consulte [Criar uma VM de um disco VHD especializado](https://azure.microsoft.com/documentation/templates/201-vm-from-specialized-vhd/).
 
 No comando a seguir, substitua *nome da implantação* pelo nome que deseja usar para a implantação e *nome do grupo de recursos* pelo nome do grupo de recursos existente e execute-o:
 
@@ -136,7 +138,7 @@ Aqui está um exemplo:
 
 	New-AzureRmResourceGroupDeployment -Name "TestDeployment" -ResourceGroupName "TestRG" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
 
-Será solicitado que você forneça os valores dos parâmetros na seção **parameters** do arquivo JSON:
+Será solicitado que você forneça os valores de parâmetros na seção **parâmetros** do arquivo JSON:
 
 	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
@@ -155,7 +157,7 @@ Se você gostaria de ver um vídeo desta tarefa sendo realizada, dê uma olhada 
 
 ## <a id="multivm"></a>TAREFA: Criar várias máquinas virtuais em uma rede virtual com um balanceador externo de carga
 
-Essa tarefa usa um modelo da galeria de modelos. Para saber mais sobre o modelo, consulte [Criar uma máquina virtual de um disco VHD especializado](https://azure.microsoft.com/documentation/templates/201-2-vms-loadbalancer-lbrules/).
+Essa tarefa usa um modelo da galeria de modelos. Para saber mais sobre o modelo, consulte [Criar uma VM de um disco VHD especializado](https://azure.microsoft.com/documentation/templates/201-2-vms-loadbalancer-lbrules/).
 
 ![](./media/virtual-machines-deploy-rmtemplates-powershell/multivmextlb.png)
 
@@ -163,7 +165,7 @@ No comando a seguir, substitua *nome da implantação* pelo nome que deseja usar
 
 	New-AzureRmResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json"
 
-Será solicitado que você forneça os valores dos parâmetros na seção **parameters** do arquivo JSON:
+Será solicitado que você forneça os valores de parâmetros na seção **parâmetros** do arquivo JSON:
 
 	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
@@ -376,4 +378,4 @@ Se você gostaria de ver um vídeo desta tarefa sendo realizada, dê uma olhada 
 
 [Documentação de máquinas virtuais](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

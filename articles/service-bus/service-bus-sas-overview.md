@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/04/2015"
+   ms.date="12/09/2015"
    ms.author="darosa"/>
 
 # As Assinaturas de Acesso Compartilhado
@@ -257,4 +257,4 @@ Encontre mais exemplos de SAS no C# e no Java Script [nesta postagem no blog](ht
 
 [portal clássico do Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/20/2015"    
+	ms.date="12/15/2015"    
 	ms.author="juliako"/>
 
 
@@ -357,7 +357,7 @@ Para obter informações sobre o esquema, consulte [este](https://msdn.microsoft
 As seguintes considerações se aplicam:
 
 - O uso de carimbos explícitos para Início/Etapa/Intervalo pressupõe que a fonte de entrada tem duração de pelo menos 1 minuto.
-- Elementos de Jpg/Png/BmpVideo têm atributos de cadeia de caracteres de Início, Etapa e Intervalo que podem ser interpretados como:
+- Elementos Jpg/Png/BmpImage têm atributos de cadeia de caracteres de Início, Etapa e Intervalo que podem ser interpretados como:
 
 	- Número de quadro se eles forem números inteiros não negativos, por exemplo: "Start": "120",
 	- Relativos à duração da origem se expressos com sufixo %, por exemplo: "Start": "15%" OU
@@ -383,4 +383,4 @@ As seguintes considerações se aplicam:
 
 [Visão geral da codificação de serviços de mídia](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

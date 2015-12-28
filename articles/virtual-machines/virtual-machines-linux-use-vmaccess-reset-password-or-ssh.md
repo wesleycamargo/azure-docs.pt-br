@@ -263,7 +263,7 @@ Para exibir o status da extensão VMAccess, execute este comando.
 <!--Link references-->
 [Guia do Usuário do Agente do Azure Linux]: virtual-machines-linux-agent-user-guide.md
 [Como instalar e configurar o PowerShell do Azure]: ../install-configure-powershell.md
-[Recursos e extensões de VM do Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
+[Recursos e extensões de VM do Azure]: virtual-machines-extensions-features.md
 [Conectar-se a uma máquina virtual do Azure com RDP ou SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

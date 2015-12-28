@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="mobile-multiple"
   ms.devlang="dotnet"
   ms.topic="article"
-  ms.date="11/09/2015"
+  ms.date="12/15/2015"
   ms.author="donnam"/>
 
 # Controle de versão de cliente e servidor em Aplicativos Móveis e Serviços Móveis
@@ -101,21 +101,20 @@ Observação: as SDKs do cliente dos Serviços Móveis *não* enviam um valor de
 A verificação de versão foi introduzida começando com as seguintes versões do SDK do cliente para **Aplicativos Móveis do Azure**:
 
 | Plataforma cliente | Versão | Valor de cabeçalho de versão |
-| -------------------               | ------------------------                                                  | -----------------    |
-| Cliente gerenciado (Windows, Xamarin) | [2\.0.0-Beta-3](https://www.nuget.org/packages/WindowsAzure.MobileServices/2.0.0-beta-3) | 2\.0.0 |
-| iOS | [3\.0.0-beta4](http://go.microsoft.com/fwlink/?LinkID=529823) | 2\.0.0 |
-| Android | 3\.0.0-Beta1 | 2\.0.0 |
-| HTML | 2\.0.0-Beta2 | 2\.0.0 |
+| -------------------               | ------------------------  | -----------------    |
+| Cliente gerenciado (Windows, Xamarin) | [2\.0.0](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/2.0.0) | 2\.0.0 |
+| iOS | [3\.0.0](http://go.microsoft.com/fwlink/?LinkID=529823) | 2\.0.0 |
+| Android | [3\.0.0](http://go.microsoft.com/fwlink/?LinkID=717033&clcid=0x409) | 3\.0.0 |
 
-<!-- TODO: add Android and HTML versions when released -->
+<!-- TODO: add HTML version when released -->
 
-### SDKs de servidor de *Aplicativos* Móveis
+### SDKs de servidor dos *Aplicativos* Móveis
 
 A verificação de versão está incluída nas seguintes versões do SDK do servidor:
 
-| Plataforma servidor | Versão | Cabeçalho de versão aceito |
+| Plataforma servidor | . | Cabeçalho de versão aceito |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
-| .NET | [Microsoft.Azure.Mobile.Server.* Versão 0.3.x (ou posterior)](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) | 2\.0.0 |
+| .NET | [Microsoft.Azure.Mobile.Server](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) | 2\.0.0 |
 | Node.js | [azure-mobile-apps Versão 1.0-beta1 (ou posterior)](https://www.npmjs.com/package/azure-mobile-apps) | 2\.0.0 |
 
 ### Comportamento dos back-ends de Aplicativos Móveis
@@ -141,4 +140,4 @@ A verificação de versão está incluída nas seguintes versões do SDK do serv
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Migrar um Serviço Móvel para o Serviço de Aplicativo do Azure]: app-service-mobile-migrating-from-mobile-services.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

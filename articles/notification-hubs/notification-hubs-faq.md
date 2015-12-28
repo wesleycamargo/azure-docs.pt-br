@@ -22,9 +22,10 @@
 ###1\. Qual é o preço para Hubs de Notificação?
 Hubs de Notificação são oferecidos em três camadas - as camadas *Gratuito*, *Básico* e *Padrão*. Mais detalhes aqui - [Preços de Hubs de Notificação]. O preço será cobrado no nível de assinatura e se baseia no número de envios por push, então não importa quantos namespaces ou hubs de notificação você tem. A camada Gratuito é oferecida para fins de desenvolvimento com nenhuma garantia de SLA. As camadas Básico e Padrão são oferecidas para uso em produção com os seguintes recursos principais habilitados somente para a camada Padrão:
 
-- *Difusão* -A camada Básica limita o número de marcas de Hub de Notificação para 3K (se aplica a dispositivos > 5). Se você tiver um tamanho de audiência maior que 3K, então você deve mover para a camada Padrão.
-- *Telemetria sofisticada* -A camada Básico não permite exportar os dados de telemetria ou de registros. Se precisar do recurso para exportar seus dados de telemetria para exibição offline e análise, então você deve mudar para a camada Padrão.
-- *Multilocação* - Se você estiver criando um aplicativo móvel usando os Hubs de Notificação para oferecer suporte a vários locatários, então você deve considerar mudar para a camada Padrão. Isso permite que você defina credenciais de Serviços de Notificação por Push (PNS) no nível de namespace do Hub de Notificação para o aplicativo e desta forma, você pode separar os locatários fornecendo a eles hubs individuais neste namespace comum. Isso permite a facilidade de manutenção enquanto mantém as chaves SAS para enviar e receber notificações de hubs de notificação separados para cada locatário, garantindo a sobreposição não cruzada do locatário.
+- *Telemetria avançada* - a camada Básico não permite exportar os dados de telemetria ou de registros. Se precisar do recurso para exportar seus dados de telemetria para exibição offline e análise, então você deve mudar para a camada Padrão.
+- *Multilocação* - se você estiver criando um aplicativo móvel usando os Hubs de Notificação para oferecer suporte a vários locatários, então você deve considerar mudar para a camada Standard. Isso permite que você defina credenciais de Serviços de Notificação por Push (PNS) no nível de namespace do Hub de Notificação para o aplicativo e desta forma, você pode separar os locatários fornecendo a eles hubs individuais neste namespace comum. Isso permite a facilidade de manutenção enquanto mantém as chaves SAS para enviar e receber notificações de hubs de notificação separados para cada locatário, garantindo a sobreposição não cruzada do locatário.
+- *Push agendado* - você pode agendar para que notificações por push sejam enfileiradas e enviadas.
+- *Importação em massa* - você pode importar registros em massa.
 
 ###2\. O que é o SLA?
 Para as camadas do Hub de Notificação Básico e Padrão, garantimos que pelo menos 99,9% do tempo, os aplicativos configurados corretamente poderão enviar notificações ou executar operações de gerenciamento de registro em relação a um Hub de Notificação implantado dentro de uma camada do Hub de Notificação Básico ou Padrão. Para saber mais sobre nosso SLA, visite a página do SLA aqui - [SLA de Hubs de Notificação]. Observe que não há nenhuma garantia de SLA para o segmento entre o Serviço de Notificação de Plataforma e o dispositivo, visto que os Hubs de Notificação dependem de provedores externos de plataforma para entregar a notificação para o dispositivo.
@@ -77,10 +78,10 @@ Devido à natureza das notificações por push que são entregues por uma plataf
 *Distribuição geográfica:* a distribuição geográfica nem sempre é crítica em caso de notificações por push. Deve-se observar as vários serviços de Notificação por push (por exemplo, APNS, GCM etc.) que, por fim, entregam as notificações por push aos dispositivos que não são igualmente distribuídos. No entanto, se você tiver um aplicativo usado no mundo inteiro, você poderá criar vários hubs em namespaces diferentes, aproveitando a disponibilidade do serviço de Hubs de Notificação em diferentes regiões do Azure no mundo todo. Observe que isso aumentará o custo de gerenciamento principalmente em torno de registros, então isso realmente não é recomendado e só deve ser feito se for realmente necessário.
 
 ###10\. Devemos fazer registros de back-end do aplicativo ou diretamente dispositivos?
-Registros de back-end do aplicativo são úteis quando você precisa fazer uma autenticação de cliente antes de criar o registro ou quando há marcas que devem ser criadas ou modificadas pelo back-end do aplicativo, com base em alguma lógica de aplicativo. Encontre mais orientações aqui - [Orientações sobre registro de back-end] e [Orientações sobre registro de back-end - 2]
+Registros de back-end do aplicativo são úteis quando você precisa fazer uma autenticação de cliente antes de criar o registro ou quando há marcas que devem ser criadas ou modificadas pelo back-end do aplicativo, com base em alguma lógica de aplicativo. Encontre mais diretrizes aqui - [Diretrizes sobre registro de back-end] e [Diretrizes sobre registro de back-end - 2]
 
 ###11\. O que é o modelo de segurança?
-Os Hubs de Notificação do Azure usam um modelo de segurança baseado em Assinatura de Acesso Compartilhado (SAS). Você pode usar os tokens SAS no nível do namespace raiz ou no nível de hubs de notificação granular. Esses tokens SAS podem ser definidos com diferentes regras de autorização por exemplo, as permissões para enviar mensagens, permissões para ouvir notificação etc. Mais detalhes aqui - [Modelo de segurança NH]
+Os Hubs de Notificação do Azure usam um modelo de segurança baseado em Assinatura de Acesso Compartilhado (SAS). Você pode usar os tokens SAS no nível do namespace raiz ou no nível de hubs de notificação granular. Esses tokens SAS podem ser definidos com diferentes regras de autorização por exemplo, as permissões para enviar mensagens, permissões para ouvir notificação etc. Mais detalhes aqui - [Modelo de segurança de HN]
 
 ###12\. Como lidar com a carga confidencial nas notificações?
 Todas as notificações são entregues aos dispositivos pelos Serviços de Notificações das plataformas (PNS). Quando um remetente enviar uma notificação para os Hubs de Notificação do Azure, processamos e transmitimos a notificação ao respectivo PNS. Todas as conexões do remetente para os Hubs de Notificações do Azure e para o PNS usam HTTPS. Os Hubs de Notificações do Azure não registram a carga da mensagem de forma alguma. Para o envio de cargas confidenciais no entanto, recomendamos que um padrão de Enviar por push seguro em que o remetente envia uma notificação 'ping' com um identificador de mensagem para o dispositivo sem a carga confidencial e quando o aplicativo no dispositivo recebe essa carga, então ele chama uma API de back-end do aplicativo seguro diretamente para buscar os detalhes da mensagem. O tutorial para implementar o padrão está aqui - [HN - tutorial de Envio por Push Seguro]
@@ -89,9 +90,9 @@ Todas as notificações são entregues aos dispositivos pelos Serviços de Notif
 ###1\. O que é a história de Recuperação de Desastres (DR)?
 Fornecemos uma Recuperação de Desastres de metadados aqui (nome do Hub de Notificação, a cadeia de conexão etc). No caso de uma Recuperação de Desastres, os dados de registros são aqueles que serão perdidos, portanto, será necessário encontrar uma solução para preencher eles novamente em seu novo hub.
 
-- *Etapa 1* - Criar um Hub de Notificação secundário em um DC diferente. Você pode criá-lo imediatamente no momento do evento de Recuperação de Desastres ou você pode criá-lo do princípio. Não importa muito porque o provisionamento de NH é um processo rápido na ordem de alguns segundos. Tendo uma desde o início também protegerá você do evento de Recuperação de Desastres que afeta nossos recursos de gerenciamento, por isso, é recomendável.
+- *Step1* - Criar um Hub de Notificação secundário em um DC diferente. Você pode criá-lo imediatamente no momento do evento de Recuperação de Desastres ou você pode criá-lo do princípio. Não importa muito porque o provisionamento de NH é um processo rápido na ordem de alguns segundos. Tendo uma desde o início também protegerá você do evento de Recuperação de Desastres que afeta nossos recursos de gerenciamento, por isso, é recomendável.
 
-- *Etapa 2* - Alimente o Hub de Notificação secundário com os registros do Hub de Notificação primário. Não é recomendável tentar manter os registros em ambos os hubs e tentar mantê-los em sincronia imediatamente, visto que os registros estão chegando, como não funcionou bem devido à natureza inerente de registros para expirar pelo PNS. Os Hubs de Notificação limpa-os enquanto recebemos comentários dos PNS sobre registros expirados ou inválidos.
+- *Step2* - Alimentar o Hub de Notificação secundário com os registros do Hub de Notificação primário. Não é recomendável tentar manter os registros em ambos os hubs e tentar mantê-los em sincronia imediatamente, visto que os registros estão chegando, como não funcionou bem devido à natureza inerente de registros para expirar pelo PNS. Os Hubs de Notificação limpa-os enquanto recebemos comentários dos PNS sobre registros expirados ou inválidos.
 
 Recomenda-se usar um back-end do aplicativo que:
 
@@ -126,13 +127,13 @@ Os Hubs de Notificação do Azure permitem a exibição de dados de telemetria n
 [NH - Tutoriais de introdução]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [Tutorial de aplicativos do Chrome]: http://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
 [Preços dos Serviços Móveis]: http://azure.microsoft.com/pricing/details/mobile-services/
-[Orientações sobre registro de back-end]: https://msdn.microsoft.com/library/azure/dn743807.aspx
-[Orientações sobre registro de back-end - 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
-[Modelo de segurança NH]: https://msdn.microsoft.com/library/azure/dn495373.aspx
+[Diretrizes sobre registro de back-end]: https://msdn.microsoft.com/library/azure/dn743807.aspx
+[Diretrizes sobre registro de back-end - 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
+[Modelo de segurança de HN]: https://msdn.microsoft.com/library/azure/dn495373.aspx
 [HN - tutorial de Envio por Push Seguro]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
 [HN - solução de problemas]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [HN - métricas]: https://msdn.microsoft.com/library/dn458822.aspx
 [HN - exemplo de métricas]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [Importação/Exportação de Registros]: https://msdn.microsoft.com/library/dn790624.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

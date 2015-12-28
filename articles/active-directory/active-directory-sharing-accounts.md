@@ -48,7 +48,7 @@ O AD do Azure oferece suporte a contas compartilhadas para qualquer usuário lic
 
 Recursos do AD do Azure que permitem o compartilhamento de contas incluem:
 
-- [Logon único com senha](active-directory-passwords-getting-started.md)
+- [Logon único com senha](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
 - Agente de logon único com senha
 - [Atribuição de grupo](active-directory-accessmanagement-self-service-group-management.md)
 - Aplicativos com senha personalizada
@@ -72,4 +72,4 @@ Você também pode tornar sua conta compartilhada mais segura com o Multi-Factor
 - [Proteger aplicativos com acesso condicional](active-directory-conditional-access.md)
 - [Gerenciamento de grupo de autoatendimento/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

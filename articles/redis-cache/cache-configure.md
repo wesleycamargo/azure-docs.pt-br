@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Como configurar o Cache Redis do Azure"
-   description="Entenda a configuração padrão Redis Cache Redis do Azure e aprenda a configurar as instâncias de Cache Redis do Azure"
-   services="redis-cache"
-   documentationCenter="na"
-   authors="steved0x"
-   manager="dwrede"
-   editor="tysonn" />
+	pageTitle="Como configurar o Cache Redis do Azure"
+	description="Entenda a configuração padrão Redis Cache Redis do Azure e aprenda a configurar as instâncias de Cache Redis do Azure"
+	services="redis-cache"
+	documentationCenter="na"
+	authors="steved0x"
+	manager="dwrede"
+	editor="tysonn" />
 <tags 
-   ms.service="cache"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="cache-redis"
-   ms.workload="tbd"
-   ms.date="12/03/2015"
-   ms.author="sdanie" />
+	ms.service="cache"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="cache-redis"
+	ms.workload="tbd"
+	ms.date="12/11/2015"
+	ms.author="sdanie" />
 
 # Como configurar o Cache Redis do Azure
 
@@ -116,7 +116,20 @@ Clique em **Conta de Armazenamento** para selecionar a conta de armazenamento a 
 
 Clique em **OK** para salvar a configuração de persistência.
 
->[AZURE.IMPORTANT]A persistência de dados do Redis só está disponível para os caches Premium.
+>[AZURE.IMPORTANT]A persistência de dados do Redis só está disponível para os caches Premium. Para obter mais informações, veja [Como configurar a persistência para um Cache Redis do Azure Premium](cache-how-to-premium-persistence.md).
+
+## Tamanho do Cluster Redis
+
+Clique em **Tamanho do Cluster Redis (VISUALIZAÇÃO)** para adicionar ou remover fragmentos de um cache premium em execução com clustering habilitado.
+
+>[AZURE.NOTE]Observe que, enquanto a camada Cache Redis do Azure Premium foi liberada para disponibilidade geral, o recurso de Tamanho do Cluster Redis está atualmente em visualização.
+
+![Tamanho do cluster Redis](./media/cache-configure/redis-cache-redis-cluster-size.png)
+
+Para alterar a contagem de fragmento, use o controle deslizante ou digite um número entre 1 e 10 na caixa de texto **Contagem de fragmentos** e clique em **OK** para salvar.
+
+>[AZURE.IMPORTANT]O clustering está disponível apenas para os Caches premium. Para obter mais informações, veja [Como configurar o clustering para um Cache Redis do Azure Premium](cache-how-to-premium-clustering.md).
+
 
 ## Usuários e marcas
 
@@ -197,6 +210,6 @@ Para emitir comandos em sua instância de cache, simplesmente digite no comando 
 Para obter uma lista de comandos do Redis que estão desabilitados para o Cache Redis do Azure, veja a seção anterior [Comandos do Redis sem suporte no Cache Redis do Azure](#redis-commands-not-supported-in-azure-redis-cache). Para obter mais informações sobre os comandos do Redis, veja [http://redis.io/commands](http://redis.io/commands).
 
 ## Próximas etapas
--	Para obter mais informações sobre como trabalhar com os comandos do Redis, veja [Como faço para executar comandos do Redis?](cache-faq.md#how-can-i-run-redis-commands)
+-	Para obter mais informações sobre como trabalhar com os comandos do Redis, veja [Como faço para executar comandos do Redis?](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

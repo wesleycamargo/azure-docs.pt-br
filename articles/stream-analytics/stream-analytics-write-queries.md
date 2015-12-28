@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/04/2015" 
+	ms.date="12/11/2015" 
 	ms.author="jeffstok"/>
 
 # Como escrever consultas em Stream Analytics
@@ -34,7 +34,7 @@ Escrevendo consulta para lógica de processamento de fluxo no Stream Analytics d
 2.	Os novos trabalhos têm um modelo de consulta que ajuda você a começar. O modelo de consulta executa uma consulta de "passagem" que projeta todos os campos dos eventos de entrada na saída.
 
     - Se tiver definido pelo menos uma entrada e saída para seu trabalho, você poderá substituir os campos de espaço reservado "[YourOutputAlias]" e "[YourInputAlias]" pelos aliases da entrada e saída que deseja usar primeiro. Além disso, você ainda pode criar e testar sua consulta no portal do Azure sem definir entradas e saídas no trabalho.
-    - Se quiser executar mais processamento do que uma simples passagem, você pode editar a definição da consulta. Para começar a criar uma consulta, veja alguns padrões comuns de consulta capturados [aqui](stream-analytics-query-patterns).  
+    - Se quiser executar mais processamento do que uma simples passagem, você pode editar a definição da consulta. Para começar a criar uma consulta, veja alguns padrões comuns de consulta capturados [aqui](stream-analytics-stream-analytics-query-patterns.md).  
   
     ![Janela de Consulta de dados](./media/stream-analytics-write-queries/2-stream-analytics-write-queries.png)
 
@@ -71,4 +71,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

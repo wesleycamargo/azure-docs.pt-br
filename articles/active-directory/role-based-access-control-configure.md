@@ -13,16 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="12/04/2015"
+	ms.date="12/14/2015"
 	ms.author="inhenk"/>
 
-# Controle de acesso baseado em função do Active Directory do Azure
+# Controle de acesso baseado em função do Azure
 
 ## Controle de acesso baseado em função
-O controle de acesso baseado em função do Azure (RBAC) permite o gerenciamento de acesso refinado para o Azure. Com o RBAC, você pode separar as tarefas dentro de sua equipe de operação de desenvolvimento e conceder somente a quantidade de acesso que os usuários precisam para realizar seus trabalhos.
+O RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento de acesso refinado para o Azure. Com o RBAC, você pode separar as tarefas dentro de sua equipe de operação de desenvolvimento e conceder somente a quantidade de acesso que os usuários precisam para realizar seus trabalhos.
 
 ### Noções básicas de gerenciamento de acesso no Azure
-Cada assinatura do Azure está hospedada em um Active Directory do Azure. Somente usuários, grupos e aplicativos desse diretório podem receber acesso para gerenciar recursos na assinatura do Azure, usando o Portal Clássico do Azure, as ferramentas de Linha de Comando do Azure e as APIs de Gerenciamento do Azure.
+Cada assinatura do Azure está hospedada em um Active Directory do Azure. Somente usuários, grupos e aplicativos desse diretório podem receber acesso para gerenciar recursos na assinatura do Azure, usando o portal do Azure, as ferramentas de Linha de Comando do Azure e as APIs de Gerenciamento do Azure.
 
 O acesso é concedido atribuindo-se a função RBAC apropriada a usuários, grupos e aplicativos no escopo correto. Para conceder acesso para toda a assinatura, atribua uma função no escopo de assinatura. Para conceder acesso a um grupo de recursos específico em uma assinatura, atribua uma função no escopo do grupo de recursos. Você também pode atribuir funções a recursos específicos, como sites, máquinas virtuais e sub-redes, para conceder acesso apenas a um recurso.
 
@@ -44,9 +44,9 @@ O administrador e os coadministradores de assinatura clássicos têm acesso comp
 O modelo de autorização refinado (RBAC do Azure) tem suporte somente por meio do Portal do Azure (https://portal.azure.com) e das APIs do Gerenciador de Recursos do Azure. Os usuários e aplicativos aos quais são atribuídas funções RBAC (no escopo de recurso da assinatura/grupo de recursos/recurso) não podem usar o portal de gerenciamento clássico (http://manage.windowsazure.com) nem as APIs de Gerenciamento de Serviço do Azure.
 
 ### Autorização para o gerenciamento versus operações de dados
-O modelo de autorização refinado (RBAC do Azure) tem suporte somente para as operações de gerenciamento dos recursos do Azure no Portal Clássico do Azure e nas APIs do Gerenciador de Recursos do Azure. Nem todas as operações no nível de dados para os recursos do Azure podem ser autorizadas por meio do RBAC. Por exemplo, a criação/leitura/atualização/exclusão de contas de armazenamento pode ser controlada por meio do RBAC, mas a criação/leitura/atualização/exclusão de blobs ou tabelas dentro da conta de armazenamento não pode ser controlada por meio do RBAC. Semelhantemente, a criação/leitura/atualização/exclusão de um BD SQL pode ser controlada por meio do RBAC, mas a criação/leitura/atualização/exclusão de tabelas de SQL dentro do BD ainda não pode ser controlada por meio do RBAC.
+O modelo de autorização refinado (RBAC do Azure) tem suporte somente para as operações de gerenciamento dos recursos do Azure no portal do Azure e nas APIs do Gerenciador de Recursos do Azure. Nem todas as operações no nível de dados para os recursos do Azure podem ser autorizadas por meio do RBAC. Por exemplo, a criação/leitura/atualização/exclusão de contas de armazenamento pode ser controlada por meio do RBAC, mas a criação/leitura/atualização/exclusão de blobs ou tabelas dentro da conta de armazenamento não pode ser controlada por meio do RBAC. Semelhantemente, a criação/leitura/atualização/exclusão de um BD SQL pode ser controlada por meio do RBAC, mas a criação/leitura/atualização/exclusão de tabelas de SQL dentro do BD ainda não pode ser controlada por meio do RBAC.
 
-## Gerenciar o acesso usando o Portal Clássico do Azure
+## Gerenciar o acesso usando o portal do Azure
 ### Exibir o acesso
 Selecione as configurações de acesso na seção de fundamentos da folha do grupo de recursos. A folha **Usuários** lista todos os usuários, grupos e aplicativos aos quais tenha sido concedido acesso ao grupo de recursos. O acesso é ainda atribuído no grupo de recursos ou herdado de uma atribuição na assinatura pai.
 
@@ -191,4 +191,4 @@ A propriedade **AssignableScopes** da função personalizada determina quem pode
 
 **Quem pode exibir funções personalizadas disponíveis para atribuição em um escopo?** Os usuários que podem executar a operação `Microsoft.Authorization/roleDefinition/read` em um escopo podem exibir as funções de RBAC disponíveis para atribuição nesse escopo. Todas as funções internas no RBAC do Azure permitem a visualização de funções disponíveis para atribuição.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -22,7 +22,7 @@
 
 Antigamente, um desenvolvedor de aplicativo que desejava oferecer suporte a contas da Microsoft e ao Active Directory do Azure tinha que se integrar a dois sistemas distintos. Com o modelo de aplicativo v2.0, você pode conectar usuários a ambos os tipos de conta. Uma integração simples permite atingir um público que se estende por milhões de usuários com contas pessoais e corporativas/de estudante.
 
-Os aplicativos também podem consumir um [conjunto de APIs REST do Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) usando qualquer tipo de conta. Atualmente, essas APIs incluem APIs de Calendários, Contatos e Email do Outlook. Os serviços adicionais serão adicionados em um futuro próximo.
+Seus aplicativos também podem consumir um [conjunto de APIs REST do Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) usando qualquer tipo de conta. Atualmente, essas APIs incluem APIs de Calendários, Contatos e Email do Outlook. Os serviços adicionais serão adicionados em um futuro próximo.
 <!-- TODO: customer reference article -->
 <!-- Several apps have already begun to bridge the gap between consumer and enterprise accounts, including: [Boomerang](), [TripIt](), & [Uber](). -->
 
@@ -49,7 +49,7 @@ Estes links serão úteis na exploração em profundidade da plataforma:
 - Envie-nos sua opinião sobre a visualização usando [Voz do Usuário](http://feedback.azure.com/forums/169401-azure-active-directory) — queremos ouvi-la! Use a frase "AppModelv2:" no título da sua publicação para que possamos encontrá-la.
 - [Referência ao protocolo do modelo aplicativo v 2.0](active-directory-v2-protocols.md)
 - [Referência ao token do modelo de aplicativo v2.0](active-directory-v2-tokens.md)
-- [Referência à API REST do Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
+- [Referência à API REST do Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
 - [Escopos e consentimento no ponto de extremidade v2](active-directory-v2-scopes.md)
 
 <!-- TODO: These articles
@@ -57,4 +57,4 @@ Estes links serão úteis na exploração em profundidade da plataforma:
 - [v2 Endpoint FAQs](active-directory-v2-faq.md)
 -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

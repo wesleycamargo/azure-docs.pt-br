@@ -1,6 +1,6 @@
-	<properties 
-	pageTitle="Azure Mobile Engagement implementation for Gaming App"
-	description="Gaming app scenario to implement Azure Mobile Engagement" 
+<properties 
+	pageTitle="Implementação do Azure Mobile Engagement para Aplicativo de Jogo"
+	description="Cenário de aplicativo de jogo para implementação do Azure Mobile Engagement" 
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo"
@@ -22,7 +22,7 @@
 
 Uma empresa de jogos em fase inicial lançou um novo aplicativo de jogo de pescar baseado em role-play/estratégia. O jogo está em execução por 6 meses. Este jogo é um enorme sucesso e tem milhões de downloads e a retenção é muito alta em comparação com outros aplicativos de jogos de empresas em fase inicial. Na reunião de análise trimestral, os participantes concordam que precisam aumentar a receita média por usuário (ARPU). Pacotes de jogo premium estão disponíveis como ofertas especiais. Esses pacotes de jogos permitem aos usuários atualizar a aparência e o desempenho de suas linhas e iscas ou equipamentos de pesca no jogo. No entanto, as vendas dos pacotes são muito baixas. Então, eles decidem primeiro analisar a experiência do cliente com uma ferramenta de análise e desenvolver um programa de envolvimento para aumentar as vendas usando segmentação avançada.
 
-Com base no [Mobile Engagement do Azure - Guia de Introdução com Práticas Recomendadas](mobile-engagement-getting-started-best-practices.md) eles criam uma estratégia de envolvimento.
+Com base no [Azure Mobile Engagement - Guia de Introdução com Práticas Recomendadas](mobile-engagement-getting-started-best-practices.md) eles compilam uma estratégia de envolvimento.
 
 ##Objetivos e KPIs
 
@@ -61,7 +61,7 @@ Depois de três meses, o Diretor de Projetos Móveis coletou dados suficientes p
 * Os usuários que passaram do nível 20, começam a gastar mais de US$ 10 por semana.
 * Os usuários tendem a comprar pacotes premium no nível 16, 24 e 32.
 
-Graças a essa análise, o Diretor de Projetos Móveis decide criar sequências específicas de notificação por push para aumentar as vendas no aplicativo. Ele cria três sequências de push que ele chama de: Programa de Boas-vindas, Programa de Vendas e o Programa Inativo. Para obter mais informações, confira os [Guias Estratégicos](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks) ![][1]
+Graças a essa análise, o Diretor de Projetos Móveis decide criar sequências específicas de notificação por push para aumentar as vendas no aplicativo. Ele cria três sequências de push que ele chama de: Programa de Boas-vindas, Programa de Vendas e o Programa Inativo. Para saber mais, confira as [Cartilhas](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks) ![][1]
 
 <!--Image references-->
 
@@ -69,4 +69,4 @@ Graças a essa análise, o Diretor de Projetos Móveis decide criar sequências 
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

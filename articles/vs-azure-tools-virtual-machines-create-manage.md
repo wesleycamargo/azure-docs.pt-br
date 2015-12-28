@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Criar e gerenciar máquinas virtuais do Azure no Visual Studio"
+   pageTitle="Criar e gerenciar Máquinas Virtuais do Azure no Visual Studio | Microsoft Azure"
    description="Criar e gerenciar máquinas virtuais do Azure no Visual Studio"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags
    ms.service="virtual-machines"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/30/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Criar e gerenciar máquinas virtuais do Azure no Visual Studio
 
@@ -177,4 +177,4 @@ Como você configura sua máquina virtual e instala o software, é uma boa ideia
 
 Para saber mais sobre a criação de máquinas virtuais, consulte [criar uma máquina Virtual executando Linux](virtual-machines-linux-tutorial.md) e [criar uma máquina virtual executando o Windows no portal de visualização do Azure](virtual-machines-windows-tutorial.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -3,7 +3,7 @@
 	description="Passos rápidos para copiar, mover e migrar dados e bancos de dados no Banco de Dados SQL."
 	services="sql-database"
 	documentationCenter=""
-	authors="dalechen"
+	authors="v-shysun"
 	manager="msmets"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
-	ms.author="daleche"/>
+	ms.date="12/11/2015"
+	ms.author="v-shysun"/>
 
 # Mover bancos de dados entre servidores, entre as assinaturas e para dentro e para fora do Azure
 ##Para mover um banco de dados para um servidor diferente na mesma assinatura
@@ -29,4 +29,4 @@
 ## Para criar uma cópia de um banco de dados para uso fora do Azure
 - [Exporte um arquivo BACPAC.](sql-database-export.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

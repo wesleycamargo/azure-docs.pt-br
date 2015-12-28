@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Implementando recomendações de segurança na Central de Segurança do Azure | Microsoft Azure"
+   pageTitle="Gerenciando recomendações de segurança na Central de Segurança do Azure | Microsoft Azure"
    description="Este documento mostra como as recomendações na Central de Segurança do Azure ajudam a proteger os recursos do Azure e a cumprir as políticas de segurança."
    services="security-center"
    documentationCenter="na"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="12/10/2015"
    ms.author="terrylan"/>
 
-# Implementando as recomendações de segurança na Central de Segurança do Azure
+# Gerenciando recomendações de segurança na Central de Segurança do Azure
 
 Este documento mostra como as recomendações na Central de Segurança do Azure ajudam a proteger os recursos do Azure.
 
@@ -25,10 +25,12 @@ Este documento mostra como as recomendações na Central de Segurança do Azure 
 ## O que é a Central de Segurança do Azure?
 A Central de Segurança do Azure ajuda você a impedir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Azure Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
 
-##O que é são recomendações de segurança?
+## O que são recomendações de segurança?
 A Central de Segurança do Azure analisa periodicamente o estado de segurança de seus recursos do Azure. Quando possíveis vulnerabilidades de segurança são identificadas, são criadas recomendações. As recomendações guiam você pelo processo de configuração do controle necessário.
 
-## Recomendações de configuração
+## Implementando recomendações de segurança
+
+### Recomendações de configuração
 
 Em [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md), você aprenderá a:
 
@@ -36,13 +38,9 @@ Em [Configurando políticas de segurança na Central de Segurança do Azure](sec
 - Habilitar coleta de dados
 - Escolher quais recomendações ver como parte da política de segurança
 
-As recomendações de política atuais giram em torno de atualizações do sistema, regras de linha de base, antimalware, [ACLs para pontos de extremidade](virtual-machines-set-up-endpoints.md), [Grupos de Segurança de Rede](virtual-networks-nsg.md) em sub-redes e em interfaces de rede, auditoria de Banco de Dados SQL, Transparent Data Encryption do Banco de Dados SQL e firewall do Aplicativo Web. [Configurando políticas de segurança](security-center-policies.md) fornece uma descrição de cada opção de recomendação.
+As recomendações de política atuais giram em torno de atualizações do sistema, regras de linha de base, antimalware, [ACLs para pontos de extremidade](virtual-machines-set-up-endpoints.md), [Grupos de Segurança de Rede](virtual-networks-nsg.md) em sub-redes e em interfaces de rede, auditoria de Banco de Dados SQL, Transparent Data Encryption do Banco de Dados SQL e firewall do aplicativo Web. [Configurando políticas de segurança](security-center-policies.md) fornece uma descrição de cada opção de recomendação.
 
-A seção **Mostrar recomendações para** da folha **Política de segurança** fornece uma lista de recomendações que você pode habilitar para os recursos na assinatura especificada.
-
-![][1]
-
-## Recomendações de monitoramento
+### Recomendações de monitoramento
 
 Depois de definir uma política de segurança, a Central de Segurança do Azure analisa o estado de segurança de seus recursos para identificar possíveis vulnerabilidades. O bloco **Recomendações** na folha **Central de Segurança** permite saber a quantidade total de recomendações identificadas pela Central de Segurança do Azure.
 
@@ -51,20 +49,20 @@ Depois de definir uma política de segurança, a Central de Segurança do Azure 
 Para ver os detalhes de cada recomendação:
 
 1. Clique no **bloco Recomendações** na folha **Central de Segurança**. A folha **Recomendações** será aberta.
-2. Você pode filtrar as recomendações apresentadas por estado e por severidade. Clique em **Filtro** na folha **Recomendações**. A folha Filtro se abre para você selecionar valores de severidade e estado que deseja ver. ![][3]
+2. Você pode filtrar as recomendações apresentadas por estado e por severidade. Clique em **Filtro** na folha **Recomendações**. A folha Filtro se abre para você selecionar valores de gravidade e estado que deseja ver. ![][3]
 
-3. Se você determinar que uma recomendação não se aplica, poderá ignorar a recomendação e removê-la da exibição. Há duas maneiras de ignorar uma recomendação. Clique com o botão direito do mouse em um item e selecione **Ignorar** ou passe o mouse sobre um item, clique nos três pontos que aparecem à direita e selecione **Ignorar**. Você pode exibir recomendações ignoradas clicando em **Filtro** e selecionando **Ignoradas**. ![][4]
+3. Se você determinar que uma recomendação não se aplica, poderá ignorar a recomendação e removê-la da exibição. Há duas maneiras de ignorar uma recomendação. Clique com o botão direito do mouse em um item e selecione **Ignorar** ou passe o mouse sobre um item, clique nos três pontos que aparecem à direita e selecione **Ignorar**. Você pode exibir as recomendações ignoradas clicando em **Filtro** e selecionando **Ignoradas**. ![][4]
 
 As recomendações são mostradas em um formato de tabela, em que cada linha representa uma recomendação específica. As colunas da tabela são:
 
 - **DESCRIÇÃO**: uma explicação da recomendação e o que precisa ser feito para resolvê-la
-- **RECURSO**: a quais recursos a recomendação se aplica
+- **RECURSO**: a qual(is) recurso(s) a recomendação se aplica
 - **ESTADO**: o estado atual da recomendação:
   - **Aberta**: ainda não foi resolvida
-  - **Em andamento**: a recomendação atualmente está sendo aplicada aos recursos; nenhuma ação é exigida de você
-  - **Resolvida**: a recomendação já foi concluída (quando o estado for resolvido, a cor da linha fica esmaecida)
-- **GRAVIDADE**: descreve a gravidade da recomendação específica:
-  - **Alta**: existe uma vulnerabilidade em um recurso significativo (aplicativo, VM, grupo de segurança de rede) que requer atenção
+  - **Em andamento**: a recomendação atualmente está sendo aplicada aos recursos; não é exigido que você realize nenhuma ação
+  - **Resolvida**: a recomendação já foi concluída (quando o estado é resolvido, a cor da linha fica esmaecida)
+- **GRAVIDADE**: descreve a gravidade dessa recomendação específica:
+  - **Alta**: existe uma vulnerabilidade em um recurso significativo (aplicativo, VM, grupo de segurança de rede) e ela requer atenção
   - **Média**: são necessárias etapas adicionais ou não críticas para concluir um processo ou eliminar a vulnerabilidade
   - **Baixa**: uma vulnerabilidade que deve ser abordada, mas não exige atenção imediata. (Por padrão, as recomendações de baixa severidade não são apresentadas, mas você pode filtrar por recomendações de baixa severidade se quiser exibi-las).
 
@@ -86,7 +84,7 @@ Use a tabela a seguir como referência para entender as recomendações disponí
 | Habilitar Transparent Data Encryption em bancos de dados SQL | Recomenda que você habilite a criptografia para bancos de dados SQL (apenas serviço do Azure SQL). |
 | Implantar o Agente de VM | Permite que você veja quais máquinas virtuais exigem o Agente de VM. O Agente de VM deve ser instalado em VMs para provisionar verificação de linha de base, verificação de patch e antimalware. O agente de VM está instalado por padrão nas VMs implantadas do Azure Marketplace. O artigo [Agente de VM e extensões – parte 2](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) fornece informações sobre como instalar o Agente de VM. |
 
-## Aplicando recomendações
+### Aplicando recomendações
 Depois de examinar todas as recomendações, você poderá decidir qual delas aplicar primeiro. É recomendável usar a classificação de severidade como o parâmetro principal para avaliar quais recomendações devem ser aplicadas primeiro. Usando as recomendações de antimalware, vamos examinar um exemplo de como aplicar uma recomendação:
 
 1. Na folha **Recomendações**, selecione **Habilitar Antimalware**. ![][5]
@@ -98,17 +96,17 @@ Depois de examinar todas as recomendações, você poderá decidir qual delas ap
 
 O [Antimalware da Microsoft](azure-security-antimalware.md) agora está ativo na máquina virtual selecionada.
 
-## Implantando soluções de parceiro integradas
+### Implantando soluções de parceiro integradas
 
 A recomendação pode ser implantar uma solução integrada de segurança de um parceiro da Microsoft. Vamos examinar um exemplo de como fazer isso:
 
 1. Volte para a folha **Recomendações**.
-2.	Selecione recomendação **Proteger o aplicativo Web usando o firewall do aplicativo Web**. Isso abre a folha **Aplicativos Web Desprotegidos**. ![][7]
+2.	Selecione a recomendação **Proteger o aplicativo Web usando o firewall do aplicativo Web**. Isso abre a folha **Aplicativos Web Desprotegidos**. ![][7]
 3. Selecione um aplicativo Web; a folha **Adicionar um Firewall do Aplicativo Web** será aberta.
 4. Selecione **Firewall do Aplicativo Web Barracuda**. Uma folha se abre fornecendo informações sobre o **Firewall do Aplicativo Web Barracuda**.
 5. Clique em **Criar** na folha de informações. A folha **Novo Firewall do Aplicativo Web** é aberta e você pode executar as etapas de **Configuração da VM** e fornecer **Informações do WAF**.
 6. Selecione **Configuração da VM**. Na folha **Configuração da VM**, você deve inserir as informações necessárias para criar a máquina virtual que executará o WAF. ![][8]
-7. Volte para a folha **Novo Firewall do Aplicativo Web** e selecione **Informações do WAF**. Na folha **Informações do WAF**, configure o WAF. A Etapa 6 permite configurar a máquina virtual na qual o WAF será executado, e a Etapa 7 permite provisionar o WAF em si.
+7. Volte para a folha **Novo Firewall do Aplicativo Web** e selecione **Informações do WAF**. Na folha **Informações do WAF**, você configura o WAF em si. A Etapa 6 permite configurar a máquina virtual na qual o WAF será executado, e a Etapa 7 permite provisionar o WAF em si.
 
 8. Volte para a folha **Recomendações**. Uma nova entrada foi gerada depois que você criou o WAF; **finalize a configuração de firewall do aplicativo Web**. Isso permite que você saiba do que precisa para concluir o processo de conectar o WAF dentro da Rede Virtual do Azure a fim de que ele possa proteger o aplicativo. ![][9]
 
@@ -120,14 +118,13 @@ Os logs daquele WAF agora estão totalmente integrados. A Central de Segurança 
 ## Próximas etapas
 Neste documento, você foi apresentado às recomendações de segurança da Central de Segurança do Azure. Para saber mais sobre a Central de Segurança do Azure, veja o seguinte:
 
-- [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) – saiba como configurar políticas de segurança
+- [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) – saiba como definir as políticas de segurança
 - [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) – saiba como monitorar a integridade dos recursos do Azure
 - [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e a responder a alertas de segurança
-- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – perguntas frequentes sobre como usar o serviço de localização
+- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre perguntas frequentes sobre como usar o serviço
 - [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure
 
 <!--Image references-->
-[1]: ./media/security-center-recommendations/show-recommendations-for.png
 [2]: ./media/security-center-recommendations/recommendations-tile.png
 [3]: ./media/security-center-recommendations/filter-recommendations.png
 [4]: ./media/security-center-recommendations/dismiss-recommendations.png
@@ -138,4 +135,4 @@ Neste documento, você foi apresentado às recomendações de segurança da Cent
 [9]: ./media/security-center-recommendations/finalize-waf.png
 [10]: ./media/security-center-recommendations/restrict-traffic.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -28,7 +28,7 @@ Este tutorial mostra como usar os recursos de autenticação e autorização do 
  
 ## Autenticação e autorização no Serviço de Aplicativo
 
-Para obter uma introdução aos recursos de autenticação usados neste tutorial, consulte o tutorial anterior desta série, [Autenticação e autorização para Aplicativos de API no Serviço de Aplicativo do Azure](app-service-api-dotnet-get-started.md).
+Para obter uma introdução aos recursos de autenticação usados neste tutorial, veja o tutorial anterior nesta série, [Autenticação e autorização para Aplicativos de API no Serviço de Aplicativo do Azure](app-service-api-authentication.md).
 
 ## Como acompanhar este tutorial
 
@@ -268,4 +268,4 @@ Agora, o front-end pode chamar a API em nome de um usuário autenticado, mas usu
 
 Neste tutorial, você usou a Autenticação/Autorização do Serviço de Aplicativo para restringir o acesso a um aplicativo de API de modo que somente usuários autenticados possam chamá-lo. No próximo tutorial da série, você aprenderá a [restringir o acesso ao aplicativo de API para cenários de serviço a serviço](app-service-api-dotnet-service-principal-auth.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

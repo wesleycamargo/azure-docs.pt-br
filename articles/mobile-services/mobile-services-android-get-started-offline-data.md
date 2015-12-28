@@ -39,7 +39,7 @@ Se você estiver offline conectado ou não, conflitos podem ocorrer sempre que v
 
 ## Atualizar o aplicativo para dar suporte à sincronização offline
 
-Com a sincronização offline, você lê e grava em uma *tabela de sincronização* (usando a interface *IMobileServiceSyncTable*), que faz parte de um banco de dados **SQL Light** no dispositivo.
+Com sincronização offline você lê e grava de uma *tabela de sincronização* (usando a interface *IMobileServiceSyncTable*), que é parte de um banco de dados **SQLite** no dispositivo.
 
 Para enviar por push e receber alterações entre o dispositivo e os Serviços Móveis do Azure, você deve usar um *contexto de sincronização* (*MobileServiceClient.SyncContext*), que você inicializa com o banco de dados local para armazenar dados localmente.
 
@@ -223,4 +223,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [tutorial de Início Rápido dos Serviços Móveis]: mobile-services-android-get-started.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

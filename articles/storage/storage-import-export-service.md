@@ -263,10 +263,13 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 - Envie somente seus discos rígidos. Não inclua itens como cabos de alimentação ou cabos USB.
 
 
+## Consulte também
+
+[Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy)
 
 [import-job-03]: ./media/storage-import-export-service/import-job-03.png
 [export-job-03]: ./media/storage-import-export-service/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -52,7 +52,7 @@ Nossa visão era criar uma infraestrutura completa com base somente em serviços
  
 ### Componentes de alto nível
 
-Criamos uma empresa, não apenas um site. O suporte para o projeto todo exigiu uma gama completa de ferramentas e aplicativos. Adotamos o Visual Studio e o Visual Studio Online para desenvolvimento, o Team Foundation Service (TFS) Online para controle do código-fonte e gerenciamento de scrum, o Office 365 para comunicação e colaboração e é claro, o Microsoft Azure para todas as operações relacionadas ao site e a armazenamento. Com o Visual Studio, o IDE forneceu provisionamento direto ao Azure, com integração ao TFS Online que ofereceu um aumento de produtividade adicional.
+Criamos uma empresa, não apenas um site. O suporte para o projeto todo exigiu uma gama completa de ferramentas e aplicativos. Adotamos o Visual Studio e o Visual Studio Team Services para desenvolvimento, o Team Foundation Service (TFS) Online para controle do código-fonte e gerenciamento de scrum, o Office 365 para comunicação e colaboração e é claro, o Microsoft Azure para todas as operações relacionadas ao site e a armazenamento. Com o Visual Studio, o IDE forneceu provisionamento direto ao Azure, com integração ao TFS Online que ofereceu um aumento de produtividade adicional.
 
 O diagrama a seguir ilustra os componentes de alto nível usados na infraestrutura da WhatToPedia.
 
@@ -421,4 +421,4 @@ O código a seguir cria o indexador mencionado na seção sobre a criação do p
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

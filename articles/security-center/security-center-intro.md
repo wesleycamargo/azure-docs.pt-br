@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="12/10/2015"
    ms.author="terrylan"/>
 
 # Introdução à Central de Segurança do Azure
@@ -112,7 +112,7 @@ O [Introdução à Central de segurança do Azure](security-center-get-started.m
 Neste documento, você foi apresentado à Central de segurança do Azure, seus principais recursos e como começar. Para saber mais, consulte os seguintes:
 
 - [Definição de políticas de segurança na Central de Segurança do Azure](security-center-policies.md) – saiba como definir as políticas de segurança
-- [Implementação das recomendações de segurança na Central de segurança do Azure](security-center-recommendations.md) – Saiba como as recomendações ajudam a proteger os recursos do Azure
+- [Gerenciamento das recomendações de segurança na Central de segurança do Azure](security-center-recommendations.md) – saiba como as recomendações ajudam a proteger os recursos do Azure
 - [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) – saiba como monitorar a integridade dos recursos do Azure
 - [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e a responder a alertas de segurança
 - [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre as perguntas frequentes sobre como usar o serviço de localização
@@ -126,4 +126,4 @@ Neste documento, você foi apresentado à Central de segurança do Azure, seus p
 [5]: ./media/security-center-intro/security-alert.png
 [6]: ./media/security-center-intro/security-alert-detail.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/08/2015"
+   ms.date="12/10/2015"
    ms.author="terrylan"/>
 
 # Perguntas frequentes sobre a Central de Segurança do Azure
@@ -101,6 +101,6 @@ Ambas as máquinas virtuais [Gerenciador de Recursos e Clássica](azure-classic-
 As recomendações da lista de controle de acesso no momento se aplicam às máquinas virtuais Classic. Os grupos de segurança de rede e recomendações para a instalação do Firewall do aplicativo Web no momento se aplicam somente às máquinas virtuais Gerenciador de Recursos.
 
 ### Há suporte para as máquinas virtuais do Linux?
-A Central de Segurança do Azure oferece monitoramento para as máquinas virtuais do Linux (somente o Ubuntu versões 12.04, 14.04, 14.10 e 15.04) No futuro, o monitoramento de integridade de segurança adicional e a coleta/análise de dados estarão disponíveis, bem como o suporte adicional para distribuições do Linux.
+A linha de base Central de Segurança do Azure oferece monitoramento para as máquinas virtuais do Linux (somente o Ubuntu versões 12.04, 14.04, 14.10 e 15.04). No futuro, o monitoramento de integridade de segurança adicional e a coleta/análise de dados estarão disponíveis, bem como o suporte adicional para distribuições do Linux.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

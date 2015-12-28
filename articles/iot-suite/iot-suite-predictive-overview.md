@@ -35,7 +35,7 @@ Ao prever o momento em que a manutenção é necessária, a Fabrikam pode otimiz
 
 Para entender como o [Azure IoT Suite][lnk_iot_suite] fornece recursos que os clientes precisam para aproveitar o potencial da manutenção preditiva, examine este [infográfico][lnk_infographic].
 
-Para mostrar esses recursos funcionando na telemetria de dispositivo coletada por meio dos serviços do IoT Suite e exibidas para os usuários em um aplicativo Web, a solução utiliza um modelo existente do Aprendizado de Máquina do Azure como um modelo. A Microsoft criou um modelo de regressão e publicou o modelo completo, dados<sup>[1]</sup> e diretrizes passo a passo [aqui][lnk_regression_model].
+Para mostrar esses recursos funcionando na telemetria de dispositivo coletada por meio dos serviços do IoT Suite e exibidas para os usuários em um aplicativo Web, a solução utiliza um modelo existente do Aprendizado de Máquina do Azure como um modelo. A Microsoft criou um [modelo de regressão][lnk_regression_model] e publicou o modelo completo, dados<sup>[1]</sup> e diretrizes passo a passo.
 
 A solução pré-configurada de manutenção preditiva do Azure IoT usa o modelo de regressão criado com base neste modelo; ele é implantado em sua assinatura do Azure e exposto por meio de uma API publicada. A solução inclui um subconjunto dos dados de teste que representa quatro (de um total de 100) de mecanismos e as quatro (de um total de 21) transmissões de dados de sensor que fornece um resultado preciso do modelo treinado.
 
@@ -55,4 +55,4 @@ Faça um [passo a passo][lnk-predictive-walkthrough] da solução pré-configura
 [lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
 [lnk_capture_value]: http://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -77,12 +77,13 @@ Cada back-end de Node.js do Aplicativo Móvel do Serviço de Aplicativo do Azure
 
 Esse aplicativo cria uma API Web simples otimizada para celular com um único ponto de extremidade, (`/tables/TodoItem`) que fornece acesso não autenticado a um armazenamento de dados SQL subjacente usando um esquema dinâmico. Ele é adequado para os seguintes inícios rápidos de biblioteca de cliente:
 
+- [Início rápido do cliente Android]
 - [Início rápido do cliente iOS]
+- [Início rápido de cliente Windows Store]
 - [Início rápido do cliente Xamarin.iOS]
 - [Início rápido do cliente Xamarin.Android]
 - [Início rápido do cliente Xamarin.Forms]
-- [Início rápido de cliente Windows Store]
-- [Guia de início rápido do cliente HTML/Javascript]
+
 
 Você pode encontrar o código para esse aplicativo básico no [exemplo de aplicativo básico no GitHub].
 
@@ -322,6 +323,33 @@ Um exemplo de arquivo _azureMobile.js_ implementando as configurações de banco
 
 Recomendamos que você adicione _azureMobile.js_ ao arquivo _.gitignore_ (ou outro arquivo de controle do código-fonte a ser ignorado) para impedir que as senhas sejam armazenadas na nuvem. Sempre defina as configurações de produção nas Configurações do Aplicativo no [Portal do Azure].
 
+### <a name="howto-appsettings"><a>Configurações de Aplicativo para configurar seu Aplicativo Móvel
+
+A maioria das configurações no arquivo _azureMobile.js_ tem uma Configuração do Aplicativo equivalente no [Portal do Azure]. Use a lista a seguir para configurar seu aplicativo nas Configurações de Aplicativo:
+
+| Configurações de Aplicativo | Configuração _azureMobile.js_ | Descrição | Valores Válidos |
+| :-------------------------- | :------------------------ | :---------------------------------------- | :------------------------------------------ |
+| **MS\_MobileAppName** | name | O nome do aplicativo | cadeia de caracteres |
+| **MS\_MobileLoggingLevel** | logging.level | Nível de log mínimo das mensagens a serem registradas | erro, aviso, informações, detalhado, depuração, simples |
+| **MS\_DebugMode** | depurar | Habilitar ou desabilitar o modo de depuração | verdadeiro, falso |
+| **MS\_TableSchema** | data.schema | Nome do esquema padrão para tabelas SQL | cadeia de caracteres (padrão: dbo) |
+| **MS\_DynamicSchema** | data.dynamicSchema | Habilitar ou desabilitar o modo de depuração | verdadeiro, falso |
+| **MS\_DisableVersionHeader** | versão (definido como indefinido)| Desabilita o cabeçalho X-ZUMO-Server-Version | verdadeiro, falso |
+| **MS\_SkipVersionCheck** | skipversioncheck | Desabilita a verificação de versão de API do cliente | verdadeiro, falso |
+
+Para definir uma Configuração do Aplicativo:
+
+1. Faça logon no [Portal do Azure].
+2. Selecione **Todos os recursos** ou **Serviços de Aplicativos** e clique no nome do seu Aplicativo Móvel.
+3. A folha Configurações será aberta por padrão; se não abrir, clique em **Configurações**.
+4. Clique em **Configurações do aplicativo** no menu GERAL.
+5. Role até a seção Configurações de Aplicativo.
+6. Se a configuração do aplicativo já existir, clique no valor da configuração do aplicativo para editá-lo.
+7. Se a configuração do aplicativo não existir, insira a Configuração do Aplicativo na caixa Chave e o valor na caixa Valor.
+8. Quando você tiver concluído, clique em **Salvar**.
+
+A alteração da maioria das Configurações do Aplicativo requer o reinício do serviço.
+
 ### <a name="howto-use-sqlazure"></a>Como usar o Banco de Dados SQL como o armazenamento de dados de produção
 
 <!--- ALTERNATE INCLUDE - we can't use ../includes/app-service-mobile-dotnet-backend-create-new-service.md - slightly different semantics -->
@@ -334,7 +362,7 @@ O uso do Banco de Dados SQL do Azure como armazenamento de dados é idêntico em
 
 3. Na caixa **Grupo de Recursos**, digite o mesmo nome do aplicativo.
 
-4. O plano Serviço de Aplicativo Padrão será selecionado. Se você deseja alterar o plano do Serviço do Aplicativo, é possível fazer isso clicando em Plano do Serviço de Aplicativo > **+ Criar Novo**. Forneça um nome ao novo Plano de Serviço de Aplicativo e selecione um local apropriado. Clique em Camada de Preços e selecione uma camada de preços apropriada para o serviço. Escolha **Exibir tudo** para ver mais opções de preço, como **Gratuito** e **Compartilhado**. Depois de escolher o tipo de preço, clique em **Selecionar**. De volta à folha **Plano de Serviço de Aplicativo**, clique em **OK**.
+4. O plano Serviço de Aplicativo Padrão será selecionado. Se você deseja alterar o plano do Serviço do Aplicativo, pode fazê-lo clicando em Plano do Serviço de Aplicativo > **+ Criar Novo**. Forneça um nome ao novo Plano de Serviço de Aplicativo e selecione um local apropriado. Clique em Camada de Preços e selecione uma camada de preços apropriada para o serviço. Escolha **Exibir tudo** para ver mais opções de preço, como **Gratuito** e **Compartilhado**. Depois de escolher o tipo de preço, clique em **Selecionar**. De volta à folha **Plano de Serviço de Aplicativo**, clique em **OK**.
 
 5. Clique em **Criar**. Isso cria um back-end de aplicativo móvel onde você, mais tarde, implantará o projeto do servidor. O provisionamento de um back-end de aplicativo móvel pode levar alguns minutos. Depois que o back-end do Aplicativo Móvel for provisionado, o portal abrirá a folha **Configurações** do back-end do Aplicativo Móvel.
 
@@ -352,9 +380,9 @@ Depois que o back-end do Aplicativo Móvel for criado, você poderá conectar um
 
 9. Na folha **Novo banco de dados**, clique em **OK**.
 
-10. De volta à folha **Adicionar conexão de dados**, selecione **Cadeia de conexão**, insira o logon e a senha que você acabou de fornecer ao criar o banco de dados. Se você usar um banco de dados existente, forneça as credenciais de logon desse banco de dados. Depois de inserir, clique em **OK**.
+10. De volta à folha **Adicionar conexão de dados**, selecione **Cadeia de conexão** e insira o logon e a senha que você acabou de fornecer ao criar o banco de dados. Se você usar um banco de dados existente, forneça as credenciais de logon desse banco de dados. Depois de inserir, clique em **OK**.
 
-11. De volta novamente à folha **Adicionar conexão de dados**, clique em **OK** para criar o banco de dados.
+11. De volta à folha **Adicionar conexão de dados**, clique em **OK** para criar o banco de dados.
 
 <!--- END OF ALTERNATE INCLUDE -->
 
@@ -362,7 +390,7 @@ A criação do banco de dados pode levar alguns minutos. Use a área **Notifica�
 
 ### <a name="howto-tables-auth"></a>Como exigir autenticação para acesso às tabelas
 
-Se você deseja usar a Autenticação do Serviço de Aplicativo com o ponto de extremidade das tabelas, é necessário configurar a Autenticação do Serviço de Aplicativo no [Portal do Azure] primeiro. Para obter mais detalhes sobre como configurar a autenticação em um Serviço de Aplicativo do Azure, examine o Guia de Configuração para o provedor de identidade que você pretende usar:
+Se você deseja usar a Autenticação do Serviço de Aplicativo com o ponto de extremidade das tabelas, precisa configurar a Autenticação do Serviço de Aplicativo no [Portal do Azure] primeiro. Para obter mais detalhes sobre como configurar a autenticação em um Serviço de Aplicativo do Azure, examine o Guia de Configuração para o provedor de identidade que você pretende usar:
 
 - [Como configurar a autenticação do Active Directory do Azure]
 - [Como configurar a autenticação do Facebook]
@@ -519,7 +547,7 @@ Ao criar um novo aplicativo, você pode querer propagar uma tabela com dados. Is
 
 Além da API de acesso a dados por meio do ponto de extremidade/tabelas, os Aplicativos Móveis do Azure podem fornecer cobertura de API personalizada. As APIs personalizadas são definidas de forma semelhante às definições de tabela e pode acessar todos os mesmos recursos, incluindo autenticação.
 
-Se você deseja usar a Autenticação do Serviço de Aplicativo com uma API Personalizada, é necessário configurar a Autenticação do Serviço de Aplicativo no [Portal do Azure] primeiro. Para obter mais detalhes sobre como configurar a autenticação em um Serviço de Aplicativo do Azure, examine o Guia de Configuração para o provedor de identidade que você pretende usar:
+Se você deseja usar a Autenticação do Serviço de Aplicativo com uma API Personalizada, precisa configurar a Autenticação do Serviço de Aplicativo no [Portal do Azure] primeiro. Para obter mais detalhes sobre como configurar a autenticação em um Serviço de Aplicativo do Azure, examine o Guia de Configuração para o provedor de identidade que você pretende usar:
 
 - [Como configurar a autenticação do Active Directory do Azure]
 - [Como configurar a autenticação do Facebook]
@@ -531,8 +559,8 @@ Se você deseja usar a Autenticação do Serviço de Aplicativo com uma API Pers
 
 As APIs personalizadas são definidas da mesma forma que a API de tabelas.
 
-1. Criar um diretório **api**
-2. Criar um arquivo JavaScript de definição de API no diretório **api**.
+1. Crie um diretório **api**
+2. Crie um arquivo JavaScript de definição de API no diretório **api**.
 3. Use o método import para importar o diretório **api**.
 
 Aqui está a definição de api do protótipo com base na amostra de aplicativo básico que usamos anteriormente.
@@ -605,13 +633,13 @@ O Serviço de Aplicativo do Azure fornece várias técnicas de depuração e de 
 
 ### <a name="howto-diagnostic-logs"></a>Como gravar nos logs de diagnóstico dos Aplicativos Móveis do Azure
 
-Os aplicativos Node.js têm acesso a uma ampla gama de ferramentas de log de diagnóstico. Internamente, o SDK do Node.js dos Aplicativos Móveis do Azure usa o [Winston] para o registro em log de diagnóstico. Ele é ativado automaticamente habilitando o modo de depuração ou definindo a configuração de aplicativo **MS\_DebugMode** como true no [Portal do Azure]. Os logs gerados aparecerão nos Logs de Diagnóstico no [Portal do Azure].
+Os aplicativos Node.js têm acesso a uma ampla gama de ferramentas de log de diagnóstico. Internamente, o SDK do Node.js dos Aplicativos Móveis do Azure usa o [Winston] para o registro em log de diagnóstico. Ele é habilitado automaticamente com a habilitação do modo de depuração ou a definição da configuração do aplicativo **MS\_DebugMode** como true no [Portal do Azure]. Os logs gerados aparecerão nos Logs de Diagnóstico no [Portal do Azure].
 
 ## <a name="in-portal-editing"></a>Experiência de edição de código no portal
 
-As ferramentas especiais no Portal do Azure facilitam o trabalho com um projeto de back-end do Node.js sem a necessidade de baixar o projeto de código. Tabelas e APIs fáceis de usar permitem que você crie e trabalhe com tabelas e APIs personalizadas diretamente no Portal. Você pode até editar a operação da tabela e os scripts da API diretamente no Portal usando o editor "Monaco" do Visual Studio Online.
+As ferramentas especiais no Portal do Azure facilitam o trabalho com um projeto de back-end do Node.js sem a necessidade de baixar o projeto de código. Tabelas e APIs fáceis de usar permitem que você crie e trabalhe com tabelas e APIs personalizadas diretamente no Portal. Você pode até editar a operação da tabela e os scripts da API diretamente no Portal usando o editor "Monaco" do Visual Studio Team Services.
 
-### <a name="work-easy-tables"></a>Como trabalhar com tabelas fáceis no Portal do Azure
+### <a name="work-easy-tables"></a>Como trabalhar com tabelas fáceis no portal do Azure
 
 Quando você clica em **Tabelas fáceis** em suas configurações de site de back-end, você pode adicionar uma nova tabela ou modificar ou excluir uma tabela existente. Você também pode ver dados na tabela.
 
@@ -620,27 +648,27 @@ Quando você clica em **Tabelas fáceis** em suas configurações de site de bac
 Os comandos a seguir estão disponíveis na barra de comandos de uma tabela:
 
 + **Alterar permissões**: modifique a permissão para operações de leitura, inserção, atualização e exclusão na tabela. As opções são permitir acesso anônimo, exigir autenticação ou desabilitar todo o acesso à operação. Isso modifica o arquivo de código do projeto table.json.
-+ **Editar script**: o arquivo de script da tabela é aberto no editor do Visual Studio Online.
++ **Editar script**: o arquivo de script da tabela é aberto no editor do Visual Studio Team Services.
 + **Gerenciar esquema**: adicione ou exclua colunas, ou altere o índice da tabela.
 + **Limpar tabela**: trunca uma tabela existente excluindo todas as linhas de dados, mas deixando o esquema inalterado.
 + **Excluir linhas**: exclua linhas individuais de dados.
 + **Exibir logs de streaming**: conecta você ao serviço de log de streaming de seu site.
 
-###<a name="work-easy-apis"></a>Como trabalhar com APIs fáceis no Portal do Azure
+###<a name="work-easy-apis"></a>Como trabalhar com APIs fáceis no portal do Azure
 
-Quando você clica em **APIs fáceis** em suas configurações de site de back-end, você pode adicionar um novo ponto de extremidade de API personalizada ou modificar ou excluir um ponto de extremidade de API existente.
+Quando você clica em **APIs fáceis** em suas configurações de site de back-end, pode adicionar um novo ponto de extremidade de API personalizada ou modificar ou excluir um ponto de extremidade de API existente.
 
 ![Trabalhar com APIs fáceis](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-apis.png)
 
-No Portal, você pode alterar as permissões de acesso de uma determinada ação HTTP, editar o arquivo de script da API no editor do Visual Studio Online ou exibir os logs de streaming.
+No portal, você pode alterar as permissões de acesso de uma determinada ação HTTP, editar o arquivo de script da API no editor do Visual Studio Team Services ou exibir os logs de streaming.
 
-###<a name="online-editor"></a>Como editar o código no Visual Studio Online
+###<a name="online-editor"></a>Como editar o código no Visual Studio Team Services
 
-O Portal do Azure permite a edição dos arquivos de script de back-end do Node.js no Visual Studio Online sem a necessidade de baixar o projeto no computador local. Para editar arquivos de script no editor online:
+O portal do Azure permite a edição dos arquivos de script de back-end do Node.js no Visual Studio Team Services sem a necessidade de baixar o projeto no computador local. Para editar arquivos de script no editor online:
 
-1. Na folha do back-end de Aplicativo Móvel, clique em **Todas as configurações** > em **Tabelas fáceis** ou **APIs fáceis**, clique em uma tabela ou API e clique em **Editar script**. O arquivo de script é aberto no editor do Visual Studio Online.
+1. Na folha do back-end de Aplicativo Móvel, clique em **Todas as configurações** > em **Tabelas fáceis** ou **APIs fáceis**, clique em uma tabela ou API e clique em **Editar script**. O arquivo de script é aberto no editor do Visual Studio Team Services.
 
-	![Editor de código do Visual Studio Online](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
+	![Editor de código do Visual Studio Team Services](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
 
 2. Faça as alterações no arquivo de código no editor online. As alterações são salvas automaticamente enquanto você digita.
 
@@ -657,12 +685,13 @@ Também é possível executar, do editor, o código no site
 [6]: ../../includes/media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-db.png
 
 <!-- URLs -->
+[Início rápido do cliente Android]: app-service-mobile-android-get-started.md
 [Início rápido do cliente iOS]: app-service-mobile-ios-get-started.md
 [Início rápido do cliente Xamarin.iOS]: app-service-mobile-xamarin-ios-get-started.md
 [Início rápido do cliente Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
 [Início rápido do cliente Xamarin.Forms]: app-service-mobile-xamarin-forms-get-started.md
 [Início rápido de cliente Windows Store]: app-service-mobile-windows-store-dotnet-get-started.md
-[Guia de início rápido do cliente HTML/Javascript]: app-service-html-get-started.md
+[HTML/Javascript Client QuickStart]: app-service-html-get-started.md
 [à sincronização de dados offline]: app-service-mobile-offline-data-sync.md
 [Como configurar a autenticação do Active Directory do Azure]: app-service-mobile-how-to-configure-active-directory-authentication.md
 [Como configurar a autenticação do Facebook]: app-service-mobile-how-to-configure-facebook-authentication.md
@@ -693,4 +722,4 @@ Também é possível executar, do editor, o código no site
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

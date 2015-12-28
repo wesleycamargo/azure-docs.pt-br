@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="12/11/2015"
 	ms.author="hangzh;bradsev" />
 
 #<a name="heading"></a> Enviar consultas de Hive para clusters do Hadoop do HDInsight no processo e tecnologia de análise avançada 
 
-Este documento descreve várias maneiras de enviar consultas de Hive para clusters de Hadoop gerenciados por um serviço do HDInsight no Azure. Essa tarefa faz parte do ADAPT (Processo e Tecnologia de Análise Avançada) fornecido pelo Aprendizado de Máquina do Azure. Várias tarefas de wrangling de dados são discutidas: exploração de dados e geração de recursos. Consultas genéricas de Hive que mostram como explorar dados ou gerar recursos usando o Hive em um cluster do Hadoop do Azure HDInsight. Essas consultas de Hive usam UDFs (Funções Definidas pelo Usuário) de Hive incorporadas que são fornecidas.
+Este documento descreve várias maneiras de enviar consultas de Hive para clusters de Hadoop gerenciados por um serviço do HDInsight no Azure. Esta tarefa é uma etapa no CAP (Processo de Análise da Cortana). Várias tarefas de wrangling de dados são discutidas: exploração de dados e geração de recursos. Consultas genéricas de Hive que mostram como explorar dados ou gerar recursos usando o Hive em um cluster do Hadoop do Azure HDInsight são apresentadas. Essas consultas de Hive usam UDFs (Funções Definidas pelo Usuário) de Hive incorporadas que são fornecidas.
 
 Exemplos de consultas que são específicas para cenários de [Dados de Viagens de Táxi em NYC](http://chriswhong.com/open-data/foil_nyc_taxi/) também são fornecidos no [repositório Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Essas consultas já tem o esquema de dados especificado e estão prontas para ser enviadas para execução.
 
-Na seção final, são discutidos os parâmetros que os usuários podem ajustar para que o desempenho das consultas do Hive possa ser melhorado.
+Na seção final são discutidos os parâmetros que podem ser usados para ajustar e aprimorar o desempenho das consultas do Hive.
 
 ## Pré-requisitos
 Este artigo supõe que você:
@@ -34,12 +34,12 @@ Este artigo supõe que você:
 
 
 ## <a name="submit"></a>Como enviar consultas de Hive
-Consultas de Hive podem ser enviadas usando:
+Consultas de hive podem ser enviadas usando os seguintes aplicativos:
 
-* a Linha de Comando do Hadoop no nó principal do cluster
-* o IPython Notebook
-* o Editor de Hive
-* Scripts do PowerShell do Azure
+* **Console de Linha de Comando do Hadoop** no nó principal do cluster
+* **IPython Notebook**
+* **Editor de Hive**
+* Scripts do **PowerShell**
 
 Consultas de Hive são semelhantes ao SQL. Usuários familiarizados com o SQL podem achar o <a href="http://hortonworks.com/wp-content/uploads/downloads/2013/08/Hortonworks.CheatSheet.SQLtoHive.pdf" target="_blank">Roteiro de SQL para Hive</a> útil.
 
@@ -67,7 +67,7 @@ Os usuários podem executar um comando como
 
 para enviar consultas de Hive simples diretamente pela linha de comando do Hadoop. Veja um exemplo, no qual a caixa vermelha descreve o comando que envia a consulta Hive e a caixa verde descreve a saída da consulta Hive.
 
-![Criar espaço de trabalho][10]
+![Criar espaço de trabalho](./media/machine-learning-data-science-process-hive-tables/run-hive-queries-1.png)
 
 #### Enviar consultas de Hive em arquivos de .hql
 
@@ -87,7 +87,7 @@ Por padrão, após a consulta de Hive ser enviada no console de Linha de Comando
 
 Os usuários também podem entrar no console de comando de Hive executando o comando `hive` na Linha de Comando do Hadoop e enviar consultas de Hive no console de comando do Hive no prompt **hive>**. Aqui está um exemplo.
 
-![Criar espaço de trabalho][11]
+![Criar espaço de trabalho](./media/machine-learning-data-science-process-hive-tables/run-hive-queries-2.png)
 
 Neste exemplo, as duas caixas vermelhas realçam os comandos usados para inserir o console de comando de Hive e a consulta de Hive enviada no console de comando de Hive, respectivamente. A caixa verde realça a saída da consulta de Hive.
 
@@ -108,11 +108,11 @@ Os usuários também podem exportar a saída da consulta de Hive para um blob do
 
 No exemplo a seguir, a saída da consulta de Hive é gravada em um diretório de blob `queryoutputdir` no contêiner padrão do cluster do Hadoop. Aqui, você deve fornecer somente o nome do diretório, sem o nome do blob. Um erro será gerado se você fornecer os nomes do blob e do diretório, como **wasb:///queryoutputdir/queryoutput.txt*.
 
-![Criar espaço de trabalho][13]
+![Criar espaço de trabalho](./media/machine-learning-data-science-process-hive-tables/output-hive-results-2.png)
 
 A saída da consulta de Hive pode ser vista no armazenamento de blob abrindo o contêiner padrão do cluster do Hadoop usando a ferramenta Gerenciador de Armazenamento do Azure (ou equivalente). Você pode aplicar o filtro (destacado pela caixa vermelha) se quiser recuperar um blob com letras especificadas em nomes.
 
-![Criar espaço de trabalho][14]
+![Criar espaço de trabalho](./media/machine-learning-data-science-process-hive-tables/output-hive-results-3.png)
 
 ### Por meio do Editor de Hive ou de comandos do PowerShell do Azure
 
@@ -272,7 +272,7 @@ Os campos que são usados nesta consulta são coordenadas de GPS de locais de sa
 
 As equações matemáticas que calculam a distância entre duas coordenadas de GPS podem ser encontradas no site <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Scripts de Tipo Móvel</a>, as quais foram criadas por Peter Lapisu. No Javascript dele, a função `toRad()` é apenas *lat\_or\_lon*pi/180*, que converte graus em radianos. Aqui, *lat\_or\_lon* é a latitude ou a longitude. Como o Hive não fornece a função `atan2`, mas fornece a função `atan`, a função `atan2` é implementada pela função `atan` na consulta de Hive acima usando a definição fornecida na <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipédia</a>.
 
-![Criar espaço de trabalho][1]
+![test](./media/machine-learning-data-science-process-hive-tables/atan2new.png)
 
 Uma lista completa de UDFs de Hive inseridas pode ser encontrada na seção **Funções Internas** no <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">wiki do Apache Hive</a>.
 
@@ -310,13 +310,8 @@ As configurações de parâmetro padrão do cluster de Hive talvez não sejam ad
 		set mapred.reduce.tasks=128;
 		set mapred.tasktracker.reduce.tasks.maximum=128;
 
-[1]: ./media/machine-learning-data-science-process-hive-tables/atan2new.png
-[10]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-1.png
-[11]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-2.png
-[12]: ./media/machine-learning-data-science-process-hive-tables/output-hive-results-1.png
-[13]: ./media/machine-learning-data-science-process-hive-tables/output-hive-results-2.png
-[14]: ./media/machine-learning-data-science-process-hive-tables/output-hive-results-3.png
-[15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
+
+
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

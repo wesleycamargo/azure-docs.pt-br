@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="09/24/2015" 
+    ms.date="12/14/2015" 
     ms.author="elizapo" />
 
 
@@ -21,6 +21,9 @@
 # Como usar sua assinatura do Office 365 com o Azure RemoteApp
 
 Você sabia que você pode usar sua assinatura do Office 365 existente no Azure RemoteApp para compartilhar aplicativos do Office da nuvem? Continue lendo para obter informações sobre as opções do Office 365 com o Azure RemoteApp, incluindo links para artigos sobre o Office 365 que ajudarão você a aproveitar ao máximo sua assinatura.
+
+## Como usar contas do Office 365 para o Azure RemoteApp?
+Veja o novo artigo de Peter para todas as informações: [Como usar o Azure RemoteApp com contas de usuário do Office 365](remoteapp-o365user.md)
 
 ## Posso usar minha assinatura do Office 365 para executar aplicativos do Office no Azure RemoteApp?
 
@@ -31,7 +34,7 @@ Sim! Na verdade, usar sua assinatura do Office 365 é a única maneira de levar 
 
 A boa notícia sobre a sua assinatura do Office 365 é que ela permite que você use a mesma licença de usuário em várias plataformas e ambientes diferentes, incluindo a nuvem do Azure. Quando você usa os aplicativos do Office no Azure RemoteApp, você não precisa comprar licenças adicionais ou configurar suas licenças existentes de uma maneira especial. Tudo o que você precisa é de uma assinatura do Office 365 que inclua o [Office 365 ProPlus](https://technet.microsoft.com/library/Gg702619.aspx).
 
-O Office 365 ProPlus permite a [ativação de computador compartilhado](https://technet.microsoft.com/library/Dn782860.aspx) – esse recurso habilita a ativação temporária baseada no usuário para o Office em ambientes virtuais e de nuvem como o Azure RemoteApp (e os Serviços de Área de Trabalho Remota).
+O Office 365 ProPlus permite a [ativação de computador compartilhado](https://technet.microsoft.com/library/Dn782860.aspx) - esse recurso habilita a ativação temporária baseada no usuário para o Office em ambientes virtuais e de nuvem como o Azure RemoteApp (e os Serviços de Área de Trabalho Remota).
 
 Quais planos do Office 365 incluem o Office 365 ProPlus? Confira a tabela de [Disponibilidade de serviço em cada plano](https://technet.microsoft.com/library/office-365-plan-options.aspx). Vale lembrar que nem todos os planos incluem o Office 365 ProPlus (por exemplo, o plano Office 365 Business). Se o seu plano não incluí-lo, considere a atualização para um plano que o inclua (por exemplo, Office 365 Education E3).
 
@@ -120,4 +123,4 @@ Precisa de mais informações sobre como usar a Ferramenta de implantação do O
 - [Implantando e atualizando o Office 365 ProPlus usando a Ferramenta de Implantação do Office](https://channel9.msdn.com/Events/Ignite/2015/BRK3168) (vídeo)
 - [Definir configurações de atualização para o Office 365 ProPlus](https://technet.microsoft.com/library/dn761708.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

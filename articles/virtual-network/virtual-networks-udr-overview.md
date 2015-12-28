@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/12/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Encaminhamento IP e rotas definidas pelo usuário
@@ -90,4 +90,4 @@ Essa VM de dispositivo virtual deve ser capaz de receber o tráfego de entrada n
 - Saiba como [criar rotas no modelo de implantação do Gerenciador de Recursos](../virtual-network-create-udr-arm-template) e associá-las a sub-redes. 
 - Saiba como [criar rotas no modelo de implantação clássico](../virtual-network-create-udr-classic-ps) e associá-las a sub-redes.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

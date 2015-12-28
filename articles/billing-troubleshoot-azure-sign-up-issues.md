@@ -37,7 +37,7 @@ Sugestões: se você não receber mensagens de texto (SMS) em seu telefone, use 
 **Observação:** você pode alterar o número de telefone preferencial posteriormente atualizando [as informações de seu perfil](https://account.windowsazure.com/Profile).
 
 ## Tem certeza de que o método de pagamento que você está usando na inscrição recebe suporte para pagamentos ou ativações do Azure?
-- Cartões de débito/crédito virtuais e pré-pagos não são aceitos.
+- Não são aceitos cartões de débito/crédito virtuais e pré-pagos.
 - Os provedores de cartão de crédito/débito aceitos variam de acordo com o país da conta.
 
 Sugestões: não use um cartão de débito/crédito pré-pago ou virtual. Tente usar um cartão de crédito alternativo válido e com suporte se o pagamento ou a ativação falhar. Certifique-se de que o cartão de crédito esteja ativo e de que o seu banco não esteja bloqueando qualquer transação online devido a políticas de segurança.
@@ -60,4 +60,4 @@ Sugestões: se você já ativou uma assinatura do Azure anteriormente, e a ativa
 ## Ainda não consegue se inscrever?
 [Entre em contato com o Suporte do Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) para receber ajuda se ainda tiver problemas de inscrição, ou se o problema não for abordado neste artigo.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -32,12 +32,9 @@ Clique para ver o [Conteúdo do SDK](mobile-engagement-ios-sdk-content.md)
 
 ##Notas de versão
 
-##3\.2.0 (10/08/2015)
+###3\.2.1 (11/12/2015)
 
--   Habilitado Bitcode no SDK para fazê-lo funcionar com **Xcode 7**.
--   Bugs corrigidos relacionados a notificações no aplicativo.
--   Feitas notificações no aplicativo mais confiáveis no caso de pouca bateria e outros cenários.
--   Removidos logs do console extra gerados pela biblioteca de terceiros.
+-   Corrigido o atraso quando uma nova instância do aplicativo é disparada por uma notificação com links profundos 
 
 Para a versão anterior, consulte as [notas de versão completas](mobile-engagement-ios-release-notes.md)
 
@@ -62,4 +59,4 @@ O método `application:didReceiveRemoteNotification:` precisa ser substituído p
 	-(void)didFailToRetrieveLaunchMessage;
 	-(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

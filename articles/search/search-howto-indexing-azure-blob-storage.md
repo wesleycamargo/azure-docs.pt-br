@@ -12,12 +12,12 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="12/09/2015"
+ms.date="12/11/2015"
 ms.author="eugenesh" />
 
 # Indexação de documentos no Armazenamento de Blobs do Azure com a Pesquisa do Azure
 
-Já há algum tempo, os clientes da Pesquisa do Azure são capazes de indexar "automagicamente" algumas fontes de dados populares usando os indexadores para o [Banco de Dados SQL do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) e o [Banco de Dados de Documentos do Azure](documentdb-search-indexer.md).
+Já há algum tempo, os clientes da Pesquisa do Azure são capazes de indexar "automagicamente" algumas fontes de dados populares usando os indexadores para o [Banco de Dados SQL do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) e o [Banco de Dados de Documentos do Azure](../documentdb/documentdb-search-indexer.md).
 
 Agora, adicionamos o suporte para indexação de documentos armazenados no Armazenamento de Blobs do Azure. Muitos clientes pediram a simplificação da indexação de documentos armazenados em blobs, como PDFs, documentos do Office ou páginas HTML. Até agora, isso envolvia a produção de código personalizado para realização da extração do texto e adição dos documentos ao índice da Pesquisa do Azure.
 
@@ -104,7 +104,7 @@ A Pesquisa do Azure indexa cada documento (blob) da seguinte maneira:
 
 Não é necessário definir os campos para todas as propriedades acima em seu índice de pesquisa, basta capturar as propriedades necessárias para seu aplicativo.
 
-> [AZURE.NOTE]Geralmente, os nomes de campo no índice existente serão diferentes dos nomes de campo gerados durante a extração do documento. Você pode usar os **mapeamentos de campo** para mapear os nomes de propriedade fornecidos pela Pesquisa do Azure para os nomes de campo em seu índice de pesquisa.
+> [AZURE.NOTE]Geralmente, os nomes de campo no índice existente serão diferentes dos nomes de campo gerados durante a extração do documento. Você pode usar os **mapeamentos de campo** para mapear os nomes de propriedade fornecidos pela Pesquisa do Azure para os nomes de campo em seu índice de pesquisa. Você verá um exemplo de uso de mapeamento de campo abaixo.
 
 ## Escolha do campo de chave do documento e tratamento de nomes de campo diferentes
 
@@ -144,15 +144,17 @@ Para unir tudo isso, veja como você pode adicionar mapeamentos de campo e habil
 	  "parameters" : { "base64EncodeKeys": true }
 	}
 
+> [AZURE.NOTE]Para saber mais sobre mapeamentos de campo, consulte [este artigo](search-indexers-customization.md).
+
 ## Indexação incremental e detecção de exclusão
 
-Quando você configura um indexador de blob para execução em um cronograma, ele reindexa apenas os blobs alterados, conforme determinado pelo carimbo de data e hora `LastModified` do blob.
+Quando você configura um indexador de blob para execução em um cronograma, ele reindexa apenas os blobs alterados, conforme determinado pelo carimbo de data/hora `LastModified` do blob.
 
 > [AZURE.NOTE]Não é necessário especificar uma política de detecção de alteração, a indexação incremental é habilitada automaticamente para você.
 
 Para indicar que determinados documentos devem ser removidos do índice, você deve usar uma estratégia de exclusão reversível. Em vez de excluir os blobs correspondentes, adicione uma propriedade de metadados personalizada para indicar que eles foram excluídos e configure uma política de detecção de exclusão reversível na fonte de dados.
 
-> [AZURE.NOTE]Se você apenas excluir os blobs em vez de usar uma política de detecção de exclusão, os documentos correspondentes não serão removidos do índice de pesquisa.
+> [AZURE.WARNING]Se você apenas excluir os blobs em vez de usar uma política de detecção de exclusão, os documentos correspondentes não serão removidos do índice de pesquisa.
 
 Por exemplo, a política abaixo considerará que um blob foi excluído se tiver uma propriedade de metadados `IsDeleted` com o valor `true`:
 
@@ -177,189 +179,33 @@ Por exemplo, a política abaixo considerará que um blob foi excluído se tiver 
 
 A tabela a seguir resume o processo executado para cada formato de documento, e descreve as propriedades dos metadados extraídos pela Pesquisa do Azure.
 
-<table style="font-size:12">
-
-<tr>
-<th>Formato de documento/tipo de conteúdo</th>
-<th>Propriedades de metadados específicas do tipo de conteúdo</th>
-<th>Detalhes do processamento </th>
-</tr>
-
-<tr>
-<td>HTML (`text/html`)</td>
-<td>
-`metadata_content_encoding`<br/>
-`metadata_content_type`<br/>
-`metadata_language`<br/>
-`metadata_description`<br/>
-`metadata_keywords`<br/>
-`metadata_title`
-</td>
-<td>Remoção da marcação HTML e extração do texto</td>
-</tr>
-
-<tr>
-<td>PDF (`application/pdf`)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_language`<br/>
-`metadata_author`<br/>
-`metadata_title`
-</td>
-<td>Extração do texto, incluindo documentos incorporados (excluindo imagens)</td>
-</tr>
-
-<tr>
-<td>DOCX (application/vnd.openxmlformats-officedocument.wordprocessingml.document)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_author`<br/>
-`metadata_character_count`<br/>
-`metadata_creation_date`<br/>
-`metadata_last_modified`<br/>
-`metadata_page_count`<br/>
-`metadata_word_count`
-</td>
-<td>Extração de texto, incluindo documentos incorporados</td>
-</tr>
-
-<tr>
-<td>DOC (application/msword)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_author`<br/>
-`metadata_character_count`<br/>
-`metadata_creation_date`<br/>
-`metadata_last_modified`<br/>
-`metadata_page_count`<br/>
-`metadata_word_count`
-</td>
-<td>Extração de texto, incluindo documentos incorporados</td>
-</tr>
-
-<tr>
-<td>XLSX (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_author`<br/>
-`metadata_creation_date`<br/>
-`metadata_last_modified`
-</td>
-<td>Extração de texto, incluindo documentos incorporados</td>
-</tr>
-
-<tr>
-<td>XLS (application/vnd.ms-excel)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_author`<br/>
-`metadata_creation_date`<br/>
-`metadata_last_modified`
-</td>
-<td>Extração de texto, incluindo documentos incorporados</td>
-</tr>
-
-<tr>
-<td>PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_author`<br/>
-`metadata_creation_date`<br/>
-`metadata_last_modified`<br/>
-`metadata_slide_count`<br/>
-`metadata_title`
-</td>
-<td>Extração de texto, incluindo documentos incorporados</td>
-</tr>
-
-<tr>
-<td>PPT (application/vnd.ms-powerpoint)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_author`<br/>
-`metadata_creation_date`<br/>
-`metadata_last_modified`<br/>
-`metadata_slide_count`<br/>
-`metadata_title`
-</td>
-<td>Extração de texto, incluindo documentos incorporados</td>
-</tr>
-
-<tr>
-<td>MSG (application/vnd.ms-outlook)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_message_from`<br/>
-`metadata_message_to`<br/>
-`metadata_message_cc`<br/>
-`metadata_message_bcc`<br/>
-`metadata_creation_date`<br/>
-`metadata_last_modified`<br/>
-`metadata_subject`
-</td>
-<td>Extração do texto, incluindo anexos</td>
-</tr>
-
-<tr>
-<td>ZIP (application/zip)</td>
-<td>
-`metadata_content_type`
-</td>
-<td>Extração do texto de todos os documentos no arquivo</td>
-</tr>
-
-<tr>
-<td>XML (application/xml)</td>
-<td>
-`metadata_content_type`</br>
-`metadata_content_encoding`</br>
-</td>
-<td>Remoção da marcação XML e extração do texto </td>
-</tr>
-
-<tr>
-<td>JSON (application/json)</td>
-<td>
-`metadata_content_type`</br>
-`metadata_content_encoding`
-</td>
-<td></td>
-</tr>
-
-<tr>
-<td>Texto sem formatação (text/plain)</td>
-<td>
-`metadata_content_type`</br>
-`metadata_content_encoding`</br>
-</td>
-<td></td>
-</tr>
-</table>
+Formato de documento/tipo de conteúdo | Propriedades de metadados específicas do tipo de conteúdo | Detalhes do processamento
+-------------------------------|-------------------------------------------|-------------------
+HTML (`text/html`) | `metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` | Remoção da marcação HTML e extração do texto
+PDF (`application/pdf`) | `metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title`| Extração do texto, incluindo documentos incorporados (excluindo imagens)
+DOCX (application/vnd.openxmlformats-officedocument.wordprocessingml.document) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` | Extração de texto, incluindo documentos incorporados
+DOC (application/msword) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` | Extração de texto, incluindo documentos incorporados
+XLSX (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` | Extração de texto, incluindo documentos incorporados
+XLS (application/vnd.ms-excel) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` | Extração de texto, incluindo documentos incorporados
+PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` | Extração de texto, incluindo documentos incorporados
+PPT (application/vnd.ms-powerpoint) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` | Extração de texto, incluindo documentos incorporados
+MSG (application/vnd.ms-outlook) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` | Extração do texto, incluindo anexos
+ZIP (application/zip) | `metadata_content_type` | Extração do texto de todos os documentos no arquivo
+XML (application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | Remoção da marcação XML e extração do texto </td>
+JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Extrair texto<br/>OBSERVAÇÃO: se você precisar extrair vários campos de documento de um blob JSON, vote [nessa sugestão UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/11113539-extract-document-structure-from-json-blobs)
+Texto sem formatação (text/plain) | `metadata_content_type`</br>`metadata_content_encoding`</br> | 
 
 <a name="CustomMetadataControl"></a>
 ## Uso de metadados personalizados para controlar a extração do documento
 
 Você pode adicionar propriedades de metadados a um blob para controlar determinados aspectos do processo de indexação do blob e de extração de documento. Atualmente, há suporte para as seguintes propriedades:
 
-<table style="font-size:12">
-
-<tr>
-<th>Nome da propriedade</th>
-<th>Valor da propriedade</th>
-<th>Explicação</th>
-</tr>
-
-<tr>
-<td>AzureSearch_Skip</td>
-<td>"true"</td>
-<td>Instrui o indexador do blob a ignorar completamente o blob; não ocorrerá a tentativa de extração dos metadados nem do conteúdo. Isso é útil quando você quer ignorar determinados tipos de conteúdo, ou quando um blob específico falha repetidamente e interrompe o processo de indexação.
-</td>
-</tr>
-
-</table>
+Nome da propriedade | Valor da propriedade | Explicação
+--------------|----------------|------------
+AzureSearch\_Skip | "true" | Instrui o indexador do blob a ignorar completamente o blob; não ocorrerá a tentativa de extração dos metadados nem do conteúdo. Isso é útil quando você quer ignorar determinados tipos de conteúdo, ou quando um blob específico falha repetidamente e interrompe o processo de indexação.
 
 ## Ajude-nos a aprimorar a Pesquisa do Azure
 
 Se você tiver solicitações de recursos ou ideias para o aperfeiçoamentos, entre em contato conosco pelo [site UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

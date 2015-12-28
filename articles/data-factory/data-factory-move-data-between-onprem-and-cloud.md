@@ -73,7 +73,7 @@ Esses são causados pela configuração incorreta do servidor proxy ou firewall,
 Os dois firewalls que possivelmente estão no escopo são: firewall corporativo em execução no roteador central da organização e o firewall do Windows configurado como um daemon no computador local em que o gateway está instalado. Aqui estão algumas considerações:
 
 - Não é necessário alterar a política de entrada do firewall corporativo.
-- O firewall corporativo e o firewall do Windows devem habilitar a regra de saída para as portas TCP: 80, 443 e de 9305 a 9354. Elas são usadas pelo Barramento de Serviço do Microsoft Azure para estabelecer a conexão entre os serviços de nuvem e o Gateway de Gerenciamento de Dados.
+- O firewall corporativo e o firewall do Windows devem habilitar a regra de saída para as portas TCP: 80, 443 e de 9350 a 9354. Elas são usadas pelo Barramento de Serviço do Microsoft Azure para estabelecer a conexão entre os serviços de nuvem e o Gateway de Gerenciamento de Dados.
 
 A instalação do MSI configurará automaticamente regras de firewall do Windows para as portas de entrada do computador do gateway (consulte a seção de considerações sobre portas e segurança acima).
 
@@ -618,4 +618,4 @@ Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a có
 	- 	Defina as [Configurações de firewall do Azure SQL](https://msdn.microsoft.com/library/azure/jj553530.aspx) para adicionar o **endereço IP do computador do gateway** aos **endereços IP permitidos**.
 5.	Ao copiar dados para/de um SQL Server local para qualquer destino quando os computadores do gateway e do SQL Server forem diferentes, faça o seguinte: [configure o Firewall do Windows](https://msdn.microsoft.com/library/ms175043.aspx) no computador do SQL Server para que o gateway possa acessar o banco de dados por meio de portas que a instância do SQL Server escuta. Para a instância padrão, é a porta 1433.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

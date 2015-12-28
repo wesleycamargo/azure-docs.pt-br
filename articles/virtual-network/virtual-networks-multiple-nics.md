@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/09/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Criar uma VM com diversos NICs
@@ -262,7 +262,7 @@ Para VMs do Linux, como o comportamento padrão usa roteamento de host fraco, re
 
 ## Próximas etapas
 
-- Implantar [VMs com várias NICs em um cenário de aplicativo de camada 2 em uma implantação do Gerenciador de Recursos](virtual-network-deploy-multinic-arm-template).
-- Implantar [VMs com várias NICs em um cenário de aplicativo de camada 2 em uma implantação clássica](virtual-network-deploy-multinic-classic-ps).
+- Implante [VMs com MultiNIC em um cenário de aplicativo de 2 camadas, em uma implantação do Gerenciador de Recursos](virtual-network-deploy-multinic-arm-template.md).
+- Implante [VMs com MultiNIC em um cenário de aplicativo de 2 camadas, em uma implantação clássica](virtual-network-deploy-multinic-classic-ps.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

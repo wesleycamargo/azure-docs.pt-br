@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="12/09/2015"
    ms.author="joaoma" />
 
 # Configurar o método de roteamento de tráfego de Desempenho
@@ -39,7 +39,7 @@ Para usar rotear tráfego para serviços de nuvem e sites (pontos de extremidade
 
 [Gerenciador de Tráfego - Desabilitar ou habilitar um ponto de extremidade](disable-or-enable-an-endpoint.md)
 
-[O que é o Gerenciador de Tráfego?](../traffic-manmager-overview.md)
+[O que é o Gerenciador de Tráfego?](traffic-manager-overview.md)
 
 [Serviços de Nuvem](http://go.microsoft.com/fwlink/?LinkId=314074)
 
@@ -51,4 +51,4 @@ Para usar rotear tráfego para serviços de nuvem e sites (pontos de extremidade
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

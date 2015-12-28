@@ -1,6 +1,6 @@
     <properties
 	pageTitle="Add a Git artifact repository to your DevTest Lab | Microsoft Azure"
-	description="Add a GitHub or Visual Studio Online Git repository for your custom artifacts to your lab"
+	description="Add a GitHub or Visual Studio Team Services Git repository for your custom artifacts to your lab"
 	services="devtest-lab,virtual-machines,visual-studio-online"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -20,10 +20,10 @@
 
 ## Visão geral
 
-Por padrão, um Laboratório de Desenvolvimento/Teste inclui artefatos do repositório de artefatos de Laboratório de Desenvolvimento/Teste oficial do Azure. Você pode adicionar um repositório de artefatos do Git ao laboratório para incluir os artefatos que a sua equipe cria. O repositório pode ser hospedado no [GitHub](https://github.com) ou no [Visual Studio Online (VSO)](https://visualstudio.com).
+Por padrão, um Laboratório de Desenvolvimento/Teste inclui artefatos do repositório de artefatos de Laboratório de Desenvolvimento/Teste oficial do Azure. Você pode adicionar um repositório de artefatos do Git ao laboratório para incluir os artefatos que a sua equipe cria. O repositório pode ser hospedado no [GitHub](https://github.com) ou no [Visual Studio Team Services (VSTS)](https://visualstudio.com).
 
 - Para saber como criar um repositório no GitHub, confira o [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
-- Para saber como criar um projeto VSO com um Repositório Git, confira [Conectar ao Visual Studio Online](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
+- Para saber como criar um projeto do Team Services com um Repositório Git, veja [Conectar ao Visual Studio Team Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
 
 A captura de tela a seguir mostra um exemplo da aparência de um repositório contendo artefatos no GitHub: ![Repositório de artefatos de exemplo no GitHub](./media/devtest-lab-add-artifact-repo/devtestlab-github-artifact-repo-home.png)
 
@@ -115,4 +115,4 @@ Para adicionar um repositório de artefatos Git do Visual Studio no seu laborat�
     3. Insira o **Token de Acesso Pessoal** salvo no repositório de artefatos.
     4. Toque em **Salvar**.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

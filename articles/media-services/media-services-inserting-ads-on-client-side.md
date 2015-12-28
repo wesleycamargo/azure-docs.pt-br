@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/15/2015" 
 	ms.author="juliako"/>
 
 
@@ -21,7 +21,7 @@
 
 Este tópico contém informações sobre como inserir vários tipos de anúncios no lado do cliente.
 
-Para obter informações sobre o suporte a legendagem oculta e anúncios em vídeos de transmissão ao vivo, consulte [Padrões de legendagem oculta e inserção de anúncios com suporte](https://msdn.microsoft.com/library/azure/dn783466.aspx#caption_ad).
+Para obter informações sobre o suporte a legendagem oculta e anúncios em vídeos de transmissão ao vivo, consulte [Padrões de legendagem oculta e inserção de anúncios com suporte](media-services-manage-channels-overview.md#cc_and_ads).
 
  
 ##<a id="insert_ads_into_media"></a>Inserir anúncios em sua mídia
@@ -812,4 +812,4 @@ O exemplo a seguir mostra como agendar um anúncio com sobreposição mid-roll.
 
 [Desenvolver aplicativos de player de vídeo](media-services-develop-video-players.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Recuperação de desastres com o SQL Server e o Azure Site Recovery | Microsoft Azure" 
+	pageTitle="Proteger o SQL Server com a recuperação de desastre do SQL Server e o Azure Site Recovery | Microsoft Azure" 
 	description="O Azure Site Recovery coordena a replicação, failover e recuperação do SQL Server para um site secundário local ou para o Azure." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
 
-# Recuperação de desastres com o SQL Server e o Azure Site Recovery 
+# Proteger o SQL Server com a recuperação de desastre do SQL Server e o Azure Site Recovery 
 
 Recuperação de Site é um serviço do Azure que colabora com sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) por meio da coordenação da replicação, do failover e da recuperação de máquinas virtuais e servidores físicos. A Recuperação de Site dá suporte a vários mecanismos de replicação a fim de proteger, replicar e realizar de forma consistente o failover de máquinas para o Azure ou para um armazenamento secundário. Obtenha uma visão geral de todos os cenários de implantação na [Visão geral do Azure Site Recovery](site-recovery-overview.md).
 
@@ -374,4 +374,4 @@ Para clusters padrão do SQL, a realização do failback após um failover não 
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

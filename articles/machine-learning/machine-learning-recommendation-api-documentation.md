@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="12/10/2015" 
 	ms.author="LuisCa"/>
 
 #Documentação da API de Recomendações do Aprendizado de Máquina do Azure
@@ -26,37 +26,22 @@ Este documento descreve as APIs de Recomendação do Aprendizado de Máquina do 
 ##1\. Visão geral
 Este documento é uma referência para a API. Você deve começar pelo documento “Recomendação de Aprendizagem de Máquina do Azure – Início Rápido".
 
-A API de Recomendações do Aprendizado de Máquina do Azure pode ser dividida em 10 grupos lógicos:
+A API de Recomendações do Aprendizado de Máquina do Azure pode ser dividida nos seguintes grupos lógicos:
 
-1.	<ins>Modelo Básico</ins> – APIs que permitem realizar operações básicas no modelo (por exemplo, criar, atualizar e excluir um modelo).
-2.	<ins>Modelo Avançado</ins> – APIs que permitem aprofundar-se nos dados avançados no modelo
-3.	<ins>Modelo de Regras de Negócio</ins> – APIs que permitem gerenciar regras comerciais dos resultados de recomendação do modelo.
-4.	<ins>Catálogo</ins> – APIs que permitem executar operações básicas em um catálogo de modelo. Um catálogo contém informações de metadados sobre os itens dos dados de uso.
-5.	<ins>Recurso</ins> - APIs que permitem obter informações no item presente no catálogo e como usar essas informações para criar recomendações melhores.
-6.	<ins>Dados de uso</ins> – APIs que permitem executar operações básicas com os dados de uso do modelo. Os dados de uso no formulário básico são formados por linhas que incluem pares de &#60;usuárioId&#62;,&#60;itemId&#62;.
-7.	<ins>Compilação</ins> – APIs que permitem disparar uma compilação de modelo e realizam operações básicas relacionadas a essa compilação. Você pode iniciar uma compilação de modelo uma vez que você tenha dados de uso valiosos.
-8.	<ins>Recomendação</ins> – após a compilação de um modelo terminar, você pode consumir recomendações usando essas APIs.
-9.	<ins>Dados de usuário</ins> - APIs que permitem que você busque informações sobre os dados de uso do usuário.
-10.	<ins>Notificações</ins> – APIs que permitem receber notificações sobre problemas relacionados às suas operações de API. (Por exemplo, você está reportando dados de uso por meio da aquisição de dados e a maioria dos eventos de processamento está com falha. Uma notificação de erro será gerada.)
+- <ins>Limitações</ins> - limitações da API de recomendações.
+- <ins>Informações gerais</ins> -informações sobre autenticação, controle de versão e URI de serviço.
+- <ins>Modelo Básico</ins> – APIs que permitem realizar operações básicas no modelo (por exemplo, criar, atualizar e excluir um modelo).
+- <ins>Modelo Avançado</ins> – APIs que permitem aprofundar-se nos dados avançados no modelo
+- <ins>Modelo de Regras de Negócio</ins> – APIs que permitem gerenciar regras comerciais dos resultados de recomendação do modelo.
+- <ins>Catálogo</ins> – APIs que permitem executar operações básicas em um catálogo de modelo. Um catálogo contém informações de metadados sobre os itens dos dados de uso.
+- <ins>Recurso</ins> - APIs que permitem obter informações no item presente no catálogo e como usar essas informações para criar recomendações melhores.
+- <ins>Dados de uso</ins> – APIs que permitem executar operações básicas com os dados de uso do modelo. Os dados de uso no formulário básico são formados por linhas que incluem pares de &#60;usuárioId&#62;,&#60;itemId&#62;.
+- <ins>Compilação</ins> – APIs que permitem disparar uma compilação de modelo e realizam operações básicas relacionadas a essa compilação. Você pode iniciar uma compilação de modelo uma vez que você tenha dados de uso valiosos.
+- <ins>Recomendação</ins> – após a compilação de um modelo terminar, você pode consumir recomendações usando essas APIs.
+- <ins>Dados de usuário</ins> - APIs que permitem que você busque informações sobre os dados de uso do usuário.
+- <ins>Notificações</ins> – APIs que permitem receber notificações sobre problemas relacionados às suas operações de API. (Por exemplo, você está reportando dados de uso por meio da aquisição de dados e a maioria dos eventos de processamento está com falha. Uma notificação de erro será gerada.)
 
-##2\. Tópicos avançados
-
-###2\.1. Qualidade da recomendação
-
-Criar um modelo de recomendação geralmente é suficiente para permitir que o sistema forneça recomendações. No entanto, a qualidade da recomendação varia de acordo com o uso processado e a abrangência do catálogo. Por exemplo se você tiver muitos itens sem interesse (sem uso significativo), o sistema terá dificuldade para fornecer uma recomendação para um item ou para usar um item como aquele recomendado. Para solucionar o problema de item sem interesse, o sistema permite o uso de metadados dos itens para aprimorar as recomendações. Esses metadados são conhecidos como recursos. Os recursos mais comuns são o autor de um livro ou um ator de um filme. Recursos são fornecidos pelo catálogo na forma de cadeias de caracteres de chave/valor. Para o formato completo do arquivo de catálogo, consulte a [seção de importação de catálogo](#81-import-catalog-data). A seção a seguir explica o uso de recursos para aperfeiçoar o modelo de recomendação.
-
-###2\.2. Compilação de classificação
-
-Recursos podem aperfeiçoar o modelo de recomendação, mas isso requer o uso de recursos significativos. Uma nova compilação foi apresentada para essa finalidade: uma compilação de classificação. Esta compilação classifica a utilidade dos recursos. Um recurso significativo é um recurso com uma pontuação de classificação 2 ou maior.
-Depois de se entender quais recursos são significativos, dispare uma compilação de recomendação com a lista (ou sublista) de recursos significativos. É possível usar esses recursos para o aprimoramento de itens com e sem interesse. Para usá-los em itens com interesse, o parâmetro de compilação `UseFeatureInModel` deve ser configurado. Para usá-los em itens sem interesse, o parâmetro de compilação `AllowColdItemPlacement` deve ser habilitado.
-Observação: não é possível habilitar `AllowColdItemPlacement` sem habilitar `UseFeatureInModel`.
-
-###2\.3. Raciocínio de recomendação
-
-O raciocínio de recomendação é outro aspecto do uso de recursos. De fato, o mecanismo de Recomendações do Aprendizado de Máquina do Azure pode usar recursos para fornecer explicações de recomendação (também conhecido como raciocínio), resultando em maior confiança no item recomendado por parte do consumidor da recomendação.
-Para habilitar o raciocínio, os parâmetros `AllowFeatureCorrelation` e `ReasoningFeatureList` devem ser configurado antes de solicitar uma compilação de recomendação.
-
-##3\. Limitações
+##2\. Limitações
 
 - O número máximo de modelos por assinatura é 10.
 - O número máximo de itens que um catálogo pode conter é 100.000.
@@ -64,21 +49,36 @@ Para habilitar o raciocínio, os parâmetros `AllowFeatureCorrelation` e `Reason
 - O volume máximo dos dados que podem ser enviado no POST (por exemplo, importar dados de catálogo e importar dados de uso) é de 200 MB.
 - O número de transações por segundo para uma compilação de modelo de recomendação que não está ativa é cerca de 2 TPS. Uma compilação de modelo de recomendação ativo pode conter até 20 TPS.
 
-##4\. APIs – Informações Gerais
+##3\. APIs – Informações Gerais
 
-###4\.1. Autenticação
+###3\.1. Autenticação
 Siga as diretrizes do Microsoft Azure Marketplace referentes à autenticação. O Marketplace dá suporte aos métodos de autenticação Básico e OAuth.
 
-###4\.2. URI de serviço
+###3\.2. URI de serviço
 O URI da raiz de serviço para as APIs de Recomendações do Aprendizado de Máquina do Azure está [aqui.](https://api.datamarket.azure.com/amla/recommendations/v3/)
 
 O URI do serviço completo é expresso usando elementos da especificação de OData.
 
-###4\.3. Versão da API
+###3\.3. Versão da API
 Cada chamada à API terá, por fim, um parâmetro de consulta chamado apiVersion que deve ser definido como 1.0.
 
-###4\.4. IDs diferenciam minúsculas e maiúsculas
+###3\.4. IDs diferenciam minúsculas e maiúsculas
 IDs, retornados por qualquer uma das APIS, diferenciam minúsculas de maiúsculas e devem ser usados desta maneira quando passados como parâmetros nas chamadas de API subsequentes. Por exemplo, IDS d modelo e de catálogo diferenciam maiúsculas de minúsculas.
+
+##4\. Qualidade das recomendações e itens frios
+
+###4\.1. Qualidade da recomendação
+
+Criar um modelo de recomendação geralmente é suficiente para permitir que o sistema forneça recomendações. No entanto, a qualidade da recomendação varia de acordo com o uso processado e a abrangência do catálogo. Por exemplo se você tiver muitos itens sem interesse (sem uso significativo), o sistema terá dificuldade para fornecer uma recomendação para um item ou para usar um item como aquele recomendado. Para solucionar o problema de item sem interesse, o sistema permite o uso de metadados dos itens para aprimorar as recomendações. Esses metadados são conhecidos como recursos. Os recursos mais comuns são o autor de um livro ou um ator de um filme. Recursos são fornecidos pelo catálogo na forma de cadeias de caracteres de chave/valor. Para o formato completo do arquivo de catálogo, consulte a [seção de importação de catálogo](#81-import-catalog-data).
+
+###4\.2. Compilação de classificação
+
+Recursos podem aperfeiçoar o modelo de recomendação, mas isso requer o uso de recursos significativos. Uma nova compilação foi apresentada para essa finalidade: uma compilação de classificação. Esta compilação classifica a utilidade dos recursos. Um recurso significativo é um recurso com uma pontuação de classificação 2 ou maior. Depois de se entender quais recursos são significativos, dispare uma compilação de recomendação com a lista (ou sublista) de recursos significativos. É possível usar esses recursos para o aprimoramento de itens com e sem interesse. Para usá-los em itens com interesse, o parâmetro de compilação `UseFeatureInModel` deve ser configurado. Para usá-los em itens sem interesse, o parâmetro de compilação `AllowColdItemPlacement` deve ser habilitado. Observação: não é possível habilitar `AllowColdItemPlacement` sem habilitar `UseFeatureInModel`.
+
+###4\.3. Raciocínio de recomendação
+
+O raciocínio de recomendação é outro aspecto do uso de recursos. De fato, o mecanismo de Recomendações do Aprendizado de Máquina do Azure pode usar recursos para fornecer explicações de recomendação (também conhecido como raciocínio), resultando em maior confiança no item recomendado por parte do consumidor da recomendação. Para habilitar o raciocínio, os parâmetros `AllowFeatureCorrelation` e `ReasoningFeatureList` devem ser configurado antes de solicitar uma compilação de recomendação.
+
 
 ##5\. Modelo Básico
 
@@ -798,14 +798,17 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 
 </pre>
 
+
+
+
 ##7\. Regras de negócio do modelo
 Estes são os tipos de regras com suporte:
-- <strong>BlockList</strong> - BlockList permite fornecer uma lista de itens cujos resultados não devem ser retornados nos resultados de recomendação.
+- <strong>BlockList</strong> - BlockList permite que você forneça uma lista de itens que você não queira retornar nos resultados da recomendação.
 - <strong>FeatureBlockList</strong> - Feature BlockList permite que você bloqueie itens com base nos valores de seus recursos.
-- <strong>Upsale</strong> - Upsale permite reforçar os itens a serem retornados nos resultados de recomendação.
-- <strong>WhiteList</strong> - White List permite fornecer uma lista de itens na qual apenas os itens presentes nesta lista podem ser retornados como resultados de recomendação (o oposto de BlockList).
+- <strong>Upsale</strong> - Upsale permite que você imponha itens a serem retornados nos resultados da recomendação.
+- <strong>WhiteList</strong> - White List permite que você só sugira recomendações de uma lista de itens.
 - <strong>FeatureWhiteList</strong> - Feature White List permite que você só recomende itens com valores de recurso específicos.
-- <strong>PerSeedBlockList</strong> - Per Seed Block List permite fornecer por itens uma lista dos itens que não podem ser retornados como resultados de recomendação.
+- <strong>PerSeedBlockList</strong> - Per Seed Block List permite que você forneça por item uma lista de itens que não podem ser retornados como resultados da recomendação.
 
 
 ###7\.1. Obter regras de modelo
@@ -876,20 +879,16 @@ XML de OData
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
 |	apiVersion | 1\.0 |
-||| 
-| Corpo da Solicitação | 
-<ins>Sempre que fornecer Ids de Item para regras de negócio, certifique-se de usar a Id externa do item (a mesma Id que você usou no arquivo de catálogo)</ins><br>
-<ins>Para adicionar a regra BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>
-<ins>Para adicionar uma regra FeatureBlockList:</ins><br>
+|||
+| Corpo da solicitação |
+
+<ins>Sempre que você fornecer IDs de Item para regras de negócio, use a ID externa do item ( a mesma ID que você usou no arquivo de catálogo)</ins><br> <ins>Para adicionar uma regra BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins> <ins>Para adicionar uma regra FeatureBlockList:</ins><br> 
 <br>
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins>
-Para adicionar a regra Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br>
-<ins>Para adicionar a regra WhiteList:</ins><br>
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>
-<ins>Para adicionar uma regra FeatureWhiteList:</ins><br>
-<br>
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins>
-Para adicionar a regra PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br>
+<ins> Para adicionar uma regra Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br>
+<ins>Para adicionar uma regra WhiteList:</ins><br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>
+<ins>Para adicionar uma regra FeatureWhiteList:</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br>
+<ins> Para adicionar uma regra PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 
 **Resposta**:
@@ -979,11 +978,11 @@ Observação: o tamanho máximo do arquivo é de 200 MB.
 
 | Nome | Obrigatório | Tipo | Descrição |
 |:---|:---|:---|:---|
-| Id do item |Sim | [A-z], [a-z], [0-9] [\_]& #40; Sublinhado&#41;, [-] &#40;Traço&#41;<br>Comprimento máximo: 50 | Identificador exclusivo de um item. | 
-| Nome do Item | Sim | Todos os caracteres alfanuméricos<br> Comprimento máximo: 255 | Nome do item. | 
-| Categoria do Item | Sim | Todos os caracteres alfanuméricos <br> Comprimento máximo: 255 | Categoria à qual este item pertence (por exemplo, Livros de culinária, Drama...); pode estar vazio. | 
-| Descrição | Não, a menos que existam recursos (mas pode estar vazio) | Todos os caracteres alfanuméricos <br> Comprimento máximo: 4000 | Descrição deste item. | 
-| Lista de recursos | Não | Todos os caracteres alfanuméricos <br> Comprimento máximo: 4000 | Lista separada por vírgulas de nome do recurso=valor do recurso que pode ser usado para aprimorar a recomendação de modelo; consulte a seção [Tópicos avançados](#2-advanced-topics). |
+| Id do item |Sim | [A-z], [a-z], [0-9], [\_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Comprimento máximo: 50 | Identificador único de um item. |
+| Nome do item| Sim | Quaisquer caracteres alfanuméricos<br> Comprimento máximo: 255 | Nome do item |
+|Categoria do item | Sim | Quaisquer caracteres alfanuméricos <br> Comprimento máximo: 255 | Categoria à qual esse item pertence (por exemplo, Livros de culinária, drama…); pode estar vazio. |
+| Descrição | Não, a menos que haja recursos presentes (mas pode estar vazio) | Quaisquer caracteres alfanuméricos <br> Comprimento máximo: 4000; Número máx. de recursos: 20 | Descrição desse item. |
+| Lista de recursos | Não | Quaisquer caracteres alfanuméricos <br> Comprimento máximo: 4000 | Lista separada por vírgulas do valor de recurso name=feature pode ser usado para otimizar a recomendação do modelo; veja a seção [Tópicos avançados](#2-advanced-topics). |
 
 
 | Método HTTP | URI |
@@ -1881,7 +1880,7 @@ A tabela a seguir descreve os parâmetros de compilação para uma compilação 
 |FbtSupportThreshold | O quanto o modelo é conservador. O número de co-ocorrências de itens a ser considerado para modelagem.| Número inteiro | 3-50 (6) |
 |FbtMaxItemSetSize | Limita o número de itens em um conjunto frequente.| Número inteiro | 2-3 (2) |
 |FbtMinimalScore | Pontuação mínima que um conjunto frequente deve ter para ser incluído nos resultados retornados. Quanto maior, melhor.| Duplo | 0 e acima (0) |
-|FbtSimilarityFunction | Define a função de semelhança a ser usada pela compilação. | Cadeia de caracteres | cooccurrence, lift, jaccard (lift) |
+|FbtSimilarityFunction | Define a função de semelhança a ser usada pela compilação. A comparação de precisão favorece a serendipidade, a concorrência favorece a previsibilidade e Jaccard é uma boa combinação entre os dois. | Cadeia de caracteres | cooccurrence, lift, jaccard (lift) |
 
 
 ###11\.2. Disparar uma Compilação de Recomendação
@@ -1892,7 +1891,7 @@ A tabela a seguir descreve os parâmetros de compilação para uma compilação 
 | Método HTTP | URI |
 |:--------|:--------|
 |POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27`|
-|HEADER |`"Content-Type", "text/xml"` (Se estiver enviando Corpo da Solicitação)|
+|HEADER |`"Content-Type", "text/xml"` (Se estiver enviando o Corpo da Solicitação)|
 
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
@@ -2075,8 +2074,8 @@ A resposta inclui uma entrada por compilação. Cada entrada tem os seguintes da
 - `feed/entry/content/properties/ExecutionTime` – Duração da compilação.
 - `feed/entry/content/properties/ProgressStep` – Detalhes sobre o estágio atual de uma compilação em andamento.
 
-Status válidos da compilação:
-- Criada - A entrada da solicitação de compilação foi criada.
+Status válidos da compilação: 
+- Criada - A entrada da solicitação de compilação foi criada. 
 - Na fila – A solicitação de compilação foi disparada e está na fila.
 - Criando – A compilação está em andamento.
 - Êxito – Compilação concluída com êxito.
@@ -2170,8 +2169,8 @@ Status válidos da compilação:
 
 
 Valores válidos para o tipo de compilação:
-- Classificação - Compilação de classificação.
-- Recomendação - Compilação de recomendação.
+ - Classificação - Compilação de classificação. 
+ - Recomendação - Compilação de recomendação.
 
 
 XML de OData
@@ -2833,7 +2832,7 @@ Observações:
 
 | Método HTTP | URI |
 |:--------|:--------|
-|GET |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>&itemsIds=%27<itemsIds>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&itemsIds=%271003%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
+|GET |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>&itemsIds=%27<itemsIds>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&itemsIds=%271003%2C1000%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
 
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
@@ -3088,11 +3087,11 @@ Código de status HTTP: 200
 
 
 
-##15. Legal
+##15\. Legal
 Este documento é fornecido "no estado em que se encontra". Informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio.<br><br>
 Alguns exemplos aqui representados são fornecidos somente para fins de ilustração e são fictícios. Nenhuma associação ou conexão real é intencional ou deve ser inferida.<br><br>
 Este documento não fornece a você nenhum direito legal a qualquer propriedade intelectual de qualquer produto da Microsoft. Você pode copiar e usar este documento para fins de consulta interna.<br><br>
 © 2015 Microsoft. Todos os direitos reservados.
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

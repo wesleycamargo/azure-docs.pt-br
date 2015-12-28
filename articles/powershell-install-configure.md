@@ -121,11 +121,11 @@ Estes recursos fornecem ajuda para cmdlets específicos:
 
 
 
-- Informações de referência sobre os cmdlets nos módulos PowerShell no Azure também estão disponíveis na biblioteca do Azure. Para obter informações, consulte [Referência de cmdlets do Azure](http://msdn.microsoft.com/library/windowsazure/jj554330.aspx).
+- Informações de referência sobre os cmdlets nos módulos PowerShell no Azure também estão disponíveis na biblioteca do Azure. Para obter informações, consulte [Referência de cmdlets do Azure](https://msdn.microsoft.com/library/azure/dn708514.aspx).
 
 Para obter ajuda da comunidade, experimente estes fóruns populares:
 
 - [Fórum do Azure no MSDN](http://go.microsoft.com/fwlink/p/?LinkId=320212)
 - [Stackoverflow](http://go.microsoft.com/fwlink/?LinkId=320213)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

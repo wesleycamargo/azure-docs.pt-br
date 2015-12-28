@@ -13,23 +13,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="12/16/2015"
    ms.author="yurid"/>
 
 #Monitoramento de integridade de segurança na Central de segurança do Azure
-Saiba como usar os recursos de monitoramento na Central de segurança do Azure usando este passo a passo.
+Este documento ajuda você a usar recursos de monitoramento na Central de segurança do Azure para monitorar a conformidade com as políticas.
 
 > [AZURE.NOTE]As informações neste documento se aplicam à versão de visualização da Central de Segurança do Azure.
+
+## O que é a Central de Segurança do Azure?
+A Central de Segurança do Azure ajuda você a impedir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Azure Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança
 
 ##O que é o monitoramento de integridade de segurança?
 Costumamos pensar em monitoramento como assistir e esperar até que um evento ocorra para poder reagir à situação. Monitoramento de segurança refere-se a ter uma estratégia proativa que audita seus recursos para identificar sistemas que não atendem aos padrões organizacionais ou práticas recomendadas.
 
-##Monitorar a conformidade com políticas
+##Monitoramento de integridade da segurança
 Depois de habilitar [políticas de segurança](security-center-policies.md) para recursos da assinatura, a Central de segurança do Azure analisará a segurança de seus recursos para identificar possíveis vulnerabilidades. Embora as informações sobre a configuração de rede estejam disponíveis imediatamente, pode levar uma hora ou mais para obter informações disponíveis sobre a configuração da máquina virtual, como o status de atualização de segurança e a configuração do sistema operacional. Você pode exibir o estado de segurança de seus recursos, junto com os problemas nas folhas de Integridade de segurança do recurso. Você também pode exibir uma lista desses problemas nas folhas de Recomendações.
 
 Para obter mais informações sobre como aplicar recomendações, leia [Implementar as recomendações de segurança na Central de segurança do Azure](security-center-recommendations.md).
 
-##Integridade de recursos
 O bloco **Integridade de recursos** permite monitorar o estado de segurança de seus recursos. Você verá uma série de problemas com gravidade média e alta que exigem atenção, conforme mostrado abaixo:
 
 ![Integridade dos recursos](./media/security-center-monitoring/security-center-monitoring-fig1.png)
@@ -89,7 +91,7 @@ Neste documento, você aprendeu como usar os recursos de monitoramento na Centra
 
 - [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) – saiba como configurar políticas de segurança na Central de Segurança do Azure
 - [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e a responder a alertas de segurança
-- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre as perguntas frequentes sobre como usar o serviço de localização
+- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre perguntas frequentes sobre como usar o serviço
 - [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

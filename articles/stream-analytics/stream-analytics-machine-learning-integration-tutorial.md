@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/10/2015" 
+	ms.date="12/14/2015" 
 	ms.author="jeffstok"
 />
 
@@ -38,7 +38,7 @@ Figura 2:
 Os pré-requisitos para este artigo são os seguintes:
 
 1.	Uma assinatura ativa do Azure
-2.	Um arquivo CSV com alguns dados. O arquivo mostrado na Figura 2 pode ser baixado daqui ou você pode criar o seu. Este tutorial foi escrito presumindo o uso do arquivo disponível para download.
+2.	Um arquivo CSV com alguns dados. O arquivo mostrado na Figura 2 [em GitHub](https://github.com/jeffstokes72/azure-stream-analytics-repository/blob/master/sampleinputs.csv) para download, ou você pode criar um. Este tutorial foi escrito presumindo o uso do arquivo disponível para download.
 
 Em um alto nível, estas etapas serão executadas:
 
@@ -53,7 +53,7 @@ Em um alto nível, estas etapas serão executadas:
 
 Nesta etapa, você pode usar qualquer arquivo CSV, incluindo aquele especificado na introdução. O [Gerenciador de Armazenamento do Azure](http://storageexplorer.com/) e o Visual Studio podem ser usados para carregar o arquivo, bem como o código personalizado. Para este tutorial, os exemplos fornecidos são para o Visual Studio.
 
-1.	Expanda o Azure e clique com o botão direito do mouse em **Armazenamento**. Escolha **Anexar Armazenamento Externo** e forneça o **Nome da Conta** e a **Chave da Conta**.  
+1.	Expanda o Azure e clique com o botão direito do mouse em **Armazenamento**. Escolha **Anexar Armazenamento Externo** e forneça o **Nome da Conta** e a **Chave de Conta**.  
 
     ![gerenciador de servidores tutorial do aprendizado de máquina do stream analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-server-explorer.png)
 
@@ -71,9 +71,9 @@ Nesta etapa, você pode usar qualquer arquivo CSV, incluindo aquele especificado
     ![abrir estúdio de aprendizado de máquina tutorial do aprendizado de máquina do stream analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)
 
 3.	Entre para ser levado ao espaço de trabalho. Escolha o local mais adequado à sua localização.
-4.	Agora clique em **Executar** na parte inferior do Estúdio.  
+4.	Agora clique em **Executar** na parte inferior do Estúdio  
 5.	Depois que ele tiver sido executado com êxito, clique em **Implantar o Serviço Web**.
-6.	O modelo de análise de sentimento está pronto para uso. Para validá-lo, clique no botão **teste** e insira o texto de entrada, como "Eu adoro a Microsoft", e o teste deve retornar um resultado semelhante ao mostrado abaixo:
+6.	O modelo de análise de sentimento está pronto para uso. Para validá-lo, clique no botão **testar** e insira o texto de entrada, como "Eu adoro a Microsoft", e o teste deve retornar um resultado semelhante ao mostrado abaixo:
 
 `'Predictive Mini Twitter sentiment analysis Experiment' test returned ["4","0.715057671070099"]...`
 
@@ -95,14 +95,14 @@ Anote a URL do serviço Web e a tecla de acesso da planilha em Excel baixada, co
 
     ![tutorial stream analytics aprendizado de máquina adicionar entrada de aprendizado de máquina](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-input-screen.png)
 
-4.	Na primeira página da janela do assistente **Adicionar Entrada**, selecione **Fluxo de dados** e clique em Próximo. Na segunda página, selecione **Armazenamento de Blobs** como entrada e clique em **Próximo**.
-5.	Na página **Configurações de Armazenamento de Blobs** do Assistente, indique o nome do contêiner de blob da conta de armazenamento definida anteriormente quando os dados foram carregados. Clique em **Próximo**. Escolha **CSV** como **Formato de Serialização de Evento**. Aceite os padrões para o restante das **Definições de serialização**. Clique em **OK**.  
+4.	Na primeira página da janela do assistente **Adicionar Entrada**, selecione **Fluxo de dados** e clique em Avançar. Na segunda página, selecione **Armazenamento de Blobs** como entrada e clique em **Avançar**.
+5.	Na página **Configurações de Armazenamento de Blobs** do Assistente, indique o nome do contêiner de blob da conta de armazenamento definida anteriormente quando os dados foram carregados. Clique em **Avançar**. Escolha **CSV** como **Formato de Serialização de Evento**. Aceite os padrões para o restante das **Definições de serialização**. Clique em **OK**.  
 6.	Navegue até a guia **Saídas** e clique em **Adicionar uma Saída**.  
 
     ![tutorial stream analytics aprendizado de máquina adicionar saída](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-output-screen.png)
 
 7.	Escolha **Armazenamento de Blobs** e forneça os mesmos parâmetros, com exceção do contêiner. A **Entrada** foi configurada para ler o contêiner chamado "test" no qual o arquivo **CSV** foi carregado. Em **Saída**, coloque "testoutput". Os nomes de contêiner precisam ser diferentes; verifique se o contêiner já existe.
-8.	Clique em **Próximo** para configurar as**Configurações de serialização** de saída. Assim como com a entrada, escolha **CSV** e clique no botão **OK**.
+8.	Clique em **Avançar** para configurar as **Configurações de serialização** de saída. Assim como com a entrada, escolha **CSV** e clique no botão **OK**.
 9.	Navegue até a guia **Funções** e clique em **Adicionar uma Função de Aprendizado de Máquina**.  
 
     ![tutorial stream analytics aprendizado de máquina adicionar função de aprendizado de máquina](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-ml-function.png)
@@ -111,11 +111,19 @@ Anote a URL do serviço Web e a tecla de acesso da planilha em Excel baixada, co
 
     ![tutorial stream analytics aprendizado de máquina serviço web de aprendizado de máquina](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-web-service.png)
 
-11.	Navegue até a guia **Consulta** e modifique a consulta da seguinte forma:
+11.	Navegue até a guia **Consultar** e modifique a consulta da seguinte forma:
 
-    ![tutorial stream analytics aprendizado de máquina consulta de aprendizado de máquina](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-query.png)
+```
+	WITH subquery AS (  
+		SELECT text, sentiment(text) as result from input  
+	)  
+	  
+	Select text, result.[Score]  
+	Into output  
+	From subquery  
+```
 
-12. Clique em **Salvar** para salvar a consulta.
+12. Clique em **Salvar** para salvar a consulta.    
 
 ## Iniciar o Trabalho do Stream Analytics e observar a saída
 
@@ -142,4 +150,4 @@ A métrica relativa à função linguística do Aprendizado de Máquina também 
 
     ![tutorial stream analytics aprendizado de máquina exibição no monitor am](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

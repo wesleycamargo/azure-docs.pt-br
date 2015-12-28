@@ -3,7 +3,7 @@
    description="Como implantar e remover aplicativos na Malha do Serviço"
    services="service-fabric"
    documentationCenter=".net"
-   authors="alexwun"
+   authors="seanmck"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/23/2015"
-   ms.author="alexwun"/>
+   ms.date="12/10/2015"
+   ms.author="seanmck"/>
 
 # Implantar um aplicativo
 
@@ -24,7 +24,7 @@ Assim que um [tipo de aplicativo é empacotado][10], ele está pronto para impla
 2. Registrar o tipo de aplicativo
 3. Criar a instância do aplicativo
 
->[AZURE.NOTE]Se você usar o Visual Studio para implantar e depurar aplicativos no cluster de desenvolvimento local, todas as etapas descritas abaixo serão tratadas automaticamente por meio dos scripts do PowerShell encontrados na pasta Scripts do projeto de aplicativo. Este artigo fornece informações sobre o que esses scripts fazem para que você possa executar as mesmas operações fora do Visual Studio.
+>[AZURE.NOTE]Se você usar o Visual Studio para implantar e depurar aplicativos no cluster de desenvolvimento local, todas as etapas descritas abaixo serão tratadas automaticamente por meio de um script do PowerShell encontrado na pasta Scripts do projeto de aplicativo. Este artigo fornece informações sobre o que esses scripts fazem para que você possa executar as mesmas operações fora do Visual Studio.
 
 ## Carregar o pacote de aplicativo
 
@@ -217,7 +217,7 @@ PS D:\temp>
 
 [Introdução à integridade da Malha do Serviço](service-fabric-health-introduction.md)
 
-[Diagnosticar e solucionar problemas de um serviço da Malha do Serviço](service-fabric-diagnose-monitor-your-service-index.md)
+[Diagnosticar e solucionar problemas de um serviço da Malha do Serviço](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Modelar um aplicativo na Malha do Serviço](service-fabric-application-model.md)
 
@@ -225,4 +225,4 @@ PS D:\temp>
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

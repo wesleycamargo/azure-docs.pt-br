@@ -40,7 +40,7 @@ A melhor maneira de implantar um aplicativo Web é configurando um [fluxo de tra
 
 * [Automatizar a implantação com o MSBuild](#msbuild)
 * [Copiar arquivos com scripts e ferramentas de FTP](#ftp)
-* [Automatizar a implantação com o Windows PowerShell(#powershell)
+* [Automatizar a implantação com o Windows PowerShell](#powershell)
 * [Automatizar a implantação com a API de gerenciamento do .NET](#api)
 * [Implantar por meio da CLI (Interface de Linha de Comando) do Azure](#cli)
 * [Implantar por meio da linha de comando de Implantação da Web](#webdeploy)
@@ -52,14 +52,14 @@ A melhor maneira de implantar um aplicativo Web é configurando um [fluxo de tra
 
 Outra opção de implantação é usar um serviço baseado em nuvem, como o [Octopus Deploy](http://en.wikipedia.org/wiki/Octopus_Deploy). Para obter mais informações, consulte [Implantar aplicativos ASP.NET em Sites do Azure](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites).
 
-##<a name="vso"></a>Entrega contínua usando o Visual Studio Team Services
+##<a name="vsts"></a>Entrega contínua usando o Visual Studio Team Services
 
-O [Visual Studio Team Services](http://www.visualstudio.com/) (anteriormente conhecido como Team Foundation Service) é a solução baseada em nuvem da Microsoft para colaboração de equipe e controle do código-fonte. O serviço é grátis para uma equipe de até 5 desenvolvedores. Você pode realizar a entrega contínua para um aplicativo da Web nos Serviços de Aplicativo e seu repositório pode usar [Git ou TFVC](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs).
+O [Visual Studio Team Services](http://www.visualstudio.com/) (anteriormente conhecido como Team Foundation Service) é a solução baseada em nuvem da Microsoft para controle do código-fonte e colaboração em equipe. O serviço é grátis para uma equipe de até 5 desenvolvedores. Você pode realizar a entrega contínua para um aplicativo da Web nos Serviços de Aplicativo e seu repositório pode usar [Git ou TFVC](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs).
 
 Para obter mais informações, consulte os recursos a seguir:
 
-* [Entrega contínua no Azure usando Visual Studio Team Services e TFVC](../cloud-services-continuous-delivery-use-vso.md) Tutorial passo a passo que mostra como configurar o fornecimento contínuo por meio do Visual Studio Team Services em um aplicativo Web, usando o TFVC. O TFVC é a opção de controle do código-fonte centralizada, ao contrário do Git, que é a opção de controle do código-fonte distribuída.
-* [Entrega contínua no Azure usando Visual Studio Team Services e Git](../cloud-services-continuous-delivery-use-vso-git.md). Semelhante ao tutorial anterior, porém usando o Git em vez do TFVC.
+* [Entrega contínua no Azure usando Visual Studio Team Services e TFVC](../cloud-services-continuous-delivery-use-vso.md). Tutorial passo a passo que mostra como configurar o fornecimento contínuo por meio do Visual Studio Team Services em um aplicativo Web, usando o TFVC. O TFVC é a opção de controle do código-fonte centralizada, ao contrário do Git, que é a opção de controle do código-fonte distribuída.
+* [Entrega contínua no Azure usando o Visual Studio Team Services e Git](../cloud-services-continuous-delivery-use-vso-git.md). Semelhante ao tutorial anterior, porém usando o Git em vez do TFVC.
 
 ##<a name="git"></a>Sites de repositório usando o Git
 
@@ -81,7 +81,7 @@ Para obter informações sobre como implantar usando o Mercurial, consulte os re
 * [Publicando por meio do Controle do Código-fonte em Aplicativos Web com Git](web-sites-publish-source-control.md). Embora este tutorial mostre como publicar um repositório Git, o processo para repositórios Mercurial hospedados no CodePlex ou nonBitBucket é semelhante.
 * [Fórum do Azure para Git, Mercurial e Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit).
 
-##<a name="dropbox"></a>Automatizar a implantação por meio do Dropbox
+##<a name="dropbox"></a>Automatizar a implantação do Dropbox
 
 O [Dropbox](https://www.dropbox.com/) não é um sistema de controle do código-fonte, mas, se você armazenar seu código-fonte nele, poderá automatizar a implantação da sua conta.
 
@@ -89,18 +89,18 @@ O [Dropbox](https://www.dropbox.com/) não é um sistema de controle do código-
 * [Implantação do Dropbox em Aplicativos Web](http://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Dropbox-Deployment-to-Windows-Azure-Web-Sites). Este vídeo o orientará pelo processo de conexão de uma pasta DropBox a um aplicativo Web do Azure e mostrará com que rapidez você pode colocar um aplicativo Web em funcionamento ou mantê-lo, usando a implantação simples do tipo "arrastar e soltar".
 * [Fórum do Azure para Git, Mercurial e Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit).
 
-##<a name="vs"></a>Implantar diretamente por meio do Visual Studio
+##<a name="vs"></a>Implantar diretamente do Visual Studio
 
 Para obter informações sobre como implantar aplicativos Web por meio do Visual Studio, consulte os recursos a seguir:
 
-* [Introdução ao Windows Azure e ao ASP.NET](web-sites-dotnet-get-started.md). Como criar e implantar um projeto da web ASP.NET MVC simples usando o Visual Studio e a Implantação da Web.
+* [Introdução ao Microsoft Azure e ao ASP.NET](web-sites-dotnet-get-started.md). Como criar e implantar um projeto da web ASP.NET MVC simples usando o Visual Studio e a Implantação da Web.
 * [Como implantar Trabalhos Web do Azure usando o Visual Studio](websites-dotnet-deploy-webjobs.md). Como configurar projetos de Aplicativo de console para que sejam implantados como Trabalhos Web.  
 * [Implantar um aplicativo ASP.NET MVC 5 Seguro com Associação, OAuth e Banco de Dados SQL em Aplicativos Web](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md). Como criar e implantar um projeto da web ASP.NET MVC com um banco de dados SQL, usando o Visual Studio, a Implantação da Web e as Migrações do Entity Framework Code First.
 * [Visão geral sobre a implantação da Web para o Visual Studio e o ASP.NET](http://msdn.microsoft.com/library/dd394698.aspx). Uma introdução básica à implantação da web usando o Visual Studio. Desatualizado, mas inclui informações que ainda são relevantes, incluindo uma visão geral das opções para a implantação de um banco de dados junto com o aplicativo da web e uma lista de tarefas de implantação adicionais que você talvez tenha que executar ou configurar o Visual Studio manualmente para executá-las para você. Este tópico é sobre implantação em geral, e não apenas sobre a implantação em aplicativos Web.
 * [Implantação da Web do ASP.NET usando o Visual Studio](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction). Uma série de tutoriais de 12 partes que abrange uma gama mais completa de tarefas de implantação do que os outros nessa lista. Alguns recursos de implantação do Azure foram adicionados desde que o tutorial foi escrito, mas anotações adicionadas posteriormente explicam o que está faltando.
 * [Implantação direta de um site do ASP.NET no Azure no Visual Studio 2012 a partir de um repositório Git](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881). Explica como implantar um projeto da web ASP.NET no Visual Studio, usando o plug-in do Git para confirmar o código para o Git e conectar o Azure ao repositório Git. A partir do Visual Studio 2013, o suporte ao Git é integrado não requer a instalação de um plug-in.
 
-##<a name="webmatrix"></a>Implantar diretamente por meio do WebMatrix
+##<a name="webmatrix"></a>Implantar diretamente do WebMatrix
 
 Para obter informações sobre como implantar aplicativos Web por meio do WebMatrix, consulte os recursos a seguir:
 
@@ -112,7 +112,7 @@ Para obter mais informações, consulte os recursos a seguir:
 
 * [Criar um aplicativo Web do PHP-MySQL e implantá-lo usando o FTP](web-sites-php-mysql-deploy-use-ftp.md).
 
-##<a name="tfs"></a>Configurar a entrega contínua com o TFS (Team Foundation Service)
+##<a name="tfs"></a>Entrega contínua com o TFS (Team Foundation Server)
 
 O Team Foundation Server é uma solução local da Microsoft para colaboração de equipe e controle do código-fonte. Você pode configurar o TFS para fazer entrega contínua para um aplicativo Web.
 
@@ -170,7 +170,7 @@ Para obter mais informações, consulte o recurso a seguir:
 
 * [Automatizando tudo com as bibliotecas de gerenciamento do Azure e o .NET](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx) Introdução à API de gerenciamento do .NET e links para mais documentação.
 
-##<a name="cli"></a>Implantar por meio da CLI (Interface de Linha de Comando) do Azure
+##<a name="cli"></a>Implantar da CLI (Interface de Linha de Comando) do Azure
 
 É possível utilizar a linha de comando em máquinas Windows, Mac ou Linux para implantar utilizando o FTP. Se fizer isso, você também poderá acessar a API de gerenciamento do REST do Azure usando a CLI do Azure.
 
@@ -178,7 +178,7 @@ Para obter mais informações, consulte o recurso a seguir:
 
 * [Ferramentas de linha de comando do Azure.](/downloads/#cmd-line-tools). Página de portal em Azure.com que fornece informações da ferramenta de linha de comando.
 
-##<a name="webdeploy"></a>Implantar por meio da linha de comando de Implantação da Web
+##<a name="webdeploy"></a>Implantar da linha de comando da Implantação na Web
 
 A [Implantação da Web](http://www.iis.net/downloads/microsoft/web-deploy) é o software da Microsoft para a implantação do IIS que não só fornece recursos de sincronização de arquivos inteligentes, mas também pode executar ou coordenar várias outras tarefas relacionadas à implantação que não poderão ser automatizadas quando você usar o FTP. Por exemplo, a Implantação da Web pode implantar um novo banco de dados ou atualizações de banco de dados junto com seu aplicativo Web. A Implantação da Web também pode minimizar o tempo necessário para atualizar um site existente, pois ele pode copiar apenas os arquivos alterados de forma inteligente. O Microsoft WebMatrix, o Visual Studio, o Visual Studio Team Services e o Team Foundation Server têm suporte para a Implantação da Web interna, mas você também pode usar a Implantação da Web diretamente da linha de comando para automatizar a implantação. Os comandos de Implantação da Web são muito avançados, mas a curva de aprendizado pode ser acentuada.
 
@@ -204,4 +204,4 @@ Para obter mais informações sobre outros tópicos de implantação, consulte a
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1217_2015-->

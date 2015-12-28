@@ -120,6 +120,7 @@ Consulte estes links para obter mais informações sobre o armazenamento de arqu
 
 - [Armazenamento de Arquivos do Azure: um sistema de arquivos SMB de nuvem ininterrupto SMB para Windows e Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 - [Como usar o Armazenamento de Arquivos do Azure com o Windows](storage-dotnet-how-to-use-files.md)
+- [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy)
 
 ### Suporte de ferramentas para o Armazenamento de arquivos
 
@@ -137,4 +138,4 @@ Consulte estes links para obter mais informações sobre o armazenamento de arqu
 - [Apresentando o serviço de arquivo do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persistindo conexões para arquivos do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

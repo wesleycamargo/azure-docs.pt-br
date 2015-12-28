@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="command-line-interface"
    ms.workload="infrastructure"
-   ms.date="08/25/2015"
+   ms.date="12/08/2015"
    ms.author="rasquill"/>
 
 # Navegue e selecione imagens de Máquina Virtual do Azure com o Windows PowerShell e a CLI do Azure
@@ -23,7 +23,7 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
 
 
-Este artigo descreve como navegar e selecionar imagens da máquina virtual usando uma instalação recente da CLI do Azure ou do Azure PowerShell. Como pré-requisito, você precisaria alterar para o modo do Gerenciador de Recursos. Com a CLI do Azure, insira esse modo digitando `azure config mode arm`. Com o PowerShell, digite `Switch-AzureMode AzureResourceManager`. Consulte [Usando a CLI do Azure com gerenciamento de recursos](xplat-cli-azure-resource-manager.md) e [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md) para obter detalhes mais completos de atualização e configuração.
+
 
 ## Tabela de imagens mais usadas
 
@@ -51,6 +51,8 @@ Este artigo descreve como navegar e selecionar imagens da máquina virtual usand
 
 
 ## CLI do Azure
+
+> [AZURE.NOTE]Este artigo descreve como navegar e selecionar imagens da máquina virtual usando uma instalação recente da CLI do Azure ou do Azure PowerShell. Como pré-requisito, você precisaria alterar para o modo do Gerenciador de Recursos. Com a CLI do Azure, insira esse modo digitando `azure config mode arm`.
 
 A maneira mais fácil e rápida de localizar uma imagem para usar com `azure vm quick-create` ou para criar um arquivo de modelo de grupo de recursos é chamar o comando `azure vm image list` e informar o local, o nome do editor (não diferencia maiúsculas de minúsculas!) e uma oferta – se você souber a oferta. Por exemplo, a lista a seguir é apenas uma pequena amostra - várias listas são bastante longas - se você souber que "Canonical" é um editor para a oferta "UbuntuServer".
 
@@ -138,7 +140,7 @@ Com essas informações, agora você pode localizar exatamente a imagem que dese
     data:    canonical  ubuntuserver  14.04.2-LTS  14.04.201504270  westus    canonical:ubuntuserver:14.04.2-LTS:14.04.201504270
     info:    vm image list command OK
 
-Agora você pode escolher exatamente a imagem que deseja usar. Para criar uma máquina virtual rapidamente usando as informações de URN que você acabou de encontrar, ou para usar um modelo com essas informações URN, consulte [Usando a CLI do Azure para Mac, Linux e Windows no Gerenciador de Recursos do Azure](xplat-cli-azure-resource-manager.md).
+Agora você pode escolher exatamente a imagem que deseja usar. Para criar uma máquina virtual rapidamente usando as informações de URN que você acabou de encontrar, ou para usar um modelo com essas informações de URN, consulte [Usando a CLI do Azure para Mac, Linux e Windows no Gerenciador de Recursos do Azure](xplat-cli-azure-resource-manager.md).
 
 ### Passo a passo em vídeo
 
@@ -148,6 +150,11 @@ Este vídeo demonstra as etapas acima usando a CLI.
 
 
 ## PowerShell
+
+Com o PowerShell, digite `Switch-AzureMode AzureResourceManager`. Consulte [Usando a CLI do Azure com gerenciamento de recursos](xplat-cli-azure-resource-manager.md) e [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md) para obter detalhes mais completos de atualização e configuração.
+
+> [AZURE.NOTE]Com os módulos do Azure PowerShell posteriores a 1.0, o cmdlet `Switch-AzureMode` foi removido. Com essa versão e mais recentes, substitua os comandos abaixo com a parte `Azure` substituídas pela `AzureRm`. Se você estiver usando módulos do Azure PowerShell abaixo do 1.0, você usará os comandos abaixo, mas você deve primeiro `Switch-AzureMode AzureResourceManager`.
+
 
 Ao criar uma nova máquina virtual com o Gerenciador de Recursos do Azure, em alguns casos é necessário especificar uma imagem com a combinação das propriedades de imagem a seguir:
 
@@ -224,7 +231,7 @@ Para a oferta de "Windows Server":
 	2012-R2-Datacenter
 	Windows-Server-Technical-Preview
 
-Nesta lista, copie o nome do SKU escolhido e você terá todas as informações para o cmdlet **Set-AzureVMSourceImage** do PowerShell ou para um arquivo de modelo de grupo de recursos que exige que você especifique o editor, a oferta e o SKU para uma imagem.
+Nesta lista, copie o nome da SKU escolhida e você terá todas as informações para o cmdlet **Set-AzureVMSourceImage** do PowerShell ou para um arquivo de modelo de grupo de recursos que exige que você especifique o editor, a oferta e a SKU para uma imagem.
 
 ### Passo a passo em vídeo
 
@@ -244,4 +251,4 @@ Este vídeo demonstra as etapas acima usando o PowerShell.
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

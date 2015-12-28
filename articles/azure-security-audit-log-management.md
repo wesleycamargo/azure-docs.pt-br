@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/30/2015"
+   ms.date="12/10/2015"
    ms.author="mnayak;tomsh;terrylan"/>
 
 # Gerenciamento de log de segurança e de auditoria do Microsoft Azure
@@ -614,4 +614,4 @@ Os recursos a seguir fornecem informações gerais sobre o Microsoft Azure e ser
 [19]: ./media/azure-security-audit-log-management/sec-view-blob-container.png
 [20]: ./media/azure-security-audit-log-management/sec-hdinsight-analysis.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

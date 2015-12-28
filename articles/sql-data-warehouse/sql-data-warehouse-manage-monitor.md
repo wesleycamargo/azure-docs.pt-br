@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="12/15/2015"
    ms.author="sahajs"/>
 
 # Monitore sua carga de trabalho usando DMVs
@@ -131,7 +131,7 @@ Verifique a coluna *operation\_type* da etapa de consulta de execução longa:
 
 ### ETAPA 4a: localizar o progresso da execução de uma etapa SQL
 
-Use a ID da solicitação e o índice da etapa para recuperar informações sobre a distribuição de consulta do SQL Server como parte da etapa SQL na consulta. Salve o ID do nó e o SPID.
+Use a ID da solicitação e o índice da etapa para recuperar informações sobre a distribuição de consulta do SQL Server como parte da etapa SQL na consulta. Salve a ID de distribuição e o SPID.
 
 ```
 
@@ -149,7 +149,7 @@ Use a seguinte consulta para recuperar o plano de execução do SQL Server para 
 ```
 
 -- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node. 
--- Replace node_id and spid with values from previous query.
+-- Replace distribution_id and spid with values from previous query.
 
 DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 
@@ -203,4 +203,4 @@ Para obter mais dicas sobre como gerenciar o SQL Data Warehouse, consulte [Geren
 
 <!--MSDN references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # Visualização do modelo de aplicativo v2.0: adicionar entrada para um aplicativo Windows Desktop
@@ -40,17 +40,17 @@ O código para este tutorial é mantido [no GitHub](https://github.com/AzureADQu
 
 O aplicativo concluído é fornecido também no final desse tutorial.
 
-## 1\. Registrar um aplicativo
+## 1. Registrar um Aplicativo
 Crie um novo aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.com) ou siga estas [etapas detalhadas](active-directory-v2-app-registration.md). Não se esqueça de:
 
 - Copiar a **ID do Aplicativo** designada ao seu aplicativo, você precisará dela logo.
 - Adicione a plataforma **Móvel** de seu aplicativo.
 - Copie o **URI de Redirecionamento** do portal. Você deve usar o valor padrão de `urn:ietf:wg:oauth:2.0:oob`.
 
-## 2\. Instalar e Configurar o ADAL
+## 2. Instalar e Configurar o ADAL
 Agora que você tem um aplicativo registrado na Microsoft, pode instalar o ADAL e gravar seu código relacionado à identidade. Para que o ADAL possa comunicar o ponto de extremidade v2.0, forneça a ele algumas informações sobre o registro de seu aplicativo.
 
--	Comece adicionando o ADAL ao projeto TodoListClient usando o Console do Gerenciador de Pacotes.
+-    Comece adicionando o ADAL ao projeto TodoListClient usando o Console do Gerenciador de Pacotes.
 
 ```
 PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoListClient -IncludePrerelease
@@ -59,7 +59,7 @@ PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory
 -	No projeto TodoListClient, abra `app.config`. Substitua os valores dos elementos na seção `<appSettings>` para refletir os valores inseridos no portal de registro do aplicativo. Seu código fará referência a esses valores sempre que ele usar a ADAL.
     -	O `ida:ClientId` é a **ID do Aplicativo** do seu aplicativo que você copiou do portal.
     -	O `ida:RedirectUri` é o **URI de Redirecionamento** no portal.
-- No projeto do Serviço de Lista de Tarefas, abra `web.config` na raiz do projeto.  
+- No projeto do Serviço de Lista de Tarefas, abra `web.config`na raiz do projeto.  
     - Substitua o `ida:Audience` valor com a mesma **ID do Aplicativo** no portal.
 
 ## 3\. Usar a ADAL para obter tokens
@@ -247,4 +247,4 @@ Agora você pode ir para tópicos mais avançados. Você pode desejar experiment
 
 Para obter recursos adicionais, confira: - [A visualização do modelo de aplicativo v2.0 >>](active-directory-appmodel-v2-overview.md) - [Tag StackOverflow "adal" >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -306,7 +306,7 @@ Observação: demora cerca de duas horas (após a conclusão bem-sucedida da imp
 
 • Salve localmente
 
-**Configurar relatórios de PowerBI** • Abra o arquivo de designer 'VehicleTelemetryAnalytics - Report.pbix’ usando a área de trabalho do PowerBI. Caso ainda não tenha feito isso, instale o PowerBI Desktop clicando [aqui](http://www.microsoft.com/download/details.aspx?id=45331).
+**Configurar relatórios de PowerBI** • Abra o arquivo de designer 'VehicleTelemetryAnalytics - Report.pbix’ usando a área de trabalho do PowerBI. Caso ainda não tenha feito isso, instale o PowerBI Desktop de [Instalar PowerBI Desktop](http://www.microsoft.com/download/details.aspx?id=45331).
 
 • Clique no **Editar de Consultas**.
 
@@ -390,4 +390,4 @@ Fixe os gráficos ao painel existente **Painel de Análise de Telemetria do Veí
 
 Parabéns!! Você criou com êxito os relatórios e o painel para obter informações preditivas, em lote e em tempo real sobre a integridade do veículo e hábitos de condução.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Noções básicas sobre o site para a proteção do Azure" 
+	pageTitle="Noções básicas sobre replicação do Hyper-V com o Azure Site Recovery | Microsoft Azure" 
 	description="Use este artigo para entender os conceitos técnicos que ajudam você a instalar, configurar e gerenciar com êxito o Azure Site Recovery." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,11 +13,11 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="09/01/2015" 
+	ms.date="12/14/2015" 
 	ms.author="anbacker"/>
 
 
-# Noções básicas sobre o site do Hyper-V ou do VMM para a proteção do Azure
+# Noções básicas sobre replicação do Hyper-V com o Azure Site Recovery
 
 Este artigo descreve os conceitos técnicos que ajudam você a configurar e gerenciar com êxito o site do Hyper-V ou do VMM para a proteção do Azure usando o Azure Site Recovery.
 
@@ -79,4 +79,4 @@ Há uma lógica de repetição interna quando ocorrem erros de replicação. Ela
 - [Contatando o Suporte da Microsoft](./site-recovery-monitoring-and-troubleshooting.md#reaching-out-for-microsoft-support)
 - [Erros de ASR comuns e suas resoluções](./site-recovery-monitoring-and-troubleshooting.md#common-asr-errors-and-their-resolutions)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

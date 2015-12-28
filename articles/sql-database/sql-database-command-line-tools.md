@@ -54,10 +54,9 @@ Os comandos a seguir serão executados na assinatura que você acabou de selecio
 
 Crie um grupo de recursos que conterá o servidor. Você pode editar o próximo comando para usar qualquer local válido.
 
-Para obter uma lista de locais válidos de servidor do Banco de Dados SQL do Azure, execute os seguintes cmdlets:
+Para obter uma lista de locais válidos de servidor de Banco de Dados SQL do Azure, execute o seguinte cmdlet:
 
-	$AzureSQLLocations = Get-AzureRmLocation | Where-Object Name -Like "*SQL/Servers"
-	$AzureSQLLocations.Locations
+	$AzureSQLLocations = (Get-AzureRmResourceProvider -ListAvailable | Where-Object {$_.ProviderNamespace -eq 'Microsoft.Sql'}).Locations
 
 Caso já tenha um grupo de recursos, você poderá pular para a criação de um servidor, ou poderá editar e executar o seguinte comando para criar um novo grupo de recursos:
 
@@ -128,4 +127,4 @@ Combinar comandos e automatizar. Por exemplo, substitua tudo que está entre asp
 
 - [Cmdlets do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

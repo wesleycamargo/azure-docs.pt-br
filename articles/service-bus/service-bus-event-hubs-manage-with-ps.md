@@ -12,8 +12,8 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="08/14/2015"
+   ms.workload="na"
+   ms.date="12/09/2015"
    ms.author="sethm"/>
 
 # Usar o PowerShell para gerenciar recursos do Barramento de Serviço e dos Hubs de Eventos
@@ -24,9 +24,9 @@ O PowerShell do Microsoft Azure é um ambiente de script que você pode usar par
 
 Antes de começar, você precisará do seguinte:
 
-- Uma assinatura do Azure. O Azure é uma plataforma baseada em assinatura. Para obter mais informações sobre como adquirir uma assinatura, consulte [Opções de compra], [Ofertas para membros] ou [Avaliação gratuita].
+- Uma assinatura do Azure. O Azure é uma plataforma baseada em assinatura. Para obter mais informações sobre como adquirir uma assinatura, consulte [Opções de compra][], [Ofertas para membros][] ou [Avaliação gratuita][].
 
-- Um computador com o PowerShell do Azure. Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure]
+- Um computador com o PowerShell do Azure. Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure][].
 
 - Um entendimento geral dos scripts do PowerShell, dos pacotes NuGet e do .NET Framework.
 
@@ -253,14 +253,16 @@ Para criar uma fila ou um tópico, execute uma verificação de namespace., como
 
 ## Próximas etapas
 
-Este artigo fornece uma estrutura de tópicos para o provisionamento de entidades do Barramento de Serviço usando o PowerShell. Embora haja um número limitado de cmdlets do PowerShell disponíveis para gerenciar entidades de mensagem do Barramento de Serviço, ao fazer referência ao assembly Microsoft.ServiceBus.dll, praticamente qualquer operação que você pode executar usando as bibliotecas do cliente .NET, você também poderá executar em um script do PowerShell.
+Este artigo forneceu a você uma estrutura de tópicos para o provisionamento de entidades do Barramento de Serviço usando o PowerShell. Embora haja um número limitado de cmdlets do PowerShell disponíveis para gerenciar entidades de mensagem do Barramento de Serviço, ao fazer referência ao assembly Microsoft.ServiceBus.dll, praticamente qualquer operação que você pode executar usando as bibliotecas do cliente .NET, você também poderá executar em um script do PowerShell.
 
-Os exemplos mais detalhados estão disponíveis nessas postagens de blogs:
+Os exemplos mais detalhados estão disponíveis nessas postagens de blog:
 
 - [Como criar filas, tópicos e assinaturas do Barramento de Serviço usando um script do PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
 - [Como criar um namespace do Barramento de Serviço e um Hub de Eventos usando um script do PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
-Alguns scripts prontos também estão disponíveis para download : - [Scripts do PowerShell do Barramento de Serviço](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
+Alguns scripts prontos também estão disponíveis para download:
+
+- [Scripts do PowerShell do Barramento de Serviço](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Anchors-->
 
@@ -271,7 +273,7 @@ Alguns scripts prontos também estão disponíveis para download : - [Scripts do
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
-[API do .NET para Barramento de Serviço]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
+[API do .NET para Barramento de Serviço]: https://msdn.microsoft.com/pt-BR/library/azure/mt419900.aspx
 [Instalar e configurar o PowerShell do Azure]: ../install-configure-powershell.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

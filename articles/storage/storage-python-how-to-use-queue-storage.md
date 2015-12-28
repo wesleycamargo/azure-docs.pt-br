@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="08/25/2015" 
+	ms.date="12/11/2015" 
 	ms.author="emgerner"/>
 
 # Como usar o Armazenamento de fila do Python
@@ -29,7 +29,7 @@ Este guia mostra como executar cenários comuns usando o serviço de armazenamen
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 
-> [AZURE.NOTE]Se você precisar instalar o Python ou o [pacote do Python Azure][], consulte o [Guia de instalação do Python](../python-how-to-install.md).
+> [AZURE.NOTE] Se você precisar instalar o Python ou o [pacote do Python Azure][], consulte o [Guia de instalação do Python](../python-how-to-install.md).
 
 ## Como criar uma fila
 
@@ -113,4 +113,4 @@ Para obter mais informações, consulte também o [Python Developer Center](/dev
 [pacote de armazenamento do Python Azure]: https://pypi.python.org/pypi/azure-storage
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

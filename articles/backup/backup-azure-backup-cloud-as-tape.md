@@ -6,7 +6,7 @@
    authors="Jim-Parker"
    manager="jwhit"
    editor=""/>
-<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="09/22/2015" ms.author="jimpark"; "aashishr"; "sammehta"/>
+<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="12/15/2015" ms.author="jimpark"; "aashishr"; "sammehta"/>
 
 # Usar o Backup do Azure para substituir a infraestrutura de fita
 Os clientes do Backup do Azure e do System Center Data Protection Manager podem: - fazer backup de dados em agendamentos que melhor se adequam às necessidades da sua organização - reter os dados de backup por períodos mais longos - tornar o Azure uma parte de suas necessidades de retenção de longo prazo (em vez da fita).
@@ -60,4 +60,4 @@ Para obter mais informações sobre consulte Backup do Azure, consulte
 - [Introdução ao Backup do Azure](backup-introduction-to-azure-backup.md)
 - [Teste o Backup do Azure](backup-try-azure-backup-in-10-mins)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

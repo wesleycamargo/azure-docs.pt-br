@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/30/2015" 
+	ms.date="12/11/2015" 
 	ms.author="bradsev" />
 
 
@@ -41,7 +41,7 @@ Figura 1. O módulo **Executar Script Python**.
 O módulo [Executar Script Python][execute-python-script] aceita até três entradas e produz até duas saídas (discutidas abaixo), assim como seu módulo análogo para R, o [Executar Script R][execute-r-script]. O código Python a ser executado é inserido na caixa de parâmetro como uma função de ponto de entrada denominada especialmente chamada `azureml_main`. Estes são os principais princípios de design usados para implementar este módulo:
 
 1.	*Devem ser expressões idiomáticas para usuários de Python.* A maioria dos usuários de Python fatora seu código como funções dentro de módulos, de modo que colocar muitas instruções executáveis em um módulo de nível superior é relativamente raro. Como resultado, a caixa de script também recebe uma função de Python especialmente nomeada em vez de apenas uma sequência de instruções. Os objetos expostos na função são tipos de biblioteca do Python padrão, como estruturas de dados [Panda](http://pandas.pydata.org/) e matrizes [NumPy](http://www.numpy.org/).
-2.	*Deve ter alta fidelidade entre execuções locais e na nuvem.* O back-end usado para executar o código Python se baseia no [Anaconda](https://store.continuum.io/cshop/anaconda/) 2.1, uma distribuição científica multiplataforma do Python amplamente utilizada. Ele vem com quase 200 dos pacotes de Python mais comuns. Portanto, um cientista de dados pode depurar e qualificar seu código em seu ambiente Anaconda local compatível com o Aprendizado de Máquina do Azure usando ambientes de desenvolvimento existentes como [IPython](http://ipython.org/) notebook ou [Python Tools para Visual Studio] e executá-lo como parte de um experimento do Aprendizado de Máquina do Azure com confiança elevada. Além disso, o ponto de entrada `azureml_main` é uma função vanilla Python e pode ser criado sem um código específico ou o SDK do Aprendizado de Máquina do Azure instalado.
+2.	*Deve ter alta fidelidade entre execuções locais e na nuvem.* O back-end usado para executar o código Python se baseia no [Anaconda](https://store.continuum.io/cshop/anaconda/) 2.1, uma distribuição científica multiplataforma do Python amplamente utilizada. Ele vem com quase 200 dos pacotes de Python mais comuns. Portanto, um cientista de dados pode depurar e qualificar seu código em seu ambiente Anaconda local compatível com o Aprendizado de Máquina do Azure usando ambientes de desenvolvimento existentes como [IPython](http://ipython.org/) notebook ou [Python Tools para Visual Studio](http://aka.ms/ptvs) e executá-lo como parte de um experimento do Aprendizado de Máquina do Azure com confiança elevada. Além disso, o ponto de entrada `azureml_main` é uma função vanilla Python e pode ser criado sem um código específico ou o SDK do Aprendizado de Máquina do Azure instalado.
 3.	*Deve ser totalmente combinável com outros módulos do Aprendizado de Máquina do Azure.* O módulo [Executar Script Python][execute-python-script] aceita, como entradas e saídas, conjuntos de dados padrão do Aprendizado de Máquina do Azure. A estrutura subjacente preenche do modo transparente e eficiente as lacunas entre os tempos de execução do Aprendizado de Máquina do Azure e do Python (dando suporte a recursos como valores ausentes). O Python, portanto, pode ser usado em conjunto com fluxos de trabalho existentes do Aprendizado de Máquina do Azure, incluindo aqueles que se chamam R e SQLite. Assim, é possível imaginar fluxos de trabalho que:
   * usam Python e Pandas para pré-processando e limpeza de dados, 
   * alimentam os dados para uma transformação de SQL, unindo vários conjuntos de dados para formar recursos, 
@@ -72,7 +72,7 @@ Conforme explicado anteriormente, conjuntos de dados de entrada no Aprendizado d
 3.	Conjuntos de dados do Aprendizado de Máquina do Azure não podem ter nomes de coluna duplicados e nomes de coluna que não são cadeias de caracteres. Se uma estrutura de dados de saída contiver colunas não numéricas, a estrutura chama `str` nos nomes de coluna. Da mesma forma, quaisquer nomes de coluna duplicados são danificados automaticamente para assegurar que os nomes sejam exclusivos. O sufixo (2) é adicionado à primeira duplicata, (3) à segunda duplicata, etc.
 
 ## Operacionalizando scripts Python
-Quaisquer módulos [Executar Script Python][execute-python-script] em um experimento de pontuação são chamados quando publicados como um serviço Web. Por exemplo, a Figura 3 mostra um experimento de pontuação que contém o código para avaliar uma única expressão de Python.
+Quaisquer módulos [Executar Script Python][execute-python-script] usados em um teste de pontuação são chamados quando publicados como um serviço Web. Por exemplo, a Figura 3 mostra um experimento de pontuação que contém o código para avaliar uma única expressão de Python.
 
 ![image4](./media/machine-learning-execute-python-scripts/figure3a.png)
 
@@ -172,6 +172,5 @@ Para saber mais, consulte o [Centro de Desenvolvedores do Python](/develop/pytho
 <!-- Module References -->
 [execute-python-script]: https://msdn.microsoft.com/library/azure/cdb56f95-7f4c-404d-bde7-5bb972e6f232/
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[Python Tools para Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

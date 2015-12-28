@@ -60,7 +60,7 @@ Execute as seguintes etapas para habilitar um repositório Git em seu aplicativo
 
 1. Faça logon no [Portal do Azure].
 
-2. Na folha de seu aplicativo Web, role para baixo até a seção **Implantação** e clique em **Configurar implantação contínua**. Clique em **Escolher Fonte**, depois em **Repositório Git Local** e em **OK**.
+2. Na folha de seu aplicativo Web, clique em **Configurações > Implantação contínua**. Clique em **Escolher Fonte**, depois em **Repositório Git Local** e em **OK**.
 
 	![Repositório Git local](./media/publishing-with-git/azure1-local-git.png)
 
@@ -76,7 +76,7 @@ Execute as seguintes etapas para habilitar um repositório Git em seu aplicativo
 
 Use as etapas a seguir para publicar o seu aplicativo Web no Azure usando o Git local.
 
-1. Na folha de seu aplicativo Web, na seção Implantação, clique em **Nenhuma implantação encontrada**.
+1. Na folha de seu aplicativo Web, clique em **Configurações > Propriedades** para o **URL do Git**.
 
 	![](./media/publishing-with-git/azure3-repo-details.png)
 
@@ -138,7 +138,7 @@ A implantação de arquivos do GitHub, CodePlex ou BitBucket requer que você te
 
 1. Primeiro coloque seus arquivos do aplicativo Web no repositório selecionado que será usado para implantação contínua.
 
-2. Na folha de seu aplicativo Web no Portal, role para baixo até a seção **Implantação** e clique em **Configurar implantação contínua**. Clique em **Escolher Fonte** e depois em **GitHub**, por exemplo.
+2. Na folha de seu aplicativo Web, clique em **Configurações > Entrega contínua**. Clique em **Escolher Fonte** e depois em **GitHub**, por exemplo.
 
 	![](./media/publishing-with-git/azure6-setup-github.png)
 	
@@ -192,11 +192,11 @@ Assim que você tiver configurado seu repositório conforme descrito e tiver con
 
 ## Desabilitar a implantação contínua
 
-A implantação contínua pode ser desabilitada na folha **Implantações**. Na folha de seu aplicativo Web, na seção **Implantação**, clique em **Implantação Ativa**. Em seguida, clique em **Desconectar**.
+A implantação contínua pode ser desabilitada na folha **Implantações**. Na folha de seu aplicativo Web, clique em **Configurações > Implantação contínua**. Em seguida, clique em **Desconectar**.
 
 ![git-DisconnectFromGitHub](./media/publishing-with-git/azure5-disconnect.png)
 
-Depois de responder **Sim** à mensagem de confirmação, você pode retornar à lâmina de seu aplicativo Web e clicar em **Configurar implantação contínua**, caso deseje configurar a publicação por meio de outra origem.
+Depois de responder **Sim** à mensagem de confirmação, você pode retornar à folha de seu aplicativo Web e clicar em **Configurações>Implantação contínua**, se quiser configurar publicação de outra fonte.
 
 ## <a id="Step8"></a>Solucionar problemas
 
@@ -297,4 +297,4 @@ Estes são erros ou problemas comumente encontrados ao usar o Git para publicar 
 [Usando o Dropbox para compartilhar repositórios do Git]: https://gist.github.com/trey/2722927
 [Envio contínuo ao Azure por meio do Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,21 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Introdução ao Armazenamento do Azure (Projetos WebJob do Azure)
-
-> [AZURE.SELECTOR]
-> - [Getting started](vs-storage-webjobs-getting-started-tables.md)
-> - [What happened](vs-storage-webjobs-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-webjobs-getting-started-blobs.md)
-> - [Queues](vs-storage-webjobs-getting-started-queues.md)
-> - [Tables](vs-storage-webjobs-getting-started-tables.md)
-
-
 
 ## Visão geral
 
@@ -153,7 +142,7 @@ O exemplo de código a seguir usa um objeto **CloudTable** para adicionar uma ú
 		    tableBinding.Execute(insertOperation);
 		}
 
-Para saber mais sobre como usar o objeto **CloudTable**, consulte [Como usar o Armazenamento de Tabela do .NET](../storage-dotnet-how-to-use-tables.md).
+Para saber mais sobre como usar o objeto **CloudTable**, consulte [Como usar o Armazenamento de Tabelas do .NET](../storage-dotnet-how-to-use-tables.md).
 
 ## Tópicos relacionados abordados no artigo de instruções sobre filas
 
@@ -165,4 +154,4 @@ Para obter informações sobre como lidar com o processamento de tabelas acionad
 
 Este artigo forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com tabelas do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure – Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

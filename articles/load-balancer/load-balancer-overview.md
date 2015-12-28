@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/16/2015"
+   ms.date="12/09/2015"
    ms.author="joaoma" />
 
 
@@ -26,6 +26,38 @@ Ele pode ser configurado para:
 - Balancear carga de tráfego entre máquinas virtuais em uma Rede Virtual, entre máquinas virtuais em serviços de nuvem ou entre computadores locais e máquinas virtuais em uma rede virtual entre instalações. Nós nos referimos a isso como [ILB (Balanceamento de Carga Interno)](load-balancer-internal-overview.md).
 - 	Encaminhar tráfego externo para uma instância específica de máquina virtual
 
+## Noções básicas sobre o balanceador de carga no Azure clássico e no Gerenciador de Recursos do Azure (ARM)
+
+Todos os recursos na nuvem precisam de um endereço IP público para serem acessíveis pela Internet. A infraestrutura de nuvem no Microsoft Azure usará endereços IP não roteáveis em seus recursos e usará a conversão de endereços de rede (NAT) com endereços IP públicos para se comunicar com a Internet.
+
+Há dois modelos de implantação no Microsoft Azure e suas implementações do balanceador de carga:
+
+ 
+### Azure clássico
+
+O Azure clássico é o primeiro modelo de implantação implementado no Microsoft Azure. Nesse modelo, um endereço IP público e um FQDN são atribuídos a um serviço de nuvem e as máquinas virtuais implantadas em um limite de serviço de nuvem podem ser agrupadas para usar um balanceador de carga. O balanceador de carga fará a conversão da porta e balanceará a carga do tráfego da rede, utilizando o endereço IP público do serviço de nuvem.
+
+Em um modelo de implantação clássico, a conversão da porta é feita usando pontos de extremidade que são uma relação de um para um entre a porta pública atribuída do endereço IP público e a porta local atribuída para enviar o tráfego para uma máquina virtual específica.
+
+O balanceamento da carga é feito usando pontos de extremidade definidos pelo balanceador de carga. Esses pontos de extremidade são uma relação de um para muitos entre o endereço IP público e as portas locais atribuídas a todas as máquinas virtuais no conjunto que responderá para o tráfego de rede com balanceamento de carga.
+
+O rótulo do domínio para o endereço IP público que um balanceador de carga usaria nesse modelo de implantação seria `<cloud service name>.cloudapp.net`.
+
+Esta é uma representação gráfica de um balanceador de carga em um modelo de implantação clássico: ![balanceador de carga baseado em hash](./media/load-balancer-overview/asm-lb.png)
+
+### Gerenciador de Recursos do Azure
+ 
+O conceito de balanceador de carga é alterado no Gerenciador de Recursos do Azure (ARM) porque não há necessidade de um serviço de nuvem para criar um balanceador de carga.
+
+No ARM, um endereço IP público é seu próprio recurso e pode ser associado a um rótulo do domínio ou nome DNS. O IP público neste caso é associado ao recurso do balanceador de carga para que as regras do balanceador de carga, as regras NAT de entrada, usem o endereço IP público como seu ponto de extremidade de Internet para os recursos que recebem o tráfego de rede com balanceamento de carga.
+
+Um recurso da interface de rede (NIC) contém a configuração do endereço IP (IP público ou privado) para uma máquina virtual. Quando uma NIC for adicionada a um pool de endereços IP de back-end do balanceador de carga, o balanceador de carga começará a enviar o tráfego de rede com carga balanceada baseado nas regras de balanceamento de carga criadas.
+
+Um conjunto de disponibilidade é o método de agrupamento usado para adicionar máquinas virtuais ao balanceador de carga. O conjunto de disponibilidade garante que as máquinas virtuais não residirão no mesmo hardware físico e em caso de falha relacionada à infraestrutura de nuvem física, irá assegurar que o balanceador de carga sempre terá uma máquina virtual recebendo o tráfego de rede com balanceamento de carga.
+
+Esta é uma representação gráfica de um balanceador de carga no Gerenciador de Recursos do Azure (ARM):
+
+![balanceador de carga baseado em hash](./media/load-balancer-overview/arm-lb.png)
 
 ## Recursos do balanceador de carga
 
@@ -76,8 +108,6 @@ Todo tráfego de saída para a Internet proveniente de seu serviço é verificad
 
 A configuração do balanceador de carga do Azure dá suporte para NAT de cone completo para UDP. Cone NAT completo é um tipo de NAT em que a porta permite conexões de entrada de qualquer host externo (em resposta a uma solicitação de saída).
 
-![snat](./media/load-balancer-overview/load-balancer-snat.png)
-
 
 >[AZURE.NOTE]Observe que para cada nova conexão de saída iniciada por uma VM, uma porta de saída também é alocada pelo balanceador de carga do Azure. O host externo verá o tráfego direcionado como VIP: porta alocada. Se os cenários exigirem um grande número de conexões de saída, é recomendável que as VMs usem IPs Públicos em Nível de Instância para que exista um IP de saída dedicado a SNAT (Conversão de Endereço de Rede de Origem). Isso reduzirá o risco de esgotamento de porta.
 >
@@ -100,4 +130,4 @@ Você pode obter mais de um endereço IP público de balanceamento de carga atri
 [Introdução - Balanceador de carga para a Internet](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1217_2015-->
