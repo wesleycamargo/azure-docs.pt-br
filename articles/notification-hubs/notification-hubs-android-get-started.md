@@ -21,7 +21,8 @@
 
 ##Visão geral
 
-Este tutorial mostra como usar os Hubs de Notificação do Azure para enviar notificações por push a um aplicativo Android. Você criará um aplicativo para Android em branco que recebe notificações por push usando o GCM(Google Cloud Messaging). Ao finalizar, você poderá usar seu hub de notificação para transmitir notificações por push a todos os dispositivos que executam seu aplicativo.
+Este tutorial mostra como usar os Hubs de Notificação do Azure para enviar notificações por push a um aplicativo Android.
+Você criará um aplicativo para Android em branco que recebe notificações por push usando o GCM(Google Cloud Messaging). Ao finalizar, você poderá usar seu hub de notificação para transmitir notificações por push a todos os dispositivos que executam seu aplicativo.
 
 Este tutorial demonstra o cenário de transmissão simples usando Hubs de Notificação. Certifique-se de seguir o próximo tutorial para aprender a usar Hubs de Notificação a fim de atender aos usuários e grupos de dispositivos específicos.
 
@@ -131,7 +132,7 @@ Agora, o seu hub de notificação está configurado para funcionar com o GCM e v
 
 	Não se esqueça de atualizar os três espaços reservados:
 	* **SENDER\_ID**: defina `SENDER_ID` como o número do projeto obtido anteriormente do projeto criado no [Google Cloud Console](http://cloud.google.com/console).
-	* **HubListenConnectionString**: defina `HubListenConnectionString` como a cadeia de conexão **DefaultListenAccessSignature** para seu hub. Você pode copiar essa cadeia de conexão clicando em **Exibir Cadeia de Conexão** na guia **Painel** de seu hub no [portal do Azure].
+	* **HubListenConnectionString**: defina `HubListenConnectionString` como a cadeia de conexão **DefaultListenAccessSignature** para seu hub. Você pode copiar essa cadeia de conexão clicando em **Exibir Cadeia de Conexão** na guia **Painel** de seu hub no [Portal Clássico do Azure].
 	* **HubName**: use o nome do seu hub de notificação que aparece na parte superior da página do Azure para o hub (**não** é a URL completa). Por exemplo, use `"myhub"`.
 
 
