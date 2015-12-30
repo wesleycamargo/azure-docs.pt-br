@@ -164,7 +164,7 @@ Seu aplicativo Moxtra espera as declarações do SAML em um formato específico,
     | ---            | ---             |
     | nome | givenname |
     | sobrenome | sobrenome |
-    | idpid | *<o valor de **ID da Entidade** do diálogo **Configurar logon único no Moxtra** no portal do Azure>* |
+    | idpid | *<\o valor de **ID da Entidade** do diálogo **Configurar logon único no Moxtra** no portal do Azure \>* |
 
  
     a. Clique em adicionar atributo de usuário <br><br>![Configurar o logon único](./media/active-directory-saas-moxtra-tutorial/tutorial_general_81.png) <br>
@@ -320,4 +320,4 @@ Ao clicar no bloco Moxtra no Painel de Acesso, você deverá ser conectado autom
 [204]: ./media/active-directory-saas-moxtra-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-moxtra-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
