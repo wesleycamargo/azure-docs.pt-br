@@ -21,7 +21,7 @@
 
 Este artigo mostra como começar a usar Docker e o [Redigir](http://github.com/docker/compose) para definir e executar um aplicativo complexo em uma máquina virtual Linux no Azure. Com o Redigir (o sucessor do *Fig*), use um arquivo de texto simples para definir um aplicativo que consiste em vários contêineres do Docker. Em seguida, você acelera seu aplicativo com um único comando que faz tudo que é necessário para executá-lo na VM. Por exemplo, este artigo mostra como configurar rapidamente um blog WordPress com um banco de dados SQL MariaDB de back-end, mas você também pode usar o Redigir para configurar aplicativos mais complexos.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Modelo do Gerenciador de Recursos](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/).
 
 
 Se você não estiver familiarizado com o Docker e contêineres, consulte o [Quadro de comunicações de nível elevado do Docker](http://azure.microsoft.com/documentation/videos/docker-high-level-whiteboard/).
@@ -73,16 +73,16 @@ db:
 
 ```
 
-## Etapa 4: Start the containers with Compose
+## Etapa 4: Iniciar os contêineres com Redação
 
-In the working directory on your VM, simply run the following command.
+No diretório de trabalho da VM, basta executar o seguinte comando.
 
 ```
 $ docker-compose up -d
 
 ```
 
-This starts the Docker containers specified in `docker-compose.yml`. Você verá uma saída semelhante a:
+Isso inicia os contêineres do Docker especificados em `docker-compose.yml`. Você verá uma saída semelhante a:
 
 ```
 Creating wordpress_db_1...
