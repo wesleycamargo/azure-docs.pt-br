@@ -112,14 +112,19 @@ Você pode adicionar usuários e atribuir funções específicas ao aplicativo d
 > 
 > ![][host]
 > 
-> Essas propriedades são específicas ao site que hospeda o aplicativo de API. Ao usar um aplicativo de API ou um conector interno, a maioria dessas propriedades não se aplica, e é recomendável que você não as atualize. Se tiver criado seu aplicativo de API no Visual Studio e implantado-o em sua assinatura do Azure, você poderá usar as folhas Host e Gateway. [Gerenciar aplicativos de API](../app-service-api/app-service-api-manage-in-portal.md) fornece mais informações sobre o que você pode fazer nessas folhas com o aplicativo de API personalizado criado.
+> Essas propriedades são específicas ao site que hospeda o aplicativo de API. Ao usar um aplicativo de API ou um conector interno, a maioria dessas propriedades não se aplica, e é recomendável que você não as atualize. Se tiver criado seu aplicativo de API no Visual Studio e implantado-o em sua assinatura do Azure, você poderá usar as folhas Host e Gateway. [Gerenciar aplicativos de API](../app-service-api/app-service-api-manage-in-portal.md) fornece mais informações sobre o que você pode fazer nessas folhas com o aplicativo de API personalizado criado. 
+
 
 
 >[AZURE.NOTE]Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido e não há compromissos.
 
+
 ## Leia mais
 
-[Monitorar seus aplicativos lógicos](app-service-logic-monitor-your-logic-apps.md)<br/> [Lista de conectores de aplicativos de API no Serviço de Aplicativo](app-service-logic-connectors-list.md)<br/> [Controle de acesso baseado em função no portal do Microsoft Azure](role-based-access-control-configure.md)<br/> [Usando o Gerenciador de Conexão Híbrida no Serviço de Aplicativo do Azure](app-service-logic-hybrid-connection-manager.md)
+[Monitorar seus aplicativos lógicos](app-service-logic-monitor-your-logic-apps.md)<br/>
+[Lista de conectores de aplicativos de API no Serviço de Aplicativo](app-service-logic-connectors-list.md)<br/>
+[Controle de acesso baseado em função no portal do Microsoft Azure](role-based-access-control-configure.md)<br/>
+[Usando o Gerenciador de Conexão Híbrida no Serviço de Aplicativo do Azure](app-service-logic-hybrid-connection-manager.md)
 
 
 <!--Image references-->

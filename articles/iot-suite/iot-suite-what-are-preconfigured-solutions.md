@@ -36,7 +36,8 @@ A tabela a seguir mostra como essas soluções pré-configuradas são mapeadas p
 
 | Solução | Ingestão de dados | Identidade do dispositivo | Comando e controle | Regras e ações | Análise preditiva |
 |------------------------|-----|-----|-----|-----|-----|
-| Monitoramento remoto | Sim | Sim | Sim | Sim | - | | Manutenção preditiva | Sim | Sim | Sim | Sim | Sim |
+| Monitoramento remoto | Sim | Sim | Sim | Sim | - |
+| Manutenção preditiva | Sim | Sim | Sim | Sim | Sim |
 
 ## Visão geral da solução pré-configurada de Monitoramento Remoto
 
