@@ -133,7 +133,9 @@ Os colaboradores podem gerenciar tudo, exceto o acesso
 | **Ações** ||
 | ------- | ------ |
 | * | Criar e gerenciar recursos de todos os tipos |
-| ****Not Actions | | | Microsoft.Authorization/*/Write | Não é possível criar funções e atribuições de função | | Microsoft.Authorization/*/Delete | Não é possível excluir funções e atribuições de função |
+| ****Not Actions | |
+| Microsoft.Authorization/*/Write | Não é possível criar funções e atribuições de função |
+| Microsoft.Authorization/*/Delete | Não é possível excluir funções e atribuições de função |
 
 ### Colaborador da fábrica de dados
 Pode gerenciar fábricas de dados
