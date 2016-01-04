@@ -39,6 +39,7 @@ Antes de configurar a máquina de build, será necessário criar uma "Entidade d
 
 1.	Instale o PowerShell do Azure.
     - Instale o PowerShellGet. Para fazer isso, instale o [Windows Management Framework 5.0](http://www.microsoft.com/download/details.aspx?id=48729), que inclui o PowerShellGet.
+
     >[AZURE.NOTE]Você pode ignorar esta etapa se estiver executando o Windows 10 com as atualizações mais recentes.
 
 1.	Instale e atualize o módulo AzureRM.
@@ -339,4 +340,4 @@ As instruções anteriores criam um novo cluster para cada build e o remove ao f
 
 Para saber mais sobre a integração contínua com aplicativos do Service Fabric, leia os seguintes artigos. [Documentação base sobre build](https://msdn.microsoft.com/Library/vs/alm/Build/overview) - [Implantar um agente de build](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows) - [Criar e configurar uma definição de build](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!-----HONumber=AcomDC_1217_2015-->
