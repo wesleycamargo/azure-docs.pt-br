@@ -68,9 +68,11 @@ Para alterar o número de unidades de streaming usando o Portal, faça o seguint
 	A alocação de quaisquer novas unidades de streaming leva cerca de 20 minutos para ser concluída.
 
 	 
-	>[AZURE.NOTE]No momento, mudar de qualquer valor positivo de unidades de streaming de volta para nenhuma pode desabilitar o streaming por demanda por até uma hora.
+>[AZURE.NOTE]No momento, mudar de qualquer valor positivo de unidades de streaming de volta para nenhuma pode desabilitar o streaming por demanda por até uma hora.
 
-	>[AZURE.NOTE]O número mais alto de unidades especificadas para o período de 24 horas é usado para calcular o custo. Para obter informações sobre os detalhes de preços, consulte [Detalhes de preços dos Serviços de Mídia](http://go.microsoft.com/fwlink/?LinkId=275107).
+</br>
+
+>[AZURE.NOTE]O número mais alto de unidades especificadas para o período de 24 horas é usado para calcular o custo. Para obter informações sobre os detalhes de preços, consulte [Detalhes de preços dos Serviços de Mídia](http://go.microsoft.com/fwlink/?LinkId=275107).
 	
 ##<a id="configure_streaming_endpoints"></a>Configurando o ponto de extremidade de streaming
 
@@ -150,4 +152,4 @@ Para obter mais informações, consulte [Anunciando a integração dos Serviços
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->
