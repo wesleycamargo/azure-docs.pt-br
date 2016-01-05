@@ -93,7 +93,7 @@ Um projeto de teste de carga é composto por um ou mais cenários descritos pelo
 
 1. Na seção **Configurações de Execução**, especifique a duração do teste de carga.
 
-    >[AZURE.NOTE]A opção **Iterações de Teste** só estará disponível quando você executar o teste de carga localmente usando o Visual Studio.
+    >[AZURE.NOTE] A opção **Iterações de Teste** só estará disponível quando você executar o teste de carga localmente usando o Visual Studio.
 
 
 1. Na seção **Local** de **Configurações de Execução**, especifique o local onde as solicitações de teste de carga são geradas. O assistente pode solicitar o logon em sua conta do Team Services. Faça logon usando sua conta do Team Services e escolha uma localização geográfica. Quando terminar, escolha o botão **Concluir**.

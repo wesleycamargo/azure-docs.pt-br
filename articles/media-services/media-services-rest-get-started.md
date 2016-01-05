@@ -1210,4 +1210,4 @@ Se este tópico não contiver o que você esperava, se estiver faltando alguma i
 <!-- URLs. -->
   [Portal Clássico do Azure]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->

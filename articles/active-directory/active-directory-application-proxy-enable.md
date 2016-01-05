@@ -58,12 +58,13 @@ Se o firewall reforça o tráfego de acordo com os usuários de origem, abra ess
 1. Execute `AADApplicationProxyConnectorInstaller.exe` no servidor que você preparou (confira os pré-requisitos do Proxy de Aplicativo acima).
 2. Siga as instruções no Assistente para instalar.
 3. Durante a instalação, você será solicitado a registrar o conector com sua conta de Proxy do aplicativo ativa.
-<p>Forneça suas credenciais de administrador global do AD do Azure.
-- Certifique-se de que o administrador que registra o conector está no mesmo diretório em que você ativou o serviço Proxy de aplicativo, por exemplo se o domínio de locatário for contoso.com, o administrador deve ser admin@contoso.comou qualquer outro alias no domínio. E se você for um administrador global do locatário do AD do Azure. Seu locatário de administrador global pode ser diferente das suas credenciais do Microsoft Azure.
-- Se a configuração de segurança reforçada do Internet Explorer estiver ativada no servidor onde você está instalando o conector do AD do Azure, a tela de registro pode estar bloqueada. Se isso acontecer, siga as instruções na mensagem de erro para permitir o acesso. Certifique-se de que a segurança reforçada do Internet Explorer está desativado.
-- Se o registro do conector não for bem-sucedido, consulte Solucionar problemas de Proxy de aplicativo.
+<p>- Forneça suas credenciais de administrador global do AD do Azure.
+<p>- Certifique-se de que o administrador que registra o conector está no mesmo diretório em que você ativou o serviço Proxy de aplicativo, por exemplo se o domínio de locatário for contoso.com, o administrador deve ser admin@contoso.comou qualquer outro alias no domínio. E se você for um administrador global do locatário do AD do Azure. Seu locatário de administrador global pode ser diferente das suas credenciais do Microsoft Azure.
+<p>- Se a configuração de segurança reforçada do Internet Explorer estiver ativada no servidor onde você está instalando o conector do AD do Azure, a tela de registro pode estar bloqueada. Se isso acontecer, siga as instruções na mensagem de erro para permitir o acesso. Certifique-se de que a segurança reforçada do Internet Explorer está desativado.
+<p>- Se o registro do conector não for bem-sucedido, consulte [Solucionar problemas de Proxy de aplicativo](active-directory-application-proxy-troubleshoot.md).
 
-4. Quando a instalação for concluída, dois novos serviços são adicionados ao seu servidor, conforme mostrado abaixo. Esses são o serviço de conector, que permite a conectividade, e um serviço de atualização automatizada que verifica periodicamente novas versões do conector e atualiza o conector conforme necessário. Clique em Concluir na janela de instalação para concluir a instalação ![Serviço de conector de Proxy de aplicativo!](./media/active-directory-application-proxy-enable/app_proxy_services.png) <p>
+4. Quando a instalação for concluída, dois novos serviços são adicionados ao seu servidor, conforme mostrado abaixo. Esses são o serviço de conector, que permite a conectividade, e um serviço de atualização automatizada que verifica periodicamente novas versões do conector e atualiza o conector conforme necessário. Clique em Concluir na janela de instalação para concluir a instalação
+	![Serviço de conector de Proxy de aplicativo!](./media/active-directory-application-proxy-enable/app_proxy_services.png) <p>
 5. Agora você está pronto para publicar aplicativos com o Proxy de aplicativo.
 
 Para fins de alta disponibilidade, você deve implantar pelo menos um Conector adicional. Para implantar um conector adicional, repita as etapas 2 e 3 acima. Cada conector deve ser registrado separadamente.
