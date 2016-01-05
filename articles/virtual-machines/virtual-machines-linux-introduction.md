@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/11/2015"
+	ms.date="11/13/2015"
 	ms.author="szark"/>
 
 #Introdução ao Linux no Azure
@@ -25,7 +25,7 @@ Este tópico apresenta uma visão geral de alguns aspectos do uso de máquinas v
 
 ## Autenticação: nomes de usuário, senhas e chaves SSH.
 
-Ao criar uma máquina virtual Linux usando o Portal de Gerenciamento do Azure, você deve fornecer um nome de usuário, uma senha e uma chave pública SSH. A escolha de um nome de usuário para a implantação de uma máquina virtual Linux no Azure está sujeita à seguinte restrição: nomes de contas (UID <100) do sistema já presentes na máquina virtual não são permitidos - root por exemplo.
+Ao criar uma máquina virtual Linux usando o portal clássico do Azure, você deve fornecer um nome de usuário, senha ou uma chave pública SSH. A escolha de um nome de usuário para a implantação de uma máquina virtual Linux no Azure está sujeita à seguinte restrição: nomes de contas (UID <100) do sistema já presentes na máquina virtual não são permitidos - root por exemplo.
 
 
  - Confira [Criar uma máquina virtual que executa Linux](virtual-machines-linux-tutorial.md)
@@ -45,7 +45,7 @@ Opcionalmente, você pode obter um shell de root usando **sudo -s**.
 
 ## Configuração do firewall
 
-O Azure fornece um filtro de pacote de entrada que restringe a conectividade a portas especificadas no Portal de Gerenciamento. Por padrão, a única porta permitida é SSH. Você pode abrir acesso a portas adicionais na máquina virtual Linux configurando pontos de extremidade no Portal de Gerenciamento:
+O Azure fornece um filtro de pacote de entrada que restringe a conectividade a portas especificadas no portal clássico do Azure. Por padrão, a única porta permitida é SSH. Você pode abrir o acesso a portas adicionais na sua máquina virtual Linux configurando pontos de extremidade no portal clássico do Azure:
 
  - Confira: [Como instalar pontos de extremidade em uma máquina virtual](virtual-machines-set-up-endpoints.md)
 
@@ -81,7 +81,7 @@ O Azure oferece a possibilidade de capturar o estado de uma máquina virtual exi
 
 2. Desligue a máquina virtual.
 
-3. Clique em *Capturar* no Portal de Gerenciamento ou use o PowerShell ou as ferramentas de CLI para capturar a máquina virtual como uma imagem.
+3. Clique em *Capturar* no portal clássico do Azure ou use as ferramentas Powershell ou CLI para capturar a máquina virtual como uma imagem.
 
  - Confira: [Como capturar uma máquina virtual Linux para ser usada como um modelo](virtual-machines-linux-capture-image.md)
 
@@ -93,10 +93,10 @@ Cada máquina virtual tem um *disco de recursos* anexado. Como os dados em um di
 No Linux, o disco de recurso é normalmente gerenciado pelo agente do Linux do Azure e montado automaticamente em **/mnt/resource** (ou **/mnt** nas imagens do Ubuntu).
 
 
-	>[AZURE.NOTE] Note that the resource disk is a **temporary** disk, and might be deleted and reformatted when the VM is rebooted.
+>[AZURE.NOTE]Observe que o disco de recurso é um disco **temporário** e pode ser excluído e reformatado quando a VM é reinicializada.
 
 No Linux, o disco de dados pode ser nomeado pelo kernel como `/dev/sdc`, e os usuários precisarão particionar, formatar e montar esse recurso. Isso é abordado passo a passo no tutorial: [Como anexar um disco de dados a uma máquina virtual](virtual-machines-linux-how-to-attach-disk.md).
 
  - **Consulte também:** [configurar RAID de software no Linux](virtual-machines-linux-configure-raid.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

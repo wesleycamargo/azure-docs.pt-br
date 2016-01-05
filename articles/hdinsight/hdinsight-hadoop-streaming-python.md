@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/09/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 #Desenvolver programas de transmissão do Python para HDInsight
@@ -23,7 +23,7 @@ O Hadoop fornece uma API de streaming para o MapReduce que permite que você esc
 
 > [AZURE.NOTE]Embora o código Python neste documento possa ser usado com um cluster HDInsight baseado no Windows, as etapas neste documento são específicas de clusters baseados em Linux.
 
-Esse artigo se baseia em informações e exemplos publicados por Michael Noll em [http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/] (Gravando um programa MapReduce do Hadoop em Python).
+Esse artigo se baseia em informações e exemplos publicados por Michael Noll em [Escrevendo um programa de MapReduce do Hadoop em Python](http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/).
 
 ##Pré-requisitos
 
@@ -205,4 +205,4 @@ Agora que você aprendeu a usar a transmissão de trabalhos MapReduce com o HDIn
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

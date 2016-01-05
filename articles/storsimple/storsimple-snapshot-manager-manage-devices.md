@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/15/2015"
+   ms.date="12/02/2015"
    ms.author="v-sharos" />
 
 # Usar o StorSimple Snapshot Manager para conectar e gerenciar dispositivos StorSimple
@@ -30,7 +30,7 @@ Dependendo de suas seleções de **Exibição**, o painel **Resultados** mostra 
 
 | Coluna de resultados |Descrição |
 |:----------------|:--------------------| 
-| Nome | O nome do dispositivo conforme configurado no Portal de Gerenciamento do Microsoft Azure|
+| Nome | O nome do dispositivo conforme configurado no Portal Clássico do Azure|
 | Modelo | O número do modelo do dispositivo|
 | Versão | A versão do software instalado no dispositivo |
 | Status | Se o dispositivo está disponível |
@@ -82,7 +82,7 @@ Use o procedimento a seguir para adicionar ou substituir um dispositivo StorSimp
 
 3. Na caixa suspensa **Dispositivo**, selecione o endereço IP do dispositivo ou dispositivo virtual.
 
-4. Na caixa de texto **Senha**, digite a senha do StorSimple Snapshot Manager que você criou para o dispositivo no Portal de Gerenciamento do Azure. Clique em **OK**. O StorSimple Snapshot Manager procura o dispositivo que você identificou.
+4. Na caixa de texto **Senha**, digite a senha do StorSimple Snapshot Manager que você criou para o dispositivo no portal clássico do Azure. Clique em **OK**. O StorSimple Snapshot Manager procura o dispositivo que você identificou.
 
     - Se o dispositivo estiver disponível, o StorSimple Snapshot Manager adiciona uma conexão. 
 
@@ -190,11 +190,11 @@ Use o procedimento a seguir para excluir uma configuração de dispositivo StorS
 
 ## Alterar uma senha de dispositivo expirada
 
-Você deve inserir uma senha para autenticar um dispositivo StorSimple com o StorSimple Snapshot Manager. Você configura essa senha ao usar a interface do Windows PowerShell para configurar o dispositivo. No entanto, a senha pode expirar. Se isso acontecer, você pode usar o Portal de Gerenciamento do Microsoft Azure para alterar a senha. Depois, como o dispositivo foi configurado no StorSimple Snapshot Manager antes da senha expirar, você precisa autenticar novamente o dispositivo no StorSimple Snapshot Manager.
+Você deve inserir uma senha para autenticar um dispositivo StorSimple com o StorSimple Snapshot Manager. Você configura essa senha ao usar a interface do Windows PowerShell para configurar o dispositivo. No entanto, a senha pode expirar. Se isso acontecer, você pode usar o Portal clássico do Azure para alterar a senha. Depois, como o dispositivo foi configurado no StorSimple Snapshot Manager antes da senha expirar, você precisa autenticar novamente o dispositivo no StorSimple Snapshot Manager.
 
 #### Para alterar a senha expirada
 
-1. No Portal de Gerenciamento do Azure, inicie o serviço StorSimple Manager.
+1. No portal clássico do Azure, inicie o serviço StorSimple Manager.
 
 2. Clique em **Dispositivos** > **Configurar** para o dispositivo.
 
@@ -263,4 +263,4 @@ Se um dispositivo StorSimple falhar e for substituído por um dispositivo em esp
 - Saiba como [usar o StorSimple Snapshot Manager para administrar sua solução do StorSimple](storsimple-snapshot-manager-admin.md).
 - Saiba como [Usar o StorSimple Snapshot Manager para exibir e gerenciar volumes](storsimple-snapshot-manager-manage-volumes.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

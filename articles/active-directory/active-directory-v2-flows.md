@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # Visualização do modelo de aplicativo v2.0: Tipos de aplicativos
@@ -95,34 +95,36 @@ Uma API da Web pode receber access\_tokens de todos os tipos de aplicativos, inc
 
 ![Imagem de raias da API da Web do aplicativo Web](../media/active-directory-v2-flows/convergence_scenarios_webapp_webapi.png)
 
-Para saber mais sobre authorization\_codes, refresh\_tokens e as etapas detalhadas de obtenção de access\_tokens, leia sobre o [protocolo OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow).
+Para saber mais sobre authorization\_codes, refresh\_tokens e as etapas detalhadas de obtenção de access\_tokens, leia sobre o [protocolo OAuth 2.0](active-directory-v2-protocols-oauth-code.md).
 
 Para saber como proteger uma API da Web com o modelo de aplicativo v2.0 e access\_tokens do OAuth 2.0, confira os exemplos de código da API da Web em nossa [seção Introdução](active-directory-appmodel-v2-overview.md#getting-started).
 
 
 ## Aplicativos móveis e nativos
-Os aplicativos que são instalados em um dispositivo, como aplicativos móveis e de desktop, geralmente precisam acessar serviços de back-end ou APIs da Web que armazenam dados e executam várias funções em nome de um usuário. Esses aplicativos podem adicionar entrada e autorização a serviços de back-end usando o modelo v2.0 e o [fluxo de Código de Autorização do OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow).
+Os aplicativos que são instalados em um dispositivo, como aplicativos móveis e de desktop, geralmente precisam acessar serviços de back-end ou APIs da Web que armazenam dados e executam várias funções em nome de um usuário. Esses aplicativos podem adicionar entrada e autorização a serviços de back-end usando o modelo v2.0 e o [fluxo de Código de Autorização do OAuth 2.0](active-directory-v2-protocols-oauth-code.md).
 
 Nesse fluxo, um aplicativo recebe um authorization\_code do ponto de extremidade v2.0 na entrada do usuário, o que representa a permissão do aplicativo para chamar serviços de back-end em nome do usuário conectado no momento. O aplicativo pode trocar o authoriztion\_code em segundo plano por um refresh\_token e um access\_token do OAuth 2.0. O aplicativo pode usar o access\_token para se autenticar em APIs da Web em solicitações HTTP, e pode usar o refresh\_token para obter novos access\_tokens quando os antigos expirarem.
 
 ![Imagem de raias do aplicativo Nativo](../media/active-directory-v2-flows/convergence_scenarios_native.png)
 
+## Aplicativos de página única (Javascript)
+Muitos aplicativos modernos têm um front-end de Aplicativo de Página Única escrito principalmente em javascript e muitas vezes usando estruturas de SPA, como AngularJS, Ember.js, Durandal, etc. O modelo de aplicativo v2.0 do AD do Azure dá suporte a esses aplicativos usando o [Fluxo Implícito do OAuth 2.0](active-directory-v2-protocols-implicit.md).
+
+Nesse fluxo, o aplicativo recebe tokens do v2.0 para autorizar o ponto de extremidade diretamente, sem executar qualquer troca entre servidores de back-end. Isso permite que todo o manuseio de lógica de autenticação e de sessão ocorra inteiramente no cliente javascript, sem executar redirecionamentos adicionais de página.
+
+Para ver esse cenário em ação, experimente um destes exemplos de código de aplicativo de página única em nossa seção de [Introdução](active-directory-appmodel-v2-overview.md#getting-started).
+
 ## Limitações de visualização atuais
 Esses tipos de aplicativos atualmente não são compatíveis com a visualização do modelo de aplicativo v2.0, mas estão no roteiro para compatibilidade em tempo para a disponibilidade geral. Restrições e limitações adicionais para a visualização pública do modelo de aplicativo v2.0 são descritas no [artigo de limitações de visualização v2.0](active-directory-v2-limitations.md).
 
-### Aplicativos de página única (Javascript)
-Muitos aplicativos modernos têm um front-end de Aplicativo de Página Única escrito principalmente em javascript e muitas vezes usando estruturas de SPA, como AngularJS, Ember.js, Durandal, etc. O serviço do AD do Azure disponível ao público geral é compatível com esses aplicativos usando o [Fluxo Implícito do OAuth 2.0](active-directory-v2-protocols.md#oauth2-implicit-flow); no entanto, esse fluxo ainda não está disponível no modelo de aplicativo v2.0. Em breve ele será adicionado.
-
-Se você está ansioso para obter um SPA que funcione com o modelo de aplicativo v2.0, poderá implementar a autenticação usando o [fluxo de aplicativo de servidor Web](#web-apps) descrito acima. Mas essa não é a abordagem recomendada, e a documentação para esse cenário será limitada. Se você quiser ter uma ideia do cenário de SPA, é possível conferir o [exemplo de código SPA do AD do Azure disponível ao público geral](active-directory-devquickstarts-angular.md).
-
 ### Aplicativos do lado do servidor/daemons
-Os aplicativos que contêm processos de longa duração ou que operem sem a presença de um usuário também precisam de uma maneira de acessar recursos protegidos, como APIs da Web. Esses aplicativos podem se autenticar e obter tokens usando a identidade do aplicativo (em vez de a identidade de um usuário delegado) usando o [fluxo de credenciais de cliente do OAuth 2.0](active-directory-v2-protocols.md#oauth2-client-credentials-grant-flow).
+Os aplicativos que contêm processos de longa duração ou que operem sem a presença de um usuário também precisam de uma maneira de acessar recursos protegidos, como APIs da Web. Esses aplicativos podem se autenticar e obter tokens usando a identidade do aplicativo (em vez de a identidade delegada de um usuário) usando o [fluxo de credenciais do cliente OAuth 2.0](active-directory-v2-protocols.md#oauth2-client-credentials-grant-flow).
 
 Esse fluxo não é compatível com o modelo de aplicativo v2.0, o que equivale a dizer que os aplicativos só podem obter tokens após a ocorrência de um fluxo de entrada do usuário interativo. O fluxo de credenciais de cliente será adicionado em breve. Se você quiser ver o fluxo de credenciais de cliente no serviço do AD do Azure disponível ao público geral, confira o [Exemplo de daemon no GitHub](https://github.com/AzureADSamples/Daemon-DotNet).
 
 ### APIs de Web encadeadas (em nome de)
 Muitas arquiteturas incluem uma API da Web que precisa chamar outra API da Web downstream, ambas protegidas pelo modelo de aplicativo v2.0. Este cenário é comum em clientes nativos que têm um back-end de API da Web que, por sua vez, chama um serviço Microsoft Online, como o Office 365 ou o Graph API.
 
-Este cenário de API da Web encadeado pode ter suporte com o uso da concessão OAuth 2.0 Jwt Bearer Credential, também conhecida como [Fluxo Em Nome De](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow). No entanto, o fluxo Em Nome De não está implementado atualmente na visualização do modelo de aplicativo v2.0. Para ver como esse fluxo funciona no serviço do AD do Azure disponível ao público geral, confira o [exemplo de código Em Nome De no GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
+Este cenário de API Web encadeada pode ter suporte usando a concessão Credencial de Portador Jwt do OAuth 2.0, também conhecido como [Fluxo Em Nome De](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow). No entanto, o fluxo Em Nome De não está implementado atualmente na visualização do modelo de aplicativo v2.0. Para ver como esse fluxo funciona no serviço do AD do Azure disponível ao público geral, confira o [exemplo de código Em Nome De no GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

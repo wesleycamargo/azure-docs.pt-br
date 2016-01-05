@@ -3,7 +3,7 @@
 	description="Saiba como usar o serviço Blob do Azure para carregar, baixar, listar e excluir o conteúdo de blob. Os exemplos estão escritos no arquivo Node.js."
 	services="storage"
 	documentationCenter="nodejs"
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="mwasson"/>
+	ms.date="12/01/2015"
+	ms.author="robmcm"/>
 
 
 
@@ -67,11 +67,11 @@ Usando o Bloco de Notas ou outro editor de texto, adicione o seguinte à parte s
 
 O módulo do Azure lerá as variáveis do ambiente `AZURE_STORAGE_ACCOUNT` e `AZURE_STORAGE_ACCESS_KEY` ou `AZURE_STORAGE_CONNECTION_STRING`, a fim de obter as informações necessárias para se conectar à sua conta de armazenamento do Azure. Se essas variáveis de ambiente não estiverem definidas, você deverá especificar as informações da conta chamando **createBlobService**.
 
-Para obter um exemplo de como definir variáveis de ambiente no Portal do Azure para um aplicativo Web do Azure, consulte [Aplicativo Web Node.js com armazenamento].
+Para obter um exemplo de como definir variáveis de ambiente no [Portal do Azure](portal.azure.com) para um aplicativo Web do Azure, consulte [Aplicativo Web Node.js com armazenamento].
 
 ## Criar um contêiner
 
-O objeto **serviço Blob** permite que você trabalhe com contêineres e blobs. O código a seguir cria um objeto **BlobService**. Adicione o seguinte próximo à parte superior do arquivo **server.js**:
+O objeto **serviço Blob** permite que você trabalhe com contêineres e blobs. O código a seguir cria um objeto **BlobService**. Adicione o seguinte próximo à parte superior do **server.js**:
 
     var blobSvc = azure.createBlobService();
 
@@ -186,7 +186,7 @@ O exemplo de código a seguir carrega o conteúdo do arquivo **test.txt** em **m
 
 ## Listar os blobs em um contêiner
 
-Para listar os blobs em um contêiner, use o método **listBlobsSegmented**. Se você quiser retornar blobs com um prefixo específico, use **listBlobsSegmentedWithPrefix**.
+Para listar os blobs em um contêiner, use o método **listBlobsSegmented**. Se prefere retornar blobs com um prefixo específico, use **listBlobsSegmentedWithPrefix**.
 
     blobSvc.listBlobsSegmented('mycontainer', null, function(error, result, response){
       if(!error){
@@ -361,21 +361,20 @@ Após a definição da ACL, você poderá criar assinaturas de acesso compartilh
 Para saber mais, consulte os recursos a seguir.
 
 -   [Referência do SDK do Armazenamento do Azure para APIs de nó][]
--   Referência do MSDN: [Armazenando e acessando dados no Azure][]
 -   [Blog da equipe de Armazenamento do Azure][]
--   Repositório [SDK do Armazenamento do Azure para Node.js][] no GitHub
+-   [Repositório do ][]SDK do Armazenamento do Azure para Node no GitHub.
 -   [Centro de Desenvolvedores do Node.js](/develop/nodejs/)
+-   [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy)
 
-[SDK do Armazenamento do Azure para Node.js]: https://github.com/Azure/azure-storage-node
+[Repositório do ]: https://github.com/Azure/azure-storage-node
 [Create and deploy a Node.js application to an Azure Web Site]: /develop/nodejs/tutorials/create-a-website-(mac)/
 [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
 [Aplicativo Web Node.js com armazenamento]: ../storage-nodejs-use-table-storage-web-site.md
 [Aplicativo Web com WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-[Azure portal]: http://manage.windowsazure.com
+[Azure Portal]: portal.azure.com
 [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
-[Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Referência do SDK do Armazenamento do Azure para APIs de nó]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

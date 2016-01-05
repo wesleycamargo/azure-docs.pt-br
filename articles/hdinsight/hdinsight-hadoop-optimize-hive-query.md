@@ -32,7 +32,7 @@ Por padrão, os clusters do Hadoop não são otimizados para desempenho. Este ar
 
 O aumento do número de nós de trabalho em um cluster pode aproveitar mais mapeadores e redutores para execução paralela. Há duas maneiras de aumentar a escalabilidade horizontal no HDInsight:
 
-- No momento do provisionamento, você pode especificar o número de nós de trabalho usando o Portal de visualização do Azure, o Azure PowerShell ou a interface de linha de comando entre plataformas. Para obter mais informações, consulte [Provisionar clusters do HDInsight](hdinsight-provision-clusters.md). A tela a seguir mostra a configuração do nó de trabalhador no portal de visualização do Azure:
+- No momento do provisionamento, você pode especificar o número de nós de trabalho usando o Portal do Azure, o Azure PowerShell ou a interface de linha de comando de Plataforma cruzada. Para saber mais, confira [Provisionar clusters HDInsight](hdinsight-provision-clusters.md). A seguinte tela mostra a configuração de nó de trabalho no Portal do Azure:
 
 	![scaleout\_1][image-hdi-optimize-hive-scaleout_1]
 
@@ -226,4 +226,4 @@ Neste artigo, você aprendeu a vários métodos comuns de otimização de consul
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

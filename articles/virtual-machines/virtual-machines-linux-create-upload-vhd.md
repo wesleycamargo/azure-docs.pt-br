@@ -54,7 +54,9 @@ Este artigo pressupõe que você tenha os seguintes itens:
 O Azure dá suporte a várias distribuições do Linux (confira [Distribuições Endossadas](../linux-endorsed-distributions.md)). Os artigos a seguir guiam você pela preparação das diversas distribuições do Linux que têm suporte no Azure:
 
 - **[Distribuições com base em CentOS](virtual-machines-linux-create-upload-vhd-centos.md)**
+- **[Debian Linux](virtual-machines-linux-create-upload-vhd-debian.md)**
 - **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
+- **[Red Hat Enterprise Linux](virtual-machines-linux-create-upload-vhd-redhat.md)**
 - **[SLES e openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
 - **[Ubuntu](virtual-machines-linux-create-upload-vhd-ubuntu.md)**
 - **[Outros — Distribuições não endossadas](virtual-machines-linux-create-upload-vhd-generic.md)**
@@ -73,7 +75,7 @@ Para poder carregar um arquivo .vhd, você precisa estabelecer uma conexão segu
 
 A CLI do Azure mais recente utiliza por padrão o modelo de implantação do Gerenciador de recursos, então verifique se você está no modelo de implantação clássico usando este comando:
 
-		azure change mode asm  
+		azure config mode asm  
 
 Em seguida, use qualquer um dos seguintes métodos de logon para conectar-se à sua assinatura do Azure.
 
@@ -105,7 +107,7 @@ Use o método do AD do Azure para fazer logon:
 
 	Em que `<PathToFile>` é o caminho completo para o arquivo .publishsettings.
 
-	Para obter mais informações, leia [Conectar-se ao Azure a partir da CLI do Azure](../xplat-cli-connect.md).
+	Para obter mais informações, leia [Conectar-se ao Azure na CLI do Azure](../xplat-cli-connect.md).
 
 
 ### Se estiver usando o PowerShell do Azure
@@ -138,7 +140,7 @@ Use o método do AD do Azure para fazer logon:
 
 	Em que `<PathToFile>` é o caminho completo para o arquivo .publishsettings.
 
-	Para obter mais informações, veja [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md)
+	(Para obter mais informações, consulte [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md))
 
 > [AZURE.NOTE]Recomendamos que você use o método mais recente do Active Directory do Azure para fazer logon na sua assinatura do Azure, CLI do Azure ou Azure PowerShell.
 
@@ -155,7 +157,7 @@ Use a CLI do Azure para carregar a imagem. Você pode carregar uma imagem usando
 
 Você precisará de uma conta de armazenamento para carregar o arquivo do VHD. Você pode selecionar um já existente ou criar um novo. Para criar uma conta de armazenamento, veja [Criar uma conta de armazenamento](../storage-create-storage-account.md)
 
-Quando carrega o arquivo .vhd, você pode colocá-lo em qualquer lugar no seu armazenamento de blob. Nos exemplos de comando a seguir, **BlobStorageURL** é a URL da conta de armazenamento que você pretende usar e **YourImagesFolder** é o contêiner no armazenamento de blob no qual deseja armazenar as imagens. **VHDName** é o rótulo que aparece no [Portal de Gerenciamento](http://manage.windowsazure.com) para identificar o disco rígido virtual. **PathToVHDFile** é o caminho completo e o nome do arquivo .vhd.
+Quando carrega o arquivo .vhd, você pode colocá-lo em qualquer lugar no seu armazenamento de blob. Nos exemplos de comando a seguir, **BlobStorageURL** é a URL da conta de armazenamento que você pretende usar e **YourImagesFolder** é o contêiner no Armazenamento de Blobs no qual deseja armazenar as imagens. **VHDName** é o rótulo que aparece no [portal clássico do Azure](http://manage.windowsazure.com) para identificar o disco rígido virtual. **PathToVHDFile** é o caminho completo e o nome do arquivo .vhd.
 
 Na janela PowerShell do Azure que você usou na etapa anterior, digite:
 
@@ -163,11 +165,11 @@ Na janela PowerShell do Azure que você usou na etapa anterior, digite:
 
 Para obter mais informações, consulte [Add-AzureVhd (a página pode estar em inglês)](https://msdn.microsoft.com/library/azure/dn495173.aspx).
 
-> [AZURE.NOTE]A [Versão de visualização do Azure Powershell 1.0](https://azure.microsoft.com/pt-BR/blog/azps-1-0-pre/) altera significativamente a maneira como ele manipula cmdlets para o modelo de implantação clássico e o modelo de implantação do Gerenciador de Recursos. Este artigo ainda não usa a versão de visualização.
+> [AZURE.NOTE]A [Versão de visualização do Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/) altera significativamente a maneira como ele manipula cmdlets para o modelo de implantação clássico e o modelo de implantação do Gerenciador de Recursos. Este artigo ainda não usa a versão de visualização.
 
 
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

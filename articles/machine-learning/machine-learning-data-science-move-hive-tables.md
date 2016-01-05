@@ -128,23 +128,9 @@ Os usuários também podem usar o Console de Consulta (Editor de Hive) digitando
 
 *https://&#60;Hadoop nome do cluster>.azurehdinsight.net/Home/HiveEditor*
 
-em um navegador da Web. Observe que você será solicitado a inserir as credenciais do cluster do Hadoop para fazer logon. Como alternativa, você pode [Enviar trabalhos Hive usando o PowerShell](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell).
+em um navegador da Web. Observe que você será solicitado a inserir as credenciais do cluster do Hadoop para fazer logon.
 
-
-## Como enviar uma consulta do Hive (antigo)
-
-Este documento descreve várias maneiras de enviar consultas de Hive para clusters de Hadoop gerenciados por um serviço do HDInsight no Azure. (introdução antiga - incorporação a ser definida)
-
-
-Consultas de Hive podem ser enviadas do console de Linha de Comando do Hadoop no nó principal do cluster do Hadoop. Para isso, faça logon no nó principal do cluster do Hadoop, abra o Console de Linha de Comando do Hadoop e envie as consultas de Hive dele. Para obter instruções sobre como fazer isso, consulte [Enviar consultas de Hive para clusters do Hadoop do HDInsight no processo de análise avançada](machine-learning-data-science-process-hive-tables.md).
-
-Os usuários também podem usar o Console de Consulta (Editor de Hive) digitando a URL
-
-https://&#60;Hadoop nome do cluster>.azurehdinsight.net/Home/HiveEditor
-
-em um navegador da Web. Observe que você será solicitado a inserir as credenciais de cluster do Hadoop para fazer logon, portanto você deve ter essas credenciais disponíveis.
-
-Como alternativa, você pode [Enviar trabalhos Hive usando o PowerShell](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell).
+Como alternativa, você pode [Executar consultas Hive usando o PowerShell](../hdinsight/hdinsight-hadoop-use-hive-powershell.md).
 
 
 ## <a name="create-tables"></a>Criar banco de dados e tabelas Hive
@@ -264,4 +250,4 @@ Depois de seguir esse procedimento, você deve ter uma tabela com dados no forma
 
 Na seção final, são discutidos os parâmetros que os usuários podem ajustar para que o desempenho das consultas do Hive possa ser melhorado.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

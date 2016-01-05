@@ -18,6 +18,8 @@
 
 # Autenticação para aplicativos de API e aplicativos móveis no Serviço de Aplicativo do Azure
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Visão geral
 
 Este artigo explica os recursos de autenticação interna para [Aplicativos de API](../app-service-api/app-service-api-apps-why-best-platform.md) e [Aplicativos Móveis](../app-service-mobile/app-service-mobile-value-prop-preview.md).
@@ -214,4 +216,4 @@ Este artigo explicou os serviços de autenticação fornecidos pelo Serviço de 
 
 * [Obter um token de acesso e chamar a API do SharePoint em um aplicativo móvel](../app-service-mobile/app-service-mobile-dotnet-backend-get-started-connect-to-enterprise.md#obtain-token)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

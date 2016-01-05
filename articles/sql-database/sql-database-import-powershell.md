@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="10/13/2015"
+    ms.date="12/01/2015"
     ms.author="sstein"/>
 
 # Importar um arquivo BACPAC para criar um novo banco de dados SQL do Azure usando o PowerShell
@@ -21,7 +21,7 @@
 **Banco de dados individual**
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-import.md)
+- [Azure portal](sql-database-import.md)
 - [PowerShell](sql-database-import-powershell.md)
 
 
@@ -74,7 +74,7 @@ O nome do banco de dados é o nome desejado para o novo banco de dados.
     $DatabaseName = "databasename"
 
 
-As variáveis a seguir são da conta de armazenamento onde seu BACPAC está localizado. No [Portal de Visualização do Azure](https://portal.azure.com), navegue até a sua conta de armazenamento para obter esses valores. Você pode encontrar a tecla de acesso primária clicando em **Todas as configurações** e em **Teclas** na folha de sua conta de armazenamento.
+As variáveis a seguir são da conta de armazenamento onde seu BACPAC está localizado. No [Portal do Azure](https://portal.azure.com), navegue até sua conta de armazenamento para obter esses valores. Você pode encontrar a tecla de acesso primária clicando em **Todas as configurações** e em **Teclas** na folha de sua conta de armazenamento.
 
 O nome do blob é o nome de um arquivo .bacpac existente do qual você deseja criar o banco de dados. Você precisa incluir a extensão .bacpac.
 
@@ -152,4 +152,4 @@ A execução desse comando solicitará uma senha. Insira o logon e a senha de ad
 - [Executar análise de recuperação de desastres](sql-database-disaster-recovery-drills.md)
 - [Documentação do Banco de Dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

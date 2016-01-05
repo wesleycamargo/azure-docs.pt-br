@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="12/07/2015"
    ms.author="joaoma" />
 
 # Configurar o método de roteamento de Round Robin
@@ -23,8 +23,8 @@ Um padrão comum de roteamento de tráfego é fornecer um conjunto de pontos de 
 
 ## Rotear tráfego igualmente (round robin) em um conjunto de pontos de extremidade:
 
-1. No Portal de Gerenciamento, no painel esquerdo, clique no ícone do **Gerenciador de Tráfego** para abrir o painel do Gerenciador de Tráfego. Se você ainda não tiver criado seu perfil do Gerenciador de Tráfego, consulte [Gerenciar perfis do Gerenciador de Tráfego](traffic-manager-manage-profiles.md) para obter as etapas para criar um perfil básico do Gerenciador de Tráfego.
-2. No Portal de Gerenciamento, no painel do Gerenciador de Tráfego, localize o perfil do Gerenciador de Tráfego que contém as configurações que você deseja modificar e, em seguida, clique na seta à direita do nome do perfil. Isso abrirá a página de configurações do perfil.
+1. No portal clássico do Azure, no painel esquerdo, clique no ícone do **Gerenciador de Tráfego** para abrir o painel do Gerenciador de Tráfego. Se você ainda não tiver criado seu perfil do Gerenciador de Tráfego, consulte [Gerenciar perfis do Gerenciador de Tráfego](traffic-manager-manage-profiles.md) para obter as etapas para criar um perfil básico do Gerenciador de Tráfego.
+2. No portal clássico do Azure, no painel do Gerenciador de Tráfego, localize o perfil do Gerenciador de Tráfego que contém as configurações que você deseja modificar e, em seguida, clique na seta à direita do nome do perfil. Isso abrirá a página de configurações do perfil.
 3. Na página de seu perfil, clique em **Pontos de Extremidade** na parte superior da página e verifique se os pontos de extremidade de serviço que você deseja incluir em sua configuração estão presentes. Para obter as etapas para adicionar ou remover pontos de extremidade, consulte [Gerenciar pontos de extremidade no Gerenciador de Tráfego](traffic-manager-endpoints.md).
 4. Na página de seu perfil, clique em **Configurar** na parte superior para abrir a página de configuração.
 5. Para **Configurações do método de roteamento de tráfego**, verifique se o método de roteamento de tráfego é **Round Robin**. Se não for, clique em **Round Robin** na lista suspensa.
@@ -35,21 +35,21 @@ Um padrão comum de roteamento de tráfego é fornecer um conjunto de pontos de 
 
 ## Próximas etapas
 
-[Sobre os Métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-load-balancing-methods.md)
+
+[Apontar um domínio de Internet da empresa para um domínio do Gerenciador de Tráfego](traffic-manager-point-internet-domain.md)
+
+[Métodos de roteamento do Gerenciador de Tráfego](traffic-manager-routing-methods.md)
+
+[Configurar o método de roteamento de failover](traffic-manager-configure-failover-routing-method.md)
+
+[Configurar o método de roteamento de desempenho](traffic-manager-configure-performance-routing-method.md)
+
+[Solucionando problemas de estado degradado do Gerenciador de Tráfego](traffic-manager-troubleshooting-degraded.md)
 
 [Gerenciador de Tráfego - Desabilitar, habilitar ou excluir um perfil](disable-enable-or-delete-a-profile.md)
 
 [Gerenciador de Tráfego - Desabilitar ou habilitar um ponto de extremidade](disable-or-enable-an-endpoint.md)
 
-[O que é o Gerenciador de Tráfego?](../traffic-manager-overview.md)
-
-[Serviços de Nuvem](http://go.microsoft.com/fwlink/?LinkId=314074)
-
-[Sites](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-[Operações no Gerenciador de Tráfego (referência de API REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
-
-[Cmdlets do Gerenciador de Tráfego do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -21,7 +21,6 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
 
-
 Nessa fase final da implantação de um aplicativo de linha de negócios de alta disponibilidade nos Serviços de Infraestrutura do Azure, você criará um novo Grupo de Disponibilidade AlwaysOn do SQL Server e adicionará os bancos de dados do aplicativo.
 
 Consulte [Implantar um aplicativo de linha de negócios de alta disponibilidade no Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) para todas as fases.
@@ -59,7 +58,7 @@ Use estas etapas para fazer backup de um banco de dados.
 3.	No painel esquerdo, expanda o nó **Banco de Dados**.
 4.	Clique com o botão direito no banco de dados que deseja armazenar em backup, aponte para **Tarefas**, e, em seguida, clique em **Fazer backup**.
 5.	Na seção **Destino**, clique em **Remover** para remover o caminho de arquivo padrão para o arquivo de backup.
-6.	Clique em **Adicionar**. Em **Nome do arquivo**, digite **\[nomeDaMáquina]\\backup[nomeDoBancoDeDados].bak**, em que **nomeDaMáquina** é o nome do **computador do SQL Server** primário e **nomeDoBancoDeDados** é o nome do banco de dados. Clique em **OK** e em **OK** novamente após a mensagem avisando que o backup foi bem-sucedido.
+6.	Clique em **Adicionar**. Em **Nome do arquivo**, digite **\\[nomeDaMáquina]\\backup[nomeDoBancoDeDados].bak**, em que **nomeDaMáquina** é o nome do **computador do SQL Server** primário e **nomeDoBancoDeDados** é o nome do banco de dados. Clique em **OK** e em **OK** novamente após a mensagem avisando que o backup foi bem-sucedido.
 7.	No painel esquerdo, clique com o botão direito do mouse em **[nomeDoBancoDeDados]**, aponte para **Tarefas** e clique em **Fazer Backup**.
 8.	Em **Tipo de backup**, selecione **Log de Transações** e clique em **OK** duas vezes.
 9.	Mantenha essa sessão de área de trabalho remota aberta.
@@ -72,7 +71,7 @@ Use estas etapas para restaurar um banco de dados.
 4.	No painel esquerdo, clique com botão direito em **Bancos de Dados** e clique em **Restaurar Banco de Dados**.
 5.	Na seção **Fonte**, selecione **Dispositivo** e clique no botão de reticências (...)
 6.	Em **Selecionar dispositivos de backup**, clique em **Adicionar**.
-7.	Em **Local do arquivo de backup**, digite **\[nomeDaMáquina]\\backup**, pressione **Enter**, selecione **[nomeDoBancoDeDados].bak** e clique em **OK** duas vezes. Agora você deverá ver o backup completo e o backup do log na seção **Conjuntos de backup a serem restaurados**.
+7.	Em **Local do arquivo de backup**, digite **\\[nomeDaMáquina]\\backup**, pressione **Enter**, selecione **[nomeDoBancoDeDados].bak** e clique em **OK** duas vezes. Agora você deverá ver o backup completo e o backup do log na seção **Conjuntos de backup a serem restaurados**.
 8.	Em **Selecionar uma página**, clique em **Opções**. Na seção **Opções de restauração**, em **Estado de recuperação**, selecione **RESTAURAR COM NORECOVERY** e, em seguida, clique em **OK**. 
 9.	Quando solicitado, clique em **OK**.
 
@@ -116,16 +115,8 @@ Você também pode criar uma configuração de ouvinte para o Grupo de Disponibi
 
 Depois de configurar o ouvinte, você precisa configurar todas as máquinas virtuais do servidor Web para usar o ouvinte, em vez do nome do primeiro SQL Server no cluster. Em vez de usar um novo nome e registro DNS mapeado para o endereço IP virtual da instância de balanceamento de carga interno, configure as máquinas virtuais do servidor Web para usar um Alias do SQL. Para obter detalhes e as etapas necessárias, consulte [Alias SQL para SharePoint](http://blogs.msdn.com/b/priyo/archive/2013/09/13/sql-alias-for-sharepoint.aspx).
 
-## Recursos adicionais
+## Próxima etapa
 
-[Implantar um aplicativo de linha de negócios de alta disponibilidade no Azure](virtual-machines-workload-high-availability-LOB-application-overview.md)
+- Consulte estes [diretrizes](virtual-machines-infrastructure-services-implementation-guidelines.md) se você estiver implantando sua própria carga de trabalho de TI no Azure.
 
-[Plano gráfico da arquitetura de aplicativos de linha de negócios](http://msdn.microsoft.com/dn630664)
-
-[Configurar um aplicativo LOB baseado na Web em uma nuvem híbrida para teste](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Diretrizes de implementação dos Serviços de Infraestrutura do Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Carga de trabalho de serviços de infraestrutura do Azure: farm do SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
-
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

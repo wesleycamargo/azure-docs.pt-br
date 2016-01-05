@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/29/2015"
+   ms.date="12/02/2015"
    ms.author="jgao"/>
 
 # Usar Apache Phoenix e SQuirreL com clusters do HBase no HDInsight  
@@ -29,7 +29,7 @@ Saiba como usar o [Apache Phoenix](http://phoenix.apache.org/) no HDInsight e co
 Antes de poder usar o SQLLine, você deve ter o seguinte:
 
 - **Um cluster HBase no HDInsight**. Para obter informações sobre como provisionar o cluster HBase, consulte [Introdução ao Apache HBase no HDInsight][hdinsight-hbase-get-started].
-- **Conectar-se ao cluster HBase por meio do protocolo de área de trabalho remoto**. Para obter instruções, consulte [Gerenciar clusters Hadoop no HDInsight usando o Portal do Azure][hdinsight-manage-portal].
+- **Conectar-se ao cluster HBase por meio do protocolo de área de trabalho remoto**. Para obter instruções, veja [Gerenciar clusters Hadoop no HDInsight usando o Portal Clássico do Azure][hdinsight-manage-portal].
 
 **Para descobrir o nome do host**
 
@@ -116,7 +116,7 @@ Garanta que você possua um cluster HBase em uma rede virtual do Azure (consulte
 
 **Para configurar a conectividade ponto a site**
 
-1. Entre no [Portal do Azure][azure-portal].
+1. Entre no [Portal Clássico do Azure][azure-portal].
 2. À esquerda, clique em **REDES**.
 3. Clique na rede virtual que você criou (consulte [Provisionar clusters HBase na Rede Virtual Azure][hdinsight-hbase-provision-vnet]).
 4. Clique em **CONFIGURAR** na parte superior.
@@ -129,7 +129,7 @@ Garanta que você possua um cluster HBase em uma rede virtual do Azure (consulte
 
 **Para criar um gateway de roteamento dinâmico**
 
-1. No portal do Azure, clique em **PAINEL** na parte superior da página.
+1. No Portal Clássico do Azure, clique em **PAINEL** na parte superior da página.
 2. Clique em **CRIAR GATEWAY** na parte inferior da página.
 3. Clique em **SIM** para confirmar. Aguarde até que o gateway seja criado.
 4. Clique em **PAINEL** na parte superior. Você verá um diagrama visual da rede virtual:
@@ -147,7 +147,7 @@ Uma maneira de criar um certificado X.509 é usando a ferramenta de criação de
 
 1. Na estação de trabalho, abra uma janela de prompt de comando.
 2. Navegue até a pasta de ferramentas do Visual Studio. 
-3. O comando a seguir no exemplo abaixo criará e instalará um certificado raiz no repositório de certificados Pessoais em sua estação de trabalho e também criará um arquivo .cer correspondente que você posteriormente carregará no portal do Azure. 
+3. O comando a seguir no exemplo abaixo criará e instalará um certificado raiz no repositório de certificados pessoais em sua estação de trabalho e também criará um arquivo .cer correspondente que você posteriormente carregará no Portal Clássico do Azure. 
 
 		makecert -sky exchange -r -n "CN=HBaseVnetVPNRootCertificate" -pe -a sha1 -len 2048 -ss My "C:\Users\JohnDole\Desktop\HBaseVNetVPNRootCertificate.cer"
 
@@ -171,9 +171,9 @@ Uma maneira de criar um certificado X.509 é usando a ferramenta de criação de
 
 	Um certificado de cliente deve ser instalado em cada computador que você deseje conectar à rede virtual. É recomendável que você crie certificados de cliente exclusivos para cada computador que você deseje conectar à rede virtual. Para exportar os certificados do cliente, use certmgr. msc.
 
-**Para carregar o certificado raiz no portal do Azure**
+**Para carregar o certificado raiz no Portal Clássico do Azure**
 
-1. No portal do Azure, clique em **REDE** à esquerda.
+1. No Portal Clássico do Azure, clique em **REDE** à esquerda.
 2. Clique na rede virtual onde o cluster HBase é implantado.
 3. Clique em **CERTIFICADOS** na parte superior.
 4. Clique em **CARREGAR** na parte inferior e especifique o arquivo de certificado raiz que você criou no procedimento anterior. Aguarde até que o certificado seja importado.
@@ -306,4 +306,4 @@ Neste artigo, você aprendeu a usar o Apache Phoenix no HDInsight. Para obter ma
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

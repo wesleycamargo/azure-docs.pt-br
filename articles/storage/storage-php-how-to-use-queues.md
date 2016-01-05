@@ -375,14 +375,12 @@ Para excluir uma fila e todas as mensagens nela, chame o método **QueueRestProx
 
 Agora que você aprendeu os conceitos básicos do armazenamento de Filas do Azure, siga estes links para saber mais sobre tarefas de armazenamento mais complexas:
 
-- Consulte a referência do MSDN [Armazenamento do Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx).
 - Visite o [Blog da equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
-Para obter mais informações, veja também o [Centro de Desenvolvedores do PHP](/develop/php/).
+Para saber mais, veja também a [Central de desenvolvedores do PHP](/develop/php/).
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [require_once]: http://www.php.net/manual/en/function.require-once.php
-[Azure Management Portal]: http://manage.windowsazure.com/
-[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[Azure Portal]: portal.azure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

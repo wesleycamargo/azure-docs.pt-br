@@ -85,7 +85,7 @@ O [método DetectMappingDifferences](https://msdn.microsoft.com/library/azure/mi
 
 ## Para resolver as diferenças de mapeamento
 
-O [método ResolveMappingDifferences](https://msdn.microsoft.com/pt-BR/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences.aspx) seleciona um dos mapas de fragmentos (local ou global) como a fonte da relação de confiança e reconcilia os mapeamentos em ambos os mapas de fragmento (GSM e LSM).
+O [método ResolveMappingDifferences](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences.aspx) seleciona um dos mapas de fragmentos (local ou global) como a fonte da relação de confiança e reconcilia os mapeamentos em ambos os mapas de fragmento (GSM e LSM).
 
 	ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution);
    
@@ -157,4 +157,4 @@ Este exemplo executa as seguintes etapas: 1. Remove os fragmentos do Mapa de Fra
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

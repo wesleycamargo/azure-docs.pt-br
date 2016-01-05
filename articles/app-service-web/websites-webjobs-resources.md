@@ -54,7 +54,7 @@ Consulte também as seguintes seções sobre [Implantação de Trabalhos Web](#d
 ##<a name="deploy"></a>Implantando Trabalhos Web
 
 * [Como implantar Trabalhos Web do Azure usando o Visual Studio.](websites-dotnet-deploy-webjobs.md)
-* [Como implantar Trabalhos Web usando o Portal de Gerenciamento do Azure](web-sites-create-web-jobs.md)
+* [Como implantar Trabalhos Web usando o Portal do Azure](web-sites-create-web-jobs.md)
 * [Habilitando entrega de linha de comando ou contínua dos Trabalhos Web do Azure](http://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
 * [Implantando por Git um aplicativo de console .NET no Azure usando Trabalhos Web](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/)
 * [Implantando um WebJob F# para o Azure](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx)
@@ -66,7 +66,7 @@ Consulte também as seguintes seções sobre [Implantação de Trabalhos Web](#d
 ##<a name="schedule"></a>Agendando Trabalhos Web
 
 * [A caixa de diálogo Adicionar Trabalho Web do Azure](websites-dotnet-deploy-webjobs.md#configure)
-* [Criar um Trabalho Web agendado no Portal de Gerenciamento do Azure](web-sites-create-web-jobs.md#CreateScheduled)
+* [Criar um Trabalho Web agendado no Portal do Azure](web-sites-create-web-jobs.md#CreateScheduled)
 * [Vinculando um trabalho do agendador a um WebJob](http://blog.davidebbo.com/2015/05/scheduled-webjob.html)
 * [Agendando Azure WebJobs com expressões cron](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
 
@@ -138,8 +138,8 @@ Consulte também as seguintes seções sobre [Implantação de Trabalhos Web](#d
 * [Relatar um problema ou bug do WebJobs](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

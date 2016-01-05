@@ -1,9 +1,9 @@
 
 <properties
-    pageTitle="Alterar o locatário do Active Directory do Azure no RemoteApp do Azure"
+    pageTitle="Alterar o locatário do Active Directory do Azure no RemoteApp do Azure | Microsoft Azure"
     description="Saiba como alterar o locatário do Active Directory do Azure associado ao RemoteApp do Azure"
     services="remoteapp"
-    documentationCenter="" 
+    documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -38,7 +38,7 @@ Se você quiser usar um locatário diferente, siga estas etapas para alterar a a
 
 
 4. Clique em **Novo -> Serviços de Aplicativos -> Active Directory -> Diretório -> Criação Personalizada**.
-5. Em **Diretório**, escolha **Usar diretório existente**. Precisaremos desconectá-lo do portal agora, portanto escolha **Estou pronto para sair agora**. 
+5. Em **Diretório**, escolha **Usar diretório existente**. Precisaremos desconectá-lo do portal agora, portanto escolha **Estou pronto para sair agora**.
 6. Entre novamente no portal como administrador global do diretório que você deseja adicionar. (Se você ainda não era o administrador global, você será após uma rodada de entrada e saída).
 7. Ao entrar, você será solicitado se deseja usar seu locatário do AD existente com a sua assinatura. Clique em **Continuar** e em **Sair agora**.
 5. Entre novamente e volte para **Configurações -> Assinaturas**. Selecione sua assinatura e clique em **Editar Diretório**. Selecione o locatário do AD do Azure que deseja usar.
@@ -47,4 +47,4 @@ Se você quiser usar um locatário diferente, siga estas etapas para alterar a a
 
 Agora, você pode usar o novo locatário do Azure AD para controlar o acesso à assinatura do Azure e configurar o acesso do usuário no RemoteApp do Azure.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

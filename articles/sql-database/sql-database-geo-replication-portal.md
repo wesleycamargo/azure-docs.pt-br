@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Configurar a replicação geográfica para o Banco de Dados SQL do Azure com o portal de visualização do Azure | Microsoft Azure" 
-    description="Configurar a replicação geográfica para o Banco de Dados SQL do Azure usando o portal de visualização do Azure" 
+    pageTitle="Configurar a replicação geográfica para o Banco de Dados SQL do Azure com o portal do Azure | Microsoft Azure" 
+    description="Configurar a replicação geográfica para o Banco de Dados SQL do Azure usando o portal do Azure" 
     services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
@@ -13,19 +13,19 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management" 
-    ms.date="11/10/2015"
+    ms.date="12/01/2015"
     ms.author="sstein"/>
 
-# Configurar a replicação geográfica para o Banco de Dados SQL do Azure com o portal de visualização do Azure
+# Configurar a replicação geográfica para o Banco de Dados SQL do Azure com o portal do Azure
 
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-database-geo-replication-portal.md)
+- [Azure portal](sql-database-geo-replication-portal.md)
 - [PowerShell](sql-database-geo-replication-powershell.md)
 - [Transact-SQL](sql-database-geo-replication-transact-sql.md)
 
 
-Este artigo mostra como configurar a replicação geográfica para o Banco de Dados SQL do Azure usando o [portal de visualização do Azure](https://portal.azure.com).
+Este artigo mostra como configurar a replicação geográfica para o Banco de Dados SQL usando o [portal do Azure](https://portal.azure.com).
 
 A replicação geográfica permite criar até quatro bancos de dados de réplica (secundários) em diferentes locais do datacenter (regiões). Os bancos de dados secundários estão disponíveis no caso de uma paralisação do data center ou da incapacidade de conectar ao banco de dados primário.
 
@@ -56,7 +56,7 @@ O banco de dados secundário terá o mesmo nome do banco de dados primário e, p
 
 ### Adicionar secundário
 
-1. No [Portal de visualização do Azure](https://portal.azure.com), procure o banco de dados que você deseja configurar para a replicação geográfica.
+1. No [Portal do Azure](https://portal.azure.com), procure o banco de dados que você deseja configurar para a replicação geográfica.
 2. Na folha Banco de Dados SQL, selecione **Todas as configurações** > **Replicação Geográfica**.
 3. Selecione a região para criar o banco de dados secundário. Os bancos de dados Premium podem usar qualquer região para um secundário; os bancos de dados Standard devem usar a região recomendada:
 
@@ -89,7 +89,7 @@ O banco de dados secundário terá o mesmo nome do banco de dados primário e, p
 
 A operação encerra permanentemente a replicação para o banco de dados secundário e altera a função do secundário para um banco de dados de leitura/gravação normal. Se a conectividade com o banco de dados secundário for interrompida, o comando terá êxito, mas o secundário não se tornará de leitura/gravação até a conectividade ser restaurada.
 
-1. No [Portal de visualização do Azure](https://portal.azure.com), procure o banco de dados primário na parceria de replicação geográfica.
+1. No [Portal do Azure](https://portal.azure.com), procure o banco de dados primário na parceria de replicação geográfica.
 2. Na folha Banco de Dados SQL, selecione **Todas as configurações** > **Replicação Geográfica**.
 3. Na lista **SECUNDÁRIOS**, selecione o banco de dados que você deseja remover da parceria de replicação geográfica.
 4. Clique em **Parar Replicação**.
@@ -108,7 +108,7 @@ A operação encerra permanentemente a replicação para o banco de dados secund
 
 O banco de dados secundário pode ser alternado para se tornar primário.
 
-1. No [Portal de visualização do Azure](https://portal.azure.com), procure o banco de dados primário na parceria de replicação geográfica.
+1. No [Portal do Azure](https://portal.azure.com), procure o banco de dados primário na parceria de replicação geográfica.
 2. Na folha Banco de Dados SQL, selecione **Todas as configurações** > **Replicação Geográfica**.
 3. Na lista **SECUNDÁRIOS**, selecione o banco de dados que deverá se tornar o novo primário.
 4. Clique em **Failover**.
@@ -151,4 +151,4 @@ Para o failover planejado, esta sequência garante que não ocorrerá nenhuma pe
 [9]: ./media/sql-database-geo-replication-portal/seeding-complete.png
 [10]: ./media/sql-database-geo-replication-portal/failover.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

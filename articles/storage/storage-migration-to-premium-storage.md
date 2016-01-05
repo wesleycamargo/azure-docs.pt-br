@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="11/04/2015"
-    ms.author="tamram"/>
+    ms.date="12/04/2015"
+    ms.author="robinsh"/>
 
 
 # Migrando para o Armazenamento do Azure Premium
@@ -31,7 +31,7 @@ O objetivo deste guia é ajudar novos usuários do Armazenamento Premium do Azur
 
 A conclusão do processo de migração em sua totalidade pode exigir ações adicionais antes e depois das etapas fornecidas neste guia. Exemplos incluem a configuração de redes virtuais ou pontos de extremidade ou alterações de código no próprio aplicativo. Essas ações são exclusivas para cada aplicativo e devem ser concluídas junto com as etapas fornecidas neste guia para fazer a transição completa para o Armazenamento Premium da maneira mais simples possível.
 
-Você pode encontrar uma visão geral de recursos do Armazenamento Premium em [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure](storage-premium-storage-preview-portal.md).
+Você pode encontrar uma visão geral de recursos do Armazenamento Premium em [Armazenamento Premium: Armazenamento de Alto Desempenho para Cargas de Trabalho de Máquina Virtual do Azure](storage-premium-storage-preview-portal.md).
 
 Este guia é dividido em duas seções que abordam os dois cenários de migração a seguir:
 
@@ -50,7 +50,7 @@ Siga as etapas especificadas na seção relevante, dependendo do cenário.
 ### Considerações
 
 #### Tamanhos de VM
-As especificações de tamanho de VM do Azure são listadas em [Tamanhos para máquinas virtuais](https://azure.microsoft.com/pt-BR/documentation/articles/virtual-machines-size-specs/). Examine as características de desempenho das máquinas virtuais que funcionam com o Armazenamento Premium e escolha o tamanho de VM mais apropriado que melhor atende à sua carga de trabalho. Certifique-se de que há largura de banda suficiente disponível na sua VM para direcionar o tráfego de disco.
+As especificações de tamanho de VM do Azure são listadas em [Tamanhos para máquinas virtuais](../virtual-machines/virtual-machines-size-specs.md). Examine as características de desempenho das máquinas virtuais que funcionam com o Armazenamento Premium e escolha o tamanho de VM mais apropriado que melhor atende à sua carga de trabalho. Certifique-se de que há largura de banda suficiente disponível na sua VM para direcionar o tráfego de disco.
 
 
 #### Tamanhos do disco
@@ -76,7 +76,7 @@ Para obter mais informações sobre as especificações do Armazenamento Premium
 Dependendo da carga de trabalho, determine se discos de dados adicionais são necessários para sua VM. Você pode anexar diversos discos de dados persistentes à sua VM. Se necessário, pode distribuir entre os discos para aumentar a capacidade e o desempenho do volume. Se você distribuir discos de dados do Armazenamento Premium usando [Espaços de Armazenamento](http://technet.microsoft.com/library/hh831739.aspx), deverá configurá-lo com uma coluna para cada disco usado. Caso contrário, o desempenho geral do volume distribuído pode ser menor que o esperado devido a uma distribuição irregular de tráfego entre os discos. Para as VMs do Linux, você pode usar o utilitário *mdadm* para obter o mesmo resultado. Consulte o artigo [Configurar o Software RAID no Linux](../virtual-machines-linux-configure-raid.md) para obter detalhes.
 
 #### Política de Cache do Disco
-Por padrão, a política de cache de disco é *Somente leitura* para todos os discos de dados Premium e *Leitura e gravação* para o disco de sistema operacional Premium anexado à VM. Esta definição de configuração é recomendável para atingir o desempenho ideal de leituras de entrada e saída dos seus aplicativos. Para discos de dados de gravação intensa ou somente gravação (como arquivos de log do SQL Server), desabilite o cache de disco para que possa obter o melhor desempenho do aplicativo. As configurações de cache existentes para os discos de dados podem ser atualizadas usando o Portal do Azure ou o parâmetro *-HostCaching* do cmdlet *Set-AzureDataDisk*.
+Por padrão, a política de cache de disco é *Somente leitura* para todos os discos de dados Premium e *Leitura e gravação* para o disco de sistema operacional Premium anexado à VM. Esta definição de configuração é recomendável para atingir o desempenho ideal de leituras de entrada e saída dos seus aplicativos. Para discos de dados de gravação intensa ou somente gravação (como arquivos de log do SQL Server), desabilite o cache de disco para que possa obter o melhor desempenho do aplicativo. As configurações de cache existentes para os discos de dados podem ser atualizadas usando o [Portal do Azure](portal.azure.com) ou o *parâmetro-HostCaching* do cmdlet *Set-AzureDataDisk.*
 
 #### Local padrão
 Escolha um local onde o Armazenamento do Azure Premium está disponível. Consulte [Serviços do Azure por região](http://azure.microsoft.com/regions/#services) para obter informações atualizadas sobre as localizações disponíveis. As máquinas virtuais na mesma região da conta de armazenamento que armazena os discos da VM fornecerão um desempenho superior em relação a estarem em regiões separadas.
@@ -103,7 +103,7 @@ Para migrar suas VMs, você precisará de:
 
 > [AZURE.NOTE]Para um desempenho ideal, copie o VHD executando uma dessas ferramentas em uma VM do Azure que esteja na mesma região que a conta de armazenamento de destino. Se você estiver copiando um VHD de uma VM do Azure em uma região diferente, o desempenho pode ser mais lento.
 >
-> Para copiar uma grande quantidade de dados usando uma largura de banda limitada, considere o uso do [serviço de Importação/Exportação do Microsoft Azure](storage-import-export-service.md) para transferir os dados enviando as unidades de disco rígido para um datacenter do Azure. Você pode usar o serviço de Importação/Exportação para copiar os dados para apenas uma conta de armazenamento padrão. Quando os dados estiverem em sua conta de armazenamento padrão, você pode usar a [cópia da API do blob](https://msdn.microsoft.com/library/azure/dd894037.aspx) ou o AzCopy para transferir os dados para sua conta de armazenamento premium.
+> Para copiar uma grande quantidade de dados usando uma largura de banda limitada, considere o uso do [Serviço de Importação/Exportação do Microsoft Azure](storage-import-export-service.md) para transferir os dados enviando as unidades de disco rígido para um datacenter do Azure. Você pode usar o serviço de Importação/Exportação para copiar os dados para apenas uma conta de armazenamento padrão. Quando os dados estiverem em sua conta de armazenamento padrão, você pode usar a [cópia da API do blob](https://msdn.microsoft.com/library/azure/dd894037.aspx) ou o AzCopy para transferir os dados para sua conta de armazenamento premium.
 >
 > Observe que o Microsoft Azure dá suporte apenas a arquivos VHD de tamanho fixo. Os arquivos VHDX ou VHDs dinâmicos não têm suporte. Se você tiver um VHD dinâmico, poderá convertê-lo para ter um tamanho fixo usando o cmdlet [Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx).
 
@@ -170,7 +170,7 @@ Se você estiver migrando o VHD do Armazenamento em Nuvem não do Azure, primeir
 
 	![][2]
 
-2. Baixe o arquivo VHD do depósito S3. Selecione o arquivo VHD, em seguida **Ações** > **Baixar**.
+2. Baixe o arquivo VHD do depósito S3. Selecione o arquivo VHD e, em seguida, **Ações** > **Baixar**.
 
 	![][3]|
 
@@ -180,7 +180,7 @@ Se você estiver migrando o VHD de um ambiente local, será necessário o caminh
 
 ### Copiar um VHD com o AzCopy
 
-Usando o AzCopy, é possível carregar o VHD facilmente na Internet. Dependendo do tamanho dos VHDs, isso pode levar tempo. Lembre-se de verificar os limites de entrada/saída da conta de armazenamento ao usar essa opção. Consulte [Metas de desempenho e escalabilidade do Armazenamento do Azure](storage-scalability-targets.md) para obter detalhes.
+Usando o AzCopy, é possível carregar o VHD facilmente na Internet. Dependendo do tamanho dos VHDs, isso pode levar tempo. Lembre-se de verificar os limites de entrada/saída da conta de armazenamento ao usar essa opção. Consulte [Metas de Desempenho e Escalabilidade do Armazenamento do Azure](storage-scalability-targets.md) para obter detalhes.
 
 1. Baixe e instale o AzCopy aqui: [Versão mais recente do AzCopy](http://aka.ms/downloadazcopy)
 2. Abra o PowerShell do Azure e vá para a pasta onde o AzCopy está instalado.
@@ -677,4 +677,4 @@ Consulte também as fontes a seguir para saber mais sobre o Armazenamento do Azu
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

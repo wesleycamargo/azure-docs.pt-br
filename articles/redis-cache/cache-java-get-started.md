@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="10/23/2015"
+	ms.date="12/03/2015"
 	ms.author="sdanie"/>
 
 # Como usar o Cache Redis do Azure com Java
@@ -38,7 +38,7 @@ Este tutorial usa Jedis, mas você pode usar qualquer cliente Java listado em [h
 
 ## Criar um cache Redis no Azure
 
-No [portal de visualização do Azure](http://go.microsoft.com/fwlink/?LinkId=398536), clique em **Novo**, **Dados + Armazenamento** e selecione **Cache Redis**.
+No [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=398536), clique em **Novo**, **Dados + Armazenamento** e selecione **Cache Redis**.
 
   ![][1]
 
@@ -47,7 +47,7 @@ Insira um nome de host DNS. Ele terá o formato `<name>.redis.cache.windows.net`
   ![][2]
 
 
-Depois de criar o cache, clique nele no portal de visualização para exibir as configurações do cache. Clique no link em **Chaves** e copie a chave primária. Ela será necessária para autenticar as solicitações.
+Depois de criar o cache, clique nele no Portal do Azure para exibir as configurações do cache. Clique no link em **Chaves** e copie a chave primária. Ela será necessária para autenticar as solicitações.
 
   ![][4]
 
@@ -66,7 +66,7 @@ Clique no link em **Portas** e clique em **Não** para "Permitir acesso somente 
 	import redis.clients.jedis.Jedis;
 	import redis.clients.jedis.JedisShardInfo;
 
-	/* Make sure you turn on non-SSL port in Azure Redis using the Configuration section in the preview portal */
+	/* Make sure you turn on non-SSL port in Azure Redis using the Configuration section in the Azure Portal */
 	public class App
 	{
 	  public static void main( String[] args )
@@ -93,4 +93,4 @@ Clique no link em **Portas** e clique em **Não** para "Permitir acesso somente 
 [3]: ./media/cache-java-get-started/cache03.png
 [4]: ./media/cache-java-get-started/cache04.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

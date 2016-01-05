@@ -8,15 +8,20 @@
 	services="mobile-services"/>
 
 <tags
-	ms.service="mobile-services" 
+	ms.service="mobile-services"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/07/2015"
 	ms.author="wesmc"/>
 
 # Controle de acesso baseado em função nos Serviços Móveis usando o JavaScript e o Active Directory do Azure
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-rbac](../../includes/mobile-services-selector-rbac.md)]
 
@@ -381,7 +386,6 @@ Nesta seção, você criará um novo atributo de autorização personalizado que
 <!-- URLs. -->
 [Adicionar Autenticação ao aplicativo]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md
 [How to Register with the Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
-[Azure Management Portal]: https://manage.windowsazure.com/
 [Directory Sync Scenarios]: http://msdn.microsoft.com/library/azure/jj573653.aspx
 [Store Server Scripts]: mobile-services-store-scripts-source-control.md
 [Registrar-se para usar um logon do Active Directory do Azure]: mobile-services-how-to-register-active-directory-authentication.md
@@ -389,4 +393,4 @@ Nesta seção, você criará um novo atributo de autorização personalizado que
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [ADAL para .NET]: https://msdn.microsoft.com/library/azure/jj573266.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

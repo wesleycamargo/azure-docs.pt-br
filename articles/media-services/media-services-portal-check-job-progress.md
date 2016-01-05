@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Como verificar o andamento do trabalho usando o Portal de Gerenciamento do Azure" 
-	description="Aprenda a controlar o andamento do trabalho usando o Portal de Gerenciamento do Azure." 
+	pageTitle="Como verificar o andamento do trabalho usando o Portal Clássico do Azure" 
+	description="Saiba como acompanhar o andamento do trabalho usando o Portal Clássico do Azure." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/04/2015" 
 	ms.author="juliako"/>
 
 #Como verificar o andamento do trabalho
@@ -25,7 +25,7 @@
 
 ##Usar o Portal para verificar o status do trabalho
 
-1. No [Portal de Gerenciamento](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), clique em **Serviços de Mídia** e no nome da conta dos Serviços de Mídia.
+1. No [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), clique em **Serviços de Mídia** e no nome da conta dos Serviços de Mídia.
 2. Selecione a página **TRABALHOS**. 
 
 	Na página, você pode ver o status de todos os trabalhos. Você pode filtrar também por status, hora ou ID do trabalho.
@@ -50,4 +50,4 @@ Publicar seu conteúdo. Para obter mais informações, consulte [Como: codificar
 [checkstatus]: ./media/media-services-portal-check-job-progress/media-services-monitor-job-progress.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="WordPress no Ubuntu com modelo ARM | Microsoft Azure"
-	description="Implante facilmente um único servidor WordPress executando o Ubuntu usando um modelo do Gerenciador de Recursos e o Portal de Visualização do Azure, Azure PowerShell ou o Azure CLI."
+	description="Implante facilmente um único servidor WordPress executando o Ubuntu usando um modelo do Gerenciador de recursos e o portal do Azure, Azure PowerShell, ou a CLI do Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -25,11 +25,11 @@ Use as instruções neste artigo para implantar um servidor WordPress em execuç
 
 ![](./media/virtual-machines-workload-template-wordpress/one-server-wordpress.png)
 
-Você pode executar o modelo com o Portal de Visualização do Azure, o Azure PowerShell ou a CLI do Azure.
+Você pode executar o modelo com o portal do Azure, o Azure PowerShell ou a CLI do Azure.
 
-## Portal de Visualização do Azure
+## Portal do Azure
 
-Para implantar essa carga de trabalho usando um modelo do Gerenciador de Recursos e o Portal de Visualização do Azure, clique [aqui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwordpress-single-vm-ubuntu%2Fazuredeploy.json).
+Para implantar essa carga de trabalho usando um modelo do Gerenciador de recursos e o portal do Azure, clique [aqui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwordpress-single-vm-ubuntu%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-wordpress/azure-portal-template.png)
 
@@ -106,4 +106,4 @@ Quando a execução do modelo for concluída, você terá o servidor WordPress e
 
 [Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

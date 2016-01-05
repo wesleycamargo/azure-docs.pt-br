@@ -21,7 +21,7 @@
 
 A Pesquisa do Azure é um serviço baseado em nuvem com uma API baseada em HTTP que pode ser usado em aplicativos de pesquisa personalizados. Nosso serviço de Pesquisa fornece o mecanismo para análise de texto de pesquisa em texto completo, recursos de pesquisa avançada, armazenamento de dados de pesquisa e uma sintaxe de comandos de consulta.
 
-Este artigo explica como administrar um serviço de Pesquisa no [Portal do Azure](https://portal.azure.com).
+Este artigo explica como administrar um serviço de Pesquisa no [Portal clássico do Azure](https://portal.azure.com).
 
 Como alternativa, você pode usar a API REST de gerenciamento. Confira [Introdução à API REST de Gerenciamento de Pesquisa do Azure](search-get-started-management-api.md) e [referência da API REST do Gerenciamento de Pesquisa do Azure](http://msdn.microsoft.com/library/azure/dn832684.aspx) para obter detalhes.
 
@@ -62,7 +62,7 @@ Os desenvolvedores que estiverem compilando aplicativos de pesquisa precisarão 
 
 Para obter a URL do serviço do painel de serviço:
 
-1.	Entre no [Portal do Azure](https://portal.azure.com).
+1.	Entre no [Portal Clássico do Azure](https://portal.azure.com).
 2.	Clique em **Navegar** | **Tudo** | **Serviços de pesquisa**.
 3.	Clique no nome do seu serviço de pesquisa para abrir o painel.
 4.	Clique em **PROPRIEDADES** para abrir uma página de propriedades. A URL do serviço está no topo da página. Você pode fixar esta página para acessá-la rapidamente mais tarde.
@@ -159,7 +159,7 @@ Parar ou iniciar o serviço não desativa a cobrança. Você deve excluir o serv
 <a id="sub-8"></a>
 ## Definir funções sobre o acesso administrativo
 
-O Azure fornece um modelo global de autorização baseado em funções para todos os serviços gerenciados por meio do portal de Visualização ou na API do Gerenciador de Recursos do Azure se você estiver usando uma ferramenta de administração personalizada. Funções de Leitor, Colaborador e Proprietário definem o nível de administração para usuários do Active Directory, grupos e entidades de segurança que você atribui a cada função. Confira [Controle de acesso baseado em função no Portal do Azure](../role-based-access-control-configure.md) para obter detalhes sobre a associação de função.
+O Azure fornece um modelo global de autorização baseado em funções para todos os serviços gerenciados por meio do portal ou na API do Gerenciador de Recursos do Azure, se você estiver usando uma ferramenta de administração personalizada. Funções de Leitor, Colaborador e Proprietário definem o nível de administração para usuários do Active Directory, grupos e entidades de segurança que você atribui a cada função. Consulte o [Controle de acesso baseado em função no Portal clássico do Azure](../role-based-access-control-configure.md) para obter detalhes sobre a associação de função.
 
 Em termos de Pesquisa do Azure, controles de acesso baseados em função determinam as seguintes tarefas administrativas:
 
@@ -170,7 +170,7 @@ Proprietário|Iniciar, interromper ou excluir o serviço.<p>Gerar e exibir as ch
 Colaborador|Tem o mesmo nível de acesso que o Proprietário, com exceção de gerenciamento de função. Por exemplo, um Colaborador pode exibir e gerar novamente a `api-key`, mas não pode modificar as associações de função.
 Leitor|Exibir chaves de consulta e de status do serviço. Os membros dessa função não podem iniciar ou parar um serviço, nem exibir chaves de administração.
 
-Observe que as funções não concedem direitos de acesso para o ponto de extremidade de serviço. As operações do serviço de pesquisa, como gerenciamento de índices, preenchimento de índice e consultas em dados de pesquisa, são controladas por meio de chaves de api, não funções. Consulte "Autorização para gerenciamento versus operações de dados" no [Controle de acesso baseado em função no Portal do Azure](../role-based-access-control-configure.md) para obter mais informações.
+Observe que as funções não concedem direitos de acesso para o ponto de extremidade de serviço. As operações do serviço de pesquisa, como gerenciamento de índices, preenchimento de índice e consultas em dados de pesquisa, são controladas por meio de chaves de api, não funções. Consulte “Autorização para gerenciamento versus operações de dados” no [Controle de acesso baseado em função no Portal clássico do Azure](../role-based-access-control-configure.md) para mais informações.
 
 As funções fornecem controle de acesso depois da criação do serviço. Apenas os gerentes de assinatura podem adicionar um serviço de Pesquisa a uma assinatura.
 
@@ -193,4 +193,4 @@ As funções fornecem controle de acesso depois da criação do serviço. Apenas
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

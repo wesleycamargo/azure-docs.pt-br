@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Criar uma máquina virtual que executa o Windows no Azure"
-	description="Crie uma máquina virtual do Windows no Portal do Azure."
+	description="Crie uma máquina virtual do Windows no portal clássico do Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,17 +17,17 @@
 	ms.date="08/11/2015"
 	ms.author="cynthn"/>
 
-# Criar uma máquina virtual executando o Windows no portal do Azure
+# Criar uma máquina virtual executando o Windows no portal clássico do Azure
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](virtual-machines-windows-tutorial.md)
-- [Azure portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [Azure portal](virtual-machines-windows-tutorial.md)
+- [Azure classic portal](virtual-machines-windows-tutorial-classic-portal.md)
 - [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
 - [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-machines-windows-tutorial.md).
 
-Este tutorial mostra como é fácil criar uma VM (máquina virtual) do Azure no Portal do Azure. Vamos usar uma imagem do Windows Server como exemplo, mas ela é apenas uma das muitas imagens que o Azure oferece. Observe que as opções de imagem dependem de sua assinatura. Por exemplo, imagens de desktop podem estar disponíveis para assinantes do MSDN.
+Este tutorial mostra como é fácil criar uma VM (máquina virtual) do Azure no portal clássico do Azure. Vamos usar uma imagem do Windows Server como exemplo, mas ela é apenas uma das muitas imagens que o Azure oferece. Observe que as opções de imagem dependem de sua assinatura. Por exemplo, imagens de desktop podem estar disponíveis para assinantes do MSDN.
 
 Também é possível criar VMs usando [suas próprias imagens](virtual-machines-create-upload-vhd-windows-server.md). Para saber mais sobre este e outros métodos, veja [Diferentes maneiras de criar uma máquina virtual do Windows](virtual-machines-windows-choices-create-vm.md).
 
@@ -41,9 +41,9 @@ Aqui está um passo a passo deste tutorial.
 
 ## <a id="createvirtualmachine"> </a>Como criar a máquina virtual
 
-Esta seção mostra como usar a opção **Da Galeria** no portal do Azure para criar a máquina virtual. Esta opção fornece mais escolhas de configuração que a opção **Criação rápida**. Por exemplo, se desejar entrar em uma máquina virtual em uma rede virtual, será necessário usar a opção **Da galeria**.
+Esta seção mostra como usar a opção **Da Galeria** no portal clássico do Azure para criar a máquina virtual. Esta opção fornece mais escolhas de configuração que a opção **Criação rápida**. Por exemplo, se desejar entrar em uma máquina virtual em uma rede virtual, será necessário usar a opção **Da galeria**.
 
-> [AZURE.NOTE]Você também pode experimentar o portal de visualização do Azure, que é mais sofisticado e personalizável, para criar uma máquina virtual, usar o monitoramento e diagnóstico avançados, usar o armazenamento Premium e muito mais. As opções disponíveis para configurar uma máquina virtual nos dois portais se repetem, mas não são as mesmas. Por exemplo, use o portal de visualização do Azure para configurar uma máquina virtual com armazenamento Premium.
+> [AZURE.NOTE]Você também pode experimentar o portal do Azure, que é mais sofisticado e personalizável, para criar uma máquina virtual, usar o monitoramento e diagnóstico avançados, usar o armazenamento Premium e muito mais. As opções disponíveis para configurar uma máquina virtual nos dois portais se repetem, mas não são as mesmas. Por exemplo, use o portal do Azure para configurar uma máquina virtual com armazenamento Premium.
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
@@ -53,4 +53,4 @@ Esta seção mostra como usar a opção **Da Galeria** no portal do Azure para c
 
 - Anexe um disco para armazenar dados. Você pode anexar tanto discos vazios como discos que contenham dados. Para obter instruções, consulte o [tutorial Anexar um disco de dados](storage-windows-attach-disk.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

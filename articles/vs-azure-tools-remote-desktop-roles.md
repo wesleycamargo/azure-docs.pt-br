@@ -1,11 +1,11 @@
 <properties 
-   pageTitle="Usando a Área de Trabalho Remota com as funções do Azure"
+   pageTitle="Usando a Área de Trabalho Remota com funções do Azure | Microsoft Azure"
    description="Usando a Área de Trabalho Remota com as funções do Azure"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags 
    ms.service="multiple"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/24/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Usando a Área de Trabalho Remota com as funções do Azure
 
@@ -75,4 +75,4 @@ Depois de publicar o serviço de nuvem no Azure, você pode usar o Gerenciador d
 
 1. Insira o nome de usuário e a senha que você criou anteriormente. Agora você está conectado na sessão remota.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

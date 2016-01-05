@@ -1,6 +1,6 @@
 O [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) dá suporte a implantação contínua para aplicativos Web por meio de ferramentas de repositório e de controle do código-fonte como BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial e TFS. Você pode usar essas ferramentas para manter o conteúdo e o código de seu aplicativo, e enviar as alterações de modo rápido e fácil ao seu aplicativo Web quando desejar.
 
-Neste artigo, você aprenderá a usar o Git para publicar diretamente do seu computador local em Aplicativos Web (no Azure, esse método de publicação é chamado de **Git Local**). Você também saberá como habilitar a implantação contínua de sites de repositório, como BitBucket, CodePlex, DropBox, GitHub ou Mercurial. Para obter mais informações sobre como usar o TFS para implantação contínua, consulte [Envio contínuo ao Azure por meio do Visual Studio Online].
+Neste artigo, você aprenderá a usar o Git para publicar diretamente do seu computador local em Aplicativos Web (no Azure, esse método de publicação é chamado de **Git Local**). Você também saberá como habilitar a implantação contínua de sites de repositório, como BitBucket, CodePlex, DropBox, GitHub ou Mercurial. Para obter mais informações sobre como usar o TFS para implantação contínua, consulte [Envio contínuo ao Azure por meio do Visual Studio Team Services].
 
 > [AZURE.NOTE]Muitos dos comandos Git descritos neste artigo são executados automaticamente ao criar um aplicativo Web usando as [Ferramentas de Linha de Comando do Azure para Mac e Linux](/develop/nodejs/how-to-guides/command-line-tools/)
 
@@ -58,9 +58,9 @@ Aplicativos Web dão suporte a aplicativos criados em uma variedade de linguagen
 
 Execute as seguintes etapas para habilitar um repositório Git em seu aplicativo Web.
 
-1. Faça logon no [Portal de Visualização do Azure].
+1. Faça logon no [Portal do Azure].
 
-2. Na folha de seu aplicativo Web, role para baixo até a seção **Implantação** e clique em **Configurar implantação contínua**. Clique em **Escolher Fonte**, depois em **Repositório Git Local** e em **OK**.
+2. Na folha de seu aplicativo Web, clique em **Configurações > Implantação contínua**. Clique em **Escolher Fonte**, depois em **Repositório Git Local** e em **OK**.
 
 	![Repositório Git local](./media/publishing-with-git/azure1-local-git.png)
 
@@ -76,7 +76,7 @@ Execute as seguintes etapas para habilitar um repositório Git em seu aplicativo
 
 Use as etapas a seguir para publicar o seu aplicativo Web no Azure usando o Git local.
 
-1. Na folha de seu aplicativo Web, na seção Implantação, clique em **Nenhuma implantação encontrada**.
+1. Na folha de seu aplicativo Web, clique em **Configurações > Propriedades** para o **URL do Git**.
 
 	![](./media/publishing-with-git/azure3-repo-details.png)
 
@@ -94,7 +94,7 @@ Use as etapas a seguir para publicar o seu aplicativo Web no Azure usando o Git 
 
 		git push azure master
 
-	Será solicitada senha que você criou anteriormente ao reinicializar suas credenciais de implantação no portal. Digite a senha (o Gitbash não ecoa asteriscos no console à medida que você digita a senha). Você deverá ver uma saída semelhante ao seguinte:
+	Será solicitada a senha que você criou anteriormente ao redefinir suas credenciais de implantação no Portal. Digite a senha (o Gitbash não ecoa asteriscos no console à medida que você digita a senha). Você deverá ver uma saída semelhante ao seguinte:
 
 		Counting objects: 6, done.
 		Compressing objects: 100% (2/2), done.
@@ -110,7 +110,7 @@ Use as etapas a seguir para publicar o seu aplicativo Web no Azure usando o Git 
 
 	> [AZURE.NOTE]O repositório criado para o seu aplicativo Web espera solicitações por push para definir como destino a ramificação <strong>mestre</strong> do seu repositório, que será usada como o conteúdo do aplicativo Web.
 
-2. Volte para a lâmina de seu aplicativo Web no Portal do Azure. **Nenhuma implantação encontrada** deve ser alterada para **Implantação Ativa** com uma entrada de log de seu envio por push mais recente.
+2. Volte para a folha de seu aplicativo Web no Portal do Azure. **Nenhuma implantação encontrada** deve ser alterada para **Implantação Ativa** com uma entrada de log de seu envio por push mais recente.
 
 	![](./media/publishing-with-git/azure4-deployed.png)
 
@@ -138,13 +138,13 @@ A implantação de arquivos do GitHub, CodePlex ou BitBucket requer que você te
 
 1. Primeiro coloque seus arquivos do aplicativo Web no repositório selecionado que será usado para implantação contínua.
 
-2. Na folha de seu aplicativo Web presente no portal, role para baixo até a seção **Implantação** e clique em **Configurar implantação contínua**. Clique em **Escolher Fonte** e depois em **GitHub**, por exemplo.
+2. Na folha de seu aplicativo Web, clique em **Configurações > Entrega contínua**. Clique em **Escolher Fonte** e depois em **GitHub**, por exemplo.
 
 	![](./media/publishing-with-git/azure6-setup-github.png)
 	
-2. Na folha **Implantação Contínua**, clique em **Autorização** e depois em **Autorizar**. O portal do Azure redirecionará você ao site do repositório para concluir o processo de autorização.
+2. Na folha **Implantação Contínua**, clique em **Autorização** e depois em **Autorizar**. O Portal do Azure redirecionará você ao site do repositório para concluir o processo de autorização.
 
-4. Quando terminar, volte para o portal do Azure e clique em **OK** na folha **Autorização**.
+4. Quando terminar, volte para o Portal do Azure e clique em **OK** na folha **Autorização**.
 
 5. Na lâmina **Implantação Contínua**, escolha a organização, o projeto e a ramificação por meio dos quais você deseja implantar. Quando terminar, clique em **OK**.
   
@@ -154,7 +154,7 @@ A implantação de arquivos do GitHub, CodePlex ou BitBucket requer que você te
 
 O Azure cria uma associação com o repositório selecionado e extrai os arquivos da ramificação especificada. Depois que o processo for concluído, a seção **Implantação** da folha de seu aplicativo Web mostrará uma mensagem **Implantação Ativa**, que indica que a implantação foi bem-sucedida.
 
-7. Nesse ponto, seu projeto foi implantado do seu repositório de escolha para seu aplicativo Web. Para verificar se o aplicativo Web está ativo, clique na **URL** na parte superior do portal. O navegador deve acessar o aplicativo Web.
+7. Nesse ponto, seu projeto foi implantado do seu repositório de escolha para seu aplicativo Web. Para verificar se o aplicativo Web está ativo, clique na **URL** na parte superior do Portal. O navegador deve acessar o aplicativo Web.
 
 8. Para verificar se a implantação contínua está ocorrendo no repositório de sua escolha, envie uma alteração por push para o repositório. Seu aplicativo Web deve ser atualizado para refletir as alterações logo após a conclusão do envio por push para o repositório. Você pode verificar se ele recebeu a atualização na folha **Implantações** do seu aplicativo Web.
 
@@ -192,11 +192,11 @@ Assim que você tiver configurado seu repositório conforme descrito e tiver con
 
 ## Desabilitar a implantação contínua
 
-A implantação contínua pode ser desabilitada na folha **Implantações**. Na folha de seu aplicativo Web, na seção **Implantação**, clique em **Implantação Ativa**. Em seguida, clique em **Desconectar**.
+A implantação contínua pode ser desabilitada na folha **Implantações**. Na folha de seu aplicativo Web, clique em **Configurações > Implantação contínua**. Em seguida, clique em **Desconectar**.
 
 ![git-DisconnectFromGitHub](./media/publishing-with-git/azure5-disconnect.png)
 
-Depois de responder **Sim** à mensagem de confirmação, você pode retornar à lâmina de seu aplicativo Web e clicar em **Configurar implantação contínua**, caso deseje configurar a publicação por meio de outra origem.
+Depois de responder **Sim** à mensagem de confirmação, você pode retornar à folha de seu aplicativo Web e clicar em **Configurações>Implantação contínua**, se quiser configurar publicação de outra fonte.
 
 ## <a id="Step8"></a>Solucionar problemas
 
@@ -208,7 +208,7 @@ Estes são erros ou problemas comumente encontrados ao usar o Git para publicar 
 
 **Causa**: este erro pode ocorrer se o aplicativo Web não estiver carregado e em execução.
 
-**Resolução**: inicie o aplicativo Web no portal do Azure. A implantação Git não funcionará a menos que o aplicativo Web esteja em execução.
+**Resolução**: inicie o aplicativo Web no Portal do Azure. A implantação Git não funcionará a menos que o aplicativo Web esteja em execução.
 
 
 ****
@@ -269,10 +269,9 @@ Estes são erros ou problemas comumente encontrados ao usar o Git para publicar 
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [Azure Developer Center]: http://azure.microsoft.com/develop/overview/
-[Portal de Visualização do Azure]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com
 [Git website]: http://git-scm.com
 [Instalando o Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Como usar o PowerShell para o Azure]: ../articles/install-configure-powershell.md
@@ -296,6 +295,6 @@ Estes são erros ou problemas comumente encontrados ao usar o Git para publicar 
 [Criar um Repo (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [Início rápido: Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 [Usando o Dropbox para compartilhar repositórios do Git]: https://gist.github.com/trey/2722927
-[Envio contínuo ao Azure por meio do Visual Studio Online]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
+[Envio contínuo ao Azure por meio do Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

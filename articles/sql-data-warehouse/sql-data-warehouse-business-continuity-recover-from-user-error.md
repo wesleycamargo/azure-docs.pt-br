@@ -132,8 +132,8 @@ Para saber mais sobre os recursos de continuidade de negócios de outras ediçõ
 [Status de operações do banco de dados]: http://msdn.microsoft.com/library/azure/dn720371.aspx
 [Obter banco de dados descartados restauráveis]: http://msdn.microsoft.com/library/azure/dn509574.aspx
 [Listar bancos de dados descartados restauráveis]: http://msdn.microsoft.com/library/azure/dn509562.aspx
-[Start-AzureSqlDatabaseRestore]: https://msdn.microsoft.com/pt-BR/library/dn720218.aspx
+[Start-AzureSqlDatabaseRestore]: https://msdn.microsoft.com/library/dn720218.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

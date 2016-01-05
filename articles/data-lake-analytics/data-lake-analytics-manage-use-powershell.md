@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/27/2015"
+   ms.date="12/01/2015"
    ms.author="jgao"/>
 
 # Gerenciar a Análise Azure Data Lake usando o Azure PowerShell
@@ -27,38 +27,58 @@ Saiba como gerenciar contas, fontes de dados, usuários e trabalhos da Análise 
 Antes de começar este tutorial, você deve ter o seguinte:
 
 - **Uma assinatura do Azure**. Veja [Obter avaliação gratuita do Azure]https://azure.microsoft.com/pt-BR/pricing/free-trial/).
-- **Azure PowerShell 1.0 ou posterior**. Veja [Instalar e configurar o Azure PowerShell](../install-configure-powershell.md). Depois de instalar o Azure PowerShell 1.0 ou superior, você deve executar o cmdlet a seguir para instalar o módulo da Análise Azure Data Lake.
+
+
+<!-- ################################ -->
+<!-- ################################ -->
+
+
+##Instalar o Azure PowerShell 1.0 e superior
+
+Primeiro, você deve desinstalar as versões 0.9x.
+
+Para verificar a versão do PowerShell instalado:
+
+	Get-Module *azure*
 	
-		Install-Module AzureRM.DataLakeStore
-		Install-Module AzureRM.DataLakeAnalytics
+Para desinstalar a versão mais antiga, execute Programas e Recursos no painel de controle.
 
-	Para obter mais informações sobre o módulo **AzureRM.DataLakeStore**, veja [Galeria do PowerShell](http://www.powershellgallery.com/packages/AzureRM.DataLakeStore). Para obter mais informações sobre o módulo **AzureRM.DataLakeAnalytics**, veja [Galeria do PowerShell](http://www.powershellgallery.com/packages/AzureRM.DataLakeAnalytics).
+Há duas opções principais para a instalação do Azure PowerShell.
 
-	Se estiver criando uma conta do Data Lake pela primeira vez, execute:
+- [Galeria do PowerShell](https://www.powershellgallery.com/). Execute os seguintes comandos do console do ISE do PowerShell ou Windows PowerShell com privilégios elevados:
 
-		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
-		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeAnalytics"
-
-	Para se conectar ao Azure, use os seguintes cmdlets:
-
-		Login-AzureRmAccount
-		Get-AzureRmSubscription  # for finding the Azure Subscription ID
-		Set-AzureRmContext -SubscriptionID <Azure Subscription ID>
+		# Install the Azure Resource Manager modules from PowerShell Gallery
+		Install-Module AzureRM
+		Install-AzureRM
 		
+		# Install the Azure Service Management module from PowerShell Gallery
+		Install-Module Azure
+		
+		# Import AzureRM modules for the given version manifest in the AzureRM module
+		Import-AzureRM
+		
+		# Import Azure Service Management module
+		Import-Module Azure
+
+	Para obter mais informações, veja [Galeria do PowerShell](https://www.powershellgallery.com/).
+
+- [Microsoft Web Platform Installer (WebPI)](http://aka.ms/webpi-azps). Se você tem o Azure PowerShell 0.9.x instalado, será solicitado a desinstalar o 0.9.x. Se você instalou os módulos do Azure PowerShell na Galeria do PowerShell, o instalador exige que os módulos sejam removidos antes da instalação para assegurar a consistência do Ambiente do Azure PowerShell. Para obter instruções, veja [Instalar o Azure PowerShell 1.0 via WebPI](https://azure.microsoft.com/blog/azps-1-0/).
+
+A WebPI receberá atualizações mensais. A Galeria do PowerShell receberá atualizações continuamente. Se você estiver familiarizado com a instalação a partir da Galeria do PowerShell, esse será o primeiro canal para os melhores e mais recentes recursos do Azure PowerShell.
+
 **Para listar os cmdlets**:
 
 	Get-Command *Azure*DataLakeAnalytics*
 
-<!-- ################################ -->
-<!-- ################################ -->
+**Para se conectar ao Azure, use os seguintes cmdlets**:
 
-
-
-<!-- ################################ -->
-<!-- ################################ -->
+	Login-AzureRmAccount
+	Get-AzureRmSubscription  # for finding the Azure Subscription ID
+	Set-AzureRmContext -SubscriptionID <Azure Subscription ID>
+	
 ## Gerenciar contas
 
-Antes de executar qualquer trabalho da Análise Data Lake, você deve ter uma conta da Análise Data Lake. Ao contrário do Azure HDInsight, você não paga por uma conta da Análise quando ela não estiver executando um trabalho. Você paga apenas pelo tempo em que um trabalho é executado. Para obter mais informações, veja [Visão geral da Análise Azure Data Lake](data-lake-analytics-overview.md).
+Antes de executar qualquer trabalho da Análise Data Lake, você deve ter uma conta da Análise Data Lake. Ao contrário do Azure HDInsight, você não paga por uma conta da Análise quando ela não estiver executando um trabalho. Você paga apenas pelo tempo em que um trabalho é executado. Para obter mais informações, confira [Visão geral da Análise do Azure Data Lake](data-lake-analytics-overview.md).
 
 ###Criar contas
 
@@ -90,7 +110,7 @@ Antes de executar qualquer trabalho da Análise Data Lake, você deve ter uma co
 		-ResourceGroupName $resourceGroupName `
 		-Name $dataLakeAnalyticsAccountName  
 
-Você também pode usar um modelo do Grupo de Recursos do Azure. Um modelo para criar uma conta da Análise Data Lake e a conta do Repositório Data Lake pode ser encontrado no [Apêndice A](#appendix-a). Salve o modelo em um arquivo com o modelo .json e use o seguinte script do PowerShell para chamá-lo:
+Você também pode usar um modelo do Grupo de Recursos do Azure. Um modelo para criar uma conta da Análise do Data Lake e a conta do Repositório do Data Lake podem ser encontrados no [Apêndice A](#appendix-a). Salve o modelo em um arquivo com o modelo .json e use o seguinte script do PowerShell para chamá-lo:
 
 
 	$AzureSubscriptionID = "<Your Azure Subscription ID>"
@@ -162,7 +182,7 @@ A exclusão de uma conta da Análise não excluirá a conta dependente do Armaze
 
 <!-- ################################ -->
 <!-- ################################ -->
-## Gerenciar fontes de dados da conta
+## Gerenciar as fontes de dados da conta
 
 A Análise Data Lake atualmente dá suporte às seguintes fontes de dados:
 
@@ -209,7 +229,7 @@ Quando você cria uma conta da Análise, é necessário designar uma conta do Ar
 <!-- ################################ -->
 ## Gerenciar trabalhos
 
-Você deve ter uma conta da Análise Data Lake antes de criar um trabalho. Para obter mais informações, veja [Gerenciar contas da Análise Data Lake](#manage-data-lake-analytics-accounts).
+Você deve ter uma conta da Análise Data Lake antes de criar um trabalho. Para obter mais informações, veja [Gerenciar contas da Análise do Data Lake](#manage-data-lake-analytics-accounts).
 
 ### Listar trabalhos
 
@@ -272,7 +292,7 @@ Você deve ter uma conta da Análise Data Lake antes de criar um trabalho. Para 
 
 ## Gerenciar itens do catálogo
 
-O catálogo do U-SQL é usado para estruturar dados e código para que eles possam ser compartilhados por scripts U-SQL. O catálogo possibilita o melhor desempenho possível com dados no Azure Data Lake. Para obter mais informações, veja [Usar o Catálogo do U-SQL](data-lake-analytics-use-u-sql-catalog.md).
+O catálogo do U-SQL é usado para estruturar dados e código para que eles possam ser compartilhados por scripts U-SQL. O catálogo possibilita o melhor desempenho possível com dados no Azure Data Lake. Para obter mais informações, veja [Usar o catálogo do U-SQL](data-lake-analytics-use-u-sql-catalog.md).
 
 ###Listar itens do catálogo
 
@@ -349,10 +369,10 @@ Uma conta da Análise Data Lake e as contas de armazenamento dependentes devem s
 
 ##Consulte também 
 
-- [Visão geral da Análise Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-- [Introdução à Análise Data Lake usando o Portal de Visualização do Azure](data-lake-analytics-get-started-portal.md)
-- [Gerenciar a Análise Azure Data Lake usando o Portal de Visualização do Azure](data-lake-analytics-use-portal.md)
-- [Monitorar e solucionar problemas em trabalhos da Análise Azure Data Lake usando o Portal de Visualização do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Visão geral da Análise do Microsoft Azure Data Lake](data-lake-analytics-overview.md)
+- [Introdução à Análise do Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md)
+- [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-use-portal.md)
+- [Monitorar e solucionar problemas em trabalhos da Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ##Apêndice A - modelo do ARM da Análise Data Lake
 
@@ -411,4 +431,4 @@ O modelo ARM a seguir pode ser usado para implantar uma conta da Análise Data L
 		}
 	}
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

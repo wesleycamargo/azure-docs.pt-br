@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 # Proteger recursos de nuvem e locais usando o Servidor Azure Multi-Factor Authentication com AD FS 2.0
 
@@ -88,9 +88,9 @@ Os IPs Confiáveis permitem que os usuários ignorem o Azure Multi-Factor Authen
 1. Na seção Autenticação IIS, clique na guia de IPs Confiáveis.
 1. Clique no botão Adicionar...
 1. Quando a caixa de diálogo Adicionar IPs Confiáveis aparecer, selecione o botão de opção IP Único, Intervalo de IP ou Sub-rede.
-1. Insira o endereço IP, o intervalo dos endereços IP ou a sub-rede que devem ser colocados na lista de autorizados. Se inserir uma sub-rede, selecione a Máscara de Rede apropriada e clique no botão OK. O IP confiável foi adicionado.
+1. Insira o endereço IP, o intervalo dos endereços IP ou a sub-rede que devem ser colocados na lista branca. Se inserir uma sub-rede, selecione a Máscara de Rede apropriada e clique no botão OK. O IP confiável foi adicionado.
 
 
 <center>![Configuração](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

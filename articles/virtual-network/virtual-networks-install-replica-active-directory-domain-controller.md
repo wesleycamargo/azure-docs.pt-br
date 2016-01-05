@@ -23,7 +23,7 @@ Este tópico mostra como instalar controladores de domínio adicionais (também 
 
 Você também pode estar interessado nestes tópicos relacionados:
 
-- Opcionalmente, você pode instalar uma nova floresta do Active Directory em uma rede virtual do Azure. Para essas etapas, consulte [Instalar uma nova floresta do Active Directory em uma rede virtual do Azure](../active-directory-new-forest-virtual-machine.md).
+-  Opcionalmente, você pode instalar uma nova floresta do Active Directory em uma rede virtual do Azure. Para essas etapas, consulte [Instalar uma nova floresta do Active Directory em uma rede virtual do Azure](../active-directory-new-forest-virtual-machine.md).
 -  Para obter diretrizes conceituais sobre como instalar os Serviços de Domínio Active Directory (AD DS) em uma rede virtual do Azure, consulte [Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 
@@ -121,4 +121,4 @@ Para obter mais informações sobre como usar o Windows PowerShell, consulte [In
 <!--Image references-->
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

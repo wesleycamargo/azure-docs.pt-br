@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/03/2015"
+	ms.date="11/23/2015"
 	ms.author="normesta"/>
 
 
@@ -38,38 +38,41 @@ Para concluir este tutorial, você precisará do seguinte:
 * [Visual Studio Community 2013] ou posterior. Se você instalar o Visual Studio Community 2013, instale o [Xamarin] separadamente. Você pode instalar as ferramentas Xamarin quando você instala o Visual Studio de 2015.
 
 * Um Mac com [Xcode] versão 7.0 ou posterior e [Xamarin Studio] instalados.
+ 
+* Se você planeja compilar seu aplicativo em um computador baseado no Windows e executando o Visual Studio, ainda precisará de acesso a um Mac em rede executando o Host de Compilação Xamarin.iOS para compilar e implantar. Para saber mais, consulte [Instalação do Xamarin.iOS no Windows](http://developer.xamarin.com/guides/ios/getting_started/installation/windows/)
 
-     >[AZURE.NOTE]Se você planeja criar seu aplicativo em um computador com Windows usando o Visual Studio, você ainda precisará ter acesso a um MAC em rede para fazê-lo.
-
->[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile). Lá, você pode criar imediatamente um aplicativo móvel de curta duração inicial no Serviço de Aplicativo – sem cartão de crédito e sem compromissos.
+>[AZURE.NOTE]Se você quiser ter uma introdução ao Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](https://tryappservice.azure.com/?appServiceName=mobile). Lá, você pode criar imediatamente um aplicativo móvel de curta duração inicial no Serviço de Aplicativo – sem cartão de crédito e sem compromissos.
 
 ## Criar um novo back-end de aplicativo móvel do Azure
 
+Siga estas etapas para criar um novo back-end de aplicativo móvel.
+
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## Baixar o projeto de servidor
+## Configurar o projeto de servidor
 
-1. Em seu computador, visite o [Portal do Azure]. Clique em **Procurar Tudo** > **Aplicativos Móveis** e, em seguida, clique no back-end de aplicativo móvel que você acabou de criar.
+Você acabou de provisionar um back-end do aplicativo móvel do Azure que pode ser usado pelos aplicativos móveis clientes. Em seguida, você baixará um projeto do servidor para um back-end simples da "lista de tarefas" e o publicará no Azure.
 
-2. Na folha do Aplicativo móvel, clique em **Configurações** e, em **Aplicativo Móvel**, clique **Início rápido** > **Xamarin.iOS**.
+Siga as etapas abaixo para configurar o projeto de servidor para usar o back-end Node.js ou .NET.
 
-3. Em **Baixar e executar seu projeto de servidor**, clique em **Baixar**. Extraia os arquivos compactados do projeto em seu computador e abra a solução no Visual Studio.
+[AZURE.INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## Teste seu projeto de back-end localmente
+
+## (Opcional) Testar seu projeto de back-end localmente
+
+Se você tiver escolhido uma configuração de back-end .NET acima, também poderá testar o back-end localmente.
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service](../../includes/app-service-mobile-dotnet-backend-test-local-service.md)]
 
-## Publicar o projeto de servidor no Azure
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
 ## Baixar e executar o aplicativo Xamarin.iOS
 
-1. Em seu Mac, abra o [Portal do Azure] em uma janela do navegador.
+1. Em seu Mac, abra o [portal do Azure] em uma janela do navegador.
 
->[AZURE.NOTE]É mais fácil de executar seu aplicativo Xamarin.iOS em um Mac. Você pode executar o aplicativo Xamarin.iOS usando o Visual Studio no computador com o Windows se quiser, mas é um pouco mais complicado porque você precisa se conectar a um MAC em rede. Se você estiver interessado em fazer isso, consulte [Installing Xamarin.iOS on Windows].
+	>[AZURE.NOTE]É mais fácil de executar seu aplicativo Xamarin.iOS em um Mac. Você pode executar o aplicativo Xamarin.iOS usando o Visual Studio no computador com o Windows se quiser, mas é um pouco mais complicado porque você precisa se conectar a um MAC em rede. Se você estiver interessado em fazer isso, consulte [Instalando o Xamarin.iOS no Windows].
 
-2. Em **Baixe e execute seu projeto Xamarin.iOS**, clique no botão **Baixar**.
+2. Na folha configurações do seu Aplicativo Móvel, clique em **Introdução** > **Xamarin.IOS**. Na etapa 3, clique em **Criar um novo aplicativo** se essa opção ainda não tiver sido selecionada. Em seguida, clique no botão **Baixar**.
 
   	Isso baixa um projeto que contém uma aplicação de cliente que está conectada ao seu aplicativo móvel. Salve o arquivo do projeto compactado em seu computador local e anote onde ele foi salvo.
 
@@ -81,7 +84,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 4. Pressione a tecla F5 para compilar o projeto e iniciar o aplicativo no emulador do iPhone.
 
-5. No aplicativo, digite um texto significativo, como _Aprenda sobre o Xamarin_ e, em seguida, clique no botão **+**.
+5. No aplicativo, digite um texto significativo, como _Saiba mais sobre o Xamarin_ e clique no botão **+**.
 
 	![][10]
 
@@ -109,13 +112,13 @@ Para concluir este tutorial, você precisará do seguinte:
 [10]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
-[Portal do Azure]: https://portal.azure.com/
+[portal do Azure]: https://portal.azure.com/
 
 
 [Xamarin Studio]: http://xamarin.com/download
 [Xamarin]: http://xamarin.com/download
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
-[Installing Xamarin.iOS on Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
+[Instalando o Xamarin.iOS no Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015--->

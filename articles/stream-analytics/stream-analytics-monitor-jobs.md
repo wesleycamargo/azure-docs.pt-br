@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Monitorar trabalhos do Stream Analytics programaticamente | Microsoft Azure" 
-	description="Saiba como monitorar programaticamente os trabalhos do Stream Analytics criados por meio de APIs REST, do SDK do Azure ou do Powershell." 
+	pageTitle="Monitorar trabalhos programaticamente no Stream Analytics | Microsoft Azure" 
+	description="Saiba como monitorar programaticamente os trabalhos do Stream Analytics criados por meio de APIs REST, do SDK do Azure ou do Powershell."
+	keywords="monitor .net, monitor de trabalhos, aplicativo de monitoramento"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,14 +14,14 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
 
-# Monitorar trabalhos do Stream Analytics programaticamente 
-Este artigo demonstra como habilitar o monitoramento para um trabalho do Stream Analytics. Os trabalhos de Stream Analytics criados por meio de APIs REST, do SDK do Azure ou do Powershell não têm monitoramento habilitado por padrão. Você pode habilitá-lo manualmente no Portal do Azure navegando até a página de monitoramento do trabalho e clicando no botão Habilitar ou pode automatizar esse processo seguindo as etapas neste artigo. Os dados de monitoramento serão exibidos na guia "Monitor" no Portal do Azure para o trabalho de Stream Analytics.
+# Criar programaticamente um monitor de trabalhos do Stream Analytics
+ Este artigo demonstra como habilitar o monitoramento para um trabalho do Stream Analytics. Os trabalhos de Stream Analytics criados por meio de APIs REST, do SDK do Azure ou do Powershell não têm monitoramento habilitado por padrão. Você pode habilitá-lo manualmente no Portal do Azure navegando até a página de monitoramento do trabalho e clicando no botão Habilitar ou pode automatizar esse processo seguindo as etapas neste artigo. Os dados de monitoramento serão exibidos na guia "Monitor" no Portal do Azure para o trabalho de Stream Analytics.
 
-![Guia de trabalhos do monitor](./media/stream-analytics-monitor-jobs/stream-analytics-monitor-jobs-tab.png)
+![Guia Trabalhos do monitor de trabalhos](./media/stream-analytics-monitor-jobs/stream-analytics-monitor-jobs-tab.png)
 
 ## Pré-requisitos
 Antes de começar este artigo, você deve ter o seguinte:
@@ -178,4 +179,4 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,16 +13,21 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="12/06/2015"
 	ms.author="ricksal"/>
 
 # Adicionar notificações por push a seu aplicativo de Serviços Móveis
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 Este tópico mostra como usar os Serviços Móveis do Azure para enviar notificações por push a um aplicativo Android. Neste tutorial você adiciona notificações por push usando o serviço de Mensagens de Nuvem do Google (GCM) para o projeto quickstart. Ao concluir, seu serviço móvel enviará uma notificação por push sempre que um registro for inserido.
 
-Este tutorial baseia-se no início rápido dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir [Introdução aos Serviços Móveis] para conectar seu projeto ao serviço móvel. Como tal, esse tutorial também requer o Visual Studio 2013.
+Este tutorial baseia-se no início rápido dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir a [Introdução aos Serviços Móveis] para conectar seu projeto ao serviço móvel. Como tal, esse tutorial também requer o Visual Studio 2013.
 
 ## Exemplo de código
 Para ver o código-fonte completo, clique [aqui](https://github.com/RickSaling/mobile-services-samples/tree/push/GettingStartedWithPush).
@@ -106,7 +111,6 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 <!-- URLs. -->
 [Get started with push notifications (Eclipse)]: mobile-services-dotnet-backend-android-get-started-push-ec.md
 [Introdução aos Serviços Móveis]: mobile-services-dotnet-backend-android-get-started.md
-[Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 
 [Como usar a biblioteca de cliente Android para os Serviços Móveis]: mobile-services-android-how-to-use-client-library.md
@@ -114,6 +118,5 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [O que são Hubs de Notificação?]: ../notification-hubs-overview.md
 [Enviar notificações de transmissão para assinantes]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Enviar notificações com base no modelo para assinantes]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
-[Azure Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

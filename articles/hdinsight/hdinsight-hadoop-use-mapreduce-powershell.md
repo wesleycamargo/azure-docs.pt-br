@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/16/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 #Executar consultas Hive com Hadoop no HDInsight usando o PowerShell
@@ -53,7 +53,6 @@ As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho 
 
 		#Specify the values
 		$clusterName = "CLUSTERNAME"
-		$creds=Get-Credential
         		
 		# Login to your Azure subscription
 		# Is there an active Azure subscription?
@@ -107,7 +106,7 @@ As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho 
             -HttpCredential $creds
         # Download the output
         Get-AzureStorageBlobContent `
-            -Blob example/data/WordCountOutput/* `
+            -Blob 'example/data/WordCountOutput/part-r-00000' `
             -Container $container `
             -Destination output.txt `
             -Context $context
@@ -183,4 +182,4 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 
 * [Usar o Pig com Hadoop no HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

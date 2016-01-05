@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/26/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 # Informações sobre o uso do HDInsight no Linux
@@ -120,9 +120,9 @@ Durante a criação do cluster, você optou por usar uma conta e um contêiner e
 	>
 	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties as $in | $in | keys[] | select(. | contains("fs.azure.account.key.")) as $item | $item | ltrimstr("fs.azure.account.key.") | { storage_account: ., storage_account_key: $in[$item] }'`
 
-Você também pode encontrar as informações de armazenamento usando o portal de visualização do Azure:
+Você também pode encontrar as informações de armazenamento usando o Portal do Azure:
 
-1. No [Portal de Visualização do Azure](https://portal.azure.com/), selecione o cluster HDInsight.
+1. No [Portal do Azure](https://portal.azure.com/), selecione o cluster HDInsight.
 
 2. Na seção __Noções Básicas__, selecione __Todas as configurações__.
 
@@ -207,7 +207,7 @@ Os diferentes tipos de cluster são afetados pelo dimensionamento da seguinte ma
 
 Para obter informações específicas sobre como dimensionar o cluster HDInsight, consulte:
 
-* [Gerenciar clusters Hadoop no HDInsight usando o portal de visualização do Azure](hdinsight-administer-use-portal-linux.md#scaling)
+* [Gerenciar clusters Hadoop no HDInsight usando o Portal do Azure](hdinsight-administer-use-portal-linux.md#scaling)
 
 * [Gerenciar clusters Hadoop no HDInsight Usando o Azure PowerShell](hdinsight-administer-use-command-line.md#scaling)
 
@@ -252,4 +252,4 @@ Se o cluster já fornece uma versão de um componente como um arquivo jar indepe
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

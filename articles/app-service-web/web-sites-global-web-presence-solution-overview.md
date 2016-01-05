@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
+	ms.date="12/10/2015" 
 	ms.author="cephalin"/>
 
 
@@ -21,7 +21,7 @@
 
 Os Aplicativos Web do [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) têm todos os recursos de que você precisa para estabelecer uma presença global na Web para seu site .COM. Independentemente do porte de sua organização, você precisa de uma plataforma robusta, segura e escalonável para impulsionar seus negócios, o reconhecimento de sua marca e suas comunicações com os clientes. Os Aplicativos Web do Serviço de Aplicativo podem ajudar a manter sua identidade e marca corporativa com a continuidade dos negócios garantida pela Microsoft.
 
->[AZURE.NOTE]Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 A seguir há um exemplo de um site .COM em execução nos Aplicativos Web do Serviço de Aplicativo. Ele demonstra o que você pode fazer simplesmente reunindo Aplicativos Web a outros serviços, com investimento técnico mínimo. **Clique em um elemento na topografia para ler mais sobre ele.**
 
@@ -35,7 +35,7 @@ Crie novos sites rapidamente por meio de um CMS popular na galeria ou inclua seu
 
 O Azure Marketplace oferece modelos populares de CMS (sistemas de gerenciamento de conteúdo de site), como Orchard, Umbraco, Drupal e [WordPress]. Você pode criar um aplicativo Web usando seu tipo de CMS favorito. Você pode escolher dentre vários back-ends de banco de dados para atender às suas necessidades, incluindo o [Banco de Dados do SQL Azure] e [MySQL].
 
-Seus ativos da Web existentes podem ser executados em aplicativos Web do Serviço de Aplicativo, independentemente de utilizarem .NET, PHP, Java, Node.js ou Python. Você pode movê-los para os Aplicativos Web usando suas ferramentas de [FTP] familiares ou seu sistema de gerenciamento de controle do código-fonte. Os Aplicativos Web dão suporte à publicação direta por meio de opções populares de controle do código-fonte, como [Visual Studio], [Visual Studio Online] e [Git] - local, GitHub, BitBucket, DropBox, Mercurial, etc.
+Seus ativos da Web existentes podem ser executados em aplicativos Web do Serviço de Aplicativo, independentemente de utilizarem .NET, PHP, Java, Node.js ou Python. Você pode movê-los para os Aplicativos Web usando suas ferramentas de [FTP] familiares ou seu sistema de gerenciamento de controle do código-fonte. Os Aplicativos Web dão suporte à publicação direta por meio de opções populares de controle do código-fonte como [Visual Studio], [Visual Studio Team Services] e [Git] - local, GitHub, BitBucket, DropBox, Mercurial, etc..
 
 ## Publicar de forma confiável
 
@@ -65,7 +65,7 @@ Forneça seu conteúdo estático de forma extremamente rápida aos usuários glo
 
 Otimize seu site .COM dimensionando automaticamente com o recurso de Autoescala, armazenando em cache com o Cache Redis do Azure, executando tarefas em segundo plano com Trabalhos Web e mantendo alta disponibilidade com o Gerenciador de Tráfego do Azure.
 
-A capacidade dos Aplicativo Web do Serviço Aplicativos de [escalar verticalmente e horizontalmente] atende às necessidades de seu site .COM, independentemente do porte de sua carga de trabalho. Escale horizontalmente seu site de forma manual por meio do [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715), de forma programática por meio da [API de Gerenciamento de Serviços] ou dos [scripts do PowerShell] ou de forma automática por meio do recurso de Autoescala. No plano de hospedagem **Padrão**, o recurso de Autoescala o habilita a escalar horizontalmente um site de forma automática com base na utilização da CPU. Para obter as práticas recomendadas, confira o artigo de [Troy Hunt]\: [Dez coisas que aprendi sobre como expandir com rapidez os aplicativos Web com o Azure].
+A capacidade dos Aplicativo Web do Serviço Aplicativos de [escalar verticalmente e horizontalmente] atende às necessidades de seu site .COM, independentemente do porte de sua carga de trabalho. Escale horizontalmente seu site de forma manual por meio do [Portal do Azure](https://portal.azure.com), de forma programática por meio da [API de Gerenciamento de Serviços], dos [scripts do PowerShell] ou de forma automática por meio do recurso de Autoescala. No plano de hospedagem **Padrão**, o recurso de Autoescala o habilita a escalar horizontalmente um site de forma automática com base na utilização da CPU. Para obter as práticas recomendadas, confira o artigo de [Troy Hunt]\: [Dez coisas que aprendi sobre como expandir com rapidez os aplicativos Web com o Azure].
 
 Torne seu site mais ágil com o [Cache Redis do Azure]. Use-o para armazenar em cache os dados de bancos de dados de back-end e outros itens, como o [estado da sessão ASP.NET] e o [cache de saída].
 
@@ -75,9 +75,9 @@ Mantenha a alta disponibilidade de seu site usando o [Gerenciador de Tráfego do
 
 Mantenha-se atualizado sobre o desempenho de seu site com o Azure ou com ferramentas de terceiros. Receba alertas sobre eventos críticos do site. Obtenha facilmente percepções sobre o usuário com o Application Insights ou com a análise de log da Web do HDInsight.
 
-Obtenha uma [visão rápida] das métricas de desempenho atuais do site e das cotas de recursos na folha do aplicativo Web no [Portal de visualização do Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Para ter uma visão de 360° de seu aplicativo em termos de disponibilidade, desempenho e uso, use o [Azure Application Insights] para obter informações rápidas e eficazes sobre solução de problemas, diagnósticos e uso. Ou então, use uma ferramenta de terceiros, como o [New Relic], para fornecer dados de monitoramento avançado sobre seus sites.
+Obtenha uma [visão rápida] das métricas de desempenho atuais do site e das cotas de recursos na folha do aplicativo Web no [Portal do Azure](https://portal.azure.com). Para ter uma visão de 360° de seu aplicativo em termos de disponibilidade, desempenho e uso, use o [Azure Application Insights] para obter informações rápidas e eficazes sobre solução de problemas, diagnósticos e uso. Ou então, use uma ferramenta de terceiros, como o [New Relic], para fornecer dados de monitoramento avançado sobre seus sites.
 
-No plano de hospedagem **Padrão**, monitore a capacidade de resposta do site e receba notificações por email sempre que seu site não responder. Para obter mais informações, consulte [Como: receber notificações de alerta e gerenciar regras de alerta no Azure].
+No plano de hospedagem **Padrão**, monitore a capacidade de resposta do site e receba notificações por email sempre que seu site não responder. Para saber mais, confira [Como: receber notificações de alerta e gerenciar regras de alerta no Azure].
 
 ## Usar mídia avançada e acessar todos os dispositivos
 
@@ -102,7 +102,7 @@ Torne seu site .COM atraente com recursos de mídia avançada, como:
 [Banco de Dados do SQL Azure]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md
 [FTP]: web-sites-deploy.md#ftp
 [Visual Studio]: web-sites-dotnet-get-started.md
-[Visual Studio Online]: ../cloud-services-continuous-delivery-use-vso.md
+[Visual Studio Team Services]: ../cloud-services-continuous-delivery-use-vso.md
 [Git]: web-sites-publish-source-control.md
 
 [implantando em um slot de preparo do site]: web-sites-staged-publishing.md
@@ -137,4 +137,4 @@ Torne seu site .COM atraente com recursos de mídia avançada, como:
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

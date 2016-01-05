@@ -13,14 +13,19 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/02/2015" 
+	ms.date="11/02/2015"
 	ms.author="glenga"/>
 
 # Como usar a biblioteca de cliente gerenciado para os Serviços Móveis do Azure
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
-##Visão geral 
+##Visão geral
 
 Este guia mostra como executar cenários comuns usando a biblioteca de cliente gerenciado para os Serviços Móveis do Azure em aplicativos do Windows e Xamarin. Os cenários abrangidos incluem consultas de dados, inserção, atualização e exclusão de dados, autenticação de usuários e tratamento de erros. Se você for iniciante nos Serviços Móveis, primeiro conclua o tutorial [Início rápido dos Serviços Móveis](mobile-services-dotnet-backend-xamarin-ios-get-started.md).
 
@@ -44,9 +49,9 @@ O tipo .NET do lado do cliente tipado correspondente é o seguinte:
 		public bool Complete { get; set; }
 	}
 
-Observe que o [JsonPropertyAttribute](http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm) é usado para definir o mapeamento entre o mapeamento de PropertyName entre o tipo de cliente e a tabela.
+Observe que [JsonPropertyAttribute](http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm) é usado para definir o mapeamento entre o mapeamento de PropertyName entre o tipo de cliente e a tabela.
 
-Quando o esquema dinâmico está habilitado em um serviço móvel back-end do JavaScript, os Serviços Móveis do Azure geram automaticamente novas colunas com base no objeto em solicitações de inserção ou atualização. Para obter mais informações, consulte [Esquema dinâmico](http://go.microsoft.com/fwlink/?LinkId=296271). Em um serviço móvel back-end do .NET, a tabela é definida no modelo de dados do projeto.
+Quando o esquema dinâmico está habilitado em um serviço móvel de back-end em JavaScript, os Serviços Móveis do Azure geram automaticamente novas colunas com base no objeto em solicitações de inserção ou atualização. Para obter mais informações, consulte [Esquema dinâmico](http://go.microsoft.com/fwlink/?LinkId=296271). Em um serviço móvel back-end do .NET, a tabela é definida no modelo de dados do projeto.
 
 ##<a name="create-client"></a>Como criar o cliente dos Serviços Móveis
 
@@ -58,18 +63,18 @@ O código seguinte cria o objeto `MobileServiceClient` que é usado para acessar
 		"AppKey"
 	);
 
-No código acima, substitua `AppUrl` e `AppKey` pela URL e pela chave do aplicativo do serviço móvel, nessa ordem. Ambas estão disponíveis no Portal de Gerenciamento do Azure, selecionando seu serviço móvel e clicando em "Painel".
+No código acima, substitua `AppUrl` e `AppKey` pela URL e pela chave do aplicativo do serviço móvel, nessa ordem. Ambas estão disponíveis no Portal clássico do Azure, selecionando seu serviço móvel e clicando em “Painel”.
 
 >[AZURE.IMPORTANT]A chave do aplicativo serve para filtrar solicitações aleatórias de seu serviço móvel e é distribuída com o aplicativo. Como essa chave não é criptografada, ela não pode ser considerado segura. Para realmente proteger o acesso aos seus dados de serviços móveis, você deve autenticar os usuários antes de permitir o acesso. Para obter mais informações, consulte [Como autenticar usuários](#authentication).
 
 ##<a name="instantiating"></a>Como criar uma referência de tabela
 
-Todo o código que acessa ou modifica dados na tabela dos Serviços Móveis chama funções no objeto `MobileServiceTable`. Você obtém uma referência à tabela chamando o método [GetTable](https://msdn.microsoft.com/library/azure/jj554275.aspx) em uma instância do `MobileServiceClient`, conforme demonstrado a seguir:
+Todo o código que acessa ou modifica dados na tabela dos Serviços Móveis chama funções no objeto `MobileServiceTable`. Você obtém uma referência à tabela chamando o método [GetTable](https://msdn.microsoft.com/library/azure/jj554275.aspx) em uma instância do `MobileServiceClient`, da seguinte forma:
 
     IMobileServiceTable<TodoItem> todoTable =
 		client.GetTable<TodoItem>();
 
-Esse é o modelo de serialização tipado; consulte a discussão sobre o [modelo de serialização não tipado](#untyped) abaixo.
+Esse é o modelo de serialização tipado; veja a discussão sobre o [modelo de serialização não tipado](#untyped) abaixo.
 
 ##<a name="querying"></a>Como consultar dados de um Serviço Móvel
 
@@ -278,7 +283,7 @@ Se você tentar excluir um item sem o campo "Id" já estar definido, o serviço 
 
 ##<a name="#custom-api"></a>Chamar uma API personalizada
 
-Uma API personalizada permite que você defina pontos de extremidade personalizados que expõem a funcionalidade do servidor que não mapeia para uma inserção, atualização, exclusão ou operação de leitura. Usando uma API personalizada, você pode ter mais controle sobre mensagens, incluindo ler e definir cabeçalhos de mensagens HTTP e definir um formato de corpo de mensagem diferente do JSON. Para obter um exemplo de como criar uma API personalizada em seu serviço móvel, consulte [Como definir um ponto de extremidade de API personalizado](mobile-services-dotnet-backend-define-custom-api.md).
+Uma API personalizada permite que você defina pontos de extremidade personalizados que expõem a funcionalidade do servidor que não mapeia para uma inserção, atualização, exclusão ou operação de leitura. Usando uma API personalizada, você pode ter mais controle sobre mensagens, incluindo ler e definir cabeçalhos de mensagens HTTP e definir um formato de corpo de mensagem diferente do JSON. Para obter um exemplo de como criar uma API personalizada em seu serviço móvel, consulte [Como: definir um ponto de extremidade de API personalizado](mobile-services-dotnet-backend-define-custom-api.md).
 
 Você pode chamar uma API personalizada chamando uma das sobrecargas de método [InvokeApiSync] no cliente. Por exemplo, a linha de código a seguir envia uma solicitação POST à API **completeAll** no serviço móvel local:
 
@@ -292,17 +297,17 @@ Observe que esta é uma chamada de método tipada, que exige que o tipo de retor
 
 O cliente de Serviços Móveis permite que você se registrar para notificações por push com Hubs de Notificação do Azure. Ao se registrar, você obtém um identificador obtido do PNS (Serviço de Notificação por Push) específico da plataforma. Então fornece este valor, juntamente com quaisquer marcas, no momento em que cria o registro. O seguinte código registra seu aplicativo do Windows para notificações de push no WNS (Serviço de Notificação do Windows):
 
-		private async void InitNotificationsAsync()
-		{
-		    // Request a push notification channel.
-		    var channel =
-		        await PushNotificationChannelManager
-		            .CreatePushNotificationChannelForApplicationAsync();
+	private async void InitNotificationsAsync()
+	{
+	    // Request a push notification channel.
+	    var channel =
+	        await PushNotificationChannelManager
+	            .CreatePushNotificationChannelForApplicationAsync();
 
-		    // Register for notifications using the new channel and a tag collection.
-			var tags = new List<string>{ "mytag1", "mytag2"};
-		    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
-		}
+	    // Register for notifications using the new channel and a tag collection.
+		var tags = new List<string>{ "mytag1", "mytag2"};
+	    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
+	}
 
 Observe que, neste exemplo, são incluídas duas marcas com o registro. Para obter mais informações sobre os aplicativos do Windows, veja [Adicionar notificações por push ao seu aplicativo](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md).
 
@@ -310,8 +315,20 @@ Os aplicativos do Xamarin exigem alguns códigos adicionais para registrar um ap
 
 >[AZURE.NOTE]Quando você precisar enviar notificações a determinados usuários registrados, é importante exigir autenticação antes do registro e, em seguida, verificar se o usuário está autorizado para registrar com uma marca específica. Por exemplo, você deve verificar para certificar-se de que um usuário não se registra com uma marca de que seja o ID de outro usuário. Para obter mais informações, consulte [Enviar notificações push para usuários autenticados](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
 
+##<a name="pull-notifications"></a>Como: usar notificações periódicas em um aplicativo do Windows
 
-##<a name="optimisticconcurrency"></a>Como usar simultaneidade otimista
+O Windows dá suporte a notificações periódicas (notificações de pull) para atualizar blocos dinâmicos. Com as notificações periódicas habilitadas, o Windows acessará periodicamente um ponto de extremidade de API personalizado para atualizar o bloco de aplicativo no menu Iniciar. Para usar as notificações periódicas, é necessário [definir uma API personalizada](mobile-services-javascript-backend-define-custom-api.md) que retorna dados XML em um formato específico de bloco. Para obter mais informações, consulte [Notificações periódicas](https://msdn.microsoft.com/library/windows/apps/hh761461.aspx).
+
+O exemplo a seguir ativa as notificações periódicas para solicitar dados de modelo de bloco de um ponto de extremidade personalizado de *blocos*:
+
+    TileUpdateManager.CreateTileUpdaterForApplication().StartPeriodicUpdate(
+        new System.Uri(MobileService.ApplicationUri, "/api/tiles"),
+        PeriodicUpdateRecurrence.Hour
+    );
+
+Selecione um valor [PeriodicUpdateRecurrance](https://msdn.microsoft.com/library/windows/apps/windows.ui.notifications.periodicupdaterecurrence.aspx) que corresponda com a frequência de atualização de seus dados.
+
+##<a name="optimisticconcurrency"></a>Como: usar a simultaneidade otimista
 
 Dois ou mais clientes podem gravar alterações no mesmo item, ao mesmo tempo, em alguns cenários. Sem uma detecção de conflitos, a última gravação substituirá qualquer atualização anterior, mesmo que isso não seja o resultado desejado. O Controle de Simultaneidade Otimista pressupõe que cada transação pode ser confirmada e, portanto, não usa nenhum recurso de bloqueio. Antes de confirmar uma transação, o controle de simultaneidade otimista verifica se nenhuma outra transação modificou os dados. Se os dados foram modificados, a transação de confirmação será revertida.
 
@@ -418,7 +435,7 @@ Esta seção mostra como exibir os objetos de dados retornados usando elementos 
 	ListBox lb = new ListBox();
 	lb.ItemsSource = items;
 
-Alguns controles no tempo de execução gerenciado dão suporte a uma interface chamada [ISupportIncrementalLoading](http://msdn.microsoft.com/library/windows/apps/Hh701916). Essa interface permite que os controles solicitem dados adicionais quando o usuário rola. Há suporte interno para essa interface para aplicativos universais da Windows 8.1 por meio do `MobileServiceIncrementalLoadingCollection`, que manipula automaticamente as chamadas dos controles. Para usar `MobileServiceIncrementalLoadingCollection` em aplicativos do Windows, faça o seguinte:
+Alguns controles no tempo de execução gerenciado dão suporte a uma interface chamada [ISupportIncrementalLoading](http://msdn.microsoft.com/library/windows/apps/Hh701916). Essa interface permite que os controles solicitem dados adicionais quando o usuário rola. Há suporte interno para essa interface para aplicativos universais do Windows 8.1 por meio do `MobileServiceIncrementalLoadingCollection`, que manipula automaticamente as chamadas dos controles. Para usar o `MobileServiceIncrementalLoadingCollection` em aplicativos do Windows, faça o seguinte:
 
 			MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
 		items =  todoTable.Where(todoItem => todoItem.Complete == false)
@@ -428,14 +445,14 @@ Alguns controles no tempo de execução gerenciado dão suporte a uma interface 
 		lb.ItemsSource = items;
 
 
-Para usar a nova coleção nos aplicativos do Windows Phone 8 e do “Silverlight”, use os métodos de extensão `ToCollection` em `IMobileServiceTableQuery<T>` e `IMobileServiceTable<T>`. Para efetivamente carregar dados, chame `LoadMoreItemsAsync()`.
+Para usar a nova coleção nos aplicativos do Windows Phone 8 e do “Silverlight”, use os métodos da extensão `ToCollection` em `IMobileServiceTableQuery<T>` e `IMobileServiceTable<T>`. Para efetivamente carregar dados, chame `LoadMoreItemsAsync()`.
 
 	MobileServiceCollection<TodoItem, TodoItem> items = todoTable.Where(todoItem => todoItem.Complete==false).ToCollection();
 	await items.LoadMoreItemsAsync();
 
 Quando usa a coleção criada chamando `ToCollectionAsync` ou `ToCollection`, você obtém uma coleção que pode ser vinculada a controles da interface do usuário. Essa coleção tem reconhecimento de paginação, ou seja, um controle pode pedir que a coleção "carregue mais itens", e a coleção fará isso para o controle. Nesse momento não há nenhum código de usuário envolvido, o controle iniciará o fluxo. No entanto, como a coleção está carregando dados da rede, é esperado que haja falhas nesse carregamento algumas vezes. Para lidar com essas falhas, é possível substituir o método `OnException` na `MobileServiceIncrementalLoadingCollection` para tratar das exceções resultantes de chamadas para `LoadMoreItemsAsync` executadas pelos controles.
 
-Finalmente, imagine que sua tabela tenha muitos campos, mas você só deseja exibir alguns deles em seu controle. Você pode usar as orientações contidas na seção “[Selecionar colunas específicas](#selecting)” acima para selecionar colunas específicas a serem exibidas na interface do usuário.
+Finalmente, imagine que sua tabela tenha muitos campos, mas você só deseja exibir alguns deles em seu controle. Você pode usar as diretrizes contidas na seção “[Selecionar colunas específicas](#selecting)” acima para selecionar colunas específicas a serem exibidas na interface do usuário.
 
 ##<a name="authentication"></a>Como autenticar usuários
 
@@ -518,7 +535,7 @@ No formulário mais simplificado, você pode usar o fluxo de cliente conforme mo
 
 ####Entrada única usando a Conta da Microsoft com o Live SDK
 
-Para poder autenticar usuários, você deverá registrar seu aplicativo na Central de desenvolvedores da conta da Microsoft. Em seguida, você deve conectar esse registro ao serviço móvel. Conclua as etapas do tópico [Registrar seu aplicativo para usar um logon de conta da Microsoft](mobile-services-how-to-register-microsoft-authentication.md) a fim de criar um registro de conta da Microsoft e conectá-lo ao seu serviço móvel. Se você tiver as versões da Windows Store e do Windows Phone 8/Silverlight de seu aplicativo, registre a versão da Windows Store primeiro.
+Para poder autenticar usuários, você deverá registrar seu aplicativo na Central de desenvolvedores da conta da Microsoft. Em seguida, você deve conectar esse registro ao serviço móvel. Conclua as etapas em [Registrar seu aplicativo para usar um logon de conta da Microsoft](mobile-services-how-to-register-microsoft-authentication.md) para criar um registro de conta da Microsoft e conectá-lo ao seu serviço móvel. Se você tiver as versões da Windows Store e do Windows Phone 8/Silverlight de seu aplicativo, registre a versão da Windows Store primeiro.
 
 O código a seguir é autenticado usando o Live SDK e usa o token retornado para entrar em seu serviço móvel.
 
@@ -673,7 +690,7 @@ Para dar suporte ao seu cenário específico de aplicativo, convém personalizar
 
     public class MyHandler : DelegatingHandler
     {
-        protected override async Task<HttpResponseMessage> 
+        protected override async Task<HttpResponseMessage>
             SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
             // Add a custom header to the request.
@@ -753,4 +770,4 @@ Essa propriedade converte todas as propriedades em letras minúsculas, durante a
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 [InvokeApiSync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

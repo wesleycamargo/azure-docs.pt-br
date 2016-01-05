@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/28/2015"
+   ms.date="11/18/2015"
    ms.author="larryfr"/>
 
 
@@ -26,7 +26,7 @@ A Rede Virtual do Azure permite que você estenda suas soluções Hadoop para in
 
 ##<a id="whatis"></a>O que é a Rede Virtual do Azure?
 
-A [Rede Virtual do Azure](/documentation/services/virtual-network/) permite que você crie uma rede segura e persistente contendo os recursos necessários para sua solução. Uma rede virtual permite que você:
+A [Rede Virtual do Azure](http://azure.microsoft.com/documentation/services/virtual-network/) permite que você crie uma rede segura e persistente contendo os recursos necessários para sua solução. Uma rede virtual permite que você:
 
 * Conecte recursos da nuvem juntos em uma rede privada (somente nuvem).
 
@@ -58,15 +58,15 @@ A [Rede Virtual do Azure](/documentation/services/virtual-network/) permite que 
 
 Para obter mais informações sobre os recursos, benefícios e capacidades das redes virtuais, consulte a [Visão geral da rede virtual do Azure](../virtual-network/virtual-networks-overview.md).
 
-> [AZURE.NOTE]Você deve criar a Rede Virtual do Azure antes de provisionar um cluster HDInsight. Para obter mais informações, consulte [Tarefas de configuração de rede virtual](/documentation/services/virtual-network/).
+> [AZURE.NOTE]Você deve criar a Rede Virtual do Azure antes de provisionar um cluster HDInsight. Para obter mais informações, consulte [Tarefas de configuração de rede virtual](http://azure.microsoft.com/documentation/services/virtual-network/).
 >
 > O Azure HDInsight dá suporte apenas a redes virtuais baseadas em local e atualmente não funciona com redes virtuais baseadas em grupo de afinidade.
 >
 > É altamente recomendável designar uma única subrede para cada cluster.
 >
-> Não é possível usar uma Rede Virtual v1 (Clássica) do Azure com o HDInsight baseado em Linux. A Rede Virtual deve ser v2 (Gerenciador de Recursos do Azure) para que seja listada como uma opção durante o processo de criação de cluster HDInsight no portal de visualização do Azure ou para poder ser usada durante a criação de um cluster por meio da CLI do Azure ou do Azure PowerShell.
+> Os clusters baseados em Windows exigem uma Rede Virtual v1 (Clássica), enquanto que os clusters baseados em Linux exigem uma rede Virtual v2 (Gerenciador de Recursos do Azure). Se você não tiver o tipo correto de rede, ele não poderá ser usado durante a criação do cluster.
 >
-> Se você tiver recursos em uma rede v1 e quiser disponibilizar o HDInsight diretamente para esses recursos por meio de uma rede virtual, veja [Conectando VNets clássicas a novas VNets](../virtual-network/virtual-networks-arm-asm-s2s.md) para obter informações sobre como conectar uma rede virtual v2 a uma rede virtual v1. Quando essa conexão for estabelecida, você poderá criar o cluster HDInsight na Rede Virtual v2.
+> Se você tiver recursos em uma Rede Virtual que não pode ser usada pelo cluster que você planejar criar, é possível criar uma nova Rede Virtual que pode ser usada pelo cluster e conectá-la à Rede Virtual incompatível. Em seguida, você pode criar o cluster na versão de rede exigida, e ele poderá acessar os recursos na outra rede, pois as duas foram unidas. Para obter mais informações sobre como conectar Redes Virtuais clássicas e novas, veja [Conectando Redes Virtuais clássicas a Redes Virtuais novas](../virtual-network/virtual-networks-arm-asm-s2s.md).
 
 Para obter mais informações sobre como provisionar um cluster HDInsight em uma rede virtual, consulte [Provisionando clusters Hadoop no HDInsight](hdinsight-provision-clusters.md).
 
@@ -176,4 +176,4 @@ Os exemplos a seguir demonstram como usar o HDInsight com a Rede Virtual do Azur
 
 Para saber mais sobre redes virtuais do Azure, consulte [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

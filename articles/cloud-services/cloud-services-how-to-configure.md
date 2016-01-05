@@ -22,18 +22,18 @@
 # Como configurar serviços de nuvem
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-how-to-configure.md)
-- [Azure Preview Portal](cloud-services-how-to-configure-portal.md)
+- [Azure classic portal](cloud-services-how-to-configure.md)
+- [Azure portal](cloud-services-how-to-configure-portal.md)
 
-Você pode definir as configurações usadas mais frequentemente para um Serviço de Nuvem no Portal de Gerenciamento do Azure. Ou então, se desejar atualizar diretamente seus arquivos de configuração, baixe um arquivo de configuração de serviço para atualizar e carregue o arquivo atualizado e atualize o serviço de nuvem com as alterações de configuração. De qualquer maneira, as atualizações da configuração são enviadas por push a todas as instâncias de função.
+Você pode definir as configurações usadas mais frequentemente para um Serviço de Nuvem no portal clássico do Azure. Ou então, se desejar atualizar diretamente seus arquivos de configuração, baixe um arquivo de configuração de serviço para atualizar e carregue o arquivo atualizado e atualize o serviço de nuvem com as alterações de configuração. De qualquer maneira, as atualizações da configuração são enviadas por push a todas as instâncias de função.
 
-O Portal de Gerenciamento do Azure também permite que você [habilite a Conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure](cloud-services-role-enable-remote-desktop.md)
+O portal clássico do Azure também permite que você [habilite a Conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure](cloud-services-role-enable-remote-desktop.md)
 
 O Azure pode garantir apenas 99,95 por cento de disponibilidade do serviço durante as atualizações de configuração se você tiver, pelo menos, duas instâncias de função para cada função. Isso permite que uma máquina virtual processe as solicitações do cliente enquanto a outra é atualizada. Para obter mais informações, consulte [Contratos de Nível de Serviço](http://azure.microsoft.com/support/legal/sla/).
 
 ## Alterar um serviço de nuvem
 
-1. No [Portal do Azure](http://manage.windowsazure.com/), clique em **Serviços de Nuvem**, no nome do serviço de nuvem e depois em **Configurar**.
+1. No [portal clássico do Azure](http://manage.windowsazure.com/), clique em **Serviços de Nuvem**, no nome do serviço de nuvem e depois em **Configurar**.
 
     ![Página de configuração](./media/cloud-services-how-to-configure/CloudServices_ConfigurePage1.png)
     
@@ -86,4 +86,4 @@ O Azure pode garantir apenas 99,95 por cento de disponibilidade do serviço dura
 * [Habilitar a conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure](cloud-services-role-enable-remote-desktop.md)
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

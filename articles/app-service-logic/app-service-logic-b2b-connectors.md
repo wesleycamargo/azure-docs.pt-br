@@ -155,13 +155,13 @@ Nome da instância do TPM | Insira o nome do Aplicativo de API do **Gerenciament
 
 
 ## Adicione seus parceiros, contratos, certificados e esquemas 
-No Portal de Gerenciamento do Azure, abra seu aplicativo de API do TPM. Na seção **Componentes**, adicione seus parceiros, contratos, certificados e esquemas.
+No Portal do Azure, abra seu aplicativo de API do TPM. Na seção **Componentes**, adicione seus parceiros, contratos, certificados e esquemas.
 
 Você também pode adicionar contratos a conectores AS2, aplicativos de API do X12 e EDIFACT.
 
 
 ## Monitorar seus aplicativos de API
-No Portal de Gerenciamento do Azure, abra seu aplicativo de API do TPM. Na seção **Operações**, você pode exibir diferentes operações de gerenciamento. Por exemplo, você pode:
+No Portal do Azure, abra seu aplicativo de API do TPM. Na seção **Operações**, você pode exibir diferentes operações de gerenciamento. Por exemplo, você pode:
 
 - Exibir eventos de informações e erro
 - Exibir a contagem de threads e uso de memória do processo de trabalho (w3wp)
@@ -206,4 +206,4 @@ As etapas a seguir adicionam aplicativos de API B2B a aplicativos lógicos, móv
 
 [Lista de conectores e Aplicativos de API](app-service-logic-connectors-list.md)<br/><br/> [O que são conectores e Aplicativos de API do BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -27,11 +27,9 @@ O portal será executado sem problemas em PCs, Macs e tablets modernos. Atualmen
 Há suporte para as versões mais recentes dos navegadores a seguir:
 
 - Edge (mais recente)
-- Internet Explorer (11 e superior)
-- Safari (7 e superior)
+- Internet Explorer 11
+- Safari (mais recente, somente Mac)
 - Chrome (mais recente)
 - Firefox (mais recente)
 
-*Não há suporte para o Safari 6 e inferior. Se você estiver usando OS X, poderá usar o Chrome, o Firefox, ou atualizar para OS X Mavericks para obter o Safari 7.*
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="08/10/2015"
+	ms.date="11/19/2015"
 	ms.author="tdykstra"/>
 
 # Comparação de Serviço de Aplicativo, Serviços de nuvem e Máquinas virtuais do Azure
@@ -50,7 +50,7 @@ Abaixo estão alguns cenários de aplicação comuns com recomendações sobre q
 
 ### <a id="onprem"></a> Preciso de um front-end da Web com processamento em segundo plano e back-end de banco de dados para executar aplicativos de negócios integrados a ativos no local.
 
-Os Serviço de Aplicativo do Azure é uma ótima solução para aplicativos de negócios complexos. Eles permitem desenvolver aplicativos que são escalados automaticamente em uma plataforma com carga equilibrada, são protegidos pelo Active Directory e se conectam aos seus recursos no local. Eles facilitam o gerenciamento desses aplicativos por meio de um portal de gerenciamento e APIs de nível mundial, e permitem que você obtenha informações sobre como os clientes estão os utilizando com ferramentas de informações sobre os aplicativos. O novo recurso [Webjobs][] permite executar processos e tarefas em segundo plano como parte de sua camada da Web, ao passo que a conectividade híbrida e os [recursos de VNET](../fundamentals-introduction-to-azure.md#networking/) facilitam a conexão de volta aos recursos locais. O Serviço de Aplicativo do Azure fornece SLA três noves para aplicativos Web e permite que você:
+Os Serviço de Aplicativo do Azure é uma ótima solução para aplicativos de negócios complexos. Eles permitem desenvolver aplicativos que são escalados automaticamente em uma plataforma com carga equilibrada, são protegidos pelo Active Directory e se conectam aos seus recursos no local. Eles facilitam o gerenciamento desses aplicativos por meio de um portal e APIs de nível mundial, e permitem que você obtenha informações sobre como os clientes estão os utilizando com ferramentas de informações sobre os aplicativos. O novo recurso [Webjobs][] permite executar processos e tarefas em segundo plano como parte de sua camada da Web, ao passo que a conectividade híbrida e os [recursos de VNET](../fundamentals-introduction-to-azure.md#networking/) facilitam a conexão de volta aos recursos locais. O Serviço de Aplicativo do Azure fornece SLA três noves para aplicativos Web e permite que você:
 
 * Execute seus aplicativos de maneira confiável em uma plataforma de nuvem de autorrecuperação e autocorreção.
 * Escale automaticamente em uma rede global de datacenters.
@@ -71,7 +71,7 @@ O Serviço de Aplicativo do Azure é uma ótima solução para hospedar sites co
 
 ### <a id="iis6"></a> Tenho um aplicativo IIS6 em execução no Windows Server 2003.
 
-O Serviço de Aplicativo do Azure torna fácil evitar os custos com infraestrutura associados à migração de aplicativos IIS6 mais antigos. A Microsoft criou [ferramentas de migração de fácil uso e instruções de migração detalhadas](https://www.movemetowebsites.net/) que permitem que você verifique a compatibilidade e identifique mudanças que precisam ser feitas. A integração com Visual Studio, TFS e ferramentas de CMS comuns torna mais fácil implantar aplicativos IIS6 diretamente na nuvem. Uma vez implantado, o portal de gerenciamento do Azure oferece ferramentas de gerenciamento robustas que permitem realizar uma redução vertical para gerenciar custos e o dimensionamento para atender à demanda conforme necessário. Com a ferramenta de migração, você pode:
+O Serviço de Aplicativo do Azure torna fácil evitar os custos com infraestrutura associados à migração de aplicativos IIS6 mais antigos. A Microsoft criou [ferramentas de migração de fácil uso e instruções de migração detalhadas](https://www.movemetowebsites.net/) que permitem que você verifique a compatibilidade e identifique mudanças que precisam ser feitas. A integração com Visual Studio, TFS e ferramentas de CMS comuns torna mais fácil implantar aplicativos IIS6 diretamente na nuvem. Uma vez implantado, o Portal do Azure oferece ferramentas de gerenciamento robustas que permitem realizar uma redução vertical para gerenciar custos e o dimensionamento para atender à demanda conforme necessário. Com a ferramenta de migração, você pode:
 
 * Migrar rápida e facilmente seu aplicativo Web do Windows Server 2003 legado para a nuvem.
 * Escolha deixar seu banco de dados SQL conectado localmente para criar um aplicativo híbrido.
@@ -151,18 +151,18 @@ Alternância ininterrupta entre plataformas (alterne facilmente entre 32 bits e 
 Implantar código com GIT, FTP|X||X|
 Implantar o código com a implantação da Web|X||X|Os Serviços de Nuvem oferecem suporte ao uso da Implantação da Web para implantar atualizações em instâncias de função individuais. No entanto, eles não podem ser usados para a implantação inicial de uma função, e se a Implantação da Web for usada para uma atualização, você precisará implantar separadamente em cada instância de uma função. Várias instâncias são necessárias para se qualificar para SLA de Serviço de Nuvem para ambientes de produção.
 Suporte do WebMatrix|X||X|
-Acesso a serviços como o Service Bus, Armazenamento, Banco de Dados SQL|X|X|X|
+Acesso a serviços como o Barramento de Serviço, Armazenamento, Banco de Dados SQL|X|X|X|
 Camada de serviços da Web ou Web hospedada de uma arquitetura multicamada|X|X|X|
-Camada intermediária de host de uma arquitetura multicamada|X|X|X|Os aplicativo Web do Serviço de Aplicativo podem hospedar facilmente uma camada média da API REST, e o recurso [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) pode hospedar tarefas de processamento em segundo plano. Você pode executar o WebJobs em um site dedicado para alcançar a escalabilidade independente para a camada. O recurso de [aplicativos de API](../app-service-api/app-service-api-apps-why-best-platform/) de visualização oferece ainda mais recursos para hospedar serviços REST.
-Suporte integrado do MySQL como serviço|X|X|X|Os Serviços de Nuvem podem integrar o MySQL como serviço por meio de ofertas do ClearDB, mas não como parte do fluxo de trabalho do Portal de Gerenciamento.
+Camada intermediária de host de uma arquitetura multicamada|X|X|X|Os aplicativos Web do Serviço de Aplicativo podem hospedar facilmente uma camada média da API REST, e o recurso [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) pode hospedar tarefas de processamento em segundo plano. Você pode executar o WebJobs em um site dedicado para alcançar a escalabilidade independente para a camada. O recurso de [aplicativos de API](../app-service-api/app-service-api-apps-why-best-platform.md) de visualização oferece ainda mais recursos para hospedar serviços REST.
+Suporte integrado do MySQL como serviço|X|X|X|Os Serviços de Nuvem podem integrar o MySQL como serviço por meio de ofertas do ClearDB, mas não como parte do fluxo de trabalho do Portal do Azure.
 Suporte para ASP.NET, classic ASP, Node.js, PHP, Python|X|X|X|
 Dimensionamento para várias instâncias sem reimplantação|X|X|X|Máquinas Virtuais podem ser dimensionadas para várias instâncias, mas os serviços em execução nessas máquinas devem ser escritos para lidar com este dimensionamento. Você precisa configurar um balanceador de carga para rotear solicitações entre máquinas e criar um Grupo de Afinidade para impedir reinícios simultâneos de todas as instâncias devido a manutenções ou falhas de hardware.
-Suporte para SSL|X|X|X|Para aplicativos Web do Serviço de Aplicativo, o SSL para nomes de domínio personalizados só tem suporte no modo Básico e Padrão. Para obter informações sobre como usar SSL com aplicativos Web, consulte [Configurar um certificado SSL para um Website do Azure](../app-service-web/web-sites-configure-ssl-certificate/).
+Suporte para SSL|X|X|X|Para aplicativos Web do Serviço de Aplicativo, o SSL para nomes de domínio personalizados só tem suporte no modo Básico e Padrão. Para obter informações sobre como usar SSL com aplicativos Web, consulte [Configurar um certificado SSL para um Website do Azure](../app-service-web/web-sites-configure-ssl-certificate.md).
 Integração do Visual Studio|X|X|X|
 Depuração Remota|X|X|X|
 Implantar código com TFS|X|X|X|
-Isolamento de rede com a [Rede Virtual do Azure](../services/virtual-network/)|X|X|X|Consulte também [Integração de Rede Virtual dos Websites do Azure](../blog/2014/09/15/azure-websites-virtual-network-integration/)
-Suporte a [Gerenciador de Tráfego do Azure](../services/traffic-manager/)|X|X|X|
+Isolamento de rede com a [Rede Virtual do Azure](/services/virtual-network/)|X|X|X|Consulte também [Integração de Rede Virtual dos Websites do Azure](/blog/2014/09/15/azure-websites-virtual-network-integration/)
+Suporte a [Gerenciador de Tráfego do Azure](/services/traffic-manager/)|X|X|X|
 Monitoramento do ponto de extremidade integrado|X|X|X|
 Acesso remoto a área de trabalho para servidores||X|X|
 Instalação de qualquer MSI personalizado||X|X|
@@ -204,4 +204,4 @@ Para começar a usar as opções escolhidas para seu aplicativo, consulte os seg
   [armazenamento]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

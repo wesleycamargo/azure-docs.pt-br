@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/10/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # Visualização do modelo de aplicativo v2.0: referência ao token
@@ -163,4 +163,4 @@ Os tempos de vida do token a seguir são fornecidos puramente para fins de compr
 | Códigos de autorização (contas corporativas ou de estudante) | 10 minutos | Os códigos de autorização são propositadamente de curta duração e devem ser resgatados imediatamente para access\_tokens e refresh\_tokens quando eles são recebidos. |
 | Códigos de autorização (contas pessoais) | 5 minutos | Os códigos de autorização são propositadamente de curta duração e devem ser resgatados imediatamente para access\_tokens e refresh\_tokens quando eles são recebidos. Os códigos de autorização emitidos em nome de contas pessoais também são de uso ocasional. |
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

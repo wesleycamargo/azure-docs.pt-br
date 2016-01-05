@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="12/11/2015"
 	ms.author="josephd"/>
 
 # Ambiente de teste Configuração de Base com o Gerenciador de Recursos do Azure
@@ -56,9 +56,22 @@ Se ainda não tiver uma conta do Azure, você poderá se inscrever para obter um
 
 ## Fase 1: Criar a rede virtual
 
-> [AZURE.NOTE]Este artigo contém comandos para o Azure PowerShell Preview 1.0. Para executar esses comandos no Azure PowerShell 0.9.8 e em versões anteriores, substitua todas as instâncias de "-AzureRM" por "-Azure" e adicione o comando **Switch-AzureMode AzureResourceManager** antes de executar quaisquer comandos. Para saber mais, consulte [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/).
+Primeiro, inicie um prompt do Azure PowerShell.
 
-Primeiro, abra um prompt do Azure PowerShell.
+> [AZURE.NOTE]O comando a seguir define o uso do Azure PowerShell 1.0 e posterior. Para obter mais informações, consulte [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
+
+Faça logon em sua conta.
+
+	Login-AzureRMAccount
+
+Obtenha o nome da sua assinatura usando o comando a seguir.
+
+	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
+
+Defina sua assinatura do Azure. Substitua tudo que estiver entre aspas, inclusive os caracteres < and >, pelos nomes corretos.
+
+	$subscr="<subscription name>"
+	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
 
 Depois crie um novo grupo de recursos para seu laboratório de teste Configuração de Base. Para determinar um nome exclusivo de grupo de recursos, use este comando para listar os grupos de recursos existentes.
 
@@ -72,7 +85,7 @@ Crie seu novo grupo de recursos com estes comandos. Substitua tudo que estiver e
 
 Máquinas virtuais baseadas no Gerenciador de Recursos exigem uma conta de armazenamento baseada no Gerenciador de Recursos. Você deve escolher um nome global exclusivo para sua conta de armazenamento que contenha apenas letras minúsculas e números. Você pode usar este comando para listar as contas de armazenamento existentes.
 
-	Get-AzureRMStorageAccount | Sort Name | Select Name
+	Get-AzureRMStorageAccount | Sort StorageAccountName | Select StorageAccountName
 
 Crie uma nova conta de armazenamento para o novo ambiente de teste com estes comandos.
 
@@ -108,7 +121,7 @@ Em primeiro lugar, preencha o nome do grupo de recursos, o local do Azure, o nom
 	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
 	$vhdURI=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/DC1-TestLab-ADDSDisk.vhd"
 	Add-AzureRMVMDataDisk -VM $vm -Name ADDS-Data -DiskSizeInGB 20 -VhdUri $vhdURI  -CreateOption empty
-	$cred=Get-Credential -Message "Type the name and password of the local administrator account for DC1." 
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for DC1."
 	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName DC1 -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
 	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
@@ -118,12 +131,12 @@ Em primeiro lugar, preencha o nome do grupo de recursos, o local do Azure, o nom
 
 Em seguida, conecte-se à máquina virtual DC1.
 
-1.	No Portal de Visualização do Azure, clique em **Procurar Tudo** no painel esquerdo, clique em **Máquinas virtuais** na lista **Procurar** e clique na máquina virtual **DC1**.  
+1.	No portal do Azure, clique em **Máquinas Virtuais** e, em seguida, clique na máquina virtual **DC1**.  
 2.	No painel **DC1**, clique em **Conectar**.
 3.	Quando solicitado, abra o arquivo DC1.rdp baixado.
 4.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota, clique em **Conectar**.
 5.	Quando solicitado a fornecer credenciais, use estas:
-- Nome: **DC1\**[Nome da conta do administrador local]
+- Nome: **DC1\**[nome da conta do administrador local]
 - Senha: [senha da conta de administrador local]
 6.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota referindo-se aos certificados, clique em **Sim**.
 
@@ -147,12 +160,12 @@ Em seguida, configure DC1 como um controlador de domínio e servidor DNS para o 
 
 Após a reinicialização de DC1, reconecte-se à máquina virtual DC1.
 
-1.	No Portal de Visualização do Azure, clique em Procurar Tudo no painel esquerdo, clique em Máquinas virtuais na lista Procurar e clique na máquina virtual DC1.
-2.	No painel DC1, clique em Conectar.
+1.	No portal do Azure, clique em **Máquinas Virtuais** e, em seguida, clique na máquina virtual **DC1**.
+2.	No painel **DC1**, clique em **Conectar**.
 3.	Quando solicitado a abrir DC1.rdp, clique em **Abrir**.
 4.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota, clique em **Conectar**.
 5.	Quando solicitado a fornecer credenciais, use estas:
-- Nome: **CORP\**[Nome da conta do administrador local]
+- Nome: **CORP\**[nome da conta do administrador local]
 - Senha: [senha da conta de administrador local]
 6.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota referindo-se aos certificados, clique em **Sim**.
 
@@ -187,7 +200,7 @@ Em primeiro lugar, preencha o nome do grupo de recursos, o local do Azure, o nom
 	$nic = New-AzureRMNetworkInterface -Name APP1-NIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 	$vm=New-AzureRMVMConfig -VMName APP1 -VMSize Standard_A1
 	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
-	$cred=Get-Credential -Message "Type the name and password of the local administrator account for APP1." 
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for APP1."
 	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName APP1 -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
 	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
@@ -236,10 +249,10 @@ Em primeiro lugar, preencha o nome do grupo de recursos, o local do Azure, o nom
 	$nic = New-AzureRMNetworkInterface -Name CLIENT1-NIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 	$vm=New-AzureRMVMConfig -VMName CLIENT1 -VMSize Standard_A1
 	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
-	$cred=Get-Credential -Message "Type the name and password of the local administrator account for CLIENT1." 
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for CLIENT1."
 	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName CLIENT1 -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
-	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id	
+	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
 	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/CLIENT1-TestLab-OSDisk.vhd"
 	$vm=Set-AzureRMVMOSDisk -VM $vm -Name CLIENT1-TestLab-OSDisk -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
@@ -276,11 +289,9 @@ Essa é a configuração final.
 
 A configuração básica no Azure agora está pronta para desenvolvimento e teste de aplicativos ou para ambientes de teste adicionais.
 
-## Recursos adicionais
+## Próxima etapa
 
-[Ambientes de teste de nuvem híbrida](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md)
-
-[Ambiente de teste Configuração de Base](virtual-machines-base-configuration-test-environment.md)
+- Use isso como uma base para compilação o [ambiente de teste de nuvem híbrida simulado](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
 
 
 ## <a id="costs"></a>Minimizando os custos de máquinas virtuais do ambiente de teste no Azure
@@ -310,4 +321,4 @@ Para iniciar as máquinas virtuais na ordem com o Azure PowerShell, preencha o n
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="12/14/2015" 
 	ms.author="erikre"/>
 
 # Criar um aplicativo Web ASP.NET 5 no Visual Studio Code
@@ -28,12 +28,10 @@ Este tutorial mostra como criar um aplicativo Web ASP.NET 5 usando [Código do V
 
 * Instale o [Código do VS](http://code.visualstudio.com/Docs/setup).
 * Instale o [Node.js](http://nodejs.org) - o Node.js é uma plataforma para a compilação rápida e escalonável de aplicativos de servidor com o uso do JavaScript. O nó é o tempo de execução (Nó) e [npm](http://www.npmjs.com/) é o Gerenciador de Pacotes para os módulos do Nó. Você usará o npm para criar o scaffolding de um aplicativo Web ASP.NET 5 neste tutorial.
-* Instale o Git - você pode instalá-lo de um destes locais: [Chocolatey](https://chocolatey.org/packages/git) ou [git scm.com](http://git-scm.com/downloads). Se você for iniciante no Git, escolha [git-scm.com](http://git-scm.com/downloads) e selecione a opção para **Usar o Git no prompt de comando do Windows**. Depois de instalar o Git, também será necessário definir o nome de usuário e email do Git, pois eles são necessários posteriormente no tutorial (ao realizar uma confirmação do Código do VS).  
+* Instale o Git - você pode instalá-lo de um destes locais: [Chocolatey](https://chocolatey.org/packages/git) ou [git scm.com](http://git-scm.com/downloads). Se você for iniciante no Git, escolha [git-scm.com](http://git-scm.com/downloads) e selecione a opção para **Usar o Git no Prompt de Comando do Windows**. Depois de instalar o Git, também será necessário definir o nome de usuário e email do Git, pois eles são necessários posteriormente no tutorial (ao realizar uma confirmação do Código do VS).  
 
 ## Instalar o ASP.NET 5 e DNX
-O ASP.NET 5/DNX é uma pilha enxuta do .NET para criar aplicativos da Web e de nuvem modernos e executados em OS X, Linux e Windows. Ele foi criado do zero para fornecer uma estrutura de desenvolvimento otimizada para aplicativos que são implantados na nuvem ou então executados localmente. Ele consiste em componentes modulares com sobrecarga mínima, para que você mantenha a flexibilidade durante a construção de suas soluções.
-
-> [AZURE.NOTE]O ASP.NET 5 e o DNX (o Ambiente de Execução do .NET) em OS X e Linux estão em um estado inicial Beta/de Visualização.
+O ASP.NET 5/DNX (o Ambiente de Execução do .NET) é uma pilha enxuta do .NET para criar aplicativos Web e de nuvem modernos e que são executados em OS X, Linux e Windows. Ele foi criado do zero para fornecer uma estrutura de desenvolvimento otimizada para aplicativos que são implantados na nuvem ou então executados localmente. Ele consiste em componentes modulares com sobrecarga mínima, para que você mantenha a flexibilidade durante a construção de suas soluções.
 
 Este tutorial é projetado para começar a criar aplicativos com as versões de desenvolvimento ASP.NET 5 e DNX mais recentes. As instruções a seguir são específicas do Windows. Para obter instruções de instalação mais detalhadas para OS X, Linux e Windows, consulte [Instalação do ASP.NET 5 e DNX](https://code.visualstudio.com/Docs/ASPnet5#_installing-aspnet-5-and-dnx).
 
@@ -43,9 +41,9 @@ Este tutorial é projetado para começar a criar aplicativos com as versões de 
 
 	Isso baixará o script DNVM e o colocará em seu diretório de perfil do usuário.
 
-2. Reinicie o Windows para concluir a instalação do DNVM.
+2. **Reinicie o Windows** para concluir a instalação do DNVM.
 
-3. Abra um prompt de comando e verifique o local do DNVM digitando o seguinte.
+	Depois de reiniciar o Windows, é possível abrir o prompt de comando para verificar o local do DNVM digitando o seguinte:
 
 		where dnvm
 
@@ -53,11 +51,11 @@ Este tutorial é projetado para começar a criar aplicativos com as versões de 
 
 	![local dnvm](./media/web-sites-create-web-app-using-vscode/00-where-dnvm.png)
 
-4. Agora que você tem o DNVM, você precisa usá-lo para baixar o DNX, para então executar os aplicativos. Execute o seguinte no prompt de comando.
+3. Agora que você tem o DNVM, você precisa usá-lo para baixar o DNX, para então executar os aplicativos. Execute o seguinte no prompt de comando:
 
 		dnvm upgrade
 
-5. Verifique o DNVM e exiba o tempo de execução ativo digitando o seguinte no prompt de comando:
+	Verifique o DNVM e exiba o tempo de execução ativo digitando o seguinte no prompt de comando:
 
 		dnvm list
 
@@ -65,9 +63,9 @@ Este tutorial é projetado para começar a criar aplicativos com as versões de 
 
 	![Local DNVM](./media/web-sites-create-web-app-using-vscode/00b-dnvm-list.png)
 
-6. Se mais de um tempo de execução DNX estiver listado, digite o seguinte no prompt de comando para definir o tempo de execução DNX ativo para a mesma versão que é usada pelo gerador de ASP.NET 5 quando você cria seu aplicativo Web mais adiante neste tutorial. *Você não precisará alterar o tempo de execução ativo se ele estiver definido como o mais recente disponível.*
+	Se mais de um tempo de execução do DNX estiver listado, você poderá optar por inserir o seguinte (ou uma versão mais recente) no prompt de comando para definir o tempo de execução do DNX ativo. Defina-o como a mesma versão que é usada pelo gerador do ASP.NET 5 quando você criar seu aplicativo Web mais tarde neste tutorial. *Você não precisará alterar o tempo de execução ativo se ele estiver definido como o mais recente disponível.*
 
-		dnvm use 1.0.0-beta4 –p
+		dnvm use 1.0.0-update1 –p
 
 > [AZURE.NOTE]Para obter instruções de instalação mais detalhadas para OS X, Linux e Windows, consulte [Instalação do ASP.NET 5 e DNX](https://code.visualstudio.com/Docs/ASPnet5#_installing-aspnet-5-and-dnx).
 
@@ -81,71 +79,65 @@ Esta seção mostra como criar o scaffolding de um novo aplicativo Web do ASP.NE
 
 		npm install -g yo grunt-cli generator-aspnet bower
 
+	> [AZURE.NOTE]Você pode receber um aviso sugerindo que sua versão do npm está desatualizada. Esse aviso não deve afetar este tutorial.
+
 3. Digite o seguinte no prompt de comando para criar a pasta do projeto e o scaffolding do aplicativo.
 
 		yo aspnet
 
-4. Use as teclas de direção para selecionar o tipo **Aplicativo Web** no menu do gerador do ASP.NET 5 e pressione **<Enter>**.
+4. Use as teclas de direção para selecionar o tipo **Básico de Aplicativo Web** no menu do gerador do ASP.NET 5 e pressione **<Enter>**.
 
 	![Yoman - gerador do ASP.NET 5](./media/web-sites-create-web-app-using-vscode/01-yo-aspnet.png)
 
 5. Defina o nome de seu novo aplicativo Web ASP.NET como **SampleWebApp**. Como esse nome é usado em todo o tutorial, se você selecionar um nome diferente, precisará substituir cada ocorrência de **SampleWebApp**. Ao pressionar **&lt;Enter>**, o Yeoman criará uma nova pasta chamada **SampleWebApp** e os arquivos necessários para o seu novo aplicativo.
 
-6. Abra o código do VS digitando o seguinte no prompt de comando.
+6. No prompt de comando, altere os diretórios para a nova pasta de projeto:
+
+		cd SampleWebApp
+
+7. Também no prompt de comando, para instalar os pacotes NuGet necessários para executar o aplicativo, digite o seguinte comando:
+
+		dnu restore
+
+8. Abra o código do VS digitando o seguinte no prompt de comando:
 
 		code .
-
-7. No código do VS, selecione **Arquivo > Abrir Pasta** e selecione a pasta que contém seu aplicativo Web ASP.NET.
-
-	![caixa de diálogo Selecionar Pasta](./media/web-sites-create-web-app-using-vscode/02-open-folder.png)
-
-	O VSCode carregará o projeto e exibirá seus arquivos nas janelas **Explorar**.
-
-	![VSCode exibindo projeto SampleWebApp](./media/web-sites-create-web-app-using-vscode/03-vscode-project.png)
-
-8. Selecione **Exibir > Paleta de Comandos**.
-
-9. Em **Paleta de Comandos**, digite os comandos a seguir.
-
-		dnx:dnu restore - (SampleWebApp)
-
-	Quando você começar a digitar, verá a linha de comando completa na lista.
-
-	![Comando Restore](./media/web-sites-create-web-app-using-vscode/04-dnu-restore.png)
-
-	O comando Restore instala os pacotes do NuGet necessários para executar o aplicativo. Um prompt de comando exibirá **Restauração concluída** quando a restauração estiver pronta.
 
 ## Executar o aplicativo Web localmente
 
 Agora que criou o aplicativo Web e recuperou todos os pacotes do NuGet para o aplicativo, você pode executar o aplicativo Web localmente.
 
-1. Na **Paleta de Comandos** no Código do VS, digite o seguinte para executar o comando localmente:
+1. Na **Paleta de Comandos** do código do VS, digite o seguinte para mostrar as opções de comando de execução disponíveis:
 
-		dnx: kestrel - (SampleWebApp, Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.Kestrel --config hosting.ini)
+		dnx: Run Command
 
-	A janela de comando exibirá a mensagem *Iniciado*. Se a janela de comando não exibir a mensagem *Iniciado*, verifique o canto inferior esquerdo do Código do VS em busca de erros em seu projeto.
+	> [AZURE.NOTE]Se o servidor do Omnisharp não estiver sendo executado, ele será inicializado. Digite novamente o comando acima.
+
+	Em seguida, selecione o seguinte comando para executar seu aplicativo Web:
+		
+		dnx web - (SampleWebApp)
+
+	A janela de comando será exibida se o aplicativo foi iniciado. Se a janela de comando não exibir esta mensagem, verifique o canto inferior esquerdo do Código do VS em busca de erros em seu projeto.
 	
-	> [AZURE.NOTE]Emitir um comando na **Paleta de Comandos** requer um caractere **>** no início da linha de comando. Além disso, é possível exibir os detalhes do comando kestrel no arquivo *project.json*.
+	> [AZURE.NOTE]Emitir um comando na **Paleta de Comandos** exige um caractere **>** no início da linha de comando. Você pode exibir os detalhes relacionados ao comando **web** no arquivo *project.json*.
 
 2. Abra uma janela de navegador e navegue até a URL a seguir.
 
 	****http://localhost:5000**
 
-	> [AZURE.NOTE]O comando kestrel especificado no arquivo *project.json* aponta para um arquivo de detalhes de hospedagem (*hosting.ini*) que especifica o local do aplicativo local. Nesse caso, o aplicativo poderá ser visto na URL anterior.
-
 	A página padrão do aplicativo Web será exibida da maneira a seguir.
 
 	![Aplicativo Web local em um navegador](./media/web-sites-create-web-app-using-vscode/08-web-app.png)
 
-3. Feche o navegador. Na Janela Comando, pressione **Ctrl + C** para encerrar o aplicativo ou feche a Janela Comando.
+3. Feche o navegador. Na **Janela Comando**, pressione **Ctrl + C** para encerrar o aplicativo e feche a **Janela Comando**.
 
-## Criar um aplicativo Web no portal de visualização do Azure
+## Criar um aplicativo Web no Portal do Azure
 
-As etapas a seguir o guiarão ao longo da criação de um aplicativo Web no portal de visualização do Azure.
+As etapas a seguir o guiarão ao longo da criação de um aplicativo Web no Portal do Azure.
 
-1. Faça logon no [Portal de Visualização do Azure](https://portal.azure.com).
+1. Faça logon no [Portal do Azure](https://portal.azure.com).
 
-2. Clique em **NOVO** na parte superior esquerda do portal.
+2. Clique em **NOVO** na parte superior esquerda do Portal.
 
 3. Clique em **Aplicativos Web > Aplicativo Web**.
 
@@ -165,7 +157,7 @@ As etapas a seguir o guiarão ao longo da criação de um aplicativo Web no port
 
 O Git é um sistema de controle de versão distribuído que você pode usar para implantar seu aplicativo Web do Serviço de Aplicativo do Azure. Você armazenará o código que você escreve para seu aplicativo Web em um repositório Git local e você implantará seu código no Azure enviando-o por push para um repositório remoto.
 
-1. Entre no [portal de visualização do Azure](https://portal.azure.com).
+1. Faça logon no [Portal do Azure](https://portal.azure.com).
 
 2. Clique em **Procurar**.
 
@@ -245,7 +237,7 @@ Nesta seção, você criará um repositório do Git local e enviará esse reposi
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
 		[new branch]      master -> master
 
-> [AZURE.NOTE]Se fizer alterações no seu aplicativo, você poderá republicá-las diretamente no Código do VS usando a funcionalidade interna do Git selecionando a opção **Confirmar Tudo** seguida pela opção **Enviar por Push**. Você encontrará a opção **Envio por Push** disponível no menu suspenso ao lado de **Confirmar Tudo** e dos botões **Atualizar**.
+> [AZURE.NOTE]Se fizer alterações ao seu aplicativo, você poderá publicá-las de novo diretamente no Código do VS usando a funcionalidade interna do Git selecionando a opção **Confirmar Tudo** seguida da opção **Enviar por Push**. Você encontrará a opção **Envio por Push** disponível no menu suspenso ao lado de **Confirmar Todos** e dos botões **Atualizar**.
 
 Se precisa colaborar em um projeto, você deve considerar envios por push ao GitHub entre os envios por push ao Azure.
 
@@ -258,7 +250,7 @@ Isso pode ser feito de duas maneiras:
 
 		http://SampleWebAppDemo.azurewebsites.net
  
-* No portal de visualização do Azure, localize a folha de seu aplicativo Web e clique em **Procurar** para exibir seu aplicativo
+* No Portal do Azure, localize a folha de seu aplicativo Web e clique em **Procurar** para exibi-lo
 * no navegador padrão.
 
 ![Aplicativo Web do Azure](./media/web-sites-create-web-app-using-vscode/21-azurewebapp.png)
@@ -266,4 +258,4 @@ Isso pode ser feito de duas maneiras:
 ## Resumo
 Neste tutorial, você aprendeu a criar um aplicativo Web no código do VS e implantá-lo no Azure. Para obter mais informações sobre o Código do VS, confira o artigo [Por que o Código do Visual Studio?](https://code.visualstudio.com/Docs/) Para obter informações sobre os aplicativos Web do Serviço de Aplicativo, consulte [Visão geral de aplicativos Web](app-service-web-overview.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -52,7 +52,7 @@ Agora que seu dispositivo móvel está pronto, você pode atualizar o aplicativo
 9. Localize a classe *ProgressFilter* na parte inferior do arquivo e remova os comentários dela. Essa classe exibe um indicador 'loading' enquanto o *MobileServiceClient* está executando operações de rede.
 
 
-10. No Portal de Gerenciamento, clique em **Serviços Móveis** e, em seguida, clique no serviço móvel que você acabou de criar.
+10. No portal clássico do Azure, clique em **Serviços Móveis** e no serviço móvel que você acabou de criar.
 
 11. Clique na guia **Painel** e anote a **URL do Site**, clique em **Gerenciar Chaves** e anote a **Chave do aplicativo**.
 
@@ -162,4 +162,4 @@ Agora que seu dispositivo móvel está pronto, você pode atualizar o aplicativo
 <!-- URLs. -->
 [Mobile Services Android SDK]: http://aka.ms/Iajk6q
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -114,7 +114,7 @@ Alguns algoritmos de aprendizado fazem suposições específicas sobre a estrutu
 |[máquina de vetor de suporte localmente profunda](https://msdn.microsoft.com/library/azure/dn913070.aspx)|○| | |8|Bom para conjuntos de recursos grandes|
 |[computador do ponto de Bayes](https://msdn.microsoft.com/library/azure/dn905930.aspx)| |○|●|3| |
 |**Classificação multiclasse**| | | | | |
-|[regressão logística](https://msdn.microsoft.com/pt-BR/library/azure/dn905853.aspx)| |●|●|5| |
+|[regressão logística](https://msdn.microsoft.com/library/azure/dn905853.aspx)| |●|●|5| |
 |[floresta de decisão](https://msdn.microsoft.com/library/azure/dn906015.aspx)|●|○| |6| |
 |[selva de decisão ](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|Volume de memória insuficiente|
 |[rede neural](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[A personalização adicional é possível](http://go.microsoft.com/fwlink/?LinkId=402867)|
@@ -237,4 +237,4 @@ O Aprendizado de Máquina do Azure também inclui acesso a uma poderosa estrutur
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

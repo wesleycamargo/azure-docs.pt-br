@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/27/2015"
+	ms.date="12/07/2015"
 	ms.author="sdanie"/>
 
 # Personalizar o portal do desenvolvedor no Gerenciamento de API do Azure
@@ -24,7 +24,7 @@ Este guia mostra como modificar a aparência do portal do desenvolvedor no Geren
 
 Um dos principais aspectos da personalização do portal é a substituição do texto na parte superior de todas as páginas pelo nome ou logotipo de sua empresa.
 
-O conteúdo no portal do desenvolvedor é modificado por meio do portal do publicador, que é acessado pelo portal do Azure. Para acessar o portal do editor de API, clique em **Gerenciar** no portal do Azure para acessar o serviço de Gerenciamento de API.
+O conteúdo no portal do desenvolvedor é modificado por meio do portal do publicador, que é acessado pelo Portal Clássico do Azure. Para acessar o portal do editor de API, clique em **Gerenciar** no Portal Clássico do Azure do serviço de Gerenciamento de API.
 
 ![Portal do editor][api-management-management-console]
 
@@ -85,7 +85,7 @@ Clique na página **Bem-vindo** para editar o que é exibido na home page do por
 [Edit the contents of a page]: #edit-page-contents
 [Next steps]: #next-steps
 
-[Azure portal]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
 [api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
@@ -99,4 +99,4 @@ Clique na página **Bem-vindo** para editar o que é exibido na home page do por
 [bootstrap]: http://getbootstrap.com/
 [variáveis LESS]: http://getbootstrap.com/css/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

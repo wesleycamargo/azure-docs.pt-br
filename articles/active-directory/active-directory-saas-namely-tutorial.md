@@ -3,8 +3,8 @@
 	description="Saiba como configurar o logon único entre o Active Directory do Azure e o Namely."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
+	authors="jeevansd"
+	manager="prasannas"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/05/2015"
-	ms.author="markusvi"/>
+	ms.date="12/01/2015"
+	ms.author="jeedes"/>
 
 
 # Tutorial: Integração do Active Directory do Azure com o Namely
@@ -64,20 +64,20 @@ Para configurar a integração do Namely ao AD do Azure, você precisa adicionar
 4. Clique em **Adicionar** na parte inferior da página.<br><br> ![Aplicativos][3]<br>
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.<br><br> ![Aplicativos][4]<br>
 6. Na caixa de pesquisa, digite **Namely**.<br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-namely-tutorial/tutorial_namely_01.png)<br>
-7. No painel de resultados, selecione **Namely** e clique em **Concluir** para adicionar o aplicativo. <br><br>
+7. No painel de resultados, selecione **Namely** e clique em **Concluir** para adicionar o aplicativo. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-namely-tutorial/tutorial_namely_02.png)<br>
 
 ##  Configurar e testar o logon único do AD do Azure
 O objetivo desta seção é mostrar como configurar e testar o logon único do AD do Azure com o Namely, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para que o logon único funcione, o AD do Azure precisa saber qual usuário do Namely é equivalente a um usuário do AD do Azure. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do AD do Azure e o usuário relacionado do Namely.<br> Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** no AD do Azure como sendo o valor de **Nome de Usuário** no Namely.
+Para que o logon único funcione, o AD do Azure precisa saber qual usuário do Namely é equivalente a um usuário do AD do Azure. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do AD do Azure e o usuário relacionado do Namely.<br> Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuário** no AD do Azure como sendo o valor de **Nome de Usuário** no Namely.
  
 Para configurar e testar o logon único do AD do Azure com o Namely, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configurar o logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)** - para permitir que seus usuários usem esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
-4. **[Criando um usuário de teste do Namely](##creating-a-namely-test-user)** - para ter um equivalente de Brenda Fernandes no Namely que esteja vinculado à representação dela no AD do Azure.
-5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** - para verificar se a configuração funciona.
+1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
+2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**: para testar o logon único do AD do Azure com Brenda Fernandes.
+4. **[Criando um usuário de teste do Namely](#creating-a-namely-test-user)** - para ter um equivalente de Brenda Fernandes no Namely que esteja vinculado à representação dela no AD do Azure.
+5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)**: para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
 
 ### Configuração do logon único do AD do Azure
 
@@ -90,7 +90,7 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal do
 
 1. No portal do AD do Azure, na página de integração do aplicativo **Namely**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**. <br><br> ![Configurar o logon único][6] <br>
 
-2. Na página **Como você deseja que os usuários façam logon no Namely**, selecione **Logon único do AD do Azure** e clique em **Avançar**.<br><br>![Configurar o logon único](./media/active-directory-saas-namely-tutorial/tutorial_namely_03.png)<br>
+2. Na página **Como você deseja que os usuários façam logon no Namely**, selecione **Logon único do AD do Azure** e clique em **Avançar**. <br><br> ![Configurar o logon único](./media/active-directory-saas-namely-tutorial/tutorial_namely_03.png) <br>
 
 3. Na página da caixa de diálogo **Definir Configurações de Aplicativo**, execute as seguintes etapas: <br><br>![Configurar o logon único](./media/active-directory-saas-namely-tutorial/tutorial_namely_04.png) <br>
 
@@ -110,13 +110,13 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal do
 
 1. Na barra de ferramentas na parte superior, clique em **Empresa**. <br><br>![Configurar o logon único](./media/active-directory-saas-namely-tutorial/tutorial_namely_06.png)<br>
 
-1. Clique na guia **Configurações**. <br><br>![Configurar o logon único](./media/active-directory-saas-namely-tutorial/tutorial_namely_07.png)<br>
+1. Clique na guia **Configurações**. <br><br>![Configurar o logon único](./media/active-directory-saas-namely-tutorial/tutorial_namely_07.png) <br>
 
 
-1. Clique em **SAML**. <br><br>![Configurar o logon único](./media/active-directory-saas-namely-tutorial/tutorial_namely_08.png)<br>
+1. Clique em **SAML**. <br><br>![Configurar o logon único](./media/active-directory-saas-namely-tutorial/tutorial_namely_08.png) <br>
 
 
-1. Na página **Configurações de SAML**, execute as seguintes etapas:<br><br>![Configurar o logon único](./media/active-directory-saas-namely-tutorial/tutorial_namely_09.png)<br>
+1. Na página **Configurações de SAML**, execute as seguintes etapas: <br><br>![Configurar o logon único](./media/active-directory-saas-namely-tutorial/tutorial_namely_09.png) <br>
 
     a. Clique em **Habilitar SAML**.
 
@@ -151,7 +151,7 @@ O objetivo desta seção é criar no portal do Azure um usuário de teste chamad
 
     a. Em Tipo de Usuário, selecione Novo usuário na organização.
 
-    b. Na caixa de texto **Nome de Usuário**, digite **BrendaFernandes**.
+    b. Na **caixa de texto** Nome de Usuário, digite **BrendaFernandes**.
 
     c. Clique em **Próximo**.
 
@@ -167,7 +167,7 @@ O objetivo desta seção é criar no portal do Azure um usuário de teste chamad
 
 7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-namely-tutorial/create_aaduser_07.png) <br>
  
-8. Na página da caixa de diálogo **Obter senha temporária**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do Azure AD](./media/active-directory-saas-namely-tutorial/create_aaduser_08.png) <br>
+8. Na página da caixa de diálogo **Obter senha temporária**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-namely-tutorial/create_aaduser_08.png) <br>
   
     a. Anote o valor da **Nova Senha**.
 
@@ -183,7 +183,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Namely
 
 1. Faça logon em seu site de empresa do Namely como administrador.
 
-1. Na barra de ferramentas na parte superior, clique em **Pessoas**.<br><br>![Configurar o logon único](./media/active-directory-saas-namely-tutorial/tutorial_namely_10.png)<br>
+1. Na barra de ferramentas na parte superior, clique em **Pessoas**.<br><br>![Configurar o logon único](./media/active-directory-saas-namely-tutorial/tutorial_namely_10.png) <br>
 
 1. Clique na guia **Diretório**. <br><br>![Configurar o logon único](./media/active-directory-saas-namely-tutorial/tutorial_namely_11.png) <br>
 
@@ -207,11 +207,11 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Namely
 
 ### Atribuição do usuário de teste do AD do Azure
 
-O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure, concedendo a ela acesso ao Namely <br><br>![Atribuir usuário][200] <br>
+O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure, concedendo a ela acesso ao Namely. <br><br>![Atribuir usuário][200] <br>
 
 **Para atribuir Brenda Fernandes ao Namely, execute as seguintes etapas:**
 
-1. No portal do Azure, para abrir a exibição dos aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior. <br><br>![Atribuir usuário][201] <br>
+1. No portal do Azure, para abrir a exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior. <br><br>![Atribuir usuário][201] <br>
 
 2. Na lista de aplicativos, selecione **Namely**. <br><br>![Configurar o logon único](./media/active-directory-saas-namely-tutorial/tutorial_namely_50.png) <br>
 
@@ -252,4 +252,4 @@ O objetivo desta seção é testar sua configuração de logon único do AD do A
 [204]: ./media/active-directory-saas-namely-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-namely-tutorial/tutorial_general_205.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

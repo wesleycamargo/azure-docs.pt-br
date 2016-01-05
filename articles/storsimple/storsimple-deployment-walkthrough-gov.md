@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/17/2015"
+   ms.date="12/09/2015"
    ms.author="v-sharos" />
 
 # Implantar seu dispositivo StorSimple local no Portal do governo
+
+[AZURE.INCLUDE [storsimple-version-selector-deploy-gov](../../includes/storsimple-version-selector-deploy-gov.md)]
 
 ## Visão geral
 
@@ -150,7 +152,7 @@ Um serviço StorSimple Manager pode gerenciar vários dispositivos StorSimple. E
 
 ## Etapa 2: Obter a chave de registro do serviço
 
-Depois que o serviço StorSimple Manager estiver em execução, será necessário obter a chave de registro do serviço. Essa chave é usada para registrar e conectar o seu dispositivo StorSimple com o serviço.
+Depois que o serviço StorSimple Manager estiver em execução, será necessário obter a chave de registro do serviço. Essa chave é usada para registrar e conectar o seu dispositivo StorSimple ao serviço.
 
 Execute as etapas a seguir no Portal do Governo.
 
@@ -201,7 +203,7 @@ Execute estas etapas no host do Windows Server.
 
 > - Para obter instruções de instalação e configuração do MPIO e iSCSI no host do Windows Server, vá para [Configurar o MPIO para seu dispositivo StorSimple](storsimple-configure-mpio-windows-server.md). Elas também incluirão as etapas para montar, inicializar e formatar volumes StorSimple.
 
-> - Para obter instruções de instalação e configuração do MPIO e iSCSI em um host do Linux, vá para [Configurar o MPIO para seu host do Linux StorSimple](storsimple-configure-mpio-linux.md).
+> - Para obter instruções de instalação e configuração do MPIO e iSCSI em um host do Linux, vá para [Configurar o MPIO para seu host do Linux do StorSimple](storsimple-configure-mpio-linux.md)
 
 Se você decidir não configurar o MPIO, execute as etapas a seguir para montar, inicializar e formatar os volumes StorSimple em um host do Windows Server.
 
@@ -238,7 +240,7 @@ Para se conectar ao Windows PowerShell para StorSimple, você precisa usar um so
 
 Atualizar seu dispositivo pode demorar várias horas. Execute as etapas a seguir para verificar e aplicar atualizações em seu dispositivo.
 
-<!-- > [AZURE.NOTE] Se você tiver um gateway configurado em uma interface de rede que não seja Data 0, você precisará desabilitar as interfaces de rede Data 2 e Data 3 antes de instalar a atualização. Vá para **Dispositivos > Configurar** e desabilite as interfaces Data 2 e Data 3. Você deve reabilitar essas interfaces depois que o dispositivo for atualizado.-->
+<!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
 #### Para atualizar seu dispositivo
 
@@ -266,7 +268,7 @@ Execute as etapas a seguir no Portal do Governo para criar um backup manual sob 
 
 Multipath I/O (MPIO) é um recurso opcional e não é instalado no Windows Server por padrão. Ele deve ser instalado como um recurso por meio do Gerenciador de Servidores. Para obter instruções de instalação de MPIO, vá para [Configurar MPIO para o seu dispositivo StorSimple](storsimple-configure-mpio-windows-server.md).
 
-Para obter instruções de instalação do MPIO para um dispositivo StorSimple conectado a um host do Linux, vá para [Configurar o MPIO para seu host do Linux](storsimple-configure-mpio-linux.md).
+Para obter instruções de instalação do MPIO para um dispositivo do StorSimple conectado a um host do Linux, vá para [Configurar o MPIO para seu host do Linux](storsimple-configure-mpio-linux.md).
 
 > [AZURE.NOTE]Não há suporte para MPIO em um dispositivo virtual StorSimple.
 
@@ -277,4 +279,4 @@ Configurar um [dispositivo virtual](storsimple-virtual-device.md).
 Use o [Serviço StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) para gerenciar o seu dispositivo StorSimple.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

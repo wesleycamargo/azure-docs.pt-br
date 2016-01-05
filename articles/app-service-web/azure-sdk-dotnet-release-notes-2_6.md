@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="08/08/2015"
+   ms.date="12/02/2015"
    ms.author="juliako"/>
 
 
@@ -58,9 +58,11 @@ Com o SDK do Azure 2.6, você pode desenvolver aplicativos de serviço de nuvem 
 
 - O **Cache na Função** foi atualizado para usar o **SDK do Armazenamento do Microsoft Azure** versão 4.3. Até agora, o **Cache na Função** estava usando o SDK do Armazenamento do Azure versão 1.7.
 
-	Os clientes usando o SDK do Azure 2.5 ou abaixo devem atualizar para o SDK do Azure 2.6 e mudar para a nova versão do SDK do Armazenamento do Azure. Observe que o Armazenamento do Azure versão 2011-08-18 será removido em 9 de dezembro de 2015. Para obter mais detalhes, leia [esta notificação](http://azure.microsoft.com/blog/2014/08/04/microsoft-azure-storage-service-version-removal/).
+	Os clientes usando o SDK do Azure 2.5 ou abaixo devem atualizar para o SDK do Azure 2.6 e mudar para a nova versão do SDK do Armazenamento do Azure.
 
-	Para obter mais informações, consulte [Cache na Função para Cache do Azure](https://msdn.microsoft.com/library/azure/dn386103.aspx).
+	No momento, a versão 2011-08-18 do Armazenamento do Azure está agendada para ser removida em 1º de agosto de 2016. As migrações de Cache na Função do Azure SDK 2.5 ou versão anterior a 2.6 devem ser concluídas antes deste momento. Para saber mais sobre a desativação do armazenamento do Azure versão 2011-08-18, confira [Atualização sobre a remoção de versão do Serviço de Armazenamento do Microsoft Azure: extensão até 2016](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
+
+>[AZURE.IMPORTANT]Estamos anunciando a desativação de 30 de novembro de 2016, para o Serviço de Cache Gerenciado do Azure e o Cache na Função do Azure. É recomendável que você migre para o Cache Redis do Azure em preparação para essa desativação. Para obter mais informações sobre datas e diretrizes sobre migração, consulte [Qual oferta de Cache do Azure é adequada para mim?](../redis-cache/cache-faq.md#which-azure-cache-offering-is-right-for-me)
 
 ##Ferramentas do Serviço de Aplicativo do Azure
 
@@ -106,4 +108,4 @@ A conta de armazenamento de diagnóstico agora pode ser especificada no arquivo 
 
 [Informações de suporte e de desativação do SDK do Azure para .NET e APIs](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

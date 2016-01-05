@@ -22,7 +22,7 @@
 
 A análise de armazenamento do Azure executa registro em log e fornece dados de métrica para uma conta de armazenamento. Você pode usar esses dados para rastrear solicitações, analisar tendências de uso e diagnosticar problemas com sua conta de armazenamento.
 
-Para usar a análise de armazenamento, você deve habilitá-la separadamente para cada serviço que você deseja monitorar. Você pode habilitá-la no [portal do Azure](https://manage.windowsazure.com/). Para obter detalhes, consulte [Como monitorar uma conta de armazenamento](http://www.azure.com/manage/services/storage/how-to-monitor-a-storage-account/). Você também pode habilitar a análise de armazenamento programaticamente por meio da API REST ou da biblioteca de cliente. Use as operações [Obter propriedades do serviço Blob](https://msdn.microsoft.com/library/hh452239.aspx), [Obter propriedades do serviço de fila](https://msdn.microsoft.com/library/hh452243.aspx) e [Obter propriedades do serviço de tabela](https://msdn.microsoft.com/library/hh452238.aspx) para habilitar a análise de armazenamento para cada serviço.
+Para usar a análise de armazenamento, você deve habilitá-la separadamente para cada serviço que você deseja monitorar. Você pode habilitá-la no [portal do Azure](portal.azure.com). Para obter detalhes, consulte [Como monitorar uma conta de armazenamento](http://www.azure.com/manage/services/storage/how-to-monitor-a-storage-account/). Você também pode habilitar a análise de armazenamento programaticamente por meio da API REST ou da biblioteca de cliente. Use as operações [Obter propriedades do serviço Blob](https://msdn.microsoft.com/library/hh452239.aspx), [Obter propriedades do serviço de fila](https://msdn.microsoft.com/library/hh452243.aspx) e [Obter propriedades do serviço de tabela](https://msdn.microsoft.com/library/hh452238.aspx) para habilitar a análise de armazenamento para cada serviço.
 
 Os dados agregados são armazenados em um blob conhecido (para registro em log) e em tabelas conhecidas (para métricas), que podem ser acessados usando os serviços de Blob e APIs do serviço de tabela
 
@@ -126,7 +126,7 @@ Todos os dados no contêiner `$logs` podem ser acessados usando as APIs do servi
 
 A análise de armazenamento pode armazenar métricas que incluem estatísticas de transação agregadas e os dados de capacidade sobre solicitações para um serviço de armazenamento. As transações são relatadas no nível de operação da API, bem como no nível de serviço de armazenamento, e a capacidade é relatada no nível de serviço de armazenamento. Os dados de métricas podem ser usados para analisar o uso do serviço de armazenamento, diagnosticar problemas com solicitações feitas no serviço de armazenamento e melhorar o desempenho de aplicativos que usam um serviço.
 
-Para usar a análise de armazenamento, você deve habilitá-la separadamente para cada serviço que você deseja monitorar. Você pode habilitá-la no [portal do Azure](https://manage.windowsazure.com/). Para obter detalhes, consulte [Como monitorar uma conta de armazenamento](../how-to-monitor-a-storage-account.md). Você também pode habilitar a análise de armazenamento programaticamente por meio da API REST ou da biblioteca de cliente. [Use as operações Obter propriedades do serviço Blob, Obter propriedades do serviço Fila](https://msdn.microsoft.com/library/hh452239.aspx) e [Obter propriedades do serviço Tabela](https://msdn.microsoft.com/library/hh452238.aspx) para habilitar a Análise de Armazenamento para cada serviço.
+Para usar a análise de armazenamento, você deve habilitá-la separadamente para cada serviço que você deseja monitorar. Você pode habilitá-la no [portal do Azure](portal.azure.com). Para obter detalhes, consulte [Como monitorar uma conta de armazenamento](../how-to-monitor-a-storage-account.md). Você também pode habilitar a análise de armazenamento programaticamente por meio da API REST ou da biblioteca de cliente. [Use as operações Obter propriedades do serviço Blob, Obter propriedades do serviço Fila](https://msdn.microsoft.com/library/hh452239.aspx) e [Obter propriedades do serviço Tabela](https://msdn.microsoft.com/library/hh452238.aspx) para habilitar a Análise de Armazenamento para cada serviço.
 
 ### Métricas de transação
 
@@ -206,4 +206,4 @@ Ao analisar os dados de análise de armazenamento, você pode usar as tabelas no
 - [Esquema da tabela de métricas da análise de armazenamento](https://msdn.microsoft.com/library/hh343264.aspx)
 - [Mensagens de operações e status registradas de análise de armazenamento](https://msdn.microsoft.com/library/hh343260.aspx)  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

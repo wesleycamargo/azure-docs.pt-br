@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/31/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Substitua o módulo de bateria de backup no dispositivo StorSimple
@@ -35,7 +35,7 @@ O módulo de bateria de backup de seu dispositivo Microsoft Azure StorSimple é 
 
 #### Para remover o módulo de bateria de backup
 
-1. No Portal de gerenciamento, navegue até **Dispositivos**>**Manutenção**>**Status de hardware**. Em **Componentes compartilhados**, observe o status da bateria.
+1. No Portal clássico do Azure, acesse **Dispositivos** > **Manutenção** > **Status de Hardware**. Em **Componentes compartilhados**, observe o status da bateria.
 
 2. Identifique o PCM no qual a bateria falhou. A Figura 1 mostra a parte traseira do dispositivo StorSimple.
 
@@ -89,13 +89,13 @@ Execute as seguintes etapas para instalar o módulo de bateria de reposição no
 
 3. Substitua o PCM no compartimento primário, seguindo as orientações em [Substituir um módulo de energia e refrigeração no seu dispositivo StorSimple](storsimple-power-cooling-module-replacement.md).
 
-4. Após a conclusão da substituição, acesse o Portal de Gerenciamento e navegue até **Dispositivos** > **Manutenção** > **Status de Hardware** e verifique o status da bateria para se certificar de que a instalação foi bem-sucedida. Se o LED estiver exibindo um status verde, a bateria estará íntegra.
+4. Após a conclusão da substituição, acesse o Portal clássico do Azure e navegue até **Dispositivos** > **Manutenção** > **Status de Hardware** e verifique o status da bateria para se certificar de que a instalação foi bem-sucedida. Se o LED estiver exibindo um status verde, a bateria estará íntegra.
 
 ## Realizar manutenção no módulo de bateria de backup
 
 No dispositivo, o módulo de bateria de backup fornece energia ao controlador durante um evento de perda de energia. Ele permite que o dispositivo StorSimple salve dados críticos antes de encerrar de maneira controlada. Com duas baterias completamente carregadas nos PCMs, o sistema pode manipular dois eventos consecutivos de perda.
 
-No Portal de Gerenciamento, o **Status de Hardware** na pagina **Manutenção** indica se a bateria está com defeito ou quando está próxima do fim da vida útil. O status da bateria é indicado por **Bateria no PCM 0** ou **Bateria no PCM 1** em **Componentes compartilhados**. Essa página mostrará um estado **DEGRADADO** quando próximo do fim da vida útil e **FALHA** quando atingido o fim da vida útil.
+No Portal clássico do Azure, o **Status de Hardware** na página **Manutenção** indica se a bateria está com defeito ou se está próxima do fim da vida útil. O status da bateria é indicado por **Bateria no PCM 0** ou **Bateria no PCM 1** em **Componentes compartilhados**. Essa página mostrará um estado **DEGRADADO** quando próximo do fim da vida útil e **FALHA** quando atingido o fim da vida útil.
 
 >[AZURE.NOTE]A bateria pode relatar **FALHA** quando precisar apenas ser carregada.
  
@@ -115,4 +115,4 @@ Se o estado **DEGRADADO** for exibido, recomendamos o seguinte curso de ação:
 
 Saiba mais sobre [substituição de componentes de hardware do StorSimple ](storsimple-hardware-component-replacement.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

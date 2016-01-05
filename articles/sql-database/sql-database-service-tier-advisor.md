@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="10/02/2015"
+   ms.date="12/01/2015"
    ms.author="sstein"/>
 
 # Recomendações de camada de preços do Banco de Dados SQL
 
  São fornecidas recomendações tipo de preço que recomendam a camada de serviços e o nível de desempenho mais adequados para executar a carga de trabalho do banco de dados SQL do Azure.
 
-> [AZURE.NOTE]As recomendações de tipo de preço estão disponíveis apenas para bancos de dados Web e Business e pools de banco de dados elástico, e apenas no [Portal de Visualização do Azure](https://portal.azure.com/).
+> [AZURE.NOTE]As recomendações de tipo de preço estão disponíveis apenas para bancos de dados Web e Business e pools de banco de dados elástico, e apenas no [Portal do Azure](https://portal.azure.com/).
 
 
 Obtenha as recomendações de tipo de preço durante as seguintes tarefas:
@@ -58,7 +58,7 @@ Com base no uso do banco de dados, atualmente, podemos encontrar 2 categorias de
 
 Obtenha recomendações de camada de preços selecionando um banco de dados Web ou Business e clicando no bloco **Camada de preços**. (As recomendações de tipo de preço também estarão disponíveis quando você [Atualizar o Azure SQL Server para o V12](sql-database-v12-upgrade.md).)
 
-1. Entre no [Portal de Visualização do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. Clique em **PROCURAR** > **bancos de dados SQL**.
 4. Na folha **Bancos de Dados SQL**, clique no banco de dados para o qual você deseja ver uma recomendação:
 
@@ -87,7 +87,7 @@ As recomendações de camada de preços proporcionam uma experiência automatiza
 
 ## Próximas etapas
 
-Dependendo dos detalhes do seu banco de dados específico, a execução de uma atualização ou um downgrade normalmente não acontece de forma instantânea. O portal de gerenciamento fornecerá notificações à medida que o banco de dados faz a transição para sua nova camada, ou você pode monitorar o status da atualização consultando a exibição [sys.dm\_operation\_status (Banco de Dados SQL do Azure)](https://msdn.microsoft.com/library/dn270022.aspx) no banco de dados mestre do Servidor do Banco de Dados SQL.
+Dependendo dos detalhes do seu banco de dados específico, a execução de uma atualização ou um downgrade normalmente não acontece de forma instantânea. O portal fornecerá notificações à medida que o banco de dados faz a transição para sua nova camada, ou você pode monitorar o status da atualização consultando a exibição [sys.dm\_operation\_status (Banco de Dados SQL do Azure)](https://msdn.microsoft.com/library/dn270022.aspx) no banco de dados mestre do Servidor de Banco de Dados SQL.
 
 
 <!--Image references-->
@@ -100,4 +100,4 @@ Dependendo dos detalhes do seu banco de dados específico, a execução de uma a
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

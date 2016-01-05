@@ -3,8 +3,8 @@
 	description="Aborda como realizar a instalação silenciosa do Conector de proxy de Aplicativo do Azure AD para fornecer acesso remoto seguro aos seus aplicativos locais."
 	services="active-directory"
 	documentationCenter=""
-	authors="rkarlin"
-	manager="steven.powell"
+	authors="kgremban"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/19/2015"
-	ms.author="rkarlin"/>
+	ms.author="kgremban"/>
 
 # Como instalar silenciosamente o Conector de proxy de aplicativo do Azure AD
 
@@ -46,21 +46,21 @@ Isso pode ser feito usando um dos métodos a seguir:
 
 1. Crie o objeto Credenciais do Windows PowerShell executando o seguinte, onde "nome de usuário" e "senha" devem ser substituídos pelo nome de usuário e senha de seu diretório:
 
-        $User = "<username>" 
-        $PlainPassword = '<password>' 
-        $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force 
-        $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword 
-    
+        $User = "<username>"
+        $PlainPassword = '<password>'
+        $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
+        $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
+
 2. Vá para **C:\\Arquivos de Programa\\Microsoft AAD App Proxy Connector** e execute o script usando o objeto de credenciais do PowerShell criado: onde $cred é o nome do objeto de credenciais do PowerShell criado:
 
-        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred 
+        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred
 
 
 ### Registre o Conector usando um token criado offline
 
 1. Crie um token offline usando a classe AuthenticationContext, com os valores no trecho de código:
 
-        
+
         using System;
         using System.Diagnostics;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -142,4 +142,4 @@ Você pode fazer muito mais com o Proxy de Aplicativo:
 * [Inscrever-se no Azure como uma organização](sign-up-organization.md)
 * [Identidade do Azure](fundamentals-identity.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -34,7 +34,7 @@ O Gerenciador de Armazenamento do Azure é uma ferramenta gratuita do Windows pa
 
 Este documento pressupõe que você tenha uma assinatura, uma conta de armazenamento do Azure e a chave de armazenamento correspondente dessa conta. Antes de carregar/baixar os dados, você deve conhecer o nome e a chave da sua conta do Armazenamento do Azure.
 
-- Para configurar uma assinatura do Azure, consulte [Avaliação gratuita de um mês](https://azure.microsoft.com/pt-BR/pricing/free-trial/).
+- Para configurar uma assinatura do Azure, confira [Avaliação gratuita de um mês](https://azure.microsoft.com/pricing/free-trial/).
 - Para obter instruções sobre como criar uma conta de armazenamento e para obter informações sobre conta e chave, consulte [Sobre contas do armazenamento do Azure](../storage-create-storage-account.md).
 
 
@@ -55,4 +55,4 @@ As etapas a seguir mostram como carregar/baixar os dados usando o Gerenciador de
 [2]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img2.png
 [3]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img3.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

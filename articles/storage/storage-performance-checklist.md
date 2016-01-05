@@ -3,8 +3,8 @@
 	description="Uma lista de verificação de práticas comprovadas para uso com o Armazenamento do Azure no desenvolvimento de aplicativos de alto desempenho."
 	services="storage"
 	documentationCenter=""
-	authors="tamram"
-	manager="carolz"
+	authors="robinsh"
+	manager="carmonm"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015" 
-	ms.author="tamram"/>
+	ms.date="12/04/2015" 
+	ms.author="robinsh"/>
 
 # Lista de verificação de desempenho e escalabilidade do armazenamento do Microsoft Azure
 
@@ -30,8 +30,6 @@ Este artigo organiza as práticas comprovadas nos grupos a seguir. As práticas 
 -	Blobs
 -	Tabelas
 -	Filas  
-
-O serviço Arquivos do Azure está na fase de visualização. Por isso, as práticas comprovadas dele serão adicionadas ao artigo posteriormente.
 
 |Concluído|	Área|	Categoria|	Pergunta
 |----|------|-----------|-----------
@@ -202,7 +200,7 @@ As bibliotecas cliente sabem quais erros admitem novas tentativas ou não. No en
 Para obter mais informações sobre os códigos de erro de armazenamento, confira [Status e códigos de erro](http://msdn.microsoft.com/library/azure/dd179382.aspx) no site do Microsoft Azure.
 
 ##Blobs
-Além das práticas comprovadas para [todos os serviços](#allservices) descritos, as práticas comprovadas a seguir aplicam-se especificamente ao serviço blob.
+Além das práticas comprovadas para [todos os serviços](#allservices) descritos, as práticas comprovadas a seguir aplicam-se especificamente ao serviço de blob.
 
 ###Metas de escalabilidade específicas do blob
 ####<a name="subheading16"></a>Largura de banda e operações por blob
@@ -387,4 +385,4 @@ Você deve usar filas para que a arquitetura do aplicativo seja escalonável. A 
 Este artigo falou sobre algumas das práticas comprovadas mais comuns para otimizar o desempenho com o uso do armazenamento do Azure. Nós recomendamos que cada desenvolvedor avalie seu aplicativo com base nas práticas descritas acima e considere seguir as recomendações para obter desempenho excelente para seus aplicativos que usam o Armazenamento do Azure.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

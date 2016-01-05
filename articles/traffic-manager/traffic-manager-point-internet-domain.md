@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Apontar um domínio de Internet da empresa para um Domínio do Gerenciador de Tráfego do Azure.
@@ -29,12 +29,10 @@ Todas as solicitações de tráfego para *www.contoso.com* agora serão direcion
 
 ## Próximas etapas
 
-[Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-load-balancing-methods.md)
+[Métodos de roteamento do Gerenciador de Tráfego](traffic-manager-routing-methods.md)
 
 [Gerenciador de Tráfego - Desabilitar, habilitar ou excluir um perfil](disable-enable-or-delete-a-profile.md)
 
 [Gerenciador de Tráfego - Desabilitar ou habilitar um ponto de extremidade](disable-or-enable-an-endpoint.md)
 
-[O que é o Gerenciador de Tráfego?](traffic-manager-overview.md)
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configurar um conjunto de disponibilidade para VMs | Microsoft Azure"
-	description="Configure um conjunto de disponibilidade para uma máquina virtual nova ou existente no modelo de implantação clássico usando o Portal do Azure e o Azure PowerShell."
+	description="Configure um conjunto de disponibilidade para uma máquina virtual nova ou existente no modelo de implantação clássico usando o portal clássico do Azure e o Azure PowerShell."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -35,11 +35,11 @@ Você pode escolher uma destas opções para colocar máquinas virtuais em um co
 
 ## <a id="createset"> </a>Opção 1: crie uma máquina virtual e um conjunto de disponibilidade ao mesmo tempo##
 
-Você pode usar comandos do Portal do Azure ou do Azure PowerShell para fazer isso.
+Você pode usar comandos do portal clássico do Azure ou do Azure PowerShell para fazer isso.
 
-Para usar o portal do Azure:
+Para usar o portal clássico do Azure:
 
-1. Se ainda não tiver feito isso, entre no portal do Azure.
+1. Se você ainda não fez isso, entre no portal clássico do Azure.
 
 2. Na barra de comandos, clique em **Nova**.
 
@@ -72,9 +72,9 @@ Para usar comandos do Azure PowerShell para criar uma máquina virtual do Azure 
 
 ## <a id="addmachine"> </a>Opção 2: adicione uma máquina virtual já existente a um conjunto de disponibilidade##
 
-No portal do Azure, é possível adicionar máquinas virtuais existentes a um conjunto de disponibilidade existente ou criar um novo conjunto para essas máquinas. (Lembre-se de que as máquinas virtuais no mesmo conjunto de disponibilidade devem pertencer ao mesmo serviço de nuvem). As etapas são praticamente as mesmas. Como o PowerShell do Azure é possível adicionar a máquina virtual a um conjunto de disponibilidade existente.
+No portal clássico do Azure, é possível adicionar máquinas virtuais existentes a um conjunto de disponibilidade existente ou criar um novo conjunto para essas máquinas. (Lembre-se de que as máquinas virtuais no mesmo conjunto de disponibilidade devem pertencer ao mesmo serviço de nuvem). As etapas são praticamente as mesmas. Como o PowerShell do Azure é possível adicionar a máquina virtual a um conjunto de disponibilidade existente.
 
-1. Se ainda não tiver feito isso, entre no portal do Azure.
+1. Se ainda não fez isso, entre no portal clássico do Azure.
 
 2. Na barra de comandos, clique em **Máquinas Virtuais**.
 
@@ -86,7 +86,7 @@ No portal do Azure, é possível adicionar máquinas virtuais existentes a um co
 
 	R. Selecione **Criar um conjunto de disponibilidade** e atribua um nome ao conjunto.
 
-	B. Selecione **Selecionar um conjunto de disponibilidade** e selecione um dos conjuntos da lista.
+	B. Selecione **Selecionar um conjunto de disponibilidade** e, em seguida, selecione um dos conjuntos da lista.
 
 	![Criar um conjunto de disponibilidade para uma máquina virtual existente](./media/virtual-machines-how-to-configure-availability/VMavailabilityExistingVM.png)
 
@@ -112,4 +112,4 @@ Para usar os comandos do PowerShell do Azure, abra uma sessão do PowerShell do 
 [Visão geral da rede virtual]: virtual-networks-overview.md
 [Artigos para máquinas virtuais no Gerenciamento de Serviços]: virtual-machines-service-management-articles.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

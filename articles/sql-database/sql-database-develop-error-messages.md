@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="12/06/2015" 
 	ms.author="genemi"/>
 
 
@@ -80,15 +80,13 @@ Erros de falha transitória devem solicitar que o programa cliente execute a *l�
 |49919|16|Não é possível criar o processo ou atualizar a solicitação. Muitas operações de criação ou atualização em andamento para a assinatura "%ld".<br/><br/>O serviço está ocupado processando várias solicitações de criação ou atualização para a assinatura ou o servidor. As solicitações estão bloqueadas no momento para a otimização de recursos. Consulte [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) para operações pendentes. Espere até que as solicitações pendentes de criação ou atualização sejam concluídas ou exclua uma das suas solicitações pendentes e tente a solicitação novamente mais tarde. |
 |49920|16|Não é possível processar a solicitação. Muitas operações em andamento para assinatura "% ld".<br/><br/>O serviço está ocupado processando várias solicitações para essa assinatura. As solicitações estão bloqueadas no momento para a otimização de recursos. Consulte [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) para status de operação. Espere até que as solicitações pendentes estejam concluídas ou exclua uma das suas solicitações pendentes e tente a solicitação novamente mais tarde. |
 
-**Observação:** talvez seja necessário incluir os erros de federação 10053 e 10054 em sua lógica de repetição.
-
 
 <a id="bkmk_b_database_copy_errors" name="bkmk_b_database_copy_errors">&nbsp;</a>
 
 ## Erros de cópia de banco de dados
 
 
-A tabela a seguir abrange vários erros que você pode encontrar ao copiar um banco de dados no Banco de Dados SQL do Azure. Para obter mais informações, consulte [Copiar um banco de dados SQL do Azure](sql-database-copy.md).
+A tabela a seguir abrange vários erros que você pode encontrar ao copiar um banco de dados no Banco de Dados SQL do Azure. Para saber mais, confira [Copiar um Banco de Dados SQL do Azure](sql-database-copy.md).
 
 
 |Número do erro|Severidade|Descrição|
@@ -130,8 +128,8 @@ A tabela a seguir abrange os erros causados pelo uso excessivo de recursos enqua
 
 |Número do erro|Severidade|Descrição|
 |---:|---:|:---|
-|10928|20|ID do recurso: %d. O limite de %s para o banco de dados é %d e foi atingido. Para saber mais, consulte [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>A ID do recurso qual dos recursos atingiu o limite. Para threads de trabalho, a ID do recurso é igual a 1. Para sessões, a ID do recurso é igual a 2.<br/><br/>*Observação:* para obter mais informações sobre esse erro e como resolvê-lo, consulte:<br/>•[Limites de recursos do Banco de Dados SQL do Azure](sql-database-resource-limits.md). |
-|10929|20|ID do recurso: %d. A garantia mínima de %s é %d, o limite máximo é %d e o uso atual do banco de dados é %d. No entanto, o servidor está muito ocupado para dar suporte a solicitações maiores que %d para este banco de dados. Para saber mais, consulte [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Caso contrário, tente novamente mais tarde.<br/><br/>A ID do recurso indica qual dos recursos atingiu o limite. Para threads de trabalho, a ID do recurso é igual a 1. Para sessões, a ID do recurso é igual a 2.<br/><br/>*Observação:* para obter mais informações sobre esse erro e como resolvê-lo, consulte:<br/>•[Limites de recursos do Banco de Dados SQL do Azure](sql-database-resource-limits.md).|
+|10928|20|ID do recurso: %d. O limite de %s para o banco de dados é %d e foi atingido. Para saber mais, confira [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>A ID do recurso indica qual dos recursos atingiu o limite. Para threads de trabalho, a ID do recurso é igual a 1. Para sessões, a ID do recurso é igual a 2.<br/><br/>*Observação:* para saber mais sobre esse erro e como resolvê-lo, confira:<br/>•[Limites de recursos do Banco de Dados SQL do Azure](sql-database-resource-limits.md). |
+|10929|20|ID do recurso: %d. A garantia mínima de %s é %d, o limite máximo é %d e o uso atual do banco de dados é %d. No entanto, o servidor está muito ocupado para dar suporte a solicitações maiores que %d para este banco de dados. Para saber mais, confira [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Caso contrário, tente novamente mais tarde.<br/><br/>A ID do recurso indica qual dos recursos atingiu o limite. Para threads de trabalho, a ID do recurso é igual a 1. Para sessões, a ID do recurso é igual a 2.<br/><br/>*Observação:* para saber mais sobre esse erro e como resolvê-lo, confira:<br/>•[Limites de recursos do Banco de Dados SQL do Azure](sql-database-resource-limits.md).|
 |40544|20|O banco de dados atingiu sua cota de tamanho. Particione ou exclua dados, descarte índices ou consulte a documentação para conhecer as possíveis resoluções.|
 |40549|16|A sessão foi encerrada porque você tem uma transação de longa duração. Tente encurtar a transação.|
 |40550|16|A sessão foi encerrada porque adquiriu muitos bloqueios. Tente ler ou modificar menos linhas em uma única transação.|
@@ -143,49 +141,8 @@ A tabela a seguir abrange os erros causados pelo uso excessivo de recursos enqua
 Para ver uma discussão adicional sobre a governança de recursos e os erros associados a ela, consulte:
 
 
-- [Limites de Recurso de Banco de Dados SQL do Azure](sql-database-resource-limits.md).
+- [Limites de recursos do Banco de Dados SQL do Azure](sql-database-resource-limits.md)
 
-
-<a id="bkmk_d_federation_errors" name="bkmk_d_federation_errors">&nbsp;</a>
-
-## Erros de federação
-
-
-A tabela a seguir abrange os erros que você pode encontrar ao trabalhar com federações.
-
-
-> [AZURE.IMPORTANT]A implementação atual das Federações será descontinuada com as camadas de serviço Web e Business. A versão V12 do Banco de Dados SQL do Azure não dá suporte às camadas de serviço Web e Business.
-> 
-> O recurso de Dimensionamento elástico foi projetado para criar aplicativos de fragmentação com um esforço mínimo.
-> 
-> Para obter mais informações sobre o Dimensionamento Elástico, consulte [Tópicos sobre o Dimensionamento Elástico do Banco de Dados SQL do Azure](sql-database-elastic-scale-documentation-map.md). Considere a implantação de soluções personalizadas de fragmentação para maximizar a escalabilidade, a flexibilidade e o desempenho. Para obter mais informações sobre fragmentação personalizada, consulte [Visão geral dos recursos do Banco de Dados Elástico](sql-database-elastic-scale-introduction.md).
-
-
-|Número do erro|Severidade|Descrição|Redução|
-|---:|---:|:---|:---|
-|266|16|A instrução <statement> não é permitida em transações com várias instruções|Verifique se `@@trancount` é 0 na conexão antes de emitir a instrução.|
-|2072|16|O banco de dados “%.&#x2a;ls” não existe|Verifique `sys.databases` quanto ao estado do banco de dados antes de emitir `USE FEDERATION`.|
-|2209|16|%s Erro de sintaxe próximo a '%ls'|`FEDERATED ON` só pode ser usado ao criar tabelas em membros da federação.|
-|2714|16|Já existe um objeto chamado '%.&#x2a;ls' no banco de dados|O nome da federação já existe.|
-|10054, 10053|20|Ocorreu um erro de nível de transporte ao receber os resultados do servidor. Uma conexão estabelecida foi anulada pelo software no computador host|Implemente a lógica de repetição em seu aplicativo.|
-|40530|15|<statement> deve ser a única instrução no lote|Certifique-se de que não haja nenhuma outra instrução no lote|
-|40604|16|Não foi possível `CREATE DATABASE`, pois isso excederia a cota do servidor|Expanda a cota de contagem do banco de dados do servidor|
-|45000|16|Falha na operação <statement>. O nome da federação especificado <federation_name> não é válido|Federation\_name não está em conformidade com as regras de nome de federação ou não é um identificador válido|
-|45001|16|Falha na operação <statement>. O nome da federação especificado não existe|O nome da federação não existe|
-|45002|16|Falha na operação <statement>. O nome da chave de federação especificada <distribution_name> não é válido|Chave de federação inválida ou inexistente|
-|45004|16|Falha na operação <statement>. O valor especificado não é válido para a chave da federação <distribution_name> e a federação <federation_name>|`USE FEDERATION`: use um valor de limite que esteja no domínio do tipo de dados da chave de federação ou que não seja NULL.<br/><br/>`ALTER FEDERATION SPLIT`: use um valor válido no domínio da chave de federação que ainda não seja um ponto de divisão existente.<br/><br/>`ALTER FEDERATION DROP`: use um valor válido no domínio da chave de federação que já seja um ponto de divisão.|
-|45005|16|<statement> não pode ser executado enquanto outra operação de federação estiver em andamento na federação <federation_name> e no membro com a id <member_id>|Aguarde a operação simultânea ser concluída.|
-|45006|16|Falha nas operações <statement>. Relações de chave estrangeira em tabelas de referência que se referem a tabelas federadas não são permitidas em membros da federação|Sem suporte.|
-|45007|16|Falha na operação <statement>. Relações de chave estrangeira entre tabelas federadas devem incluir as colunas de chave de federação.|Sem suporte|
-|45008|16|Falha na operação <statement>. O tipo de dados da chave de federação não coincide com o tipo de dados da coluna|Sem suporte.|
-|45009|16|Falha na operação <statement>. A operação não tem suporte em conexões de filtragem|Sem suporte.|
-|45010|16|Falha na operação <statement>. Não é possível atualizar a chave da federação|Sem suporte.|
-|45011|16|Falha na operação de <statement>. Não é possível atualizar o esquema da chave da federação|Sem suporte.|
-|45012|16|O valor especificado para a chave de federação não é válido|O valor deve estar no intervalo que a conexão está tratando.<br/><br/>Se filtrado, o valor da chave de federação especificado.<br/><br/>Se não filtrado, o intervalo coberto pelo membro da federação.|
-|45013|16|O SID já existe com um nome de usuário diferente|O SID de um usuário em um membro da federação é copiado do SID a mesma conta de usuário na raiz da federação. Sob certas condições, o SID já pode estar em uso.|
-|45014|16|Não há suporte para %Is em %Is.|Operação sem suporte.|
-|45022|16|Falha na operação <statement>. O valor limite especificado já existe para a chave de federação <distribution_name> e a federação <federation_name>|Especifique um valor que já seja um valor de limite.|
-|45023|16|Falha na operação <statement>. O valor limite especificado não existe para a chave de federação <distribution_name> e a federação <federation_name>|Especifique um valor que não seja um valor de limite.|
 
 
 <a id="bkmk_e_general_errors" name="bkmk_e_general_errors">&nbsp;</a>
@@ -228,7 +185,7 @@ A tabela a seguir lista todos os erros gerais que não se enquadram em nenhuma c
 |40528|16|Usuários não podem ser mapeados para certificados, chaves assimétricas ou logons do Windows nesta versão do SQL Server.|
 |40529|16|A função incorporada '%.&#x2a;ls' no contexto de representação não tem suporte nesta versão do SQL Server.|
 |40532|11|Não é possível abrir o servidor "%.&#x2a;ls" solicitado pelo logon. Houve falha no logon.|
-|40553|16|A sessão foi encerrada devido ao uso excessivo de memória. Tente modificar a consulta para processar menos linhas.<br/><br/>*Observação:* reduzir o número de operações `ORDER BY` e `GROUP BY` em seu código Transact-SQL ajuda a reduzir os requisitos de memória de sua consulta.|
+|40553|16|A sessão foi encerrada devido ao uso excessivo de memória. Tente modificar sua consulta para processar menos linhas.<br/><br/>*Observação:* reduzir o número de operações `ORDER BY` e `GROUP BY` em seu código Transact-SQL ajuda a reduzir os requisitos de memória de sua consulta.|
 |40604|16|Não foi possível CRIAR/ALTERAR O BANCO DE DADOS pois isso excederia a cota do servidor.|
 |40606|16|Anexar bancos de dados não tem suporte nesta versão do SQL Server.|
 |40607|16|Logons do Windows não têm suporte nesta versão do SQL Server.|
@@ -250,16 +207,17 @@ A tabela a seguir lista todos os erros gerais que não se enquadram em nenhuma c
 |40642|17|O servidor está muito ocupado no momento. Tente novamente mais tarde.|
 |40643|16|O valor de cabeçalho x-ms-version especificado é inválido.|
 |40644|14|Falha ao autorizar o acesso à assinatura especificada.|
-|40645|16|O nome do servidor <servername> não pode ficar nulo ou vazio. Ele pode ser composto apenas por letras minúsculas de “a” a “z”, números de 0 a 9 e o hífen. O hífen não pode ser o primeiro ou o último caractere do nome.|
+|40645|16|Servername <servername> não pode ser nulo ou vazio. Ele pode ser composto apenas por letras minúsculas de “a” a “z”, números de 0 a 9 e o hífen. O hífen não pode ser o primeiro ou o último caractere do nome.|
 |40646|16|A ID da assinatura não pode ficar vazia.|
 |40647|16|A assinatura <id da assinatura> não tem um nome de servidor.|
 |40648|17|Muitas solicitações foram executadas. Tente novamente mais tarde.|
 |40649|16|Tipo de conteúdo inválido especificado. Somente aplicativo/xml tem suporte.|
 |40650|16|A assinatura <subscription-id> não existe ou não está pronta para a operação.|
 |40651|16|Falha ao criar o servidor porque a assinatura <subscription-id> está desabilitada.|
-|40652|16|Não é possível mover ou criar o servidor. A assinatura <subscription-id> ultrapassará a cota do servidor.|
+|40652|16|Não é possível mover ou criar o servidor. Assinatura <subscription-id> excederá a cota do servidor.|
 |40671|17|Falha de comunicação entre o gateway e o serviço de gerenciamento. Tente novamente mais tarde.|
-|45168|16|O sistema do SQL Azure está sob carga e está estabelecendo um limite superior para operações CRUD de BD simultâneas para um único servidor (por exemplo, criar banco de dados). O servidor especificado na mensagem de erro ultrapassou o número máximo de conexões simultâneas. Tente novamente mais tarde.|
+|40852|16|Não é possível abrir o banco de dados '%.*ls' no servidor '%.*ls' solicitado pelo logon. O acesso ao banco de dados é permitido apenas usando uma cadeia de conexão habilitada para segurança. Para acessar esse banco de dados, modifique as cadeias de conexão para conter “secure” no FQDN do servidor. 'server name'.database.windows.net deve ser modificado para 'server name'.database.`secure`.windows.net.|
+|45168|16| O sistema do SQL Azure está sob carga e está estabelecendo um limite superior em operações CRUD simultâneas de BD para um único servidor (por exemplo, criar banco de dados). O servidor especificado na mensagem de erro ultrapassou o número máximo de conexões simultâneas. Tente novamente mais tarde.|
 |45169|16|O sistema SQL Azure está sob carga e está estabelecendo um limite superior para o número de operações CRUD de servidor simultâneas para uma única assinatura (por exemplo, criar servidor). A assinatura especificada na mensagem de erro ultrapassou o número máximo de conexões simultâneas e a solicitação foi negada. Tente novamente mais tarde.|
 
 
@@ -268,4 +226,4 @@ A tabela a seguir lista todos os erros gerais que não se enquadram em nenhuma c
 - [Diretrizes e limitações gerais do Banco de Dados SQL do Azure](sql-database-general-limitations.md)
 - [Limites de recursos do Banco de Dados SQL do Azure](sql-database-resource-limits.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

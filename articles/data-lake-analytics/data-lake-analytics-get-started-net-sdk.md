@@ -43,7 +43,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 - **[Ferramentas do Data Lake para Visual Studio](http://aka.ms/adltoolsvs)**. 
 - **Uma conta da Análise Data Lake**. Veja [Criar uma conta da Análise Azure Data Lake](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
 
-	As Ferramentas do Data Lake não dão suporte à criação de contas da Análise Data Lake. Você precisa criá-la usando o Portal de Visualização do Azure, Azure PowerShell, SDK do .NET ou a CLI do Azure.
+	As Ferramentas do Data Lake não dão suporte à criação de contas da Análise Data Lake. Portanto, você precisa criá-la usando o Portal do Azure, Azure PowerShell, SDK do .NET ou a CLI do Azure.
 
 ##Criar um aplicativo de console
 
@@ -252,7 +252,7 @@ Um log de pesquisa de exemplo foi copiado em um contêiner público do Blob do A
 - Para ver uma consulta mais complexa, veja [Analisar logs de site usando a Análise Azure Data Lake](data-lake-analytics-analyze-weblogs.md).
 - Para começar a desenvolver aplicativos U-SQL, veja [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - Para aprender a usar o U-SQL, veja [Introdução à linguagem U-SQL da Análise Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
-- Para obter tarefas de gerenciamento, veja [Gerenciar a Análise Azure Data Lake usando o Portal de Visualização do Azure](data-lake-analytics-manage-use-portal.md).
+- Para obter as tarefas de gerenciamento, veja [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-manage-use-portal.md).
 - Para obter uma visão geral da Análise Data Lake, veja [Visão geral da Análise Azure Data Lake](data-lake-analytics-overview.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

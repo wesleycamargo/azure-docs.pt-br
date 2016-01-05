@@ -23,11 +23,11 @@ Os temporizadores de ator oferecem um wrapper simples em torno de temporizadores
 Os atores podem usar os métodos `RegisterTimer` e `UnregisterTimer` em sua classe de base para registrar e cancelar o registro em seus temporizadores. O exemplo a seguir mostra o uso de APIs de temorizador. Os APIs são muito semelhantes ao temporizador do .NET. No exemplo abaixo, quando o temporizador é devido, o método `MoveObject` será chamado pelo tempo de execução de atores e fica garantido que ele respeitará a simultaneidade com base em rotação, o que significa que nenhum outro método de ator ou retornos de chamada do temporizador/lembrete estará em andamento até que esse retorno de chamada conclua a execução.
 
 ```csharp
-class VisualObjectActor : Actor<VisualObject>, IVisualObject
+class VisualObjectActor : StatefulActor<VisualObject>, IVisualObject
 {
     private IActorTimer _updateTimer;
 
-    public override Task OnActivateAsync()
+    protected override Task OnActivateAsync()
     {
         ...
 
@@ -40,7 +40,7 @@ class VisualObjectActor : Actor<VisualObject>, IVisualObject
         return base.OnActivateAsync();
     }
 
-    public override Task OnDeactivateAsync()
+    protected override Task OnDeactivateAsync()
     {
         if (_updateTimer != null)
         {
@@ -53,7 +53,7 @@ class VisualObjectActor : Actor<VisualObject>, IVisualObject
     private Task MoveObject(object state)
     {
         ...
-        return TaskDone.Done;
+        return Task.FromResult(true);
     }
 }
 ```
@@ -87,7 +87,7 @@ No exemplo acima, `"Pay cell phone bill"` é o nome do lembrete, que é uma cade
 Os atores que usam lembretes devem implementar a interface `IRemindable`, conforme mostrado no exemplo a seguir.
 
 ```csharp
-public class ToDoListActor : Actor<ToDoList>, IToDoListActor, IRemindable
+public class ToDoListActor : StatefulActor<ToDoList>, IToDoListActor, IRemindable
 {
     public Task ReceiveReminderAsync(string reminderName, byte[] context, TimeSpan dueTime, TimeSpan period)
     {
@@ -114,4 +114,4 @@ Task reminderUnregistration = UnregisterReminder(reminder);
 
 Como mostrado acima, o método `UnregisterReminder` aceita uma interface `IActorReminder`. A classe base de ator oferece suporte a um método `GetReminder`, que pode ser usado para recuperar a interface `IActorReminder` passando-se o nome do lembrete. Isso é conveniente porque o ator não precisa manter a interface `IActorReminder` que foi retornada com a chamada do método `RegisterReminder`.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

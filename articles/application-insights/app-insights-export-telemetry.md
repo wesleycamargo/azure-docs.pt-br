@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="11/15/2015" 
 	ms.author="awills"/>
  
 # Exportar telemetria do Application Insights
@@ -21,14 +21,14 @@ Deseja fazer algumas análises personalizadas em sua telemetria? Ou talvez você
 
 A Exportação Contínua está disponível no período de avaliação gratuita nos [planos de preços Standard e Premium](http://azure.microsoft.com/pricing/details/application-insights/).
 
-(Se você quiser apenas fazer uma [exportação única](app-insights-metrics-explorer.md#export-to-excel) do que você vê em uma folha de métrica ou pesquisa, clique em Exportar na parte superior da folha.)
+(Se você quiser apenas fazer uma [exportação única](app-insights-metrics-explorer.md#export-to-excel) do que você vê em uma folha de métrica ou de pesquisa, clique em Exportar na parte superior da folha. E se você quiser ver os dados no Power BI, use [o adaptador](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), que *não* usa a Exportação Contínua).
 
 ## Criar uma conta de armazenamento
 
 Se você ainda não tiver uma conta de armazenamento "clássica", crie uma agora.
 
 
-1. Crie uma conta de armazenamento “clássica” na sua assinatura do [Portal do Azure](https://portal.azure.com).
+1. Crie uma conta de armazenamento “clássica” na sua assinatura do [portal do Azure](https://portal.azure.com).
 
     ![No portal do Azure, escolha Novo, Dados e Armazenamento](./media/app-insights-export-telemetry/030.png)
 
@@ -73,13 +73,15 @@ Os dados exportados são a telemetria bruta que recebemos de seu aplicativo, exc
 
 Outras métricas calculadas não são incluídas. Por exemplo, nós não exportamos a utilização média de CPU, mas exportamos a telemetria bruta por meio da qual a média é computada.
 
-Os dados também incluem os resultados de qualquer [teste de disponibilidade via Web](app-insights-monitor-web-app-availability.md) que você configurou.
+Os dados também incluem os resultados de todos os [testes da Web de disponibilidade](app-insights-monitor-web-app-availability.md) que você configurou.
+
+> [AZURE.NOTE]**Amostragem.** Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Application Insights para o ASP.NET versão 2.0.0-beta3 ou posterior, o recurso de amostragem adaptável poderá operar e enviar apenas uma porcentagem de sua telemetria. [Saiba mais sobre amostragem.](app-insights-sampling.md)
 
 ## <a name="get"></a> Inspecionar os dados
 
 Você pode inspecionar o armazenamento diretamente no portal. Clique em **Procurar**, selecione sua conta de armazenamento e abra **Contêineres**.
 
-Para inspecionar o armazenamento do Azure no Visual Studio, abra **Exibir** e **Cloud Explorer**. (Se você não tiver esse comando de menu, precisará instalar o SDK do Azure: abra o diálogo **Novo Projeto**, expanda Visual C#/Nuvem e escolha **Obter o SDK do Microsoft Azure para .NET**.)
+Para inspecionar o armazenamento do Azure no Visual Studio, abra **Exibir** e **Cloud Explorer**. (Se você não tiver esse comando de menu, você precisará instalar o SDK do Azure: abra o diálogo **Novo Projeto**, expanda Visual C#/Nuvem e escolha **Obter o SDK do Microsoft Azure para .NET**).
 
 Quando você abrir o armazenamento de blob, verá um contêiner com um conjunto de arquivos de blob. O URI de cada arquivo deriva o nome do recurso Application Insights, da chave de instrumentação e do tipo/data/hora de telemetria. (O nome do recurso está todo em letras minúsculas e a chave de instrumentação omite traços.)
 
@@ -141,22 +143,13 @@ Abrir a folha Exportação Contínua e edite sua exportação. Edite o destino d
 
 A exportação contínua será reiniciada.
 
-## Exportar para o Power BI
+## Exemplos de exportação
 
-O [Microsoft Power BI](https://powerbi.microsoft.com/) apresenta seus dados em elementos visuais variados e avançados, com a capacidade de reunir informações de várias fontes. Você pode transmitir dados de telemetria sobre o desempenho e o uso de seus aplicativos do Application Insights para o Power BI.
-
-[Transmitir Application Insights para o Power BI](app-insights-export-power-bi.md)
-
-![Exemplo de exibição do Power BI de dados de uso do Application Insights](./media/app-insights-export-telemetry/210.png)
-
-## Exportar para SQL
-
-Outra opção é mover os dados para um banco de dados SQL, no qual você pode executar análises mais potentes.
-
-Temos exemplos mostrando dois métodos alternativos de mover os dados do armazenamento de blob para um banco de dados:
 
 * [Exportar para SQL usando uma função de trabalho][exportcode]
 * [Exportar para o SQL usando o Stream Analytics][exportasa]
+* [Exportar para o Power BI usando o Stream Analytics](app-insights-export-power-bi.md)
+ * Lembre-se de que esse não é o modo padrão de usar o Power BI. Há [um adaptador](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx) que não exige a Exportação Contínua.
 
 
 Em escalas maiores, considere usar o [HDInsight](http://azure.microsoft.com/services/hdinsight/) - clusters de Hadoop na nuvem. O HDInsight fornece uma variedade de tecnologias para gerenciar e analisar grandes volumes de dados.
@@ -217,4 +210,4 @@ Em escalas maiores, considere usar o [HDInsight](http://azure.microsoft.com/serv
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

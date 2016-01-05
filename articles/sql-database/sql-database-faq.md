@@ -19,7 +19,7 @@
 # Perguntas frequentes sobre o Banco de Dados SQL
 
 ## Como o uso do Banco de Dados SQL aparece na minha fatura? 
-O Banco de Dados SQL é cobrado de acordo com uma taxa por hora previsível baseada na camada de serviço mais o nível de desempenho para bancos de dados únicos ou em eDTUs por pool de bancos de dados elásticos. O uso real é calculado e rateado por hora, de modo que sua fatura poderá mostrar frações de hora. Por exemplo, se um banco de dados existir por 12 h em um mês, sua fatura mostrará a utilização de 0,5 dia. Além disso, as camadas de serviço mais o nível de desempenho e os eDTUs por pool são divididos na fatura para facilitar a leitura do número de dias de banco de dados você usou para cada em um único mês.
+O Banco de Dados SQL é cobrado de acordo com uma taxa por hora previsível baseada na camada de serviço mais o nível de desempenho para bancos de dados únicos ou em eDTUs por pool de bancos de dados elásticos. O uso real é calculado e rateado por hora, de modo que sua fatura poderá mostrar frações de hora. Por exemplo, se um banco de dados existir por 12 horas em um mês, sua fatura mostrará a utilização de 0,5 dia. Além disso, as camadas de serviço mais o nível de desempenho e os eDTUs por pool são divididos na fatura para facilitar a leitura do número de dias de banco de dados você usou para cada em um único mês.
 
 ## E se um banco de dados único ficar ativo por menos de uma hora ou usar uma camada de serviço mais alta por menos de uma hora?
 Você será cobrado por cada hora em que um banco de dados existir usando a camada de serviço mais alta mais o nível de desempenho aplicado durante aquela hora, independentemente do uso ou se o banco de dados ficou ativo por menos de uma hora. Por exemplo, se você criar um banco de dados único e o excluir depois de 5 minutos, sua fatura apresentará uma cobrança referente a 1 hora de banco de dados.
@@ -28,7 +28,7 @@ Exemplos
 	
 - Se você criar um banco de dados Basic e atualizá-lo imediatamente para Standard S1, será cobrado pela tarifa Standard S1 na primeira hora.
 
-- Por exemplo, se você atualizar um banco de dados de Basic para Premium às 22h e a atualização for concluída à 1:35h do dia seguinte, a tarifa Premium somente será cobrada a partir de 1:00h.
+- Por exemplo, se você atualizar um banco de dados de Basic para Premium às 22h e a atualização for concluída à 1h35 do dia seguinte, a tarifa Premium somente será cobrada a partir da 1h.
 
 - Se você fizer o downgrade de um banco de dados Premium para Basic às 11:00 e se ele for concluído às 14:15h, o banco de dados será cobrado na taxa Premium até 15:00 e depois serão cobradas as taxas Basic.
 
@@ -51,14 +51,14 @@ A auditoria é interna ao serviço Banco de Dados SQL sem custo extra e está di
 Existem algumas ferramentas disponíveis para você.
 
 - Para os bancos de dados locais, use o [supervisor de dimensionamento de DTU](http://dtucalculator.azurewebsites.net/), que recomendará os bancos de dados e os DTUs necessários, além de avaliar vários bancos de dados para os pools de banco de dados elásticos.
-- Se um banco de dados puder se beneficiar de estar em um pool, o mecanismo inteligente do Azure recomendará um pool de banco de dados elásticos se perceber um padrão de uso histórico que garanta isso. Consulte os [pools de bancos de dados elástico recomendados](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools) para ver como isso funciona. Para obter detalhes sobre como fazer os cálculos você mesmo, consulte [Considerações de preço e desempenho para um pool de banco de dados elástico](sql-database-elastic-pool-guidance.md).
+- Se um banco de dados puder se beneficiar de estar em um pool, o mecanismo inteligente do Azure recomendará um pool de banco de dados elásticos se perceber um padrão de uso histórico que garanta isso. Consulte os [pools de bancos de dados elásticos recomendados](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools) para ver como isso funciona. Para obter detalhes sobre como fazer os cálculos você mesmo, consulte [Considerações de preço e desempenho para um pool de banco de dados elástico](sql-database-elastic-pool-guidance.md).
 - Para ver se você precisa aumentar ou reduzir um banco de dados único, consulte [diretrizes sobre desempenho para bancos de dados únicos](sql-database-performance-guidance.md).
 
 ## Com que frequência posso alterar a camada de serviço ou o nível de desempenho de um banco de dados único? 
-Você pode alterar a camada de serviço (entre Basic, Standard e Premium) ou o nível de desempenho em uma camada de serviço (por exemplo, de S1 para S2) até quatro vezes em um período de 24 horas.
+Com bancos de dados da versão 12, você pode alterar a camada de serviço (entre Basic, Standard e Premium) ou o nível de desempenho dentro de uma camada de serviço (por exemplo, S1 para S2) sempre que desejar. Para bancos de dados de versão anteriores, você pode alterar o nível de desempenho ou de camada de serviço no máximo quatro vezes em um período de 24 horas.
 
 ##Com que frequência posso ajustar eDTUs por pool? 
-Uma vez por dia.
+Quantas vezes desejar.
 
 ## Quanto tempo leva para alterar a camada de serviço ou o nível de desempenho de um banco de dados único ou incluir ou retirar um banco de dados de um pool de bancos de dados elásticos? 
 A alteração da camada de serviço de um banco de dados e a inclusão e a retirada de um pool exige que o banco de dados seja copiado para a plataforma como uma operação em segundo plano. Isso pode levar alguns minutos a várias horas, dependendo do tamanho dos bancos de dados. Em ambos os casos, os bancos de dados permanecem online e disponíveis durante a movimentação. Para obter detalhes sobre como alterar os bancos de dados únicos, consulte [Alterar a camada de serviço de um banco de dados](sql-database-scale-up.md). Para bancos de dados elásticos, consulte [Referência do pool elástico](sql-database-elastic-pool-reference.md#latency-of-elastic-pool-operations)
@@ -72,6 +72,6 @@ O mecanismo inteligente do Azure recomendará um pool para bancos de dados se pe
 O armazenamento para backup é aquele associado aos seus backups automatizados de banco de dados utilizados para Restauração Pontual e Restauração Geográfica. O Banco de Dados SQL do Microsoft Azure fornece até 200% de seu armazenamento máximo de banco de dados provisionado em armazenamento de backup, sem custo adicional. Por exemplo, se você tiver uma instância de banco de dados Standard com tamanho provisionado de 250 GB, serão oferecidos a você 500 GB de espaço de armazenamento para backup sem custo adicional. Se seu banco de dados exceder o armazenamento de backup fornecido, é possível optar por reduzir o período de retenção ao entrar em contato com o Suporte do Azure ou pagar pelo armazenamento de backup adicional com a taxa padrão do Armazenamento com Redundância Geográfica com Acesso de Leitura (RA-GRS). Para saber mais sobre a cobrança de RA-GRS, consulte Detalhes de preços de armazenamento.
 
 ## Estou mudando de Web/Negócios para novas camadas de serviço, o que eu preciso saber?
-Os bancos de dados SQL Business e Web do Azure foram desativados. As camadas Basic, Standard, Premium e Elástica substituem os bancos de dados Web e Business obsoletos. Temos perguntas frequentes adicionais que deverão ajudar você neste período de transição. [Últimas perguntas frequentes de Web e Business Edition ](sql-database-web-business-faq.md)
+Os bancos de dados SQL Business e Web do Azure foram desativados. As camadas Basic, Standard, Premium e Elástica substituem os bancos de dados Web e Business obsoletos. Temos perguntas frequentes adicionais que deverão ajudar você neste período de transição. [Últimas perguntas frequentes de Web e Business Edition ](sql-database-web-business-sunset-faq.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

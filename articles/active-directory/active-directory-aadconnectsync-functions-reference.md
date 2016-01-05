@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure AD Connect Sync: referência de funções | Microsoft Azure"
-	description="Referência de expressões de provisionamento declarativo no Azure AD Connect Sync."
+	description="Referência de expressões de provisionamento declarativo na sincronização do Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
@@ -1058,4 +1058,4 @@ Se a cadeia de caracteres contém um número menor que o número de palavras ou 
 
 <!--Image references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/31/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Substituir uma unidade de disco em seu dispositivo StorSimple
@@ -70,13 +70,13 @@ O dispositivo StorSimple oferece suporte a uma configuração de espaços de arm
 >
 >- Lembre-se de colocar um SSD de reposição em um slot que continha anteriormente um SSD. Da mesma forma, coloque um HDD de reposição em um slot que continha anteriormente um HDD.
 >
->- No Portal de Gerenciamento, os slots são numerados de 0 – 11. Portanto, se o portal mostra que um disco no slot 2 falhou, no dispositivo, localize o disco com falha no terceiro slot da parte superior esquerda.
+>- No Portal clássico do Azure, os slots são numerados de 0 – 11. Portanto, se o portal mostra que um disco no slot 2 falhou, no dispositivo, localize o disco com falha no terceiro slot da parte superior esquerda.
 
 As unidades podem ser removidas e substituídas enquanto o sistema estiver funcionando.
 
 #### Para remover uma unidade
 
-1. Para identificar o disco com falha, no Portal de Gerenciamento, navegue até **Dispositivos** > **Manutenção** > **Status de hardware**. Como um disco pode falhar no compartimento primário e/ou em um compartimento EBOD (se você estiver usando um modelo 8600), observe o status dos discos em **Componentes compartilhados** e em **Componentes compartilhados do compartimento EBOD**. Um disco com falha em um compartimento será mostrado com status vermelho.
+1. Para identificar o disco com falha, no Portal clássico do Azure, navegue até **Dispositivos** > **Manutenção** > **Status de hardware**. Como um disco pode falhar no compartimento primário e/ou em um compartimento EBOD (se você estiver usando um modelo 8600), observe o status dos discos em **Componentes compartilhados** e em **Componentes compartilhados do compartimento EBOD**. Um disco com falha em um compartimento será mostrado com status vermelho.
 
 2. Localize as unidades na frente do compartimento primário ou do compartimento EBOD. O LED âmbar acende em caso de disco com falha.
 
@@ -116,7 +116,7 @@ Após uma falha de unidade em seu dispositivo Microsoft Azure StorSimple e depoi
 
 4. Use a chave de bloqueio que foi fornecida pela Microsoft (chave de fenda Torx à prova de violações) para prender a alça do suporte no lugar girando os parafusos um quarto de volta no sentido horário.
 
-5. Verifique se a troca foi bem-sucedida e se a unidade está funcionando pelo Portal de Gerenciamento, indo até **Manutenção** > **Status de Hardware**. Em **Componentes compartilhados** ou **Componentes compartilhados do compartimento EBOD**, o status da unidade deverá ficar verde, indicando que está íntegra.
+5. Verifique se a troca foi bem-sucedida e se a unidade está funcionando pelo Portal clássico do Azure, indo até **Manutenção** > **Status de Hardware**. Em **Componentes compartilhados** ou **Componentes compartilhados do compartimento EBOD**, o status da unidade deverá ficar verde, indicando que está íntegra.
 
     >[AZURE.NOTE]Pode levar várias horas até que o status do disco fique verde após a troca.
 
@@ -124,4 +124,4 @@ Após uma falha de unidade em seu dispositivo Microsoft Azure StorSimple e depoi
 
 Saiba mais sobre a [substituição de componentes de hardware StorSimple](storsimple-hardware-component-replacement.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

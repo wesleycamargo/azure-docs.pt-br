@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Solução de problemas e perguntas - Application Insights para ASP.NET
@@ -152,6 +152,17 @@ Consulte as [notas de versão](app-insights-release-notes.md) para o SDK adequad
 + Tenha certeza de que o Internet Explorer não está exibindo o site no modo de Compatibilidade.
 + Use o recurso de depuração do navegador (F12 em alguns navegadores; em seguida, escolha Rede) para verificar se os dados estão sendo enviados para dc.services.visualstudio.com.
 
+#### Eu costumava ver os dados, mas eles foram interrompidos
+
+* Verifique o [blog de status](http://blogs.msdn.com/b/applicationinsights-status/).
+* Você atingiu sua cota mensal de pontos de dados? Abra configurações/Cota e Preços para descobrir. Nesse caso, você pode atualizar seu plano ou então pagar por capacidade adicional. Consulte o [esquema de preços](http://azure.microsoft.com/pricing/details/application-insights/).
+
+
+#### Não vejo todos os dados que eu esperava
+
+* **Amostragem.** Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Application Insights para o ASP.NET versão 2.0.0-beta3 ou posterior, o recurso de amostragem adaptável poderá operar e enviar apenas uma porcentagem de sua telemetria. Você pode desabilitá-lo. [Saiba mais sobre amostragem.](app-insights-sampling.md)
+
+
 #### <a name="q08"></a>Posso usar o Application Insights para monitorar um servidor Web de intranet?
 
 Sim, você pode monitorar a integridade e o uso se o seu servidor puder enviar dados à Internet pública. No firewall, abra as portas TCP 80 e 443 para tráfego de saída de dc.services.visualstudio.com e f5.services.visualstudio.com.
@@ -161,11 +172,6 @@ Se você quiser executar testes na Web para seu serviço, ele precisará ser ace
 #### Posso monitorar um servidor Web de intranet que não tenha acesso à Internet pública?
 
 Você precisaria preparar um proxy que pudesse retransmitir as chamadas POST https para dc.services.visualstudio.com
-
-#### Eu costumava ver os dados, mas eles foram interrompidos
-
-* Verifique o [blog de status](http://blogs.msdn.com/b/applicationinsights-status/).
-* Você atingiu sua cota mensal de pontos de dados? Abra configurações/Cota e Preços para descobrir. Nesse caso, você pode atualizar seu plano ou então pagar por capacidade adicional. Consulte o [esquema de preços](http://azure.microsoft.com/pricing/details/application-insights/).
 
 ## O Monitor de Status não funciona
 
@@ -216,7 +222,7 @@ Consulte [Privacidade e Retenção de Dados][data].
 <tr><th>O que você deverá ver</th><th>Como obter isso</th><th>Por que você deseja isso</th></tr>
 <tr><td>Gráficos de disponibilidade</td><td><a href="../app-insights-monitor-web-app-availability/">Testes da Web</a></td><td>Tenha certeza que o aplicativo Web está ativo</td></tr>
 <tr><td>Desempenho do aplicativo para servidores: tempos de resposta...
-</td><td><a href="../app-insights-start-monitoring-app-health-usage/">Adicione o Application Insights ao seu projeto</a><br/>ou o <br/><a href="../app-insights-monitor-performance-live-website-now/">Instalar AI Status Monitor no servidor</a>(ou escreva seu próprio código para <a href="../app-insights-api-custom-events-metrics/#track-dependency">rastrear dependências</a>)</td><td>Detectar problemas de desempenho</td></tr>
+</td><td><a href="../app-insights-asp-net/">Adicione o Application Insights ao seu projeto</a><br/>ou o <br/><a href="../app-insights-monitor-performance-live-website-now/">Instalar AI Status Monitor no servidor</a>(ou escreva seu próprio código para <a href="../app-insights-api-custom-events-metrics/#track-dependency">rastrear dependências</a>)</td><td>Detectar problemas de desempenho</td></tr>
 <tr><td>Telemetria de dependência</td><td><a href="../app-insights-monitor-performance-live-website-now/">Instalar o Monitor de Status do Application Insights no servidor</a></td><td>Diagnosticar problemas com bancos de dados ou outros componentes externos</td></tr>
 <tr><td>Obter rastreamentos de pilha por meio de exceções</td><td><a href="../app-insights-search-diagnostic-logs/#exceptions">Inserir chamadas TrackException em seu código</a> (mas alguns são informados automaticamente)</td><td>Detectar e diagnosticar exceções</td></tr>
 <tr><td>Pesquisar rastreamentos de log</td><td><a href="../app-insights-search-diagnostic-logs/">Adicionar um adaptador de log</a></td><td>Diagnosticar exceções, problemas de desempenho</td></tr>
@@ -246,4 +252,4 @@ Você pode [gravar um Script do PowerShell](app-insights-powershell-script-creat
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

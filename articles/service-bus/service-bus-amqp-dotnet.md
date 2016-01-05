@@ -45,7 +45,7 @@ O valor da configuração `Microsoft.ServiceBus.ConnectionString` é a cadeia de
 
 	Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
 
-Onde `[namespace]` e `SharedAccessKey` são obtidos no portal do Azure. Para obter mais informações, consulte [Como usar as Filas do Service Bus][].
+Em que `[namespace]` e `SharedAccessKey` são obtidos no [portal clássico do Azure][]. Para obter mais informações, consulte [Como usar as Filas do Barramento de Serviço][].
 
 Ao usar AMQP, anexe a cadeia de conexão com `;TransportType=Amqp`. Essa notação informa à biblioteca de cliente para fazer sua conexão com o Barramento de Serviço usando o AMQP 1.0.
 
@@ -53,7 +53,7 @@ Ao usar AMQP, anexe a cadeia de conexão com `;TransportType=Amqp`. Essa notaç�
 
 Ao usar o protocolo padrão, o comportamento de serialização padrão da biblioteca de cliente .NET é usar o tipo [DataContractSerializer][] para serializar uma instância [BrokeredMessage][] para transporte entre a biblioteca de cliente e o serviço de Barramento de Serviço. Ao usar o modo de transporte do AMQP, a biblioteca de cliente usa o sistema do tipo AMQP para a serialização da [mensagem agenciada][BrokeredMessage] em uma mensagem do AMQP. Essa serialização permite que a mensagem seja recebida e interpretada por um aplicativo receptor que está potencialmente em execução em uma plataforma diferente, por exemplo, um aplicativo Java que usa a API JMS para acessar o Barramento de Serviço.
 
-Quando você constrói uma instância [BrokeredMessage][], você pode fornecer um objeto .NET como um parâmetro para o construtor para servir como o corpo da mensagem. Para objetos que podem ser mapeados para tipos primitivos do AMQP, o corpo é serializado em tipos de dados do AMQP. Se o objeto não pode ser mapeado diretamente para um tipo primitivo do AMQP; ou seja, um tipo personalizado definido pelo aplicativo, então o objeto é serializado usando o [DataContractSerializer][], e os bytes serializados são enviados em uma mensagem de dados AMQP.
+Quando você constrói uma instância [BrokeredMessage][], você pode fornecer um objeto .NET como um parâmetro para o construtor para servir como o corpo da mensagem. Para objetos que podem ser mapeados para tipos primitivos do AMQP, o corpo é serializado em tipos de dados do AMQP. Se o objeto não pode ser mapeado diretamente para um tipo primitivo do AMQP; ou seja, um tipo personalizado definido pelo aplicativo, então, o objeto é serializado usando o [DataContractSerializer][], e os bytes serializados são enviados em uma mensagem de dados AMQP.
 
 Para facilitar a interoperabilidade com clientes não .NET, use somente tipos .NET que podem ser serializados diretamente em tipos do AMQP para o corpo da mensagem. A tabela a seguir detalha os tipos e o mapeamento correspondente ao sistema de tipos do AMQP.
 
@@ -171,7 +171,7 @@ Está pronto(a) para saber mais? Visite os links a seguir:
 - [Suporte a AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço]
 - [AMQP no Barramento de Serviço para Windows Server]
 
-  [Como usar as Filas do Service Bus]: service-bus-dotnet-how-to-use-queues.md
+  [Como usar as Filas do Barramento de Serviço]: service-bus-dotnet-how-to-use-queues.md
   [DataContractSerializer]: https://msdn.microsoft.com/library/azure/system.runtime.serialization.datacontractserializer.aspx
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
   [Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession]: https://msdn.microsoft.com/library/azure/jj657638.aspx
@@ -199,8 +199,9 @@ Está pronto(a) para saber mais? Visite os links a seguir:
   [OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 
+[portal clássico do Azure]: http://manage.windowsazure.com
 [Visão geral do AMQP do Barramento de Serviço]: service-bus-amqp-overview.md
 [Suporte a AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP no Barramento de Serviço para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

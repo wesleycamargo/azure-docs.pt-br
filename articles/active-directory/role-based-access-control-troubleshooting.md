@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/06/2015"
+	ms.date="12/04/2015"
 	ms.author="inhenk"/>
 
 # Solução de problemas de controle de acesso baseado em função
@@ -22,7 +22,7 @@
 
 O [Controle da acesso baseado em função](../role-based-access-control-configure.md) é um recurso avançado que permite a você delegar acesso refinado aos recursos no Azure. Isso significa que você pode se sentir confiante ao conceder a uma pessoa específica o direito ao qual exatamente elas precisam. No entanto, às vezes o modelo de recurso para os recursos do Azure pode ser complicado e pode ser difícil entender para o que exatamente você está concedendo permissões.
 
-Este documento informará o que esperar ao usar algumas das funções no Portal do Azure. Há três funções comuns incluídas que abrangem todos os tipos de recursos: * Proprietário * Colaborador * Leitor
+Este documento informará o que esperar ao usar algumas das funções no Portal clássico do Azure. Há três funções comuns incluídas que abrangem todos os tipos de recursos: * Proprietário * Colaborador * Leitor
 
 Os proprietários e colaboradores terão acesso completo a experiência de gerenciamento, sendo que a diferença é que um colaborador não pode conceder acesso aos outros usuário ou grupos. As coisas se tornam um pouco mais interessante com a função do leitor, sendo assim foi onde dedicamos algum tempo. [Consulte este artigo](../role-based-access-control-configure.md) para obter detalhes sobre como exatamente conceder acesso.
 
@@ -82,4 +82,4 @@ As máquinas virtuais têm esses recursos relacionados: * Nomes de domínio * Re
 
 Se você não conseguir acessar nenhum desses blocos, precisará solicitar ao seu administrador o acesso de Colaborador para o Grupo de recursos.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

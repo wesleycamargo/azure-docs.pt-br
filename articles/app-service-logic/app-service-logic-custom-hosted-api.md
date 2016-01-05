@@ -50,9 +50,9 @@ Nesta seção, você vai criar dois aplicativos do Active Directory do Azure, um
 
 Isso é o que o Aplicativo Lógico usará para autenticar no Active Directory. Você *precisa* fazer isso somente uma vez para seu diretório. Por exemplo, você pode optar por usar a mesma identidade para todos os seus Aplicativos Lógicos, embora também possa, se quiser, criar identidades exclusivas para cada Aplicativo Lógico. Você pode fazer isso na interface do usuário ou usar o PowerShell.
 
-#### Criar a identidade do aplicativo usando o portal do Azure
+#### Criar a identidade do aplicativo usando o Portal clássico do Azure
 
-1. Navegue até o [Active Directory no portal do Azure](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory) e selecione o diretório que você usa para seu aplicativo Web
+1. Navegue até o [Active Directory no Portal clássico do Azure](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory) e selecione o diretório que você usa para seu aplicativo Web
 2. Clique na guia **Aplicativos**.
 3. Na parte inferior da página na barra de comandos, clique em **Adicionar**
 4. Dê um nome à sua identidade e clique na seta para avançar
@@ -81,7 +81,7 @@ Se seu aplicativo Web já está implantado, você pode habilitá-lo no portal. C
 
 Em seguida, um aplicativo será automaticamente criado para você. Você precisará da ID do cliente do aplicativo para a Parte 3; assim:
 
-1. Vá para o [Active Directory no portal do Azure](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory) e selecione seu diretório. 
+1. Vá para o [Active Directory no Portal clássico do Azure](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory) e selecione seu diretório. 
 2. Procure o aplicativo na caixa de pesquisa
 3. Clique nele na lista
 4. Clique na guia **Configurar**
@@ -91,7 +91,7 @@ Em seguida, um aplicativo será automaticamente criado para você. Você precisa
 
 Primeiro, você precisa criar um aplicativo para seu aplicativo Web. Ele deve ser diferente do aplicativo que é usado para o seu Aplicativo Lógico. Comece seguindo as etapas acima na Parte 1, mas, para **HomePage** e **IdentifierUris**, use a https://**URL** real do seu aplicativo Web.
 
->[AZURE.NOTE]Quando você cria o aplicativo para seu aplicativo Web, deve usar a [abordagem do portal Azure](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory), já que o commandlet do PowerShell não configura as permissões necessárias para conectar os usuários a um site.
+>[AZURE.NOTE]Quando você cria o aplicativo para seu aplicativo Web, deve usar a [abordagem do Portal clássico do Azure](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory), já que o commandlet do PowerShell não configura as permissões necessárias para conectar os usuários a um site.
 
 Quando tiver as IDs de cliente e de locatário, inclua o seguinte como um sub-recurso do aplicativo Web em seu modelo de implantação:
 
@@ -170,4 +170,4 @@ Além disso, se você deseja implementá-lo inteiramente em seu próprio código
 
 Você ainda precisará seguir as etapas acima para criar uma identidade de aplicativo para seu Aplicativo Lógico e usá-la para chamar a API.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

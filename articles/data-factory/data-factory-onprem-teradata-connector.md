@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="11/12/2015" 
 	ms.author="spelluru"/>
 
 # Mover dados do Teradata usando o Azure Data Factory
@@ -241,25 +241,25 @@ A seção typeProperties é diferente para cada tipo de conjunto de dados e forn
 
 Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------
-tableName | Nome da tabela na instância do banco de dados Teradata à qual o serviço vinculado se refere. | Sim 
+tableName | Nome da tabela na instância do banco de dados Teradata à qual o serviço vinculado se refere. | Não (se **query** de **RelationalSource** for especificado) 
 
 ## Propriedades de tipo de atividade de cópia do Teradata
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, consulte o artigo [Criando pipelines](data-factory-create-pipelines.md). Propriedades como nome, descrição, tabelas de entrada e saída, diversas políticas, etc. estão disponíveis para todos os tipos de atividades.
+Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, veja o artigo [Criando pipelines](data-factory-create-pipelines.md). Propriedades como nome, descrição, tabelas de entrada e saída, diversas políticas, etc. estão disponíveis para todos os tipos de atividades.
 
 As propriedades disponíveis na seção typeProperties da atividade, por outro lado, variam de acordo com cada tipo de atividade e, no caso de Atividade de cópia, variam dependendo dos tipos de fontes e coletores.
 
-No caso da atividade de cópia, quando a fonte é do tipo **RelationalSource** (que inclui o Teradata), as seguintes propriedades estão disponíveis na seção **typeProperties**:
+No caso da Atividade de Cópia, quando a fonte é do tipo **RelationalSource** (que inclui o Teradata), as seguintes propriedades estão disponíveis na seção **typeProperties**:
 
 Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-query | Utiliza a consulta personalizada para ler os dados. | Cadeia de caracteres de consulta SQL. Por exemplo: select * from MyTable. | Não
+query | Utiliza a consulta personalizada para ler os dados. | Cadeia de caracteres de consulta SQL. Por exemplo: select * from MyTable. | Não (se **tableName** de **dataset** for especificado)
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ## Mapeamento de tipo para Teradata
 
-Conforme mencionado no artigo [Atividades de movimentação de dados ](data-factory-data-movement-activities.md), A atividade de cópia executa conversões automáticas de tipos de fontes para tipos de coletor, com a abordagem em duas etapas descritas a seguir:
+Como mencionado no artigo sobre [atividades de movimentação de dados](data-factory-data-movement-activities.md), a atividade de Cópia executa conversões automáticas de tipos de fonte para tipos de coletor, com a seguinte abordagem de duas etapas:
 
 1. Converter de tipos de fonte nativos para o tipo .NET
 2. Converter do tipo .NET para o tipo de coletor nativo
@@ -312,4 +312,4 @@ Xml | Cadeia de caracteres
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

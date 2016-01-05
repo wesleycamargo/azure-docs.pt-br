@@ -13,27 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="08/10/2015"
+   ms.date="11/22/2015"
    ms.author="piyushjo"/>
 
-# Como gerenciar os dispositivos de teste e o perfil de conta 
-A seção Minha conta da interface do usuário é onde você pode visualizar e alterar as configurações associadas a sua conta, incluindo as configurações de perfil e testar as IDs de dispositivo. Essas configurações contêm itens que também podem ser acessados por meio da API do dispositivo.
+# Como gerenciar os dispositivos de teste e o perfil de conta
+ 
+Este artigo descreve a **Home** page do portal do **Mobile Engagement**. Você usa o portal do **Mobile Engagement** para monitorar e gerenciar seus aplicativos móveis. Observe que, para começar a usar o portal, primeiro você precisa criar uma conta do **Azure Mobile Engagement**. Para obter mais informações, veja [Criar uma conta do Azure Mobile Engagement](mobile-engagement-create-account.md).
+ 
+Para ir para a página Minha conta, clique em sua conta na parte superior da página.
 
-### Consulte também
--  [Guia solução de problemas - Serviço][Link 24]
+A seção Minha conta da interface do usuário é onde você pode visualizar e alterar as configurações associadas a sua conta, incluindo as configurações de perfil e testar as IDs de dispositivo. Essas configurações contêm itens que também podem ser acessados por meio da API do dispositivo.
 
 ![MyAccount1][7]
 
 ## Perfil:
-Você pode exibir ou alterar suas configurações de conta: Senha, nome, sobrenome, organização, número de telefone, fuso horário ou aceitar ou recusar atualizações de email. Você também pode dar permissão a outro usuário para usar seu aplicativo com base em seu endereço de email a partir da “Página inicial”.
-
-### Consulte também
--  [Documentação da interface do usuário - Página inicial][Link 13]
+Você pode exibir ou alterar qualquer uma de suas configurações de conta mostradas abaixo. Você também pode fornecer permissão a outro usuário para usar seu aplicativo com base em seu endereço de email na [Página Inicial](mobile-engagement-interface-home.md).
 
 ![MyAccount2][8]
 
 ## Dispositivos:
-Você pode exibir, adicionar ou remover IDs de dispositivo dos dispositivos de teste que você pode usar para testar suas campanhas de alcance ou envio de teste. Instruções contextuais sobre como localizar a ID de dispositivo dos dispositivos para cada plataforma (iOS, Android, Windows Phone, etc.) são exibidas quando você clicar em “Novo dispositivo”.
+Você pode exibir, adicionar ou remover IDs de Dispositivo dos dispositivos de teste que você pode usar para testar suas campanhas de **alcance** ou de **envio por push**. Instruções contextuais sobre como localizar a ID de dispositivo dos dispositivos para cada plataforma (iOS, Android, Windows Phone, etc.) são exibidas quando você clicar em “Novo dispositivo”.
  
 ![MyAccount3][9]
  
@@ -45,6 +44,13 @@ Para usar a API de envio ou a API do dispositivo, você precisa saber o identifi
 4. De um aviso Reach, se o código HTML do anúncio contém o padrão {deviceid}, ele será substituído automaticamente pelo identificador do dispositivo exibindo o anúncio da web. Este é o identificador do dispositivo: {deviceid} será substituído por: Este é o identificador do dispositivo: XXXXXXXXXXXXXXXX
 5.  Abra o aplicativo no dispositivo e execute um evento em seu aplicativo que tenha sido marcado. A partir de “Interface do usuário - seu aplicativo - Monitoramento - Eventos -Detalhes”, encontre o Evento executado na lista. Clique para esse evento no Monitor. Você deve encontrar a ID do dispositivo na lista de dispositivos que executaram este evento. Em seguida, você pode copiar essa ID de dispositivo e registrá-la em “Interface do usuário - Minha conta - Novo dispositivo - Selecionar sua plataforma de dispositivo”.
 >(Lembre-se de que quando a IDFA está desabilitada para iOS, a ID do dispositivo pode alterar ao longo do tempo se você desinstalar e reinstalar o aplicativo.)
+
+##Guia de solução de problemas
+-  [Guia solução de problemas - Serviço][Link 24]
+
+## Consulte também
+-  [Documentação da interface do usuário - Página inicial][Link 13]
+
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -145,4 +151,4 @@ Para usar a API de envio ou a API do dispositivo, você precisa saber o identifi
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

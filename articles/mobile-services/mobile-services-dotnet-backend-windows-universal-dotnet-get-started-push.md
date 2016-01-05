@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Adicionar notificações por push ao seu aplicativo universal para Windows 8.1 | Microsoft Azure" 
-	description="Saiba como enviar notificações por push ao seu aplicativo universal para Windows 8.1 do serviço móvel de back-end .NET usando os Hubs de Notificação do Azure." 
-	services="mobile-services,notification-hubs" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Adicionar notificações por push ao seu aplicativo universal para Windows 8.1 | Microsoft Azure"
+	description="Saiba como enviar notificações por push ao seu aplicativo universal para Windows 8.1 do serviço móvel de back-end .NET usando os Hubs de Notificação do Azure."
+	services="mobile-services,notification-hubs"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/02/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="11/11/2015"
 	ms.author="glenga"/>
 
 # Adicionar notificações por push a seu aplicativo de Serviços Móveis
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
@@ -26,17 +31,17 @@ Este tópico mostra como usar os Serviços Móveis do Azure com um back-end do .
 Para concluir este tutorial, você precisará do seguinte:
 
 * Uma [conta ativa da Microsoft Store](http://go.microsoft.com/fwlink/p/?LinkId=280045).
-* <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Comunidade do Visual Studio 2013</a>. 
+* <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Comunidade do Visual Studio 2013</a>.
 
 ##<a id="register"></a>Registrar seu aplicativo para notificações por push
 
 [AZURE.INCLUDE [mobile-services-create-new-push-vs2013](../../includes/mobile-services-create-new-push-vs2013.md)]
 
 &nbsp;&nbsp;6. Navegue na pasta de projeto `\Services\MobileServices\your_service_name`, abra o arquivo de código push.register.cs gerado e inspecione o método **UploadChannel** que registra a URL do canal do dispositivo com o hub de notificação.
- 
+
 &nbsp;&nbsp;7. Abra o arquivo de código App.xaml.cs compartilhado e avise que uma chamada para o novo método **UploadChannel** foi adicionada no manipulador de evento **OnLaunched**. Isso garante a tentativa do registro do dispositivo sempre que o aplicativo for iniciado.
 
-&nbsp;&nbsp;8. Repita as etapas anteriores para adicionar notificações por push ao projeto do aplicativo Windows Phone Store e no arquivo App.xaml.cs compartilhado, remova a chamada extra para **UploadChannel** e o wrapper condicional `#if...#endif` restante. Ambos os projetos podem agora compartilhar uma única chamada para **UploadChannel**.
+&nbsp;&nbsp;8. Repita as etapas anteriores para adicionar notificações por push ao projeto do aplicativo Windows Phone Store e, em seguida, no arquivo App.xaml.cs compartilhado, remova a chamada extra para **UploadChannel** e o wrapper condicional `#if...#endif` restante. Ambos os projetos podem agora compartilhar uma única chamada para **UploadChannel**.
 
 > [AZURE.NOTE]Você também pode simplificar o código gerado ao unificar as definições ajustadas do `#if...#endif` [MobileServiceClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) em uma única definição não ajustada usada por ambas as versões do aplicativo.
 
@@ -107,4 +112,4 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [Como usar um cliente .NET para os Serviços Móveis do Azure]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

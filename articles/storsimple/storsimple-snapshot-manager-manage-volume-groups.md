@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="10/12/2015"
+   ms.date="12/02/2015"
    ms.author="v-sharos" />
 
 # Usar o StorSimple Snapshot Manager para criar e gerenciar grupos de volumes
@@ -52,9 +52,9 @@ Coluna de resultados | Descrição
 Nome | A coluna **Nome** contém o nome do grupo de volumes.
 Aplicativo | A coluna **Aplicativos** mostra o número de gravadores VSS atualmente instalados e em execução no host do Windows.
 Selecionado | A coluna **Selecionados** mostra o número de volumes contidos no grupo de volumes. Um zero (0) indica que nenhum aplicativo está associado aos volumes no grupo de volumes.
-Importado | A coluna **Importados** mostra o número de volumes importados. Quando definida como **True**, esta coluna indica que um grupo de volumes foi importado do Portal de Gerenciamento do Microsoft Azure e não foi criado no StorSimple Snapshot Manager.
+Importado | A coluna **Importados** mostra o número de volumes importados. Quando definida como **True**, esta coluna indica que um grupo de volumes foi importado do Portal clássico do Azure e não foi criado no StorSimple Snapshot Manager.
  
->[AZURE.NOTE]Os grupos de volumes do StorSimple Snapshot Manager também são exibidos na guia **Políticas de Backup** no Portal de Gerenciamento do Azure.
+>[AZURE.NOTE]Os grupos de volumes do StorSimple Snapshot Manager também são exibidos na guia **Políticas de Backup** no Portal clássico do Azure.
  
 ## Criar um grupo de volumes
 
@@ -147,4 +147,4 @@ Use o procedimento a seguir para excluir um grupo de volumes.
 - Saiba como [usar o StorSimple Snapshot Manager para administrar sua solução do StorSimple](storsimple-snapshot-manager-admin.md).
 - Saiba como [usar o StorSimple Snapshot Manager para criar e gerenciar políticas de backup](storsimple-snapshot-manager-manage-backup-policies.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

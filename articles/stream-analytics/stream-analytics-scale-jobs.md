@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Dimensionar trabalhos do Stream Analytics para aumentar a produtividade | Microsoft Azure"
 	description="Aprenda a dimensionar trabalhos do Stream Analytics configurando partições de entrada, ajustando a definição da consulta e definindo unidades de streaming de trabalho."
-	keywords="trabalhos de análise, fluxo de dados, streaming de dados"
+	keywords="streaming de dados, processamento de dados de streaming, ajuste de análise"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,15 +14,15 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="11/06/2015"
+	ms.date="12/16/2015"
 	ms.author="jeffstok"/>
 
-# Dimensionar trabalhos do Stream Analytics do Azure para aumentar a produtividade #
+# Dimensionar trabalhos do Stream Analytics do Azure para aumentar a produtividade do processamento de dados do fluxo #
 
-Aprenda a calcular *unidades de Streaming* para trabalhos do Stream Analytics e como escalonar esses trabalhos configurando partições de entrada, ajustando a definição de consulta e definindo unidades de streaming de trabalho.
+Aprenda a ajustar trabalhos de análise e calcular *unidades de streaming* para o Stream Analytics e como dimensionar esses trabalhos configurando partições de entrada, ajustando a definição de consulta de análise e definindo unidades de streaming de trabalho.
 
 ## Quais são as partes de um trabalho do Stream Analytics? ##
-Uma definição de trabalho de Análise de fluxo do Azure inclui entradas, consulta e saída. As entradas são de onde o trabalho lê o fluxo de dados, a consulta é usada para transformar o fluxo de entrada e a saída é para onde são enviados os resultados do trabalho.
+Uma definição de trabalho de Stream Analytics inclui entradas, consulta e saída. As entradas são de onde o trabalho lê o fluxo de dados, a consulta é usada para transformar o fluxo de entrada e a saída é para onde são enviados os resultados do trabalho.
 
 Um trabalho requer pelo menos uma fonte de entrada para streaming de dados. A fonte de entrada do fluxo de dados pode ser armazenada em um Hub de eventos do Barramento de Serviço do Azure ou um armazenamento de Blob do Azure. Para saber mais, consulte [Introdução à análise de fluxo do Azure](stream-analytics-introduction.md), [Introdução ao uso da Análise de fluxo do Azure](stream-analytics-get-started.md) e [Guia do desenvolvedor da Análise de fluxo do Azure](../stream-analytics-developer-guide.md).
 
@@ -61,7 +61,7 @@ A consulta anterior tem duas etapas.
 
 Particionamento de uma etapa exige as seguintes condições:
 
-- A fonte de entrada deve ser particionada. Para saber mais, consulte [Guia do desenvolvedor de Análise de fluxo do Azure](../stream-analytics-developer-guide.md) e [Guia de programação de hubs de evento](../azure-event-hubs-developer-guide.md).
+- A fonte de entrada deve ser particionada. Para saber mais, consulte [Guia do desenvolvedor de Análise de fluxo do Azure](../stream-analytics-developer-guide.md) e [Guia de programação de hubs de evento](../event-hubs/event-hubs-programming-guide.md).
 - A instrução SELECT da consulta deve ser lidos de uma origem de entrada particionada.
 - A consulta dentro da etapa deve ter a palavra-chave **Partition By**
 
@@ -265,4 +265,4 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

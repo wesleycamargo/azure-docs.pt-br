@@ -4,7 +4,7 @@
 	description="Habilite o dimensionamento automático em um pool de nuvem para ajustar dinamicamente o número de nós de computação no pool."
 	services="batch"
 	documentationCenter=""
-	authors="davidmu1"
+	authors="mmacy"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -14,12 +14,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="08/26/2015"
-	ms.author="davidmu"/>
+	ms.date="12/04/2015"
+	ms.author="marsma"/>
 
 # Dimensionar automaticamente nós de computação em um pool do Lote do Azure
 
-O dimensionamento automático de nós de computação em um pool do Lote do Azure é o ajuste dinâmico da potência de processamento usada pelo seu aplicativo. Essa facilidade de ajuste economiza tempo e dinheiro. Para saber mais sobre pools e nós de computação, consulte a [Visão geral técnica do Lote do Azure](batch-technical-overview.md).
+O dimensionamento automático de nós de computação em um pool do Lote do Azure é o ajuste dinâmico da potência de processamento usada pelo seu aplicativo. Essa facilidade de ajuste economiza tempo e dinheiro. Para saber mais sobre pools e nós de computação, consulte as [Noções básicas do Lote do Azure](batch-technical-overview.md).
 
 O dimensionamento automático ocorre quando ele está habilitado em um pool e uma fórmula é associada ao pool. A fórmula é usada para determinar o número de nós de computação que são necessários para processar o aplicativo. Agindo em amostras que são coletadas periodicamente, o número de nós de computação disponíveis no pool é ajustado a cada 15 minutos com base na fórmula associada.
 
@@ -336,15 +336,15 @@ Estas **funções** predefinidas estão disponíveis para definir uma fórmula d
 
 Algumas das funções descritas na tabela acima podem aceitar uma lista como argumento. A lista separada por vírgulas é qualquer combinação de *double* e *doubleVec*. Por exemplo:
 
-	doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?
+`doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
-O valor de *doubleVecList* é convertido em um único *doubleVec* antes da avaliação. Por exemplo, se v = [1,2, 3], chamar avg(v) é equivalente a chamar avg(1,2,3) e chamar avg (v, 7) é equivalente a chamar avg(1,2,3,7).
+O valor de *doubleVecList* é convertido em um único *doubleVec* antes da avaliação. Por exemplo, se `v = [1,2,3]`, chamar `avg(v)` é equivalente a chamar `avg(1,2,3)`, e chamar `avg(v, 7)` é equivalente a chamar `avg(1,2,3,7)`.
 
 ### Obter os dados de exemplo
 
 As variáveis definidas pelo sistema descritas acima são objetos que fornecem métodos para acessar os dados associados. Por exemplo, a expressão a seguir mostra uma solicitação para obter os últimos cinco minutos de uso da CPU:
 
-	$CPUPercent.GetSample(TimeInterval_Minute*5)
+`$CPUPercent.GetSample(TimeInterval_Minute * 5)`
 
 Esses métodos podem ser usados para obter dados de exemplo.
 
@@ -359,15 +359,17 @@ Esses métodos podem ser usados para obter dados de exemplo.
   </tr>
   <tr>
     <td>GetSample()</td>
-    <td><p>Retorna um vetor de exemplos de dados. Por exemplo:</p>
+    <td><p>Retorna um vetor de exemplos de dados.
+	<p>Um exemplo vale 30 segundos de dados de métrica. Em outras palavras, os exemplos são obtidos a cada 30 segundos, mas conforme indicado abaixo, há um atraso entre o momento em que um exemplos é coletado e quando ele é disponibilizado para uma fórmula. Como tal, nem todos os exemplos para um determinado período de tempo podem estar disponíveis para avaliação por uma fórmula.
         <ul>
-          <li><p><b>doubleVec GetSample(double count)</b> - Especifica o número de amostras que são necessárias para os exemplos mais recentes.</p>
-				  <p>Um exemplo é 5 segundos de dados de métrica. GetSample(1) retorna a última amostra disponível, mas para métricas como $CPUPercent você não deve usá-lo porque não é possível saber quando a amostra foi coletada. Pode ser recente ou, devido a problemas do sistema, pode ser muito mais antigo. É melhor usar um intervalo de tempo, conforme mostrado abaixo.</p></li>
-          <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime [, double samplePercent])</b> – Especifica um intervalo de tempo para a coleta de dados de amostra e, opcionalmente, especifica o percentual de amostras que deve haver no intervalo solicitado.</p>
-          <p>$CPUPercent.GetSample(TimeInterval\_Minute*10) deve retornar 200 amostras se todas as amostras dos últimos dez minutos estiverem presentes no histórico de CPUPercent. Se o último minuto do histórico ainda não estiver presente, somente 180 exemplos são retornados.</p>
-					<p>$CPUPercent.GetSample(TimeInterval\_Minute*10, 80) é bem-sucedido e $CPUPercent.GetSample(TimeInterval_Minute*10,95) falha.</p></li>
+          <li><p><b>doubleVec GetSample(double count)</b> - Especifica o número de exemplos a serem obtidos a partir dos exemplos mais recentes coletados.</p>
+				  <p>Getsample(1) retorna o último exemplo disponível. No entanto, para métricas como $CPUPercent, isso não deve ser usado, pois é impossível saber <em>quando</em> o exemplo foi coletado. Ele pode ser recente ou, devido a problemas de sistema, podem ser muito mais antigo. Nesses casos, é melhor usar um intervalo de tempo, conforme mostrado abaixo.</p></li>
+          <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime [, double samplePercent])</b> – Especifica um intervalo de tempo para a coleta de dados de amostra e, opcionalmente, especifica o percentual de amostras que deve estar disponível no intervalo solicitado.</p>
+          <p><em>$CPUPercent.GetSample(TimeInterval_Minute * 10)</em> deve retornar 20 amostras se todas as amostras dos últimos dez minutos estiverem presentes no histórico de CPUPercent. No entanto, se o último minuto do histórico não estiver disponível, apenas 18 exemplos retornariam, e nesse caso:<br/>
+		  &#160;&#160;&#160;&#160;<em>$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)</em> falharia, pois somente 90% dos exemplos estão disponíveis, e<br/>
+		  &#160;&#160;&#160;&#160;<em>$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)</em> teria êxito.</p></li>
           <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime, (timestamp | timeinterval) endTime [, double samplePercent])</b> – Especifica um intervalo de tempo para coleta de dados, com uma hora de início e uma hora de término.</p></li></ul>
-		  <p>Observe que há um atraso entre quando uma amostra é coletada e quando ela está disponível para uma fórmula. Isso deve ser considerado ao usar o método GetSample; consulte GetSamplePercent abaixo.</td>
+		  <p>Conforme mencionado acima, há um atraso entre quando uma amostra é coletada e quando ela fica disponível para uma fórmula. Isso deve ser considerado ao usar o método <em>GetSample</em>. Consulte <em>GetSamplePercent</em> abaixo.</td>
   </tr>
   <tr>
     <td>GetSamplePeriod()</td>
@@ -557,11 +559,13 @@ Vamos dar uma olhada em alguns exemplos que mostram apenas algumas maneiras pela
 
 Talvez você queira ajustar o tamanho do pool com base no dia da semana e hora do dia, aumentando ou diminuindo correspondentemente o número de nós no pool:
 
-		$CurTime=time();
-		$WorkHours=$CurTime.hour>=8 && $CurTime.hour<18;
-		$IsWeekday=$CurTime.weekday>=1 && $CurTime.weekday<=5;
-		$IsWorkingWeekdayHour=$WorkHours && $IsWeekday;
-		$TargetDedicated=$IsWorkingWeekdayHour?20:10;
+```
+$CurTime=time();
+$WorkHours=$CurTime.hour>=8 && $CurTime.hour<18;
+$IsWeekday=$CurTime.weekday>=1 && $CurTime.weekday<=5;
+$IsWorkingWeekdayHour=$WorkHours && $IsWeekday;
+$TargetDedicated=$IsWorkingWeekdayHour?20:10;
+```
 
 Esta fórmula obtém primeiramente a hora atual. Se trata-se de um dia da semana (1-5) e durante o horário de trabalho (8-18h), o tamanho do pool de destino é definido como 20 nós. Caso contrário, o tamanho de destino do pool será definido como 10 nós.
 
@@ -569,35 +573,65 @@ Esta fórmula obtém primeiramente a hora atual. Se trata-se de um dia da semana
 
 Neste exemplo, o tamanho do pool é ajustado com base no número de tarefas na fila. Observe que os comentários e quebras de linha são aceitáveis em cadeias de caracteres de fórmulas.
 
-	    // Get pending tasks for the past 15 minutes.
-	    $Samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15);
-	    // If we have less than 70% data points, we use the last sample point, otherwise we use the maximum of
-		// last sample point and the history average.
-	    $Tasks = $Samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1), avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
-	    // If number of pending tasks is not 0, set targetVM to pending tasks, otherwise half of current dedicated.
-	    $TargetVMs = $Tasks > 0? $Tasks:max(0, $TargetDedicated/2);
-	    // The pool size is capped at 20, if target VM value is more than that, set it to 20. This value
-		// should be adjusted according to your use case.
-	    $TargetDedicated = max(0,min($TargetVMs,20));
-	    // Set node deallocation mode - keep nodes active only until tasks finish
-	    $NodeDeallocationOption = taskcompletion;
+```
+// Get pending tasks for the past 15 minutes.
+$Samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15);
+// If we have less than 70% data points, we use the last sample point, otherwise we use the maximum of
+// last sample point and the history average.
+$Tasks = $Samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1), avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
+// If number of pending tasks is not 0, set targetVM to pending tasks, otherwise half of current dedicated.
+$TargetVMs = $Tasks > 0? $Tasks:max(0, $TargetDedicated/2);
+// The pool size is capped at 20, if target VM value is more than that, set it to 20. This value
+// should be adjusted according to your use case.
+$TargetDedicated = max(0,min($TargetVMs,20));
+// Set node deallocation mode - keep nodes active only until tasks finish
+$NodeDeallocationOption = taskcompletion;
+```
 
 ### Exemplo 3
 
 Outro exemplo que ajusta o tamanho do pool com base no número de tarefas, esta fórmula também leva em conta o valor [MaxTasksPerComputeNode](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.maxtaskspercomputenode.aspx) que foi definido para o pool. Isso é especialmente útil em situações nas quais a execução paralela de tarefas em nós de computação é desejada.
 
-		// Determine whether 70% of the samples have been recorded in the past 15 minutes; if not, use last sample
-		$Samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15);
-		$Tasks = $Samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
-		// Set the number of nodes to add to one-fourth the number of active tasks (the MaxTasksPerComputeNode
-		// property on this pool is set to 4, adjust this number for your use case)
-		$Cores = $TargetDedicated * 4;
-		$ExtraVMs = ($Tasks - $Cores) / 4;
-		$TargetVMs = ($TargetDedicated+$ExtraVMs);
-		// Attempt to grow the number of compute nodes to match the number of active tasks, with a maximum of 3
-		$TargetDedicated = max(0,min($TargetVMs,3));
-		// Keep the nodes active until the tasks finish
-		$NodeDeallocationOption = taskcompletion;
+```
+// Determine whether 70% of the samples have been recorded in the past 15 minutes; if not, use last sample
+$Samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15);
+$Tasks = $Samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
+// Set the number of nodes to add to one-fourth the number of active tasks (the MaxTasksPerComputeNode
+// property on this pool is set to 4, adjust this number for your use case)
+$Cores = $TargetDedicated * 4;
+$ExtraVMs = (($Tasks - $Cores) + 3) / 4;
+$TargetVMs = ($TargetDedicated+$ExtraVMs);
+// Attempt to grow the number of compute nodes to match the number of active tasks, with a maximum of 3
+$TargetDedicated = max(0,min($TargetVMs,3));
+// Keep the nodes active until the tasks finish
+$NodeDeallocationOption = taskcompletion;
+```
+
+### Exemplo 4
+
+Este exemplo mostra uma fórmula de dimensionamento automático que define o tamanho do pool para um determinado número de nós por um período inicial e, em seguida, ajusta o tamanho do pool com base no número de tarefas ativas e em execução após o período inicial.
+
+```
+string now = DateTime.UtcNow.ToString("r");
+string formula = string.Format(@"
+
+	$TargetDedicated = {1};
+	lifespan         = time() - time(""{0}"");
+	span             = TimeInterval_Minute * 60;
+	startup          = TimeInterval_Minute * 10;
+	ratio            = 50;
+
+	$TargetDedicated = (lifespan > startup ? (max($RunningTasks.GetSample(span, ratio), $ActiveTasks.GetSample(span, ratio)) == 0 ? 0 : $TargetDedicated) : {1});
+	", now, 4);
+```
+
+A fórmula no trecho de código acima tem as seguintes características:
+
+- Define o tamanho do pool inicial como 4 nós
+- Não ajusta o tamanho do pool nos primeiros 10 minutos do ciclo de vida do pool
+- Após 10 minutos, obtém o valor máximo do número de tarefas ativas e em execução nos últimos 60 minutos
+  - Se os dois valores forem 0 (indicando que nenhuma tarefa estava em execução ou ativa nos últimos 60 minutos) o tamanho do pool será definido como 0
+  - Se um dos valores for maior do que zero, nenhuma alteração será feita
 
 ## Próximas etapas
 
@@ -610,6 +644,6 @@ Outro exemplo que ajusta o tamanho do pool com base no número de tarefas, esta 
         * [BatchClient.PoolOperations.GetRDPFile](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getrdpfile.aspx) – este método .NET requer a ID do pool, a ID do nó e o nome do arquivo RDP a criar.
         * [Obter um arquivo de protocolo RDP de um nó](https://msdn.microsoft.com/library/dn820120.aspx) – esta solicitação API REST requer o nome do pool e o nome do nó de computação. A resposta tem o conteúdo do arquivo RDP.
         * [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx) – esse cmdlet do PowerShell obtém o arquivo RDP do nó de computação especificado e o salva no local de arquivo especificado ou em um fluxo.
-2.	Alguns aplicativos geram grandes quantidades de dados que podem ser difíceis de processar. Uma forma de resolver isso é por meio de [consulta de lista eficiente](batch-efficient-list-queries.md).
+2.	Alguns aplicativos geram grandes quantidades de dados que podem ser difíceis de processar. Um modo de resolver isso é por meio da [consulta de lista eficiente](batch-efficient-list-queries.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

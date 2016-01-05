@@ -13,31 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
+   ms.date="12/07/2015"
    ms.author="kenhoff"/>
 
 # Eventos de relatório de auditoria do Active Directory do Azure
+
+*Esta documentação é parte do [Guia de Relatórios do Active Directory do Azure](active-directory-reporting-guide.md).*
+
 O relatório de auditoria do Active Directory do Azure ajuda os clientes a identificar ações privilegiadas que ocorreram nos seus respectivos Active Directory do Azure. Ações com privilégios incluem alterações de elevação (por exemplo, criação de funções ou redefinições de senha), alteração de configurações de política (por exemplo, políticas de senha) ou alterações na configuração de diretório (por exemplo, as alterações às configurações de federação de domínio). Os relatórios fornecem o registro de auditoria para o nome do evento, o ator que executou a ação, o recurso de destino afetado pela alteração e a data e hora (em UTC). Os clientes são capazes de recuperar a lista de eventos de auditoria para o Active Directory do Azure por meio do [Portal de Gerenciamento do Azure](https://manage.windowsazure.com/), conforme descrito em [Veja seus relatórios de acesso e de uso](active-directory-view-access-usage-reports.md).
 
-## Retenção do relatório de auditoria
-Os eventos no relatório de auditoria do Azure AD são mantidos por 180 dias. Para saber mais sobre retenção de relatórios, confira [Políticas de retenção de relatório do Active Directory do Azure](active-directory-reporting-retention.md).
-
-Para clientes interessados no armazenamento de seus eventos de auditoria por períodos mais longos, a API de Relatório pode ser usada regularmente receber eventos de auditoria em um armazenamento de dados separado. Confira [Introdução à API de Relatório](active-directory-reporting-api-getting-started.md) para obter detalhes.
-
-## Propriedades incluídas com cada evento de auditoria
-
-Propriedade | Descrição
-------------- | --------------------------------------------------------------
-Data e hora | A data e hora em que o evento de auditoria ocorreu
-Ator | O usuário ou a entidade de serviço que executou a ação
-Ação | A ação que foi executada
-Destino | O usuário ou a entidade de serviço em que a ação foi executada
 
 ## Lista de eventos de relatório de auditoria
 <!--- audit event descriptions should be in the past tense --->
 
 Eventos | Descrição do evento
------------------------------------- | -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 **Eventos de usuário** |
 Adicionar usuário | Um usuário foi adicionado ao diretório.
 Excluir usuário | Um usuário foi excluído do diretório.
@@ -58,13 +48,22 @@ Adicionar entidade de serviço | Uma entidade de serviço foi adicionada ao dire
 Remover entidade de serviço | Uma entidade de serviço foi removida do diretório.
 Adicionar credenciais de entidade de serviço | Credenciais adicionadas a uma entidade de serviço.
 Remover credenciais de entidade de serviço | Credenciais removidas de uma entidade de serviço.
-Adicionar entrada de delegação | [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) foi criado no diretório.
-Definir entrada de delegação | [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) foi atualizado no diretório.
-Remover entrada de delegação | [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) foi excluído no diretório.
+Adicionar entrada de delegação | [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) criado no diretório.
+Definir entrada de delegação | [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) atualizado no diretório.
+Remover entrada de delegação | [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) excluído do diretório.
 **Eventos de função** |
 Adicionar um membro da função à Função | Um usuário foi adicionado a uma função de diretório.
 Remover membro de função da Função | Um usuário foi removido de uma função de diretório.
 Definir informações de contato da empresa | Defina preferências de contato do nível da empresa. Isso inclui endereços de email para marketing, bem como notificações técnicas sobre os Serviços Online da Microsoft.
+**Eventos B2B** |
+Convites do Lote carregados. | Um administrador carregou um arquivo que contém os convites a serem enviados para os usuários do parceiro.
+Convites do Lote processados. | Um arquivo que contém os convites para os usuários do parceiro foi processado.
+Convide um usuário externo. | Um usuário externo foi convidado para o diretório.
+Resgate um convite para usuário externo. | Um usuário externo resgatou seu convite para o diretório.
+Adicione o usuário externo ao grupo. | Um usuário externo recebeu associação a um grupo no diretório.
+Atribua um usuário externo ao aplicativo. | Um usuário externo recebeu acesso direto a um aplicativo.
+Criação de locatário viral. | Um novo locatário foi criado no AD do Azure pelo resgate do convite.
+Criação de usuário viral. | Um usuário foi criado em um locatário existente no AD do Azure pelo resgate do convite.
 **Eventos de diretório** |
 Adicionar um parceiro à empresa | Um parceiro foi adicionado ao diretório.
 Remover o parceiro da empresa | Um parceiro foi removido do diretório.
@@ -89,6 +88,21 @@ Promote tenant to partner
 
 --->
 
+## Retenção do relatório de auditoria
+Os eventos no relatório de auditoria do Azure AD são mantidos por 180 dias. Para saber mais sobre retenção de relatórios, confira [Políticas de retenção de relatório do Active Directory do Azure](active-directory-reporting-retention.md).
+
+Para clientes interessados no armazenamento de seus eventos de auditoria por períodos mais longos, a API de Relatório pode ser usada regularmente receber eventos de auditoria em um armazenamento de dados separado. Confira [Introdução à API de Relatório](active-directory-reporting-api-getting-started.md) para obter detalhes.
+
+## Propriedades incluídas com cada evento de auditoria
+
+Propriedade | Descrição
+------------- | --------------------------------------------------------------
+Data e hora | A data e hora em que o evento de auditoria ocorreu
+Ator | O usuário ou a entidade de serviço que executou a ação
+Ação | A ação que foi executada
+Destino | O usuário ou a entidade de serviço em que a ação foi executada
+
+
 ## Atributos de “Atualizar Usuário”
 O evento de auditoria "Atualizar usuário" inclui informações adicionais sobre quais atributos de usuário foram atualizados. Para cada atributo, o valor anterior e o novo valor são ambos incluídos.
 
@@ -108,4 +122,4 @@ TelephoneNumber | O número de telefone do usuário.
 
 Registros de auditoria são um controle necessário para muitas regulamentações de conformidade. Para clientes que usam o Relatório de Auditoria do Active Directory do Azure para atender aos seus regulamentos de conformidade, recomenda-se que o cliente envie uma cópia deste tópico de ajuda com a cópia do relatório de auditoria exportado do cliente para ajudar a explicar os detalhes do relatório. Se o auditor gostaria de entender os regulamentos de conformidade que o Azure atende atualmente, indique a [Página de conformidade](http://azure.microsoft.com/support/trust-center/compliance/) da Central de confiabilidade do Microsoft Azure ao auditor.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

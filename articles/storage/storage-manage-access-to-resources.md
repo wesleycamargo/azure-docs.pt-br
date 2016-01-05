@@ -38,13 +38,13 @@ Os contêineres fornecem as seguintes opções para gerenciar o acesso do contê
 
 Você pode definir permissões de contêiner das seguintes maneiras:
 
-- Do [Portal de Gerenciamento do Azure](https://manage.windowsazure.com/).
+- No [Portal do Azure](portal.azure.com).
 - Programaticamente, usando a biblioteca de cliente de armazenamento ou a API REST.
 - Usando o PowerShell. Para obter informações sobre como configurar permissões de contêiner do Azure PowerShell, consulte [Usando o Azure PowerShell com o Armazenamento do Azure](storage-powershell-guide-full#how-to-manage-azure-blobs).
 
 ### Definindo permissões de contêiner no Portal do Azure
 
-Para definir permissões de contêiner no Portal do Azure, siga estas etapas:
+Para definir permissões de contêiner no [Portal do Azure](portal.azure.com), siga estas etapas:
 
 1. Navegue até o painel da sua conta de armazenamento.
 2. Selecione o nome do contêiner na lista. Observe que você deve clicar à direita da coluna Nome para selecionar o nome do contêiner. Clicar no nome detalha o contêiner para mostrar seus blobs.
@@ -155,4 +155,4 @@ A tabela a seguir mostra quais operações podem ser chamadas por usuários anô
 - [Assinaturas de acesso compartilhado: noções básicas sobre o modelo SAS](storage-dotnet-shared-access-signature-part-1.md)
 - [Delegando acesso com uma assinatura de acesso compartilhado](https://msdn.microsoft.com/library/azure/ee395415.aspx) 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

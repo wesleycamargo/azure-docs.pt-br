@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/18/2015" 
+	ms.date="12/05/2015" 
 	ms.author="juliako"/>
 
 #Introdução ao fornecimento de conteúdo sob demanda usando API REST
@@ -47,7 +47,7 @@ As tarefas a seguir são mostradas neste guia de início rápido.
 
 ## <a id="create_ams"></a>Criar uma conta de Serviços de Mídia usando o Portal
 
-1. No [Portal de Gerenciamento][], clique em **Novo**, em **Serviço de Mídia** e em **Criação Rápida**.
+1. No [Portal Clássico do Azure][], clique em **Novo**, em **Serviço de Mídia** e em **Criação Rápida**.
    
 	![Criação Rápida dos Serviços de Mídia](./media/media-services-rest-get-started/wams-QuickCreate.png)
 
@@ -1208,9 +1208,6 @@ Se este tópico não contiver o que você esperava, se estiver faltando alguma i
 
 
 <!-- URLs. -->
-  [Portal de Gerenciamento]: http://manage.windowsazure.com/
+  [Portal Clássico do Azure]: http://manage.windowsazure.com/
 
-
- 
-
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

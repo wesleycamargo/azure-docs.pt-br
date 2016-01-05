@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="08/03/2015"
+   ms.date="12/03/2015"
    ms.author="jahogg"/>
 
 # Guia de Design de tabela de armazenamento do Azure: projetando tabelas escalonáveis e de alto desempenho
@@ -22,7 +22,7 @@
 
 Para projetar tabelas escalonáveis e de alto desempenho, você deve considerar vários fatores, como desempenho, escalabilidade e custo. Se você tiver criado anteriormente esquemas de bancos de dados relacionais, essas considerações serão familiares para você, mas embora haja algumas semelhanças entre o modelo de armazenamento do serviço Tabela do Azure e os modelos relacionais, também há várias diferenças importantes. Normalmente, essas diferenças resultam em muito designs diferentes que podem parecer contraintuitivos ou errados para alguém que esteja familiarizado com bancos de dados relacionais, mas que fazem sentido se você estiver criando para um armazenamento de chave/valor de NoSQL, como o serviço Tabela do Azure. Muitas das suas diferenças de design refletirão o fato de que o serviço Tabela foi projetado para dar suporte a aplicativos de escala de nuvem que podem conter bilhões de entidades (linhas na terminologia de banco de dados relacional) de dados ou de conjuntos de dados que devem dar suporte a grandes volumes de transações: por isso, você precisa pensar de forma diferente sobre como armazenar seus dados e entender como funciona o serviço Tabela. Um repositório de dados NoSQL bem projetado pode permitir que sua solução seja muito mais dimensionável (e a um custo menor) do que uma solução que usa um banco de dados relacional. Este guia o ajudará com esses tópicos.
 
-## Sobre o serviço de Tabela do Azure
+## Sobre o serviço Tabela do Azure
 
 Esta seção destaca alguns dos principais recursos do serviço Tabela que são especialmente relevantes para o projeto de desempenho e escalabilidade. Se você for novo no armazenamento do Azure e no serviço Tabela, leia primeiro [Introdução ao Armazenamento do Microsoft Azure](storage-introduction.md) e [Como usar o armazenamento de tabela do .NET](storage-dotnet-how-to-use-tables.md) antes de ler o restante deste artigo. Embora o foco deste guia seja no serviço Tabela, ele incluirá alguma discussão dos serviços Blob e fila do Azure e como você pode usá-los junto com o serviço Tabela em uma solução.
 
@@ -176,7 +176,7 @@ Criar a solução de serviço Tabela para ser eficiente em *gravação*:
 -	***Não crie partições ativas.*** Escolha chaves que permitam que você distribua suas solicitações por várias partições em qualquer momento.  
 -	***Evite picos no tráfego.*** Suavize o tráfego por um período razoável de tempo e evite picos no tráfego.
 -	***Não crie, necessariamente, uma tabela separada para cada tipo de entidade.*** Quando você precisar de transações atômicas nos tipos de entidade, pode armazenar esses vários tipos de entidade na mesma partição, na mesma tabela.
--	***Considere a taxa de transferência máxima que deve ser atingida.*** Você deve estar ciente dos destinos de escalabilidade para o serviço de Tabela e garantir que seu design não fará com que você os exceda.  
+-	***Considere a taxa de transferência máxima que deve ser atingida.*** Você deve estar ciente dos destinos de escalabilidade para o serviço Tabela e garantir que seu design não fará com que você os exceda.  
 
 À medida que você ler este guia, verá exemplos que colocam todos esses princípios em prática.
 
@@ -207,7 +207,7 @@ Os exemplos a seguir pressupõem que o serviço Tabela é armazenar entidades de
 |**Idade**|Número inteiro|
 |**EmailAddress**|Cadeia de caracteres|
 
-A seção anterior, [Visão geral do serviço de Tabela do Azure](#azure-table-service-overview), descreve alguns dos principais recursos do serviço Tabela do Azure, que têm uma influência direta no design para consulta. Isso resulta nas seguintes diretrizes gerais para a criação de consultas do serviço Tabela. Observe que a sintaxe de filtro usada nos exemplos a seguir é proveniente da API REST do serviço Tabela. Para obter mais informações, consulte [Entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx) no MSDN.
+A seção anterior, [Visão geral do serviço Tabela do Azure](#azure-table-service-overview), descreve alguns dos principais recursos do serviço Tabela do Azure, que têm uma influência direta no design para consulta. Isso resulta nas seguintes diretrizes gerais para a criação de consultas do serviço Tabela. Observe que a sintaxe de filtro usada nos exemplos a seguir é proveniente da API REST do serviço Tabela. Para obter mais informações, consulte [Entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx) no MSDN.
 
 -	Uma ***Consulta de ponto*** é a pesquisa mais eficiente a usar e é recomendada para pesquisas de alto volume ou pesquisas que exigem a latência mais baixa. Tal consulta pode usar os índices para localizar uma entidade individual de modo muito eficiente, especificando os valores **PartitionKey** e **RowKey**. Por exemplo:
 $filter=(PartitionKey eq 'Sales') and (RowKey eq '2')  
@@ -276,7 +276,7 @@ Os padrões a seguir, na seção [Padrões de design de tabela](#table-design-pa
 -	[Padrão de exclusão de alto volume](#high-volume-delete-pattern) - Habilite a exclusão de um alto volume de entidades armazenando todas as entidades para exclusão simultânea em suas próprias tabelas separadas; exclua as entidades por meio da exclusão da tabela.  
 -	[Padrão de série de dados](#data-series-pattern) - Armazene séries completas de dados em uma única entidade para minimizar o número de solicitações feitas.  
 -	[Padrão de entidades longas](#wide-entities-pattern) - Use várias entidades físicas para armazenar entidades lógicas com mais de 252 propriedades.  
--	[Padrão de entidades grandes](#large-entities-pattern) - Use o armazenamento de blob para armazenar grandes valores de propriedade.  
+-	[Padrão de entidades grandes](#large-entities-pattern) - Use o armazenamento de blobs para armazenar grandes valores de propriedade.  
 
 ### Garantindo a consistência nas suas entidades armazenadas  
 
@@ -302,6 +302,16 @@ Os padrões a seguir, na seção [Padrões de design de tabela](#table-design-pa
 -	[Padrão de chave composta](#compound-key-pattern) - Use valores **RowKey** compostos para permitir que um cliente pesquise dados relacionados com uma consulta de único ponto.  
 -	[Padrão de rastro do log](#log-tail-pattern) - Recupere as entidades *n* adicionadas recentemente em uma partição, usando um valor **RowKey** que classifica em ordem de data e hora inversa.  
 
+## Criptografando dados de tabela    
+     
+A Biblioteca de Cliente do Armazenamento do Azure para .NET dá suporte à criptografia de propriedades de entidade para as operações de inserção e substituição. As cadeias de caracteres criptografadas são armazenadas no serviço como propriedades binárias, e são convertidas novamente em cadeias de caracteres após a descriptografia.
+
+Para tabelas, além da política de criptografia, os usuários devem especificar as propriedades que devem ser criptografadas. Isso pode ser feito especificando o atributo [EncryptProperty] (para entidades POCO que derivam de TableEntity) ou um resolvedor de criptografia nas opções de solicitação. Um resolvedor de criptografia é um delegado que usa uma chave de partição, a chave de linha e o nome da propriedade e retorna um valor booliano que indica se essa propriedade deve ser criptografada. Durante a criptografia, a biblioteca de cliente usará essas informações para decidir se uma propriedade deve ser criptografada durante a gravação para a transmissão. O representante também oferece a possibilidade de lógica em torno de como as propriedades são criptografadas. (Por exemplo, se X, então criptografar a propriedade A; caso contrário, criptografar as propriedades A e B.) Observe que não é necessário fornecer essas informações durante a leitura ou ap consultar entidades.
+
+Saiba que atualmente não há suporte para a mesclagem. Como um subconjunto de propriedades pode ter sido criptografado anteriormente usando uma chave diferente, simplesmente mesclar as novas propriedades e atualizar os metadados resultará em perda de dados. Mesclar requer fazer chamadas de serviço extra para ler a entidade já existente no serviço ou usar uma nova chave por propriedade, os quais não são ambos adequados por motivos de desempenho.
+
+Para obter informações sobre como criptografar dados de tabela, confira [Criptografia do lado do cliente e Cofre da Chave do Azure para Armazenamento do Microsoft Azure](storage-client-side-encryption.md).
+
 ## Relações de modelagem  
 
 A criação de modelos de domínio é uma etapa importante na criação de sistemas complexos. Normalmente, você usa o processo de modelagem para identificar entidades e as relações entre elas, como uma forma de compreender o domínio de negócios e informar o design do seu sistema. Esta seção se concentra em como você pode converter alguns dos tipos de relações comuns encontrados em modelos de domínio em designs para o serviço Tabela. O processo de mapeamento de um modelo de dados lógico para um modelo de dados baseado em NoSQL físico é muito diferente do usado durante a criação de um banco de dados relacional. Design de bancos de dados relacionais geralmente assume um processo de normalização de dados otimizado para minimizar a redundância – e uma funcionalidade de consulta declarativa que abstrai como a implementação do banco de dados funciona.
@@ -322,7 +332,7 @@ Uma abordagem alternativa é desnormalizar seus dados e armazenar apenas entidad
 
 ![][2]
 
-Para saber mais, consulte [Padrão de desnormalização](#denormalization-pattern) mais adiante neste guia.
+Para saber mais, confira [Padrão de desnormalização](#denormalization-pattern) mais adiante neste guia.
 
 A tabela a seguir resume os prós e contras de cada uma das abordagens descritas acima para o armazenamento de entidades de funcionário e departamento que têm uma relação um-para-muitos. Você também deve considerar a frequência com que pretende executar várias operações: pode ser aceitável ter um projeto que inclui uma operação cara, se essa operação ocorrer apenas raramente.
 
@@ -383,12 +393,12 @@ Como escolher entre essas opções e quais os prós e contras são mais signific
 
 ### Relações um-para-um  
 
-Modelos de domínio podem incluir relações um-para-um entre entidades. Se você precisar implementar uma relação individual no serviço Tabela, também deve escolher como vincular as duas entidades relacionadas, quando precisar recuperá-las. Esse link pode ser implícito, com base em uma convenção nos valores de chave, ou explícito, armazenando um link na forma dos valores **PartitionKey** e **RowKey** em cada entidade até sua entidade relacionada. Para ver uma discussão sobre a conveniência ou não de armazenar as entidades relacionadas na mesma partição, consulte a seção [Relações de um-para-muitos](#one-to-many-relationships).
+Modelos de domínio podem incluir relações um-para-um entre entidades. Se você precisar implementar uma relação individual no serviço Tabela, também deve escolher como vincular as duas entidades relacionadas, quando precisar recuperá-las. Esse link pode ser implícito, baseado em uma convenção nos valores de chave, ou explícito, armazenando um link na forma dos valores **PartitionKey** e **RowKey** em cada entidade até sua entidade relacionada. Para ver uma discussão sobre a conveniência ou não de armazenar as entidades relacionadas na mesma partição, confira a seção [Relações de um-para-muitos](#one-to-many-relationships).
 
 Observe que também há considerações de implementação que podem levá-lo a implementar relações um-para-um no serviço Tabela:
 
--	O controle de grandes entidades (para saber mais, consulte [Trabalhando com grandes entidades](#working-with-large-entities)).  
--	A implementação de controles de acesso (para saber mais, consulte [Controlando o acesso com assinaturas de acesso compartilhado](#controlling-access-with-shared-access-signatures)).  
+-	Controlando grandes entidades (para saber mais, confira [Trabalhando com grandes entidades](#working-with-large-entities)).  
+-	Implementando controles de acesso (para saber mais, confira [Controlando o acesso com assinaturas de acesso compartilhado](#controlling-access-with-shared-access-signatures)).  
 
 ### Unindo o cliente  
 
@@ -406,7 +416,7 @@ Você pode persistir instâncias das duas classes concretas no serviço Tabela u
 
 ![][4]
 
-Para saber mais sobre como trabalhar com vários tipos de entidade na mesma tabela no código cliente, consulte a seção [Trabalhando com tipos de entidade heterogênea](#working-with-heterogeneous-entity-types) mais adiante neste guia. Isso fornece exemplos de como reconhecer o tipo de entidade no código do cliente.
+Para saber mais sobre como trabalhar com vários tipos de entidade na mesma tabela no código cliente, confira a seção [Trabalhando com tipos de entidade heterogênea](#working-with-heterogeneous-entity-types) mais adiante neste guia. Isso fornece exemplos de como reconhecer o tipo de entidade no código do cliente.
 
 ## Padrões de design de tabela
 Nas seções anteriores, você viu que algumas discussões detalhadas sobre como otimizar o design da tabela para recuperar dados de entidade usando consultas e para inserir, atualizar e excluir dados de entidade. Esta seção descreve alguns padrões adequados para uso com soluções de serviço Tabela. Além disso, você verá como abordar praticamente alguns dos problemas e compensações gerados anteriormente neste guia. O diagrama a seguir resume as relações entre os diferentes padrões:
@@ -435,12 +445,12 @@ Os seguintes dois critérios de filtro (uma pesquisa por ID funcionário e uma p
 -	$filter=(PartitionKey eq 'Sales') and (RowKey eq 'empid\_000223')  
 -	$filter=(PartitionKey eq 'Sales') e (RowKey eq 'email_jonesj@contoso.com')  
 
-Ao consultar um intervalo de entidades de funcionário, você poderá, por meio de uma consulta às entidades com o prefixo apropriado em **RowKey**, especificar um intervalo classificado por ordem de ID de funcionário ou por ordem de endereços de email.
+Ao consultar um intervalo de entidades de funcionário, você poderá, usando uma consulta às entidades com o prefixo apropriado em **RowKey**, especificar um intervalo classificado por ordem de ID de funcionário ou por ordem de endereços de email.
 
 -	Para localizar todos os funcionários do departamento de vendas com uma ID de funcionário no intervalo 000100 a 000199, use: $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid\_000100') and (RowKey le 'empid\_000199')  
 -	Para localizar todos os funcionários do departamento de Vendas com um endereço de email que começa com a letra 'a', use: $filter=(PartitionKey eq 'Sales') and (RowKey ge 'email\_a') and (RowKey lt 'email\_b')  
 
- Observe que a sintaxe de filtro usada nos exemplos acima é proveniente da API REST do serviço Tabela; para saber mais, consulte [Entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx) no MSDN.
+ Observe que a sintaxe de filtro usada nos exemplos acima é proveniente da API REST do serviço Tabela; para saber mais, confira [Entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx) no MSDN.
 
 #### Problemas e considerações  
 
@@ -448,7 +458,7 @@ Considere os seguintes pontos ao decidir como implementar esse padrão:
 
 -	Armazenamento de tabela é relativamente barato, portanto a sobrecarga de custos de armazenar dados duplicados não deve ser uma preocupação importante. No entanto, você deve sempre avaliar o custo de seu design com base nas necessidades de armazenamento previstas e só adicionar entidades duplicadas para dar suporte a consultas que seu aplicativo cliente executará.  
 -	Como as entidades de índice secundário são armazenadas na mesma partição que as entidades originais, você deve se certificar de não exceder as metas de escalabilidade para uma partição individual.  
--	Você pode manter suas entidades duplicadas consistentes entre si usando EGTs para atualizar as duas cópias da entidade atomicamente. Isso significa que você deve armazenar todas as cópias de uma entidade na mesma partição. Para saber mais, consulte a seção [Usando transações de grupo de entidades](#entity-group-transactions).  
+-	Você pode manter suas entidades duplicadas consistentes entre si usando EGTs para atualizar as duas cópias da entidade atomicamente. Isso significa que você deve armazenar todas as cópias de uma entidade na mesma partição. Para saber mais, confira a seção [Usando transações de grupo de entidades](#entity-group-transactions).  
 -	O valor usado para **RowKey** deve ser exclusivo para cada entidade. Considere o uso de valores de chave composta.  
 -	O preenchimento de valores numéricos na **RowKey** (por exemplo, a ID de funcionário 000223), permite classificação e filtragem corretas, com base em limites superiores e inferiores.  
 -	Você não precisa necessariamente duplicar todas as propriedades da entidade. Por exemplo, se as consultas que pesquisam as entidades usando o endereço de email em **RowKey** nunca precisarem da idade do funcionário, essas entidades poderão ter a seguinte estrutura:
@@ -490,14 +500,14 @@ Para solucionar a falta de índices secundários, você pode armazenar várias c
 Os seguintes dois critérios de filtro (uma pesquisa por ID funcionário e uma por endereço de email) especificam consultas de ponto:
 
 -	$filter=(PartitionKey eq 'empid\_Sales') and (RowKey eq '000223')
--	$filter=(PartitionKey eq 'email\_Sales') and (RowKey eq 'jonesj@contoso.com')  
+-	$filter=(PartitionKey eq 'email\_Sales') and (RowKey eq 'diasd@contoso.com')  
 
-Ao consultar um intervalo de entidades de funcionário, você poderá, por meio de uma consulta às entidades com o prefixo apropriado em **RowKey**, especificar um intervalo classificado por ordem de ID de funcionário ou por ordem de endereços de email.
+Ao consultar um intervalo de entidades de funcionário, você poderá, usando uma consulta às entidades com o prefixo apropriado em **RowKey**, especificar um intervalo classificado por ordem de ID de funcionário ou por ordem de endereços de email.
 
 -	Para localizar todos os funcionários do departamento de Vendas com uma ID de funcionário no intervalo de **000100** a **000199**, classificados por ordem de ID de funcionário, use: $filter=(PartitionKey eq 'Sales') e (RowKey ge 'empid\_000100') e (RowKey le 'empid\_000199')  
 -	Para localizar todos os funcionários do departamento de vendas com um endereço de email que comece com 'a', classificados por ordem de endereço de email, use: $filter=(PartitionKey eq 'email\_Sales') and (RowKey ge 'a') and (RowKey lt 'b')  
 
-Observe que a sintaxe de filtro usada nos exemplos acima é proveniente da API REST do serviço Tabela; para saber mais, consulte [Entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx) no MSDN.
+Observe que a sintaxe de filtro usada nos exemplos acima é proveniente da API REST do serviço Tabela; para saber mais, confira [Entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx) no MSDN.
 
 #### Problemas e considerações  
 Considere os seguintes pontos ao decidir como implementar esse padrão:
@@ -549,9 +559,9 @@ Neste exemplo, a etapa 4 insere o funcionário na tabela **Arquivo morto**. Ele 
 
 #### Recuperando de falhas  
 
-Caso a função de trabalho precise reiniciar a operação de arquivamento, é importante que as operações nas etapas **4** e **5** sejam *idempotentes*. Se você estiver usando o serviço Tabela, na etapa **4** deverá usar uma operação "inserir ou substituir"; na etapa **5** deverá usar uma operação "excluir se existir" na biblioteca cliente que você está usando. Se você estiver usando outro sistema de armazenamento, deve usar uma operação idempotente apropriada.
+Caso a função de trabalho precise reiniciar a operação de arquivamento, é importante que as operações nas etapas **4** e **5** sejam *idempotentes*. Se você estiver usando o serviço Tabela, na etapa **4** deverá usar uma operação "inserir ou substituir"; na etapa **5** deverá usar uma operação "excluir se existir" na biblioteca cliente que estiver usando. Se você estiver usando outro sistema de armazenamento, deve usar uma operação idempotente apropriada.
 
-Se a função de trabalho nunca concluir a etapa **6**, após um tempo limite a mensagem reaparecerá na fila, pronta para ser reprocessada pela função de trabalho. A função de trabalho pode verificar quantas vezes uma mensagem na fila foi lida e, se necessário, sinalizá-la como uma mensagem "suspeita" para investigação, enviando-a para uma fila separada. Para saber mais sobre a leitura de mensagens da fila e verificar a contagem de remoção da fila, consulte [Obter mensagens](https://msdn.microsoft.com/library/azure/dd179474.aspx).
+Se a função de trabalho nunca concluir a etapa **6**, após um tempo limite a mensagem reaparecerá na fila, pronta para ser reprocessada pela função de trabalho. A função de trabalho pode verificar quantas vezes uma mensagem na fila foi lida e, se necessário, sinalizá-la como uma mensagem "suspeita" para investigação, enviando-a para uma fila separada. Para saber mais sobre a leitura de mensagens da fila e verificar a contagem de remoção da fila, confira [Obter mensagens](https://msdn.microsoft.com/library/azure/dd179474.aspx).
 
 Alguns erros dos serviços Tabela e Fila são erros transitórios e o aplicativo cliente deve incluir uma lógica de repetição adequada para lidar com eles.
 
@@ -585,17 +595,17 @@ Se você quiser ser capaz de recuperar uma lista de entidades de funcionário co
 
 #### Solução  
 
-Para habilitar a pesquisa por sobrenome com a estrutura de entidade mostrada acima, você deve manter listas de ids de funcionário. Para recuperar entidades de funcionário com determinado sobrenome, como Jones, primeiro localize a lista de ids de funcionário para os funcionários com Jones como sobrenome e, em seguida, recupere essas entidades. Há três opções principais para armazenar listas de ids de funcionário:
+Para habilitar a pesquisa por sobrenome com a estrutura de entidade mostrada acima, você deve manter listas de ids de funcionário. Para recuperar entidades de funcionário com determinado sobrenome, como Dias, primeiro localize a lista de ids de funcionário para os funcionários com Dias como sobrenome e recupere essas entidades. Há três opções principais para armazenar listas de ids de funcionário:
 
--	Use o armazenamento de blob.  
+-	Use o armazenamento de blobs.  
 -	Crie entidades de índice na mesma partição que as entidades do funcionário.  
 -	Crie entidades de índice em uma partição ou tabela separada.  
 
-<u>Opção n°. 1: usar o armazenamento de blob</u>
+<u>Opção 1: Usar o armazenamento de blobs</u>
 
-Para a primeira opção, crie um blob para todos os sobrenomes exclusivos e em cada repositório de blob uma lista de valores **PartitionKey** (departamento) e **RowKey** (ID do funcionário) para os funcionários com esse sobrenome. Quando você adiciona ou exclui um funcionário, deve garantir que o conteúdo do blob relevante seja eventualmente consistente com as entidades do funcionário.
+Para a primeira opção, crie um blob para todos os sobrenomes exclusivos e em cada repositório de blobs uma lista de valores **PartitionKey** (departamento) e **RowKey** (ID do funcionário) para os funcionários com esse sobrenome. Quando você adiciona ou exclui um funcionário, deve garantir que o conteúdo do blob relevante seja eventualmente consistente com as entidades do funcionário.
 
-<u>Opção n°. 2:</u> criar entidades de índice na mesma partição
+<u>Opção 2:</u> Criar entidades de índice na mesma partição
 
 Para a segunda opção, use as entidades de índice que armazenam os dados a seguir:
 
@@ -610,13 +620,13 @@ As etapas a seguir descrevem o processo que você deve seguir ao adicionar um no
 
 Você pode usar uma abordagem semelhante à exclusão de um funcionário se usar a segunda opção. Alterar o sobrenome do funcionário é um pouco mais complexo, pois você precisará executar uma transação de grupo de entidades que atualiza as três entidades: a entidade funcionário, a entidade de índice para o sobrenome antigo e a entidade de índice para o novo sobrenome. Você deve recuperar cada entidade antes de fazer alterações para recuperar os valores de ETag que depois pode usar para executar as atualizações usando a simultaneidade otimista.
 
-As etapas abaixo descrevem o processo que você deve seguir quando precisar procurar todos os funcionários com determinado sobrenome em um departamento, se estiver usando a segunda opção. Neste exemplo, estamos procurando todos os funcionários com o sobrenome Jones no departamento de Vendas:
+As etapas abaixo descrevem o processo que você deve seguir quando precisar procurar todos os funcionários com determinado sobrenome em um departamento, se estiver usando a segunda opção. Neste exemplo, estamos procurando todos os funcionários com o sobrenome Dias no departamento de Vendas:
 
-1.	Recupere a entidade de índice com um valor de **PartitionKey** igual a "Vendas" e valor de **RowKey** igual a "Jones".  
+1.	Recupere a entidade de índice com um valor de **PartitionKey** igual a "Vendas" e valor de **RowKey** igual a "Dias".  
 2.	Analise a lista de Ids no campo EmployeeIDs.  
 3.	Se precisar de informações adicionais sobre cada um desses funcionários (como endereços de email), recupere cada uma das entidades de funcionário usando o valor de **PartitionKey** igual a "Vendas" e os valores de **RowKey** da lista de funcionários obtida na etapa 2.  
 
-<u>Opção n°. 3:</u> criar entidades de índice em uma partição ou tabela separada
+<u>Opção 3:</u> criar entidades de índice em uma partição ou tabela separada
 
 Para a terceira opção, use as entidades de índice que armazenam os dados a seguir:
 
@@ -637,7 +647,7 @@ Considere os seguintes pontos ao decidir como implementar esse padrão:
 
 #### Quando usar esse padrão  
 
-Use esse padrão quando quiser pesquisar um conjunto de entidades que compartilham um valor da propriedade comum, como todos os funcionários com o sobrenome Jones.
+Use esse padrão quando quiser pesquisar um conjunto de entidades que compartilham um valor da propriedade comum, como todos os funcionários com o sobrenome Dias.
 
 #### Diretrizes e padrões relacionados  
 
@@ -704,7 +714,7 @@ Armazene um novo tipo de entidade em sua tabela original usando entidades com a 
 
 ![][20]
 
-Observe como a **RowKey** agora é uma chave composta de ID de funcionário e o ano dos dados de revisão que lhe permitem recuperar o desempenho do funcionário e analisar os dados com uma única solicitação para uma única entidade.
+Observe como a **RowKey** agora é uma chave composta de ID de funcionário e o ano dos dados de revisão que permitem recuperar o desempenho do funcionário e analisar os dados com uma única solicitação para uma única entidade.
 
 O exemplo a seguir descreve como você pode recuperar todos os dados de revisão de um funcionário específico (por exemplo, um funcionário 000123 no departamento de Vendas):
 
@@ -713,7 +723,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid\_000123') and (RowKey lt
 #### Problemas e considerações
 Considere os seguintes pontos ao decidir como implementar esse padrão:
 
--	Você deve usar um caractere separador adequado que torna mais fácil de analisar o valor **RowKey**, por exemplo: **000123\_2012**.  
+-	Você deve usar um caractere separador adequado que facilite a análise do valor de **RowKey**: por exemplo, **000123\_2012**.  
 -	Você também está armazenando essa entidade na mesma partição que outras entidades que contêm dados relacionados para o mesmo funcionário, o que significa que você pode usar EGTs para manter a coerência forte.
 -	Você deve considerar com que frequência consultará os dados para determinar se esse padrão é apropriado. Por exemplo, se você for acessar os dados de revisão com pouca frequência e os dados principais do funcionário com mais frequência, deve mantê-los como entidades separadas.  
 
@@ -882,7 +892,7 @@ Os padrões e diretrizes a seguir também podem ser relevantes ao implementar es
 
 ### Padrão de grandes entidades  
 
-Use armazenamento de blob para armazenar grandes valores de propriedade.
+Use armazenamento de blobs para armazenar grandes valores de propriedade.
 
 #### Contexto e problema  
 
@@ -890,7 +900,7 @@ Uma entidade individual não pode armazenar mais de 1 MB de dados no total. Se u
 
 #### Solução  
 
-Se a entidade exceder 1 MB de tamanho porque uma ou mais propriedades contêm uma grande quantidade de dados, você poderá armazenar dados no serviço Blob e, em seguida, armazenar o endereço do blob em uma propriedade na entidade. Por exemplo, você pode armazenar a foto de um funcionário no armazenamento de blob e armazenar um link para a foto na propriedade **Foto** da entidade funcionário:
+Se a entidade exceder 1 MB de tamanho porque uma ou mais propriedades contêm uma grande quantidade de dados, você poderá armazenar dados no serviço Blob e, em seguida, armazenar o endereço do blob em uma propriedade na entidade. Por exemplo, você pode armazenar a foto de um funcionário no armazenamento de blobs e armazenar um link para a foto na propriedade **Foto** da entidade funcionário:
 
 ![][25]
 
@@ -955,7 +965,7 @@ Normalmente, você deveria usar o serviço Blob em vez do serviço Tabela para a
 
 #### Contexto e problema  
 
-Um caso de uso comum de dados de log é recuperar uma seleção de entradas de log para um intervalo de data/hora específico: por exemplo, você deseja localizar todos os erros e mensagens críticas que seu aplicativo registrou entre 15:04 e 15:06 em uma data específica. Você não deseja usar a data e hora da mensagem de log para determinar a partição em que você salvou as entidades de log: isso resulta em uma partição ativa porque, a qualquer momento, todas as entidades de log compartilharão o mesmo valor **PartitionKey** (consulte a seção [Antipadrão de prefixação/acréscimo](#prepend-append-anti-pattern)). Por exemplo, o seguinte esquema de entidade para uma mensagem de log resulta em uma partição ativa porque o aplicativo grava todas as mensagens de log na partição para a data e hora atual:
+Um caso de uso comum de dados de log é recuperar uma seleção de entradas de log para um intervalo de data/hora específico: por exemplo, você deseja localizar todos os erros e mensagens críticas que seu aplicativo registrou entre 15:04 e 15:06 em uma data específica. Você não deseja usar a data e hora da mensagem de log para determinar a partição em que você salvou as entidades de log: isso resulta em uma partição ativa porque, a qualquer momento, todas as entidades de log compartilharão o mesmo valor **PartitionKey** (confira a seção [Antipadrão de prefixação/acréscimo](#prepend-append-anti-pattern)). Por exemplo, o seguinte esquema de entidade para uma mensagem de log resulta em uma partição ativa porque o aplicativo grava todas as mensagens de log na partição para a data e hora atual:
 
 ![][28]
 
@@ -965,13 +975,13 @@ Outra abordagem é usar uma **PartitionKey** que garanta que o aplicativo grave 
 
 ![][29]
 
-No entanto, o problema com esse esquema é que para recuperar todas as mensagens de log para um período de tempo específico você deve pesquisar cada partição na table.
+No entanto, o problema com esse esquema é que para recuperar todas as mensagens de log para um período de tempo específico você deve pesquisar cada partição na tabela.
 
 #### Solução  
 
 A seção anterior realçou o problema de uma tentativa de usar o serviço Tabela para armazenar entradas de log e sugeriu dois designs insatisfatórios. Uma solução resultou em uma partição ativa com o risco de mau desempenho ao gravar mensagens de log; a outra solução resultou em mau desempenho de consulta por causa do requisito de verificar cada partição da tabela para recuperar mensagens de log de um período específico. O Armazenamento de blob oferece uma solução melhor para esse tipo de cenário e é assim que o Azure Storage Analytics armazena os dados de log que coleta.
 
-Esta seção descreve como o Storage Analytics armazena dados de log no armazenamento de blob como uma ilustração dessa abordagem de armazenamento de dados que você normalmente consulta por intervalo.
+Esta seção descreve como o Storage Analytics armazena dados de log no armazenamento de blobs como uma ilustração dessa abordagem de armazenamento de dados que você normalmente consulta por intervalo.
 
 O Storage Analytics armazena mensagens de log em um formato delimitado em vários blobs. O formato delimitado facilita para um aplicativo cliente analisar os dados na mensagem de log.
 
@@ -979,7 +989,7 @@ O Storage Analytics usa uma convenção de nomenclatura para blobs que permite q
 
 O Storage Analytics armazena em buffer as mensagens de log internamente, e periodicamente atualiza o blob apropriado ou cria um novo com o último lote de entradas de log. Isso reduz o número de gravações que ele deve realizar para o serviço Blob.
 
-Se você estiver implementando uma solução semelhante em seu próprio aplicativo, deve considerar como gerenciar a compensação entre a confiabilidade (gravar todas as entradas de log no armazenamento de blob à medida que ocorre) e o custo e a escalabilidade (armazenar as atualizações em buffer em seu aplicativo e gravá-las no armazenamento de blobs em lotes).
+Se você estiver implementando uma solução semelhante em seu próprio aplicativo, deve considerar como gerenciar a compensação entre a confiabilidade (gravar todas as entradas de log no armazenamento de blobs à medida que ocorre) e o custo e a escalabilidade (armazenar as atualizações em buffer em seu aplicativo e gravá-las no armazenamento de blobs em lotes).
 
 #### Problemas e considerações  
 
@@ -987,7 +997,7 @@ Considere os seguintes pontos ao decidir como armazenar dados de log:
 
 -	Se você criar um design de tabela que evita potenciais partições ativas, verá que não pode acessar os dados do log com eficiência.  
 -	Para processar dados de log, um cliente normalmente precisa carregar vários registros.  
--	Embora os dados de log sejam geralmente estruturados, o armazenamento de blob pode ser uma solução melhor.  
+-	Embora os dados de log sejam geralmente estruturados, o armazenamento de blobs pode ser uma solução melhor.  
 
 ### Considerações sobre a implementação  
 
@@ -1014,7 +1024,7 @@ Observe como esse exemplo espera que a entidade recuperada seja do tipo **Employ
 
 #### Recuperando várias entidades usando LINQ  
 
-Você pode recuperar várias entidades usando LINQ com a Biblioteca de cliente de armazenamento e especificando uma consulta com uma cláusula **where**. Para evitar uma verificação de tabela, você sempre deve incluir o valor **PartitionKey** na cláusula where e, se possível, o valor **RowKey** para evitar verificações de tabela e de partição. O serviço Tabela dá suporte a um conjunto limitado de operadores de comparação (maior que, maior que ou igual a, menor que, menor que ou igual a, igual a, e diferente de) para usar na cláusula where. O seguinte trecho de código em c# localiza todos os funcionários cujo sobrenome começa com "B" (supondo que **RowKey** armazena o sobrenome) no departamento de vendas (supondo que **PartitionKey** armazena o nome do departamento):
+Você pode recuperar várias entidades usando LINQ com a Biblioteca de Cliente de Armazenamento e especificando uma consulta com uma cláusula **where**. Para evitar uma verificação de tabela, você sempre deve incluir o valor **PartitionKey** na cláusula where e, se possível, o valor **RowKey** para evitar verificações de tabela e de partição. O serviço Tabela dá suporte a um conjunto limitado de operadores de comparação (maior que, maior que ou igual a, menor que, menor que ou igual a, igual a, e diferente de) para usar na cláusula where. O seguinte trecho de código em c# localiza todos os funcionários cujo sobrenome começa com "B" (supondo que **RowKey** armazena o sobrenome) no departamento de vendas (supondo que **PartitionKey** armazena o nome do departamento):
 
 	TableQuery<EmployeeEntity> employeeQuery =
   			employeeTable.CreateQuery<EmployeeEntity>();
@@ -1027,7 +1037,7 @@ Você pode recuperar várias entidades usando LINQ com a Biblioteca de cliente d
 
 Observe como a consulta especifica uma **RowKey** e também uma **PartitionKey** para garantir um melhor desempenho.
 
-O exemplo de código a seguir mostra a funcionalidade equivalente usando a API fluente (para saber mais sobre APIs fluentes em geral, consulte [Práticas recomendadas para a criação de uma API fluente](http://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)):
+O exemplo de código a seguir mostra a funcionalidade equivalente usando a API fluente (para saber mais sobre APIs fluentes em geral, confira [Práticas recomendadas para a criação de uma API fluente](http://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)):
 
 	TableQuery<EmployeeEntity> employeeQuery = new TableQuery<EmployeeEntity>().Where(
  	 TableQuery.CombineFilters(
@@ -1053,7 +1063,7 @@ Uma consulta ideal retorna uma entidade individual com base em um valor **Partit
 
 Você deve sempre testar totalmente o desempenho do seu aplicativo nesses cenários.
 
-Uma consulta no serviço Tabela pode retornar um máximo de 1.000 entidades de uma só vez e ser executada por um máximo de cinco segundos. Se o conjunto de resultados contiver mais de 1.000 entidades, se a consulta não for concluída em até cinco segundos, ou se a consulta ultrapassar o limite da partição, o serviço Tabela retornará um token de continuação para habilitar o aplicativo cliente a solicitar o próximo conjunto de entidades. Para saber mais sobre como funcionam os tokens de continuação, consulte [Tempo limite e paginação de consulta](http://msdn.microsoft.com/library/azure/dd135718.aspx) no MSDN.
+Uma consulta no serviço Tabela pode retornar um máximo de 1.000 entidades de uma só vez e ser executada por um máximo de cinco segundos. Se o conjunto de resultados contiver mais de 1.000 entidades, se a consulta não for concluída em até cinco segundos, ou se a consulta ultrapassar o limite da partição, o serviço Tabela retornará um token de continuação para habilitar o aplicativo cliente a solicitar o próximo conjunto de entidades. Para saber mais sobre como funcionam os tokens de continuação, confira [Tempo limite e paginação de consulta](http://msdn.microsoft.com/library/azure/dd135718.aspx) no MSDN.
 
 Se você estiver usando a Biblioteca de Cliente de Armazenamento, ela pode automaticamente controlar os tokens de continuação para você, à medida que retorna entidades do serviço Tabela. O seguinte exemplo de código C# usando a Biblioteca de cliente de armazenamento trata automaticamente os tokens de continuação, se o serviço Tabela retorná-los em uma resposta:
 
@@ -1128,7 +1138,7 @@ Você também deve considerar como seu design afeta a forma de tratamento, por p
 
 #### Gerenciando simultaneidade  
 
-Por padrão, o serviço Tabela implementa verificações de simultaneidade otimista no nível de entidades individuais para as operações **Inserir**, **Mesclar** e **Excluir**, embora um cliente possa forçar o serviço Tabela a ignorar essas verificações. Para saber mais sobre como o serviço Tabela gerencia a simultaneidade, consulte [Gerenciando simultaneidade no Armazenamento do Microsoft Azure](storage-concurrency.md), no site do Microsoft Azure.
+Por padrão, o serviço Tabela implementa verificações de simultaneidade otimista no nível de entidades individuais para as operações **Inserir**, **Mesclar** e **Excluir**, embora um cliente possa forçar o serviço Tabela a ignorar essas verificações. Para saber mais sobre como o serviço Tabela gerencia a simultaneidade, confira [Gerenciando simultaneidade no Armazenamento do Microsoft Azure](storage-concurrency.md), no site do Microsoft Azure.
 
 #### Mesclar ou substituir  
 
@@ -1444,7 +1454,7 @@ Você pode usar tokens de SAS (Assinatura de Acesso Compartilhado) para habilita
 -	Você pode descarregar parte do trabalho que as funções Web e de trabalho desempenham no gerenciamento de suas entidades em dispositivos clientes, como computadores de usuários finais e dispositivos móveis.  
 -	Você pode atribuir um conjunto de permissões restrito e de tempo limitado a um cliente (como acesso somente leitura a recursos específicos).  
 
-Para saber mais sobre como usar tokens SAS com o serviço Tabela, consulte [Assinaturas de acesso compartilhado, parte 1: noções básicas sobre o modelo SAS](../storage-dotnet-shared-access-signature-part-1/).
+Para saber mais sobre como usar tokens SAS com o serviço Tabela, confira [Assinaturas de acesso compartilhado, parte 1: noções básicas sobre o modelo SAS](../storage-dotnet-shared-access-signature-part-1/).
 
 No entanto, você ainda deve gerar os tokens SAS que concedem a um aplicativo cliente para as entidades no serviço Tabela: você deve fazer isso em um ambiente com acesso seguro às chaves de conta de armazenamento. Geralmente, você usa uma função de trabalho ou Web para gerar tokens SAS e enviá-los aos aplicativos clientes que precisam acessar suas entidades. Como ainda há uma sobrecarga envolvida na geração e fornecimento de tokens SAS aos clientes, você deve considerar a melhor maneira de reduzir essa sobrecarga, especialmente em cenários de alto volume.
 
@@ -1505,9 +1515,9 @@ Neste exemplo assíncrono, você pode ver as seguintes alterações da versão s
 -	A assinatura do método agora inclui o modificador **async** e retorna uma instância **Task**.  
 -	Em vez de chamar o método **ExecuteSegmented** para recuperar os resultados, agora o método chama o método **ExecuteSegmentedAsync** e usa o modificador **await** para recuperar resultados de forma assíncrona.  
 
-O aplicativo cliente pode chamar esse método várias vezes (com valores diferentes para o parâmetro **departament**), e cada consulta será executada em um thread separado.
+O aplicativo cliente pode chamar esse método várias vezes (com valores diferentes para o parâmetro **department**) e cada consulta será executada em um thread separado.
 
-Observe que não há qualquer versão assíncrona do método **Execute** na classe **TableQuery**, porque a interface **IEnumerable** não dá suporte a enumeração assíncrona.
+Observe que não há qualquer versão assíncrona do método **Execute** na classe **TableQuery**, pois a interface **IEnumerable** não dá suporte a enumeração assíncrona.
 
 Você também pode inserir, atualizar e excluir entidades de forma assíncrona. O exemplo c# a seguir mostra um método síncrono simples para inserir ou substituir uma entidade funcionário:
 
@@ -1575,4 +1585,4 @@ Também gostaríamos de agradecer aos seguintes MVPs da Microsoft por seus valio
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
  
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

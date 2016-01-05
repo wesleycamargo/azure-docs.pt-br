@@ -62,7 +62,7 @@ Se você tiver experiência com distribuições do Linux, é possível já ter e
 
 		openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 
-2. Carregar arquivo .cer do certificado no Azure. No [Portal Azure](https://manage.windowsazure.com), clique em **Configurações** na parte inferior esquerda da área de serviço (mostrada abaixo)
+2. Carregar arquivo .cer do certificado no Azure. No [portal clássico do Azure](https://manage.windowsazure.com), clique em **Configurações** na parte inferior esquerda da área de serviço (mostrada abaixo)
 
 	![][portalsettingsitem]
 
@@ -214,4 +214,4 @@ Vá para o [guia do usuário Docker](https://docs.docker.com/userguide/) e crie 
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/11/2015"
+   ms.date="11/17/2015"
    ms.author="mbaldwin" />
 
 # Bibliotecas de Autenticação do Active Directory do Azure
@@ -63,4 +63,4 @@ Nesse cenário, um desenvolvedor tem um aplicativo em execução num servidor qu
 
 [Exemplos de código do Active Directory do Azure](active-directory-code-samples.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

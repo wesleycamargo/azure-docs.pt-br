@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/18/2015"  
+	ms.date="11/12/2015"  
 	ms.author="juliako"/>
 
 #Configurar políticas de entrega de ativos usando o SDK do .NET
@@ -103,29 +103,31 @@ Para obter informações sobre os valores que você pode especificar ao criar um
 
 Os Serviços de Mídia do Azure também permitem que você adicione criptografia Widevine. O exemplo a seguir demonstra o PlayReady e o Widevine sendo adicionados à política de fornecimento de ativos.
 
-	static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
-	{
-	    Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
-	
-	    Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
-	        new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
-	    {
-	        {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
-	        {AssetDeliveryPolicyConfigurationKey.WidevineLicenseAcquisitionUrl,"http://testurl"},
-	        
-	    };
-	
-	    var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
-	            "AssetDeliveryPolicy",
-	        AssetDeliveryPolicyType.DynamicCommonEncryption,
-	        AssetDeliveryProtocol.Dash,
-	        assetDeliveryPolicyConfiguration);
-	
-	   
-	    // Add AssetDelivery Policy to the asset
-	    asset.DeliveryPolicies.Add(assetDeliveryPolicy);
-	
-	}
+
+    static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
+    {
+        Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
+        Uri widevineURl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine);
+
+        Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
+            new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
+        {
+            {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
+            {AssetDeliveryPolicyConfigurationKey.WidevineLicenseAcquisitionUrl, widevineURl.ToString()},
+
+        };
+
+        var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
+                "AssetDeliveryPolicy",
+            AssetDeliveryPolicyType.DynamicCommonEncryption,
+            AssetDeliveryProtocol.Dash,
+            assetDeliveryPolicyConfiguration);
+
+
+        // Add AssetDelivery Policy to the asset
+        asset.DeliveryPolicies.Add(assetDeliveryPolicy);
+
+    }
 
 >[AZURE.NOTE]Ao criptografar com Widevine, você só seria capaz de fornecer usando um DASH. Certifique-se de especificar DASH no protocolo de fornecimento de ativos.
 
@@ -260,17 +262,24 @@ Para obter informações sobre os valores que você pode especificar ao criar um
         /// <summary>
         /// None.
         /// </summary>
-        None,
+        None = 0,
 
         /// <summary>
         /// Use PlayReady License acquistion protocol
         /// </summary>
-        PlayReadyLicense,
+        PlayReadyLicense = 1,
 
         /// <summary>
         /// Use MPEG Baseline HTTP key protocol.
         /// </summary>
-        BaselineHttp
+        BaselineHttp = 2,
+
+        /// <summary>
+        /// Use Widevine License acquistion protocol
+        ///
+        </summary>
+        Widevine = 3
+
     }
 
 ###<a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey
@@ -329,4 +338,4 @@ Para obter informações sobre os valores que você pode especificar ao criar um
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

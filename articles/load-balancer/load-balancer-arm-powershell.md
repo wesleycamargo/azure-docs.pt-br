@@ -109,7 +109,7 @@ Criar um endereço IP público a ser usada pelo pool de IP front-end:
 
 	$publicIP = New-AzurePublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location "West US" –AllocationMethod Dynamic -DomainNameLabel lbip 
 
->[AZURE.NOTE]A propriedade do rótulo do nome de domínio do endereço IP público será o FQDN do balanceador de carga.
+>[AZURE.NOTE]A propriedade do rótulo do nome de domínio do endereço IP público será o prefixo de FQDN do balanceador de carga.
 
 ## Criar o pool de IP front-end e pool de endereços de back-end
 
@@ -282,4 +282,4 @@ Use o comando Remove-AzureLoadBalancer para excluir um balanceador de carga cria
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

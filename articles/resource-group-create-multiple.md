@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/20/2015"
+   ms.date="12/01/2015"
    ms.author="tomfitz"/>
 
 # Criar várias instâncias de recursos no Gerenciador de Recursos do Azure
@@ -151,9 +151,52 @@ Você pode especificar a implantação de um recurso após outro recurso usando 
 	    "outputs": {}
     }
 
+## Looping em um recurso aninhado
+
+Você não pode usar um loop de cópia para um recurso aninhado. Se você precisar criar várias instâncias de um recurso que normalmente é definido como aninhado em outro recurso, deverá, em vez disso, criar o recurso como um recurso de nível superior e definir a relação com o recurso pai por meio das propriedades **tipo** e **nome**.
+
+Por exemplo, suponha que você normalmente defina um conjunto de dados como um recurso aninhado em uma Data Factory.
+
+    "resources": [
+    {
+        "type": "Microsoft.DataFactory/datafactories",
+        "name": "[variables('dataFactoryName')]",
+        ...
+        "resources": [
+        {
+            "type": "datasets",
+            "name": "[variables('dataSetName')]",
+            "dependsOn": [
+                "[variables('dataFactoryName')]"
+            ],
+            ...
+        }
+    }]
+    
+Para criar várias instâncias de conjuntos de dados, você precisa alterar o modelo, conforme mostrado abaixo. Observe que o tipo totalmente qualificado e o nome incluem o nome da data factory.
+
+    "resources": [
+    {
+        "type": "Microsoft.DataFactory/datafactories",
+        "name": "[variables('dataFactoryName')]",
+        ...
+    },
+    {
+        "type": "Microsoft.DataFactory/datafactories/datasets",
+        "name": "[concat(variables('dataFactoryName'), '/', variables('dataSetName'), copyIndex())]",
+        "dependsOn": [
+            "[variables('dataFactoryName')]"
+        ],
+        "copy": { 
+            "name": "datasetcopy", 
+            "count": "[parameters('count')]" 
+        } 
+        ...
+    }]
+
 ## Próximas etapas
 - Para saber mais sobre as seções de um modelo, confira [Criando modelos do Gerenciador de Recursos do Azure](./resource-group-authoring-templates.md).
 - Para ver todas as funções que você pode usar em um modelo, confira [Funções de modelo do Gerenciador de Recursos do Azure](./resource-group-template-functions.md).
 - Para saber mais sobre como implantar o modelo, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

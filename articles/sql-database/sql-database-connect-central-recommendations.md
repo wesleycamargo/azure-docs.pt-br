@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/13/2015" 
 	ms.author="genemi"/>
 
 
@@ -30,9 +30,9 @@ Este tópico é um bom ponto de partida para a conectividade do cliente com o Ba
 
 
 - [Diretrizes para conexão com o Banco de Dados SQL do Azure de forma programática](http://msdn.microsoft.com/library/azure/ee336282.aspx) — discussões incluem o seguinte:
- - [Portas e Firewalls](sql-database-configure-firewall-settings.md/)
+ - [Portas e Firewalls](sql-database-configure-firewall-settings.md)
  - Cadeias de conexão
-- [Gerenciamento de recursos do banco de dados SQL do Azure](https://msdn.microsoft.com/library/azure/dn338083.aspx) — discussões incluem o seguinte:
+- [Gerenciamento de recursos do banco de dados SQL do Azure](http://msdn.microsoft.com/library/azure/dn338083.aspx) — discussões incluem o seguinte:
  - Governança de recursos
  - Imposição de limites
  - Limitação
@@ -169,4 +169,4 @@ Vários exemplos de código são fornecidos para clientes que são executados no
 
 - [Bibliotecas de conexões para Banco de Dados SQL e SQL Server](sql-database-libraries.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

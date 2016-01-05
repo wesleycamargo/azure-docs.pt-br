@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="12/01/2015" 
 	ms.author="wesmc;ricksal"/>
 
 # Solucionar problemas de back-end .NET dos Serviços Móveis
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 Desenvolver com Serviços Móveis geralmente é uma tarefa fácil e sem problemas, mas de repente podem acontecer coisas e algo pode sair errado. Este tutorial abrange algumas técnicas que permitem a você solucionar problemas comuns que podem surgir com o back-end .NET dos Serviços Móveis.
 
@@ -36,7 +41,7 @@ Você pode usar qualquer depurador HTTP para enviar e inspecionar tráfego HTTP.
 1. Inicie com um projeto de servidor dos Serviços Móveis no **Visual Studio 2013 Update 2** ou posterior. Caso não tenha um em mãos, você pode criar um selecionando **Arquivo**, **Novo**, **Projeto** e, em seguida, selecionando o nó **Nuvem** e o modelo **Serviços Móveis do Microsoft Azure**.
 2. Pressione **F5**, o que compilará e executará o projeto. Na página inicial, selecione **Experimentar**.
 
-    >[AZURE.NOTE]Se o serviço for hospedado localmente, clicando no link você será direcionado para a próxima página. Entretanto, se hospedar na nuvem, você será solicitado a definir credenciais. Isso é feito para assegurar que usuários não autenticados não tenham acesso às informações sobre sua API e cargas. Para ver a página, é necessário fazer logon com um **nome de usuário em branco** e sua **chave do aplicativo** como a senha. Sua chave do aplicativo está disponível no **Portal de Gerenciamento do Azure**, navegando para a guia **Painel** de seu serviço móvel e selecionando **Gerenciar chaves**.
+    >[AZURE.NOTE]Se o serviço for hospedado localmente, clicando no link você será direcionado para a próxima página. Entretanto, se hospedar na nuvem, você será solicitado a definir credenciais. Isso é feito para assegurar que usuários não autenticados não tenham acesso às informações sobre sua API e cargas. Para ver a página, é necessário fazer logon com um **nome de usuário em branco** e sua **chave do aplicativo** como a senha. A chave de aplicativo está disponível no Portal clássico do Azure, navegando até a guia **Painel** do seu serviço móvel e selecionando **Gerenciar chaves**.
     >
     > ![Prompt de autenticação para acessar a página de ajuda][HelpPageAuth]
 
@@ -68,7 +73,7 @@ Um dos principais recursos de back-end .NET é a capacidade de depurar o código
 
     ![Configurar carregamento de símbolo][SymbolLoading]
 
-3. Selecione o nó **Símbolos** à esquerda e adicione uma referência para o servidor (SymbolSource)[http://symbolsource.org] usando o URI [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public). Os símbolos para o back-end do .NET dos Serviços Móveis são disponibilizados lá com uma versão bem nova.
+3. Selecione o nó **Símbolos** à esquerda e adicione uma referência ao servidor [SymbolSource] usando o URI [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public). Os símbolos para o back-end do .NET dos Serviços Móveis são disponibilizados lá com uma versão bem nova.
 
     ![Configurar servidor de símbolo][SymbolServer]
 
@@ -107,9 +112,9 @@ Depois de publicar seu serviço no Azure, os logs para a instância de serviço 
 
 ![Logs no Gerenciador de Servidores do Visual Studio][LogsServerExplorer]
 
-Os mesmos logs também estão disponíveis no **Portal de Gerenciamento do Azure** na guia **Logs** de seu serviço móvel.
+Os mesmos logs também estão disponíveis no Portal clássico do Azure na guia **Logs** de seu serviço móvel.
 
-![Faça logon no Portal de Gerenciamento do Azure][LogsPortal]
+![Logs no Portal clássico do Azure][LogsPortal]
 
 <a name="AssemblyResolution"></a>
 ## Depurar Resolução de Assembly em Nuvem
@@ -154,4 +159,8 @@ As migrações podem ser complexas e exigir que o estado do banco de dados seja 
 [LogsPortal]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
 [HelpConflict]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
 
-<!---HONumber=Oct15_HO3-->
+
+<!-- Links -->
+[SymbolSource]: http://symbolsource.org
+
+<!---HONumber=AcomDC_1210_2015-->

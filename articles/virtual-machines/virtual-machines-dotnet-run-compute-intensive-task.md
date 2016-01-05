@@ -48,7 +48,7 @@ Este é um exemplo do aplicativo do .NET que monitora a tarefa que exige computa
 
 ## Para criar uma máquina virtual
 
-1. Faça logon no [Portal do Azure](https://manage.windowsazure.com).
+1. Faça logon no [portal clássico do Azure](https://manage.windowsazure.com).
 2. Clique em **Novo**.
 3. Clique em **Máquina virtual**.
 4. Clique em **Criação rápida**.
@@ -57,11 +57,11 @@ Este é um exemplo do aplicativo do .NET que monitora a tarefa que exige computa
 7. Digite um nome para o administrador no campo **Nome do Usuário**. Lembre-se do nome e da senha que você digitar a seguir, pois vai usá-los ao fazer logon remotamente na máquina virtual.
 8. Digite uma senha no campo **Nova senha** e insira-a novamente no campo **Confirmar**.
 9. Na lista suspensa **Local**, selecione o local do data center da máquina virtual.
-10. Clique em **Criar máquina virtual**. Você pode monitorar o status na seção **Máquinas virtuais** do portal do Azure. Quando o status for exibido como **Ativo**, você poderá fazer logon na máquina virtual.
+10. Clique em **Criar máquina virtual**. Você pode monitorar o status na seção **Máquinas virtuais** do portal clássico do Azure. Quando o status for exibido como **Ativo**, você poderá fazer logon na máquina virtual.
 
 ## Para fazer logon remotamente na máquina virtual
 
-1. Faça logon no [Portal do Azure](https://manage.windowsazure.com).
+1. Faça logon no [portal clássico do Azure](https://manage.windowsazure.com).
 2. Clique em **Máquinas Virtuais**.
 3. Clique no nome da máquina virtual na qual você deseja fazer logon.
 4. Clique em **Conectar**.
@@ -73,9 +73,9 @@ Para começar a usar filas do Barramento de Serviço no Azure, primeiro crie um 
 
 Para criar um namespace de serviço:
 
-1.  Faça logon no [Portal do Azure](https://manage.windowsazure.com).
-2.  No painel de navegação esquerdo do portal do Azure, clique em **Barramento de Serviço**.
-3.  No painel inferior do Portal do Azure, clique em **Criar**.
+1.  Faça logon no [portal clássico do Azure](https://manage.windowsazure.com).
+2.  No painel de navegação esquerdo do portal clássico do Azure, clique em **Barramento de Serviço**.
+3.  No painel inferior do portal clássico do Azure, clique em **Criar**.
 
     ![Criar novo barramento de serviço][create_service_bus]
 4.  Na caixa de diálogo **Criar um namespace**, digite um nome de namespace. O sistema verifica imediatamente se o nome está disponível, porque ele precisa ser um nome exclusivo.
@@ -90,7 +90,7 @@ Para criar um namespace de serviço:
 
 	![Clique em criar captura de tela][click_create]
 
-O namespace que você criou aparecerá no Portal do Azure e demorará algum tempo para ser ativado. Aguarde até que o status esteja **Ativo** para passar à próxima etapa.
+O namespace que você criou aparecerá no portal clássico do Azure e demorará algum tempo para ser ativado. Aguarde até que o status esteja **Ativo** para passar à próxima etapa.
 
 ## Obter as credenciais de gerenciamento padrão do namespace
 
@@ -539,7 +539,7 @@ O solver será executado até terminar de examinar todas as rotas.
 Para os aplicativos solver e de cliente, é possível pressionar Ctrl+C para sair se você quiser encerrar antes da conclusão normal.
 
 ## Alternativa à criação e à exclusão da fila com TSPSolver
-Em vez de usar TSPSolver para criar ou excluir a fila, é possível criá-la ou exclui-la usando o [portal do Azure](https://manage.windowsazure.com). Visite a seção de Barramento de Serviço do Portal do Azure a fim de acessar as interfaces de usuário para criar ou excluir uma fila, bem como para recuperar a cadeia de conexão, o emissor e a chave de acesso. Também é possível exibir um painel das suas filas do Barramento de Serviço, permitindo exibir métricas para as mensagens de entrada e de saída.
+Em vez de usar TSPSolver para criar ou excluir a fila, é possível criá-la ou exclui-la usando o [portal clássico do Azure](https://manage.windowsazure.com). Visite a seção de Barramento de Serviço do portal clássico do Azure a fim de acessar as interfaces de usuário para criar ou excluir uma fila, bem como para recuperar a cadeia de conexão, o emissor e a chave de acesso. Também é possível exibir um painel das suas filas do Barramento de Serviço, permitindo exibir métricas para as mensagens de entrada e de saída.
 
 [solver_output]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPSolver.png
 [client_output]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPClient.png
@@ -550,4 +550,4 @@ Em vez de usar TSPSolver para criar ou excluir a fila, é possível criá-la ou 
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

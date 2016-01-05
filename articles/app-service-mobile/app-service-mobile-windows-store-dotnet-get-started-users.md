@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/22/2015"
+	ms.date="11/23/2015"
 	ms.author="glenga"/>
 
 # Adicionar autenticação ao seu aplicativo do Windows
@@ -22,13 +22,9 @@
 &nbsp;  
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
-Este tópico mostra como autenticar usuários de um aplicativo móvel do Serviço de Aplicativo em seu aplicativo cliente. Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando um provedor de identidade que tenha suporte no Serviço de Aplicativo. Após ser autenticado e autorizado com sucesso pelo aplicativo móvel, o valor da ID de usuário é exibido.
+Este tópico mostra como adicionar autenticação baseada em nuvem ao seu aplicativo móvel. Neste tutorial, você pode adicionar autenticação ao projeto de início rápido dos Aplicativos Móveis usando um provedor de identidade com suporte no Serviço de Aplicativo do Azure. Após ser autenticado e autorizado com sucesso pelo back-end do Aplicativo Móvel, o valor da ID de usuário é exibido.
 
-Este tutorial baseia-se no início rápido do aplicativo móvel. Você deve primeiro concluir o tutorial [Introdução ao seu aplicativo móvel].
-
-##<a name="create-gateway"></a>Criar um Gateway do Serviço de Aplicativo
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-gateway](../../includes/app-service-mobile-dotnet-backend-create-gateway.md)]
+Este tutorial baseia-se no início rápido dos Aplicativos Móveis. Você deve primeiro concluir o tutorial [Introdução aos Aplicativos Móveis](app-service-mobile-windows-store-dotnet-get-started.md).
 
 ##<a name="register"></a>Registrar seu aplicativo para autenticação e configurar o Serviço de Aplicativo
 
@@ -38,28 +34,34 @@ Este tutorial baseia-se no início rápido do aplicativo móvel. Você deve prim
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-&nbsp;&nbsp;4. No Visual Studio, abra o arquivo de projeto App.xaml.cs compartilhado em seu projeto de aplicativo do cliente e verifique se a instância **MobileServiceClient** está configurada para usar a URL do back-end do Aplicativo Móvel e o Gateway.
-
-&nbsp;&nbsp;5. Com um os projetos de aplicativo do Windows configurado como projeto de inicialização, pressione a tecla F5 para executar o aplicativo; verifique se uma exceção não tratada com um código de status de 401 (não autorizado) é gerada depois que o aplicativo for iniciado.
-
-&nbsp;&nbsp;Isso acontece porque o aplicativo tenta acessar o Código do Aplicativo Móvel como um usuário não autenticado, mas a tabela *TodoItem* agora exige a autenticação.
+Com um os projetos de aplicativo do Windows configurado como projeto de inicialização, pressione a tecla F5 para executar o aplicativo; verifique se uma exceção não tratada com um código de status de 401 (não autorizado) é gerada depois que o aplicativo for iniciado. Isso acontece porque o aplicativo tenta acessar o código do aplicativo móvel como um usuário não autenticado, mas a tabela *TodoItem* agora exige autenticação.
 
 Em seguida, você atualizará o aplicativo para autenticar usuários antes de solicitar recursos do seu Serviço de Aplicativo.
 
 ##<a name="add-authentication"></a>Adicionar autenticação ao aplicativo
 
-[AZURE.INCLUDE [app-service-mobile-windows-universal-dotnet-authenticate-app](../../includes/app-service-mobile-windows-universal-dotnet-authenticate-app.md)]
+[AZURE.INCLUDE [mobile-windows-universal-dotnet-authenticate-app](../../includes/mobile-windows-universal-dotnet-authenticate-app.md)]
 
 
 ##<a name="tokens"></a>Armazenar o token de autenticação no cliente
 
-[AZURE.INCLUDE [app-service-mobile-windows-store-dotnet-authenticate-app-with-token](../../includes/app-service-mobile-windows-store-dotnet-authenticate-app-with-token.md)]
+O exemplo anterior mostrou uma entrada padrão, que requer que o cliente contate o provedor de identidade e o Serviço de Aplicativo sempre que o aplicativo for iniciado. Além de esse método ser ineficiente, você pode se deparar com problemas relacionados ao uso caso muitos consumidores tentem iniciar o aplicativo ao mesmo tempo. Uma abordagem melhor é armazenar em cache o token de autorização retornado pelo Serviço de Aplicativo e tentar usá-lo antes de usar um logon baseado em provedor.
+
+>[AZURE.NOTE]Você pode armazenar em cache o token emitido pelos Serviços de Aplicativos usando tanto a autenticação gerenciada pelo cliente quanto a autenticação gerenciada pelo serviço. Este tutorial usa a autenticação gerenciada pelo serviço.
+
+[AZURE.INCLUDE [mobile-windows-universal-dotnet-authenticate-app-with-token](../../includes/mobile-windows-universal-dotnet-authenticate-app-with-token.md)]
 
 ##Próximas etapas
 
+Agora que você concluiu este tutorial de autenticação básica, considere continuar com um dos seguintes tutoriais:
+
++ [Adicionar notificações por push ao seu aplicativo Windows](app-service-mobile-windows-store-dotnet-get-started-push.md) Saiba como adicionar suporte a notificações por push para seu aplicativo e configurar o back-end do Aplicativo Móvel para usar os Hubs de Notificação do Azure para enviar notificações por push.
+
++ [Habilitar sincronização offline para seu aplicativo do Windows](app-service-mobile-windows-store-dotnet-get-started-offline-data.md) Saiba como adicionar suporte offline ao seu aplicativo usando um back-end de Aplicativo Móvel. A sincronização offline permite que os usuários finais interajam com um aplicativo móvel, exibindo, adicionando ou modificando dados, mesmo quando não há conexão de rede.
+
 
 <!-- URLs. -->
-[Introdução ao seu aplicativo móvel]: app-service-mobile-windows-store-dotnet-get-started.md
+[Get started with your mobile app]: app-service-mobile-windows-store-dotnet-get-started.md
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015--->

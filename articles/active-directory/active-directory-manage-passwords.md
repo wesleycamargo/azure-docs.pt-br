@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Gerenciar senhas no AD do Azure| Microsoft Azure"
-	description="Como gerenciar senhas no AD do Azure."
+	pageTitle="Gerencias senhas no Active Directory do Azure | Microsoft Azure"
+	description="Como gerenciar senhas no Active Directory do Azure."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="12/01/2015"
 	ms.author="curtand"/>
 
-# Gerenciar senhas no AD do Azure
+# Gerenciar senhas no Active Directory do Azure
 
-Se você for um administrador, poderá redefinir a senha do usuário no Azure por meio do portal clássico do Azure. Clique no nome do diretório e na página Usuários, clique no nome do usuário e na parte inferior do portal, clique em **Redefinir senha**.
+Se você for um administrador, poderá redefinir a senha do usuário no Active Directory do Azure (Azure AD) por meio do portal clássico do Azure. Clique no nome do diretório e na página Usuários, clique no nome do usuário e na parte inferior do portal, clique em **Redefinir senha**.
 
-O restante deste tópico aborda o conjunto completo de recursos de gerenciamento de senha para o qual o Active Directory do Azure dá suporte, incluindo:
+O restante deste tópico aborda o conjunto completo de recursos de gerenciamento de senha para o qual o Azure AD dá suporte, incluindo:
 
 - A alteração de **senha por autoatendimento** permite que os usuários finais ou os administradores alterem suas senhas expiradas ou não expiradas sem chamar um administrador ou o suporte técnico em busca de suporte.
 - A redefinição de **senha por autoatendimento** permite que os usuários finais ou os administradores redefinam suas senhas automaticamente, sem chamar um administrador ou o suporte técnico em busca de suporte. A redefinição de senha por autoatendimento exige o AD Premium ou Basic do Azure. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
-- A **Redefinição de senha iniciada pelo administrador** permite que um administrador redefina a senha de um usuário final ou de outro administrador de dentro do Portal de Gerenciamento do Azure.
+- A **Redefinição de senha iniciada pelo administrador** permite que um administrador redefina a senha de um usuário final ou de outro administrador de dentro do portal clássico do Azure.
 - **Relatórios de atividade de gerenciamento de senha** fornecem aos administradores percepções sobre as atividades de registro e de redefinição de senha que ocorrem em suas organizações.
 - O **Write-back de senha** permite o gerenciamento de senhas locais na nuvem, de modo que todos os cenários acima podem ser executados por, ou em nome de, usuários federados ou sincronizados por senha. O write-back de senha requer o AD Premium do Azure. Para obter mais informações, consulte [Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md).
 
@@ -48,4 +48,4 @@ Use os links a seguir para ir para a documentação na qual você está mais int
 - [Criar ou editar usuários no AD do Azure](active-directory-create-users.md)
 - [Gerenciar grupos no AD do Azure](active-directory-manage-groups.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

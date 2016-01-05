@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="12/02/2015"
    ms.author="cherylmc" />
 
 # Locais de emparelhamento e parceiros da Rota Expressa
@@ -29,7 +29,7 @@ Você terá acesso aos serviços do Azure em todas as regiões dentro de uma reg
 
 |**Região Geopolítica**|**Regiões do Azure**|**Locais de Rota Expressa**|
 |---|---|---|
-|**América do Norte**|Todas as regiões dos EUA - Leste dos EUA, Oeste dos EUA, Leste dos EUA 2, Centro dos EUA, Centro-Sul dos EUA, Centro-Norte dos EUA|Atlanta, Chicago, Dallas, Los Angeles, Nova York, Seattle, Vale do Silício, Washington, D.C.|
+|**América do Norte**|Leste dos EUA, Oeste dos EUA, Leste dos EUA 2, Centro dos EUA, Centro-Sul dos EUA, Centro-Norte dos EUA, Centro do Canadá, Leste do Canadá|Atlanta, Chicago, Dallas, Los Angeles, Nova York, Seattle, Vale do Silício, Washington, D.C., Montreal+, Toronto+|
 |**América do Sul**|Sul do Brasil|São Paulo|
 |**Europa**|Norte da Europa, Europa Ocidental|Amsterdã, Dublin +, Londres|
 |**Ásia**|Ásia Oriental, Sudeste Asiático|Hong Kong, Cingapura|
@@ -43,8 +43,8 @@ A tabela a seguir fornece informações sobre regiões e limites geopolíticos p
 
 |**Região Geopolítica**|**Regiões do Azure**|**Locais de Rota Expressa**|
 |---|---|---|---|
-|**Nuvem do Governo dos EUA**|Governo dos EUA|Iowa, Virgínia|Ashburn, Chicago|
-|**Nuvem na China**|China|Leste, Norte|
+|**Nuvem do Governo dos EUA**|Gov Iowa-EUA, Gov Virginia-EUA|Iowa, Virgínia|Chicago, Washington D.C.|
+|**Nuvem na China**|Norte da China, Leste da China|Pequim, Xangai|
 
 
 Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota Expressa padrão. Você precisará habilitar o complemento premium de Rota Expressa para dar suporte a conectividade global. Não há suporte a conectividade para ambientes de nuvem nacionais. Você pode trabalhar com seu provedor de conectividade se surgir necessidade de fazê-lo.
@@ -54,34 +54,36 @@ Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota 
 
 ### Produção do Azure
 
-| **Provedor de serviços** |**Microsoft Azure** | **Office 365** | **Locais** |
+| **Provedor de serviços** |**Microsoft Azure** | **Office 365 e CRM Online** | **Locais** |
 |-----------------------|--------------------|----------------|---------------|
 | **[Aryaka Networks](http://www.aryaka.com/)** | Suportado | Suportado | Amsterdã, Vale do Silício, Cingapura, Washington, D.C. |
-| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Suportado | Com suporte | Amsterdã, Londres, Dallas, Vale do Silício, Washington, D.C. |
-| **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Suportado | Com suporte | Amsterdã, Londres, Vale do Silício, Cingapura, Tóquio, Washington, D.C. |
-|**China Telecom Global** | Em breve | Sem suporte | Hong Kong+ |
-| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Suportado | Sem suporte | Amsterdã, Londres |
+| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Suportado | Suportado | Amsterdã, Dallas, Londres, Vale do Silício, Cingapura, Washington, D.C. |
+| **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Suportado | Suportado | Amsterdã, Hong Kong, Londres, Vale do Silício, Cingapura, Tóquio, Washington, D.C. |
+|**China Telecom Global** | Com suporte | Sem suporte | Hong Kong |
+|**Cologix** | Em breve | Sem suporte | Montreal+, Toronto+ |
+| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Suportado | Suportado | Amsterdã, Londres |
 | **Comcast** | Suportado | Sem suporte | Vale do Silício, Washington, D.C. |
-| **CoreSite** | Com suporte | Sem suporte | São Paulo | 
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Suportado | Com suporte | Amsterdã, Atlanta, Chicago, Dallas, Hong Kong, Londres, Los Angeles, Londres, Nova York, Osaka, São Paulo, Seattle, Vale do Silício, Cingapura, Sydney, Tóquio, Washington, D.C. |
-| **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2013/pdf/Azure_E.pdf)** | Suportado | Sem suporte | Tóquio |
+| **CoreSite** | Suportado | Suportado | Los Angeles | 
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Suportado | Suportado | Amsterdã, Atlanta, Chicago, Dallas, Hong Kong, Londres, Los Angeles, Londres, Nova York, Osaka, São Paulo, Seattle, Vale do Silício, Cingapura, Sydney, Tóquio, Toronto+, Washington, D.C. |
+| **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2013/pdf/Azure_E.pdf)** | Suportado | Sem suporte | Osaka, Tóquio |
 | **[InterCloud](https://www.intercloud.com/)** | Suportado | Suportado | Amsterdã, Londres, Cingapura, Washington, D.C. |
 | **Internet Solutions - Cloud Connect** | Suportado | Suportado | Amsterdã, Londres |
-| **Interxion** | Suportado | Sem suporte | Amsterdã |
-| **[Comunicações de Nível 3](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Suportado | Sem suporte | Amsterdã, Chicago, Dallas, Londres, Seattle, Vale do Silício, Washington, D.C. |
-| **Megaport** | Suportado | Sem suporte | Melbourne, Sydney |
-| **MTN** | Suportado | Sem suporte | Londres |
+| **Interxion** | Com suporte | Suportado | Amsterdã |
+| **[Comunicações de Nível 3](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Suportado | Com suporte | Amsterdã, Chicago, Dallas, Londres, Seattle, Vale do Silício, Washington, D.C. |
+| **Megaport** | Suportado | Suportado | Melbourne, Sydney |
+| **MTN** | Com suporte | Com suporte | Londres |
+| **NEXTDC** | Suportado | Suportado | Melbourne, Sydney |
 | **NTT Communications** | Suportado | Sem suporte | Londres+, Tóquio |
-| **NEXTDC** | Suportado | Sem suporte | Melbourne, Sydney+ |
 | **[Orange](http://www.orange-business.com/)** | Suportado | Sem suporte | Amsterdã, Hong Kong, Londres, Vale do Silício, Cingapura, Washington, D.C. |
 | **PCCW Global Limited** | Suportado | Sem suporte | Hong Kong |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Suportado | Sem suporte | Cingapura |
-| **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Suportado | Com suporte | Amsterdã, Chennai (Madras)+, Hong Kong, Londres, Mumbai, Cingapura |
+| **Softbank** | Em breve | Sem suporte | Osaka, Tóquio | 
+| **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Suportado | Suportado | Amsterdã, Chennai, Hong Kong, Londres, Mumbai, Cingapura, Washington D.C. |
 | **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Suportado | Suportado | Amsterdã, Londres |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Suportado | Sem suporte | Melbourne, Sydney |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | Suportado | Com suporte | Hong Kong, Londres, Vale do Silício, Sydney, Washington, D.C. |
 | **Vodafone** | Com suporte | Sem suporte | Londres | 
-| **[Zayo Group](http://www.zayo.com/)** | Suportado | Sem suporte | Chicago, Vale do Silício, Washington D.C. |
+| **[Zayo Group](http://www.zayo.com/)** | Suportado | Suportado | Chicago, Los Angeles, Nova York, Vale do Silício, Washington, D.C. |
 
  **+** indica que haverá em breve
 
@@ -100,8 +102,8 @@ Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota 
 
 | **Provedor de serviços** |**Microsoft Azure** | **Office 365** | **Locais** |
 |-----------------------|--------------------|----------------|---------------|
-| **China Telecom** | Com suporte | Sem suporte | Pequim, Xangai +|
-Para saber mais, consulte [Rota Expressa na China](http://www.windowsazure.cn/home/features/expressroute/).
+| **China Telecom** | Suportado | Sem suporte | Pequim, Xangai +|
+Para saber mais, confira [Rota Expressa na China](http://www.windowsazure.cn/home/features/expressroute/).
 
 ## Conectividade por meio de provedores de serviços não listados
 
@@ -135,6 +137,6 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 ## Próximas etapas
 
 - Para obter mais informações sobre a Rota Expressa, consulte [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md).
-- Certifique-se que todos os pré-requisitos foram atendidos. Consulte [Pré-requisitos da Rota Expressa](expressroute-prerequisites.md).
+- Certifique-se que todos os pré-requisitos foram atendidos. Confira [Pré-requisitos da Rota Expressa](expressroute-prerequisites.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

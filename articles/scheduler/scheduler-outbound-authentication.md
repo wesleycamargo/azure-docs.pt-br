@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="dotnet" 
  ms.topic="article" 
- ms.date="08/04/2015" 
+ ms.date="12/04/2015" 
  ms.author="krisragh"/>
  
 # Autenticação de Saída do Agendador
@@ -234,10 +234,14 @@ Ao adicionar a autenticação usando o modelo `ActiveDirectoryOAuth`, especifiqu
 |:--|:--|
 |_autenticação (elemento pai)_ |Objeto de autenticação para usar a autenticação ActiveDirectoryOAuth.|
 |_tipo_ |Obrigatório. Tipo de autenticação. Para autenticação de ActiveDirectoryOAuth, o valor deve ser `ActiveDirectoryOAuth`.|
-|_locatário_ |Obrigatório. O identificador do locatário é uma ID usada para identificar o locatário do AD.|
+|_locatário_ |Obrigatório. O identificador do locatário para o locatário do Azure AD.|
 |_audiência_ |Obrigatório. Isso é definido como https://management.core.windows.net/.|
 |_clientId_ |Obrigatório. Forneça o identificador de cliente para o aplicativo do AD do Azure.|
 |_segredo_ |Obrigatório. Segredo do cliente que está solicitando o token.|
+
+### Determinando o identificador do locatário
+
+Você pode encontrar o identificador do locatário para o locatário do Azure AD executando `Get-AzureAccount` no Azure PowerShell.
 
 ## Corpo da resposta de autenticação ActiveDirectoryOAuth
 
@@ -247,7 +251,7 @@ Quando uma solicitação é enviada com as informações de autenticação, a re
 |:--|:--|
 |_autenticação (elemento pai)_ |Objeto de autenticação para usar a autenticação ActiveDirectoryOAuth.|
 |_tipo_ |Tipo de autenticação. Para autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`.|
-|_locatário_ |O identificador do locatário usado para identificar o locatário do AD.|
+|_locatário_ |O identificador do locatário para o locatário do Azure AD. |
 |_audiência_ |Isso é definido como https://management.core.windows.net/.|
 |_clientId_ |O identificador de cliente para o aplicativo do AD do Azure.|
 
@@ -272,7 +276,7 @@ A solicitação de exemplo a seguir faz uma solicitação PUT que incorpora a au
 			"x-ms-version": "2013-03-01"
 		  },
 		  "authentication":{  
-			"tenant":"contoso.com",
+			"tenant":"01234567-89ab-cdef-0123-456789abcdef",
 			"audience":"https://management.core.windows.net/",
 			"clientId":"8a14db88-4d1a-46c7-8429-20323727dfab",
 			"secret": "&lt;secret-key&gt;",
@@ -310,7 +314,7 @@ Depois que essa solicitação é enviada, a resposta é a seguinte:
 			"x-ms-version": "2013-03-01"
 		  },
 		  "authentication":{  
-			"tenant":"contoso.com",
+			"tenant":"01234567-89ab-cdef-0123-456789abcdef",
 			"audience":"https://management.core.windows.net/",
 			"clientId":"8a14db88-4d1a-46c7-8429-20323727dfab",
 			"type":"ActiveDirectoryOAuth"
@@ -333,24 +337,27 @@ Depois que essa solicitação é enviada, a resposta é a seguinte:
 
 ## Consulte também
  
+
  [O que é o Agendador?](scheduler-intro.md)
  
- [Conceitos, terminologia e hierarquia de entidades do Agendador](scheduler-concepts-terms.md)
- 
- [Introdução à utilização do Agendador no Portal de Gerenciamento](scheduler-get-started-portal.md)
- 
- [Planos e cobrança no Agendador do Azure](scheduler-plans-billing.md)
- 
- [Como criar agendas complexas e recorrência avançada com o Agendador do Azure](scheduler-advanced-complexity.md)
- 
- [Referência da API REST do Agendador](https://msdn.microsoft.com/library/dn528946)
- 
- [Referência de cmdlets do PowerShell do Agendador](scheduler-powershell-reference.md)
- 
- [Alta disponibilidade e confiabilidade do Agendador](scheduler-high-availability-reliability.md)
- 
- [Limites, padrões e códigos de erro do Agendador](scheduler-limits-defaults-errors.md)
+ [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
+
+ [Introdução à utilização do Agendador no Portal do Azure](scheduler-get-started-portal.md)
+
+ [Planos e Cobrança no Agendador do Azure](scheduler-plans-billing.md)
+
+ [Referência da API REST do Agendador do Azure](https://msdn.microsoft.com/library/dn528946)
+
+ [Referência de cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md)
+
+ [Alta disponibilidade e confiabilidade do Agendador do Azure](scheduler-high-availability-reliability.md)
+
+ [Limites, padrões e códigos de erro do Agendador do Azure](scheduler-limits-defaults-errors.md)
+
+
+  
+
  
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -3,7 +3,7 @@
 	description="Aborda como criar e gerenciar grupos de Conectores no Proxy de Aplicativo do Azure AD."
 	services="active-directory"
 	documentationCenter=""
-	authors="rkarlin"
+	authors="kgremban"
 	manager="StevenPo"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/19/2015"
-	ms.author="rkarlin"/>
+	ms.author="kgremban"/>
 
 
 # Publicar aplicativos em redes e locais separados usando grupos de Conectores
@@ -59,4 +59,4 @@ Você pode fazer muito mais com o Proxy de Aplicativo:
 
 * [Sobre a delegação restrita de Kerberos](http://technet.microsoft.com/library/cc995228.aspx)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

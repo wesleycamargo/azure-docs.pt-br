@@ -24,7 +24,7 @@ Este tópico mostra como usar os Hubs de notificação do Azure para enviar noti
 
 Um dos principais benefícios do uso de notificações do Aplicativo Chrome é que as notificações aparecem dentro do contexto do navegador Google Chrome. Você não precisa executar o Aplicativo Chrome ou abrir o navegador (embora o próprio navegador Chrome precise estar em execução). Você também pode obter uma exibição consolidada de todas as suas notificações na janela de notificações do Chrome.
 
->[AZURE.NOTE]Esta não é uma notificação por push genérica no navegador, mas específica aos Aplicativos Chrome – veja [Visão geral dos Aplicativos Chrome] para obter mais detalhes. Os aplicativos de Chrome eram anteriormente conhecidos como “Aplicativos empacotados” e são diferentes dos “aplicativos hospedados”, mais simples. Consulte [Aplicativos Web instaláveis] para saber a diferença. Os Aplicativos Chrome também podem ser executados em dispositivos móveis (Android e iOS) por meio do Apache Cordova. Consulte [Aplicativos do Chrome em Dispositivos móveis] para obter mais informações.
+>[AZURE.NOTE] Esta não é uma notificação por push genérica no navegador, mas específica aos Aplicativos Chrome – veja [Visão geral dos Aplicativos Chrome] para obter mais detalhes. Os aplicativos de Chrome eram anteriormente conhecidos como “Aplicativos empacotados” e são diferentes dos “aplicativos hospedados”, mais simples. Consulte [Aplicativos Web instaláveis] para saber a diferença. Os Aplicativos Chrome também podem ser executados em dispositivos móveis (Android e iOS) por meio do Apache Cordova. Consulte [Aplicativos do Chrome em Dispositivos móveis] para obter mais informações.
 
 Neste tutorial, criaremos um Aplicativo Chrome que recebe notificações por push usando o Google Cloud Messaging (GCM). Ao concluir o tutorial, você poderá difundir notificações por push a todos os usuários do Chrome que instalaram esse Aplicativo Chrome.
 
@@ -40,7 +40,7 @@ Este tutorial demonstra o cenário de transmissão simples usando Hubs de Notifi
 
 Lembre-se de seguir os tutoriais na seção “Próximas etapas” para saber como usar os hubs de notificação para abordar usuários e grupos de dispositivos específicos.
 
->[AZURE.NOTE]Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F).
+>[AZURE.NOTE] Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F).
 
 ##<a id="register"></a>Habilitar as mensagens em nuvem do Google
 
@@ -66,7 +66,7 @@ Lembre-se de seguir os tutoriais na seção “Próximas etapas” para saber co
 
 ##<a id="configure-hub"></a>Configurar seu hub de notificação
 
-1. Entre no [portal do Azure] e clique em **+NOVO** na parte inferior esquerda da tela.
+1. Entre no [Portal Clássico do Azure] e clique em **+ NOVO** na parte inferior esquerda da tela.
 
 2. Clique em **Serviços de Aplicativos** -> **Barramento de Serviço** -> **Hub de Notificação** -> **Criação Rápida**. Digite um nome para o hub de notificação, selecione a região desejada e clique em **Criar um novo Hub de Notificação**.
 
@@ -400,7 +400,7 @@ Você deverá ver a seguinte exibição para a sua pasta ao final desta configur
 
    	![][19]
 
-5. Insira o **Nome do Hub de Notificação** e a **DefaultListenSharedAccessSignature** obtidos anteriormente do Portal do Azure e clique em **Registrar no Hub de Notificação do Azure**. Você deve ver a mensagem **Registro no Hub de Notificação concluído com êxito!** e os detalhes da resposta do registro, que contém a ID de Registro nos Hubs de Notificação do Azure.
+5. Insira o **Nome do Hub de Notificação** e a **DefaultListenSharedAccessSignature** obtidos anteriormente do portal e clique em **Registrar no Hub de Notificação do Azure**. Você deve ver a mensagem **Registro no Hub de Notificação concluído com êxito!** e os detalhes da resposta do registro, que contém a ID de Registro nos Hubs de Notificação do Azure.
 
    	![][20]
 
@@ -435,7 +435,7 @@ Para ver um exemplo de como enviar notificações de um back-end dos Serviços M
 
    	Lembre-se de substituir o espaço reservado *nome do hub* pelo nome do hub de notificação que aparece no portal, na guia **Hubs de Notificação**. Além disso, substitua o espaço reservado da cadeia de conexão pela cadeia de conexão chamada **DefaultFullSharedAccessSignature** obtida na seção “Configurar seu hub de notificação”.
 
-	>[AZURE.NOTE]Verifique se você está usando a cadeia de conexão com acesso **Completo**, não com acesso para **Escutar**. A cadeia de acesso **Escutar** não tem permissões para enviar notificações.
+	>[AZURE.NOTE] Verifique se você está usando a cadeia de conexão com acesso **Completo**, não com acesso para **Escutar**. A cadeia de acesso **Escutar** não tem permissões para enviar notificações.
 
 5. Adicione as seguintes linhas no método **Main**:
 
@@ -482,7 +482,7 @@ Para ter como alvo usuários específicos, consulte o tutorial [Notificação de
 <!-- URLs. -->
 [Exemplo de Hub de Notificação do Aplicativo Chrome]: http://google.com
 [Console do Google Cloud]: http://cloud.google.com/console
-[portal do Azure]: https://manage.windowsazure.com/
+[Portal Clássico do Azure]: https://manage.windowsazure.com/
 [Visão geral dos Hubs de Notificação]: http://msdn.microsoft.com/library/jj927170.aspx
 [Visão geral dos Aplicativos Chrome]: https://developer.chrome.com/apps/about_apps
 [Exemplo do GCM do Aplicativo Chrome]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
@@ -495,4 +495,4 @@ Para ter como alvo usuários específicos, consulte o tutorial [Notificação de
 [Notificação de usuários nos Hubs de Notificação do Azure]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Notícias mais recentes dos Hubs de Notificação do Azure]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

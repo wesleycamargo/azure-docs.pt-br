@@ -58,7 +58,7 @@ Nesta seção, você realizará as seguintes tarefas:
 
 ###Criar um serviço do Active Directory
 
-1. Entre no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
+1. Entre no [Portal Clássico do Azure](https://manage.windowsazure.com).
 
 2. Desça no painel de navegação esquerdo e clique em **Ative Directory**.
 
@@ -204,4 +204,4 @@ Depois de ter concluído este tutorial, você pode querer saber mais sobre geren
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

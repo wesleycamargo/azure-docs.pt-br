@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="12/01/2015"
    ms.author="joaoma" />
 
 # Testando as configurações do Gerenciador de Tráfego
@@ -52,9 +52,9 @@ Para testar efetivamente um método de balanceamento de carga de desempenho, voc
 
 Há serviços gratuitos de dig e pesquisa de DNS baseados na Web disponíveis. Alguns deles possibilitam que você verifique a resolução de nome DNS a partir de vários locais. Pesquise "Pesquisa de DNS" para obter exemplos. Outra opção é usar uma solução de terceiros, como Gomez ou Keynote, para confirmar que os perfis estão distribuindo o tráfego conforme o esperado.
 
-## Consulte também
+## Próximas etapas
 
 [Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](../about-traffic-manager-balancing-methods.md) [Gerenciador de Tráfego](../traffic-manager.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

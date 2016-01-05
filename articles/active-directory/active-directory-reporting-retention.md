@@ -13,10 +13,13 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="10/02/2015"
+	ms.date="12/07/2015"
 	ms.author="kenhoff"/>
 
 # Políticas de retenção de relatório do Active Directory do Azure
+
+*Esta documentação é parte do [Guia de Relatórios do Active Directory do Azure](active-directory-reporting-guide.md).*
+
 Os relatórios do Azure AD retêm dados de um determinado número de dias, indicado aqui.
 
 Relatório | Descrição
@@ -45,4 +48,4 @@ Usuários RMS mais ativos | 30 dias
 Uso de dispositivo do RMS | 30 dias
 Uso de aplicativos habilitados para RMS | 30 dias
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

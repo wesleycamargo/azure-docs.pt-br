@@ -7,7 +7,7 @@
    manager="shreeshd"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="09/03/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="11/26/2015" ms.author="aashishr"; "jimpark"/>
 
 # Introdução ao Backup do Azure
 É extremamente fácil configurar o Backup do Azure e os vídeos de instruções a seguir o ajudarão a dar os primeiros passos.
@@ -46,4 +46,4 @@ Execute as etapas mencionadas no vídeo [Introdução ao Backup do Azure 3 de 3 
 - [Fazer backup de um servidor Windows](backup-azure-backup-windows-server.md)
 - Visite o [Fórum de backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

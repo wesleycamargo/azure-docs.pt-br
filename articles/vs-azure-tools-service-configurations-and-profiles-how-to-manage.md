@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Como gerenciar perfis e configurações de serviço"
+   pageTitle="Como gerenciar perfis e configurações de serviço | Microsoft Azure"
    description="Saiba como trabalhar com arquivos de configuração de perfis e configurações de serviço| que armazenam as configurações para os ambientes de implantação e configurações de publicação para os serviços de nuvem."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="08/13/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Como gerenciar perfis e configurações de serviço
 
@@ -131,4 +131,4 @@ Quando você executa o assistente pela primeira vez, um perfil padrão é criado
 
 Para obter informações sobre como configurar outras partes do seu projeto do Azure do Visual Studio, consulte [Configurando um projeto do Azure](http://go.microsoft.com/fwlink/p/?LinkID=623075)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

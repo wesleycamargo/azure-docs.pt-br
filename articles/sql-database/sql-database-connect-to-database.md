@@ -30,7 +30,7 @@ Execute as etapas a seguir para conectar-se e consultar seu banco de dados SQL u
 
 Para conectar-se ao banco de dados, você precisará do nome completo do servidor (****nomedoservidor**.database.windows.net*) que contenha o banco de dados ao qual você deseja se conectar.
 
-1. Vá para o [Portal de Visualização do Azure](https://portal.azure.com).
+1. Vá para o [Portal do Azure](https://portal.azure.com).
 2. Navegue até o banco de dados ao qual você deseja se conectar.
 3. Localize o nome completo do servidor:
 
@@ -95,4 +95,4 @@ Você pode usar instruções do Transact-SQL para criar ou gerenciar bancos de d
 [6]: ./media/sql-database-connect-to-database/server-name.png
 [7]: ./media/sql-database-connect-to-database/connect-dbengine.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

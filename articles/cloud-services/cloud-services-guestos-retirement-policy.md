@@ -3,7 +3,7 @@
    description="Fornece informações sobre a que a Microsoft dará suporte como relação ao sistema operacional convidado do Azure usado pelos Serviços de Nuvem." 
    services="cloud-services" 
    documentationCenter="na" 
-   authors="Thraka" 
+   authors="yuemlu" 
    manager="timlt" 
    editor=""/>
 
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="08/18/2015"
-   ms.author="adegeo"/>
+   ms.date="12/07/2015"
+   ms.author="yuemlu"/>
 
 # Capacidade de suporte e política de desativação do SO convidado do Azure
-As informações nesta página se relacionam ao sistema operacional convidado do Azure [(SO Convidado)](https://msdn.microsoft.com/library/azure/ff729422.aspx) para serviços de nuvem funções web e de trabalho (PaaS). Não se aplicam às Máquinas Virtuais (IaaS).
+As informações nesta página se relacionam ao sistema operacional convidado do Azure [(SO Convidado)](cloud-services-guestos-update-matrix.md) para serviços de nuvem funções web e de trabalho (PaaS). Não se aplicam às Máquinas Virtuais (IaaS).
 
 A Microsoft tem uma [política de suporte para o SO convidado](http://support.microsoft.com/gp/azure-cloud-lifecycle-faq) publicada. A página que você está lendo agora descreve como a política é implementada.
 
@@ -57,9 +57,9 @@ Se os clientes definirem o SO convidado para atualizar automaticamente, nunca pr
 
 Versões do SO convidado são lançadas a cada mês. Devido aos lançamentos regulares, cada versão tem uma vida útil fixa.
 
-Aos 60 dias da vida útil, uma versão é "*desabilitada*". "Desabilitada" significa que a versão é removida do Portal de Gerenciamento do Azure. Ela também pode não ser definida no arquivo de configuração CSCFG. As implantações existentes são mantidas em execução, mas novas implantações e atualizações de código e a configuração para as implantações existentes não serão permitidas.
+Aos 60 dias da vida útil, uma versão é "*desabilitada*". "Desabilitada" significa que a versão é removida do portal clássico do Azure. Ela também pode não ser definida no arquivo de configuração CSCFG. As implantações existentes são mantidas em execução, mas novas implantações e atualizações de código e a configuração para as implantações existentes não serão permitidas.
 
-Posteriormente, a versão SO Convidado “*expira*” e todas as instalações que ainda estiverem executando essa versão terão a atualização forçada e serão definidas para atualizarem automaticamente o SO Convidado no futuro. A expiração é feita em lotes, de modo que o período de tempo de desativação da validade pode variar.
+Posteriormente, a versão SO Convidado "*expira*" e todas as instalações que ainda estiverem executando essa versão terão a atualização forçada e serão definidas para atualizarem automaticamente o SO Convidado no futuro. A expiração é feita em lotes, de modo que o período de tempo de desativação da validade pode variar.
 
 Esses períodos podem ser mais longos, a critério da Microsoft, para facilitar as transições do cliente. Quaisquer alterações serão comunicadas na [Matriz de compatibilidade do SDK e lançamentos do SO convidado do Azure](cloud-services-guestos-update-matrix.md).
 
@@ -67,7 +67,7 @@ Esses períodos podem ser mais longos, a critério da Microsoft, para facilitar 
 
 ### Notificações durante a desativação 
 
-* **Desativação de família** <br>A Microsoft usará postagens de blog e notificação no portal de gerenciamento. Os clientes que ainda estiverem usando uma família desativada do sistema operacional convidado serão notificados por meio de comunicação direta (email, mensagens do portal, telefonema) para administradores de serviço atribuídos. Todas as alterações serão postadas nessa página e o RSS feed será listado no início desta página. 
+* **Desativação de família** <br>A Microsoft usará postagens de blog e notificação no portal clássico do Azure. Os clientes que ainda estiverem usando uma família desativada do sistema operacional convidado serão notificados por meio de comunicação direta (email, mensagens do portal, telefonema) para administradores de serviço atribuídos. Todas as alterações serão postadas nessa página e o RSS feed será listado no início desta página. 
 
 
 * **Desativação da versão** <br>Todas as alterações serão postadas nessa página e o RSS feed será listado no início desta página, incluindo as datas de lançamento, desabilitação e expiração. Os administradores de serviços receberão emails se tiverem implantações em execução em uma família ou versão do SO convidado desabilitada. O intervalo desses emails pode variar. Geralmente, eles são enviados pelo menos um mês antes da desabilitação, embora esse intervalo não seja um SLA oficial.
@@ -81,13 +81,13 @@ Você deve usar a família mais recente do sistema operacional convidado para cr
 
 1. Comece cedo a planejar a migração para uma família mais recente. 
 2. Configure implantações de teste temporárias para testar seu serviço de nuvem em execução na nova família. 
-3. [Defina a versão do SO convidado](https://msdn.microsoft.com/library/azure/gg433101.aspx) para "Automática" (osVersion=* no arquivo [.CSCFG](https://msdn.microsoft.com/library/azure/gg456324.aspx)) para que a migração para novas versões de SO convidado ocorra automaticamente.
+3. Defina a versão do SO convidado para **Automática** (osVersion=* no arquivo [.cscfg](cloud-services-model-and-package.md#cscfg)) para que a migração para novas versões de SO convidado ocorra automaticamente.
 
 **E se meu aplicativo Web exigir uma integração mais profunda com o sistema operacional?**
 
-Se a arquitetura do aplicativo Web exigir uma dependência mais profunda do sistema operacional subjacente, use os recursos de suporte de plataforma como "[Tarefas de Inicialização](https://msdn.microsoft.com/library/windowsazure/gg456327.aspx)" ou outros mecanismos de extensibilidade que possam existir no futuro. Como alternativa, você também pode usar [Máquinas Virtuais do Azure](http://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS - Infraestrutura como serviço), em que você é responsável por manter o sistema operacional subjacente.
+Se a arquitetura do aplicativo Web exigir uma dependência mais profunda do sistema operacional subjacente, use os recursos de suporte de plataforma como [tarefas de inicialização](cloud-services-startup-tasks.md) ou outros mecanismos de extensibilidade que possam existir no futuro. Como alternativa, você também pode usar [Máquinas Virtuais do Azure](http://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS - Infraestrutura como serviço), em que você é responsável por manter o sistema operacional subjacente.
  
 ## Próximas etapas
 Examine as últimas [versões do SO convidado](cloud-services-guestos-update-matrix.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

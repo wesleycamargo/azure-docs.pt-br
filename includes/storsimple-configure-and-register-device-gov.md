@@ -1,4 +1,4 @@
-<!--author=SharS last changed: 9/17/15-->
+<!--author=SharS last changed: 12/01/15-->
 
 ### Para configurar e registrar o dispositivo
 
@@ -79,10 +79,7 @@
 
      `Get-HcsSystem`
 
-    Você deve ver as seguintes versões:
-    - HcsSoftwareVersion: 6.3.9600.17491
-    - CisAgentVersion: 1.0.9037.0
-    - MdsAgentVersion: 26.0.4696.1433
+    Você deve ver as seguintes versões: - HcsSoftwareVersion: 6.3.9600.17491 - CisAgentVersion: 1.0.9037.0 - MdsAgentVersion: 26.0.4696.1433
  
 9. Execute o seguinte cmdlet para confirmar se a atualização do firmware foi aplicada corretamente:
 
@@ -90,7 +87,7 @@
 
      O status do firmware deve ser **UpToDate**.
 
-10. Execute o seguinte cmdlet para apontar o dispositivo para o portal do Microsoft Azure Governamental (porque ele aponta para o Portal de Gerenciamento do Azure público por padrão). Isso reiniciará os dois controladores. É recomendável que você use duas sessões PuTTY para se conectar simultaneamente a ambos os controladores para poder ver quando cada controlador for reiniciado.
+10. Execute o cmdlet a seguir para apontar o dispositivo para o portal do Microsoft Azure Governamental (já que ele aponta para o portal clássico do Azure público por padrão). Isso reiniciará os dois controladores. É recomendável que você use duas sessões PuTTY para se conectar simultaneamente a ambos os controladores para poder ver quando cada controlador for reiniciado.
 
      `Set-CloudPlatform -AzureGovt_US`
 
@@ -124,17 +121,17 @@
 
 16. Saia do console serial.
 
-17. Volte para o Portal Governamental e conclua as seguintes etapas:
+17. Volte para o Portal do Azure Governamental e conclua as seguintes etapas:
   1. Clique duas vezes no serviço Gerenciador StorSimple para acessar a página**Início Rápido**.
   2. Clique em **Exibir dispositivos conectados**.
   3. Na página **Dispositivos**, verifique se o dispositivo conectou com êxito o serviço pesquisando o status. O status do dispositivo deve ser **Online**.
    
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-gov/HCS_DeviceOnline-gov-include.png) 
   
-        Se o status do dispositivo for **Offline**, aguarde alguns minutos para o dispositivo ficar online. 
+        If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
       
-        Se o dispositivo ainda estiver offline após alguns minutos, você precisará verificar se a rede de firewall foi configurada como o descrito em [requisitos de rede para o dispositivo StorSimple](https://msdn.microsoft.com/library/dn772371.aspx). Se você não tiver suporte a HTTP 1.1, verifique a porta 9354 para garantir que ela está aberta para comunicação de saída. Essa porta é usada para comunicação entre o serviço StorSimple Manager e seu dispositivo StorSimple.
+        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in the [network requirements for your StorSimple device](https://msdn.microsoft.com/library/dn772371.aspx). If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
      
         
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

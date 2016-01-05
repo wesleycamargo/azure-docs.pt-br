@@ -158,7 +158,7 @@ Diferentes tipos de cluster têm diferentes tipos de nó, números de nós e tam
 
 > [AZURE.IMPORTANT]Se você planeja ter mais de 32 nós de trabalho, seja na criação do cluster ou em seu dimensionamento após a criação, deverá selecionar um tamanho de nó de cabeçalho com pelo menos 8 núcleos e 14 GB de RAM.
 
-Ao usar o portal de visualização do Azure para configurar o cluster, o tamanho do nó é exposto por meio da folha __Camada de preços do nó__ e também exibirá o custo associado aos diferentes tamanhos de nó.
+Ao usar o Portal do Azure para configurar o cluster, o tamanho do Nó está disponível por meio da folha __Tipo de Preço do Nó__ e também exibirá o custo associado aos diferentes tamanhos de nó.
 
 > [AZURE.IMPORTANT]A cobrança é iniciada quando um cluster é criado e só para quando o cluster é excluído. Para obter mais informações sobre preços, consulte [Detalhes de preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -197,7 +197,7 @@ Para obter mais informações sobre os recursos, benefícios e capacidades das r
 >
 > No momento (25/8/2015), você só pode criar um cluster baseado em Linux em uma Rede Virtual do Azure.
 >
-> Não é possível usar uma Rede Virtual v1 (Clássica) do Azure com o HDInsight baseado em Linux. A Rede Virtual deve ser v2 (Gerenciador de Recursos do Azure) para que seja listada como uma opção durante o processo de criação de cluster HDInsight no portal de visualização do Azure ou para poder ser usada durante a criação de um cluster por meio da CLI do Azure ou do Azure PowerShell.
+> Não é possível usar uma Rede Virtual v1 (Clássica) do Azure com o HDInsight baseado em Linux. A Rede Virtual deve ser v2 (Gerenciador de Recursos do Azure) para que seja listada como uma opção durante o processo de criação do cluster HDInsight no Portal do Azure ou para poder ser usada durante a criação de um cluster a partir da CLI do Azure ou do Azure PowerShell.
 >
 > Se você tiver recursos em uma rede v1 e quiser disponibilizar o HDInsight diretamente para esses recursos por meio de uma rede virtual, veja [Conectando VNets clássicas a novas VNets](../virtual-network/virtual-networks-arm-asm-s2s.md) para obter informações sobre como conectar uma rede virtual v2 a uma rede virtual v1. Quando essa conexão for estabelecida, você poderá criar o cluster HDInsight na Rede Virtual v2.
 
@@ -207,9 +207,11 @@ O metastore contém metadados Hive e Oozie, como informações sobre tabelas Hiv
 
 Usar a opção de configuração Metastore permite especificar um metastore externo usando o Banco de Dados SQL. Isso permite que as informações de metadados sejam preservadas quando você excluir um cluster, já que elas são armazenadas externamente no banco de dados. Para obter instruções sobre como criar um banco de dados SQL do Azure, consulte [Criar seu primeiro banco de dados SQL do Azure](sql-database-get-started.md).
 
+> [AZURE.NOTE]A configuração de Metastore não está disponível para tipos de cluster HBase.
+
 ###<a id="scriptaction"></a>Ação de script
 
-Você pode instalar componentes adicionais ou personalizar a configuração de cluster por meio de scripts durante o provisionamento de cluster. Esses scripts são invocados por meio de **Ação de script**. Para obter mais informações, consulte [Personalizar cluster HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md).
+Você pode instalar componentes adicionais ou personalizar a configuração de cluster por meio de scripts durante o provisionamento de cluster. Esses scripts são invocados por meio da **Ação de Script**. Para obter mais informações, consulte [Personalizar cluster HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md).
 
 > [AZURE.IMPORTANT]Não há suporte para a adição de componentes após a criação de um cluster, pois esses componentes não estarão disponíveis após a recriação de um nó de cluster. Os componentes instalados por meio de ações de script são reinstalados como parte do processo de recriação de imagens.
 
@@ -225,7 +227,7 @@ Neste artigo, você aprendeu as informações básicas sobre como criar um clust
 
 | Use esta opção para criar um cluster... | Usando um navegador da Web... | Usando uma linha de comando | Usando a API REST | Usando o SDK | No Linux, Mac OS X ou Unix | No Windows |
 | ------------------------------- |:----------------------:|:--------------------:|:------------------:|:------------:|:-----------------------------:|:------------:|
-| [Portal de visualização do Azure](hdinsight-hadoop-create-linux-clusters-portal.md) | ✔ | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ |
+| [Portal do Azure](hdinsight-hadoop-create-linux-clusters-portal.md) | ✔ | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ |
 | [CLI do Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 | [PowerShell do Azure](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | &nbsp; | ✔ |
 | [Curl](hdinsight-hadoop-create-linux-clusters-curl.md) | &nbsp; | ✔ | ✔ | &nbsp; | ✔ | ✔ |
@@ -278,6 +280,6 @@ Neste artigo, você aprendeu as informações básicas sobre como criar um clust
 
 [img-hdi-cluster]: ./media/hdinsight-hadoop-provision-linux-clusters/HDI.Cluster.png
 
-  [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Use o Sqoop com o HDInsight"
+[89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Use o Sqoop com o HDInsight"
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -22,7 +22,7 @@
 - [PowerShell](powershell-install-configure.md)
 - [Azure CLI](xplat-cli-install.md)
 
-A CLI do Azure fornece um conjunto de comandos entre plataformas de software livre para trabalhar com a Plataforma Azure. A CLI do Azure oferece praticamente a mesma funcionalidade encontrada no Portal de Gerenciamento do Azure, como a capacidade de gerenciar sites, máquinas virtuais, serviços móveis, Banco de Dados SQL e outros serviços fornecidos pela plataforma Azure.
+A CLI do Azure fornece um conjunto de comandos entre plataformas de software livre para trabalhar com a Plataforma Azure. A CLI do Azure oferece praticamente a mesma funcionalidade encontrada no Portal do Azure, como a capacidade de gerenciar sites, máquinas virtuais, serviços móveis, Banco de Dados SQL e outros serviços fornecidos pela plataforma Azure.
 
 A CLI do Azure é escrita em JavaScript e requer o Node.js. Ela é implementada usando-se o SDK do Azure para Node.js e liberada sob uma licença do Apache 2.0. O repositório do projeto fica localizado em [https://github.com/azure/azure-xplat-cli](https://github.com/azure/azure-xplat-cli).
 
@@ -109,7 +109,7 @@ Para dar suporte ao gerenciamento de um grupo de recursos como uma única unidad
 
 >[AZURE.NOTE]O Gerenciador de Recursos está em visualização no momento e não oferece o mesmo nível de recursos de gerenciamento que o Gerenciamento de Serviços do Azure.
 
-Para dar suporte ao novo Gerenciador de Recursos, a CLI do Azure permite alternar os “modos” de gerenciamento por meio do comando `azure config mode`.
+Para dar suporte ao novo Gerenciador de Recursos, a CLI do Azure permite alternar os "modos" de gerenciamento por meio do comando `azure config mode`.
 
 A CLI do Azure usa como padrão o modo de Gerenciamento de Serviços do Azure. Para alternar para o modo Gerenciador de Recursos, use o seguinte para habilitar o comando:
 
@@ -168,7 +168,7 @@ Embora seja possível usar a CLI do Azure para emitir comandos manualmente, voc�
 
 	azure site list | grep 'Running' | awk '{system("azure site stop "$2)}'
 
-Este exemplo redireciona uma lista de sites para o comando `grep`, que inspeciona a cadeia de caracteres “Running” em cada linha. Todas as linhas que corresponderem serão redirecionadas para o comando `awk`, que chama `azure site stop` e usa a segunda coluna passada para ele (o nome do site em execução) como o nome do site a ser parado.
+Este exemplo redireciona uma lista de sites para o comando `grep`, que inspeciona a cadeia de caracteres "Running" em cada linha. Todas as linhas que corresponderem serão redirecionadas para o comando `awk`, que chama `azure site stop` e usa a segunda coluna passada para ele (o nome do site em execução) como o nome do site a ser parado.
 
 Embora isso demonstre como é possível encadear comandos, você também pode criar scripts mais elaborados usando os recursos de script fornecidos pelo seu interpretador de linha de comando. Interpretadores de linha de comando diferentes têm sintaxe e recursos de script diferentes. O Bash, provavelmente, é o interpretador de linha de comando mais amplamente usado para sistemas baseados em UNIX, incluindo o Linux e o OS X.
 
@@ -281,4 +281,4 @@ Se estiver escrevendo um script que dependa do status da saída, verifique se os
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [Using the Azure CLI]: virtual-machines-command-line-tools.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

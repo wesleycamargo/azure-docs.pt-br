@@ -109,7 +109,7 @@ Como parte da configuração, você precisa personalizar os **atributos Token SA
 
 3. No portal do Azure, na página da caixa de diálogo **Definir Configurações de Aplicativo**, execute as seguintes etapas: <br><br>![Logon único do AD do Azure][8] <br>
  
-    a. Na caixa de texto **Emissor**, digite a URL usada pelos usuários para fazer logon no aplicativo Litmos (por ex.: **https://azureapptest.litmos.com/account/Login*)).
+    a. Na caixa de texto **Identificador**, digite a URL usada pelos usuários para fazer logon no aplicativo do Litmos (por ex.: **https://azureapptest.litmos.com/account/Login*)).
      
     b. Na caixa de texto **URL de resposta**, cole o valor que você copiou do aplicativo Litmos na etapa anterior.
 
@@ -297,4 +297,4 @@ O objetivo desta seção é testar sua configuração de logon único do AD do A
 [401]: ./media/active-directory-saas-litmos-tutorial/tutorial_litmos_401.png
 [402]: ./media/active-directory-saas-litmos-tutorial/tutorial_litmos_402.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

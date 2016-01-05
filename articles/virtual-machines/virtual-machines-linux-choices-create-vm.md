@@ -27,9 +27,9 @@ Os modelos do Gerenciador de Recursos do Azure foram introduzidos recentemente c
 
 ## Opções da ferramenta
 
-### GUI: o Portal do Azure ou o Portal de Visualização
+### GUI: O portal clássico do Azure ou portal do Azure
 
-A interface gráfica do usuário do portal do Azure é uma maneira fácil de testar uma máquina virtual, especialmente se você estiver começando com o Azure. Use o [Portal do Azure](http://manage.windowsazure.com) ou o [Portal de visualização do Azure](http://portal.azure.com) para criar a VM. Para obter instruções gerais, consulte [Criar uma máquina virtual personalizada][] e selecione qualquer imagem do Linux na **Galeria**. Observe que o [Portal do Azure](http://manage.windowsazure.com) cria máquinas virtuais usando o modelo de implantação clássica.
+A interface gráfica do usuário do portal é uma maneira fácil de experimentar uma máquina virtual, especialmente se você estiver iniciando no Azure. Use o [portal clássico do Azure](http://manage.windowsazure.com) ou o [portal do Azure](http://portal.azure.com) para criar a VM. Para obter instruções gerais, consulte [Criar uma máquina virtual personalizada][] e selecione qualquer imagem do Linux na **Galeria**. Observe que o [portal clássico do Azure](http://manage.windowsazure.com) cria máquinas virtuais usando o modelo de implantação clássica.
 
 ### Shell de comando: CLI do Azure ou PowerShell do Azure
 
@@ -103,4 +103,4 @@ Use uma imagem com base em uma máquina virtual do Azure existente *capturando* 
 [Criar uma máquina virtual que executa Linux]: virtual-machines-linux-tutorial.md
 [Criar uma máquina virtual personalizada]: virtual-machines-create-custom.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

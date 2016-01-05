@@ -117,7 +117,7 @@ Para implantar essa configuração, use o seguinte processo:
 
 - Fase 1: configurar o Azure.
 
-	Use o Portal do Azure e o Azure PowerShell para criar uma conta de armazenamento, serviços de nuvem e uma rede virtual entre locais. Para obter as etapas de configuração detalhadas, consulte a [Fase 1](virtual-machines-workload-intranet-sharepoint-phase1.md).
+	Use o portal clássico do Azure e o Azure PowerShell para criar uma conta de armazenamento, serviços de nuvem e uma rede virtual entre locais. Para obter as etapas de configuração detalhadas, consulte a [Fase 1](virtual-machines-workload-intranet-sharepoint-phase1.md).
 
 - Fase 2: configurar os controladores de domínio.
 
@@ -135,7 +135,7 @@ Para implantar essa configuração, use o seguinte processo:
 
 	Prepare os bancos de dados do SharePoint, crie um Grupo de Disponibilidade AlwaysOn e, em seguida, adicione bancos de dados a ele. Para obter as etapas de configuração detalhadas, consulte a [Fase 5](virtual-machines-workload-intranet-sharepoint-phase5.md).
 
-Depois de configurado, você poderá expandir esse farm do SharePoint com a orientação encontrada em [Arquiteturas do Microsoft Azure para o SharePoint 2013](http://technet.microsoft.com/library/dn635309.aspx).
+Depois de configurado, você poderá expandir esse farm do SharePoint com as diretrizes encontradas em [Arquiteturas do Microsoft Azure para o SharePoint 2013](http://technet.microsoft.com/library/dn635309.aspx).
 
 ## Recursos adicionais
 
@@ -153,4 +153,4 @@ Depois de configurado, você poderá expandir esse farm do SharePoint com a orie
 
 [Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

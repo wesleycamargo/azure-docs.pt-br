@@ -1,7 +1,7 @@
 <properties
    pageTitle="Tutorial do Hadoop: Introdução ao Hadoop no Windows | Microsoft Azure"
    description="Introdução ao Hadoop no HDInsight. Saiba como provisionar clusters Hadoop no Windows, executar uma consulta de Hive nos dados e analisar a saída no Excel."
-   keywords="hadoop tutorial,hadoop on windows,hadoop cluster,learn hadoop, hive query"
+   keywords="tutorial do hadoop, hadoop no windows, cluster hadoop, aprender o hadoop, consulta do hive"
    services="hdinsight"
    documentationCenter=""
    authors="nitinme"
@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/07/2015"
+   ms.date="11/29/2015"
    ms.author="nitinme"/>
 
 
@@ -71,10 +71,10 @@ Este tutorial usa apenas o blob padrão e a conta de armazenamento padrão.
 
 **Para criar uma conta do Armazenamento do Azure**
 
-1. Entre no [Portal do Azure][azure-management-portal].
+1. Entre no [Portal Clássico do Azure][azure-management-portal].
 2. Clique em **NOVO** no canto inferior esquerdo e insira os valores conforme mostrado na imagem.
 
-	![Portal do Azure, em que você pode usar a criação rápida para configurar uma nova conta de armazenamento.][image-hdi-storageaccount-quickcreate]
+	![Portal Clássico do Azure, onde você pode usar a Criação Rápida para configurar uma nova conta de armazenamento.][image-hdi-storageaccount-quickcreate]
 
 >[AZURE.NOTE]Certifique-se de criar sua conta de armazenamento em um local compatível com o cluster. São eles: **Ásia Oriental**, **Sudeste da Ásia**, **Norte da Europa**, **Europa Ocidental**, **Leste dos EUA**, **Oeste dos EUA**, **Centro-Norte dos EUA**, **Centro-Sul dos EUA**.
 
@@ -82,14 +82,14 @@ Selecione a nova conta de armazenamento na lista e clique em **GERENCIAR CHAVES 
 
 ##<a name="provision"></a>Provisionar um cluster Haddop
 
-Ao provisionar um cluster, você provisiona recursos de computação do Azure que contêm o Hadoop e aplicativos relacionados. Nesta seção, você provisiona um cluster HDInsight versão 3.1, que se baseia no Hadoop versão 2.4. Você também pode criar clusters Hadoop para outras versões usando o portal do Azure, cmdlets do PowerShell do HDInsight ou o HDInsight .NET SDK. Para obter instruções, consulte [Provisionar clusters HDInsight usando opções personalizadas][hdinsight-provision]. Para obter informações sobre as versões do HDInsight e seus SLAs, consulte [Controle de versão de componentes do HDInsight](hdinsight-component-versioning.md).
+Ao provisionar um cluster, você provisiona recursos de computação do Azure que contêm o Hadoop e aplicativos relacionados. Nesta seção, você provisiona um cluster HDInsight versão 3.1, que se baseia no Hadoop versão 2.4. Você também pode criar clusters Hadoop para outras versões usando o Portal Clássico do Azure, cmdlets do PowerShell do HDInsight ou o SDK do .NET do HDInsight. Para obter instruções, consulte [Provisionar clusters HDInsight usando opções personalizadas][hdinsight-provision]. Para obter informações sobre as versões do HDInsight e seus SLAs, consulte [Controle de versão de componentes do HDInsight](hdinsight-component-versioning.md).
 
 [AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
 
 
 **Provisionar um cluster Hadoop**
 
-1. Entre no [Portal do Azure][azure-management-portal].
+1. Entre no [Portal Clássico do Azure][azure-management-portal].
 
 2. Clique em **NOVO** no canto inferior esquerdo e insira os valores conforme mostrado na imagem.
 
@@ -127,7 +127,7 @@ Ao provisionar um cluster, você provisiona recursos de computação do Azure qu
 
 Um cluster de HDInsight provisionado com êxito fornece um console de consulta que inclui uma Galeria de Introdução para executar os exemplos diretamente do portal. Você pode usar os exemplos para saber como trabalhar com o HDInsight analisando alguns cenários básicos. Esses exemplos vêm com todos os componentes necessários, como os dados para analisar e as consultas para executar nos dados. Para saber mais sobre os exemplos na Galeria de Introdução, consulte [Saiba mais sobre Hadoop no HDInsight usando a Galeria de Introdução do HDInsight](hdinsight-learn-hadoop-use-sample-gallery.md).
 
-**Para executar o exemplo**, no portal do Azure, clique no nome do cluster em que você deseja executar o exemplo e, depois, em **Console de Consulta**, na parte inferior da página. Na página da Web que é aberta, clique na **Galeria de Introdução** e, na categoria **Exemplos**, clique no exemplo que deseja executar. Siga as instruções na página da Web para concluir o exemplo. A tabela a seguir lista alguns exemplos e fornece mais informações sobre o que cada exemplo faz.
+**Para executar o exemplo**, no Portal Clássico do Azure, clique no nome do cluster em que você deseja executar o exemplo e clique em **Console de Consulta**, na parte inferior da página. Na página da Web que é aberta, clique na **Galeria de Introdução** e, na categoria **Exemplos**, clique no exemplo que deseja executar. Siga as instruções na página da Web para concluir o exemplo. A tabela a seguir lista alguns exemplos e fornece mais informações sobre o que cada exemplo faz.
 
 Amostra | O que ela faz?
 ------ | ---------------
@@ -144,7 +144,7 @@ Agora que você provisionou um cluster HDInsight, a próxima etapa é executar u
 
 **Para executar um trabalho do Hive pelo painel do cluster**
 
-1. Entre no [Portal do Azure][azure-management-portal].
+1. Entre no [Portal Clássico do Azure][azure-management-portal].
 2. Clique em **HDINSIGHT** a partir do painel esquerdo. Você verá uma lista de clusters, incluindo o cluster que você criou na seção anterior.
 3. Clique no nome do cluster que deseja usar para executar o trabalho do Hive e clique em **CONSOLE DE CONSULTA**, na parte inferior da página.
 4. Uma página da Web é aberta em uma guia diferente do navegador. Insira a conta e a senha do usuário do Hadoop. O nome de usuário padrão é **admin**; a senha é a que você digitou durante o provisionamento do cluster. O painel tem esta aparência:
@@ -280,4 +280,4 @@ Neste tutorial do Hadoop, você aprendeu a provisionar um cluster Hadoop no Wind
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows-v1/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

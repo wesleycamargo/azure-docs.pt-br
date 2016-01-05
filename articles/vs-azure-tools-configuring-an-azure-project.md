@@ -3,9 +3,9 @@
    description="Saiba como configurar um projeto de serviço de nuvem do Azure no Visual Studio, dependendo dos requisitos para o projeto."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/29/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Configure um projeto de serviço de nuvem do Azure com o Visual Studio
 
@@ -61,4 +61,4 @@ A ilustração a seguir mostra como selecionar uma configuração a ser usada qu
 
 Para saber mais sobre como configurar projetos de serviço de nuvem do Azure no Visual Studio, consulte [Configurando seu projeto do Azure usando várias configurações de serviço](vs-azure-tools-multiple-services-project-configurations.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

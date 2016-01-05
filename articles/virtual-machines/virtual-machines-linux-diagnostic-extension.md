@@ -142,6 +142,6 @@ Se tiver habilitado fileCfg ou perfCfg especificado nos Cenários 2 e 3, você p
 
 ## Problemas conhecidos
 - Para a versão 2.0, as informações do Rsyslog e o arquivo de log especificado pelo cliente só podem ser acessados por meio de scripts.
-- Para a versão 2.0, se você tiver habilitado a extensão de Diagnóstico do Linux por meio de script primeiro, não será possível exibir os dados no portal do Azure. Se você tiver habilitado a extensão no portal primeiro, os scripts ainda funcionarão.
+- Para a versão 2.0, se você tiver habilitado primeiramente a extensão de diagnóstico do Linux por meio de script, não é possível ver os dados no portal. Se você tiver habilitado a extensão no portal primeiro, os scripts ainda funcionarão.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

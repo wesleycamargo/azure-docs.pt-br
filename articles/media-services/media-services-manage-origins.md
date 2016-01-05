@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Como gerenciar pontos de extremidade de streaming em uma conta de Serviços de Mídia" 
-	description="Este tópico mostra como gerenciar pontos de extremidade de Streaming usando o Portal de Gerenciamento do Azure." 
+	description="Este tópico mostra como gerenciar Pontos de Extremidade da Transmissão usando o Portal Clássico do Azure." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="12/09/2015"
 	ms.author="juliako"/>
 
 
@@ -24,28 +24,29 @@
 - [Portal](media-services-manage-origins.md)
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 
+
 Nos Serviços de Mídia do Microsoft Azure, um **Ponto de Extremidade de Streaming** representa um serviço de streaming que pode fornecer conteúdo diretamente a um aplicativo de player de cliente ou à CDN (Rede de Distribuição de Conteúdo) para a distribuição posterior. Os Serviços de Mídia também fornecem integração perfeita da CDN do Azure. O fluxo de saída do serviço StreamingEndpoint pode ser um fluxo ao vivo ou um ativo de vídeo por demanda na sua conta dos Serviços de Mídia.
 
 Além disso, você pode controlar a capacidade do serviço de ponto de extremidade de Streaming para lidar com crescentes necessidades de largura de banda ajustando as unidades de dimensionamento (também conhecido como unidades de streaming). É recomendável alocar uma ou mais unidades de escala para aplicativos no ambiente de produção. As unidades de dimensionamento fornecem capacidade de egresso dedicada que pode ser comprada em incrementos de 200 Mbps e funcionalidade adicional que inclui: [empacotamento dinâmico](media-services-dynamic-packaging-overview.md), Integração de CDN e configuração avançada.
 
 Observe que você será cobrado apenas quando seu StreamingEndpoint estiver em estado de execução.
 
-Este tópico fornece uma visão geral das principais funcionalidades fornecidas pelos Pontos de Extremidade de Streaming. O tópico também mostra como usar o Portal de Gerenciamento do Azure para gerenciar pontos de extremidade de streaming.
+Este tópico fornece uma visão geral das principais funcionalidades fornecidas pelos Pontos de Extremidade de Streaming. O tópico também mostra como usar o Portal Clássico do Azure para gerenciar pontos de extremidade de streaming.
 
 
-##Adicionando e excluindo pontos de extremidade de streaming 
+##Adicionando e excluindo pontos de extremidade de streaming
 
-Você pode adicionar ou remover pontos de extremidade de streaming usando o SDK do .NET, a API REST ou o Portal de Gerenciamento do Azure.
+Você pode adicionar ou remover pontos de extremidade da transmissão usando o SDK do .NET, a API REST ou o Portal Clássico do Azure.
 
-Para adicionar\\excluir um ponto de extremidade de streaming usando o Portal, faça o seguinte:
+Para adicionar ou excluir um ponto de extremidade da transmissão usando o Portal Clássico do Azure, faça o seguinte:
 
-1. No [Portal de Gerenciamento](https://manage.windowsazure.com/), clique em **Serviços de Mídia**. Em seguida, clique no nome do serviço de mídia.
-2. Selecione a página de **PONTOS DE EXTREMIDADE DE STREAMING**. 
-3. Clique no botão ADICIONAR ou EXCLUIR na parte inferior da página. Observe que o ponto de extremidade de streaming não pode ser excluído. 
-4. Clique no botão INICIAR para iniciar o ponto de extremidade de streaming. 
-5. Clique no nome do ponto de extremidade de streaming para configurá-lo.   
+1. No [Portal Clássico do Azure](https://manage.windowsazure.com/), clique em **Serviços de Mídia**. Em seguida, clique no nome do serviço de mídia.
+2. Selecione a página de **PONTOS DE EXTREMIDADE DE STREAMING**.
+3. Clique no botão ADICIONAR ou EXCLUIR na parte inferior da página. Observe que o ponto de extremidade de streaming não pode ser excluído.
+4. Clique no botão INICIAR para iniciar o ponto de extremidade de streaming.
+5. Clique no nome do ponto de extremidade de streaming para configurá-lo.
 
-	![Página de ponto de extremidade de streaming][streaming-endpoint]
+![Página de ponto de extremidade de streaming][streaming-endpoint]
 
 
 Por padrão, você pode ter até dois pontos de extremidade de streaming. Se você precisar solicitar mais, consulte [Cotas e limitações](media-services-quotas-and-limitations.md).
@@ -54,7 +55,7 @@ Por padrão, você pode ter até dois pontos de extremidade de streaming. Se voc
 
 As unidades para Streaming fornecem capacidade de egresso dedicada que pode ser comprada em incrementos de 200 Mbps e funcionalidade adicional que, atualmente, inclui [recursos de empacotamento dinâmico](media-services-dynamic-packaging-overview.md). Por padrão, o streaming é configurado em um modelo de instância compartilhada para a qual os recursos do servidor (por exemplo, computação, capacidade de egresso, etc.) são compartilhados com todos os outros usuários. Para melhorar uma taxa de transferência de streaming, é recomendável adquirir unidades de Streaming.
 
-Você pode dimensionar usando o SDK do .NET, a API REST ou o Portal de Gerenciamento do Azure.
+Você pode dimensionar usando o SDK do .NET, a API REST ou o Portal Clássico do Azure.
 
 Para alterar o número de unidades de streaming usando o Portal, faça o seguinte:
 
@@ -82,7 +83,7 @@ O Ponto de Extremidade de Streaming permite que você configure as seguintes pro
 
 Para obter informações detalhadas sobre essas propriedades, consulte [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx).
 
-Você pode configurar essas propriedades usando o SDK do .NET, a API REST ou o Portal de Gerenciamento do Azure.
+Você pode configurar essas propriedades usando o SDK do .NET, a API REST ou o Portal Clássico do Azure.
 
 Para alterar o número de unidades de streaming usando o Portal, faça o seguinte:
 
@@ -149,4 +150,4 @@ Para obter mais informações, consulte [Anunciando a integração dos Serviços
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

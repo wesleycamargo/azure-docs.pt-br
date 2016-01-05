@@ -1,11 +1,11 @@
 <properties
-	title="Elastic database Split-Merge tool tutorial"
 	pageTitle="Tutorial de ferramenta da Divisão de Mesclagem do banco de dados elástico | Microsoft Azure"
 	description="Divisão e mesclagem com ferramenta de banco de dados elástico"
-	metaKeywords="elastic database tools, split and merge, Azure SQL Database sharding, elastic scale, splitting and merging elastic databases"
-	services="sql-database" documentationCenter=""  
+	services="sql-database"  
+	documentationCenter=""
+	authors="sidneyh"
 	manager="jeffreyg"
-	authors="sidneyh"/>
+	editor=""/>
 
 <tags
 	ms.service="sql-database"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="12/01/2015"
 	ms.author="sidneyh" />
 
 # Tutorial de ferramenta da Divisão de Mesclagem do banco de dados elástico
@@ -33,9 +33,9 @@ As etapas acima baixam os arquivos de Divisão-Mesclagem para a pasta atual. Os 
 
     ![Serviços permitidos][1]
 
-3. Crie uma conta de Armazenamento do Azure que será usada para a saída de diagnóstico. Vá para o Portal de Visualização do Azure. Na barra de ferramentas à esquerda, clique em **Novo**, clique em **Dados + armazenamento** e, em seguida, em **Armazenamento**.
+3. Crie uma conta de Armazenamento do Azure que será usada para a saída de diagnóstico. Vá para o Portal do Azure. Na barra de ferramentas à esquerda, clique em **Novo**, clique em **Dados + armazenamento** e, em seguida, em **Armazenamento**.
 
-4. Crie um Serviço de nuvem do Azure que conterá o seu serviço de Divisão-Mesclagem. Vá para o Portal de Visualização do Azure. Na barra de ferramentas à esquerda, clique em **Novo**, em seguida em **Calcular**, **Serviço de Nuvem** e **Criar**.
+4. Crie um Serviço de nuvem do Azure que conterá o seu serviço de Divisão-Mesclagem. Vá para o Portal do Azure. Na barra de ferramentas à esquerda, clique em **Novo**, em seguida em **Calcular**, **Serviço de Nuvem** e **Criar**.
 
 
 ## Configurando seu serviço de Divisão-Mesclagem
@@ -60,7 +60,7 @@ As etapas acima baixam os arquivos de Divisão-Mesclagem para a pasta atual. Os 
 ### Configurando a segurança
 Para obter instruções detalhadas configurar a segurança do serviço, consulte as [Configuração de segurança da divisão e mesclagem](sql-database-elastic-scale-split-merge-security-configuration.md).
 
-Para fins de implementação de teste simples, é adequado para concluir este tutorial, um conjunto mínimo de etapas de configuração será executada para colocar o serviço em operação. Essas etapas permite que somente o computador/conta que as executa se comunique com o serviço.
+Para fins de implantação de teste simples para este tutorial, um conjunto mínimo de etapas de configuração será executado para colocar o serviço em operação. Essas etapas permite que somente o computador/conta que as executa se comunique com o serviço.
 
 ### Criando um certificado autoassinado
 
@@ -91,7 +91,7 @@ Execute o seguinte comando na mesma janela onde o makecert foi executado; use a 
 
 ### Carregue o arquivo PFX para o serviço de nuvem
 
-Vá para o [Portal de Visualização do Azure](https://portal.azure.com).
+Vá para o [Portal do Azure](https://portal.azure.com).
 
 1. Selecione os **Serviços de nuvem**.
 2. Selecione o serviço de nuvem criado anteriormente para o serviço de Divisão/Mesclagem.
@@ -154,7 +154,7 @@ Se sua função de trabalho não fica online, mas sua função web tiver êxito,
 
 ### Conectar-se com um navegador da web
 
-Determine o ponto de extremidade da web do serviço de Divisão-Mesclagem. Você pode descobrir isso no Portal de gerenciamento do Azure indo para o **Painel** do seu serviço de nuvem e procurando na **URL do Site**, no lado direito. Substitua ****http://** por ****https://**, uma vez as configurações de segurança padrão desabilitam o ponto de extremidade HTTP. Carregue a página para este URL no seu navegador.
+Determine o ponto de extremidade da web do serviço de Divisão-Mesclagem. Você pode descobrir isso no Portal Clássico do Azure indo para o **Painel** do seu serviço de nuvem e procurando na **URL do Site**, no lado direito. Substitua ****http://** por ****https://**, uma vez as configurações de segurança padrão desabilitam o ponto de extremidade HTTP. Carregue a página para este URL no seu navegador.
 
 ### Testando com scripts do PowerShell
 
@@ -334,4 +334,4 @@ Nesse caso, verifique seu arquivo de configuração, em particular a configuraç
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

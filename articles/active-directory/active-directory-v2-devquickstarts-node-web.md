@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="12/09/2015"
 	ms.author="brandwe"/>
 
 # Visualização do modelo de aplicativo v2.0: adicionar conexão a um aplicativo Web do nodeJS
@@ -43,14 +43,14 @@ O código para este tutorial é mantido [no GitHub](https://github.com/AzureADQu
 
 O aplicativo completo também é fornecido no final deste tutorial.
 
-## 1\. Registrar um aplicativo
-Crie um novo aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.com) ou siga estas [etapas detalhadas](active-directory-v2-app-registration.md). Não se esqueça de:
+## 1. Registrar um aplicativo
+Crie um novo aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.com) ou siga estas [etapas detalhadas](active-directory-v2-app-registration.md).  Não se esqueça de:
 
 - Copiar a **ID do Aplicativo** designada ao seu aplicativo, você precisará dela logo.
 - Adicionar a plataforma **Web** para seu aplicativo.
-- Inserir o **URI de Redirecionamento** correto. O URI de redirecionamento indica ao AD do Azure para onde as respostas de autenticação devem ser direcionadas — o padrão para este tutorial é `http://localhost:3000/auth/openid/return`.
+- Inserir o **URI de Redirecionamento** correto. O uri de redirecionamento indica ao AD do Azure para onde as respostas de autenticação devem ser direcionadas — o padrão para este tutorial é `http://localhost:3000/auth/openid/return`.
 
-## 2\. Adicionar pré-requisitos ao seu diretório
+## 2. Adicionar pré-requisitos ao seu diretório
 
 Na linha de comando, altere o diretório para a pasta raiz se ainda não estiver lá e execute os seguintes comandos:
 
@@ -89,16 +89,16 @@ Aqui, configuraremos o middleware Express para usar o protocolo de autenticaçã
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
 // Add some logging
-var log = bunyan.createLogger({
-    name: 'Microsoft OIDC Example Web Application'
-});
+var log = bunyan.createLogger({ 
+	name: 'Microsoft OIDC Example Web Application' 
+}); 
 ```
 
 - Depois disso, use a estratégia que referenciamos para manipular nossas solicitações de logon
 
 ```JavaScript
-// Use the OIDCStrategy within Passport. (Section 2)
-//
+// Use the OIDCStrategy within Passport. (Section 2) 
+// 
 //   Strategies in passport require a `validate` function, which accept
 //   credentials (in this case, an OpenID identifier), and invoke a callback
 //   with a user object.
@@ -228,7 +228,7 @@ app.get('/auth/openid',
 app.get('/auth/openid/return',
   passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
   function(req, res) {
-
+    
     res.redirect('/');
   });
 
@@ -241,7 +241,7 @@ app.get('/auth/openid/return',
 app.post('/auth/openid/return',
   passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
   function(req, res) {
-
+    
     res.redirect('/');
   });
 ```
@@ -282,7 +282,7 @@ app.get('/logout', function(req, res){
     -	A rota `/` redirecionará para o modo de exibição index.ejs passando o usuário na solicitação (se houver)
     - A rota `/account` primeiro ***garantirá que sejamos autenticados*** (implementamos isso abaixo) e aprovará o usuário na solicitação para que possamos obter informações adicionais sobre ele.
     - A rota `/login` chamará nosso autenticador azuread-openidconnect de `passport-azuread` e, se não tiver êxito, redirecionará o usuário para /login
-    - O `/logout` simplesmente chamará logout.ejs (e a rota), o que limpa os cookies e, em seguida, retorna o usuário para index.ejs
+    - O `/logout` simplesmente chamará logout.ejs (e a rota), o que limpa os cookies e, em seguida, retorna o usuário para index. ejs
 
 
 - Para a última parte do `app.js`, vamos adicionar o método EnsureAuthenticated que é usado em `/account` acima.
@@ -387,13 +387,13 @@ Essas rotas simples apenas passarão a solicitação para nossos modos de exibi�
 	<body>
 		<% if (!user) { %>
 			<p>
-			<a href="/">Home</a> |
+			<a href="/">Home</a> | 
 			<a href="/login">Log In</a>
 			</p>
 		<% } else { %>
 			<p>
-			<a href="/">Home</a> |
-			<a href="/account">Account</a> |
+			<a href="/">Home</a> | 
+			<a href="/account">Account</a> | 
 			<a href="/logout">Log Out</a>
 			</p>
 		<% } %>
@@ -421,4 +421,4 @@ Agora você pode ir para tópicos mais avançados. Você pode desejar experiment
 
 Para obter recursos adicionais, confira: - [A Visualização do Modelo de Aplicativo v2.0 >>](active-directory-appmodel-v2-overview.md) - [Tag StackOverflow "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

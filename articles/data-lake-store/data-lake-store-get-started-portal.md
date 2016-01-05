@@ -13,30 +13,31 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/05/2015"
+   ms.date="11/13/2015"
    ms.author="nitinme"/>
 
-# Introdução ao Repositório Azure Data Lake usando o Portal de Visualização do Azure
+# Introdução ao Repositório do Azure Data Lake usando o Portal do Azure
 
 > [AZURE.SELECTOR]
 - [Using Portal](data-lake-store-get-started-portal.md)
 - [Using PowerShell](data-lake-store-get-started-powershell.md)
 - [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
 - [Using Azure CLI](data-lake-store-get-started-cli.md)
+- [Using Node.js](data-lake-store-manage-use-nodejs.md)
 
-Saiba como usar o Portal de Visualização do Azure para criar uma conta do Repositório Azure Data Lake e executar operações básicas, como criar pastas, carregar e baixar arquivos de dados, excluir sua conta, etc. Para saber mais sobre o Repositório Data Lake, consulte [Visão geral do Repositório Data Lake](data-lake-store-overview.md).
+Saiba como usar o Portal do Azure para criar uma conta do Repositório do Azure Data Lake e executar operações básicas, como criar pastas, carregar e baixar arquivos de dados, excluir sua conta, etc. Para saber mais sobre o Repositório Data Lake, consulte [Visão geral do Repositório Data Lake](data-lake-store-overview.md).
 
 ## Pré-requisitos
 
 Antes de começar este tutorial, você deve ter o seguinte:
 
-- **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pt-BR/pricing/free-trial/).
+- **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="signup"></a>Habilitar sua assinatura do Azure para a visualização pública do Repositório Data Lake
 
 Primeiro você precisa solicitar a habilitação de sua assinatura do Azure para a visualização pública do Repositório Data Lake. Execute as etapas abaixo.
 
-1. Faça logon no novo [Portal de Visualização do Azure](https://portal.azure.com).
+1. Entre no novo [Portal do Azure](https://portal.azure.com).
 2. Clique em **NOVO**, clique em **Dados + Armazenamento** e clique em **Repositório Azure Data Lake**.
 3. Na folha **Novo Repositório Data Lake**, clique em **Inscreva-se para visualizar**. Revise as informações e clique em **OK**. Você receberá um email quando sua assinatura tiver sido habilitada para a Visualização Pública.
 
@@ -44,7 +45,7 @@ Primeiro você precisa solicitar a habilitação de sua assinatura do Azure para
 
 ## Criar uma conta do Repositório Azure Data Lake
 
-1. Faça logon no novo [Portal de Visualização do Azure](https://portal.azure.com).
+1. Entre no novo [Portal do Azure](https://portal.azure.com).
 
 2. Clique em **NOVO**, clique em **Dados + Armazenamento** e clique em **Repositório Azure Data Lake**. Leia as informações na folha **Repositório Azure Data Lake** e clique em **Criar** no canto inferior esquerdo da folha.
 
@@ -87,7 +88,7 @@ Você pode criar pastas em sua conta do Repositório Data Lake para gerenciar e 
 
 É possível carregar seus dados em uma conta do Repositório Data Lake diretamente no nível da raiz ou em uma pasta que você criou na conta. Na captura de tela abaixo, execute as etapas para carregar um arquivo em uma subpasta da folha **Gerenciador de Dados**. Nessa captura de tela, o arquivo é carregado em uma subpasta mostrada na trilha (marcada em uma caixa vermelha).
 
-Se estiver procurando alguns dados de exemplo para carregar, é possível obter a pasta **Dados da Ambulância** no [Repositório Git do Azure Data Lake](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+Se estiver procurando alguns dados de exemplo para carregar, é possível obter a pasta **Dados da Ambulância** no [Repositório Git do Azure Data Lake](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
 
 ![Carregar dados](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Carregar dados")
 
@@ -133,4 +134,4 @@ Para excluir uma conta do Repositório Azure Data Lake da folha de seu Repositó
 - [Usar a Análise Data Lake do Azure com o Repositório Data Lake](data-lake-analytics-get-started-portal.md)
 - [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

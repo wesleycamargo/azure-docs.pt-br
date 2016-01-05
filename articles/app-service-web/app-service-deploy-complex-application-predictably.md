@@ -58,7 +58,7 @@ Para obter mais informações, consulte [Usando o PowerShell do Azure com o Gere
 
 ### Gerenciador de Recursos do Azure ###
 
-Essa [ferramenta de visualização](https://resources.azure.com) permite que você explore as definições JSON de todos os grupos de recursos em sua assinatura e os recursos individuais. Na ferramenta, você pode editar as definições de JSON de um recurso, excluir uma hierarquia inteira de recursos e criar novos recursos. As informações prontamente disponíveis nessa ferramenta serão muito úteis para criação de modelos, porque mostram quais propriedades você precisa definir para um determinado tipo de recurso, os valores corretos, etc. Você pode até mesmo criar seu grupo de recursos no [Portal de Visualização do Azure](https://portal.azure.com) e, em seguida, inspecionar suas definições JSON no Gerenciador para ajudá-lo a classificar o grupo de recursos segundo os modelos.
+Essa [ferramenta de visualização](https://resources.azure.com) permite que você explore as definições JSON de todos os grupos de recursos em sua assinatura e os recursos individuais. Na ferramenta, você pode editar as definições de JSON de um recurso, excluir uma hierarquia inteira de recursos e criar novos recursos. As informações prontamente disponíveis nessa ferramenta serão muito úteis para criação de modelos, porque mostram quais propriedades você precisa definir para um determinado tipo de recurso, os valores corretos, etc. Você pode até mesmo criar seu grupo de recursos no [Portal do Azure](https://portal.azure.com) e, em seguida, inspecionar suas definições JSON no Gerenciador para ajudá-lo a classificar o grupo de recursos segundo os modelos.
 
 ### Botão Implantar no Azure ###
 
@@ -82,7 +82,7 @@ Agora vamos direto ao ponto.
 
 	A interface do usuário deve estar um pouco lenta quando você navega pela primeira vez por ela porque os aplicativos estão sendo iniciados, mas esteja convencido de que se trata de um aplicativo totalmente funcional.
 
-5.	De volta à página Implantar, clique no link **Gerenciar** para ver o novo aplicativo no Portal de Visualização do Azure.
+5.	De volta à página Implantar, clique no link **Gerenciar** para ver o novo aplicativo no Portal do Azure.
 
 6.	Na lista suspensa **Essentials**, clique no link grupo de recursos. Observe também que o aplicativo Web já está conectado ao repositório GitHub em **Projeto Externo**.
 
@@ -188,11 +188,11 @@ As configurações do controle do código-fonte também serão definidas como um
 
 Observe no elemento `dependsOn` que, além do recurso de aplicativo Web, `sourcecontrols/web` também depende de `config/appsettings` e `config/connectionstrings`. Isso ocorre porque quando `sourcecontrols/web` é configurado, o processo de implantação do Azure tentará automaticamente implantar, compilar e iniciar o código do aplicativo. Portanto, inserir essa dependência ajuda você a garantir que o aplicativo tenha acesso às configurações e cadeias de conexão necessárias do aplicativo antes de o código desse aplicativo ser executado. [TAREFA PENDENTE: é necessário verificar se isso é verdadeiro.]
 
->[AZURE.NOTE]Observe também que `IsManualIntegration` é definido como `true`. Esta propriedade é necessária neste tutorial porque você na verdade não possui o repositório GitHub e, portanto, não pode efetivamente conceder permissão ao Azure para configurar a publicação contínua por meio de [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) (ou seja, enviar por push atualizações automáticas de repositório ao Azure). Você pode usar o valor padrão `false` para o repositório especificado somente se configurou as credenciais do proprietário GitHub no [Portal de Visualização do Azure](https://portal.azure.com) previamente. Em outras palavras, se você configurou o controle do código-fonte para GitHub ou BitBucket para qualquer aplicativo no [Portal de Visualização do Azure](https://portal.azure.com) previamente, usando suas credenciais de usuário, então o Azure lembrará dessas credenciais e as utilizará sempre que você implantar qualquer aplicativo do GitHub ou BitBucket no futuro. No entanto, se você ainda não tiver feito isso, a implantação do modelo JSON falhará quando o Gerenciador de Recursos do Azure tentar definir configurações de controle do código-fonte do aplicativo Web, porque ele não poderá fazer logon no GitHub ou BitBucket com as credenciais do proprietário do repositório.
+>[AZURE.NOTE]Observe também que `IsManualIntegration` é definido como `true`. Esta propriedade é necessária neste tutorial porque você na verdade não possui o repositório GitHub e, portanto, não pode efetivamente conceder permissão ao Azure para configurar a publicação contínua por meio de [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) (ou seja, enviar por push atualizações automáticas de repositório ao Azure). Você pode usar o valor padrão `false` para o repositório especificado somente se configurou as credenciais do proprietário GitHub no [Portal de Visualização do Azure](https://portal.azure.com) previamente. Em outras palavras, se você configurou o controle do código-fonte para GitHub ou BitBucket para qualquer aplicativo no [Portal do Azure](https://portal.azure.com) previamente, usando suas credenciais de usuário, então o Azure lembrará dessas credenciais e as utilizará sempre que você implantar qualquer aplicativo do GitHub ou BitBucket no futuro. No entanto, se você ainda não tiver feito isso, a implantação do modelo JSON falhará quando o Gerenciador de Recursos do Azure tentar definir configurações de controle do código-fonte do aplicativo Web, porque ele não poderá fazer logon no GitHub ou BitBucket com as credenciais do proprietário do repositório.
 
 ## Comparar o modelo JSON com grupo de recursos implantado ##
 
-Aqui, você pode percorrer todas as folhas do aplicativo Web no [Portal de Visualização](https://portal.azure.com), mas há outra ferramenta que é tão útil quanto esta, ou mais. Vá para a ferramenta de visualização [Gerenciador de Recursos do Azure](https://resources.azure.com), que oferece uma representação JSON de todos os grupos de recursos em suas assinaturas, como eles existem realmente no back-end do Azure. Você também pode ver como a hierarquia JSON do grupo de recursos no Azure corresponde à hierarquia no arquivo de modelo que é usado para criá-la.
+Aqui, você pode percorrer todas as folhas do aplicativo Web no [Portal do Azure](https://portal.azure.com), mas há outra ferramenta que é tão útil quanto esta, ou mais. Vá para a ferramenta de visualização [Gerenciador de Recursos do Azure](https://resources.azure.com), que oferece uma representação JSON de todos os grupos de recursos em suas assinaturas, como eles existem realmente no back-end do Azure. Você também pode ver como a hierarquia JSON do grupo de recursos no Azure corresponde à hierarquia no arquivo de modelo que é usado para criá-la.
 
 Por exemplo, quando vou para a ferramenta [Gerenciador de Recursos do Azure](https://resources.azure.com) e expando os nós no gerenciador, posso ver o grupo de recursos e os recursos de nível raiz que são coletados em seus respectivos tipos de recurso.
 
@@ -268,7 +268,7 @@ O botão **Implantar no Azure** é ótimo, mas só permite que você implante o 
 	
 16.	Clique em **Implantar**. Se você selecionou **Salvar senhas**, a senha será salva no arquivo de parâmetros **em texto sem formatação**. Caso contrário, será solicitado que você insira a senha do banco de dados durante o processo de implantação.
 
-É isso! Agora, basta ir para o [Portal de Visualização](https://portal.azure.com) e até a ferramenta [Gerenciador de Recursos do Azure](https://resources.azure.com) para ver os novos alertas e configurações de dimensionamento automático adicionados ao seu aplicativo JSON implantado.
+É isso! Agora, basta ir para o [Portal do Azure](https://portal.azure.com) e até a ferramenta [Gerenciador de Recursos do Azure](https://resources.azure.com) para ver os novos alertas e configurações de dimensionamento automático adicionados ao seu aplicativo JSON implantado.
 
 As etapas cumpridas nesta seção realizaram principalmente o seguinte:
 
@@ -305,4 +305,4 @@ Descubra como [aplicar metodologias ágeis e publicar continuamente o aplicativo
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

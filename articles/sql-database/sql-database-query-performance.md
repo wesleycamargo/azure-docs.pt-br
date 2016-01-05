@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Visão do desempenho de consulta de Banco de Dados SQL do Azure" 
-   description="O monitoramento do desempenho de consulta identifica as consultas que consumem mais DTU de um Banco de Dados SQL do Azure." 
+   description="O monitoramento do desempenho de consulta identifica as consultas que consumem mais CPU de um Banco de Dados SQL do Azure." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="09/30/2015"
+   ms.date="12/02/2015"
    ms.author="sstein"/>
 
 # Visão do desempenho de consulta de Banco de Dados SQL do Azure
@@ -22,18 +22,14 @@
 Gerenciamento e ajuste do desempenho de bancos de dados relacionais são uma tarefa desafiadora que requer conhecimento significativo e investimento de tempo. Visão do Desempenho de Consulta permite que você gaste menos tempo solucionando problemas de desempenho de banco de dados, fornecendo o seguinte:
 
 - Mais informações sobre o consumo de recursos de bancos de dados (DTU). 
-- As consultas que consomem mais DTU, que potencialmente podem ser ajustadas para melhorar o desempenho. 
+- As consultas que mais consomem CPU, que potencialmente podem ser ajustadas para melhorar o desempenho. 
 - A capacidade de analisar os detalhes de uma consulta.
-
-> [AZURE.NOTE]A Visão do Desempenho de Consulta está atualmente em visualização e está disponível somente no [Portal de Visualização do Azure](https://portal.azure.com/).
-
-
 
 ## Pré-requisitos
 
 - A Visão do Desempenho de Consulta está disponível somente com o Banco de Dados SQL do Azure V12.
-- A Visão do Desempenho de Consulta requer que o [Armazenamento de Consulta](https://msdn.microsoft.com/library/dn817826.aspx) esteja em execução, por isso é habilitada automaticamente quando você se inscrever na Visão do Desempenho de Consulta.
- 
+- O Query Performance Insight exige a execução do [Repositório de Consultas](https://msdn.microsoft.com/library/dn817826.aspx) em seu banco de dados. O portal solicitará a ativação do Repositório de consultas, caso ainda não esteja em execução.
+
  
 ## Permissões
 
@@ -50,7 +46,7 @@ A Visão do Desempenho de Consulta é fácil de usar:
 
 - Examine a lista das consultas que consomem mais recursos. 
 - Selecione uma consulta individual para exibir seus detalhes.
-- **Editar gráfico** para personalizar a exibição de dados de consumo de DTU ou mostrar um período de tempo diferente.
+- Clique em **Configurações** para personalizar a exibição dos dados ou mostrar um período diferente.
 
 
 
@@ -58,42 +54,40 @@ A Visão do Desempenho de Consulta é fácil de usar:
 
 
 
+## Examinar as consultas que mais consomem CPU
 
-
-## Examine as consultas que mais consomem DTU
-
-No [portal de visualização](https://portal.azure.com) faça o seguinte:
+No [portal](https://portal.azure.com), faça o descrito a seguir:
 
 1. Navegue para um banco de dados SQL e clique em **Visão do Desempenho de Consulta**. 
 
     ![Visão de Desempenho de Consulta][1]
 
-    A exibição das principais consultas abre e a lista das consultas que consomem mais DTU são listadas.
+    A exibição das principais consultas abre e a lista das consultas que consomem mais CPU são listadas.
 
-1. Clique em torno do gráfico para obter detalhes.<br>A linha superior mostra a %DTU geral do banco de dados, enquanto as barras mostram a %DTU consumida pelas consultas selecionadas. Marque ou desmarque as consultas individuais para incluir ou exclui-las do gráfico.
+1. Clique em torno do gráfico para obter detalhes.<br>A linha superior mostra a %DTU geral do banco de dados, enquanto as barras mostram a %CPU consumida pelas consultas selecionadas. Marque ou desmarque as consultas individuais para incluir ou exclui-las do gráfico.
 
     ![principais consultas][2]
 
-1. Opcionalmente, clique em **Editar gráfico** para personalizar a exibição de dados de consumo de DTU ou mostrar um período de tempo diferente.
+1. Opcionalmente, clique em **Editar gráfico** para personalizar a exibição de dados de consumo de CPU ou mostrar um período de tempo diferente.
 
 ## Exibindo detalhes de uma consulta individual
 
 Para exibir detalhes da consulta:
 
-1. Clique em qualquer consulta na lista das principais consultas.<br>A exibição de detalhes abre e o consumo de DTU de consultas é dividido ao longo do tempo. 
-3. Clique em torno do gráfico para obter detalhes.<br>A linha superior mostra a %DTU geral e as barras mostram a %DTU consumida pela consulta selecionada.
-4. Examine os dados para ver as métricas detalhadas, incluindo a duração e o número de execuções, a porcentagem de utilização de recursos para cada intervalo que estava executando a consulta.
+1. Clique em qualquer consulta na lista das principais consultas.<br>A exibição de detalhes abre e o consumo de CPU de consultas é dividido ao longo do tempo.
+3. Clique em torno do gráfico para obter detalhes.<br>A linha superior mostra a %DTU geral e as barras mostram a %CPU consumida pela consulta selecionada.
+4. Examine os dados para ver as métricas detalhadas, incluindo a duração e o número de execuções e a porcentagem de utilização de recursos para cada intervalo de execução da consulta.
     
     ![detalhes da consulta][3]
 
-1. Opcionalmente, clique em **Exibir gráfico** para exibir o texto da consulta e clique em **Editar gráfico** para personalizar a exibição de dados de consumo de DTU ou mostrar um período de tempo diferente.
+1. Opcionalmente, clique em **Configurações** para personalizar a exibição dos dados de consumo de CPU ou mostrar um período de tempo diferente.
 
 
 
 
 ## Resumo
 
-A Visão do Desempenho de Consulta ajuda a entender o impacto de sua carga de trabalho de consulta e como ela se relaciona com o consumo de recursos do banco de dados. Com esse recurso, você saberá mais sobre as consultas que consomem mais recursos e identificará facilmente as que devem ser corrigidas antes que as mesmas se tornem um problema. Clique no bloco **Visão do Desempenho de Consulta** em uma folha de banco de dados para ver as consultas que mais consomem recursos (DTU).
+A Visão do Desempenho de Consulta ajuda a entender o impacto de sua carga de trabalho de consulta e como ela se relaciona com o consumo de recursos do banco de dados. Com esse recurso, você saberá mais sobre as consultas que consomem mais recursos e identificará facilmente as que devem ser corrigidas antes que as mesmas se tornem um problema. Clique no bloco **Visão do Desempenho de Consulta** em uma folha de banco de dados para ver as consultas que mais consomem recursos (CPU).
 
 
 
@@ -109,4 +103,4 @@ Confira o [Consultor de Índice](sql-database-index-advisor.md) para recomendaç
 [2]: ./media/sql-database-query-performance/top-queries.png
 [3]: ./media/sql-database-query-performance/query-details.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

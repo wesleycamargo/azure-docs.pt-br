@@ -128,11 +128,11 @@ Agora, vamos implantar nosso primeiro modelo.
 
 	![Aplicativo Todo de exemplo](./media/documentdb-create-documentdb-website/image2.png)
 
-7. Prossiga e crie algumas tarefas e, em seguida, vamos abrir o [Portal de Visualização do Microsoft Azure](https://portal.azure.com).
+7. Continue e crie algumas tarefas e, em seguida, vamos abrir o [Portal do Microsoft Azure](https://portal.azure.com).
 
 8. Escolha esta opção de procurar grupos de recursos e selecione o grupo de recursos criado durante a implantação (no exemplo acima, myDemoResourceGroup).
 
-	![Captura de tela do portal do Azure com myDemoResourceGroup realçado](./media/documentdb-create-documentdb-website/image3.png)
+	![Captura de tela do Portal Clássico do Azure com myDemoResourceGroup realçado](./media/documentdb-create-documentdb-website/image3.png)
 9.  Observe como o mapa de recursos na lente Resumo mostra todos os recursos relacionados (conta do Banco de Dados de Documentos, aplicativo Web do Serviço de Aplicativo e Monitoramento).
 
 	![Captura de tela de lente de Resumo](./media/documentdb-create-documentdb-website/image4.png)
@@ -172,7 +172,7 @@ Agora, vamos implantar nosso segundo modelo.
 	> [AZURE.TIP]Observe que será solicitado inserir seu nome de usuário da conta do Azure e a senha como parte da execução do script. A implantação completa levará entre 10 e 15 minutos para ser concluída.
 
 4. A saída da implantação será muito semelhante ao primeiro exemplo de modelo.
-5. Antes de abrirmos o portal de visualização do Azure, vamos entender o que essa implantação de modelo realizou:
+5. Antes de abrirmos o Portal do Azure, vamos entender o que essa implantação de modelo realizou:
 
 	- Um aplicativo Web do Serviço de Aplicativo foi criado.
 
@@ -182,14 +182,14 @@ Agora, vamos implantar nosso segundo modelo.
 
 	- 	Uma série de regras de monitoramento padrão foi criada.
 
-6. Vamos abrir o [portal de Visualização do Azure](https://portal.azure.com), optar por procurar grupos de recursos e selecionar o grupo de recursos criado durante a implantação (no exemplo acima, myOtherDemoResourceGroup).
+6. Vamos abrir o [Portal do Azure](https://portal.azure.com), optar por procurar Grupos de Recursos e selecionar o Grupo de Recursos criado durante a implantação (no exemplo acima, myOtherDemoResourceGroup).
 7. Na lente Resumo, clique no aplicativo Web que acabou de ser implantado.
 
 	![Captura de tela da lente de Resumo com o aplicativo Web myotherdocumentdbwebapp realçado](./media/documentdb-create-documentdb-website/image6.png)
 8. Na lâmina do aplicativo Web, clique em **Todas as configurações**, em **Configurações do Aplicativo** e observe como há configurações de aplicativos presentes para o ponto de extremidade do Banco de Dados de Documentos e cada uma das chaves mestras do Banco de Dados de Documentos.
 
 	![Captura de tela das lâminas de aplicativo Web, Configurações e configurações do aplicativo](./media/documentdb-create-documentdb-website/image7.png)
-9. Fique à vontade para continuar a explorar o portal de visualização do Azure ou siga um de nossos [exemplos](http://go.microsoft.com/fwlink/?LinkID=402386) do Banco de Dados de Documentos para criar seu próprio aplicativo do Banco de Dados de Documentos.
+9. Sinta-se à vontade para continuar a explorar o Portal do Azure ou seguir um de nossos [exemplos](http://go.microsoft.com/fwlink/?LinkID=402386) do Banco de Dados de Documentos para criar seu próprio aplicativo do Banco de Dados de Documentos.
 
 	
 	
@@ -205,9 +205,9 @@ Parabéns! Você implantou um Banco de Dados de Documentos, aplicativo Web do Se
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Para obter um guia sobre a alteração do portal antigo para o novo portal, veja: [Referência para navegar no Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 >[AZURE.NOTE]Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

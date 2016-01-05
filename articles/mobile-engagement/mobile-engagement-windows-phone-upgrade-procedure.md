@@ -122,7 +122,7 @@ Se você quiser especificá-lo em tempo de execução, você pode chamar o méto
 		/* Initialize Engagement angent with above configuration. */
 		EngagementAgent.Instance.Init(engagementConfiguration);
 
-A cadeia de conexão para o seu aplicativo é exibida no Portal de Gerenciamento do Azure.
+A cadeia de conexão do seu aplicativo é exibida no Portal Clássico do Azure.
 
 ### Alteração do nome de itens
 
@@ -142,4 +142,4 @@ Observe que renomear também afeta métodos substituídos.
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

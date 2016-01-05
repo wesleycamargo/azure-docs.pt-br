@@ -72,11 +72,11 @@ A autenticação de Chave Compartilhada significa que o aplicativo usará seu no
 
 > [AZURE.WARNING (Only use Shared Key authentication for testing purposes!) ]Seu nome de conta e chave de conta, que dão acesso completo de leitura/gravação à conta de Armazenamento associada, serão distribuídos a todas as pessoas que baixarem o aplicativo. Isso **não** é uma prática recomendada, pois você corre o risco de ter sua chave comprometida por clientes não confiáveis.
 
-Ao usar a autenticação de Chave Compartilhada, você criará uma "cadeia de caracteres de conexão". A cadeia de caracteres de conexão é composta dos seguintes itens:
+Ao usar a autenticação de Chave Compartilhada, você criará uma cadeia de caracteres de conexão. A cadeia de caracteres de conexão é composta dos seguintes itens:
 
-- O **DefaultEndpointsProtocol** -você pode escolher http ou https. No entanto, é altamente recomendável usar https.
+- O **DefaultEndpointsProtocol** -você pode escolher HTTP ou HTTPS. No entanto, é altamente recomendável usar HTTPS.
 - O **Nome da Conta** - o nome de sua conta de armazenamento
-- A **Chave de Conta** - se estiver usando o [Portal de Gerenciamento](manage.windowsazure.com), você poderá encontrá-la clicando em *Gerenciar Chaves de Acesso*. Se estiver usando o [Portal de Visualização](portal.azure.com), você poderá clicar no ícone de Chave para encontrar essas informações.
+- A **Chave da Conta** - Se estiver usando o [Portal do Azure](portal.azure.com), navegue até a conta de armazenamento e clique no ícone **Chaves** para encontrar essa informação. Se usar o [Portal Clássico do Azure](manage.windowsazure.com), navegue até a conta de armazenamento no portal e clique em **Gerenciar Chaves de Acesso**. 
 
 Veja como será sua aparência no aplicativo:
 
@@ -117,7 +117,7 @@ Como você pode ver, ao usar um token de SAS, você não expõe seu nome de cont
 > [AZURE.NOTE]Todos os métodos que realizam uma solicitação ao serviço são operações assíncronas. Nos exemplos de código, você verá que esses métodos têm um manipulador de conclusão. O código no manipulador de conclusão será executado **após** a solicitação ser concluída. O código depois do manipulador de conclusão será executado **enquanto** a solicitação está sendo feita.
 
 ## Criar um contêiner
-Todos os blobs no Armazenamento do Azure devem residir em um contêiner. O exemplo a seguir mostra como criar um contêiner, chamado *newcontainer*, em sua conta de Armazenamento, se ele ainda não existir. Ao escolher um nome para o contêiner, leve em conta as regras de nomenclatura mencionadas acima.
+Todos os blobs no Armazenamento do Azure devem residir em um contêiner. O exemplo a seguir mostra como criar um contêiner, chamado *newcontainer*, em sua Conta de armazenamento, se ele ainda não existir. Ao escolher um nome para o contêiner, leve em conta as regras de nomenclatura mencionadas acima.
 
      -(void)createContainer{
         // Create a storage account object from a connection string.
@@ -137,7 +137,7 @@ Todos os blobs no Armazenamento do Azure devem residir em um contêiner. O exemp
         }];
     }
 
-Você pode confirmar que isso funciona observando o [Portal](portal.azure.com) ou qualquer [Gerenciador de armazenamento](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) e verificando se *newcontainer* está na lista de contêineres para sua conta de Armazenamento.
+Você pode confirmar que isso funciona observando o [Portal do Azure](portal.azure.com) ou qualquer [Gerenciador de armazenamento](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) e verificando se *newcontainer* está na lista de contêineres para sua conta de Armazenamento.
 
 ## Definir permissões de contêiner
 As permissões do contêiner são configuradas para acesso **privado** por padrão. No entanto, os contêineres fornecem algumas opções diferentes para acesso ao contêiner:
@@ -202,7 +202,7 @@ O exemplo a seguir mostra como carregar um blob de bloco de um NSString. Se um b
          }];
      }
 
-Você pode confirmar que isso funciona observando o [Portal](portal.azure.com) ou qualquer [Gerenciador de armazenamento](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) e verificando se o contêiner, *containerpublic*, contém o blob *sampleblob*. Neste exemplo, usamos um contêiner público, então, você também pode verificar se isso funcionou indo para o URI de blobs:
+Você pode confirmar que isso funciona observando o [Portal do Azure](portal.azure.com) ou qualquer [Gerenciador de armazenamento](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) e verificando se o contêiner, *containerpublic*, contém o blob *sampleblob*. Neste exemplo, usamos um contêiner público, então, você também pode verificar se isso funcionou indo para o URI de blobs:
 
     https://nameofyourstorageaccount.blob.core.windows.net/containerpublic/sampleblob
 
@@ -211,18 +211,18 @@ Além de carregar um blob de bloco de um NSString, existem métodos semelhantes 
 ## Listar os blobs em um contêiner
 O exemplo a seguir mostra como listar todos os blobs em um contêiner. Ao executar essa operação, leve em conta os seguintes parâmetros:
 
-- **continuationToken** - o token de continuação representa onde a operação de listagem deve começar. Se nenhum token for fornecido, ele listará os blobs desde o início. Qualquer número de blobs pode ser listado, desde zero até um máximo definido. Mesmo que esse método retorne zero resultado, se `results.continuationToken` não for nulo, poderá haver mais blobs no serviço que não foram listados.
-- **prefixo** -você pode especificar o prefixo a ser usado para a listagem de blobs. Somente os blobs que começarem com esse prefixo serão listados.
-- **useFlatBlobListing** - conforme mencionado na seção [Nomeando e referenciando contêineres e blobs](#naming-and-referencing-containers-and-blobs), embora o serviço de Blob seja um esquema de armazenamento simples, você pode criar uma hierarquia virtual nomeando blobs com informações de caminho. No entanto, atualmente não há suporte à listagem não simples. Isso estará disponível em breve. Por enquanto, esse valor deve ser `YES`
-- **blobListingDetails** - você pode especificar os itens a serem incluídos ao listar blobs
-	- `AZSBlobListingDetailsNone`: listar apenas os blobs confirmados e não retorna metadados de blob.
-	- `AZSBlobListingDetailsSnapshots`: listar os blobs confirmados e instantâneos de blob.
-	- `AZSBlobListingDetailsMetadata`: recuperar metadados de blob para cada blob retornado na listagem.
-	- `AZSBlobListingDetailsUncommittedBlobs`: listar os blobs confirmados e não confirmados.
-	- `AZSBlobListingDetailsCopy`: incluir propriedades de cópia na listagem.
-	- `AZSBlobListingDetailsAll`: listar todos os blobs confirmados disponíveis, blobs não confirmados e instantâneos e retornar todos os metadados e status de cópia para os blobs.
-- **maxResults** - o número máximo de resultados a serem retornados para a operação. Use -1 para não definir um limite.
-- **completionHandler** - o bloco de código a ser executado com os resultados da operação de listagem.
+- **continuationToken** - O token de continuação representa onde a operação de listagem deve começar. Se nenhum token for fornecido, ele listará os blobs desde o início. Qualquer número de blobs pode ser listado, desde zero até um máximo definido. Mesmo que esse método retorne zero resultado, se `results.continuationToken` não for nulo, poderá haver mais blobs no serviço que não foram listados.
+- **prefixo** -Você pode especificar o prefixo a ser usado para a listagem de blobs. Somente os blobs que começarem com esse prefixo serão listados.
+- **useFlatBlobListing** - Conforme mencionado na seção [Nomeando e referenciando contêineres e blobs](#naming-and-referencing-containers-and-blobs), embora o serviço de Blob seja um esquema de armazenamento simples, você pode criar uma hierarquia virtual nomeando blobs com informações de caminho. No entanto, atualmente não há suporte à listagem não simples. Isso estará disponível em breve. Por enquanto, esse valor deve ser `YES`
+- **blobListingDetails** - Você pode especificar os itens a serem incluídos ao listar blobs
+	- `AZSBlobListingDetailsNone`: lista apenas os blobs confirmados e não retorna metadados de blob.
+	- `AZSBlobListingDetailsSnapshots`: lista os blobs confirmados e instantâneos de blob.
+	- `AZSBlobListingDetailsMetadata`: recupera metadados de blob para cada blob retornado na listagem.
+	- `AZSBlobListingDetailsUncommittedBlobs`: lista os blobs confirmados e não confirmados.
+	- `AZSBlobListingDetailsCopy`: inclui propriedades de cópia na listagem.
+	- `AZSBlobListingDetailsAll`: lista todos os blobs confirmados disponíveis, blobs não confirmados e instantâneos e retorna todos os metadados e status de cópia para os blobs.
+- **maxResults** - O número máximo de resultados a serem retornados para a operação. Use -1 para não definir um limite.
+- **completionHandler** - O bloco de código a ser executado com os resultados da operação de listagem.
 
 Neste exemplo, um método auxiliar é usado para chamar recursivamente o método de listagem de blobs sempre que um token de continuação é retornado.
 
@@ -350,12 +350,13 @@ Agora que você aprendeu os conceitos básicos do armazenamento de blob, siga es
 
 - [Biblioteca do IOS de Armazenamento do Azure]
 - [API REST de Armazenamento do Azure]
+- [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy)
 - [Blog da equipe de Armazenamento do Azure]
 
-Se você tiver dúvidas sobre a biblioteca, fique à vontade para postar em nosso [Fórum do Azure do MSDN](http://social.msdn.microsoft.com/Forums/windowsazure/pt-BR/home?forum=windowsazuredata) ou no [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Se você tiver sugestões de recursos para o Armazenamento do Azure, poste nos [Comentários do Armazenamento do Azure](http://feedback.azure.com/forums/217298-storage).
+Se você tiver dúvidas sobre a biblioteca, fique à vontade para postar em nosso [Fórum do Azure do MSDN](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) ou no [Excedente de pilha](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Se você tiver sugestões de recursos para o Armazenamento do Azure, poste nos [Comentários do Armazenamento do Azure](http://feedback.azure.com/forums/217298-storage).
 
 [Biblioteca do IOS de Armazenamento do Azure]: https://github.com/azure/azure-storage-ios
-[API REST de Armazenamento do Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[API REST de Armazenamento do Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1217_2015-->

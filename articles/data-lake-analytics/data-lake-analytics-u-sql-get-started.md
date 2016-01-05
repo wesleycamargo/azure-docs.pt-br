@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/26/2015"
+   ms.date="11/30/2015"
    ms.author="jgao"/>
 
 # Tutorial: introdução à linguagem U-SQL da Análise do Azure Data Lake
@@ -31,7 +31,7 @@ Para saber mais, consulte [Referência U-SQL](http://go.microsoft.com/fwlink/p/?
 **Pré-requisitos**
 
 - **Visual Studio 2015, Visual Studio 2013 atualização 4 ou Visual Studio 2012 com Visual C++ instalado** 
-- **SDK do Microsoft Azure para .NET versão 2.5 ou posterior**. Instale-o usando o [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
+- **SDK do Microsoft Azure para .NET versão 2.7 ou posterior**. Instale-o usando o [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
 - **[Ferramentas do Data Lake para Visual Studio](http://aka.ms/adltoolsvs)**. 
 	
 	Quando as Ferramentas do Data Lake para Visual Studio forem instaladas, você verá um menu do **Data Lake** no Visual Studio:
@@ -40,13 +40,13 @@ Para saber mais, consulte [Referência U-SQL](http://go.microsoft.com/fwlink/p/?
 
 - **Conhecimento básico da Análise Data Lake e das Ferramentas do Data Lake para Visual Studio**. Para começar. confira:
  
-	- [Introdução à Análise do Azure Data Lake usando o Portal de Visualização do Azure](data-lake-analytics-get-started-portal.md).
+	- [Introdução à Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md).
 	- [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 
 - **Uma conta da Análise do Data Lake**. Veja [Criar uma conta da Análise do ADL (Azure Data Lake)](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
 - **Carregue os dados de exemplo na conta da Análise Data Lake.** Confira [Carregar SearchLog.tsv na conta padrão de Armazenamento do Data Lake](data-lake-analytics-get-started-portal.md#update-data-to-the-default-adl-storage-account).
 
-	As Ferramentas do Data Lake não dão suporte à criação de contas da Análise do Data Lake. Você precisa criá-la usando o Portal de Visualização do Azure, Azure PowerShell, SDK do .NET ou a CLI do Azure. Para executar o trabalho da Análise Data Lake, você precisará de alguns dados. Embora as Ferramentas do Data Lake deem suporte ao carregamento de dados, você poderá usar o portal para carregar os dados de exemplo para deixar o tutorial mais fácil de acompanhar.
+	As Ferramentas do Data Lake não dão suporte à criação de contas da Análise Data Lake. Portanto, você precisa criá-la usando o Portal do Azure, Azure PowerShell, SDK do .NET ou a CLI do Azure. Para executar o trabalho da Análise Data Lake, você precisará de alguns dados. Embora as Ferramentas do Data Lake deem suporte ao carregamento de dados, você poderá usar o portal para carregar os dados de exemplo para deixar o tutorial mais fácil de acompanhar.
 
 ## Conectar-se ao Azure do Visual Studio
 
@@ -62,7 +62,7 @@ Antes de criar e testar qualquer script U-SQL, é preciso se conectar ao Azure.
 **Para procurar suas contas da Análise Data Lake**
 
 1. No Visual Studio, abra o **Gerenciador de Servidores** pressionando **CTRL+ALT+S**.
-2. No **Gerenciador de Servidores**, expanda **Azure** e **Análise Data Lake**. Você deverá ver uma lista das suas contas da Análise Data Lake, caso haja alguma. Não é possível criar contas da Análise Data Lake a partir do estúdio. Para criar uma conta, confira [Introdução à Análise Azure Data Lake usando o Portal de Visualização do Azure](data-lake-analytics-get-started-portal.md) ou [Introdução à Análise Azure Data Lake usando o Azure PowerShell](data-lake-get-started-powershell.md)
+2. No **Gerenciador de Servidores**, expanda **Azure** e **Análise Data Lake**. Você deverá ver uma lista das suas contas da Análise Data Lake, caso haja alguma. Não é possível criar contas da Análise Data Lake a partir do estúdio. Para criar uma conta, veja [Introdução à Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md) ou [Introdução à Análise do Azure Data Lake usando o Azure PowerShell](data-lake-get-started-powershell.md).
 
 
 ## Desenvolver seus primeiros scripts U-SQL 
@@ -492,7 +492,7 @@ O que é abordado no tutorial é apenas uma pequena parte do U-SQL. Por causa do
 - [Visão geral da Análise do Microsoft Azure Data Lake](data-lake-analytics-overview.md)
 - [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Usando funções da janela do U-SQL para trabalhos da Análise do Azure Data Lake](data-lake-analytics-use-window-functions.md)
-- [Monitorar e solucionar problemas em trabalhos da Análise do Azure Data Lake usando o Portal de Visualização do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Monitorar e solucionar problemas em trabalhos da Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ## Queremos saber sua opinião
 
@@ -501,4 +501,4 @@ O que é abordado no tutorial é apenas uma pequena parte do U-SQL. Por causa do
 - [Obter ajuda nos fóruns](http://aka.ms/adlaforums)
 - [Fornecer comentários sobre o U-SQL](http://aka.ms/usqldiscuss)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

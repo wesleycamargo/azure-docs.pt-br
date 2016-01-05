@@ -26,7 +26,7 @@ Este Guia de Instruções explica como usar os recursos do sistema de mensagens 
 
 ## Introdução ao Barramento de serviço
 
-Este guia presume que você já tenha um namespace do Barramento de Serviço que contém uma fila denominada **queue1**. Caso contrário, você pode criar o namespace e a fila usando o [Portal do Azure](http://manage.windowsazure.com). Para obter mais informações sobre como criar namespaces e filas do Barramento de Serviço, consulte [Como usar filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md).
+Este guia presume que você já tenha um namespace do Barramento de Serviço que contém uma fila denominada **queue1**. Caso contrário, você pode criar o namespace e a fila usando o [Portal clássico do Azure](http://manage.windowsazure.com). Para obter mais informações sobre como criar namespaces e filas do Barramento de Serviço, consulte [Como usar filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md).
 
 ### Baixando a biblioteca do cliente do JMS do AMQP 1.0
 
@@ -66,10 +66,10 @@ A entrada usada para definir um **ConnectionFactory** no Provedor JNDI de arquiv
 connectionfactory.[jndi_name] = [ConnectionURL]
 ```
 
-Onde **[jndi\_name]** e **[ConnectionURL]** têm os seguintes significados:
+Em que **[jndi\_name]** e **[ConnectionURL]** têm os seguintes significados:
 
 - **[jndi\_name]**: o nome lógico do ConnectionFactory. Este é o nome que será resolvido no aplicativo Java usando o método IntialContext.lookup() do JNDI.
-- **[ConnectionURL]**: uma URL que fornece à biblioteca JMS as informações necessárias para o agenciador do AMQP.
+- **[ConnectionURL]**: uma URL que fornece à biblioteca JMS as informações necessárias para o agente do AMQP.
 
 O formato de **ConnectionURL** é o seguinte:
 
@@ -77,7 +77,7 @@ O formato de **ConnectionURL** é o seguinte:
 amqps://[username]:[password]@[namespace].servicebus.windows.net
 ```
 
-Onde **[namespace]**, **[username]** e **[password]** têm os seguintes significados:
+Em que **[namespace]**, **[username]** e **[password]** têm os seguintes significados:
 
 - **[namespace]**: o namespace do Barramento de Serviço.
 - **[username]**: o nome do emissor do Barramento de Serviço.
@@ -98,7 +98,7 @@ ou
 topic.[jndi_name] = [physical_name]
 ```
 
-Onde **[jndi\_name]** e **[physical\_name]** têm os seguintes significados:
+Em que **[jndi\_name]** e **[physical\_name]** têm os seguintes significados:
 
 - **[jndi\_name]**: o nome lógico do destino. Este é o nome que será resolvido no aplicativo Java usando o método IntialContext.lookup() do JNDI.
 - **[physical\_name]**: o nome da entidade do Barramento de Serviço para a qual o aplicativo envia ou recebe mensagens.
@@ -332,4 +332,4 @@ Você também pode usar o AMQP 1.0 do Service Bus de outras linguagens, incluind
 * [Como usar filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

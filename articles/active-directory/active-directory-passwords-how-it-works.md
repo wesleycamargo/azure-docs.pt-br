@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # Como funciona o gerenciamento de senhas
@@ -99,18 +99,17 @@ Para obter mais informações sobre o Azure AD Connect, consulte [Introdução: 
 
 <br/> <br/> <br/>
 
-**Recursos adicionais**
+## Links para a documentação de redefinição de senha
+Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
 
-
-* [O que é gerenciamento de senhas](active-directory-passwords.md)
-* [Introdução ao gerenciamento de senhas](active-directory-passwords-getting-started.md)
-* [Personalizar o gerenciamento de senhas](active-directory-passwords-customize.md)
-* [Práticas recomendadas de gerenciamento de senhas](active-directory-passwords-best-practices.md)
-* [Como obter percepções operacionais com relatórios de gerenciamento de senhas](active-directory-passwords-get-insights.md)
-* [Perguntas frequentes sobre Gerenciamento de Senhas](active-directory-passwords-faq.md)
-* [Solucionar problemas do Gerenciamento de Senhas](active-directory-passwords-troubleshoot.md)
-* [Saiba mais](active-directory-passwords-learn-more.md)
-* [Gerenciamento de senhas no MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* [**Redefinir sua própria senha**](active-directory-passwords-update-your-own-password.md): saiba mais sobre como redefinir ou alterar sua própria senha como um usuário do sistema
+* [**Introdução**](active-directory-passwords-getting-started.md) - saiba como permitir que os usuários redefinam e alterem suas senhas na nuvem ou no local
+* [**Personalizar**](active-directory-passwords-customize.md) - aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização
+* [**Práticas recomendadas**](active-directory-passwords-best-practices.md) - aprenda a implantar rapidamente e gerenciar com eficiência as senhas em sua organização
+* [**Obter percepções**](active-directory-passwords-get-insights.md) - saiba mais sobre nossos recursos integrados de relatórios
+* [**Perguntas frequentes**](active-directory-passwords-faq.md) - obtenha respostas para perguntas frequentes
+* [**Solução de problemas**](active-directory-passwords-troubleshoot.md) - aprenda a solucionar rapidamente os problemas com o serviço
+* [**Saiba mais**](active-directory-passwords-learn-more.md) - aprofunde-se nos detalhes técnicos do funcionamento do serviço
 
 
 
@@ -122,4 +121,4 @@ Para obter mais informações sobre o Azure AD Connect, consulte [Introdução: 
 [006]: ./media/active-directory-passwords-how-it-works/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-how-it-works/007.jpg "Image_007.jpg"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

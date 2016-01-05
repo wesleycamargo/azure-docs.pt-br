@@ -19,15 +19,15 @@
 # Ferramentas de gerenciamento para o SQL Data Warehouse
 Este tópico explora e compara as ferramentas e opções de gerenciamento do SQL Data Warehouse para que você possa escolher a ferramenta certa de acordo com suas necessidades. Escolher a ferramenta certa depende de quantos bancos de dados você gerencia, da tarefa e da frequência de execução de uma tarefa.
 
-## Portal do Azure
-O [Portal do Azure][] é um portal de gerenciamento com base na Web no qual você pode criar, atualizar e excluir bancos de dados e monitorar recursos do banco de dados. Essa ferramenta será excelente se você estiver começando a usar o Azure, se estiver gerenciando uma pequena quantidade de bancos de dados de data warehouse ou se precisar fazer alguma coisa rapidamente.
+## Portal Clássico do Azure
+O [Portal Clássico do Azure][] é um portal Clássico com base na Web no qual você pode criar, atualizar e excluir bancos de dados e monitorar recursos do banco de dados. Essa ferramenta será excelente se você estiver começando a usar o Azure, se estiver gerenciando uma pequena quantidade de bancos de dados de data warehouse ou se precisar fazer alguma coisa rapidamente.
 
 O portal contém métricas que abrangem as configurações histórias e atuais de DWU de desempenho, a quantidade de armazenamento que está sendo usado, as conexões SQL bem-sucedidas e com falha e um conjunto de visualizações e dados que permitem uma compreensão das consultas em execução em sua instância e os detalhes das consultas.
 
 ## SQL Server Data Tools no Visual Studio	
 [SQL Server Data Tools][] (SSDT) no Visual Studio é uma ferramenta cliente que executa em seu computador e permite a conexão, gerenciamento e desenvolvimento do banco de dados na nuvem. Se você for um desenvolvedor de aplicativos familiarizado com o Visual Studio ou com outros ambientes de desenvolvimento integrados (IDEs), tente usar o SSDT no Visual Studio.
 
-O SSDT inclui o SQL Server Explorer, que permite a visualização, conexão e execução de scripts em bancos de dados do SQL Data Warehouse. Para conectar-se rapidamente ao SQL Data Warehouse, você pode simplesmente clicar no botão **Abrir no Visual Studio** na barra de comandos ao exibir os detalhes do banco de dados no Portal do Azure.
+O SSDT inclui o SQL Server Explorer, que permite a visualização, conexão e execução de scripts em bancos de dados do SQL Data Warehouse. Para conectar-se rapidamente ao SQL Data Warehouse, você pode simplesmente clicar no botão **Abrir no Visual Studio** na barra de comandos ao exibir os detalhes do banco de dados no Portal Clássico do Azure.
 
 Você pode baixar a versão mais recente do [SQL Server Data Tools][] (SSDT) que inclui suporte para o SQL Data Warehouse.
 
@@ -43,9 +43,9 @@ Para começar a usar essas ferramentas, vá até o tópico [conexão][].
 [conexão]: sql-data-warehouse-develop-connections.md
 
 <!--MSDN references-->
-[SQL Server Data Tools]: https://msdn.microsoft.com/pt-BR/library/mt204009.aspx
+[SQL Server Data Tools]: https://msdn.microsoft.com/library/mt204009.aspx
 
 <!--Other web references-->
-[Portal do Azure]: http://portal.azure.com/
+[Portal Clássico do Azure]: http://portal.azure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

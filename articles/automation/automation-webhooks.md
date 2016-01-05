@@ -3,7 +3,7 @@
    description="Um webhook que permite que um cliente inicie um runbook na Automação do Azure a partir de uma chamada HTTP. Este artigo descreve como criar um webhook e como chamar um para iniciar um runbook."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="SnehaGunda"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/08/2015"
+   ms.date="12/07/2015"
    ms.author="bwren;sngun"/>
 
 # Webhooks da Automação do Azure
 
-O *webhook* permite que você inicie um runbook específico na Automação do Azure por meio de uma única solicitação HTTP. Isso permite que os serviços externos, como Visual Studio Online, GitHub ou aplicativos personalizados iniciem runbooks sem implementar uma solução completa usando a API da Automação do Azure.
+O *webhook* permite que você inicie um runbook específico na Automação do Azure por meio de uma única solicitação HTTP. Isso permite que os serviços externos, como Visual Studio Team Services, GitHub ou aplicativos personalizados iniciem runbooks sem implementar uma solução completa usando a API da Automação do Azure.
 
 ![Webhooks](media/automation-webhooks/webhooks-overview.png)
 
@@ -53,7 +53,24 @@ O objeto **$WebhookData** terá as seguintes propriedades:
 
 Nenhuma configuração do webhook é necessária para suporte ao parâmetro **$WebhookData** e o runbook não é necessário para aceitá-lo. Se o runbook não definir o parâmetro, os detalhes da solicitação enviada pelo cliente são ignorados.
 
-Se você especificar um valor para $WebhookData quando você cria o webhook, esse valor será substituído quando o webhook inicia o runbook com os dados da solicitação POST do cliente, mesmo que o cliente não inclua todos os dados no corpo da solicitação. Se você iniciar um runbook que tenha $WebhookData usando um método que não seja um webhook, você pode fornecer um valor para $Webhookdata que será reconhecidos pelo runbook. Esse valor deve ser um objeto com as mesmas propriedades de $Webhookdata para que o runbook possa trabalhar corretamente com ele.
+Se você especificar um valor para $WebhookData quando você cria o webhook, esse valor será substituído quando o webhook inicia o runbook com os dados da solicitação POST do cliente, mesmo que o cliente não inclua todos os dados no corpo da solicitação. Se você iniciar um runbook que tenha $WebhookData usando um método que não seja um webhook, você pode fornecer um valor para $Webhookdata que será reconhecidos pelo runbook. Esse valor deve ser um objeto com as mesmas [propriedades](#details-of-a-webhook) que $Webhookdata, para que o runbook possa trabalhar corretamente com ele como se estivesse trabalhando com o WebhookData real transmitido por um webhook.
+
+Por exemplo, se você estiver iniciando o runbook a seguir no Portal do Azure e desejar transmitir algum exemplo de WebhookData para teste, como WebhookData é um objeto, ele deve ser transmitido como JSON na interface do usuário.
+
+![Parâmetro WebhookData da interface do usuário](media/automation-webhooks/WebhookData-parameter-from-UI.png)
+
+Para o runbook acima, se você tiver as seguintes propriedades para o parâmetro WebhookData:
+
+1. WebhookName: *MyWebhook*
+2. RequestHeader: *From=Test User*
+3. RequestBody: *[“VM1”, “VM2”]*
+
+Em seguida, você transmitiria o seguinte valor JSON na interface do usuário para o parâmetro WebhookData:
+
+* {"WebhookName":"MyWebhook", "RequestHeader":{"From":"Test User"}, "RequestBody":"["VM1","VM2"]"}
+
+![Iniciar o parâmetro WebhookData na interface do usuário](media/automation-webhooks/Start-WebhookData-parameter-from-UI.png)
+
 
 >[AZURE.NOTE]Os valores de todos os parâmetros de entrada são registrados com o trabalho de runbook. Isso significa que qualquer entrada fornecida pelo cliente na solicitação webhook será conectada e estará disponível para qualquer pessoa com acesso ao trabalho de automação. Por esse motivo, você deve ter cuidado ao incluir informações confidenciais em chamadas webhook.
 
@@ -169,7 +186,7 @@ O seguinte exemplo de runbook aceita a solicitação do exemplo anterior e inici
 
 ## Iniciar runbooks em resposta a um alerta do Azure
 
-Runbooks habilitados para Webhook podem ser usados para reagir a [alertas do Azure](Azure-portal/insights-receive-alert-notifications.md). Recursos no Azure podem ser monitorados por meio da coleta de estatísticas, como desempenho, disponibilidade e uso, com a ajuda dos alertas do Azure. Você pode receber um alerta com base em métricas de monitoramento ou em eventos para seus recursos do Azure. No momento, as Contas de Automação oferecem suporte apenas para métricas. Quando o valor de uma métrica especificada ultrapassar o limite atribuído ou se o evento configurado for disparado e uma notificação for enviada ao administrador ou coadministradores do serviço para resolver o alerta, consulte [alertas do Azure](Azure-portal/insights-receive-alert-notifications.md) para obter mais informações sobre eventos e métricas.
+Runbooks habilitados para Webhook podem ser usados para reagir a [alertas do Azure](Azure-portal/insights-receive-alert-notifications.md). Recursos no Azure podem ser monitorados por meio da coleta de estatísticas, como desempenho, disponibilidade e uso, com a ajuda dos alertas do Azure. Você pode receber um alerta com base em métricas de monitoramento ou em eventos para seus recursos do Azure. No momento, as Contas de Automação oferecem suporte apenas para métricas. Quando o valor de uma métrica especificada exceder o limite atribuído ou se o evento configurado for disparado e uma notificação for enviada ao administrador ou aos coadministradores do serviço para resolver o alerta, veja [Alertas do Azure](Azure-portal/insights-receive-alert-notifications.md) para obter mais informações sobre eventos e métricas.
 
 Além de usar alertas do Azure como um sistema de notificação, você também pode disparar runbooks em resposta a alertas. A Automação do Azure fornece a capacidade de executar runbooks habilitados para webhook com alertas do Azure. Quando uma métrica excede o valor do limite configurado, a regra do alerta fica ativa e dispara o webhook de automação, que por sua vez executa o runbook.
 
@@ -179,12 +196,12 @@ Além de usar alertas do Azure como um sistema de notificação, você também p
 
 Considere um recurso do Azure como uma máquina virtual, a utilização da CPU dessa máquina é uma das principais métricas de desempenho. Se a utilização da CPU for 100% ou mais do que uma determinada quantidade por longo período de tempo, talvez você queira reiniciar a máquina virtual para corrigir o problema. Isso pode ser resolvido por meio da configuração de uma regra de alerta para a máquina virtual e essa regra usa o percentual de CPU como sua métrica. O percentual de CPU aqui é usado apenas como um exemplo, mas existem muitas outras métricas que podem ser configuradas para os recursos do Azure, e reiniciar a máquina virtual é uma ação executada para corrigir esse problema. Você pode configurar o runbook para executar outras ações.
 
-Quando esta regra de alerta é ativada e dispara o runbook habilitado para webhook, ela envia o contexto do alerta para o runbook. [Contexto de alerta](Azure-portal/insights-receive-alert-notifications.md) contém detalhes que incluem **SubscriptionID**, **ResourceGroupName**, **ResourceName**, **ResourceType**, **ResourceId** e **Timestamp**, que são necessários para o runbook identificar o recurso em que ele vai realizar ação. O contexto do alerta é inserido na parte de corpo do objeto **WebhookData** enviado para o runbook e pode ser acessado com a propriedade **Webhook.RequestBody**
+Quando esta regra de alerta é ativada e dispara o runbook habilitado para webhook, ela envia o contexto do alerta para o runbook. [Contexto de alerta](Azure-portal/insights-receive-alert-notifications.md) contém detalhes que incluem **SubscriptionID**, **ResourceGroupName**, **ResourceName**, **ResourceType**, **ResourceId** e **Timestamp**, que são necessários para o runbook identificar o recurso em que ele realizará a ação. O contexto do alerta é inserido na parte de corpo do objeto **WebhookData** enviado para o runbook e pode ser acessado com a propriedade **Webhook.RequestBody**
 
 
 ### Exemplo
 
-Criar uma máquina virtual do Azure em sua assinatura e associar um [alerta para monitorar a métrica de percentual de CPU](Azure-portal/insights-receive-alert-notifications.md). Ao criar o alerta, certifique-se de preencher o campo webhook com a URL do webhook que foi gerada durante a criação do webhook.
+Crie uma máquina virtual do Azure em sua assinatura e associe um [alerta para monitorar a métrica de percentual de CPU](Azure-portal/insights-receive-alert-notifications.md). Ao criar o alerta, certifique-se de preencher o campo webhook com a URL do webhook que foi gerada durante a criação do webhook.
 
 O seguinte exemplo de runbook é acionado quando a regra de alerta é ativada e coleta os parâmetros de contexto do Alerta que são necessários para o runbook identificar o recurso em que ele vai realizar ação.
 
@@ -255,4 +272,4 @@ O seguinte exemplo de runbook é acionado quando a regra de alerta é ativada e 
 - [Exibindo o status de um trabalho de runbook](automation-viewing-the-status-of-a-runbook-job.md)
 - [Usando a Automação do Azure para executar ações mediante Alertas do Azure](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

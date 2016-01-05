@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Introdução ao fornecimento de conteúdo sob demanda usando o Portal do Azure | Microsoft Azure"
-	description="Este tutorial orienta você pelas etapas de implementação de um aplicativo de entrega de conteúdo de Vídeo sob Demanda (VoD) com os Serviços de Mídia do Azure usando o portal do Azure."
+	pageTitle="Introdução ao fornecimento de conteúdo sob demanda usando o Portal Clássico do Azure | Microsoft Azure"
+	description="Este tutorial orienta você pelas etapas de implementação de um aplicativo de entrega de conteúdo de Vídeo sob Demanda (VoD) com os Serviços de Mídia do Azure usando o Portal Clássico do Azure."
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
@@ -17,13 +17,13 @@
 	ms.author="juliako"/>
 
 
-# Introdução ao fornecimento de conteúdo sob demanda usando o Portal do Azure
+# Introdução ao fornecimento de conteúdo sob demanda usando o Portal Clássico do Azure
 
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 
-Este tutorial o orienta ao longo das etapas de implementação de um aplicativo básico de fornecimento de conteúdo de VoD usando o Portal do Azure.
+Este tutorial o orienta ao longo das etapas de implementação de um aplicativo básico de fornecimento de conteúdo de VoD usando o Portal Clássico do Azure.
 
 > [AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Avaliação Gratuita do Azure</a>.
 
@@ -39,7 +39,7 @@ Este tutorial inclui as seguintes tarefas:
 
 ## Criar uma conta de Serviços de Mídia do Azure
 
-1. No [portal do Azure](https://manage.windowsazure.com/), clique em **Novo**, clique em **Serviço de Mídia** e depois em **Criação Rápida**.
+1. No [Portal Clássico do Azure](https://manage.windowsazure.com/), clique em **Novo**, em **Serviço de Mídia** e em **Criação Rápida**.
 
 	![Criação Rápida dos Serviços de Mídia](./media/media-services-portal-get-started/wams-QuickCreate.png)
 
@@ -79,7 +79,7 @@ Com o empacotamento dinâmico, você só precisa armazenar e pagar pelos arquivo
 
 Para alterar o número de unidades de streaming reservadas, faça o seguinte:
 
-1. No [portal do Azure](https://manage.windowsazure.com/), clique em **Serviços de Mídia**. Em seguida, clique no nome do serviço de mídia.
+1. No [Portal Clássico do Azure](https://manage.windowsazure.com/), clique em **Serviços de Mídia**. Em seguida, clique no nome do serviço de mídia.
 
 2. Selecione a página de PONTOS DE EXTREMIDADE DE STREAMING. Então, clique no ponto de extremidade de streaming que deseja modificar.
 
@@ -93,12 +93,12 @@ Para alterar o número de unidades de streaming reservadas, faça o seguinte:
 
 	>[AZURE.NOTE]No momento, mudar de qualquer valor positivo de unidades de streaming de volta para nenhuma unidade pode desabilitar o streaming por até uma hora.
 	>
-	> O número mais alto de unidades especificadas para o período de 24 horas é usado para calcular o custo. Para saber mais sobre os detalhes de preços, consulte [Detalhes de preços dos Serviços de Mídia](http://go.microsoft.com/fwlink/?LinkId=275107).
+	> O número mais alto de unidades especificadas para o período de 24 horas é usado para calcular o custo. Para obter informações sobre os detalhes de preços, consulte [Detalhes de preços dos Serviços de Mídia](http://go.microsoft.com/fwlink/?LinkId=275107).
 
 ## Carregar conteúdo
 
 
-1. No [Portal do Azure](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), clique em **Serviços de Mídia** e no nome da conta dos Serviços de Mídia.
+1. No [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), clique em **Serviços de Mídia** e no nome da conta dos Serviços de Mídia.
 2. Selecione a página CONTEÚDO.
 3. Clique no botão **Carregar** na página ou na parte inferior do portal.
 4. Na caixa de diálogo **Carregar conteúdo**, navegue até o arquivo do ativo desejado. Clique no arquivo e clique em **Abrir** ou pressione Enter.
@@ -137,7 +137,7 @@ Observe que, além de poder usar os recursos de empacotamento dinâmico, unidade
 
 ### Codificar
 
-Esta seção descreve as etapas que você pode seguir para codificar o conteúdo com o Codificador de Mídia do Azure usando o Portal do Azure.
+Esta seção descreve as etapas que você pode seguir para codificar o conteúdo com o Codificador de Mídia do Azure usando o Portal Clássico do Azure.
 
 1.  Selecione o arquivo que você deseja codificar. Se houver suporte para codificação para esse tipo de arquivo, o botão **PROCESSO** será habilitado na parte inferior da página CONTEÚDO.
 4. Na caixa de diálogo **Processo**, selecione o processador do** Codificador de Mídia do Azure **.
@@ -172,7 +172,7 @@ Esta seção descreve as etapas que você pode seguir para codificar o conteúdo
 
 Para fornecer a seus usuários uma URL que pode ser usada para transmitir ou baixar seu conteúdo, primeiro você precisa "publicar" o ativo criando um localizador. Os localizadores fornecem acesso aos arquivos contidos no ativo. Os Serviços de Mídia oferecem suporte a dois tipos de localizador: OnDemandOrigin, usados para transmitir mídia por streaming (por exemplo, MPEG DASH, HLS ou Smooth Streaming) e SAS (Assinatura de Acesso), usados para baixar arquivos de mídia.
 
-Quando você usa o portal do Azure para publicar seus ativos, os localizadores são criados para você e há uma URL baseada em OnDemand (caso seu ativo contenha um arquivo .ism) ou uma URL SAS.
+Quando você usa o Portal Clássico do Azure para publicar seus ativos, os localizadores são criados para você e há uma URL baseada em OnDemand (caso seu ativo contenha um arquivo .ism) ou uma URL SAS.
 
 Uma URL SAS tem o seguinte formato.
 
@@ -209,7 +209,7 @@ Para usar o portal para publicar um ativo, faça o seguinte:
 
 ## Reproduzir conteúdo do portal
 
-O portal do Azure fornece um player de conteúdo que você pode usar para testar o vídeo.
+O Portal Clássico do Azure fornece um player de conteúdo que você pode usar para testar o vídeo.
 
 Clique no vídeo desejado e clique no botão **Reproduzir** na parte inferior do portal.
 
@@ -227,7 +227,7 @@ Algumas considerações se aplicam:
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Enviar comentários
+##Fornecer comentários
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
@@ -244,7 +244,7 @@ Se este tópico não contiver o que você esperava, se estiver faltando alguma i
 
 
 <!-- URLs. -->
-[Azure portal]: http://manage.windowsazure.com/
+[Azure Classic Portal]: http://manage.windowsazure.com/
 
 
 <!-- Images -->
@@ -260,4 +260,4 @@ Se este tópico não contiver o que você esperava, se estiver faltando alguma i
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="12/07/2015"
 	ms.author="glenga"/>
 
 # Armazenar o código de seu projeto de serviço móvel no controle do código-fonte
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 > [AZURE.SELECTOR]
 - [.NET backend](mobile-services-dotnet-backend-store-code-source-control.md)
@@ -24,7 +29,7 @@
 
 Este tópico mostra como usar o controle de origem fornecido pelos Serviços Móveis do Azure para armazenar o seu projeto de serviço de back-end do .NET. Seu projeto pode ser publicado simplesmente carregando do repositório Git local para o seu serviço móvel de produção.
 
-Para concluir este tutorial, você já deverá ter criado um serviço móvel, concluindo o tutorial [Introdução aos Serviços Móveis].
+Para concluir este tutorial, você já deve ter criado um serviço móvel concluindo o tutorial [Introdução aos Serviços Móveis].
 
 ##<a name="enable-source-control"></a>Habilitar o controle do código-fonte no seu serviço móvel
 
@@ -32,7 +37,7 @@ Para concluir este tutorial, você já deverá ter criado um serviço móvel, co
 
 ##<a name="clone-repo"></a>Instalar o Git e criar o repositório local
 
-1. Instale o Git no seu computador local.
+1. Instale o Git no seu computador local. 
 
 	As etapas necessárias para instalar o Git variam de acordo com o sistema operacional. Consulte [Instalando o Git] para distribuições específicas de sistemas operacionais e orientações de instalação.
 
@@ -67,11 +72,11 @@ Agora que você criou seu repositório local, você pode publicar seu projeto de
 2. Remova quaisquer pastas de pacote NuGet, deixando o arquivo packages.config.
 
 	Os Serviços Móveis irão automaticamente restaurar seus pacotes do NuGet com base no arquivo packages.confign. Você também pode definir um arquivo. gitignore para evitar que os diretórios de pacote sejam adicionados.
-
+ 
 3. No prompt de comando do Git, digite o comando a seguir para iniciar o acompanhamento do novo arquivo de script:
 
 		$ git add .
-
+	
 4. Digite o comando a seguir para confirmar as alterações:
 
 		$ git commit -m "adding the .NET backend service project"
@@ -79,7 +84,7 @@ Agora que você criou seu repositório local, você pode publicar seu projeto de
 5. Digite o seguinte comando para carregar as alterações para o repositório remoto e fornecer suas credenciais:
 
 		$ git push origin master
-
+	
 	Você deve ver uma série de comandos que indica que o projeto foi implantado para os Serviços Móveis, que os pacotes foram adicionados e o serviço foi reiniciado.
 
 6. Navegue até a URL do seu serviço móvel de back-end do .NET e você verá o seguinte:
@@ -97,7 +102,6 @@ Agora, seu projeto de serviço móvel é mantido no controle de origem e você p
 [Source control]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Instalando o Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Introdução aos Serviços Móveis]: mobile-services-dotnet-backend-ios-get-started.md
-[Azure Management Portal]: https://manage.windowsazure.com/
 [Como fazer alterações no modelo de dados para um serviço móvel de back-end do .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

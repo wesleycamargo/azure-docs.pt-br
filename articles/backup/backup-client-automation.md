@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/20/2015" ms.author="aashishr"; "jimpark"/>
 
 
 # Implantar e gerenciar o backup no Azure para o Windows Server/Windows Client usando o PowerShell
@@ -75,12 +75,12 @@ As opções disponíveis incluem:
 | Opção | Detalhes | Padrão |
 | ---- | ----- | ----- |
 | /q | Instalação silenciosa | - |
-| /p:"local" | Caminho para a pasta de instalação do agente de Backup do Azure. | C:\Program Files\Microsoft Azure Recovery Services Agent |
-| /s:"local" | Caminho para a pasta de cache do agente de Backup do Azure. | C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
+| /p:"local" | Caminho para a pasta de instalação do agente de Backup do Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent |
+| /s:"local" | Caminho para a pasta de cache do agente de Backup do Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch |
 | /m | Inscreva no Microsoft Update | - |
 | /nu | Não verificar se há atualizações após a conclusão da instalação | - |
 | /d | Desinstala o agente de Serviços de Recuperação do Microsoft Azure | - |
-| /ph | Endereço de Host do Proxy | - |
+| /Ph | Endereço de Host do Proxy | - |
 | /po | Número da porta do Host do Proxy | - |
 | /pu | Nome de usuário do Host do Host | - |
 | /pw | Senha do Proxy | - |
@@ -181,8 +181,6 @@ A política de retenção define por quanto tempo os pontos de recuperação cri
 ```
 PS C:\> $retentionpolicy = New-OBRetentionPolicy -RetentionDays 7
 ```
-
-> [AZURE.NOTE]Atualmente não há suporte, nos cmdlets do PowerShell, para a configuração de políticas de retenção de longo prazo. Use o console da interface do usuário do Backup do Azure para definir políticas de retenção de longo prazo.
 
 A política de retenção deve ser associada à política principal usando o cmdlet [Set-OBRetentionPolicy](https://technet.microsoft.com/library/hh770405):
 
@@ -595,4 +593,4 @@ Para obter mais informações sobre o Backup do Azure para Windows Server/Client
 - [Introdução ao Backup do Azure](backup-configure-vault.md)
 - [Fazer backup de servidores Windows](backup-azure-backup-windows-server.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

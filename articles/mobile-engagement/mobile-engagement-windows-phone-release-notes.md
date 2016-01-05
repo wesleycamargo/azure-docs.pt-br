@@ -18,6 +18,12 @@
 
 #Notas de versão do SDK do Windows Phone Silverlight
 
+##3\.1.0 (20/11/2015)
+Parte do pacote de nuget *MicrosoftAzure.MobileEngagement* **v3.2.0**
+
+-   Falha corrigida ao solicitar a ID do dispositivo logo após a inicialização.
+-   Melhorias de logs do console.
+
 ##3\.0.0 (03/04/2015)
 
 -   Ícone de notificação padrão atualizado.
@@ -31,4 +37,4 @@
 -   Aprimoramentos de segurança.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

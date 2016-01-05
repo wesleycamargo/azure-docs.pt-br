@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - o que é isso?" 
+	pageTitle="Azure Multi-Factor Authentication - o que é isso? | Microsoft Azure" 
 	description="O Azure Multi-Factor Authentication é um método de verificar quem você é e que requer o uso de mais do que apenas um nome de usuário e uma senha. Ela fornece uma camada adicional de segurança para logons de usuário e transações." 
+	keywords="Introdução à MFA, visão geral de mfa"
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/20/2015" 
 	ms.author="billmath"/>
 
 # O que é o Azure Multi-Factor Authentication?
@@ -127,16 +128,16 @@ O Azure Multi-Factor Authentication vem como parte do Azure Active Directory Pre
 
 Se você for usuário do Office 365 ou um assinante do Azure e quiser aproveitar os recursos adicionais fornecidos pelo Azure Multi-Factor Authentication, continue lendo.
 
-Se você não tiver nenhum deles, para começar a usar o Azure Multi-Factor Authentication, você primeiro precisa de uma assinatura do Azure ou uma [Assinatura de avaliação do Azure](http://azure.microsoft.com/pricing/free-trial/).
+Se você não tiver nenhum deles,para começar a usar a Azure Multi-Factor Authentication, você primeiro precisa de uma assinatura do Azure ou uma [Assinatura de avaliação do Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 Quando usar o Azure multi-Factor Authentication, há dua opções de cobrança disponíveis:
 
 - **Por usuário**. Geralmente para empresas que desejam habilitar a autenticação multifator para um número fixo de funcionários que precisam regularmente de autenticação.
-- **Por autenticação**. Em geral, para empresas que querem habilitar a autenticação multifator para um grupo grande de usuários externos que raramente precisam de autenticação.
+- **Por Autenticação**. Em geral, para empresas que querem habilitar a autenticação multifator para um grupo grande de usuários externos que raramente precisam de autenticação.
 
 Para obter detalhes sobre preços, consulte [Preços do Azure MFA.](http://azure.microsoft.com/pricing/details/multi-factor-authentication/)
 
-Escolha o modelo que funciona melhor para sua organização. Depois, para iniciar, consulte [Introdução](multi-factor-authentication-get-started.md)
+Escolha o modelo que funciona melhor para sua organização. Depois, para iniciar, consulte a [Introdução](multi-factor-authentication-get-started.md)
 
 ## Escolha a solução de segurança multifator para você
 
@@ -204,4 +205,4 @@ Agora que determinamos se usar a autenticação multifator na nuvem ou o Servido
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -22,7 +22,7 @@
 
 [AZURE.INCLUDE [introdução](../../includes/custom-dns-web-site-intro.md)]
 
-Se você tiver adquirido o domínio por meio de Aplicativos Web do Serviço de Aplicativo do Azure e consulte a etapa final do artigo <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">Comprar domínio para aplicativos Web</a>.
+Se você tiver adquirido o domínio por meio de Aplicativos Web do Serviço de Aplicativo do Azure e consulte a etapa final de [Comprar domínio para aplicativos Web](custom-dns-web-site-buydomains-web-app.md).
 
 Este artigo fornece instruções sobre como usar um nome de domínio personalizado adquirido diretamente de [GoDaddy](https://godaddy.com) com [Aplicativos Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714).
 
@@ -67,7 +67,7 @@ Para associar seu domínio personalizado a um aplicativo Web no Serviço de Apli
 5. Clique em **Adicionar Outro**.
 6. Selecione **CNAME** como o tipo de registro e especifique um valor de **Host** de **awverify** e um valor de **Aponta para** de **awverify.&lt;yourwebappname&gt;.azurewebsites.net**.
 
-	> [AZURE.NOTE]Esse registro CNAME é usado pelo Azure para validar que você possui o domínio descrito pelo registro A do primeiro registro CNAME. Depois que o domínio tiver sido mapeado para o aplicativo Web no portal de visualização do Azure, a entrada **awverify** poderá ser removida.
+	> [AZURE.NOTE]Esse registro CNAME é usado pelo Azure para validar que você possui o domínio descrito pelo registro A do primeiro registro CNAME. Depois que o domínio tiver sido mapeado para o aplicativo Web no Portal do Azure, a entrada **awverify** poderá ser removida.
 
 5. Ao concluir a adição ou a modificação dos registros, clique em **Concluir** para salvar as alterações.
 
@@ -76,10 +76,9 @@ Para associar seu domínio personalizado a um aplicativo Web no Serviço de Apli
 
 [AZURE.INCLUDE [modos](../../includes/custom-dns-web-site-enable-on-web-site.md)]
 
->[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

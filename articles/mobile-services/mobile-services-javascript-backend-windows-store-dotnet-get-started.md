@@ -39,11 +39,11 @@ Para concluir este tutorial, você precisará do seguinte:
 
 ## Criar um novo aplicativo universal do Windows
 
-Depois de criar seu serviço móvel, você poderá seguir um fácil início rápido no Portal de Gerenciamento para criar um novo aplicativo universal do Windows ou modificar um projeto de aplicativo existente da Windows Store ou Windows Phone para se conectar ao seu serviço móvel.
+Depois de criar seu serviço móvel, você poderá seguir um fácil início rápido no portal clássico do Azure para criar um novo aplicativo universal do Windows ou modificar um projeto de aplicativo existente da Windows Store ou Windows Phone para se conectar ao seu serviço móvel.
 
 Nesta seção, você criará um novo aplicativo universal do Windows conectado ao seu serviço móvel.
 
-1.  No Portal de Gerenciamento, clique em **Serviços Móveis**e, em seguida, clique no serviço móvel que você acabou de criar.
+1.  No [portal clássico do Azure], clique em **Serviços Móveis** e clique no serviço móvel que você acabou de criar.
 
 
 2. Na guia de início rápido, clique em **Windows** em **Escolher plataforma** e expanda **Criar um novo aplicativo da Windows Store**.
@@ -95,7 +95,7 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Get started with push notifications]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 [Visual Studio 2013 Express para Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Management Portal]: https://manage.windowsazure.com/
+[portal clássico do Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

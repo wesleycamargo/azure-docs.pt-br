@@ -18,11 +18,16 @@
 
 # Adicionar autenticação a um aplicativo existente
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 Neste tutorial, você adiciona a autenticação ao [tutorial de início rápido dos Serviços Móveis] usando um provedor de identidade com suporte.
 
-Recomendamos que você conclua o [tutorial de início rápido dos Serviços Móveis] primeiro. Como alternativa, basta baixar o projeto de início rápido do iOS: clique no Portal do Azure > **Serviços Móveis** > seu serviço móvel > o sinal de nuvem na parte superior esquerda > **iOS** > **Criar um Novo Aplicativo iOS** > **Baixar e executar o aplicativo** > **Objective-C** > **Baixar**. Lembre-se de clicar em **Criar Tabela TodoItem** antes de clicar em **Baixar** se ainda não tiver criado a tabela.
+Recomendamos que você conclua o [Tutorial de início rápido dos Serviços Móveis] primeiro. Como alternativa, basta baixar o projeto de início rápido do iOS do [Portal clássico do Azure], clicar em **Serviços Móveis** > seu serviço móvel > no sinal de nuvem na parte superior esquerda > **iOS** > **Criar um Novo Aplicativo iOS** > **Baixar e executar o aplicativo** > **Objective-C** > **Baixar**. Lembre-se de clicar em **Criar Tabela TodoItem** antes de clicar em **Baixar** se ainda não tiver criado a tabela.
 
 ##<a name="register"></a>Registrar o aplicativo para autenticação
 
@@ -82,6 +87,6 @@ Em seguida, aprenda [como usar o valor da ID de usuário para filtrar dados reto
 [Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-ios
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Portal clássico do Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,8 +1,8 @@
-<!--author=SharS last changed: 9/17/15-->
+<!--author=SharS last changed: 12/1/2015-->
 
-#### Para instalar a Atualização 1.2 por meio do Portal de Gerenciamento do Azure
+#### Para instalar a Atualização 1.2 do portal clássico do Azure
 
-1. No Portal de Gerenciamento, vá até a página **Dispositivos** e selecione seu dispositivo.
+1. No portal clássico do Azure, vá até a página **Dispositivos** e selecione seu dispositivo.
  
 2. Navegue até **Dispositivos** > **Configurar**.
 
@@ -10,6 +10,6 @@
 
 4. Desabilite a interface de rede que contém um gateway atribuído e salve a configuração modificada. Lembre-se de que as configurações de interface de rede são mantidas e, portanto, quando você reabilitar essa interface de rede mais tarde, o portal será revertido para as configurações originais.
 
-7. Agora você pode [usar o Portal de Gerenciamento para instalar a Atualização 1.2](#use-the-management-portal-to-install-update-1). Siga as instruções a partir da etapa 3 deste procedimento. Depois de instalar todas as atualizações, você pode reabilitar a interface de rede que você desabilitou.
+7. Agora você pode [usar o portal clássico do Azure para instalar a Atualização 1.2](#install-update-12-via-the-azure-portal). Siga as instruções a partir da etapa 3 deste procedimento. Depois de instalar todas as atualizações, você pode reabilitar a interface de rede que você desabilitou.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

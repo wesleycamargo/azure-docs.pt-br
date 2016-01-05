@@ -3,8 +3,8 @@
 	description="Saiba como configurar o logon único entre o Active Directory do Azure e o UserEcho."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
+	authors="jeevansd"
+	manager="prasannas"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/05/2015"
-	ms.author="markusvi"/>
+	ms.date="12/04/2015"
+	ms.author="jeedes"/>
 
 
 # Tutorial: Integração do Active Directory do Azure com o UserEcho
@@ -23,7 +23,7 @@ O objetivo deste tutorial é mostrar a você como integrar o UserEcho ao Active 
 
 - No AD do Azure, você pode controlar quem tem acesso ao UserEcho 
 - Você pode permitir que seus usuários façam logon automaticamente no UserEcho (logon único) com suas contas do AD do Azure
-- Você pode gerenciar suas contas em um local central – o Portal do Active Directory do Azure
+- Você pode gerenciar suas contas em um único local: o Portal clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
@@ -56,7 +56,7 @@ Para configurar a integração do UserEcho ao AD do Azure, você precisará adic
 
 **Para adicionar o UserEcho da galeria, execute as etapas a seguir:**
 
-1. No **Portal de Gerenciamento do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. <br><br> ![Active Directory][1]<br>
+1. No **Portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. <br><br> ![Active Directory][1]<br>
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
@@ -64,7 +64,7 @@ Para configurar a integração do UserEcho ao AD do Azure, você precisará adic
 4. Clique em **Adicionar** na parte inferior da página.<br><br> ![Aplicativos][3]<br>
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.<br><br> ![Aplicativos][4]<br>
 6. Na caixa de pesquisa, digite **UserEcho**.<br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_01.png)<br>
-7. No painel de resultados, selecione **UserEcho** e clique em **Concluir** para adicionar o aplicativo.<br><br>
+7. No painel de resultados, selecione **UserEcho** e clique em **Concluir** para adicionar o aplicativo. <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_02.png)<br>
 
 ##  Configurar e testar o logon único do AD do Azure
 O objetivo desta seção é mostrar como configurar e testar logon único do AD do Azure com o UserEcho, com base em um usuário de teste chamado "Brenda Fernandes".
@@ -73,22 +73,22 @@ Para que o logon único funcione, o AD do Azure precisa saber qual usuário do U
  
 Para configurar e testar o logon único do AD do Azure com o UserEcho, você precisará concluir os seguintes blocos de construção:
 
-1. **[Configurar o logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)** - para permitir que seus usuários usem esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
+2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**: para testar o logon único do AD do Azure com Brenda Fernandes.
 4. **[Criando um usuário de teste do UserEcho](#creating-a-userecho-test-user)**: para ter um equivalente de Brenda Fernandes no UserEcho que esteja vinculado à representação dela no AD do Azure.
-5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** - para verificar se a configuração funciona.
+5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)**: para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
 
 ### Configuração do logon único do AD do Azure
 
-O objetivo desta seção é habilitar o logon único do AD do Azure no Portal do AD do Azure e configurar o logon único em seu aplicativo do UserEcho.
+O objetivo desta seção é habilitar o logon único do AD do Azure no Portal clássico do Azure e configurar o logon único em seu aplicativo do UserEcho.
 
 
 
 
 **Para configurar o logon único do AD do Azure com o UserEcho, execute as seguintes etapas:**
 
-1. No portal do AD do Azure, na página de integração do aplicativo **UserEcho**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**. <br><br> ![Configurar o logon único][6] <br>
+1. No Portal clássico do Azure, na página de integração do aplicativo **UserEcho**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**. <br><br> ![Configurar o logon único][6] <br>
 
 2. Na página **Como você deseja que os usuários façam logon no UserEcho**, selecione **Logon Único do AD do Azure** e clique em **Avançar**. <br><br> ![Configurar o logon único](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_03.png)<br>
 
@@ -99,7 +99,7 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no Portal do
     b. Clique em **Próximo**.
  
  
-4. Na página **Configurar logon único no UserEcho**, realize as seguintes etapas:<br><br>![Configurar o logon único](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_05.png)<br>
+4. Na página **Configurar logon único no UserEcho**, realize as seguintes etapas:<br><br>![Configurar o logon único](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_05.png) <br>
 
     a. Clique em **Baixar certificado** e salve o arquivo em seu computador.
 
@@ -110,26 +110,26 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no Portal do
 
 1. Na barra de ferramentas na parte superior, clique em seu nome de usuário para expandir o menu e clique em **Instalação**. <br><br>![Configurar o logon único](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_06.png) <br>
 
-1. Clique em **Integrações**.<br><br>![Configurar o logon único](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_07.png)<br>
+1. Clique em **Integrações**. <br><br>![Configurar o logon único](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_07.png) <br>
 
 
 1. Clique em **site** e clique em **Logon único (SAML2)**. <br><br>![Configurar o logon único](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_08.png) <br>
 
 
-1. Na página **Logon Único (SAML)**, execute as seguintes etapas:<br><br>![Configurar o logon único](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_09.png)<br>
+1. Na página **Logon Único (SAML)**, execute as seguintes etapas: <br><br>![Configurar o logon único](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_09.png) <br>
 
     a. Para **Habilitado para SAML**, selecione **Sim**.
 
-    b. No Portal do Azure, na caixa de diálogo **Configurar logon único em UserEcho**, copie o valor de **URL de serviço de logon único** e cole-o. Abra seu certificado baixado no Bloco de notas, copie o conteúdo e cole-o na caixa de texto **URL SSO de SAML**.
+    b. No Portal clássico do Azure, na caixa de diálogo **Configurar logon único em UserEcho**, copie o valor de **URL de serviço de logon único** e cole-o. Abra seu certificado baixado no Bloco de notas, copie o conteúdo e cole-o na caixa de texto **URL SSO de SAML**.
 
-    c. No portal do Azure, na caixa de diálogo **Configurar logon único no UserEcho**, copie o valor de **URL de Logoff Remoto**, abra o certificado baixado no Bloco de notas, copie o conteúdo e cole-o na caixa de texto **URL de Logoff Remoto**.
+    c. No Portal clássico do Azure, na página do diálogo **Configurar logon único no UserEcho**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Logoff Remoto**.
 
     d. Abra o certificado baixado no Bloco de Notas, copie o conteúdo e cole-o na caixa de texto **Certificado X.509**.
 
     e. Clique em **Salvar**.
 
 
-6. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**. <br><br>![Logon único do AD do Azure][10]<br>
+6. No Portal clássico do Azure, selecione a confirmação de configuração de logon único e clique em **Avançar**. <br><br>![Logon único do AD do Azure][10]<br>
 
 7. Na página **Confirmação de logon único**, clique em **Concluir**. <br><br>![Logon único do AD do Azure][11]
 
@@ -137,11 +137,11 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no Portal do
 
 
 ### Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar no portal do Azure um usuário de teste chamado Brenda Fernandes.<br> Na lista Usuários, selecione **Brenda Fernandes**.<br><br>![Criar um usuário do AD do Azure][20]<br>
+O objetivo desta seção é criar um usuário de teste no Portal clássico do Azure chamado Brenda Fernandes.<br> Na lista Usuários, selecione **Brenda Fernandes**.<br><br>![Criar um usuário do AD do Azure][20]<br>
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **Portal de Gerenciamento do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-userecho-tutorial/create_aaduser_09.png) <br> 
+1. No **Portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-userecho-tutorial/create_aaduser_09.png) <br> 
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
@@ -169,7 +169,7 @@ O objetivo desta seção é criar no portal do Azure um usuário de teste chamad
 
 7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-userecho-tutorial/create_aaduser_07.png) <br>
  
-8. Na página da caixa de diálogo **Obter senha temporária**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_08.png) <br>
+8. Na página da caixa de diálogo **Obter senha temporária**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-userecho-tutorial/create_aaduser_08.png) <br>
   
     a. Anote o valor da **Nova Senha**.
 
@@ -198,7 +198,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no UserEc
 
     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
-    b. Na caixa de texto **Email**, digite o endereço de email de Brenda Fernandes no Portal do Azure.
+    b. Na caixa de texto **Email**, digite o endereço de email de Brenda Fernandes no Portal clássico do Azure.
 
     c. Clique em **Convidar**.
 
@@ -212,7 +212,7 @@ O objetivo desta seção é habilitar Brenda Fernandes a usar o logon único do 
 
 **Para atribuir Brenda Fernandes ao UserEcho, execute as seguintes etapas:**
 
-1. No portal do Azure, para abrir a exibição dos aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior. <br><br>![Atribuir usuário][201] <br>
+1. No Portal clássico do Azure, para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu superior. <br><br>![Atribuir usuário][201] <br>
 
 2. Na lista de aplicativos, selecione **UserEcho**. <br><br>![Configurar o logon único](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_50.png) <br>
 
@@ -253,4 +253,4 @@ O objetivo desta seção é testar sua configuração de logon único do AD do A
 [204]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_205.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

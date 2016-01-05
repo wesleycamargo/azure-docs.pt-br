@@ -8,4 +8,4 @@ Tenha as seguintes considerações de segurança em mente ao usar o dispositivo 
 
 - O dispositivo virtual é hospedado no datacenter do Microsoft Azure.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -17,7 +17,7 @@
 
 # Visão geral dos Hubs de Evento do Azure
 
-Muitas soluções modernas pretendem fornecer experiências adaptáveis para os clientes ou para aperfeiçoar os produtos por meio de comentários contínuos e telemetria automatizada. Essas soluções enfrentam o desafio de saber como processar de forma segura e confiável grandes quantidades de informações de vários editores simultâneos. O Hub de Evento do Microsoft Azure é um serviço de plataforma gerenciada que fornece uma base para inserção de dados em grande escala em uma ampla variedade de cenários. Exemplos dessas situações rastreamento de comportamento de aplicativos móveis, informações de tráfego de farms da web, captura de eventos de jogos em jogos de console ou dados de telemetria coletados de máquinas industriais ou veículos conectados. A função comum que o Hub de Evento desempenha em arquiteturas de solução é que ele atua como a "porta da frente" de um pipeline de evento, geralmente chamado de *ingestor de eventos*. Um ingestor de eventos é um componente ou serviço que fica entre os produtores de eventos e consumidores de evento para desacoplar a produção de um fluxo de eventos do consumo de eventos.
+Muitas soluções modernas pretendem fornecer experiências adaptáveis para os clientes ou para aperfeiçoar os produtos por meio de comentários contínuos e telemetria automatizada. Essas soluções enfrentam o desafio de saber como processar de forma segura e confiável grandes quantidades de informações de vários editores simultâneos. O Hub de Evento do Microsoft Azure é um serviço de plataforma gerenciada que fornece uma base para inserção de dados em grande escala em uma ampla variedade de cenários. Exemplos dessas situações rastreamento de comportamento de aplicativos móveis, informações de tráfego de farms da web, captura de eventos de jogos em jogos de console ou dados de telemetria coletados de máquinas industriais ou veículos conectados. A função comum que o Hub de Evento desempenha em arquiteturas de solução é que ele atua como a "porta da frente" de um pipeline de evento, geralmente chamado de *ingestor de eventos*. Um ingestor de eventos é um componente ou serviço que fica entre os editores de eventos e consumidores de eventos para desacoplar a produção de uma transmissão de eventos do consumo desses eventos.
 
 ![Hubs de Evento](./media/event-hubs-overview/IC759856.png)
 
@@ -132,7 +132,7 @@ A capacidade de transferência dos Hubs de Evento é controlada pelas unidades d
 
 - Saída: até 2 MB por segundo.
 
-A entrada está limitada à quantidade de capacidade fornecida pelo número adquirido de unidades de transferência. O envio de dados acima essa quantidade resulta em uma exceção "cota excedida". Esse valor é 1 MB por segundo ou 1.000 eventos por segundo, o que ocorrer primeiro. A saída não gera exceções de limitação, mas está limitada à quantidade de transferência de dados fornecida pelas unidades adquiridas de transferência: 2 MB por segundo por unidade de transferência. Se você receber exceções de taxa de publicação ou estiver esperando ver mais saída, verifique quantas unidades de transferência você comprou para o namespace no qual o Hub de Eventos foi criado. Para obter mais unidades de produtividade, você pode ajustar a configuração na página **Namespaces** na guia **Escala** no Portal do Azure. Você também pode alterar essa configuração usando as APIs do Azure.
+A entrada está limitada à quantidade de capacidade fornecida pelo número adquirido de unidades de transferência. O envio de dados acima essa quantidade resulta em uma exceção "cota excedida". Esse valor é 1 MB por segundo ou 1.000 eventos por segundo, o que ocorrer primeiro. A saída não gera exceções de limitação, mas está limitada à quantidade de transferência de dados fornecida pelas unidades adquiridas de transferência: 2 MB por segundo por unidade de transferência. Se você receber exceções de taxa de publicação ou estiver esperando ver mais saída, verifique quantas unidades de transferência você comprou para o namespace no qual o Hub de Eventos foi criado. Para obter mais unidades de produtividade, você pode ajustar a configuração na página **Namespaces** na guia **Escala** no [portal clássico do Azure][]. Você também pode alterar essa configuração usando as APIs do Azure.
 
 Enquanto as partições são um conceito de organização de dados, as unidades de transferência são puramente um conceito de capacidade. As unidades de taxa de transferência são cobradas por hora e são pré-adquiridas. Depois de adquiridas, as unidades de taxa de transferência são cobradas por um mínimo de uma hora. É possível adquirir até 20 unidades de transferência para um namespace do Barramento de Serviço, e há um limite de conta do Azure de 20 unidades de transferência. Essas unidades de transferência são compartilhadas em todos os Hubs de Evento em um namespace específico.
 
@@ -144,7 +144,7 @@ Para obter informações sobre preços, consulte [Preços de Hubs de Evento](htt
 
 ### Política do editor
 
-Os Hubs de Evento permitem um controle granular sobre produtores de eventos por meio de *políticas de editor*. As políticas do editor são um conjunto de recursos de tempo de execução criado para facilitar um grande número de produtores de eventos independentes. Com as políticas do editor, cada editor usa seu próprio identificador exclusivo ao publicar eventos em um Hub de Eventos usando o mecanismo a seguir:
+Os Hubs de Eventos permitem um controle granular sobre os editores de eventos por meio de *políticas do editor*. As políticas do editor são um conjunto de recursos de tempo de execução criado para facilitar um grande número de editores de eventos independentes. Com as políticas do editor, cada editor usa seu próprio identificador exclusivo ao publicar eventos em um Hub de Eventos usando o mecanismo a seguir:
 
 	//<my namespace>.servicebus.windows.net/<event hub name>/publishers/<my publisher name>
 
@@ -162,9 +162,10 @@ Agora que já aprendeu sobre conceitos de Hubs de Evento, você pode passar para
 - Um [aplicativo de exemplo completo que usa os Hubs de Evento].
 - Uma [solução de mensagens na fila] usando filas do Barramento de Serviço.
 
+[portal clássico do Azure]: http://manage.windowsazure.com
 [Tutorial de Hubs de Evento]: event-hubs-csharp-ephcs-getstarted.md
 [aplicativo de exemplo completo que usa os Hubs de Evento]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
 [solução de mensagens na fila]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 1. Registre o back-end do aplicativo móvel com seu locatário do Active Directory do Azure, seguindo o tópico [Como configurar seu aplicativo móvel com o Active Directory do Azure].
 
-2. Navegue até **Active Directory** no [Portal de Gerenciamento do Azure]
+2. Navegue até **Active Directory** no [Portal clássico do Azure]
 
    ![](./media/app-service-mobile-adal-register-app/app-service-navigate-aad.png)
 
@@ -24,7 +24,7 @@
 
 Seu aplicativo está configurado no AAD para que os usuários possam fazer logon usando o logon do AAD.
 
-[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
+[Portal clássico do Azure]: https://manage.windowsazure.com/
 [Como configurar seu aplicativo móvel com o Active Directory do Azure]: ../articles/app-service-how-to-configure-active-directory-authentication.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

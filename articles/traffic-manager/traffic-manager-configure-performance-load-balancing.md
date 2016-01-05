@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="12/09/2015"
    ms.author="joaoma" />
 
 # Configurar o método de roteamento de tráfego de Desempenho
@@ -21,8 +21,8 @@ Para usar rotear tráfego para serviços de nuvem e sites (pontos de extremidade
 
 ## Rotear o tráfego com base na menor latência em um conjunto de pontos de extremidade:
 
-1. No Portal de Gerenciamento, no painel esquerdo, clique no ícone do **Gerenciador de Tráfego** para abrir o painel do Gerenciador de Tráfego. Se você ainda não tiver criado seu perfil do Gerenciador de Tráfego, consulte [Gerenciar perfis do Gerenciador de Tráfego](traffic-manager-manage-profiles.md) para obter as etapas para criar um perfil básico do Gerenciador de Tráfego.
-2. No Portal de Gerenciamento, no painel do Gerenciador de Tráfego, localize o perfil do Gerenciador de Tráfego que contém as configurações que você deseja modificar e, em seguida, clique na seta à direita do nome do perfil. Isso abrirá a página de configurações do perfil.
+1. No Portal do Azure, no painel esquerdo, clique no ícone do **Gerenciador de Tráfego** para abrir o painel do Gerenciador de Tráfego. Se você ainda não tiver criado seu perfil do Gerenciador de Tráfego, consulte [Gerenciar perfis do Gerenciador de Tráfego](traffic-manager-manage-profiles.md) para obter as etapas para criar um perfil básico do Gerenciador de Tráfego.
+2. No Portal do Azure, no painel do Gerenciador de Tráfego, localize o perfil do Gerenciador de Tráfego que contém as configurações que você deseja modificar e, em seguida, clique na seta à direita do nome do perfil. Isso abrirá a página de configurações do perfil.
 3. Na página de seu perfil, clique em **Pontos de Extremidade** na parte superior da página e verifique se os pontos de extremidade de serviço que você deseja incluir em sua configuração estão presentes. Para obter as etapas para adicionar ou remover pontos de extremidade de seu perfil, consulte [Gerenciar pontos de extremidade no Gerenciador de Tráfego](traffic-manager-endpoints.md).
 4. Na página de seu perfil, clique em **Configurar** na parte superior para abrir a página de configuração.
 5. Para ver as **configurações do método de roteamento de tráfego**, verifique se o método de roteamento de tráfego é **Desempenho*. Se não for, clique em **Desempenho** na lista suspensa.
@@ -39,7 +39,7 @@ Para usar rotear tráfego para serviços de nuvem e sites (pontos de extremidade
 
 [Gerenciador de Tráfego - Desabilitar ou habilitar um ponto de extremidade](disable-or-enable-an-endpoint.md)
 
-[O que é o Gerenciador de Tráfego?](../traffic-manmager-overview.md)
+[O que é o Gerenciador de Tráfego?](traffic-manager-overview.md)
 
 [Serviços de Nuvem](http://go.microsoft.com/fwlink/?LinkId=314074)
 
@@ -51,4 +51,4 @@ Para usar rotear tráfego para serviços de nuvem e sites (pontos de extremidade
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

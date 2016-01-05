@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article"
- ms.date="08/04/2015"
+ ms.date="12/04/2015"
  ms.author="krisragh"/>
 
 # O que é o Agendador do Azure?
@@ -34,7 +34,7 @@ O Agendador permite criar, atualizar, excluir, exibir e gerenciar trabalhos e [c
 
  [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
 
- [Introdução à utilização do Agendador do Azure no Portal do Azure](scheduler-get-started-portal.md)
+ [Introdução à utilização do Agendador no Portal do Azure](scheduler-get-started-portal.md)
 
  [Planos e Cobrança no Agendador do Azure](scheduler-plans-billing.md)
 
@@ -50,4 +50,4 @@ O Agendador permite criar, atualizar, excluir, exibir e gerenciar trabalhos e [c
 
  [Autenticação de saída do Agendador do Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

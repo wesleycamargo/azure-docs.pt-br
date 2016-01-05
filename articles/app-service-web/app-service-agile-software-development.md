@@ -67,15 +67,15 @@ Você também usará a estratégia de ramificação típica, com código movendo
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
-> [AZURE.NOTE]Você precisa de uma conta do Azure para concluir este tutorial: +, você pode [Abrir uma conta do Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F) - Você recebe créditos que podem ser usados para experimentar os serviços do Azure pagos e, mesmo depois que tiverem se esgotado, você pode manter a conta e usar serviços do Azure gratuitos, como Web Apps. + Você pode [ativar os benefícios de assinante MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - Sua assinatura do MSDN fornece você créditos a cada mês que podem ser usados para serviços do Azure pagos.
+> [AZURE.NOTE]Você precisa de uma conta do Azure para concluir este tutorial: + Você pode [abrir uma conta do Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F) – Você recebe créditos que podem ser usados para experimentar os serviços pagos do Azure e, mesmo depois que tiverem se esgotado, você pode manter a conta e usar serviços gratuitos do Azure, como Aplicativos Web. + Você pode [ativar os benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) – A cada mês, a sua assinatura do Visual Studio fornece créditos que podem ser usados para serviços pagos do Azure.
 >
-> Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## Configurar seu ambiente de produção ##
 
 >[AZURE.NOTE]O script usado neste tutorial configurará automaticamente a publicação contínua de seu repositório GitHub. Isso requer que as credenciais do GitHub já estejam armazenadas no Azure; caso contrário, a implantação de scripts falhará ao tentar definir configurações de controle de origem para aplicativos Web.
 >
->Para armazenar suas credenciais do GitHub no Azure, crie um aplicativo Web no [Portal de Visualização do Azure](https://portal.azure.com) e [configure a implantação do GitHub](web-sites-publish-source-control.md#Step7). Você só precisa fazer isso uma vez.
+>Para armazenar suas credenciais do GitHub no Azure, crie um aplicativo Web no [Portal do Azure](https://portal.azure.com) e [configure a implantação do GitHub](web-sites-publish-source-control.md#Step7). Você só precisa fazer isso uma vez.
 
 Em um cenário típico de DevOps, você tem um aplicativo que está em execução em tempo real no Azure e deseja fazer alterações nele por meio de publicação contínua. Nesse cenário, você tem um modelo que desenvolveu, testou e usou para implantar o ambiente de produção. Você o configurará nesta seção.
 
@@ -109,7 +109,7 @@ Em um cenário típico de DevOps, você tem um aplicativo que está em execuçã
 
 7.	Quando o script for concluído, volte para navegar até endereço do front-end (http://ToDoApp*&lt;unique_string>*master.azurewebsites.net/) para ver o aplicativo em execução na produção.
  
-5.	Faça logon no [Portal de Visualização do Azure](https://portal.azure.com) e veja o que foi criado.
+5.	Faça logon no [Portal do Azure](https://portal.azure.com) e veja o que foi criado.
 
 	Você deverá ser capaz de ver dois aplicativos Web no mesmo grupo de recursos, um com o sufixo `Api` no nome. Se examinar o modo de exibição do grupo de recursos, você também verá o banco de dados SQL e o servidor, o plano do Serviço de Aplicativo e os slots de preparo dos aplicativos Web. Percorra os diferentes recursos e compare-os com *&lt;raiz\_do\_repositório>*\\ARMTemplates\\ProdAndStage.json para ver como eles são configurados no modelo.
 
@@ -281,4 +281,4 @@ O desenvolvimento de software Agile é indispensável para muitas empresas que d
 -	[Criar ou editar usuários no AD do Azure](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Projeto Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015"    
+	ms.date="12/05/2015"    
 	ms.author="juliako"/>
 
 #Guia de solução de problemas de transmissão ao vivo
@@ -65,7 +65,7 @@ Esta seção fornece sugestões sobre como solucionar problemas relacionados aos
 
 	**Etapas de solução de problemas**: navegue até a guia “Ponto de Extremidade de Transmissão” na ferramenta AMSE e confirme se há um Ponto de Extremidade de Transmissão com uma unidade de transmissão.
 	
->[AZURE.NOTE]Se, depois de seguir as etapas de solução de problemas, você ainda não conseguir realizar a transmissão, envie um tíquete de suporte usando o Portal de Gerenciamento do Azure.
+>[AZURE.NOTE]Se, depois de seguir as etapas de solução de problemas, você ainda não conseguir realizar a transmissão, envie um tíquete de suporte usando o Portal Clássico do Azure.
 
 ##Roteiros de aprendizagem dos Serviços de Mídia
 
@@ -75,4 +75,4 @@ Esta seção fornece sugestões sobre como solucionar problemas relacionados aos
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

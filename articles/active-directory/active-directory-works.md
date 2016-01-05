@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Como o AD do Azure funciona?"
-	description="O AD do Azure cria um cenário de identidade que é seu na nuvem. Ele pode ser conectado ao seu sistema de identidades local ou usado de modo independente."
+	pageTitle="Como o Active Directory do Azure funciona? | Microsoft Azure"
+	description="O Active Directory do Azure cria um cenário de identidade que é seu na nuvem. Ele pode ser conectado ao seu sistema de identidades local ou usado de modo independente."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -13,19 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="12/01/2015"
 	ms.author="curtand"/>
 
 
 
 # Como o Active Directory do Azure funciona?
 
-
 ###Outros artigos sobre este tópico
 [O que é o AD do Azure?](active-directory-whatis.md)<br> [Como ele funciona?](active-directory-works.md)<br> [Introdução](active-directory-get-started.md)<br> [Próximas etapas](active-directory-next-steps.md)<br> [Saiba mais](active-directory-learn-map.md)
 
 
-O AD do Azure cria um cenário de identidade que é seu na nuvem. Ele pode ser conectado ao seu sistema de identidades local ou usado de modo independente.
+O Active Directory do Azure (AD do Azure) cria um cenário de identidade que é seu na nuvem. Ele pode ser conectado ao seu sistema de identidades local ou usado de modo independente.
 
 Você pode pensar em uma conta no AD do Azure como sua carteira de motorista para a nuvem: é sua ID exclusiva para acessar os serviços online. Nesse sentido, o AD do Azure funciona como seu registrador particular na nuvem para essas carteiras de motorista. Ele permite que identidades sejam usadas em qualquer lugar na nuvem, além de melhorar a mobilidade para os usuários que acessam recursos locais.
 
@@ -49,4 +48,4 @@ Quer saber mais sobre como gerenciar o AD do Azure? Como obter um diretório? Co
 * [Inscrever-se no Azure como uma organização](sign-up-organization.md)
 * [Identidade do Azure](fundamentals-identity.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

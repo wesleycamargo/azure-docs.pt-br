@@ -13,13 +13,13 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/12/2015"
+	ms.date="12/04/2015"
 	ms.author="jroth" />
 
 # Configurar os Grupos de Disponibilidade AlwaysOn na VM do Azure (GUI)
 
 > [AZURE.SELECTOR]
-- [Portal](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
+- [Azure classic portal](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
 - [PowerShell](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
 
 <br/>
@@ -29,7 +29,7 @@
 
 Este tutorial ponta a ponta mostra como implementar os Grupos de Disponibilidade usando o SQL Server AlwaysOn em execução em máquinas virtuais do Azure.
 
->[AZURE.NOTE]No Portal de Gerenciamento do Azure, há uma nova configuração de galeria para Grupos de Disponibilidade AlwaysOn com um Ouvinte. Isso configura tudo o que você precisa para Grupos de Disponibilidade AlwaysOn automaticamente. Para obter mais informações, consulte [Oferta do AlwaysOn do SQL Server na Galeria do Portal do Microsoft Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Para usar o PowerShell, consulte o tutorial do mesmo cenário em [Configurar Grupos de Disponibilidade AlwaysOn no Azure com o PowerShell](virtual-machines-sql-server-alwayson-availability-groups-powershell.md).
+>[AZURE.NOTE]No Portal de Gerenciamento do Azure, há uma nova configuração de galeria para Grupos de Disponibilidade AlwaysOn com um Ouvinte. Isso configura tudo o que você precisa para Grupos de Disponibilidade AlwaysOn automaticamente. Para obter mais informações, consulte [Oferta do AlwaysOn do SQL Server na Galeria do portal clássico do Microsoft Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Para usar o PowerShell, consulte o tutorial do mesmo cenário em [Configurar Grupos de Disponibilidade AlwaysOn no Azure com o PowerShell](virtual-machines-sql-server-alwayson-availability-groups-powershell.md).
 
 Ao final do tutorial, sua solução SQL Server AlwaysOn no Azure consistirá nos seguintes elementos:
 
@@ -61,11 +61,11 @@ Este tutorial pressupõe o seguinte:
 
 ## Criar a Rede Virtual e o Servidor de Controlador de Domínio
 
-Comece com uma nova conta de avaliação do Azure. Depois de concluir a configuração da conta, você deverá estar na tela inicial do Portal do Azure.
+Comece com uma nova conta de avaliação do Azure. Depois de concluir a configuração da conta, você deverá estar na tela inicial do portal clássico do Azure.
 
 1. Clique no botão **Novo** no canto inferior esquerdo da página, conforme mostrado abaixo.
 
-	![Clique em Novo no Portal](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665511.gif)
+	![Clique em Novo no portal](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665511.gif)
 
 1. Clique em **Serviços de Rede**, em **Rede Virtual** e em **Criação Personalizada**, conforme mostrado abaixo.
 
@@ -88,11 +88,11 @@ Comece com uma nova conta de avaliação do Azure. Depois de concluir a configur
 	|Página|Configurações|
 |---|---|
 |Selecionar o sistema operacional da máquina virtual|Windows Server 2012 R2 Datacenter|
-|Configuração de máquina virtual|**VERSION RELEASE DATE** = (mais recente)<br/>**VIRTUAL MACHINE NAME** = ContosoDC<br/>**TIER** = BASIC<br/>**SIZE** = A2 (dois núcleos)<br/>**NEW USER NAME** = AzureAdmin<br/>**NEW PASSWORD** = Contoso!000<br/>**CONFIRM** = Contoso!000|
+|Configuração de máquina virtual|**VERSION RELEASE DATE** = (mais recente)<br/>**VIRTUAL MACHINE NAME** = ContosoDC<br/>**TIER** = STANDARD<br/>**SIZE** = A2 (dois núcleos)<br/>**NEW USER NAME** = AzureAdmin<br/>**NEW PASSWORD** = Contoso!000<br/>**CONFIRM** = Contoso!000|
 |Configuração de máquina virtual|**CLOUD SERVICE** = Criar um novo serviço de nuvem<br/>**CLOUD SERVICE DNS NAME** = Um nome de serviço de nuvem exclusivo<br/>**DNS NAME** = Um nome exclusivo (ex.: ContosoDC123)<br/>**REGION/AFFINITY GROUP/VIRTUAL NETWORK** = ContosoNET<br/>**VIRTUAL NETWORK SUBNETS** = Traseira(10.10.2.0/24)<br/>**STORAGE ACCOUNT** = Use uma conta de armazenamento gerada automaticamente<br/>**AVAILABILITY SET** = (Nenhum)|
 |Opções de máquina virtual|Usar padrões|
 
-Ao terminar de configurar a nova VM, aguarde até ela ser provisionada. Esse processo leva algum tempo para ser concluído e se você clicar na guia **Máquina Virtual** no Portal do Azure, poderá ver os estados de ciclo de ContosoDC desde **Iniciando (Provisionando)** até **Parado**, **Iniciando**, **Em execução (Provisionando)** e, finalmente, **Em execução**.
+Ao terminar de configurar a nova VM, aguarde até ela ser provisionada. Esse processo leva algum tempo para ser concluído e se você clicar na guia **Máquina Virtual** no portal clássico do Azure, poderá ver os estados de ciclo de ContosoDC desde **Iniciando (Provisionando)** até **Parado**, **Iniciando**, **Em execução (Provisionando)** e, finalmente, **Em execução**.
 
 O servidor de DC agora foi provisionado com êxito. Em seguida, você configurará o domínio do Active Directory nesse servidor de DC.
 
@@ -192,14 +192,18 @@ Agora que você concluiu a configuração do Active Directory e dos objetos de u
 
 ## Criar VMs do SQL Server
 
-Em seguida, crie três VMs, incluindo um nó de cluster WSFC e duas VMs do SQL Server. Para criar cada uma das VMs, volte ao Portal do Azure, clique em **Novo**, **Computação**, **Máquina Virtual** e **Da Galeria**. Em seguida, use os modelos na tabela a seguir para ajudá-lo a criar as VMs.
+Em seguida, crie três VMs, incluindo um nó de cluster WSFC e duas VMs do SQL Server. Para criar cada uma das VMs, volte ao portal clássico do Azure, clique em **Novo**, **Computação**, **Máquina Virtual** e **Da Galeria**. Em seguida, use os modelos na tabela a seguir para ajudá-lo a criar as VMs.
 
 |Página|VM1|VM2|VM3|
 |---|---|---|---|
 |Selecionar o sistema operacional da máquina virtual|**Windows Server 2012 R2 Datacenter**|**SQL Server 2014 RTM Enterprise**|**SQL Server 2014 RTM Enterprise**|
-|Configuração de máquina virtual|**VERSION RELEASE DATE** = (mais recente)<br/>**VIRTUAL MACHINE NAME** = ContosoWSFCNode<br/>**TIER** = BASIC<br/>**SIZE** = A2 (dois núcleos)<br/>**NEW USER NAME** = AzureAdmin<br/>**NEW PASSWORD** = Contoso!000<br/>**CONFIRM** = Contoso!000|**VERSION RELEASE DATE** = (mais recente)<br/>**VIRTUAL MACHINE NAME** = ContosoSQL1<br/>**TIER** = BASIC<br/>**SIZE** = A3 (quatro núcleos)<br/>**NEW USER NAME** = AzureAdmin<br/>**NEW PASSWORD** = Contoso!000<br/>**CONFIRM** = Contoso!000|**VERSION RELEASE DATE** = (mais recente)<br/>**VIRTUAL MACHINE NAME** = ContosoSQL2<br/>**TIER** = BASIC<br/>**SIZE** = A3 (quatro núcleos)<br/>**NEW USER NAME** = AzureAdmin<br/>**NEW PASSWORD** = Contoso!000<br/>**CONFIRM** = Contoso!000|
+|Configuração de máquina virtual|**VERSION RELEASE DATE** = (mais recente)<br/>**VIRTUAL MACHINE NAME** = ContosoWSFCNode<br/>**TIER** = STANDARD<br/>**SIZE** = A2 (dois núcleos)<br/>**NEW USER NAME** = AzureAdmin<br/>**NEW PASSWORD** = Contoso!000<br/>**CONFIRM** = Contoso!000|**VERSION RELEASE DATE** = (mais recente)<br/>**VIRTUAL MACHINE NAME** = ContosoSQL1<br/>**TIER** = STANDARD<br/>**SIZE** = A3 (quatro núcleos)<br/>**NEW USER NAME** = AzureAdmin<br/>**NEW PASSWORD** = Contoso!000<br/>**CONFIRM** = Contoso!000|**VERSION RELEASE DATE** = (mais recente)<br/>**VIRTUAL MACHINE NAME** = ContosoSQL2<br/>**TIER** = STANDARD<br/>**SIZE** = A3 (quatro núcleos)<br/>**NEW USER NAME** = AzureAdmin<br/>**NEW PASSWORD** = Contoso!000<br/>**CONFIRM** = Contoso!000|
 |Configuração de máquina virtual|**CLOUD SERVICE** = Nome DNS do serviço de nuvem exclusivo criado previamente (ex.: ContosoDC123)<br/>**REGION/AFFINITY GROUP/VIRTUAL NETWORK** = ContosoNET<br/>**VIRTUAL NETWORK SUBNETS** = Traseira(10.10.2.0/24)<br/>**STORAGE ACCOUNT** = Use uma conta de armazenamento gerada automaticamente<br/>**AVAILABILITY SET** = Crie um conjunto de disponibilidade<br/>**AVAILABILITY SET NAME** = SQLHADR|**CLOUD SERVICE** = Nome DNS do serviço de nuvem exclusivo criado previamente (ex.: ContosoDC123)<br/>**REGION/AFFINITY GROUP/VIRTUAL NETWORK** = ContosoNET<br/>**VIRTUAL NETWORK SUBNETS** = Traseira(10.10.2.0/24)<br/>**STORAGE ACCOUNT** = Use uma conta de armazenamento gerada automaticamente<br/>**AVAILABILITY SET** = SQLHADR (Você também pode configurar o conjunto de disponibilidade depois da criação da máquina. Todas as três máquinas devem ser atribuídas ao conjunto de disponibilidade SQLHADR.)|**CLOUD SERVICE** = Nome DNS do serviço de nuvem exclusivo criado previamente (ex.: ContosoDC123)<br/>**REGION/AFFINITY GROUP/VIRTUAL NETWORK** = ContosoNET<br/>**VIRTUAL NETWORK SUBNETS** = Traseira(10.10.2.0/24)<br/>**STORAGE ACCOUNT** = Use uma conta de armazenamento gerada automaticamente<br/>**AVAILABILITY SET** = SQLHADR (Você também pode configurar o conjunto de disponibilidade depois da criação da máquina. Todas as três máquinas devem ser atribuídas ao conjunto de disponibilidade SQLHADR.)|
 |Opções de máquina virtual|Usar padrões|Usar padrões|Usar padrões|
+
+<br/>
+
+>[AZURE.NOTE]A configuração anterior sugere máquinas virtuais de camada STANDARD, porque máquinas de camada BASIC não dão suporte a pontos de extremidade com balanceamento de carga necessários para criar posteriormente os ouvintes do grupo de disponibilidade. Além disso, os tamanhos de máquina sugeridos aqui servem para testar grupos de disponibilidade em VMs do Azure. Para obter o melhor desempenho em cargas de trabalho de produção, consulte as recomendações de configuração e tamanhos de máquina do SQL Server em [Práticas recomendadas relacionadas ao desempenho para o SQL Server em máquinas virtuais do Azure](virtual-machines-sql-server-performance-best-practices.md).
 
 Depois que as três VMs forem totalmente provisionadas, você precisará ingressá-las no domínio **corp.contoso.com** e conceder direitos administrativos de CORP\\Install às máquinas. Para fazer isso, use as seguintes etapas para cada uma das três VMs.
 
@@ -243,7 +247,7 @@ Depois que as três VMs forem totalmente provisionadas, você precisará ingress
 
 ### Adicione o usuário Corp\\Install como um administrador em cada VM:
 
-1. Aguarde até que a VM seja reiniciada e abra o arquivo RDP para fazer logon na VM usando a conta **BUILTIN\\AzureAdmin**.
+1. Aguarde até que a VM seja reiniciada e inicie o arquivo RDP para fazer logon na VM usando a conta **BUILTIN\\AzureAdmin**.
 
 1. Em **Gerenciador do Servidor**, selecione **Ferramentas** e clique em **Gerenciamento do Computador**.
 
@@ -373,7 +377,7 @@ Essas ações podem ser executadas em qualquer ordem. No entanto, as etapas a se
 
 1. Inicie os arquivos RDP para **ContosoSQL1** e **ContosoSQL2** e faça logon como **BUILTIN\\AzureAdmin**.
 
-1. Primeiro, adicione **NT AUTHORITY\\System** aos logons do SQL Server e com as permissões necessárias. Abra o **SQL Server Management Studio**.
+1. Primeiro, adicione **NT AUTHORITY\\System** aos logons do SQL Server e com as permissões necessárias. Inicie o **SQL Server Management Studio**.
 
 1. Clique em **Conectar** para se conectar à instância padrão do SQL Server.
 
@@ -395,13 +399,13 @@ Essas ações podem ser executadas em qualquer ordem. No entanto, as etapas a se
 
 1. Na página **Funções de Servidor**, selecione **sysadmin**. Em seguida, clique em **OK**. Depois que o logon for criado, você pode vê-lo expandindo **Logons** no **Pesquisador de Objetos**.
 
-1. Em seguida, crie uma regra de firewall para o SQL Server. Na tela **Iniciar**, abra o **Firewall do Windows com Segurança Avançada**.
+1. Em seguida, crie uma regra de firewall para o SQL Server. Na tela **Iniciar**, inicie o **Firewall do Windows com Segurança Avançada**.
 
 1. No painel esquerdo, selecione **Regras de Entrada**. No painel direito, clique em **Nova Regra**.
 
 1. Na página **Tipo de Regra**, selecione o **Programa** e clique em **Avançar**.
 
-1. Na página **Programa**, selecione **Este caminho de programa** e digite **%Arquivos de Programas%\\Microsoft SQL Server\\MSSQL12.MSSQLSERVER\\MSSQL\\Binn\\sqlservr.exe** na caixa de texto (se você estiver seguindo estas instruções, mas usando o SQL Server 2012, o diretório do SQL Server é **MSSQL11.MSSQLSERVER**). Em seguida, clique em **Próximo**.
+1. Na página **Programa**, selecione **Este caminho de programa** e digite **%ProgramFiles%\\Microsoft SQL Server\\MSSQL12.MSSQLSERVER\\MSSQL\\Binn\\sqlservr.exe** na caixa de texto (se você estiver seguindo estas instruções, mas usando o SQL Server 2012, o diretório do SQL Server é **MSSQL11.MSSQLSERVER**). Em seguida, clique em **Próximo**.
 
 1. Na página **Ação**, mantenha selecionado **Permitir a conexão** e clique em **Avançar**.
 
@@ -409,7 +413,7 @@ Essas ações podem ser executadas em qualquer ordem. No entanto, as etapas a se
 
 1. Na página **Nome**, especifique um nome de regra, como **SQL Server (Regra de Programa)**, na caixa de texto **Nome** e clique em **Concluir**.
 
-1. Em seguida, habilite o recurso de **Grupos de Disponibilidade AlwaysOn**. Na tela **Iniciar**, abra o **SQL Server Configuration Manager**.
+1. Em seguida, habilite o recurso de **Grupos de Disponibilidade AlwaysOn**. Na tela **Iniciar**, inicie o **SQL Server Configuration Manager**.
 
 1. Na árvore do navegador, clique em **Serviços do SQL Server**, clique com o botão direito do mouse no serviço **SQL Server (MSSQLSERVER)** e clique em **Propriedades**.
 
@@ -451,7 +455,7 @@ Agora você está pronto para configurar um grupo de disponibilidade. Abaixo est
 
 	![Conceder permissões para a pasta de Backup](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665522.gif)
 
-1. Em seguida, crie o banco de dados. No menu **Iniciar**, abra o **SQL Server Management Studio** e clique em **Conectar** para se conectar à instância padrão do SQL Server.
+1. Em seguida, crie o banco de dados. No menu **Iniciar**, inicie o **SQL Server Management Studio** e clique em **Conectar** para se conectar à instância padrão do SQL Server.
 
 1. No **Pesquisador de Objetos**, clique com o botão direito do mouse em **Bancos de Dados** e em **Novo Banco de Dados**.
 
@@ -473,7 +477,7 @@ Agora você está pronto para configurar um grupo de disponibilidade. Abaixo est
 
 1. Em seguida, restaure os backups completo e de log de transações em **ContosoSQL2**. Inicie o arquivo RDP para **ContosoSQL2** e faça logon como **CORP\\Install**. Deixe a sessão de área de trabalho remota para **ContosoSQL1** aberta.
 
-1. No menu **Iniciar**, abra o **SQL Server Management Studio** e clique em **Conectar** para se conectar à instância padrão do SQL Server.
+1. No menu **Iniciar**, inicie o **SQL Server Management Studio** e clique em **Conectar** para se conectar à instância padrão do SQL Server.
 
 1. No **Pesquisador de Objetos**, clique com o botão direito do mouse em **Bancos de Dados** e em **Restaurar Banco de Dados**.
 
@@ -540,8 +544,8 @@ Agora você está pronto para configurar um grupo de disponibilidade. Abaixo est
 >[AZURE.WARNING]Não tente fazer failover do grupo de disponibilidade no Gerenciador de Cluster de Failover. Todas as operações de failover devem ser executadas no **Painel AlwaysOn** no SSMS. Para obter mais informações, consulte [Restrições do uso do Gerenciador de Cluster de Failover WSFC com Grupos de Disponibilidade](https://msdn.microsoft.com/library/ff929171.aspx).
 
 ## Próximas etapas
-Agora você implementou com êxito o SQL Server AlwaysOn criando um grupo de disponibilidade no Azure. Para configurar um ouvinte para este grupo de disponibilidade, consulte [Configurar um ouvinte ILB para Grupos de Disponibilidade AlwaysOn no Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
+Agora você implementou com êxito o SQL Server AlwaysOn criando um grupo de disponibilidade no Azure. Para configurar um ouvinte para este grupo de disponibilidade, veja [Configurar um ouvinte ILB para Grupos de Disponibilidade AlwaysOn no Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
 
-Para obter outras informações sobre como usar o SQL Server no Azure, consulte [SQL Server em Máquinas Virtuais do Azure](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
+Para obter outras informações sobre como usar o SQL Server no Azure, veja [SQL Server em Máquinas Virtuais do Azure](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

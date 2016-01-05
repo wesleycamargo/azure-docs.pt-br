@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/10/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # Visualização da v2.0 do modelo de aplicativo: qual é a diferença?
@@ -26,7 +26,7 @@ Se você estiver familiarizado com o serviço do AD do Azure disponível ao púb
 ## Contas da Microsoft e contas do AD do Azure
 O modelo de aplicativo v2.0 permite que os desenvolvedores escrevam aplicativos que aceitam entrada de contas da Microsoft e contas do AD do Azure, usando um único ponto de extremidade. Isso oferece a você a capacidade de escrever seu aplicativo completamente independente de conta; ele não precisa saber o tipo de conta com a qual o usuário entra. Obviamente, é *possível* deixar seu aplicativo com reconhecimento do tipo de conta que está sendo usada em uma sessão específica, mas isso não é necessário.
 
-Por exemplo, se seu aplicativo chamar as [APIs REST do Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2), alguns dados e funcionalidades adicionais estarão disponíveis para usuários corporativos, como os sites do SharePoint ou dados do diretório deles. Mas para várias ações, como [Ler o email de um usuário](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2), exatamente o mesmo código pode ser escrito para as contas da Microsoft e do AD do Azure.
+Por exemplo, se seu aplicativo chamar as [APIs REST do Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2), alguns dados e funcionalidades adicionais estarão disponíveis para usuários corporativos, como os sites do SharePoint ou dados do Diretório deles. Porém, para várias ações, como [Ler o email de um usuário](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2), o código pode ser escrito exatamente da mesma forma para as Contas da Microsoft e do Azure AD.
 
 Integrar seu aplicativo com as contas da Microsoft e do AD do Azure agora é um processo simples. É possível usar um único conjunto de pontos de extremidade, uma única biblioteca e um único registro de aplicativo para acessar os mundos empresarial e do consumidor. Para saber mais sobre a visualização do modelo de aplicativo v2.0, consulte a [visão geral](active-directory-appmodel-v2-overview.md).
 
@@ -108,7 +108,7 @@ Permitir que um aplicativo solicite permissões dinamicamente por meio do parâm
 ## Acesso offline
 O modelo de aplicativo v2.0 apresenta uma nova permissão bastante conhecida para aplicativos; o escopo `offline_access`. Todos os aplicativos terão que solicitar essa permissão se precisarem acessar recursos em nome de um usuário por um longo período de tempo, mesmo quando o usuário pode não estiver usando o aplicativo de maneira ativa. O escopo `offline_access` será exibido para o usuário em caixas de diálogo de consentimento como "Acesso a seus dados offline", com as quais o usuário deverá concordar. Solicitar a permissão `offline_access` permitirá que seu aplicativo Web receba refresh\_tokens do OAuth 2.0 a partir do ponto de extremidade v2.0. Refresh\_tokens são duradouros e podem ser trocados por novos access\_tokens do OAuth 2.0 por longos períodos de acesso.
 
-Se seu aplicativo não solicitar o escopo `offline_access`, ele não receberá refresh\_tokens. Isso significa que, quando você resgatar um authorization\_code no [fluxo do código de autorização do OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow), você só receberá de volta um access\_token do ponto de extremidade `/oauth2/token`. Esse access\_token permanecerá válido por um curto período de tempo (normalmente uma hora), mas acabará expirando. Nesse momento, seu aplicativo terá que redirecionar o usuário de volta ao ponto de extremidade `/oauth2/authorize` para recuperar um novo authorization\_code. Durante esse redirecionamento, o usuário pode ou não precisar digitar suas credenciais novamente ou consentir de novo as permissões, dependendo do tipo do aplicativo.
+Se seu aplicativo não solicitar o escopo `offline_access`, ele não receberá refresh\_tokens. Isso significa que, quando você resgatar um authorization\_code no [fluxo de código de autorização do OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow), você só receberá de volta um access\_token do ponto de extremidade `/oauth2/token`. Esse access\_token permanecerá válido por um curto período de tempo (normalmente uma hora), mas acabará expirando. Nesse momento, seu aplicativo terá que redirecionar o usuário de volta ao ponto de extremidade `/oauth2/authorize` para recuperar um novo authorization\_code. Durante esse redirecionamento, o usuário pode ou não precisar digitar suas credenciais novamente ou consentir de novo as permissões, dependendo do tipo do aplicativo.
 
 Para saber mais sobre OAuth 2.0, refresh\_tokens e access\_tokens, consulte a [referência de protocolo do modelo de aplicativo de v2.0](active-directory-v2-protocols.md).
 
@@ -121,4 +121,4 @@ Para saber mais sobre as declarações específicas emitidas em tokens de modelo
 ## Limitações de visualização
 Há várias restrições às quais é preciso estar atento ao criar um aplicativo com o modelo de aplicativo v2.0 durante a visualização pública. Consulte o[documento de limitações do modelo de aplicativo v2.0](active-directory-v2-limitations.md) para ver se alguma dessas restrições se aplica ao seu cenário específico.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

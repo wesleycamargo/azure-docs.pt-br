@@ -13,17 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/05/2015" 
 	ms.author="juliako"/>
 
 
 #Gerenciando ativos de Serviços de Mídia através de várias contas de armazenamento
 
-Começando com o Microsoft Azure Media Services 2.2, você pode anexar várias contas de armazenamento para uma única conta de Serviços de Mídia. A capacidade de anexar diversas contas de armazenamento a uma conta dos Serviços de Mídia oferece os seguintes benefícios: balanceamento de carga seus ativos entre diversas contas de armazenamento.
+Começando com o Microsoft Azure Media Services 2.2, você pode anexar várias contas de armazenamento para uma única conta de Serviços de Mídia. A capacidade de anexar diversas contas de armazenamento a uma conta dos Serviços de Mídia oferece os seguintes benefícios:
 
-Dimensionamento dos Serviços de Mídia para grandes quantidades de processamento de conteúdo (já que, no momento, uma única conta de armazenamento tem um limite máximo de 500 TB).
+- Balanceamento de carga seus ativos entre diversas contas de armazenamento.
+- Dimensionamento dos Serviços de Mídia para grandes quantidades de processamento de conteúdo (já que, no momento, uma única conta de armazenamento tem um limite máximo de 500 TB). 
 
-Este tópico demonstra como anexar várias contas de armazenamento a uma conta de Serviços de Mídia usando [API REST do Gerenciamento de Serviços do Azure](https://msdn.microsoft.com/library/azure/ee460799.aspx). Ele também mostra como especificar diferentes contas de armazenamento ao criar ativos usando o SDK dos Serviços de Mídia.
+Este tópico demonstra como anexar várias contas de armazenamento a uma conta de Serviços de Mídia usando API REST do Gerenciamento de Serviços do Azure. Ele também mostra como especificar diferentes contas de armazenamento ao criar ativos usando o SDK dos Serviços de Mídia.
 
 ##Considerações
 
@@ -39,7 +40,7 @@ Os Serviços de Mídia usam o valor da propriedade **IAssetFile.Name** ao compil
 
 ##Para anexar uma conta de armazenamento com a API REST do Gerenciamento de Serviços do Azure
 
-Atualmente, a única maneira de anexar diversas contas de armazenamento é usando [API REST do Gerenciamento de Serviços do Azure](https://msdn.microsoft.com/library/azure/ee460799.aspx). O exemplo de código no tópico [Como: Usar a API REST de gerenciamento dos Serviços de Mídia](https://msdn.microsoft.com/library/azure/dn167656.aspx) define o método **AttachStorageAccountToMediaServiceAccount** que anexa uma conta de armazenamento a conta de Serviços de Mídia especificada. O código no mesmo tópico define o método **ListStorageAccountDetails**, que lista todas as contas de armazenamento anexadas à conta dos Serviços de Mídia especificada.
+Atualmente, a única maneira de anexar diversas contas de armazenamento é usando [API REST do Gerenciamento de Serviços do Azure](http://msdn.microsoft.com/library/azure/dn167014.aspx). O exemplo de código no tópico [Como: Usar a API REST de gerenciamento dos Serviços de Mídia](https://msdn.microsoft.com/library/azure/dn167656.aspx) define o método **AttachStorageAccountToMediaServiceAccount** que anexa uma conta de armazenamento a conta de Serviços de Mídia especificada. O código no mesmo tópico define o método **ListStorageAccountDetails**, que lista todas as contas de armazenamento anexadas à conta dos Serviços de Mídia especificada.
 
 
 ##Gerenciar ativos de Serviços de Mídia através de várias contas de armazenamento
@@ -258,4 +259,4 @@ O código a seguir usa o SDK mais recente dos Serviços de Mídia para executar 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

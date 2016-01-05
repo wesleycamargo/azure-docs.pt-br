@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 # Protegendo os recursos de nuvem usando o Azure Multi-Factor Authentication e o AD FS
@@ -93,4 +93,4 @@ Agora que as declarações estão prontas, podemos configurar IPs confiáveis.
 
 É isso! Neste ponto, os usuários federados do Office 365 devem somente ter que usar MFA quando uma declaração for originada fora da intranet corporativa.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

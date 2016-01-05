@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
  
 # O que é o Application Insights?
@@ -21,7 +21,7 @@ O Application Insights é um serviço de análise extensível que monitora seu a
 
 ![Disponha em gráficos as estatísticas de atividade do usuário ou analise detalhadamente eventos específicos.](./media/app-insights-overview/00-sample.png)
 
-Ele funciona com aplicativos Web e autônomos em uma ampla variedade de plataformas: .NET ou J2EE, hospedados no local ou na nuvem; aplicativos de dispositivo no Windows, iOS, Android, OSX e outras plataformas.
+Ele funciona com aplicativos Web e autônomos em uma ampla variedade de plataformas: .NET ou J2EE, hospedados localmente ou na nuvem.
 
 O Application Insights visa a equipe de desenvolvimento. Com ele, você pode:
 
@@ -32,7 +32,7 @@ O Application Insights visa a equipe de desenvolvimento. Com ele, você pode:
  *  Alertas sobre alterações de desempenho ou falhas.
  *  Métricas para ajudar a diagnosticar problemas de desempenho, como tempos de resposta, uso da CPU e rastreamento de dependências.
  *  Testes de disponibilidade para aplicativos Web.
- *  Alertas e relatórios de falhas e exceções
+ *  Alertas e relatórios de exceções.
  *  Pesquisa de log de diagnóstico poderosa (incluindo rastreamentos de log de suas estruturas de logs favoritas).
 
 O SDK de cada plataforma inclui uma variedade de módulos que monitoram o aplicativo instantaneamente. Além disso, você pode codificar sua própria telemetria para fazer uma análise mais detalhada e personalizada.
@@ -49,17 +49,14 @@ Deseja uma análise ainda mais profunda? [Exporte](app-insights-export-telemetry
 
 Há SDKs para uma variedade cada vez maior de plataformas. Atualmente, a lista inclui:
 
- * [Servidores ASP.NET][greenbrown] no Azure ou servidor IIS
+ * [Servidores ASP.NET][greenbrown] no Azure ou o servidor IIS
  * [Serviços de nuvem do Azure](app-insights-cloudservices.md)
  * [Servidores J2EE][java]
  * [Páginas da Web][client]\: HTML+JavaScript
- * [Windows Phone, Windows Store, aplicativos universais do Windows 10 e integração direta com o portal do desenvolvedor do Windows 10][windows]
- * [Área de trabalho do Windows][desktop]
- * [iOS][ios]
- * [Android][android]
+ * [Aplicativos de área de trabalho e servidor do Windows][desktop]
  * [Outras plataformas][platforms]\: Node.js, PHP, Python, Ruby, Joomla, SharePoint, WordPress
 
-O Application Insights também pode obter telemetria de aplicativos Web existentes do ASP.NET no IIS sem recriá-los.
+O Application Insights também pode obter telemetria de aplicativos Web do ASP.NET existente sem recriá-los.
 
 Se seu aplicativo tiver cliente, servidor e outros componentes, é possível instrumentar todos eles. Os dados serão integrados no portal do Application Insights para que você possa, por exemplo, correlacionar eventos no cliente com eventos no servidor.
 
@@ -87,9 +84,9 @@ O impacto sobre o desempenho é muito pequeno. As chamadas de rastreamento não 
 
 ## Introdução
 
-1. Você precisará de uma assinatura do [Microsoft Azure](http://azure.com). A inscrição é gratuita e você pode optar pela [camada de preços](https://azure.microsoft.com/pricing/details/application-insights/) gratuita do Application Insights.
+1. Você precisará de uma assinatura do [Microsoft Azure](http://azure.com). A inscrição é gratuita e você pode optar pelo [tipo de preço](https://azure.microsoft.com/pricing/details/application-insights/) gratuito do Application Insights.
 
-2. Entre no [Portal do Azure](http://portal.azure.com)
+2. Entre no [Portal do Azure](http://portal.azure.com).
 3. Crie um recurso Application Insights. É onde você verá dados do seu aplicativo.
 
     ![Adicionar, Serviços de Desenvolvedor, Application Insights.](./media/app-insights-overview/11-new.png)
@@ -142,7 +139,7 @@ Para obter mais detalhes, escolha o tipo de aplicativo em Introdução na barra 
 [client]: app-insights-javascript.md
 [desktop]: app-insights-windows-desktop.md
 [detect]: app-insights-detect-triage-diagnose.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [ios]: https://github.com/Microsoft/ApplicationInsights-iOS
 [java]: app-insights-java-get-started.md
 [knowUsers]: app-insights-overview-usage.md
@@ -154,4 +151,4 @@ Para obter mais detalhes, escolha o tipo de aplicativo em Introdução na barra 
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

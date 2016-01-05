@@ -72,7 +72,7 @@ Você pode começar a usar os Modelos do Azure aproveitando as várias ferrament
 
 ### Portal do Azure
 
-O Portal do Azure continuará a ter a opção de implantar Máquinas Virtuais e Máquinas Virtuais (Visualização) simultaneamente. O Portal do Azure também permitirá implantações de modelos personalizados.
+O portal do Azure ainda tem a opção de implantar Máquinas Virtuais com o modelo de implantação clássico e Máquinas Virtuais com o modelo de implantação do Gerenciador de Recursos. ao mesmo tempo. O portal do Azure também permitirá implantações de modelos personalizados.
 
 ### PowerShell do Azure
 
@@ -116,4 +116,4 @@ Não há suporte para isso no momento. Você não pode conectar as Redes Virtuai
 
 Um conjunto abrangente de modelos iniciais pode ser encontrado em [modelos de início rápido do Gerenciador de Recursos do Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

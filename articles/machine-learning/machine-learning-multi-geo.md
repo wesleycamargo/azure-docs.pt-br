@@ -14,16 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/17/2015"
+   ms.date="11/23/2015"
    ms.author="tedway; neerajkh"/>
 
 # Documentação da Ajuda para diversas áreas geográficas
 
-Atualmente, todos os ativos de aprendizado de máquina do Azure estão hospedados na região do Azure do Centro-Sul dos Estados Unidos (SCUS). Este artigo descreve como criar um espaço de trabalho e publicar um serviço Web em outras regiões do Azure.
+Este artigo descreve como criar um espaço de trabalho e publicar um serviço Web em outras regiões do Azure.
 
 ## Criar um espaço de trabalho
 
-1. Entre no Portal de Gerenciamento do Azure.
+1. Entre no Portal Clássico do Azure.
 
 2.  Clique em **+NOVO** > **SERVIÇOS DE DADOS** > **APRENDIZADO DE MÁQUINA** > **CRIAÇÃO RÁPIDA**. Em **LOCAL**, selecione outra região, como **Sudeste da Ásia**. ![Imagem de Ajuda de várias áreas geográficas 1][1]
 3. Selecione o espaço de trabalho e, em seguida, clique em **Entrar no Estúdio AM**. ![Imagem de Ajuda de várias áreas geográficas 2][2]
@@ -57,4 +57,4 @@ Fazer uma pergunta no [fórum de Aprendizado de Máquina do Azure](https://socia
 [3]: ./media/machine-learning-multi-geo/multi-geo_3.png
 [4a]: ./media/machine-learning-multi-geo/multi-geo_4a.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

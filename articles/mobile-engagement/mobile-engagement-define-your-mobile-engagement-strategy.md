@@ -116,7 +116,12 @@ As *Informações do aplicativo* são dados que permitem confirmar o status do a
 *Caso de uso: dados declarativos* 1. Notícias sobre o alerta de segmento: colete dados declarativos para o público do segmento com base nas suas preferências. Ele permite enviar notificação por push de um tópico específico que realmente interessa a um público específico. 2. Público do segmento com base no status de logon. Colete dados para saber se um usuário está conectado ou se criou uma conta. Ajuda a ter como alvo os usuários finais que ainda não fizeram logon e envia uma notificação por push para incentivá-los a converter.![][2]
 
 ### Próximas etapas
+
 - Visite [Conceitos do Mobile Engagement] para saber mais sobre os conceitos básicos do Mobile Engagement.
+- [Crie uma conta no Azure Mobile Engagement](mobile-engagement-create-account.md).
+- Visite [Práticas recomendadas](mobile-engagement-getting-started-best-practices.md) para conhecer os detalhes.
+- Visite o [cenário de Aplicativo de Jogos](mobile-engagement-gaming-scenario.md) para saber mais sobre a implementação do Mobile Engagement com um aplicativo de jogos de exemplo. 
+- Visite o [cenário de Aplicativo de Mídia](mobile-engagement-media-scenario.md) para saber mais sobre a implementação do Mobile Engagement com um aplicativo de mídia de exemplo. 
 - Visite os [Tutoriais] para saber mais sobre a implementação.
 
 <!-- Images. -->
@@ -127,4 +132,4 @@ As *Informações do aplicativo* são dados que permitem confirmar o status do a
 [Conceitos do Mobile Engagement]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [Tutoriais]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

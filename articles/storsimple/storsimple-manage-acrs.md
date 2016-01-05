@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/15/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Usar o serviço StorSimple Manager para gerenciar registros de controle de acesso
@@ -48,13 +48,13 @@ Execute as etapas a seguir para adicionar um ACR.
 
    - Inicie o iniciador Microsoft iSCSI no host do Windows.
    - Na janela Propriedades do Iniciador iSCSI, na guia Configuração, selecione e copie a cadeia de caracteres do campo Nome do Iniciador.
-   - Cole essa cadeia de caracteres no campo **Nome do Iniciador iSCSI** na tabela de ACRs no Portal de Gerenciamento.
+   - Cole essa cadeia de caracteres no campo **Nome do Iniciador iSCSI** na tabela de ACRs no Portal clássico do Azure.
 
 4. Clique em **Salvar** para salvar o ACR recentemente criado. A listagem de tabela será atualizada para refletir essa adição.
 
 ## Editar um registro de controle de acesso
 
-Use a página **Configurar** no Portal de Gerenciamento para editar ACRs.
+Use a página **Configurar** no Portal clássico do Azure para editar ACRs.
 
 > [AZURE.NOTE]Você pode modificar somente os ACRs que não estejam em uso no momento. Para editar um ACR associado a um volume que esteja em uso no momento, primeiramente, você deverá colocar o volume no estado offline.
 
@@ -72,7 +72,7 @@ Execute as etapas a seguir para editar um ACR.
 
 ## Excluir um registro de controle de acesso
 
-Use a página **Configurar** no Portal de Gerenciamento para excluir ACRs.
+Use a página **Configurar** no Portal clássico do Azure para excluir ACRs.
 
 > [AZURE.NOTE]Você pode excluir somente os ACRs que não estejam em uso no momento. Para excluir um ACR associado a um volume que esteja em uso no momento, primeiramente, você deverá colocar o volume no estado offline.
 
@@ -94,4 +94,4 @@ Execute as etapas a seguir para excluir um registro de controle de acesso.
 - Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

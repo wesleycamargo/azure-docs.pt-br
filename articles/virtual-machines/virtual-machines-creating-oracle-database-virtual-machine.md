@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Criar uma VM do Oracle Database com o portal do Azure | Microsoft Azure" 
-	description="Saiba como criar uma máquina virtual com um Oracle Database usando o modelo de implantação clássico e o portal de visualização do Azure." 
-	services="virtual-machines" 
-	authors="bbenz" 
+<properties
+	pageTitle="Criar uma VM do Oracle Database com o portal clássico do Azure | Microsoft Azure"
+	description="Saiba como criar uma máquina virtual com um Oracle Database usando o modelo de implantação clássico e o portal do Azure."
+	services="virtual-machines"
+	authors="bbenz"
 	documentationCenter=""
 	tags="azure-service-management"/>
-	
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="Windows" 
-	ms.workload="infrastructure-services" 
-	ms.date="06/22/2015" 
+
+<tags
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="Windows"
+	ms.workload="infrastructure-services"
+	ms.date="06/22/2015"
 	ms.author="bbenz" />
-	
+
 #Criar uma máquina virtual do Oracle Database no Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
@@ -176,9 +176,9 @@ Para permitir que o banco de dados seja acessado remotamente (por exemplo, de um
 10. Clique em **OK**.
 
 ##Habilitando o acesso remoto do Oracle Database Enterprise Manager
-Se você deseja habilitar o acesso remoto para o Oracle Database Enterprise Manager, abra a porta 5500 no firewall e crie um ponto de extremidade de máquina virtual para 5500 no portal do Azure (usando as etapas anteriores para abrir a porta 1521 e criar um ponto de extremidade para 1521). Em seguida, para executar o Oracle Enterprise Manager do computador remoto, abra um navegador na URL na forma de `http://<<unique_domain_name>>:5500/em`.
+Se você deseja habilitar o acesso remoto para o Oracle Database Enterprise Manager, abra a porta 5500 no firewall e crie um ponto de extremidade de máquina virtual para 5500 no portal clássico do Azure (usando as etapas anteriores para abrir a porta 1521 e criar um ponto de extremidade para 1521). Em seguida, para executar o Oracle Enterprise Manager do computador remoto, abra um navegador na URL na forma de `http://<<unique_domain_name>>:5500/em`.
 
-> [AZURE.NOTE]Você pode determinar o valor de *<<nome\_exclusivo\_do\_domínio>>* no [portal do Azure](https://ms.portal.azure.com/) clicando em **Máquinas Virtuais** e selecionando a máquina virtual que está sendo usada para executar o Oracle Database).
+> [AZURE.NOTE]Você pode determinar o valor de *<<nome\_exclusivo\_do\_domínio>>* no [portal clássico do Azure](https://ms.portal.azure.com/) clicando em **Máquinas Virtuais** e selecionando a máquina virtual que está sendo usada para executar o Oracle Database).
 
 ##Configurando opções populares e pacotes de opções avançadas
 Se você escolheu o pacote **Oracle Database com Opções Populares** ou o **Oracle Database com Opções Avançadas**, a próxima etapa será configurar os recursos de complemento na instalação do Oracle. Consulte a documentação do Oracle para obter instruções sobre como configurá-los no Windows, já que as configurações podem variar amplamente com base nas necessidades de cada componente individual.
@@ -200,4 +200,4 @@ Agora que você configurou sua máquina virtual e criou o banco de dados, consul
 
 -	[Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

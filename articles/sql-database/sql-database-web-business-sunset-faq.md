@@ -23,15 +23,15 @@ Para ajudá-lo com a atualização de bancos de dados Web e Business, o serviço
 
 **Para obter recomendações de tipo de preço:**
 
-- [Atualização para o Banco de Dados SQL V12 usando o Portal do Azure](sql-database-v12-upgrade.md)
-- [Atualização para o Banco de Dados SQL V12 com o PowerShell](sql-database-upgrade-server.md)
+- [Atualização para o Banco de Dados SQL V12 usando o Portal do Azure](sql-database-upgrade-server-portal.md)
+- [Atualização para o Banco de Dados SQL V12 com o PowerShell](sql-database-upgrade-server-powershell.md)
 - [Alterar o tipo de preço de um banco de dados Web ou Business](sql-database-service-tier-advisor.md)
  
 
 
-## Por que o Portal de Gerenciamento do Azure mostra os meus bancos de dados das versões Web e Business como obsoletos?
+## Por que o Portal do Azure mostra os meus bancos de dados das versões Web e Business como obsoletos?
 
-Porque os bancos de dados das versões Web e Business não estarão disponíveis depois de setembro de 2015; o portal de gerenciamento rotulou os bancos de dados comerciais e da Web como Desativados. Os bancos de dados comerciais e da Web ainda podem ser provisionados e gerenciados como de costume, mas o rótulo Desativado é um lembrete de que é melhor usar as camadas de serviço Basic, Standard ou Premium para novos bancos de dados. O rótulo desativado também fornece um lembrete de que qualquer banco de dados Web e Business deve ser atualizado para Premium, Basic ou Standard. Para obter informações detalhadas sobre como atualizar bancos de dados Web ou Business existentes para novas camadas de serviço, consulte [Atualizar banco de dados SQL Web/Business para novas camadas de serviço](sql-database-upgrade-new-service-tiers.md).
+Porque os bancos de dados das versões Web e Business não estarão disponíveis depois de setembro de 2015; o portal rotulou os bancos de dados comerciais e da Web como Desativados. Os bancos de dados comerciais e da Web ainda podem ser provisionados e gerenciados como de costume, mas o rótulo Desativado é um lembrete de que é melhor usar as camadas de serviço Basic, Standard ou Premium para novos bancos de dados. O rótulo desativado também fornece um lembrete de que qualquer banco de dados Web e Business deve ser atualizado para Premium, Basic ou Standard. Para obter informações detalhadas sobre como atualizar bancos de dados Web ou Business existentes para novas camadas de serviço, consulte [Atualizar banco de dados SQL Web/Business para novas camadas de serviço](sql-database-upgrade-new-service-tiers.md).
 
 ## Que nova camada de serviço é a melhor opção para atualizar meu banco de dados existente Web ou Business?
 
@@ -62,8 +62,10 @@ Os bancos de dados SQL Basic, Standard e Premium do Azure são cobrados por hora
 
 [Banco de Dados SQL do Azure](https://azure.microsoft.com/documentation/services/sql-database/)
 
+[Preços de web e negócios](https://azure.microsoft.com/pricing/details/sql-database/web-business/)
+
 [Camadas de serviço](sql-database-service-tiers.md)
 
 [Atualizar os bancos de dados Web/Business do Banco de Dados SQL para novas camadas de serviço](sql-database-upgrade-new-service-tiers.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

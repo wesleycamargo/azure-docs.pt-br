@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="11/22/2015" 
 	ms.author="glenga"/>
 
 # Adicionar autenticação ao seu aplicativo universal do Windows 8.1
@@ -34,17 +34,21 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Você também deve 
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-windows](../../includes/mobile-services-restrict-permissions-windows.md)]
  
->[AZURE.NOTE]Ao usar as ferramentas do Visual Studio para conectar seu aplicativo a um Serviço Móvel, a ferramenta gera dois conjuntos de definições **MobileServiceClient**, um para cada plataforma de cliente. Este é um bom momento para simplificar o código gerado, ao unificar as definições ajustadas do `#if...#endif` do **MobileServiceClient** em uma única definição não ajustada usada por ambas as versões do aplicativo. Você não precisará fazer isso se tiver baixado o aplicativo de início rápido do Portal de Gerenciamento do Azure.
+>[AZURE.NOTE]Ao usar as ferramentas do Visual Studio para conectar seu aplicativo a um Serviço Móvel, a ferramenta gera dois conjuntos de definições **MobileServiceClient**, um para cada plataforma de cliente. Este é um bom momento para simplificar o código gerado, ao unificar as definições ajustadas do `#if...#endif` do **MobileServiceClient** em uma única definição não ajustada usada por ambas as versões do aplicativo. Você não precisará fazer isso se tiver baixado o aplicativo de início rápido do [Portal clássico do Azure].
 
 ##<a name="add-authentication"></a> Adicionar autenticação ao aplicativo
 
-[AZURE.INCLUDE [mobile-services-windows-universal-dotnet-authenticate-app](../../includes/mobile-services-windows-universal-dotnet-authenticate-app.md)]
+[AZURE.INCLUDE [mobile-windows-universal-dotnet-authenticate-app](../../includes/mobile-windows-universal-dotnet-authenticate-app.md)]
 
 Agora, todos os usuários autenticados pelos seus provedores de identidades confiados podem acessar a tabela *TodoItem*. Para proteger melhor os dados específicos do usuário, você também deverá implementar a autorização. Para fazer isso, você obtém a ID do usuário de um determinado usuário, que poderá então ser usado para determinar o nível de acesso que o usuário deverá ter para um determinado recurso.
 
 ##<a name="tokens"></a>Armazene o token de autorização no cliente
 
-[AZURE.INCLUDE [mobile-services-windows-store-dotnet-authenticate-app-with-token](../../includes/mobile-services-windows-store-dotnet-authenticate-app-with-token.md)]
+O exemplo anterior mostrou uma entrada padrão, que requer que o cliente contate o provedor de identidade e o serviço móvel sempre que o aplicativo for iniciado. Além de esse método ser ineficiente, você pode se deparar com problemas relacionados ao uso caso muitos consumidores tentem iniciar o aplicativo ao mesmo tempo. Uma melhor abordagem é armazenar em cache o token de autorização retornado pelos Serviços Móveis e tentar usá-lo antes de usar a entrada baseada no provedor.
+
+>[AZURE.NOTE]Você pode armazenar em cache o token emitido pelos Serviços Móveis usando tanto a autenticação gerenciada pelo cliente quanto a autenticação gerenciada pelo serviço. Este tutorial usa a autenticação gerenciada pelo serviço.
+
+[AZURE.INCLUDE [mobile-windows-universal-dotnet-authenticate-app-with-token](../../includes/mobile-windows-universal-dotnet-authenticate-app-with-token.md)]
 
 ## <a name="next-steps"> </a>Próximas etapas
 
@@ -75,9 +79,9 @@ No próximo tutorial, [Autorização do lado do serviço dos usuários dos Servi
 [Get started with push notifications]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 [Authorize users with scripts]: ../mobile-services-windows-store-dotnet-authorize-users-in-scripts.md
 
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Portal clássico do Azure]: https://manage.windowsazure.com/
 [Referência conceitual do tutorial dos Serviços Móveis em .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 ## <a name="register-app-aad"></a>Registrar o seu aplicativo cliente com o Active Directory do Azure
 
-1. Navegue até **Active Directory** no [Portal de Gerenciamento do Azure] e clique no seu diretório.
+1. Navegue até **Active Directory** no [Portal clássico do Azure](https://manage.windowsazure.com/) e clique no seu diretório.
 
    ![](./media/mobile-services-dotnet-adal-register-client/mobile-services-select-aad.png)
 
@@ -28,7 +28,4 @@
 
 O seu serviço móvel agora está configurado no AAD para receber logons únicos do seu aplicativo.
 
-
-[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

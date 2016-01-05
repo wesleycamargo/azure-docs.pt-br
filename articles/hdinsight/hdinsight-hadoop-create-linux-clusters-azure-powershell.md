@@ -1,9 +1,9 @@
 <properties
-   	pageTitle="Criar Hadoop, HBase ou clusters Storm no Linux no HDInsight usando o Azure CLI | Microsoft Azure"
-   	description="Aprenda a criar Hadoop, HBase ou Storm em Linux para HDInsight usando o Azure CLI."
+   	pageTitle="Criar clusters Hadoop, HBase ou Storm em Linux no HDInsight usando o Azure PowerShell | Microsoft Azure"
+   	description="Saiba como criar clusters Hadoop, HBase ou Storm no Linux para o HDInsight usando o Azure PowerShell."
    	services="hdinsight"
    	documentationCenter=""
-   	authors="nitinme"
+   	authors="mumian"
    	manager="paulettm"
    	editor="cgronlun"
 	tags="azure-portal"/>
@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/23/2015"
+   	ms.date="11/16/2015"
    	ms.author="nitinme"/>
 
 #Criar clusters baseados em Linux no HDInsight usando o Azure PowerShell
@@ -25,11 +25,12 @@ O PowerShell do Azure é um ambiente de script poderoso que você pode usar para
 
 > [AZURE.NOTE]O Azure PowerShell só está disponível em clientes do Windows. Se você estiver usando um cliente Linux, Unix ou Mac OS X, consulte [Criar um cluster HDInsight baseados em Linux usando o Azure CLI](hdinsight-hadoop-create-linux-cluster-azure-cli.md) para obter informações sobre como usar o CLI do Azure para criar um cluster.
 
-##Pré-requisitos
+###Pré-requisitos
 
 - **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 - __Azure PowerShell__. Para obter informações sobre como configurar uma estação de trabalho para executar os cmdlets do Windows PowerShell do HDInsight, consulte [Instalar e configurar o PowerShell do Azure](../install-configure-powershell.md). Para obter mais informações sobre como usar o PowerShell do Azure com o HDInsight, consulte [Administrar o HDInsight usando o PowerShell](hdinsight-administer-use-powershell.md). Para obter a lista de cmdlets do Windows PowerShell do HDInsight, consulte [Referência de cmdlets do HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
+
 
 ##Criar o cluster
 
@@ -98,7 +99,7 @@ O script a seguir demonstra como criar um novo cluster:
     # Create a new HDInsight cluster
     New-AzureRmHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $credentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop -OSType Linux -Version "3.2" -SshCredential $sshCredentials
 
-Os valores especificados para **$clusterCredentials** são usados para criar a conta de usuário do Hadoop para o cluster. Você usará essa conta para se conectar ao cluster. Os valores especificados para **$sshCredentials** são usados para criar o usuário SSH para o cluster. Você pode usar essa conta para iniciar uma sessão SSH remota no cluster e executar trabalhos. Se você usar a opção Criação Rápida no portal do Azure para provisionar um cluster, o nome de usuário do Hadoop padrão será "admin" e o nome de usuário SSH padrão será "hdiuser".
+Os valores especificados para **$clusterCredentials** são usados para criar a conta de usuário do Hadoop para o cluster. Você usará essa conta para se conectar ao cluster. Os valores especificados para **$sshCredentials** são usados para criar o usuário SSH para o cluster. Você pode usar essa conta para iniciar uma sessão SSH remota no cluster e executar trabalhos.
 
 > [AZURE.IMPORTANT]Nesse script, você deve especificar o número de nós de trabalho que estarão no cluster. Se você planeja ter mais de 32 nós de trabalho, seja na criação do cluster ou em seu dimensionamento após a criação, deverá também especificar um tamanho de nó de cabeçalho com pelo menos 8 núcleos e 14 GB de RAM.
 >
@@ -127,4 +128,4 @@ Agora que você criou com êxito um cluster HDInsight, use o seguinte para apren
 * [Usar componentes de Python no Storm no HDInsight](hdinsight-storm-develop-python.md)
 * [Implantar e monitorar topologias com o Storm no HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

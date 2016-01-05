@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/05/2015"
+   ms.date="11/13/2015"
    ms.author="nitinme"/>
 
 # Introdução ao Repositório Azure Data Lake usando o SDK do .NET
@@ -23,13 +23,14 @@
 - [Using PowerShell](data-lake-store-get-started-powershell.md)
 - [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
 - [Using Azure CLI](data-lake-store-get-started-cli.md)
+- [Using Node.js](data-lake-store-manage-use-nodejs.md)
 
 Saiba como usar o SDK do .NET do Repositório Azure Data Lake para criar uma conta do Azure Data Lake e executar operações básicas, como criar pastas, carregar e baixar arquivos de dados, excluir sua conta, etc. Para obter mais informações sobre o Data Lake, veja [Repositório Azure Data Lake](data-lake-store-overview.md).
 
 ## Pré-requisitos
 
 * Visual Studio 2013 ou 2015. As instruções abaixo usam o Visual Studio 2015.
-* **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pt-BR/pricing/free-trial/).
+* **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Habilite sua assinatura do Azure** para a visualização pública do Repositório Data Lake. Veja [instruções](data-lake-store-get-started-portal.md#signup).
 
 ## Criar um aplicativo .NET
@@ -51,7 +52,7 @@ Saiba como usar o SDK do .NET do Repositório Azure Data Lake para criar uma con
 5. Adicione o pacote NuGet ao seu projeto.
 
 	1. Clique com o botão direito do mouse no nome do projeto no Gerenciador de Soluções e clique em **Gerenciar Pacotes NuGet**.
-	2. Na aba **Gerenciador de Pacotes NuGet**, certifique-se de que a **Origem do pacote** está definida como **nuget.org** e que a caixa de seleção **Incluir Pré-lançamento** está marcada.
+	2. Na guia **Gerenciador de Pacotes NuGet**, certifique-se de que a **Origem do pacote** está definida como **nuget.org** e que a caixa de seleção **Incluir Pré-lançamento** está marcada.
 	3. Procure e instale os seguintes pacotes:
 	
 		* Microsoft.Azure.Common.Authentication
@@ -65,7 +66,7 @@ Saiba como usar o SDK do .NET do Repositório Azure Data Lake para criar uma con
 
 7. Abra **Program.cs** e substitua o bloco de códigos existente pelo seguinte código. Além disso, forneça os valores para parâmetros no trecho de código.
 
-	Esse código explica o processo para criar um Repositório Data Lake, criar pastas no armazenamento, carregar arquivos, baixar arquivos e, por fim, excluir a conta. Se estiver procurando alguns dados de exemplo para carregar, é possível obter a pasta **Dados da Ambulância** no [Repositório Git do Azure Data Lake](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+	Esse código explica o processo para criar um Repositório Data Lake, criar pastas no armazenamento, carregar arquivos, baixar arquivos e, por fim, excluir a conta. Se estiver procurando alguns dados de exemplo para carregar, é possível obter a pasta **Dados da Ambulância** no [Repositório Git do Azure Data Lake](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
 	
 		using System;
 		using System.Collections.Generic;
@@ -223,4 +224,4 @@ Saiba como usar o SDK do .NET do Repositório Azure Data Lake para criar uma con
 - [Usar a Análise Data Lake do Azure com o Repositório Data Lake](data-lake-analytics-get-started-portal.md)
 - [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

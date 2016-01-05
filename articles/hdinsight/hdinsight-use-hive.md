@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="10/05/2015"
+	ms.date="12/03/2015"
 	ms.author="larryfr"/>
 
 # Usar o Hive e o HiveQL com o Hadoop no HDInsight para analisar um arquivo log4j do Apache de exemplo
@@ -70,7 +70,7 @@ Os dados de exemplo ficam no armazenamento de blob do Azure, que é usado pelo H
 
 Como o armazenamento de blob do Azure é o armazenamento padrão para HDInsight, você também pode acessar o arquivo usando **/example/data/sample.log** do HiveQL.
 
-> [AZURE.NOTE]A sintaxe acima, ****wasb:///**, é usada para acessar arquivos armazenados no contêiner de armazenamento padrão do cluster HDInsight. Se você tiver especificado contas de armazenamento adicionais ao provisionar o cluster e quiser acessar arquivos armazenados nessas contas, você pode acessar os dados especificando o nome do contêiner e endereço da conta de armazenamento, por exemplo: ****wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
+> [AZURE.NOTE]A sintaxe acima, ****wasb:///**, é usada para acessar arquivos armazenados no contêiner de armazenamento padrão do cluster HDInsight. Se você tiver especificado contas de armazenamento adicionais ao provisionar o cluster e quiser acessar arquivos armazenados nessas contas, você pode acessar os dados especificando o nome do contêiner e endereço da conta de armazenamento, por exemplo, ****wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
 
 ##<a id="job"></a>Trabalho de exemplo: projetar colunas em dados delimitados
 
@@ -129,10 +129,11 @@ O HDInsight pode executar trabalhos de HiveQL usando vários métodos. Use a tab
 
 | **Use** se quiser... | ...um shell **interativo** | ...Processamento em **lotes** | ... com esse **sistema operacional de cluster** | ... desse **sistema operacional cliente** |
 |:--------------------------------------------------------------------------------|:---------------------------:|:-----------------------:|:------------------------------------------|:-----------------------------------------|
+| [Exibição de Hive](hdinsight-hadoop-use-hive-ambari-view.md) | ✔ | ✔ | Linux | Qualquer um (baseado em navegador) |
 | [Comando do Beeline (de uma sessão SSH)](hdinsight-hadoop-use-hive-beeline.md) | ✔ | ✔ | Linux | Linux, Unix, Mac OS X ou Windows |
 | [Comando do Hive (de uma sessão SSH)](hdinsight-hadoop-use-hive-ssh.md) | ✔ | ✔ | Linux | Linux, Unix, Mac OS X ou Windows |
 | [Curl](hdinsight-hadoop-use-hive-curl.md) | &nbsp; | ✔ | Linux ou Windows | Linux, Unix, Mac OS X ou Windows |
-| [Console de consulta](hdinsight-hadoop-use-hive-query-console.md) | &nbsp; | ✔ | Windows | Baseado em navegador |
+| [Console de consulta](hdinsight-hadoop-use-hive-query-console.md) | &nbsp; | ✔ | Windows | Qualquer um (baseado em navegador) |
 | [Ferramentas do HDInsight para Visual Studio](hdinsight-hadoop-use-hive-visual-studio.md) | &nbsp; | ✔ | Linux ou Windows | Windows |
 | [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) | &nbsp; | ✔ | Linux ou Windows | Windows |
 | [Área de Trabalho Remota](hdinsight-hadoop-use-hive-remote-desktop.md) | ✔ | ✔ | Windows | Windows |
@@ -173,9 +174,9 @@ Agora que você aprendeu a usar a transmissão de trabalhos do MapReduce com o H
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
 [import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
-[hivetask]: http://msdn.microsoft.com/pt-BR/library/mt146771(v=sql.120).aspx
-[connectionmanager]: http://msdn.microsoft.com/pt-BR/library/mt146773(v=sql.120).aspx
-[ssispack]: http://msdn.microsoft.com/pt-BR/library/mt146770(v=sql.120).aspx
+[hivetask]: http://msdn.microsoft.com/library/mt146771(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
 
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -200,4 +201,4 @@ Agora que você aprendeu a usar a transmissão de trabalhos do MapReduce com o H
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Mapeamento de armazenamento da Recuperação de Site | Microsoft Azure"
-	description="O Azure Site Recovery coordena a replicação, o failover e a recuperação de máquinas virtuais e servidores físicos situados localmente para o Azure ou para um site local secundário."
+	pageTitle="Mapear o armazenamento no Azure Site Recovery para a replicação de uma máquina virtual do Hyper-V entre dois data centers locais | Microsoft Azure"
+	description="Prepare o mapeamento de armazenamento para a replicação de máquina virtual do Hyper-V entre dois data centers locais com o Azure Site Recovery."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -13,44 +13,37 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="10/07/2015"
+	ms.date="12/14/2015"
 	ms.author="raynew"/>
 
 
-# Mapeamento de armazenamento do Azure Site Recovery
+# Preparar o mapeamento de armazenamento para replicação de máquina virtual do Hyper-V entre dois data centers locais com o Azure Site Recovery
 
 
-O Azure Site Recovery contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) gerenciando replicação, failover e recuperação de máquinas virtuais e servidores físicos. Leia sobre possíveis cenários de implantação na [Visão Geral sobre a Recuperação de Site](site-recovery-overview.md).
+O Azure Site Recovery contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) gerenciando replicação, failover e recuperação de máquinas virtuais e servidores físicos. Este artigo descreve o mapeamento de armazenamento, que ajuda a usar o armazenamento de forma ideal quando você está usando o Site Recovery para replicar máquinas virtuais do Hyper-V entre dois datacenters locais.
 
-
-## Sobre este artigo
-
-Mapeamento de armazenamento é um elemento importante da sua implantação de Recuperação de Site. Ele garante que você esteja usando o armazenamento da melhor maneira possível. Este artigo descreve o mapeamento de armazenamento e fornece alguns exemplos para ajudar você a entender como funciona o mapeamento de armazenamento.
-
-
-Publique qualquer pergunta no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Após a leitura deste artigo, você poderá publicar perguntas no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## Visão geral
 
-A maneira com a qual você configura o mapeamento de armazenamento depende de seu cenário de implantação da Recuperação de Site.
+O mapeamento de armazenamento só será relevante quando você estiver replicando máquinas virtuais do Hyper-V localizadas nas nuvens do VMM de um data center principal para um datacenter secundário usando a replicação SAN ou a Réplica do Hyper-V, da seguinte maneira:
 
 
-
-- **De local para local (replicação com a Réplica do Hyper-V)** — mapeie as classificações de armazenamento em servidores VMM de origem e de destino para fazer o seguinte:
+- **De local para local (replicação com a Réplica do Hyper-V)** — você configura o mapeamento de armazenamento ao mapear as classificações de armazenamento em servidores VMM de origem e de destino para fazer o seguinte:
 
 	- **Identificar o armazenamento de destino para máquinas virtuais de réplica** — as máquinas virtuais serão replicadas para um destino de armazenamento escolhido por você (compartilhamento SMB ou volumes compartilhados de cluster (CSVs)).
 	- **Posicionamento das máquinas virtuais de réplica** — o Mapeamento de armazenamento é usado para posicionar de forma ideal as máquinas virtuais de réplica em servidores host Hyper-V. As máquinas virtuais de réplica serão colocadas em hosts que possam acessar as redes VM mapeadas.
 	- **Nenhum mapeamento de armazenamento** — se você não configurar o mapeamento de armazenamento, as máquinas virtuais serão replicadas para o local de armazenamento padrão especificado no servidor host Hyper-V associado à máquina virtual de réplica.
 
-- **De local para local (replicação com SAN)** — mapeia os pools de matriz de armazenamento em servidores VMM de origem e de destino para fazer o seguinte:
-	- **Identificar pools de armazenamento de destino** — o mapeamento de armazenamento garante que os LUNs em um grupo de replicação sejam replicados no pool de armazenamento de destino mapeado.
+- **Replicação de local para local com SAN** — você configura o mapeamento de armazenamento ao mapear os pools de matrizes de armazenamento em servidores VMM de origem e de destino.
+	- **Especificar pool** — especifica qual pool de armazenamento secundário receberá os dados de replicação do pool principal.
+	- **Identificar pools de armazenamento de destino** — garante que os LUNs em um grupo de replicação serão replicados no pool de armazenamento de destino mapeado.
 
+## Configurar classificações de armazenamento para a replicação do Hyper-V
 
+Quando você estiver usando a Réplica do Hyper-V para replicar com o Site Recovery, mapeará entre classificações de armazenamento nos servidores VMM de origem e de destino ou em um único servidor VMM se dois locais forem gerenciados pelo mesmo servidor VMM. Observe que:
 
-## Classificações de armazenamento
-
-Mapeie entre as classificações de armazenamento nos servidores VMM de origem e de destino ou em um único servidor VMM se dois locais forem gerenciados pelo mesmo servidor VMM. Quando o mapeamento estiver configurado corretamente e a replicação estiver habilitada, disco rígido virtual de uma máquina virtual no local primário será replicado no armazenamento no local de destino mapeado. Observe que:
-
+- Quando o mapeamento estiver configurado corretamente e a replicação estiver habilitada, disco rígido virtual de uma máquina virtual no local primário será replicado no armazenamento no local de destino mapeado.
 - As classificações de armazenamento devem estar disponíveis para os grupos de host localizados nas nuvens de origem e de destino.
 - As classificações não precisam ter o mesmo tipo de armazenamento. Por exemplo, você pode mapear uma classificação de origem que contenha compartilhamentos SMB para uma classificação de destino que contenha CSVs.
 - Leia mais em [Como criar classificações de armazenamento np VMM](https://technet.microsoft.com/library/gg610685.aspx).
@@ -70,13 +63,13 @@ Chicago | VMM\_Target | | GOLD\_TARGET | Não mapeado |
 
 Você deve configurá-los na guia **Armazenamento do Servidor**, na página **Recursos**, do portal de Recuperação de Site.
 
-![Configurar o mapeamento de armazenamento](./media/site-recovery-storage-mapping/StorageMapping1.png)
+![Configurar o mapeamento de armazenamento](./media/site-recovery-storage-mapping/storage-mapping1.png)
 
 Com este exemplo: - quando uma máquina virtual de réplica for criada para qualquer máquina virtual no armazenamento GOLD (SourceShare1), ela será replicada para um armazenamento GOLD\_TARGET (TargetShare1). -Quando uma máquina virtual de réplica for criada para qualquer máquina virtual no armazenamento SILVER (SourceShare2), ela será replicada para um armazenamento SILVER\_TARGET (TargetShare2) e assim por diante.
 
 Os compartilhamentos de arquivo reais e suas classificações atribuídas no VMM aparecem na captura de tela a seguir.
 
-![Classificações de armazenamento no VMM](./media/site-recovery-storage-mapping/StorageMapping2.png)
+![Classificações de armazenamento no VMM](./media/site-recovery-storage-mapping/storage-mapping2.png)
 
 ## Vários locais de armazenamento
 
@@ -103,6 +96,6 @@ VM5 | C:\\ClusterStorage\\SourceVolume3 | N/D | Nenhum mapeamento; sendo assim, 
 
 ## Próximas etapas
 
-Agora que você tem uma compreensão melhor sobre o mapeamento de armazenamento, comece a ler as [práticas recomendadas](site-recovery-best-practices.md) para se preparar para a implantação.
+Agora que você compreende melhor o mapeamento de armazenamento, [prepare-se para implantar o Azure Site Recovery](site-recovery-best-practices.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Padrões de consulta do Stream Analytics do Azure | Microsoft Azure"
+	pageTitle="Exemplos de consulta para padrões de uso comuns do Stream Analytics | Microsoft Azure"
 	description="Padrões de consulta comuns do Stream Analytics"
-	keywords="stream analytics, exemplo, consulta, linguagem, guia, padrões"
+	keywords="exemplos de consulta"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,18 +14,17 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="11/06/2015"
+	ms.date="12/04/2015"
 	ms.author="jeffstok"/>
 
 
-# Padrões de consulta comuns do Stream Analytics  #
+# Exemplos de consulta para padrões de uso do Stream Analytics #
 
 ## Introdução ##
+
 As consultas no Stream Analytics do Azure são expressas em uma linguagem de consulta do tipo SQL, que está documentada [aqui](https://msdn.microsoft.com/library/azure/dn834998.aspx). Este documento descreve soluções para vários padrões comuns de consulta com base em cenários do mundo real. É um trabalho em andamento e continuará sendo atualizado com novos padrões de forma contínua.
 
-## Noções básicas ##
-
-## Conversões de tipo de dados ##
+## Exemplo de consulta: conversões de tipo de dados ##
 **Descrição**: defina os tipos das propriedades no fluxo de entrada. Por exemplo, o peso do carro está vindo no fluxo de entrada como cadeias de caracteres e precisa ser convertido em INT para executar a SOMA.
 
 **Entrada**:
@@ -52,9 +51,9 @@ As consultas no Stream Analytics do Azure são expressas em uma linguagem de con
 		Make,
     	TumblingWindow(second, 10)
 
-**Explicação**: use uma instrução CAST no campo Peso para especificar seu tipo (consulte a lista de Tipos de Dados com suporte [aqui](https://msdn.microsoft.com/library/azure/dn835065.aspx)).
+**Explicação**: use uma instrução de CONVERSÃO no campo Peso para especificar seu tipo (consulte a lista de Tipos de dados com suporte [aqui](https://msdn.microsoft.com/library/azure/dn835065.aspx)).
 
-## Usando Like/Not like para fazer correspondência de padrões ##
+## Exemplo de consulta: usando Like/Not like para fazer correspondência de padrões ##
 **Descrição**: verifique se um valor de campo no evento corresponde a um determinado padrão. Por exemplo, retornar placas de carro que comecem com A e terminem com 9
 
 **Entrada**:
@@ -83,7 +82,7 @@ As consultas no Stream Analytics do Azure são expressas em uma linguagem de con
 
 **Explicação**: use instrução LIKE para verificar se o valor do campo PlacaDeCarro começa com A e depois tem uma cadeia de zero ou mais caracteres e termina com 9.
 
-## Especifique a lógica para casos/valores diferentes (instruções CASE) ##
+## Exemplo de consulta: especifique a lógica para casos/valores diferentes (instruções CASE) ##
 **Descrição**: forneça uma computação diferente para um campo com base em alguns critérios. Por exemplo, forneça uma descrição de cadeia de caracteres para quantos carros da mesma marca passaram com um caso especial para 1.
 
 **Entrada**:
@@ -117,7 +116,7 @@ As consultas no Stream Analytics do Azure são expressas em uma linguagem de con
 
 **Explicação**: a cláusula CASE nos permite fornecer uma computação diferente com base em alguns critérios (no nosso caso, a contagem de carros na janela de agregação).
 
-## Enviar dados para várias saídas ##
+## Exemplo de consulta: enviar dados para várias saídas ##
 **Descrição**: envie dados para vários destinos de saída de um único trabalho. Por exemplo, analise os dados para um alerta de limite e arquive todos os eventos no armazenamento de blob.
 
 **Entrada**:
@@ -182,9 +181,7 @@ As consultas no Stream Analytics do Azure são expressas em uma linguagem de con
 	SELECT * INTO HondaOutput FROM AllRedCars WHERE Make = 'Honda'
 	SELECT * INTO ToyotaOutput FROM AllRedCars WHERE Make = 'Toyota'
 
-## Padrões ##
-
-## Contagem de valores exclusivos
+## Exemplo de consulta: contagem de valores exclusivos
 **Descrição**: conte o número de valores de campo exclusivos que aparecem no fluxo em uma janela de tempo. Por exemplo, quantas marcas exclusivas de carros passaram pelo pedágio em uma segunda janela 2?
 
 **Entrada**:
@@ -227,7 +224,7 @@ As consultas no Stream Analytics do Azure são expressas em uma linguagem de con
 
 **Explicação:** fazemos uma agregação inicial para obter marcas exclusivas com sua contagem pela janela. Em seguida, fazemos uma agregação de quantas marcas temos, considerando todos valores exclusivos em uma janela obtêm o mesmo carimbo de hora e a segunda janela de agregação deve ser mínima para não agregar duas janelas da primeira etapa.
 
-## Determinar se um valor foi alterado ##
+## Exemplo de consulta: determinar se um valor foi alterado ##
 **Descrição**: examine um valor anterior para determinar se ele é diferente do valor atual. Por exemplo, o carro anterior na estrada com pedágio é da mesma marca que o carro atual?
 
 **Entrada**:
@@ -255,7 +252,7 @@ As consultas no Stream Analytics do Azure são expressas em uma linguagem de con
 
 **Explicação**: use LAG para inspecionar um fluxo de entrada do evento anterior e obter o valor Marca. Em seguida, compare-o à Marca no evento atual e retire o evento se eles forem diferentes.
 
-## Localizar o primeiro evento em uma janela ##
+## Exemplo de consulta: localizar o primeiro evento em uma janela ##
 **Descrição**: localizar o primeiro carro em cada intervalo de 10 minutos?
 
 **Entrada**:
@@ -309,7 +306,7 @@ Agora vamos alterar o problema e localizar o primeiro carro de determinada Marca
 	WHERE 
 		IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
 
-## Localizar o último evento em uma janela ##
+## Exemplo de consulta: localizar o último evento em uma janela ##
 **Descrição**: localize o último carro a cada intervalo de 10 minutos.
 
 **Entrada**:
@@ -352,9 +349,9 @@ Agora vamos alterar o problema e localizar o primeiro carro de determinada Marca
 		ON DATEDIFF(minute, Input, LastInWindow) BETWEEN 0 AND 10
 		AND Input.Time = LastInWindow.LastEventTime
 
-**Explicação**: há duas etapas na consulta; a primeira localiza o carimbo de data e hora mais recente em janelas de 10 minutos. A segunda etapa une os resultados da primeira consulta com fluxo original para localizar eventos que correspondem aos carimbos de data e hora mais recentes em cada janela.
+**Explicação**: há duas etapas na consulta. A primeira localiza o carimbo de data e hora mais recente em janelas de 10 minutos. A segunda etapa une os resultados da primeira consulta com fluxo original para localizar eventos que correspondem aos carimbos de data e hora mais recentes em cada janela.
 
-## Detectar a ausência de eventos ##
+## Exemplo de consulta: detectar a ausência de eventos ##
 **Descrição**: verifique se um fluxo não tem um valor que corresponde a um determinado critério. Por exemplo, 2 carros consecutivos da mesma marca passaram pelo pedágio em 90 segundos?
 
 **Entrada**:
@@ -387,8 +384,8 @@ Agora vamos alterar o problema e localizar o primeiro carro de determinada Marca
 
 **Explicação**: use LAG para inspecionar um fluxo de entrada do evento anterior e obter o valor Marca. Em seguida, compare-o à Marca no evento atual e retire o evento se eles forem iguais e use LAG para obter dados sobre o carro anterior.
 
-## Detectar a duração de uma condição ##
-**Descrição**: descubra há quanto tempo uma condição ocorreu. Por exemplo, suponha que um bug que resultou no peso incorreto de todos os carros (acima de 9 mil quilos); queremos calcular a duração do bug.
+## Exemplo de consulta: detectar a duração de uma condição ##
+**Descrição**: descubra há quanto tempo uma condição ocorreu. Por exemplo, suponha que um bug que resultou no peso incorreto de todos os carros (acima de 9 mil quilos). Queremos calcular a duração do bug.
 
 **Entrada**:
 
@@ -455,4 +452,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

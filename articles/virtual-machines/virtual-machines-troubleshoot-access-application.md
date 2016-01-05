@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="11/17/2015"
 	ms.author="dkshir"/>
 
 # Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure
@@ -100,9 +100,21 @@ Se você puder acessar o aplicativo, certifique-se de que seu dispositivo de bor
 - O tráfego de solicitação de saída do aplicativo no computador cliente para a máquina virtual do Azure.
 - O tráfego de resposta do aplicativo de entrada da máquina virtual do Azure.
 
+## Solucionando problemas de conectividade do ponto de extremidade
+
+Se você tiver problemas ao se conectar a um ponto de extremidade como ponto de extremidade de área de trabalho remota, você pode tentar as seguintes etapas gerais de solução de problemas:
+
+- Reiniciar máquina virtual
+- Recriar ponto de extremidade
+- Conectar-se de um local diferente
+- Redimensionar a máquina virtual
+- Recriar máquina virtual
+
+Para obter mais informações, consulte [Solução de problemas de conectividade de ponto de extremidade (RDP/SSH/HTTP, falhas etc.)](https://social.msdn.microsoft.com/Forums/azure/pt-BR/538a8f18-7c1f-4d6e-b81c-70c00e25c93d/troubleshooting-endpoint-connectivity-rdpsshhttp-etc-failures?forum=WAVirtualMachinesforWindows).
+
 ## Próximas etapas
 
-Se tiver executado as etapas de 1 a 3 neste artigo e precisar de mais ajuda para corrigir o problema, você pode:
+Se tiver executado as etapas acima neste artigo e precisar de mais ajuda para corrigir o problema, você pode:
 
 - Obter ajuda de especialistas do Azure no mundo inteiro. Enviar sua dúvida nos fóruns do MSDN Azure ou Stack Overflow. Consulte [Fóruns do Microsoft Azure](http://azure.microsoft.com/support/forums/) para obter mais informações.
 - Registrar um incidente de suporte do Azure. Vá até o [Site de Suporte do Azure](http://azure.microsoft.com/support/options/) e clique em **Obter suporte** em **Suporte técnico e de cobrança**.
@@ -113,4 +125,4 @@ Se tiver executado as etapas de 1 a 3 neste artigo e precisar de mais ajuda para
 
 [Solucionar problemas de conexões SSH (Secure Shell) para uma máquina virtual do Azure baseada em Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

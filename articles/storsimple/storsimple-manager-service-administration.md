@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Administração do serviço StorSimple Manager | Microsoft Azure"
-   description="Saiba como gerenciar seu dispositivo StorSimple usando o serviço StorSimple Manager no Portal de Gerenciamento do Azure."
+   description="Saiba como gerenciar seu dispositivo StorSimple usando o serviço StorSimple Manager no Portal clássico do Azure."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/11/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Usar o serviço StorSimple Manager para administrar o seu dispositivo StorSimple
@@ -30,13 +30,13 @@ Neste artigo, você aprenderá:
 
 ## Conectar-se ao serviço StorSimple Manager
 
-O serviço StorSimple Manager é executado no Microsoft Azure e se conecta a vários dispositivos StorSimple. Você pode usar o Portal de Gerenciamento do Microsoft Azure central em execução em um navegador para gerenciar esses dispositivos. Para se conectar ao serviço StorSimple Manager, faça o seguinte:
+O serviço StorSimple Manager é executado no Microsoft Azure e se conecta a vários dispositivos StorSimple. Você pode usar o Portal Clássico do Microsoft Azure central em execução em um navegador para gerenciar esses dispositivos. Para se conectar ao serviço StorSimple Manager, faça o seguinte:
 
 #### Para conectar-se ao serviço
 
 1. Navegue até [http://azure.microsoft.com/](http://azure.microsoft.com/)
 
-1. Usando suas credenciais de conta da Microsoft, faça logon no Portal de Gerenciamento do Microsoft Azure (no lado superior direito do painel).
+1. Usando suas credenciais de conta da Microsoft, faça logon no Portal Clássico do Microsoft Azure (no lado superior direito do painel).
 
 1. Role para baixo o painel de navegação esquerdo para acessar o serviço StorSimple Manager.
 
@@ -57,11 +57,11 @@ A hierarquia de navegação para a interface do usuário do StorSimple Manager �
 |Página de aterrisagem|Páginas de nível de serviço|Páginas de nível de dispositivo|Páginas de nível de dispositivo|
 |---|---|---|---|
 |Serviço StorSimple Manager|Painel de serviço|Painel do dispositivo||
-||Dispositivos →|Monitor|| 
+||Dispositivos →|Monitor| 
 ||Catálogo de backup|Contêineres de volume|Volumes| 
 ||Configurar (Serviço)|Políticas de backup|| 
-||Trabalhos|Configurar (Dispositivo)|| 
-||Alertas|Manutenção||
+||Trabalhos|Configurar (Dispositivo)| 
+||Alertas|Manutenção|
 
 ![Vídeo disponível](./media/storsimple-manager-service-administration/Video_icon.png) **Vídeo disponível**
 
@@ -116,4 +116,4 @@ Se você não conseguir resolver os problemas e precisar criar uma solicitação
 
 -  [Contatar Suporte da Microsoft](storsimple-contact-microsoft-support.md)
 
-<!----HONumber=Oct15_HO4-->
+<!----HONumber=AcomDC_1203_2015-->

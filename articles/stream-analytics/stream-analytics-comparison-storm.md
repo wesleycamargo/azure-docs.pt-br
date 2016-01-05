@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Comparação: Apache Storm vs. Stream Analytics do Azure | Microsoft Azure"
-	description="Saiba como usar a Stream Analytics para análise de sentimento Twitter em tempo real. Orientações passo a passo de geração de eventos aos dados em um painel em tempo real."
-	keywords="twitter em tempo real, análise de sentimento, análise de mídia social, ferramenta de análise de mídia social"
+	pageTitle="Plataformas de análise: comparação do Apache Storm com o Stream Analytics | Microsoft Azure"
+	description="Obtenha diretrizes ao escolher uma plataforma de análise de nuvem, usando a comparação entre o Apache Storm e o Stream Analytics. Compreender os recursos e diferenças."
+	keywords="plataforma de análise, plataformas de análise, plataforma de análise de nuvem, comparação com o storm"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -17,15 +17,13 @@
 	ms.date="11/06/2015"
 	ms.author="jeffstok"/>
 
-# Comparação entre o Apache Storm e Stream Analytics do Azure #
+# Ajudar a escolher uma plataforma de análise de streaming: comparação do Apache Storm com o Stream Analytics do Azure
 
-## Introdução ##
+Obtenha diretrizes ao escolher uma plataforma de análise de nuvem, usando a comparação entre o Apache Storm e o Stream Analytics do Azure. Compreenda as propostas de valor do Stream Analytics versus o Apache Storm como um serviço gerenciado no Azure HDInsight, para que você possa escolher a solução certa para os casos de uso da sua empresa.
 
-Este documento ilustra o posicionamento Apache Storm e Stream Analytics do Azure como um serviço gerenciado no HDInsight. O objetivo é ajudar os clientes a entender a proposta de valor de ambos os serviços e tomar uma decisão certa para seu caso de uso de negócio.
+As duas plataformas de análise fornecem benefícios de uma solução PaaS, mas há alguns recursos importantes que as diferenciam. Os recursos, bem como as limitações desses serviços, estão listados abaixo para ajudar você a chegar à solução de que precisa para alcançar seus objetivos.
 
-Embora ambos forneçam benefícios de uma solução PaaS, há alguns recursos importantes que diferenciam esses serviços. Acreditamos que uma lista desses recursos, bem como das limitações desses serviços, ajudarão os clientes a chegar à solução que precisam para alcançar suas metas.
-
-## Geral ##
+## Comparação com o Stream Analytics: recursos gerais ##
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -138,7 +136,7 @@ Embora ambos forneçam benefícios de uma solução PaaS, há alguns recursos im
         </tr>
     </tbody>
 </table>
-## Criação ##
+## Criação em cada plataforma de análise ##
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -262,7 +260,7 @@ Embora ambos forneçam benefícios de uma solução PaaS, há alguns recursos im
         </tr>
     </tbody>
 </table>
-## Entrada e saída ##
+## Saídas e fontes de dados ##
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -563,7 +561,7 @@ Embora ambos forneçam benefícios de uma solução PaaS, há alguns recursos im
             </td>
             <td width="246" valign="top">
                 <p>
-                    Sem limites de tamanho dos dados. Conectores disponíveis para HBase, Banco de Dados de Documentos, SQL Server e Azure. Conectores sem suporte podem ser implementados via código personalizado. 
+                    Sem limites de tamanho dos dados. Conectores disponíveis para HBase, Banco de Dados de Documentos, SQL Server e Azure. Conectores sem suporte podem ser implementados via código personalizado.
                 </p>
                 <p>
                     A atualização dos dados de referência deve ser tratada pelo código personalizado.
@@ -590,4 +588,4 @@ Embora ambos forneçam benefícios de uma solução PaaS, há alguns recursos im
     </tbody>
 </table>
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

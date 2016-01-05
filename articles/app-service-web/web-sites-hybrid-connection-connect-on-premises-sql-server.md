@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="11/13/2015"
 	ms.author="cephalin"/>
 
 # Conectar-se ao SQL Server local por meio de um aplicativo Web no Serviço de Aplicativo do Azure usando conexões híbridas
@@ -22,9 +22,9 @@ As conexões híbridas podem conectar aplicativos Web do [Serviço de Aplicativo
 
 Neste tutorial, você aprenderá a criar um aplicativo Web dos Serviços de Aplicativo na [visualização do Azure](http://go.microsoft.com/fwlink/?LinkId=529715), conectar o aplicativo Web a seu banco de dados local SQL Server local usando o novo recurso de conexão híbrida, criar um aplicativo ASP.NET simples que usará a conexão híbrida e implantar o aplicativo para o aplicativo Web do Serviço de Aplicativo. O aplicativo Web completo no Azure armazena credenciais de usuário em um banco de dados de associação local. O tutorial pressupõe que você não tem nenhuma experiência anterior com o Azure nem com o ASP.NET.
 
->[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 >
->A parte Aplicativos Web do recurso Conexões Híbridas está disponível somente no [portal de visualização do Azure](https://portal.azure.com). Para criar uma conexão nos Serviços BizTalk, consulte [Conexões Híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274).
+>A parte de aplicativos Web do recurso de conexões híbridas está disponível apenas no [Portal do Azure](https://portal.azure.com). Para criar uma conexão nos Serviços BizTalk, consulte [Conexões Híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274).
 
 ## Pré-requisitos ##
 
@@ -116,11 +116,11 @@ Seu aplicativo Web do Visual Studio exige um banco de dados de associação que 
 	![MembershipDB criado][SSMSMembershipDBCreated]
 
 <a name="CreateSite"></a>
-## B. Criar um aplicativo Web no portal de visualização do Azure ##
+## B. Criar um aplicativo Web no Portal do Azure ##
 
-> [AZURE.NOTE]Se já criou um aplicativo Web no portal de visualização do Azure que deseja utilizar para este tutorial, você pode pular para [Criar uma Conexão Híbrida e um Serviço do BizTalk](#CreateHC) e continuar a partir dali.
+> [AZURE.NOTE]Se já criou um aplicativo Web no Portal do Azure que deseja utilizar para este tutorial, você pode pular para [Criar uma Conexão Híbrida e um Serviço do BizTalk](#CreateHC) e continuar a partir dali.
 
-1. No [portal de visualização do Azure](https://portal.azure.com), clique em **Novo** > **Web + Móvel** > **Aplicativo Web**.
+1. No [Portal do Azure](https://portal.azure.com), clique em **Novo** > **Web + Móvel** > **Aplicativo Web**.
 
 	![Novo botão][New]
 
@@ -139,7 +139,7 @@ Em seguida, você criará uma conexão híbrida e um serviço do BizTalk para o 
 <a name="CreateHC"></a>
 ## C. Criar uma Conexão Híbrida e um Serviço do BizTalk ##
 
-1. No portal, role para baixo a folha de seu aplicativo Web e clique em **status do Recursos de Rede** > **Configurar seus pontos de extremidade de conexão híbrida**.
+1. No Portal, vá para configurações e clique em **rede** > **Configurar seus pontos de extremidade de conexão híbrida**.
 
 	![Conexões Híbridas][CreateHCHCIcon]
 
@@ -206,7 +206,7 @@ Nessa etapa, você edita a cadeia de conexão que diz a seu aplicativo onde enco
 
 	- Se você está se conectando a uma instância nomeada em vez de conectar-se a uma instância padrão (por exemplo, YourServer\\SQLEXPRESS), você precisa configurar seu SQL Server para utilizar portas estáticas. Para obter informações sobre configuração de portas estáticas, consulte [Como configurar um SQL Server para escutar em uma porta específica](http://support.microsoft.com/kb/823938). Por padrão, instâncias nomeadas utilizam UDP e portas dinâmicas, que não têm suporte em Conexões Híbridas.
 
-	- É recomendável que você especifique a porta (1433 por padrão, conforme mostrado no exemplo) na cadeia de conexão, de modo que você possa ter certeza de que seu SQL Server local tem TCP habilitado e utiliza a porta correta.
+	- É recomendável especificar a porta (1433 por padrão, conforme mostrado no exemplo) na cadeia de conexão para poder ter certeza de que seu SQL Server local tem TCP habilitado e está usando a porta correta.
 
 	- Lembre-se de usar a Autenticação do SQL Server para conectar-se, especificando a ID de usuário e senha em sua cadeia de conexão.
 
@@ -239,7 +239,7 @@ Agora, você publicará o aplicativo em seu aplicativo Web do Serviço de Aplica
 
 ### Publicar o aplicativo Web ###
 
-1. Você pode baixar o perfil de publicação para o aplicativo Web do Serviço de Aplicativo no portal de visualização do Azure. Na folha de seu aplicativo Web, clique em **Obter perfil de publicação** e, em seguida, salve o arquivo em seu computador.
+1. Você pode baixar o perfil de publicação para o aplicativo Web do Serviço de Aplicativo no Portal do Azure. Na folha de seu aplicativo Web, clique em **Obter perfil de publicação** e, em seguida, salve o arquivo em seu computador.
 
 	![Baixar perfil de publicação][PortalDownloadPublishProfile]
 
@@ -247,7 +247,7 @@ Agora, você publicará o aplicativo em seu aplicativo Web do Serviço de Aplica
 
 2. No Visual Studio, com o botão direito no nome do projeto no Gerenciador de Soluções e selecione **Publicar**.
 
-	![Selecione Publicar][HCVSRightClickProjectSelectPublish]
+	![Selecionar Publicar][HCVSRightClickProjectSelectPublish]
 
 3. Na caixa de diálogo **Publicar na Web**, na guia **Perfil**, selecione **Importar**.
 
@@ -363,4 +363,4 @@ Agora você criou e implantou um aplicativo Web ASP.NET que utiliza uma conexão
 [HCTestSSMSTree]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F10HCTestSSMSTree.png
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

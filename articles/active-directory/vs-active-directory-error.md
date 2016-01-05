@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="TomArcher" 
 	manager="douge" 
-	editor="tglee"/>
+	editor=""/>
   
 <tags 
 	ms.service="active-directory" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="12/10/2015" 
 	ms.author="tarcher"/>
 
 # Erro na Detecção da Autenticação
@@ -22,11 +22,11 @@ Ao detectar o código de autenticação anterior, o assistente detectou um tipo 
 
 ##O que está sendo verificado?
 
-**Observação:** para detectar corretamente o código de autenticação anterior em um projeto, o projeto deve ser criado. Se este erro ocorrer e você não tiver o código de autenticação anterior em seu projeto, recrie o projeto e tente novamente.
+**Observação:** para detectar corretamente o código de autenticação anterior em um projeto, o projeto deve ser criado. Se este erro ocorrer e você não tiver o código de autenticação anterior em seu projeto, compile o projeto novamente e repita a operação.
 
 ###Tipos de projeto
 
-O assistente verifica o tipo de projeto que você está desenvolvendo para que possa injetar a lógica de autenticação adequada ao projeto. Se houver qualquer controlador que deriva de `ApiController` no projeto, será considerado um projeto de API da Web. Se houver apenas os controladores que derivam de `MVC.Controller` no projeto, será considerado um projeto MVC. Qualquer outra coisa é considerada sem suporte pelo assistente. Atualmente, não há suporte para projetos de formulários da Web.
+O assistente verifica o tipo de projeto que você está desenvolvendo para que possa injetar a lógica de autenticação adequada ao projeto. Se houver qualquer controlador que deriva de `ApiController` no projeto, o projeto será considerado um projeto WebAPI. Se houver apenas os controladores que derivam de `MVC.Controller` no projeto, o projeto será considerado um projeto MVC. Qualquer outro item não tem suporte do assistente. Atualmente, não há suporte para projetos de formulários da Web.
 
 ###Código de autenticação compatível
 
@@ -95,6 +95,5 @@ Para detectar uma forma anterior de Autenticação de conta organizacional, o as
 Para alterar o tipo de autenticação, remova o tipo de autenticação incompatível e execute o assistente novamente.
 
 Para obter mais informações, consulte [Cenários de autenticação para o Azure AD](active-directory-authentication-scenarios.md).
- 
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

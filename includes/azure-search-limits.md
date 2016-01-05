@@ -11,5 +11,7 @@ Máximo de serviços de pesquisa|12 por assinatura do Azure
 Número máximo de indexadores|10 por serviço de Pesquisa
 Número máximo de fontes de dados|10 por serviço de Pesquisa
 Número máximo de documentos que podem ser indexados em uma invocação de indexador único|Ilimitado
+Numero máximo de perfis de pontuação por índice|16
+Número máximo de funções por perfil|8
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

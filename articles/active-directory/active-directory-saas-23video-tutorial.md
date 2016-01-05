@@ -3,8 +3,8 @@
 	description="Saiba como configurar o logon único entre o Active Directory do Azure e o 23 Video."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
+	authors="jeevansd"
+	manager="prasannas"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015"
-	ms.author="markusvi"/>
+	ms.date="12/04/2015"
+	ms.author="jeedes"/>
 
 
 # Tutorial: integração do Active Directory do Azure com o 23 Video
@@ -44,7 +44,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
  
 ## Descrição do cenário
-O objetivo deste tutorial é permitir que você teste o logon único do AD do Azure em um ambiente de teste. <br> O cenário descrito neste tutorial consiste em três blocos de construção principais:
+O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste. <br> O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o 23 Video por meio da galeria 
 2. Configurar e testar o logon único do AD do Azure
@@ -55,7 +55,7 @@ Para configurar a integração do 23 Video ao AD do Azure, você precisa adicion
 
 **Para adicionar o 23 Video por meio da galeria, realize as seguintes etapas:**
 
-1. No **Portal de Gerenciamento do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. <br><br> ![Active Directory][1]<br>
+1. No **Portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. <br><br> ![Active Directory][1]<br>
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
@@ -80,11 +80,11 @@ Para configurar e testar o logon único do AD do Azure com o 23 Video, você pre
 
 ### Configuração do logon único do AD do Azure
 
-O objetivo desta seção é habilitar o logon único do AD do Azure no portal do AD do Azure e configurar o logon único em seu aplicativo 23 Video.<br>
+O objetivo desta seção é habilitar o logon único do AD do Azure no Portal clássico do Azure e configurar o logon único em seu aplicativo 23 Video.<br>
 
 **Para configurar o logon único do AD do Azure com o 23 Video, realize as seguintes etapas:**
 
-1. No portal do AD do Azure, na página de integração de aplicativos do **23 Video**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**. <br><br> ![Configurar o logon único][6] <br>
+1. No Portal clássico do Azure, na página de integração de aplicativos do **23 Video**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**. <br><br> ![Configurar o logon único][6] <br>
 
 2. Na página **Como você deseja que os usuários façam logon no 23 Video**, selecione **Logon único do AD do Azure** e clique em **Avançar**. <br><br> ![Logon único do AD do Azure][7] <br>
 
@@ -105,7 +105,7 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal do
     c. Clique em **Próximo**.
 
 
-6. No portal do AD do Azure, selecione a confirmação de configuração de logon único e clique em **Avançar**. <br><br>![Logon único do AD do Azure][10]<br>
+6. No Portal clássico do Azure, selecione a confirmação de configuração de logon único e clique em **Avançar**. <br><br>![Logon único do AD do Azure][10]<br>
 
 7. Na página **Confirmação de logon único**, clique em **Concluir**. <br><br>![Logon único do AD do Azure][11]
 
@@ -113,11 +113,11 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal do
 
 
 ### Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no portal do Azure chamado Brenda Fernandes.<br> Na lista Usuários, selecione **Brenda Fernandes**.<br><br>![Criar um usuário do AD do Azure][20]<br>
+O objetivo desta seção é criar um usuário de teste no Portal clássico do Azure chamado Brenda Fernandes.<br> Na lista Usuários, selecione **Brenda Fernandes**.<br><br>![Criar um usuário do AD do Azure][20]<br>
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **Portal de Gerenciamento do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-23video-tutorial/create_aaduser_09.png) <br> 
+1. No **Portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-23video-tutorial/create_aaduser_09.png) <br> 
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
@@ -181,7 +181,7 @@ O objetivo desta seção é habilitar Brenda Fernandes a usar o logon único do 
 
 **Para atribuir Brenda Fernandes ao 23 Video, realize as seguintes etapas:**
 
-1. No portal do Azure, para abrir a exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior. <br> <br>![Atribuir usuário][201]<br>
+1. No Portal clássico do Azure, para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu superior. <br><br>![Atribuir usuário][201] <br>
 2. Na lista de aplicativos, selecione **23 Video**. <br><br>![Atribuir usuário][202] <br>
 1. No menu na parte superior, clique em **Usuários**. <br><br>![Atribuir usuário][203] <br>
 1. Na lista Usuários, selecione **Brenda Fernandes**.
@@ -228,4 +228,4 @@ O objetivo desta seção é testar sua configuração de logon único do AD do A
 [401]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_11.png
 [402]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_12.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="08/07/2015"
+	ms.date="11/29/2015"
 	ms.author="nitinme"/>
 
 # Introdução ao ecossistema do Hadoop com o Emulador do HDInsight, uma área restrita do Hadoop
@@ -37,8 +37,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 - O Emulador do HDInsight requer uma versão de 64 bits do Windows. Um dos requisitos a seguir deve ser atendido:
 
-	- Windows 7 Service Pack 1
-	- Windows Server 2008 R2 Service Pack 1
+	- Windows 10
 	- Windows 8
 	- Windows Server 2012
 
@@ -109,9 +108,9 @@ Após a conexão ser estabelecida com êxito, você pode usar as ferramentas do 
 
 ## Solução de problemas: Conectando as Ferramentas do HDInsight ao Emulador do HDInsight
 
-1. Durante a conexão com o Emulador do HDInsight, embora a caixa de diálogo mostre HiveServer2 conectado com êxito, você deve definir manualmente a **propriedade hive.security.authorization.enabled** como **false** (falso) no arquivo de configuração em C:\\hdp\\hive-*versão*\\conf\\hive-site.xml e reiniciar o Emulador local. As Ferramentas do HDInsight para Visual Studio se conecta ao HiveServer2 somente quando você está visualizando as 100 primeiras linhas da tabela. Se não pretende usar esse tipo de consulta, você pode deixar a configuração de Hive como está.
+1. Ao estabelecer conexão com o Emulador do HDInsight, embora a caixa de diálogo mostre a mensagem “HiveServer2 conectado com êxito”, você deve definir manualmente a **propriedade hive.security.authorization.enabled** como **false** no arquivo de configuração do Hive em C:\\hdp\\hive-*versão*\\conf\\hive-site.xml e reiniciar o Emulador local. As Ferramentas do HDInsight para Visual Studio se conecta ao HiveServer2 somente quando você está visualizando as 100 primeiras linhas da tabela. Se não pretende usar esse tipo de consulta, você pode deixar a configuração de Hive como está.
 
-2. Se você estiver usando alocação de IP dinâmico (DHCP) no computador que executa o Emulador do HDInsight, talvez seja necessário atualizar C:\\hdp\\hadoop-*versão*\\etc\\hadoop\\core-site.xml e alterar o valor da propriedade **hadoop.proxyuser.hadoop.hosts** para (*). Isso permite que o usuário do Hadoop se conecte de todos os hosts para representar o usuário que você inseriu no Visual Studio.
+2. Se estiver usando a alocação de IP dinâmico (DHCP) no computador que executa o Emulador do HDInsight, talvez seja necessário atualizar C:\\hdp\\hadoop-*versão*\\etc\\hadoop\\core-site.xml e alterar o valor da propriedade **hadoop.proxyuser.hadoop.hosts** para (*). Isso permite que o usuário do Hadoop se conecte de todos os hosts para representar o usuário que você inseriu no Visual Studio.
 
 		<property>
 			<name>hadoop.proxyuser.hadoop.hosts</name>
@@ -129,7 +128,7 @@ O programa MapReduce de contagem de palavras foi empacotado em *hadoop-mapreduce
 O trabalho do MapReduce para contar palavras usa dois argumentos:
 
 - Uma pasta de entrada. Você usará **hdfs://localhost/user/HDIUser* como a pasta de entrada.
-- Uma pasta de saída. Você usará **hdfs://localhost/user/HDIUser/WordCount_Output* como pasta de saída. A pasta de saída não pode ser uma pasta existente, ou o trabalho do MapReduce falhará. Se você quiser executar o trabalho do MapReduce pela segunda vez, especifique uma pasta de saída diferente ou exclua a pasta de saída existente.
+- Uma pasta de saída. Você usará **hdfs://localhost/user/HDIUser/WordCount_Output* como a pasta de saída. A pasta de saída não pode ser uma pasta existente, ou o trabalho do MapReduce falhará. Se você quiser executar o trabalho do MapReduce pela segunda vez, especifique uma pasta de saída diferente ou exclua a pasta de saída existente.
 
 **Para executar o trabalho do MapReduce de contagem de palavras**
 
@@ -397,14 +396,14 @@ Antes de começar pelas instruções abaixo, você deve ter criado uma conta de 
 
 **Para criar um contêiner**
 
-1. Entre no [Portal de Visualização do Azure](https://ms.portal.azure.com/).
-2. Clique em **NOVO** à esquerda, clique em **Dados + Armazenamento** e clique em **Armazenamento**.
+1. Entre no [Portal do Azure](https://ms.portal.azure.com/).
+2. Clique em **NOVO** à esquerda, em **Dados + Armazenamento** e em **Armazenamento**.
 3. Na folha Conta de Armazenamento, configure as propriedades como mostrado na captura de tela abaixo.
 	
 	![Criar uma conta de armazenamento](./media/hdinsight-hadoop-emulator-get-started/hdi.emulator.create.storage.png)
 
 	Selecione **Fixar no Quadro Inicial** e clique em **Criar**.
-4. Depois de criar a conta de armazenamento, da folha da conta de armazenamento nova, clique em **Contêineres** para abrir a folha de contêineres, clique em **Adicionar**.
+4. Depois de criar a conta de armazenamento, na folha da nova conta de armazenamento, clique em **Contêineres** para abrir a folha de contêineres e clique em **Adicionar**.
 5. Insira o nome do contêiner e clique em **Selecionar**.
 
 	![Criar um contêiner](./media/hdinsight-hadoop-emulator-get-started/hdi.emulator.create.container.png)
@@ -498,4 +497,4 @@ Neste tutorial do MapReduce, você instalou o Emulador do HDInsight (uma área r
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

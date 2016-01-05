@@ -132,7 +132,7 @@ Nesta seção, adicionaremos um novo controlador ao back-end da API Web para man
 
         using Microsoft.Azure.NotificationHubs;
 
-6. Substitua a definição da classe `Notifications` pelo seguinte e certifique-se de substituir os dois espaços reservados pela cadeia de conexão (com acesso completo) para o hub de notificação e o nome do hub (disponível no [Portal de Gerenciamento do Azure](http://manage.windowsazure.com)):
+6. Substitua a definição da classe `Notifications` pelo seguinte e certifique-se de substituir os dois espaços reservados pela cadeia de conexão (com acesso completo) para o hub de notificação e o nome do hub (disponível no [Portal Clássico do Azure](http://manage.windowsazure.com)):
 
 		public class Notifications
         {
@@ -364,4 +364,4 @@ Nesta seção, você adiciona um novo controlador que expõe uma maneira para di
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

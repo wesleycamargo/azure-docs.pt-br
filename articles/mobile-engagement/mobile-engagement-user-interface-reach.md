@@ -13,50 +13,53 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="08/10/2015"
+   ms.date="11/29/2015"
    ms.author="piyushjo"/>
 
 
 # Como entrar em contato com os usuários do seu aplicativo com notificações por push
+
+Este artigo descreve a guia **ALCANCE** do portal do **Mobile Engagement**. Você usa o portal do **Mobile Engagement** para monitorar e gerenciar seus aplicativos móveis. Observe que, para começar a usar o portal, primeiro você precisa criar uma conta do **Azure Mobile Engagement**. Para obter mais informações, veja [Criar uma conta do Azure Mobile Engagement](mobile-engagement-create-account.md).
+
 A seção Reach da interface do usuário é a ferramenta de gerenciamento de campanha Push onde você pode criar/editar/ativar/finalizar/monitorar e obter estatísticas sobre campanhas de notificação de envio e os recursos que também podem ser acessados via a API do Reach (e alguns elementos do nível baixo API de envio). Lembre-se de que, se você estiver usando as APIs ou a interface do usuário, você precisará integrar o Mobile Engagement do Azure e o Reach em seu aplicativo em cada plataforma com o SDK antes que você possa usar as campanhas Reach.
 
-### Consulte também
--  [Documentação da API - API Reach][Link 4], [Documentação da API - API Push][Link 4], [Guia de solução de problemas - Push/Reach][Link 23]
--  [Reach - Campanha][Link 27], [Reach - Critério][Link 28], [Reach - Conteúdo][Link 29], [Reach - Passo a passo][Link 3]
+>[AZURE.NOTE]Muitas seções da interface do usuário do portal do **Mobile Engagement** contêm o botão **MOSTRAR AJUDA**. Pressione este botão para obter mais informações contextuais sobre uma seção.
+
  
 ## Quatro tipos de notificações por Push
 1.    Anúncios - permitem que sejam enviadas mensagens de anúncio para usuários que redirecioná-las para outro local dentro de seu aplicativo ou para enviá-las para uma página da Web ou armazenamento fora de seu aplicativo. 
 2.    Pesquisas - permitem coletar informações dos usuários finais ao fazer perguntas a eles.
 3.    Envio de dados - permite enviar um arquivo de dados binário ou base64. As informações contidas em um envio de dados são enviadas ao seu aplicativo para modificar a experiência atual dos usuários em seu aplicativo. Seu aplicativo precisa ser capaz de processar os dados em um envio de dados.
-4.    Lado a lado (Windows Phone somente) - permite que você use o serviço de notificação por push da Microsoft (MPNS) para enviar envios nativos do Windows que contenham os dados XML. (Suporte desde a versão 0.9.0 do SDK. A carga final para o lado a lado não pode exceder a 32 quilo bytes).
 
-### Consulte também
--  [Conceitos - Glossário][Link 6]
 
 ## Três categorias de estatísticas em tempo real mostradas para cada campanha:
+
 1.    Enviadas - quantos envios foram feitos com base nos critérios especificados na campanha. 
 2.    Respondidas - quantos usuários reagiram à notificação ao abri-la fora do aplicativo ou fechá-la no aplicativo. 
 3.    Acionadas - quantos usuários clicaram no link na notificação para serem redirecionados para um novo local no aplicativo, para uma loja ou um navegador da Web. 
 
-> Observação: Mais estatísticas detalhadas de campanha estão disponíveis nas estatísticas de API do Reach
+> [AZURE.NOTE]\: mais estatísticas detalhadas de campanha estão disponíveis nas estatísticas de API de Alcance
 
-### Consulte também
--  [Conceitos - Glossário][Link 6], [Documentação - API Reach - Estatísticas][Link 4]
 
 
 ## Detalhes da campanha
+
 Você pode editar, clonar, excluir ou ativar campanhas que ainda não foram ativadas passando o mouse sobre os nomes ou você pode clicar para abri-las. Você pode clonar campanhas que já foram ativadas passando o mouse sobre os nomes ou você pode clicar para abri-las. No entanto, você não pode alterar uma campanha depois que ela tiver sido ativada.
  
 ![Reach1][18]
 
 ## Comentários do Reach
-Você pode alternar de exibição de detalhes para a de estatísticas de uma campanha aberta que já foi ativada e alternar de exibição das estatísticas simples para avançada para exibir informações mais detalhadas (dependendo de suas permissões). Você também pode usar as informações de comentários do Reach de uma campanha anterior como critérios de direcionamento em uma nova campanha. As estatísticas dos comentários do Reach também podem ser obtidas com as "Estatísticas" da API do Reach. Você também pode personalizar o público-alvo de suas campanhas de envio com base em campanhas anteriores.
 
+Para ver detalhes ou estatísticas de uma campanha, clique nela. Você pode, então, alternar da exibição de detalhes para a de estatísticas de uma campanha aberta que já foi ativada e alternar da exibição de estatísticas simples para a avançada para exibir informações mais detalhadas (dependendo de suas permissões). Você também pode usar as informações de comentários do Reach de uma campanha anterior como critérios de direcionamento em uma nova campanha. As estatísticas dos Comentários de Alcance também podem ser obtidas com **Estatísticas** da API de Alcance. Você também pode personalizar o público-alvo de suas campanhas de envio com base em campanhas anteriores.
 
-### Consulte também 
--  [Documentação da interface do usuário - Reach - Nova campanha de Push][27], [Documentação da API - API do Reach - Estatísticas][Link 4]
 
 ![Reach2][19]
+
+
+## Consulte também
+
+- [Conceitos][Link 6]
+- [Serviço do Guia de Solução de Problemas][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -150,4 +153,4 @@ Você pode alternar de exibição de detalhes para a de estatísticas de uma cam
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="12/16/2015" 
 	ms.author="tomfitz"/>
 
 # Criar um Cache Redis usando um modelo
@@ -28,9 +28,9 @@ Para obter o modelo completo, confira [Modelo do Cache Redis](https://github.com
 
 >[AZURE.NOTE]Estão disponíveis modelos de ARM para a nova [camada Premium](cache-premium-tier-intro.md).
 >
->-    [Criar um cache Redis Premium com clustering](https://azure.microsoft.com/pt-BR/documentation/templates/201-redis-premium-cluster-diagnostics/)
->-    [Criar um cache Redis Premium com persistência de dados](https://azure.microsoft.com/pt-BR/documentation/templates/201-redis-premium-persistence/)
->-    [Criar um cache Redis Premium com VNet e clustering opcional](https://azure.microsoft.com/pt-BR/documentation/templates/201-redis-premium-vnet-cluster-diagnostics/)
+>-    [Criar um cache Redis Premium com clustering](https://azure.microsoft.com/documentation/templates/201-redis-premium-cluster-diagnostics/)
+>-    [Criar um cache Redis Premium com persistência de dados](https://azure.microsoft.com/documentation/templates/201-redis-premium-persistence/)
+>-    [Criar um cache Redis Premium com VNet e clustering opcional](https://azure.microsoft.com/documentation/templates/201-redis-premium-vnet-cluster-diagnostics/)
 >
 >Para verificar os modelos mais recentes, consulte [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) e procure por `Redis Cache`.
 
@@ -131,10 +131,10 @@ Cria o Cache Redis do Azure.
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -ResourceGroupName ExampleDeployGroup -redisCacheName ExampleCache -redisCacheLocation "West US"
+    New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -ResourceGroupName ExampleDeployGroup -redisCacheName ExampleCache -redisCacheLocation "West US"
 
 ### CLI do Azure
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1217_2015-->

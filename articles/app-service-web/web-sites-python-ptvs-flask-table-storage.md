@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="08/30/2015"
-	ms.author="huguesv"/>
+	ms.date="11/18/2015"
+	ms.author="huvalo"/>
 
 
 
@@ -40,7 +40,7 @@ Confira o [Python Developer Center] para obter mais artigos que abrangem o desen
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
+>[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## Criar o projeto
 
@@ -70,11 +70,13 @@ Nesta seção, criaremos um projeto Visual Studio usando um modelo de amostra. C
 
 Para usar as operações de armazenamento, você precisa de uma conta de armazenamento do Azure. Você pode criar uma conta de armazenamento seguindo essas etapas.
 
-1.  Faça logon no [Portal do Azure].
+1.  Faça logon no [Portal do Azure](https://portal.azure.com/).
 
-2. Clique no ícone **Novo** na parte inferior esquerda do portal e clique em **Dados + Armazenamento** > **Armazenamento**. Dê um nome exclusivo à conta de armazenamento e crie um novo [grupo de recursos](../resource-group-overview.md) para ela.
+2. Clique no ícone **Novo** no canto superior esquerdo do Portal. Em seguida, clique em **Dados + Armazenamento** > **Conta de Armazenamento**. Clique em **Criar** e dê um nome exclusivo à conta de armazenamento e crie um novo [grupo de recursos](../resource-group-overview.md) para ela.
 
-  	<!-- ![New Button](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzurePlusNew.png) -->Quando a conta de armazenamento tiver sido criada, o botão **Notificações** piscará **ÊXITO** em verde e a folha da conta de armazenamento será aberta para mostrar que ela pertence ao novo grupo de recursos que você criou.
+  	<!-- ![New Button](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzurePlusNew.png) -->
+
+	Quando a conta de armazenamento tiver sido criada, o botão **Notificações** piscará **ÊXITO** em verde e a folha da conta de armazenamento será aberta para mostrar que ela pertence ao novo grupo de recursos que você criou.
 
 5. Clique na parte **Configurações** na folha da conta de armazenamento. Anote o nome da conta e a chave primária.
 
@@ -82,7 +84,7 @@ Para usar as operações de armazenamento, você precisa de uma conta de armazen
 
 ## Configurar o projeto
 
-Nesta seção, configuraremos nosso aplicativo para usar a conta de armazenamento que acabamos de criar. Veremos como obter configurações de conexão no portal do Azure. Em seguida, executaremos o aplicativo localmente.
+Nesta seção, configuraremos nosso aplicativo para usar a conta de armazenamento que acabamos de criar. Veremos como obter configurações de conexão do Portal do Azure. Em seguida, executaremos o aplicativo localmente.
 
 1.  No Visual Studio, clique com o botão direito do mouse no nó do projeto no Gerenciador de Soluções e selecione **Propriedades**. Clique na guia **Depurar**.
 
@@ -101,6 +103,8 @@ Nesta seção, configuraremos nosso aplicativo para usar a conta de armazenament
 1.  O código que implementa o repositório do Armazenamento de Tabela do Azure está em **models/azuretablestorage.py**. Consulte a [documentação] para obter mais informações sobre como usar o Serviço de Tabela do Python.
 
 1.  Execute o aplicativo com `F5`. As votações que são criadas com **Criar Votações de Exemplo** e os dados enviados por voto serão serializados no Armazenamento de Tabela do Azure.
+
+	> [AZURE.NOTE]O Ambiente Virtual do Python 2.7 pode causar uma interrupção de exceção no Visual Studio. Pressione `F5` para continuar carregando o projeto Web.
 
 1.  Navegue até a página **Sobre** para verificar se o aplicativo está usando o repositório do **Armazenamento de Tabela do Azure**.
 
@@ -147,9 +151,9 @@ O SDK .NET do Azure fornece uma forma fácil de implantar seu aplicativo Web no 
 
 Nesta seção, configuraremos variáveis do ambiente para a instância de Aplicativos Web.
 
-1.  No [Portal do Azure], abra a folha do aplicativo Web clicando em **Procurar** > **Aplicativos Web** > nome do aplicativo Web.
+1.  No [Portal do Azure](https://portal.azure.com), abra a folha do aplicativo Web clicando em **Procurar** > **Aplicativos Web** > nome do aplicativo Web.
 
-1.  Na folha do seu aplicativo Web, clique em **Todas as configurações**, em seguida, em **Configurações do aplicativo**.
+1.  Na folha do seu aplicativo Web, clique em **Todas as configurações** depois clique em **Configurações do aplicativo**.
 
   	<!-- ![Top Menu](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonWebSiteTopMenu.png) -->
 
@@ -181,8 +185,7 @@ Siga estes links para saber mais sobre as ferramentas Python para Visual Studio,
 - [Como usar o serviço de armazenamento de tabela por meio do Python]
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 
 <!--Link references-->
@@ -192,7 +195,7 @@ Siga estes links para saber mais sobre as ferramentas Python para Visual Studio,
 [Como usar o serviço de armazenamento de tabela por meio do Python]: ../storage-python-how-to-use-table-storage.md
 
 <!--External Link references-->
-[Azure Management Portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [SDK do Azure para .NET]: http://azure.microsoft.com/downloads/
 [Python Tools para Visual Studio]: http://aka.ms/ptvs
 [Ferramentas Python 2.2 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
@@ -210,4 +213,4 @@ Siga estes links para saber mais sobre as ferramentas Python para Visual Studio,
 [SDK do Azure para Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=Oct15_HO3-->
+<!-----HONumber=AcomDC_1203_2015-->

@@ -1,11 +1,11 @@
-<properties 
+<properties
 	pageTitle="Introdução ao armazenamento de fila e aos serviços conectados do Visual Studio (projetos WebJob) | Microsoft Azure"
 	description="Como começar a usar o armazenamento de fila do Azure em um projeto WebJob depois de se conectar a uma conta de armazenamento usando os serviços conectados do Visual Studio."
 	services="storage"
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,23 +13,14 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Introdução ao Armazenamento de Fila do Azure e aos Serviços Conectados do Visual Studio (Projetos WebJob)
 
-> [AZURE.SELECTOR]
-> - [Getting started](vs-storage-webjobs-getting-started-queues.md)
-> - [What happened](vs-storage-webjobs-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-webjobs-getting-started-blobs.md)
-> - [Queues](vs-storage-webjobs-getting-started-queues.md)
-> - [Tables](vs-storage-webjobs-getting-started-tables.md)
-
 ## Visão geral
 
-Este artigo descreve como começar a usar o armazenamento de Fila do Azure no projeto do Visual Studio Azure WebJob depois de ter criado ou referenciado uma conta de armazenamento do Azure usando a caixa de diálogo **Adicionar Serviços Conectados** do Visual Studio. Quando você adiciona uma conta de armazenamento a um projeto de WebJob usando a caixa de diálogo **Adicionar Serviços Conectados** do Visual Studio, os pacotes NuGet do Armazenamento do Azure apropriados são instalados, as referências apropriadas .NET são adicionadas ao projeto e cadeias de conexão para a conta de armazenamento são atualizadas no arquivo App.config.
+Este artigo descreve como começar a usar o armazenamento de Filas do Azure no projeto do Visual Studio Azure WebJob depois de ter criado ou referenciado uma conta de armazenamento do Azure usando a caixa de diálogo **Adicionar Serviços Conectados** do Visual Studio. Quando você adiciona uma conta de armazenamento a um projeto de WebJob usando a caixa de diálogo **Adicionar Serviços Conectados** do Visual Studio, os pacotes NuGet do Armazenamento do Azure apropriados são instalados, as referências apropriadas .NET são adicionadas ao projeto e cadeias de conexão para a conta de armazenamento são atualizadas no arquivo App.config.
 
 Este artigo fornece exemplos de código em C# que mostram como usar o SDK do Azure WebJobs versão 1.x com o serviço de armazenamento de Fila do Azure.
 
@@ -440,7 +431,7 @@ O exemplo a seguir mostra como definir essas configurações:
 
 Às vezes você deseja especificar um nome de fila, um nome de blob ou contêiner ou um nome de tabela no código em vez de embuti-lo no código. Por exemplo, você talvez queira especificar o nome da fila para **QueueTrigger** em um arquivo de configuração ou variável de ambiente.
 
-Você pode fazer isso passando um objeto **NameResolver** para o tipo **JobHostConfiguration**. Você inclui espaços reservados especiais entre sinais de percentual (%) em parâmetros do construtor de atributos do SDK de e o código **NameResolver** especifica os valores reais a serem usados no lugar desses espaços reservados.
+Você pode fazer isso passando um objeto **NameResolver** para o tipo **JobHostConfiguration**. Você inclui espaços reservados especiais entre sinais de percentual (%) em parâmetros do construtor de atributos do SDK de Trabalhos Web e o código **NameResolver** especifica os valores reais a serem usados no lugar desses espaços reservados.
 
 Por exemplo, suponha que você deseje usar uma fila denominada logqueuetest no ambiente de teste e uma denominada logqueueprod na produção. Ao invés de um nome de fila embutido em código, você deseja especificar o nome de uma entrada na coleção **appSettings** que tem o nome da fila real. Se a chave **appSettings** for logqueue, sua função pode parecer com o exemplo a seguir.
 
@@ -542,7 +533,7 @@ Em um trabalho Web contínuo, logs de aplicativo são mostrados em /data/jobs/co
 
 Em um blob do Azure, os logs de aplicativo se parecem com este: 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Hello world!, 2014-09-26T21:01:13,Error,contosoadsnew,491e54,635473620738373502,0,17404,19,Console.Error - Hello world!, 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Olá, mundo!,
 
-E, em uma tabela do Azure os logs **Console. out** e **Console.Error** têm esta aparência:
+E, em uma tabela do Azure os logs **Console.Out** e **Console.Error** têm essa aparência:
 
 ![Log de informações na tabela](./media/vs-storage-webjobs-getting-started-queues/tableinfo.png)
 
@@ -552,4 +543,4 @@ E, em uma tabela do Azure os logs **Console. out** e **Console.Error** têm esta
 
 Este guia forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com filas do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure – Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

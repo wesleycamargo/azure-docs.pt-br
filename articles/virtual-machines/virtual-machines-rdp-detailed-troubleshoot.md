@@ -45,7 +45,7 @@ Aqui está o conjunto de componentes envolvidos.
 Antes de mergulhar em um processo passo a passo de solução de problemas, é útil examinar mentalmente o que foi alterado desde que você conseguiu criar com êxito conexões de Área de Trabalho Remota e usar essa alteração como base para corrigir o problema. Por exemplo:
 
 - Se você tiver conseguido criar conexões de Área de Trabalho Remota e tiver alterado o endereço IP público da máquina virtual ou do serviço de nuvem que contém sua máquina virtual (também conhecido como endereço IP virtual, ou [VIP]), o cache do cliente DNS deverá ter uma entrada para o nome DNS e o *endereço IP antigo*. Libere o cache do cliente DNS e tente novamente. Como alternativa, tente estabelecer a conexão usando o novo VIP.
-- Se você deixou de usar o portal do Azure ou o portal de visualização do Azure e passou a usar um aplicativo para gerenciar suas conexões de Área de Trabalho Remota, verifique se a configuração do aplicativo inclui a porta TCP determinada de forma aleatória para o tráfego de Área de Trabalho Remota.
+- Se você deixou de usar o portal clássico do Azure ou o portal do Azure e passou a usar um aplicativo para gerenciar suas conexões de Área de Trabalho Remota, verifique se a configuração do aplicativo inclui a porta TCP determinada de forma aleatória para o tráfego de Área de Trabalho Remota.
 
 As seções a seguir explicam como isolar e determinar as várias causas raiz para esse problema e fornecem soluções e soluções alternativas.
 
@@ -54,7 +54,7 @@ As seções a seguir explicam como isolar e determinar as várias causas raiz pa
 
 Execute estas etapas antes de prosseguir para a solução de problemas detalhada.
 
-- Verificar o status da máquina virtual no portal do Azure ou no portal de visualização do Azure
+- Verificar o status da máquina virtual no portal clássico do Azure ou no portal do Azure
 - Reiniciar a máquina virtual
 - [Redimensionar a máquina virtual](virtual-machines-size-specs.md)
 
@@ -207,4 +207,4 @@ Verifique se o ponto de extremidade da Área de Trabalho Remota para a máquina 
 
 [Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -3,7 +3,7 @@
 	description="Recomendações do aprendizado de máquina do Azure - guia de início rápido" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="jaymathe" 
+	authors="luisca" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="11/12/2015" 
 	ms.author="luisca"/>
 
 # Guia de início rápido para a API de recomendações de aprendizado de máquina
 
-Este documento descreve como integrar o seu serviço ou aplicativo para usar as Recomendações de Aprendizado de Máquina do Microsoft Azure.
+Este documento descreve como integrar o seu serviço ou aplicativo para usar as Recomendações de Aprendizado de Máquina do Microsoft Azure. Você pode encontrar mais detalhes sobre a API de Recomendações na [galeria](http://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -27,14 +27,14 @@ Este documento descreve como integrar o seu serviço ou aplicativo para usar as 
 Para usar as Recomendações de Aprendizado de Máquina do Azure, você precisa executar as seguintes etapas:
 
 * Criar um modelo – um modelo é um contêiner de seus dados de uso, dados do catálogo e o modelo de recomendação.
-* Importar dados de catálogo: esta é uma etapa opcional. Um catálogo contém informações de metadados sobre os itens. Se você não carregar dados do catálogo, os serviços de recomendações aprenderão sobre o seu catálogo implicitamente por meio dos dados de uso.
+* Importar dados do catálogo - Um catálogo contém informações de metadados sobre os itens. 
 * Importar dados de uso: os dados de uso podem ser carregados de uma entre duas maneiras (ou ambas):
 	* Carregando um arquivo que contém os dados de uso.
 	* Enviando eventos de aquisição de dados. Normalmente, você carrega um arquivo de uso para poder criar um modelo de recomendação inicial (inicialização) e usá-lo até que o sistema reúna dados suficientes usando o formato de aquisição de dados.
 * Criar um modelo de recomendação – Esta é uma operação assíncrona, em que o sistema de recomendação emprega todos os dados de uso e cria um modelo de recomendação. Essa operação pode levar vários minutos ou várias horas, dependendo do tamanho dos dados e dos parâmetros de configuração da compilação. Ao disparar a compilação, você receberá uma ID de compilação. Use-o para verificar quando o processo de compilação foi concluído antes de começar a consumir recomendações.
 * Consumir recomendações - Obtenha recomendações para um item específico ou uma lista de itens.
 
-Todas as etapas acima são feitas por meio da API de Recomendações do Aprendizado de Máquina do Azure.
+Todas as etapas acima são feitas por meio da API de Recomendações do Aprendizado de Máquina do Azure. Você pode baixar um aplicativo de exemplo que implementa cada uma dessas etapas da [galeria também.](http://1drv.ms/1xeO2F3)
 
 ##Limitações
 
@@ -47,24 +47,23 @@ Todas as etapas acima são feitas por meio da API de Recomendações do Aprendiz
 ##Integração
 
 ###Autenticação
-O Microsoft Azure Marketplace dá suporte ao método de autenticação Básico ou OAuth.
+O Microsoft Azure Marketplace dá suporte ao método de autenticação Básico ou OAuth. Você pode localizar facilmente as chaves de conta, navegando até as chaves no marketplace [nas configurações da conta](https://datamarket.azure.com/account/keys).
 ####Autenticação básica
 Adicione o cabeçalho de autorização:
 
 	Authorization: Basic <creds>
                
-	Where <creds> = ConvertToBase64(“AccountKey:” + yourAccountKey);  
+	Where <creds> = ConvertToBase64("AccountKey:" + yourAccountKey);  
 	
 Converta em Base64 (c#)
 
-	var bytes = Encoding.UTF8.GetBytes(“AccountKey:” + yourAccountKey);
+	var bytes = Encoding.UTF8.GetBytes("AccountKey:" + yourAccountKey);
 	var creds = Convert.ToBase64String(bytes);
 	
 Converta em Base64 (JavaScript)
 
 	var creds = window.btoa("AccountKey" + ":" + yourAccountKey);
 	
-Obtenha a chave de conta [aqui](https://datamarket.azure.com/account/keys).
 
 
 
@@ -80,7 +79,7 @@ Cada chamada à API terá, por fim, um parâmetro de consulta chamado apiVersion
 IDs, retornados por qualquer uma das APIS, diferenciam minúsculas de maiúsculas e devem ser usados desta maneira quando passados como parâmetros nas chamadas de API subsequentes. Por exemplo, IDS d modelo e de catálogo diferenciam maiúsculas de minúsculas.
 
 ###Criar um modelo
-Criar uma solicitação "criar modelo":
+Criando uma solicitação para "criar modelo":
 
 | Método HTTP | URI |
 |:--------|:--------|
@@ -88,7 +87,7 @@ Criar uma solicitação "criar modelo":
 
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
-|	modelName |	Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (\_).<br>Comprimento máximo: 20 | | apiVersion | 1.0 | ||| | Corpo da Solicitação | NENHUM |
+|	modelName |	Somente letras (A-Z, a-z), números (0-9), hifens (-) e o sublinhado (\_) são permitidos.<br>Comprimento máximo: 20 | | apiVersion | 1.0 | ||| | Corpo da Solicitação | NENHUM |
 
 
 **Resposta**:
@@ -138,8 +137,11 @@ Se você carregar vários arquivos de catálogo para o mesmo modelo com várias 
 
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
-|	modelId |	O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
-| nome do arquivo | Identificador textual do catálogo.<br>Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados<br>Comprimento máximo: 50 | | apiVersion | 1.0 | ||| | Corpo da solicitação | Dados do catálogo. Formato:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>ID do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 50</td><td>Identificador exclusivo de um Item</td></tr><tr><td>Nome do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 255</td><td>O Nome do Item</td></tr><tr><td>Categoria do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 255</td><td>A categoria à qual este item pertence (por exemplo, Livros de Cozinha, Drama...)</td></tr><tr><td>Descrição</td><td>Não</td><td>Alfanumérico, Comprimento Máximo: 4000</td><td>Uma descrição deste item</td></tr></table><br>Tamanho máximo do arquivo: 200 MB<br><br>Exemplo:<br><pre>2406e770-769c-4189-89de-1c9283f93a96, Clara Callan, Livro<br>21bf8088-b6c0-4509-870c-e1c7ac78304a, A Sala do Esquecimento: Uma Ficção (Livro Bizantino), Livro<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
+|	modelId	|	O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas)  |
+| nome do arquivo | Identificador textual do catálogo.<br>Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados<br>Comprimento máximo: 50 |
+|	apiVersion		| 1.0 |
+|||
+| Corpo da solicitação | Dados do catálogo. Formato:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>ID do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 50</td><td>Identificador exclusivo de um Item</td></tr><tr><td>Nome do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 255</td><td>O Nome do Item</td></tr><tr><td>Categoria do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 255</td><td>A categoria à qual este item pertence (por exemplo, Livros de Cozinha, Drama...)</td></tr><tr><td>Descrição</td><td>Não</td><td>Alfanumérico, Comprimento Máximo: 4000</td><td>Uma descrição deste item</td></tr></table><br>Tamanho máximo do arquivo: 200 MB<br><br>Exemplo:<br><pre>2406e770-769c-4189-89de-1c9283f93a96, Clara Callan, Livro<br>21bf8088-b6c0-4509-870c-e1c7ac78304a, A Sala do Esquecimento: Uma Ficção (Livro Bizantino), Livro<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
 
 
 **Resposta**:
@@ -184,8 +186,11 @@ Esta seção mostra como carregar dados de uso usando um arquivo. Você pode cha
 
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
-|	modelId |	O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
-| nome do arquivo | Identificador textual do catálogo.<br>Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados<br>Comprimento máximo: 50 | | apiVersion | 1.0 | ||| | Corpo da solicitação | Dados de uso. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>ID de Usuário</td><td>Sim</td><td>Alfanumérico</td><td>Identificador Exclusivo de um Usuário</td></tr><tr><td>ID do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 50</td><td>Identificador Exclusivo de um Item</td></tr><tr><td>Hora</td><td>Não</td><td>Data no formato: AAAA/MM/DDTHH:MM:SS (por exemplo, 2013/06/20T10:00:00)</td><td>Hora dos dados</td></tr><tr><td>Evento</td><td>Não, se fornecido, deverá também conter a data</td><td>Um dos seguintes:<br>• Clique em<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Tamanho máximo do arquivo: 200MB<br><br>Exemplo:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+|	modelId	|	O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
+| nome do arquivo | Identificador textual do catálogo.<br>Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados<br>Comprimento máximo: 50 |
+|	apiVersion		| 1.0 |
+|||
+| Corpo da solicitação | Dados de uso. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>ID de Usuário</td><td>Sim</td><td>Alfanumérico</td><td>Identificador Exclusivo de um Usuário</td></tr><tr><td>ID do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 50</td><td>Identificador Exclusivo de um Item</td></tr><tr><td>Hora</td><td>Não</td><td>Data no formato: AAAA/MM/DDTHH:MM:SS (por exemplo, 2013/06/20T10:00:00)</td><td>Hora dos dados</td></tr><tr><td>Evento</td><td>Não, se fornecido, deverá também conter a data</td><td>Um dos seguintes:<br>• Clique em<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Tamanho máximo do arquivo: 200MB<br><br>Exemplo:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Resposta**:
 
@@ -230,8 +235,9 @@ Esta seção mostra como enviar eventos em tempo real para as Recomendações do
 
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
-|	apiVersion | 1\.0 |
-||| | Corpo da Solicitação | Entrada de dados de evento para cada evento que você deseja enviar. Você deve enviar a mesma ID no campo SessionId para a mesma sessão de usuário ou navegador. (Consulte o exemplo de corpo de evento abaixo.)|
+|	apiVersion		| 1\.0 |
+|||
+| Corpo da Solicitação | Entrada de dados de evento para cada evento que você deseja enviar. Você deve enviar a mesma ID no campo SessionId para a mesma sessão de usuário ou navegador. (Consulte o exemplo de corpo de evento abaixo.)|
 
 
 - Exemplo de evento “Click”:
@@ -321,7 +327,8 @@ Esta seção mostra como enviar eventos em tempo real para as Recomendações do
 | modelId |	O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
 | userDescription | Identificador textual do catálogo. Observe que se você usar espaços você deve codificá-los com 20%. Consulte o exemplo acima.<br>Comprimento máximo: 50 |
 | apiVersion | 1\.0 |
-||| | Corpo da Solicitação | NENHUM |
+|||
+| Corpo da Solicitação | NENHUM |
 
 **Resposta**:
 
@@ -652,7 +659,8 @@ Esse mecanismo permite, depois de ter um modelo de recomendação em produção,
 |:--------			|:--------								|
 | ID | O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
 | apiVersion | 1\.0 |
-||| | Corpo da Solicitação | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Observe que as marcas XML ActiveBuildId e Descrição são opcionais. Se você não quiser definir a Descrição ou ActiveBuildId, remova a marca inteira.|
+|||
+| Corpo da Solicitação | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Observe que as marcas XML ActiveBuildId e Descrição são opcionais. Se você não quiser definir a Descrição ou ActiveBuildId, remova a marca inteira.|
 
 **Resposta**:
 
@@ -673,4 +681,4 @@ XML de OData
 Este documento é fornecido "no estado em que se encontra". As informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio. Alguns exemplos aqui representados são fornecidos somente para fins de ilustração e são fictícios. Nenhuma associação ou conexão real é intencional ou deve ser inferida. Este documento não fornece a você nenhum direito legal a qualquer propriedade intelectual de qualquer produto da Microsoft. Você pode copiar e usar este documento para fins de consulta interna. © 2014 Microsoft. Todos os direitos reservados.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

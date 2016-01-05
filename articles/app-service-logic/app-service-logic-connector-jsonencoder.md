@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/23/2015"
+   ms.date="11/25/2015"
    ms.author="rajram"/>
 
 # Introdução ao Codificador JSON do BizTalk e à adição dele ao seu Aplicativo Lógico 
@@ -68,4 +68,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 <!--Links -->
 [Criando um Aplicativo Lógico]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

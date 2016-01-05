@@ -23,7 +23,8 @@ Este artigo fornece uma visão geral de como usar a extensão de Script Personal
 
 As extensões de VM (máquina virtual) são criadas pela Microsoft e por editores confiáveis de terceiros para estender a funcionalidade da VM. Para obter uma visão geral das extensões de VM, veja [Recursos e extensões de VM do Azure](virtual-machines-extensions-features.md).
 
-Link:[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-extensions-customscript%20-with%20template.md).
+Link:
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Modelo do Gerenciador de Recursos](virtual-machines-extensions-customscript%20-with%20template.md).
 
 
 ## Visão geral da extensão de Script Personalizado
@@ -71,9 +72,9 @@ Esse cenário mostra como usar um armazenamento fora do padrão dentro da mesma 
       Get-AzureVM -Name $name -ServiceName $servicename | Set-AzureVMCustomScriptExtension -StorageAccountName $storageaccount -StorageAccountKey $storagekey -ContainerName $container -FileUri $fileUrl1, $fileUrl2 -Run 'file.ps1' | Update-AzureVM
 
 
-### Adicionar a extensão de Script Personalizado por meio do portal
+### Adicionar a extensão de Script Personalizado por meio do portal do Azure
 
-Navegue até a VM no <a href="https://portal.azure.com/ " target="_blank">portal de visualização do Azure</a> e adicione a extensão especificando o arquivo de script a ser executado.
+Navegue até a VM no <a href="https://portal.azure.com/ " target="_blank">portal do Azure</a> e adicione a extensão especificando o arquivo de script a ser executado.
 
   ![][5]
 
@@ -91,4 +92,5 @@ Para saber como usar a extensão de Script Personalizado com modelos, confira a 
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->
+

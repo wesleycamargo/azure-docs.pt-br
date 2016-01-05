@@ -18,6 +18,8 @@
 
 # Depurar um aplicativo de API no Serviço de Aplicativo do Azure
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Visão geral
 
 Neste tutorial, você vai depurar o código de API Web ASP.NET que está configurado para ser executado em um [Aplicativo de API](app-service-api-apps-why-best-platform.md) no [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md). Você depura o código enquanto ele é executado localmente e enquanto é executado remotamente no Azure.
@@ -136,4 +138,4 @@ Neste tutorial, você viu como depurar aplicativos de API.
 
 Para obter mais informações sobre solução de problemas, consulte [Solucionar problemas de um aplicativo Web no Serviço de Aplicativo do Azure usando o Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md). Como os aplicativos de API são aplicativos Web com recursos adicionais para hospedagem de serviços Web, você pode usar as mesmas ferramentas de depuração e solução de problemas para aplicativos de API que você usa em aplicativos Web.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Visão geral detalhada de planos de serviço de aplicativo do Azure" 
 	description="Saiba como os planos do Serviço de Aplicativo para o Serviço de Aplicativo do Azure funcionam e como eles beneficiam sua experiência de gerenciamento." 
+	keywords="serviço de aplicativo, serviço de aplicativo do azure, escala, escalonável, plano de serviço de aplicativo, custo de serviço de aplicativo"
 	services="app-service" 
 	documentationCenter="" 
 	authors="btardif" 
@@ -13,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/08/2015" 
 	ms.author="byvinyal"/>
 
 #Visão geral detalhada de planos de serviço de aplicativo do Azure#
 
-Um **plano do Serviço do Aplicativo** representa um conjunto de recursos e capacidades que pode ser compartilhado entre vários aplicativos em [serviço de aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714), inclusive aplicativos Web, aplicativos móveis, aplicativos lógicos ou aplicativos de API. Esses planos dão suporte a cinco camadas de preços (**Gratuito**, **Compartilhado**, **Básico**, **Standard** e **Premium**), em que cada camada tem seus próprios recursos e capacidade. Aplicativos na mesma assinatura e localização geográfica podem compartilhar um plano. Todos os aplicativos que compartilham um plano podem aproveitar todos os recursos e recursos definidos pela camada do plano. Todos os aplicativos associados a determinado plano são executados nos recursos definidos pelo plano. Por exemplo, se seu plano for configurado para usar duas instâncias "pequenas" na camada de serviço padrão, todos os aplicativos associados a esse plano serão executados em ambas as instâncias e terão acesso à funcionalidade da camada de serviço padrão. Instâncias do plano nas quais aplicativos estão em execução são totalmente gerenciadas e altamente disponíveis.
+Um **plano do Serviço do Aplicativo** representa um conjunto de recursos e capacidades que pode ser compartilhado entre vários aplicativos em [serviço de aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714), inclusive aplicativos Web, aplicativos móveis, aplicativos lógicos ou aplicativos de API. Esses planos dão suporte a cinco tipos de preço (**Gratuito**, **Compartilhado**, **Básico**, **Standard** e **Premium**), em que cada tipo tem seus próprios recursos e capacidade. Aplicativos na mesma assinatura e localização geográfica podem compartilhar um plano. Todos os aplicativos que compartilham um plano podem aproveitar todos os recursos e recursos definidos pela camada do plano. Todos os aplicativos associados a determinado plano são executados nos recursos definidos pelo plano. Por exemplo, se seu plano for configurado para usar duas instâncias "pequenas" na camada de serviço padrão, todos os aplicativos associados a esse plano serão executados em ambas as instâncias e terão acesso à funcionalidade da camada de serviço padrão. Instâncias do plano nas quais aplicativos estão em execução são totalmente gerenciadas e altamente disponíveis.
 
 Neste artigo, exploraremos as principais características, como camada e dimensionamento de um plano de Serviço de Aplicativo e como elas entram em jogo ao gerenciar seus aplicativos.
 
@@ -55,6 +56,8 @@ Para fazer isso no [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=5297
 Você pode selecionar ou criar o plano de Serviço de Aplicativo para o novo aplicativo.
   
  ![][createASP]
+
+Para criar um novo Plano do Serviço de Aplicativo, clique em **+ Criar Novo**, digite o nome do **plano do Serviço de Aplicativo** e selecione um **Local** apropriado. Clique em **Tipo de preço** e selecione um tipo de preço apropriado para o serviço. Selecione **Exibir tudo** para exibir mais opções de preço, como **Gratuito** e **Compartilhado**. Depois de selecionar o tipo de preço, clique no botão **Selecionar**.
  
 ## Mover um aplicativo para um plano de Serviço de Aplicativo diferente
 
@@ -87,7 +90,6 @@ Os planos de Serviço de Aplicativo representam um conjunto de recursos e capaci
 ## O que mudou
 
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
  
  
@@ -98,4 +100,4 @@ Os planos de Serviço de Aplicativo representam um conjunto de recursos e capaci
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

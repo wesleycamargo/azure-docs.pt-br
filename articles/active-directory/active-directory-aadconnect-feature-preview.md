@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Recursos do Azure Connect AD na visualização | Microsoft Azure"
+   pageTitle="Azure AD Connect: recursos em visualização | Microsoft Azure"
    description="Este tópico descreve em mais detalhes os recursos que estão na visualização no Azure AD Connect."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="10/13/2015"
+   ms.date="12/02/2015"
    ms.author="andkjell;billmath"/>
 
 # Mais detalhes sobre os recursos no modo de visualização
@@ -60,4 +60,4 @@ Continuar a [Instalação personalizada do Azure AD Connect](active-directory-aa
 
 Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/09/2015"
+   ms.date="12/07/2015"
    ms.author="kenhoff"/>
 
 # Visualizações de relatório do Active Directory do Azure
+
+*Esta documentação é parte do [Guia de Relatórios do Active Directory do Azure](active-directory-reporting-guide.md).*
 
 Relatório | Disponibilidade
 ------------------------------------------------------- | --------------------
@@ -52,4 +54,4 @@ Uso de aplicativos habilitados para RMS | Visualização pública
 **Relatórios de visualização particular** |
 Atividade de entrada de todos os usuários | Visualização particular
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -53,7 +53,7 @@ Criaremos um aplicativo básico com XCode para demonstrar a integração.
 
 ###Conectar o aplicativo ao back-end do Mobile Engagement
 
-1. Baixe o [SDK do iOS do Mobile Engagement].
+1. Faça o download do [SDK para iOS do Mobile Engagement].
 2. Extraia o arquivo .tar.gz para uma pasta no seu computador.
 3. Clique com o botão direito do mouse no projeto e selecione **Adicionar arquivos a**.
 
@@ -176,9 +176,8 @@ O Mobile Engagement permite interagir com seus usuários e o REACH com notifica�
 [AZURE.INCLUDE [mobile-engagement-ios-send-push-push](../../includes/mobile-engagement-ios-send-push.md)]
 
 <!-- URLs. -->
-[SDK do Mobile Engagement iOS]: http://go.microsoft.com/?linkid=9864553
-[SDK do iOS do Mobile Engagement]: http://go.microsoft.com/?linkid=9864553
-[Mobile Engagement Android SDK documentation]: http://go.microsoft.com/?linkid=9874682
+[SDK do Mobile Engagement iOS]: http://aka.ms/qk2rnj
+[SDK para iOS do Mobile Engagement]: http://aka.ms/qk2rnj
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-ios-get-started/xcode-add-files.png
@@ -186,4 +185,4 @@ O Mobile Engagement permite interagir com seus usuários e o REACH com notifica�
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [4]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1217_2015-->

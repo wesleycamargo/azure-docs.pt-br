@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="12/07/2015"
 	ms.author="glenga"/>
 
 # Configurar o servidor web local para permitir conexões a um Serviço Móvel local
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 Os Serviços Móveis do Azure permitem criar seu Serviço Móvel no Visual Studio usando uma das linguagens .NET com suporte e, em seguida, publicá-lo no Azure. Um dos principais benefícios de usar um back-end do .NET para seu Serviço Móvel é a capacidade de executar, testar e depurar o Serviço Móvel no computador local ou na máquina virtual antes de publicá-lo no Azure.
 
@@ -24,4 +29,4 @@ Para testar um serviço móvel localmente com clientes que executam em um emulad
 
 [AZURE.INCLUDE [mobile-services-how-to-configure-iis-express](../../includes/mobile-services-how-to-configure-iis-express.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

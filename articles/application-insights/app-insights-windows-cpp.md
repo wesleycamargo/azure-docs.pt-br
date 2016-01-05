@@ -1,4 +1,4 @@
-<properties pageTitle="Application Insights para aplicativos C++" description="Analise a utilização e o desempenho de seu aplicativo C++ com o Application Insights." services="application-insights" documentationCenter="cpp" authors="crystk" manager="jakubo""/>
+<properties pageTitle="Application Insights para aplicativos C++" description="Analise a utilização e o desempenho de seu aplicativo C++ com o Application Insights." services="application-insights" documentationCenter="cpp" authors="crystk" manager="douge""/>
 
 <tags 
     ms.service="application-insights" 
@@ -6,7 +6,7 @@
     ms.tgt_pltfrm="universal" 
     ms.devlang="na" 
     ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="11/17/2015" 
     ms.author="crystk"/>
 
 # Application Insights para aplicativos C++
@@ -140,4 +140,4 @@ Clique em qualquer gráfico para obter mais detalhes. Por exemplo, falhas:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

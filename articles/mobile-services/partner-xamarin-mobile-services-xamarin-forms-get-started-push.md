@@ -17,6 +17,11 @@
 	ms.author="wesmc"/>
 
 # Adicionar notificações por push ao aplicativo Xamarin.Forms
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 ##Visão geral
@@ -49,7 +54,7 @@ Neste tópico:
 
 Para ser capaz de armazenar dados de aplicativo no novo serviço móvel, primeiro você deve criar uma nova tabela.
 
-1. No Portal de Gerenciamento, clique em **Serviços Móveis**e, em seguida, clique no serviço móvel que você acabou de criar.
+1. No portal clássico do Azure, clique em **Serviços Móveis** e, em seguida, clique no serviço móvel que você acabou de criar.
 
 2. Clique na guia **Dados** e, em seguida, clique em **+Criar**.
 
@@ -77,12 +82,12 @@ Agora você está pronto para usar o novo serviço móvel como armazenamento de 
 
 ## <a name="download-starter-sample"></a>Baixar e configurar o exemplo inicial
 Adicionaremos notificações por push a um exemplo existente.
-  
+
 1. Baixe o exemplo a seguir: [Exemplo inicial de notificação por push do Azure para Xamarin.Forms].
 
-2. No Portal de Gerenciamento, clique em **Serviços Móveis**, em seguida, clique no serviço móvel. Clique na guia **Painel** e anote a **URL do Site**. Em seguida, clique em **Gerenciar Chaves** e anote a **Chave do Aplicativo**. Você precisará desses valores quando acessar o serviço móvel do seu código de aplicativo.
+2. No [Portal clássico do Azure], clique em **Serviços Móveis** e, em seguida, clique no serviço móvel. Clique na guia **Painel** e anote a **URL do Site**. Em seguida, clique em **Gerenciar Chaves** e anote a **Chave do Aplicativo**. Você precisará desses valores quando acessar o serviço móvel do seu código de aplicativo.
 
-3. No projeto **ToDoAzure(Portable)** da solução, abra o arquivo **Constants.cs**, substitua `ApplicationURL` e `ApplicationKey` pela URL do site e chave de aplicativo que você obteve na etapa anterior.
+3. No projeto **ToDoAzure(Portable)** da solução, abra o arquivo **Constants.cs**, substitua `ApplicationURL` e `ApplicationKey` pela URL do site e a chave de aplicativo que você obteve na etapa anterior.
 
 ## <a name="iOS"></a>Adicionar notificações por push ao aplicativo Xamarin.Forms.iOS
 
@@ -214,7 +219,7 @@ Após registrar seu aplicativo com o APNS e configurar seu projeto, configure se
 
     Anote o nome do arquivo e o local do certificado exportado.
 
-2. Faça logon no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e clique em seu aplicativo.
+2. Faça logon no [Portal clássico do Azure], clique em **Serviços Móveis** e clique em seu aplicativo.
 
     ![][18]
 
@@ -264,14 +269,14 @@ Agora, seu serviço móvel está configurado para funcionar com o APNS.
             global::Xamarin.Forms.Forms.Init();
             instance = this;
             CurrentPlatform.Init();
-            
+
             todoItemManager = new ToDoItemManager();
             App.SetTodoItemManager(todoItemManager);
 
 
             UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
             UIApplication.SharedApplication.RegisterForRemoteNotifications();
-            
+
             LoadApplication(new App());
             return base.FinishedLaunching(app, options);
         }
@@ -289,7 +294,7 @@ Agora, seu serviço móvel está configurado para funcionar com o APNS.
 
             // Register for push with Mobile Services
             IEnumerable<string> tag = new List<string>() { "uniqueTag" };
-            
+
             const string template = "{"aps":{"alert":"$(message)"}}";
 
             var expiryDate = DateTime.Now.AddDays(90).ToString
@@ -317,9 +322,9 @@ Agora, seu serviço móvel está configurado para funcionar com o APNS.
 
 Seu aplicativo foi atualizado para oferecer suporte a notificações de push.
 
-### <a name="update-scripts"></a>Atualizar o script de inserção registrado no Portal de Gerenciamento
+### <a name="update-scripts"></a>Atualizar o script de inserção registrado no Portal clássico do Azure
 
-1. No Portal de Gerenciamento, clique na guia **Dados** e clique na tabela **TodoItem**.
+1. No portal clássico do Azure, clique na guia **Dados** e, em seguida, clique na tabela **TodoItem**.
 
     ![][21]
 
@@ -334,26 +339,26 @@ Seu aplicativo foi atualizado para oferecer suporte a notificações de push.
           function insert(item, user, request) {
           // Execute the request and send notifications.
              request.execute({
-             success: function() {                      
+             success: function() {
               // Create a template-based payload.
-              var payload = '{ "message" : "New item added: ' + item.text + '" }';            
+              var payload = '{ "message" : "New item added: ' + item.text + '" }';
 
               // Write the default response and send a notification
-              // to all platforms.            
-              push.send(null, payload, {               
+              // to all platforms.
+              push.send(null, payload, {
                   success: function(pushResponse){
                   console.log("Sent push:", pushResponse);
                   // Send the default response.
                   request.respond();
-                  },              
+                  },
                   error: function (pushResponse) {
                       console.log("Error Sending push:", pushResponse);
                        // Send the an error response.
                       request.respond(500, { error: pushResponse });
-                      }           
-               });                 
+                      }
+               });
               }
-           });   
+           });
           }
 
     Isso registra um novo script de inserção, que envia uma notificação por push (o texto inserido) para o dispositivo fornecido na solicitação de inserção.
@@ -366,7 +371,7 @@ Seu aplicativo foi atualizado para oferecer suporte a notificações de push.
 
    >[AZURE.NOTE]Você deve aceitar explicitamente as notificações por push do seu aplicativo. Essa solicitação ocorrerá apenas na primeira vez que o aplicativo for executado.
 
-2. No aplicativo, clique no botão **Adicionar**, adicione um título de tarefa e clique no botão **Salvar**. 
+2. No aplicativo, clique no botão **Adicionar**, adicione um título de tarefa e clique no botão **Salvar**.
 
 3. Verifique se uma notificação é recebida e clique em **OK** para ignorar a notificação.
 
@@ -387,9 +392,9 @@ Você adicionará notificações por push ao aplicativo Android usando o serviç
 
 ###<a id="update-scripts"></a>Atualizar o script de inserção registrado para enviar notificações
 
->[AZURE.NOTE]As etapas a seguir mostram como atualizar o script registrado para a operação de inserção na tabela TodoItem no Portal de Gerenciamento do Azure. Você também pode acessar e editar este script de serviço móvel diretamente no Visual Studio, no nó do Azure do Gerenciador de Servidores.
+>[AZURE.NOTE]As etapas a seguir mostram como atualizar o script registrado para a operação de inserção na tabela TodoItem no Portal clássico do Azure. Você também pode acessar e editar este script de serviço móvel diretamente no Visual Studio, no nó do Azure do Gerenciador de Servidores.
 
-No Portal de Gerenciamento, clique na guia **Dados** e clique na tabela **TodoItem**.
+No [portal clássico do Azure], clique na guia **Dados** e, em seguida, clique na tabela **TodoItem**.
 
    ![][21]
 
@@ -404,26 +409,26 @@ No Portal de Gerenciamento, clique na guia **Dados** e clique na tabela **TodoIt
           function insert(item, user, request) {
           // Execute the request and send notifications.
              request.execute({
-             success: function() {                      
+             success: function() {
               // Create a template-based payload.
-              var payload = '{ "message" : "New item added: ' + item.text + '" }';            
+              var payload = '{ "message" : "New item added: ' + item.text + '" }';
 
               // Write the default response and send a notification
-              // to all platforms.            
-              push.send(null, payload, {               
+              // to all platforms.
+              push.send(null, payload, {
                   success: function(pushResponse){
                   console.log("Sent push:", pushResponse);
                   // Send the default response.
                   request.respond();
-                  },              
+                  },
                   error: function (pushResponse) {
                       console.log("Error Sending push:", pushResponse);
                        // Send the an error response.
                       request.respond(500, { error: pushResponse });
-                      }           
-               });                 
+                      }
+               });
               }
-           });   
+           });
           }
 
 
@@ -434,7 +439,7 @@ No Portal de Gerenciamento, clique na guia **Dados** e clique na tabela **TodoIt
 
 ###<a id="configure-app"></a>Configurar o projeto existente para notificações por push
 
-1. No modo de exibição Solução, expanda a pasta **Componentes** no aplicativo Xamarin.Android e verifique se o pacote Serviços Móveis do Azure está instalado. 
+1. No modo de exibição Solução, expanda a pasta **Componentes** no aplicativo Xamarin.Android e verifique se o pacote Serviços Móveis do Azure está instalado.
 
 2. Clique com o botão direito do mouse na pasta **Componentes**, clique em **Obter Mais Componentes...**, procure o componente **Cliente do Google Cloud Messaging** e adicione-o ao projeto.
 
@@ -444,7 +449,7 @@ No Portal de Gerenciamento, clique na guia **Dados** e clique na tabela **TodoIt
 
 
 4.	Na classe **MainActivity**, adicione o seguinte código ao método **OnCreate**, depois da chamada ao método **LoadApplication**:
-            
+
             try
             {
                 // Check to ensure everything's setup right
@@ -468,9 +473,9 @@ Sua **MainActivity** agora está preparada para adicionar notificações por pus
 
 ###<a id="add-push"></a>Adicionar código de notificações por push ao seu aplicativo
 
-5. No projeto ToDoAzure.Droid, crie uma nova classe no projeto chamado `GcmService`.
+5. No projeto ToDoAzure.Droid, crie uma nova classe no projeto chamada `GcmService`.
 
-5. Adicione as seguintes instruções using à classe **GcmService**:
+5. Adicione as seguintes instruções de uso à classe **GcmService**:
 
 		using Gcm.Client;
 		using Microsoft.WindowsAzure.MobileServices;
@@ -487,7 +492,7 @@ Sua **MainActivity** agora está preparada para adicionar notificações por pus
         [assembly: UsesPermission(Name = "android.permission.WAKE_LOCK")]
 
 7. No arquivo de projeto **GcmService.cs**, adicione a seguinte classe:
- 
+
         [BroadcastReceiver(Permission = Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
         [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE }, Categories = new string[] { "@PACKAGE_NAME@" })]
         [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_REGISTRATION_CALLBACK }, Categories = new string[] { "@PACKAGE_NAME@" })]
@@ -495,7 +500,7 @@ Sua **MainActivity** agora está preparada para adicionar notificações por pus
 
         public class PushHandlerBroadcastReceiver : GcmBroadcastReceiverBase<GcmService>
         {
-        
+
             public static string[] SENDER_IDS = new string[] { "<PROJECT_NUMBER>" };
 
         }
@@ -503,7 +508,7 @@ Sua **MainActivity** agora está preparada para adicionar notificações por pus
 	No código acima, você deve substituir _`<PROJECT_NUMBER>`_ pelo número do projeto atribuído pelo Google ao provisionar o aplicativo no portal do desenvolvedor do Google.
 
 8. No arquivo de projeto GcmService.cs, adicione o seguinte código que define a classe **GcmService**:
- 
+
          [Service]
          public class GcmService : GcmServiceBase
          {
@@ -528,7 +533,7 @@ Sua **MainActivity** agora está preparada para adicionar notificações por pus
             createNotification("GcmService Registered...", "The device has been Registered, Tap to View!");
 
             MobileServiceClient client =  MainActivity.DefaultService.todoItemManager.GetClient;
-            
+
             var push = client.GetPush();
 
             MainActivity.DefaultService.RunOnUiThread(() => Register(push, null));
@@ -627,11 +632,11 @@ Quando você executa o aplicativo no emulador, certifique-se de usar um Android 
 > [AZURE.IMPORTANT]Para receber as notificações por push, você deve configurar uma conta do Google em seu Dispositivo Virtual para Android (no emulador, navegue até **Configurações** e clique em **Adicionar Conta**). Além disso, certifique-se de que o emulador esteja conectado à Internet.
 
 1. A partir de **Ferramentas**, clique em **Abrir gerenciador de emulador do Android**, selecione seu dispositivo e, em seguida, clique em **Editar**.
-    
+
     ![][125]
 
 2. Selecione **Google APIs** em **Destino** e clique em **OK**.
-    
+
     ![][126]
 
 3. Na barra de ferramentas superior, clique em **Executar**e, em seguida, selecione seu aplicativo. Isso iniciará o emulador e executará o aplicativo.
@@ -657,7 +662,7 @@ Para que seu aplicativo possa receber notificações por push, você deve regist
         using Microsoft.Phone.Notification;
 
 3. Adicione o seguinte ao App.xaml.cs:
-	
+
         public static HttpNotificationChannel CurrentChannel { get; private set; }
 
         private void AcquirePushChannel()
@@ -696,7 +701,7 @@ Para que seu aplicativo possa receber notificações por push, você deve regist
 	Isso garante que o registro seja solicitado sempre que a página for carregada. Em seu aplicativo, convém fazer esse registro periodicamente apenas para garantir que o registro seja atual.
 
 5. Pressione a tecla **F5** para executar o aplicativo. Uma caixa de diálogo pop-up com a chave do registro é exibida.
-  
+
 6.	No Gerenciador de Soluções, expanda **Propriedades**, abra o arquivo WMAppManifest.xml, clique na guia **Recursos** e verifique se o recurso **ID\_CAP\_PUSH\_NOTIFICATION** está marcado.
 
    	![Habilitar notificações no VS](./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/mobile-app-enable-push-wp8.png)
@@ -707,7 +712,7 @@ Para que seu aplicativo possa receber notificações por push, você deve regist
 
 Finalmente, você deve atualizar o script registrado para a operação de inserção na tabela TodoItem para enviar notificações.
 
-1. No Portal de Gerenciamento, clique na guia **Dados** e clique na tabela **TodoItem**.
+1. No [portal clássico do Azure], clique na guia **Dados** e, em seguida, clique na tabela **TodoItem**.
 
     ![][21]
 
@@ -718,30 +723,30 @@ Finalmente, você deve atualizar o script registrado para a operação de inser�
     Isso exibe a função que é chamada quando ocorre uma inserção na tabela **TodoItem**.
 
 3. Substitua a função de inserção com o seguinte código e **Salvar**:
-          
+
           function insert(item, user, request) {
           // Execute the request and send notifications.
              request.execute({
-             success: function() {                      
+             success: function() {
               // Create a template-based payload.
-              var payload = '{ "message" : "New item added: ' + item.text + '" }';            
+              var payload = '{ "message" : "New item added: ' + item.text + '" }';
 
               // Write the default response and send a notification
-              // to all platforms.            
-              push.send(null, payload, {               
+              // to all platforms.
+              push.send(null, payload, {
                   success: function(pushResponse){
                   console.log("Sent push:", pushResponse);
                   // Send the default response.
                   request.respond();
-                  },              
+                  },
                   error: function (pushResponse) {
                       console.log("Error Sending push:", pushResponse);
                        // Send the an error response.
                       request.respond(500, { error: pushResponse });
-                      }           
-               });                 
+                      }
+               });
               }
-           });   
+           });
           }
 
 
@@ -766,7 +771,7 @@ Finalmente, você deve atualizar o script registrado para a operação de inser�
 	![Notificação recebida](./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/mobile-quickstart-push5-wp8.png)
 
 	>[AZURE.NOTE]Você não receberá a notificação enquanto ainda estiver no aplicativo. Para receber uma notificação do sistema enquanto o aplicativo estiver ativo, você deverá manipular o evento [ShellToastNotificationReceived](http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.notification.httpnotificationchannel.shelltoastnotificationreceived(v=vs.105).aspx).
-   
+
 <!-- Anchors. -->
 [Generate the certificate signing request]: #certificates
 [Register your app and enable push notifications]: #register
@@ -836,7 +841,7 @@ Finalmente, você deve atualizar o script registrado para a operação de inser�
 [Provisionamento do dispositivo Xamarin]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
 
 
-[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
+[Portal clássico do Azure]: https://manage.windowsazure.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 [Componente dos Serviços Móveis do Azure]: http://components.xamarin.com/view/azure-mobile-services/
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
@@ -845,6 +850,5 @@ Finalmente, você deve atualizar o script registrado para a operação de inser�
 [Componente do cliente Google Cloud Messaging]: http://components.xamarin.com/view/GCMClient/
 [Exemplo inicial de notificação por push do Azure para Xamarin.Forms]: https://github.com/Azure/mobile-services-samples/tree/master/TodoListXamarinForms
 [Exemplo completo da notificação por push do Azure para Xamarin.Forms]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

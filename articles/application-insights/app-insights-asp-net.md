@@ -12,26 +12,20 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="11/17/2015" 
 	ms.author="awills"/>
 
 
 # Configurar o Application Insights para ASP.NET
 
-*O Application Insights está em modo de visualização.*
-
-<a name="selector1"></a>
-
-O [Application Insights do Visual Studio](http://azure.microsoft.com/services/application-insights) monitora seus aplicativos em tempo real para ajudá-lo a [detectar e diagnosticar problemas de desempenho e exceções][detect] e [descobrir como seu aplicativo é usado][knowUsers]. Ele funciona ao instalar um SDK em seu aplicativo. O SDK envia dados de telemetria sobre seu aplicativo para o serviço Application Insights, em que você pode analisar e visualizar o comportamento do aplicativo.
-
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
-Adicione o SDK ao seu aplicativo no Visual Studio e você obterá gráficos de falhas, tempos de resposta e solicitações do servidor.
+O SDK do Application Insights envia a telemetria do seu aplicativo Web ativo para o portal do Azure, no qual você pode entrar e ver gráficos do desempenho e uso do seu aplicativo.
 
 ![Gráficos de exemplo de monitoramento de desempenho](./media/app-insights-asp-net/10-perf.png)
 
-Você também poderá usar a API para monitorar o uso em detalhes.
+Você também poderá investigar e correlacionar solicitações específicas, exceções e eventos de log. Você pode usar a API para adicionar telemetria para monitorar o desempenho e uso de maneira detalhada.
 
 #### Antes de começar
 
@@ -40,7 +34,7 @@ Você precisa de:
 * Uma assinatura do [Microsoft Azure](http://azure.com). Se sua equipe ou organização tem uma assinatura do Azure, o proprietário pode adicioná-lo a ela, usando sua [Conta da Microsoft](http://live.com).
 * Atualização 3 ou mais recente do Visual Studio 2013.
 
-## <a name="ide"></a> Adicione o Application Insights ao seu projeto no Visual Studio
+## <a name="ide"></a> Adicionar o Application Insights ao seu projeto no Visual Studio
 
 #### Se for um novo projeto...
 
@@ -71,7 +65,7 @@ Se esse aplicativo é parte de um aplicativo maior, você talvez queira usar **D
 
 O comando executou estas etapas (que, em vez disso, você poderia [executar manualmente](app-insights-start-monitoring-app-health-usage.md), se preferir):
 
-* Cria um recurso do Application Insights no [Portal do Azure][portal]. É onde você verá seus dados. Ele recupera a *chave de instrumentação*, que identifica o recurso.
+* Cria um recurso do Application Insights no [portal do Azure][portal]. É onde você verá seus dados. Ele recupera a *chave de instrumentação*, que identifica o recurso.
 * Adiciona o pacote NuGet do SDK da Web do Application Insights ao seu projeto. Para vê-lo no Visual Studio, clique com o botão direito em seu projeto e escolha Gerenciar pacotes NuGet.
 * Coloca a chave de instrumentação em `ApplicationInsights.config`.
 
@@ -86,7 +80,7 @@ No Visual Studio, você verá uma contagem dos eventos que foram recebidos.
 
 ## <a name="monitor"></a> Abrir o Application Insights
 
-Abra o recurso Application Insights no [Portal do Azure][portal].
+Abra o recurso do Application Insights no [portal do Azure][portal].
 
 ![Clique com o botão direito do mouse no seu projeto e abra o portal do Azure.](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
@@ -98,7 +92,7 @@ Procure dados nos gráficos de Visão Geral. Primeiro, você apenas verá um ou 
 
 Clique em qualquer gráfico para ver métricas mais detalhadas. [Saiba mais sobre métricas.][perf]
 
-* *Nenhum dado de usuário ou página?* - [Adicione dados de usuário e página](../article/application-insights/app-insights-asp-net-client.md)
+* *Nenhum dado de usuário ou página?* - [Adicionar dados de usuário e página](../article/application-insights/app-insights-asp-net-client.md)
 
 ### Pesquisa: eventos individuais
 
@@ -112,7 +106,7 @@ Abra a Pesquisa investigar solicitações individuais e seus eventos associados.
 
 ### Não há dados?
 
-* Tenha certeza de que está olhando para coisa certa. Entre no [Portal do Azure](https://portal.azure.com), clique em "Procurar >", "Application Insights" e selecione seu aplicativo.
+* Tenha certeza de que está olhando para coisa certa. Entre no [portal do Azure](https://portal.azure.com), clique em “Procurar >”, “Application Insights” e selecione seu aplicativo.
 * Use o aplicativo abrindo páginas diferentes, para que ele gere alguma telemetria.
 * Abra a folha [Pesquisar][diagnostic] para ver eventos individuais. Às vezes, os eventos demoram um pouco mais passar pelo pipeline de métricas.
 * Aguarde alguns segundos e clique em Atualizar.
@@ -127,7 +121,9 @@ Quando você executa no modo de depuração, a telemetria é expressa através d
 
 #### Problemas no servidor de compilação?
 
-Consulte [este item de solução de problemas](app-insights-troubleshoot-faq.md#NuGetBuild).
+Veja [este item da Solução de problemas](app-insights-troubleshoot-faq.md#NuGetBuild).
+
+> [AZURE.NOTE]Se o seu aplicativo gerar muita telemetria (e você estiver usando o SDK do ASP.NET versão 2.0.0-beta3 ou posterior), o módulo de amostragem adaptável reduzirá automaticamente o volume enviado ao portal, enviando apenas uma fração representativa de eventos. No entanto, os eventos relacionados à mesma solicitação serão selecionadas ou desmarcadas como um grupo, para que você possa navegar entre os eventos relacionados. [Saiba mais sobre amostragem](app-insights-sampling.md).
 
 ## Próximas etapas
 
@@ -174,4 +170,4 @@ Se você fez todas as personalizações no ApplicationInsights.config, salve uma
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/23/2015"
+   	ms.date="12/04/2015"
    	ms.author="larryfr"/>
 
 #Criar clusters baseados em Linux no HDInsight usando cURL e API REST do Azure
@@ -33,7 +33,7 @@ A API REST do Azure permite executar operações de gerenciamento de serviços h
 
 - __CLI do Azure__. A CLI do Azure é usada para criar uma entidade de serviço, que é usada para gerar tokens de autenticação para solicitações para a API REST do Azure.
 
-    Para obter informações sobre como instalar a CLI, consulte [Instalar a CLI do Azure](xplat-cli-install.md).
+    Para obter informações sobre como instalar a CLI, consulte [Instalar a CLI do Azure](../xplat-cli-install.md).
 
 - __cURL__. Esse utilitário está disponível por meio de seu sistema de gerenciamento de pacotes ou pode ser baixado de [http://curl.haxx.se/](http://curl.haxx.se/).
 
@@ -259,7 +259,7 @@ Esse exemplo será usado nas etapas neste documento. Você deve substituir os _v
 
 ##Faça logon na sua assinatura do Azure
 
-Siga as etapas documentadas em [Conectar a uma assinatura do Azure por meio da CLI do Azure (Interface de Linha de Comando do Azure)](xplat-cli-connect.md) e conecte à sua assinatura usando o método de __logon__.
+Siga as etapas documentadas em [Conectar a uma assinatura do Azure por meio da CLI do Azure (Interface de Linha de Comando do Azure)](../xplat-cli-connect.md) e conecte à sua assinatura usando o método de __logon__.
 
 ##Criar uma entidade de serviço
 
@@ -274,7 +274,7 @@ Siga as etapas documentadas em [Conectar a uma assinatura do Azure por meio da C
 > * ID do aplicativo - retornado ao criar a entidade de serviço
 > * Senha para a entidade de serviço - usada ao criar o serviço principal
 
-Siga as etapas na seção _Autenticar entidade de serviço com uma senha - CLI do Azure_ do documento [Autenticação de uma entidade de serviço com o Gerenciador de Recursos do Azure](https://azure.microsoft.com/pt-BR/documentation/articles/resource-group-authenticate-service-principal/#authenticate-service-principal-with-password---azure-cli). Isso criará uma nova entidade de serviço que pode ser usada para autenticar a solicitação de criação de cluster.
+Siga as etapas na seção _Autenticar a entidade de serviço com uma senha - CLI do Azure_ do documento [Autenticando uma entidade de serviço com o Gerenciador de Recursos do Azure](https://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal/#authenticate-service-principal-with-password---azure-cli). Isso criará uma nova entidade de serviço que pode ser usada para autenticar a solicitação de criação de cluster.
 
 ##Obtenha um token de autenticação
 
@@ -346,13 +346,13 @@ Agora que você criou com êxito um cluster HDInsight, use o seguinte para apren
 
 ###Clusters do HBase
 
-* [Introdução ao HBase no HDInsight](hdinsight-hbase-tutorial-get-stared-linux.md)
-* [Desenvolvimento de aplicativos Java para HBase no HDInsight](hdinsight-hbase-build-java-maven-linux)
+* [Introdução ao HBase no HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
+* [Desenvolvimento de aplicativos Java para HBase no HDInsight](hdinsight-hbase-build-java-maven-linux.md)
 
 ###Clusters Storm
 
 * [Desenvolver topologias Java para Storm no HDInsight](hdinsight-storm-develop-java-topology.md)
-* [Usar componentes de Python no Storm no HDInsight](hdinsight-storm-develop-python.md)
+* [Usar componentes de Python no Storm no HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Implantar e monitorar topologias com o Storm no HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

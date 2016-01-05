@@ -3,8 +3,8 @@
 	description="Saiba como configurar o logon único entre o Active Directory do Azure e o StatusPage."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
+	authors="jeevansd"
+	manager="prasannas"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/05/2015"
-	ms.author="markusvi"/>
+	ms.date="12/01/2015"
+	ms.author="jeedes"/>
 
 
 # Tutorial: Integração do Active Directory do Azure com o StatusPage
@@ -64,7 +64,8 @@ Para configurar a integração do StatusPage ao AD do Azure, você precisará ad
 4. Clique em **Adicionar** na parte inferior da página.<br><br> ![Aplicativos][3]<br>
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.<br><br> ![Aplicativos][4]<br>
 6. Na caixa de pesquisa, digite **StatusPage**.<br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_01.png)<br>
-7. Na página de resultados, selecione **StatusPage** e clique em **Concluir** para adicionar o aplicativo. <br><br>
+7. Na página de resultados, selecione **StatusPage** e clique em **Concluir** para adicionar o aplicativo. <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_02.png)<br>
+
 
 ##  Configurar e testar o logon único do AD do Azure
 O objetivo desta seção é mostrar como configurar e testar logon único do AD do Azure com o StatusPage, com base em um usuário de teste chamado "Brenda Fernandes".
@@ -73,11 +74,11 @@ Para que o logon único funcione, o AD do Azure precisa saber qual usuário do S
  
 Para configurar e testar o logon único do AD do Azure com o StatusPage, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configurar o logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)** - para permitir que seus usuários usem esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
+2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**: para testar o logon único do AD do Azure com Brenda Fernandes.
 4. **[Criação de um usuário de teste do StatusPage](#creating-a-statuspage-test-user)** - para ter um equivalente de Brenda Fernandes no StatusPage que esteja vinculado à representação dela no AD do Azure.
-5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** - para verificar se a configuração funciona.
+5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)**: para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
 
 ### Configuração do logon único do AD do Azure
 
@@ -96,14 +97,14 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal do
     > [AZURE.NOTE]Entre em contato com a equipe de suporte do StatusPage em [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io)para solicitar os metadados necessários para a configuração do logon único.
 
 
-    a. Nos metadados, copie o valor de Emissor e cole-o na caixa de texto **Emissor**.
+    a. Nos metadados, copie o valor de Issuer e cole-o na caixa de texto **Identificador**.
 
     b. Nos metadados, copie o valor a URL de Resposta e cole-a na caixa de texto **URL de Resposta**.
 
     c. Clique em **Próximo**.
  
  
-4. Na página **Configurar logon único no StatusPage**, execute as seguintes etapas:<br><br>![Configurar o logon único](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_05.png)<br>
+4. Na página **Configurar logon único no StatusPage**, execute as seguintes etapas:<br><br>![Configurar o logon único](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_05.png) <br>
 
     a. Clique em **Baixar certificado** e salve o arquivo em seu computador.
 
@@ -135,7 +136,7 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal do
 
 
 ### Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar no portal do Azure um usuário de teste chamado Brenda Fernandes.<br> Na lista Usuários, selecione **Brenda Fernandes**.<br><br>![Criar um usuário do AD do Azure][20]<br>
+O objetivo desta seção é criar um usuário de teste no portal do Azure chamado Brenda Fernandes.<br> Na lista Usuários, selecione **Brenda Fernandes**.<br><br>![Criar um usuário do AD do Azure][20]<br>
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
@@ -151,9 +152,9 @@ O objetivo desta seção é criar no portal do Azure um usuário de teste chamad
 
     a. Em Tipo de Usuário, selecione Novo usuário na organização.
 
-    b. Na caixa de texto **Nome de Usuário**, digite **BrendaFernandes**.
+    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
 
-    c. Clique em **Próximo**.
+    c. Clique em **Avançar**.
 
 6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-statuspage-tutorial/create_aaduser_06.png) <br>
  
@@ -163,7 +164,7 @@ O objetivo desta seção é criar no portal do Azure um usuário de teste chamad
 
     c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
 
-    d. Na lista **Função**, selecione **Usuário**. e. Clique em **Próximo**.
+    d. Na lista **Função**, selecione **Usuário**. e. Clique em **Avançar**.
 
 7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-statuspage-tutorial/create_aaduser_07.png) <br>
  
@@ -186,7 +187,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Status
 
 1. Na parte superior do menu, clique em **Gerenciar Conta**.
 
-1. Clique na guia Membros da Equipe <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_10.png) <br>
+1. Clique na guia Membros da Equipe. <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_10.png) <br>
 
 1. Clique em **Adicionar Membro da Equipe**. <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_11.png) <br>
 
@@ -202,7 +203,7 @@ O objetivo desta seção é habilitar Brenda Fernandes a usar o logon único do 
 
 **Para atribuir Brenda Fernandes ao StatusPage, execute as seguintes etapas:**
 
-1. No portal do Azure, para abrir a exibição dos aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior. <br><br>![Atribuir usuário][201] <br>
+1. No portal do Azure, para abrir a exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior. <br><br>![Atribuir usuário][201] <br>
 
 2. Na lista de aplicativos, selecione **StatusPage**. <br><br>![Configurar o logon único](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_50.png) <br>
 
@@ -243,4 +244,4 @@ O objetivo desta seção é testar sua configuração de logon único do AD do A
 [204]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_205.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

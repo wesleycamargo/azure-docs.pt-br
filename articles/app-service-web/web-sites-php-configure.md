@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configurar o PHP em aplicativos Web do Serviço de Aplicativo do Azure"
+	pageTitle="Configurar o PHP em Aplicativos Web do Serviço de Aplicativo do Azure | Microsoft Azure"
 	description="Saiba como configurar a instalação padrão do PHP ou adicione uma instalação de PHP personalizada para aplicativos Web no Serviço de Aplicativo do Azure."
 	services="app-service"
 	documentationCenter="php"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="12/16/2015"
 	ms.author="tomfitz"/>
 
 #Configurar o PHP em aplicativos Web do Serviço de Aplicativo do Azure
@@ -31,7 +31,7 @@ Versões 5.5 e 5.6 do PHP também estão disponíveis, mas não são habilitadas
 
 ### Portal do Azure
 
-1. Navegue até seu aplicativo Web no [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715) e clique no botão **Configurações**.
+1. Navegue até seu aplicativo Web no [Portal do Azure](https://portal.azure.com) e clique no botão **Configurações**.
 
 	![Configurações do aplicativo Web][settings-button]
 
@@ -45,27 +45,34 @@ Versões 5.5 e 5.6 do PHP também estão disponíveis, mas não são habilitadas
 
 ### PowerShell do Azure (Windows)
 
-1. Abra o Windows PowerShell
-2. Digite `Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name <site-name>` e pressione enter.
-3. A versão do PHP agora está definida.
+1. Abra o Azure PowerShell e faça logon em sua conta:
 
-	![Definindo a versão do PHP com o PowerShell do Azure][SETPHPVERPS]
-4. Você pode confirmar essas configurações digitando `Get-AzureWebiste -Name <site-name>` e pressionando enter.
+        PS C:\> Login-AzureRmAccount
 
-	![Verificando a versão do PHP com o PowerShell do Azure][GETPHPVERPS]
+2. Defina a versão PHP do aplicativo Web.
+
+        PS C:\> Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name {site-name}
+
+3. A versão do PHP agora está definida. Você pode confirmar essas configurações:
+
+        PS C:\> Get-AzureWebsite -Name {site-name} | findstr PhpVersion
 
 ### Interface de linha de comando do Azure (Linux, Mac, Windows)
 
 Para usar a Interface de Linha de Comando do Azure, é necessário ter **Node.js** instalado no computador.
 
-1. Abra o Terminal.
-2. Digite `azure site set --php-version [5.4 | 5.5] [site-name]` e pressione enter.
-3. A versão do PHP agora está definida.
+1. Abra o Terminal e faça logon em sua conta.
 
-	![Definindo a versão do PHP com a interface de linha de comando do Azure][SETPHPVERCLI]
-4. Você pode confirmar essas configurações digitando `azure site show [site-name]` e pressionando enter.
+        azure login
 
-	![Verificando a versão do PHP com a interface de linha de comando do Azure][GETPHPVERCLI]
+2. Defina a versão PHP do aplicativo Web.
+
+        azure site set --php-version [5.4 | 5.5] {site-name}
+
+3. A versão do PHP agora está definida. Você pode confirmar essas configurações:
+
+        azure site show {site-name}
+
 
 ## Como: alterar as configurações internas do PHP
 
@@ -155,13 +162,12 @@ Em vez do tempo de execução padrão do PHP, os aplicativos Web do Serviço de 
 
 ## Próximas etapas
 
-Para obter mais informações, consulte o [Centro de desenvolvedores do PHP](/develop/php/).
+Para obter mais informações, veja o [Centro de Desenvolvimento PHP](/develop/php/).
 
->[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE]Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [avaliação gratuita]: https://www.windowsazure.com/pricing/free-trial/
 [phpinfo()]: http://php.net/manual/en/function.phpinfo.php
@@ -183,4 +189,4 @@ Para obter mais informações, consulte o [Centro de desenvolvedores do PHP](/de
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

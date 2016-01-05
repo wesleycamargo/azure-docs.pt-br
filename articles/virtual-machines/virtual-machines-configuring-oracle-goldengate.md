@@ -14,7 +14,7 @@
 	ms.date="06/22/2015"
 	ms.author="bbenz" />
 
-	
+
 #Configurando o Oracle GoldenGate para o Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
@@ -36,7 +36,7 @@ Além disso, o tutorial presume que você já tenha implementado os seguintes pr
 
 - Você criou duas VMs (máquinas virtuais) no Azure usando a do imagem Oracle Enterprise Edition fornecida pela plataforma no Windows Server. Para obter informações, veja [Criando uma máquina virtual do Oracle Database 12c no Azure](#z3dc8d3c097cf414e9048f7a89c026f80) e [Máquinas Virtuais do Azure](http://azure.microsoft.com/documentation/services/virtual-machines/). Verifique se as Máquinas Virtuais estão no [mesmo serviço de nuvem](virtual-machines-load-balance.md) e na mesma [Rede Virtual](http://azure.microsoft.com/documentation/services/virtual-network/) para garantir que possam se acessar mutuamente por um endereço IP privado persistente.
 
-- Você definiu os nomes de máquina virtual como "MachineGG1" para o Site A e "MachineGG2" para o Site B no Portal do Azure.
+- Você definiu os nomes da Máquina Virtual como "MachineGG1" para o Site A e "MachineGG2" para o Site B no portal clássico do Azure.
 
 - Você criou bancos de dados de teste "TestGG1" no Site A e "TestGG2" no Site B.
 
@@ -95,7 +95,7 @@ Para versões subsequentes do Oracle Database e do Oracle GoldenGate, pode haver
 ##1\. Configurar o banco de dados no Site A e no Site B
 Esta seção explica como executar os pré-requisitos de banco de dados no Site A e no Site B. Você deve executar todas as etapas desta seção nos dois sites: A e B.
 
-Primeiro, crie a área de trabalho remota para o Site A e o Site B através do Portal de Gerenciamento. Abra um prompt de comando do Windows e crie um diretório inicial para os arquivos de instalação do Oracle GoldenGate:
+Primeiro, crie a área de trabalho remota para o Site A e o Site B através do portal clássico do Azure. Abra um prompt de comando do Windows e crie um diretório inicial para os arquivos de instalação do Oracle GoldenGate:
 
 	mkdir C:\OracleGG
 
@@ -183,7 +183,7 @@ Em seguida, crie e habilite um gatilho de banco de dados, INVENTORY\_CDR\_TRG, n
 ##2\. Preparar o Site A e o Site B para replicação de banco de dados
 Esta seção explica como preparar o Site A e o Site B para replicação de banco de dados. Você deve executar todas as etapas desta seção nos dois sites: A e B.
 
-Primeiro, crie a área de trabalho remota para o Site A e o Site B através do Portal do Azure. Alterne o banco de dados para o modo archivelog usando a janela Comando SQL*Plus:
+Primeiro, crie a área de trabalho remota para o Site A e o Site B através do portal clássico do Azure. Alterne o banco de dados para o modo archivelog usando a janela Comando SQL*Plus:
 
 	sql>shutdown immediate
 	sql>startup mount
@@ -285,7 +285,7 @@ Inicie o processo de gerenciador:
 
 ###Criar os processos Extrair e Bomba de dados no Site A
 
-Você precisa criar processos de Extração e Bomba de dados no Site A e no Site B. Crie a área de trabalho remota do Site A e do Site B por meio do Portal de Gerenciamento. Abra a janela do interpretador de comando GGSCI. Execute os seguintes comandos no Site A:
+Você precisa criar processos Extrair e Bomba de dados no Site A e no Site B. Criar a área de trabalho remota ao Site A e ao Site B por meio do portal clássico do Azure. Abra a janela do interpretador de comando GGSCI. Execute os seguintes comandos no Site A:
 
 	GGSCI (MachineGG1) 14> add extract ext1 tranlog begin now
 	EXTRACT added.
@@ -602,4 +602,4 @@ Crie a área de trabalho remota para Site A e verifique se a replicação ocorre
 ##Recursos adicionais
 [Imagens de Máquina Virtual Oracle para Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/23/2015"
+	ms.date="12/01/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -22,7 +22,7 @@
 **Banco de dados individual**
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-export.md)
+- [Azure portal](sql-database-export.md)
 - [PowerShell](sql-database-export-powershell.md)
 
 
@@ -73,7 +73,7 @@ Substitua os nomes de servidor e de banco de dados com o servidor e o banco de d
     $DatabaseName = "nameofdatabasetoexport"
     $BlobName = "filename.bacpac"
 
-No [Portal de Visualização do Azure](https://portal.azure.com), navegue até sua conta de armazenamento para obter esses valores. Você pode encontrar a chave de acesso primária clicando em **Todas as configurações** e em **Chaves** na folha da sua conta de armazenamento.
+No [Portal do Azure](https://portal.azure.com), navegue até sua conta de armazenamento para obter esses valores. Você pode encontrar a chave de acesso primária clicando em **Todas as configurações** e em **Chaves** na folha da sua conta de armazenamento.
 
     $StorageName = "storageaccountname"
     $ContainerName = "blobcontainername"
@@ -148,4 +148,4 @@ A execução desse comando solicitará uma senha. Insira a senha do administrado
 - [Executar análise de recuperação de desastres](sql-database-disaster-recovery-drills.md)
 - [Documentação do banco de dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

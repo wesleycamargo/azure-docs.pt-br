@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="12/11/2015" 
 	ms.author="cephalin"/>
 
 
@@ -22,7 +22,7 @@
 
 Usando Git, é possível implantar um aplicativo ASP.NET em Aplicativos Web do Serviço de Aplicativo do Azure. Neste tutorial, você compilará um aplicativo de lista de tarefas MVC do ASP.NET de front-end simples que se conecta a um banco de dados MongoDB em execução em uma máquina virtual no Azure. [O MongoDB][MongoDB] é um banco de dados NoSQL de código-fonte aberto e com alto desempenho. Depois de executar e testar o aplicativo ASP.NET no computador de desenvolvimento, você carregará o aplicativo nos Aplicativos Web do Serviço de Aplicativo usando Git.
 
->[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 
 ## Conhecimento prévio ##
@@ -70,7 +70,7 @@ Nesta seção, você criará um aplicativo ASP.NET chamado "Minha Lista de Taref
 	![Selecionar modelo do MVC][VS2013SelectMVCTemplate]
 
 1. Se você ainda não tiver entrado no Microsoft Azure, será solicitada a sua conexão. Siga os prompts para entrar no Azure.
-2. Depois de se conectar, você poderá começar a configurar seu aplicativo Web do Serviço de Aplicativo. Especifique o **Nome do Aplicativo Web**, o **Plano Serviço do Aplicativo**, o **Grupo de recursos** e a **Região** e, em seguida, clique em **OK**.
+2. Depois de se conectar, você poderá começar a configurar seu aplicativo Web do Serviço de Aplicativo. Especifique o **Nome do Aplicativo Web**, o **plano do Serviço de Aplicativo**, o **Grupo de recursos** e a **Região** e, em seguida, clique em **Criar**.
 
 	![](./media/web-sites-dotnet-store-data-mongodb-vm/VSConfigureWebAppSettings.png)
 
@@ -147,7 +147,9 @@ No **Gerenciador de soluções**, clique com o botão direito do mouse no projet
 	using System.Web;
 	using MyTaskListApp.Models;
 	using MongoDB.Driver;
+	using MongoDB.Bson;
 	using System.Configuration;
+	
 	
 	namespace MyTaskListApp
 	{
@@ -157,42 +159,42 @@ No **Gerenciador de soluções**, clique com o botão direito do mouse no projet
 	        private bool disposed = false;
 	
 	        // To do: update the connection string with the DNS name
-			// or IP address of your server. 
-			//For example, "mongodb://testlinux.cloudapp.net"
-	        private string connectionString = "mongodb://<vm-dns-name>";
+	        // or IP address of your server. 
+	        //For example, "mongodb://testlinux.cloudapp.net"
+	        private string connectionString = "mongodb://mongodbsrv20151211.cloudapp.net";
 	
 	        // This sample uses a database named "Tasks" and a 
-			//collection named "TasksList".  The database and collection 
-			//will be automatically created if they don't already exist.
+	        //collection named "TasksList".  The database and collection 
+	        //will be automatically created if they don't already exist.
 	        private string dbName = "Tasks";
 	        private string collectionName = "TasksList";
 	
 	        // Default constructor.        
 	        public Dal()
 	        {
-	        }        
+	        }
 	
 	        // Gets all Task items from the MongoDB server.        
 	        public List<MyTask> GetAllTasks()
 	        {
 	            try
 	            {
-	                MongoCollection<MyTask> collection = GetTasksCollection();
-	                return collection.FindAll().ToList<MyTask>();
+	                var collection = GetTasksCollection();
+	                return collection.Find(new BsonDocument()).ToList();
 	            }
 	            catch (MongoConnectionException)
 	            {
-	                return new List<MyTask >();
+	                return new List<MyTask>();
 	            }
 	        }
 	
 	        // Creates a Task and inserts it into the collection in MongoDB.
 	        public void CreateTask(MyTask task)
 	        {
-	            MongoCollection<MyTask> collection = GetTasksCollectionForEdit();
+	            var collection = GetTasksCollectionForEdit();
 	            try
 	            {
-	                collection.Insert(task, SafeMode.True);
+	                collection.InsertOne(task);
 	            }
 	            catch (MongoCommandException ex)
 	            {
@@ -200,19 +202,19 @@ No **Gerenciador de soluções**, clique com o botão direito do mouse no projet
 	            }
 	        }
 	
-	        private MongoCollection<MyTask> GetTasksCollection()
+	        private IMongoCollection<MyTask> GetTasksCollection()
 	        {
-	            MongoServer server = MongoServer.Create(connectionString);
-	            MongoDatabase database = server[dbName];
-	            MongoCollection<MyTask> todoTaskCollection = database.GetCollection<MyTask>(collectionName);
+	            MongoClient client = new MongoClient(connectionString);
+	            var database = client.GetDatabase(dbName);
+	            var todoTaskCollection = database.GetCollection<MyTask>(collectionName);
 	            return todoTaskCollection;
 	        }
 	
-	        private MongoCollection<MyTask> GetTasksCollectionForEdit()
+	        private IMongoCollection<MyTask> GetTasksCollectionForEdit()
 	        {
-	            MongoServer server = MongoServer.Create(connectionString);
-	            MongoDatabase database = server[dbName];
-	            MongoCollection<MyTask> todoTaskCollection = database.GetCollection<MyTask>(collectionName);
+	            MongoClient client = new MongoClient(connectionString);
+	            var database = client.GetDatabase(dbName);
+	            var todoTaskCollection = database.GetCollection<MyTask>(collectionName);
 	            return todoTaskCollection;
 	        }
 	
@@ -419,7 +421,7 @@ No **Gerenciador de soluções**, abra o arquivo *DAL/Dal.cs*. Localize a seguin
 
 	private string connectionString = "mongodb://<vm-dns-name>";
 
-Substitua `<vm-dns-name>` pelo nome DNS da máquina virtual executando MongoDB criado na etapa [Criar uma máquina virtual e instalar o MongoDB][] deste tutorial. Para localizar o nome DNS da máquina virtual, vá até o Portal do Azure, selecione **Máquinas Virtuais** e localize **Nome DNS**.
+Substitua `<vm-dns-name>` pelo nome DNS da máquina virtual executando MongoDB criado na etapa [Criar uma máquina virtual e instalar o MongoDB][] deste tutorial. Para encontrar o nome DNS da máquina virtual, vá até o Portal do Azure, selecione **Máquinas Virtuais** e localize **Nome DNS**.
 
 Se o nome DNS da máquina virtual for "testlinuxvm.cloudapp.net" e MongoDB estiver escutando na porta padrão 27017, a linha da cadeia de conexão do código será assim:
 
@@ -450,7 +452,7 @@ Nesta seção, você publicará as alterações feitas nos Aplicativos Web do Se
 
 Você já implantou o aplicativo ASP.NET com êxito para os Aplicativos Web do Serviço de Aplicativo do Azure. Para exibir o aplicativo Web:
 
-1. Faça logon no portal do Azure.
+1. Faça logon no Portal do Azure.
 2. Clique em **Aplicativos Web**. 
 3. Selecione seu aplicativo Web na lista **Aplicativos Web**.
 
@@ -499,4 +501,4 @@ Para obter mais informações sobre como desenvolver aplicativos do C# para Mong
 [Deploy the ASP.NET application to the web site using Git]: #deployapp
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="11/04/2015" 
 	ms.author="awills"/>
 
 #  Application Insights para aplicativos do Microsoft Azure
@@ -26,9 +26,9 @@ A configuração é muito fácil, e você verá os resultados em minutos.
 
 Que tipo de aplicativo você tem?
 
-* [Aplicativo Web do Azure](insights-perf-analytics.md)
-* [Serviços de nuvem do Azure aplicativo - funções da Web e de trabalho](app-insights-cloudservices.md)
-* [Aplicativo Web no IIS na VM do Azure](../insights-perf-analytics.md)
+* [Aplicativo Web do Azure](app-insights-asp-net.md)
+* [Aplicativo dos Serviços de Nuvem do Azure - funções da Web e de trabalho](app-insights-cloudservices.md)
+* [Aplicativo Web no IIS na VM do Azure](../app-insights-asp-net.md)
 * [Aplicativo fora do Azure](app-insights-overview.md)
 
 
@@ -40,4 +40,4 @@ Que tipo de aplicativo você tem?
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

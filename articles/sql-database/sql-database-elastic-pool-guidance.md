@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/08/2015" 
+	ms.date="12/01/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -140,7 +140,7 @@ Para ver os tamanhos disponíveis, consulte [Limites de eDTU e armazenamento par
 
 O STA e DMVs fornecem diferentes opções de ferramentas e recursos para dimensionamento de um pool de banco de dados elástico. Independentemente da opção de ferramentas usada, a estimativa de dimensionamento deve ser usada somente como uma avaliação inicial e criação de pools de banco de dados elástico. Depois de um pool ter sido criado, seu uso de recursos deve ser monitorado com precisão e as configurações de desempenho do pool devem ser ajustadas conforme necessário.
 
-**STA**<br>O STA é uma ferramenta interna [no portal de visualização](https://portal.azure.com) que avalia automaticamente a utilização histórica de recursos dos bancos de dados em um servidor do Banco de Dados SQL existente e recomenda uma configuração apropriada de pool de banco de dados elástico. Para obter detalhes, veja [Recomendações para camada de preços de pool de banco de dados elástico](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations).
+**STA**<br>O STA é uma ferramenta interna [no portal do Azure](https://portal.azure.com) que avalia automaticamente a utilização histórica de recursos dos bancos de dados em um servidor de Banco de Dados SQL existente e recomenda uma configuração apropriada de pool de banco de dados elástico. Para obter detalhes, veja [Recomendações para camada de preços de pool de banco de dados elástico](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations).
 
 **Ferramenta de dimensionamento de DMV**<br>A ferramenta de dimensionamento de DMV é fornecida como um script do PowerShell e permite personalizar as estimativas de dimensionamento de um pool de banco de dados elástico para bancos de dados existentes em um servidor.
 
@@ -160,7 +160,7 @@ Selecione a ferramenta apropriada para analisar seu aplicativo específico. A ta
 
 O Azure avalia o histórico de utilização dos bancos de dados e recomenda um pool de banco de dados elástico quando ele é mais econômico do que o uso de níveis de desempenho para bancos de dados individuais. Se um pool é recomendado, a ferramenta fornece uma lista de bancos de dados recomendados, bem como a quantidade recomendada de eDTUs do pool e configurações de eDTU mín/máx para cada banco de dados elástico. Para que um banco de dados seja considerado como candidato para um pool, ele deve existir há pelo menos 7 dias.
 
-O STA está disponível no portal de visualização ao adicionar um pool de banco de dados elástico a um servidor existente. Se as recomendações para um pool de banco de dados elástico estiverem disponíveis para o servidor, elas serão exibidas na página de criação “Pool de Banco de Dados Elástico”. Os clientes sempre podem alterar as configurações recomendadas para criar seu próprio agrupamento de pool de banco de dados elástico.
+O STA está disponível no portal ao adicionar um pool de banco de dados elástico a um servidor existente. Se as recomendações para um pool de banco de dados elástico estiverem disponíveis para o servidor, elas serão exibidas na página de criação “Pool de Banco de Dados Elástico”. Os clientes sempre podem alterar as configurações recomendadas para criar seu próprio agrupamento de pool de banco de dados elástico.
 
 Para obter detalhes, veja [Recomendações para camada de preços de pool de banco de dados elástico](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations)
 
@@ -435,4 +435,4 @@ Nem todos os bancos de dados individuais são candidatos ideais para pools de ba
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

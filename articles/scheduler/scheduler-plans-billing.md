@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="dotnet" 
  ms.topic="article" 
- ms.date="08/04/2015" 
+ ms.date="12/04/2015" 
  ms.author="krisragh"/>
  
 # Planos e Cobrança no Agendador do Azure
@@ -68,23 +68,25 @@ Para obter detalhes sobre preços, confira [Preços do Agendador](http://azure.m
 
 ## Consulte também
  
+
  [O que é o Agendador?](scheduler-intro.md)
  
- [Conceitos, terminologia e hierarquia de entidades do Agendador](scheduler-concepts-terms.md)
+ [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
 
- [Introdução à utilização do Agendador no Portal de Gerenciamento](scheduler-get-started-portal.md)
+ [Introdução à utilização do Agendador no Portal do Azure](scheduler-get-started-portal.md)
 
- [Como criar agendas complexas e recorrência avançada com o Agendador do Azure](scheduler-advanced-complexity.md)
+ [Referência da API REST do Agendador do Azure](https://msdn.microsoft.com/library/dn528946)
 
- [Referência da API REST do Agendador](https://msdn.microsoft.com/library/dn528946)
+ [Referência de cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md)
 
- [Referência de cmdlets do PowerShell do Agendador](scheduler-powershell-reference.md)
+ [Alta disponibilidade e confiabilidade do Agendador do Azure](scheduler-high-availability-reliability.md)
+
+ [Limites, padrões e códigos de erro do Agendador do Azure](scheduler-limits-defaults-errors.md)
+
+ [Autenticação de saída do Agendador do Azure](scheduler-outbound-authentication.md)
  
- [Alta disponibilidade e confiabilidade do Agendador](scheduler-high-availability-reliability.md)
-
- [Limites, padrões e códigos de erro do Agendador](scheduler-limits-defaults-errors.md)
-
- [Autenticação de saída do Agendador](scheduler-outbound-authentication.md)
   
 
-<!---HONumber=Oct15_HO3-->
+  
+
+<!---HONumber=AcomDC_1210_2015-->

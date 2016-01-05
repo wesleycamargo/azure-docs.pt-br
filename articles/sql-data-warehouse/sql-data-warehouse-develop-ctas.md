@@ -169,7 +169,7 @@ AND	[acs].[CalendarYear]				= [fis].[CalendarYear]
 ;
 ```
 
-Como o SQL Data Warehouse não dá suporte a junções ANSI na cláusula FROM da instrução UPDATE, você não pode copiar esse código sem alterá-lo um pouco.
+Já que o SQL Data Warehouse não dá suporte a junções ANSI na cláusula FROM da instrução UPDATE, você não pode copiar esse código sem alterá-lo um pouco.
 
 Você pode usar uma combinação de um CTAS e uma junção implícita para substituir este código:
 
@@ -425,8 +425,8 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 [Estatísticas]: ./sql-data-warehouse-develop-statistics.md
 
 <!--MSDN references-->
-[CTAS]: https://msdn.microsoft.com/pt-BR/library/mt204041.aspx
+[CTAS]: https://msdn.microsoft.com/library/mt204041.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

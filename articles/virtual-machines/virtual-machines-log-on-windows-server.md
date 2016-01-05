@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Fazer logon em uma VM | Microsoft Azure"
-	description="Use o portal do Azure para fazer logon na máquina virtual do Windows criada com o modelo clássico de implantação."
+	description="Use o portal clássico do Azure para fazer logon na máquina virtual do Windows criada com o modelo clássico de implantação."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -18,11 +18,11 @@
 	ms.author="cynthn"/>
 
 
-# Faça logon em uma máquina virtual do Windows usando o Portal do Azure.
+# Faça logon em uma máquina virtual do Windows usando o portal clássico do Azure
 
 
 
-No Portal do Azure, você usará o botão **Conectar** para iniciar uma sessão de Área de Trabalho Remota e fazer logon em uma VM do Windows.
+No portal clássico do Azure, você usará o botão **Conectar** para iniciar uma sessão de Área de Trabalho Remota e fazer logon em uma VM do Windows.
 
 Deseja conectar-se a uma VM do Linux? Consulte [Como fazer logon em uma máquina virtual que esteja executando o Linux](virtual-machines-linux-how-to-log-on.md).
 
@@ -38,7 +38,7 @@ Veja um passo a passo em vídeo deste tutorial. Ele também aborda os pontos de 
 
 ## Conectar-se à máquina virtual
 
-1. Entre no Portal do Azure.
+1. Entre no portal clássico do Azure.
 
 2. Clique em **Máquinas Virtuais** e selecione a máquina virtual.
 
@@ -61,4 +61,4 @@ Veja algumas opções:
 
 Se essas dicas não funcionarem ou se não forem necessárias, consulte [Solucionar problemas de conexões da Área de Trabalho Remota com uma Máquina Virtual do Azure baseada no Windows](virtual-machines-troubleshoot-remote-desktop-connections.md). Este artigo orienta você no diagnóstico e na solução de problemas comuns.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

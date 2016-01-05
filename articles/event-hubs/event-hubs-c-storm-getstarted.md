@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução aos Hubs de eventos em C com Apache Storm | Microsoft Azure"
+	pageTitle="Introdução aos Hubs de Eventos com o C e Apache Storm | Microsoft Azure"
 	description="Siga este tutorial para começar a usar os Hubs de Eventos do Azure; enviar eventos em C; e receber eventos em um cluster do Apache Storm."
 	services="event-hubs"
 	documentationCenter=""
@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="event-hubs"
-	ms.workload="core"
+	ms.workload="na"
 	ms.tgt_pltfrm="c"
 	ms.devlang="java"
 	ms.topic="article" 
-	ms.date="09/01/2015"
+	ms.date="12/09/2015"
 	ms.author="sethm"/>
 
 # Introdução aos Hubs de Evento
@@ -38,7 +38,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 ## Criar um Hub de Evento
 
-1. Entre no [portal do Azure] e clique em **NOVO** na parte inferior da tela.
+1. Faça logon no [portal clássico do Azure] e clique em **NOVO** na parte inferior da tela.
 
 2. Clique em **Serviços de Aplicativos**, em **Barramento de Serviço**, em **Hub de Eventos** e em **Criação Rápida**.
 
@@ -86,8 +86,8 @@ Agora você está pronto para executar os aplicativos.
 
 Os seguintes recursos estão disponíveis para o desenvolvimento de aplicativos integrando Hubs e Storm.
 
-- [Analisar dados do sensor com o Storm e do HDInsight] é um tutorial de cenário integral usando Hubs de Eventos, Storm e HBase para receber dados do sensor em um cluster do Hadoop.
-- [Desenvolver aplicativos de processamento de dados de fluxo com SCP.NET e C# em Storm] e HDInsight é um tutorial sobre como escrever tubulações do Storm usando C#.
+- [Analisar dados do sensor com o Storm e do HDInsight][] é um tutorial de cenário integral usando Hubs de Eventos, Storm e HBase para receber dados do sensor em um cluster do Hadoop.
+- [Desenvolver aplicativos de processamento de dados de fluxo com SCP.NET e C# em Storm][] e HDInsight é um tutorial sobre como escrever tubulações do Storm usando C#.
 
 <!-- Images. -->
 [1]: ./media/event-hubs-c-storm-getstarted/create-event-hub1.png
@@ -101,7 +101,7 @@ Os seguintes recursos estão disponíveis para o desenvolvimento de aplicativos 
 [23]: ./media/event-hubs-c-storm-getstarted/receive-storm3.png
 
 <!-- Links -->
-[portal do Azure]: https://manage.windowsazure.com/
+[portal clássico do Azure]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Visão geral de Hubs de Eventos]: event-hubs-overview.md
 
@@ -111,4 +111,4 @@ Os seguintes recursos estão disponíveis para o desenvolvimento de aplicativos 
 [Desenvolver aplicativos de processamento de dados de fluxo com SCP.NET e C# em Storm]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="12/14/2015"
 	ms.author="wesmc"/>
 
 # Usar hubs de notificação para enviar notícias recentes
@@ -25,9 +25,9 @@
 
 ##Visão geral
 
-Este tópico mostra como usar os Hubs de Notificação do Azure para transmitir notificações de últimas notícias para um aplicativo da Windows Store ou do Windows Phone 8.1 (Sem Silverlight). Se você estiver selecionando o Windows Phone 8.1 Silverlight, então refira-se à versão [Windows Phone](notification-hubs-ios-send-breaking-news.md). Ao concluir, você poderá se registrar nas categorias de últimas notícias que desejar e receber notificações por push apenas para essas categorias. Esse cenário é um padrão comum para muitos aplicativos em que as notificações devem ser enviadas a grupos de usuários que tenham expressado anteriormente seu interesse por elas, por exemplo, leitor RSS, aplicativos para fãs de música e assim por diante.
+Este tópico mostra como usar os Hubs de Notificação do Azure para transmitir notificações de últimas notícias para um aplicativo da Windows Store ou do Windows Phone 8.1 (Sem Silverlight). Se você estiver selecionando o Windows Phone 8.1 Silverlight, então refira-se à versão [Windows Phone](notification-hubs-windows-phone-send-breaking-news.md). Ao concluir, você poderá se registrar nas categorias de últimas notícias que desejar e receber notificações por push apenas para essas categorias. Esse cenário é um padrão comum para muitos aplicativos em que as notificações devem ser enviadas a grupos de usuários que tenham expressado anteriormente seu interesse por elas, por exemplo, leitor RSS, aplicativos para fãs de música e assim por diante.
 
-Os cenários de transmissão são habilitados por meio da inclusão de um ou mais _rótulos_ durante a criação de um registro no hub de notificação. Quando as notificações são enviadas para um rótulo, todos os dispositivos que foram registrados para o rótulo receberão a notificação. Como os rótulos são simplesmente cadeias de caracteres, eles não precisam ser provisionados com antecedência. Para obter mais informações sobre rótulos, consulte [Diretrizes dos Hubs de Notificação].
+Os cenários de transmissão são habilitados por meio da inclusão de um ou mais _rótulos_ durante a criação de um registro no hub de notificação. Quando as notificações são enviadas para um rótulo, todos os dispositivos que foram registrados para o rótulo receberão a notificação. Como os rótulos são simplesmente cadeias de caracteres, eles não precisam ser provisionados com antecedência. Para obter mais informações sobre marcas, consulte [Expressões de Marca e Roteamento dos Hubs de Notificação](notification-hubs-routing-tag-expressions.md).
 
 ##Pré-requisitos
 
@@ -78,10 +78,10 @@ A primeira etapa é adicionar os elementos da interface do usuário na página p
             hub = new NotificationHub(hubName, listenConnectionString);
         }
 
-        public async Task StoreCategoriesAndSubscribe(IEnumerable<string> categories)
+        public async Task<Registration> StoreCategoriesAndSubscribe(IEnumerable<string> categories)
         {
             ApplicationData.Current.LocalSettings.Values["categories"] = string.Join(",", categories);
-            await SubscribeToCategories(categories);
+            return await SubscribeToCategories(categories);
         }
 
 		public IEnumerable<string> RetrieveCategories()
@@ -90,19 +90,34 @@ A primeira etapa é adicionar os elementos da interface do usuário na página p
             return categories != null ? categories.Split(','): new string[0];
         }
 
-        public async Task SubscribeToCategories(IEnumerable<string> categories = null)
+        public async Task<Registration> SubscribeToCategories(IEnumerable<string> categories = null)
         {
             var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
 
             if (categories == null)
             {
-                IEnumerable<string> categories = RetrieveCategories();
+                categories = RetrieveCategories();
             }
 
-            await hub.RegisterNativeAsync(channel.Uri, categories);
+            // Using a template registration to support notifications across platforms.
+			// Any template notifications that contain messageParam and a corresponding tag expression
+			// will be delivered for this registration.
+
+            const string templateBodyWNS = "<toast><visual><binding template="ToastText01"><text id="1">$(messageParam)</text></binding></visual></toast>";
+
+            return await hub.RegisterTemplateAsync(channel.Uri, templateBodyWNS, "simpleWNSTemplateExample",
+					categories);
         }
 
-    Essa classe usa o armazenamento local para armazenar as categorias de notícias que este dispositivo deverá receber. Ela também contém métodos para se registrar nessas categorias.
+    Essa classe usa o armazenamento local para armazenar as categorias de notícias que este dispositivo deverá receber. Observe que, em vez de chamar o método *RegisterNativeAsync*, chamamos *RegisterTemplateAsync* para se registrar para as categorias usando um registro de modelo.
+	
+	Também fornecemos um nome para o modelo ("simpleWNSTemplateExample"), porque queremos registrar mais de um modelo (por exemplo um para notificações do sistema e um para notificação de bloco) e precisamos nomeá-los para que possam ser atualizados ou excluídos.
+
+	Observe que se um dispositivo registrar vários modelos com a mesma marca, uma mensagem de entrada direcionada para aquela marca resultará em várias notificações entregues ao dispositivo (um para cada modelo). Esse comportamento é útil quando a mesma mensagem lógica precisa resultar em várias notificações visuais, por exemplo, mostrando uma notificação e uma notificação do sistema em um aplicativo da Windows Store.
+
+	Para obter mais informações sobre o uso de modelos, consulte [Modelos](notification-hubs-templates.md).
+
+
 
 
 4. No arquivo de projeto App.xaml.cs, adicione a propriedade a seguir na classe **Aplicativo**:
@@ -131,9 +146,9 @@ A primeira etapa é adicionar os elementos da interface do usuário na página p
             if (ScienceToggle.IsOn) categories.Add("Science");
             if (SportsToggle.IsOn) categories.Add("Sports");
 
-            await ((App)Application.Current).notifications.StoreCategoriesAndSubscribe(categories);
+            var result = await ((App)Application.Current).notifications.StoreCategoriesAndSubscribe(categories);
 
-            var dialog = new MessageDialog("Subscribed to: " + string.Join(",", categories));
+            var dialog = new MessageDialog("Subscribed to: " + string.Join(",", categories) + " on registration Id: " + result.RegistrationId);
             dialog.Commands.Add(new UICommand("OK"));
             await dialog.ShowAsync();
         }
@@ -148,32 +163,38 @@ Estas etapas registram com o hub de notificação na inicialização, usando as 
 
 > [AZURE.NOTE]Como a URI do canal atribuído pelo Serviço de Notificação do Windows (WNS) pode ser escolhida a qualquer momento, você deve se registrar para receber notificações com frequência para evitar falhas de notificação. Este exemplo registra a notificação a cada vez que o aplicativo é iniciado. Para os aplicativos que são executados com frequência, mais de uma vez por dia, é possível ignorar o registro para preservar a largura de banda se tiver passado menos de um dia desde o registro anterior.
 
-1. Abra o arquivo App.xaml.cs e adicione o modificador **async** ao método **OnLaunched**.
+1. Abra o arquivo App.xaml.cs e atualize o método **InitNotificationsAsync** para usar a classe `notifications` para assinar com base em categorias.
 
-2. No método **OnLaunched**, localize e substitua a chamada existente para o método **InitNotificationsAsync** com a seguinte linha de código:
+		// *** Remove or comment out these lines *** 
+	    //var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
+	    //var hub = new NotificationHub("your hub name", "your listen connection string");
+	    //var result = await hub.RegisterNativeAsync(channel.Uri);
+	
+	    var result = await notifications.SubscribeToCategories();
 
-		await notifications.SubscribeToCategories();
-
-	Isso garante que o aplicativo recupere as categorias do armazenamento local e solicite um registro para essas categorias toda vez que ele for iniciado. O método **InitNotificationsAsync** foi criado como parte do tutorial [Introdução aos Hubs de Notificação], mas ele não é necessário neste tópico.
+	Isso garante que o aplicativo recupere as categorias do armazenamento local e solicite um registro para essas categorias toda vez que ele for iniciado. O método **InitNotificationsAsync** foi criado como parte do tutorial [Introdução aos Hubs de Notificação][get-started].
 
 3. No arquivo de projeto MainPage.xaml.cs, adicione o seguinte código ao método *OnNavigatedTo*:
 
-		var categories = ((App)Application.Current).notifications.RetrieveCategories();
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var categories = ((App)Application.Current).notifications.RetrieveCategories();
 
-        if (categories.Contains("World")) WorldToggle.IsOn = true;
-        if (categories.Contains("Politics")) PoliticsToggle.IsOn = true;
-        if (categories.Contains("Business")) BusinessToggle.IsOn = true;
-        if (categories.Contains("Technology")) TechnologyToggle.IsOn = true;
-        if (categories.Contains("Science")) ScienceToggle.IsOn = true;
-        if (categories.Contains("Sports")) SportsToggle.IsOn = true;
+            if (categories.Contains("World")) WorldToggle.IsOn = true;
+            if (categories.Contains("Politics")) PoliticsToggle.IsOn = true;
+            if (categories.Contains("Business")) BusinessToggle.IsOn = true;
+            if (categories.Contains("Technology")) TechnologyToggle.IsOn = true;
+            if (categories.Contains("Science")) ScienceToggle.IsOn = true;
+            if (categories.Contains("Sports")) SportsToggle.IsOn = true;
+        }
 
 	Isso atualiza a página principal com base no status de categorias salvas anteriormente.
 
 O aplicativo agora está completo e pode armazenar um conjunto de categorias no armazenamento local do dispositivo utilizado para registrá-las com o hub de notificação, sempre que o usuário alterar a seleção de categorias. Em seguida, definiremos um back-end que possa enviar notificações de categoria para esse aplicativo.
 
-##Enviar notificações de seu back-end
+##Enviando notificações marcadas
 
-[AZURE.INCLUDE [notification-hubs-back-end](../../includes/notification-hubs-back-end.md)]
+[AZURE.INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
 ##Executar o aplicativo e gerar notificações
 
@@ -207,9 +228,6 @@ Neste tutorial, aprendemos a enviar as últimas notícias por categoria. Conside
 
 	Saiba como expandir o aplicativo das últimas notícias para habilitar o envio de notificações localizadas.
 
-+ [Notificar usuários com Hubs de Notificação]
-
-	Saiba como enviar notificações por push a usuários autenticados específicos. É uma boa solução enviar notificações somente a usuários específicos.
 
 
 <!-- Anchors. -->
@@ -230,15 +248,14 @@ Neste tutorial, aprendemos a enviar as últimas notícias por categoria. Conside
 <!-- URLs.-->
 [get-started]: /manage/services/notification-hubs/getting-started-windows-dotnet/
 [Usar os Hubs de Notificação para transmitir as últimas notícias localizadas]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
-[Notificar usuários com Hubs de Notificação]: /manage/services/notification-hubs/notify-users
+[Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users
 [Mobile Service]: /develop/mobile/tutorials/get-started/
-[Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
-[Azure Management Portal]: https://manage.windowsazure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

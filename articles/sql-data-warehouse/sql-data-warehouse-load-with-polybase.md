@@ -58,11 +58,20 @@ Para acessar o armazenamento de blob do Azure, você precisa criar uma credencia
 
 1. Verifique se você já tem alguma credencial de banco de dados. Para fazer isso, use o modo de exibição do sistema sys.database\_credentials em vez de sys.credentials, que mostra apenas as credenciais do servidor.
 
-    ``` - Verifique as credenciais existentes com escopo de banco de dados. SELECT * FROM sys.database\_credentials;
+    ```
+    -- Check for existing database-scoped credentials.
+    SELECT * FROM sys.database_credentials;
+    ```
 
-3. Use [CREATE CREDENTIAL (Transact-SQL)][] para criar uma credencial com escopo de banco de dados para cada conta de armazenamento do Azure que deseja acessar. Neste exemplo, IDENTITY é um nome amigável para a credencial. Ele não afeta a autenticação no Armazenamento do Azure. SECRET é sua chave de conta de armazenamento do Azure.
+3. Use [CREATE CREDENTIAL (Transact-SQL)][] para criar uma credencial com escopo de banco de dados para cada conta de armazenamento do Azure que deseja acessar. Neste exemplo, IDENTITY é um nome amigável para a credencial. Ele não afeta a autenticação no armazenamento do Azure. SECRET é sua chave de conta de armazenamento do Azure.
 
-    - Criar uma credencial com escopo de banco de dados CREATE DATABASE SCOPED CREDENTIAL ASBSecret WITH IDENTITY = 'joe' , Secret = '<azure_storage_account_key>' ; ```
+    ```
+    -- Create a database scoped credential
+    CREATE DATABASE SCOPED CREDENTIAL ASBSecret 
+    WITH IDENTITY = 'joe'
+    ,    Secret = '<azure_storage_account_key>'
+    ;
+    ```
 
 1. Se você precisar remover uma credencial com escopo de banco de dados, use [DROP CREDENTIAL (Transact-SQL)][]\:
 
@@ -134,7 +143,7 @@ A definição de tabela externa é semelhante a uma definição de tabela relaci
 
 Use [CREATE EXTERNAL TABLE (Transact-SQL)][] para definir a tabela externa.
 
-A opção LOCATION especifica o caminho para os dados a partir da raiz da fonte de dados. Neste exemplo, os dados estão localizados em 'wasbs://mycontainer@test.blob.core.windows.net/path/Demo/'. Todos os arquivos para a mesma tabela precisam estar na mesma pasta lógica no armazenamento de blobs do Azure.
+A opção LOCATION especifica o caminho para os dados a partir da raiz da fonte de dados. Neste exemplo, os dados estão localizados em 'wasbs://mycontainer@test.blob.core.windows.net/path/Demo/'. Todos os arquivos para a mesma tabela precisam estar na mesma pasta lógica no Armazenamento de Blobs do Azure.
 
 Como alternativa, você também pode especificar opções de rejeitar (REJECT\_TYPE, REJECT\_VALUE, REJECT\_SAMPLE\_VALUE) que determinam como o PolyBase manipulará os registros sujos recebidos da fonte de dados externa.
 
@@ -348,13 +357,13 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx
 [CREATE EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx
 
-[DROP EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/pt-BR/library/mt146367.aspx
-[DROP EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/pt-BR/library/mt146379.aspx
-[DROP EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/pt-BR/library/mt130698.aspx
+[DROP EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/library/mt146367.aspx
+[DROP EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/mt146379.aspx
+[DROP EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/mt130698.aspx
 
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
-[CREATE MASTER KEY (Transact-SQL)]: https://msdn.microsoft.com/pt-BR/library/ms174382.aspx
-[CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/pt-BR/library/ms189522.aspx
-[DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/pt-BR/library/ms189450.aspx
+[CREATE MASTER KEY (Transact-SQL)]: https://msdn.microsoft.com/library/ms174382.aspx
+[CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189522.aspx
+[DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Introdução à criação de balanceador de carga para a Internet no modelo de implantação clássico usando para serviços de nuvem | Microsoft Azure"
+   pageTitle="Introdução à criação de um balanceador de carga para a Internet no modelo de implantação clássico usando para serviços de nuvem | Microsoft Azure"
    description="Saiba como criar um balanceador de carga para a Internet no modelo de implantação clássico para serviços de nuvem"
    services="load-balancer"
    documentationCenter="na"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/03/2015"
+   ms.date="11/30/2015"
    ms.author="joaoma" />
 
 # Introdução à criação de um balanceador de carga para a Internet para serviços de nuvem
@@ -23,12 +23,13 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artigo aborda o modelo de implantação clássico. Se você está procurando por um modelo de implantação do Gerenciador de Recursos do Azure, vá para [Introdução à criação de um balanceador de carga para a Internet usando o gerenciador de recursos](load-balancer-get-started-internet-arm-ps.md).
-
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artigo aborda o modelo de implantação clássico. Também é possível [Saber como criar um balanceador de carga para a Internet usando o Gerenciador de Recursos do Azure](load-balancer-get-started-internet-arm-cli.md).
 
 Serviços de nuvem são automaticamente configurados com um balanceador de carga e podem ser personalizados por meio do modelo de serviço.
 
-Você pode aproveitar o SDK do Azure para .NET 2.5 para atualizar seu serviço de nuvem. As configurações de ponto de extremidade para serviços de nuvem são feitas no arquivo .csdef [definição de serviço](https://msdn.microsoft.com/library/azure/gg557553.aspx).
+## Criar um balanceador de carga usando o arquivo de definição de serviço
+ 
+Você pode aproveitar o SDK do Azure para .NET 2.5 para atualizar seu serviço de nuvem. As configurações de ponto de extremidade para os serviços de nuvem são feitas no arquivo .csdef da [definição de serviço](https://msdn.microsoft.com/library/azure/gg557553.aspx).
 
 O exemplo a seguir mostra como um arquivo servicedefinition.csdef é configurado para uma implantação na nuvem:
 
@@ -57,7 +58,7 @@ Ao verificar o trecho de código do arquivo .csdef gerado por uma implantação 
 
 
 
-### Verificar o status de integridade do balanceador de carga para serviços de nuvem
+## Verificar o status de integridade do balanceador de carga para serviços de nuvem
 
 
 A seguir, um exemplo de como criar uma investigação:
@@ -66,7 +67,7 @@ A seguir, um exemplo de como criar uma investigação:
     	<LoadBalancerProbe name=“MyProbe” protocol=“http” path=“Probe.aspx” intervalInSeconds=“5” timeoutInSeconds=“100“ />
  	 	</LoadBalancerProbes>
 
-O balanceador de carga combina as informações do ponto de extremidade e as informações de investigação para criar uma URL na forma de http://{DIP VM}:80/Probe.aspx, que podem ser usadas para consultar a integridade do serviço.
+O balanceador de carga combina as informações do ponto de extremidade e as informações da investigação para criar uma URL na forma de http://{DIP de VM}:80/Probe.aspx, que pode ser usada para consultar a integridade do serviço.
 
 O serviço detecta as investigações periódicas do mesmo endereço IP. Esta é a solicitação de investigação de integridade proveniente do host do nó no qual a máquina virtual está sendo executada. O serviço deve responder com um código de status HTTP 200 para que o balanceador de carga presuma que o serviço esteja íntegro. Qualquer outro código de status HTTP (por exemplo, 503) leva diretamente à máquina virtual da rotação.
 
@@ -82,4 +83,4 @@ Verifique o esquema de definição de serviço para a [investigação de integri
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

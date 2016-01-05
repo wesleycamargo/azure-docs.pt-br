@@ -30,10 +30,37 @@ Para começar:
 
 1. [Baixe o PowerShell mais recente](https://github.com/Azure/azure-powershell/releases) (a versão mínima exigida é: 1.0.0)
 
-2. Habilite os commandlets do Backup do Azure alternando para o modo *AzureResourceManager* usando o commandlet **Switch-AzureMode**:
+2. Localize os cmdlets do PowerShell do Backup do Azure disponíveis digitando o seguinte comando:
 
 ```
-PS C:\> Switch-AzureMode AzureResourceManager
+PS C:\> Get-Command *azurermbackup*
+
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Cmdlet          Backup-AzureRmBackupItem                           1.0.1      AzureRM.Backup
+Cmdlet          Disable-AzureRmBackupProtection                    1.0.1      AzureRM.Backup
+Cmdlet          Enable-AzureRmBackupContainerReregistration        1.0.1      AzureRM.Backup
+Cmdlet          Enable-AzureRmBackupProtection                     1.0.1      AzureRM.Backup
+Cmdlet          Get-AzureRmBackupContainer                         1.0.1      AzureRM.Backup
+Cmdlet          Get-AzureRmBackupItem                              1.0.1      AzureRM.Backup
+Cmdlet          Get-AzureRmBackupJob                               1.0.1      AzureRM.Backup
+Cmdlet          Get-AzureRmBackupJobDetails                        1.0.1      AzureRM.Backup
+Cmdlet          Get-AzureRmBackupProtectionPolicy                  1.0.1      AzureRM.Backup
+Cmdlet          Get-AzureRmBackupRecoveryPoint                     1.0.1      AzureRM.Backup
+Cmdlet          Get-AzureRmBackupVault                             1.0.1      AzureRM.Backup
+Cmdlet          Get-AzureRmBackupVaultCredentials                  1.0.1      AzureRM.Backup
+Cmdlet          New-AzureRmBackupProtectionPolicy                  1.0.1      AzureRM.Backup
+Cmdlet          New-AzureRmBackupRetentionPolicyObject             1.0.1      AzureRM.Backup
+Cmdlet          New-AzureRmBackupVault                             1.0.1      AzureRM.Backup
+Cmdlet          Register-AzureRmBackupContainer                    1.0.1      AzureRM.Backup
+Cmdlet          Remove-AzureRmBackupProtectionPolicy               1.0.1      AzureRM.Backup
+Cmdlet          Remove-AzureRmBackupVault                          1.0.1      AzureRM.Backup
+Cmdlet          Restore-AzureRmBackupItem                          1.0.1      AzureRM.Backup
+Cmdlet          Set-AzureRmBackupProtectionPolicy                  1.0.1      AzureRM.Backup
+Cmdlet          Set-AzureRmBackupVault                             1.0.1      AzureRM.Backup
+Cmdlet          Stop-AzureRmBackupJob                              1.0.1      AzureRM.Backup
+Cmdlet          Unregister-AzureRmBackupContainer                  1.0.1      AzureRM.Backup
+Cmdlet          Wait-AzureRmBackupJob                              1.0.1      AzureRM.Backup
 ```
 
 As seguintes tarefas de configuração e de registro podem ser automatizadas com o PowerShell:
@@ -52,7 +79,7 @@ PS C:\> New-AzureRMResourceGroup –Name “test-rg” –Region “West US”
 PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GeoRedundant
 ```
 
-Você pode obter uma lista de todos os cofres de backup em uma determinada assinatura usando o commandlet **Get-AzureRMBackupVault**.
+É possível obter uma lista de todos os cofres de backup em uma determinada assinatura usando o commandlet **Get-AzureRMBackupVault**.
 
 > [AZURE.NOTE]É conveniente armazenar o objeto cofre de backup em uma variável. O objeto cofre é necessário como uma entrada para vários commandlets do Backup do Azure.
 
@@ -69,7 +96,7 @@ PS C:\> $registerjob = Register-AzureRMBackupContainer -Vault $backupvault -Name
 ## Fazer backup das VMs do Azure
 
 ### Crie uma política de proteção
-Não é obrigatório criar uma nova política de proteção para iniciar o backup das suas VMs. O cofre vem com uma 'Política Padrão' que pode ser usado para habilitar a proteção rapidamente e editada posteriormente com os detalhes à direita. Você pode obter uma lista das políticas disponíveis no cofre usando o commandlet **Get-AzureRMBackupProtectionPolicy**:
+Não é obrigatório criar uma nova política de proteção para iniciar o backup das suas VMs. O cofre vem com uma 'Política Padrão' que pode ser usado para habilitar a proteção rapidamente e editada posteriormente com os detalhes à direita. É possível obter uma lista das políticas disponíveis no cofre usando o commandlet **Get-AzureRMBackupProtectionPolicy**:
 
 ```
 PS C:\> Get-AzureRMBackupProtectionPolicy -Vault $backupvault
@@ -130,7 +157,7 @@ WorkloadName    Operation       Status          StartTime              EndTime
 testvm          Backup          InProgress      01-Sep-15 12:24:01 PM  01-Jan-01 12:00:00 AM
 ```
 
-Em vez de sondar esses trabalhos para conclusão (o que é um código adicional desnecessário), é mais simples usar o commandlet **Wait-AzureRMBackupJob**. Quando usado em um script, o commandlet fará uma pausa na execução até que o trabalho seja concluído ou o valor de tempo limite especificado seja atingido.
+Em vez de sondar esses trabalhos quanto à conclusão (o que é um código adicional e desnecessário), é mais simples usar o commandlet **Wait-AzureRMBackupJob**. Quando usado em um script, o commandlet fará uma pausa na execução até que o trabalho seja concluído ou o valor de tempo limite especificado seja atingido.
 
 ```
 PS C:\> Wait-AzureRMBackupJob -Job $joblist[0] -Timeout 43200
@@ -179,7 +206,7 @@ WorkloadName    Operation       Status          StartTime              EndTime
 testvm          Restore         InProgress      01-Sep-15 1:14:01 PM   01-Jan-01 12:00:00 AM
 ```
 
-Você pode obter os detalhes da operação de restauração usando o commandlet **Get-AzureRMBackupJobDetails** depois que o trabalho de restauração for concluído. A propriedade *ErrorDetails* terá as informações necessárias para recriar a VM.
+É possível obter os detalhes da operação de restauração usando o commandlet **Get-AzureRMBackupJobDetails** depois que o trabalho de Restauração for concluído. A propriedade *ErrorDetails* terá as informações necessárias para recompilar a VM.
 
 ```
 PS C:\> $restorejob = Get-AzureRMBackupJob -Job $restorejob
@@ -196,8 +223,6 @@ Criar as VMs por meio dos discos restaurados pode ser feito usando os commandlet
  $storageAccountName = $properties["TargetStorageAccountName"]
  $containerName = $properties["TargetContainerName"]
  $blobName = $properties["TargetBlobName"]
-
- Switch-AzureMode AzureServiceManagement
 
  $keys = Get-AzureStorageKey -StorageAccountName $storageAccountName
  $storageAccountKey = $keys.Primary
@@ -243,7 +268,7 @@ Para obter mais informações sobre como criar uma VM por meio dos discos restau
 
 ### 1\. Obter o status de conclusão das subtarefas do trabalho
 
-Para acompanhar o status de conclusão das subtarefas individuais, você pode usar o commandlet **Get-AzureRMBackupJobDetails**:
+Para acompanhar o status de conclusão de subtarefas individuais, é possível usar o commandlet **Get-AzureRMBackupJobDetails**:
 
 ```
 PS C:\> $details = Get-AzureRMBackupJobDetails -JobId $backupjob.InstanceId -Vault $backupvault
@@ -302,4 +327,4 @@ $DAILYBACKUPSTATS | Out-GridView
 
 Se você deseja adicionar recursos de gráficos à saída do relatório, saiba mais no blog do TechNet em [Gráficos com o PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

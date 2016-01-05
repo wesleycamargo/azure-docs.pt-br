@@ -32,11 +32,11 @@ Clique para ver o [Conteúdo do SDK](mobile-engagement-windows-phone-sdk-content
 
 ##Notas de versão
 
-###3\.0.0 (03/04/2015)
+###3\.1.0 (20/11/2015)
+Parte do pacote de nuget *MicrosoftAzure.MobileEngagement* **v3.2.0**
 
--   Ícone de notificação padrão atualizado.
--   Envia comentários de ação de notificação do sistema quando uma notificação é clicada.
--   Correção de uma condição de corrida no sistema de notificação.
+-   Falha corrigida ao solicitar a ID do dispositivo logo após a inicialização.
+-   Melhorias de logs do console.
 
 Para a versão anterior, consulte as [notas de versão completas](mobile-engagement-windows-phone-release-notes.md)
 
@@ -55,4 +55,4 @@ Nenhum.
 Consulte [Procedimentos de atualização](mobile-engagement-windows-phone-upgrade-procedure/)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

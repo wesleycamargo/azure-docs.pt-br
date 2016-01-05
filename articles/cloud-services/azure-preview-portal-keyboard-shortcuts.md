@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Atalhos de teclado do portal do Azure | Microsoft Azure"
-   description="Este artigo será sempre uma lista atualizada dos atalhos de teclado que funciona em todo o portal do Azure. Serviços individuais podem ter seus próprios atalhos de teclado especializados."
+   pageTitle="Atalhos de teclado do portal clássico do Azure | Microsoft Azure"
+   description="Este artigo será sempre uma lista atualizada dos atalhos de teclado que funciona em todo o portal clássico do Azure. Serviços individuais podem ter seus próprios atalhos de teclado especializados."
    services="cloud-services"
    documentationCenter=""
    authors="curtand"
-   manager="msStevenPo"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="09/10/2015"
+   ms.date="12/01/2015"
    ms.author="curtand"/>
 
-# Atalhos de teclado do portal do Azure
+# Atalhos de teclado do portal clássico do Azure
 
 ## Hubs abertos
 
@@ -48,6 +48,6 @@
 
 ## Próximas etapas
 
-Conheça melhor o Portal do Azure: http://azure.microsoft.com.
+Conheça melhor o portal clássico do Azure: http://azure.microsoft.com.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

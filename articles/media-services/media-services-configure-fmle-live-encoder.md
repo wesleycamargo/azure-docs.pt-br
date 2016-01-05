@@ -16,7 +16,7 @@
 	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
-#Usar o codificador FMLE para enviar uma transmissão ao vivo de taxa de bits única 
+#Usar o codificador FMLE para enviar uma transmissão ao vivo de taxa de bits única
 
 > [AZURE.SELECTOR]
 - [FMLE](media-services-configure-fmle-live-encoder.md)
@@ -26,35 +26,35 @@
 
 Este tópico mostra como configurar o codificador [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) (FMLE) para enviar um único fluxo de taxa de bits para os canais AMS que são habilitados para codificação ativa. Para obter mais informações, consulte [Trabalhando com canais habilitados para executar codificação ao vivo com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
 
-Este tutorial mostra como gerenciar o AMS (Serviços de Mídia do Azure) com a ferramenta AMSE (Gerenciador de Serviços de Mídia da Azure). Essa ferramenta é executada apenas em PCs com Windows. Se você estiver usando um Mac ou Linux, use o Portal de Gerenciamento do Azure para criar [canais](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programas](media-services-portal-creating-live-encoder-enabled-channel#create-and-manage-a-program).
+Este tutorial mostra como gerenciar o AMS (Serviços de Mídia do Azure) com a ferramenta AMSE (Gerenciador de Serviços de Mídia da Azure). Essa ferramenta é executada apenas em PCs com Windows. Se você estiver usando um Mac ou Linux, use o Portal Clássico do Azure para criar [canais](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programas](media-services-portal-creating-live-encoder-enabled-channel#create-and-manage-a-program).
 
 Observe que este tutorial descreve como usar o AAC. No entanto, por padrão, o FMLE dá suporte ao AAC. Você precisa comprar um plug-in para codificação do AAC como MainConcept: [AAC plug-in](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
 
 ##Pré-requisitos
 
 - [Criar uma conta de Serviços de Mídia do Azure](media-services-create-account.md)
-- Verifique se há um Ponto de Extremidade de Transmissão em execução com pelo menos uma unidade de transmissão alocada. Para obter mais informações, veja [Gerenciar Pontos de Extremidade de Transmissão em uma conta de Serviços de Mídia](media-services-manage-origins.md) 
-- Instale a versão mais recente da ferramenta [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer). 
+- Verifique se há um Ponto de Extremidade de Transmissão em execução com pelo menos uma unidade de transmissão alocada. Para obter mais informações, veja [Gerenciar Pontos de Extremidade de Transmissão em uma conta de Serviços de Mídia](media-services-manage-origins.md)
+- Instale a versão mais recente da ferramenta [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer).
 - Inicie a ferramenta e conecte-se à sua conta do AMS.
 
 ##Dicas
 
-- Sempre que possível, use uma conexão de Internet com fio. 
-- Uma boa regra geral ao determinar os requisitos de largura de banda é dobrar as taxas de bits de transmissão. Embora isso não seja um requisito obrigatório, isso ajuda a reduzir o impacto do congestionamento da rede.  
+- Sempre que possível, use uma conexão de Internet com fio.
+- Uma boa regra geral ao determinar os requisitos de largura de banda é dobrar as taxas de bits de transmissão. Embora isso não seja um requisito obrigatório, isso ajuda a reduzir o impacto do congestionamento da rede.
 - Ao usar codificadores baseados em software, feche todos os programas desnecessários.
- 
+
 ## Criar um canal
 
-1.  Na ferramenta AMSE, navegue até a guia **Ao Vivo** e clique com o botão direito do mouse na área de canais. Selecione **Criar canal...** no menu.  
+1.  Na ferramenta AMSE, navegue até a guia **Ao Vivo** e clique com o botão direito do mouse na área de canais. Selecione **Criar canal...** no menu.
 
-	![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle1.png)
+![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle1.png)
 
-2. Especifique um nome de canal; o campo de descrição é opcional. Em Configurações de Canal, selecione **Standard** para a opção de Codificação Ativa, com o Protocolo de Entrada definido como **RTMP**. Você pode deixar todas as outras configurações como estão.
+2. Especifique um nome de canal; o campo de descrição é opcional. Em Configurações de Canal, selecione **Padrão** para a opção de Codificação Ativa, com o Protocolo de Entrada definido como **RTMP**. Você pode deixar todas as outras configurações como estão.
 
 
-	 Verifique se a opção **Iniciar o novo canal agora** está marcada.
- 
-3. Clique em **Criar Canal**.![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle2.png)
+Verifique se a opção **Iniciar o novo canal agora** está marcada.
+
+3. Clique em **Criar Canal**. ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle2.png)
 
 >[AZURE.NOTE]O canal pode levar até 20 minutos para ser iniciado.
 
@@ -112,15 +112,15 @@ Neste tutorial, são usadas as configurações de saída abaixo. O restante dest
 	
 	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle5.png)
 
-6. Obtenha a URL de entrada do canal para atribuí-la ao **Ponto de extremidade FMLE** do Wirecast.
+6. Obtenha a URL de entrada do canal para atribuí-la ao **Ponto de extremidade FMLE** do FMLE.
 	
 	Navegue de volta para a ferramenta AMSE e verifique o status de conclusão do canal. Depois que o Estado for alterado de **Inicial** para **Em execução**, é possível obter a URL de entrada.
 	  
-	Quando o canal estiver em execução, clique com o botão direito do mouse no nome do canal, navegue até e focalize sobre **Copiar a URL de Entrada na Área de Transferência** e selecione **URL de entrada primária**.
+	Quando o canal estiver em execução, clique com o botão direito do mouse no nome do canal, navegue até e focalize **Copiar a URL de Entrada na Área de Transferência** e selecione **URL de Entrada Primária**.
 	
 	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle6.png)
 
-7. Cole essas informações no campo **FMS URL** da seção de saída e atribua um nome de fluxo.
+7. Cole essas informações no campo **URL do FMS** da seção de saída e atribua um nome de transmissão.
 
 	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle7.png)
 
@@ -131,17 +131,17 @@ Neste tutorial, são usadas as configurações de saída abaixo. O restante dest
 
 ##Reprodução de teste
   
-1. Navegue até a ferramenta AMSE e clique com botão direito do mouse no canal a ser testado. No menu, passe o mouse sobre **Reproduzir a Visualização** e selecione **com o Azure Media Player**.  
+1. Navegue até a ferramenta AMSE e clique com botão direito do mouse no canal a ser testado. No menu, focalize **Reproduzir a Visualização** e selecione **com o Azure Media Player**.  
 
 	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle8.png)
 
 Se a transmissão for exibida no player, isso significa que o codificador foi corretamente configurado para se conectar ao AMS.
 
-Se um erro for recebido, será necessário redefinir o canal e ajustar as configurações do codificador. Veja o tópico [solução de problemas](media-services-troubleshooting-live-streaming.md) para obter orientações.
+Se um erro for recebido, será necessário redefinir o canal e ajustar as configurações do codificador. Veja o tópico [solução de problemas](media-services-troubleshooting-live-streaming.md) para obter diretrizes.
 
 ##Criar um programa
 
-1. Depois que a reprodução do canal for confirmada, crie um programa. Na guia **Ao Vivo** na ferramenta AMSE, clique com o botão direito do mouse na área de programas e selecione **Criar Novo Programa**.  
+1. Depois que a reprodução do canal for confirmada, crie um programa. Na guia **Ao Vivo** da ferramenta AMSE, clique com o botão direito do mouse na área de programas e selecione **Criar Novo Programa**.  
 
 	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle9.png)
 
@@ -159,7 +159,7 @@ A transmissão agora está pronta para ser inserida em um player ou distribuída
 
 ## Solucionar problemas
 
-Veja o tópico [solução de problemas](media-services-troubleshooting-live-streaming.md) para obter orientações.
+Veja o tópico [solução de problemas](media-services-troubleshooting-live-streaming.md) para obter diretrizes.
 
 
 ##Roteiros de aprendizagem dos Serviços de Mídia
@@ -170,4 +170,4 @@ Veja o tópico [solução de problemas](media-services-troubleshooting-live-stre
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

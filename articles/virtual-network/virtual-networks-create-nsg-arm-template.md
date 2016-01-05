@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/08/2015"
+   ms.date="11/20/2015"
    ms.author="telmos" />
 
 # Como criar NSGs usando um modelo
@@ -96,11 +96,13 @@ O modelo de exemplo disponível no repositório público usa um arquivo de parâ
 
 Para implantar o modelo ARM baixado usando o PowerShell, siga as etapas abaixo.
 
-1. Se você nunca usou o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](powershell-install-configure.md) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
+[AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
-3. Execute o cmdlet **New-AzureRMResourceGroup** para criar um grupo de recursos usando o modelo.
+1. Se você nunca usou o Azure PowerShell, consulte [como instalar e configurar o Azure PowerShell](powershell-install-configure.md) e siga as instruções até o final para entrar no Azure e selecionar sua assinatura.
 
-		New-AzureRMResourceGroup -Name TestRG -Location uswest `
+3. Execute o cmdlet **New-AzureRmResourceGroup** para criar um grupo de recursos usando o modelo.
+
+		New-AzureRmResourceGroup -Name TestRG -Location uswest `
 		    -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' `
 		    -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'	
 
@@ -153,7 +155,7 @@ Para implantar o modelo ARM usando a CLI do Azure, siga as etapas abaixo.
 
 		info:    New mode is arm
 
-4. Execute o cmdlet **azure group deployment create** para implantar a nova VNet usando o modelo e os arquivos de parâmetro que você baixou e modificou acima. A lista exibida após a saída explicar os parâmetros usados.
+4. Execute o cmdlet **azure group deployment create** para implantar a nova rede virtual usando os arquivos de modelo e parâmetro que você baixou e modificou acima. A lista exibida após a saída explicar os parâmetros usados.
 
 		azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' -e 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'
 
@@ -174,9 +176,9 @@ Para implantar o modelo ARM usando a CLI do Azure, siga as etapas abaixo.
 		data:    
 		info:    group create command OK
 
-	- **-n (ou --name)**. Nome do grupo de recursos a ser criado.
-	- **-l (ou --location)**. Região do Azure em que o grupo de recursos será criado.
-	- **-f (ou --template-file)**. Caminho para o arquivo de modelo ARM.
-	- **-e (ou --parameters-file)**. Caminho para o arquivo de parâmetros ARM.
+	- **-n (ou --nome)**. Nome do grupo de recursos a ser criado.
+	- **-l (ou --local)**. Região do Azure em que o grupo de recursos será criado.
+	- **-f (ou --arquivo de modelo)**. Caminho para o arquivo de modelo ARM.
+	- **-e (ou --arquivo de parâmetros)**. Caminho para o arquivo de parâmetros ARM.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

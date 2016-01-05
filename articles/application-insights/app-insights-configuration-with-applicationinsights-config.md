@@ -68,7 +68,7 @@ Os erros de `DiagnosticsTelemetryModule` relatórios na instrumentação do Appl
 
 ### Acompanhamento de solicitação da Web
 
-Relatórios do [código de tempo e o resultado da resposta](app-insights-start-monitoring-app-health-usage.md) de solicitações HTTP.
+Relatórios do [código de tempo e o resultado da resposta](app-insights-asp-net.md) de solicitações HTTP.
 
 * `Microsoft.ApplicationInsights.Web.RequestTrackingTelemetryModule`
 * Pacote NuGet [Microsoft.ApplicationInsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web)
@@ -136,9 +136,43 @@ Processadores de telemetria podem filtrar e modificar cada item de telemetria an
 
 Você pode [escrever seus próprios processadores de telemetria](app-insights-api-filtering-sampling.md#filtering).
 
-Há um processador padrão (de 2.0.1):
 
-* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor` - [Amostragem](app-insights-api-filtering-sampling.md#sampling) reduz o volume de telemetria e ainda permite que você navegue entre os itens de telemetria relacionados para diagnóstico.
+#### Processador de telemetria de amostragem adaptável (da 2.0.0-beta3)
+
+Isso é habilitado por padrão. Se o seu aplicativo envia muita telemetria, esse processador remove parte dela.
+
+```xml
+
+    <TelemetryProcessors>
+      <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+        <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
+      </Add>
+    </TelemetryProcessors>
+
+```
+
+O parâmetro fornece o destino que o algoritmo tenta obter. Cada instância do SDK funciona independentemente, portanto, se o servidor for um cluster de vários computadores, o volume real de telemetria será multiplicado adequadamente.
+
+[Saiba mais sobre a amostragem](app-insights-sampling.md).
+
+
+
+#### Processador de telemetria de amostragem de taxa fixa (da 2.0.0-beta1)
+
+Também há um [processador de telemetria de amostra](app-insights-api-filtering-sampling.md#sampling) padrão (de 2.0.1):
+
+```XML
+
+    <TelemetryProcessors>
+     <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+
+     <!-- Set a percentage close to 100/N where N is an integer. -->
+     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
+     <SamplingPercentage>10</SamplingPercentage>
+     </Add>
+   </TelemetryProcessors>
+
+```
 
 
 
@@ -245,10 +279,10 @@ Para obter uma nova chave, [crie um novo recurso no portal do Application Insigh
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
-[exceptions]: app-insights-web-failures-exceptions.md
+[exceptions]: app-insights-asp-net-exceptions.md
 [netlogs]: app-insights-asp-net-trace-logs.md
 [new]: app-insights-create-new-resource.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

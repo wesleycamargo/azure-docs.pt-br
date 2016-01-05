@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="05/20/2015" 
+	ms.date="11/17/2015" 
 	ms.author="huvalo"/>
 	
 # Aplicativo Web Django Hello World em uma VM do Linux
@@ -25,7 +25,7 @@
 
 <br>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modelo do Gerenciador de Recursos.
 
 
 Este tutorial descreve como hospedar um site da web baseado no Django no Microsoft Azure usando uma máquina virtual do Linux. Este tutorial pressupõe que você não tem experiência anterior com o Azure. Depois de concluir este guia, você terá um aplicativo baseado no Django em funcionamento na nuvem.
@@ -45,14 +45,11 @@ Abaixo, uma captura de tela do aplicativo concluído:
 
 ## Crie e configure uma máquina virtual do Azure para hospedar o Django
 
-1. Siga as instruções fornecidas [aqui][portal-vm] para criar uma máquina virtual do Azure da distribuição do *Server Ubuntu 14.04 LTS*.
+1. Siga as instruções fornecidas [aqui](virtual-machines-linux-tutorial-portal-rm.md) para criar uma máquina virtual do Azure da distribuição do *Server Ubuntu 14.04 LTS*. Se preferir, pode escolher a autenticação de senha em vez de chave pública SSH.
 
-  **Observação:** você *só* precisa criar a máquina virtual. Pare na seção intitulada *Como fazer logon na máquina virtual depois de criá-la*.
+1. Editar o grupo de segurança de rede para permitir o tráfego http de entrada para a porta 80 usando as instruções [aqui](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
 
-1. Instrua o Azure para direcionar o tráfego da porta **80** da web para a porta **80** na máquina virtual:
-	* Navegue até a sua máquina virtual recém-criada no Portal do Azure e clique na guia *PONTOS DE EXTREMIDADE*.
-	* Clique no botão *ADICIONAR* na parte inferior da tela.![adicionar ponto de extremidade](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-add-endpoint.png)
-	* Abra o *TCP* do protocolo *PORTA PÚBLICA 80* como *PORTA PRIVADA 80*. ![port80](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-port80.png)
+1. Por padrão, a nova máquina virtual não tem um nome de domínio totalmente qualificado (FQDN). Você pode criar um seguindo as instruções [aqui](virtual-machines-create-fqdn-on-portal.md). Essa etapa é opcional para concluir este tutorial.
 
 ## <a id="setup"> </a>Configurando o ambiente de desenvolvimento
 
@@ -62,14 +59,14 @@ A MV do Linux Ubuntu já vem com o Python 2.7 pré-instalado, mas ela não tem o
 
 1.  Inicie uma nova janela **Terminal**.
     
-1.  Digite o seguinte comando para conectar-se à sua MV do Azure.
+1.  Digite o seguinte comando para conectar-se à sua MV do Azure. Se não tiver criado um FQDN, você pode se conectar usando o endereço IP público exibido no resumo da máquina virtual no portal clássico do Azure.
 
 		$ ssh yourusername@yourVmUrl
 
 1.  Digite os seguintes comandos para instalar o django:
 
-		$ sudo apt-get install python-setuptools
-		$ sudo easy_install django
+		$ sudo apt-get install python-setuptools python-pip
+		$ sudo pip install django
 
 1.  Digite o seguinte comando para instalar o Apache com o mod-wsgi:
 
@@ -104,10 +101,10 @@ A MV do Linux Ubuntu já vem com o Python 2.7 pré-instalado, mas ela não tem o
 
 ## Configurando o Apache
 
-1.  Crie um arquivo de configuração do host virtual Apache **/etc/apache2/sites-available/helloworld.conf**. Defina o conteúdo como o seguinte e lembre-se de substituir o *yourVmUrl* pela URL atual da máquina que você está usando (por exemplo *pyubuntu.cloudapp.net*).
+1.  Crie um arquivo de configuração do host virtual Apache **/etc/apache2/sites-available/helloworld.conf**. Defina o conteúdo como o seguinte e substitua *yourVmName* pelo nome real do computador que você está usando (por exemplo *pyubuntu*).
 
 		<VirtualHost *:80>
-		ServerName yourVmUrl
+		ServerName yourVmName
 		</VirtualHost>
 		WSGIScriptAlias / /var/www/helloworld/helloworld/wsgi.py
 		WSGIPythonPath /var/www/helloworld
@@ -129,8 +126,4 @@ A MV do Linux Ubuntu já vem com o Python 2.7 pré-instalado, mas ela não tem o
 
 Depois que você concluir este tutorial, desligue e/ou remova sua máquina virtual recém-criada do Azure para liberar recursos para outros tutoriais e evitar a incidência de encargos de uso do Azure.
 
-
-[portal-vm]: /manage/linux/tutorials/virtual-machine-from-gallery/
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="08/26/2015"
+	ms.date="12/01/2015"
 	ms.author="mandia"/>
 
 
@@ -145,7 +145,7 @@ O certificado autoassinado criado automaticamente durante a criação dos Servi�
 
 Ao implantar um projeto do Serviço BizTalk no Visual Studio, você insere esse namespace do Controle de Acesso. O namespace do Controle de Acesso é criado automaticamente para seu Serviço BizTalk.
 
-Os valores de Controle de acesso podem ser usados com qualquer aplicativo. Quando os Serviços do BizTalk do Windows Azure estiverem criados, esse namespace do Controle de Acesso controla a autenticação com sua implantação do Serviço BizTalk. Se você desejar alterar a assinatura ou gerenciar o namespace, selecione **ACTIVE DIRECTORY** no painel de navegação à esquerda e selecione seu namespace. A barra de tarefas lista suas opções.
+Os valores de Controle de acesso podem ser usados com qualquer aplicativo. Quando os Serviços do BizTalk do Microsoft Azure estiverem criados, esse namespace do Controle de Acesso controla a autenticação com sua implantação do Serviço BizTalk. Se você desejar alterar a assinatura ou gerenciar o namespace, selecione **ACTIVE DIRECTORY** no painel de navegação à esquerda e selecione seu namespace. A barra de tarefas lista suas opções.
 
 Um clique em **Gerenciar** abre o Portal de Gerenciamento do Controle de Acesso. No Portal de Gerenciamento do Controle de Acesso, o Serviço BizTalk usa **Identidades de serviço**: ![Identidades do serviço ACS no Portal de Gerenciamento do Controle de Acesso][ACSServiceIdentities]
 
@@ -237,4 +237,4 @@ Agora que o Serviço BizTalk foi criado, familiarize-se com os diferentes [Servi
 [ACSServiceIdentities]: ./media/biztalk-provision-services/WABS_ACSServiceIdentities.png
 [HybridConnectionTab]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=AcomDC_1203_2015-->

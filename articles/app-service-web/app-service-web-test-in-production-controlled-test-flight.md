@@ -48,15 +48,15 @@ Neste tutorial, você aprenderá a reunir os seguintes cenários para testar seu
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
-> [AZURE.NOTE]Você precisa de uma conta do Azure para concluir este tutorial: +, você pode [Abrir uma conta do Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F) - Você recebe créditos que podem ser usados para experimentar os serviços do Azure pagos e, mesmo depois que tiverem se esgotado, você pode manter a conta e usar serviços do Azure gratuitos, como Web Apps. + Você pode [ativar os benefícios de assinante MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - Sua assinatura do MSDN fornece você créditos a cada mês que podem ser usados para serviços do Azure pagos.
+> [AZURE.NOTE]Você precisa de uma conta do Azure para concluir este tutorial: + Você pode [abrir uma conta do Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F) – Você recebe créditos que podem ser usados para experimentar os serviços pagos do Azure e, mesmo depois que tiverem se esgotado, você pode manter a conta e usar serviços gratuitos do Azure, como Aplicativos Web. + Você pode [ativar os benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) – A cada mês, a sua assinatura do Visual Studio fornece créditos que podem ser usados para serviços pagos do Azure.
 >
-> Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## Configurar seu aplicativo Web de produção
 
 >[AZURE.NOTE]O script usado neste tutorial configurará automaticamente a publicação contínua de seu repositório GitHub. Isso requer que as credenciais do GitHub já estejam armazenadas no Azure; caso contrário, a implantação de scripts falhará ao tentar definir configurações de controle de origem para aplicativos Web.
 >
->Para armazenar suas credenciais do GitHub no Azure, crie um aplicativo Web no [portal de visualização do Azure](https://portal.azure.com) e [configure a implantação do GitHub](web-sites-publish-source-control.md#Step7). Você só precisa fazer isso uma vez.
+>Para armazenar suas credenciais do GitHub no Azure, crie um aplicativo Web no [Portal do Azure](https://portal.azure.com) e [configure a implantação do GitHub](web-sites-publish-source-control.md#Step7). Você só precisa fazer isso uma vez.
 
 Em um cenário típico de DevOps, você tem um aplicativo que está em execução em tempo real no Azure e deseja fazer alterações nele por meio de publicação contínua. Neste cenário, você implantará na produção um modelo que você desenvolveu e testou.
 
@@ -84,7 +84,7 @@ Em um cenário típico de DevOps, você tem um aplicativo que está em execuçã
 	![](./media/app-service-web-test-in-production-controlled-test-flight/00.2-swap-to-production.png)
 
 7.	Quando o script for concluído, volte para navegar até endereço do front-end (http://ToDoApp*&lt;your_suffix>*.azurewebsites.net/) para ver o aplicativo em execução na produção.
-5.	Faça logon no [Portal de visualização do Azure](https://portal.azure.com) e veja o que foi criado.
+5.	Faça logon no [Portal do Azure](https://portal.azure.com) e veja o que foi criado.
 
 	Você deverá ver dois aplicativos Web no mesmo grupo de recursos, um com o sufixo `Api` no nome. Se examinar o modo de exibição do grupo de recursos, você também verá o banco de dados SQL e o servidor, o plano do Serviço de Aplicativo e os slots de preparo dos aplicativos Web. Navegue pelos diferentes recursos e compare-os com *&lt;raiz\_repositório>*\\ARMTemplates\\ProdAndStage.json para ver como eles são configurados no modelo.
 
@@ -97,7 +97,7 @@ Você configurou o aplicativo de produção. Agora, vamos imaginar que você rec
 5. Abra *&lt;raiz\_repositório>*\\src\\MultiChannelToDo.sln no Visual Studio.
 6. Restaure todos os pacotes NuGet clicando com o botão direito do mouse na solução > **Gerenciar Pacotes NuGet da Solução** > **Restaurar**.
 6. Clique com o botão direito do mouse em **MultiChannelToDo.Web** > **Adicionar Application Insights Telemetry** > **Definir Configurações** > Alterar grupo de recursos para ToDoApp*&lt;seu\_sufixo>* > **Adicionar Application Insights ao Projeto**.
-7. No portal de visualização do Azure, abra a folha do recurso **MultiChannelToDo.Web** do Application Insight. Em seguida, na seção **Integridade do aplicativo**, clique em **Saiba como coletar dados de carregamento da página do navegador** > copiar código.
+7. No Portal do Azure, abra a folha do recurso **MultiChannelToDo.Web** do Application Insight. Em seguida, na seção **Integridade do aplicativo**, clique em **Saiba como coletar dados de carregamento da página do navegador** > copiar código.
 7. Adicione o código de instrumentação JS copiado à *&lt;raiz\_repositório>*\\src\\MultiChannelToDo.Web\\app\\Index.cshtml, logo antes da marca `<heading>` de fechamento. Ele deve conter a chave exclusiva de instrumentação do recurso do Application Insight.
 
         <script type="text/javascript">
@@ -375,4 +375,4 @@ O Serviço de Aplicativo do Azure facilita para as empresas de pequeno a médio 
 -	[PowerShell do Azure](powershell-install-configure.md)
 -	[Projeto Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

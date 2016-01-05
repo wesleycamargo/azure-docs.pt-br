@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/10/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Como registrar eventos em log para Hubs de Eventos do Azure no Gerenciamento de API do Azure
@@ -24,15 +24,15 @@ Este artigo é um complemento para o [integrar o Gerenciamento de API do Azure c
 
 ## Criar um Hub de Eventos do Azure
 
-Para criar um novo Hub de Eventos, entre no [portal do Azure](https://manage.windowsazure.com) e clique em **Novo**->**Serviços de Aplicativos**->**Barramento de Serviço**->**Hub de Eventos**->**Criação Rápida**. Insira um nome de Hub de Eventos, uma região, selecione uma assinatura e selecione um namespace. Se você ainda não tiver criado um namespace, poderá criar um inserindo um nome na caixa de texto **Namespace**. Depois que todas as propriedades estiverem configuradas, clique em **Criar um novo Hub de Eventos** para criar o Hub de Eventos.
+Para criar um novo Hub de Eventos, entre no [portal clássico do Azure](https://manage.windowsazure.com) e clique em **Novo**->**Serviços de Aplicativos**->**Barramento de Serviço**->**Hub de Eventos**->**Criação Rápida**. Insira um nome de Hub de Eventos, uma região, selecione uma assinatura e selecione um namespace. Se você ainda não tiver criado um namespace, poderá criar um inserindo um nome na caixa de texto **Namespace**. Depois que todas as propriedades estiverem configuradas, clique em **Criar um novo Hub de Eventos** para criar o Hub de Eventos.
 
 ![Criar hub de eventos][create-event-hub]
 
-Em seguida, navegue até a guia **Configurar** do novo Hub de Eventos e crie duas **políticas de acesso compartilhado**. Nomeie a primeira como **Envio** e conceda-a permissões de **Envio**.
+Em seguida, navegue até a guia **Configurar** do novo Hub de Eventos e crie duas **políticas de acesso compartilhado**. Nomeie a primeira como **Envio** e conceda a ela permissões de **Envio**.
 
 ![Política de envio][sending-policy]
 
-Nomeie a segunda como **Recebimento**, conceda-a permissões de **Escuta** e clique em **Salvar**.
+Nomeie a segunda como **Recebimento**, conceda a ela permissões de **Escuta** e clique em **Salvar**.
 
 ![Política de recebimento][receiving-policy]
 
@@ -48,7 +48,7 @@ A cadeia de conexão de **Envio** é usada ao registrar eventos em log e a cadei
 
 Agora que você tem um Hub de Eventos, a próxima etapa será configurar um [Agente](https://msdn.microsoft.com/library/azure/mt592020.aspx) no seu serviço de Gerenciamento de API para que ele possa registrar eventos em log para o Hub de Eventos.
 
-Os agentes de log do Gerenciamento de API são configurados usando a [API REST do Gerenciamento de API](http://aka.ms/smapi). Antes de usar a API REST pela primeira vez, examine os [pré-requisitos](https://msdn.microsoft.com/library/azure/dn776326.aspx#Prerequisites) e certifique-se de que você tenha [habilitado o acesso à API REST](https://msdn.microsoft.com/library/azure/dn776326.aspx#EnableRESTAPI).
+Os agentes do Gerenciamento de API são configurados usando a [API REST do Gerenciamento de API](http://aka.ms/smapi). Antes de usar a API REST pela primeira vez, examine os [pré-requisitos](https://msdn.microsoft.com/library/azure/dn776326.aspx#Prerequisites) e verifique se você [habilitou o acesso à API REST](https://msdn.microsoft.com/library/azure/dn776326.aspx#EnableRESTAPI).
 
 Para criar um agente de log, faça uma solicitação HTTP PUT usando o modelo de URL a seguir.
 
@@ -61,7 +61,7 @@ Adicione os cabeçalhos a seguir à solicitação.
 
 -	Content-Type : application/json
 -	Authorization : SharedAccessSignature uid=...
-	-	Para saber mais sobre como gerar a `SharedAccessSignature` consulte [Autenticação da API REST do Gerenciamento de API do Azure](https://msdn.microsoft.com/library/azure/dn798668.aspx).
+	-	Para saber mais sobre como gerar a `SharedAccessSignature`, confira [Autenticação da API REST do Gerenciamento de API do Azure](https://msdn.microsoft.com/library/azure/dn798668.aspx).
 
 Especifique o corpo da solicitação usando o modelo a seguir.
 
@@ -69,7 +69,7 @@ Especifique o corpo da solicitação usando o modelo a seguir.
       "type" : "AzureEventHub",
       "description" : "Sample logger description",
       "credentials" : {
-        "name" : "Name of the Event Hub from the Azure portal",
+        "name" : "Name of the Event Hub from the Azure Classic Portal",
         "connectionString" : "Endpoint=Event Hub Sender connection string"
         }
     }
@@ -78,23 +78,23 @@ Especifique o corpo da solicitação usando o modelo a seguir.
 -	`description` fornece uma descrição opcional do agente e pode ser uma cadeia de caracteres de comprimento zero, se desejado.
 -	`credentials` contém `name` e `connectionString` do seu Hub de Eventos do Azure.
 
-Quando você fizer a solicitação, se o agente for criado, será retornado um código de status `201 Created`.
+Quando você fizer a solicitação, se o agente for criado, um código de status `201 Created` será retornado
 
->[AZURE.NOTE]Para outros códigos de retorno possíveis e seus motivos, consulte [Criar um agente](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT). Para saber como executar outras operações como listar, atualizar e excluir, consulte a documentação de entidade do [Agente de Log](https://msdn.microsoft.com/library/azure/mt592020.aspx).
+>[AZURE.NOTE]Para outros códigos de retorno possíveis e seus motivos, confira [Criar um agente](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT). Para saber como executar outras operações, por exemplo, listar, atualizar e excluir, confira a documentação da entidade [Agente](https://msdn.microsoft.com/library/azure/mt592020.aspx).
 
 ## Configurar políticas log-to-eventhubs
 
 Depois que o agente de log estiver configurado no Gerenciamento de API, você poderá configurar suas políticas log-to-eventhubs para registrar os eventos desejados em log. A política log-to-eventhubs pode ser usada na seção de política de entrada ou na seção de política de saída.
 
-Para configurar políticas, entre no [Portal do Azure](https://manage.windowsazure.com), navegue em seu serviço Gerenciamento de API e clique no **portal do editor** ou **Gerenciar** para acessar o portal do editor.
+Para configurar políticas, entre no [portal clássico do Azure](https://manage.windowsazure.com), navegue em seu serviço Gerenciamento de API e clique no **portal do editor** ou em **Gerenciar** para acessar o portal do editor.
 
 ![Portal do editor][publisher-portal]
 
-Clique em **Políticas** no menu do Gerenciamento de API à esquerda, selecione o produto e a API desejados e clique em **Adicionar política**. Neste exemplo, estamos adicionando uma política à **API Echo** no produto **Unlimited** produto.
+Clique em **Políticas** no menu do Gerenciamento de API à esquerda, selecione o produto e a API desejados e clique em **Adicionar política**. Neste exemplo, estamos adicionando uma política à **API Echo** no produto **Unlimited**.
 
 ![Adicionar política][add-policy]
 
-Posicione o cursor na seção da política `inbound` e clique na política **Log para EventHub** para inserir o modelo de declaração da política `log-to-eventhub`.
+Posicione o cursor na seção da política `inbound` e clique na política **Log para EventHub** para inserir o modelo de instrução da política `log-to-eventhub`.
 
 ![Editor de políticas][event-hub-policy]
 
@@ -133,4 +133,4 @@ Clique em **Salvar** para salvar a configuração da política atualizada. Assim
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

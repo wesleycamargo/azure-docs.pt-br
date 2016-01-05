@@ -20,7 +20,7 @@
 # Criar máquinas virtuais do Windows com o PowerShell e o modelo de implantação clássico 
 
 > [AZURE.SELECTOR]
-- [Azure Portal - Windows](virtual-machines-windows-tutorial-classic-portal.md)
+- [Azure classic portal - Windows](virtual-machines-windows-tutorial-classic-portal.md)
 - [Powershell - Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 - [PowerShell - Linux](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
@@ -157,7 +157,7 @@ Opção 1: criar a máquina virtual em um serviço de nuvem existente.
 
 	New-AzureVM –ServiceName "<short name of the cloud service>" -VMs $vm1
 
-O nome curto do serviço de nuvem é o nome que aparece na lista de Serviços de Nuvem no portal do Azure ou na lista de Grupos de Recursos no portal de visualização do Azure.
+O nome curto do serviço de nuvem é o nome que aparece na lista de serviços de nuvem no portal clássico do Azure ou na lista de grupos de recursos no portal do Azure.
 
 Opção 2: criar a máquina virtual em um serviço de nuvem e em uma rede virtual existentes.
 
@@ -174,7 +174,7 @@ Se você estiver usando um editor de texto, copie o conjunto de comandos para a 
 Se pretender criar novamente essa máquina virtual ou uma semelhante, você poderá:
 
 - Salvar este conjunto de comandos como um arquivo de script do PowerShell (*.ps1).
-- Salve este conjunto de comandos como um runbook de automação do Azure, na seção **Automação** do portal do Azure.
+- Salve este conjunto de comandos como um runbook de automação do Azure na seção **automação** do portal clássico do Azure.
 
 ## <a id="examples"></a>Exemplos
 
@@ -265,4 +265,4 @@ Aqui está o conjunto de comandos do PowerShell do Azure correspondente para cri
 
 [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

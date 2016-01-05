@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/02/2015" 
+	ms.date="12/05/2015" 
 	ms.author="mbaldwin"/>
 
 
@@ -289,7 +289,7 @@ Quando você seleciona a opção Usar o Azure Acesse Controle e executa o aplica
 
 Você pode revisar e alterar essas configurações no Portal de Gerenciamento do ACS. Use as etapas a seguir para revisar as alterações no portal.
 
-1.	Faça logon no [Portal de Gerenciamento do Windows Azure](http://manage.WindowsAzure.com).
+1.	Faça logon no [Portal de Gerenciamento do Microsoft Azure](http://manage.WindowsAzure.com).
 
 2.	Clique em **Active Directory**.
 
@@ -402,4 +402,4 @@ Para explorar melhor a funcionalidade do ACS e experimentar mais cenários, cons
   [19]: ./media/active-directory-dotnet-how-to-use-access-control/acsShowKey.png
   [20]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace2.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/22/2015"
+	ms.date="12/01/2015"
 	ms.author="krisragh"/>
 
 # Habilitar sincronização offline para seu aplicativo móvel iOS
@@ -88,7 +88,7 @@ O recurso de sincronização de dados offline dos aplicativos móveis do Azure p
 
     O método `pullWithQuery` permite que você especifique uma consulta para filtrar os registros que deseja recuperar. Neste exemplo, a consulta recupera apenas todos os registros na tabela remota `TodoItem`.
 
-    O segundo parâmetro para `pullWithQuery` é uma ID de consulta que é usada para *sincronização incremental*. A sincronização incremental recupera somente os registros modificados desde a última sincronização, usando o carimbo de data/hora `UpdatedAt` do registro (chamado `ms_updatedAt` no repositório local). A ID da consulta deve ser uma cadeia de caracteres descritiva que é exclusiva para cada consulta lógica em seu aplicativo. Se desejar sair da sincronização incremental, passe `nil` como a ID da consulta. Observe que isso pode ser potencialmente ineficiente, já que irá recuperar todos os registros de cada operação de recepção.
+    O segundo parâmetro para `pullWithQuery` é uma ID de consulta que é usada para *sincronização incremental*. A sincronização incremental recupera somente os registros modificados desde a última sincronização, usando o carimbo de data/hora `UpdatedAt` do registro (chamado `updatedAt` no repositório local). A ID da consulta deve ser uma cadeia de caracteres descritiva que é exclusiva para cada consulta lógica em seu aplicativo. Se desejar sair da sincronização incremental, passe `nil` como a ID da consulta. Observe que isso pode ser potencialmente ineficiente, já que irá recuperar todos os registros de cada operação de recepção.
 
 	<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
  -->
@@ -105,9 +105,9 @@ Ao usar o armazenamento offline de dados principais, você precisa definir deter
       * MS\_TableOperations: Para acompanhar os itens que devem ser sincronizados com o servidor
       * MS\_TableOperationErrors: para acompanhar todos os erros que ocorrerem durante a sincronização offline
       * MS\_TableConfig: para controlar a hora da última atualização para a última operação de sincronização para todas as operações de recepção
-      * TodoItem: para armazenar os itens de tarefas. As colunas do sistema **ms\_createdAt**, **ms\_updatedAt** e **ms\_version** são propriedades opcionais do sistema.
+      * TodoItem: para armazenar os itens de tarefas. As colunas do sistema **createdAt**, **updatedAt** e **version** são propriedades opcionais do sistema.
 
->[AZURE.NOTE]O SDK de aplicativos móveis do Azure reserva nomes de coluna que começam com “**`ms_`**”. Você não deve usar este prefixo em nada exceto colunas do sistema, caso contrário, os nomes de coluna serão modificados ao usar o back-end remoto.
+>[AZURE.NOTE]O SDK de aplicativos móveis do Azure reserva nomes de coluna que começam com "**``**". Você não deve usar este prefixo em nada exceto colunas do sistema, caso contrário, os nomes de coluna serão modificados ao usar o back-end remoto.
 
 - Ao usar o recurso de sincronização offline, você deve definir as tabelas do sistema, conforme mostrado abaixo.
 
@@ -150,17 +150,16 @@ Ao usar o armazenamento offline de dados principais, você precisa definir deter
 
     ### Tabela de dados
 
-    ![][defining-core-data-todoitem-entity]
-
     **TodoItem**
-
 
     | Atributo | Tipo | Observação |
     |-----------   |  ------ | -------------------------------------------------------|
     | ID | Cadeia de caracteres, marcadas como obrigatórias | chave primária no repositório remoto |
     | concluído | Booliano | campo de item de tarefa |
     | texto | Cadeia de caracteres | campo de item de tarefa |
-    | ms\_createdAt | Data | (opcional) é mapeado para \_\_createdAt propriedade do sistema | | ms\_updatedAt | Data | (opcional) é mapeado para \_\_updatedAt propriedade do sistema | | ms\_version | Cadeia de caracteres | (opcional) usado para detectar conflitos, é mapeado para \_\_versão |
+    | createdAt | Data | (opcional) é mapeado para a propriedade do sistema createdAt |
+    | updatedAt | Data | (opcional) é mapeado para a propriedade do sistema updatedAt |
+    | versão | Cadeia de caracteres | (opcional) usado para detectar conflitos, é mapeado para version |
 
 
 ## <a name="setup-sync"></a>Alterar o comportamento de sincronização do aplicativo
@@ -183,20 +182,22 @@ Nesta seção, você modificará o aplicativo para que ele não sincronize ao in
 
 ## <a name="test-app"></a>Testar o aplicativo
 
+Nesta seção, você se conecta a uma URL inválida para simular um cenário offline. Quando você adicionar itens de dados, eles serão mantidos no repositório local de dados principais, mas não sincronizados com o back-end móvel.
 
-Nesta seção, você desligará o Wi-Fi no simulador para criar um cenário offline. Quando você adicionar itens de dados, eles serão mantidos no repositório local de dados principais, mas não sincronizados com o back-end móvel.
+1. Altere a URL do aplicativo móvel em **Qstodoservice** para uma URL inválida e execute novamente o aplicativo:
 
-1. Desligue o Wi-Fi no simulador de iOS.
+        self.client = [MSClient clientWithApplicationURLString:@"https://sitename.azurewebsites.net.fail"];
 
 2. Adicione alguns itens ToDo ou complete alguns itens. Feche o simulador (ou feche forçadamente o aplicativo) e reinicie. Verifique se suas mudanças foram mantidas.
 
 3. Exiba o conteúdo da tabela TodoItem remota:
-   - Para o back-end JavaScript, vá até o Portal de Gerenciamento e clique na guia Dados para exibir o conteúdo da tabela `TodoItem`.
-   - Para o back-end do .NET, exiba o conteúdo da tabela com uma ferramenta SQL como o SQL Server Management Studio, ou então com um cliente REST, como o Fiddler ou Postman.
+
+    + Para um back-end Node.js, vá para o [Portal do Azure](https://portal.azure.com/) e no back-end do aplicativo móvel clique em **Tabelas fáceis** > **TodoItem** para exibir o conteúdo da tabela `TodoItem`.
+   	+ Para um back-end do .NET, exiba o conteúdo da tabela com uma ferramenta SQL como o SQL Server Management Studio, ou então com um cliente REST, como o Fiddler ou Postman.
 
     Confirme que os novos itens *não* tenham sido sincronizados com o servidor:
 
-4. Desligue o Wi-Fi no simulador do iOS, então faça o gesto de atualização puxando a lista de itens para baixo. Você verá um mostrador giratório de progresso e o texto "Sincronizando...".
+4. Altere a URL de vola para a correta em **QSTodoService.m** e execute novamente o aplicativo. Faça o gesto de atualização puxando a lista de itens para baixo. Você verá um mostrador giratório de progresso e o texto "Sincronizando...".
 
 5. Exiba os dados de TodoItem novamente. Os TodoItems novos e modificados agora devem aparecer.
 
@@ -231,7 +232,7 @@ Quando desejamos sincronizar o armazenamento local com o servidor, usamos os mé
 
 * [Sincronização de dados offline em Aplicativos Móveis do Azure]
 
-* [Cobertura em nuvem: sincronização Offline nos serviços móveis do Azure] (Observação: o vídeo está nos Serviços Móveis, mas a sincronização offline funciona de maneira semelhante nos Aplicativos Móveis do Azure)
+* [Cobertura em nuvem: sincronização offline nos serviços móveis do Azure] (observação: o vídeo está nos Serviços Móveis, mas a sincronização offline funciona de maneira semelhante nos Aplicativos Móveis do Azure)
 
 <!-- URLs. -->
 
@@ -245,8 +246,8 @@ Quando desejamos sincronizar o armazenamento local com o servidor, usamos os mé
 [defining-core-data-tableconfig-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-tableconfig-entity.png
 [defining-core-data-todoitem-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-todoitem-entity.png
 
-[Cobertura em nuvem: sincronização Offline nos serviços móveis do Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Cobertura em nuvem: sincronização offline nos serviços móveis do Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015--->

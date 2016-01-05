@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="10/16/2015"
+   ms.date="11/11/2015"
    ms.author="golive"/>
 
 # Exemplo de uso: implantação contínua em Máquinas Virtuais usando a DSC de Automação e o Chocolatey
@@ -35,7 +35,7 @@ Depois que esses dois processos principais são realizados, leva pouco tempo par
 
 Os gerenciadores de pacotes como [apt-get](https://en.wikipedia.org/wiki/Advanced_Packaging_Tool) são muito conhecidos no mundo do Linux, mas nem tanto no mundo do Windows. O [Chocolatey](https://chocolatey.org/) é um deles, e o [blog](http://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx) de Scott Hanselman sobre esse tópico é uma excelente introdução. Resumindo, o Chocolatey permite instalar pacotes de um repositório central de pacotes em um sistema do Windows usando a linha de comando. Você pode criar e gerenciar seu próprio repositório, e o Chocolatey pode instalar pacotes de qualquer repositório que você designar.
 
-A DSC (Configuração de Estado Desejado) ([visão geral](https://technet.microsoft.com/pt-BR/library/dn249912.aspx)) é uma ferramenta do PowerShell que permite declarar a configuração que você deseja usar em um computador. Por exemplo, você pode dizer: "Quero o Chocolatey instalado, quero o IIS instalado, quero a porta 80 aberta, quero a versão 1.0.0 de meu site instalada". O LCM (Gerenciador de configuração Local) da DSC implementa essa configuração. Um Servidor de recepção da DSC mantém um repositório de configurações para seus computadores. O LCM em cada computador verifica periodicamente se sua configuração corresponde à configuração armazenada. Ele pode relatar o status ou tentar realinhar o computador com a configuração armazenada. Você pode editar a configuração armazenada no servidor de recepção para alinhar um computador ou um conjunto de computadores com a configuração alterada.
+A DSC (Configuração de Estado Desejado) ([visão geral](https://technet.microsoft.com/library/dn249912.aspx)) é uma ferramenta do PowerShell que permite declarar a configuração que você deseja usar em um computador. Por exemplo, você pode dizer: "Quero o Chocolatey instalado, quero o IIS instalado, quero a porta 80 aberta, quero a versão 1.0.0 de meu site instalada". O LCM (Gerenciador de configuração Local) da DSC implementa essa configuração. Um Servidor de recepção da DSC mantém um repositório de configurações para seus computadores. O LCM em cada computador verifica periodicamente se sua configuração corresponde à configuração armazenada. Ele pode relatar o status ou tentar realinhar o computador com a configuração armazenada. Você pode editar a configuração armazenada no servidor de recepção para alinhar um computador ou um conjunto de computadores com a configuração alterada.
 
 A Automação do Azure é um serviço gerenciado no Microsoft Azure que permite automatizar várias tarefas usando runbooks, nós, credenciais, recursos e ativos, como agendamentos e variáveis globais. A DSC de Automação do Azure amplia esse recurso de automação para incluir ferramentas da DSC do PowerShell. Confira uma excelente [visão geral](automation-dsc-overview.md).
 
@@ -75,7 +75,7 @@ A Galeria do PowerShell é instrumentada para instalar recursos de DSC em sua co
 
 ![Exemplo da Galeria do PowerShell](./media/automation-dsc-cd-chocolatey/xNetworking.PNG)
 
-Ou então, há a abordagem manual. A estrutura de pastas de um Módulo de Integração do PowerShell para um computador com Windows é um pouco diferente da estrutura de pastas esperada pela Automação do Azure. Isso exige que você faça alguns ajustes. Porém, não é difícil, e isso só precisa ser feito uma vez por recurso (a menos que você deseje atualizá-lo no futuro). Para obter mais informações sobre como criar Módulos de Integração do PowerShell, veja este artigo: [Criando Módulos de Integração para a Automação do Azure](https://azure.microsoft.com/pt-BR/blog/authoring-integration-modules-for-azure-automation/)
+Ou então, há a abordagem manual. A estrutura de pastas de um Módulo de Integração do PowerShell para um computador com Windows é um pouco diferente da estrutura de pastas esperada pela Automação do Azure. Isso exige que você faça alguns ajustes. Porém, não é difícil, e isso só precisa ser feito uma vez por recurso (a menos que você deseje atualizá-lo no futuro). Para saber mais sobre como criar Módulos de Integração do PowerShell, confira este artigo: [Criando Módulos de Integração para a Automação do Azure](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 -   Instale o módulo necessário na estação de trabalho, da seguinte maneira:
     -   Instale o [Windows Management Framework, v5](http://aka.ms/wmf5latest) 
@@ -167,7 +167,7 @@ Para cada pacote que você coloca no repositório de pacotes, é necessário um 
 
 ## Etapa 6: reunir tudo isso
 
-Sempre que uma versão passar na garantia de qualidade e for aprovada para implantação, o pacote será criado e o nuspec e o nupkg serão atualizados e implantados no servidor do NuGet. Além disso, a configuração (Etapa 4 acima) deve ser atualizada de acordo com o novo número de versão. Ela deve ser enviada para o servidor de recepção e compilada. Daí em diante, as VMs que dependem dessa configuração serão responsáveis por receber a atualização e instalá-la. Cada uma dessas atualizações é simples - apenas uma ou duas linhas do PowerShell. No caso do Visual Studio Online, algumas delas são encapsuladas em tarefas de compilação que podem ser encadeadas juntas em uma compilação. Este [artigo](https://www.visualstudio.com/pt-BR/get-started/build/build-your-app-vs) fornece mais detalhes. Este [repositório GitHub](https://github.com/Microsoft/vso-agent-tasks) fornece detalhes das várias tarefas de compilação disponíveis.
+Sempre que uma versão passar na garantia de qualidade e for aprovada para implantação, o pacote será criado e o nuspec e o nupkg serão atualizados e implantados no servidor do NuGet. Além disso, a configuração (Etapa 4 acima) deve ser atualizada de acordo com o novo número de versão. Ela deve ser enviada para o servidor de recepção e compilada. Daí em diante, as VMs que dependem dessa configuração serão responsáveis por receber a atualização e instalá-la. Cada uma dessas atualizações é simples - apenas uma ou duas linhas do PowerShell. No caso do Visual Studio Team Services, algumas delas são encapsuladas em tarefas de compilação que podem ser encadeadas juntas em uma compilação. Este [artigo](https://www.visualstudio.com/pt-BR/get-started/build/build-your-app-vs) fornece mais detalhes. Este [repositório GitHub](https://github.com/Microsoft/vso-agent-tasks) fornece detalhes das várias tarefas de compilação disponíveis.
 
 ## Observações
 
@@ -187,4 +187,4 @@ O código-fonte completo deste exemplo de uso está [neste projeto do Visual Stu
 - [cmdlets da DSC de Automação do Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Máquinas de integração para o gerenciamento pelo DSC de Automação do Azure](automation-dsc-onboarding.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

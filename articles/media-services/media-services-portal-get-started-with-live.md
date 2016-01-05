@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Usar o portal do Azure para criar canais que recebam fluxos ao vivo de múltiplas taxas de bits de codificadores locais | Microsoft Azure"
+	pageTitle="Usar o Portal Clássico do Azure para criar canais que recebem transmissões ao vivo de múltiplas taxas de bits de codificadores locais | Microsoft Azure"
 	description="Este tutorial orienta você pelas etapas de implementação de um aplicativo básico de streaming ao vivo dos Serviços de Mídia, onde um canal recebe um fluxo ao vivo de múltiplas taxas de bits de um codificador ao vivo local."
 	services="media-services"
 	documentationCenter=""
@@ -17,20 +17,20 @@
 	ms.author="juliako"/>
 
 
-# Usar o portal do Azure para criar canais que recebam fluxos ao vivo de múltiplas taxas de bits de codificadores locais
+# Usar o Portal Clássico do Azure para criar canais que recebem transmissões ao vivo de múltiplas taxas de bits de codificadores locais
 
 [AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
 
 
 Este tutorial orienta você pelas etapas de implementação de um aplicativo básico de streaming ao vivo dos Serviços de Mídia, onde um canal recebe um fluxo ao vivo de múltiplas taxas de bits de um codificador ao vivo local. Para obter uma visão geral mais detalhada de como trabalhar com canais e componentes relacionados, consulte [Trabalhando com canais que recebam transmissão ao vivo de múltiplas taxas de bits de codificadores locais](media-services-manage-channels-overview.md).
 
-Neste tutorial, o portal do Azure é usado para realizar as seguintes tarefas:
+Neste tutorial, o Portal Clássico do Azure é usado para realizar as seguintes tarefas:
 
 2.  Configure os pontos de extremidade de streaming.
 3.  Criar um canal.
 1.  Configurar um codificador ao vivo e receber transmissão ao vivo no canal (Wirecast é usado nesta etapa).
 1.  Criar um programa (e um ativo).
-1.  Publicar o ativo e obter URLs de streaming.  
+1.  Publicar o ativo e obter URLs de streaming.
 1.  Reproduzir o conteúdo.
 2.  Limpar.
 
@@ -42,7 +42,7 @@ Os itens a seguir são necessários para concluir o tutorial.
 - Uma webcam e um codificador que possa enviar um fluxo ao vivo de múltiplas taxas de bits.
 
 
-## Configurar o ponto de extremidade de streaming usando o portal do Azure
+## Configurar o ponto de extremidade de transmissão usando o Portal Clássico do Azure
 
 Ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns é fornecer streaming com taxa de bits adaptável aos clientes dos Serviços de Mídia do Azure. Com streaming de taxa de bits adaptável, o cliente pode alternar para um fluxo de taxa de bits maior ou menor, já que o vídeo é exibido com base na largura de banda de rede atual, na utilização da CPU e em outros fatores. Os Serviços de Mídia dão suporte às seguintes tecnologias de streaming com taxa de bits adaptável: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (apenas para licenciados Adobe PrimeTime/Access).
 
@@ -52,26 +52,26 @@ Para tirar proveito do empacotamento dinâmico, você precisa obter pelo menos u
 
 Para alterar o número de unidades de streaming reservadas, faça o seguinte:
 
-1. No [portal do Azure](https://manage.windowsazure.com/), clique em **Serviços de Mídia**. Em seguida, clique no nome do serviço de mídia.
+1. No [Portal Clássico do Azure](https://manage.windowsazure.com/), clique em **Serviços de Mídia**. Em seguida, clique no nome do serviço de mídia.
 
 2. Selecione a página **PONTOS DE EXTREMIDADE DE STREAMING**. Então, clique no ponto de extremidade de streaming que deseja modificar.
 
 3. Para especificar o número de unidades de streaming, selecione a guia **ESCALA** e mova o controle deslizante de capacidade reservada.
 
-	![Página Escala](./media/media-services-portal-get-started-with-live/media-services-origin-scale.png)
+![Página Escala](./media/media-services-portal-get-started-with-live/media-services-origin-scale.png)
 
 4. Clique no botão **SALVAR** para salvar as alterações.
 
-	A alocação de quaisquer novas unidades de streaming leva cerca de 20 minutos para ser concluída.
+A alocação de quaisquer novas unidades de streaming leva cerca de 20 minutos para ser concluída.
 
-	>[AZURE.NOTE]No momento, mudar de qualquer valor positivo de unidades de streaming de volta para nenhuma unidade pode desabilitar o streaming por até uma hora.
-	>
-	> O número mais alto de unidades especificadas para o período de 24 horas é usado para calcular o custo. Para obter informações sobre os detalhes de preços, consulte [Detalhes de preços dos Serviços de Mídia](http://go.microsoft.com/fwlink/?LinkId=275107).
+>[AZURE.NOTE]No momento, mudar de qualquer valor positivo de unidades de streaming de volta para nenhuma unidade pode desabilitar o streaming por até uma hora.
+>
+> O número mais alto de unidades especificadas para o período de 24 horas é usado para calcular o custo. Para obter informações sobre os detalhes de preços, consulte [Detalhes de preços dos Serviços de Mídia](http://go.microsoft.com/fwlink/?LinkId=275107).
 
 
 ## Criar um canal
 
-No portal do Azure, selecione a página **CANAIS**. Em seguida, clique em **NOVO**. Na página **Criar um novo Canal ao Vivo**, insira um nome para seu canal.
+No Portal Clássico do Azure, selecione a página **CANAIS**. Em seguida, clique em **NOVO**. Na página **Criar um novo Canal ao Vivo**, insira um nome para o seu canal.
 
 ![createchannel](./media/media-services-portal-get-started-with-live/media-services-create-channel.png)
 
@@ -96,7 +96,7 @@ Para obter mais informações sobre URLs de ingestão, consulte [Usando codifica
 
 Para obter informações detalhadas sobre como configurar Wirecast e iniciar a ingestão do fluxo, consulte [Configuração Wirecast](http://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 
->[AZURE.NOTE]Se por algum motivo você parou o codificador e agora precisa reiniciá-lo, primeiramente você deve redefinir o canal clicando no comando **REDEFINIR** no portal do Azure.
+>[AZURE.NOTE]Se por algum motivo você parou o codificador e agora precisa reiniciá-lo, primeiramente você deve redefinir o canal clicando no comando **REDEFINIR** no Portal Clássico do Azure.
 
 
 ## Criar e gerenciar um programa
@@ -129,28 +129,28 @@ Há duas maneiras de iniciar um evento:
 
 1. Na página **CANAIS**, clique em **ADICIONAR** para adicionar um novo programa.
 
-	Na página **Criar um novo programa**, especifique o nome do programa, o nome do ativo, a janela de arquivo e a opção de criptografia.
+Na página **Criar um novo programa**, especifique o nome do programa, o nome do ativo, a janela de arquivo e a opção de criptografia.
 
-	![createprogram](./media/media-services-portal-get-started-with-live/media-services-create-program.png)
+![createprogram](./media/media-services-portal-get-started-with-live/media-services-create-program.png)
 
-	Se **Publicar este programa agora** for selecionada, as URLs de publicação serão criadas.
+Se a opção **Publicar este programa agora** for selecionada, as URLs de publicação serão criadas.
 
-	Você pode clicar em **INICIAR** sempre que estiver pronto para transmitir o programa.
+Você pode clicar em **INICIAR** sempre que estiver pronto para transmitir o programa.
 
-	Depois de iniciar o programa, você pode clicar em **REPRODUZIR** para iniciar a reprodução do conteúdo.
+Depois de iniciar o programa, é possível clicar em **REPRODUZIR** para iniciar a reprodução do conteúdo.
 
-	![createdprogram](./media/media-services-portal-get-started-with-live/media-services-created-program.png)
+![createdprogram](./media/media-services-portal-get-started-with-live/media-services-created-program.png)
 
-2. Como alternativa, você pode usar um atalho e clicar no botão **INICIAR STREAMING** na página **CANAIS**. Isso criará um ativo, programa e localizador de Streaming.
+2. Como alternativa, você pode usar um atalho e clicar no botão **INICIAR TRANSMISSÃO** na página **CANAIS**. Isso criará um ativo, programa e localizador de Streaming.
 
-	O programa é chamado DefaultProgram e a janela de arquivo é definida como 1 hora.
+O programa é chamado DefaultProgram e a janela de arquivo é definida como 1 hora.
 
-	Você pode reproduzir o programa publicado na página **CANAIS**.
+Você pode reproduzir o programa publicado na página **CANAIS**.
 
-	![channelpublish](./media/media-services-portal-get-started-with-live/media-services-channel-play.png)
+![channelpublish](./media/media-services-portal-get-started-with-live/media-services-channel-play.png)
 
 
-Se você clicar em **PARAR STREAMING** na página **CANAIS**, o programa padrão será interrompido e excluído. O ativo ainda estará lá e você pode publicá-lo ou cancelar sua publicação na página **CONTEÚDO**.
+Se você clicar em **PARAR TRANSMISSÃO** na página **CANAIS**, o programa padrão será interrompido e excluído. O ativo ainda estará lá e você pode publicá-lo ou cancelar sua publicação na página **CONTEÚDO**.
 
 Se você alternar para a página **CONTEÚDO**, você verá os ativos que foram criados para os programas.
 
@@ -159,7 +159,7 @@ Se você alternar para a página **CONTEÚDO**, você verá os ativos que foram 
 
 ## Reprodução de conteúdo
 
-Para fornecer ao usuário uma URL que possa ser usada para transmitir seu conteúdo, primeiramente, você precisa *publicar* seu ativo (conforme descrito na seção anterior) criando um localizador (quando você publica um ativo usando o portal do Azure, os localizadores são criados para você). Os localizadores fornecem acesso aos arquivos contidos no ativo.
+Para fornecer ao usuário uma URL que possa ser usada para transmitir seu conteúdo, primeiramente, você precisa *publicar* seu ativo (conforme descrito na seção anterior) criando um localizador (quando você publica um ativo usando o Portal Clássico do Azure, os localizadores são criados para você). Os localizadores fornecem acesso aos arquivos contidos no ativo.
 
 Dependendo de qual protocolo de transmissão você deseja usar para reproduzir o conteúdo, talvez seja necessário modificar a URL obtida pelo link **PUBLICAR URL** do canal\\programa.
 
@@ -167,15 +167,15 @@ O empacotamento dinâmico se encarregará do empacotamento do fluxo ao vivo para
 
 Por padrão, uma URL de streaming tem o formato a seguir, e você pode usá-la para reproduzir ativos de Smooth Streaming.
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
+{nome do ponto de extremidade de streaming - nome de conta do dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arqui}.ism/Manifest
 
-Para criar uma URL de streaming de HLS, anexe (format=m3u8-aapl) à URL.
+Para criar uma URL de streaming HLS, anexe (format=m3u8-aapl) à URL.
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+{nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=m3u8-aapl)
 
 Para criar uma URL de streaming MPEG DASH, anexe (format=mpd-time-csf) à URL.
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
+{nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=mpd-time-csf)
 
 Para obter mais informações sobre o fornecimento do seu conteúdo, consulte [Fornecimento de conteúdo](media-services-deliver-content-overview.md).
 
@@ -205,11 +205,11 @@ Se este tópico não contiver o que você esperava, se estiver faltando alguma i
 
 
 ## Recursos adicionais
-- [Introdução ao streaming ao vivo usando o Portal de Gerenciamento do Azure](http://azure.microsoft.com/blog/getting-started-with-live-streaming-using-the-azure-management-portal/)
+- [Introdução à transmissão ao vivo usando o Portal Clássico do Azure](http://azure.microsoft.com/blog/getting-started-with-live-streaming-using-the-azure-management-portal/)
 
 <!-- URLs. -->
-[Azure portal]: http://manage.windowsazure.com/
+[Azure Classic Portal]: http://manage.windowsazure.com/
 
 <!-- Images -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

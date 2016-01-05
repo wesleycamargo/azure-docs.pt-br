@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
+	ms.date="12/10/2015" 
 	ms.author="cephalin"/>
 
 
@@ -38,7 +38,7 @@ A seguir há um exemplo de um aplicativo de linha de negócios em execução nos
 
 Inclua seus ativos da Web existentes nos Aplicativos Web do Serviço de Aplicativo com uma variedade de linguagens e estruturas.
 
-Seus ativos da Web existentes podem ser executados em aplicativos Web do Serviço de Aplicativo, independentemente de utilizarem .NET, PHP, Java, Node.js ou Python. Você pode movê-los para os Aplicativos Web usando suas ferramentas de [FTP] familiares ou seu sistema de gerenciamento de controle do código-fonte. Os Aplicativos Web oferecem suporte à publicação direta de opções de controle de código-fonte populares, como [Visual Studio], [Visual Studio Online] e [Git] (local, GitHub, BitBucket, DropBox, Mercurial, etc.).
+Seus ativos da Web existentes podem ser executados em aplicativos Web do Serviço de Aplicativo, independentemente de utilizarem .NET, PHP, Java, Node.js ou Python. Você pode movê-los para os Aplicativos Web usando suas ferramentas de [FTP] familiares ou seu sistema de gerenciamento de controle do código-fonte. Os Aplicativos Web dão suporte à publicação direta por meio de opções populares de controle do código-fonte como [Visual Studio], [Visual Studio Team Services] e [Git] - local, GitHub, BitBucket, DropBox, Mercurial, etc..
 
 ## Proteger seus ativos
 
@@ -62,7 +62,7 @@ No entanto, sua empresa pode necessitar que seus dados sejam mantidos no local. 
 
 Otimize seu aplicativo de linha de negócios dimensionando automaticamente com o recurso de Autoescala, armazenando em cache com o Cache Redis do Azure, executando tarefas em segundo plano com Trabalhos Web e mantendo alta disponibilidade com o Gerenciador de Tráfego do Azure.
 
-A capacidade dos Aplicativos Web do Serviço Aplicativos de [escalar verticalmente e horizontalmente] atende às necessidades de seu aplicativo de linha de negócios, independentemente do porte de sua carga de trabalho. Expanda seu aplicativo Web de forma manual por meio do [Portal de Gerenciamento do Azure], de forma programática por meio da [API de Gerenciamento de Serviços] ou dos [scripts do PowerShell] ou de forma automática por meio do recurso de Autoescala. Na camada **Padrão**, o recurso de Autoescala o habilita a escalar horizontalmente um aplicativo Web de forma automática com base na utilização da CPU. Para obter as práticas recomendadas, confira o artigo de [Troy Hunt]\: [Dez coisas que aprendi sobre como expandir com rapidez os aplicativos Web com o Azure].
+A capacidade dos Aplicativos Web do Serviço Aplicativos de [escalar verticalmente e horizontalmente] atende às necessidades de seu aplicativo de linha de negócios, independentemente do porte de sua carga de trabalho. Escale horizontalmente seu aplicativo Web de forma manual por meio do [Portal do Azure], de forma programática por meio da [API de Gerenciamento de Serviços], dos [scripts do PowerShell] ou de forma automática usando o recurso Autoescala. Na camada **Padrão**, o recurso de Autoescala o habilita a escalar horizontalmente um aplicativo Web de forma automática com base na utilização da CPU. Para obter as práticas recomendadas, confira o artigo de [Troy Hunt]\: [Dez coisas que aprendi sobre como expandir com rapidez os aplicativos Web com o Azure].
 
 Torne seu aplicativo Web mais ágil com o [Cache Redis do Azure]. Use-o para armazenar em cache os dados de bancos de dados de back-end e outros itens, como o [estado da sessão ASP.NET] e o [cache de saída].
 
@@ -72,9 +72,9 @@ Mantenha a alta disponibilidade de seu aplicativo Web usando o [Gerenciador de T
 
 Mantenha-se atualizado sobre o desempenho de seu aplicativo Web com o Azure ou com ferramentas de terceiros. Receba alertas sobre eventos críticos do aplicativo Web. Obtenha facilmente percepções sobre o usuário com o Application Insights ou com a análise de log da Web do HDInsight.
 
-Obtenha uma [visão rápida] das métricas de desempenho atuais do aplicativo Web e das cotas de recursos na folha do aplicativo Web no [Portal de visualização do Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Para ter uma visão de 360° de seu aplicativo em termos de disponibilidade, desempenho e uso, use o [Azure Application Insights] para obter informações rápidas e eficazes sobre solução de problemas, diagnósticos e uso. Ou use uma ferramenta de terceiros, como o [New Relic], para fornecer dados de monitoramento avançado sobre seus aplicativos Web.
+Obtenha uma [visão rápida] das métricas de desempenho atuais do aplicativo Web e das cotas de recursos na folha do aplicativo Web no [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Para ter uma visão de 360° de seu aplicativo em termos de disponibilidade, desempenho e uso, use o [Azure Application Insights] para obter informações rápidas e eficazes sobre solução de problemas, diagnósticos e uso. Ou use uma ferramenta de terceiros, como o [New Relic], para fornecer dados de monitoramento avançado sobre seus aplicativos Web.
 
-Na camada **Padrão**, monitore a capacidade de resposta do aplicativo e receba notificações por email sempre que seu aplicativo não responder. Para obter mais informações, consulte [Como: receber notificações de alerta e gerenciar regras de alerta no Azure].
+Na camada **Padrão**, monitore a capacidade de resposta do aplicativo e receba notificações por email sempre que seu aplicativo não responder. Para saber mais, confira [Como: receber notificações de alerta e gerenciar regras de alerta no Azure].
 
 ## Mais Recursos
 
@@ -82,7 +82,7 @@ Na camada **Padrão**, monitore a capacidade de resposta do aplicativo e receba 
 - [Mapa de aprendizagem para Aplicativos Web do Serviço de Aplicativo do Azure](websites-learning-map.md)
 - [Blog do Azure](/blog/topics/web/)
 
->[AZURE.NOTE]Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
+>[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -92,7 +92,7 @@ Na camada **Padrão**, monitore a capacidade de resposta do aplicativo e receba 
 
 [FTP]: web-sites-deploy.md#ftp
 [Visual Studio]: web-sites-dotnet-get-started.md
-[Visual Studio Online]: ../cloud-services-continuous-delivery-use-vso.md
+[Visual Studio Team Services]: ../cloud-services-continuous-delivery-use-vso.md
 [Git]: web-sites-publish-source-control.md
 
 [HTTPS]: web-sites-configure-ssl-certificate.md
@@ -108,7 +108,7 @@ Na camada **Padrão**, monitore a capacidade de resposta do aplicativo e receba 
 [Rede Virtual do Azure]: web-sites-integrate-with-vnet.md
 
 [escalar verticalmente e horizontalmente]: web-sites-scale.md
-[Portal de Gerenciamento do Azure]: http://manage.windowsazure.com/
+[Portal do Azure]: http://portal.azure.com/
 [API de Gerenciamento de Serviços]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 [scripts do PowerShell]: http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 [Troy Hunt]: https://twitter.com/troyhunt
@@ -124,4 +124,4 @@ Na camada **Padrão**, monitore a capacidade de resposta do aplicativo e receba 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

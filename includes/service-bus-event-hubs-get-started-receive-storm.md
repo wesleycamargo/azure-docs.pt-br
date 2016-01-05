@@ -2,7 +2,7 @@
 
 O [**Apache Storm**](https://storm.incubator.apache.org) é um sistema de computação distribuído em tempo real que simplifica o processamento confiável de fluxos de dados ilimitados. Esta seção mostra como usar um spout de Hubs de Eventos do Storm para receber eventos de Hubs de Eventos. Usando o Apache Storm, você pode dividir eventos em vários processos hospedados em nós diferentes. A integração de Hubs de Eventos com o Storm simplifica o consumo de eventos pela verificação de forma transparente de seu progresso usando a instalação de Zookeeper do Storm, gerenciando pontos de verificação persistentes e recebimentos paralelos de Hubs de Eventos.
 
-Para obter mais informações sobre os padrões de recebimento dos Hubs de Eventos, consulte [Visão geral dos Hubs de Eventos][].
+Para obter mais informações sobre padrões de recebimento de Hubs de Eventos, consulte [Visão geral de hubs de eventos][].
 
 Este tutorial usa uma instalação do [HDInsight Storm][], que acompanha o spout de Hubs de Eventos já disponível.
 
@@ -16,7 +16,7 @@ Este tutorial usa uma instalação do [HDInsight Storm][], que acompanha o spout
 
 4. No Eclipse, crie um novo projeto Maven (clique em **Arquivo**, **Novo** e **Projeto**).
 
-   	![][12]
+   ![][12]
 
 5. Selecione **Uso do local de espaço de trabalho padrão** e clique em **Avançar**
 
@@ -220,7 +220,7 @@ Este tutorial usa uma instalação do [HDInsight Storm][], que acompanha o spout
 	Essa classe cria um novo spout de Hubs de Eventos, usando as propriedades no arquivo de configuração para instanciá-lo. É importante observar que esse exemplo cria quantas tarefas spouts quanto o número de partições no Hub de Eventos, para usar o paralelismo máximo permitido por esse Hub de Eventos.
 
 <!-- Links -->
-[Visão geral dos Hubs de Eventos]: event-hubs-overview.md
+[Visão geral de hubs de eventos]: event-hubs-overview.md
 [HDInsight Storm]: ../hdinsight/hdinsight-storm-overview.md
 [tutorial de análise de sensor HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
 
@@ -230,4 +230,4 @@ Este tutorial usa uma instalação do [HDInsight Storm][], que acompanha o spout
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

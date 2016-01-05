@@ -13,14 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # Visualização do modelo de aplicativo v2.0: Adicionar entrada para um aplicativo Web .NET MVC
 
 Com o modelo de aplicativo v2.0, você pode adicionar autenticação rapidamente a seus aplicativos Web com suporte para contas pessoais da Microsoft e contas corporativas ou de estudante. Nos aplicativos Web ASP.NET, você pode conseguir isso usando o middleware OWIN da Microsoft, incluso no .NET Framework 4.5.
 
-  >[AZURE.NOTE]Essas informações se aplicam à visualização pública do modelo de aplicativo v2.0. Para obter instruções sobre como integrar-se ao serviço do AD do Azure disponível ao público geral, consulte o [Guia do Desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md).
+  >[AZURE.NOTE]
+	Essas informações se aplicam à visualização pública do modelo de aplicativo v2.0. Para obter instruções sobre como integrar-se ao serviço do AD do Azure disponível ao público geral, consulte o [Guia do Desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md).
 
  Aqui usaremos o OWIN para: 
 - Entrada do usuário no aplicativo usando o AD do Azure e o modelo de aplicativo v2.0. 
@@ -40,7 +41,7 @@ O código para este tutorial é mantido [no GitHub](https://github.com/AzureADQu
 
 O aplicativo concluído é fornecido também no final desse tutorial.
 
-## 1\. Registrar um aplicativo
+## 1. Registrar um aplicativo
 Crie um novo aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.com) ou siga estas [etapas detalhadas](active-directory-v2-app-registration.md). Não se esqueça de:
 
 - Copiar a **ID do Aplicativo** designada ao seu aplicativo, você precisará dela logo.
@@ -66,16 +67,20 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 -	Altere a declaração de classe para `public partial class Startup` -já implementamos parte dessa classe para você em outro arquivo. No método `Configuration(...)`, faça uma chamada para ConfigureAuth(...) para configurar a autenticação para seu aplicativo Web  
 
 ```C#
-public partial class Startup
-{
-    public void Configuration(IAppBuilder app)
-    {
-        ConfigureAuth(app);
-    }
-}
-```
+[assembly: OwinStartup(typeof(Startup))]
 
--	Abra o arquivo `App_Start\Startup.Auth.cs` e implemente o método `ConfigureAuth(...)`. Os parâmetros que você fornece em `OpenIdConnectAuthenticationOptions` servirão como coordenadas para seu aplicativo para se comunicar com o AD do Azure. Você também precisa configurar a autenticação de Cookies - o middleware OpenID Connect usa cookies nos bastidores.
+namespace TodoList_WebApp
+{
+	public partial class Startup
+	{
+		public void Configuration(IAppBuilder app)
+		{
+			ConfigureAuth(app);
+		}
+	}
+}```
+
+-	Open the file `App_Start\Startup.Auth.cs` and implement the `ConfigureAuth(...)` method.  The parameters you provide in `OpenIdConnectAuthenticationOptions` will serve as coordinates for your app to communicate with Azure AD.  You'll also need to set up Cookie Authentication - the OpenID Connect middleware uses cookies underneath the covers.
 
 ```C#
 public void ConfigureAuth(IAppBuilder app)
@@ -109,10 +114,10 @@ public void ConfigureAuth(IAppBuilder app)
 			 }
 ```
 
-## 3\. Usar o OWIN para emitir solicitações de entrada e saída ao AD do Azure
-Seu aplicativo agora está configurado corretamente para se comunicar com o ponto de extremidade v2.0 usando o protocolo de autenticação OpenID Connect. O OWIN cuidou de todos os detalhes difíceis da criação de mensagens de autenticação, validação de tokens do AD do Azure e manutenção da sessão do usuário. Tudo o que falta é oferecer aos usuários uma maneira de entrar e sair.
+## 3. Usar o OWIN para emitir solicitações de entrada e saída ao AD do Azure
+Seu aplicativo agora está configurado corretamente para se comunicar com o ponto de extremidade v2.0 usando o protocolo de autenticação OpenID Connect.  O OWIN cuidou de todos os detalhes difíceis da criação de mensagens de autenticação, validação de tokens do AD do Azure e manutenção da sessão do usuário.  Tudo o que falta é oferecer aos usuários uma maneira de entrar e sair.
 
-- Você pode usar autorizar marcas em seus controladores para exigir que o usuário entre antes de acessar uma determinada página. Abra `Controllers\HomeController.cs` e adicione a marca `[Authorize]` ao controlador Sobre.
+- Você pode usar autorizar marcas em seus controladores para exigir que o usuário entre antes de acessar uma determinada página.  Abra `Controllers\HomeController.cs` e adicione a marca `[Authorize]` ao controlador Sobre.
 
 ```C#
 [Authorize]
@@ -210,4 +215,4 @@ Para obter recursos adicionais, confira:
 - [A Visualização do Modelo de Aplicativo v2.0 >>](active-directory-appmodel-v2-overview.md) 
 - [Tag StackOverflow "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

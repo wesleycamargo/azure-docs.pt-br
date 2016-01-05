@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="kwill-MSFT"
-   manager="adinah"
+   manager="carmonm"
    editor="joaoma" />
 
 <tags 
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="12/02/2015"
    ms.author="joaoma" />
 
-# Solucionando problemas de status degradado do Gerenciador de Tráfego
-Esta página descreve como solucionar um problema com o perfil do Gerenciador de Tráfego do Azure que está mostrando um estado degradado e fornece alguns pontos importantes para melhorar sua compreensão sobre as investigações do gerenciador de tráfego.
+# Solucionando problemas de status degradado do Gerenciador de Tráfego do Azure
 
+Esta página descreve como solucionar um problema com o perfil do Gerenciador de Tráfego do Azure que está mostrando um estado degradado e fornece alguns pontos importantes para melhorar sua compreensão sobre as investigações do gerenciador de tráfego.
 
 Você configurou um perfil do Gerenciador de Tráfego apontando para alguns dos seus serviços hospedados no .cloudapp.net, e após alguns segundos vê o Status como Degradado.
 
@@ -80,4 +80,4 @@ Se a investigação estiver usando o protocolo HTTPs, convém adicionar o parâm
 [Cmdlets do Gerenciador de Tráfego do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

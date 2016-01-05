@@ -138,9 +138,9 @@ Na IU da Ambari Web, selecione o serviço que você deseja para ver os logs (por
 
 O tamanho do nó principal só pode ser selecionado durante a criação do cluster. O tamanho padrão dos nós principais é **A3**, que fornece 4 núcleos, 7GB de memória e 285GB de armazenamento local. Você pode encontrar uma lista de diferentes tamanhos de VM disponíveis para o HDInsight, incluindo o núcleo, memória e armazenamento local para cada um, na [página de preços do HDInsight](http://azure.microsoft.com/pricing/details/hdinsight/).
 
-Ao criar um novo cluster, você pode especificar o tamanho dos nós. A seguir são apresentada as informações sobre como especificar o tamanho usando o [Portal de visualização do Azure][preview-portal], o [Azure PowerShell][azure-powershell] e o [CLI do Azure][azure-cli]\:
+Ao criar um novo cluster, você pode especificar o tamanho dos nós. A seguir, apresentamos informações sobre como especificar o tamanho usando o [Portal do Azure][preview-portal], o [Azure PowerShell][azure-powershell] e a [CLI do Azure][azure-cli]\:
 
-* **Portal de visualização do azure**: ao criar um novo cluster, você terá a opção de definir o tamanho (tipo de preço) do nó principal e do nó de dados (trabalho) para o cluster:
+* **Portal do Azure**: ao criar um novo cluster, você terá a opção de definir o tamanho (tipo de preço) do nó de cabeçalho e do nó de dados (trabalho) para o cluster:
 
 	![Imagem do Assistente de criação de cluster com a seleção de tamanho do nó](./media/hdinsight-high-availability-linux/headnodesize.png)
 
@@ -166,4 +166,4 @@ Neste documento, você aprendeu como o Azure HDInsight fornece alta disponibilid
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

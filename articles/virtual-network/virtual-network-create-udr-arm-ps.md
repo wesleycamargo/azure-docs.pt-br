@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/21/2015"
+   ms.date="11/20/2015"
    ms.author="telmos" />
 
 #Criar UDR (Rotas Definidas pelo Usuário) no PowerShell
@@ -38,29 +38,29 @@ Para criar a tabela de rotas e a rota necessária para a sub-rede de front-end c
 
 3. Crie uma rota usada para enviar todo o tráfego destinado à sub-rede de back-end (192.168.2.0/24) a ser roteado para o dispositivo virtual **FW1** (192.168.0.4).
 
-		$route = New-AzureRouteConfig -Name RouteToBackEnd `
+		$route = New-AzureRmRouteConfig -Name RouteToBackEnd `
 		    -AddressPrefix 192.168.2.0/24 -NextHopType VirtualAppliance `
 		    -NextHopIpAddress 192.168.0.4
 
 4. Crie uma tabela de rotas chamada **UDR-FrontEnd** na região **westus** que contém a rota criada acima.
 
-		$routeTable = New-AzureRouteTable -ResourceGroupName TestRG -Location westus `
+		$routeTable = New-AzureRmRouteTable -ResourceGroupName TestRG -Location westus `
 		    -Name UDR-FrontEnd -Route $route
 
 5. Crie uma variável que contém a VNet na qual está a sub-rede. Em nosso cenário, a VNet é chamada **TestVNet**.
 
-		$vnet = Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+		$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 
 6. Associe a tabela de rotas criada acima à sub-rede **FrontEnd**.
 		
-		Set-AzureVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
+		Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
 			-AddressPrefix 192.168.1.0/24 -RouteTable $routeTable
 
 >[AZURE.WARNING]A saída do comando acima mostra o conteúdo do objeto de configuração da rede virtual, que existe apenas no computador no qual você está executando o PowerShell. Você precisa executar o cmdlet **Set-AzureVirtualNetwork** para salvar essas configurações no Azure.
 
 7. Salve a nova configuração de sub-rede no Azure.
 
-		Set-AzureVirtualNetwork -VirtualNetwork $vnet
+		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 	Saída esperada:
 
@@ -115,23 +115,23 @@ Para criar a tabela de rotas e a rota necessária para a sub-rede de back-end co
 
 1. Crie uma rota usada para enviar todo o tráfego destinado à sub-rede de front-end (192.168.1.0/24) a ser roteado para o dispositivo virtual **FW1** (192.168.0.4).
 
-		$route = New-AzureRouteConfig -Name RouteToFrontEnd `
+		$route = New-AzureRmRouteConfig -Name RouteToFrontEnd `
 		    -AddressPrefix 192.168.1.0/24 -NextHopType VirtualAppliance `
 		    -NextHopIpAddress 192.168.0.4
 
 4. Crie uma tabela de rotas chamada **UDR-BackEnd** na região **uswest** que contém a rota criada acima.
 
-		$routeTable = New-AzureRouteTable -ResourceGroupName TestRG -Location westus `
+		$routeTable = New-AzureRmRouteTable -ResourceGroupName TestRG -Location westus `
 		    -Name UDR-BackEnd -Route $route
 
 5. Associe a tabela de rotas criada acima à sub-rede **BackEnd**.
 
-		Set-AzureVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
+		Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
 			-AddressPrefix 192.168.2.0/24 -RouteTable $routeTable
 
 7. Salve a nova configuração de sub-rede no Azure.
 
-		Set-AzureVirtualNetwork -VirtualNetwork $vnet
+		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 	Saída esperada:
 
@@ -185,12 +185,12 @@ Para habilitar o encaminhamento de IP na NIC usada por **FW1**, execute as etapa
 
 1. Crie uma variável que contém as configurações para a NIC usada por FW1. Em nosso cenário, a NIC é chamada **NICFW1**.
 
-		$nicfw1 = Get-AzureNetworkInterface -ResourceGroupName TestRG -Name NICFW1
+		$nicfw1 = Get-AzureRmNetworkInterface -ResourceGroupName TestRG -Name NICFW1
 
 2. Habilite o encaminhamento de IP e salve as configurações de NIC.
 
 		$nicfw1.EnableIPForwarding = 1
-		Set-AzureNetworkInterface -NetworkInterface $nicfw1
+		Set-AzureRmNetworkInterface -NetworkInterface $nicfw1
 
 	Saída esperada:
 
@@ -236,4 +236,4 @@ Para habilitar o encaminhamento de IP na NIC usada por **FW1**, execute as etapa
 		NetworkSecurityGroup : null
 		Primary              : True
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

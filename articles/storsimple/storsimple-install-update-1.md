@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/28/2015"
+   ms.date="12/01/2015"
    ms.author="alkohli" />
 
 # Instalar a Atualização 1.2 no dispositivo StorSimple
@@ -21,7 +21,7 @@
 
 Este tutorial explica como instalar a Atualização 1.2 em um dispositivo StorSimple que está executando uma versão de software anterior à Atualização 1. O tutorial também aborda as etapas adicionais necessárias para a atualização quando um gateway é configurado em uma interface de rede que não seja DATA 0 do dispositivo StorSimple.
 
-A atualização 1.2 inclui atualizações de software do dispositivo, as atualizações do driver LSI e atualizações de firmware de disco. As atualizações de software e do driver LSI sem interrupções e podem ser aplicadas por meio do Portal de Gerenciamento. As atualizações de firmware de disco são as atualizações de interrupção e só podem ser aplicadas por meio da interface do Windows PowerShell do dispositivo.
+A atualização 1.2 inclui atualizações de software do dispositivo, as atualizações do driver LSI e atualizações de firmware de disco. As atualizações de software e do driver LSI sem interrupções e podem ser aplicadas por meio do Portal clássico do Azure. As atualizações de firmware de disco são as atualizações de interrupção e só podem ser aplicadas por meio da interface do Windows PowerShell do dispositivo.
 
 Dependendo de qual versão seu dispositivo está executando, você pode determinar se a atualização 1.2 será aplicada. Você pode verificar a versão do software do seu dispositivo navegando até a seção **verificação rápida** no **Painel** do seu dispositivo.
 
@@ -41,8 +41,8 @@ Dependendo de qual versão seu dispositivo está executando, você pode determin
 > [AZURE.IMPORTANT]
  
 > -  Talvez você não veja a Atualização 1.2 imediatamente porque fazemos uma distribuição em fases das atualizações. Procure novamente as atualizações em poucos dias, uma vez que elas serão disponibilizadas em breve.
-> - Esta atualização inclui um conjunto de verificações prévias manuais e automáticas para determinar a integridade do dispositivo em termos de conectividade de rede e estado do hardware. Essas pré-verificações são executadas somente se você aplicar as atualizações no portal do Azure. 
-> - Recomendamos que você instale as atualizações de software e driver através do Portal de Gerenciamento do Azure. Você só deve ir para a interface do Windows PowerShell do dispositivo (para instalar atualizações) se a verificação de pré-atualização de gateway falhar no Portal. As atualizações podem levar de 5 a 10 horas para instalar (incluindo as atualizações do Windows). As atualizações do modo de manutenção devem ser instaladas por meio da interface do Windows PowerShell do dispositivo. Como as atualizações do modo de manutenção são atualizações com interrupção, elas resultarão em um tempo de inatividade para seu dispositivo.
+> - Esta atualização inclui um conjunto de verificações prévias manuais e automáticas para determinar a integridade do dispositivo em termos de conectividade de rede e estado do hardware. Essas pré-verificações são executadas somente se você aplicar as atualizações no portal clássico do Azure. 
+> - Recomendamos que você instale as atualizações de software e driver através do Portal clássico do Azure. Você só deve ir para a interface do Windows PowerShell do dispositivo (para instalar atualizações) se a verificação de pré-atualização de gateway falhar no portal. As atualizações podem levar de 5 a 10 horas para instalar (incluindo as atualizações do Windows). As atualizações do modo de manutenção devem ser instaladas por meio da interface do Windows PowerShell do dispositivo. Como as atualizações do modo de manutenção são atualizações com interrupção, elas resultarão em um tempo de inatividade para seu dispositivo.
 
 ## Preparar para atualizações
 Você precisará executar as seguintes etapas antes de examinar e aplicar a atualização:
@@ -50,8 +50,7 @@ Você precisará executar as seguintes etapas antes de examinar e aplicar a atua
 
 1. Tirar um instantâneo dos dados do dispositivo na nuvem.
 
-
-1. Verifique se os IPs fixos do controlador são roteáveis e podem se conectar à Internet. Esses IPs fixo serão usado para atender às atualizações para o seu dispositivo. Você pode testar isso executando o seguinte cmdlet em cada controlador de interface do Windows PowerShell do dispositivo:
+2. Verifique se os IPs fixos do controlador são roteáveis e podem se conectar à Internet. Esses IPs fixo serão usado para atender às atualizações para o seu dispositivo. Você pode testar isso executando o seguinte cmdlet em cada controlador de interface do Windows PowerShell do dispositivo:
 
  	`Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter network> `
  
@@ -78,7 +77,7 @@ Você precisará executar as seguintes etapas antes de examinar e aplicar a atua
 
 Depois que essas pré-verificações manuais foi concluído com êxito, você poderá verificar e instalar as atualizações.
 
-## Instale a Atualização 1.2 através do Portal de Gerenciamento 
+## Instalar a Atualização 1.2 através do portal clássico do Azure 
 
 Use este procedimento somente se você tiver um gateway configurado na interface de rede DATA 0 no seu dispositivo. Execute as seguintes etapas para atualizar o dispositivo.
 
@@ -86,7 +85,7 @@ Use este procedimento somente se você tiver um gateway configurado na interface
 
 ## Instalar a Atualização 1.2 em um dispositivo com um gateway configurado em uma interface de rede diferente de DATA 0 
 
-Você deve usar este procedimento somente se a verificação de gateway falhar ao tentar instalar as atualizações por meio do Portal de Gerenciamento. A verificação falha pois você tem um gateway atribuído a uma interface de rede diferente de DATA 0 e o dispositivo está executando uma versão de software anterior à Atualização 1. Se seu dispositivo não tiver um gateway em uma interface de rede DATA 0, você poderá atualizá-lo diretamente no Portal de Gerenciamento. Consulte [Usar o Portal de Gerenciamento para instalar a Atualização 1](#install-update-12-via-the-management-portal).
+Você deve usar este procedimento somente se a verificação de gateway falhar ao tentar instalar as atualizações por meio do portal clássico do Azure. A verificação falha pois você tem um gateway atribuído a uma interface de rede diferente de DATA 0 e o dispositivo está executando uma versão de software anterior à Atualização 1. Se seu dispositivo não tiver um gateway em uma interface de rede DATA 0, você poderá atualizá-lo diretamente no portal clássico do Azure. Consulte [Instalar a Atualização 1.2 através do portal clássico do Azure](#install-update-12-via-the-azure-portal).
 
 As versões de software que podem ser atualizadas usando esse método são Atualização 0.1, Atualização 0.2 e Atualização 0.3.
 
@@ -94,20 +93,20 @@ As versões de software que podem ser atualizadas usando esse método são Atual
 > [AZURE.IMPORTANT]
 > 
 > - Se o dispositivo estiver executando a versão de lançamento (GA), contate o [ Suporte da Microsoft](storsimple-contact-microsoft-support.md) para ajudar na instalação dessa atualização.
-> - Esse procedimento deve ser executado apenas uma vez para aplicar a Atualização 1.2. É possível usar o Portal de Gerenciamento do Azure para aplicar atualizações subsequentes.
+> - Esse procedimento deve ser executado apenas uma vez para aplicar a Atualização 1.2. É possível usar o portal clássico do Azure para aplicar atualizações subsequentes.
 
 Se o dispositivo estiver executando o software anterior à Atualização 1 e tiver um gateway definido para uma interface de rede diferente de DATA 0, você poderá aplicar a Atualização 1.2 das duas formas a seguir:
 
 - **Opção 1**: baixe a atualização e aplique-a usando o cmdlet `Start-HcsHotfix` na interface do Windows PowerShell do dispositivo. Esse é o método recomendado. **Não use esse método para aplicar a Atualização 1.2 se o dispositivo estiver executando a Atualização 1.0 Atualização 1.1.** 
 
-- **Opção 2**: remova a configuração de gateway e instale a atualização diretamente do Portal de Gerenciamento.
+- **Opção 2**: remova a configuração de gateway e instale a atualização diretamente do portal clássico do Azure.
 
 
 As instruções detalhadas de cada uma delas são fornecidas nas seções a seguir.
 
 ## Opção 1: Usar o Windows PowerShell para StorSimple para aplicar a Atualização 1.2 como um hotfix
 
-Você deve usar este procedimento somente se você estiver executando a Atualização 0.1, 0.2, 0.3 e se a verificação de gateway falhou ao tentar instalar atualizações do Portal de Gerenciamento. Se você estiver executando o software de versão de lançamento (GA), contate o [Suporte da Microsoft](storsimple-contact-microsoft-support.md) para atualizar o seu dispositivo.
+Você deve usar este procedimento somente se estiver executando a Atualização 0.1, 0.2, 0.3 e se a verificação de gateway falhou ao tentar instalar atualizações do portal clássico do Azure. Se você estiver executando o software de versão de lançamento (GA), contate o [Suporte da Microsoft](storsimple-contact-microsoft-support.md) para atualizar o seu dispositivo.
 
 Antes de usar este procedimento para aplicar a atualização, verifique se:
 
@@ -118,7 +117,7 @@ Execute as etapas a seguir para aplicar a Atualização 1.2. **As atualizações
 [AZURE.INCLUDE [storsimple-install-update-option1](../../includes/storsimple-install-update-option1.md)]
 
 
-## Opção 2: usar o Portal do Azure para aplicar a Atualização 1.2 depois de remover a configuração de gateway
+## Opção 2: usar o portal clássico do Azure para aplicar a Atualização 1.2 depois de remover a configuração de gateway
 
 Esse procedimento se aplica somente a dispositivos StorSimple que estejam executando uma versão de software anterior à Atualização 1 e tenham um gateway definido em uma interface de rede diferente de DATA 0. Você precisará limpar a configuração do gateway antes de aplicar a atualização.
  
@@ -151,6 +150,6 @@ Se você verificou que há conectividade e o problema continuar, contate o Supor
 
 ## Próximas etapas
 
-Saiba mais sobre a [versão da Atualização 1.2](storsimple-update1-release-notes.md)
+Saiba mais sobre a [versão da Atualização 1.2](storsimple-update1-release-notes.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

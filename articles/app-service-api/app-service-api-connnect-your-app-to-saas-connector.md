@@ -18,6 +18,8 @@
 
 # Implantar e configurar um aplicativo de API de conector SaaS em um Serviço de Aplicativo do Azure
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Visão geral
 
 Este tutorial mostra como instalar, configurar e testar um [conector de SaaS (Software como Serviço )](../app-service-logic-what-are-bizTalk-api-apps.md) no [Serviço de Aplicativo do Azure](/documentation/services/app-service/) para chamá-lo programaticamente, por exemplo, de um aplicativo móvel. Um conector de SaaS é um [aplicativo de API](app-service-api-apps-why-best-platform.md) que simplifica a interação com uma plataforma SaaS, como o Office 365, Salesforces, Facebook e Dropbox. Se, em vez de usar um conector predefinido, você quiser criar um aplicativo de API .NET personalizado, consulte [Conectar-se a uma plataforma SaaS a partir de um aplicativo de API ASP.NET](app-service-api-dotnet-connect-to-saas.md).
@@ -236,4 +238,4 @@ Você viu como instalar, configurar e testar um conector de SaaS. Para obter mai
 [Portal Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

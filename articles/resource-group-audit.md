@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/27/2015" 
+	ms.date="12/02/2015" 
 	ms.author="tomfitz"/>
 
 # Operações de auditoria com o Gerenciador de Recursos
@@ -27,13 +27,13 @@ Há duas limitações importantes para se ter em mente ao trabalhar com logs de 
 1. Os logs de auditoria são retidos por apenas 90 dias.
 2. Você só pode consultar um intervalo de 15 dias ou menos.
 
-Você pode recuperar informações de logs de auditoria por meio do Azure PowerShell, CLI do Azure, API REST ou do portal de visualização do Azure.
+Você pode recuperar informações de logs de auditoria por meio do Azure PowerShell, CLI do Azure, API REST ou do portal do Azure.
 
 ## PowerShell
 
 [AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
-Para recuperar as entradas de log, execute o comando **Get-AzureRmLog** (ou **Get-AzureResourceGroupLog** para versões do PowerShell anteriores ao 1.0 Preview). Fornecer parâmetros adicionais para filtrar a lista de entradas.
+Para recuperar as entradas de log, execute o comando **Get-AzureRmLog** (ou **Get-AzureResourceGroupLog** para versões do PowerShell anteriores ao 1.0). Fornecer parâmetros adicionais para filtrar a lista de entradas.
 
 O exemplo a seguir mostra como usar o log de auditoria para ações de pesquisa executadas durante o ciclo de vida da solução. Você pode ver quando a ação ocorreu e quem a solicitou. As datas de início e de término são especificadas em um formato de data.
 
@@ -144,9 +144,9 @@ Se a lista de operações da última implantação é muito longa, você pode fi
 
 As operações REST para trabalhar com o log de auditoria fazem parte da [API REST do Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx). Para recuperar os eventos de log de auditoria, veja [Listar os eventos de gerenciamento em uma assinatura](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
-## Portal de visualização
+## Portal
 
-Você também pode exibir as operações registradas em log por meio do portal de visualização. É só selecionar a folha de logs de auditoria.
+Você também pode exibir as operações registradas em log por meio do portal. É só selecionar a folha de logs de auditoria.
 
 ![selecionar logs de auditoria](./media/resource-group-audit/select-audit.png)
 
@@ -162,4 +162,4 @@ Você pode selecionar qualquer operação para obter mais detalhes sobre ela.
 - Para saber mais sobre como conceder acesso a uma entidade de serviço, veja [Autenticando uma entidade de serviço com o Gerenciador de Recursos do Azure](resource-group-authenticate-service-principal.md).
 - Para saber como realizar ações em um recurso para todos os usuários, veja [Bloquear recursos com o Gerenciador de Recursos do Azure](resource-group-lock-resources.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Criar e carregar um VHD do RedHat Linux no Azure" 
-	description="Saiba como criar e carregar um disco rígido virtual (VHD) do Azure que contém um sistema operacional RedHat Linux." 
+	pageTitle="Criar e carregar um VHD Linux do Red Hat Enterprise para uso no Azure" 
+	description="Saiba como criar e carregar um disco rígido virtual (VHD) do Microsoft Azure, que contém um sistema operacional Red Hat Linux." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="SuperScottz" 
@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="11/23/2015" 
 	ms.author="mingzhan"/>
 
 
-# Preparar uma Máquina Virtual baseada no RedHat para o Azure
-Neste artigo, você aprenderá como preparar uma Máquina Virtual do Red Hat Enterprise Linux (RHEL) para usar no Azure. As versões do RHEL abordadas neste artigo são 6.6, 6.7, 7.0 e 7.1 e os hipervisores de preparação abordados neste artigo são o Hyper-V, KVM e VMWare.
+# Preparar uma Máquina Virtual baseada no Red Hat para o Azure
+Neste artigo, você aprenderá como preparar uma Máquina Virtual do Red Hat Enterprise Linux (RHEL) para usar no Azure. As versões do RHEL abordadas neste artigo são 6.7, 7.1 e 7.2 e os hipervisores de preparação abordados neste artigo são o Hyper-V, o KVM e o VMWare. Para saber mais sobre os requisitos de qualificação para participação no programa de Acesso à Nuvem do Red Hat (Red Hat's Cloud Access), confira [Site Red Hat's Cloud Access](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) e [Running RHEL on Azure](https://access.redhat.com/articles/1989673).
 
 
 
 
 ##Preparar uma imagem a partir do Gerenciador do Hyper-V 
 ###Pré-requisitos
-Esta seção pressupõe que você já instalou uma imagem RHEL a partir de um arquivo ISO obtido no site RedHats em um disco rígido virtual (VHD). Para obter mais detalhes sobre como usar o gerenciador do Hyper-V para instalar uma imagem do sistema operacional, confira [Instalar a Função Hyper-V e Configurar uma Máquina Virtual](http://technet.microsoft.com/library/hh846766.aspx).
+Esta seção pressupõe que você já instalou uma imagem RHEL a partir de um arquivo ISO obtido no site do Red Hat em um disco rígido virtual (VHD). Para obter mais detalhes sobre como usar o gerenciador do Hyper-V para instalar uma imagem do sistema operacional, confira [Instalar a Função Hyper-V e Configurar uma Máquina Virtual](http://technet.microsoft.com/library/hh846766.aspx).
 
 **Notas de Instalação do RHEL**
 
@@ -37,7 +37,10 @@ Esta seção pressupõe que você já instalou uma imagem RHEL a partir de um ar
 
 - Todos os VHDs devem ter tamanhos que sejam múltiplos de 1 MB.
 
-###RHEL 6.6/6.7
+- Ao usar qemu-img para converter as imagens de disco em formato VHD, observe que há um bug conhecido nas versões > = 2.2.1 do qemu-img que resultam em um VHD formatado incorretamente. O problema será corrigido em uma versão futura do qemu- img. Por ora é recomendado usar a versão 2.2.0 ou inferior do qemu-img.
+
+
+###RHEL 6.7
 
 1.	No Gerenciador do Hyper-V, selecione a máquina virtual.
 
@@ -74,11 +77,11 @@ Esta seção pressupõe que você já instalou uma imagem RHEL a partir de um ar
 
         # sudo chkconfig network on
 
-8.	Registre a assinatura do Red Hat para habilitar a instalação de pacotes do repositório RHEL:
+8.	Registre a sua assinatura do Red Hat para habilitar a instalação de pacotes do repositório RHEL ao executar o seguinte comando:
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-9.	Habilite o repositório epel, uma vez que o pacote WALinuxAgent `WALinuxAgent-<version>` foi enviado para o repositório Fedora EPEL 6:
+9.	O pacote WALinuxAgent `WALinuxAgent-<version>` foi enviado para o repositório Fedora EPEL 6. Habilite o repositório epel para a VM executando o seguinte comando:
 
         # wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
         # rpm -ivh epel-release-6-8.noarch.rpm
@@ -109,9 +112,9 @@ Esta seção pressupõe que você já instalou uma imagem RHEL a partir de um ar
         # sudo yum install WALinuxAgent
         # sudo chkconfig waagent on
 
-    **Observação:** a instalação do pacote WALinuxAgent removerá os pacotes NetworkManager e NetworkManager-gnome se eles não foram removidos conforme descrito na etapa 2.
+    **Observe:** que a instalação do pacote WALinuxAgent removerá o NetworkManager e os pacotes NetworkManager-gnome se eles já não tiverem sido removidos conforme descrito na etapa 2.
 
-13.	Não crie um espaço de permuta no disco do sistema operacional. O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco temporário e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (consulte a etapa anterior), modifique os seguintes parâmetros em /etc/waagent.conf de maneira apropriada:
+13.	Não crie um espaço de permuta no disco do sistema operacional. O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco temporário e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (confira a etapa anterior), modifique adequadamente os seguintes parâmetros em /etc/waagent.conf:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -130,9 +133,10 @@ Esta seção pressupõe que você já instalou uma imagem RHEL a partir de um ar
         # logout
 
 16.	Clique em **Ação -> Desligar** no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
-###RHEL 7.0/7.1
 
-1.	No Gerenciador do Hyper-V, selecione a máquina virtual.
+###RHEL 7.1/7.2
+
+1.  No Gerenciador do Hyper-V, selecione a máquina virtual.
 
 2.	Clique em Conectar para abrir a janela do console para a máquina virtual.
 
@@ -155,7 +159,7 @@ Esta seção pressupõe que você já instalou uma imagem RHEL a partir de um ar
 
         # sudo chkconfig network on
 
-6.	Registre a assinatura do Red Hat para habilitar a instalação de pacotes do repositório RHEL:
+6.	Registre a sua assinatura do Red Hat para habilitar a instalação de pacotes do repositório RHEL ao executar o seguinte comando:
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
@@ -178,7 +182,7 @@ Esta seção pressupõe que você já instalou uma imagem RHEL a partir de um ar
 
         ClientAliveInterval 180
 
-10.	Habilite o repositório epel, uma vez que o pacote WALinuxAgent `WALinuxAgent-<version>` foi enviado para o repositório Fedora EPEL 7.
+10.	O pacote WALinuxAgent `WALinuxAgent-<version>` foi enviado para o repositório Fedora EPEL 6. Habilite o repositório epel para a VM executando o seguinte comando:
 
         # wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
         # rpm -ivh epel-release-7-5.noarch.rpm
@@ -188,7 +192,7 @@ Esta seção pressupõe que você já instalou uma imagem RHEL a partir de um ar
         # sudo yum install WALinuxAgent
         # sudo systemctl enable waagent.service 
 
-12.	Não crie espaço de permuta no disco do SO. O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco temporário e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (consulte a etapa anterior), modifique os seguintes parâmetros em `/etc/waagent.conf` adequadamente:
+12.	Não crie espaço de permuta no disco do SO. O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco temporário e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (confira a etapa anterior), modifique adequadamente os seguintes parâmetros em `/etc/waagent.conf`:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -210,9 +214,9 @@ Esta seção pressupõe que você já instalou uma imagem RHEL a partir de um ar
 
 
 ##Preparar uma imagem a partir do KVM 
-###RHEL 6.6/6.7
+###RHEL 6.7
 
-1.	Baixe a imagem KVM do RHEL 6.6/6.7 no site do Red Hat.
+1.	Baixe a imagem KVM do RHEL 6.7 do site do Red Hat.
 
 2.	Definir uma senha raiz
 
@@ -227,9 +231,9 @@ Esta seção pressupõe que você já instalou uma imagem RHEL a partir de um ar
         ><fs> mount /dev/sda1 /
         ><fs> vi /etc/shadow
         ><fs> exit
-    Altere o segundo campo do usuário raiz de “!!” para a senha criptografada.
+    Altere o segundo campo do usuário raiz de "!!" para a senha criptografada.
 
-3.	Crie uma máquina virtual no KVM a partir da imagem qcow2, defina o tipo de disco para **qcow2** e defina o modelo do dispositivo da Interface da Rede Virtual para **virtio**. Em seguida, inicie a máquina virtual e faça logon como raiz.
+3.	Crie uma máquina virtual no KVM a partir da imagem qcow2, defina o tipo de disco como **qcow2** e defina o modelo do dispositivo da Interface da Rede Virtual como **virtio**. Em seguida, inicie a máquina virtual e faça logon como raiz.
 
 4.	Crie um arquivo chamado **rede** no diretório `/etc/sysconfig/` que contém o seguinte texto:
 
@@ -256,7 +260,7 @@ Esta seção pressupõe que você já instalou uma imagem RHEL a partir de um ar
 
         # chkconfig network on
 
-8.	Registre a assinatura do Red Hat para habilitar a instalação de pacotes do repositório RHEL:
+8.	Registre a sua assinatura do Red Hat para habilitar a instalação de pacotes do repositório RHEL ao executar o seguinte comando:
 
         # subscription-manager register –auto-attach --username=XXX --password=XXX
 
@@ -289,7 +293,7 @@ Esta seção pressupõe que você já instalou uma imagem RHEL a partir de um ar
 
 		# service sshd restart
 
-12.	Habilite o repositório epel, uma vez que o pacote WALinuxAgent `WALinuxAgent-<version>` foi enviado para o repositório **Fedora EPEL 6**:
+12.	O pacote WALinuxAgent `WALinuxAgent-<version>` foi enviado para o repositório Fedora EPEL 6. Habilite o repositório epel para a VM executando o seguinte comando:
 
         # wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
         # rpm -ivh epel-release-6-8.noarch.rpm
@@ -299,7 +303,7 @@ Esta seção pressupõe que você já instalou uma imagem RHEL a partir de um ar
         # yum install WALinuxAgent
         # chkconfig waagent on
 
-14.	O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco temporário e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (consulte a etapa anterior), modifique os seguintes parâmetros em **/etc/waagent.conf** de maneira apropriada:
+14.	O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco temporário e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (confira a etapa anterior), modifique adequadamente os seguintes parâmetros em **/etc/waagent.conf**:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -321,18 +325,19 @@ Esta seção pressupõe que você já instalou uma imagem RHEL a partir de um ar
 
 18.	Converta a imagem qcow2 no formato vhd: primeiro converta a imagem no formato bruto:
          
-         # qemu-img convert -f qcow2 –O raw rhel-6.6.qcow2 rhel-6.6.raw
-    Verifique se o tamanho da imagem bruta está alinhado com 1 MB, caso contrário, arredonde o tamanho para se alinhar com 1 MB:
+         # qemu-img convert -f qcow2 –O raw rhel-6.7.qcow2 rhel-6.7.raw
+    Verifique se o tamanho da imagem raw tem 1 MB; caso contrário, arredonde o tamanho para ficar com 1 MB: # MB=$((1024*1024)) # size=$(qemu-img info -f raw --output json "rhel-6.7.raw" | \\ gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}') # rounded\_size=$((($size/$MB + 1)*$MB))
 
-         # qemu-img resize rhel-6.6.raw $rounded_size
+         # qemu-img resize rhel-6.7.raw $rounded_size
 
     Converta o disco bruto no vhd de tamanho fixo:
 
-         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.6.raw rhel-6.6.vhd
- 
-###RHEL 7.0/7.1
+         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.7.raw rhel-6.7.vhd
 
-1.	Baixe a imagem KVM do RHEL 7.0 no site do Red Hat.
+
+###RHEL 7.1/7.2
+
+1.	Baixe a imagem KVM do RHEL 7.1 (ou 7.2) no site da web da Red Hat, usaremos RHEL 7.1 como exemplo.
 
 2.	Definir uma senha raiz
 
@@ -349,9 +354,9 @@ Esta seção pressupõe que você já instalou uma imagem RHEL a partir de um ar
         ><fs> vi /etc/shadow
         ><fs> exit
 
-    Alterar o segundo campo do usuário raiz de “!!” para a senha criptografada
+    Alterar o segundo campo do usuário raiz de "!!" para a senha criptografada
 
-3.	Crie uma máquina virtual no KVM a partir da imagem qcow2, defina o tipo de disco para **qcow2** e defina o modelo do dispositivo da Interface da Rede Virtual para **virtio**. Em seguida, inicie a máquina virtual e faça logon como raiz.
+3.	Crie uma máquina virtual no KVM a partir da imagem qcow2, defina o tipo de disco como **qcow2** e defina o modelo do dispositivo da Interface da Rede Virtual como **virtio**. Em seguida, inicie a máquina virtual e faça logon como raiz.
 
 4.	Crie um arquivo chamado **rede** no diretório `/etc/sysconfig/` que contém o seguinte texto:
 
@@ -372,7 +377,7 @@ Esta seção pressupõe que você já instalou uma imagem RHEL a partir de um ar
 
         # chkconfig network on
 
-7.	Registre a assinatura do Red Hat para habilitar a instalação de pacotes do repositório RHEL:
+7.	Registre a sua assinatura do Red Hat para habilitar a instalação de pacotes do repositório RHEL ao executar o seguinte comando:
 
         # subscription-manager register –auto-attach --username=XXX --password=XXX
 
@@ -409,7 +414,7 @@ Esta seção pressupõe que você já instalou uma imagem RHEL a partir de um ar
 
         systemctl restart sshd	
 
-12.	Habilite o repositório epel, uma vez que o pacote WALinuxAgent `WALinuxAgent-<version>` foi enviado para o repositório **Fedora EPEL 7**:
+12.	O pacote WALinuxAgent `WALinuxAgent-<version>` foi enviado para o repositório Fedora EPEL 6. Habilite o repositório epel para a VM executando o seguinte comando:
 
         # wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
         # rpm -ivh epel-release-7-5.noarch.rpm
@@ -422,7 +427,7 @@ Esta seção pressupõe que você já instalou uma imagem RHEL a partir de um ar
 
         # systemctl enable waagent.service
 
-14.	Não crie espaço de permuta no disco do SO. O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco temporário e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (consulte a etapa anterior), modifique os seguintes parâmetros em `/etc/waagent.conf` adequadamente:
+14.	Não crie espaço de permuta no disco do SO. O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco temporário e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (confira a etapa anterior), modifique adequadamente os seguintes parâmetros em `/etc/waagent.conf`:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -446,40 +451,45 @@ Esta seção pressupõe que você já instalou uma imagem RHEL a partir de um ar
 
     Primeiro, converta a imagem no formato bruto:
 
-         # qemu-img convert -f qcow2 –O raw rhel-7.0.qcow2 rhel-7.0.raw
+         # qemu-img convert -f qcow2 –O raw rhel-7.1.qcow2 rhel-7.1.raw
 
     Verifique se o tamanho da imagem bruta está alinhado com 1 MB, caso contrário, arredonde o tamanho para se alinhar com 1 MB:
 
-         # qemu-img resize rhel-7.0.raw $rounded_size
+         # MB=$((1024*1024))
+         # size=$(qemu-img info -f raw --output json "rhel-7.1.raw" | \
+                  gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+         # rounded_size=$((($size/$MB + 1)*$MB))
+
+         # qemu-img resize rhel-7.1.raw $rounded_size
 
     Converta o disco bruto no vhd de tamanho fixo:
 
-         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.0.raw rhel-7.0.vhd
+         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.1.raw rhel-7.1.vhd
 
 
 ##Preparar uma imagem a partir do VMWare
 ###Pré-requisitos
-Esta seção pressupõe que você já instalou uma máquina virtual RHEL no VMWare. Para obter detalhes sobre como instalar um sistema operacional no VMWare, consulte o [Guia de Instalação do Sistema Operacional Convidado do VMWare](http://partnerweb.vmware.com/GOSIG/home.html).
+Esta seção pressupõe que você já instalou uma máquina virtual RHEL no VMWare. Para saber mais sobre como instalar um sistema operacional no VMWare, confira o [Guia de Instalação do Sistema Operacional Convidado VMWare](http://partnerweb.vmware.com/GOSIG/home.html).
  
 - Ao instalar o sistema Linux, é recomendável que você use partições padrão em vez de LVM (geralmente o padrão para muitas instalações). Isso irá evitar conflitos de nome LVM com VMs clonadas, especialmente se um disco do sistema operacional precisar ser anexado a outra VM para solução de problemas. Se você preferir, é possível usar LVM ou RAID em discos de dados.
 
 - Não configure uma partição de permuta no disco do SO. O agente Linux pode ser configurado para criar um arquivo de permuta no disco de recursos temporários. Verifique as etapas a seguir para obter mais informações a esse respeito.
 
-- Ao criar o disco rígido virtual, selecione **Armazenar disco virtual como um único arquivo**.
+- Ao criar o disco rígido virtual, escolha **Armazenar disco virtual como um único arquivo**.
 
-###RHEL 6.6/6.7
+###RHEL 6.7
 1.	Desinstale o NetworkManager executando o seguinte comando:
 
          # sudo rpm -e --nodeps NetworkManager
 
     **Observação:** se o pacote ainda não estiver instalado, esse comando irá falhar com uma mensagem de erro. Isso é esperado.
 
-2.	Crie um arquivo chamado **network** no diretório /etc/sysconfig/ que contém o seguinte texto:
+2.	Crie um arquivo chamado **network** no diretório /etc/sysconfig/ com o seguinte texto:
 
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-3.	Crie um arquivo chamado **ifcfg-eth0** no diretório /etc/sysconfig/network-scripts/ que contém o seguinte texto:
+3.	Crie um arquivo chamado **ifcfg-eth0** no diretório /etc/sysconfig/network-scripts/ com o seguinte texto:
 
         DEVICE=eth0
         ONBOOT=yes
@@ -499,11 +509,11 @@ Esta seção pressupõe que você já instalou uma máquina virtual RHEL no VMWa
 
         # sudo chkconfig network on
 
-6.	Registre a assinatura do Red Hat para habilitar a instalação de pacotes do repositório RHEL:
+6.	Registre a sua assinatura do Red Hat para habilitar a instalação de pacotes do repositório RHEL ao executar o seguinte comando:
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-7.	Habilite o repositório epel, uma vez que o pacote WALinuxAgent `WALinuxAgent-<version>` foi enviado para o repositório Fedora EPEL 6:
+7.	O pacote WALinuxAgent `WALinuxAgent-<version>` foi enviado para o repositório Fedora EPEL 6. Habilite o repositório epel para a VM executando o seguinte comando:
 
         # wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
         # rpm -ivh epel-release-6-8.noarch.rpm
@@ -532,7 +542,7 @@ Esta seção pressupõe que você já instalou uma máquina virtual RHEL no VMWa
 
 11.	Não crie um espaço de permuta no disco do sistema operacional:
     
-    O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco temporário e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (consulte a etapa anterior), modifique os seguintes parâmetros em `/etc/waagent.conf` adequadamente:
+    O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco temporário e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (confira a etapa anterior), modifique adequadamente os seguintes parâmetros em `/etc/waagent.conf`:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -554,24 +564,28 @@ Esta seção pressupõe que você já instalou uma máquina virtual RHEL no VMWa
 
     Primeiro, converta a imagem no formato bruto:
 
-        # qemu-img convert -f vmdk –O raw rhel-6.6.vmdk rhel-6.6.raw
+        # qemu-img convert -f vmdk –O raw rhel-6.7.vmdk rhel-6.7.raw
 
     Verifique se o tamanho da imagem bruta está alinhado com 1 MB, caso contrário, arredonde o tamanho para se alinhar com 1 MB:
 
-        # qemu-img resize rhel-6.6.raw $rounded_size
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-6.7.raw" | \
+                gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+        # rounded_size=$((($size/$MB + 1)*$MB))
+        # qemu-img resize rhel-6.7.raw $rounded_size
 
     Converta o disco bruto no vhd de tamanho fixo:
 
-        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.6.raw rhel-6.6.vhd
+        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.7.raw rhel-6.7.vhd
 
-###RHEL 7.0/7.1
+###RHEL 7.1/7.2
 
-1.	Crie um arquivo chamado **network** no diretório /etc/sysconfig/ que contém o seguinte texto:
+1.	Crie um arquivo chamado **network** no diretório /etc/sysconfig/ com o seguinte texto:
 
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-2.	Crie um arquivo chamado **ifcfg-eth0** no diretório /etc/sysconfig/network-scripts/ que contém o seguinte texto:
+2.	Crie um arquivo chamado **ifcfg-eth0** no diretório /etc/sysconfig/network-scripts/ com o seguinte texto:
 
         DEVICE=eth0
         ONBOOT=yes
@@ -585,7 +599,7 @@ Esta seção pressupõe que você já instalou uma máquina virtual RHEL no VMWa
 
         # sudo chkconfig network on
 
-4.	Registre a assinatura do Red Hat para habilitar a instalação de pacotes do repositório RHEL:
+4.	Registre a sua assinatura do Red Hat para habilitar a instalação de pacotes do repositório RHEL ao executar o seguinte comando:
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
@@ -619,7 +633,7 @@ Esta seção pressupõe que você já instalou uma máquina virtual RHEL no VMWa
 
         ClientAliveInterval 180
 
-9.	Habilite o repositório epel, uma vez que o pacote WALinuxAgent `WALinuxAgent-<version>` foi enviado para o repositório Fedora EPEL 7:
+9.	O pacote WALinuxAgent `WALinuxAgent-<version>` foi enviado para o repositório Fedora EPEL 6. Habilite o repositório epel para a VM executando o seguinte comando:
 
 
         # wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
@@ -630,7 +644,7 @@ Esta seção pressupõe que você já instalou uma máquina virtual RHEL no VMWa
         # sudo yum install WALinuxAgent
         # sudo systemctl enable waagent.service
 
-11.	Não crie espaço de permuta no disco do SO. O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco temporário e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (consulte a etapa anterior), modifique os seguintes parâmetros em `/etc/waagent.conf` adequadamente:
+11.	Não crie espaço de permuta no disco do SO. O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco temporário e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (confira a etapa anterior), modifique adequadamente os seguintes parâmetros em `/etc/waagent.conf`:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -652,21 +666,25 @@ Esta seção pressupõe que você já instalou uma máquina virtual RHEL no VMWa
 
     Primeiro, converta a imagem no formato bruto:
 
-        # qemu-img convert -f vmdk –O raw rhel-7.0.vmdk rhel-7.0.raw
+        # qemu-img convert -f vmdk –O raw rhel-7.1.vmdk rhel-7.1.raw
 
     Verifique se o tamanho da imagem bruta está alinhado com 1 MB, caso contrário, arredonde o tamanho para se alinhar com 1 MB:
 
-        # qemu-img resize rhel-7.0.raw $rounded_size
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-7.1.raw" | \
+                 gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+        # rounded_size=$((($size/$MB + 1)*$MB))
+        # qemu-img resize rhel-7.1.raw $rounded_size
 
     Converta o disco bruto no vhd de tamanho fixo:
 
-        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.0.raw rhel-7.0.vhd
+        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.1.raw rhel-7.1.vhd
 
 
 ##Preparar a partir de um ISO usando o arquivo de início rápido automaticamente
-###RHEL 7.0/7.1
+###RHEL 7.1/7.2
 
-1.	Crie o arquivo de início rápido com o conteúdo abaixo e salve o arquivo. Para obter detalhes sobre a instalação de início rápido, consulte o [Guia de Instalação de Início Rápido](https://access.redhat.com/documentation/pt-BR/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
+1.	Crie o arquivo de início rápido com o conteúdo abaixo e salve o arquivo. Para saber mais sobre a instalação do kickstart, confira o [Guia de Instalação pelo Kickstart](https://access.redhat.com/documentation/pt-BR/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
 
 
         # Kickstart for provisioning a RHEL 7 Azure VM
@@ -780,44 +798,40 @@ Esta seção pressupõe que você já instalou uma máquina virtual RHEL no VMWa
 
 2.	Coloque o arquivo de início rápido em um local acessível no sistema de instalação.
  
-3.	No Gerenciador do Hyper-V, crie uma nova VM. Na página **Conectar Disco Rígido Virtual**, selecione **Anexar um disco rígido virtual posteriormente** e conclua o Assistente de Nova Máquina Virtual.
+3.	No Gerenciador do Hyper-V, crie uma nova VM. Na página **Conectar Disco Rígido Virtual**, escolha **Anexar um disco rígido virtual posteriormente** e conclua o Assistente de Nova Máquina Virtual.
 
 4.	Abra as configurações da VM:
 
-    a. Anexe um novo disco rígido virtual à VM, selecione **Formato VHD** e **Tamanho Fixo**.
+    a. Anexe um novo disco rígido virtual à VM e não deixe de escolher **Formato VHD** e **Tamanho Fixo**.
     
     b. Anexe o ISO de instalação ISO à unidade de DVD.
 
     c. Configure o BIOS para inicializar no CD.
 
-5.	Inicie a VM e quando o guia de instalação aparecer, pressione **Tab** para configurar as opções de inicialização.
+5.	Inicie a VM e, quando o guia de instalação for exibido, pressione **Tab** para configurar as opções de inicialização.
 
 6.	Insira `inst.ks=<the location of the Kickstart file>` no final das opções de inicialização e pressione **Enter**.
 
 7.	Aguarde a instalação terminar e quando for concluída, a VM desligará automaticamente. Agora, seu VHD Linux está pronto para ser carregado no Azure.
 
-##Problemas conhecidos:
-Há dois problemas conhecidos quando você está usando o RHEL 6.6, 7.0 e 7.1 no Hyper-V e no Azure.
+##Problemas conhecidos
+Há problemas conhecidos quando você está usando o RHEL 7.1 no Hyper-V e no Microsoft Azure.
 
-###Problema 1: Tempo limite de provisionamento
-Esse problema pode ocorrer durante a inicialização com o RHEL no Hyper-V e no Azure. Isso é mais comum com o RHEL 6.6.
+###Problema: congelamento da E/S do disco 
 
-Taxa de Reprodução:
-
-O problema é intermitente. Quase sempre é reproduzido nas VMs menores com um único vCPU e com mais frequência nos servidores mais ocupados.
-
-
-###Problema 2: Congelamento da E/S do Disco 
-
-Esse problema pode ocorrer durante as atividades de E/S do disco de armazenamento frequentes com o RHEL 6.6, 7.0 e 7.1 no Hyper-V e no Azure.
+Esse problema pode ocorrer durante as atividades de E/S do disco de armazenamento frequentes com o RHEL 7.1 no Hyper-V e no Microsoft Azure.
 
 Taxa de Reprodução:
 
-O problema é intermitente, porém ocorre com mais frequência durante as operações de E/S do disco frequentes no Hyper-V e no Azure.
+Este problema é intermitente, porém ocorre com mais frequência durante as operações de E/S do disco no Hyper-V e no Microsoft Azure.
 
     
-[AZURE.NOTE]Esses dois problemas conhecidos já são abordados no Red Hat. Para instalar as correções associadas, você pode executar o comando abaixo:
+[AZURE.NOTE]Esse problema conhecido já foi abordado pelo Red Hat. Para instalar as correções associadas, execute o seguinte comando:
 
     # sudo yum update
 
-<!---HONumber=Nov15_HO3-->
+
+## Próximas etapas
+Agora você está pronto para usar o .vhd do Red Hat Enterprise Linux para criar novas Máquinas Virtuais do Azure. Para obter mais detalhes sobre os hipervisores certificados para execução do Red Hat Enterprise Linux, visite [o site da Red Hat](https://access.redhat.com/certified-hypervisors).
+
+<!---HONumber=AcomDC_1210_2015-->

@@ -20,11 +20,11 @@
 Este artigo descreve como invocar um programa **MapReduce** de um pipeline do Azure Data Factory usando a **Atividade de HDInsight MapReduce**.
 
 ## Introdução 
-Um pipeline em uma fábrica de dados do Azure processa dados nos serviços de armazenamento vinculados utilizando serviços de computação vinculados. Ela contém uma sequência de atividades em que cada atividade executa uma operação de processamento específica. Este artigo descreve como usar a transformação MapReduce da Atividade do HDInsight.
+Um pipeline em uma fábrica de dados do Azure processa dados nos serviços de armazenamento vinculados utilizando serviços de computação vinculados. Ela contém uma sequência de atividades em que cada atividade executa uma operação de processamento específica. Este artigo descreve como usar atividade do HDInsight MapReduce.
  
-Consulte o artigo sobre [Pig](data-factory-pig-activity) e [Hive](data-factory-hive-activity.md) para obter detalhes sobre como executar os scripts Pig/Hive em um cluster do HDInsight baseado em Windows/Linux de um pipeline da Azure Data Factory usando transformações Pig/Hive da Atividade do HDInsight.
+Consulte [Pig](data-factory-pig-activity) e [Hive](data-factory-hive-activity.md) para obter detalhes sobre como executar scripts do Pig/Hive em um cluster do HDInsight baseado no Windows/Linux a partir de um pipeline de fábrica de dados do Azure usando atividades do HDInsight Pig e Hive.
 
-## JSON para atividade de HDInsight usando a transformação MapReduce 
+## JSON para atividade do HDInsight MapReduce 
 
 Na definição do JSON para a atividade de HDInsight:
  
@@ -34,61 +34,180 @@ Na definição do JSON para a atividade de HDInsight:
 5. Especifique o serviço vinculado que faz referência ao Armazenamento de Blob do Azure que contém o arquivo JAR para a propriedade **jarLinkedService**.   
 6. Especifique todos os argumentos para o programa MapReduce na seção **arguments**. Em tempo de execução, você verá alguns argumentos extras (por exemplo: mapreduce.job.tags) do framework MapReduce. Para diferenciar seus argumentos com os argumentos MapReduce, considere usar opção e valor como argumentos, conforme mostrado no exemplo a seguir (- s, --input - output etc... são opções seguidas imediatamente por seus valores).
 
- 
-
 		{
-		  "name": "MahoutMapReduceSamplePipeline",
-		  "properties": {
-		    "description": "Sample Pipeline to Run a Mahout Custom Map Reduce Jar. This job calcuates an Item Similarity Matrix to determine the similarity between 2 items",
-		    "activities": [
-		      {
-		        "name": "MyMahoutActivity",
-		        "description": "Custom Map Reduce to generate Mahout result",
-		        "inputs": [
-		          {
-		            "Name": "MahoutInput"
-		          }
+		    "name": "MahoutMapReduceSamplePipeline",
+		    "properties": {
+		        "description": "Sample Pipeline to Run a Mahout Custom Map Reduce Jar. This job calcuates an Item Similarity Matrix to determine the similarity between 2 items",
+		        "activities": [
+		            {
+		                "type": "HDInsightMapReduce",
+		                "typeProperties": {
+		                    "className": "org.apache.mahout.cf.taste.hadoop.similarity.item.ItemSimilarityJob",
+		                    "jarFilePath": "adfsamples/Mahout/jars/mahout-examples-0.9.0.2.2.7.1-34.jar",
+		                    "jarLinkedService": "StorageLinkedService",
+		                    "arguments": [
+		                        "-s",
+		                        "SIMILARITY_LOGLIKELIHOOD",
+		                        "--input",
+		                        "wasb://adfsamples@spestore.blob.core.windows.net/Mahout/input",
+		                        "--output",
+		                        "wasb://adfsamples@spestore.blob.core.windows.net/Mahout/output/",
+		                        "--maxSimilaritiesPerItem",
+		                        "500",
+		                        "--tempDir",
+		                        "wasb://adfsamples@spestore.blob.core.windows.net/Mahout/temp/mahout"
+		                    ]
+		                },
+		                "inputs": [
+		                    {
+		                        "name": "MahoutInput"
+		                    }
+		                ],
+		                "outputs": [
+		                    {
+		                        "name": "MahoutOutput"
+		                    }
+		                ],
+		                "policy": {
+		                    "timeout": "01:00:00",
+		                    "concurrency": 1,
+		                    "retry": 3
+		                },
+		                "scheduler": {
+		                    "frequency": "Hour",
+		                    "interval": 1
+		                },
+		                "name": "MahoutActivity",
+		                "description": "Custom Map Reduce to generate Mahout result",
+		                "linkedServiceName": "HDInsightLinkedService"
+		            }
 		        ],
-		        "outputs": [
-		          {
-		            "Name": "MahoutOutput"
-		          }
-		        ],
-		        "linkedServiceName": "HDInsightLinkedService",
-		        "type": "HDInsightMapReduce",
-		        "typeProperties": {
-		          "className": "org.apache.mahout.cf.taste.hadoop.similarity.item.ItemSimilarityJob",
-		          "jarFilePath": "<container>/Mahout/Jars/mahout-core-0.9.0.2.1.3.2-0002-job.jar",
-		          "jarLinkedService": "StorageLinkedService",
-		          "arguments": [
-		            "-s",
-		            "SIMILARITY_LOGLIKELIHOOD",
-		            "--input",
-		            "$$Text.Format('wasb://<container>@<accountname>.blob.core.windows.net/Mahout/Input/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
-		            "--output",
-		            "$$Text.Format('wasb://<container>@<accountname>.blob.core.windows.net/Mahout/Output/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
-		            "--maxSimilaritiesPerItem",
-		            "500",
-		            "--tempDir",
-		            "wasb://<container>@<accountname>.blob.core.windows.net/Mahout/temp/mahout"
-		          ]
-		        },
-		        "policy": {
-		          "concurrency": 1,
-		          "executionPriorityOrder": "OldestFirst",
-		          "retry": 3,
-		          "timeout": "01:00:00"
-		        }
-		      }
-		    ]
-		  }
+		        "start": "2014-01-03T00:00:00Z",
+		        "end": "2014-01-04T00:00:00Z",
+		        "isPaused": false,
+		        "hubName": "mrfactory_hub",
+		        "pipelineMode": "Scheduled"
+		    }
 		}
+	
+	
 
-Você pode usar a transformação MapReduce para executar qualquer arquivo de jar do MapReduce em um cluster do HDInsight. Na seguinte definição de JSON de exemplo de uma pipeline, a Atividade HDInsight é configurada para executar um arquivo JAR do Mahout.
+Você pode usar a atividade do HDInsight MapReduce para executar qualquer arquivo de jar do MapReduce em um cluster do HDInsight. Na seguinte definição de JSON de exemplo de uma pipeline, a Atividade HDInsight é configurada para executar um arquivo JAR do Mahout.
 
-## Amostra
-Você pode baixar um exemplo para usar a Atividade de HDInsight com a transformação MapReduce de: [Exemplos de Data Factory no GitHub](data-factory-samples.md).
+## Exemplo no GitHub
+Você pode baixar um exemplo para usar a atividade do MapReduce HDInsight em: [Exemplos do Data Factory no GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON/MapReduce_Activity_Sample).
 
+## Executando o programa de contagem de palavras
+O pipeline neste exemplo executa o programa de contagem de palavras de mapa/redução no cluster do Azure HDInsight.
+
+### Serviços vinculados
+Primeiro, crie um serviço vinculado para vincular o armazenamento do Azure que é usado pelo cluster do Azure HDInsight à fábrica de dados do Azure. Se você copiar/colar o código a seguir, não se esqueça de substituir o **nome da conta** e a **chave de conta** pelo nome e chave do armazenamento do Azure.
+
+#### Serviço vinculado a armazenamento
+
+	{
+	    "name": "StorageLinkedService",
+	    "properties": {
+	        "type": "AzureStorage",
+	        "typeProperties": {
+	            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>"
+	        }
+	    }
+	}
+
+#### Serviço vinculado do Azure HDInsight
+Em seguida, você cria um serviço vinculado para vincular seu cluster do HDInsight do Azure para a fábrica de dados do Azure. Se você copiar/colar o código a seguir, substitua o **nome do cluster do HDInsight** pelo nome do seu cluster do HDInsight e altere os valores de nome e senha do usuário.
+
+	{
+	    "name": "HDInsightLinkedService",
+	    "properties": {
+	        "type": "HDInsight",
+	        "typeProperties": {
+	            "clusterUri": "https://<HDInsight cluster name>.azurehdinsight.net",
+	            "userName": "admin",
+	            "password": "**********",
+	            "linkedServiceName": "StorageLinkedService"
+	        }
+	    }
+	}
+
+
+### Conjunto de dados
+
+#### Conjunto de dados de saída
+O pipeline neste exemplo não tem entradas. Você precisará especificar um conjunto de dados de saída para a atividade do HDInsight MapReduce. Isso é apenas um conjunto de dados fictício que é necessário para direcionar a agenda de pipeline.
+
+	{
+	    "name": "MROutput",
+	    "properties": {
+	        "type": "AzureBlob",
+	        "linkedServiceName": "StorageLinkedService",
+	        "typeProperties": {
+	            "fileName": "WordCountOutput1.txt",
+	            "folderPath": "example/data/",
+	            "format": {
+	                "type": "TextFormat",
+	                "columnDelimiter": ","
+	            }
+	        },
+	        "availability": {
+	            "frequency": "Day",
+	            "interval": 1
+	        }
+	    }
+	}
+
+### Pipeline
+O pipeline neste exemplo tem apenas uma atividade que seja do tipo: HDInsightMapReduce. Algumas das propriedades importantes no JSON são:
+
+Propriedade | Observações
+:-------- | :-----
+type | O tipo deve ser definido como **HDInsightMapReduce**. 
+className | Nome da classe é: **wordcount**
+jarFilePath | Caminho para o arquivo jar que contém a classe acima. Se você copiar/colar o código a seguir, não se esqueça de alterar o nome do cluster. 
+jarLinkedService | Serviço vinculado do Armazenamento do Azure que contém o arquivo jar. Esse é o armazenamento que está associado ao cluster do HDInsight. 
+argumentos | O programa wordcount leva dois argumentos, uma entrada e uma saída. O arquivo de entrada é o davinci.txt.
+frequência/intervalo | Os valores dessas propriedades correspondem ao conjunto de dados de saída. 
+linkedServiceName | refere-se ao serviço vinculado do HDInsight criado anteriormente.   
+
+	{
+	    "name": "MRSamplePipeline",
+	    "properties": {
+	        "description": "Sample Pipeline to Run the Word Count Program",
+	        "activities": [
+	            {
+	                "type": "HDInsightMapReduce",
+	                "typeProperties": {
+	                    "className": "wordcount",
+	                    "jarFilePath": "<HDInsight cluster name>/example/jars/hadoop-examples.jar",
+	                    "jarLinkedService": "StorageLinkedService",
+	                    "arguments": [
+	                        "/example/data/gutenberg/davinci.txt",
+	                        "/example/data/WordCountOutput1"
+	                    ]
+	                },
+	                "outputs": [
+	                    {
+	                        "name": "MROutput"
+	                    }
+	                ],
+	                "policy": {
+	                    "timeout": "01:00:00",
+	                    "concurrency": 1,
+	                    "retry": 3
+	                },
+	                "scheduler": {
+	                    "frequency": "Day",
+	                    "interval": 1
+	                },
+	                "name": "MRActivity",
+	                "linkedServiceName": "HDInsightLinkedService"
+	            }
+	        ],
+	        "start": "2014-01-03T00:00:00Z",
+	        "end": "2014-01-04T00:00:00Z"
+	    }
+	}
 
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
@@ -99,7 +218,7 @@ Você pode baixar um exemplo para usar a Atividade de HDInsight com a transforma
 [adftutorial]: data-factory-tutorial.md
 
 [Developer Reference]: http://go.microsoft.com/fwlink/?LinkId=516908
-[Azure Portal]: http://portal.azure.com
+[Azure Classic Portal]: http://portal.azure.com
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

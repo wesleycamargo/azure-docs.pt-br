@@ -35,7 +35,7 @@ O banco de dados está associado a um servidor do SQL Azure. Para conectar-se ao
 
 Para localizar o nome de servidor totalmente qualificado.
 
-1. Vá para o [Portal de Visualização do Azure](https://portal.azure.com).
+1. Vá para o [Portal do Azure](https://portal.azure.com).
 2. Clique em **Bancos de dados SQL** e clique no banco de dados ao qual você deseja se conectar. Este exemplo usa o banco de dados de exemplo AdventureWorksDW.
 3. Localize o nome completo do servidor.
 
@@ -108,4 +108,4 @@ Agora que você pode se conectar e consultar, tente [visualizar os dados com o P
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

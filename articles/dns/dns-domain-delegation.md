@@ -4,7 +4,7 @@
    services="dns"
    documentationCenter="na"
    authors="joaoma"
-   manager="Adinah"
+   manager="carmonm"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="12/15/2015"
    ms.author="joaoma"/>
 
 
@@ -32,7 +32,7 @@ Um domínio é um nome exclusivo no sistema de nome de domínio, por exemplo "co
 
 Uma zona DNS é usada para hospedar os registros DNS para um domínio específico. Por exemplo, o domínio "contoso.com" pode conter uma série de registros DNS, como “mail.contoso.com” (para um servidor de email) e “www.contoso.com” (para um site da Web).
 
-O Azure DNS permite hospedar uma zona DNS e, portanto, gerenciar os registros DNS para um domínio no Azure. Tenha em mente que o Azure DNS não é um registrador de domínio.
+O Azure DNS permite hospedar uma zona DNS e, portanto, gerenciar os registros DNS para um domínio no Azure. Tenha em mente que o Azure DNS não é o registrador de domínio.
 
 O Sistema de nomes de domínio é uma hierarquia de domínios. A hierarquia começa no domínio “raiz”, cujo nome é simplesmente “.”. Abaixo dele vêm domínios de nível superior, como “com”, “net”, “org”, “uk” ou “jp”. Abaixo desses estão domínios de segundo nível, como “org.uk” ou “co.jp”. E assim por diante.
 
@@ -71,8 +71,8 @@ Para configurar a delegação, você precisa saber os nomes de servidor de nomes
 
 Usando o Azure PowerShell, os registros NS autoritativos podem ser obtidos conforme descrito a seguir (o nome do Registro “@” é usado para fazer referência a registros no ápice da zona).
 
-	PS C:\> $zone = Get-AzureDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
-	PS C:\> Get-AzureDnsRecordSet –Name “@” –RecordType NS –Zone $zone
+	PS C:\> $zone = Get-AzureRmDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
+	PS C:\> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
 	Name              : @
 	ZoneName          : contoso.com
@@ -118,18 +118,18 @@ A única diferença é que, na etapa 3, os registros NS devem ser criados na zon
 
 O exemplo do PowerShell a seguir demonstra isso. Primeiro, criamos as zonas pai e filho — elas podem estar no mesmo grupo de recursos ou em grupos de recursos diferentes.
 
-	PS C:\> $parent = New-AzureDnsZone -Name contoso.com -ResourceGroupName RG1
-	PS C:\> $child = New-AzureDnsZone -Name partners.contoso.com -ResourceGroupName RG1
+	PS C:\> $parent = New-AzureRmDnsZone -Name contoso.com -ResourceGroupName RG1
+	PS C:\> $child = New-AzureRmDnsZone -Name partners.contoso.com -ResourceGroupName RG1
 
 Em seguida, recuperamos os registros NS autoritativos da zona filho conforme mostrado no exemplo a seguir.
 
-	PS C:\> $child_ns_recordset = Get-AzureDnsRecordSet -Zone $child -Name "@" -RecordType NS
+	PS C:\> $child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
 Finalmente, criamos um conjunto de registros NS correspondente na zona pai para concluir a delegação (observe que o nome do conjunto de registros na zona pai coincide com o nome da zona filho, neste caso "parceiros"):
 
-	PS C:\> $parent_ns_recordset = New-AzureDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
+	PS C:\> $parent_ns_recordset = New-AzureRmDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
 	PS C:\> $parent_ns_recordset.Records = $child_ns_recordset.Records
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset
+	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $parent_ns_recordset
 
 Da mesma forma que é feito ao delegar usando um registrador, podemos verificar que tudo esteja configurado corretamente examinando o registro SOA da zona filho.
 
@@ -149,14 +149,14 @@ Da mesma forma que é feito ao delegar usando um registrador, podemos verificar 
 
 ## Próximas etapas
 
-[Gerenciar zonas DNS](../dns-operations-dnszones)
+[Gerenciar zonas DNS](dns-operations-dnszones.md)
 
-[Gerenciar registros DNS](../dns-operations-recordsets)
+[Gerenciar registros DNS](dns-operations-recordsets.md)
 
-[Visão geral do Gerenciador de Tráfego](../traffic-manager-overview)
+[Visão geral do Gerenciador de Tráfego](traffic-manager-overview.md)
 
-[Automatizar operações do Azure com o SDK do .NET](../dns-sdk)
+[Automatizar operações do Azure com o SDK do .NET](dns-sdk.md)
 
 [Referência da API REST do Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

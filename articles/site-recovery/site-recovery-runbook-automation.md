@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Adicionar runbooks de automação do Azure aos planos de recuperação" 
+   pageTitle="Adicionar runbooks de automação do Azure aos planos de recuperação | Microsoft Azure" 
    description="Este artigo descreve como o Azure Site Recovery permite a ampliação dos planos de recuperação usando a Automação do Azure para concluir tarefas complexas durante a recuperação para o Azure" 
    services="site-recovery" 
    documentationCenter="" 
@@ -13,11 +13,9 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="10/07/2015"
+   ms.date="12/14/2015"
    ms.author="ruturajd@microsoft.com"/>
 
-  
-   
 
 # Adicionar runbooks de automação do Azure aos planos de recuperação
 
@@ -158,69 +156,68 @@ Agora, crie o runbook para abrir a porta 80 na máquina virtual front-end.
 
 1.  Crie um novo runbook na conta de Automação do Azure com o nome **OpenPort80**
 
-![](media/site-recovery-runbook-automation/14.png)
+	![](media/site-recovery-runbook-automation/14.png)
 
 2.  Navegue até o modo de exibição de Criação do runbook e entre no modo de rascunho.
 
 3.  Primeiro, especifique a variável a ser usada como o contexto do plano de recuperação
-
-```
-	param (
-		[Object]$RecoveryPlanContext
-	)
-
-```
   
+	```
+		param (
+			[Object]$RecoveryPlanContext
+		)
+
+	```
 
 4.  Em seguida, conecte-se à assinatura usando o nome da credencial e da assinatura
 
-```
-	$Cred = Get-AutomationPSCredential -Name 'AzureCredential'
+	```
+		$Cred = Get-AutomationPSCredential -Name 'AzureCredential'
 	
-	# Connect to Azure
-	$AzureAccount = Add-AzureAccount -Credential $Cred
-	$AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
-	Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
-```
+		# Connect to Azure
+		$AzureAccount = Add-AzureAccount -Credential $Cred
+		$AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
+		Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
+	```
 
-> Observe que você usa aqui os ativos do Azure – **AzureCredential** e **AzureSubscriptionName**.
+	Observe que você usa aqui os ativos do Azure – **AzureCredential** e **AzureSubscriptionName**.
 
-5.  Agora, especifique os detalhes do ponto de extremidade e o GUID da máquina virtual para a qual você deseja expor o ponto de extremidade, neste caso, a máquina virtual front-end.
+5.  Agora, especifique os detalhes do ponto de extremidade e o GUID da máquina virtual para a qual você deseja expor o ponto de extremidade. Neste caso, a máquina virtual de front-end.
 
-```
-	# Specify the parameters to be used by the script
-	$AEProtocol = "TCP"
-	$AELocalPort = 80
-	$AEPublicPort = 80
-	$AEName = "Port 80 for HTTP"
-	$VMGUID = "7a1069c6-c1d6-49c5-8c5d-33bfce8dd183"
-```
+	```
+		# Specify the parameters to be used by the script
+		$AEProtocol = "TCP"
+		$AELocalPort = 80
+		$AEPublicPort = 80
+		$AEName = "Port 80 for HTTP"
+		$VMGUID = "7a1069c6-c1d6-49c5-8c5d-33bfce8dd183"
+	```
 
-Isso especifica o protocolo do ponto de extremidade do Azure, a porta local na VM e sua porta pública mapeada. Essas variáveis são parâmetros exigidos pelos comandos do Azure que adicionam pontos de extremidade às máquinas virtuais. O VMGUID contém o GUID da máquina virtual na qual você precisa operar.
+	Isso especifica o protocolo do ponto de extremidade do Azure, a porta local na VM e sua porta pública mapeada. Essas variáveis são parâmetros exigidos pelos comandos do Azure que adicionam pontos de extremidade às máquinas virtuais. O VMGUID contém o GUID da máquina virtual na qual você precisa operar.
 
 6.  Agora, o script extrairá o contexto do VM GUID determinado e criará um ponto de extremidade na máquina virtual indicada por ele.
 
-```
-	#Read the VM GUID from the context
-	$VM = $RecoveryPlanContext.VmMap.$VMGUID
+	```
+		#Read the VM GUID from the context
+		$VM = $RecoveryPlanContext.VmMap.$VMGUID
 
-	if ($VM -ne $null)
-	{
-		# Invoke pipeline commands within an InlineScript
+		if ($VM -ne $null)
+		{
+			# Invoke pipeline commands within an InlineScript
 
-		$EndpointStatus = InlineScript {
-			# Invoke the necessary pipeline commands to add a Azure Endpoint to a specified Virtual Machine
-			# This set of commands includes: Get-AzureVM | Add-AzureEndpoint | Update-AzureVM (including necessary parameters)
+			$EndpointStatus = InlineScript {
+				# Invoke the necessary pipeline commands to add a Azure Endpoint to a specified Virtual Machine
+				# Commands include: Get-AzureVM | Add-AzureEndpoint | Update-AzureVM (including parameters)
 
-			$Status = Get-AzureVM -ServiceName $Using:VM.CloudServiceName -Name $Using:VM.RoleName | `
-				Add-AzureEndpoint -Name $Using:AEName -Protocol $Using:AEProtocol -PublicPort $Using:AEPublicPort -LocalPort $Using:AELocalPort | `
-				Update-AzureVM
-			Write-Output $Status
+				$Status = Get-AzureVM -ServiceName $Using:VM.CloudServiceName -Name $Using:VM.RoleName | `
+					Add-AzureEndpoint -Name $Using:AEName -Protocol $Using:AEProtocol -PublicPort $Using:AEPublicPort -LocalPort $Using:AELocalPort | `
+					Update-AzureVM
+				Write-Output $Status
+			}
 		}
-	}
-```
+	```
 
-7. Quando isso for concluído, pressione Publicar ![](media/site-recovery-runbook-automation/20.png) para permitir que seu script esteja disponível para execução. 
+7. Quando isso for concluído, pressione Publicar ![](media/site-recovery-runbook-automation/20.png) para permitir que seu script esteja disponível para execução.
 
 O script completo é fornecido abaixo para sua referência
 
@@ -313,4 +310,4 @@ Embora tenhamos mostrado neste tutorial como automatizar uma tarefa usada normal
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

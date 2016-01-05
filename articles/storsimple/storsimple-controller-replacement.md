@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/10/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Substituir um módulo de controlador em seu dispositivo StorSimple
@@ -37,7 +37,7 @@ A tabela a seguir mostra os cenários de substituição do controlador aceitos.
 |3|Os controladores no mesmo dispositivo ou de dispositivos diferentes estão trocados. O chassi, os discos e os compartimentos de disco estão íntegros.|Será exibida uma mensagem de alerta de incompatibilidade do slot.|
 |4|Um controlador está ausente e o outro controlador falha.|[Substituição de controlador duplo](#replace-both-controllers), que descreve a [lógica por trás de uma substituição de controlador duplo](#dual-controller-replacement-logic), bem como as [etapas de substituição](#dual-controller-replacement-steps).|
 |5|Um ou ambos os controladores falharam. Não é possível acessar o dispositivo por meio do console serial ou de comunicação remota do Windows PowerShell.|[Contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md) para saber o procedimento manual de substituição do controlador.|
-|6|Os controladores têm uma versão de compilação diferente, o que pode ser devido a:<ul><li>Controladores com versão de software diferente.</li><li>Controladores com versão de firmware diferente.</li></ul>|Se as versões de software do controlador forem diferentes, a lógica de substituição detecta isso e atualiza a versão do software no controlador de substituição.<br><br>Se as versões de firmware do controlador forem diferentes e a versão antiga do firmware **não** for atualizável de forma automática, uma mensagem de alerta aparecerá no Portal de Gerenciamento. Você deve verificar se há atualizações e instalar as atualizações de firmware.</br></br>Se as versões do firmware do controlador forem diferentes e a versão do firmware antigo puder ser atualizada automaticamente, a lógica de substituição de controlador detecta isso e, depois que o controlador iniciar, o firmware será atualizado automaticamente.|
+|6|Os controladores têm uma versão de compilação diferente, o que pode ser devido a:<ul><li>Controladores com versão de software diferente.</li><li>Controladores com versão de firmware diferente.</li></ul>|Se as versões de software do controlador forem diferentes, a lógica de substituição detectará isso e atualizará a versão do software no controlador de substituição.<br><br>Se as versões de firmware do controlador forem diferentes e a versão antiga do firmware **não** for atualizável de forma automática, uma mensagem de alerta aparecerá no Portal clássico do Azure. Você deve verificar se há atualizações e instalar as atualizações de firmware.</br></br>Se as versões do firmware do controlador forem diferentes e a versão do firmware antigo puder ser atualizada automaticamente, a lógica de substituição de controlador detecta isso e, depois que o controlador iniciar, o firmware será atualizado automaticamente.|
 
 Você precisa remover um módulo do controlador caso apresente falha. Um ou ambos os módulos de controlador podem falhar, o que pode resultar em substituição de controlador único ou substituição de controlador duplo. Para conhecer os procedimentos de substituição e a lógica por trás deles, consulte o seguinte:
 
@@ -75,7 +75,7 @@ Conclua as etapas a seguir se um dos controladores do dispositivo Microsoft Azur
 
 #### Para remover um módulo de controlador único com falha
 
-1. No Portal de Gerenciamento do serviço StorSimple Manager, clique na guia **Dispositivos** e, em seguida, clique no nome do dispositivo que você deseja monitorar.
+1. No Portal clássico do Azure do serviço StorSimple Manager, clique na guia **Dispositivos** e, em seguida, clique no nome do dispositivo que você deseja monitorar.
 
 2. Clique na guia **Manutenção** e, em seguida, navegue até **Status de Hardware**. O status do Controlador 0 ou Controlador 1 deve estar vermelho, o que indica uma falha.
 
@@ -102,7 +102,7 @@ Conclua as etapas a seguir se um dos controladores do dispositivo Microsoft Azur
 
 7. Enquanto a lógica de substituição do controlador único continua no plano de fundo, reconecte os cabos. Tome cuidado para conectar todos os cabos exatamente da mesma maneira que estavam conectados antes da substituição.
 
-8. Depois que o controlador for reiniciado, verifique o **Status do controlador** e o **Status do cluster** no Portal de Gerenciamento para verificar se o controlador está de volta em um estado íntegro e está em modo de espera.
+8. Depois que o controlador for reiniciado, verifique o **Status do controlador** e o **Status do cluster** no Portal clássico do Azure para verificar se o controlador está de volta em um estado íntegro e está em modo de espera.
 
 >[AZURE.NOTE]Se você estiver monitorando o dispositivo através do console serial, você poderá ver diversas reinicializações enquanto o controlador se recupera do procedimento de substituição. Quando o menu do console serial é apresentado, você saberá que a substituição foi concluída. Se o menu não aparecer dentro de duas horas do início da substituição do controlador, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
 
@@ -214,13 +214,13 @@ Use o procedimento a seguir para instalar um módulo do controlador fornecido pe
 
     >[AZURE.NOTE]Pode levar até 5 minutos até que o controlador e o LED estejam ativados.
 
-5. Para verificar se a substituição foi bem-sucedida, no Portal de Gerenciamento, navegue até **Dispositivos** > **Manutenção** > **Status de Hardware** e certifique-se de que o controlador 0 e o controlador 1 estejam íntegros (status verde).
+5. Para verificar se a substituição foi bem-sucedida, no Portal clássico do Azure, navegue até **Dispositivos** > **Manutenção** > **Status de Hardware** e certifique-se de que o controlador 0 e o controlador 1 estejam íntegros (status verde).
 
 ## Identificar o controlador ativo em seu dispositivo
 
 Há muitas situações, como substituição de controlador ou de registro do dispositivo pela primeira vez, que exigem que você localize o controlador ativo em um dispositivo StorSimple. O controlador ativo processa todas as operações de rede e firmware de disco. Você pode usar qualquer um dos seguintes métodos para identificar o controlador ativo:
 
-- [Usar o Portal de Gerenciamento para identificar o controlador ativo](#use-the-management-portal-to-identify-the-active-controller)
+- [Usar o Portal clássico do Azure para identificar o controlador ativo](#use-the-azure-classic-portal-to-identify-the-active-controller)
 
 - [Usar o Windows PowerShell para StorSimple para identificar o controlador ativo](#use-windows-powershell-for-storsimple-to-identify-the-active-controller)
 
@@ -228,13 +228,13 @@ Há muitas situações, como substituição de controlador ou de registro do dis
 
 Cada um desses procedimentos é descrito abaixo.
 
-### Usar o Portal de Gerenciamento para identificar o controlador ativo
+### Usar o Portal clássico do Azure para identificar o controlador ativo
 
 No Portal de Gerenciamento, navegue até **Dispositivos** > **Manutenção** e role até a seção **Controladores**. Aqui você pode verificar qual controlador está ativo.
 
 ![Identifique o controlador ativo no Portal de Gerenciamento](./media/storsimple-controller-replacement/IC752072.png)
 
-**Figura 6** Portal de Gerenciamento mostrando o controlador ativo
+**Figura 6** portal clássico do Azure mostrando o controlador ativo
 
 ### Usar o Windows PowerShell para StorSimple para identificar o controlador ativo
 
@@ -266,4 +266,4 @@ Se esse LED estiver piscando, o controlador estará ativo e o outro controlador 
 
 Saiba mais sobre a [substituição de componentes de hardware StorSimple](storsimple-hardware-component-replacement.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

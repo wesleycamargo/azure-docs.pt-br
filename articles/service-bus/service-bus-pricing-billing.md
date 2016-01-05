@@ -33,7 +33,7 @@ A camada **Premium** fornece isolamento de recursos na camada de CPU e memória,
 
 Observe que o custo base padrão é cobrado apenas uma vez por mês por assinatura do Azure. Isso significa que depois de criar um único namespace de Barramento de Serviço camada Standard ou Premium, você poderá criar tantos namespaces adicionais da camada Standard ou Premium quanto desejar nessa mesma assinatura do Azure, sem incorrer em encargos adicionais de base.
 
-Todos os namespaces de Barramento de Serviço existentes criados antes de 1º de novembro de 2014 foram automaticamente colocados na camada Standard. Isso garante que você continue a ter acesso a todos os recursos disponíveis no momento com o Barramento de Serviço. Posteriormente, você pode usar o portal do Azure para fazer o downgrade para a camada Basic, se desejado.
+Todos os namespaces de Barramento de Serviço existentes criados antes de 1º de novembro de 2014 foram automaticamente colocados na camada Standard. Isso garante que você continue a ter acesso a todos os recursos disponíveis no momento com o Barramento de Serviço. Posteriormente, você pode usar o [portal clássico do Azure][] para fazer o downgrade para a camada Basic, se desejado.
 
 A tabela a seguir resume as diferenças funcionais entre as camadas Basic e Standard/Premium.
 
@@ -147,4 +147,6 @@ Sim. Não há cobranças de conexão para enviar eventos usando HTTP, independen
 
 [Perguntas Frequentes sobre Preços do Barramento de Serviço](service-bus-pricing-faq.md)
 
-<!---HONumber=Oct15_HO3-->
+[portal clássico do Azure]: http://manage.windowsazure.com
+
+<!---HONumber=AcomDC_1203_2015-->

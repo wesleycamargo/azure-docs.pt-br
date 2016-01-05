@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Ao provisionar uma máquina virtual do Linux no Azure, você deve especificar o nome de um usuário não raiz que possa usar posteriormente para fazer logon na VM. Você pode escolher o nome do novo usuário ou, se realizar o provisionamento por meio do portal de gerenciamento, pode aceitar o nome padrão "azureuser".
+Ao provisionar uma máquina virtual do Linux no Azure, você deve especificar o nome de um usuário não raiz que possa usar posteriormente para fazer logon na VM. Você pode escolher o nome do novo usuário, ou se o provisionamento for por meio do portal clássico do Azure, você pode aceitar o nome padrão "azureuser".
 
 Na maioria dos casos, esse usuário não existe na imagem de base e é criado durante o processo de provisionamento. Se o usuário já existir na imagem de base da máquina virtual, o agente do Linux do Azure simplesmente configura a senha (e/ou chave SSH) para o usuário com base na informação especificada ao criar a máquina virtual.
 
@@ -251,4 +251,4 @@ A seguir estão nomes de usuário que devem ser evitados ao fazer o provisioname
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

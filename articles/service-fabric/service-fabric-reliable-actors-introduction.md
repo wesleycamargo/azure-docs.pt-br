@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Visão Geral dos Atores Confiáveis do Service Fabric"
+   pageTitle="Visão Geral dos Reliable Actors do Service Fabric | Microsoft Azure"
    description="Introdução ao modelo de programação de Atores Confiáveis do Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
@@ -36,10 +36,10 @@ public interface ICalculatorActor : IActor
 }
 ```
 
-Um tipo de ator pode implementar a interface acima da seguinte maneira:
+Um tipo de ator pode implementar esta interface da seguinte maneira:
 
 ```csharp
-public class CalculatorActor : Actor, ICalculatorActor
+public class CalculatorActor : StatelessActor, ICalculatorActor
 {
     public Task<double> AddAsync(double valueOne, double valueTwo)
     {
@@ -81,9 +81,9 @@ Os atores de Malha de Serviço são virtuais, o que significa que o tempo de vid
 Para fornecer alta escalabilidade e confiabilidade, a Malha de Serviço distribui atores em todo o cluster e os migra automaticamente de nós com falha para os nós íntegros conforme necessário. A classe `ActorProxy` no lado do cliente executa a resolução necessária para localizar o ator por [partição](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) de ID e abrir um canal de comunicação com ela. O `ActorProxy` também tenta novamente no caso de falhas de comunicação e failovers. Isso garante que as mensagens sejam entregues de forma confiável mesmo em caso de falhas, mas isso também significa que é possível que uma implementação de Ator receba mensagens duplicadas do mesmo cliente.
 
 ## Simultaneidade
-### Simultaneidade com base em vez
+### Acesso com base em vez
 
-O tempo de execução dos Atores fornece uma simultaneidade simples baseada em turno para métodos de ator. Isso significa que não é permitido mais de um thread ativo no código do ator a qualquer momento.
+O tempo de execução dos Atores fornece um modelo baseado em vez simples para acessar os métodos de ator. Isso significa que não é permitido mais de um thread ativo no código do ator a qualquer momento.
 
 Um turno consiste na execução completa de um método de ator em resposta à solicitação de outros atores ou clientes, ou a execução completa de um retorno de chamada de [temporizador/lembrete](service-fabric-reliable-actors-timers-reminders.md). Embora esses métodos e retornos de chamada sejam assíncronos, o tempo de execução de Atores não os intercala. Uma vez deve ser totalmente concluída antes de ativar uma nova permissão. Em outras palavras, um método de ator ou retorno de chamada de temporizador/lembrete que está em execução no momento deve ser concluído totalmente antes que uma nova chamada a um método ou um retorno de chamada seja permitido. Um método ou retorno de chamada será considerado concluído se a execução tiver sido retornada do método ou retorno de chamada, e a Tarefa retornada pelo método ou retorno de chamada tiver sido concluída. Vale enfatizar que a simultaneidade baseada em turno é respeitada mesmo entre métodos, temporizadores e retornos de chamada diferentes.
 
@@ -121,12 +121,12 @@ O tempo de execução dos Atores fornece essas garantias de simultaneidade em si
 Os Atores da Malha permitem que você crie os atores com ou sem estado.
 
 ### Atores sem estado
-Atores sem monitoração de estado, que derivam da classe base ``Actor``, não têm nenhum estado que seja gerenciado pelo tempo de execução de Atores. Suas variáveis de membro são preservadas durante sua vida útil na memória assim como qualquer outro tipo .NET. No entanto, quando eles são coletados como lixo após um período de inatividade, seu estado é perdido. Da mesma forma, o estado pode ser perdido devido a failovers, que ocorrem durante atualizações, operações de balanceamento de recursos ou como resultado de falhas no processo de ator ou no seu nó de hospedagem.
+Atores sem monitoração de estado, que derivam da classe base `StatelessActor`, não têm nenhum estado que seja gerenciado pelo tempo de execução de Atores. Suas variáveis de membro são preservadas durante sua vida útil na memória assim como qualquer outro tipo .NET. No entanto, quando eles são coletados como lixo após um período de inatividade, seu estado é perdido. Da mesma forma, o estado pode ser perdido devido a failovers, que ocorrem durante atualizações, operações de balanceamento de recursos ou como resultado de falhas no processo de ator ou no seu nó de hospedagem.
 
 Veja a seguir o exemplo de um ator sem estado.
 
 ```csharp
-class HelloActor : Actor, IHello
+class HelloActor : StatelessActor, IHello
 {
     public Task<string> SayHello(string greeting)
     {
@@ -136,12 +136,12 @@ class HelloActor : Actor, IHello
 ```
 
 ### Atores com estado
-Os atores com estado têm um estado que precisa ser preservado entre coletas de lixo e failovers. Eles derivam da classe de base `Actor<TState>`, onde `TState` é o tipo de estado que deve ser preservado. O estado pode ser acessado nos métodos de ator pela propriedade `State` na classe base.
+Os atores com estado têm um estado que precisa ser preservado entre coletas de lixo e failovers. Eles derivam de `StatefulActor<TState>`, em que `TState` está o tipo de estado que deve ser preservado. O estado pode ser acessado nos métodos de ator pela propriedade `State` na classe base.
 
 Veja a seguir um exemplo de um ator com estado acessando o estado.
 
 ```csharp
-class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
+class VoicemailBoxActor : StatefulActor<VoicemailBox>, IVoicemailBoxActor
 {
     public Task<List<Voicemail>> GetMessagesAsync()
     {
@@ -198,4 +198,4 @@ Os retornos de chamada de temporizador podem ser marcados com o atributo `Readon
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -3,7 +3,7 @@
 	description="Siga este tutorial para aprender a implantar uma solução pré-configurada do Azure IoT Suite."
 	services=""
 	documentationCenter=""
-	authors="aguilaaj"
+	authors="dominicbetts"
 	manager="timlt"
 	editor=""/>
 
@@ -13,106 +13,150 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="09/29/2015"
-     ms.author="araguila"/>
+     ms.date="12/03/2015"
+     ms.author="dobett"/>
 
 # Tutorial: introdução às soluções da IoT pré-configuradas
 
 ## Introdução
 
-As soluções pré-configuradas do Pacote IoT do Azure conectam uma quantidade dos serviços IoT do Azure para exemplificar uma solução de ponta a ponta que atende um cenário de negócios da Internet das Coisas.
+As [soluções pré-configuradas][lnk-preconfigured-solutions] do Pacote do Azure IoT combinam vários serviços de IoT do Azure para fornecer soluções de ponta a ponta que implementam cenários comuns de negócios de IoT.
 
-Esse tutorial mostra como provisionar uma solução pré-configurada, **Monitoramento remoto**. Isso também mostra como exibir os recursos básicos da solução de monitoramento remoto pré-configurado.
+Este tutorial mostra como provisionar a solução pré-configurada de *monitoramento remoto*. Ele também explica os recursos básicos da solução pré-configurada de monitoramento remoto.
 
-Para concluir este tutorial, você precisará do seguinte:
+Para concluir este tutorial, você precisará de uma assinatura ativa do Azure.
 
--   Uma assinatura ativa do Azure.
+> [AZURE.NOTE]Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][lnk_free_trial].
 
-    Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][].
+## Provisionamento de uma solução pré-configurada de monitoramento remoto
 
-## Provisionar uma solução pré-configurada de monitoramento remoto
+1.  Faça logon em [azureiotsuite.com][lnk-azureiotsuite] usando as credenciais de sua conta do Azure e clique em **+** para criar uma nova solução.
 
-1.  Faça logon em https://www.azureiotsuite.com e clique em **+** para criar uma nova solução.
+2.  Clique em **Selecionar** no bloco **Monitoramento remoto**.
 
-2.  Selecione **Monitoramento remoto** de acordo com o seu tipo de solução.
+3.  Digite um **Nome de solução** para a solução pré-configurada de monitoramento remoto.
 
-3.  Digite um **Nome de Solução** para a solução pré-configurada de monitoramento remoto.
+4.  Selecione a **Região** e a **Assinatura** você deseja usar para provisionar a solução.
 
-4.  Valide a **Região** e **Assinatura** que você deseja para provisionar essa solução.
+5.  Clique em **Criar Solução** para iniciar o processo de provisionamento. Isso normalmente leva vários minutos para ser executado.
 
-5.  Clique em **Criar solução**.
+## Exibir o painel de solução de monitoramento remoto
 
-## Veja o painel de solução de monitoramento remoto
+1.  Quando o provisionamento for concluído e o bloco da solução pré-configurada indicar **Pronto**, clique em **Iniciar** para abrir o portal de solução de monitoramento remoto em uma nova guia.
 
-1.  Quando o provisionamento for concluído e o bloco da sua solução pré-configurada indicar **Pronto**, clique em **Iniciar** para abrir o painel de solução de monitoramento remoto em uma nova guia.
+    ![][img-launch-solution]
 
-2.  Por padrão, o **Painel** está selecionado no menu esquerdo. Esse é o painel de solução.
+2.  Por padrão, o portal de solução mostra o *painel de solução*. Você pode selecionar outros modos de exibição usando o menu à esquerda.
+
+    ![][img-dashboard]
 
 ## A lista de dispositivos de solução é exibida
 
-1.  Clique em **Dispositivos** no menu à esquerda para navegar para a lista de dispositivos para essa solução.
+1.  Clique em **Dispositivos** no menu à esquerda para mostrar a *lista de dispositivos* dessa solução.
 
-2.  Mediante provisionamento você verá 4 dispositivos simulados provisionados.
+    ![][img-devicelist]
 
-3.  Clique um **dispositivo individual** na lista de dispositivos para exibir os detalhes de dispositivo associados a esse dispositivo.
+2.  Você pode ver que há quatro dispositivos simulados criados pelo processo de provisionamento.
+
+3.  Clique em um dispositivo na lista de dispositivos para exibir os respectivos detalhes.
+
+    ![][img-devicedetails]
 
 ## Enviar um comando para um dispositivo
 
-1.  Clique em **Enviar comando** no painel de detalhes do dispositivo para o dispositivo simulado selecionado.
+1.  Clique em **Comandos** no painel de detalhes do dispositivo selecionado.
+
+    ![][img-devicecommands]
 
 2.  Selecione **PingDevice** na lista de comandos.
 
-3.  Clique em **Enviar comando**.
+3.  Clique em **Enviar Comando**.
 
-4.  Veja o status do comando como ele aparece no histórico de comandos.
+4.  Você pode ver o status do comando no histórico de comandos.
+
+    ![][img-pingcommand]
 
 ## Adicionar um novo dispositivo simulado
 
-1.  Clique na **←** (seta para voltar) para retornar à lista de dispositivos.
+1.  Navegue de volta para a lista de dispositivos.
 
-2.  Clique em **+ Adicionar um dispositivo** no canto inferior esquerdo para adicionar um novo dispositivo.
+2.  Clique em **+ Adicionar um Dispositivo** no canto inferior esquerdo para adicionar um novo dispositivo.
 
-3.  Clique em **Adicionar novo** para o **Dispositivo simulado**.
+    ![][img-adddevice]
 
-4.  Selecione **Deixe-me definir minha própria ID de dispositivo** e adicione um nome de ID de dispositivo exclusivo.
+3.  Clique em **Adicionar Novo** no bloco **Dispositivo Simulado**.
+
+    ![][img-addnew]
+
+4.  Selecione **Deixe-me definir minha própria ID de dispositivo** e adicione um nome de ID de dispositivo exclusivo, como **mydevice\_01**.
 
 5.  Clique em **Criar**.
 
-6.  Clique na **←** (seta para voltar) para retornar à lista de dispositivos.
+    ![][img-definedevice]
 
-7.  Consulte o dispositivo **Executando** na lista de dispositivos.
+6. Na etapa 3 de **Adicionar um dispositivo simulado**, clique em **Concluído** para retornar à lista de dispositivos.
+
+7.  Você pode exibir o dispositivo **Executando** na lista de dispositivos.
+
+    ![][img-runningnew]
 
 ## Exibir e editar regras de solução
 
-1.  Observe a tabela **Histórico de alarme** no **Painel de solução.**
+1.  Retorne ao painel de solução e exiba o bloco **Histórico de Alarmes**.
 
-2.  Esses alarmes são acionados por uma saída de regra **AlarmTemp** especificada nas **Regras**.
+    ![][img-alarmhistory]
 
-3.  Clique em **Regras** no menu à esquerda para navegar nas regras para essa solução.
+2.  A regra **AlarmTemp** dispara esses alarmes.
 
-4.  Depois do provisionamento, você verá uma regra já habilitada.
+3.  Clique em **Regras** no menu à esquerda para exibir as regras dessa solução.
 
-5.  Clique em **regra** na lista de regras para exibir as propriedades de regra associadas.
+    ![][img-rules]
+
+4.  A solução pré-configurada provisiona duas regras.
+
+5.  Clique na regra **Temperatura** na lista de regras para exibir as propriedades da regra.
 
 6.  Clique em **Editar** no painel de propriedades da regra.
 
+    ![][img-displayrule]
+
 7.  Altere o **Limite** para 30 e mantenha todas as outras propriedades iguais.
 
-8.  Clique em **Salvar e exibir regras**.
+8.  Clique em **Salvar e Exibir Regras**.
 
-9.  Retorne à tabela do **Histórico de alarme** no **Painel de solução** e observe a alteração no gatilho devido à regra atualizada.
+    ![][img-editrule]
+
+9.  Retorne à tabela **Histórico de Alarmes** no **Painel de Solução** e observe a alteração no comportamento devido à regra atualizada.
+
+    ![][img-newhistory]
 
 ## Próximas etapas
 
 Agora que você criou uma solução de trabalho pré-configurada, você pode passar para os seguintes cenários:
 
--   [Orientação sobre como personalizar soluções pré-configuradas][]
+-   [Orientação sobre como personalizar soluções pré-configuradas][lnk-customize]
+-   [Visão geral da solução pré-configurada de manutenção preditiva][lnk-predictive]
 
--   [Visão geral do IoT Suite][]
+[img-launch-solution]: media/iot-suite-getstarted-preconfigured-solutions/launch.png
+[img-dashboard]: media/iot-suite-getstarted-preconfigured-solutions/dashboard.png
+[img-devicelist]: media/iot-suite-getstarted-preconfigured-solutions/devicelist.png
+[img-devicedetails]: media/iot-suite-getstarted-preconfigured-solutions/devicedetails.png
+[img-devicecommands]: media/iot-suite-getstarted-preconfigured-solutions/devicecommands.png
+[img-pingcommand]: media/iot-suite-getstarted-preconfigured-solutions/pingcommand.png
+[img-adddevice]: media/iot-suite-getstarted-preconfigured-solutions/adddevice.png
+[img-addnew]: media/iot-suite-getstarted-preconfigured-solutions/addnew.png
+[img-definedevice]: media/iot-suite-getstarted-preconfigured-solutions/definedevice.png
+[img-runningnew]: media/iot-suite-getstarted-preconfigured-solutions/runningnew.png
+[img-alarmhistory]: media/iot-suite-getstarted-preconfigured-solutions/alarmhistory.png
+[img-rules]: media/iot-suite-getstarted-preconfigured-solutions/rules.png
+[img-displayrule]: media/iot-suite-getstarted-preconfigured-solutions/displayrule.png
+[img-editrule]: media/iot-suite-getstarted-preconfigured-solutions/editrule.png
+[img-newhistory]: media/iot-suite-getstarted-preconfigured-solutions/newhistory.png
 
-[Avaliação gratuita do Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fja-jp%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F%20target=
+[lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
+[lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
+[lnk-azureiotsuite]: https://www.azureiotsuite.com
+[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
+[lnk-predictive]: iot-suite-predictive-overview.md
 
-[Orientação sobre como personalizar soluções pré-configuradas]: https://azure.microsoft.com/documentation/articles/iot-suite-guidance-on-customizing-preconfigured-solutions/
-[Visão geral do IoT Suite]: https://azure.microsoft.com/documentation/articles/iot-suite-overview/
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

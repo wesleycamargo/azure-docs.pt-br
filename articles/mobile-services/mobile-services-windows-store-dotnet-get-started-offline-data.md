@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Usando dados offline no seu aplicativo universal Windows | Microsoft Azure" 
-	description="Aprenda a usar os Serviços Móveis do Azure para armazenar em cache e sincronizar dados offline no seu aplicativo universal Windows." 
-	documentationCenter="mobile-services" 
-	authors="lindydonna" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Usando dados offline no seu aplicativo universal Windows | Microsoft Azure"
+	description="Aprenda a usar os Serviços Móveis do Azure para armazenar em cache e sincronizar dados offline no seu aplicativo universal Windows."
+	documentationCenter="mobile-services"
+	authors="lindydonna"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="07/23/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="11/06/2015"
 	ms.author="donnam"/>
 
 # Usando sincronização de dados offline em Serviços Móveis
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
@@ -26,11 +31,11 @@ Se você preferir assistir a um vídeo, o clipe à direita segue as mesmas etapa
 
 > [AZURE.VIDEO build-offline-apps-with-mobile-services]
 
-Neste tutorial, você atualizará o projeto de aplicativo Universal desde o tutorial da [Introdução aos Serviços Móveis] para dar suporte aos recursos offline dos Serviços Móveis do Azure. Em seguida, você adicionará dados em um cenário offline desconectado, sincronizará esses itens ao banco de dados online e, em seguida, fará logon no Portal de Gerenciamento do Azure para exibir as alterações de dados feitas durante a execução do aplicativo.
+Neste tutorial, você atualizará o projeto de aplicativo Universal desde o tutorial da [Introdução aos Serviços Móveis] para dar suporte aos recursos offline dos Serviços Móveis do Azure. Em seguida, você adicionará dados em um cenário offline desconectado, sincronizará esses itens ao banco de dados online e, em seguida, fará logon no [Portal clássico do Azure] para exibir as alterações de dados feitas durante a execução do aplicativo.
 
 >[AZURE.NOTE]O objetivo deste tutorial é ajudar você a compreender melhor como os Serviços Móveis permitem usar o Azure para armazenar e recuperar dados em um aplicativo da Windows Store. Se esta for sua primeira experiência com os Serviços Móveis, primeiro conclua o tutorial [Introdução aos Serviços Móveis].
 
-##Pré-requisitos 
+##Pré-requisitos
 
 Este tutorial exige o seguinte:
 
@@ -38,8 +43,8 @@ Este tutorial exige o seguinte:
 * Conclusão da [Introdução aos Serviços Móveis].
 * [SDK dos Serviços móveis do Azure versão 1.3.0 (ou posterior)][Mobile Services SDK Nuget]
 * [Armazenamento do SQLite dos Serviços Móveis do Azure versão 1.0.0 (ou posterior)][SQLite store nuget]
-* [SQLite para Windows 8.1](www.sqlite.org/downloads)
-* Uma conta do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28). 
+* [SQLite para Windows 8.1](http://www.sqlite.org/download.html)
+* Uma conta do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28).
 
 ## <a name="enable-offline-app"></a>Atualizar o aplicativo para dar suporte aos recursos offline
 
@@ -47,7 +52,7 @@ Os recursos offline dos Serviços Móveis do Azure permitem que você interaja c
 
 >[AZURE.NOTE]Você pode ignorar esta seção e obter apenas o projeto de exemplo que já tem o suporte offline do repositório de amostras GitHub para os Serviços Móveis. O projeto de exemplo com o suporte offline habilitado está localizado aqui, [Exemplo offline da TodoList].
 
-1. Instale o tempo de execução do SQLite para Windows 8.1 e Windows Phone 8.1. 
+1. Instale o tempo de execução do SQLite para Windows 8.1 e Windows Phone 8.1.
 
     * **Tempo de Execução do Windows 8.1:** instalar o [SQLite para Windows 8.1].
     * **Windows Phone 8.1:** instalar o [SQLite para Windows Phone 8.1].
@@ -211,7 +216,7 @@ Nesta seção você reconecta o aplicativo ao serviço móvel. Isso simula o apl
 
 2. Pressione a tecla **F5** para recompilar e executar o projeto. Observe que os dados têm a mesma aparência do cenário offline mesmo que agora o aplicativo esteja conectado ao serviço móvel. Isso ocorre porque esse aplicativo sempre funciona com a `IMobileServiceSyncTable` que está apontada para o repositório local.
 
-3. Faça logon no Portal de Gerenciamento do Microsoft Azure e observe o banco de dados para seu serviço móvel. Se o serviço usar o back-end do JavaScript para serviços móveis, você poderá procurar os dados na guia **Dados** do serviço móvel.
+3. Faça logon no [Portal clássico do Azure] e examine o banco de dados para o seu serviço móvel. Se o serviço usar o back-end do JavaScript para serviços móveis, você poderá procurar os dados na guia **Dados** do serviço móvel.
 
     Se você estiver usando o back-end do .NET para o serviço móvel, no Visual Studio, vá para **Gerenciador de Servidores** -> **Azure** -> **Bancos de Dados SQL**. Clique com o botão direito do mouse em seu Banco de Dados e selecione **Abrir no Gerenciador de Objetos do SQL Server**.
 
@@ -232,7 +237,7 @@ Nesta seção você reconecta o aplicativo ao serviço móvel. Isso simula o apl
 6. Pressione o botão **Atualizar** novamente, que faz com que a `SyncAsync` seja chamada. A `SyncAsync` chama push e pull, mas nesse caso, poderíamos ter removido a chamada para `PushAsync`. Isso ocorre porque um **pull sempre executa um push primeiro**. Isso serve para garantir que todas as tabelas no repositório local juntamente com os relacionamentos permaneçam consistentes.
 
     ![][10]
-  
+
 
 ##Resumo
 
@@ -277,6 +282,6 @@ Nesta seção você reconecta o aplicativo ao serviço móvel. Isso simula o apl
 
 [Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
- 
+[Portal clássico do Azure]: https://manage.windowsazure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -29,7 +29,7 @@ Neste tutorial, você aprenderá a modificar um back-end de aplicativos móveis 
 
 Este tutorial exige que você tenha o seguinte:
 
-- **Um back-end de aplicativo móvel existente** <br/>Siga o [tutorial de início rápido](app-service-mobile-windows-store-dotnet-get-started.md) para criar e baixar um novo back-end de aplicativo móvel do .NET no [Portal do Azure].
+- **Um back-end de Aplicativo Móvel existente** <br/>Siga o [tutorial de início rápido](app-service-mobile-windows-store-dotnet-get-started.md) para criar e baixar um novo back-end de Aplicativo Móvel do .NET no [portal do Azure].
 
 [AZURE.INCLUDE [hybrid-connections-prerequisites](../../includes/hybrid-connections-prerequisites.md)]
 
@@ -41,7 +41,7 @@ Este tutorial exige que você tenha o seguinte:
 
 Você precisa criar uma nova conexão híbrida e o serviço BizTalk para a parte de código do seu back-end de aplicativo móvel, que é um aplicativo Web.
 
-1. No [Portal do Azure], navegue até o aplicativo móvel e clique em **Rede** nas configurações.
+1. No [portal do Azure], navegue até o Aplicativo Móvel e clique em **Rede** nas configurações.
 
 	![Navegar até o aplicativo Web](./media/app-service-mobile-dotnet-backend-hybrid-connections-get-started/mobile-app-link-to-web-app-backend.png)
 
@@ -113,7 +113,7 @@ Nesta etapa, você define uma cadeia de conexão do banco de dados local e modif
 
 Em seguida, você precisa adicionar uma configuração de aplicativo para essa nova cadeia de conexão para que possa ser usado no Azure.
 
-1. No [Portal do Azure] no código do back-end de aplicativo Web do seu aplicativo móvel, clique em **Todas as configurações** e em **Configurações do aplicativo**.
+1. No [portal do Azure] no código do back-end de aplicativo Web do seu Aplicativo Móvel, clique em **Todas as configurações** e em **Configurações do aplicativo**.
 
 3. Na folha **Configurações do aplicativo Web**, role para baixo até **Cadeias de conexão** e adicione uma nova cadeia de conexão do **SQL Server** chamada `OnPremisesDBConnection`, com um valor como `Server=OnPremisesServer,1433;Database=OnPremisesDB;User ID=HybridConnectionsLogin;Password=<**secure_password**>`.
 
@@ -139,13 +139,11 @@ Por fim, você precisa publicar o back-end de aplicativo móvel no Azure e verif
 
 	Após a publicação, o serviço reiniciará e a página inicial do back-end será exibida.
 
-4. Usando <!--- either the **Try it now** button on the start page as before or using --> um aplicativo cliente conectado ao seu Aplicativo Móvel, invoque algumas operações que gerem alterações no banco de dados.
-<!--- This try it now is not longer on the page after it is published. 
-	>[AZURE.NOTE]When you use the **Try it now** button to launch the Help API pages, remember to supply your application key as the password (with a blank username).
--->
-4. No SQL Server Management Studio, conecte-se à instância do SQL Server, abra o Pesquisador de Objetos, expanda o banco de dados **OnPremisesDB** e expanda **Tabelas**.
+4. Usando um aplicativo cliente conectado ao seu Aplicativo Móvel, invoque algumas operações que gerem alterações no banco de dados.
 
-5. Clique com o botão direito na tabela **hybridService1.TodoItems** e escolha **Selecionar as 1000 linhas principais** para exibir os resultados.
+5. No SQL Server Management Studio, conecte-se à instância do SQL Server, abra o Pesquisador de Objetos, expanda o banco de dados **OnPremisesDB** e expanda **Tabelas**.
+
+6. Clique com o botão direito na tabela **hybridService1.TodoItems** e escolha **Selecionar as 1000 linhas principais** para exibir os resultados.
 
 	Observe que as alterações geradas no aplicativo cliente foram salvas pelo back-end de aplicativo móvel no banco de dados local usando a conexão híbrida.
 
@@ -160,8 +158,8 @@ Por fim, você precisa publicar o back-end de aplicativo móvel no Azure e verif
 
 
 <!-- Links -->
-[Portal do Azure]: https://portal.azure.com/
-[Azure Management Portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
+[portal do Azure]: https://portal.azure.com/
+[Azure classic portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
 [Get started with Mobile Services]: ../mobile-services-windows-store-dotnet-get-started.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

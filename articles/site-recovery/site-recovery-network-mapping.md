@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Mapeamento de rede do Azure Site Recovery | Microsoft Azure"
-	description="O Azure Site Recovery coordena a replicação, o failover e a recuperação de máquinas virtuais e servidores físicos situados localmente para o Azure ou para um site local secundário."
+	pageTitle="Preparar o mapeamento de rede para a proteção de uma máquina virtual do Hyper-V com VMM no Azure Site Recovery | Microsoft Azure"
+	description="Configure o mapeamento de rede para a replicação de máquinas virtuais do Hyper-V de um datacenter local para o Azure, ou para um site secundário."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -13,48 +13,36 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="10/07/2015"
+	ms.date="12/01/2015"
 	ms.author="raynew"/>
 
 
-# Mapeamento de rede do Azure Site Recovery
+# Preparar o mapeamento de rede para a proteção de uma máquina virtual do Hyper-V com VMM no Azure Site Recovery
 
+O Azure Site Recovery contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) gerenciando replicação, failover e recuperação de máquinas virtuais e servidores físicos.
 
-O Azure Site Recovery contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) gerenciando replicação, failover e recuperação de máquinas virtuais e servidores físicos. Leia sobre possíveis cenários de implantação na [Visão Geral sobre a Recuperação de Site](site-recovery-overview.md).
+Este artigo descreve o mapeamento de rede, que ajuda a definir de forma ideal as configurações de rede quando você estiver usando o Site Recovery para replicar máquinas virtuais do Hyper-V localizadas em nuvens do VMM entre dois data centers locais ou entre um datacenter local e o Azure. Observe que, se você estiver replicando VMs do Hyper-V sem uma nuvem de VMM, ou se estiver replicando VMs ou servidores físicos da VMware, este artigo não será relevante.
 
+Após a leitura deste artigo, você poderá publicar perguntas no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)
 
-## Sobre este artigo
-
-O mapeamento de rede é um elemento importante da implantação do VMM e da Recuperação de Site. Ele coloca da melhor maneira possível as máquinas virtuais replicadas nos servidores host Hyper-V de destino e garante que suas máquinas virtuais replicadas estejam conectadas às redes apropriadas após o failover. Este artigo descreve o mapeamento de rede e fornece alguns exemplos para ajudar você a entender como funciona o mapeamento de rede.
-
-
-Publique qualquer pergunta no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## Visão geral
 
-A maneira na qual você configura o mapeamento de rede depende de seu cenário de implantação da Recuperação de Site.
+O mapeamento de rede é usado quando o Azure Site Recovery é implantado para replicar máquinas virtuais do Hyper-V para o Azure ou para um datacenter secundário, usando a Réplica do Hyper-V ou a replicação de SAN.
 
-
-
-- **Local para servidores VMM locais**: o mapeamento de rede realiza o mapeamento entre redes VM em um servidor VMM de origem e redes VM em um servidor VMM de destino, a fim de fazer o seguinte:
+- **Replicando máquinas virtuais do Hyper-V em nuvens de VMM entre dois datacenters locais** — o mapeamento de rede realiza o mapeamento entre redes de VM em um servidor VMM de origem e redes de VM em um servidor VMM de destino, a fim de fazer o seguinte:
 
 	- **Conectar máquinas virtuais após o failover**. garante que as máquinas virtuais serão conectadas às redes apropriadas após o failover. A máquina virtual de réplica será conectada à rede de destino mapeada para a rede de origem.
 	- **Colocar máquinas virtuais de réplica nos servidores host**: posiciona de forma ideal as máquinas virtuais de réplica em servidores host Hyper-V. As máquinas virtuais de réplica serão colocadas em hosts que podem acessar as redes VM mapeadas.
-	- **Nenhum mapeamento de rede**: se você não configurar o mapeamento de rede, as máquinas virtuais replicadas não serão conectadas às redes VM após o failover.
+	- **Nenhum mapeamento de rede** — se você não configurar o mapeamento de rede, as máquinas virtuais replicadas não serão conectadas às redes VM após o failover.
 
-- **Servidor VMM local para o Azure**: o mapeamento de rede realiza o mapeamento entre redes VM no servidor VMM de origem e redes do Azure destino, a fim de fazer o seguinte:
+- **Replicando máquinas virtuais do Hyper-V em uma nuvem de VMM local para o Azure** — o mapeamento de rede realiza o mapeamento entre redes de VM no servidor VMM de origem e redes do Azure destino, para fazer o seguinte:
 	- **Conectar máquinas virtuais após o failover**: todos os computadores que forem submetidos a failover na mesma rede poderão se conectar entre si, independentemente do plano de recuperação em que estão.
-	- **Gateway de rede**: se um gateway de rede for configurado na rede Azure de destino, as máquinas virtuais poderão conectar-se a outras máquinas virtuais locais.
-	- **Nenhum mapeamento de rede**: se você não configurar o mapeamento de rede, somente as máquinas virtuais com failover no mesmo plano de recuperação poderão conectar-se entre si após o failover no Azure.
+	- **Gateway de rede** — se um gateway de rede for configurado na rede Azure de destino, as máquinas virtuais poderão conectar-se a outras máquinas virtuais locais.
+	- **Nenhum mapeamento de rede** — se você não configurar o mapeamento de rede, somente as máquinas virtuais com failover no mesmo plano de recuperação poderão conectar-se entre si após o failover no Azure.
 
-## Redes VM
 
-Uma rede lógica VMM fornece uma exibição abstrata da infraestrutura de rede física. As redes VM fornecem uma interface de rede para que as máquinas virtuais possam se conectar a redes lógicas. Uma rede lógica precisa de pelo menos uma rede VM. Quando você coloca uma máquina virtual em uma nuvem para proteção, ela deve estar conectada a uma rede VM que se vincula a uma rede lógica associada à nuvem. Saiba mais em:
-
-- [Redes lógicas (Parte 1)](http://blogs.technet.com/b/scvmm/archive/2013/02/14/networking-in-vmm-2012-sp1-logical-networks-part-i.aspx)
-- [Rede virtual no VMM 2012 SP1](http://blogs.technet.com/b/scvmm/archive/2013/01/08/virtual-networking-in-vmm-2012-sp1.aspx)
-
-## Exemplo
+## Exemplo de mapeamento de rede
 
 O mapeamento de rede pode ser configurado entre redes VM em dois servidores do VMM, ou em um único servidor VMM, se dois locais forem gerenciados pelo mesmo servidor. Quando o mapeamento de rede é configurado corretamente e a replicação é habilitada, uma máquina virtual no local primário será conectada a uma rede e sua réplica no local de destino será conectada à rede mapeada.
 
@@ -133,6 +121,6 @@ O mapeamento de rede da VMNetwork1-Chicago é alterado. | A VM-1 será conectada
 
 ## Próximas etapas
 
-Agora que você compreende melhor o mapeamento de rede, comece a ler as [práticas recomendadas](site-recovery-best-practices.md) para se preparar para a implantação.
+Agora que você compreende melhor o mapeamento de rede, [obtenha uma introdução à implantação do Site Recovery](site-recovery-best-practices.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,16 +12,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/14/2015"
+   ms.date="12/14/2015"
    ms.author="alkohli" />
 
 # Failover e recuperação de desastres para o seu dispositivo StorSimple
 
 ## Visão geral
 
-Este tutorial descreve as etapas necessárias para fazer failover de um dispositivo StorSimple em caso de desastre. Um failover permitirá que você migre os dados de um dispositivo de origem no datacenter para outro dispositivo físico ou até mesmo virtual localizado no mesmo ou em um local geográfico diferente. O failover de dispositivo é orquestrado por meio do recurso de recuperação de desastres (DR) e é iniciado na página Dispositivos. Esta página exibe em formato de tabela todos os dispositivos StorSimple conectados ao seu serviço StorSimple Manager. Para cada dispositivo, o nome amigável, status, capacidade de provisionamento e máxima, tipo e modelo são exibidos.
+Este tutorial descreve as etapas necessárias para fazer failover de um dispositivo StorSimple em caso de desastre. Um failover permitirá que você migre os dados de um dispositivo de origem no datacenter para outro dispositivo físico ou até mesmo virtual localizado no mesmo ou em um local geográfico diferente.
+
+O failover de dispositivo é orquestrado por meio do recurso de recuperação de desastres (DR) e é iniciado na página Dispositivos. Esta página exibe em formato de tabela todos os dispositivos StorSimple conectados ao seu serviço StorSimple Manager. Para cada dispositivo, o nome amigável, status, capacidade de provisionamento e máxima, tipo e modelo são exibidos.
 
 ![Página Dispositivos](./media/storsimple-device-failover-disaster-recovery/IC740972.png)
+
+As diretrizes neste tutorial se aplicam a dispositivos físicos e virtuais do StorSimple em todas as versões de software.
+
+
 
 ## Recuperação de desastres (DR) e failover de dispositivo
 
@@ -40,6 +46,18 @@ Para o failover de qualquer dispositivo, tenha em mente o seguinte:
 - Os pré-requisitos para DR são que todos os volumes em contêineres de volume estejam offline e os contêineres de volume tenham um instantâneo de nuvem associado. 
 - Os dispositivos de destino disponíveis para DR são dispositivos que têm espaço suficiente para acomodar os contêineres de volume selecionados. 
 - Os dispositivos que estão conectados ao serviço, mas não atendem aos critérios de espaço suficiente não estarão disponíveis como dispositivos de destino.
+
+#### Failover de dispositivo em versões de software
+
+Um serviço StorSimple Manager em uma implantação pode ter vários dispositivos físicos e virtuais, todos executando versões de software diferentes. Dependendo da versão do software, os tipos de volume nos dispositivos também podem ser diferentes. Por exemplo, um dispositivo que executa a Atualização 2 ou superior teria volumes em camadas e fixados localmente (com o arquivamento sendo um subconjunto de volumes em camadas). Um dispositivo de pré-atualização 2 por outro lado pode ter volumes em camadas e de arquivamento.
+
+Use a tabela a seguir para determinar se é possível realizar failover para outro dispositivo executando uma versão de software diferente e o comportamento de tipos de volume durante a recuperação de desastre.
+
+| Failover de | Permitido para dispositivo físico | Permitido para dispositivo virtual |
+|----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
+| Atualização 2 para Pré-atualização 1 (versão, 0.1, 0.2, 0.3) | Não | Não |
+| Atualização 2 para Atualização 1 (1, 1.1, 1.2) | Sim <br></br>Se usando volumes fixados localmente ou em camadas ou uma combinação dos dois, o failover dos volumes é sempre realizado como em camadas. | Sim<br></br>Se usando volumes fixados localmente, o failover desses volumes é realizado em camadas. |
+| Atualização 2 para Atualização 2 (versão posterior) | Sim<br></br>Se usando volumes fixados localmente ou em camadas ou uma combinação dos dois, o failover dos volumes é sempre realizado como o tipo de volume inicial; em camadas como em camadas e fixados localmente como fixados localmente. | Sim<br></br>Se usando volumes fixados localmente, o failover desses volumes é realizado em camadas. |
 
 ## Failover para outro dispositivo físico
 
@@ -95,10 +113,8 @@ Se você só tiver um único dispositivo e precisa executar um failover, execute
 
 ## Failover para um dispositivo virtual StorSimple
 
-Você deve ter um dispositivo virtual StorSimple criado e configurado antes de executar este procedimento.
+Você deve ter um dispositivo virtual StorSimple criado e configurado antes de executar este procedimento. Se executar a Atualização 2, considere usar um dispositivo virtual 8020 para a recuperação de desastres que tem 64 TB e usa o Armazenamento Premium.
  
->[AZURE.NOTE]**Nesta versão, a quantidade de armazenamento com suporte no dispositivo virtual StorSimple é de 30 TB.**
-
 Execute as seguintes etapas para restaurar o dispositivo para um dispositivo virtual do StorSimple de destino.
 
 1. Verifique se o contêiner de volume para o qual você deseja fazer o failover associou os instantâneos em nuvem.
@@ -119,7 +135,6 @@ Execute as seguintes etapas para restaurar o dispositivo para um dispositivo vir
 
 	b. Em **Escolher um dispositivo de destino para os volumes nos contêineres selecionados**, selecione o dispositivo virtual StorSimple na lista suspensa de dispositivos disponíveis. Somente os dispositivos que possuem capacidade suficiente são exibidos na lista suspensa.
 	
-	>[AZURE.NOTE]**Se o dispositivo físico estiver executando a Atualização 1, você poderá fazer o failover somente em um dispositivo virtual que esteja executando a Atualização 1. Se o dispositivo virtual de destino estiver executando uma versão anterior do software, você verá um erro informando que o software do dispositivo de destino precisa ser atualizado.**
 
 1. Finalmente, revise as configurações de failover em **Confirmar failover**. Clique no ícone de verificação ![Ícone de verificação](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
 
@@ -150,4 +165,4 @@ Depois de realizar o failover, talvez você precise:
 Para obter informações sobre como usar o serviço StorSimple Manager, acesse [Usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

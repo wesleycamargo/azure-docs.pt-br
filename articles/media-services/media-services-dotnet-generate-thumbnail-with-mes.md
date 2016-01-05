@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/20/2015"    
+	ms.date="12/15/2015"    
 	ms.author="juliako"/>
 
 
@@ -357,7 +357,7 @@ Para obter informações sobre o esquema, consulte [este](https://msdn.microsoft
 As seguintes considerações se aplicam:
 
 - O uso de carimbos explícitos para Início/Etapa/Intervalo pressupõe que a fonte de entrada tem duração de pelo menos 1 minuto.
-- Elementos de Jpg/Png/BmpVideo têm atributos de cadeia de caracteres de Início, Etapa e Intervalo que podem ser interpretados como:
+- Elementos Jpg/Png/BmpImage têm atributos de cadeia de caracteres de Início, Etapa e Intervalo que podem ser interpretados como:
 
 	- Número de quadro se eles forem números inteiros não negativos, por exemplo: "Start": "120",
 	- Relativos à duração da origem se expressos com sufixo %, por exemplo: "Start": "15%" OU
@@ -368,7 +368,7 @@ As seguintes considerações se aplicam:
 	Além disso, o Início também dá suporte a uma Macro especial: {Best}, que tenta determinar o primeiro quadro "interessante" da NOTA de conteúdo: (Etapa e Intervalo são ignorados quando Início é definido como {Best})
 	
 	- Padrões: Start:{Best}
-- O formato de saída precisa ser fornecido explicitamente para cada formato de Imagem: Jpg/Png/BmpFormat. Quando presente, o AMS corresponderá JpgVideo a JpgFormat e assim por diante. OutputFormat introduz uma nova Macro específica do codec de imagem: {Index}, que precisa estar presente (apenas uma vez) para formatos de saída de imagem.
+- O formato de saída precisa ser fornecido explicitamente para cada formato de Imagem: Jpg/Png/BmpFormat. Quando presente, o MES corresponderá JpgVideo a JpgFormat e assim por diante. OutputFormat introduz uma nova Macro específica do codec de imagem: {Index}, que precisa estar presente (apenas uma vez) para formatos de saída de imagem.
 
 
 ##Roteiros de aprendizagem dos Serviços de Mídia
@@ -383,4 +383,4 @@ As seguintes considerações se aplicam:
 
 [Visão geral da codificação de serviços de mídia](media-services-encode-asset.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

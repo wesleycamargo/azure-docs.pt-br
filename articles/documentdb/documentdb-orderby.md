@@ -131,7 +131,7 @@ Vejamos este [projeto de amostras do Github](https://github.com/Azure/azure-docu
 
 Atualizações futuras de serviços se aprofundarão no suporte de Order By apresentado aqui. Estamos trabalhando nas seguintes adições e priorizaremos o lançamento desses aprimoramentos com base nos seus comentários:
 
-- Políticas de indexação dinâmica: suporte para modificar a política de indexação após a criação de coleção e no portal do Azure
+- Políticas de Indexação Dinâmica: suporte para modificar a política de indexação após a criação de coleção e no Portal Clássico do Azure
 - Suporte para Índices Compostos para Order By e Order By em várias propriedades mais eficiente.
 
 ## Perguntas frequentes
@@ -177,4 +177,4 @@ Ramifique o [projeto de amostras do Github](https://github.com/Azure/azure-docum
 * [Amostras de Order By do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy)
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

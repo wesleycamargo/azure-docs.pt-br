@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="09/23/2015"
+ ms.date="12/04/2015"
  ms.author="larryfr"/>
 
 # Usar o Power BI (visualização) para visualizar dados de uma topologia do Apache Storm
@@ -55,9 +55,9 @@ Os seguintes arquivos neste projeto implementam a funcionalidade específica do 
 
 ## Registrar um aplicativo Power BI
 
-1. Siga as etapas no [Início rápido do Power BI](https://msdn.microsoft.com/pt-BR/library/dn931989.aspx) para inscrever-se no Power BI.
+1. Siga as etapas no [Início rápido do Power BI](https://msdn.microsoft.com/library/dn931989.aspx) para inscrever-se no Power BI.
 
-2. Siga as etapas em [Registrar um aplicativo](https://msdn.microsoft.com/pt-BR/library/dn877542.aspx) para criar um registro de aplicativo. Isso será usado ao acessar a API REST do Power BI.
+2. Siga as etapas em [Registrar um aplicativo](https://msdn.microsoft.com/library/dn877542.aspx) para criar um registro de aplicativo. Isso será usado ao acessar a API REST do Power BI.
 
     > [AZURE.IMPORTANT]Salve a **ID do cliente** para o registro do aplicativo.
 
@@ -139,4 +139,4 @@ Neste documento, você aprendeu como enviar dados de uma topologia Storm no Powe
 
 * [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

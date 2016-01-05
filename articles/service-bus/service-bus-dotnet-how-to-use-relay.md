@@ -39,11 +39,11 @@ Para começar a usar a retransmissão de Barramento de serviço do Azure, você 
 
 Para criar um namespace de serviço:
 
-1.  Faça logon no [Portal do Azure][].
+1.  Faça logon no [portal clássico do Azure][].
 
-2.  No painel de navegação esquerdo do portal do Azure, clique em **Barramento de Serviço**.
+2.  No painel de navegação esquerdo do portal, clique em **Barramento de Serviço**.
 
-3.  No painel inferior do portal do Azure, clique em **Criar**.
+3.  No painel inferior do portal, clique em **Criar**.
 
 	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
 
@@ -59,7 +59,7 @@ Para criar um namespace de serviço:
 
 	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png)
 
-	O namespace que você criou aparece no Portal do Azure e demora algum tempo para ser ativado. Aguarde até que o status seja **Ativo** para continuar.
+	O namespace que você criou aparece no portal e demora algum tempo para ser ativado. Aguarde até que o status seja **Ativo** para continuar.
 
 ## Obter as credenciais de gerenciamento padrão do namespace
 
@@ -273,9 +273,9 @@ Agora que você já aprendeu os conceitos básicos do serviço de retransmissão
   [Obtain the Default Management Credentials for the Namespace]: #obtain_credentials
   [Get the Service Bus NuGet Package]: #get_nuget_package
   [How to: Use Service Bus to Expose and Consume a SOAP Web Service  with TCP]: #how_soap
-  [Portal do Azure]: http://manage.windowsazure.com
+  [portal clássico do Azure]: http://manage.windowsazure.com
   [Autenticação de assinatura de acesso compartilhado com o Barramento de serviço]: service-bus-shared-access-signature-authentication.md
   [exemplos do Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [visão geral dos exemplos de Barramento de Serviço]: service-bus-samples.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

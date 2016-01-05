@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Eventos de Atores Confiáveis"
-   description="Introdução a eventos para Atores Confiáveis do Service Fabric."
+   pageTitle="Eventos de Reliable Actors | Microsoft Azure"
+   description="Introdução a eventos para Service Fabric Reliable Actors."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="11/14/2015"
    ms.author="amanbha"/>
 
 
 # Eventos de ator
-Os eventos de ator são uma forma de enviar notificações de melhor esforço do Ator para os clientes. Os eventos de ator foram desenvolvidos para comunicação entre Ator-Cliente e NÃO devem ser usados para comunicação entre Ator-Ator.
+Os eventos de ator são uma forma de enviar notificações de melhor esforço do ator para os clientes. Os eventos de ator foram desenvolvidos para comunicação entre ator e cliente e não devem ser usados para comunicação entre ator e ator.
 
-Veja a seguir trechos de código que mostram como usar os eventos de ator em seu aplicativo.
+Os trechos de código a seguir mostram como usar os eventos de ator em seu aplicativo.
 
-Defina uma interface que descreva os eventos publicados pelo ator. Essa interface deve ser derivada da interface `IActorEvents`. Os argumentos dos métodos devem ser [contrato de dados serializável](service-fabric-reliable-actors-notes-on-actor-type-serialization.md). Os métodos devem retornar void, pois as notificações de evento são o melhor esforço unidirecional.
+Defina uma interface que descreva os eventos publicados pelo ator. Essa interface deve ser derivada da interface `IActorEvents`. Os argumentos dos métodos devem ser [contrato de dados serializável](service-fabric-reliable-actors-notes-on-actor-type-serialization.md). Os métodos devem retornar valor nulo, pois as notificações de evento são o melhor esforço e unidirecionais.
 
 ```csharp
 public interface IGameEvents : IActorEvents
@@ -63,13 +63,13 @@ var proxy = ActorProxy.Create<IGameActor>(
 proxy.SubscribeAsync(new GameEventsHandler()).Wait();
 ```
 
-No caso de failovers, o ator pode realizar failover em um processo ou nó diferente. O proxy de ator gerencia as assinaturas ativas e as renova automaticamente. Você pode controlar o intervalo da renovação da assinatura por meio da API `ActorProxyEventExtensions.SubscribeAsync<TEvent>`. Para cancelar a assinatura, use a API `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>`.
+No caso de failovers, o ator pode realizar failover para um processo ou nó diferente. O proxy de ator gerencia as assinaturas ativas e as renova automaticamente. Você pode controlar o intervalo da renovação da assinatura por meio da API `ActorProxyEventExtensions.SubscribeAsync<TEvent>`. Para cancelar a assinatura, use a API `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>`.
 
-No ator, simplesmente publique os eventos à medida que eles acontecem. Se existirem assinantes inscritos no evento, o tempo de execução dos Atores enviará a eles a notificação.
+No ator, simplesmente publique os eventos à medida que eles acontecem. Se existirem assinantes no evento, o tempo de execução dos Atores enviará a eles a notificação.
 
 ```csharp
 var ev = GetEvent<IGameEvents>();
 ev.GameScoreUpdated(Id.GetGuidId(), State.Status.Score);
 ```
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -59,7 +59,7 @@ Antes de configurar a auditoria, verifique se você está usando um ["Cliente de
 
 ##<a id="subheading-2"></a>Configurar a auditoria do banco de dados
 
-1. Inicie o <a href="https://portal.azure.com" target="_blank">Portal de Visualização do Azure</a>.
+1. Inicie o <a href="https://portal.azure.com" target="_blank">Portal do Azure</a>.
 
 2. Navegue até a folha de configuração do banco de dados do SQL Data Warehouse / SQL Server que você deseja auditar. Clique no botão **Configurações** na parte superior e, na folha de Configuração, selecione **Auditoria**.
 
@@ -102,7 +102,7 @@ Para obter mais instruções detalhadas sobre como trabalhar com o modelo de rel
 
 
 ##<a id="subheading-4">Práticas para uso em produção</a>
-A descrição nesta seção refere-se às capturas de tela acima. É possível usar o <a href="https://portal.azure.com" target="_blank">Portal de Visualização do Azure</a> ou o <a href= "https://manage.windowsazure.com/" target="_bank">Portal Clássico do Azure</a>.
+A descrição nesta seção refere-se às capturas de tela acima. É possível usar o <a href="https://portal.azure.com" target="_blank">Portal do Azure</a> ou o <a href= "https://manage.windowsazure.com/" target="_bank">Portal Clássico do Azure</a>.
  
 
 ##<a id="subheading-5"></a>Regeneração de Chave de Armazenamento
@@ -141,4 +141,4 @@ Quando você estiver no modo do Gerenciador de Recursos do Azure, execute `Get-C
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

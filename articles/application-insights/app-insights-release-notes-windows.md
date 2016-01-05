@@ -32,31 +32,32 @@ Consulte [Introdução aos aplicativos do Application Insights para Windows Phon
 * Compare as versões nova e antiga do ApplicationInsights.config. Mescle novamente as personalizações feitas na versão antiga.
 * Recompile sua solução.
 
-## Versão 1.2
+## Versão 1.1.1
 
-### SDK do Aplicativo do Windows
+### SDK do Windows
 
-- Corrija uma exceção FileNotFound que estava impedindo as telemetrias persistidas de serem enviadas depois que o aplicativo foi reaberto.
+- Correção de uma parada durante uma falha ao usar o SDK do Silverlight do Windows Phone. Após essa alteração, qualquer falha que ocorra após cerca de 2 segundos após a chamada para WindowsAppInitialier.InitializeAsync(...) será mantida em disco e enviada na próxima vez que o aplicativo for iniciado. Se ocorrer uma falha antes de cerca de 2 segundos após a chamada, ela será ignorada.  
+- Defina as dependências do NuGet para uma versão específica do Núcleo e Microsoft.ApplicationInsights.PersistenceChannel (v1.2.3).   
 
 ### SDK principal
 
-- Primeira versão do SDK do Application Insights enviada do [github](http://github.com/microsoft/ApplicationInsights-dotnet)
+- O núcleo é gerenciado no GitHub. As notas de versão futura do SDK do Núcleo podem ser encontradas [no GitHub](http://github.com/Microsoft/ApplicationInsights-dotnet/releases)
 
 ## Versão 1.1
 
 ### SDK principal
 
-- Agora, o SDK apresenta um novo tipo de telemetria ```DependencyTelemetry``` que contém informações sobre chamada de dependência do aplicativo
+- Agora o SDK apresenta um novo tipo de telemetria ```DependencyTelemetry``` que contém informações sobre a chamada de dependência do aplicativo
 - O novo método ```TelemetryClient.TrackDependency``` permite enviar informações sobre chamadas de dependência do aplicativo
 
 ## Versão 1.0.0
 
 ### SDK do Aplicativo do Windows
 
-- Nova inicialização para aplicativos do Windows. A nova classe `WindowsAppInitializer` com o método `InitializeAsync()` permite a inicialização bootstrapping da coleção do SDK. Essa alteração permite controle mais preciso e melhorias significativas de desempenho na inicialização de aplicativo pela técnica ApplicationInsights.config anterior.
+- Nova inicialização para aplicativos do Windows. A nova classe `WindowsAppInitializer` com o método `InitializeAsync()` permite a inicialização bootstrap da coleção do SDK. Essa alteração permite controle mais preciso e melhorias significativas de desempenho na inicialização de aplicativo pela técnica ApplicationInsights.config anterior.
 - DeveloperMode não é mais definido automaticamente. Para alterar o comportamento de DeveloperMode, você deve especificar no código.
 - O pacote NuGet não injeta mais ApplicationInsights.config. É recomendável usar o novo WindowsAppInitializer ao adicionar manualmente o pacote NuGet.
-- ApplicationInsights.config lê apenas `<InstrumentationKey>`, todas as outras configurações são ignoradas na preferência das configurações de WindowsAppInitializer.
+- O ApplicationInsights.config lê apenas `<InstrumentationKey>`; todas as outras configurações são ignoradas em detrimento das configurações de WindowsAppInitializer.
 - Store Market será coletado automaticamente pelo SDK.
 - Muitas correções de bugs, melhorias de estabilidade e aprimoramentos de desempenho.
 
@@ -94,4 +95,4 @@ Visualização 2015-04-28
 
 Não há notas de versão disponíveis para versões anteriores.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

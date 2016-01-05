@@ -13,11 +13,16 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/10/2015"
+	ms.date="12/07/2015"
 	ms.author="glenga"/>
 
 
 # Como definir um ponto de extremidade de API personalizada em um serviço móvel de back-end .NET
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 > [AZURE.SELECTOR]
 - [JavaScript backend](./mobile-services-javascript-backend-define-custom-api.md)
@@ -27,7 +32,7 @@ Este tópico mostra como definir um ponto de extremidade de API personalizada em
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-create-custom-api](../../includes/mobile-services-dotnet-backend-create-custom-api.md)]
 
-Para obter informações sobre como invocar uma API personalizada em seu aplicativo usando a biblioteca de cliente dos Serviços Móveis, consulte [Chamar uma API personalizada](mobile-services-windows-dotnet-how-to-use-client-library.md#custom-api) na referência do SDK do cliente.
+Para obter informações sobre como invocar uma API personalizada em seu aplicativo usando a biblioteca de cliente dos Serviços Móveis, veja [Chamar uma API personalizada](mobile-services-windows-dotnet-how-to-use-client-library.md#custom-api) na referência do SDK do cliente.
 
 
 <!-- Anchors. -->
@@ -36,4 +41,4 @@ Para obter informações sobre como invocar uma API personalizada em seu aplicat
 
 <!-- URLs. -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

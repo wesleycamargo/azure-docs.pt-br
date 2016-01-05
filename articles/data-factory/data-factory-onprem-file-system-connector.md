@@ -52,13 +52,15 @@ Como uma primeira etapa, configure o gateway de gerenciamento de dados de acordo
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\Contosogame-Asia",
+	      "host": "\\\Contosogame-Asia.<region>.corp.<company>.com",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
 	    }
 	  }
 	}
+
+Para o host, você pode especificar **Local** ou **localhost** se o compartilhamento de arquivos estiver no próprio computador do gateway. Além disso, é recomendável usar a propriedade **encryptedCredential** em vez de usar as propriedades **userid** e **password**. Consulte [Serviço Vinculado do Sistema de Arquivos](#onpremisesfileserver-linked-service-properties) para obter detalhes sobre esse serviço vinculado.
 
 **Serviço vinculado do armazenamento de Blob do Azure:**
 
@@ -84,7 +86,7 @@ Configurar “external”: “true” e especificar a política externalData inf
 	    "type": " FileShare",
 	    "linkedServiceName": " OnPremisesFileServerLinkedService ",
 	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
+	      "folderPath": "mysharedfolder/yearno={Year}/monthno={Month}/dayno={Day}",
 	      "fileName": "{Hour}.csv",
 	      "partitionedBy": [
 	        {
@@ -146,7 +148,7 @@ Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo
 	    "type": "AzureBlob",
 	    "linkedServiceName": "StorageLinkedService",
 	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+	      "folderPath": "mycontainer/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
 	      "partitionedBy": [
 	        {
 	          "name": "Year",
@@ -273,13 +275,15 @@ O exemplo copia a cada hora dados pertencentes a uma série temporal de uma tabe
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\Contosogame-Asia",
+	      "host": "\\\Contosogame-Asia.<region>.corp.<company>.com",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
 	    }
 	  }
 	}
+
+Para o host, você pode especificar **Local** ou **localhost** se o compartilhamento de arquivos estiver no próprio computador do gateway. Além disso, é recomendável usar a propriedade **encryptedCredential** em vez de usar as propriedades **userid** e **password**. Consulte [Serviço Vinculado do Sistema de Arquivos](#onpremisesfileserver-linked-service-properties) para obter detalhes sobre esse serviço vinculado.
 
 **Conjunto de dados de entrada do SQL Azure:**
 
@@ -320,7 +324,7 @@ Os dados são copiados para um novo arquivo a cada hora com o caminho do blob re
 	    "type": "FileShare",
 	    "linkedServiceName": " OnPremisesFileServerLinkedService ",
 	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
+	      "folderPath": "mysharedfolder/yearno={Year}/monthno={Month}/dayno={Day}",
 	      "fileName": "{Hour}.csv",
 	      "partitionedBy": [
 	        {
@@ -372,7 +376,7 @@ Os dados são copiados para um novo arquivo a cada hora com o caminho do blob re
 	  }
 	}
 
-**Pipeline com uma atividade de cópia:** o pipeline contém uma atividade de cópia que está configurada para usar os conjuntos de dados de entrada e saída acima e agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo de **source** está definido como **SqlSource** e o tipo de **sink** está definido como **FileSystemSink**. A consulta SQL especificada para a propriedade **SqlReaderQuery** seleciona os dados na última hora a serem copiados.
+**Pipeline com uma atividade de Cópia:** o pipeline contém uma atividade de cópia que está configurada para usar os conjuntos de dados de entrada e saída acima e agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo de **source** está definido como **SqlSource** e o tipo de **sink** está definido como **FileSystemSink**. A consulta SQL especificada para a propriedade **SqlReaderQuery** seleciona os dados da última hora a serem copiados.
 
 	
 	{  
@@ -426,14 +430,14 @@ Você pode vincular um sistema de arquivos local a uma Azure Data Factory com o 
 
 Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------
-type | A propriedade type deve ser configurada como **OnPremisesFileServer**. | Sim 
-host | Nome do host do servidor. Use ' \\ ' como o caractere de escape, como no exemplo a seguir: se o compartilhamento for: \\servername, especifique \\servername.<p>Se o sistema de arquivos for local no computador do gateway, use localhost ou Local. Se o sistema de arquivos estiver em um servidor diferente do computador do gateway, use \\servername.</p> | Sim
+type | A propriedade type deve ser definida como **OnPremisesFileServer** | Sim 
+host | Nome do host do servidor. Use ' \\ ' como o caractere de escape, como no exemplo a seguir: se o compartilhamento for: \\nomedoservidor, especifique \\\nomedoservidor.<p>Se o sistema de arquivos for local no computador do gateway, use localhost ou Local. Se o sistema de arquivos estiver em um servidor diferente do computador do gateway, use \\\nomedoservidor.</p> | Sim
 userid | Especifique a ID do usuário que tem acesso ao servidor | Não (se você escolher encryptedcredential)
 Senha | Especifique a senha para o usuário (userid) | Não (se você escolher encryptedcredential 
-encryptedCredential | Especifique as credenciais criptografadas que você pode obter executando o cmdlet New-AzureDataFactoryEncryptValue<p>**Observação:** você deve usar o Azure PowerShell de versão 0.8.14 ou superior para usar cmdlets como New-AzureDataFactoryEncryptValue com parâmetro type definido como OnPremisesFileSystemLinkedService</p> | Não (se você optar por especificar userid e password em texto sem formatação)
+encryptedCredential | Especifique as credenciais criptografadas que você pode obter executando o cmdlet New-AzureRmDataFactoryEncryptValue<p>**Observação:** você deve usar o Azure PowerShell de versão 0.8.14 ou superior para usar cmdlets como New-AzureRmDataFactoryEncryptValue com parâmetro type definido como OnPremisesFileSystemLinkedService</p> | Não (se você optar por especificar userid e password em texto sem formatação)
 gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar ao servidor de arquivos local | Sim
 
-Consulte [Definir credenciais e segurança](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obter detalhes sobre como definir credenciais para uma fonte de dados do sistema de arquivos local.
+Consulte [Definir credenciais e segurança](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obter detalhes sobre como definir credenciais para uma fonte de dados do Sistema de Arquivos local.
 
 **Exemplo: usando username e password em texto sem formatação**
 	
@@ -442,7 +446,7 @@ Consulte [Definir credenciais e segurança](data-factory-move-data-between-onpre
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\Contosogame-Asia",
+	      "host": "\\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -468,16 +472,16 @@ Consulte [Definir credenciais e segurança](data-factory-move-data-between-onpre
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). Seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL do Azure, Blob do Azure, tabela do Azure, sistema de arquivos local etc.).
 
-A seção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre o local, formato etc. de dados no armazenamento de dados. A seção typeProperties para o conjunto de dados do tipo **FileShare** tem as seguintes propriedades.
+A seção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre o local, formato etc. de dados no armazenamento de dados. A seção typeProperties para o conjunto de dados do tipo **FileShare** tem as propriedades a seguir.
 
 Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------
-folderPath | Caminho para a pasta. Exemplo: myfolder<p>Use o caractere de escape ' \\ ' para caracteres especiais na cadeia de caracteres. Por exemplo: para pasta\\subpasta, especifique pasta\\subpasta e para d:\\samplefolder, especifique d:\\samplefolder.</p><p>Você pode combinar isso com **partitionBy** para ter caminhos de pasta baseados na fatia de data-horário de início/fim.</p> | Sim
-fileName | Especifique o nome do arquivo no **folderPath** se você deseja que a tabela se refira a um arquivo específico na pasta. Se você não especificar nenhum valor para essa propriedade, a tabela aponta para todos os arquivos na pasta.<p>Quando fileName não for especificado para um conjunto de dados de saída, o nome do arquivo gerado estaria no seguinte formato:</p><p>Data.<Guid>. txt (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p>) | Não
+folderPath | Caminho para a pasta. Exemplo: minhapasta<p>Use o caractere de escape ' \\ ' para caracteres especiais na cadeia de caracteres. Por exemplo: para pasta\\subpasta, especifique pasta\\subpasta e para d:\\pastadeexemplo, especifique d:\\pastadeexemplo.</p><p>Você pode combinar isso com **partitionBy** para ter caminhos de pasta baseados na fatia de data-horário de início/fim.</p> | Sim
+fileName | Especifique o nome do arquivo no **folderPath** se quiser que a tabela se refira a um arquivo específico na pasta. Se você não especificar nenhum valor para essa propriedade, a tabela aponta para todos os arquivos na pasta.<p>Quando fileName não for especificado para um conjunto de dados de saída, o nome do arquivo gerado estaria no seguinte formato:</p><p>Data.<Guid>.txt (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p>) | Não
 partitionedBy | partitionedBy pode utilizado para especificar um filename, folderPath dinâmico para dados de série temporal. Por exemplo, folderPathparametrizado para cada hora dos dados. | Não
 Formatar | Há suporte para dois tipos de formatos: **TextFormat**, **AvroFormat**. Você precisa definir a propriedade type no formato para qualquer um desses valores. Quando o forAvroFormatmat é TextFormat, você pode especificar as propriedades opcionais adicionais para o formato. Consulte a seção abaixo para obter mais detalhes. | Não
 fileFilter | Especifique um filtro a ser usado para selecionar um subconjunto de arquivos no folderPath em vez de todos os arquivos. <p>Os valores permitidos são: * (vários caracteres) e ? (um único caractere).</p><p>Exemplo 1: "fileFilter": "*.log"</p>Exemplo 2: "fileFilter": 2014-1-?.txt"</p><p>**Observação: fileFilter é aplicável a um conjunto de dados FileShare de entrada</p> | Não
-| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: GZip, Deflate e BZip2. Os níveis com suporte são: Melhor e Mais rápido. Consulte a seção [Suporte à compactação](#compression-support) para obter mais detalhes. | Não |
+| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: GZip, Deflate e BZip2. Os níveis com suporte são: Melhor e Mais rápido. Veja a seção [Suporte à compactação](#compression-support) para obter mais detalhes. | Não |
 
 > [AZURE.NOTE]filename e fileFilter não podem ser usados simultaneamente.
 
@@ -485,7 +489,7 @@ fileFilter | Especifique um filtro a ser usado para selecionar um subconjunto de
 
 Conforme mencionado acima, você pode especificar um filename, folderPath dinâmico para dados de série temporal com partitionedBy. Você pode fazer isso com as macros de Data Factory e as variáveis de sistema SliceStart e SliceEnd que indicam o período de tempo lógico para uma determinada fatia de dados.
 
-Consulte os artigos [Criando conjuntos de dados](data-factory-create-datasets.md), [Agendamento e execução](data-factory-scheduling-and-execution.md) e [Criando pipelines](data-factory-create-pipelines.md) para saber mais detalhes sobre conjuntos de dados de série temporal, agendamentos e fatias.
+Veja os artigos [Criando conjuntos de dados](data-factory-create-datasets.md), [Agendamento e execução](data-factory-scheduling-and-execution.md) e [Criando pipelines](data-factory-create-pipelines.md) para obter mais detalhes sobre conjuntos de dados de série temporal, agendamentos e fatias.
 
 #### Exemplo 1:
 
@@ -513,16 +517,16 @@ No exemplo acima, ano, mês, dia e hora do SliceStart são extraídos em variáv
 
 ### Especificando TextFormat
 
-Se o formato for definido como **TextFormat**, você pode especificar as seguintes propriedades **opcionais** na seção **Format** dentro da seção **typeProperties**.
+Se o formato for definido como **TextFormat**, você poderá especificar as seguintes propriedades **optional** na seção **Format** dentro da seção **typeProperties**.
 
 Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------
 columnDelimiter | Os caracteres usados como um separador de coluna em um arquivo. O valor padrão é vírgula (,). | Não
 rowDelimiter | Os caracteres usados como um separador bruto no arquivo. O valor padrão é qualquer um dos seguintes: [“\\r\\n”, “\\r”,” \\n”]. | Não
-escapeChar | O caractere especial usado como escape do delimitador de coluna mostrado no conteúdo. Nenhum valor padrão. Você deve especificar não mais de um caractere para essa propriedade.<p>Por exemplo, se você tiver a vírgula (,) como o delimitador de coluna, mas desejar ter o caractere de vírgula no texto (exemplo: "Hello, world"), você pode definir '$' como o caractere de escape e usar a cadeia de caracteres "Hello$, world" na fonte.</p><p>Observe que não é possível especificar escapeChar e quoteChar para uma tabela.</p> | Não
-quoteChar | O caractere especial é usado como o caractere no qual colocar o valor de cadeia de caracteres. Os delimitadores de linha e coluna dos caracteres de aspas seriam tratados como parte do valor de cadeia de caracteres. Nenhum valor padrão. Você deve especificar não mais de um caractere para essa propriedade.<p>Por exemplo, se você tiver a vírgula (,) como o delimitador de coluna, mas deseja ter caractere de vírgula no texto (exemplo: <Hello  world>), você pode definir ‘"’ como o caractere de citação e usar a cadeia de caracteres <"Hello, world"> na fonte Essa propriedade é aplicável às tabelas de entrada e saída.</p><p>Observe que não é possível especificar escapeChar e quoteChar para uma tabela.</p> | Não
+escapeChar | O caractere especial usado como escape do delimitador de coluna mostrado no conteúdo. Nenhum valor padrão. Você deve especificar não mais de um caractere para essa propriedade.<p>Por exemplo, se você tiver a vírgula (,) como o delimitador de coluna, mas desejar ter o caractere de vírgula no texto (exemplo: "Hello, world"), você pode definir '$' como o caractere de escape e usar a cadeia de caracteres "Hello$, world" na origem</p><p>.Observe que não é possível especificar escapeChar e quoteChar para uma tabela.</p> | Não
+quoteChar | O caractere especial é usado como o caractere no qual colocar o valor de cadeia de caracteres. Os delimitadores de linha e coluna dos caracteres de aspas seriam tratados como parte do valor de cadeia de caracteres. Nenhum valor padrão. Você deve especificar não mais de um caractere para essa propriedade.<p>Por exemplo, se você tiver a vírgula (,) como o delimitador de coluna, mas deseja ter caractere de vírgula no texto (exemplo: <Hello  world>), você pode definir ‘"’ como o caractere de citação e usar a cadeia de caracteres <"Hello, world"> na origem. Essa propriedade é aplicável às tabelas de entrada e saída.</p><p>Observe que não é possível especificar escapeChar e quoteChar para uma tabela.</p> | Não
 nullValue | Os caracteres usados para representar um valor nulo no conteúdo do arquivo de blob. O valor padrão é “\\N”.> | Não
-encodingName | Especifique o nome de codificação. Para obter a lista de nomes de codificação válidos, consulte: Propriedade Encoding.EncodingName. <p>Por exemplo: windows-1250 ou shift\_jis. O valor padrão é: UTF-8.</p> | Não
+encodingName | Especifique o nome de codificação. Para obter a lista de nomes de codificação válidos, consulte: Propriedade Encoding.EncodingName. <p>Por exemplo: windows-1250 ou shift\_jis. O valor padrão é UTF-8.</p> | Não
 
 #### Exemplos:
 
@@ -548,39 +552,39 @@ Para usar um escapeChar em vez de quoteChar, substitua a linha com quoteChar pel
 
 ### Especificando AvroFormat
 
-Se o formato for definido como **AvroFormat**, não será necessário especificar nenhuma propriedade na seção Formato dentro da seção typeProperties. Exemplo:
+Se o formato é definido como **AvroFormat**, não é necessário especificar nenhuma propriedade na seção Formato dentro da seção typeProperties. Exemplo:
 
 	"format":
 	{
 	    "type": "AvroFormat",
 	}
 	
-Para usar o formato Avro em uma tabela de Hive subsequente, consulte o [Tutorial do Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
+Para usar o formato Avro em uma tabela de Hive seguinte, consulte o [Tutorial do Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
 [AZURE.INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
 
 ## Propriedades de tipo da atividade de cópia do compartilhamento de arquivos
 
-**FileSystemSource** suporta as seguintes propriedades:
+**FileSystemSource** dá suporte às seguintes propriedades:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | -------- | ----------- | -------------- | -------- |
 | recursiva | Indica se os dados são lidos recursivamente a partir das subpastas ou somente da pasta especificada. | True, False (padrão)| Não | 
 
-O **FileSystemSink** suporta as seguintes propriedades:
+**FileSystemSink** dá suporte às seguintes propriedades:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | -------- | ----------- | -------------- | -------- |
 | copyBehavior | Define o comportamento de cópia quando a origem é BlobSource ou FileSystem. | <p>Há três valores possíveis para a propriedade copyBehavior. </p><ul><li>**PreserveHierarchy:** preserva a hierarquia de arquivos na pasta de destino, ou seja, o caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.</li><li>**FlattenHierarchy:** todos os arquivos da pasta de origem estarão no primeiro nível da pasta de destino. Os arquivos de destino terão o nome gerado automaticamente. </li><li>**MergeFiles:** mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo/blob for especificado, o nome de arquivo mesclado seria o nome especificado. Caso contrário, seria o nome de arquivo gerado automaticamente.</li></ul> | Não |
 
-### exemplos de recursiva e copyBehavior
-Esta seção descreve o comportamento resultante da operação de cópia para diferentes combinações de valores recursivos e copyBehavior.
+### exemplos de recursive e copyBehavior
+Esta seção descreve o comportamento resultante da operação de cópia para diferentes combinações de valores recursive e copyBehavior.
 
-recursiva | copyBehavior | Comportamento resultante
+recursive | copyBehavior | Comportamento resultante
 --------- | ------------ | --------
-verdadeiro | preserveHierarchy | <p>Para uma pasta de origem Pasta1 com a seguinte estrutura:</p> <p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>a pasta de destino Pasta1 terá a mesma estrutura de acordo com a fonte<p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>.  
+verdadeiro | preserveHierarchy | <p>Para uma pasta de origem Pasta1 com a seguinte estrutura:</p> <p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5</p>a pasta de destino Pasta1 terá a mesma estrutura de acordo com a origem<p>asta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5</p>.  
 verdadeiro | flattenHierarchy | <p>Para uma pasta de origem Pasta1 com a seguinte estrutura:</p> <p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5</p>a Pasta1 de destino terá a seguinte estrutura: <p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome automaticamente gerado para Arquivo5</p>
-verdadeiro | mergeFiles | <p>Para uma pasta de origem Pasta1 com a seguintes estrutura:</p> <p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5</p>a pasta de destino Pasta1 terá a seguinte estrutura: <p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1 + Arquivo2 + Arquivo3 + Arquivo4 + Arquivo5 os conteúdos serão mesclados em um nome do arquivo autogerado</p>
+verdadeiro | mergeFiles | <p>Para uma pasta de origem Pasta1 com a seguinte estrutura:</p> <p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5</p>a pasta de destino Pasta1 terá a seguinte estrutura: <p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1 + Arquivo2 + Arquivo3 + Arquivo4 + Arquivo5 os conteúdos serão mesclados em um nome do arquivo autogerado</p>
 false | preserveHierarchy | <p>Para uma pasta de origem Pasta 1 com a seguinte estrutura:</p> <p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5</p>a pasta de destino Pasta1 terá a seguinte estrutura<p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/></p><p>Subpasta1 com Arquivo3, Arquivo4 e Arquivo5 não são selecionados.</p>.
 false | flattenHierarchy | <p>Para uma pasta de origem Pasta1 com a seguinte estrutura:</p> <p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5</p>a pasta de destino Pasta1 terá a seguinte estrutura<p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para Arquivo2<br/></p><p>Subpasta1 com Arquivo3, Arquivo4 e Arquivo5 não são selecionados.</p>.
 false | mergeFiles | <p>Para uma pasta de origem Pasta 1 com a seguinte estrutura:</p> <p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5</p>a pasta de destino Pasta1 terá a seguinte estrutura<p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Os conteúdos do Arquivo1 + Arquivo2 serão mesclados em um arquivo com o nome do arquivo autogerado. nome autogerado para Arquivo1</p><p>Subpasta1 com Arquivo3, Arquivo4 e Arquivo5 não são selecionados.</p>.
@@ -599,4 +603,4 @@ false | mergeFiles | <p>Para uma pasta de origem Pasta 1 com a seguinte estrutur
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

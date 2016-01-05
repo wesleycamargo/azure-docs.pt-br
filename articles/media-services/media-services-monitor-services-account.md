@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="12/05/2015"
 	ms.author="juliako"/>
 
 
@@ -24,11 +24,11 @@ O painel Serviços de Mídia do Azure apresenta métricas de uso e informações
 
 Você pode monitorar o número de trabalhos de codificação na fila, as tarefas de codificação com falha, os trabalhos de codificação ativos representados pelos dados de entrada e saída do codificador, bem como o uso do armazenamento de blob associado à conta dos Serviços de Mídia. Além disso, se estiver transmitindo conteúdo a clientes, você também pode recuperar várias métricas de streaming. Você pode optar por monitorar os dados das últimas 6 horas, 24 horas ou 7 dias.
  
->[AZURE.NOTE]Custos adicionais estão associados ao monitoramento dos dados do armazenamento no Portal de Gerenciamento do Azure. Para obter mais informações, consulte [Análise de armazenamento e cobrança](http://go.microsoft.com/fwlink/?LinkId=256667).
+>[AZURE.NOTE]Custos adicionais estão associados ao monitoramento dos dados do armazenamento no Portal Clássico do Azure. Para obter mais informações, consulte [Análise de armazenamento e cobrança](http://go.microsoft.com/fwlink/?LinkId=256667).
 
 ##<a id="configuremonitoring"></a>Como monitorar uma conta dos Serviços de Mídia
 
-1. No [Portal de Gerenciamento](http://go.microsoft.com/fwlink/?LinkID=256666), clique em **Serviços de Mídia** e no nome da conta dos Serviços de Mídia para abrir o painel. 
+1. No [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=256666), clique em **Serviços de Mídia** e no nome da conta dos Serviços de Mídia para abrir o painel. 
 
 	![MediaServices\_Dashboard][dashboard]
 
@@ -64,7 +64,7 @@ Você pode monitorar o número de trabalhos de codificação na fila, as tarefas
 
 ##Fornecer comentários
 
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]fluxo de trabalho do streaming sob demanda](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]Fluxo de Trabalho da Transmissão sob Demanda](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 
 <!-- Images -->
@@ -73,4 +73,4 @@ Você pode monitorar o número de trabalhos de codificação na fila, as tarefas
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

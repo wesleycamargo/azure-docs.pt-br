@@ -218,7 +218,7 @@ Depois que a implantação estiver concluída, devemos ser capazes de nos conect
 
 Como você pode ver, fui criativo com meu código HTML.
 
-Não se esqueça de que também podemos nos conectar através de uma sessão RDP do portal do Azure por meio da porta 3389.
+Não se esqueça de que também podemos nos conectar através de uma sessão RDP do portal clássico do Azure por meio da porta 3389.
 
 Espero que isso tenha sido útil! Siga adiante e comece sua jornada de infraestrutura como código com o Azure hoje mesmo!
 
@@ -239,4 +239,4 @@ Espero que isso tenha sido útil! Siga adiante e comece sua jornada de infraestr
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

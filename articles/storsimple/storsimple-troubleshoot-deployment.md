@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/29/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Solucionar problemas de implantação do dispositivo StorSimple
@@ -53,7 +53,7 @@ As etapas a seguir resumem o processo do assistente de instalação. Para obter 
  
     > [AZURE.IMPORTANT]As senhas são coletadas antes do registro, mas aplicadas somente depois que você registra com êxito o dispositivo. Se houver uma falha ao aplicar uma senha, você deverá fornecer a senha novamente até que as senhas necessárias (que atendem aos requisitos de complexidade) sejam coletadas.
 
-4. Registre o dispositivo: a etapa final é registrar o dispositivo no serviço Gerenciador do StorSimple em execução no Microsoft Azure. O registro exige que você [obtenha a chave de registro](storsimple-manage-service.md#get-the-service-registration-key) do Portal de Gerenciamento do Azure e a forneça no assistente de instalação. Depois que o dispositivo for registrado com êxito, uma chave de criptografia de dados de serviço será fornecida para você. Mantenha essa chave de criptografia em um local seguro, pois ela será necessária para registrar todos os dispositivos subsequentes no serviço.
+4. Registre o dispositivo: a etapa final é registrar o dispositivo no serviço Gerenciador do StorSimple em execução no Microsoft Azure. O registro exige que você [obtenha a chave de registro de serviço](storsimple-manage-service.md#get-the-service-registration-key) do Portal clássico do Azure e a forneça no assistente de instalação. Depois que o dispositivo for registrado com êxito, uma chave de criptografia de dados de serviço será fornecida para você. Mantenha essa chave de criptografia em um local seguro, pois ela será necessária para registrar todos os dispositivos subsequentes no serviço.
 
 ## Erros comuns durante a implantação de dispositivo
 
@@ -119,7 +119,7 @@ As senhas são coletadas antes do registro do dispositivo, mas são aplicadas so
 
 > [AZURE.IMPORTANT]Em geral, se uma tentativa de aplicar uma senha falhar, o software tentará coletar repetidamente a senha até obter êxito. Em casos raros, a senha não pode ser aplicada. Nessa situação, você pode registrar o dispositivo e continuar, mas as senhas não serão alteradas. Você não receberá nenhuma indicação de que a senha não foi alterada — a senha do administrador do dispositivo ou a senha do Gerenciador de Instantâneos StorSimple. Se essa situação ocorrer, recomendamos que você altere as duas senhas.
 
-Você pode redefinir as senhas no Portal de Gerenciamento do serviço Gerenciador do StorSimple. Para obter mais informações, consulte:
+Você pode redefinir as senhas no portal clássico do Azure por meio do serviço StorSimple Manager. Para obter mais informações, consulte:
 
 - [Alterar a senha de administrador do dispositivo](storsimple-change-passwords.md#change-the-device-administrator-password).
 - [Altere a senha do StorSimple Snapshot Manager](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password).
@@ -380,7 +380,7 @@ Se você estiver executando a Atualização 1 do dispositivo StorSimple, não se
 
 **Exemplo de saída – dispositivo offline, executando a versão do StorSimple (julho de 2014)**
 
-Esse exemplo é de um dispositivo com o status **offline** no Portal de Gerenciamento.
+Esse exemplo é de um dispositivo com o status **offline** no Portal Clássico do Azure.
 
      Checking device state: Success 
      Device is registered successfully 
@@ -577,4 +577,4 @@ O erro pode ter sido causado por qualquer uma das seguintes opções:
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

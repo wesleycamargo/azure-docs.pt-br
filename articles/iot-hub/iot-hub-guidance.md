@@ -1,9 +1,9 @@
 <properties
- pageTitle="Tópicos de orientação para o uso Hub IoT do Azure | Microsoft Azure"
- description="Uma coleção de tópicos de orientação para desenvolver soluções que usam o Hub IoT do Azure."
+ pageTitle="Orientação sobre a solução do Hub IoT | Microsoft Azure"
+ description="Tópicos de orientação sobre gateways, provisionamento de dispositivo e autenticação para desenvolvimento de soluções IoT usando o Azure Hub IoT."
  services="iot-hub"
  documentationCenter=""
- authors="fsautomata"
+ authors="dominicbetts"
  manager="timlt"
  editor=""/>
 
@@ -13,79 +13,110 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="09/29/2015"
- ms.author="elioda"/>
+ ms.date="11/10/2015"
+ ms.author="dobett"/>
 
-# Diretrizes do Hub IoT do Azure
+# Projetar sua solução
+
+Este artigo fornece instruções sobre como projetar os seguintes recursos em sua solução de IoT:
+
+- Provisionamento de dispositivos
+- Gateways de campo
+- Autenticação de dispositivo
 
 ## Provisionamento de dispositivos
 
-As soluções IoT mantêm as informações de dispositivo em muitos sistemas e armazenamentos diferentes. O [registro de identidade do Hub IoT][IoT Hub Developer Guide - identity registry] é um deles, entre outros armazenamentos que mantêm informações de dispositivo específicos do aplicativo. Chamamos de *provisionamento* o processo de criação das informações sobre o dispositivo necessárias em todos esses sistemas.
+As soluções de IoT armazenam dados sobre dispositivos individuais, como:
 
-Há muitos requisitos e estratégias para o provisionamento de dispositivo (consulte as [diretrizes de gerenciamento de dispositivos do Hub IoT] para saber mais). O [registro de identidade do Hub IoT][IoT Hub Developer Guide - identity registry] fornece as APIs necessárias para integrar o Hub IoT ao processo de provisionamento.
+- Chaves de autenticação e identidade do dispositivo
+- Tipo e versão de hardware do dispositivo
+- Status do dispositivo
+- Recursos e versões de software
+- Histórico de comando do dispositivo
+
+Os dados de dispositivo que uma determinada solução de IoT armazena depende dos requisitos específicos da solução, mas, no mínimo, uma solução deve armazenar identidades de dispositivo e chaves de autenticação. O Hub IoT inclui um [registro de identidades][lnk-devguide-identityregistry] que pode armazenar valores para cada dispositivo, como IDs, chaves de autenticação e códigos de status. Uma solução pode usar outros serviços do Azure, como tabelas, blobs ou Banco de Dados de Documentos para armazenar dados de dispositivo adicionais.
+
+O *provisionamento do dispositivo* é o processo de adição dos dados iniciais do dispositivo para as lojas em sua solução. Para permitir que um dispositivo se conecte ao hub, você deve adicionar uma nova ID e chaves de dispositivo ao [registro de identidade do Hub IoT][lnk-devguide-identityregistry]. Como parte do processo de provisionamento, talvez seja necessário inicializar dados específicos do dispositivo em outros armazenamentos de solução.
+
+O artigo [Orientações sobre o gerenciamento de dispositivo do Hub IoT][lnk-device-management] descreve algumas estratégias comuns para o provisionamento de dispositivo. As [APIs do registro de identidade do Hub IoT][lnk-devguide-identityregistry] permitem a integração do Hub IoT em seu processo de provisionamento.
 
 ## Gateways de campo
 
-Um gateway de campo é um dispositivo especializado ou um software de finalidade geral que age como um habilitador de comunicação e, possivelmente, como um sistema de controle de dispositivo local e hub de processamento de dados do dispositivo. Um gateway de campo pode executar funções locais de processamento e controle para os dispositivos; por outro lado, ele pode filtrar ou agregar a telemetria de dispositivo e, portanto, reduzir a quantidade de dados transferidos para o back-end.
+Em uma solução IoT, um *gateway de campo* fica entre os dispositivos e o hub IoT, e normalmente está localizado próximo a seus dispositivos. Os dispositivos se comunicam diretamente com o gateway de campo usando um protocolo compatível com os dispositivos, e o gateway de campo se comunica com o Hub IoT usando um protocolo com suporte do Hub IoT. Um gateway de campo pode ser um dispositivo autônomo especializado ou um software executado em um hardware existente.
 
-O escopo de um gateway de campo inclui o próprio gateway de campo e todos os dispositivos conectados a ele. Como o nome sugere, os gateways de campo atuam fora de instalações de processamento de dados dedicadas e costumam ser associados ao local. Um gateway de campo é diferente de um mero roteador de tráfego, pois tem uma função ativa no gerenciamento de fluxo de informações e de acesso. Isso significa que é um terminal de sessão ou de conexão de rede e de entidade endereçada ao aplicativo ou terminal de sessão (por exemplo, os gateways nesse contexto podem auxiliar no provisionamento do dispositivo, na transformação de dados, na conversão de protocolo e no processamento de regras de evento). Os dispositivos NAT ou firewalls, por outro lado, não se qualificam como gateways de campo, pois não são terminais explícitos de conexão ou de sessão, mas em vez disso, roteiam (ou negam) conexões ou sessões feitas por meio deles.
+Um gateway de campo é diferente de um dispositivo de roteamento de tráfego simples (como um dispositivo NAT ou firewall), pois normalmente executa uma função ativa no gerenciamento de acesso e do fluxo de informações em sua solução. Por exemplo, um gateway de campo pode:
 
-### Gateways de campo transparentes versus opacos
+- Gerencie dispositivos locais. Por exemplo, um gateway de campo poderia executar o processamento da regra de evento e enviar comandos para dispositivos em resposta a dados de telemetria específicos.
+- Filtre ou agregue dados de telemetria antes de encaminhá-los ao Hub IoT. Isso pode reduzir a quantidade de dados enviados ao Hub IoT, e possivelmente reduzir os custos em sua solução.
+- Ajude a provisionar os dispositivos.
+- Transforme dados de telemetria para facilitar o processamento em sua solução back-end.
+- Execute a conversão de protocolo para permitir que os dispositivos se comuniquem com o Hub IoT, mesmo quando não usam os protocolos de transporte que possuem suporte do Hub IoT.
 
-Com relação às identidades de dispositivo, os gateways de campo serão chamados de *transparentes* se outros dispositivos em seu escopo tiverem entradas de identidade do dispositivo no registro de identidade do Hub IoT. Eles serão chamados de *opacos* se a única identidade no registro de identidade do Hub IoT for a identidade do gateway de campo.
+> [AZURE.NOTE]Embora você normalmente implante um gateway de campo local para seus dispositivos, é possível implantar em alguns cenários um [gateway de protocolo][lnk-gateway] na nuvem.
 
-É importante observar que o uso de gateways *opacos* impede que o Hub IoT forneça recursos de [anti-falsificação de identidade do dispositivo][IoT Hub Developer Guide - Anti-spoofing]. Além disso, como todos os dispositivos no escopo do gateway de campo são representados como um único dispositivo no Hub IoT, eles estão sujeitos a cotas e a limites como um único dispositivo.
+### Tipos de gateways de campo
+
+Um gateway de campo pode ser *transparente* ou *opaco*:
+
+| &nbsp; | Transparente | Opaco |
+|--------|-------------|--------|
+| Identidades armazenadas no registro de identidade do Hub IoT | Todos os dispositivos conectados | Apenas a identidade do gateway de campo |
+| O Hub IoT pode fornecer [antifalsificação de identidade de dispositivo][lnk-devguide-antispoofing] | Sim | Não |
+| [Cotas e limitações][lnk-throttles-quotas] | Aplicar a cada dispositivo | Aplicar ao gateway de campo |
 
 ### Outras considerações
 
-Ao implementar um gateway de campo, você poderá usar os [SDKs de dispositivo IoT do Azure][]. Alguns SDKs oferecem funcionalidades específicas ao gateway, como a habilidade de multiplexar a comunicação de vários dispositivos na mesma conexão com o Hub IoT. Como explicado no [Guia do desenvolvedor do Hub IoT - escolhendo seu protocolo de comunicação][], você deve evitar o uso de HTTP/1 como protocolo de transporte para gateways de campo.
+Você pode usar os [SDKs de dispositivo do IoT do Azure][lnk-device-sdks] para implementar um gateway de campo. Alguns SDKs de dispositivo oferecem uma funcionalidade específica que ajuda você a implementar um gateway de campo, como a capacidade de multiplexar a comunicação de vários dispositivos para a mesma conexão com o Hub IoT. Como explicado no [Guia do desenvolvedor do Hub IoT - escolhendo seu protocolo de comunicação][lnk-devguide-protocol], você deve evitar o uso de HTTP/1 como protocolo de transporte para um gateway de campo.
 
-## Usando serviços/esquemas personalizados de autenticação de dispositivo
+## Autenticação personalizada de dispositivo
 
-O Hub IoT permite a configuração de credenciais de segurança por dispositivo e controle de acesso por meio do uso do [registro de identidade do dispositivo][IoT Hub Developer Guide - identity registry].
+Você pode usar o [registro de identidade de dispositivo][lnk-devguide-identityregistry] do Hub IoT para configurar credenciais de segurança e controle de acesso por dispositivo. No entanto, se uma solução IoT já tiver um investimento considerável em um registro de identidade de dispositivo personalizado e/ou em um esquema de autenticação, você poderá integrar essa infraestrutura existente ao Hub IoT por meio da criação de um *serviço de token*. Dessa forma, você pode usar outros recursos de IoT em sua solução.
 
-Se uma solução IoT já tiver um investimento considerável em um registro de identidade de dispositivo personalizado e/ou em um esquema de autenticação, ainda poderá usar os outros recursos do Hub IoT por meio da criação de um *serviço de token* para o Hub IoT.
-
-O serviço de token é um serviço de nuvem implantado automaticamente e que usa uma *Política de Acesso Compartilhado* do Hub IoT com permissões **DeviceConnect** para criar tokens no *escopo do dispositivo*.
+O serviço de token é um serviço de nuvem personalizado que usa uma *Política de Acesso Compartilhado* do Hub IoT com permissões **DeviceConnect** para criar tokens no *escopo do dispositivo* que permitem a um dispositivo se conectar ao seu Hub IoT.
 
   ![][img-tokenservice]
 
-Estas são as principais etapas do padrão de serviço do token.
+Estas são as principais etapas do padrão de serviço do token:
 
-1. Crie uma [Política de Acesso Compartilhado do Hub IoT][IoT Hub Developer Guide - Security] com permissões **DeviceConnect** para seu Hub IoT. Essa política será usada pelo serviço de token para assinar os tokens.
-2. Quando um dispositivo quiser acessar o Hub IoT, ele solicitará um token assinado ao serviço de token. O dispositivo pode usar o registro de identidade/esquema de autenticação do dispositivo personalizado.
-3. O serviço de token retorna um token, criado de acordo com o [Guia do desenvolvedor do Hub IoT - Segurança][], usando `/devices/{deviceId}` como `resourceURI`, com `deviceId` como o dispositivo que está sendo autenticado.
+1. Crie uma [Política de acesso compartilhado do Hub IoT][lnk-devguide-security] com permissões **DeviceConnect** para seu Hub IoT. Você pode criar essa política no [portal do Azure][lnk-portal] ou de forma programática. O serviço de token usa essa política para assinar os tokens criados.
+2. Quando um dispositivo precisar acessar o Hub IoT, ele solicitará um token assinado ao serviço de token. O dispositivo pode autenticar com seu esquema personalizado de registro/autenticação de identidade do dispositivo a fim de determinar a identidade do dispositivo usada pelo serviço de token para criar o token.
+3. O serviço de token retorna um token, criado de acordo com o [Guia do desenvolvedor do Hub IoT - Segurança][lnk-devguide-security], usando `/devices/{deviceId}` como `resourceURI`, com `deviceId` como o dispositivo que está sendo autenticado. O serviço de token usa a política de acesso compartilhado para construir o token.
 4. O dispositivo usa o token diretamente com o Hub IoT.
 
-O serviço de token pode definir a expiração do token como desejado. Ao expirar, o Hub IoT servirá a conexão e o dispositivo deverá solicitar um novo token ao serviço de token. Claramente, um tempo de expiração curto aumentará a carga no dispositivo e no serviço de token.
+> [AZURE.NOTE]Você pode usar a classe do .NET [SharedAccessSignatureBuilder][lnk-dotnet-sas] ou a classe Java [IotHubServiceSasToken][lnk-java-sas] para criar um token no serviço de token.
 
-Vale a pena especificar que, para que o dispositivo consiga se conectar, a identidade do dispositivo ainda deverá ser criada no Hub IoT. Isso também significa que o controle de acesso por dispositivo (desabilitando as identidades do dispositivo de acordo com o [Guia do desenvolvedor do Hub IoT - registro de identidade][]), ainda está funcionando, mesmo se o dispositivo se autenticar com um token. Isso reduz a existência de tokens de longa duração.
+O serviço de token pode definir a expiração do token como desejado. Quando o token expira, o Hub IoT interrompe a conexão do dispositivo, que deve solicitar um novo token ao serviço de token. Se você usar um tempo de expiração curto, aumentará a carga no dispositivo e no serviço de token.
+
+Para que um dispositivo se conecte ao seu hub, você ainda deve adicioná-lo ao registro de identidade do dispositivo do Hub IoT, mesmo se o dispositivo estiver usando um token e não é uma chave de dispositivo para se conectar. Portanto, você pode continuar a usar o controle de acesso por dispositivo habilitando ou desabilitando as identidades de dispositivo no [registro de identidade do Hub IoT][lnk-devguide-identityregistry] quando o dispositivo for autenticado com um token. Isso reduz os riscos de usar tokens com tempos de expiração longos.
 
 ### Comparação com um gateway personalizado
 
-O padrão do serviço do token é a maneira recomendada de implementar um registro de identidade/ esquema de autenticação personalizado com o Hub IoT, pois permite que o Hub IoT lide com a maior parte do tráfego de solução. No entanto, há casos em que o esquema de autenticação personalizado está tão entremeado com o protocolo (por exemplo, [TLS-PSK][]) que um serviço de processamento de todo o tráfego (*gateway personalizado*) se torna necessário. Consulte o tópico [Gateway do protocolo][] para saber mais.
+O padrão do serviço do token é a maneira recomendada de implementar um esquema personalizado de registro/autenticação de identidade com o Hub IoT, pois o Hub IoT continua a lidar com a maior parte do tráfego da solução. No entanto, há casos nos quais o esquema de autenticação personalizado está tão entremeado com o protocolo (por exemplo, [TLS-PSK][lnk-tls-psk]) que é necessário ter um serviço que processa todo o tráfego (*gateway personalizado*). Para saber mais, confira o tópico [Gateway do protocolo][lnk-gateway].
 
 ## Próximas etapas
 
 Para saber mais sobre o Hub IoT do Azure, siga estes links:
 
 - [Introdução ao Hub IoT (Tutorial)][lnk-get-started]
-- [O que é o Hub IoT do Azure?][]
+- [O que é o Hub IoT do Azure?][lnk-what-is-hub]
 
 [img-tokenservice]: ./media/iot-hub-guidance/tokenservice.png
 
-[IoT Hub Developer Guide - identity registry]: iot-hub-devguide.md#identityregistry
-[Guia do desenvolvedor do Hub IoT - registro de identidade]: iot-hub-devguide.md#identityregistry
-[diretrizes de gerenciamento de dispositivos do Hub IoT]: iot-hub-device-management.md
-[IoT Hub Developer Guide - Anti-spoofing]: iot-hub-devguide.md#antispoofing
-[SDKs de dispositivo IoT do Azure]: iot-hub-sdks-summary.md
-[Guia do desenvolvedor do Hub IoT - escolhendo seu protocolo de comunicação]: iot-hub-devguide.md#amqpvshttp
-[IoT Hub Developer Guide - Security]: iot-hub-devguide.md#security
-[Guia do desenvolvedor do Hub IoT - Segurança]: iot-hub-devguide.md#security
-[TLS-PSK]: https://tools.ietf.org/html/rfc4279
-[Gateway do protocolo]: iot-hub-protocol-gateway.md
+[lnk-devguide-identityregistry]: iot-hub-devguide.md#identityregistry
+[lnk-device-management]: iot-hub-device-management.md
+
+[lnk-device-sdks]: iot-hub-sdks-summary.md
+[lnk-devguide-security]: iot-hub-devguide.md#security
+[lnk-tls-psk]: https://tools.ietf.org/html/rfc4279
+[lnk-gateway]: iot-hub-protocol-gateway.md
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[O que é o Hub IoT do Azure?]: iot-hub-what-is-iot-hub.md
+[lnk-what-is-hub]: iot-hub-what-is-iot-hub.md
+[lnk-portal]: https://portal.azure.com
+[lnk-throttles-quotas]: ../azure-subscription-service-limits.md/#iot-hub-limits
+[lnk-devguide-antispoofing]: iot-hub-devguide.md#antispoofing
+[lnk-devguide-protocol]: iot-hub-devguide.md#amqpvshttp
+[lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
+[lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

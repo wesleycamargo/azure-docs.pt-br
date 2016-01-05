@@ -1,16 +1,25 @@
 
 Por padrão, APIs em um back-end de aplicativo móvel podem ser chamadas de forma anônima. Em seguida, você precisa restringir o acesso somente aos clientes autenticados.
 
-1. Em seu computador, abra o projeto do servidor no Visual Studio e navegue até **Controladores** > **TodoItemController.cs**.
++ **Back-end de Node.js (por meio do portal)**:  
+	
+	Nas **Configurações** do seu Aplicativo Móvel, clique em **Tabelas Fáceis** e selecione a tabela. Clique em **Alterar permissões**, selecione **Apenas acesso autenticado** para todas as permissões e clique em **Salvar**.
 
-2. Adicione o `[Authorize]` atributo à classe **TodoItemController**, como segue. Isso requer que todas as operações da tabela TodoItem sejam feitas por um usuário autenticado. Para restringir o acesso somente aos métodos específicos, você também pode aplicar esse atributo apenas aos métodos, em vez de à classe.
++ **Back-end .NET (C#)**:
+
+	No projeto do servidor, navegue até **Controladores** > **TodoItemController.cs**. Adicione o atributo `[Authorize]` à classe **TodoItemController**, como a seguir. Para restringir o acesso somente aos métodos específicos, você também pode aplicar esse atributo apenas aos métodos, em vez de à classe. Republicar o projeto de servidor.
 
 
         [Authorize]
         public class TodoItemController : TableController<TodoItem>
-   
-    Isso requer que todas as operações da tabela TodoItem sejam feitas por um usuário autenticado. Para restringir o acesso somente aos métodos específicos, você também pode aplicar esse atributo apenas aos métodos, em vez de à classe.
-   
-3. Publique novamente o projeto do servidor.
 
-<!---HONumber=Oct15_HO3-->
++ **Back-end do Node.js (por meio de código Node.js)**:
+	
+	Para exigir autenticação para acesso à tabela, adicione a seguinte linha ao script de servidor Node.js:
+
+
+        table.access = 'authenticated';
+
+	Para obter mais detalhes, consulte [Como exigir autenticação para acesso às tabelas](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth). Para saber como baixar o projeto de código de início rápido do seu site, consulte [Como baixar o projeto de código de início rápido de back-end do Node.js usando Git](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart).
+
+<!---HONumber=AcomDC_1210_2015-->

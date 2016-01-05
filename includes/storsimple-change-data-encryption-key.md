@@ -1,10 +1,10 @@
-<!--author=SharS last changed: 9/17/15-->
+<!--author=SharS last changed: 12/01/15-->
 
 ### Etapa 1: Autorizar um dispositivo para alterar a chave de criptografia de dados de serviço no Portal de Gerenciamento
 
 Normalmente, o administrador do dispositivo solicita que o administrador do serviço autorize um dispositivo a alterar as chaves de criptografia de dados de serviço. O administrador do serviço então autoriza o dispositivo a alterar a chave.
 
-Essa etapa é executada no Portal de Gerenciamento. O administrador do serviço pode selecionar um dispositivo em uma lista exibida de dispositivos que estão qualificados para serem autorizados. O dispositivo é então autorizado a iniciar o processo de alteração da chave de criptografia de dados de serviço.
+Esta etapa é realizada no portal clássico do Azure. O administrador do serviço pode selecionar um dispositivo em uma lista exibida de dispositivos que estão qualificados para serem autorizados. O dispositivo é então autorizado a iniciar o processo de alteração da chave de criptografia de dados de serviço.
 
 #### Quais dispositivos podem ser autorizados a alterar as chaves de criptografia de dados de serviço?
 
@@ -20,7 +20,7 @@ Um dispositivo deve atender aos seguintes critérios para que possa ser autoriza
 
 - Você pode autorizar um dispositivo quando alguns dos dispositivos registrados no serviço tiverem substituído a criptografia, enquanto outros não. Nesses casos, os dispositivos qualificados são aqueles que concluíram a alteração da chave de criptografia de dados de serviço.
 
-> [AZURE.NOTE]No Portal de Gerenciamento, os dispositivos virtuais StorSimple não são mostrados na lista de dispositivos que podem ser autorizados a iniciar a alteração da chave.
+> [AZURE.NOTE]No portal clássico do Azure, os dispositivos virtuais StorSimple não são mostrados na lista de dispositivos que podem ser autorizados a iniciar a alteração da chave.
 
 Execute as etapas a seguir para selecionar e autorizar um dispositivo a iniciar a alteração da chave de criptografia de dados de serviço.
 
@@ -38,7 +38,7 @@ Execute as etapas a seguir para selecionar e autorizar um dispositivo a iniciar 
 
 Essa etapa é executada na interface do Windows PowerShell para StorSimple no dispositivo StorSimple autorizado.
 
-> [AZURE.NOTE]Nenhuma operação poderá ser executada no Portal de Gerenciamento do serviço StorSimple Manager até que a substituição da chave seja concluída.
+> [AZURE.NOTE]Nenhuma operação poderá ser executada no portal clássico do Azure do serviço StorSimple Manager até que a substituição de chave seja concluída.
 
 Se você estiver usando o console serial do dispositivo para se conectar à interface do Windows PowerShell, execute as etapas a seguir.
 
@@ -74,4 +74,4 @@ Execute as etapas a seguir para atualizar a criptografia de dados de serviço no
 
 3. Forneça a chave de criptografia de dados de serviço que você obteve na [Etapa 2: Usar o Windows PowerShell para StorSimple para iniciar a alteração da chave de criptografia de dados de serviço](#to-initiate-the-service-data-encryption-key-change).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

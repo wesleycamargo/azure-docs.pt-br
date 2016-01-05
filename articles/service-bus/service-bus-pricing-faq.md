@@ -84,23 +84,23 @@ Como ocorre com outros serviços no Azure, o Barramento de Serviço aplica um co
 
 - **Número de ouvintes de retransmissão simultâneos por namespace**: o Barramento de Serviço impõe um limite de 2000 ouvintes de retransmissão simultâneos por namespace de serviço. Se essa cota for atingida, as solicitações subsequentes de ouvintes de retransmissão adicionais serão rejeitadas e uma exceção será recebida pelo código de chamada.
 
-- **Número de tópicos/filas por namespace de serviço**: o número máximo de tópicos/filas (entidades de armazenamento duráveis) em um namespace de serviço é limitado a 10 mil. Se essa cota for atingida, as solicitações subsequentes para a criação de uma novo tópico/fila no namespace de serviço serão rejeitadas. Nesse caso, o portal do Azure exibirá uma mensagem de erro ou o código de cliente de chamada receberá uma exceção, dependendo se a tentativa foi feita por meio do portal ou no código do cliente.
+- **Número de tópicos/filas por namespace de serviço**: o número máximo de tópicos/filas (entidades de armazenamento duráveis) em um namespace de serviço é limitado a 10 mil. Se essa cota for atingida, as solicitações subsequentes para a criação de uma novo tópico/fila no namespace de serviço serão rejeitadas. Nesse caso, o [portal clássico do Azure][] exibirá uma mensagem de erro ou o código de cliente de chamada receberá uma exceção, dependendo se a tentativa foi feita por meio do portal ou no código do cliente.
 
 - **Cotas de tamanho de mensagem**
 	- **Fila/Tópico/Assinatura**
-		- **Tamanho da mensagem**: cada mensagem está limitada a um tamanho total de 256KB, incluindo os cabeçalhos da mensagem.
-		- **Tamanho do cabeçalho da mensagem**: cada cabeçalho de mensagem é limitado a 64KB.
+		- **Tamanho da mensagem** – cada mensagem está limitada a um tamanho total de 256KB, incluindo os cabeçalhos da mensagem.
+		- **Tamanho do cabeçalho da mensagem** – cada cabeçalho de mensagem é limitado a 64KB.
 
-	- **NetOneway e NetEvent**: cada mensagem é limitada a um tamanho total de 64KB, incluindo os cabeçalhos da mensagem.
-	- **Retransmissões http e NetTcp**: o Barramento de Serviço não impõe um limite superior ao tamanho dessas mensagens.
+	- **NetOneway e NetEvent** – cada mensagem é limitada a um tamanho total de 64KB, incluindo os cabeçalhos da mensagem.
+	- **Retransmissões http e NetTcp** – o Barramento de Serviço não impõe um limite superior ao tamanho dessas mensagens.
 
 	As mensagens que excederem essas cotas de tamanho serão rejeitadas e uma exceção será recebida pelo código de chamada.
 
-- **Número de assinaturas por tópico**: o número máximo de assinaturas por tópico é limitado a 2 mil. Se essa cota for atingida, as solicitações subsequentes para a criação de assinaturas adicionais para o tópico serão rejeitadas. Nesse caso, o portal de gerenciamento exibirá uma mensagem de erro ou o código de cliente de chamada receberá uma exceção, dependendo se a tentativa foi feita por meio do portal ou no código do cliente.
+- **Número de assinaturas por tópico** – o número máximo de assinaturas por tópico é limitado a 2 mil. Se essa cota for atingida, as solicitações subsequentes para a criação de assinaturas adicionais para o tópico serão rejeitadas. Nesse caso, o [portal clássico do Azure][] exibirá uma mensagem de erro ou o código de cliente de chamada receberá uma exceção, dependendo se a tentativa foi feita por meio do portal ou no código do cliente.
 
-- **Número de filtros SQL por tópico**: o número máximo de filtros SQL por tópico é limitado a 2 mil. Se essa cota for atingida, as solicitações subsequentes de criação de filtros adicionais para o tópico serão rejeitadas e uma exceção será recebida pelo código de chamada.
+- **Número de filtros SQL por tópico** – o número máximo de filtros SQL por tópico é limitado a 2 mil. Se essa cota for atingida, as solicitações subsequentes de criação de filtros adicionais para o tópico serão rejeitadas e uma exceção será recebida pelo código de chamada.
 
-- **Filtros de número de correlação por tópico**: o número máximo de filtros de correlação por tópico é limitado a 100 mil. Se essa cota for atingida, as solicitações subsequentes de criação de filtros adicionais para o tópico serão rejeitadas e uma exceção será recebida pelo código de chamada.
+- **Filtros de número de correlação por tópico** – o número máximo de filtros de correlação por tópico é limitado a 100 mil. Se essa cota for atingida, as solicitações subsequentes de criação de filtros adicionais para o tópico serão rejeitadas e uma exceção será recebida pelo código de chamada.
 
 Para saber mais sobre cotas, consulte [Cotas do Barramento de Serviço](service-bus-quotas.md).
 
@@ -114,4 +114,6 @@ Para saber mais sobre as mensagens do Barramento de Serviço, confira os tópico
 - [Visão geral da arquitetura de Barramento de Serviço do Azure](fundamentals-service-bus-hybrid-solutions.md)
 - [Como usar filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md)
 
-<!---HONumber=Oct15_HO3-->
+[portal clássico do Azure]: http://manage.windowsazure.com
+
+<!---HONumber=AcomDC_1203_2015-->

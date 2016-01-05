@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Chamar um aplicativo de API de um cliente autenticado" 
 	description="Saiba como chamar um aplicativo de API do Azure de um cliente de aplicativo Web que foi autenticado pelo Active Directory do Azure." 
+	keywords="serviço de aplicativo, serviço de aplicativo do Azure, autenticação, autenticação do Azure, api, api de autenticação"
 	services="app-service\api" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
@@ -40,7 +41,7 @@ O código que você adiciona ao aplicativo Web implementará um processo chamado
 
 ![](./media/app-service-api-authentication-client-flow/clientflow.png)
 
-Caso você não esteja familiarizado com a função do gateway de aplicativo de API na autenticação para aplicativos de API, consulte [Autenticação para aplicativos de API e aplicativos móveis](../app-service/app-service-authentication-overview.md).
+Caso você não esteja familiarizado com a função do gateway de aplicativo de API na autenticação para aplicativos de API, confira [Autenticação para aplicativos de API e aplicativos móveis](../app-service/app-service-authentication-overview.md).
 
 ## Pré-requisitos
 
@@ -64,7 +65,7 @@ O tutorial supõe que você saiba como trabalhar com projetos Web no Visual Stud
 
 	Siga as instruções em [Implantar um aplicativo de API](app-service-dotnet-deploy-api-app.md).
 
-	No [portal de visualização do Azure], a folha **Definição de API** do aplicativo de API agora mostra os métodos Get e Post do projeto de API Web que você implantou.
+	No [Portal de Visualização do Azure], a folha **Definição de API** do aplicativo de API agora mostra os métodos Get e Post do projeto de API Web que você implantou.
 
 	![](./media/app-service-api-authentication-client-flow/apiappinportal.png)
 
@@ -72,7 +73,7 @@ O tutorial supõe que você saiba como trabalhar com projetos Web no Visual Stud
  
 	Siga as instruções do AAD em [Proteger um aplicativo de API](app-service-api-dotnet-add-authentication.md). Você pode pular a seção **Usar o Postman para enviar uma solicitação Post** do tutorial.
 
-	Ao finalizar, a folha **Active Directory do Azure** do aplicativo de API no [portal de visualização do Azure] terá a ID de cliente do aplicativo do AAD e seu locatário do AAD.
+	Ao concluir, a folha **Active Directory do Azure** do aplicativo de API no [portal de visualização do Azure] terá a ID de cliente do aplicativo do AAD e seu locatário do AAD.
 
 	![](./media/app-service-api-authentication-client-flow/aadblade.png)
 
@@ -116,7 +117,7 @@ Nesta seção, você adiciona o código gerado automaticamente para uma interfac
  
 ## Adicionar código para trocar o token do AAD por um token Zumo
 
-1.	Em HomeController.cs, adicione instruções `using` para o SDK do Serviço de Aplicativo e o serializador JSON.
+1.	Em HomeController.cs, adicione instruções `using` ao SDK do Serviço de Aplicativo e o serializador JSON.
 
 		using Microsoft.Azure.AppService;
 		using Newtonsoft.Json.Linq;
@@ -152,9 +153,9 @@ Nesta seção, você adiciona o código gerado automaticamente para uma interfac
 		    return appServiceClient;
 		}
 
-	Nesse código, `ConfigHelper.Authority` é resolvido para "https://login.microsoftonline.com/{your tenant}", por exemplo: "https://login.microsoftonline.com/contoso.onmicrosoft.com".
+	Nesse código, `ConfigHelper.Authority` é resolvido para "https://login.microsoftonline.com/{seu locatário}", por exemplo: "https://login.microsoftonline.com/contoso.onmicrosoft.com".
 
-2.	Adicione o código imediatamente antes da instrução `return View()` no fim do método `About` para chamar o aplicativo de API. (Na etapa seguinte, você adicionará o código à exibição `About` para exibir os dados retornados.)
+2.	Adicione o código imediatamente antes da instrução `return View()` no fim do método `About` para chamar o aplicativo de API. (Na etapa seguinte, você adicionará o código à exibição `About` para exibir os dados retornados).
 
 		var appServiceClient = await GetAppServiceClient();
 		var client = appServiceClient.CreateContactsList();
@@ -222,9 +223,9 @@ Agradeço a Govind S. Yadav ([@govindsyadav](https://twitter.com/govindsyadav)) 
 
 ## Próximas etapas
 
-Você viu como fazer a autenticação do fluxo de cliente para aplicativos de API do Serviço de Aplicativo. Para obter informações sobre outros modos de lidar com a autenticação em aplicativos de API, consulte [Autenticação para aplicativos de API e aplicativos móveis](../app-service/app-service-authentication-overview.md).
+Você viu como fazer a autenticação do fluxo de cliente para aplicativos de API do Serviço de Aplicativo. Para saber mais sobre outros modos de lidar com a autenticação em aplicativos de API, confira [Autenticação para aplicativos de API e aplicativos móveis](../app-service/app-service-authentication-overview.md).
 
 [portal do Azure]: https://manage.windowsazure.com/
-[portal de visualização do Azure]: https://portal.azure.com/
+[Portal de Visualização do Azure]: https://portal.azure.com/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

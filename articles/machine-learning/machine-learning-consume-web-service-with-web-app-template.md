@@ -56,7 +56,7 @@ Depois de implantar o serviço Web, você pode seguir as etapas abaixo para usar
 
 	![URI da solicitação][image4]
 
-3. Vá para [Aplicativo Web do Serviço de Solicitação-Resposta do Aprendizado de Máquina do Azure](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/) e clique em **Criar Aplicativo Web**. O modelo leva você até o Portal do Microsoft Azure em que o novo aplicativo Web é criado.
+3. Vá para [Aplicativo Web do Serviço de Solicitação-Resposta do Aprendizado de Máquina do Azure](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/) e clique em **Criar Aplicativo Web**. O modelo leva você até o Portal Clássico do Microsoft Azure, em que o novo aplicativo Web é criado.
 
 	- Dê um nome exclusivo ao seu aplicativo Web. A URL do aplicativo Web será esse nome seguido de `.azurewebsites.net.` Por exemplo, `http://carprediction.azurewebsites.net.`
 
@@ -86,7 +86,7 @@ Depois de implantar o serviço Web, você pode seguir as etapas abaixo para usar
 
 Para retornar à página **Configuração**, vá para a página `setting.aspx` do aplicativo Web. Por exemplo: `http://carprediction.azurewebsites.net/setting.aspx.` Você será solicitado a digitar a chave de API novamente – você precisa dela para acessar a página e atualizar as configurações.
 
-Você pode parar, reiniciar ou excluir o aplicativo Web no Portal do Azure como qualquer outro aplicativo Web. Enquanto ele estiver em execução, você poderá navegar até o endereço web da página inicial e inserir novos valores.
+Você pode parar, reiniciar ou excluir o aplicativo Web no Portal Clássico do Azure como qualquer outro aplicativo Web. Enquanto ele estiver em execução, você poderá navegar até o endereço web da página inicial e inserir novos valores.
 
 ## Como usar o modelo BES (Serviço de Execução em Lote)
 
@@ -125,4 +125,4 @@ Para saber mais sobre...
 [image6]: media\machine-learning-consume-web-service-with-web-app-template\web-service-info.png
 [image7]: media\machine-learning-consume-web-service-with-web-app-template\storage.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

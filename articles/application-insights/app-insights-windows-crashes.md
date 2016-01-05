@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="11/21/2015" 
 	ms.author="awills"/>
 
 # Detectar e diagnosticar falhas em aplicativos da Windows Store e Windows Phone com o Application Insights
@@ -102,4 +102,4 @@ Se você compilar na configuração Liberar, os eventos serão armazenados no di
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

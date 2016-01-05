@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="Sobre gateways de VPN para uma rede virtual | Microsoft Azure"
-   description="Saiba mais sobre as SKUs de Gateway de VPN Básica, Padrão e de Alto Desempenho, coexistência de Gateway de VPN e Rota Expressa, tipos de roteamento de gateway Estático e Dinâmico e requisitos de gateway para conectividade de rede virtual."
+   pageTitle="Sobre gateways de VPN para conectividade entre locais de rede virtual | Microsoft Azure"
+   description="Saiba mais sobre gateways de VPN, que podem ser usados para conexões entre locais em configurações híbridas. Este artigo cobre SKUs de gateway (Basica, Padrão e Alto desempenho) configurações de coexistência de gateway de VPN e Rota Expressa, tipos de roteamento de gateway (Estático, Dinâmico e Baseado em rota), e requisitos de gateway para conectividade de rede virtual."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 <tags 
    ms.service="vpn-gateway"
@@ -12,15 +12,28 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/12/2015"
+   ms.date="12/15/2015"
    ms.author="cherylmc" />
 
 # Sobre gateways de VPN
 
-Os Gateways de VPN são usados para enviar tráfego de rede entre redes virtuais e locais, ou entre várias redes virtuais (rede virtual a rede virtual). Ao criar um gateway, há alguns fatores a serem levados em consideração. Você precisará saber qual SKU de Gateway que deseja usar, o tipo de roteamento necessário para a sua configuração (dinâmico ou estático) e o dispositivo VPN que planeja usar se um dispositivo VPN for necessário para a sua configuração.
+Gateways de VPN são usados para enviar tráfego de rede entre redes virtuais e locais. Eles também são usados para enviar tráfego entre várias redes virtuais no Azure. Ao criar um gateway, há alguns fatores a serem levados em consideração.
+ 
+Ao planejar, considere os seguintes itens:
+
+- O SKU de gateway que você deseja usar
+- O tipo de roteamento de gateway para sua conexão
+- O dispositivo VPN, se necessário para a conexão
 
 ## SKUs de gateway
-Há 3 SKUs de Gateway de VPN; Básico, Padrão e Alto Desempenho. A tabela a seguir mostra os tipos de gateway e a taxa de transferência agregada estimada. Os preços diferem entre os SKUs de gateway. Para obter informações sobre preços, veja [Preços de gateway de VPN](http://azure.microsoft.com/pricing/details/vpn-gateway/).
+
+Há 3 SKUs de gateway de VPN:
+
+- Básico
+- Standard
+- Alto Desempenho
+
+A tabela a seguir mostra os tipos de gateway e a taxa de transferência agregada estimada. Os preços diferem entre os SKUs de gateway. Para obter informações sobre preços, veja [Preços de gateway de VPN](http://azure.microsoft.com/pricing/details/vpn-gateway/).
 
 | SKU | Coexistência de Gateway de VPN e a Rota Expressa | Taxa de transferência de Gateway de Rota Expressa | Taxa de transferência de Gateway de VPN | Túneis IPsec máximo de Gateway de VPN |
 |-------------|-----------------------------------|---------------------------------|------------------------|-------------------------------|
@@ -30,28 +43,27 @@ Há 3 SKUs de Gateway de VPN; Básico, Padrão e Alto Desempenho. A tabela a seg
 
 **Observação:** a taxa de transferência da VPN é uma estimativa aproximada baseada nas medidas entre redes virtuais na mesma região do Azure. Não é uma garantia do que você poderá obter para conexões entre locais na Internet, mas deverá ser usada como a maior medida possível.
 
-## Tipos de gateway
+## Tipos de roteamento de gateway
 
-Há dois tipos de gateway, *roteamento estático* (também conhecido como uma VPN baseada em política) e *roteamento dinâmico* (também conhecido como uma VPN baseada em rotas). Algumas configurações só funcionam com um tipo de roteamento específico, enquanto alguns dispositivos VPN só funcionam com outro tipo de roteamento específico. Quando você criar um gateway de VPN, selecionará o tipo de gateway necessário para sua configuração, verificando se o dispositivo VPN selecionado também dá suporte a esse tipo de roteamento.
+Há dois tipos de roteamento de gateway:
 
-Por exemplo, se você planeja usar uma configuração site a site simultaneamente com uma configuração ponto a site, precisará configurar um gateway de VPN de roteamento dinâmico. Embora seja verdade que as configurações site a site funcionarão com gateways de roteamento estático, as configurações ponto a site exigirão um gateway de roteamento dinâmico. Como ambas as conexões passem pelo mesmo gateway, você terá de selecionar o tipo de gateway que dê suporte a ambas as configurações.
+- **Baseado em políticas:** gateways baseados em políticas eram anteriormente chamados de *Gateways estáticos*. A funcionalidade de um gateway estático não foi alterada, mesmo que o nome tenha sido alterado. Esse tipo de gateway dá suporte a VPNs baseadas em política. As VPNs baseadas em política direcionam pacotes por meio de túneis IPsec com seletores de tráfego, com base nas combinações de prefixos de endereço entre a rede local e a rede virtual do Azure. Os seletores ou as políticas de tráfego normalmente são definidos como uma lista de acesso em suas configurações de VPN.
+ 
+- **Baseados em rota:** gateways baseados em rota eram anteriormente chamados de *Gateways dinâmicos*. A funcionalidade de um gateway dinâmico não foi alterada, mesmo que o nome tenha sido alterado. Gateways baseados em rota implementam VPNs baseadas em rota. As VPNs baseadas em rota usam "rotas" da tabela de roteamento ou de encaminhamento de IP para direcionar pacotes para as interfaces de túnel VPN correspondentes. As interfaces de túnel criptografam ou descriptografam então os pacotes para dentro e para fora dos túneis. O seletor de política ou de tráfego para as VPNs baseadas em rota são configurados como qualquer para qualquer (ou curingas).
 
-Além disso, você desejará verificar se seu dispositivo VPN dá suporte ao tipo de gateway e os parâmetros de IPsec/IKE e a configuração necessária. Por exemplo, se você deseja criar um gateway dinâmico e seu dispositivo VPN não oferece suporte a VPNs baseadas em rota, precisará reconsiderar seus planos. Você pode decidir adquirir um dispositivo VPN diferente que oferece suporte a gateways dinâmicos ou crie uma conexão de gateway de VPN que dê suporte a um gateway de roteamento estático. Se, posteriormente, você adquirir um dispositivo VPN capaz de dar suporte a um gateway de roteamento dinâmico, sempre poderá recriar o gateway como dinâmico para usar o dispositivo. Nesse caso, você precisará recriar apenas o gateway. Não será necessário recriar a rede virtual.
+Algumas conexões (como ponto a site e VNet a VNet) só funcionam com um tipo de roteamento de gateway específico. Você verá os requisitos do gateway listados no artigo que corresponde ao cenário de conexão que você deseja criar.
 
-A seguir, os dois tipos de gateways:
+Dispositivos VPN também têm limitações de configuração. Quando você cria um gateway de VPN, seleciona o tipo de gateway necessário para sua conexão, verificando se o dispositivo VPN selecionado também dá suporte a esse tipo de roteamento. Consulte [Sobre dispositivos VPN](vpn-gateway-about-vpn-devices.md) para obter mais informações.
 
-- **Roteamento estático –** gateways de roteamento estático dão suporte a **VPNs baseadas em política**. As VPNs baseadas em política direcionam pacotes por meio de túneis IPsec com seletores de tráfego com base em combinações de prefixos de endereço entre sua rede local e sua rede virtual do Azure. Os seletores ou as políticas de tráfego normalmente são definidos como uma lista de acesso em suas configurações de VPN.
+Por exemplo, para usar uma conexão site a site simultaneamente com uma conexão ponto a site, precisará configurar um gateway de VPN baseado em rota. Embora seja verdade que conexões site a site funcionam com gateways baseados em política, conexões ponto a site requerem um tipo de gateway baseado em rota. Como ambas as conexões passam pelo mesmo gateway, você terá de selecionar o tipo de gateway que dê suporte a ambas. Além disso, o dispositivo VPN que você deve usar também deve oferecer suporte a configurações baseadas em rota.
 
-	>[AZURE.NOTE]Nem todas as configurações são compatíveis com gateways de VPN de roteamento estático. Por exemplo, configurações de vários locais, configurações de rede virtual para rede virtual e conexões ponto a site exigem gateways de roteamento dinâmico. Você verá os requisitos de gateway nos artigos sobre cada configuração.
-
-- **Roteamento dinâmico –** os gateways de roteamento dinâmico implementam **VPNs baseadas em rota**. As VPNs baseadas em rota usam "rotas" da tabela de roteamento ou de encaminhamento de IP para direcionar pacotes para as interfaces de túnel VPN correspondentes. As interfaces de túnel criptografam ou descriptografam então os pacotes para dentro e para fora dos túneis. O seletor de política ou de tráfego para as VPNs baseadas em rota são configurados como qualquer para qualquer (ou curingas).
 
 ## Requisitos do gateway
 
 A tabela a seguir lista os requisitos para os gateways de VPN estáticos e dinâmicos.
 
 
-| **Propriedade** | **Gateway de VPN de roteamento estático** | **Gateway de VPN de roteamento dinâmico** | **Gateway de VPN padrão** | **Gateway de VPN de alto desempenho** |
+| **Propriedade** | **Gateway de VPN baseado em política** | **Gateway de VPN baseado em rota** | **Gateway de VPN padrão** | **Gateway VPN de alto desempenho** |
 |-----------------------------------------|--------------------------------|-----------------------------------------------------------------------|-----------------------------------|----------------------------------|
 | Conectividade site a site (S2S) | Configuração de VPN baseada em política | Configuração de VPN baseada em rota | Configuração de VPN baseada em rota | Configuração de VPN baseada em rota |
 | Conectividade ponto a site (P2S) | Sem suporte | Com suporte (pode coexistir com S2S) | Com suporte (pode coexistir com S2S) | Com suporte (pode coexistir com S2S) |
@@ -63,20 +75,12 @@ A tabela a seguir lista os requisitos para os gateways de VPN estáticos e dinâ
 
 ## Próximas etapas
 
-Selecione o dispositivo VPN para sua configuração. Veja [Sobre dispositivos VPN](http://go.microsoft.com/fwlink/p/?LinkID=615934).
+Selecione o dispositivo VPN para sua configuração. Veja [Sobre dispositivos VPN](vpn-gateway-about-vpn-devices.md).
 
-Configure sua rede virtual. Para conexões entre locais, consulte os seguintes artigos:
 
-- [Configurar uma conexão site a site entre locais para uma Rede Virtual do Azure](vpn-gateway-site-to-site-create.md)
-- [Configurar uma conexão VPN ponto a site para a Rede Virtual do Azure](vpn-gateway-point-to-site-create.md)
-- [Configurar uma VPN site a site usando o Serviço de Roteamento e Acesso Remoto (RRAS) do Windows Server 2012](https://msdn.microsoft.com/library/dn636917.aspx)
 
-Se você desejar configurar um gateway de VPN, veja [Configure um gateway de VPN](vpn-gateway-configure-vpn-gateway-mp.md).
 
-Se você quiser alterar o tipo de gateway de VPN, consulte [Alterar um tipo de roteamento de gateway de VPN de rede virtual](vpn-gateway-configure-vpn-gateway-mp.md).
-
-Se você quiser conectar vários sites a uma rede virtual, veja [Conectar vários sites locais a uma rede virtual](http://go.microsoft.com/fwlink/p/?LinkID=615106).
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="09/22/2015"
+	ms.date="12/02/2015"
 	ms.author="piyushjo" />
 
 # Introdução ao Mobile Engagement do Azure para Aplicativos Android
@@ -56,7 +56,7 @@ Vamos criar um aplicativo básico com o Android Studio para demonstrar a integra
     ![][2]
 
 3. Selecione o fator forma de destino e o nível de API e clique em **Avançar**.
-	
+
 	>[AZURE.NOTE]O Mobile Engagement requer nível mínimo de API de 10 (Android 2.3.3).
 
     ![][3]
@@ -102,7 +102,7 @@ Baixe e integre a biblioteca de SDK
 		import com.microsoft.azure.engagement.EngagementAgent;
 		import com.microsoft.azure.engagement.EngagementConfiguration;
 
-3. Volte para o portal do Azure na página **Informações de Conexão** de seu aplicativo e copie a **Cadeia de Conexão**.
+3. Volte para o Portal Clássico do Azure na página **Informações de Conexão** de seu aplicativo e copie a **Cadeia de Conexão**.
 
 	  ![][9]
 
@@ -224,7 +224,7 @@ Para os aplicativos reais, você poderá usar um ícone adequado para notificaç
 
 >[AZURE.TIP]Para garantir o uso das resoluções de ícone corretas, analise [estes exemplos](https://www.google.com/design/icons). Role para baixo até a seção **Notificação**, clique em um ícone e clique em `PNGS` para baixar o conjunto sorteável de ícones. Você pode ver quais pastas sorteáveis usar com qual resolução para cada versão de ícone.
 
-##Criar um projeto do Google Cloud Messaging com uma chave de API 
+##Criar um projeto do Google Cloud Messaging com uma chave de API
 
 [AZURE.INCLUDE [mobile-engagement-enable-Google-cloud-messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 
@@ -263,16 +263,16 @@ Para permitir que o Mobile Engagement envie notificações por push em seu nome,
 
 1. Navegue até o portal do Mobile Engagement
 
-	No portal do Azure, verifique se você está no aplicativo que estamos usando para este projeto e clique no botão **Acionar** na parte inferior:
+	No Portal Clássico do Azure, verifique se você está no aplicativo que estamos usando para este projeto e clique no botão **Acionar** na parte inferior:
 
 	![][15]
 
 2. Em seguida, clique na seção **Configurações** -> **Push Nativo** para inserir a chave do GCM:
-	  
+
 	![][16]
 
 3. Clique no ícone **Editar** na frente da **Chave API**, na seção **Configurações do GCM**, como mostrado abaixo:
-	  
+
 	![][17]
 
 4. No menu pop-up, cole a Chave do Servidor GCM obtida antes e clique em **Ok**.
@@ -284,13 +284,13 @@ Para permitir que o Mobile Engagement envie notificações por push em seu nome,
 Agora criaremos uma campanha simples de notificação por push que enviará uma notificação por push para nosso aplicativo.
 
 1. Navegue até a guia **REACH** em seu portal do Mobile Engagement
-	 
+
 2. Clique em **Novo comunicado** para criar sua campanha de notificação por push.
-	 
+
 	![][20]
 
 3. Configure o primeiro campo da campanha executando as seguintes etapas:
-	 
+
 	![][21]
 
 	a. Nome de sua campanha.
@@ -310,13 +310,13 @@ Agora criaremos uma campanha simples de notificação por push que enviará uma 
 5. Você concluiu a configuração da campanha mais básica possível. Agora, role para baixo novamente e clique no botão **Criar** para salvar sua campanha.
 
 6. Última etapa: clique em **Ativar** para ativar sua campanha e enviar notificações por push.
-    
+
 	![][24]
 
 <!-- URLs. -->
-[SDK do Mobile Engagement Android]: http://go.microsoft.com/?linkid=9863935
-[SDK do Mobile Engagement do Android]: http://go.microsoft.com/?linkid=9863935
-[Mobile Engagement Android SDK documentation]: http://go.microsoft.com/?linkid=9874682
+[SDK do Mobile Engagement Android]: https://aka.ms/vq9mfn
+[SDK do Mobile Engagement do Android]: https://aka.ms/vq9mfn
+[Mobile Engagement Android SDK documentation]: https://aka.ms/tujlkm
 [Integração avançada do Android]: https://azure.microsoft.com/pt-BR/documentation/articles/mobile-engagement-android-integrate-engagement/#basic-reporting
 
 <!-- Images. -->
@@ -340,4 +340,4 @@ Agora criaremos uma campanha simples de notificação por push que enviará uma 
 [22]: ./media/mobile-engagement-android-get-started/campaign-content.png
 [24]: ./media/mobile-engagement-android-get-started/campaign-activate.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

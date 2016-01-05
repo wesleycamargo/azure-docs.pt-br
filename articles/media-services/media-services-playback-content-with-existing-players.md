@@ -23,9 +23,9 @@ Os serviços de mídia do Microsoft Azure suporta muitos formatos populares de s
 
 >[AZURE.NOTE]Para reproduzir conteúdo dinamicamente empacotado ou criptografado dinamicamente, certifique-se de obter pelo menos uma unidade de transmissão para o ponto de extremidade de streaming por meio do qual você planeja distribuir seu conteúdo. Para obter informações sobre unidades de streaming de dimensionamento, consulte: [Como dimensionar unidades de streaming](media-services-manage-origins.md#scale_streaming_endpoints).
 
-###Player de conteúdo do Portal de Gerenciamento dos Serviços de Mídia do Azure
+###Player de conteúdo dos Serviços de Mídia do Portal Clássico do Azure
 
-O **Portal de Gerenciamento do Azure** fornece um player de conteúdo que você pode usar para testar o vídeo.
+O **Portal Clássico do Azure** fornece um player de conteúdo que você pode usar para testar o vídeo.
 
 Clique no vídeo desejado (verifique se ele foi [publicado](media-services-manage-content.md#publish)) e clique no botão **Reproduzir** na parte inferior do portal.
  
@@ -93,4 +93,4 @@ Para obter informações sobre como desenvolver seus próprios players, consulte
  
 [AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

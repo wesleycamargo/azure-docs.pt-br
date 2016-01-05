@@ -26,7 +26,7 @@ Os certificados usados pelo Azure podem conter uma chave particular ou pública.
 ## O que são certificados de serviço?
 Certificados de serviço são anexados aos serviços de nuvem e possibilitam que a comunicação feita com e por meio deles seja segura. Por exemplo, se você implantou uma função web, convém fornecer um certificado que pode autenticar um ponto de extremidade HTTPS exposto. Certificados de serviço, definidos em sua definição de serviço, são implantados automaticamente na máquina virtual que está executando uma instância de sua função.
 
-Você pode carregar certificados de serviço para o Portal de Gerenciamento usando o Portal de Gerenciamento ou a API de Gerenciamento de Serviços. Certificados de serviço são associados a um serviço de nuvem específico e atribuídos a uma implantação no arquivo de definição de serviço.
+Você pode carregar certificados de serviço no portal clássico do Azure usando o portal clássico do Azure ou a API de Gerenciamento de Serviços. Certificados de serviço são associados a um serviço de nuvem específico e atribuídos a uma implantação no arquivo de definição de serviço.
 
 Certificados de serviço podem ser gerenciados separadamente de seus serviços e podem ser gerenciados por indivíduos diferentes. Por exemplo, um desenvolvedor pode carregar um pacote de serviço que se refere a um certificado que um gerente de TI carregou anteriormente no Azure. Um gerente de TI pode gerenciar e renovar esse certificado alterando a configuração do serviço sem precisar carregar um novo pacote de serviço. Isso é possível porque o nome lógico do certificado e seu nome de repositório e local são especificados no arquivo de definição de serviço, enquanto a impressão digital do certificado é especificada no arquivo de configuração de serviço. Para atualizar o certificado, é necessário apenas carregar um novo certificado e alterar o valor da impressão digital no arquivo de configuração de serviço.
 
@@ -74,10 +74,10 @@ Você pode usar o Java para [criar um certificado](../app-service-web/java-creat
 
 ## Próximas etapas
 
-[Carregue seu certificado de serviço no Portal do Azure](cloud-services-configure-ssl-certificate.md) (ou no [Portal de Visualização](cloud-services-configure-ssl-certificate-portal.md)) e [configure-o](cloud-services-xml-certs.md) para o serviço de nuvem.
+[Carregue seu certificado de serviço no portal clássico do Azure](cloud-services-configure-ssl-certificate.md) (ou no [portal do Azure](cloud-services-configure-ssl-certificate-portal.md)) e [configure-o](cloud-services-xml-certs.md) para o serviço de nuvem.
 
-Carregue um [certificado de API de gerenciamento](../azure-api-management-certs.md) no Portal do Azure.
+Carregue um [certificado de API de gerenciamento](../azure-api-management-certs.md) no portal clássico do Azure.
 
->[AZURE.NOTE]O Portal de Visualização do Azure não usa certificados de gerenciamento para acessar a API, ele usa contas de usuário.
+>[AZURE.NOTE]O portal do Azure não usa certificados de gerenciamento para acessar a API, ele usa contas de usuário.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

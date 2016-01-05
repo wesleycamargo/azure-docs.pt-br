@@ -20,7 +20,7 @@
 # Redefinir um Gateway de VPN do Azure usando o PowerShell
 
 
-Este artigo o guiará pela redefinição do Gateway de VPN do Azure usando cmdlets do PowerShell. Essas instruções se aplicam ao modelo clássico de implantação. Ainda não temos um cmdlet ou API REST para redefinir um gateway de VPN para redes virtuais criadas usando o modelo de implantação do Gerenciador de Recursos. Eles estão em processo. Você pode saber se o gateway de VPN foi criado usando o modelo de implantação clássico, exibindo sua rede virtual no portal de visualização. Redes virtuais que foram criadas usando o modelo de implantação clássico são mostradas na parte de Rede Virtual (clássica) do portal de visualização.
+Este artigo o guiará pela redefinição do Gateway de VPN do Azure usando cmdlets do PowerShell. Essas instruções se aplicam ao modelo clássico de implantação. Ainda não temos um cmdlet ou API REST para redefinir um gateway de VPN para redes virtuais criadas usando o modelo de implantação do Gerenciador de Recursos. Eles estão em processo. Você pode saber se o gateway de VPN foi criado usando o modelo de implantação clássico, exibindo sua rede virtual no Portal do Azure. As redes virtuais que foram criadas usando o modelo de implantação clássico são mostradas na parte de Rede Virtual (clássica) do Portal do Azure.
 
 Redefinir o gateway de VPN do Azure é útil se você perde a conectividade VPN entre locais em um ou mais túneis de VPN S2S. Nessa situação, os dispositivos VPN locais estão funcionando corretamente, mas não são capazes de estabelecer túneis IPsec com os gateways de VPN do Azure. Quando você usa o cmdlet *Reset-AzureVNetGateway*, ele reinicializa o gateway e, em seguida, aplica novamente a ele as configurações entre instalações. O gateway manterá o endereço IP público que já tem. Isso significa que você não precisa atualizar a configuração do roteador VPN com um novo endereço IP público do gateway de VPN do Azure.
 
@@ -52,11 +52,11 @@ O exemplo a seguir redefine o gateway de VPN do Azure para a rede virtual chamad
 
 Se a conexão não é restaurada após a primeira reinicialização, execute o mesmo comando novamente para reiniciar a segunda instância VM (o novo gateway ativo). Se as duas reinicializações são solicitadas back-to-back, haverá um período um pouco mais longo durante o qual as duas instâncias VM (ativas e em espera) estão sendo reinicializadas. Essa situação causará um intervalo maior na conectividade VPN, exigindo até 2 a 4 minutos para que as VMs concluam as reinicializações.
 
-Após duas reinicializações, se você ainda estiver tendo problemas de conectividade entre locais, abra um ticket de suporte do portal do Azure para entrar em contato com o Suporte do Microsoft Azure.
+Após duas reinicializações, se você ainda estiver tendo problemas de conectividade entre locais, abra um tíquete de suporte do Portal Clássico do Azure para entrar em contato com o Suporte do Microsoft Azure.
 
 
 ## Próximas etapas
 	
 Consulte a [Referência do PowerShell](https://msdn.microsoft.com/library/azure/mt270366.aspx) para obter mais informações sobre esse cmdlet.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

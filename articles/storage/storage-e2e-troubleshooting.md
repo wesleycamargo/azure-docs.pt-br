@@ -12,10 +12,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.date="12/01/2015" 
 	ms.author="tamram"/>
 
 # Solução de problemas ponta a ponta usando Métricas de Armazenamento do Azure e Registro em Log, AzCopy e Analisador de Mensagem 
+
+[AZURE.INCLUDE [storage-selector-portal-e2e-troubleshooting](../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
 ## Visão geral
 
@@ -34,11 +36,9 @@ Para solucionar problemas de aplicativos cliente que usam o armazenamento do Mic
 
 	- **O log de armazenamento** registra cada solicitação dos serviços de Armazenamento do Azure em um log do servidor. O log registra dados detalhados para cada solicitação, incluindo a operação executada, o status da operação e informações de latência. Consulte o [Formato do Log de Análise de Armazenamento](http://msdn.microsoft.com/library/azure/hh343259.aspx) para obter mais informações sobre os dados de solicitação e resposta gravados nos logs pela Análise de Armazenamento.
 
-- **Portal de Gerenciamento do Azure**. Você pode configurar log e métricas para sua conta de armazenamento no portal. Você também pode exibir gráficos que mostram o desempenho do seu aplicativo ao longo do tempo e configurar alertas no portal para notificá-lo se seu aplicativo for executado de forma diferente do esperado para uma métrica especificada.
+- **Portal do Azure**. Você pode configurar log e métricas para sua conta de armazenamento no [Portal do Azure](portal.azure.com). Você também pode exibir gráficos que mostram o desempenho do seu aplicativo ao longo do tempo e configurar alertas para notificá-lo se seu aplicativo for executado de forma diferente do esperado para uma métrica especificada.
 	
-	Este tutorial mostra como monitorar sua conta de armazenamento usando o [Portal de Gerenciamento do Azure](https://manage.windowsazure.com/). Consulte [Como monitorar uma conta de armazenamento](storage-monitor-storage-account.md) para obter informações sobre como configurar o monitoramento no portal.
-
-	Você também pode usar o [Portal de Visualização do Azure](https://portal.azure.com/) para ter a experiência mais recente, mas observe que ainda é uma versão de visualização.
+	Consulte [Como monitorar uma conta de armazenamento](storage-monitor-storage-account.md) para obter informações sobre como configurar o monitoramento no Portal do Azure.
 
 - **AzCopy**. Os logs do servidor do Armazenamento do Azure são armazenados como blobs, então você pode usar o AzCopy para copiar os blobs de log para um diretório local para análise usando o Analisador de Mensagem da Microsoft. Consulte [Como usar o AzCopy com o Armazenamento do Microsoft Azure](storage-use-azcopy.md) para obter mais informações sobre o AzCopy.
 
@@ -46,7 +46,7 @@ Para solucionar problemas de aplicativos cliente que usam o armazenamento do Mic
 
 ## Sobre o cenário de exemplo
 
-Para este tutorial, vamos examinar um cenário onde as métricas de armazenamento do Azure indicam uma taxa de sucesso de porcentagem baixa de um aplicativo que chama o armazenamento do Azure. A métrica da taxa de sucesso de porcentagem baixa (mostrada como **PercentSuccess** no portal do Azure e nas tabelas de métricas) controla as operações com êxito, mas que retornam um código de status HTTP maior que 299. Nos arquivos de log do lado do servidor, essas operações são registradas com um status de transação de **ClientOtherErrors**. Para obter mais detalhes sobre a métrica de sucesso de porcentagem baixa, consulte [As métricas mostram o PercentSuccess baixo ou as entradas do log de análise têm operações com status de transação de ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
+Para este tutorial, vamos examinar um cenário onde as métricas de armazenamento do Azure indicam uma taxa de sucesso de porcentagem baixa de um aplicativo que chama o armazenamento do Azure. A métrica da taxa de sucesso de porcentagem baixa (mostrada como **PercentSuccess** no [Portal do Azure](portal.azure.com) e nas tabelas de métricas) controla as operações com êxito, mas que retornam um código de status HTTP maior que 299. Nos arquivos de log do lado do servidor, essas operações são registradas com um status de transação de **ClientOtherErrors**. Para obter mais detalhes sobre a métrica de sucesso de porcentagem baixa, consulte [As métricas mostram o PercentSuccess baixo ou as entradas do log de análise têm operações com status de transação de ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
 
 Operações de armazenamento do Azure podem retornar códigos de status HTTP maior 299 como parte de sua funcionalidade normal. Porém esses erros em alguns casos indicam que você poderá otimizar o aplicativo cliente para melhorar o desempenho.
 
@@ -88,15 +88,15 @@ Neste tutorial, usaremos o Analisador de Mensagem para trabalhar com três tipos
 
 ### Configurar o log de servidor e métricas
 
-Primeiro, precisaremos configurar o log de armazenamento do Azure e suas métricas, para que tenhamos dados do aplicativo cliente para analisar. Você pode configurar o registro em log e métricas de diversas maneiras, por meio do Portal de Gerenciamento do Azure, usando o PowerShell ou com programação. Consulte [Habilitando as Métricas de Armazenamento e Exibindo os Dados da Métrica](http://msdn.microsoft.com/library/azure/dn782843.aspx) e [Habilitando o Log de Armazenamento e Acessando os Dados de Log](http://msdn.microsoft.com/library/azure/dn782840.aspx) no MSDN para obter detalhes sobre como configurar o registro em log e as métricas.
+Primeiro, precisaremos configurar o log de armazenamento do Azure e suas métricas, para que tenhamos dados do aplicativo cliente para analisar. Você pode configurar o registro em log e métricas de diversas maneiras, por meio do [Portal do Azure](portal.azure.com), usando o PowerShell ou com programação. Consulte [Habilitando as Métricas de Armazenamento e Exibindo os Dados da Métrica](http://msdn.microsoft.com/library/azure/dn782843.aspx) e [Habilitando o Log de Armazenamento e Acessando os Dados de Log](http://msdn.microsoft.com/library/azure/dn782840.aspx) no MSDN para obter detalhes sobre como configurar o registro em log e as métricas.
 
-**Por meio do Portal de Gerenciamento**
+**Através do Portal do Azure**
 
-Para configurar o registro em log e as métricas para sua conta de armazenamento usando o portal, siga as instruções em [Como monitorar uma conta de armazenamento](storage-monitor-storage-account.md).
+Para configurar o registro em log e as métricas para sua conta de armazenamento usando o [Portal do Azure](portal.azure.com), siga as instruções em [Como monitorar uma conta de armazenamento](storage-monitor-storage-account.md).
 
-> [AZURE.NOTE]Não é possível definir a métrica de minutos usando o Portal de gerenciamento do Azure. No entanto, é recomendável que você a defina para os fins deste tutorial e para investigar problemas de desempenho com seu aplicativo. Você pode definir a métrica de minutos usando o PowerShell como mostrado abaixo, com programação ou por meio do Portal de Visualização do Azure.
+> [AZURE.NOTE]Não é possível definir a métrica de minutos usando o Portal do Azure. No entanto, é recomendável que você a defina para os fins deste tutorial e para investigar problemas de desempenho com seu aplicativo. Você pode definir a métrica de minutos usando o PowerShell como mostrado abaixo ou de forma pragmática usando a biblioteca do cliente de armazenamento.
 >
-> Observe que o Portal de Gerenciamento não consegue exibir métricas por minuto, apenas as métricas por hora.
+> Observe que o Portal do Azure não consegue exibir métricas por minuto, apenas as métricas por hora.
 
 **Por meio do PowerShell**
 
@@ -168,23 +168,15 @@ Para o tutorial, colete e salve um rastreamento de rede pela primeira vez no Ana
 
 Consulte [Usando os Recursos de Rastreamento de Rede](http://technet.microsoft.com/library/jj674819.aspx) no Technet para obter mais detalhes.
 
-## Analisar dados de métricas no portal
+## Analisar dados de métricas no Portal do Azure
 
-Quando seu aplicativo já estiver sendo executado por algum tempo, você pode revisar os gráficos de métricas que aparecem no portal para observar o desempenho do seu serviço. Primeiro, iremos adicionar a métrica **Porcentagem de Êxitos** à página de Monitoramento:
+Quando seu aplicativo já estiver sendo executado por algum tempo, você pode revisar os gráficos de métricas que aparecem no [Portal do Azure](portal.azure.com) para observar o desempenho do seu serviço. Primeiro, navegue até a conta de armazenamento no Portal do Azure e adicione um gráfico para a métrica **Porcentagem de Êxitos**.
 
-1. Navegue até o painel da sua conta de armazenamento no Portal de Gerenciamento e selecione o Monitor para exibir a página de monitoramento.
-2. Clique em **Adicionar Métricas** para exibir a caixa de diálogo **Escolher Métricas**.
-3. Role para baixo até encontrar o grupo **Porcentagem de Êxitos**, expanda-o e selecione **Agregar**, conforme mostrado na figura abaixo. Essa métrica agrega dados de percentual de êxito de todas as operações de Blob.
-
-![Escolher Métricas](./media/storage-e2e-troubleshooting/choose-metrics-portal-1.png)
-
-No portal, você verá agora a **Porcentagem de Êxitos** no gráfico de monitoramento, junto com quaisquer outras métricas adicionadas (até seis podem ser exibidas no gráfico de uma vez). Na imagem abaixo, você pode ver que a taxa de sucesso em porcentagem é um pouco abaixo de 100%, que é o cenário que examinaremos em seguida, analisando os logs no Analisador de Mensagem:
-
-![Gráfico de métricas no portal](./media/storage-e2e-troubleshooting/portal-metrics-chart-1.png)
+No portal, você verá agora a **Porcentagem de Êxitos** no gráfico de monitoramento, junto com quaisquer outras métricas adicionadas. No cenário que examinaremos em seguida analisando os logs no Analisador de Mensagem, a taxa de porcentagem de êxito é um pouco inferior a 100%.
 
 Para obter mais detalhes sobre como adicionar métricas à página de Monitoramento, consulte [Como: adicionar métricas à tabela de métricas](storage-monitor-storage-account.md#addmonitoringmetrics).
 
-> [AZURE.NOTE]Pode levar algum tempo para que seus dados de métricas apareçam no portal depois que você habilitar a métrica de armazenamento. Isso ocorre porque as métricas por hora da hora anterior não são exibidas no portal até que a hora atual tenha decorrido. Além disso, métricas de minuto atualmente não são exibidas no portal. Dessa forma, dependendo de quando você habilitar a métrica, pode levar até duas horas para ver os dados dela.
+> [AZURE.NOTE]Pode levar algum tempo para que seus dados de métricas apareçam no Portal do Azure depois que você habilitar a métrica de armazenamento. Isso ocorre porque as métricas por hora da hora anterior não são exibidas no Portal do Azure até que a hora atual tenha decorrido. Além disso, métricas de minuto atualmente não são exibidas no Portal do Azure. Dessa forma, dependendo de quando você habilitar a métrica, pode levar até duas horas para ver os dados dela.
 
 ## Use AzCopy para copiar logs do servidor para um diretório local
 
@@ -359,9 +351,9 @@ Para obter mais informações sobre cenários de ponta a ponta para solução de
 - [Monitorar, diagnosticar e solucionar problemas de Armazenamento](storage-monitoring-diagnosing-troubleshooting.md)
 - [Análise de Armazenamento](http://msdn.microsoft.com/library/azure/hh343270.aspx)
 - [Como monitorar uma conta de armazenamento](storage-monitor-storage-account.md)
-- [Como usar o AzCopy com o Armazenamento do Microsoft Azure](storage-use-azcopy.md)
+- [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md)
 - [Guia Operacional do Analisador de Mensagem da Microsoft](http://technet.microsoft.com/library/jj649776.aspx)
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

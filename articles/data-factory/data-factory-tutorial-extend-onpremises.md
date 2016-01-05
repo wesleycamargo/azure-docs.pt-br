@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Copiar dados de saída para um banco de dados do SQL Server local (Portal do Azure)" 
-	description="Este passo a passo estende o tutorial sobre como usar o Data Factory Editor, de modo que o pipeline copie dados de saída para um banco de dados do SQL Server."
+	pageTitle="Copiar dados de saída para um banco de dados do SQL Server local (Portal Clássico do Azure)" 
+	description="Este passo a passo estende o tutorial sobre como usar o Editor do Data Factory no Portal Clássico do Azure, de modo que o pipeline copie dados de saída para um banco de dados SQL Server."
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2015" 
+	ms.date="11/12/2015" 
 	ms.author="spelluru"/>
 
 
@@ -51,7 +51,7 @@ Você deve ter pelo menos um gateway instalado no seu ambiente corporativo, bem 
 
 Se você tiver um gateway de dados existente que você possa usar, ignore esta etapa.
 
-1.	Crie um gateway de dados lógicos. No **Portal de Visualização do Azure**, clique em **Serviços Vinculados** na folha **DATA FACTORY** para o seu Data Factory.
+1.	Crie um gateway de dados lógicos. No **Portal do Azure**, clique em **Serviços Vinculados** na folha **DATA FACTORY** de seu data factory.
 2.	Clique em **Adicionar (+) Gateway de Dados** na barra de comandos.  
 3.	Na folha **Novo gateway de dados**, clique em **CRIAR**.
 4.	Na folha **Criar**, insira **MyGateway** para o **nome** do gateway de dados.
@@ -97,7 +97,7 @@ Para começar, você precisa criar o banco de dados SQL Server, a tabela, os tip
 
 ### Criar o serviço vinculado
 
-1.	No **Portal de Visualização do Azure**, clique no bloco **Criar e Implantar** na folha **DATA FACTORY** de **LogProcessingFactory**.
+1.	No **Portal do Azure**, clique no bloco **Criar e Implantar** na folha **DATA FACTORY** de **LogProcessingFactory**.
 2.	No **Editor do Data Factory**, clique em **Novo armazenamento de dados** na barra de ferramentas e selecione **Banco de dados SQL Server local**.
 3.	No script JSON, faça o seguinte: 
 	1.	Substitua **<servername>** pelo nome do servidor que hospeda seu banco de dados SQL Server.
@@ -153,7 +153,7 @@ Parabéns! Você verificou com êxito o passo a passo para usar sua fonte de dad
 [adfintroduction]: data-factory-introduction.md
 [useonpremisesdatasources]: data-factory-move-data-between-onprem-and-cloud.md
 
-[azure-preview-portal]: http://portal.azure.com
+[azure-portal]: http://portal.azure.com
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -169,4 +169,4 @@ Parabéns! Você verificou com êxito o passo a passo para usar sua fonte de dad
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

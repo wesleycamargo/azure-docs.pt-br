@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
+	ms.date="12/10/2015" 
 	ms.author="cephalin"/>
 
 # Criar uma campanha de marketing digital em Aplicativos Web do Serviço de Aplicativo do Azure
 Os Aplicativos Web do [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) são uma ótima opção para campanhas de marketing digital. As campanhas de marketing digital geralmente têm curta duração e servem para orientar metas de marketing de curto prazo. Há dois cenários principais a serem considerados. No primeiro cenário, uma empresa de marketing de terceiros cria e gerencia a campanha para os clientes durante o período da promoção. Um segundo cenário envolve a empresa de marketing criando e, em seguida, transferindo a propriedade dos recursos digitais da campanha de marketing para os clientes. Em seguida, o cliente executa e gerencia a campanha de marketing digital por conta própria. É uma boa opção para ambos os cenários.
 
->[AZURE.NOTE]Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 A seguir há um exemplo de uma campanha de marketing digital global multicanais usando Aplicativos Web do Serviço de Aplicativo. Ele demonstra o que você pode fazer simplesmente reunindo Aplicativos Web do Serviço de Aplicativo a outros serviços, com investimento técnico mínimo. **Clique em um elemento na topografia para ler mais sobre ele.**
 
@@ -33,7 +33,7 @@ Crie novos aplicativos Web rapidamente por meio de um CMS popular na galeria ou 
 
 O Azure Marketplace oferece modelos populares de CMS (sistemas de gerenciamento de conteúdo de site), como Orchard, Umbraco, Drupal e [WordPress]. Você pode criar um aplicativo Web usando seu tipo de CMS favorito. Você pode escolher dentre vários back-ends de banco de dados para atender às suas necessidades, incluindo o [Banco de Dados do SQL Azure] e [MySQL].
 
-Seus ativos da Web existentes podem ser executados em Aplicativos Web, independentemente de utilizarem .NET, PHP, Java, Node.js ou Python. Você pode movê-los para os Aplicativos Web usando suas ferramentas de [FTP] familiares. Se costuma cria campanhas de marketing digitais com frequência, é possível que você tenha ativos da Web existentes em um sistema de gerenciamento de controle do código-fonte. Você pode implantar Aplicativos Web diretamente de opções populares de controle do código-fonte, como o [Visual Studio], [Visual Studio Online] e [Git] - local, GitHub, BitBucket, DropBox, Mercurial, etc.
+Seus ativos da Web existentes podem ser executados em Aplicativos Web, independentemente de utilizarem .NET, PHP, Java, Node.js ou Python. Você pode movê-los para os Aplicativos Web usando suas ferramentas de [FTP] familiares. Se costuma cria campanhas de marketing digitais com frequência, é possível que você tenha ativos da Web existentes em um sistema de gerenciamento de controle do código-fonte. Você pode implantar Aplicativos Web diretamente de opções populares de controle do código-fonte, como o [Visual Studio], [Visual Studio Team Services] e [Git] - local, GitHub, BitBucket, DropBox, Mercurial, etc.
 
 ## Permanecer ágil
 
@@ -71,7 +71,7 @@ Forneça seu conteúdo estático de forma extremamente rápida aos usuários glo
 
 Otimize seu aplicativo Web dimensionando automaticamente com o recurso de Autoescala, armazenando em cache com o Cache Redis do Azure, executando tarefas em segundo plano com Trabalhos Web e mantendo alta disponibilidade com o Gerenciador de Tráfego do Azure.
 
-A capacidade dos Aplicativos Web do Serviço Aplicativos de [escalar verticalmente e horizontalmente] é perfeita para cargas de trabalho imprevisíveis, o que é o caso das campanhas de marketing digital. Escale horizontalmente seu aplicativo Web de forma manual por meio do [Portal de visualização do Azure](http://go.microsoft.com/fwlink/?LinkId=529715), de forma programática por meio da [API de Gerenciamento de Serviços] ou dos [scripts do PowerShell] ou de forma automática por meio do recurso de Autoescala. Na camada **Padrão**, o recurso de Autoescala o habilita a escalar horizontalmente um aplicativo Web de forma automática com base na utilização da CPU. Esse recurso ajuda a maximizar a agilidade e minimizar os custos ao mesmo tempo, escalando horizontalmente o aplicativo Web apenas quando necessário com base na atividade do usuário. Para obter as práticas recomendadas, confira o artigo de [Troy Hunt]\: [Dez coisas que aprendi sobre como expandir com rapidez os aplicativos Web com o Azure].
+A capacidade dos Aplicativos Web do Serviço Aplicativos de [escalar verticalmente e horizontalmente] é perfeita para cargas de trabalho imprevisíveis, o que é o caso das campanhas de marketing digital. Escale horizontalmente seu aplicativo Web de forma manual por meio do [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715), de forma programática por meio da [API de Gerenciamento de Serviços], dos [scripts do PowerShell] ou de forma automática usando o recurso Autoescala. Na camada **Padrão**, o recurso de Autoescala o habilita a escalar horizontalmente um aplicativo Web de forma automática com base na utilização da CPU. Esse recurso ajuda a maximizar a agilidade e minimizar os custos ao mesmo tempo, escalando horizontalmente o aplicativo Web apenas quando necessário com base na atividade do usuário. Para obter as práticas recomendadas, confira o artigo de [Troy Hunt]\: [Dez coisas que aprendi sobre como expandir com rapidez os aplicativos Web com o Azure].
 
 Torne seu aplicativo Web mais ágil com o [Cache Redis do Azure]. Use-o para armazenar em cache os dados de bancos de dados de back-end e outros itens, como o [estado da sessão ASP.NET] e o [cache de saída].
 
@@ -81,9 +81,9 @@ Mantenha a alta disponibilidade de seu aplicativo Web usando o [Gerenciador de T
 
 Mantenha-se atualizado sobre o desempenho de seu aplicativo Web com o Azure ou com ferramentas de terceiros. Receba alertas sobre eventos críticos do aplicativo Web. Obtenha facilmente percepções sobre o usuário com o Application Insights ou com a análise de log da Web do HDInsight.
 
-Obtenha uma [visão rápida] das métricas de desempenho atuais do aplicativo Web e das cotas de recursos na folha do aplicativo Web no [Portal de visualização do Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Para ter uma visão de 360° de seu aplicativo em termos de disponibilidade, desempenho e uso, use o [Azure Application Insights] para obter informações rápidas e eficazes sobre solução de problemas, diagnósticos e uso. Ou use uma ferramenta de terceiros, como o [New Relic], para fornecer dados de monitoramento avançado sobre seus aplicativos Web.
+Obtenha uma [visão rápida] das métricas de desempenho atuais do aplicativo Web e das cotas de recursos na folha do aplicativo Web no [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Para ter uma visão de 360° de seu aplicativo em termos de disponibilidade, desempenho e uso, use o [Azure Application Insights] para obter informações rápidas e eficazes sobre solução de problemas, diagnósticos e uso. Ou use uma ferramenta de terceiros, como o [New Relic], para fornecer dados de monitoramento avançado sobre seus aplicativos Web.
 
-Na camada **Padrão**, monitore a capacidade de resposta do aplicativo e receba notificações por email sempre que seu aplicativo Web não responder. Para obter mais informações, consulte [Como: receber notificações de alerta e gerenciar regras de alerta no Azure].
+Na camada **Padrão**, monitore a capacidade de resposta do aplicativo e receba notificações por email sempre que seu aplicativo Web não responder. Para saber mais, confira [Como: receber notificações de alerta e gerenciar regras de alerta no Azure].
 
 ## Mais Recursos
 
@@ -101,7 +101,7 @@ Na camada **Padrão**, monitore a capacidade de resposta do aplicativo e receba 
 [Banco de Dados do SQL Azure]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md
 [FTP]: web-sites-deploy.md#ftp
 [Visual Studio]: web-sites-dotnet-get-started.md
-[Visual Studio Online]: ../cloud-services-continuous-delivery-use-vso.md
+[Visual Studio Team Services]: ../cloud-services-continuous-delivery-use-vso.md
 [Git]: web-sites-publish-source-control.md
 
 [implantando em um slot de preparo]: web-sites-staged-publishing.md
@@ -138,4 +138,4 @@ Na camada **Padrão**, monitore a capacidade de resposta do aplicativo e receba 
   [gitstaging]: http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

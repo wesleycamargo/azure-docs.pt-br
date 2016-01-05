@@ -3,7 +3,7 @@
 	description="Aplicativo de exemplo de recomendação do Azure ML" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="jaymathe" 
+	authors="luisca" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="12/07/2015" 
 	ms.author="luisca"/>
 
 
@@ -58,6 +58,7 @@ Você normalmente invocará Obter Recomendação por determinado período de tem
 
 * Visual Studio 2013
 * Acesso à Internet 
+* Assinatura da API de Recomendações (https://datamarket.azure.com/dataset/amla/recommendations).
 
 ##Solução de aplicativo de exemplo do Aprendizado de Máquina do Azure
 
@@ -89,4 +90,4 @@ Para obter uma descrição completa das APIs, consulte a documentação do Micro
 O aplicativo de exemplo não se destina a ser executado em um ambiente de produção. Os dados fornecidos no catálogo são muito pequenos e não fornecerão um modelo de recomendação significativo. Os dados são fornecidos como uma demonstração.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

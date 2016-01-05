@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Topologias do Azure AD Connect | Microsoft Azure"
+   pageTitle="Azure AD Connect: Topologias com suporte | Microsoft Azure"
    description="Este tópico detalha as topologias com e sem suporte para o Azure AD Connect"
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/13/2015"
+   ms.date="12/02/2015"
    ms.author="andkjell"/>
 
 # Topologias para o Azure AD Connect
@@ -167,4 +167,4 @@ Saiba mais sobre a configuração de [sincronização do Azure AD Connect](activ
 
 Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

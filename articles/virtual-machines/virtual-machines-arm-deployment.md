@@ -30,9 +30,8 @@ Para concluir este tutorial, você também precisa do seguinte:
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [Conta de armazenamento do Azure](../storage-create-storage-account.md)
-- [Windows Management Framework 3.0](http://www.microsoft.com/pt-BR/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/pt-BR/download/details.aspx?id=40855)
-
-[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
+- [Windows Management Framework 3.0](http://www.microsoft.com/pt-br/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/pt-br/download/details.aspx?id=40855)
+- [PowerShell do Azure](../install-configure-powershell.md)
 
 São necessários cerca de 30 minutos para a conclusão destas etapas.
 
@@ -48,7 +47,7 @@ Para usar o AD do Azure para autenticar solicitações ao Gerenciador de Recurso
 
 	    New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-	>[AZURE.NOTE]Anote o identificador do aplicativo retornado depois que o aplicativo é criado, pois você precisará dele para a próxima etapa. Você também pode encontrar o identificador do aplicativo no campo de ID de cliente do aplicativo na seção Active Directory do portal.
+	>[AZURE.NOTE]Anote o identificador do aplicativo retornado depois que o aplicativo é criado, pois você precisará dele para a próxima etapa. Você também pode encontrar o identificador do aplicativo no campo de ID de cliente do aplicativo na seção Active Directory do portal do Azure.
 
 3. Substitua {id-aplicativo} pelo identificador que acabou de registrar e, em seguida, crie a entidade de serviço para o aplicativo:
 
@@ -378,10 +377,10 @@ Como você é cobrado pelos recursos usados no Azure, sempre é uma boa prática
 
 2.	Pressione **Enter** após cada código de status ser retornado para criar cada recurso. Depois que a máquina virtual for criada, execute a próxima etapa antes de pressionar Enter para excluir todos os recursos.
 
-	Devem ser necessários cerca de cinco minutos para o aplicativo de console executar completamente do início ao fim. Antes de pressionar Enter para iniciar a exclusão de recursos, você pode levar alguns minutos para verificar a criação de recursos no portal de visualização do Azure antes de excluí-los.
+	Devem ser necessários cerca de cinco minutos para o aplicativo de console executar completamente do início ao fim. Antes de pressionar Enter para iniciar a exclusão de recursos, você pode levar alguns minutos para verificar a criação de recursos no portal do Azure antes de excluí-los.
 
-3. Procure os logs de auditoria no portal de visualização do Azure para ver o status dos recursos:
+3. Procure os Logs de Auditoria no portal do Azure para ver o status dos recursos:
 
 	![Criar um aplicativo do AD](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -26,7 +26,7 @@ Ao implantar seu aplicativo Web no [Serviço de Aplicativo](http://go.microsoft.
 
 - Implantar um aplicativo Web em um slot inicial e depois permutá-lo, enviando-o para produção, garante que todas as instâncias do slot estejam prontas antes dessa permuta. Isso elimina o tempo de inatividade quando você for implantar seu aplicativo Web. O redirecionamento do tráfego é contínuo e nenhuma solicitação é descartada como resultado de operações de permuta. Todo esse fluxo de trabalho pode ser automatizado por meio da configuração de [Permuta Automática](#configure-auto-swap-for-your-web-app) quando a validação de pré-permuta não é necessária.
 
-- Após uma permuta, o slot com o aplicativo Web preparado anteriormente tem agora o aplicativo Web de produção anterior. Se as alterações permutadas no slot de produção não forem o que você esperava, é possível fazer a mesma permuta imediatamente para ter o “último site bom” de volta.
+- Após uma permuta, o slot com o aplicativo Web preparado anteriormente tem agora o aplicativo Web de produção anterior. Se as alterações permutadas no slot de produção não forem o que você esperava, é possível fazer a mesma permuta imediatamente para ter o "último site bom" de volta.
 
 Cada modo de plano do Serviço de Aplicativo dá suporte a um número diferente de slots de implantação. Para descobrir o número de slots ao qual seu aplicativo Web dá suporte, consulte [Preços do Serviço de Aplicativo](/pricing/details/app-service/).
 
@@ -34,7 +34,7 @@ Cada modo de plano do Serviço de Aplicativo dá suporte a um número diferente 
 
 - O dimensionamento não está disponível para slots de não produção.
 
-- O gerenciamento de recurso vinculado não tem suporte para slots de não produção. Somente no [Portal de visualização do Azure](http://go.microsoft.com/fwlink/?LinkId=529715) você pode evitar esse impacto potencial em um slot de produção, mudando temporariamente o slot de não produção para um modo de plano do Serviço de Aplicativo diferente. Observe que o slot de não produção deve uma vez mais compartilhar o mesmo modo com o slot de produção antes que você possa alternar os dois slots.
+- O gerenciamento de recurso vinculado não tem suporte para slots de não produção. Somente no[ Portal do Azure ](http://go.microsoft.com/fwlink/?LinkId=529715)você pode evitar esse impacto potencial em um slot de produção, mudando temporariamente o slot de não produção para um modo de plano de Serviço de Aplicativo diferente. Observe que o slot de não produção deve uma vez mais compartilhar o mesmo modo com o slot de produção antes que você possa alternar os dois slots.
 
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
@@ -44,7 +44,7 @@ Cada modo de plano do Serviço de Aplicativo dá suporte a um número diferente 
 
 O aplicativo Web deve estar em execução no modo **Padrão** ou **Premium** para que você habilite vários slots de implantação.
 
-1. No [Portal de Visualização do Azure](https://portal.azure.com/), abra a folha de seu aplicativo Web.
+1. No [Portal do Azure](https://portal.azure.com/), abra a folha de seu aplicativo Web.
 2. Clique em **Slots de implantação**. Em seguida, na folha **Slots de implantação**, clique em **Adicionar Slot**.
 
 	![Adicionar um novo slot de implantação][QGAddNewDeploymentSlot]
@@ -233,7 +233,7 @@ Para excluir um slot de implantação que não seja mais necessário, use o coma
 
 ----------
 
->[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## Próximas etapas ##
 [Aplicativo Web do Serviço de Aplicativo do Azure – bloquear o acesso Web a slots de implantação não sejam de produção](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
@@ -241,8 +241,7 @@ Para excluir um slot de implantação que não seja mais necessário, use o coma
 [Avaliação gratuita do Microsoft Azure](/pricing/free-trial/)
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- IMAGES -->
 [QGAddNewDeploymentSlot]: ./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png
@@ -260,4 +259,4 @@ Para excluir um slot de implantação que não seja mais necessário, use o coma
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

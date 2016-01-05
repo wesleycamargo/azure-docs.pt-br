@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="javascript"
-	ms.date="08/25/2015"
+	ms.date="11/30/2015"
 	ms.author="krisragh"/>
 
 # Autorização de serviço de usuários nos Serviços Móveis
@@ -28,7 +28,7 @@ Esse tutorial se baseia no Início Rápido dos Serviços Móveis e elabora o tut
 
 ## <a name="register-scripts"></a>Registrar scripts
 
-1. Entre no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e clique em seu serviço móvel. Clique na guia **Dados** e clique na tabela **TodoItem**.
+1. Conecte-se no [Portal clássico do Azure], clique em **Serviços Móveis** e clique em seu serviço móvel. Clique na guia **Dados** e clique na tabela **TodoItem**.
 
 2. Clique em **Script**, selecione a operação **Inserir**, substitua o script existente pela função a seguir e clique em **Salvar**.
 
@@ -67,7 +67,7 @@ Esse tutorial se baseia no Início Rápido dos Serviços Móveis e elabora o tut
 [My Apps dashboard]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Adicionar autenticação ao aplicativo de Serviços Móveis existentes]: /develop/mobile/tutorials/get-started-with-users-ios
 
-[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
+[Portal clássico do Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

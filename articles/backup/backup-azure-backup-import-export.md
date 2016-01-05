@@ -6,7 +6,7 @@
    authors="aashishr"
    manager="shreeshd"
    editor=""/>
-<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="08/28/2015" ms.author="aashishr"; "jimpark"/>
+<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="11/25/2015" ms.author="aashishr"; "jimpark"/>
 
 # Fluxo de trabalho de backup offline no Backup do Azure
 
@@ -27,7 +27,7 @@ Com o Backup do Azure e a Importação/Exportação do Azure, é simples e fáci
 7. Baixe a ferramenta de Importação/Exportação do Azure [aqui](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) no computador ao qual o gravador de unidade SATA está conectado.
 
 ## Fluxo de trabalho
-As informações fornecidas nesta seção são para concluir o fluxo de trabalho de **Backup Offline** para que os dados possam ser entregues em um datacenter do Azure e carregados no armazenamento do Azure. Se você tiver dúvidas sobre o serviço de Importação ou qualquer aspecto do processo, consulte a visão geral do serviço de Importação indicada [acima](../storage-import-export-service.md).
+As informações fornecidas nesta seção são para concluir o fluxo de trabalho de **Backup Offline** para que os dados possam ser entregues em um datacenter do Azure e carregados no armazenamento do Azure. Se você tem dúvidas sobre o serviço de Importação ou qualquer aspecto do processo, confira a documentação sobre a [Visão geral do serviço de importação](../storage-import-export-service.md) indicada acima.
 
 ### Iniciar backup offline
 
@@ -108,4 +108,4 @@ Quando os dados de backup iniciais estiverem disponíveis em sua conta de armaze
 - Se tiver dúvidas sobre o fluxo de trabalho de importação/exportação do Azure, consulte este [artigo](../storage-import-export-service.md).
 - Consulte a seção “Backup Offline” das [perguntas frequentes](backup-azure-backup-faq.md) do Backup do Azure se tiver dúvidas sobre o fluxo de trabalho
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -55,7 +55,7 @@ Você economizar tempo e dinheiro implantando e depurando seu aplicativo da Malh
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Próximas etapas
 
-- [Testar um serviço da Malha do Serviço](service-fabric-test-your-service-index.md).
+- [Testar um serviço da Malha do Serviço](service-fabric-testability-overview.md).
 - [Gerenciando seu aplicativo da Malha do Serviço no Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 
 <!--Image references-->
@@ -64,6 +64,5 @@ Você economizar tempo e dinheiro implantando e depurando seu aplicativo da Malh
 [viewdiagnosticevents]: ./media/service-fabric-debugging-your-application/viewdiagnosticevents.png
 [diagnosticeventsactions]: ./media/service-fabric-debugging-your-application/diagnosticeventsactions.png
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
- 
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

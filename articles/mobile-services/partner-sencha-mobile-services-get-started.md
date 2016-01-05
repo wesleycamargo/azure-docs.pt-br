@@ -18,13 +18,18 @@
 
 # <a name="getting-started"></a>Introdução aos Serviços Móveis e ao Sencha Touch
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
 ##Visão geral
 
-Este tutorial mostra como usar os Serviços Móveis do Azure no aplicativo Sencha Touch. Você criará um aplicativo simples de *Lista de Tarefas Pendentes* usando o Sencha Touch, que usa um serviço móvel definido por meio do Portal de Gerenciamento. Este tutorial destina-se a desenvolvedores de aplicativos web intermediários a avançados que tenham um bom entendimento do JavaScript e que estejam familiarizados com a estrutura do Sencha Touch.
+Este tutorial mostra como usar os Serviços Móveis do Azure no aplicativo Sencha Touch. Você criará um aplicativo simples de *Lista de Tarefas Pendentes* usando o Sencha Touch, que usa um serviço móvel definido por meio do portal clássico do Azure. Este tutorial destina-se a desenvolvedores de aplicativos web intermediários a avançados que tenham um bom entendimento do JavaScript e que estejam familiarizados com a estrutura do Sencha Touch.
 
 Se você preferir assistir a um vídeo, o clipe segue as mesmas etapas deste tutorial. No vídeo, Arthur Kay explica como criar um aplicativo do Sencha Touch usando um back-end dos Serviços Móveis do Azure.
 
@@ -50,9 +55,9 @@ Uma captura de tela do aplicativo completo é mostrada abaixo:
 
 ##Criar uma tabela TodoItems
 
-Após a criação do seu serviço móvel, será possível seguir as etapas de um início rápido e fácil no Portal de Gerenciamento para criar uma nova tabela do banco de dados para usar em seu serviço móvel.
+Após a criação do seu serviço móvel, será possível seguir as etapas de um início rápido e fácil no portal clássico do Azure para criar uma nova tabela do banco de dados para usar em seu serviço móvel.
 
-1. No Portal de Gerenciamento, clique em **Serviços Móveis**e, em seguida, clique no serviço móvel que você acabou de criar.
+1. No [portal clássico do Azure], clique em **Serviços Móveis** e clique no serviço móvel que você acabou de criar.
 
 2. Na guia de início rápido, clique em **HTML** em **Escolher plataforma** e expanda **Criar um novo aplicativo HTML**.
 
@@ -64,10 +69,10 @@ Após a criação do seu serviço móvel, será possível seguir as etapas de um
 
 3. Clique em **Criar tabela TodoItems** para criar uma tabela para armazenar dados de aplicativo.
 
-	> [AZURE.NOTE]NÃO baixe o aplicativo HTML do Portal de Gerenciamento. Em vez disso, criaremos manualmente um aplicativo do Sencha Touch na seção abaixo.
+	> [AZURE.NOTE]NÃO baixe o aplicativo HTML do portal clássico do Azure. Em vez disso, criaremos manualmente um aplicativo do Sencha Touch na seção abaixo.
 
 
-1. Anote o **appKey** e o **appUrl** no Portal de Gerenciamento. Você irá usá-los em outras seções deste tutorial.
+1. Anote o **appKey** e o **appUrl** no portal clássico do Azure. Você irá usá-los em outras seções deste tutorial.
 
     ![chave do aplicativo](./media/partner-sencha-mobile-services-get-started/mobile-app-key-portal.png)
 
@@ -101,7 +106,7 @@ Você pode adicionar manualmente as extensões do Azure ao aplicativo, usando as
 
         $ cd /path/to/application
 	    $ mv /download-location/azure.zip .
-    	$ unzip azure.zip  
+    	$ unzip azure.zip
 
     Isso cria um diretório **azure**, que contém todo o código-fonte, exemplos e documentação do pacote. O código-fonte residirá no diretório **azure/src**.
 
@@ -678,7 +683,7 @@ O estágio final deste tutorial consiste em hospedar e executar seu novo aplicat
 
     Isso envia uma solicitação de POST para o novo serviço móvel hospedado no Azure. Os dados da solicitação são inseridos na tabela TodoItem.
 
-  5. No Portal de Gerenciamento, clique na guia **Dados** e, em seguida, clique na tabela TodoItems.
+  5. No [portal clássico do Azure], clique na guia **Dados** e na tabela TodoItems.
 
     ![Tabela TodoItems](./media/partner-sencha-mobile-services-get-started/mobile-data-tab.png)
 
@@ -717,4 +722,6 @@ Para obter mais informações sobre como começar a usar o Sencha Touch, acesse 
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
 
-<!---HONumber=Nov15_HO3-->
+[portal clássico do Azure]: https://manage.windowsazure.com/
+
+<!---HONumber=AcomDC_1203_2015-->

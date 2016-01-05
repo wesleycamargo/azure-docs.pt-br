@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="09/16/2015"
+	ms.date="11/06/2015"
 	ms.author="jroth" />
 
 # Configurar um ouvinte de ILB para grupos de disponibilidade do AlwaysOn no Azure
@@ -31,15 +31,16 @@ Este tópico mostra como configurar um ouvinte para um grupo de disponibilidade 
 
 O seu grupo de disponibilidade pode conter somente réplicas locais, somente no Azure ou locais e no Azure para configurações híbridas. As réplicas do Azure podem residir na mesma região ou em várias regiões usando várias redes virtuais (VNets). As etapas a seguir pressupõem que você já tenha [configurado um grupo de disponibilidade](virtual-machines-sql-server-alwayson-availability-groups-gui.md), mas não configurou um ouvinte.
 
-Observe as seguintes limitações no ouvinte do grupo de disponibilidade no Azure usando o ILB:
+## Diretrizes e limitações para ouvintes internos
+Observe as seguintes diretrizes no ouvinte do grupo de disponibilidade no Azure usando o ILB:
 
 - Há suporte para o ouvinte do grupo de disponibilidade no Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2.
 
-- O aplicativo cliente deve residir em um serviço de nuvem diferente daquele que contém as VMs do grupo de disponibilidade. O Azure não dá suporte a retorno de servidor direto com cliente e servidor no mesmo serviço de nuvem.
+- Há suporte a somente um ouvinte de grupo de disponibilidade que tem suporte por cada serviço de nuvem, porque o ouvinte é configurado ao ILB, e há apenas um ILB por serviço de nuvem. No entanto, é possível criar vários ouvintes externos. Para obter mais informações, consulte [Configurar um ouvinte para Grupos de Disponibilidade AlwayOn no Azure](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md).
 
-- Há suporte a somente um ouvinte de grupo de disponibilidade por serviço de nuvem porque o ouvinte é configurado para usar o endereço VIP de serviço de nuvem ou o endereço VIP do Balanceador de carga interno. Observe que essa limitação ainda está em vigor apesar de o Azure agora dá suporte à criação de vários endereços VIP em um determinado serviço de nuvem.
+- Não há suporte para criar um ouvinte interno no mesmo serviço de nuvem em que você também tem um ouvinte externo usando o VIP público do serviço de nuvem.
 
-## Determinar a acessibilidade do Ouvinte
+## Determine a acessibilidade do ouvinte
 
 [AZURE.INCLUDE [acessibilidade de ouvinte de grupo de disponibilidade](../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
@@ -83,7 +84,7 @@ Para o ILB, você deve criar primeiro o balanceador de carga interno. Isso é fe
 
 1. Depois de ter definido as variáveis, copie o script do editor de texto para a sua sessão do Azure PowerShell para executá-lo. Se o prompt ainda mostrar >>, digite ENTER novamente para certificar-se de que o script comece a ser executado. Observação
 
->[AZURE.NOTE]O Portal de Gerenciamento do Azure não oferece suporte ao Balanceador de carga interno neste momento; portanto, você não verá o ILB ou os pontos de extremidade no portal. No entanto, **Get-AzureEndpoint** retorna um endereço IP interno se o Balanceador de Carga estiver sendo executado nele. Caso contrário, retornará null.
+>[AZURE.NOTE]O portal clássico do Azure não dá suporte ao balanceador de carga interno neste momento. Assim, você não verá o ILB ou os pontos de extremidade no portal clássico do Azure. No entanto, **Get-AzureEndpoint** retorna um endereço IP interno se o Balanceador de Carga estiver sendo executado nele. Caso contrário, retornará null.
 
 ## Verifique se KB2854082 está instalado, se necessário
 
@@ -114,8 +115,8 @@ Para o ILB, você deve criar primeiro o balanceador de carga interno. Isso é fe
 		
 		# If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code. 
 		
-		# Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"OverrideAddressMatch"=1;"EnableDhcp"=0}
-		# cluster res $IPResourceName /priv enabledhcp=0 overrideaddressmatch=1 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
+		# Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+		# cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
 
 1. Assim que você tiver definido as variáveis, abra uma janela elevada do Windows PowerShell, depois copie o script do editor de texto e cole-o na sua sessão do Azure PowerShell para executá-lo. Se o prompt ainda mostrar >>, digite ENTER novamente para certificar-se de que o script comece a ser executado.
 
@@ -137,4 +138,4 @@ Para o ILB, você deve criar primeiro o balanceador de carga interno. Isso é fe
 
 [AZURE.INCLUDE [Ouvinte das próximas etapas](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

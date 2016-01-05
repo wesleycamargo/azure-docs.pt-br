@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Considerações do design de identidade híbrida do Active Directory do Azure | Microsoft Azure"
+	pageTitle="Considerações sobre design da identidade híbrida do Active Directory do Azure - próximas etapas| Microsoft Azure"
 	description="Resumo e próximas etapas depois de ler o guia de considerações de design de identidade híbrida"
 	documentationCenter=""
 	services="active-directory"
@@ -36,10 +36,13 @@ Conceitos e procedimentos de planejamento, implantação e conteúdo de administ
 ## Recursos de identidade híbrida
 O monitoramento dos seguintes recursos geralmente fornece as últimas notícias e atualizações em soluções de gerenciamento de dispositivo móvel:
 
-- [Blog de mobilidade corporativa da Microsoft](http://blogs.technet.com/b/enterprisemobility/)
+- [Blog do Microsoft Enterprise Mobility](http://blogs.technet.com/b/enterprisemobility/)
 - [Blog Microsoft na nuvem](http://blogs.technet.com/b/in_the_cloud/)
-- [Blog Microsoft Intune](http://blogs.technet.com/b/microsoftintune/)
+- [Blog do Microsoft Intune](http://blogs.technet.com/b/microsoftintune/)
 - [Blog do Microsoft System Center Configuration Manager](http://blogs.technet.com/b/configurationmgr/)
-- [Blog da equipe do Microsoft System Center Configuration Manager](http://blogs.technet.com/b/configmgrteam/)
+- [Blog da Equipe do Microsoft System Center Configuration Manager](http://blogs.technet.com/b/configmgrteam/)
 
-<!---HONumber=Nov15_HO3-->
+## Consulte também
+[Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
+
+<!---HONumber=Nov15_HO4-->

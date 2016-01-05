@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="09/11/2015"
+   ms.date="11/20/2015"
    ms.author="derrickv"/>
 
 # Introdução ao Catálogo de Dados do Azure
@@ -38,7 +38,7 @@ Neste exercício, você instalará exemplo do Adventure Works para o mecanismo d
 
 O banco de dados do Adventure Works OLTP dá suporte a cenários de processamento de transações online padrão para um fabricante de bicicletas fictício (Adventure Works Cycles) incluindo produção, vendas e compras. O banco de dados do Adventure Works DW demonstra como criar um data warehouse.
 
-Os bancos de dados encontram-se em http://msftdbprodsamples.codeplex.com/ e podem ser instalados seguindo as etapas em [Como instalar os bancos de dados de exemplo do Adventure Works 2014].
+Os bancos de dados estão localizados em [CodePlex.com](http://msftdbprodsamples.codeplex.com/) e podem ser instalado seguindo as etapas no [Leiame para bancos de dados de exemplo do Adventure Works 2014](https://msftdbprodsamples.codeplex.com/downloads/get/880669).
 
 Neste exercício, você instalou os bancos de dados de exemplo do Adventure Works que são usados nos exercícios restantes. Se você escolher ignorar esse exercício e usar suas próprias fontes de dados da empresa, esteja preparado para lembrar de nomes, marcas e outros metadados.
 
@@ -130,7 +130,7 @@ Neste exercício, você usará o portal do **Catálogo de Dados do Azure** para 
 
 1.	Faça logon no portal do **Catálogo de Dados do Azure**.
 2.	Clique em **Descobrir**.
-3.	Escolha um ou mais **Ativos de Dados**. Neste exemplo, escolha **ProductPhoto** e insira "Fotos de produto para materiais de marketing".
+3.	Escolha um ou mais **ativos de dados**. Neste exemplo, escolha **ProductPhoto** e insira "Fotos de produto para materiais de marketing".
 4.	Insira uma **Descrição** que ajudará outras pessoas a descobrirem e entenderem porque e como usar o ativo de dados selecionado. Digite, por exemplo: "Imagens do produto". Você também pode adicionar mais marcas e exibir colunas.
 5.	Agora você pode tentar pesquisar e filtrar para descobrir os ativos de dados usando os metadados descritivos que você adicionou ao catálogo.
 
@@ -232,4 +232,4 @@ Neste tutorial, você explorou recursos essenciais da visualização do **Catál
 [12]: ./media/data-catalog-get-started/ownership.png
 [13]: ./media/data-catalog-get-started/crowdsource.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

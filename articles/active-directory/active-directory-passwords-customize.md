@@ -13,15 +13,29 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # Personalização do gerenciamento de senhas para atender às necessidades da sua organização
 Para dar aos usuários a melhor experiência possível, recomendamos que você explore e brinque com todas as opções de configuração de gerenciamento de senhas disponíveis para você. Na verdade, você pode começar a explorar isso imediatamente acessando a guia de configuração da **extensão do Active Directory** no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com). Este tópico orienta você através de todas as personalizações de gerenciamento de senhas diferentes que você pode fazer como administrador na guia **Configurar** de seu diretório no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com), incluindo:
 
-- [**Personalização da aparência de gerenciamento de senha**](#password-managment-look-and-feel)
-- [**Personalização do comportamento do gerenciamento de senha do usuário**](#password-management-behavior)
-- [**Personalização das notificações de gerenciamento de senha**](#password-management-notifications)
+| Tópico | |
+| --------- | --------- |
+| Como habilitar ou desabilitar a redefinição de senha? | [Configuração: usuários habilitados para a redefinição de senha](#users-enabled-for-password-reset) |
+| Como faço o escopo da redefinição de senha para um conjunto específico de usuários? | [Restringir a redefinição de senha a usuários específicos](#restrict-access-to-password-reset) |
+| Como posso alterar os métodos de autenticação com suporte? | [Configuração: métodos de autenticação disponíveis para os usuários](#authentication-methods-available-to-users) |
+| Como posso alterar a quantidade necessária de métodos de autenticação? | [Configuração: quantidade necessária de métodos de autenticação](#number-of-authentication-methods-required) |
+| Como faço para definir as perguntas de segurança personalizadas? | [Configuração: perguntas de segurança personalizadas](#custom-security-questions) |
+| Como posso definir as perguntas de segurança localizadas pré-configuradas? | [Configuração: perguntas de segurança baseadas em conhecimento](#knowledge-based-security-questions) |
+| Como posso alterar quantas perguntas de segurança são necessárias? | [Configuração: número de perguntas de segurança para registro ou redefinição](#number-of-questions-required-to-register) |
+| Como posso forçar meus usuários a fazer o registro durante a conexão? | [Imposição de distribuição baseada em registro de redefinição de senha](#require-users-to-register-when-signing-in) |
+| Como posso forçar meus usuários a reconfirmar seus registros periodicamente? | [Configuração: número de dias antes que os usuários tenham que reconfirmar seus dados de autenticação](#number-of-days-before-users-must-confirm-their-contact-data) |
+| Como posso personalizar como um usuário entra em contato com um administrador? | [Configuração: personalizar o link “entre em contato com o seu administrador”](#customize-the-contact-your-administrator-link) |
+| Como posso permitir aos usuários desbloquear contas do AD sem redefinir a senha? | [Configuração: permitir que os usuários desbloqueiem suas contas do AD sem redefinir a senha](#allow-users-to-unlock-accounts-without-resetting-their-password) |
+| Como habilitar notificações de redefinição de senha para os usuários? | [Configuração: notificar os usuários quando suas senhas forem redefinidas](#notify-users-and-admins-when-their-own-password-has-been-reset) |
+| Como habilitar notificações de redefinição de senha para administradores? | [Configuração: notificar outros administradores quando um administrador redefinir suas senhas](#notify-admins-when-other-admins-reset-their-own-passwords) |
+| Como posso personalizar a aparência da redefinição de senha? | [Configuração: nome, identidade visual e logotipo da empresa ](#password-managment-look-and-feel) |
+
 
 ## Aparência do gerenciamento de senha
 A tabela a seguir descreve como cada controle afeta a experiência dos usuários que se registram para a redefinição de senha e que redefinem as suas senhas. Você pode configurar essas opções na seção **Propriedades do diretório**da guia **Configurar** do seu diretório no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
@@ -46,7 +60,9 @@ A tabela a seguir descreve como cada controle afeta a experiência dos usuários
             </tr>
             <tr>
               <td>
-                <p>Nome do diretório</p>
+                <div id="directory-name">
+                  <p>Nome do diretório</p>
+                </div>
               </td>
               <td>
                 <p>Determina qual nome organizacional os usuários ou administradores veem nas comunicações de email com a redefinição de senha.</p>
@@ -72,7 +88,9 @@ A tabela a seguir descreve como cada controle afeta a experiência dos usuários
             </tr>
             <tr>
               <td>
-                <p>Entrar e acessar a aparência da página de painel</p>
+                <div id="sign-in-and-access-panel-page-appearance">
+                  <p>Entrar e acessar a aparência da página de painel</p>
+                </div>
               </td>
               <td>
                 <p>Determina se os usuários que acessam a página de redefinição de senha veem o logotipo da Microsoft ou o seu próprio logotipo personalizado. Esse item de configuração também adiciona a sua identidade visual ao painel de acesso e à página de entrada.</p>
@@ -134,7 +152,9 @@ A tabela a seguir descreve como cada controle afeta a experiência dos usuários
             </tr>
             <tr>
               <td>
-                <p>Usuários habilitados para a redefinição de senha</p>
+                <div id="users-enabled-for-password-reset">
+                  <p>Usuários habilitados para a redefinição de senha</p>
+                </div>
               </td>
               <td>
                 <p>Determina se a redefinição de senha está habilitada para os usuários desse diretório. </p>
@@ -166,7 +186,9 @@ A tabela a seguir descreve como cada controle afeta a experiência dos usuários
             </tr>
             <tr>
               <td>
-                <p>Restringir o acesso à redefinição de senha</p>
+                <div id="restrict-access-to-password-reset">
+                  <p>Restringir o acesso à redefinição de senha</p>
+                </div>
               </td>
               <td>
                 <p>Determina se somente um determinado grupo de usuários tem permissão para usar a redefinição de senha. (Visível somente se a opção <strong>usuários habilitados para redefinição de senha</strong> estiver definida como <strong>sim</strong>.)</p>
@@ -194,7 +216,9 @@ A tabela a seguir descreve como cada controle afeta a experiência dos usuários
             </tr>
             <tr>
               <td>
-                <p>Grupo que pode executar a redefinição de senha</p>
+                <div id="group-that-can-perform-password-reset">
+                  <p>Grupo que pode executar a redefinição de senha</p>
+                </div>
               </td>
               <td>
                 <p>Determina qual grupo de usuários tem permissão para usar a redefinição de senha. </p>
@@ -231,7 +255,9 @@ A tabela a seguir descreve como cada controle afeta a experiência dos usuários
             </tr>
             <tr>
               <td>
-                <p>Métodos de autenticação disponíveis aos usuários</p>
+                <div id="authentication-methods-available-to-users">
+                  <p>Métodos de autenticação disponíveis aos usuários</p>
+                </div>
               </td>
               <td>
                 <p>Determina para quais desafios um usuário tem a permissão de usar a redefinição de senha.</p>
@@ -295,7 +321,9 @@ A tabela a seguir descreve como cada controle afeta a experiência dos usuários
             </tr>
             <tr>
               <td>
-                <p>Quantidade necessária de métodos de autenticação</p>
+                <div id="number-of-authentication-methods-required">
+                  <p>Quantidade necessária de métodos de autenticação</p>
+                </div>
               </td>
               <td>
                 <p>Determina a quantidade mínima de métodos de autenticação disponíveis pelos quais um usuário deve passar para redefinir a senha.</p>
@@ -332,7 +360,9 @@ A tabela a seguir descreve como cada controle afeta a experiência dos usuários
             </tr>
             <tr>
               <td>
-                <p>Número de perguntas obrigatórias para o registro</p>
+                <div id="number-of-questions-required-to-register">
+                  <p>Número de perguntas obrigatórias para o registro</p>
+                </div>
               </td>
               <td>
                 <p>Determina o número mínimo de perguntas a que um usuário deve responder ao se registrar para a opção de perguntas de segurança.</p>
@@ -361,7 +391,9 @@ A tabela a seguir descreve como cada controle afeta a experiência dos usuários
             </tr>
             <tr>
               <td>
-                <p>Número de perguntas obrigatórias para a redefinição </p>
+                <div id="number-of-questions-required-to-reset">
+                  <p>Número de perguntas obrigatórias para a redefinição </p>
+                </div>
               </td>
               <td>
                 <p>Determina o número mínimo de perguntas a que um usuário deve responder ao redefinir uma senha.</p>
@@ -393,7 +425,9 @@ A tabela a seguir descreve como cada controle afeta a experiência dos usuários
             </tr>
             <tr>
               <td>
-                <p>Perguntas de segurança com base em conhecimento</p>
+                <div id="knowledge-based-security-questions">
+                  <p>Perguntas de segurança com base em conhecimento</p>
+                </div>
               </td>
               <td>
                 <p>Define as perguntas de segurança pré-configuradas para escolha dos usuários durante o registro para a redefinição de senha e ao redefinir suas senhas.</p>
@@ -442,7 +476,9 @@ A tabela a seguir descreve como cada controle afeta a experiência dos usuários
             </tr>
             <tr>
               <td>
-                <p>Perguntas de segurança personalizadas</p>
+                <div id="custom-security-questions">
+                  <p>Perguntas de segurança personalizadas</p>
+                </div>
               </td>
               <td>
                 <p>Define as perguntas de segurança que os usuários podem escolher ao se registrar para a redefinição de senha e ao redefinir as suas senhas.</p>
@@ -493,13 +529,22 @@ A tabela a seguir descreve como cada controle afeta a experiência dos usuários
             </tr>
             <tr>
               <td>
-                <p>Exigir que os usuários se registrem ao se conectar ao painel de acesso?</p>
+                <div id="require-users-to-register-when-signing-in">
+                  <p>Exigir que os usuários se registrem ao entrar?</p>
+                </div>
                 <p>
                   
                 </p>
               </td>
               <td>
-                <p>Determina se um usuário precisa registrar dados de contato para a redefinição de senha na próxima vez em que ele se conectar ao painel de acesso.</p>
+                <p>Determina se um usuário precisa registrar dados de contato para a redefinição de senha na próxima vez em que ele ou ela entrar.  
+                </p>
+                <p>Esse recurso funciona em qualquer página de entrada que use uma conta de trabalho ou escolar. Essas páginas incluem todos os aplicativos do Office 365, o Portal de Gerenciamento do Azure, o Painel de Acesso e quaisquer aplicativos federados ou personalizados que usam o Azure AD para entrar.
+                </p>
+                <p>
+                  
+                </p>
+                <p>A imposição de registro será aplicada somente aos usuários que podem redefinir a senha. Portanto, se você tiver usado o recurso "restringir acesso à redefinição de senha" e tiver definido o escopo de redefinição de senha a um grupo específico de usuários, somente os usuários nesse grupo precisarão se registrar para a redefinição de senha ao entrar.</p>
                 <p>
                   
                 </p>
@@ -534,7 +579,9 @@ A tabela a seguir descreve como cada controle afeta a experiência dos usuários
             </tr>
             <tr>
               <td>
-                <p>Número de dias antes que os usuários precisem confirmar seus dados de contato</p>
+                <div id="number-of-days-before-users-must-confirm-their-contact-data">
+                  <p>Número de dias antes que os usuários precisem confirmar seus dados de contato</p>
+                </div>
               </td>
               <td>
                 <p>Quando a opção <strong>exige que os usuários se registrem</strong> estiver habilitada, essa configuração determina o período de tempo que pode decorrer antes que um usuário precise reconfirmar seus dados. </p>
@@ -568,7 +615,9 @@ A tabela a seguir descreve como cada controle afeta a experiência dos usuários
             </tr>
             <tr>
               <td>
-                <p>Personalizar o link Entre em contato com o seu administrador?</p>
+                <div id="customize-the-contact-your-administrator-link">
+                  <p>Personalizar o link Entre em contato com o seu administrador?</p>
+                </div>
               </td>
               <td>
                 <p>Controla se o link Entre em contato com o seu administrador (mostrado à esquerda) que aparece no portal de redefinição de senha quando ocorre um erro ou quando um usuário aguarda um tempo excessivo em uma operação apontará para uma URL ou para um endereço de email personalizado.</p>
@@ -612,7 +661,9 @@ A tabela a seguir descreve como cada controle afeta a experiência dos usuários
             </tr>
             <tr>
               <td>
-                <p>URL ou endereço de email personalizado</p>
+                <div id="custom-email-address-or-URL">
+                  <p>URL ou endereço de email personalizado</p>
+                </div>
               </td>
               <td>
                 <p>Controla o endereço de email ou URL para o qual o link <strong>Entre em contato com seu administrador</strong> aponta. </p>
@@ -644,14 +695,16 @@ A tabela a seguir descreve como cada controle afeta a experiência dos usuários
             </tr>
             <tr>
               <td>
-                <p>Fazer write-back da senha para o diretório local</p>
+                <div id="write-back-passwords-to-on-premises-directory">
+                  <p>Write-back da senha para o diretório local</p>
+                </div>
               </td>
               <td>
                 <p>Controla se o write-back de senha está habilitado para esse diretório e, se estiver habilitado, indica o status do serviço local de write-back.</p>
                 <p>
                   
                 </p>
-                <p>Isso é útil se você quiser desabilitar temporariamente o serviço devido a uma interrupção.</p>
+                <p>Essa configuração é útil se você quiser desabilitar temporariamente o serviço sem configurar novamente o Azure AD Connect.</p>
               </td>
               <td>
                 <p>
@@ -688,6 +741,41 @@ A tabela a seguir descreve como cada controle afeta a experiência dos usuários
                 </ul>
               </td>
             </tr>
+             <tr>
+              <td>
+                <div id="allow-users-to-unlock-accounts-without-resetting-their-password">
+                  <p>Permitir aos usuários desbloquear contas sem redefinir a senha</p>
+                </div>
+              </td>
+              <td>
+              
+              <p>Determina se os usuários que visitam o portal de redefinição de senha receber a opção de desbloquear suas contas locais do Active Directory sem redefinir a senha. Por padrão, o Azure AD sempre desbloqueia contas ao executar uma redefinição de senha, essa configuração permite que você separe as duas operações.</p>
+              
+              <p>Se for definido como "Sim", os usuários terão a opção de redefinir suas senhas e desbloquear a conta, ou desbloquear sem redefinir a senha. </p>
+              
+              <p>Se for definido como "não", os usuários só poderão executar uma operação combinada de redefinição de senha e de desbloqueio de conta.</p>
+
+              </td>
+              <td>
+                <p>
+                  <strong>Observação:</strong>
+                </p>
+                <ul>
+                  <li class="unordered">
+												Para usar esse recurso, você deve instalar a versão de agosto de 2015 ou posterior do Azure Connect AD (v. 1.0.8667.0 ou mais recente).<br><br><a href="http://www.microsoft.com/download/details.aspx?id=47594">Clique aqui para baixar a versão mais recente do Azure AD Connect.</a></li>
+                        
+                  <li class="unordered">
+                    <strong>Observação:</strong> para testar esse recurso, você precisa habilitar o write-back de senha e usar uma conta que tenha origem no local (como um usuário federado ou sincronizado com senha) e ter uma conta bloqueada. Os usuários que não vêm do local e não têm uma conta bloqueada não verão a opção de desbloquear suas contas.</li>
+                </ul>
+                <p>
+                  <strong>Portal de redefinição de senha:</strong>
+                </p>
+                <ul>
+                  <li class="unordered">
+												Depois de habilitar essa opção, quando um usuário com uma conta local bloqueada chegar ao portal de redefinição de senha, ele ou ela terá a opção de desbloquear suas contas sem redefinir sua senha.<br><br>Observe que se você estiver usando o write-back de senha, as contas já serão automaticamente desbloqueadas quando a senha for redefinida, e que essa opção simplesmente separa as operações.<br><br>Essa é uma opção útil para habilitar se você perceber que muitos chamadas de assistência técnica são geradas por solicitações de desbloqueio de conta.</li>
+                </ul>
+              </td>
+            </tr>
           </tbody></table>
 
 ## Notificações de gerenciamento de senha
@@ -713,7 +801,9 @@ A tabela a seguir descreve como cada controle afeta a experiência dos usuários
             </tr>
             <tr>
               <td>
-                <p>Notificar os administradores quando outros administradores redefinirem suas próprias senhas</p>
+                <div id="notify-admins-when-other-admins-reset-their-own-passwords">
+                  <p>Notificar os administradores quando outros administradores redefinirem suas próprias senhas</p>
+                </div>
               </td>
               <td>
                 <p>Determina se todos os administradores globais serão notificados por email para seu endereço de email principal quando outro administrador de qualquer tipo redefinir a sua própria senha.</p>
@@ -741,7 +831,9 @@ A tabela a seguir descreve como cada controle afeta a experiência dos usuários
             </tr>
             <tr>
               <td>
-                <p>Notifica os usuários e administradores quando suas próprias senhas tiverem sido redefinidas</p>
+                <div id="notify-users-and-admins-when-their-own-password-has-been-reset">
+                  <p>Notifica os usuários e administradores quando suas próprias senhas tiverem sido redefinidas</p>
+                </div>
               </td>
               <td>
                 <p>Determina se os usuários finais ou administradores que redefinirem suas próprias senhas receberão uma notificação por email de que a senha foi redefinida.</p>
@@ -765,17 +857,19 @@ A tabela a seguir descreve como cada controle afeta a experiência dos usuários
 
 <br/> <br/> <br/>
 
-**Recursos adicionais**
+## Links para a documentação de redefinição de senha
+Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
+
+* [**Redefinir sua própria senha**](active-directory-passwords-update-your-own-password.md): saiba mais sobre como redefinir ou alterar sua própria senha como um usuário do sistema
+* [**Como funciona**](active-directory-passwords-how-it-works.md) - saiba mais sobre os seis diferentes componentes do serviço e o que cada um deles faz
+* [**Introdução**](active-directory-passwords-getting-started.md) - saiba como permitir que os usuários redefinam e alterem suas senhas na nuvem ou no local
+* [**Práticas recomendadas**](active-directory-passwords-best-practices.md) - aprenda a implantar rapidamente e gerenciar com eficiência as senhas em sua organização
+* [**Obter percepções**](active-directory-passwords-get-insights.md) - saiba mais sobre nossos recursos integrados de relatórios
+* [**Perguntas frequentes**](active-directory-passwords-faq.md) - obtenha respostas para perguntas frequentes
+* [**Solução de problemas**](active-directory-passwords-troubleshoot.md) - aprenda a solucionar rapidamente os problemas com o serviço
+* [**Saiba mais**](active-directory-passwords-learn-more.md) - aprofunde-se nos detalhes técnicos do funcionamento do serviço
 
 
-* [O que é o Gerenciamento de Senhas](active-directory-passwords.md)
-* [Como funciona o gerenciamento de senhas](active-directory-passwords-how-it-works.md)
-* [Introdução ao gerenciamento de senhas](active-directory-passwords-getting-started.md)
-* [Práticas recomendadas de gerenciamento de senhas](active-directory-passwords-best-practices.md)
-* [Como obter percepções operacionais com relatórios de gerenciamento de senhas](active-directory-passwords-get-insights.md)
-* [Perguntas frequentes sobre Gerenciamento de Senhas](active-directory-passwords-faq.md)
-* [Solucionar problemas do Gerenciamento de Senhas](active-directory-passwords-troubleshoot.md)
-* [Saiba mais](active-directory-passwords-learn-more.md)
-* [Gerenciamento de senhas no MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+[001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/05/2015" 
 	ms.author="juliako"/>
 
 #Trabalhando com trabalhos do Serviços de Mídia do Azure
@@ -33,7 +33,7 @@ Obtenha o processador de mídia com **.NET** ou **API REST**.
 
 [AZURE.INCLUDE [media-services-selector-get-media-processor](../../includes/media-services-selector-get-media-processor.md)]
 
-##Criando trabalhos 
+##Criando trabalhos
 
 Um trabalho é uma entidade que contém metadados sobre um conjunto de tarefas (por exemplo, codificação ou indexação). Cada tarefa executa uma operação atômica nos ativos de entrada. Por exemplo, sobre como criar trabalhos de codificação, consulte:
 
@@ -43,22 +43,34 @@ Um trabalho é uma entidade que contém metadados sobre um conjunto de tarefas (
 
 [AZURE.INCLUDE [media-services-selector-index-content](../../includes/media-services-selector-index-content.md)]
 
-##Codificação 
+##Codificação
 
-Codifique-os com o **Codificador de Mídia do Azure** usando o **Portal de Gerenciamento**, o **.NET** ou **API REST**.
- 
+Codifique-os com o **Codificador de Mídia do Azure** usando o **Portal Clássico do Azure**, o **.NET** ou a **API REST**.
+
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
 
 ##Monitorando o progresso do trabalho
 
-Monitore o progresso do trabalho usando o **Portal de Gerenciamento do Azure**, **.NET** ou **API REST**.
+Monitore o andamento do trabalho usando o **Portal Clássico do Azure**, o **.NET** ou a **API REST**.
 
 [AZURE.INCLUDE [media-services-selector-job-progress](../../includes/media-services-selector-job-progress.md)]
+
+##Listagem 
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-manage-entities.md/#list-jobs-and-assets)
+- [REST](media-services-rest-manage-entities.md/#querying-entities)
+
+##Excluir trabalhos
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-manage-entities.md/#delete-a-job)
+- [REST](media-services-rest-manage-entities.md/##deleting-entities)
 
 ##Links relacionados
 
 [Cotas e limitações](media-services-quotas-and-limitations.md)– Descreve as cotas usadas e limitações do Codificador dos Serviços de Mídia
- 
+
 
 ##Roteiros de aprendizagem dos Serviços de Mídia
 
@@ -68,4 +80,4 @@ Monitore o progresso do trabalho usando o **Portal de Gerenciamento do Azure**, 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

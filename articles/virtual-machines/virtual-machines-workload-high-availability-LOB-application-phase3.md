@@ -21,12 +21,11 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
 
-
 Nesta fase de implantação de um aplicativo de linha de negócios de alta disponibilidade nos Serviços de Infraestrutura do Azure, você configurará os dois computadores que executam o SQL Server e o computador do nó principal do cluster e, em seguida, vai combiná-los em um cluster do Windows Server.
 
 Conclua esta fase antes de passar para a [Fase 4](virtual-machines-workload-high-availability-LOB-application-phase4.md). Consulte [Implantar um aplicativo de linha de negócios de alta disponibilidade no Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) para todas as fases.
 
-> [AZURE.NOTE]Este artigo contém comandos para o Azure PowerShell Preview 1.0. Para executar esses comandos no Azure PowerShell 0.9.8 e em versões anteriores, substitua todas as instâncias de "-AzureRM" por "-Azure" e adicione o comando **Switch-AzureMode AzureResourceManager** antes de executar quaisquer comandos. Para saber mais, consulte [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/).
+> [AZURE.NOTE]Essas instruções usam uma imagem do SQL Server na galeria de imagens do Azure e você receberá cobranças contínuas pelo uso da licença do SQL Server. Também é possível criar máquinas virtuais no Azure e instalar suas próprias licenças do SQL Server, mas você deverá ter o Software Assurance e a Licença de Mobilidade para usar sua licença do SQL Server em uma máquina virtual, incluindo uma máquina virtual do Azure. Para saber mais sobre como instalar o SQL Server em uma máquina virtual, consulte [Instalação do SQL Server](https://msdn.microsoft.com/library/bb500469.aspx).
 
 ## Criar as máquinas virtuais do cluster do SQL Server no Azure
 
@@ -40,7 +39,9 @@ Use o seguinte bloco de comandos do PowerShell para criar as máquinas virtuais 
 - Tabela ST para suas contas de armazenamento
 - Tabela A para os conjuntos de disponibilidade
 
-Lembre-se de que você definiu a Tabela M na [fase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) e as Tabelas V, S, ST e A na [fase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
+Lembre-se de que você definiu a Tabela M na [Fase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) e as Tabelas V, S, ST e A na [Fase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
+
+> [AZURE.NOTE]O comando a seguir define o uso do Azure PowerShell 1.0 e posterior. Para obter mais informações, consulte [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Quando você tiver fornecido a todos os valores adequados, execute o bloco resultante no prompt do Azure PowerShell.
 
@@ -112,7 +113,7 @@ Quando você tiver fornecido a todos os valores adequados, execute o bloco resul
 	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-> [AZURE.NOTE]Como essas máquinas virtuais são para um aplicativo de intranet, elas não recebem um endereço IP público ou um rótulo de nome de domínio DNS e não são expostas na Internet. No entanto, isso também significa que você não poderá se conectar a elas do portal de Visualização do Azure. O botão **Conectar** não ficará disponível quando você exibir as propriedades da máquina virtual. Use o acessório Conexão de Área de Trabalho Remota ou outra ferramenta da Área de Trabalho Remota para se conectar à máquina virtual usando o endereço IP privado ou o nome DNS da intranet.
+> [AZURE.NOTE]Como essas máquinas virtuais são para um aplicativo de intranet, elas não recebem um endereço IP público ou um rótulo de nome de domínio DNS e não são expostas na Internet. No entanto, isso também significa que você não pode se conectar a eles no portal do Azure. O botão **Conectar** não ficará disponível quando você exibir as propriedades da máquina virtual. Use o acessório Conexão de Área de Trabalho Remota ou outra ferramenta da Área de Trabalho Remota para se conectar à máquina virtual usando o endereço IP privado ou o nome DNS da intranet.
 
 ## Configurar os computadores que executam o SQL Server
 
@@ -215,7 +216,7 @@ Devido ao comportamento atual não compatível com RFC do DHCP no Azure, a cria�
 2.	Na tela inicial, digite **Failover** e clique em **Gerenciador de Cluster de Failover**.
 3.	No painel esquerdo, clique com botão direito **Gerenciador de Cluster de Failover** e, em seguida, clique em **Criar Cluster**.
 4.	Na página **Antes de Começar**, clique em **Avançar**.
-5.	Na página **Selecionar Servidores**, digite o nome da máquina primária do SQL Server, clique em **Adicionar** e, em seguida, clique em **Avançar**.
+5.	Na página **Selecionar Servidores**, digite o nome da máquina primária do SQL Server, clique em **Adicionar** e clique em **Avançar**.
 6.	Na página **Aviso de Validação**, clique em **Não. Eu não preciso de suporte da Microsoft para este cluster e, portanto, não desejo executar os testes de validação. Ao clicar em Avançar, continuar a criação do cluster.** e, em seguida, clique em **Avançar**.
 7.	Na página **Ponto de Acesso para Administrar o Cluster**, na caixa de texto **Nome do Cluster**, digite o nome do cluster e clique em **Avançar**.
 8.	Na página **Confirmação**, clique em **Avançar** para começar a criação do cluster. 
@@ -229,7 +230,7 @@ Devido ao comportamento atual não compatível com RFC do DHCP no Azure, a cria�
 16.	Para remover o endereço IP do cluster, clique com botão direito em **Endereço IP**, clique em **Remover** e, em seguida, clique em **Sim** quando solicitado. O recurso de cluster não poderá mais ficar online porque ele depende do recurso de endereço IP. No entanto, um grupo de disponibilidade não depende do nome do cluster ou do endereço IP para funcionar corretamente. Dessa forma, o nome do cluster pode ficar offline.
 17.	Para adicionar os nós restantes ao cluster, clique com o botão direito do mouse no nome do cluster no painel esquerdo e clique em **Adicionar Nó**.
 18.	Na página **Antes de Começar**, clique em **Avançar**. 
-19.	Na página **Selecionar Servidores**, digite o nome e, em seguida, clique em **Adicionar** para adicionar o SQL Server secundário e o nó principal do cluster ao cluster. Depois de adicionar os dois computadores, clique em **Avançar**. Se não for possível adicionar uma máquina e a mensagem de erro exibida for “Serviço de Registro Remoto não está em execução”, faça o seguinte: Faça logon na máquina, abra o snap-in Serviços (services.msc) e habilite o Registro Remoto. Para saber mais , consulte [Não é possível se conectar ao Serviço de Registro Remoto](http://technet.microsoft.com/library/bb266998.aspx). 
+19.	Na página **Selecionar Servidores**, digite o nome e clique em **Adicionar ** para adicionar o SQL Server secundário e o nó principal do cluster ao cluster. Depois de adicionar os dois computadores, clique em **Avançar**. Se não for possível adicionar uma máquina e a mensagem de erro exibida for “Serviço de Registro Remoto não está em execução”, faça o seguinte: Faça logon na máquina, abra o snap-in Serviços (services.msc) e habilite o Registro Remoto. Para saber mais , consulte [Não é possível se conectar ao Serviço de Registro Remoto](http://technet.microsoft.com/library/bb266998.aspx). 
 20.	Na página **Aviso de Validação**, clique em **Não. Eu não preciso de suporte da Microsoft para este cluster e, portanto, não desejo executar os testes de validação. Ao clicar em Avançar, continuar a criação do cluster.** e, em seguida, clique em **Avançar**. 
 21.	Na página **Confirmação**, clique em **Avançar**.
 22.	Na página **Resumo**, clique em **Concluir**.
@@ -256,18 +257,6 @@ Este diagrama mostra a configuração resultante da conclusão bem-sucedida dest
 
 ## Próxima etapa
 
-Para definir a configuração dessa carga de trabalho, vá para a [Fase 4: Configurar servidores Web](virtual-machines-workload-high-availability-LOB-application-phase4.md).
+- Use a [Fase 4](virtual-machines-workload-high-availability-LOB-application-phase4.md) para continuar com a configuração desta carga de trabalho.
 
-## Recursos adicionais
-
-[Implantar um aplicativo de linha de negócios de alta disponibilidade no Azure](virtual-machines-workload-high-availability-LOB-application-overview.md)
-
-[Plano gráfico da arquitetura de aplicativos de linha de negócios](http://msdn.microsoft.com/dn630664)
-
-[Configurar um aplicativo LOB baseado na Web em uma nuvem híbrida para teste](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Diretrizes de implementação dos Serviços de Infraestrutura do Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Carga de trabalho de serviços de infraestrutura do Azure: farm do SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

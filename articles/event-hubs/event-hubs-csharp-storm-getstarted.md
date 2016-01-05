@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução aos Hubs de eventos em C# com Apache Storm | Microsoft Azure"
+	pageTitle="Introdução aos Hubs de Eventos no C# com o Apache Storm | Microsoft Azure"
 	description="Siga este tutorial para começar a usar Hubs de Eventos do Azure enviando eventos em C# e recebendo-os em um cluster do Apache Storm."
 	services="event-hubs"
 	documentationCenter=""
@@ -38,7 +38,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 ## Criar um Hub de Evento
 
-1. Entre no [portal do Azure] e clique em **NOVO** na parte inferior da tela.
+1. Faça logon no [portal clássico do Azure][] e clique em **NOVO** na parte inferior da tela.
 
 2. Clique em **Serviços de Aplicativos**, em seguida, **Barramento de Serviço**, em seguida, **Hub de eventos** e, em seguida, **Criação rápida**.
 
@@ -105,7 +105,7 @@ Agora que criou um aplicativo funcional que cria um Hub de Eventos e envia e rec
 [22]: ./media/event-hubs-csharp-storm-getstarted/receive-storm1.png
 
 <!-- Links -->
-[portal do Azure]: https://manage.windowsazure.com/
+[portal clássico do Azure]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Visão geral de Hubs de Eventos]: event-hubs-overview.md
 [aplicativo de exemplo completo que usa os Hubs de Evento]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
@@ -113,4 +113,4 @@ Agora que criou um aplicativo funcional que cria um Hub de Eventos e envia e rec
 [solução de mensagens na fila]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

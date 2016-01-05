@@ -3,8 +3,8 @@
 	description="Saiba como configurar o logon único entre o Active Directory do Azure e o Kindling."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
+	authors="jeevansd"
+	manager="prasannas"
 	editor=""/>
 
 <tags
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/05/2015"
-	ms.author="markusvi"/>
+	ms.date="12/01/2015"
+	ms.author="jeedes"/>
 
 
 # Tutorial: integração do Active Directory do Azure com o Kindling
 
-O objetivo deste tutorial é mostrar a você como integrar o Kindling ao Active Directory do Azure (AD do Azure).<br>A integração do Kindling com o AD do Azure oferece os seguintes benefícios:
+O objetivo deste tutorial é mostrar como integrar o Kindling com o Active Directory do Azure (AD do Azure).<br>A integração do Kindling com o AD do Azure oferece os seguintes benefícios:
 
 - Você pode controlar no AD do Azure quem tem acesso ao Kindling 
 - Você pode permitir que seus usuários façam logon automaticamente no Kindling (logon único) com suas contas do AD do Azure
@@ -32,7 +32,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do
 Para configurar a integração do AD do Azure ao Kindling, você precisará dos seguintes itens:
 
 - Uma assinatura do AD do Azure
-- Uma assinatura do Kindling com logon único habilitado
+- Uma assinatura habilitada do Kindlling com logo único
 
 
 > [AZURE.NOTE]Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
@@ -64,18 +64,18 @@ Para configurar a integração do Kindling ao AD do Azure, você precisará adic
 4. Clique em **Adicionar** na parte inferior da página.<br><br> ![Aplicativos][3]<br>
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.<br><br> ![Aplicativos][4]<br>
 6. Na caixa de pesquisa, digite **Kindling**.<br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_01.png)<br>
-7. No painel de resultados, selecione **Kindling** e clique em **Concluir** para adicionar o aplicativo.<br><br> ![Criação de um usuário de teste do Azure AD](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_02.png)<br>
+7. No painel de resultados, selecione **Kindling** e clique em **Concluir** para adicionar o aplicativo.<br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_02.png)<br>
 
 ##  Configurar e testar o logon único do AD do Azure
-O objetivo desta seção é mostrar como configurar e testar logon único do AD do Azure com o Kindling com base em um usuário de teste chamado "Brenda Fernandes".
+O objetivo desta seção é mostrar como configurar e testar o logon único do AD do Azure com o Kindling com base em um usuário de teste chamado "Brenda Fernandes".
 
 Para que o logon único funcione, o AD do Azure precisa saber qual usuário do Kindling é equivalente a um usuário do AD do Azure. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do AD do Azure e o usuário relacionado do Kindling.<br> Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuário** no AD do Azure ao valor do **Nome de Usuário** no Kindling.
  
-Para configurar e testar o logon único do AD do Azure com o Kindling, você precisará concluir os seguintes blocos de construção:
+Para configurar e testar o logon único do AD do Azur com o Kindling, conclua os seguintes blocos de construção:
 
 1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
 2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**: para testar o logon único do AD do Azure com Brenda Fernandes.
-4. **[Criação de um usuário de teste do Kindling](#creating-a-kindling-test-user)**: para ter um equivalente de Brenda Fernandes no Kindling que esteja vinculado à representação dela no AD do Azure.
+4. **[Criar um usuário de teste Kindling](#creating-a-kindling-test-user)** - para ter um equivalente de Brenda Fernandes no Kindling vinculado à representação dela do AD do Azure.
 5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)**: para permitir que Brenda Fernandes use o logon único do AD do Azure.
 6. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
 
@@ -87,7 +87,7 @@ Para configurar o logon único para o Kindling, você precisa de um domínio reg
 
 
 
-**Para configurar o logon único do AD do Azure com o Kindling, execute as seguintes etapas:**
+**Para configurar o logon único do AD do Azure AD com o Kindling, execute as seguintes etapas:**
 
 1. No portal do AD do Azure, na página de integração do aplicativo **Kindling**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**. <br><br> ![Configurar o logon único][6] <br>
 
@@ -103,9 +103,9 @@ Para configurar o logon único para o Kindling, você precisa de um domínio reg
     c. Clique em **Próximo**.
  
  
-4. Na página **Configurar logon único no Kindling**, realize as seguintes etapas: <br><br>![Configurar o logon único](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_05.png) <br>
+4. Em **Configurar logon único no Kindling**, execute as etapas a seguir: <br><br>![Configurar o logon único](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_05.png) <br>
 
-    a. Clique em **Baixar certificado** e salve o certificado localmente no computador.
+    a. Clique em **Baixar certificado** e, em seguida, salve o arquivo em seu computador.
 
     b. Entre em contato com a equipe de suporte do layout Kindling e peça-lhe para configurar o SSO em seu aplicativo. Você precisará fornecer a equipe de suporte com o certificado baixado, o valor do **emissor URL** que é mapeado para a **ID de entidade** do Kindling, a **URL de serviço de logon único** que mapeia para Kindling **SSO URL de logon** e **única URL de serviço de saída** que mapeia para Kindling **SSO sair da URL**.
 
@@ -135,13 +135,13 @@ O objetivo desta seção é criar um usuário de teste no portal do Azure chamad
 
     a. Em Tipo de Usuário, selecione Novo usuário na organização.
 
-    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
+    b. Na **caixa de texto** Nome de Usuário, digite **Brenda Fernandes**.
 
     c. Clique em **Próximo**.
 
 6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kindling-tutorial/create_aaduser_06.png) <br>
  
-    a. Na caixa de texto **Nome**, digite **Brenda**.
+    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
     b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
 
@@ -170,7 +170,7 @@ Não há itens de ação para você nesta seção.
 
 ### Atribuição do usuário de teste do AD do Azure
 
-O objetivo desta seção é habilitar Brenda Fernandes a usar o logon único do Azure, concedendo a ela acesso ao Kindling. <br><br>![Atribuir usuário][200] <br>
+O objetivo desta seção é habilitar Brenda Fernandes a usar o logon único do Azure concedendo a ela acesso ao Kindling. <br><br>![Atribuir usuário][200] <br>
 
 **Para atribuir Brenda Fernandes ao Kindling, execute as seguintes etapas:**
 
@@ -180,7 +180,7 @@ O objetivo desta seção é habilitar Brenda Fernandes a usar o logon único do 
 
 1. No menu na parte superior, clique em **Usuários**. <br><br>![Atribuir usuário][203] <br>
 
-1. Na lista Usuários, selecione **Brenda Fernandes**.
+1. Na Lista de usuários, selecione **Brenda Fernandes**.
 
 2. Na barra de ferramentas na parte inferior, clique em **Atribuir**. <br><br>![Atribuir usuário][205]
 
@@ -188,7 +188,7 @@ O objetivo desta seção é habilitar Brenda Fernandes a usar o logon único do 
 
 ### Teste do logon único
 
-O objetivo desta seção é testar sua configuração de logon único do AD do Azure usando o Painel de Acesso.<br> Quando você clica no bloco Kindling no Painel de Acesso, deve fazer logon automaticamente no seu aplicativo Kindling.
+O objetivo desta seção é testar sua configuração de logon único do AD do Azure usando o painel de acesso.<br> Quando você clica no bloco Kindling no Painel de Acesso, deve fazer logon automaticamente no seu aplicativo Kindling.
 
 
 ## Recursos adicionais
@@ -215,4 +215,4 @@ O objetivo desta seção é testar sua configuração de logon único do AD do A
 [204]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_205.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

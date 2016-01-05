@@ -54,7 +54,7 @@ Consulte [Notas de versão do HDInsight](hdinsight-release-notes.md) para ver no
 
 Ao criar um cluster por meio dos cmdlets do Windows PowerShell do HDInsight ou do SDK do .NET do HDInsight, você pode escolher a versão para o cluster Hadoop HDInsight usando o parâmetro "Version".
 
-Se você usar a opção **Criação Rápida**, obterá a versão 3.1 do HDInsight, que cria o cluster Hadoop por padrão. Se usar a opção **Criação Personalizada** do portal do Azure, poderá escolher a versão do cluster que você implantará da lista suspensa **Versão do HDInsight** na página **Detalhes do Cluster**.
+Se você usar a opção **Criação Rápida**, obterá a versão 3.1 do HDInsight, que cria o cluster Hadoop por padrão. Se você usar a opção **Criação Personalizada** no Portal Clássico do Azure, poderá escolher a versão do cluster a ser implantada na lista suspensa **Versão do HDInsight** na página **Detalhes do Cluster**.
 
 ##Destaques do recurso
 Alguns dos principais recursos da plataforma HDInsight incluem:
@@ -68,7 +68,7 @@ Alguns dos principais recursos da plataforma HDInsight incluem:
 
 - **Storm** - O Storm no Azure HDInsight agora está disponível ao público geral, proporcionando uma maneira rápida e fácil de implantar análise em tempo real em apenas alguns cliques e dentro de minutos. O Apache Storm no HDInsight do Azure é um projeto de código-fonte aberto no ecossistema do Apache Hadoop que fornece acesso a uma plataforma de análise capaz de processar milhões de eventos de maneira confiável. Agora os usuários de Hadoop podem obter insights sobre como os eventos ocorrem, além de insights de eventos passados. A Microsoft também fornece integração interna com o Visual Studio, facilitando a interação do desenvolvedor com o Storm. Agora você pode desenvolver, implantar e depurar topologias Storm de dentro do Visual Studio.
 
-- **HDInsight no Linux** - O HDInsight do Azure fornece a opção de provisionar clusters do Hadoop que sejam executados em máquinas virtuais (VMs) Linux (Ubuntu). Você pode usar essa opção se estiver familiarizado com o Linux ou Unix, estiver migrando de uma solução Hadoop baseada em Linux existente ou desejar fácil integração com componentes do ecossistema do Hadoop criados para o Linux. Você pode provisionar um cluster HDInsight no Linux por meio de um computador cliente executando o Windows ou Linux usando o portal do Azure, a CLI do Azure ou o SDK do .NET HDInsight (somente Windows).
+- **HDInsight no Linux** - O HDInsight do Azure fornece a opção de provisionar clusters do Hadoop que sejam executados em máquinas virtuais (VMs) Linux (Ubuntu). Você pode usar essa opção se estiver familiarizado com o Linux ou Unix, estiver migrando de uma solução Hadoop baseada em Linux existente ou desejar fácil integração com componentes do ecossistema do Hadoop criados para o Linux. Você pode provisionar um cluster HDInsight no Linux a partir de um computador cliente que executa o Windows ou Linux usando o Portal Clássico do Azure, a CLI do Azure ou o SDK do .NET do HDInsight (somente Windows).
 
 - **Tamanhos de VM adicionais** - clusters do HDInsight agora estão disponíveis em mais tipos e tamanhos de VM. Os clusters do HDInsight agora podem utilizar tamanhos de A2 a A7 criados para fins gerais; os nós da Série D têm SSDs (unidades de estado sólido) e processadores 60% mais rápidos; e tamanhos A8 e A9 com suporte para InfiniBand para rede rápida. Clientes Apache HBase no Azure HDInsight podem se beneficiar das configurações de memória maiores da série de D para aumentar o desempenho. Clientes do Storm Apache no Azure HDInsight também podem se beneficiar de memória adicional para carregar conjuntos de dados de referência maiores, bem como CPUs mais rápidas para taxa de transferência mais alta.
 
@@ -103,9 +103,9 @@ Alguns dos principais recursos da plataforma HDInsight incluem:
 A tabela a seguir lista as versões do HDInsight disponíveis no momento, as versões correspondentes do Hortonworks Data Platform que elas usam e suas datas de lançamento. Quando conhecidas, suas datas de vencimento e reprovação também são fornecidas. Observe o seguinte:
 
 * Clusters altamente disponíveis com dois headnodes são implantados por padrão para clusters HDInsight 2.1 e superiores. Eles não estão disponíveis para clusters HDInsight 1.6.
-* Depois que o suporte expirar para uma determinada versão, ele poderá não estar disponível pelo portal do Azure. A tabela a seguir indica quais versões estão disponíveis no portal do Azure. As versões do cluster continuarão disponíveis usando o parâmetro `Version` no comando do Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) e o SDK .NET até sua data de substituição.
+* Depois que o suporte expirar para uma determinada versão, ele poderá não estar disponível pelo Portal Clássico do Azure. A tabela a seguir indica quais versões estão disponíveis no Portal Clássico do Azure. As versões do cluster continuarão disponíveis usando o parâmetro `Version` no comando [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) do Windows PowerShell e o SDK do .NET até a sua data de substituição.
 
-<table border="1"> <tr><th>HDInsight Versão</th><th>HDP Versão</a><th>Alta Disponibilidade</th></th><th>Data da Liberação</th><th>Disponível no Portal do Azure</th><th>Data de expiração do suporte</th><th>Data de descontinuação</th></tr> <tr><td>HDI 3.2</td><td>HDP 2.2</td><td>Sim</td><td>18/2/2015</td><td>Sim</td><td></td><td></td></tr> <tr><td>HDI 3.1</td><td>HDP 2.1</td><td>Sim</td><td>24/6/2014</td><td>Sim</td><td></td><td></td></tr> <tr><td>HDI 3.0</td><td>HDP 2.0</td><td>Sim</td><td>11/02/2014</td><td>Sim</td><td>17/09/2014</td><td>06/30/2015</td></tr> <tr><td>HDI 2.1</td><td>HDP 1.3</td><td>Sim</td><td>28/10/2013</td><td>Não</td><td>12/05/2014</td><td>31/05/2015</td></tr> <tr><td>HDI 1.6</td><td>HDP 1.1</td><td>Não</td><td>28/10/2013</td><td>Não</td><td>26/04/2014</td><td>31/05/2015</td></tr> </table><br>
+<table border="1"> <tr><th>Versão do HDInsight</th><th>Versão do HDP</a><th>Alta Disponibilidade</th></th><th>Data da liberação</th><th>Disponível no Portal Clássico do Azure</th><th>Data de vencimento do suporte</th><th>Data de substituição</th></tr> <tr><td>HDI 3.2</td><td>HDP 2.2</td><td>Sim</td><td>18/2/2015</td><td>Sim</td><td></td><td></td></tr> <tr><td>HDI 3.1</td><td>HDP 2.1</td><td>Sim</td><td>24/6/2014</td><td>Sim</td><td></td><td></td></tr> <tr><td>HDI 3.0</td><td>HDP 2.0</td><td>Sim</td><td>11/02/2014</td><td>Sim</td><td>17/09/2014</td><td>30/06/2015</td></tr> <tr><td>HDI 2.1</td><td>HDP 1.3</td><td>Sim</td><td>28/10/2013</td><td>Não</td><td>12/05/2014</td><td>31/05/2015</td></tr> <tr><td>HDI 1.6</td><td>HDP 1.1</td><td>Não</td><td>28/10/2013</td><td>Não</td><td>26/04/2014</td><td>31/05/2015</td></tr> </table><br>
 
 **Implantação de clusters não padrão**
 
@@ -116,7 +116,7 @@ Os clusters HDInsight 3.1 são criados no Hadoop 2.4, de modo que os usuários d
 O SLA é definido em termos de uma "Janela de Suporte". Uma janela de suporte refere-se ao período de tempo que uma versão do cluster HDInsight tem suporte pelo Atendimento e Suporte ao Cliente da Microsoft. Um cluster HDInsight ficará fora da janela de suporte se sua versão tiver uma **Data de Validade de Suporte** após a data atual. Uma lista das versões com suporte do cluster HDInsight pode ser encontrada na tabela acima. A data de validade de suporte de determinada versão do HDInsight (assim que uma versão X+1 mais nova estiver disponível) é calculada como a mais posterior de:
 
 - Fórmula 1: adicionar 180 dias à data em que o cluster HDInsight versão X foi lançado.
-- Fórmula 2: adicionar 90 dias à data em que o cluster HDInsight versão X+1 (a versão subsequente após X) foi disponibilizado no portal do Azure.
+- Fórmula 2: adicionar 90 dias à data em que o cluster HDInsight versão X+1 (a versão subsequente após X) foi disponibilizado no Portal Clássico do Azure.
 
 A **Data de Reprovação** é a data após a qual a versão do cluster não pode ser criada no HDInsight.
 
@@ -160,4 +160,4 @@ A **Data de Reprovação** é a data após a qual a versão do cluster não pode
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

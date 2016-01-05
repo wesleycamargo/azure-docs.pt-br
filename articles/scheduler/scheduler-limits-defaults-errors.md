@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="07/28/2015"
+ ms.date="12/04/2015"
  ms.author="krisragh"/>
 
 # Limites, padrões e códigos de erro do Agendador
@@ -59,18 +59,23 @@ As operações de API também podem retornar informações de erro adicionais qu
 
 ## Consulte também
 
- [Conceitos, terminologia e hierarquia de entidades do Agendador](scheduler-concepts-terms.md)
 
- [Introdução à utilização do Agendador no Portal de Gerenciamento](scheduler-get-started-portal.md)
+ [O que é o Agendador?](scheduler-intro.md)
+ 
+ [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
 
- [Planos e cobrança no Agendador do Azure](scheduler-plans-billing.md)
+ [Introdução à utilização do Agendador no Portal do Azure](scheduler-get-started-portal.md)
 
- [Como criar agendas complexas e recorrência avançada com o Agendador do Azure](scheduler-advanced-complexity.md)
+ [Planos e Cobrança no Agendador do Azure](scheduler-plans-billing.md)
 
- [Referência da API REST do Agendador](https://msdn.microsoft.com/library/dn528946)
+ [Referência da API REST do Agendador do Azure](https://msdn.microsoft.com/library/dn528946)
 
- [Alta disponibilidade e confiabilidade do Agendador](scheduler-high-availability-reliability.md)
+ [Referência de cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md)
 
- [Autenticação de saída do Agendador](scheduler-outbound-authentication.md)
+ [Alta disponibilidade e confiabilidade do Agendador do Azure](scheduler-high-availability-reliability.md)
 
-<!---HONumber=Oct15_HO3-->
+ [Autenticação de saída do Agendador do Azure](scheduler-outbound-authentication.md)
+ 
+  
+
+<!---HONumber=AcomDC_1210_2015-->

@@ -41,12 +41,12 @@ O Aprendizado de Máquina do Azure tem dois tipos de serviços:
 Para obter mais informações sobre os serviços Web do Aprendizado de Máquina do Azure, veja [Implantar um serviço Web do Aprendizado de Máquina](machine-learning-publish-a-machine-learning-web-service.md).
 
 ## Obtenha uma chave de autorização de Aprendizado de Máquina do Azure ##
-Você pode obter uma chave de API do serviço Web de um serviço Web AM. Você pode obtê-la no Estúdio de Aprendizado de Máquina do Microsoft Azure ou no Portal de Gerenciamento do Azure.
+Você pode obter uma chave de API do serviço Web de um serviço Web AM. Você pode obtê-la no Estúdio de Aprendizado de Máquina do Microsoft Azure ou no Portal Clássico do Azure.
 ### Estúdio de Aprendizado de Máquina do Microsoft Azure ###
 1. No Estúdio de Aprendizado de Máquina do Microsoft Azure, clique em **SERVIÇOS WEB** à esquerda.
 2. Clique em um serviço Web. A "chave de API" está na guia **PAINEL**.
 
-### Portal de Gerenciamento do Azure ###
+### Portal Clássico do Azure ###
 
 1. Clique em **APRENDIZADO DE MÁQUINA** à esquerda.
 2. Clique em um espaço de trabalho.
@@ -103,4 +103,4 @@ Para se conectar a um serviço Web do AM do Azure, use a biblioteca **urllib2** 
 2. Atribua apiKey com a chave de um serviço Web. Veja como obter uma chave de autorização AM do Azure.
 3. Atribua serviceUri com o URI de solicitação. Veja como obter um URI de solicitação.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

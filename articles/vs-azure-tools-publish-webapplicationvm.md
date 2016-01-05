@@ -3,9 +3,9 @@
    description="Saiba como implantar um aplicativo Web para uma máquina virtual. Se os recursos necessários não existirem, este script criará tais recursos em sua assinatura do Azure."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/30/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Publish-WebApplicationVM (script do Windows PowerShell)
 
@@ -189,4 +189,4 @@ O arquivo de configuração JSON especifica os detalhes daquilo que está para s
 
 Você pode editar o arquivo de configuração do JSON para alterar o que é provisionado. Uma máquina virtual e um serviço de nuvem são necessários, mas a seção de banco de dados é opcional.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

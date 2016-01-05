@@ -21,15 +21,15 @@
 
 As mensagens de erro detalhadas neste tópico são fornecidas para ajudar os usuários do Hadoop no Azure HDInsight a entenderem possíveis condições de erro que podem encontrar ao administrar o serviço usando o PowerShell do Azure e para avisá-los sobre as etapas que podem ser executadas para se recuperar do erro.
 
-Algumas dessas mensagens de erro também podem ser vistas no portal de visualização do Azure quando ele for usado para gerenciar clusters HDInsight. Mas outras mensagens de erro que você pode encontrar são menos granulares devido às restrições nas ações corretivas possíveis neste contexto. Outras mensagens de erro são fornecidas nos contextos onde a atenuação é óbvia. Por exemplo, se as restrições nos parâmetros forem violadas, a mensagem aparecerá no lado direito da caixa onde o valor foi inserido. Este é um caso onde vários nós de dados foram solicitados. A solução é reduzir o número para um valor permitido que seja 33 ou inferior.
+Algumas dessas mensagens de erro também podem ser vistas no Portal do Azure quando ele for usado para gerenciar clusters HDInsight. Mas outras mensagens de erro que você pode encontrar são menos granulares devido às restrições nas ações corretivas possíveis neste contexto. Outras mensagens de erro são fornecidas nos contextos onde a atenuação é óbvia. Por exemplo, se as restrições nos parâmetros forem violadas, a mensagem aparecerá no lado direito da caixa onde o valor foi inserido. Este é um caso onde vários nós de dados foram solicitados. A solução é reduzir o número para um valor permitido que seja 33 ou inferior.
 
-![Mensagem de erro no portal de visualização do HDInsight][image-hdi-debugging-error-messages-portal]
+![Mensagem de erro do Portal do HDInsight][image-hdi-debugging-error-messages-portal]
 
-Em situações nas quais o erro é específico para o Azure HDInsight, é uma boa ideia para entender de que se trata esse erro. Consulte [Códigos de erro do HDInsight](#hdi-error-codes) para entender os diferentes códigos de erro e como corrigi-los. Em algumas situações, você talvez queira acessar os logs do Hadoop em si. Você pode fazer isso diretamente do portal de visualização do Azure.
+Em situações nas quais o erro é específico para o Azure HDInsight, é uma boa ideia para entender de que se trata esse erro. Consulte [Códigos de erro do HDInsight](#hdi-error-codes) para entender os diferentes códigos de erro e como corrigi-los. Em algumas situações, você talvez queira acessar os logs do Hadoop em si. Você pode fazer isso diretamente no Portal do Azure.
 
 ## Exibir logs de trabalho e integridade do cluster
 
-* **Acesse a interface do usuário do Hadoop**. No portal de visualização do Azure, clique em um nome de cluster HDInsight para abrir a folha do cluster. Na folha do cluster, clique em **Painel**.
+* **Acesse a interface do usuário do Hadoop**. No Portal do Azure, clique em um nome de cluster HDInsight para abrir a folha do cluster. Na folha do cluster, clique em **Painel**.
 
 	![Iniciar painel do cluster](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard.png)
   
@@ -37,7 +37,7 @@ Em situações nas quais o erro é específico para o Azure HDInsight, é uma bo
 
 	![Iniciar a interface do usuário do Hadoop](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard-hadoop-ui.png)
 
-* **Acessar a interface do usuário do Yarn**. No portal de visualização do Azure, clique em um nome de cluster HDInsight para abrir a folha do cluster. Na folha do cluster, clique em **Painel**. Quando solicitado, insira as credenciais de administrador do cluster. No Console de Consulta que se abre, clique em **IU DO YARN**.
+* **Acessar a interface do usuário do Yarn**. No Portal do Azure, clique em um nome de cluster HDInsight para abrir a folha do cluster. Na folha do cluster, clique em **Painel**. Quando solicitado, insira as credenciais de administrador do cluster. No Console de Consulta que se abre, clique em **IU DO YARN**.
 
 	Você pode usar a interface do usuário do YARN para fazer o seguinte:
 
@@ -49,11 +49,11 @@ Em situações nas quais o erro é específico para o Azure HDInsight, é uma bo
 
 	* **Monitore o status do trabalho**. No painel esquerdo, expanda **Cluster**, e, em seguida, clique em **aplicativos** para listar todos os trabalhos no cluster. Se você quiser examinar os trabalhos em um estado específico (como novo, enviado, em execução, etc.), clique no link apropriado em **Aplicativos**. Você pode seguir clicando no nome do trabalho para saber mais detalhes sobre ele, como saída, logs, etc.
 
-* **Acesse a interface do usuário do HBase**. No portal de visualização do Azure, clique em um nome de cluster HBase do HDInsight para abrir a folha do cluster. Na folha do cluster, clique em **Painel**. Quando solicitado, insira as credenciais de administrador do cluster. No Console de Consulta que se abre, clique em **IU do HBase**.
+* **Acesse a interface do usuário do HBase**. No Portal do Azure, clique em um nome de cluster HBase do HDInsight para abrir a folha do cluster. Na folha do cluster, clique em **Painel**. Quando solicitado, insira as credenciais de administrador do cluster. No Console de Consulta que se abre, clique em **IU do HBase**.
 
 ## <a id="hdi-error-codes"></a>Códigos de erro do HDInsight
 
-Os erros que um usuário pode encontrar no Azure PowerShell ou no portal de visualização são listados abaixo, por nome e em ordem alfabética. Os erros são vinculados a uma entrada na seção [Descrição e Atenuação de Erros](#discription-mitigation-errors), que fornece as seguintes informações sobre o erro:
+Os erros que um usuário pode encontrar no Azure PowerShell ou no Portal são listados abaixo, por nome e em ordem alfabética. Os erros são vinculados a uma entrada na seção [Descrição e Atenuação de Erros](#discription-mitigation-errors), que fornece as seguintes informações sobre o erro:
 
 - **Descrição**: a mensagem de erro que os usuários veem
 - **Atenuação**: quais etapas podem ser tomadas para recuperação do erro.
@@ -129,7 +129,7 @@ Os erros que um usuário pode encontrar no Azure PowerShell ou no portal de visu
 
 ### <a id="ClusterNameUnavailable"></a>ClusterNameUnavailable
 - **Descrição**: o nome do Cluster *yourClusterName* não está disponível. Escolha outro nome.  
-- **Atenuação**: o usuário deve especificar um clustername exclusivo e que não exista e repetir. Se o usuário estiver usando o portal de visualização, a interface do usuário irá notificá-lo se um nome de cluster já tiver sido usado durante as etapas de criação.
+- **Atenuação**: o usuário deve especificar um clustername exclusivo e que não exista e repetir. Se o usuário estiver usando o Portal, a interface do usuário irá notificá-lo se um nome de cluster já estiver sendo usado durante as etapas de criação.
 
 
 ### <a id="ClusterPasswordInvalid"></a>ClusterPasswordInvalid
@@ -258,7 +258,7 @@ Os erros que um usuário pode encontrar no Azure PowerShell ou no portal de visu
 
 ### <a id="StorageAccountNotColocated"></a>StorageAccountNotColocated
 - **Descrição**: a conta de armazenamento *yourStorageAccountName* está na região *currentRegionName*. Deveria ser igual à região do cluster *yourClusterRegionName*.  
-- **Atenuação**: especifique uma conta de armazenamento na mesma região em que seu cluster está ou, se os seus dados já estiverem na conta de armazenamento, crie um novo cluster na mesma região da conta de armazenamento existente. Se você estiver usando o portal de visualização, a interface do usuário irá notificá-lo sobre esse problema com antecedência.
+- **Atenuação**: especifique uma conta de armazenamento na mesma região em que seu cluster está ou, se os seus dados já estiverem na conta de armazenamento, crie um novo cluster na mesma região da conta de armazenamento existente. Se você estiver usando o Portal, a interface do usuário irá notificá-lo sobre esse problema com antecedência.
 
 ### <a id="SubscriptionIdNotActive"></a>SubscriptionIdNotActive
 - **Descrição**: a ID da assinatura *yourSubscriptionId* fornecida não está ativa.  
@@ -300,4 +300,4 @@ Os erros que um usuário pode encontrar no Azure PowerShell ou no portal de visu
 
 [image-hdi-debugging-error-messages-portal]: ./media/hdinsight-debug-jobs/hdi-debug-errormessages-portal.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

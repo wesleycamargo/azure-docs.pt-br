@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/10/2015" 
 	ms.author="glenga"/>
 
 
@@ -44,7 +44,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 &nbsp;&nbsp;7. Abra o arquivo de código App.xaml.cs compartilhado e avise que uma chamada para o novo método **UploadChannel** foi adicionada no manipulador de evento **OnLaunched**. Isso garante a tentativa do registro do dispositivo sempre que o aplicativo for iniciado.
 
-&nbsp;&nbsp;8. Repita as etapas anteriores para adicionar notificações por push ao projeto do aplicativo Windows Phone Store e, em seguida, no arquivo App.xaml.cs compartilhado, remova a chamada extra para **UploadChannel** e o wrapper condicional `#if...#endif` restante. Ambos os projetos podem agora compartilhar uma única chamada para **UploadChannel**.
+&nbsp;&nbsp;8. Repita as etapas anteriores para adicionar notificações por push ao projeto do aplicativo Windows Phone Store e no arquivo App.xaml.cs compartilhado, remova a chamada extra para **Cliente de Serviço Móveis**, **UploadChannel** e o wrapper condicional `#if...#endif` restante. Ambos os projetos podem agora compartilhar uma única chamada para **UploadChannel**.
 
 &nbsp;&nbsp;Observe que você também pode simplificar o código gerado ao unificar as definições contidas em um wrapper `#if...#endif` do [MobileServiceClient] em uma única definição sem wrapper, usada por ambas as versões do aplicativo.
 
@@ -101,4 +101,4 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

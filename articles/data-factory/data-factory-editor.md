@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 # Editor do Azure Data Factory
-O Editor do Azure Data Factory é um editor Web leve que faz parte do Portal de Visualização do Azure, o qual permite a você criar, editar e implantar arquivos JSON de todas as entidades do Azure Data Factory. Isso permite que você crie serviços vinculados, conjuntos de dados e pipelines, usando os modelos JSON que vêm de fábrica com o serviço Data Factory. Se você for novo na utilização do PowerShell, isso elimina a necessidade de instalar, aumentando a capacidade do Azure PowerShell de criar fábricas de dados do Azure.
+O Editor do Azure Data Factory é um editor Web leve que faz parte do Portal do Azure, o qual permite a você criar, editar e implantar arquivos JSON de todas as entidades do Azure Data Factory. Isso permite que você crie serviços vinculados, conjuntos de dados e pipelines, usando os modelos JSON que vêm de fábrica com o serviço Data Factory. Se você for novo na utilização do PowerShell, isso elimina a necessidade de instalar, aumentando a capacidade do Azure PowerShell de criar fábricas de dados do Azure.
 
 ## Iniciando o Editor Data Factory
 Para iniciar o Editor Data Factory, clique no bloco **Criar e implantar** na folha **Data Factory** para o seu Azure Data Factory.
@@ -62,7 +62,6 @@ Existem quatro botões na barra de ferramentas que você pode usar para criar en
 2. Você verá o modelo JSON para criar um serviço de computação vinculado na Tela do editor à direita. Faça o seguinte:
 	1. Para **Cluster HDInsight sob demanda**, especifique valores para as seguintes propriedades: 
 		1. Para a propriedade **clusterSize**, especifique o tamanho do cluster do HDInsight que você deseja que o serviço Data Factory crie em tempo de execução. 
-		2. Para a propriedade **jobsContainer**, especifique o nome do contêiner de blob padrão onde você deseja que os logs de cluster sejam armazenados.
 		3. Para a propriedade **timeToLive**, especifique o tempo ocioso permitido antes de o cluster HDInsight ser excluído. Por exemplo: 00:05:00 indica que o cluster deve ser excluído após 5 minutos de tempo ocioso.
 		4. Para a propriedade **versão**, especifique a versão do HDInsight para o cluster (padrão: versão 3.1).
 		5. Para a propriedade **linkedServiceName**, especifique o serviço de armazenamento do Azure vinculado a ser associado com o cluster HDInsight. 
@@ -221,4 +220,4 @@ Consulte o tópico [Introdução ao Azure Data Factory][data-factory-get-started
 [clone-datafactory-entity]: ./media/data-factory-editor/clone-datafactory-entity.png
 [add-activity-options]: ./media/data-factory-editor/add-activity-options.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -3,7 +3,7 @@
 	description="Você pode exibir os padrões de uso do CDN usando os seguintes relatórios: Largura de Banda, Dados Transferidos, Acertos, Status do Cache, Taxa de Acertos de Cache, Dados IPV4/IPV6 Transferidos." 
 	services="cdn" 
 	documentationCenter=".NET" 
-	authors="juliako" 
+	authors="camsoper" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="juliako"/>
+	ms.date="12/02/2015" 
+	ms.author="casoper"/>
 
-#Analisar padrões de uso do CDN 
+# Analisar padrões de uso do CDN 
 
 Você pode exibir os padrões de uso para o CDN usando os seguintes relatórios:
 
@@ -27,7 +27,7 @@ Você pode exibir os padrões de uso para o CDN usando os seguintes relatórios:
 - Taxa de Acertos do Cache
 - Dados IPv4/IPV6 Transferidos 
 
-##Largura de banda
+## Largura de banda
 
 O relatório de largura de banda consiste em uma tabela e de um gráfico de dados que indicam o uso de largura de banda para HTTP e HTTPS em um período específico. Você pode exibir o uso de largura de banda entre todos os POPs do CDN ou em um POP específico. Isso permite exibir os picos de tráfego e a distribuição entre os POPs do CDN em Mbps.
 
@@ -35,11 +35,11 @@ O relatório de largura de banda consiste em uma tabela e de um gráfico de dado
 - Selecione Intervalo de datas para exibir dados de hoje/esta semana/este mês etc. ou insira datas personalizadas, clique em "ir" para garantir que sua seleção seja atualizada.
 - Você pode exportar e baixar os dados clicando no ícone de planilha do excel localizado ao lado de "ir". 
  
-O relatório é atualizado a cada 5 minutos.
+O relatório é atualizado a cada cinco minutos.
 
 ![Relatório Largura de banda](./media/cdn-reports/cdn-bandwidth.png)
 
-##Dados Transferidos
+## Dados transferidos
 
 Esse relatório consiste em uma tabela e um gráfico de dados que indicam o uso de largura de banda para HTTP e HTTPS em um período específico. Você pode exibir o uso de tráfego em todos os POPs do CDN ou em um POP específico. Isso permite exibir os picos de tráfego e a distribuição entre os POPs do CDN em GB.
 
@@ -47,11 +47,11 @@ Esse relatório consiste em uma tabela e um gráfico de dados que indicam o uso 
 - Selecione Intervalo de datas para exibir dados de hoje/esta semana/este mês etc. ou insira datas personalizadas, clique em "ir" para garantir que sua seleção seja atualizada.
 - Você pode exportar e baixar os dados clicando no ícone de planilha do excel localizado ao lado de "ir".
  
-O relatório é atualizado a cada 5 minutos.
+O relatório é atualizado a cada cinco minutos.
 
 ![Relatório Dados transferidos](./media/cdn-reports/cdn-data-transferred.png)
 
-##Acertos (Códigos de Status)
+## Acertos (códigos de status)
 
 Este relatório descreve a distribuição dos códigos de status de solicitação para o seu conteúdo. Todas as solicitações de conteúdo gerarão um código de status HTTP. O código de status descreve como os POPs de borda lidaram com a solicitação. Por exemplo, os códigos de status 2xx indicam que a solicitação foi servida com êxito para um cliente, enquanto um código de status 4xx indica que ocorreu um erro. Para obter mais detalhes sobre o código de status HTTP, consulte [códigos de status](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes).
  
@@ -60,13 +60,13 @@ Este relatório descreve a distribuição dos códigos de status de solicitaçã
 
 ![Relatório Acertos](./media/cdn-reports/cdn-hits.png)
 
-##Status do Cache
+## Status do cache
 
 Este relatório descreve a distribuição de acertos do cache e de erros de cache para a solicitação do cliente. Uma vez que o desempenho mais rápido provêm de acertos do cache, você pode otimizar velocidades de entrega de dados minimizando erros de cache e acertos de cache expirados. Os erros de cache podem ser reduzidos por meio da configuração do seu servidor de origem para evitar a atribuição de cabeçalhos de resposta "no-cache", evitando o cache de cadeia de caracteres de consulta exceto onde estritamente necessário e evitando códigos de resposta não armazenáveis em cache. Os acertos de cache expirados podem ser evitados tornando uma idade máxima do ativo a maior possível para minimizar o número de solicitações para o servidor de origem.
 
 ![Relatório Status do cache](./media/cdn-reports/cdn-cache-statuses.png)
 
-###Os status do cache principal incluem: 
+### Os status do cache principal incluem: 
 
 - TCP\_HIT: servido da Borda. O objeto estava no cache e não excedeu sua idade máxima.
 - TCP\_MISS: servido da Origem. O objeto não estava no cache e a resposta voltou para a origem. 
@@ -76,9 +76,9 @@ Este relatório descreve a distribuição de acertos do cache e de erros de cach
 - Selecione Intervalo de datas para exibir dados de hoje/esta semana/este mês etc. ou insira datas personalizadas, clique em "ir" para garantir que sua seleção seja atualizada.
 - Você pode exportar e baixar os dados clicando no ícone de planilha do excel localizado ao lado de "ir".
 
-###Lista completa de status do cache
+### Lista completa de status do cache
 
-- TCP\_HIT - esse status é relatado quando uma solicitação é servida diretamente do POP para o cliente. Um ativo é servido imediatamente de um POP quando é armazenado em cache no POP mais próximo ao cliente e tem um TTL válido. O TTL é determinado pelos seguintes cabeçalhos de resposta:
+- TCP\_HIT - esse status é relatado quando uma solicitação é servida diretamente do POP para o cliente. Um ativo é servido imediatamente de um POP quando é armazenado em cache no POP mais próximo ao cliente e tem uma TTL, ou vida útil, válida. O TTL é determinado pelos seguintes cabeçalhos de resposta:
 
 	- Cache-Control: período máximo s
 	- Cache-Control: período máximo
@@ -86,7 +86,7 @@ Este relatório descreve a distribuição de acertos do cache e de erros de cach
 
 - TCP\_MISS - esse status indica que uma versão armazenada em cache do ativo solicitado não foi encontrada no POP mais próximo ao cliente. O ativo será solicitado de um servidor de origem ou de um servidor de escudo de origem. Se o servidor de origem ou o servidor de escudo de origem retornar um ativo, ele será servido ao cliente e armazenado em cache no cliente e no servidor de borda. Caso contrário, um código de status diferente de 200 (por exemplo, 403 Proibido, 404 Não Encontrado etc.) será retornado.
 
-- TCP\_EXPIRED \_HIT - esse status é relatado quando uma solicitação destinada a um ativo com vida útil (TTL) expirada, como quando a idade máxima do ativo tiver expirado, foi servido diretamente do POP para o cliente.
+- TCP\_EXPIRED \_HIT - esse status é relatado quando uma solicitação destinada a um ativo com TTL expirada, como quando a idade máxima do ativo tiver expirado, foi servido diretamente do POP para o cliente.
 
 	Normalmente, uma solicitação expirada resulta em uma solicitação de revalidação para o servidor de origem. Para que um TCP\_EXPIRED \_HIT ocorra, o servidor de origem deverá indicar que não há uma versão mais recente do ativo. Esse tipo de situação normalmente atualizará os cabeçalhos Cache-Control e Expires do ativo.
 
@@ -104,9 +104,11 @@ Este relatório descreve a distribuição de acertos do cache e de erros de cach
 
 - UNCACHEABLE - esse status é relatado quando os cabeçalhos Cache-Control e Expires de um ativo indicam que ele não deve ser armazenado em cache em um POP ou pelo cliente HTTP. Esses tipos de solicitações são servidos do servidor de origem
 
-##Taxa de Acertos do Cache
+## Taxa de Acertos do Cache
 
-Este relatório indica a porcentagem de solicitações em cache que foram servidas diretamente do cache. O relatório fornece os seguintes detalhes:
+Este relatório indica a porcentagem de solicitações em cache que foram servidas diretamente do cache.
+
+O relatório fornece os seguintes detalhes:
 
 - O conteúdo solicitado foi armazenado em cache no POP mais próximo ao solicitante.
 - A solicitação foi servida diretamente da borda da rede.
@@ -126,17 +128,18 @@ A fórmula é: (TCP\_ HIT/(TCP\_ HIT+TCP\_MISS))*100
 
 ![Relatório Taxa de acertos do cache](./media/cdn-reports/cdn-cache-hit-ratio.png)
 
-##Dados IPv4/IPV6 transferidos 
+## Dados IPv4/IPV6 transferidos 
 
 Esse relatório mostra a distribuição de uso de tráfego em IPV4 versus IPV6.
 
+![Dados IPv4/IPV6 transferidos](./media/cdn-reports/cdn-ipv4-ipv6.png)
 
 - Selecione Intervalo de datas para exibir dados de hoje/esta semana/este mês etc. ou insira datas personalizadas.
 - Em seguida, clique em "ir" para garantir que a seleção seja atualizada.
 
 
-##Considerações
+## Considerações
 
 Os relatórios só podem ser gerados com informações dos últimos 18 meses.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

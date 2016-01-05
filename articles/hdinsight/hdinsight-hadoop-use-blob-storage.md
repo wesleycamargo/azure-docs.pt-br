@@ -94,9 +94,9 @@ Independentemente de onde estiverem, cada blob que você criar pertencerá a um 
 O contêiner de blob padrão armazena informações específicas do cluster como logs e o histórico do trabalho. Não compartilhe um contêiner de armazenamento de blob padrão com vários clusters HDInsight. Isso pode corromper o histórico de trabalho e o cluster se comportará de forma inadequada. É recomendável usar um contêiner diferente para cada cluster e colocar os dados compartilhados em uma conta de armazenamento vinculada especificada na implantação de todos os clusters relevantes, e não na conta de armazenamento padrão. Para obter mais informações sobre como configurar contas de armazenamento vinculadas, veja [Criar clusters HDInsight][hdinsight-creation]. No entanto, você pode reutilizar um contêiner de armazenamento padrão depois que o cluster HDInsight original for excluído. Para clusters HBase, você pode realmente manter os dados e o esquema de tabela do HBase criando um novo cluster HBase com o contêiner de armazenamento de blob padrão usado por um cluster HBase que foi excluído.
 
 
-### Usando o portal de visualização do Azure
+### Usando o Portal do Azure
 
-Ao criar um cluster HDInsight no portal de visualização, você tem as opções de usar uma conta de armazenamento existente ou criar uma nova conta de armazenamento:
+Ao criar um cluster HDInsight no Portal, você tem as opções de usar uma conta de armazenamento existente ou criar uma nova conta de armazenamento:
 
 ![hdinsight hadoop criação fonte de dados](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
 
@@ -297,4 +297,4 @@ Para obter mais informações, consulte:
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

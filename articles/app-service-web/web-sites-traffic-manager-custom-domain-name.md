@@ -1,11 +1,4 @@
-<properties 
-	pageTitle="Configurar um nome de domínio personalizado para um aplicativo Web no Serviço de Aplicativo do Azure que usa o Gerenciador de Tráfego" 
-	description="Use um nome de domínio personalizado para um aplicativo Web no Serviço de Aplicativo do Azure que inclua o Gerenciador de Tráfego para balanceamento de carga." 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="MikeWasson" 
-	manager="wpickett" 
-	editor=""/>
+<properties pageTitle="Configurar um nome de domínio personalizado para um aplicativo web no serviço de aplicativo do Azure que usa o Gerenciador de Tráfego"wpickett"Usar um nome de domínio personalizado para um aplicativo Web no Serviço de Aplicativo do Azure que inclua o Gerenciador de Tráfego para balanceamento de carga." description="Usar um nome de domínio personalizado para um aplicativo web no serviço de aplicativo do Azure que inclua o Gerenciador de Tráfego para balanceamento de carga." services="appp service\\web" documentationCenter="" authors="rmcmurray" manager="wpickett" editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,8 +6,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/18/2015" 
-	ms.author="mwasson"/>
+	ms.date="11/18/2015" 
+	ms.author="robmcm"/>
 
 #Configurando um nome de domínio personalizado para um aplicativo Web no Serviço de Aplicativo do Azure usando o Gerenciador de Tráfego
 
@@ -41,9 +34,7 @@ Este artigo fornece instruções genéricas sobre como usar um nome de domínio 
 <a name="bkmk_configurecname"></a>
 ## Adicionar um registro DNS a seu domínio personalizado
 
-
-> [AZURE.NOTE]Se você tiver adquirido o domínio por meio de Aplicativos Web do Serviço de Aplicativo do Azure ignore etapas a seguir e consulte a etapa final do artigo <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">Comprar domínio para aplicativos Web</a>.
-
+> [AZURE.NOTE]Se você tiver adquirido o domínio por meio de Aplicativos Web do Serviço de Aplicativo do Azure, ignore etapas a seguir e consulte a etapa final do artigo [Comprar domínio para aplicativos Web](custom-dns-web-site-buydomains-web-app.md).
 
 Para associar seu domínio personalizado a um aplicativo Web no Serviço de Aplicativo do Azure, você deve adicionar uma nova entrada na tabela DNS para seu domínio personalizado usando as ferramentas fornecidas pelo registrador de domínio do qual comprou seu nome de domínio. Use as seguintes etapas para localizar e usar as ferramentas DNS.
 
@@ -51,11 +42,11 @@ Para associar seu domínio personalizado a um aplicativo Web no Serviço de Apli
 
 4. Depois de localizar a página de gerenciamento para seu nome de domínio, procure um link que permita editar os registros DNS. Ele pode estar listado como um **Arquivo de zona**, **Registros DNS** ou como um link de configuração **Avançado**.
 
-	* Provavelmente, a página terá alguns poucos registros já criados, como uma associação de entrada '**@**' ou '*' com uma página de ‘estacionamento de domínio’. Ela também pode conter registros para subdomínios comuns como **www**.
+	* A página deverá ter alguns poucos registros já criados, como uma associação de entrada '**@**' ou '*' com uma página de 'domain parking'. Ela também pode conter registros para subdomínios comuns como **www**.
 	* A página mencionará **registros CNAME** ou fornecerá uma lista suspensa para selecionar um tipo de registro. Ela também pode mencionar outros registros, como **registros A** e **registros MX**. Em alguns casos, os registros CNAME serão chamados por outros nomes como um **Registro de Alias**.
 	* A página também terá campos que permitem **mapear** de um **Nome do host** ou **Nome de domínio** para outro nome de domínio.
 
-5. Embora as especificidades de cada registrador variem, em geral, você mapeia *do* nome de domínio personalizado (como **contoso.com**) *para* o nome de domínio do Gerenciador de Tráfego (**contoso.trafficmanager.net**) usado no seu aplicativo Web.
+5. Embora as especificidades de cada registrador variem, em geral, você mapeia *de* seu nome de domínio personalizado (como **contoso.com**,) *para* o nome de domínio do Gerenciador de Tráfego (**contoso.trafficmanager.net**) que é usado para seu aplicativo web.
 
 6. Depois de terminar a adição ou a modificação de registros DNS no registrador, salve as alterações.
 
@@ -70,4 +61,4 @@ Para associar seu domínio personalizado a um aplicativo Web no Serviço de Apli
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

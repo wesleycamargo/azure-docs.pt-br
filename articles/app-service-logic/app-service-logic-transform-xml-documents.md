@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Transformação do BizTalk" 
-	description="Aprenda a transformar documentos XML de um esquema para outro." 
+	pageTitle="Usando a Transformação do BizTalk em aplicativos lógicos do Serviço de Aplicativo do Azure | Microsoft Azure" 
+	description="Aprenda a transformar documentos XML de um esquema para outro" 
 	authors="anuragdalmia" 
 	manager="dwrede" 
 	editor="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="12/07/2015"
 	ms.author="anuragdalmia"/>
 
-#Transformação do BizTalk
+# Transformação do BizTalk
 
 
 ## Visão geral
@@ -45,11 +45,11 @@ Você pode baixar os esquemas XML para conectores, como SQL, SAP e SharePoint, d
 ## Criar e adicionar o mapa
 Transformações ou mapas são criados no Visual Studio usando o [SDK de Serviços BizTalk do Microsoft Azure](http://www.microsoft.com/download/details.aspx?id=39087), que é baixado gratuitamente.
 
-Para obter ajuda para criar um mapa, consulte [Criar um Mapa no Visual Studio](http://aka.ms/createamapinvs). Depois de o mapa ser criado e estar pronto para produção, você pode adicionar o mapa (arquivo .trfm) para o Aplicativo de API de Transformação do BizTalk criado no Portal de Gerenciamento do Azure.
+Para obter ajuda para criar um mapa, consulte [Criar um Mapa no Visual Studio](http://aka.ms/createamapinvs). Depois de o mapa ser criado e estar pronto para produção, você pode adicionar o mapa (arquivo .trfm) para o Aplicativo de API de Transformação do BizTalk criado no Portal do Azure.
 
-Se o mapa mudar ou for modificado depois de ser carregado, você pode carregar o mapa atualizado e substituir o mapa existente no Aplicativo de API de Transformação.
+Se o mapa mudar ou for modificado depois de ser carregado, você pode carregar o mapa atualizado para substituir o mapa existente no Aplicativo de API de Transformação.
 
-1.	Selecione **Procurar** no Portal de Gerenciamento do Azure (à esquerda da tela) e selecione **Aplicativos de API**. Se **Aplicativos de API** não for exibido, selecione **Tudo** e selecione **Aplicativos de API** na lista disponível:
+1.	Selecione **Procurar** no Portal do Azure (à esquerda da tela) e selecione **Aplicativos de API**. Se **Aplicativos de API** não for exibido, selecione **Tudo** e selecione **Aplicativos de API** na lista disponível:
 
 	![][7]
 
@@ -116,4 +116,4 @@ Depois que o mapa tiver sido criado e testado, ele estará pronto para consumo.
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

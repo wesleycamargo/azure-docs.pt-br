@@ -35,9 +35,9 @@ Para concluir este tutorial, você precisará do seguinte:
 
 ## Criar um novo aplicativo da Windows Store
 
-Após a criação do seu serviço móvel, você poderá seguir um início rápido no Portal de Gerenciamento para criar um novo aplicativo JavaScript da Windows Store 8.1 que se conecte ao seu serviço móvel.
+Após a criação do seu serviço móvel, você poderá seguir um início rápido no portal clássico do Azure para criar um novo aplicativo JavaScript da Windows Store 8.1 que se conecte ao seu serviço móvel.
 
-1.  No Portal de Gerenciamento, clique em **Serviços Móveis**e, em seguida, clique no serviço móvel que você acabou de criar.
+1.  No [portal clássico do Azure], clique em **Serviços Móveis** e clique no serviço móvel que você acabou de criar.
 
 
 2. Na guia de início rápido, clique em **Windows** em **Escolher plataforma** e expanda **Criar um novo aplicativo da Windows Store**.
@@ -64,14 +64,14 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
 4. (Opcional) Execute o aplicativo novamente e observe que os dados salvos da etapa anterior são carregados a partir do serviço móvel após a inicialização do aplicativo.
  
-4. No Portal de Gerenciamento, clique na guia **Dados** e, em seguida na tabela **TodoItems**.
+4. Novamente no [portal clássico do Azure], clique na guia **Dados** e clique na tabela **TodoItems**.
 
    	Isso permite que você procure os dados inseridos pelo aplicativo na tabela.
 
 >[AZURE.NOTE]Você poderá examinar o código que acessa o seu serviço móvel para consultar e inserir dados, que estão localizados no arquivo default.js.
 
 ## Próximas etapas
-Agora que você concluiu o início rápido, saiba como trabalhar com o [Cliente dos Serviços Móveis para HTML/JavaScript](mobile-services-html-how-to-use-client-library.md).
+Agora que você concluiu o início rápido, saiba como trabalhar com o [cliente dos Serviços Móveis para HTML/JavaScript](mobile-services-html-how-to-use-client-library.md).
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
@@ -87,6 +87,6 @@ Agora que você concluiu o início rápido, saiba como trabalhar com o [Cliente 
 [Visual Studio 2013 Express for Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Visual Studio 2013 Express para Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Management Portal]: https://manage.windowsazure.com/
+[portal clássico do Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

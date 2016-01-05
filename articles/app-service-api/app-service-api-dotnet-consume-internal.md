@@ -18,6 +18,8 @@
 
 # Consumir um aplicativo de API interna no Serviço de Aplicativo do Azure por meio de um cliente .NET 
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Visão geral
 
 Este tutorial mostra como escrever código para um [aplicativo de API](app-service-api-apps-why-best-platform.md) ASP.NET que chama outro aplicativo de API configurado para nível de acesso **Interno**. Os dois aplicativos de API devem estar no mesmo grupo de recursos. O mesmo código pode ser usado para chamar um aplicativo de API interna de um [aplicativo móvel](../app-service-mobile/app-service-mobile-value-prop-preview.md).
@@ -262,7 +264,7 @@ Este artigo mostrou como consumir um aplicativo de API interno de um cliente .NE
 
 Para obter exemplos adicionais de um código que chame um aplicativo de API de clientes .NET, baixe o aplicativo de exemplo [Azure cartões](https://github.com/Azure-Samples/API-Apps-DotNet-AzureCards-Sample).
 
-Para obter informações sobre a autenticação no Serviço de Aplicativo, consulte [Autenticação para aplicativos de API e aplicativos móveis](../app-service/app-service-authentication-overview.md).
+Para saber mais sobre a autenticação no Serviço de Aplicativo, veja [Autenticação para aplicativos de API e aplicativos móveis](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

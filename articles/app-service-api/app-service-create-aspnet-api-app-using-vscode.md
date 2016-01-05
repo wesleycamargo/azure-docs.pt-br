@@ -13,16 +13,12 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="12/04/2015" 
 	ms.author="erikre"/>
 
 # Criar um aplicativo API ASP.NET 5 no Visual Studio Code
 
-> [AZURE.SELECTOR]
-- [.NET - Visual Studio 2015](app-service-dotnet-create-api-app.md)
-- [.NET - Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
-- [Node.js](app-service-api-nodejs-api-app.md)
-- [Java](app-service-api-java-api-app.md)
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
 
 ## Visão geral
 
@@ -140,28 +136,28 @@ namespace ContactsList.Models
 3. Clique com o botão direito do mouse na pasta **controladores** e adicione um arquivo *ContactsController.cs*, para que ele apareça da seguinte maneira:
 
 	<pre class="prettyprint">
-using System.Collections.Generic;
-using Microsoft.AspNet.Mvc;
-using ContactsList.Models;
-
-namespace ContactsList.Controllers
-{
-    [Route("api/[controller]")]
-    public class ContactsController : Controller
-    {
-        // GET: api/Contacts
-        [HttpGet]
-        public IEnumerable&lt;Contact> Get()
-        {
-            return new Contact[]{
-                new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
-                new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
-                new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
-            };
-        }
-    }
-}
-</pre>
+	using System.Collections.Generic;
+	using Microsoft.AspNet.Mvc;
+	using ContactsList.Models;
+	
+	namespace ContactsList.Controllers
+	{
+	    [Route("api/[controller]")]
+	    public class ContactsController : Controller
+	    {
+	        // GET: api/Contacts
+	        [HttpGet]
+	        public IEnumerable&lt;Contact&gt; Get()
+	        {
+	            return new Contact[]{
+	                new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
+	                new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
+	                new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
+	            };
+	        }
+	    }
+	}
+	</pre>
 
 4. Assegure que todos os arquivos estejam salvos, selecionando **Arquivo** > **Salvar Tudo**.
 5. Na **Paleta de Comandos**, digite o seguinte para executar o comando localmente:
@@ -448,4 +444,4 @@ No Portal de Visualização do Azure, vá até a folha **HOST DE APLICATIVO DE A
 Neste tutorial, você aprendeu como criar um aplicativo de API no Visual Studio Code. Para obter mais informações sobre o Visual Studio Code, consulte [Visual Studio Code](https://code.visualstudio.com/Docs/). Para obter informações sobre aplicativos de API, consulte [O que são aplicativos de API?](app-service-api-apps-why-best-platform.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

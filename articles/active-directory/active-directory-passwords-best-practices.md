@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # Implantando o gerenciamento de senhas e treinando os usuários para usá-lo
@@ -48,12 +48,14 @@ Para que um usuário possa usar a redefinição de senha, **todas** as seguintes
 Você tem várias opções para especificar o modo como dados de usuários na sua organização são usados para redefinição de senha.
 
 - Editar usuários no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com) ou no [Portal de Administração do Office 365](https://portal.microsoftonline.com)
-- Usar o AADSync para sincronizar propriedades do usuário no Azure AD a partir de um domínio local do Active Directory
-- Usar o Windows PowerShell para editar propriedades de usuário
+- Usar a Sincronização do AD do Azure para sincronizar as propriedades do usuário no AD do Azure em um domínio local do Active Directory
+- Use o Windows PowerShell para editar as propriedades do usuário [seguindo as etapas descritas aqui](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users).
 - Permitir que os usuários registrem seus próprios dados guiando-os para o portal de registro em [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
-- Exigir que os usuários se registrem para redefinição de senha ao entrarem no Painel de Acesso em [http://myapps.microsoft.com](http://myapps.microsoft.com) definindo a opção de configuração de SSPR **Exigir que os usuários se registrem** como **Sim**.
+- Exija que os usuários se registrem para a redefinição de senha ao entrarem em suas contas do AD do Azure definindo a opção de configuração [**Exigir que os usuários se registrem ao entrarem?**](active-directory-passwords-customize.md#require-users-to-register-when-signing-in) como **Sim**.
 
-Os usuários não precisam se registrar para a redefinição de senha para que o sistema funcione. Por exemplo, se tiver números de telefone existentes em seu diretório local, você poderá sincronizá-los no AD do Azure e nós os usaremos para a redefinição de senha automaticamente.
+Os usuários não precisam se registrar para a redefinição de senha para que o sistema funcione. Por exemplo, se você tiver números de telefone existentes em seu diretório local, você poderá sincronizá-los no AD do Azure e nós os usaremos para a redefinição de senha automaticamente.
+
+Você também pode ler mais sobre [como os dados são usados pela redefinição de senha](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) e [como você pode popular campos de autenticação individuais com o PowerShell](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users).
 
 ## Qual é a melhor maneira de distribuir a redefinição de senha para os usuários?
 A seguir estão as etapas de distribuição geral para a redefinição de senha:
@@ -77,7 +79,7 @@ Você pode [baixar o modelo de email aqui](http://1drv.ms/1xWFtQM).
 ### Criando seu próprio portal de senha
 Uma estratégia que funciona bem para os clientes maiores que implantam recursos de gerenciamento de senhas é criar um único "portal de senha" que os usuários poderão usar para gerenciar tudo relacionado a suas senhas em um único lugar.
 
-Muitos de nossos clientes maiores escolhem criar uma entrada DNS de raiz, como https://passwords.contoso.com com links para o portal de redefinição de senha do AD do Azure, portal de registro de redefinição de senha e páginas de alteração de senha. Dessa forma, em quaisquer comunicações por email ou folhetos enviados, você poderá incluir uma URL única e fácil de lembrar que os usuários poderão seguir para quando tiverem um segundo para começarem a usar o serviço.
+Muitos de nossos clientes maiores optam por criar uma entrada DNS de raiz, como https://passwords.contoso.com com links para o portal de redefinição de senha do AD do Azure, portal de registro de redefinição de senha e páginas de alteração de senha. Dessa forma, em quaisquer comunicações por email ou folhetos enviados, você poderá incluir uma URL única e fácil de lembrar que os usuários poderão seguir para quando tiverem um segundo para começarem a usar o serviço.
 
 Para continuar aqui, criamos uma página simples que usa os paradigmas mais recentes de design da IU responsiva e que funcionará em todos os navegadores e dispositivos móveis.
 
@@ -121,24 +123,25 @@ Você pode carregar os dados de autenticação por meio do [Portal de Gerenciame
 
 Consulte [Quais dados são usados pela redefinição de senha](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) para ver como cada uma dessas propriedades pode ser usada.
 
+Veja [Como acessar os dados da redefinição de senha dos usuários por meio do PowerShell](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users) para ver como é possível ler e definir esses dados com o PowerShell.
+
 ## Materiais de treinamento de exemplo
 Estamos trabalhando no material de treinamento de exemplo que você pode usar para que sua organização de TI e seus usuários aprendam rapidamente sobre implantar e usar a redefinição de senha. Fique atento!
 
 
 <br/> <br/> <br/>
 
-**Recursos adicionais**
+## Links para a documentação de redefinição de senha
+Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
 
-
-* [O que é o Gerenciamento de Senhas](active-directory-passwords.md)
-* [Como funciona o gerenciamento de senhas](active-directory-passwords-how-it-works.md)
-* [Introdução ao gerenciamento de senhas](active-directory-passwords-getting-started.md)
-* [Personalizar o gerenciamento de senhas](active-directory-passwords-customize.md)
-* [Como obter percepções operacionais com relatórios de gerenciamento de senhas](active-directory-passwords-get-insights.md)
-* [Perguntas frequentes sobre Gerenciamento de Senhas](active-directory-passwords-faq.md)
-* [Solucionar problemas do Gerenciamento de Senhas](active-directory-passwords-troubleshoot.md)
-* [Saiba mais](active-directory-passwords-learn-more.md)
-* [Gerenciamento de senhas no MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* [**Redefinir sua própria senha**](active-directory-passwords-update-your-own-password.md): saiba mais sobre como redefinir ou alterar sua própria senha como um usuário do sistema
+* [**Como funciona**](active-directory-passwords-how-it-works.md) - saiba mais sobre os seis diferentes componentes do serviço e o que cada um deles faz
+* [**Introdução**](active-directory-passwords-getting-started.md) - saiba como permitir que os usuários redefinam e alterem suas senhas na nuvem ou no local
+* [**Personalizar**](active-directory-passwords-customize.md) - aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização
+* [**Obter percepções**](active-directory-passwords-get-insights.md) - saiba mais sobre nossos recursos integrados de relatórios
+* [**Perguntas frequentes**](active-directory-passwords-faq.md) - obtenha respostas para perguntas frequentes
+* [**Solução de problemas**](active-directory-passwords-troubleshoot.md) - aprenda a solucionar rapidamente os problemas com o serviço
+* [**Saiba mais**](active-directory-passwords-learn-more.md) - aprofunde-se nos detalhes técnicos do funcionamento do serviço
 
 
 
@@ -150,4 +153,4 @@ Estamos trabalhando no material de treinamento de exemplo que você pode usar pa
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-best-practices/007.jpg "Image_007.jpg"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

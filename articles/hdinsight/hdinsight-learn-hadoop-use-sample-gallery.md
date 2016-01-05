@@ -40,11 +40,11 @@ O vídeo a seguir mostra como executar o exemplo de análise de tendência do Tw
 
 <center><a href="https://www.youtube.com/embed/7ePbHot1SN4">https://www.youtube.com/embed/7ePbHot1SN4></a></center>
 
-Você pode acessar o Painel navegando até http://<YourHDInsightClusterName>.azurehdinsight.net/ ou no portal de visualização do Azure.
+Você pode acessar o Painel navegando até http://<YourHDInsightClusterName>.azurehdinsight.net/ ou do Portal do Azure.
 
 **Para executar um exemplo da Galeria de Introdução**
 
-1. Entre no [portal de visualização do Azure][azure.portal].
+1. Entre no [Portal do Azure][azure.portal].
 2. Clique em **Procurar** no menu à esquerda, clique em **Clusters HDInsight** e clique no nome do cluster.
 3. Clique em **Painel** no menu superior.
 4. Insira o nome de usuário e a senha para o usuário HTTP (também chamado de usuário de cluster).
@@ -68,4 +68,4 @@ Outras maneiras de saber mais sobre o HDInsight incluem:
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://portal.azure.com
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

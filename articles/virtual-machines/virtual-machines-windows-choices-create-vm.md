@@ -27,9 +27,9 @@ Os modelos do Gerenciador de Recursos do Azure foram introduzidos recentemente c
 
 ## Opções da ferramenta
 
-### GUI: Portal de visualização do Azure
+### GUI: portal do Azure
 
-A interface gráfica do usuário do portal do Azure é uma maneira fácil de testar uma máquina virtual, especialmente se você estiver começando com o Azure. Usar o Portal de visualização do Azure para criar uma máquina virtual:
+A interface gráfica do usuário do portal clássico do Azure é uma maneira fácil de testar uma máquina virtual, especialmente se você estiver começando com o Azure. Use o portal do Azure para criar a máquina virtual:
 
 [Criar uma máquina virtual executando o Windows][]
 
@@ -79,4 +79,4 @@ Escolha uma imagem com base no sistema operacional que você deseja executar. A 
 
 [Azure hybrid cloud test environments]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

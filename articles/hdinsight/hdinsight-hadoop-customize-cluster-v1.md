@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/07/2015" 
+	ms.date="11/29/2015" 
 	ms.author="nitinme"/>
 
 # Personalizar os clusters HDInsight usando a Ação de Script
@@ -29,7 +29,7 @@ O HDInsight oferece uma opção de configuração chamada **Ação de Script**; 
 > 
 > A Ação de Script está disponível como parte das assinaturas do Azure HDInsight padrão sem custo adicional.
 
-Clusters HDInsight também podem ser personalizados de várias outras formas, como incluir contas adicionais do Armazenamento do Azure, alterar os arquivos de configuração do Hadoop (core-site.xml, hive-site.xml, etc.) ou adicionar bibliotecas compartilhadas (p.ex., Hive, Oozie) em locais comuns no cluster. Essas personalizações podem ser feitas por meio do PowerShell do Azure, do Azure HDInsight .NET SDK ou do portal do Azure. Para obter mais informações, consulte [Provisionar clusters Hadoop no HDInsight usando opções personalizadas][hdinsight-provision-cluster].
+Clusters HDInsight também podem ser personalizados de várias outras formas, como incluir contas adicionais do Armazenamento do Azure, alterar os arquivos de configuração do Hadoop (core-site.xml, hive-site.xml, etc.) ou adicionar bibliotecas compartilhadas (p.ex., Hive, Oozie) em locais comuns no cluster. Essas personalizações podem ser feitas por meio do Azure PowerShell, SDK do .NET do Azure HDInsight ou Portal Clássico do Azure. Para obter mais informações, consulte [Provisionar clusters Hadoop no HDInsight usando opções personalizadas][hdinsight-provision-cluster].
 
 ## Ação de script no processo de provisionamento do cluster
 
@@ -48,7 +48,7 @@ Cada cluster pode aceitar várias ações de script, que são invocadas na ordem
 
 ## Scripts de Ação de Chamar Script
 
-Scripts de Ação de Script podem ser usados no portal do Azure, no Azure PowerShell ou no SDK do .NET HDInsight.
+Scripts da Ação de Script podem ser usados no Portal Clássico do Azure, Azure PowerShell ou SDK do .NET do HDInsight.
 
 O HDInsight fornece vários scripts para instalar os seguintes componentes em clusters do HDInsight:
 
@@ -61,7 +61,7 @@ Nome | Script
 
 
 
-**No Portal do Azure**
+**No Portal Clássico do Azure**
 
 1. Comece provisionando um cluster usando a opção **CRIAÇÃO PERSONALIZADA**, como descrito em [Provisionando um cluster usando opções personalizadas](hdinsight-provision-clusters.md#portal). 
 2. Na página **Ações de Script** do assistente, clique em **Adicionar ação de script** para fornecer detalhes sobre a ação de script, como mostrado abaixo:
@@ -139,7 +139,7 @@ O serviço Microsoft Azure HDInsight é uma plataforma flexível que permite com
 
 Há dois tipos de componentes de software livre disponíveis no serviço HDInsight:
 
-- **Componentes internos**: estes componentes estão pré-instalado em clusters HDInsight e fornecem a funcionalidade básica do cluster. Por exemplo, o gerenciador de recursos YARN RM, o HiveQL (linguagem de consulta do Hive) e a biblioteca Mahout pertencem a esta categoria. Uma lista completa dos componentes de cluster está disponível em <a href="http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/" target="_blank">O que há de novo nas versões de cluster Hadoop fornecidas pelo HDInsight?</a>
+- **Componentes internos**: estes componentes estão pré-instalado em clusters HDInsight e fornecem a funcionalidade básica do cluster. Por exemplo, o gerenciador de recursos YARN RM, o HiveQL (linguagem de consulta do Hive) e a biblioteca Mahout pertencem a esta categoria. Uma lista completa dos componentes de cluster está disponível em [Novidades nas versões do cluster Hadoop fornecidas pelo HDInsight](hdinsight-component-versioning.md).
 - **Componentes personalizados**: como usuário do cluster, você pode instalar ou usar em sua carga de trabalho qualquer componente disponível na comunidade ou criado por você.
 
 Componentes internos são totalmente compatíveis e o Suporte da Microsoft ajudará a isolar e resolver problemas relacionados a esses componentes.
@@ -176,4 +176,4 @@ Confira [Desenvolver scripts de Ação de Script para o HDInsight][hdinsight-wri
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-v1/HDI-Cluster-state.png "Estágios durante o provisionamento de cluster"
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

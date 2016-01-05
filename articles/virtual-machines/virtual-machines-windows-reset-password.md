@@ -22,16 +22,16 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
 
 
-Se você não conseguir se conectar a uma máquina virtual do Windows por ter esquecido a senha ou por um problema com a configuração de serviço da Área de Trabalho Remota, use o portal de visualização do Azure ou a extensão VMAccess para redefinir a senha do administrador local ou a configuração de serviço da Área de Trabalho Remota.
+Se você não conseguir se conectar a uma máquina virtual do Windows por ter esquecido a senha ou por um problema com a configuração de serviço da Área de Trabalho Remota, use o portal do Azure ou a extensão VMAccess para redefinir a senha do administrador local ou a configuração de serviço da Área de Trabalho Remota.
 
-## Portal de visualização
+## Portal do Azure
 
-Para redefinir o serviço de Área de Trabalho Remota no [portal de visualização](https://portal.azure.com), clique em **Procurar tudo** > **Máquinas virtuais (clássicas)** > *sua máquina virtual do Windows* > **Redefinir Acesso Remoto**. A página a seguir será exibida.
+Para redefinir o serviço de área de trabalho remota no [portal do Azure](https://portal.azure.com), clique em **Procurar tudo** > **máquinas virtuais (clássico)** > *sua máquina virtual Windows* > **Redefinir acesso remoto**. A página a seguir será exibida.
 
 
 ![](./media/virtual-machines-windows-reset-password/Portal-RDP-Reset-Windows.png)
 
-Para redefinir o nome e a senha da conta de administrador local no [portal de visualização](https://portal.azure.com), clique em **Procurar tudo** > **Máquinas virtuais (clássicas)** > *sua máquina virtual Windows* > **Todas as configurações** > **Redefinição de senha**. A página a seguir será exibida.
+Para redefinir o nome e a senha da conta de administrador local no [portal do Azure](https://portal.azure.com), clique em **Procurar tudo** > **Máquinas virtuais (clássico)** > *sua máquina virtual Windows* > **Todas as configurações** > **Redefinição de senha**. A página a seguir será exibida.
 
 ![](./media/virtual-machines-windows-reset-password/Portal-PW-Reset-Windows.png)
 
@@ -57,7 +57,7 @@ Se você não souber o nome da máquina virtual e serviço de nuvem, execute **G
 
 Se o comando **write-host** exibir **True**, o agente de VM está instalado. Se ele exibir **False**, confira as instruções e um link para download na postagem do blog do Azure [Agente de VM e extensões - parte 2](http://go.microsoft.com/fwlink/p/?linkid=403947&clcid=0x409).
 
-Se tiver criado a máquina virtual com o portal do Azure, execute o comando adicional a seguir.
+Se você criou a máquina virtual com o portal, execute o seguinte comando adicional.
 
 	$vm.GetInstance().ProvisionGuestAgent = $true
 
@@ -108,10 +108,10 @@ Se você não conseguir executar o pacote de diagnóstico do Azure IaaS (Windows
 
 ## Recursos adicionais
 
-[Recursos e extensões de VM do Azure](http://msdn.microsoft.com/library/azure/dn606311.aspx)
+[Recursos e extensões de VM do Azure](virtual-machines-extensions-features.md)
 
 [Conectar-se a uma máquina virtual do Azure com RDP ou SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx)
 
 [Solucionar problemas de conexões de Área de Trabalho Remota para uma máquina virtual do Azure baseada em Windows](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

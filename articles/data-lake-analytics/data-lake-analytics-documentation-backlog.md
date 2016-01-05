@@ -24,7 +24,9 @@ Continuaremos adicionando nova documentação para dar suporte à Análise Azure
 
 Área |Tópico | Prioridade | Status | Atribuído a | Solicitado por 
 ------------- | ------------- | -------------- | -------------- | --------------- | --------------
-U-SQL | Consulta Distribuída | 1 | Em espera | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | Consulta Distribuída | 1 | Em espera | [@edmacauley](https://github.com/edmacauley) |
+U-SQL | Movendo dados entre o WASB e o ADLS | 1 | Pendente | TBD | Ye Xing (ml)
+U-SQL | Diretrizes para testes de unidade para o modelo UDO | 1 | Pendente | TBD | [@ddobric](https://github.com/ddobric) 
 U-SQL | Processando o JSON | 2 | Pendente | [@mumian](https://github.com/mumian) | [@mwinkle](https://github.com/mwinkle)
 O Barramento de | Interagindo com o Curl | 3 |Pendente |[@mumian](https://github.com/mumian)
 U-SQL | Tabelas particionadas |1 | Em andamento | [@edmacauley](https://github.com/edmacauley) | 
@@ -36,6 +38,7 @@ U-SQL | Diagramas em trilhos de gramática | 1 | em andamento, usando [este](htt
 O Barramento de | Protegendo trabalhos, dados e tabelas na Análise Data Lake |1| em andamento | [@mumian](https://github.com/mumian) | [@MikeRys](https://github.com/mikerys)
 O Barramento de | Movendo a saída do trabalho para o SQL Data Warehouse usando o Data Factory |1 | em andamento | [@mumian](https://github.com/mumian) | 
 Ferramentas | Usando as ferramentas de diagnóstico | 1 | Pendente | [@mumian](https://github.com/mumian) | 
+U-SQL | Explicar as técnicas para executar JOINs baseados em intervalo | 1 | Pendente | [@MikeRys](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 
 
 
@@ -44,7 +47,7 @@ Ferramentas | Usando as ferramentas de diagnóstico | 1 | Pendente | [@mumian](h
 
 Área |Tópico | location
 ------------- | ------------- | -------------- 
-O Barramento de | Coordenando a implantação da Análise Data Lake com outros serviços do Azure usando modelos ARM | [local](https://azure.microsoft.com/pt-BR/documentation/articles/data-lake-analytics-manage-use-powershell/)
+O Barramento de | Coordenando a implantação da Análise Data Lake com outros serviços do Azure usando modelos ARM | [local](../data-lake-analytics-manage-use-powershell.md)
 
 ## Como fornecer comentários sobre a lista de pendências
 Há algumas opções para fornecer comentários sobre a lista de pendências:
@@ -53,4 +56,4 @@ Há algumas opções para fornecer comentários sobre a lista de pendências:
 * Enviar uma solicitação pull sobre este documento no [Repositório de Conteúdo do Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Enviar um email para [adlafeedback@microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

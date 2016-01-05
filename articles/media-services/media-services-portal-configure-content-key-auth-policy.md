@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/04/2015" 
 	ms.author="juliako"/>
 
 
@@ -26,7 +26,7 @@
 
 Os serviços de mídia do Microsoft Azure permitem distribuir o conteúdo criptografado com criptografia AES (padrão avançado) (usando chaves de criptografia de 128 bits) e PlayReady DRM. Os Serviços de Mídia também fornecem um **Serviço de Entrega de Chave/Licença** do qual os clientes podem obter uma chave ou uma licença para reproduzir o conteúdo criptografado.
 
-Este tópico mostra como usar o **Portal de Gerenciamento do Azure** para configurar a política de autorização de chave de conteúdo. A chave pode ser usada posteriormente para criptografar dinamicamente o conteúdo. Observe que, no momento, você pode criptografar o seguintes formatos de streaming: HLS, MPEG DASH, e Smooth Streaming. Você não pode criptografar o formato de streaming HDSou fazer o download progressivo.
+Este tópico mostra como usar o **Portal Clássico do Azure** para configurar a política de autorização de chave de conteúdo. A chave pode ser usada posteriormente para criptografar dinamicamente o conteúdo. Observe que, no momento, você pode criptografar o seguintes formatos de streaming: HLS, MPEG DASH, e Smooth Streaming. Você não pode criptografar o formato de streaming HDSou fazer o download progressivo.
  
 Quando um player solicita um fluxo que é definido para ser criptografado dinamicamente, os serviços de mídia usam a chave configurada para criptografar dinamicamente seu conteúdo usando a criptografia AES ou PlayReady. Para descriptografar o fluxo, o player solicitará a chave do serviço de distribuição de chaves. Para decidir se o usuário está autorizado para obter a chave ou não, o serviço avalia as políticas de autorização que você especificou para a chave.
 
@@ -95,7 +95,7 @@ Você pode clicar no botão **Importar a política XML** e fornecer um XML difer
 
 
 ##Próximas etapas
-Agora que você configurou a política de autorização da chave de conteúdo, vá para o tópico [Como: usar o Portal de Gerenciamento do Azure para habilitar a criptografia](../media-services-manage-content#encrypt/).
+Agora que você configurou a política de autorização da chave de conteúdo, vá para o tópico [Como: usar o Portal Clássico do Azure para habilitar a criptografia](../media-services-manage-content#encrypt/).
 
 
 [open_policy]: ./media/media-services-portal-configure-content-key-auth-policy/media-services-protect-content-with-open-restriction.png
@@ -103,4 +103,4 @@ Agora que você configurou a política de autorização da chave de conteúdo, v
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

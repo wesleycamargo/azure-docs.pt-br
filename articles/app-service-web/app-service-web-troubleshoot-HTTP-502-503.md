@@ -21,7 +21,7 @@
 
 Este artigo ajuda você a solucionar erros de HTTP 502/503 no seu aplicativo Web hospedado no [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-Se você precisar de mais ajuda em qualquer momento neste artigo, você pode contatar os especialistas do Azure nos [fóruns do Azure MSDN e Excedente de Pilha](http://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure. Acesse o [site de Suporte do Azure](http://azure.microsoft.com/support/options/) e clique em **Obter Suporte**.
+Se precisar de mais ajuda em qualquer momento neste artigo, você pode contatar os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](http://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure. Acesse o [site de Suporte do Azure](http://azure.microsoft.com/support/options/) e clique em **Obter Suporte**.
 
 ## Sintoma
 
@@ -50,7 +50,7 @@ A solução de problemas pode ser dividida em três tarefas distintas, em ordem 
 
 ####	Controlar a integridade do serviço
 
-O Microsoft Azure publica sempre que há uma degradação no desempenho ou interrupção do serviço. Você pode controlar a integridade do serviço no [portal de visualização do Azure](https://portal.azure.com/). Para saber mais, consulte [Controlar a integridade do serviço](insights-service-health.md).
+O Microsoft Azure publica sempre que há uma degradação no desempenho ou interrupção do serviço. Você pode controlar a integridade do serviço no [Portal do Azure](https://portal.azure.com/). Para saber mais, consulte [Controlar a integridade do serviço](insights-service-health.md).
 
 ####	Monitorar seu aplicativo Web
 
@@ -66,7 +66,7 @@ Algumas das métricas que deseja monitorar para seu aplicativo Web são
 
 ![](./media/app-service-web-troubleshoot-HTTP-502-503/1-monitor-metrics.png)
 
-Para obter mais informações, consulte:
+Para obter mais informações, confira:
 
 -	[Monitorar aplicativos Web no Serviço de Aplicativo do Azure](web-sites-monitor.md)
 -	[Receber notificações de alerta](insights-receive-alert-notifications.md)
@@ -125,17 +125,17 @@ Você pode definir a escala para ser Manual ou Automática.
 
 ####	Usar AutoHeal
 
-O AutoHeal recicla o processo de trabalho para seu aplicativo com base nas configurações que você escolher (como alterações de configuração, solicitações, limites baseados na memória ou o tempo necessário para executar uma solicitação). Na maioria das vezes, reciclar o processo é a maneira mais rápida de resolver um problema. Embora seja sempre possível reiniciar o aplicativo Web diretamente de dentro do portal de visualização do Azure, o AutoHeal fará isso automaticamente para você. Tudo que você precisa fazer é adicionar alguns gatilhos na raiz web.config de seu aplicativo Web. Observe que essas configurações devem funcionar da mesma forma ainda que seu aplicativo não seja um .Net.
+O AutoHeal recicla o processo de trabalho para seu aplicativo com base nas configurações que você escolher (como alterações de configuração, solicitações, limites baseados na memória ou o tempo necessário para executar uma solicitação). Na maioria das vezes, reciclar o processo é a maneira mais rápida de resolver um problema. Embora você possa sempre reiniciar o aplicativo Web diretamente no Portal do Azure, o AutoHeal fará isso automaticamente. Tudo que você precisa fazer é adicionar alguns gatilhos na raiz web.config de seu aplicativo Web. Observe que essas configurações devem funcionar da mesma forma ainda que seu aplicativo não seja um .Net.
 
 Para saber mais, consulte [AutoHeal em sites do Azure](/blog/auto-healing-windows-azure-web-sites/).
 
 
 ####	Reiniciar o aplicativo Web
 
-Esta é geralmente a maneira mais simples de se recuperar de problemas de uso únicos. No [portal de visualização do Azure](https://portal.azure.com), na folha de seu aplicativo Web, existem as opções para parar ou reiniciar o aplicativo.
+Esta é geralmente a maneira mais simples de se recuperar de problemas de uso únicos. No [Portal do Azure](https://portal.azure.com), na folha de seu aplicativo Web, existem as opções para parar ou reiniciar o aplicativo.
 
  ![](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
 Você também pode gerenciar seu aplicativo Web usando o Azure Powershell. Para obter mais informações, consulte [Usando o PowerShell do Azure com o Gerenciador de Recursos do Azure](powershell-azure-resource-manager.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

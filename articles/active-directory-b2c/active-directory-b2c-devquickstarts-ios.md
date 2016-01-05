@@ -80,14 +80,13 @@ Para que o aplicativo de tarefa do iOS se comunique com o B2C do AD do Azure, h�
 	<key>authority</key>
 	<string>https://login.microsoftonline.com/<your tenant name>.onmicrosoft.com/</string>
 	<key>clientId</key>
-	<string><Enter the Application Id assinged to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
+	<string><Enter the Application Id assigned to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
 	<key>scopes</key>
 	<array>
-		<string><Enter the Application Id assinged to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
+		<string><Enter the Application Id assigned to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
 	</array>
 	<key>additionalScopes</key>
 	<array>
-		<string></string>
 	</array>
 	<key>redirectUri</key>
 	<string>urn:ietf:wg:oauth:2.0:oob</string>
@@ -233,9 +232,7 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
         [self readApplicationSettings];
     }
     
-    NSDictionary* params = [self convertPolicyToDictionary:policy];
-    
-    [self getClaimsWithPolicyClearingCache:NO policy:policy params:params parent:parent completionHandler:^(ADProfileInfo* userInfo, NSError* error) {
+    [self getClaimsWithPolicyClearingCache:NO policy:policy params:nil parent:parent completionHandler:^(ADProfileInfo* userInfo, NSError* error) {
         
         if (userInfo == nil)
         {
@@ -256,42 +253,8 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
 Você verá que o método é muito simples. Ele utiliza como entrada o `samplesPolicyData` objeto que criamos há pouco, o ViewController pai e um retorno de chamada. O retorno de chamada é interessante e vamos examiná-lo.
 
 1. Você verá que o `completionBlock` tem ADProfileInfo como um tipo que será retornado com uma `userInfo` objeto. ADProfileInfo é o tipo que contém toda a resposta do servidor, em particular, declarações. 
-
 2. Você pode ver que estamos `readApplicationSettings`. Lê os dados que fornecemos na `settings.plist`
-3. Você verá que temos um método `convertPolicyToDictionary:policy` que usa nossa política e formata como uma URL para enviar ao servidor. Vamos escrever esse método auxiliar em seguida.
-4. Por fim, temos um grande `getClaimsWithPolicyClearingCache` método. Essa é a chamada real para a ADAL para iOS que precisamos escrever. Faremos isso mais tarde.
-
-
-Em seguida, escreveremos aquele `convertPolicyToDictionary` método abaixo do código que escrevemos:
-
-```
-// Here we have some converstion helpers that allow us to parse passed items in to dictionaries for URLEncoding later.
-
-+(NSDictionary*) convertTaskToDictionary:(samplesTaskItem*)task
-{
-    NSMutableDictionary* dictionary = [[NSMutableDictionary alloc]init];
-    
-    if (task.itemName){
-        [dictionary setValue:task.itemName forKey:@"task"];
-    }
-    
-    return dictionary;
-}
-
-+(NSDictionary*) convertPolicyToDictionary:(samplesPolicyData*)policy
-{
-    NSMutableDictionary* dictionary = [[NSMutableDictionary alloc]init];
-
-    
-    if (policy.policyID){
-        [dictionary setValue:policy.policyID forKey:@"p"];
-    }
-    
-    return dictionary;
-}
-
-```
-Esse código simples acrescenta simplesmente um p à nossa política de modo que a aparência da consulta deve ser? p =<policy>.
+3. Por fim, temos um método `getClaimsWithPolicyClearingCache` bastante grande. Essa é a chamada real para a ADAL para iOS que precisamos escrever. Faremos isso mais tarde.
 
 Agora vamos escrever nosso método grande `getClaimsWithPolicyClearingCache`. Ele é grande o suficiente para ter sua própria seção
 
@@ -349,7 +312,7 @@ Agora, vamos escrever esse código:
 
 ```
 
-A primeira parte deve parecer familiar. Podemos carregar as configurações que foram fornecidas no `Settings.plist` e atribuí-las para `data`. Em seguida, configuramos um `ADAuthenticationError` que levará qualquer erro que vem do ADAL para iOS. Também criamos uma `authContext` que está configurando nossa chamada para ADAL. Passamos a ele nosso *autoridade* para começar. Também fornecemos ao `authContext` uma referência ao nosso controlador pai para que possamos voltar a ele. Também convertemos nosso `redirectURI` que era uma cadeia de caracteres em nossa `settings.plist` no tipo de NSURL que ADAL espera. Por fim, configuramos um `correlationId` que é apenas um UUID que segue a chamada entre o cliente para o servidor e vice-versa. Isso é útil para depuração.
+A primeira parte deve parecer familiar. Podemos carregar as configurações que foram fornecidas no `Settings.plist` e atribuí-las para `data`. Em seguida, configuramos um `ADAuthenticationError` que levará qualquer erro que vem do ADAL para iOS. Também criamos uma `authContext` que está configurando nossa chamada para ADAL. Passamos a ele nossa *autoridade* para começar. Também fornecemos ao `authContext` uma referência ao nosso controlador pai para que possamos voltar a ele. Também convertemos nosso `redirectURI` que era uma cadeia de caracteres em nossa `settings.plist` no tipo de NSURL que ADAL espera. Por fim, configuramos um `correlationId` que é apenas um UUID que segue a chamada entre o cliente para o servidor e vice-versa. Isso é útil para depuração.
 
 Agora chegamos à chamada para a ADAL, e é aqui que a chamada é alterada do que você esperaria ver em usos anteriores da ADAL para iOS:
 
@@ -488,7 +451,7 @@ Vamos adicionar o código a seguir ao arquivo 'samplesWebAPIConnector.m':
 }
 ```
 
-Como você pode ver, é necessário uma URL da web, adiciona o token a ela com o `Bearer` cabeçalho no HTTP e retorna para nós. Chamamos a `getTokenClearingCache` API que pode parecer estranha no início, mas podemos simplesmente usar essa chamada para obter um token de cache e verificar se ele ainda é válido (as chamadas getToken* fará isso por nós perguntando ADAL). Usamos esse código em cada chamada. Agora, voltemos à criação de nossos métodos de tarefa adicionais.
+Como você pode ver, isso usa uma URI da Web, adiciona o token a ela com o cabeçalho `Bearer` no HTTP e retorna para nós. Chamamos a `getTokenClearingCache` API que pode parecer estranha no início, mas podemos simplesmente usar essa chamada para obter um token de cache e verificar se ele ainda é válido (as chamadas getToken* fará isso por nós perguntando ADAL). Usamos esse código em cada chamada. Agora, voltemos à criação de nossos métodos de tarefa adicionais.
 
 Vamos escrever nosso `addTask`:
 
@@ -652,4 +615,4 @@ Agora você pode ir para tópicos mais avançados sobre o B2C. Você pode deseja
 
 [Personalizando seu aplicativo de experiência do usuário do B2C >>]()
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

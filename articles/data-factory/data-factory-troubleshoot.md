@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2015" 
+	ms.date="11/12/2015" 
 	ms.author="spelluru"/>
 
 # Solucionar problemas do Data Factory
-Você pode solucionar problemas do Data Factory do Azure usando o Portal do Azure (ou) cmdlets do PowerShell do Azure. Este tópico tem instruções passo a passo que mostram como usar o Portal do Azure para solucionar rapidamente os erros encontrados com o Data Factory.
+Você pode solucionar problemas do Azure Data Factory usando o Portal Clássico do Azure (ou) os cmdlets do Azure PowerShell. Este tópico tem explicações passo a passo que mostram como usar o Portal Clássico do Azure para solucionar rapidamente os erros encontrados no Data Factory.
 
 ## Problema: não é possível executar os cmdlets da Data Factory
+Se você estiver usando o Azure PowerShell de uma versão inferior à 1.0:
+ 
 Para resolver esse problema, alterne o modo do Azure para **AzureResourceManager**:
 
 Inicie o **PowerShell do Azure** e execute o seguinte comando para alternar para o modo **AzureResourceManager**. Os cmdlets da Azure Data Factory estão disponíveis no modo **AzureResourceManager**.
@@ -31,28 +33,28 @@ Você provavelmente não está usando a assinatura ou conta do Azure correta com
 
 1. Add-AzureAccount - Use a ID de usuário e senha corretas
 2. Get-AzureSubscription - Exiba todas as assinaturas para a conta. 
-3. Select-AzureSubscription <subscription name> - Selecione a assinatura correta. Use a mesma que você utiliza para criar uma data factory no Portal de Visualização do Azure.
+3. Select-AzureSubscription <subscription name> - Selecione a assinatura correta. Use a mesma que você usa para criar uma fábrica de dados no Portal do Azure.
 
-## Problema: falha ao inicializar a instalação expressa de gateway de dados no Portal do Azure
+## Problema: falha ao iniciar a Instalação Expressa de Gateway de Dados no Portal Clássico do Azure
 A instalação expressa do Gateway de dados requer o Internet Explorer ou um navegador da Web compatível com Microsoft ClickOnce. Se você não conseguir iniciar a Instalação expressa, você pode:
 
 1. Alterne para o Internet Explorer se falhar com outros navegadores. Ou
 2. Use os links de "Instalação Manual" mostrados na mesma folha no portal para fazer a instalação e, em seguida, copie a chave fornecida na tela e cole quando a configuração do Gateway de gerenciamento de dados estiver pronta. Se ele não iniciar, procure "Gateway de gerenciamento de dados Microsoft" em seu menu Iniciar e cole a chave quando ele for iniciado. 
 
 
-## Problema: Falha ao iniciar o Gerenciador de credenciais do Portal do Azure
-Ao configurar ou atualizar um serviço vinculado do SQL Server por meio do Portal do Azure, o aplicativo Gerenciador de credenciais será iniciado para garantir a segurança. Ele requer o Internet Explorer ou um navegador da Web compatível com Microsoft ClickOnce. Você pode alternar para o Internet Explorer se falhar com outros navegadores.
+## Problema: falha ao iniciar o Gerenciador de Credenciais no Portal Clássico do Azure
+Ao configurar ou atualizar um Serviço Vinculado do SQL Server por meio do Portal Clássico do Azure, o aplicativo Gerenciador de Credenciais será iniciado para garantir a segurança. Ele requer o Internet Explorer ou um navegador da Web compatível com Microsoft ClickOnce. Você pode alternar para o Internet Explorer se falhar com outros navegadores.
 
 ## Problema: falha ao se conectar ao SQL Server local 
 Verifique se o SQL Server está acessível por meio do computador em que o gateway está instalado. No computador no qual o gateway está instalado, você pode:
 
 1. Executar ping do computador onde o SQL Server está instalado. Ou
-2. Tentar conectar-se à instância do SQL Server usando as credenciais especificadas por você no Portal do Azure usando o SSMS (SQL Server Management Studio).
+2. Tente se conectar à instância do SQL Server usando as credenciais especificadas por você no Portal Clássico do Azure usando o SSMS (SQL Server Management Studio).
 
 
 ## Problema: Fatias de entrada estão permanentemente no estado PendingExecution ou PendingValidation
 
-As fatias poderiam estar no estado **PendingExecution** ou **PendingValidation** devido a vários motivos, e um dos mais comuns é que a propriedade **external** não é especificada como **true**. Qualquer conjunto de dados que é produzido fora do escopo da Azure Data Factory deve ser marcado com a propriedade **external**. Isso indica que os dados são externos e não têm suporte por quaisquer pipelines dentro da data factory. As fatias de dados são marcadas como **Pronto** depois que os dados estão disponíveis no respectivo armazenamento.
+As fatias poderiam estar no estado **PendingExecution** ou **PendingValidation** devido a vários motivos, e um dos mais comuns é que a propriedade **external** não é especificada como **true**. Qualquer conjunto de dados produzido fora do escopo da Azure Data Factory deve ser marcado com a propriedade **external**. Isso indica que os dados são externos e não têm suporte por quaisquer pipelines dentro da data factory. As fatias de dados são marcadas como **Pronto** depois que os dados estão disponíveis no respectivo armazenamento.
 
 Consulte o exemplo a seguir para o uso da propriedade **external**. Como opção, você pode especificar **externalData*** quando definir external como true.
 
@@ -92,7 +94,7 @@ Consulte o tópico Tabelas na [Referência de script JSON][json-scripting-refere
 ## Problema: Falha na operação de cópia híbrida
 Para obter mais detalhes:
 
-1. Inicie o Gerenciador de configuração de gateway de gerenciamento de dados no computador no qual o gateway foi instalado. Verifique se o **Nome do gateway** está definido como o nome lógico do gateway no **Portal do Azure**, se o **Status da chave de gateway** é **registrado** e se o **Status do serviço** é **Iniciado**. 
+1. Inicie o Gerenciador de configuração de gateway de gerenciamento de dados no computador no qual o gateway foi instalado. Verifique se o **Nome do gateway** está definido como o nome lógico do gateway no **Portal Clássico do Azure**, se o **Status da chave do gateway** está **registrado** e se o **Status do serviço** está **Iniciado**. 
 2. Inicie o **Visualizador de Eventos**. Expanda **Logs de aplicativos e serviços** e clique em **Gateway de gerenciamento de dados**. Verifique se há erros relacionados ao Gateway de Gerenciamento de Dados. 
 
 ## Problema: Falha no provisionamento sob demanda do HDInsight com erro
@@ -110,11 +112,11 @@ Além disso, há uma segunda propriedade JSON additionalLinkedServiceNames, em q
 ## Problema: Falha de atividade personalizada
 Ao usar uma atividade personalizada na Azure Data Factory (tipo de atividade de pipeline CustomActivity), o aplicativo personalizado é executado no serviço vinculado especificado para HDInsight como um trabalho MapReduce de streaming apenas de mapeamento.
 
-Quando a atividade personalizada é executada, a Azure Data Factory poderá capturar essa saída do cluster HDInsight e salvá-la no contêiner de armazenamento *adfjobs* em sua conta de armazenamento de Blobs do Azure. Em caso de erro, você pode ler o texto do arquivo de texto de saída **stderr** após a ocorrência de uma falha. Os arquivos estão acessíveis e podem ser lidos no próprio Portal do Azure no navegador da Web, ou usando ferramentas do Gerenciador de armazenamento para acessar os arquivos mantidos no contêiner de armazenamento, diretamente no armazenamento de Blobs do Azure.
+Quando a atividade personalizada é executada, a Azure Data Factory poderá capturar essa saída do cluster HDInsight e salvá-la no contêiner de armazenamento *adfjobs* em sua conta de armazenamento de Blobs do Azure. Em caso de erro, você pode ler o texto do arquivo de texto de saída **stderr** após a ocorrência de uma falha. Os arquivos podem ser acessados e lidos no próprio Portal Clássico do Azure no navegador da Web, ou usando ferramentas do gerenciador de armazenamento para acessar os arquivos mantidos no contêiner de armazenamento, diretamente no Armazenamento de Blobs do Azure.
 
 Para enumerar e ler os logs para uma determinada atividade personalizada, você pode seguir uma das explicações passo a passo ilustradas mais adiante nesta página. Em resumo:
 
-1.  No Portal do Azure, use **Procurar** para localizar sua data factory.
+1.  No Portal Clássico do Azure, use **Procurar** para localizar o Data Factory.
 2.  Use o botão **Diagrama** para exibir o diagrama de data factory e, em seguida, clique na tabela **Conjunto de dados** que segue o **Pipeline** específico que tem a atividade personalizada. 
 3.  Na folha **Tabela**, clique na fatia de interesse nas **Fatias com problema** para o intervalo de tempo a ser investigado.
 4.  A folha detalhada **Fatia de dados** será exibida e pode listar várias **Execuções de atividade** para a fatia. Clique em uma **Atividade** da lista. 
@@ -168,7 +170,7 @@ Se você usar as versões descontinuadas do SDK do PowerShell do Azure, poderá 
 
 
 ## <a name="copywalkthrough"></a> Passo a passo: Solucionando problemas de um erro na cópia de dados
-Neste passo a passo, você apresentará um erro no tutorial do artigo Introdução ao Data Factory e aprenderá a usar o Portal do Azure para solucionar o erro.
+Neste passo a passo, você apresentará um erro no tutorial do artigo Introdução ao Data Factory e aprenderá a usar o Portal Clássico do Azure para solucionar o erro.
 
 ### Pré-requisitos
 1. Conclua o tutorial no artigo [Introdução à Azure Data Factory][adfgetstarted].
@@ -177,14 +179,14 @@ Neste passo a passo, você apresentará um erro no tutorial do artigo Introduç�
 4. Execute o seguinte comando no **PowerShell do Azure** para atualizar o período ativo para o pipeline de forma que ele tente gravar dados na tabela **emp**, que não existe mais.
 
          
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-29 –EndDateTime 2014-09-30 –Name ADFTutorialPipeline
+		Set-AzureRmDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-29 –EndDateTime 2014-09-30 –Name ADFTutorialPipeline
 	
 	Substitua o valor **StartDateTime** pelo dia atual e o valor **EndDateTime** pelo dia seguinte.
 
 
-### Usar o Portal de Visualização do Azure para solucionar o erro
+### Usar o Portal do Azure para solucionar o erro
 
-1.	Faça logon no [Portal de Visualização do Azure][azure-preview-portal]. 
+1.	Faça logon no [Portal do Azure][azure-portal]. 
 2.	Clique em **ADFTutorialDataFactory** no **Quadro Inicial**. Se você não vir o link da data factory no **Quadro Inicial**, clique no hub **PROCURAR** e clique em **Tudo**. Clique em **Data factories…** na folha **Procurar** e clique em **ADFTutorialDataFactory**.
 3.	Observe que você verá **Com erros** no bloco **Conjuntos de dados**. Clique em **Com erros**. Você deve ver a folha **Conjuntos de dados com erros**.
 
@@ -214,17 +216,12 @@ Para resolver esse problema, crie a tabela **emp** usando o script SQL do artigo
 
 ### Usar cmdlets do PowerShell do Azure para solucionar o erro
 1.	Inicie o **PowerShell do Azure**. 
-2.	Alterne para o modo **AzureResourceManager**, pois os cmdlets da Data Factory estão disponíveis somente nesse modo.
+3. Execute o comando Get-AzureDataFactorySlice para ver as fatias e seus status. Você deve ver uma fatia com o status: Falha.	
 
          
-		switch-azuremode AzureResourceManager
+		Get-AzureRmDataFactorySlice -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime 2014-10-15
 
-3. Execute o comando Get-AzureDataFactorySlice para ver as fatias e seus status. Você deve ver uma fatia com o status: Falha.
-
-         
-		Get-AzureDataFactorySlice -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime 2014-10-15
-
-	Substitua **StartDateTime** pelo valor StartDateTime especificado para **Set-AzureDataFactoryPipelineActivePeriod**.
+	Substitua **StartDateTime** pelo valor de StartDateTime especificado para **Set-AzureRmDataFactoryPipelineActivePeriod**.
 
 		ResourceGroupName 		: ADFTutorialResourceGroup
 		DataFactoryName   		: ADFTutorialDataFactory
@@ -237,9 +234,9 @@ Para resolver esse problema, crie a tabela **emp** usando o script SQL do artigo
 		LongRetryCount    		: 0
 
 	Observe a hora de **Início** da fatia com problema (a fatia com **Status** definido como **Falha**) na saída. 
-4. Agora, execute o cmdlet **Get-AzureDataFactoryRun** para obter detalhes sobre a execução de atividade da fatia.
+4. Agora, execute o cmdlet **Get-AzureRmDataFactoryRun** para obter detalhes sobre a execução da atividade para a fatia.
          
-		Get-AzureDataFactoryRun -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime "10/15/2014 4:00:00 PM"
+		Get-AzureRmDataFactoryRun -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime "10/15/2014 4:00:00 PM"
 
 	O valor de **StartDateTime** é a hora de Início do erro/fatia com problema observada na etapa anterior. A data e hora devem ser colocadas entre aspas duplas.
 5. Você deve ver a saída com detalhes sobre o erro (semelhante ao seguinte):
@@ -267,10 +264,10 @@ Para resolver esse problema, crie a tabela **emp** usando o script SQL do artigo
  
 
 ## <a name="pighivewalkthrough"></a> Passo a passo: Solucionando problemas de um erro no processamento do Hive/Pig
-Este passo a passo fornece as etapas para solucionar problemas de erro no processamento do Hive/Pig usando o Portal de Visualização do Azure e o PowerShell do Azure.
+Este passo a passo fornece as etapas para solucionar problemas de erro no processamento do Hive/Pig usando o Portal do Azure e o Azure PowerShell.
 
 
-### Passo a passo: Usar o Portal do Azure para solucionar problemas de um erro no processamento do Pig/Hive
+### Passo a passo: Usar o Portal Clássico do Azure para solucionar problemas de um erro no processamento do Pig/Hive
 Nesse cenário, o conjunto de dados está em um estado de erro devido a uma falha no processamento do Hive em um cluster HDInsight.
 
 1. Clique em **Com erros** no bloco **Conjuntos de Dados** na página inicial **DATA FACTORY**.
@@ -296,17 +293,12 @@ Nesse cenário, o conjunto de dados está em um estado de erro devido a uma falh
     
 ### Passo a passo: Usar o PowerShell do Azure para solucionar problemas de um erro no processamento do Pig/Hive
 1.	Inicie o **PowerShell do Azure**. 
-2.	Alterne para o modo **AzureResourceManager**, pois os cmdlets da Data Factory estão disponíveis somente nesse modo.
+3. Execute o comando Get-AzureDataFactorySlice para ver as fatias e seus status. Você deve ver uma fatia com o status: Falha.	
 
          
-		switch-azuremode AzureResourceManager
+		Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
 
-3. Execute o comando Get-AzureDataFactorySlice para ver as fatias e seus status. Você deve ver uma fatia com o status: Falha.
-
-         
-		Get-AzureDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
-
-	Substitua **StartDateTime** pelo valor StartDateTime especificado para **Set-AzureDataFactoryPipelineActivePeriod**.
+	Substitua **StartDateTime** pelo valor de StartDateTime especificado para **Set-AzureRmDataFactoryPipelineActivePeriod**.
 
 		ResourceGroupName : ADF
 		DataFactoryName   : LogProcessingFactory
@@ -320,9 +312,9 @@ Nesse cenário, o conjunto de dados está em um estado de erro devido a uma falh
 
 
 	Observe a hora de **Início** da fatia com problema (a fatia com **Status** definido como **Falha**) na saída. 
-4. Agora, execute o cmdlet **Get-AzureDataFactoryRun** para obter detalhes sobre a execução de atividade da fatia.
+4. Agora, execute o cmdlet **Get-AzureRmDataFactoryRun** para obter detalhes sobre a execução da atividade para a fatia.
          
-		Get-AzureDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
+		Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
 
 	O valor de **StartDateTime** é a hora de Início do erro/fatia com problema observada na etapa anterior. A data e hora devem ser colocadas entre aspas duplas.
 5. Você deve ver a saída com detalhes sobre o erro (semelhante ao seguinte):
@@ -346,7 +338,7 @@ Nesse cenário, o conjunto de dados está em um estado de erro devido a uma falh
 		PipelineName        : EnrichGameLogsPipeline
 		Type                :
 
-6. Você pode executar o cmdlet **Save-AzureDataFactoryLog** com o valor Id que você vê da saída acima e baixar os arquivos de log usando a opção **-DownloadLogs** para o cmdlet.
+6. Você pode executar o cmdlet **Save-AzureRmDataFactoryLog** com o valor da Id que você vê da saída acima e baixar os arquivos de log usando a opção **-DownloadLogs** para o cmdlet.
 
 
 
@@ -359,7 +351,7 @@ Nesse cenário, o conjunto de dados está em um estado de erro devido a uma falh
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 [json-scripting-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 
-[azure-preview-portal]: https://portal.azure.com/
+[azure-portal]: https://portal.azure.com/
 
 [image-data-factory-troubleshoot-with-error-link]: ./media/data-factory-troubleshoot/DataFactoryWithErrorLink.png
 
@@ -382,4 +374,4 @@ Nesse cenário, o conjunto de dados está em um estado de erro devido a uma falh
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

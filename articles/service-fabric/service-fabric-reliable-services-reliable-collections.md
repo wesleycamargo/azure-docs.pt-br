@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="10/15/2015"
+   ms.date="11/11/2015"
    ms.author="mcoskun"/>
 
 # Introdução à Reliable Collections nos serviços com estado do Service Fabric
@@ -54,8 +54,8 @@ As Coleções Confiáveis escolhem automaticamente o nível de isolamento a ser 
 
 Há dois níveis de isolamento com suporte nas Coleções Confiáveis:
 
-- **Leitura repetida**: "Especifica que as instruções não podem ler dados que foram modificados, mas ainda não foram confirmados por outras transações e que nenhuma outra transação pode modificar dados que foram lidos pela transação atual até que a transação atual seja concluída. (https://msdn.microsoft.com/pt-BR/library/ms173763.aspx)"
-- **Instantâneo**: "Especifica que os dados lidos por qualquer instrução em uma transação serão a versão transacionalmente consistente dos dados que existiam no início da transação. A transação pode reconhecer apenas modificações de dados que foram confirmadas antes do início da transação. Modificações de dados feitas por outras transações após o início da transação atual não são visíveis para instruções em execução na transação atual. O efeito é como se as instruções em uma transação obtivessem um instantâneo dos dados confirmados conforme existiam no início da transação. (https://msdn.microsoft.com/pt-BR/library/ms173763.aspx)"
+- **Leitura repetida**: "Especifica que as instruções não podem ler dados que foram modificados, mas ainda não foram confirmados por outras transações e que nenhuma outra transação pode modificar dados que foram lidos pela transação atual até que a transação atual seja concluída. (https://msdn.microsoft.com/library/ms173763.aspx)"
+- **Instantâneo**: "Especifica que os dados lidos por qualquer instrução em uma transação serão a versão transacionalmente consistente dos dados que existiam no início da transação. A transação pode reconhecer apenas modificações de dados que foram confirmadas antes do início da transação. Modificações de dados feitas por outras transações após o início da transação atual não são visíveis para instruções em execução na transação atual. O efeito é como se as instruções em uma transação obtivessem um instantâneo dos dados confirmados conforme existiam no início da transação. (https://msdn.microsoft.com/library/ms173763.aspx)"
 
 O Dicionário Confiável e a Fila Confiável dão suporte Read Your Writes. Em outras palavras, qualquer gravação em uma transação será visível para uma leitura seguinte que pertence à mesma transação.
 
@@ -108,6 +108,7 @@ Eis aqui algumas coisas que se deve manter em mente:
 
 - O tempo limite padrão é de 4 segundos para todas as APIs de Coleções Confiáveis. A maioria dos usuários não deve substituir isso.
 - O token de cancelamento padrão é `CancellationToken.None` em todas as APIs de Coleções Confiáveis.
+- O parâmetro de tipo de chave (TKey) para um dicionário confiável deve implementar corretamente GetHashCode e Equals (). As chaves devem ser imutáveis.
 - As Enumerações são instantâneos consistentes dentro de uma coleção. No entanto, as enumerações de várias coleções não são consistentes entre as coleções.
 - Para obter alta disponibilidade para as Coleções Confiáveis, cada serviço deve ter pelo menos um destino e uma réplica mínima com tamanho definido como 3.
 
@@ -118,4 +119,4 @@ Eis aqui algumas coisas que se deve manter em mente:
 - [Uso avançado do modelo de programação de Serviços Confiáveis](service-fabric-reliable-services-advanced-usage.md)
 - [Referência do desenvolvedor para Coleções Confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

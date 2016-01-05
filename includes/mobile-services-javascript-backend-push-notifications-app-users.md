@@ -1,5 +1,5 @@
 
-1. Faça logon no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com/), clique em **Serviços Móveis** e, em seguida, clique em seu serviço móvel.
+1. Faça logon no [portal clássico do Azure](https://manage.windowsazure.com/), clique em **Serviços Móveis** e clique em seu serviço móvel.
 
 2. Clique na guia **Push**, selecione **Apenas usuários autenticados** para **Permissões**, clique em **Salvar** e, em seguida, clique em **Editar script**.
 	
@@ -42,4 +42,4 @@
 
 4. Clique na seta para voltar, clique na guia **Dados**, clique no **TodoItem**, clique no **Script** e selecione **Insertar**.
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Usando o portal do Application Insights"
-	description="Visão geral da análise de uso com o Application Insights"
+	description="Depois de configurar seu aplicativo para enviar telemetria ao Application Insights, este guia mostrará como se movimentar pelo portal."
 	services="application-insights"
     documentationCenter=""
 	authors="alancameronwills"
@@ -12,14 +12,14 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="08/17/2015"
+	ms.date="11/23/2015"
 	ms.author="awills"/>
 
 # Usando o portal do Application Insights
 
 Após de ter [Configurado o Application Insights no seu projeto](app-insights-overview.md), os dados de telemetria sobre desempenho e uso do aplicativo aparecerá no recurso do Application Insights do projeto no [portal do Azure](https://portal.azure.com).
 
-## Localizar a telemetria no Azure
+## Encontrar sua telemetria
 
 Entre no [portal do Azure](https://portal.azure.com) e navegue até o recurso do Application Insights que você criou para seu aplicativo.
 
@@ -27,51 +27,111 @@ Entre no [portal do Azure](https://portal.azure.com) e navegue até o recurso do
 
 A página de visão geral fornece alguma telemetria básica, além de links para mais itens. O conteúdo depende do tipo do aplicativo e pode ser personalizado.
 
+
+
+## Intervalo de tempo
+
+Você pode alterar o intervalo de tempo coberto pelos gráficos ou grades em qualquer folha.
+
+![Abrir a lâmina de visão geral do seu aplicativo no portal do Azure](./media/app-insights-portal/03-range.png)
+
+
+Se você estiver esperando dados que não apareceram ainda, clique em Atualizar. Os gráficos são atualizados em intervalos, mas os intervalos são mais longos para intervalos de tempo maiores. No modo de liberação, pode levar algum tempo para que dados passem pelo pipeline de análise e sejam representados em um gráfico.
+
+Para ampliar uma parte de um gráfico, arraste sobre ele e clique no símbolo de lente de aumento:
+
+![Arraste por parte de um gráfico.](./media/app-insights-portal/12-drag.png)
+
+
+
+## Valores de granularidade e ponto
+
+Passe o mouse sobre o gráfico para exibir os valores das métricas nesse determinado ponto.
+
+![Passar o ponteiro do mouse sobre um gráfico](./media/app-insights-portal/02-focus.png)
+
+O valor de métrica em um ponto específico é agregado durante o intervalo de amostragem anterior.
+
+O intervalo de amostragem ou "granularidade" é mostrado na parte superior da folha.
+
+![O cabeçalho de uma folha.](./media/app-insights-portal/11-grain.png)
+
+Você pode ajustar a granularidade na folha Intervalo de tempo:
+
+![O cabeçalho de uma folha.](./media/app-insights-portal/grain.png)
+
+As granularidades disponíveis dependem do intervalo de tempo selecionado. As granularidades explícitas são alternativas à granularidade "automática" para o intervalo de tempo.
+
 ## A folha de visão geral do aplicativo
 
-A folha (página) de visão geral para seu aplicativo mostra os gráficos mais importantes para o monitoramento de desempenho e uso. O conteúdo depende do tipo do aplicativo e, em qualquer caso, você pode personalizá-lo.
+A folha (página) de visão geral para seu aplicativo mostra um resumo das principais métricas de diagnóstico de seu aplicativo, e um gateway para outros recursos do portal.
+
+Clique em:
+
+* **Qualquer gráfico ou bloco** para ver mais detalhes.
+* **Diagnósticos** para acessar as páginas predefinidas de outras métricas.
+* **Metrics Explorer** para criar páginas de métricas de sua própria escolha.
+* **Pesquisa** para investigar instâncias específicas de eventos, como solicitações, exceções ou log de rastreamento.
+
+
+![Rotas principais para exibir sua telemetria](./media/app-insights-portal/010-oview.png)
 
 
 ### Personalizar a folha de visão geral 
 
 Escolha o que deseja ver na visão geral. Em Personalizar, você pode inserir títulos de seção, arrastar blocos e gráficos, remover itens e adicionar novos blocos e gráficos da galeria.
 
-![Clique em "...", Personalizar. Arraste blocos e gráficos. Adicione blocos da galeria.](./media/app-insights-portal/020-customize.png)
+![Clique em Editar. Arraste blocos e gráficos. Adicione blocos da galeria. Em seguida, clique em Concluído.](./media/app-insights-portal/020-customize.png)
+
+### Personalizar o painel do Azure
 
 
-## Criar seu próprio gráfico de métricas e grades
+O painel do Portal do Azure é a home page que você vê quando entra pela primeira vez no portal. Nele, você pode reunir blocos (grupos de gráficos) de vários recursos.
+
+Para fixar um bloco da folha de visão geral do Application Insights no painel do portal, selecione o cabeçalho do bloco e "...".
+
+Para obter um painel mais abrangente, use [Power BI](https://azure.microsoft.com/blog/application-insights-content-pack-for-power-bi/) para exibir sua telemetria.
+
+## Folhas de métricas
+
+Quando você clica até chegar à folha de visão geral para obter mais detalhes, você está no Metrics Explorer (mesmo que ele tenha um título mais específico).
+
+Você também pode usar o botão Metrics Explorer para criar uma nova folha, que você pode editar e salvar.
+
+
+![Na folha Visão geral, clique em um Métricas](./media/app-insights-portal/16-metrics.png)
 
 ### Edição de gráficos e grades
 
 Para adicionar um novo gráfico à folha:
 
-![No Metrics Explorer, escolher Adicionar Gráfico](./media/app-insights-metrics-explorer/04-add.png)
+![No Metrics Explorer, escolher Adicionar Gráfico](./media/app-insights-portal/04-add.png)
 
 Selecione um gráfico novo ou existente para editar o que ele mostra:
 
-![Selecionar uma ou mais métricas](./media/app-insights-metrics-explorer/08-select.png)
+![Selecionar uma ou mais métricas](./media/app-insights-portal/08-select.png)
 
 Você pode exibir mais de uma métrica em um gráfico, porém há restrições sobre as combinações que podem ser exibidas em conjunto. Assim que você escolher uma métrica, algumas das outras serão desabilitadas.
 
-Se você codificou [métricas personalizadas](app-insights-api-custom-events-metrics.md#track-metric) em seu aplicativo (chamadas para TrackMetric e TrackEvent), elas serão listados aqui.
+Se você codificou [métricas personalizadas](app-insights-api-custom-events-metrics.md#track-metric) em seu aplicativo (chamadas para TrackMetric e métricas anexadas a chamadas do TrackEvent), elas estarão listadas aqui.
 
 ### Segmentar os dados
 
 Selecione um gráfico ou uma grade, ative o agrupamento e escolha uma propriedade pela qual agrupar:
 
-![Selecionar Agrupamento Ativo, então selecionar uma propriedade em Agrupar Por](./media/app-insights-metrics-explorer/15-segment.png)
+![Selecionar Agrupamento Ativo, então selecionar uma propriedade em Agrupar Por](./media/app-insights-portal/15-segment.png)
 
-Se você codificou métricas personalizadas em seu aplicativo e elas incluem [valores de propriedade](app-insights-api-custom-events-metrics.md#properties), você poderá selecionar a propriedade na lista.
+Se você codificou [métricas personalizadas](app-insights-api-custom-events-metrics.md#properties) em seu aplicativo e elas incluem valores de propriedade, você poderá selecionar a propriedade na lista.
 
 O gráfico é muito pequeno para dados segmentados? Ajuste sua altura:
 
-![Ajustar a barra de controle deslizante](./media/app-insights-metrics-explorer/18-height.png)
+![Ajustar a barra de controle deslizante](./media/app-insights-portal/18-height.png)
 
 ### Filtrar seus dados
 
 Para ver apenas as métricas para um conjunto selecionado de valores de propriedade:
 
-![Clicar em Filtro, expandir uma propriedade e verificar alguns valores](./media/app-insights-metrics-explorer/19-filter.png)
+![Clicar em Filtro, expandir uma propriedade e verificar alguns valores](./media/app-insights-portal/19-filter.png)
 
 Se você não selecionar nenhum valor para uma determinada propriedade, será o mesmo que selecionar todas elas: não há nenhum filtro para essa propriedade.
 
@@ -81,11 +141,11 @@ Observe as contagens de eventos junto a cada valor da propriedade. Quando você 
 
 Quando você tiver criado alguns gráficos, salve-os como favoritos. Se você utiliza uma conta organizacional, você pode escolher entre compartilhá-la ou não com outros membros da equipe.
 
-![Escolher Favorito](./media/app-insights-metrics-explorer/21-favorite-save.png)
+![Escolher Favorito](./media/app-insights-portal/21-favorite-save.png)
 
 Para ver a folha novamente, **vá até a folha de visão geral** e abra Favoritos:
 
-![Na folha Visão Geral, selecionar Favoritos](./media/app-insights-metrics-explorer/22-favorite-get.png)
+![Na folha Visão Geral, selecionar Favoritos](./media/app-insights-portal/22-favorite-get.png)
 
 Se você escolheu o intervalo de tempo Relativo quando salvou, a folha será atualizada com as métricas mais recentes. Se você escolheu o intervalo de tempo Absoluto, ele mostrará sempre os mesmos dados.
 
@@ -93,17 +153,21 @@ Se você escolheu o intervalo de tempo Relativo quando salvou, a folha será atu
 
 Se você editar uma folha mas em seguida decidir voltar ao conjunto original salvo, clique em Redefinir.
 
-![Nos botões na parte superior do Metrics Explorer](./media/app-insights-metrics-explorer/17-reset.png)
+![Nos botões na parte superior do Metrics Explorer](./media/app-insights-portal/17-reset.png)
 
-## Criando uma página de pesquisa
+## Pesquisar
+
+A pesquisa exibe eventos individuais, como exibições de página, solicitações, exceções, rastreamentos de log e eventos personalizados. Ela não mostra as métricas agregadas ou instâncias da chamada trackmetric ().
+
+> [AZURE.NOTE]Se o seu aplicativo gerar muita telemetria (e você estiver usando o SDK do ASP.NET versão 2.0.0-beta3 ou posterior), o módulo de amostragem adaptável reduzirá automaticamente o volume enviado ao portal, enviando apenas uma fração representativa de eventos. No entanto, os eventos relacionados à mesma solicitação serão selecionadas ou desmarcadas como um grupo, para que você possa navegar entre os eventos relacionados. [Saiba mais sobre amostragem](app-insights-sampling.md).
 
 Abra a pesquisa de diagnóstico:
 
-![Abra a pesquisa de diagnóstico](./media/app-insights-diagnostic-search/01-open-Diagnostic.png)
+![Abra a pesquisa de diagnóstico](./media/app-insights-portal/01-open-Diagnostic.png)
 
 Abrir a folha de filtro e escolha os tipos de eventos que você deseja ver. (Se posteriormente, você desejar restaurar os filtros com os quais você abriu a folha, clique em Redefinir.)
 
-![Escolha o filtro e selecione os tipos de telemetria](./media/app-insights-diagnostic-search/02-filter-req.png)
+![Escolha o filtro e selecione os tipos de telemetria](./media/app-insights-portal/02-filter-req.png)
 
 ### Filtrar pelos valores de propriedade
 
@@ -111,9 +175,11 @@ Você pode filtrar eventos pelos valores de suas propriedades. As propriedades d
 
 Por exemplo, escolha solicitações com um código de resposta específicos.
 
-![Expanda uma propriedade e escolha um valor](./media/app-insights-diagnostic-search/03-response500.png)
+![Expanda uma propriedade e escolha um valor](./media/app-insights-portal/03-response500.png)
 
 Não escolher nenhum valor para uma determinada propriedade tem o mesmo efeito que escolher todos os valores; ele desativará a filtragem para essa propriedade.
+
+> [AZURE.NOTE]Se o seu aplicativo gerar muita telemetria, o módulo de amostragem adaptável reduzirá automaticamente o volume enviado ao portal, enviando apenas uma fração representativa de eventos. Os eventos que fazem parte da mesma operação serão selecionados ou desmarcados como um grupo, para que você possa navegar entre os eventos relacionados. [Saiba mais sobre amostragem.](app-insights-sampling.md)
 
 
 ### Reduzir o escopo de sua pesquisa
@@ -122,7 +188,7 @@ Observe que as contagens à direita dos valores de filtro mostram quantas ocorr�
 
 Neste exemplo, está claro que a solicitação `Reports/Employees` resulta na maioria dos 500 erros:
 
-![Expanda uma propriedade e escolha um valor](./media/app-insights-diagnostic-search/04-failingReq.png)
+![Expanda uma propriedade e escolha um valor](./media/app-insights-portal/04-failingReq.png)
 
 Além disso, se você quiser ver também quais outros eventos estavam acontecendo durante esse tempo, você pode verificar **Incluir eventos com propriedades indefinidas**.
 
@@ -130,13 +196,13 @@ Além disso, se você quiser ver também quais outros eventos estavam acontecend
 
 Quando você definiu todos os filtros que deseja, você pode salvar a pesquisa como um favorito. Se você trabalha em uma conta organizacional, você pode optar por compartilhá-la com outros membros da equipe.
 
-![Clique em Favorito, defina o nome e clique em Salvar](./media/app-insights-diagnostic-search/08-favorite-save.png)
+![Clique em Favorito, defina o nome e clique em Salvar](./media/app-insights-portal/08-favorite-save.png)
 
 
 Para ver a pesquisa novamente, **vá até a folha de visão geral** e abra Favoritos:
 
-![Bloco Favoritos](./media/app-insights-diagnostic-search/09-favorite-get.png)
+![Bloco Favoritos](./media/app-insights-portal/22-favorite-get.png)
 
 Se você os salvou com o intervalo de tempo Relativo, a folha reaberta contém os dados mais recentes. Se você os salvou com o intervalo de tempo Absoluto, consulte os mesmos dados, sempre.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

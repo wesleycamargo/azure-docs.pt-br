@@ -1,4 +1,4 @@
-1. Abra o Gerenciador de SDK do Android clicando no ícone na barra de ferramentas do Android Studio ou clicando em **Ferramentas** -> **Android** -> **Gerenciador de SDK** no menu. Localize a versão de destino do SDK do Android que é usada em seu projeto, abra-o e escolha **APIs do Google**, se ainda não estiver instalado.
+1. Abra o Gerenciador de SDK do Android clicando no ícone na barra de ferramentas do Android Studio ou clicando em **Ferramentas** -> **Android** -> **Gerenciador de SDK** no menu. Localize a versão de destino do SDK do Android que é usada em seu projeto, abra-o clicando em **Mostrar Detalhes do Pacote** e escolha **APIs do Google**, se ainda não estiver instalado.
 
 2. Clique na guia **Ferramentas do SDK**. Se você ainda não tiver instalado o Serviço do Google Play, clique em **Serviços do Google Play**, conforme mostrado abaixo. Em seguida, clique em **Aplicar** para instalar.
  
@@ -11,22 +11,18 @@
 
 	![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-add-google-play-dependency.png)
 
-4. Adicionar esta linha sob *android*
-
-		useLibrary 'org.apache.http.legacy'
-
-5. Adicione esta linha em *dependências*:
+4. Adicione esta linha em *dependências*:
 
    		compile 'com.google.android.gms:play-services-base:6.5.87'
 
-7. Em *defaultConfig*, alterar *minSdkVersion* para 9.
+5. Em *defaultConfig*, alterar *minSdkVersion* para 9.
  
-8. Clique no botão **Sincronizar projetos com arquivos do Gradle** na barra de ferramentas.
+6. Clique no botão **Sincronizar projetos com arquivos do Gradle** na barra de ferramentas.
 
-9. Abra **Androidmanifest** e adicione esta marcação para a marca do *aplicativo*.
+7. Abra **Androidmanifest** e adicione esta marcação para a marca do *aplicativo*.
 
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1217_2015-->

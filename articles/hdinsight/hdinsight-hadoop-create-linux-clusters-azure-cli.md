@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/23/2015"
+   	ms.date="11/17/2015"
    	ms.author="larryfr"/>
 
 #Criar clusters baseados em Linux no HDInsight usando o Azure CLI
@@ -35,11 +35,11 @@ As etapas neste documento fornecem orientação durante o processo de criação 
 
 - **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- __CLI do Azure__. Para obter informações sobre como instalar a CLI, consulte [Instalar a CLI do Azure](xplat-cli-install.md).
+- __CLI do Azure__. Para obter informações sobre como instalar a CLI, consulte [Instalar a CLI do Azure](../xplat-cli-install.md).
 
 ##Faça logon na sua assinatura do Azure
 
-Siga as etapas documentadas em [Conectar a uma assinatura do Azure por meio da CLI do Azure (Interface de Linha de Comando do Azure)](xplat-cli-connect.md) e conecte à sua assinatura usando o método de __logon__.
+Siga as etapas documentadas em [Conectar a uma assinatura do Azure por meio da CLI do Azure (Interface de Linha de Comando do Azure)](../xplat-cli-connect.md) e conecte à sua assinatura usando o método de __logon__.
 
 ##Criar um cluster
 
@@ -70,7 +70,7 @@ As etapas a seguir devem ser executadas de um prompt de comando, shell ou a sess
     * __clusterName__: o nome do cluster HDInsight. Esse nome deve ser exclusivo ou a implantação falhará.
     * __clusterStorageAccountName__: o nome da Conta de armazenamento do Azure que será criada para o cluster HDInsight. Esse nome deve ser exclusivo ou a implantação falhará.
     * __clusterLoginPassword__: a senha para o usuário administrador do cluster. Ela deve ser uma senha segura, pois é usada para acessar sites e serviços REST no cluster.
-    * __sshUserName__: o nome do primeiro usuário SSH a ser criado para este cluster. SSH será usado para acessar remotamente o cluster usando essa conta. O nome deve ser exclusivo e não pode ser o nome de uma conta que já está em utilização no cluster. Nomes inválidos incluem root, storm e hbase.
+    * __sshUserName__: o nome do primeiro usuário SSH a ser criado para este cluster. SSH será usado para acessar remotamente o cluster usando essa conta.
     * __sshPublicKey__: se você estiver usando o modelo que exige uma chave pública SSH, adicione a chave pública a esta linha. Para saber mais sobre como gerar e trabalhar com chaves públicas, consulte os artigos a seguir:
 
         * [Usar SSH com Hadoop baseado em Linux no HDInsight no Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
@@ -112,13 +112,13 @@ Agora que você criou com êxito um cluster HDInsight, use o seguinte para apren
 
 ###Clusters do HBase
 
-* [Introdução ao HBase no HDInsight](hdinsight-hbase-tutorial-get-stared-linux.md)
-* [Desenvolvimento de aplicativos Java para HBase no HDInsight](hdinsight-hbase-build-java-maven-linux)
+* [Introdução ao HBase no HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
+* [Desenvolvimento de aplicativos Java para HBase no HDInsight](hdinsight-hbase-build-java-maven-linux.md)
 
 ###Clusters Storm
 
 * [Desenvolver topologias Java para Storm no HDInsight](hdinsight-storm-develop-java-topology.md)
-* [Usar componentes de Python no Storm no HDInsight](hdinsight-storm-develop-python.md)
+* [Usar componentes de Python no Storm no HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Implantar e monitorar topologias com o Storm no HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

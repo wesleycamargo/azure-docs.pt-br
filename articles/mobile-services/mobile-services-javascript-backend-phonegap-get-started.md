@@ -50,7 +50,7 @@ A conclusão deste tutorial exige o seguinte:
 
 Nesta seção você criará um novo aplicativo PhoneGap que está conectado ao seu serviço móvel.
 
-1.  No Portal de Gerenciamento, clique em **Serviços Móveis**e, em seguida, clique no serviço móvel que você acabou de criar.
+1.  No [portal clássico do Azure], clique em **Serviços Móveis** e clique no serviço móvel que você acabou de criar.
 
 2. Na guia quickstart, clique em **PhoneGap** em **Escolher plataforma** e expanda **Criar um novo aplicativo PhoneGap**.
 
@@ -111,7 +111,7 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
 	> [AZURE.IMPORTANT]As alterações neste projeto de plataforma serão substituídas se o projeto principal for recriado com as ferramentas do PhoneGap. Em vez disso, faça alterações no diretório www raiz do projeto, conforme descrito na seção a seguir.
 
-4. De volta ao Portal de Gerenciamento, clique na guia **Dados** e na tabela **TodoItem**.
+4. Novamente no [portal clássico do Azure], clique na guia **Dados** e clique na tabela **TodoItem**.
 
 	![](./media/mobile-services-javascript-backend-phonegap-get-started/mobile-data-tab.png)
 
@@ -155,7 +155,7 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 
 * **[Adicionar autenticação ao seu aplicativo]** Saiba como autenticar usuários de seu aplicativo com um provedor de identidade.  
 
-* **[Adicionar notificações por push ao seu aplicativo](https://msdn.microsoft.com/magazine/dn879353.aspx)** Saiba como registrar-se em seu aplicativo e enviar uma notificação por push para ele.
+* **[Adicionar notificações por push ao seu aplicativo](https://msdn.microsoft.com/magazine/dn879353.aspx)** Saiba como registrar-se em seu aplicativo e como enviar uma notificação por push para ele.
 
 * **[Referência conceitual de procedimento para HTML/JavaScript dos Serviços Móveis](mobile-services-html-how-to-use-client-library.md)** Saiba mais sobre como usar a biblioteca de clientes JavaScript para acessar dados, chamar APIs personalizadas e realizar a autenticação.
 
@@ -171,9 +171,9 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 <!-- URLs. -->
 [Adicionar autenticação ao seu aplicativo]: mobile-services-html-get-started-users.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-[Management Portal]: https://manage.windowsazure.com/
+[portal clássico do Azure]: https://manage.windowsazure.com/
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

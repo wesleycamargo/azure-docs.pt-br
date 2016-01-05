@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Crie seu primeiro pipeline usando o Azure Data Factory"
+	pageTitle="Introdução ao Data Factory do Azure"
 	description="Este tutorial mostra como criar um pipeline de dados de exemplo que transforma os dados usando o Azure HDInsight."
 	services="data-factory"
 	documentationCenter=""
@@ -16,21 +16,22 @@
 	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
-# Crie seu primeiro pipeline usando o Azure Data Factory
+# Introdução ao Data Factory do Azure
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
 - [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 
-Este artigo o ajudará a começar a criar seu primeiro pipeline e implantá-lo no Azure Data Factory.
+Este artigo ajuda você a começar a criar seu primeiro data factory do Azure.
 
 > [AZURE.NOTE]Este artigo não fornece uma visão geral conceitual do serviço Azure Data Factory. Para obter uma visão geral detalhada do serviço, consulte o artigo [Introdução ao Azure Data Factory](data-factory-introduction.md).
 
 ## Visão geral do tutorial
-Este tutorial apresenta as etapas necessárias para fazer com que seu pipeline funcione. Você vai criar pipelines e especificar todos os recursos necessários do zero.
+Este tutorial apresenta as etapas necessárias para obter seu primeiro data factory com um pipeline. Você criará um pipeline e especificará todos os recursos necessários desde o início.
 
-Se você quiser explorar os vários recursos da fábrica de dados rapidamente, sem criar uma nova, você pode usar os exemplos que fornecemos no Portal de visualização do Azure. Consulte [Atualização do Azure Data Factory: implantação simplificada de amostra](http://azure.microsoft.com/blog/2015/04/24/azure-data-factory-update-simplified-sample-deployment/) para ver como implantar um exemplo baseado em caso de uso usando o Portal de visualização do Azure.
+Se você quiser explorar os vários recursos da fábrica de dados rapidamente, sem criar uma nova, você pode usar os exemplos que fornecemos no Portal do Azure. Consulte [Atualização do Azure Data Factory: implantação simplificada de amostra](http://azure.microsoft.com/blog/2015/04/24/azure-data-factory-update-simplified-sample-deployment/) para saber como implantar um exemplo baseado em caso de uso usando o Portal do Azure.
 
 ## Pré-requisitos
 Antes de começar este tutorial, você deve cumprir com os seguintes pré-requisitos:
@@ -168,8 +169,8 @@ Antes de iniciar o tutorial, você precisa preparar o armazenamento do Azure com
 
 Faça o seguinte:
 
-- Clique no link [Usando o Editor Data Factory](data-factory-build-your-first-pipeline-using-editor.md) na parte superior para executar o tutorial usando o Editor Data Factory, que faz parte do Portal do Azure.
+- Clique no link [Usando o Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md) na parte superior para executar o tutorial usando o Data Factory Editor, que faz parte do Portal Clássico do Azure.
 - Clique no link [Usando o PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) na parte superior para executar o tutorial usando o PowerShell do Azure.
 - Clique no link [Usando o Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) na parte superior para executar o tutorial usando o Visual Studio. 
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

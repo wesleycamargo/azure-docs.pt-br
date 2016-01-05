@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="08/24/2015" 
+ms.date="12/07/2015" 
 ms.author="adegeo"/>
 
 # Tarefas de inicialização comuns do Serviço de Nuvem
@@ -201,9 +201,9 @@ Esta configuração de exemplo **permite** que todos os IPs acessem o servidor, 
 ```xml
 <system.webServer>
     <security>
-    <!--Unlisted IP addresses are denied access-->
+    <!--Unlisted IP addresses are granted access-->
     <ipSecurity>
-        <!--The following IP addresses are granted access-->
+        <!--The following IP addresses are denied access-->
         <add allowed="false" ipAddress="192.168.100.1" subnetMask="255.255.0.0" />
         <add allowed="false" ipAddress="192.168.100.2" subnetMask="255.255.0.0" />
     </ipSecurity>
@@ -491,7 +491,7 @@ Saiba mais sobre o funcionamento de [Tarefas](cloud-services-startup-tasks.md).
 
 [ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
 [Task]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
-[Runtime]: https://msdn.microsoft.com/pt-BR/library/azure/gg557552.aspx#Runtime
+[Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Environment]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
@@ -503,4 +503,4 @@ Saiba mais sobre o funcionamento de [Tarefas](cloud-services-startup-tasks.md).
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

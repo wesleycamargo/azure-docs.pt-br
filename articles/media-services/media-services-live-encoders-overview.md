@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015"    
+	ms.date="12/04/2015"    
 	ms.author="juliako"/>
 
 
@@ -53,4 +53,4 @@ Para obter informações sobre como configurar o codificador [Tricaster](http://
 
 [Trabalhando com canais habilitados para executar a codificação ativa com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

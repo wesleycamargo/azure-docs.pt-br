@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2015"
+	ms.date="12/08/2015"
 	ms.author="rasquill"/>
 
 
@@ -81,6 +81,6 @@ Para obter mais informações, consulte [Documentação de cloud-init para Ubunt
 <!--Link references-->
 [Referência da API REST de gerenciamento para adicionar serviço de função](http://msdn.microsoft.com/library/azure/jj157186.aspx)
 
-[Interface de linha de comando do Azure](https://github.com/Azure/azure-sdk-tools-xplat)
+[Interface de linha de comando do Azure](https://github.com/Azure/azure-xplat-cli)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 
@@ -25,7 +25,7 @@
 
 Este guia mostra como começar a usar o **Cache na Função para Cache do Azure**. Os exemplos são escritos em código C# e utilizam a API .NET. Os cenários abordados incluem a **configuração de um cluster de cache**, **configuração de clientes de cache**, **adição e remoção de objetos do cache, armazenando o estado de sessão ASP.NET no cache ** e **habilitação do cache de saída da página ASP.NET usando o cache**. Para saber mais sobre como usar o Cache na Função, consulte a seção [Próximas etapas][].
 
->[AZURE.NOTE]Para obter orientação sobre como escolher a oferta certa do Cache do Azure para seu aplicativo, consulte [Qual oferta do Cache Azure é a correta para mim?][].
+>[AZURE.IMPORTANT]Estamos anunciando a desativação de 30 de novembro de 2016, para o Serviço de Cache Gerenciado do Azure e o Cache na Função do Azure. É recomendável que você migre para o Cache Redis do Azure em preparação para essa desativação. Para obter mais informações sobre datas e diretrizes sobre migração, consulte [Qual oferta de Cache do Azure é adequada para mim?](../redis-cache/cache-faq.md#which-azure-cache-offering-is-right-for-me)
 
 <a name="what-is"></a>
 ## O que é Cache na Função?
@@ -38,7 +38,7 @@ O Cache na Função fornece uma camada de cache para seus aplicativos do Azure. 
 
 O Cache na Função fornece uma maneira de armazenar em cache usando uma parte da memória das máquinas virtuais que hospedam as instâncias de função em seus Serviços de Nuvem do Azure (também conhecidos como serviços hospedados). Você tem mais flexibilidade em termos de opções de implantação. Os caches podem ser muito grandes e não têm nenhuma restrição de cota específica ao cache.
 
->[AZURE.NOTE]A partir do SDK 2.6 d Azure, o Cache na função está usando o SDK de Armazenamento do Microsoft Azure versão 4.3. Nas versões anteriores do SDK do Azure, o Cache na função usava o SDK de Armazenamento do Azure versão 1.7. Aplicativos que usam o Cache na Função com as versões do SDK do Azure anteriores à versão 2.6 devem migrar para o SDK do Azure 2.6 antes de a versão do Armazenamento do Azure 2011-08-18 ser descomissionada no dia 9 de dezembro de 2015. Para saber mais, consulte [Notas de versão do Azure SDK 2.6 - Cache na Função](../azure-sdk-dotnet-release-notes-2_6.md#in-role-cache-updates) e [Remoção de versão do serviço de Armazenamento do Microsoft Azure](http://azure.microsoft.com/blog/2014/08/04/microsoft-azure-storage-service-version-removal/).
+>[AZURE.IMPORTANT]A partir do SDK 2.6 d Azure, o Cache na função está usando o SDK de Armazenamento do Microsoft Azure versão 4.3. Nas versões anteriores do SDK do Azure, o Cache na função usava o SDK de Armazenamento do Azure versão 1.7. Aplicativos que usam o Cache na Função com as versões do SDK do Azure anteriores à versão 2.6 devem migrar para o SDK do Azure 2.6 antes de a versão do Armazenamento do Azure 2011-08-18 ser descomissionada no dia 1º de agosto de 2016. Para obter mais informações, confira [Notas de versão do Azure SDK 2.6 – cache na função](../azure-sdk-dotnet-release-notes-2_6.md#in-role-cache-updates) e [Atualização sobre a remoção de versão do serviço de Armazenamento do Microsoft Azure: extensão até 2016](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
 
 O cache em instâncias de função tem as seguintes vantagens:
 
@@ -406,10 +406,9 @@ Agora que você aprendeu o básico do Cache na Função, siga os links para sabe
 [Team Blog]: http://blogs.msdn.com/b/windowsazure/
 [Solução de problemas e diagnóstico do Cache na Função]: http://msdn.microsoft.com/library/windowsazure/hh914135.aspx
 [Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
-[Azure Management Portal]: http://windows.azure.com/
 [Azure Shared Caching]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 
-[Qual oferta do Cache Azure é a correta para mim?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
+[Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

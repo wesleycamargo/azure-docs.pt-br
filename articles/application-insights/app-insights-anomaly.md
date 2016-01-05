@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Application Insights: Detecção de anomalias pró-ativa" 
+	pageTitle="Application Insights: detecção proativa" 
 	description="O Application Insights executa uma análise profunda de telemetria do seu aplicativo e o avisará sobre possíveis problemas de desempenho." 
 	services="application-insights" 
     documentationCenter="windows"
-	authors="alancameronwills" 
+	authors="antonfrMSFT" 
 	manager="douge"/>
 
 <tags 
@@ -12,24 +12,30 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/17/2015" 
 	ms.author="awills"/>
 
-#  Application Insights: alertas proativos
+#  Application Insights: detecção proativa
 
 *O Application Insights está em modo de visualização.*
 
 
 O Application Insights executa uma análise profunda de telemetria do seu aplicativo e o avisará sobre possíveis problemas de desempenho. Provavelmente você está lendo este artigo porque recebeu um dos nossas alertas proativos por email.
 
+## O que é a Detecção Proativa?
+
+A detecção proativa usa o aprendizado de máquina e algoritmos de mineração de dados para detectar padrões anormais que afetam o desempenho do aplicativo. A detecção proativa analisa automaticamente a telemetria de desempenho coletada pelo Application Insights. Ela envia, para você, emails sobre qualquer desempenho anormal no aplicativo. Você não precisa definir regras de limites. As notificações de detecção proativa são integradas com recursos de análise do Application Insights que permitem uma triagem rápida e o diagnóstico dos problemas.
+
+A detecção proativa está em visualização e ainda não está disponível para todos os usuários do Application Insights. Se você quiser experimentar, entre em contato com AppInsightsML@microsoft.com e trabalharemos com você para configurá-lo.
+
 ## Sobre o alerta proativo
 
-* *Por que eu recebei esse alerta?*
- * O Application Insights analisa periodicamente suas regras de reconhecimento padrão de utilização dos dados. Ele procura por anomalias que possam indicar problemas de desempenho em seu aplicativo.
+* *Por que eu recebei esse email?*
+ * A detecção proativa analisou a telemetria que seu aplicativo enviou ao Application Insights e detectou um problema de desempenho em seu aplicativo.
 * *A notificação significa que, definitivamente, tenho um problema?*
  * Não. É simplesmente uma sugestão sobre algo que talvez você queira examinar mais detalhadamente. 
 * *O que devo fazer?*
- * [Examine os dados apresentados](#responding-to-an-alert) e considere se os mesmos podem representar um problema. Caso contrário, está tudo bem.
+ * [Examine os dados apresentados](#responding-to-an-alert). Use o Metrics Explorer para examinar o desempenho ao longo do tempo e analisar as métricas adicionais. Use a Pesquisa para filtrar eventos específicos que ajudarão você a identificar a causa raiz. 
 * *Então, vocês examinam os meus dados?*
  * Não. O serviço é totalmente automático. Somente você recebe as notificações. Os dados são [privados](app-insights-data-retention-privacy.md).
 
@@ -38,30 +44,35 @@ O Application Insights executa uma análise profunda de telemetria do seu aplica
 
 * *Quais tipos de anomalias são detectadas?*
  * Padrões que você acharia demorado verificar por conta própria. Por exemplo, um baixo desempenho em uma combinação específica de local, hora do dia e plataforma.
+* *Todos os dados coletados pelo Application Insights são analisados?*
+ * Não no momento. Atualmente, analisamos o tempo de resposta de solicitação e o tempo de carregamento da página. As análises de métricas adicionais estarão disponíveis em breve. 
 * *Posso criar minhas próprias regras de detecção de anomalias?*
  * Ainda não. Mas você pode:
- * [Configurar alertas](app-insights-alerts.md) que informam quando uma métrica exceder um limite).
- * [Exportar telemetria](app-insights-export-telemetry.md) para um [banco de dados](app-insights-code-sample-export-sql-stream-analytics.md) ou [para o PowerBI](app-insights-export-power-bi.md) ou para [outras](app-insights-code-sample-export-telemetry-sql-database.md) ferramentas, onde será possível analisá-los por conta própria.
+ * [Configurar alertas](app-insights-alerts.md) que informam quando uma métrica excede um limite.)
+ * [Exportar telemetria](app-insights-export-telemetry.md) para um [banco de dados](app-insights-code-sample-export-sql-stream-analytics.md), [para o PowerBI](app-insights-export-power-bi.md) ou para [outras](app-insights-code-sample-export-telemetry-sql-database.md) ferramentas, em que será possível analisá-la por conta própria.
 * *Com que frequência a análise é executada?*
- * Não fazemos análise em um recurso de aplicativo que não possui muita telemetria. É pouco provável que você receba avisos sobre sessões de depuração.
+ * As análises são executadas todos os dias a partir da telemetria do dia anterior.
+* **Então isso substitui os [alertas de métrica](app-insights-alerts.md)?
+ * Não. Nosso compromisso não é detectar todos os comportamentos que você pode considerar como anormais.
 
-
-## Respondendo a um alerta
+## Como investigar problemas gerados pela Detecção Proativa
 
 Abra o relatório de anomalias no email ou na lista de anomalias.
 
-![](./media/app-insights-anomaly/02.png)
+![](./media/app-insights-anomaly/03.png)
 
-Aviso:
 
-* A descrição
-* A declaração de impacto, que informa quantos ou com que frequência os usuários são afetados.
+* **Quando** mostra a hora em que o problema foi detectado.
+* **O que** descreve
+ * O problema que foi detectado;
+ * As características do conjunto de eventos que encontramos que apresentaram o comportamento do problema.
+* A tabela compara o conjunto com desempenho insatisfatório com o comportamento médio de todos os outros eventos.
 
-Clique em um gráfico para abrir uma folha com mais detalhes.
+Clique nos links para abrir o Metrics Explorer e a Pesquisa de relatórios relevantes, filtrados com base na hora e propriedades do conjunto de desempenho lento.
 
 Modifique o intervalo de tempo e os filtros para explorar a telemetria.
 
-## É ótimo receber estes alertas. Mas o que posso fazer para melhorar o desempenho?
+## Como posso melhorar o desempenho?
 
 As respostas lentas e com falha são uma das maiores frustrações para os usuários do site, como você já deve saber por experiência própria. Então é importante resolver os problemas.
 
@@ -71,7 +82,7 @@ Primeiro, isto é importante? Se uma página sempre for carregada lentamente, ma
 
 Use a instrução de impacto no email como um guia geral, mas lembre-se de que isso não é tudo. Obtenha outras evidências para confirmar.
 
-Considere os parâmetros do problema. Se for dependente da geografia, configure [testes de disponibilidade](app-insights-monitor-web-app-availability.md) incluindo a região: talvez a área esteja simplesmente enfrentando problemas de rede.
+Considere os parâmetros do problema. Se for dependente da geografia, configure os [testes de disponibilidade](app-insights-monitor-web-app-availability.md) incluindo a região; talvez a área esteja simplesmente enfrentando problemas de rede.
 
 ### Diagnosticar carregamentos lentos de página 
 
@@ -98,23 +109,23 @@ Há muitos conselhos na Web sobre como melhorar os tempos de resposta de seu ser
 * *É necessário assinar este serviço para receber notificações?*
  * Não. Nosso bot periodicamente pesquisa os dados de todos os usuários do Application Insights e envia notificações se detectar problemas.
 * *Posso cancelar a assinatura ou ter as notificações enviadas para meus colegas em vez disso?*
- * Clique no link que está no alerta ou no email. Abra as configurações de anomalias.
+ * Clique no link de cancelar assinatura que está no alerta ou no email. 
  
-    ![](./media/app-insights-anomaly/01.png)
-
     No momento, elas são enviadas para aqueles com [acesso de gravação ao recurso Application Insights](app-insights-resources-roles-access-control.md).
 * *Não quero ser inundado com essas mensagens.*
- * Elas são limitados a três por dia. Você não receberá nenhuma mensagem repetida.
+ * Elas são limitadas a uma por dia. Você não receberá nenhuma mensagem repetida.
 * *Se eu não fizer nada, posso receber um lembrete?*
  * Não, você receberá uma mensagem sobre cada problema apenas uma vez.
 * *Perdi o email. Onde posso encontrar as notificações no portal?*
- * Na visão geral do Application Insights do seu aplicativo, clique no bloco **Anomalias**. 
+ * Na visão geral do Application Insights do seu aplicativo, clique no bloco **Detecção Proativa**. 
 
 
+## Artigos relacionados
 
-
-
-
+* [Detectar, realizar a triagem e diagnosticar](app-insights-detect-triage-diagnose.md)
+* [Definir alertas de métricas](app-insights-alerts.md)
+* [Metrics explorer](app-insights-metrics-explorer.md)
+* [Gerenciador de pesquisas](app-insights-diagnostic-search.md)
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

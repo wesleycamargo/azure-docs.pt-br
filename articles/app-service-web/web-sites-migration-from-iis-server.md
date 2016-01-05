@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="12/10/2015" 
 	ms.author="cephalin"/>
 
 # Migrar um aplicativo Web corporativo para o Serviço de Aplicativo do Azure
@@ -123,7 +123,7 @@ Esta seção percorre um exemplo para migrar alguns sites que usam um banco de d
  
 20.	Clique nos links para os aplicativos Web do Azure e verifique se a migração foi bem-sucedida.
 
-21. Agora você pode gerenciar os aplicativos Web migrados no Serviço de Aplicativo do Azure. Para fazer isso, faça logon no [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
+21. Agora você pode gerenciar os aplicativos Web migrados no Serviço de Aplicativo do Azure. Para fazer isso, faça logon no [Portal do Azure](https://portal.azure.com).
 
 22. No Portal do Azure, abra a folha Aplicativos Web para ver seus sites migrados (mostrados como aplicativos Web), clique em qualquer um para começar a gerenciar o aplicativo Web, como a configuração de publicação contínua, criação de backups, dimensionamento automático e monitoramento de uso ou de desempenho.
 
@@ -133,7 +133,6 @@ Esta seção percorre um exemplo para migrar alguns sites que usam um banco de d
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

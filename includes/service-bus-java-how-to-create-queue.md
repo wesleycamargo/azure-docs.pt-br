@@ -19,7 +19,7 @@ Para começar a usar filas do Barramento de Serviço no Azure, primeiro crie um 
 
 Para criar um namespace de serviço:
 
-1.  Faça logon no [Portal do Azure][].
+1.  Faça logon no [portal clássico do Azure][].
 
 2.  No painel de navegação esquerdo do portal, clique em **Barramento de Serviço**.
 
@@ -39,7 +39,7 @@ O namespace que você criou demora algum tempo para ser ativado, e então aparec
 
 ## Obter as credenciais de gerenciamento padrão do namespace
 
-A fim de executar operações de gerenciamento, como criar uma fila no novo namespace, obtenha as credenciais de gerenciamento para o namespace. Você pode obter essas credenciais no portal do Azure.
+A fim de executar operações de gerenciamento, como criar uma fila no novo namespace, obtenha as credenciais de gerenciamento para o namespace. Você pode obter essas credenciais no portal.
 
 ###Para obter as credenciais de gerenciamento do portal
 
@@ -51,8 +51,8 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 
 4.  Anote a chave primária ou copie-a na área de transferência.
 
-  [Portal do Azure]: http://manage.windowsazure.com
+  [portal clássico do Azure]: http://manage.windowsazure.com
 
   [34]: ./media/service-bus-java-how-to-create-queue/VSProperties.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

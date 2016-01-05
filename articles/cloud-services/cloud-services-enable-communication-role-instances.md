@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="08/18/2015" 
+ms.date="12/07/2015" 
 ms.author="adegeo"/>
 
 # Habilitar a comunicação para instâncias de função no Azure
@@ -359,4 +359,4 @@ Veja uma referência de esquema XML para os elementos usados acima [aqui](https:
 ## Próximas etapas
 Leia mais sobre o [modelo](cloud-services-model-and-package.md) de Serviço de Nuvem.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -1,19 +1,19 @@
 
-<properties 
-    pageTitle="Solucionar problemas na criação de coleções híbridas do RemoteApp"
-    description="Saiba como solucionar problemas de falhas de criação de coleção híbrida do RemoteApp" 
-    services="remoteapp" 
-    documentationCenter="" 
-    authors="vkbucha" 
+<properties
+    pageTitle="Solucionar problemas na criação de coleções híbridas do RemoteApp | Microsoft Azure"
+    description="Saiba como solucionar problemas de falhas de criação de coleção híbrida do RemoteApp"
+    services="remoteapp"
+    documentationCenter=""
+    authors="vkbucha"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="11/04/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/04/2015"
     ms.author="elizapo" />
 
 
@@ -84,4 +84,4 @@ Verifique se os detalhes do domínio fornecidos são válidos e se o controlador
 
 O nome de domínio criado ou adicionado deve ser um nome de domínio interno (não o seu nome de domínio do Azure AD) e deve estar no formato DNS resolvível (contoso. local). Por exemplo, você tem um nome interno do Active Directory (Contoso) e um UPN do Active Directory (contoso.com): deve, então, usar o nome interno ao criar sua coleção.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

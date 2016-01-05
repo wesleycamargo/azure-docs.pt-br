@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA" 
-   ms.date="08/21/2015"
+   ms.date="11/30/2015"
    ms.author="mfussell"/>
 
 # Cenários de aplicativos do Service Fabric
@@ -55,9 +55,11 @@ Comece a criar serviços com e sem monitoração de estado com o modelos de prog
 
 Confira também os seguintes tópicos:
 
+[Fale-me sobre os microsserviços](service-fabric-overview-microservices.md)
+
 [Definir e gerenciar o Estado do Serviço](service-fabric-concepts-state.md)
 
-[Disponibilidade de serviços](service-fabric-concepts-availability-services.md)
+[Disponibilidade de serviços](service-fabric-availability-services.md)
 
 [Escalabilidade de serviços da Malha do Serviço](service-fabric-concepts-scalability.md)
 
@@ -68,4 +70,4 @@ Confira também os seguintes tópicos:
  
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -69,8 +69,6 @@ function insert(item, user, request) {
 <!-- URLs. -->
 [Introdução à autenticação]: mobile-services-ios-get-started-users.md
 [Introdução às notificações por push]: mobile-services-javascript-backend-ios-get-started-push.md
-
-[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-ios-how-to-use-client-library.md
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="11/18/2015"
 	ms.author="tarcher"/>
 
 # Como depurar um aplicativo Web Node.js no Serviço de Aplicativo do Azure
@@ -46,7 +46,7 @@ Se o arquivo **iisnode. yml** ainda não existir dentro de seu aplicativo, você
 
 > [AZURE.NOTE]Se seu aplicativo Web foi criado usando os Cmdlets do PowerShell do Azure ou as ferramentas de linha de comando do Azure, um arquivo **IISNode.yml** padrão é criado automaticamente.
 
-Para reiniciar o aplicativo Web, selecione-o no [portal de visualização do Azure](https://portal.azure.com) e, em seguida, clique no botão **Reiniciar**:
+Para reiniciar o aplicativo Web, selecione-o no [Portal do Azure](https://portal.azure.com) e clique no botão **REINICIAR**:
 
 ![botão de reinicialização][restart-button]
 
@@ -63,17 +63,17 @@ Logs de diagnóstico podem ser acessado de três maneiras; Usando o protocolo FT
 
 	npm install azure-cli -g
 
-Uma vez instalado, as ferramentas podem ser acessadas usando o comando 'azure'. As ferramentas de linha de comando devem primeiro ser configuradas para usar sua assinatura do Azure. Para obter informações sobre como realizar essa tarefa, consulte a seção **Como baixar e importar as configurações de publicação** do artigo Como usar as Ferramentas de Linha de Comando do Azure.
+Uma vez instalado, as ferramentas podem ser acessadas usando o comando 'azure'. As ferramentas de linha de comando devem primeiro ser configuradas para usar sua assinatura do Azure. Para obter informações sobre como realizar essa tarefa, consulte o **como fazer o download e importar as configurações de publicação** seção a [como uso o Azure Command-line Tools](../xplat-cli-connect) artigo.
 
 ###FTP
 
-Para acessar as informações de diagnóstico por meio de FTP, visite o [portal de visualização do Azure](https://portal.azure.com), selecione seu aplicativo Web e, em seguida, selecione o **PAINEL**. No **links rápidos** seção, o **FTP LOGS de diagnóstico** e **LOGS de diagnóstico FTPS** links fornecem acesso aos logs usando o protocolo FTP.
+Para acessar as informações de diagnóstico por FTP, visite o [Portal do Azure](https://portal.azure.com), selecione o seu aplicativo Web e selecione **PAINEL**. No **links rápidos** seção, o **FTP LOGS de diagnóstico** e **LOGS de diagnóstico FTPS** links fornecem acesso aos logs usando o protocolo FTP.
 
 > [AZURE.NOTE]Se já não tiver configurado o nome de usuário e senha de FTP ou de implantação, você pode fazer isso a **QuickStart** página de gerenciamento selecionando **Configurar credenciais de implantação**.
 
 É a URL FTP retornado no painel de controle para o **arquivos de log** diretório, que irá conter as seguintes subpastas:
 
-* [Método de implantação] - se você usar um método de implantação, como git, uma pasta de mesmo nome será criada e conterá informações relacionadas às implantações.
+* [Método de implantação](web-sites-deploy) - se você usar um método de implantação como git, uma pasta com o mesmo nome será criada e conterá informações relacionadas às implantações.
 
 * nodejs - Stdout e stderr informações capturadas de todas as instâncias do seu aplicativo (quando loggingEnabled for true.)
 
@@ -89,7 +89,7 @@ Isso fará o download uma **diagnostics.zip** no diretório atual. Este arquivo 
 
 * Arquivos de log
 
-	* [Método de implantação] - se você usar um método de implantação, como git, uma pasta de mesmo nome será criada e conterá informações relacionadas às implantações.
+	* [Método de implantação](web-sites-deploy) - se você usar um método de implantação como Git, uma pasta com o mesmo nome será criada e conterá informações relacionadas às implantações.
 
 	* nodejs - Stdout e stderr informações capturadas de todas as instâncias do seu aplicativo (quando loggingEnabled for true.)
 
@@ -106,25 +106,24 @@ Isso retornará uma cadeia de eventos de log que são atualizados à medida que 
 
 Neste artigo, você aprendeu como ativar e acessar as informações de diagnóstico do Azure. Embora essas informações sejam úteis em problemas de compreensão que ocorrem em seu aplicativo, podem indicar um problema com um módulo que você esteja usando ou indicar que a versão de Node.js usada pelos Aplicativos Web do Serviço de Aplicativo é diferente daquela usada no seu ambiente de implantação.
 
-Para obter informações no trabalho com módulos no Azure, consulte [usando o Node. js módulos com aplicativos do Azure]
+Para obter informações no trabalho com módulos no Azure, consulte [usando o Node. js módulos com aplicativos do Azure](../nodejs-use-node-modules-azure-apps)
 
 Para obter informações sobre como especificar uma versão do Node. js para seu aplicativo, consulte [especificar uma versão do Node. js em um aplicativo do Azure]
 
 Para obter mais informações, consulte também o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
->[AZURE.NOTE]Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 [IISNode]: https://github.com/tjanczuk/iisnode
 [IISNode Readme]: https://github.com/tjanczuk/iisnode#readme
 [How to Use The Azure Command-Line Interface]: ../xplat-cli-install.md
-[usando o Node. js módulos com aplicativos do Azure]: ../nodejs-use-node-modules-azure-apps.md
+[Using Node.js Modules with Azure Applications]: ../nodejs-use-node-modules-azure-apps.md
 [especificar uma versão do Node. js em um aplicativo do Azure]: ../nodejs-specify-node-version-azure-apps.md
 
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

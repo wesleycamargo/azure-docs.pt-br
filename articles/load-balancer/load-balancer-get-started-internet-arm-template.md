@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Criar um balanceador de carga voltado para a Internet no Gerenciador de Recursos usando um modelo | Microsoft Azure"
-   description="Saiba como criar um balanceador de carga para a Internet no Gerenciador de Recursos usando um modelo"
+   description="Saiba como criar um balanceador de carga para a Internet no Gerenciador de Recursos usando um modelo ARM"
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
@@ -14,23 +14,23 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/21/2015"
+   ms.date="11/20/2015"
    ms.author="joaoma" />
 
-# Criar um balanceador de carga voltado para a Internet usando um modelo
+# Introdução à criação de um balanceador de carga para a Internet usando um modelo ARM
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artigo aborda o modelo de implantação do Gerenciador de Recursos. Se você está procurando por um modelo de implantação clássico do Azure, vá para [Introdução à criação de um balanceador de carga para a Internet usando a implantação clássica](load-balancer-get-started-internet-classic-portal.md)
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artigo aborda o modelo de implantação do Gerenciador de Recursos. Também é possível [Saber como criar um balanceador de carga para a Internet usando o modelo de implantação clássica](load-balancer-get-started-internet-classic-portal.md)
 
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 ## Implantar o modelo ARM usando clique para implantar
 
-O modelo de exemplo disponível no repositório público usa um arquivo de parâmetro que contém os valores padrão usados para gerar o cenário descrito acima. Para implantar esse modelo usando a opção clique para implantar, execute [esse link](http://go.microsoft.com/fwlink/?LinkId=544801), clique em **Implantar no Azure**, substitua os valores de parâmetro padrão, se necessário, e siga as instruções no portal.
+O modelo de exemplo disponível no repositório público usa um arquivo de parâmetro que contém os valores padrão usados para gerar o cenário descrito acima. Para implantar esse modelo usando a opção de clique para implantar, acesse [este link](http://go.microsoft.com/fwlink/?LinkId=544801), clique em **Implantar no Azure**, substitua os valores de parâmetro padrão, se necessário, e siga as instruções no portal.
 
 ## Implantar o modelo ARM usando o PowerShell
 
@@ -66,9 +66,17 @@ Para implantar o modelo ARM usando a CLI do Azure, siga as etapas abaixo.
 
 		info:    New mode is arm
 
-3. No navegador, navegue até ****https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-natrules/azuredeploy.parameters.json**, copie o conteúdo do arquivo JSON e cole-o em um novo arquivo em seu computador. Para este cenário, copie os valores abaixo em um arquivo chamado **c:\\lb\\azuredeploy.parameters.json**.
+3. No seu navegador, navegue até ****https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-natrules/azuredeploy.parameters.json**, copie o conteúdo do arquivo json e cole em um novo arquivo em seu computador. Para este cenário, copie os valores abaixo em um arquivo chamado **c:\\lb\\azuredeploy.parameters.json**.
 4. Execute o cmdlet **azure group deployment create** para implantar o novo balanceador de carga usando o modelo e os arquivos de parâmetro que você baixou e modificou acima. A lista exibida após a saída explicar os parâmetros usados.
 
 		azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-natrules/azuredeploy.json' -e 'c:\lb\azuredeploy.parameters.json'
 
-<!---HONumber=Nov15_HO3-->
+## Próximas etapas
+
+[Introdução à configuração de um balanceador de carga interno](load-balancer-internal-getstarted.md)
+
+[Configurar um modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md)
+
+[Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
+
+<!---HONumber=AcomDC_1203_2015-->

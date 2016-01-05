@@ -22,7 +22,7 @@
 
 Os Serviços de Mídia do Microsoft Azure permitem o fornecimento de MPEG-DASH protegido por DRM Widevine, que é criptografado de acordo com a especificação de Criptografia Comum (CENC).
 
->[AZURE.NOTE]Atualmente, os Serviços de Mídia não fornecem um servidor de licença Widevine. Você pode usar os seguintes parceiros do AMS para ajudá-lo a fornecer licenças Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) e [castLabs](http://castlabs.com/company/partners/azure/).
+A partir da versão 3.5.2 do SDK do .NET dos Serviços de Mídia, os Serviços de Mídia permitem que você configure um modelo de licença do Widevine e obtenha licenças do Widevine. Você também pode usar os seguintes parceiros do AMS para ajudá-lo a fornecer licenças do Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) e [castLabs](http://castlabs.com/company/partners/azure/).
 
 ##castLabs
 
@@ -43,8 +43,8 @@ Você pode usar [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/) para for
 
 ##Consulte também
 
-[Usando a PlayReady e/ou a criptografia comum dinâmica Widevine](media-services-protect-with-drm.md).
+[Usando a PlayReady e/ou a criptografia comum dinâmica Widevine.](media-services-protect-with-drm.md)
 
-[Blog do Mingfei](https://azure.microsoft.com/pt-BR/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
+[Blog do Mingfei](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

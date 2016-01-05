@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/17/2015"
+   ms.date="12/02/2015"
    ms.author="v-sharos" />
 
 # Use o painel de serviço do StorSimple Manager
@@ -45,7 +45,7 @@ Você pode usar a página do painel serviço do StorSimple Manager para iniciar 
 
 ## Exibir ou regenerar a chave de registro
 
-A chave de registro é usada para registrar um dispositivo Microsoft Azure StorSimple com o serviço StorSimple Manager, para que o dispositivo seja exibido no Portal de gerenciamento do Microsoft Azure para ações de gerenciamento adicionais. A chave é criada no primeiro dispositivo e compartilhada com o resto dos dispositivos.
+A chave de registro é usada para registrar um dispositivo Microsoft Azure StorSimple com o serviço StorSimple Manager, para que o dispositivo seja exibido no Portal clássico do Azure para ações de gerenciamento adicionais. A chave é criada no primeiro dispositivo e compartilhada com o resto dos dispositivos.
 
 Clicar em **chave do registro** (na parte inferior da página) abre a caixa de diálogo **Chave de registro de serviço** onde você pode copiar a atual chave de registro de serviço para a área de transferência ou regenerar a chave de registro de serviço.
 
@@ -59,7 +59,7 @@ As chaves de criptografia de dados de serviço são usadas para criptografar dad
 
 A alteração da chave de criptografia de dados de serviço é um processo de três etapas:
 
-1. Autorizar um dispositivo para alterar a chave de criptografia de dados de serviço no Portal de Gerenciamento.
+1. Autorizar um dispositivo para alterar a chave de criptografia de dados de serviço no Portal clássico do Azure.
 2. Usar o Windows PowerShell para StorSimple para iniciar a alteração da chave de criptografia de dados de serviço.
 3. Se você tiver mais de um dispositivo StorSimple, atualize a chave de criptografia de dados de serviço nos outros dispositivos.
 
@@ -78,4 +78,4 @@ Você pode exibir os logs de operação clicando no link de logs de operação d
 
 - Saiba mais sobre como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

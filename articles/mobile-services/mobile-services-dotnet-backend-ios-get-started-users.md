@@ -18,6 +18,11 @@
 
 # Adicionar autenticação ao aplicativo Serviços Móveis do Azure existente
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 Neste tutorial, você adiciona a autenticação ao projeto de Início Rápido usando um provedor de identidade com suporte. Este tutorial se baseia no [tutorial de Início Rápido dos Serviços Móveis], que você deve concluir primeiro.
@@ -58,10 +63,8 @@ No próximo tutorial, [Autorização de serviço de usuários dos Serviços Móv
 [tutorial de Início Rápido dos Serviços Móveis]: mobile-services-dotnet-backend-ios-get-started.md
 [Get started with authentication]: mobile-services-dotnet-backend-ios-get-started-users.md
 [Get started with push notifications]: mobile-services-dotnet-backend-ios-get-started-push.md
-[Authorize users with scripts]: ../mobile-services-dotnet-backend-ios-authorize-users-in-scripts.md
-
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Authorize users with scripts]: mobile-services-dotnet-backend-service-side-authorization.md
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

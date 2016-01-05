@@ -30,7 +30,7 @@ True author is: authors="sonalmm" , ms.author="sonalm".
 
 | Criar banco de dados | Captura de tela |
 | :--- | :--- |
-| 1\. Entre em [http://portal.azure.com/](http://portal.azure.com/). | ![Novo Portal do Azure][1] |
+| 1\. Entre em [http://portal.azure.com/](http://portal.azure.com/). | ![Novo Portal Clássico do Azure][1] |
 | 2\. Na parte inferior da página, à esquerda, clique em **Novo**. | ![Iniciar Novo serviço][2]|
 | 3\. Clique em **Bancos de Dados SQL**.| ![Serviços diferentes para selecionar][3] |
 | 4\. Uma folha do **Banco de Dados SQL** será aberta. No campo **Nome**, especifique um nome do banco de dados. | ![Nome do banco de dados][4] |
@@ -66,4 +66,4 @@ True author is: authors="sonalmm" , ms.author="sonalm".
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

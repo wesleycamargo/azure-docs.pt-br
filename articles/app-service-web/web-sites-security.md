@@ -54,7 +54,7 @@ Além disso, você deve se certificar de que as credenciais importadas sejam seg
 
 O Serviço de Aplicativo do Azure permite que você armazene informações de configuração como parte do ambiente de tempo de execução de aplicativos Web, como **configurações do aplicativo** e **cadeias de conexão**. Os valores são expostos ao aplicativo durante o tempo de execução por meio de *variáveis do ambiente* na maioria das linguagens de programação. Para aplicativos do .NET, esses valores são injetados na configuração do .NET durante o tempo de execução.
 
-As **Configurações do aplicativo** e as **cadeias de conexão** podem ser configuradas usando o [portal de visualização do Azure](http://portal.azure.com) ou utilitários, como o PowerShell ou a CLI do Azure.
+As **Configurações do aplicativo** e **cadeias de conexão** são configuráveis usando-se o [Portal do Azure](http://portal.azure.com) ou os utilitários como o PowerShell ou a CLI do Azure.
 
 Para obter mais informações sobre configurações do aplicativo e cadeias de conexão, consulte [Configurando aplicativos Web](web-sites-configure.md).
 
@@ -62,7 +62,7 @@ Para obter mais informações sobre configurações do aplicativo e cadeias de c
 
 O Azure oferece acesso FTP seguro ao sistema de arquivos para o aplicativo Web por meio do protocolo **FTPS**. Isso permite acessar com segurança o código do aplicativo no aplicativo Web, bem como os logs de diagnóstico. O link FTPS para seu aplicativo Web pode ser encontrado seguindo estas etapas:
 
-1. Abra o [portal de visualização do Azure](http://portal.azure.com).
+1. Abra o [Portal do Azure](http://portal.azure.com).
 2. Selecione **Procurar Tudo**.
 3. Na folha **Procurar**, selecione **Aplicativos Web**.
 4. Na folha **Aplicativos Web**, selecione o aplicativo Web desejado.
@@ -72,7 +72,7 @@ O Azure oferece acesso FTP seguro ao sistema de arquivos para o aplicativo Web p
 
 Para obter mais informações sobre o protocolo FTPS, consulte [Protocolo FTPS](http://en.wikipedia.org/wiki/File_Transfer_Protocol).
 
->[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## Próximas etapas
 
@@ -83,9 +83,6 @@ Para obter mais informações sobre os arquivos **web.config** ou **applicationh
 Para obter informações sobre como registrar em log informações de aplicativos Web, que podem ser úteis na detecção de ataques, consulte [Habilitar registro em log de diagnóstico](web-sites-enable-diagnostic-log.md).
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

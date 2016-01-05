@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Criar uma máquina virtual do Azure executando o Linux no Portal do Azure | Microsoft Azure"
-	description="Use o Portal do Azure para criar uma máquina virtual do Azure executando o Linux com os grupos de recursos do Azure."
+	pageTitle="Criar uma máquina virtual do Azure executando o Linux no portal clássico do Azure | Microsoft Azure"
+	description="Use o portal clássico do Azure para criar uma máquina virtual (VM) do Azure executando o Linux com os grupos de recursos do Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
@@ -17,15 +17,21 @@
 	ms.date="10/21/2015"
 	ms.author="rasquill"/>
 
-# Criar uma Máquina Virtual executando o Linux usando o Portal de Visualização do Azure
+# Criar uma Máquina Virtual executando o Linux usando o portal do Azure
 
 > [AZURE.SELECTOR]
+- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
+- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
 - [Azure CLI](virtual-machines-linux-tutorial.md)
-- [Azure Preview Portal](virtual-machines-linux-tutorial-portal-rm.md)
 
-<br>[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
+<br>
 
-É fácil criar uma VM (Virtual Machine - Máquina Virtual) que executa o Linux. Este tutorial mostra como usar o portal de Visualização do Azure para criar uma VM rapidamente e usa o `~/.ssh/id_rsa.pub`arquivo de chave pública para proteger a sua conexão **SSH** com a VM. Você também pode criar VMs do Linux usando [suas próprias imagens como modelos](virtual-machines-linux-create-upload-vhd.md).
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
+
+É fácil criar uma VM (Virtual Machine - Máquina Virtual) que executa o Linux. Este tutorial mostra como usar o portal do Azure para criar uma VM rapidamente e usa o `~/.ssh/id_rsa.pub`arquivo de chave pública para proteger a sua conexão **SSH** com a VM. Você também pode criar VMs do Linux usando [suas próprias imagens como modelos](virtual-machines-linux-create-upload-vhd.md).
 
 > [AZURE.NOTE]Este tutorial cria uma máquina virtual do Azure gerenciada pela API do grupo de recursos do Azure. Para obter detalhes, consulte [Visão geral do grupo de recursos do Azure](resource-group-overview.md).
 
@@ -37,11 +43,11 @@ Vá para o Azure Marketplace no portal de Visualização para localizar a imagem
 
 1. Entre no [Portal de visualização](https://portal.azure.com).
 
-2. No menu Hub, clique em **Novo**>**Computação**>**Ubuntu Server 14.04 LTS**.
+2. No menu Hub, clique em **Novo** > **Computação** > **Ubuntu Server 14.04 LTS**.
 
 	![escolhendo uma imagem de VM](media/virtual-machines-linux-tutorial-portal-rm/chooseubuntuvm.png)
 
-	> [AZURE.TIP]Para localizar outras imagens, clique em **Marketplace**e pesquise ou filtre os itens disponíveis.
+	> [AZURE.TIP]Para localizar outras imagens, clique em **Marketplace** e pesquise ou filtre os itens disponíveis.
 
 3. Na parte inferior da página **Ubuntu Server 14.04 LTS**, selecione **Usar a pilha do Gerenciador de Recursos** para criar a VM no Gerenciador de Recursos do Azure. Observe que, para a maioria das novas cargas de trabalho, recomendamos a pilha do Gerenciador de Recursos. Para obter considerações, consulte [Computação do Azure, Provedores de Rede e Armazenamento no Gerenciador de Recursos do Azure](virtual-machines-azurerm-versus-azuresm.md).
 
@@ -63,7 +69,7 @@ Depois de selecionar a imagem, você poderá usar as configurações padrão do 
 
 	>[AZURE.NOTE]O Armazenamento Premium está disponível para máquinas virtuais de série DS em determinadas regiões. O Armazenamento Premium é a melhor opção de armazenamento para cargas de trabalho de uso intensivo de dados, como um banco de dados. Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para as cargas de trabalho das máquinas virtuais do Azure](storage-premium-storage-preview-portal.md).
 
-3. Clique em **Configurações** para ver as configurações de rede e de armazenamento da nova VM. Para uma primeira VM, geralmente você aceita as configurações padrão. Se você tiver selecionado um tamanho de VM que ofereça suporte a ela, poderá experimentar o Armazenamento Premium selecionando **Premium (SSD)** em **Tipo de disco**. Quando terminar, clique em ![Botão OK](media/virtual-machines-linux-tutorial-portal-rm/okbutton.png).
+3. Clique em **Configurações** para ver as configurações de rede e de armazenamento da nova VM. Para uma primeira VM, geralmente você aceita as configurações padrão. Se você tiver selecionado um tamanho de VM que dê suporte a ela, poderá experimentar o Armazenamento Premium selecionando **Premium (SSD)** em **Tipo de disco**. Quando terminar, clique em ![Botão OK](media/virtual-machines-linux-tutorial-portal-rm/okbutton.png).
 
 	![](media/virtual-machines-linux-tutorial-portal-rm/step-3-settings.png)
 
@@ -116,7 +122,7 @@ Agora você pode se conectar por **ssh** em sua VM do Azure e estará pronto par
 	ops@ubuntuvm:~$
 
 
-> [AZURE.NOTE]Você também pode configurar um FQDN (nome de domínio totalmente qualificado) para sua máquina virtual no portal. Leia mais sobre o FQDN [aqui](virtual-machines-create-fqdn-on-portal.md).
+> [AZURE.NOTE]Você também pode configurar um FQDN (nome de domínio totalmente qualificado) para sua máquina virtual no portal. Leia mais sobre [como criar FQDNs no portal](virtual-machines-create-fqdn-on-portal.md).
 
 ## Próximas etapas
 
@@ -130,4 +136,4 @@ Para saber mais sobre o Linux no Azure, confira:
 
 - [A extensão de máquina virtual Docker para Linux no Azure](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

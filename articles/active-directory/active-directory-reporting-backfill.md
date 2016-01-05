@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/09/2015"
+   ms.date="12/07/2015"
    ms.author="kenhoff"/>
 
-# Políticas de retenção de relatório do Active Directory do Azure
+# Tempos de Aterramento de Relatórios do Active Directory do Azure
+
+*Esta documentação é parte do [Guia de Relatórios do Active Directory do Azure](active-directory-reporting-guide.md).*
 
 Após um diretório escolhido nos relatórios, dados de reposição de relatórios para um número determinado de dias indicados aqui.
 
@@ -46,4 +48,4 @@ Usuários RMS mais ativos | 0 dias
 Uso de dispositivo do RMS | 0 dias
 Uso de aplicativos habilitados para RMS | 0 dias
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

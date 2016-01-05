@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Painel, Monitor, Escala, Configurar e Conexões Híbridas nos Serviços BizTalk | Microsoft Azure" 
-	description="Saiba mais sobre os controles e monitore o desempenho nas guias do Portal de Gerenciamento para os Serviços BizTalk: Painel, Monitor, Escala, Configurar e Conexões Híbridas MABS, WABS" 
+	description="Saiba mais sobre os controles e monitore o desempenho nas guias do portal clássico para os Serviços BizTalk: Painel, Monitor, Escala, Configurar e Conexões Híbridas MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="12/02/2015" 
 	ms.author="mandia"/>
 
 
@@ -23,7 +23,7 @@
 
 Depois de criar o Serviço BizTalk e implantar seu aplicativo, você pode alterar algumas configurações do Serviço BizTalk e monitorar o desempenho do aplicativo.
 
-Ao abrir o Portal de Gerenciamento do Azure, você será levado automaticamente para a guia **TODOS OS ITENS**. Para exibir seu Serviço do BizTalk, selecione o Serviço do BizTalk na guia **TODOS OS ITENS** ou selecione a guia **SERVIÇOS BIZTALK** e, em seguida, selecione o nome do seu Serviço do BizTalk.
+Ao abrir o portal clássico do Azure, você será levado automaticamente para a guia **TODOS OS ITENS**. Para exibir seu Serviço do BizTalk, selecione o Serviço do BizTalk na guia **TODOS OS ITENS** ou selecione a guia **SERVIÇOS BIZTALK** e, em seguida, selecione o nome do seu Serviço do BizTalk.
 
 Isso abre uma nova janela com as guias a seguir. Este tópico descreve essas guias.
 
@@ -33,18 +33,18 @@ Dependendo da Edição dos Serviços do BizTalk, é possível que não todas as 
     <tr>
         <td><strong>Obtenha as ferramentas</strong></td>
 
-        <td>Baixe o SDK dos Serviços BizTalk para instalar os modelos do projeto do Visual Studio em seu computador de desenvolvimento local. Esses modelos criam os projetos do Visual Studio <strong>Serviços BizTalk</strong> (ponte) e <strong>Artefatos do Serviço do BizTalk</strong> (Transformação), que são implantados em seu Serviço do BizTalk.
+        <td>Download the BizTalk Services SDK to install the Visual Studio project templates on your on-premises development computer. These templates create the <strong>BizTalk Services</strong> (bridge) and the <strong>BizTalk Service Artifacts</strong> (Transform) Visual Studio projects that are deployed to your BizTalk Service.
         <br/><br/>
-		<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335">Como começo a usar o SDK dos Serviços BizTalk do Azure (a página pode estar em inglês) </a> e <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Instalando o SDK dos Serviços BizTalk do Azure</a> (a página pode estar em inglês) listam as etapas para começar. 
+		<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335"> How do I Start Using the Azure BizTalk Services SDK </a> and <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Installing the Azure BizTalk Services SDK</a> lists the steps to get started.
         </td>
     </tr>
 
     <tr>
-        <td><strong>Criar contratos de parceiros</strong></td>
+        <td><strong>Create partner agreements</strong></td>
 
-        <td>Abre o Portal dos Serviços BizTalk hospedados no Azure onde você adiciona parceiros e cria contratos EDI X12, AS2 e EDIFACT.
+        <td>Opens the Azure BizTalk Services Portal hosted on Azure where you add partners and create X12, AS2, and EDIFACT EDI agreements.
         <br/><br/>
-        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configurando componentes para mensagens EDI no portal dos Serviços do BizTalk</a> (a página pode estar em inglês) lista as etapas para começar.
+        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> lists the steps to get started.
         </td>
     </tr>
 
@@ -72,7 +72,7 @@ Na barra de tarefas na parte inferior, você pode:
 <td><strong>Informação da conexão</strong> do Namespace de Controle de Acesso</td>
 <td>Quando você seleciona Informações de Conexão, o Namespace do Controle de Acesso, o Emissor Padrão e a Chave Padrão são exibidos. Você pode copiar esses valores.
 <br/><br/>
-Você também pode abrir o Portal de Gerenciamento de Controle de Acesso. <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Criar um namespace do Controle de Acesso</a> fornece mais informações sobre o Portal de Gerenciamento de Controle de Acesso.</td>
+Você também pode abrir o Portal de Controle de Acesso. <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Criar um namespace do Controle de Acesso</a> fornece mais informações sobre o Portal de Controle de Acesso.</td>
 </tr>
 
 <tr>
@@ -83,9 +83,9 @@ Por exemplo, você deseja que o Serviço do BizTalk use uma nova Chave Primária
 <br/><br/>
 <ol>
 <li>Selecione o Serviço do BizTalk e selecione <strong>Sincronizar Chaves</strong>. Selecione a chave secundária. Quando você faz isso, o Serviço do BizTalk começa a usar a chave secundária.</li>
-<li>No Portal de Gerenciamento do Azure, clique em sua Conta de Armazenamento e regenere a Chave Primária. Lembre-se que seu Serviço do BizTalk está usando a chave secundária.</li>
+<li>No portal clássico do Azure, selecione sua Conta de Armazenamento e regenere a Chave Primária. Lembre-se que seu Serviço do BizTalk está usando a chave secundária.</li>
 <li>Selecione o Serviço do BizTalk e selecione <strong>Sincronizar Chaves</strong>. Agora, selecione a chave primário. Esta é a nova chave primária que você regenerou.</li>
-<li>No Portal de Gerenciamento do Azure, clique em sua Conta de Armazenamento e regenere a Chave Secundária.</li>
+<li>No portal clássico do Azure, selecione sua Conta de Armazenamento e Regenerar a Chave Secundária.</li>
 </ol>
 <br/>
 Esse processo é chamado de "chaves de substituição". O propósito é permitir que os usuários alternem entre as chaves primária e secundária sem interromper o Serviço do BizTalk.</td>
@@ -170,7 +170,7 @@ Para obter uma descrição dessas métricas de desempenho, acesse [Métricas dis
 </tr>
 <tr>
 <td><strong>Nome da Assinatura</strong></td>
-<td>Lista a assinatura que hospeda seu Serviço do BizTalk. A assinatura rege o acesso ao Portal de Gerenciamento do Azure.</td>
+<td>Lista a assinatura que hospeda seu Serviço do BizTalk. A assinatura rege o acesso ao portal clássico do Azure.</td>
 </tr>
 <tr>
 <td><strong>ID da Assinatura</strong></td>
@@ -178,7 +178,7 @@ Para obter uma descrição dessas métricas de desempenho, acesse [Métricas dis
 </tr>
 </table>
 
-[Serviços BizTalk: provisionamento usando o Portal de Gerenciamento do Azure ](http://go.microsoft.com/fwlink/p/?LinkID=302280) lista as etapas para criar um Serviço BizTalk.
+[Serviços BizTalk: provisionamento usando o portal clássico do Azure ](http://go.microsoft.com/fwlink/p/?LinkID=302280) lista as etapas para criar um Serviço BizTalk.
 
 
 ##### Gerenciar, Informação de Conexão, Chaves de sincronização, e Excluir na barra de tarefas:
@@ -197,9 +197,9 @@ Para obter uma descrição dessas métricas de desempenho, acesse [Métricas dis
 <td><strong>Informação da conexão</strong> do Namespace de Controle de Acesso</td>
 <td>Mostra o Namespace do Controle de Acesso, Emissor Padrão, e valores de Chave Padrão; que podem ser copiados.
 <br/><br/>
-Você também pode abrir o Portal de Gerenciamento de Controle de Acesso. Esse Portal de Gerenciamento de Controle de Acesso é igual ao uso da opção Active Directory no painel de navegação à esquerda.
+Você também pode abrir o Portal de Controle de Acesso. Esse Portal de Controle de Acesso é igual ao uso da opção Active Directory no painel de navegação à esquerda.
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Gerenciando o namespace do ACS (a página pode estar em inglês)</a> fornece mais informações sobre o Portal de Gerenciamento de Controle de Acesso.</td>
+<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Gerenciando o namespace do ACS</a> fornece mais informações sobre o Portal de Controle de Acesso.</td>
 </tr>
 <tr>
 <td><strong>Chaves de sincronização</strong> na conta de armazenamento</td>
@@ -209,9 +209,9 @@ Por exemplo, você deseja que o Serviço do BizTalk use uma nova Chave Primária
 <br/><br/>
 <ol>
 <li>Selecione o Serviço do BizTalk e selecione <strong>Sincronizar Chaves</strong>. Selecione a chave secundária. Quando você faz isso, o Serviço do BizTalk começa a usar a chave secundária.</li>
-<li>No Portal de Gerenciamento do Azure, clique em sua Conta de Armazenamento e regenere a Chave Primária. Lembre-se que seu Serviço do BizTalk está usando a chave secundária.</li>
+<li>No portal clássico do Azure, selecione sua Conta de Armazenamento e regenere a Chave Primária. Lembre-se que seu Serviço do BizTalk está usando a chave secundária.</li>
 <li>Selecione o Serviço do BizTalk e selecione <strong>Sincronizar Chaves</strong>. Agora, selecione a chave primário. Esta é a nova chave primária que você regenerou.</li>
-<li>No Portal de Gerenciamento do Azure, clique em sua Conta de Armazenamento e regenere a Chave Secundária.</li>
+<li>No portal clássico do Azure, selecione sua Conta de Armazenamento e Regenerar a Chave Secundária.</li>
 </ol>
 <br/>
 Esse processo é chamado de "chaves de substituição". O propósito é permitir que os usuários alternem entre as chaves primária e secundária sem interromper o Serviço do BizTalk.</td>
@@ -245,7 +245,7 @@ Você também pode especificar os valores **Relativo** ou **Absoluto** e o **Int
 	Por exemplo, a métrica **Uso do CPU** está esmaecida; seu resultado não é exibido no gráfico:  
 ![A métrica Uso de CPU fica esmaecida][GrayedMetric]  
 
-	Clique no círculo esmaecido para habilitar a métrica **Uso de CPU** e exibir sua saída no gráfico: 
+	Selecione o círculo esmaecido para ativar a métrica **Uso do CPU ** para exibir seu resultado no gráfico:  
 ![A métrica Uso de CPU está habilitada][EnabledMetric]
 
 6. Para remover uma métrica do gráfico de exibição e da lista, selecione **Excluir Métricas** na barra de tarefas. Para adicionar a métrica à lista novamente, selecione **Adicionar Métricas** na barra de tarefas, selecione a métrica e clique na marca de seleção para retornar para a guia **Monitorar**. Selecione o círculo esmaecido para habilitar a métrica.
@@ -335,7 +335,7 @@ Define o Status de Backup para Nenhum ou Automático. Quando estiver definido pa
 
 
 ## <a name="HybridConnections"></a>Conexões Híbridas
-As Conexões Híbridas se conectam um aplicativo do Azure, como Sites ou Serviços Móveis, a um recurso local que utilize uma porta TCP estática, como SQL Server, MySQL, APIs da web HTTP, e os serviços Web mais personalizados. As Conexões Híbridas são gerenciadas nos Serviços BizTalk, no Portal de Gerenciamento do Azure.
+As Conexões Híbridas se conectam um aplicativo do Azure, como Sites ou Serviços Móveis, a um recurso local que utilize uma porta TCP estática, como SQL Server, MySQL, APIs da web HTTP, e os serviços Web mais personalizados. As Conexões Híbridas são gerenciadas nos Serviços BizTalk, no portal clássico do Azure.
 
 Para criar Conexões Híbridas nos Sites do Azure, consulte [Conexão Híbrida: conecte um site do Azure a um recurso local](http://go.microsoft.com/fwlink/p/?LinkId=397538)
 
@@ -355,7 +355,7 @@ Agora que está familiarizado com as diferentes guias, você pode obter mais inf
 ## Consulte também
 - [Conexões Híbridas](integration-hybrid-connection-overview.md)  
 - [Serviços BizTalk: gráfico das edições Developer, Basic, Standard e Premium](biztalk-editions-feature-chart.md)  
-- [Serviços BizTalk: provisionamento usando o Portal de Gerenciamento do Azure](biztalk-provision-services.md)  
+- [Serviços BizTalk: provisionamento usando o portal clássico do Azure](biztalk-provision-services.md)  
 - [Serviços BizTalk: gráfico de estado do Serviço do BizTalk (a página pode estar em inglês)](biztalk-service-state-chart.md)  
 - [Como começar a usar o SDK dos Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
@@ -365,4 +365,4 @@ Agora que está familiarizado com as diferentes guias, você pode obter mais inf
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

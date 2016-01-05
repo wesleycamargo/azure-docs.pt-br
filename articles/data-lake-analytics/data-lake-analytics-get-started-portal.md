@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Introdução à Análise Data Lake do Azure usando o Portal de Visualização do Azure | Azure" 
-   description="Saiba como usar o Portal de Visualização do Azure para criar uma conta da Análise Data Lake, criar um trabalho da Análise Data Lake usando o U-SQL e enviar o trabalho." 
+   pageTitle="Introdução à Análise do Azure Data Lake usando o Portal do Azure | Azure" 
+   description="Saiba como usar o Portal do Azure para criar uma conta da Análise do Data Lake, criar um trabalho da Análise do Data Lake usando o U-SQL e enviar o trabalho." 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="mumian" 
@@ -16,11 +16,11 @@
    ms.date="10/22/2015"
    ms.author="jgao"/>
 
-# Tutorial: Introdução à Análise Data Lake do Azure usando o Portal de Visualização do Azure
+# Tutorial: introdução à Análise do Azure Data Lake usando o Portal do Azure
 
 [AZURE.INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Saiba como usar o Portal de Visualização do Azure para criar contas da Análise Data Lake do Azure, definir trabalhos de Análise Data Lake em [U-SQL](data-lake-analytics-u-sql-get-started.md) e enviar trabalhos para contas da Análise Data Lake. Para saber mais sobre a Análise Data Lake, consulte a [Visão geral da Análise Data Lake do Azure](data-lake-analytics-overview.md).
+Saiba como usar o Portal do Azure para criar contas da Análise do Azure Data Lake , definir trabalhos da Análise do Data Lake no [U-SQL](data-lake-analytics-u-sql-get-started.md) e enviar trabalhos para contas da Análise do Data Lake. Para saber mais sobre a Análise Data Lake, consulte a [Visão geral da Análise Data Lake do Azure](data-lake-analytics-overview.md).
 
 Neste tutorial, você desenvolverá um trabalho que lê um arquivo TSV (valores separados por tabulação) e o converte em um arquivo CSV (valores separados por vírgulas). Para acompanhar o mesmo tutorial usando outras ferramentas compatíveis, clique nas guias na parte superior desta seção. Após a conclusão bem-sucedida de seu primeiro trabalho, você pode começar a escrever transformações de dados mais complexas com U-SQL.
 
@@ -37,7 +37,7 @@ Neste tutorial, você desenvolverá um trabalho que lê um arquivo TSV (valores 
 
 Antes de começar este tutorial, você deve ter o seguinte:
 
-- **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pt-BR/pricing/free-trial/).
+- **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ##Criar conta da Análise Data Lake
 
@@ -47,7 +47,7 @@ Cada conta da Análise Data Lake tem uma dependência da conta do [Repositório 
 
 **Para criar uma conta da Análise Data Lake**
 
-1. Inscreva-se no novo [portal do Azure](https://portal.azure.com).
+1. Entre no novo [Portal Clássico do Azure](https://portal.azure.com).
 2. Clique em **Novo**, em **Dados + Análise** e clique em **Análise Data Lake**.
 6. Digite ou selecione o seguinte:
 
@@ -70,11 +70,11 @@ Após a criação de uma conta da Análise Data Lake, é possível adicionar out
 
 Neste tutorial, você processará alguns logs de pesquisa. O log de pesquisa pode ser armazenado no Repositório Data Lake ou no Armazenamento de Blob do Azure.
 
-O portal de Visualização do Azure fornece uma interface de usuário para copiar alguns arquivos de dados de exemplo para a conta padrão do Data Lake, e isso inclui um arquivo de log de pesquisa.
+O Portal do Azure fornece uma interface do usuário para copiar alguns arquivos de dados de exemplo na conta padrão do Data Lake, o que inclui um arquivo de log de pesquisa.
 
 **Para copiar os arquivos de dados de exemplo**
 
-1. No portal de Visualização do Azure, clique em **Microsoft Azure** no canto superior esquerdo.
+1. No Portal do Azure, clique em **Microsoft Azure** no canto superior esquerdo.
 2. Clique no bloco com o nome da conta da Análise Data Lake. Ele foi fixado aqui quando a conta foi criada. Se a conta não estiver fixada nesse local, consulte [Abrir uma conta da Análise Data Lake a partir do portal](data-lake-analytics-manage-use-portal.md#access-adla-account) para abrir a conta.
 3. Expanda o painel **Essenciais** e clique em **Explorar exemplos de trabalhos**. Isso abre outra folha chamada **Exemplos de Trabalhos**.
 4. Clique em **Copiar Dados de Exemplo** e clique em **OK** para confirmar.
@@ -158,8 +158,8 @@ Depois de preparar os dados de origem, você pode começar a desenvolver um scri
 - Para ver uma consulta mais complexa, consulte [Analisar logs de site usando a Análise Data Lake do Azure](data-lake-analytics-analyze-weblogs.md).
 - Para começar a desenvolver aplicativos U-SQL, consulte [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - Para aprender a usar o U-SQL, consulte [Introdução à linguagem U-SQL da Análise Data Lake do Azure](data-lake-analytics-u-sql-get-started.md).
-- Para obter tarefas de gerenciamento, consulte [Gerenciar a Análise Data Lake do Azure usando o Portal de Visualização do Azure](data-lake-analytics-manage-use-portal.md).
+- Para obter as tarefas de gerenciamento, veja [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-manage-use-portal.md).
 - Para obter uma visão geral da Análise Data Lake, consulte [Visão geral da Análise Data Lake do Azure](data-lake-analytics-overview.md).
 - Para ver o mesmo tutorial usando outras ferramentas, clique nos seletores de guias na parte superior da página.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

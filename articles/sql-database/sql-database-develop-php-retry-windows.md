@@ -1,5 +1,5 @@
 <properties
-	pageTitle="PHP no Windows para o Banco de Dados SQL | Microsoft Azure"
+	pageTitle="Lógica de repetição em PHP para se conectar ao Banco de Dados SQL | Microsoft Azure"
 	description="Apresenta um programa PHP de exemplo que se conecta ao Banco de Dados SQL a partir de um cliente Windowscom tratamento de falhas transitórias e fornece links para os componentes de software necessários e exigidos pelo cliente."
 	services="sql-database"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="12/08/2015"
 	ms.author="meetb"/>
 
 
@@ -29,14 +29,16 @@ Este tópico ilustra como você pode se conectar ao Banco de Dados SQL do Azure 
 
 [AZURE.INCLUDE [sql-database-develop-includes-prerequisites-php-windows](../../includes/sql-database-develop-includes-prerequisites-php-windows.md)]
 
+### Um Banco de Dados SQL
 
-## Criar um banco de dados e recuperar a cadeia de conexão
-
-
-Consulte o [tópico Introdução](sql-database-get-started.md) para aprender a criar um banco de dados de exemplo e a recuperar a cadeia de conexão. É importante que você siga o guia para criar um **modelo de banco de dados AdventureWorks**. Os exemplos mostrados abaixo funcionam apenas com o **esquema AdventureWorks**.
+Consulte a [página de introdução](sql-database-get-started.md) para aprender a criar um banco de dados de exemplo. É importante que você siga o guia para criar um **modelo de banco de dados AdventureWorks**. Os exemplos mostrados abaixo funcionam apenas com o **esquema AdventureWorks**.
 
 
-## Conectar e consultar o banco de dados 
+## Etapa 1: Obter detalhes da conexão
+
+[AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
+
+## Etapa 2: Conectar e consultar
 
 O programa de demonstração é projetado para que um erro transitório durante a tentativa de conexão leve a uma nova tentativa. Mas um erro transitório durante o comando de consulta faz com que o programa descarte a conexão e crie uma nova conexão, antes de tentar novamente o comando de consulta. Não recomendamos nem desaconselhamos essa opção de design. O programa de demonstração ilustra um pouco da flexibilidade de design que está disponível para você.
 
@@ -59,13 +61,13 @@ A função [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php)
 		{
 		    $errorArr = array();
 		    $ctr = 0;
-		    // [A.2] Connect, which proceeds to issue a query command. 
+		    // [A.2] Connect, which proceeds to issue a query command.
 		    $conn = sqlsrv_connect($serverName, $connectionOptions);  
 		    if( $conn == true)
 		    {
-		        echo "Connection was established"; 
+		        echo "Connection was established";
 		        echo "<br>";
-		 
+
 		        $tsql = "SELECT [CompanyName] FROM SalesLT.Customer";
 		        $getProducts = sqlsrv_query($conn, $tsql);
 		        if ($getProducts == FALSE)
@@ -96,8 +98,8 @@ A função [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php)
 		        // [A.4] Check whether sqlExc.Number is on the whitelist of transients.
 		        $isTransientError = IsTransientStatic($errorArr);
 		        if ($isTransientError == TRUE)  // Is a static persistent error...
-		        { 
-		            echo("Persistent error suffered, SqlException.Number==". $errorArr[0].". Program Will terminate."); 
+		        {
+		            echo("Persistent error suffered, SqlException.Number==". $errorArr[0].". Program Will terminate.");
 		            echo "<br>";
 		            // [A.5] Either the connection attempt or the query command attempt suffered a persistent SqlException.
 		            // Break the loop, let the hopeless program end.
@@ -129,11 +131,9 @@ A função [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php)
 		        return TRUE;
 		}
 	?>
-	
+
 ## Próximas etapas
 
 Para saber mais sobre o uso e a instalação de PHP, confira [Acessando os Bancos de Dados SQL com PHP](http://technet.microsoft.com/library/cc793139.aspx).
 
- 
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

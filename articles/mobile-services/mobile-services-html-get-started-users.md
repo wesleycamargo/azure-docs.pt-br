@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="11/30/2015" 
 	ms.author="glenga"/>
 
 # Adicionar autenticação ao aplicativo de Serviços Móveis 
@@ -68,7 +68,7 @@ Em seguida, você irá atualizar o aplicativo para permitir autenticação antes
 
 	Isso permite que você faça logon nos Serviços Móveis a partir da página.
 
-2. No arquivo app.js, localize a linha de código na parte inferior do arquivo que chama a função refreshTodoItems e substitua-o pelo código a seguir:
+2. No arquivo page.js, localize a linha de código na parte inferior do arquivo que chama a função refreshTodoItems e substitua-o pelo código a seguir:
 	
 		function refreshAuthDisplay() {
 			var isLoggedIn = client.currentUser !== null;
@@ -132,9 +132,7 @@ No próximo tutorial, [Autorizar usuários com scripts], você irá obter o valo
 <!-- URLs. -->
 [Introdução aos Serviços Móveis]: mobile-services-html-get-started.md
 [Autorizar usuários com scripts]: mobile-services-javascript-backend-service-side-authorization.md
-
-[Azure Management Portal]: https://manage.windowsazure.com/
 [Referência conceitual do tutorial HTML/JavaScript nos Serviços Móveis]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

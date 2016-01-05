@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # Introdução ao Gerenciamento de Senhas
@@ -186,7 +186,7 @@ Antes de poder habilitar e usar o Write-back de Senha, você deve concluir os se
   
 - Ter a ferramenta Azure AD Connect instalada e preparar o ambiente do AD para sincronização para a nuvem. Para saber mais, consulte [Usar a sua infraestrutura de identidade local na nuvem](active-directory-aadconnect.md).
 
-  >[AZURE.NOTE]Antes de testar o write-back de senha, certifique-se de primeiro concluir uma importação e sincronização completas do AD e do AD do Azure no
+  >[AZURE.NOTE]Antes de testar o write-back de senha, certifique-se de primeiro concluir uma importação e sincronização completas no AD e no AD do Azure no AD do Azure
 
 - Se estiver usando o Azure AD Sync ou o Azure AD Connect, a **TCP 443** de saída (e, em alguns casos, as **TCP 9350 a 9354**) precisam estar abertas. Veja [Etapa 3: configurar seu firewall](#step-3-configure-your-firewall) para obter mais informações. Não há mais suporte para o uso do DirSync para esse cenário. Se ainda estiver usando o DirSync, atualize para a versão mais recente do Azure Connect AD antes de implantar o write-back de senha.
 
@@ -303,18 +303,17 @@ Agora que o Write-back de senha foi habilitado, você pode testar se ele funcion
 
 <br/> <br/> <br/>
 
-**Recursos adicionais**
+## Links para a documentação de redefinição de senha
+Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
 
-
-* [O que é o Gerenciamento de Senhas](active-directory-passwords.md)
-* [Como funciona o Gerenciamento de Senhas](active-directory-passwords-how-it-works.md)
-* [Personalizar o Gerenciamento de Senhas](active-directory-passwords-customize.md)
-* [Práticas recomendadas de gerenciamento de senhas](active-directory-passwords-best-practices.md)
-* [Como obter percepções operacionais com relatórios de gerenciamento de senhas](active-directory-passwords-get-insights.md)
-* [Perguntas frequentes sobre Gerenciamento de Senhas](active-directory-passwords-faq.md)
-* [Solucionar problemas do Gerenciamento de Senhas](active-directory-passwords-troubleshoot.md)
-* [Saiba mais](active-directory-passwords-learn-more.md)
-* [Gerenciamento de Senhas no MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* [**Redefinir sua própria senha**](active-directory-passwords-update-your-own-password.md): saiba mais sobre como redefinir ou alterar sua própria senha como um usuário do sistema
+* [**Como funciona**](active-directory-passwords-how-it-works.md) - saiba mais sobre os seis diferentes componentes do serviço e o que cada um deles faz
+* [**Personalizar**](active-directory-passwords-customize.md) - aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização
+* [**Práticas recomendadas**](active-directory-passwords-best-practices.md) - aprenda a implantar rapidamente e gerenciar com eficiência as senhas em sua organização
+* [**Obter percepções**](active-directory-passwords-get-insights.md) - saiba mais sobre nossos recursos integrados de relatórios
+* [**Perguntas frequentes**](active-directory-passwords-faq.md) - obtenha respostas para perguntas frequentes
+* [**Solução de problemas**](active-directory-passwords-troubleshoot.md) - aprenda a solucionar rapidamente os problemas com o serviço
+* [**Saiba mais**](active-directory-passwords-learn-more.md) - aprofunde-se nos detalhes técnicos do funcionamento do serviço
 
 
 
@@ -351,4 +350,4 @@ Agora que o Write-back de senha foi habilitado, você pode testar se ele funcion
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 [032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

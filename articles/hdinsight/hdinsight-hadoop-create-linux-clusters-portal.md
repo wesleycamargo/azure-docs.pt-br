@@ -1,6 +1,6 @@
 <properties
    	pageTitle="Criar Hadoop, HBase ou clusters Storm no Linux no HDInsight usando o portal | Microsoft Azure"
-   	description="Aprenda a criar Hadoop, HBase ou clusters Storm em Linux para HDInsight usando um navegador da Web e o portal de visualização do Azure."
+   	description="Saiba como criar clusters Hadoop, HBase ou Storm no Linux para o HDInsight usando um navegador da Web e o Portal do Azure."
    	services="hdinsight"
    	documentationCenter=""
    	authors="nitinme"
@@ -14,29 +14,29 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/23/2015"
+   	ms.date="11/16/2015"
    	ms.author="nitinme"/>
 
 
-#Criar clusters baseados em Linux no HDInsight usando o portal de visualização do Azure
+#Criar clusters baseados em Linux no HDInsight usando o Portal do Azure
 
 [AZURE.INCLUDE [seletor](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-O portal de visualização do Azure é uma ferramenta de gerenciamento baseado na web para serviços e recursos hospedados na nuvem do Microsoft Azure. Use as informações neste documento para criar um novo cluster HDInsight baseados em Linux usando o portal de visualização e o navegador da Web
+O Portal do Azure é uma ferramenta de gerenciamento baseado na web para serviços e recursos hospedados na nuvem do Microsoft Azure. Use as informações contidas neste documento para criar um novo cluster HDInsight baseado em Linux usando o Portal e o navegador da Web
 
 ##Pré-requisitos
 
 - **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- __Um navegador da Web__. O portal de visualização do Azure usa o HTML5 e o Javascript e pode não funcionar corretamente em navegadores mais antigos.
+- __Um navegador da Web__. O Portal do Azure usa HTML5 e Javascript e pode não funcionar corretamente em navegadores mais antigos.
 
 ##Criar um cluster
 
-1. Entre no [Portal de Visualização do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 
 2. Clique em **NOVO**, clique em **Análises de dados**, e, em seguida, clique em **HDInsight**.
 
-    ![Criar um novo cluster no Portal de Visualização do Azure](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "Criar um novo cluster no Portal de Visualização do Azure")
+    ![Criando um novo cluster no Portal do Azure](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "Criando um novo cluster no Portal do Azure")
 
 3. Insira um **Nome de Cluster**, selecione **Hadoop** para o **Tipo de Cluster** e, na lista suspensa **Sistema Operacional do Cluster**, selecione **Ubuntu**. Uma marca de seleção verde aparecerá ao lado do nome do cluster, se disponível.
 
@@ -99,24 +99,26 @@ O portal de visualização do Azure é uma ferramenta de gerenciamento baseado n
     	>[AZURE.NOTE]O cluster HDInsight baseado em Windows só pode ser implantado em uma rede virtual clássica.
 
 	* Clique em **Metastores Externo** para especificar o banco de dados SQL que você deseja usar para salvar os metadados de Hive e Oozie associados ao cluster.
+    
+        > [AZURE.NOTE]A configuração de Metastore não está disponível para tipos de cluster HBase.
 
 		![Personalize a folha de metastores](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.7.png "Especifique os metastores externos")
 
-		Para **Usar um banco de dados SQL existente para metadados de Hive**, clique em **Sim**, selecione um banco de dados SQL e, em seguida, forneça o nome de usuário e senha para o banco de dados. Repita essas etapas se você quiser **Usar um banco de dados SQL existente para metadados de Oozie**. Clique em **Selecionar** até voltar para a folha **Configuração Opcional**.
+		Para **Usar um banco de dados SQL existente para metadados do Hive**, clique em **Sim**, selecione um banco de dados SQL e forneça o nome de usuário e a senha para o banco de dados. Repita essas etapas se desejar **Usar um banco de dados SQL existente para metadados de Oozie**. Clique em **Selecionar** até voltar para a folha **Configuração Opcional**.
 
 		>[AZURE.NOTE]O banco de dados SQL do Azure usado para o metastore deve permitir a conectividade com outros serviços do Azure, incluindo o Azure HDInsight. No painel do banco de dados SQL do Azure, no lado direito, clique no nome do servidor. Esse é o servidor no qual a instância do banco de dados SQL está sendo executada. Quando você estiver na exibição do servidor, clique em **Configurar** e depois em **Serviços do Azure**; clique em **Sim** e depois em **Salvar**.
 
-	* **Ações de Script** se você quiser usar um script personalizado para personalizar um cluster enquanto o mesmo estiver sendo criado. Para obter mais informações sobre ações de script, consulte [Personalizar clusters HDInsight usando a ação de script](hdinsight-hadoop-customize-cluster-linux.md). Na folha Ações de Script forneça os detalhes como mostrado na captura de tela.
+	* **Ações de Script** se desejar usar um script personalizado para personalizar um cluster enquanto ele estiver sendo criado. Para obter mais informações sobre ações de script, veja [Personalizar clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md). Na folha Ações de Script forneça os detalhes como mostrado na captura de tela.
 
 		![Folha de ação de script](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.8.png "Especifique a ação de script")
 
-	* Clique em **Chaves de Armazenamento do Azure** para especificar contas de armazenamento adicionais para associar com o cluster. Na folha **Chaves de Armazenamento do Azure**, clique em **Adicionar uma chave de armazenamento**, e, em seguida, selecione uma conta de armazenamento existente ou crie uma nova conta.
+	* Clique em **Chaves de Armazenamento do Azure** para especificar outras contas de armazenamento para associar ao cluster. Na folha **Chaves de Armazenamento do Azure**, clique em **Adicionar uma chave de armazenamento** e selecione uma conta de armazenamento existente ou crie uma nova conta.
 
 		![Folha de armazenamento adicional](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.9.png "Especifique as contas de armazenamento adicionais")
 
-		Clique em **Selecionar** até voltar para a folha **Novo Cluster HDInsight**.
+		Clique em **Selecionar** até voltar para a folha **Novo cluster HDInsight**.
 
-10. Na folha **Novo Cluster HDInsight**, certifique-se de que **Fixar no Quadro Inicial** está selecionado e, em seguida, clique em **Criar**. Isso criará o cluster e adicionará um bloco para o mesmo para o quadro inicial do seu Portal do Azure. O ícone indica que o cluster está provisionando e será alterado para exibir o ícone de HDInsight após a conclusão da configuração.
+10. Na folha **Novo Cluster HDInsight**, certifique-se de que a opção **Fixar no Quadro Inicial** está marcada e clique em **Criar**. Isso criará o cluster e adicionará um bloco para o mesmo para o quadro inicial do seu Portal do Azure. O ícone indica que o cluster está provisionando e será alterado para exibir o ícone de HDInsight após a conclusão da configuração.
 
 	| Durante o provisionamento | Provisionamento concluído |
 	| ------------------ | --------------------- |
@@ -128,23 +130,23 @@ O portal de visualização do Azure é uma ferramenta de gerenciamento baseado n
 
 	![Folha de cluster](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.Cluster.Blade.png "Propriedades do cluster")
 
-	Use as seguintes opções para entender os ícones na parte superior desta folha e na seção **Noções Básicas**:
+	Use o seguinte para entender os ícones na parte superior desta folha e na seção **Noções Básicas**:
 
-	* **Configurações** e **Todas as Configurações**: exibem a folha **Configurações** do cluster, o que permite acessar informações de configuração detalhadas do cluster.
+	* **Configurações** e **Todas as Configurações**: exibem a folha **Configurações** do cluster, que permite acessar informações de configuração detalhadas do cluster.
 
 	* **Painel**, **Painel do Cluster** e **URL**: essas são todas as maneiras de acessar o painel do cluster, que é um portal da Web para executar trabalhos no cluster.
 
-	* **Secure Shell**: informações necessárias para acessar o cluster usando SSH.
+	* **Secure Shell**: informações necessárias para acessar o cluster usando o SSH.
 
 	* **Excluir**: exclui o cluster HDInsight.
 
-	* **Início Rápido** (![ícone de nuvem e raio = início rápido](./media/hdinsight-hadoop-create-linux-cluster-portal/quickstart.png)): exibe informações que ajudarão a começar a usar o HDInsight.
+	* **Início Rápido** (![ícone de nuvem e raio = início rápido](./media/hdinsight-hadoop-create-linux-cluster-portal/quickstart.png)): exibe informações que ajudarão você a começar a usar o HDInsight.
 
-	* **Usuários (![ícone de usuários](./media/hdinsight-hadoop-create-linux-cluster-portal/users.png))**: permite definir permissões para o _gerenciamento de portal_ do cluster para outros usuários em sua assinatura do Azure.
+	* **Usuários** (![ícone de usuários](./media/hdinsight-hadoop-create-linux-cluster-portal/users.png)): permite definir permissões para o _gerenciamento do portal_ deste cluster para outros usuários em sua assinatura do Azure.
 
-		> [AZURE.IMPORTANT]Isso _só_ afeta o acesso e as permissões para o cluster no portal de visualização do Azure e não afeta quem pode se conectar ao cluster HDInsight ou enviar trabalhos a ele.
+		> [AZURE.IMPORTANT]Isso afeta _apenas_ o acesso e as permissões para esse cluster no Portal do Azure e não afeta quem pode se conectar ao cluster HDInsight ou enviar trabalhos a ele.
 
-	* **Marcas** (![ícone de marca](./media/hdinsight-hadoop-create-linux-cluster-portal/tags.png)): as marcas permitem definir pares de chave/valor para definir uma taxonomia personalizada dos seus serviços de nuvem. Por exemplo, você pode criar uma chave chamada __projeto__ e usar um valor comum para todos os serviços associados a um projeto específico.
+	* **Marcas** (![ícone de marca](./media/hdinsight-hadoop-create-linux-cluster-portal/tags.png)): as marcas permitem definir pares de chave/valor para definir uma taxonomia personalizada dos serviços de nuvem. Por exemplo, você pode criar uma chave chamada __projeto__ e usar um valor comum para todos os serviços associados a um projeto específico.
 
 ##Próximas etapas
 
@@ -167,4 +169,4 @@ Agora que você criou com êxito um cluster HDInsight, use o seguinte para apren
 * [Usar componentes de Python no Storm no HDInsight](hdinsight-storm-develop-python.md)
 * [Implantar e monitorar topologias com o Storm no HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

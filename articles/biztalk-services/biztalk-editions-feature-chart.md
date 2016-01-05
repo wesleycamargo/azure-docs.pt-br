@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/08/2015"
+	ms.date="12/08/2015"
 	ms.author="mandia"/>
 
 
@@ -237,7 +237,10 @@ Você não poderá implantar uma ponte nova ou criar novos contratos. Para impla
 
 #### Como faço para migrar de uma camada dos Serviços do BizTalk para outra?
 
-Use o fluxo de backup e restauração para migrar de uma camada para outra. Apenas alguns caminhos de migração têm suporte. Consulte [Serviços BizTalk: backup e restauração](biztalk-backup-restore.md) para saber mais sobre os caminhos de migração com suporte.
+A edição gratuita não pode ser migrada ou 'expandida' para outra camada e não pode ser submetida a backup e restaurada para outra camada. Se você precisar de outra camada, crie um novo Serviço BizTalk usando a nova camada. Quaisquer artefatos criados usando a edição Gratuita, incluindo conexões híbridas, precisam ser recriados no novo Serviço BizTalk.
+
+Para as edições restantes, use o backup e a restauração para migrar os artefatos de uma camada para outra. Por exemplo, faça backup dos artefatos na camada Standard e, em seguida, restaure-os para a camada Premium. [Serviços BizTalk: Backup e Restauração](biztalk-backup-restore.md) descreve os caminhos de migração com suporte e lista de quais artefatos é feito backup. Observe que não é feito backup das Conexões Híbridas. Depois de fazer backup e realizar a restauração em uma nova camada, recrie as conexões híbridas.
+
 
 #### O Serviço do Adaptador do BizTalk está incluído no serviço? Como recebo o software?
 
@@ -245,10 +248,10 @@ Sim, o Serviço do Adaptador do BizTalk com o BizTalk Adapter Pack são incluíd
 
 ## Próximas etapas
 
-Para criar os Serviços BizTalk do Azure no Portal de Gerenciamento do Azure, consulte [Serviços BizTalk: provisionando com o Portal de Gerenciamento do Azure](biztalk-provision-services.md). Para começar a criar aplicativos, visite [Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+Para criar os Serviços BizTalk do Azure no Portal de Gerenciamento do Azure, consulte [Serviços BizTalk: provisionamento com o Portal do Azure](biztalk-provision-services.md). Para começar a criar aplicativos, visite [Serviços BizTalk do Azure (a página pode estar em inglês)](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## Recursos adicionais
-- [Serviços BizTalk: provisionamento usando o portal do Azure](biztalk-provision-services.md)<br/>
+- [Serviços BizTalk: provisionamento com o portal do Azure](biztalk-provision-services.md)<br/>
 - [Serviços BizTalk: gráfico do status do provisionamento](biztalk-service-state-chart.md)<br/>
 - [Serviços BizTalk: guias Painel, Monitor e Escala](biztalk-dashboard-monitor-scale-tabs.md)<br/>
 - [Serviços BizTalk: backup e restauração](biztalk-backup-restore.md)<br/>
@@ -256,4 +259,4 @@ Para criar os Serviços BizTalk do Azure no Portal de Gerenciamento do Azure, co
 - [Serviços BizTalk: nome e chave do emissor](biztalk-issuer-name-issuer-key.md)<br/>
 - [Como começar a usar o SDK dos Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

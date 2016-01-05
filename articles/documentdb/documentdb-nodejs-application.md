@@ -396,7 +396,7 @@ Isso cuida de toda a instalação e configuração inicial. Agora vamos ao motiv
 		
 		module.exports = config;
 
-3. No arquivo **config.js**, atualize os valores de HOST e AUTH\_KEY usando os valores encontrados na lâmina Chaves de sua conta do Banco de Dados de Documentos no [portal de visualização do Microsoft Azure](http://portal.azure.com):
+3. No arquivo **config.js**, atualize os valores de HOST e de AUTH\_KEY usando os valores encontrados na folha Chaves de sua conta do Banco de Dados de Documentos no [Portal do Microsoft Azure](http://portal.azure.com):
 
 4. Salve e feche o arquivo **config.js**.
  
@@ -569,4 +569,4 @@ Para saber mais, consulte o [Centro de desenvolvedores do Node.js](/develop/node
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

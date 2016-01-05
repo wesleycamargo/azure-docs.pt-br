@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/29/2015"
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 
@@ -36,6 +36,5 @@ Para obter mais informações sobre o fluxo de trabalho de coleção híbrido de
 - [Como planejar sua rede virtual para o RemoteApp do Azure](remoteapp-planvpn.md)
 - [Criar uma coleção híbrida](remoteapp-create-hybrid-deployment.md)
 - [Implantar a coleção do RemoteApp do Azure à sua Rede Virtual do Azure (com suporte para Rota Expressa)](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

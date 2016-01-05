@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="11/30/2015"
 	ms.author="krisragh"/>
 
 # Como usar a Biblioteca de Cliente iOS para os Aplicativos Móveis do Azure
@@ -23,6 +23,10 @@
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 Este guia ensina a executar cenários comuns usando o mais recente [SDK de Aplicativos Móveis do Azure para iOS](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). Se você for novo nos Aplicativos Móveis do Azure, primeiro conclua o [Início Rápido dos Aplicativos Móveis do Azure] para criar um back-end, criar uma tabela e baixar um projeto Xcode iOS pré-criado. Neste guia, abordaremos o SDK para iOS do lado do cliente. Para saber mais sobre o SDK .NET do lado do servidor para o back-end, consulte [Trabalhar com o Back-end do .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
+
+## Documentação de referência
+
+A documentação de referência para o SDK do cliente do iOS está aqui: [Referência de cliente de aplicativos móveis do Azure](http://azure.github.io/azure-mobile-services/iOS/v3/).
 
 ##<a name="Setup"></a>Configuração e Pré-requisitos
 
@@ -191,6 +195,21 @@ Como alternativa, exclua fornecendo uma ID de linha:
 
 No mínimo, o atributo `id` deve ser definido quando você faz exclusões.
 
+##<a name="templates"></a>Como registrar modelos de envio por push para enviar notificações entre plataformas
+
+Para registrar os modelos, basta passar pelos modelos com seu método **client.push registerDeviceToken** no seu aplicativo de cliente.
+
+        [client.push registerDeviceToken:deviceToken template:iOSTemplate completion:^(NSError *error) {
+        	...
+        }];
+
+Seus modelos serão do tipo NSDictionary e poderão conter vários modelos no seguinte formato:
+
+        NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"alert": @"$(message)" } } } };
+
+Observe que todas as marcas serão removidas imediatamente por segurança. Para adicionar marcas a instalações ou modelos dentro de instalações, consulte [Trabalhar com o SDK do servidor de back-end do .NET para Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
+
+Para enviar notificações usando esses modelos registrados, trabalhe com [APIs de Hubs de Notificação](https://msdn.microsoft.com/library/azure/dn495101.aspx).
 
 ##<a name="errors"></a>Como tratar erros
 
@@ -249,4 +268,4 @@ O arquivo [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/az
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Manipulador de conflito]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

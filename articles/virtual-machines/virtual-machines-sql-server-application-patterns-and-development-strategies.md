@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/20/2015"
+	ms.date="12/04/2015"
 	ms.author="selcint" />
 
 # Estratégias de Desenvolvimento e Padrões de Aplicativo para o SQL Server em Máquinas Virtuais do Azure
@@ -202,7 +202,7 @@ Nesse padrão de aplicativo, você implanta um aplicativo de duas ou três camad
 
 Com os Serviços de Nuvem, o Azure mantém a infraestrutura para você, executa a manutenção de rotina, aplica patches aos sistemas operacionais e tenta se recuperar de falhas do serviço e do hardware. Quando seu aplicativo precisa ser escala horizontalmente, há opções de escalamento horizontal automático e manual disponíveis para seu projeto de serviço de nuvem, aumentando ou diminuindo o número de instâncias ou máquinas virtuais que são usadas pelo aplicativo. Além disso, você pode usar o Visual Studio local para implantar o aplicativo em um projeto de serviço de nuvem no Azure.
 
-Em resumo, se você não quiser ser responsável por extensas tarefas administrativas para as camadas de negócios/apresentação e seu aplicativo não precisar de nenhuma configuração complexa de software ou sistema operacional, use os Serviços de Nuvem do Azure. Se o Banco de Dados SQL do Azure não der suporte a todos os recursos que você está procurando, use o SQL Server em uma Máquina Virtual do Azure para a camada de dados. Executar um aplicativo nos Serviços de Nuvem do Azure e armazenar dados em Máquinas Virtuais do Azure combina os benefícios dos dois serviços. Para ver uma comparação detalhada, confira a seção neste tópico em [Comparando as estratégias de desenvolvimento no Azure](#comparing-development-strategies-in-azure).
+Em resumo, se você não quiser ser responsável por extensas tarefas administrativas para as camadas de negócios/apresentação e seu aplicativo não precisar de nenhuma configuração complexa de software ou sistema operacional, use os Serviços de Nuvem do Azure. Se o Banco de Dados SQL do Azure não der suporte a todos os recursos que você está procurando, use o SQL Server em uma Máquina Virtual do Azure para a camada de dados. Executar um aplicativo nos Serviços de Nuvem do Azure e armazenar dados em Máquinas Virtuais do Azure combina os benefícios dos dois serviços. Para ver uma comparação detalhada, confira a seção neste tópico em [Comparando as estratégias de desenvolvimento no Azure](#comparing-web-development-strategies-in-azure).
 
 Nesse padrão de aplicativo, a camada de apresentação inclui uma função web, que é um componente dos Serviços de Nuvem em execução no ambiente de execução do Azure e é personalizada para a programação de aplicativos Web com suporte do IIS e ASP.NET. A camada de negócios ou back-end inclui uma função de trabalho, que é um componente dos Serviços de Nuvem em execução no ambiente de execução do Azure e é útil para desenvolvimento de forma geral, e pode executar o processamento em segundo plano para uma função web. A camada de banco de dados reside em uma máquina virtual do SQL Server no Azure. A comunicação entre a camada de apresentação e a camada de banco de dados acontece diretamente ou por meio dos componentes da camada de negócios - função de trabalho.
 
@@ -327,4 +327,4 @@ Para obter mais informações sobre como escolher entre esses métodos de progra
 
 Para obter informações sobre como executar o SQL Server nas Máquinas Virtuais do Azure, confira [Visão geral do SQL Server nas Máquinas Virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -18,6 +18,8 @@
 
 # Implantar um Aplicativo de API no Serviço de Aplicativo do Azure 
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Visão geral
 
 Neste tutorial, você implanta o projeto de API Web que criou no [tutorial anterior](app-service-dotnet-create-api-app.md) para um novo [aplicativo de API](app-service-api-apps-why-best-platform.md). Você usa o Visual Studio para criar o recurso de aplicativo de API no [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md) e implantar seu código de API Web no aplicativo de API do Azure.
@@ -127,4 +129,4 @@ Aplicativos de API são aplicativos Web com recursos adicionais para hospedar AP
 
 Para obter informações sobre recursos de aplicativos de API, consulte [O que são aplicativos de API?](app-service-api-apps-why-best-platform.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

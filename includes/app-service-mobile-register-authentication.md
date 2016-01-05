@@ -1,5 +1,5 @@
 
-Em seguida, é necessário registrar seu aplicativo em um site de provedor de identidade e definir as credenciais geradas pelo provedor no back-end do aplicativo móvel.
+Primeiro, é necessário registrar seu aplicativo em um site do provedor de identidade. Em seguida, você definirá as credenciais geradas pelo provedor no back-end do Aplicativo Móvel.
 
 1. Configure o provedor de identidade preferido, seguindo as instruções específicas do provedor: 
 	
@@ -15,4 +15,4 @@ Em seguida, é necessário registrar seu aplicativo em um site de provedor de id
 <!-- URLs. -->
 [Azure portal]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

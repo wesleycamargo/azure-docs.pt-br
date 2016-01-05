@@ -15,7 +15,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="09/21/2015"
+	ms.date="11/30/2015"
 	ms.author="jgao"/>
 
 # Começar a usar as ferramentas Hadoop para HDInsight do Visual Studio para executar uma consulta de Hive
@@ -68,7 +68,7 @@ As ferramentas do HDInsight para o Visual Studio permitem que você se conecte a
 
 	>[AZURE.NOTE]Observe que a janela **Lista de tarefas do HDInsight** deve estar aberta. Se não estiver, clique em **Outras Janelas** no menu **Exibição** e depois clique na **Janela de Lista de Tarefas do HDInsight** para abri-la.  
 4.	Insira suas credenciais de assinatura do Azure e, em seguida, clique em **Entrar**. Isso só será necessário se você nunca tiver se conectado à assinatura do Azure pelo Visual Studio nesta estação de trabalho.
-5.	No Gerenciador de Servidores, você verá uma lista de clusters existentes do HDInsight. Se você não tiver nenhum cluster, poderá provisionar um usando o portal de visualização do Azure, o Azure PowerShell ou o SDK do HDInsight. Para obter mais informações, consulte [Provisionar clusters do HDInsight][hdinsight-provision].
+5.	No Gerenciador de Servidores, você verá uma lista de clusters existentes do HDInsight. Se você não tiver nenhum cluster, poderá provisionar um usando o Portal do Azure, o Azure PowerShell ou o SDK do HDInsight. Para obter mais informações, consulte [Provisionar clusters do HDInsight][hdinsight-provision].
 
 	![Ferramentas Hadoop: lista de clusters do Gerenciador de Servidores das ferramentas do HDinsight para Visual Studio][5]
 6.	Expanda um cluster do HDInsight. Você verá **Bancos de Dados do Hive**, uma conta de armazenamento padrão, contas de armazenamento vinculadas e o **Log de Serviço do Hadoop**. Você pode expandir mais as entidades.
@@ -194,10 +194,21 @@ E você poderá ver os logs transmitidos em tempo real e ver os gráficos de tra
  
 ![hdinsight visual studio tools fast path hive execution](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.fast.path.hive.execution.png)
 
+**Diferença entre executar consultas por meio do HiveServer2 e enviar consultas por meio do WebHCat**
+
+Embora a execução de consultas por meio do HiveServer2 traga muitos benefícios de desempenho, ela tem várias limitações. Algumas das limitações não são adequadas para uso em produção. A tabela a seguir mostra as diferenças:
+
+| |Execução por meio do HiveServer2 |Envio por meio do WebHCat|
+|---|---|---|
+|Executar consultas|Elimina a sobrecarga no WebHCat (que inicia um Trabalho MapReduce chamado "TempletonControllerJob").|Desde que uma consulta seja executada por meio do WebHCat, o WebHCat iniciará um trabalho MapReduce que introduz latência adicional.|
+|Transmitir os logs|Quase em tempo real.|Os logs de execução de trabalho só estarão disponíveis quando o trabalho for concluído.|
+|Exibir histórico de trabalho|Se uma consulta for executada por meio do HiveServer2, o histórico de trabalho dela (log de trabalho, saída do trabalho) não será preservado. O aplicativo pode ser exibido na interface do usuário YARN com informações limitadas.|Se uma consulta for executada por meio do WebHCat, o histórico de trabalho dela (log de trabalho, saída de trabalho) será preservado e poderá ser exibido usando o Visual Studio/SDK do HDInsight/PowerShell. |
+|Fechar janela| 	A execução por meio do HiveServer2 é uma maneira "síncrona" e, portanto, você deverá manter as janelas abertas; se as janelas estiverem fechadas, a execução da consulta será cancelada.|O envio por meio do WebHCat é uma maneira "assíncrona" e, portanto, você poderá enviar a consulta por meio do WebHCat e fechar o Visual Studio. Você pode voltar e ver os resultados a qualquer momento.|
+
 
 ### Gráfico de desempenho do trabalho do Tez Hive
 
-As Ferramentas do Visual Studio para HDInsight dão suporte para mostrar gráficos de desempenho para os trabalhos de Hive executados pelo mecanismo de execução Tez. Para obter informações sobre como habilitar Tez, consulte [usar Hive no HDInsight][hdinsight.hive]. Depois de enviar um trabalho do Hive no Visual Studio, o Visual Studio mostrará o gráfico quando o trabalho for concluído. Talvez seja necessário clicar no botão **Atualizar** para obter o status do trabalho mais recente.
+As Ferramentas do Visual Studio para HDInsight dão suporte para mostrar gráficos de desempenho para os trabalhos de Hive executados pelo mecanismo de execução Tez. Para saber mais sobre como habilitar Tez, consulte [usar o Hive no HDInsight][hdinsight.hive]. Depois de enviar um trabalho do Hive no Visual Studio, o Visual Studio mostrará o gráfico quando o trabalho for concluído. Talvez seja necessário clicar no botão **Atualizar** para obter o status mais recente do trabalho.
 
 > [AZURE.NOTE]Esse recurso só está disponível para o cluster HDInsight versão acima de 3.2.4.593 e só pode funcionar para trabalhos concluídos. Isso funciona para clusters baseados em Windows e Linux.
 
@@ -258,4 +269,4 @@ Neste artigo, você aprendeu como se conectar a clusters HDInsight no Visual Stu
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

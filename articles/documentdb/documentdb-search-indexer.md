@@ -121,7 +121,7 @@ Se a fonte de dados for criada com êxito, você receberá uma resposta de HTTP 
 
 ##<a id="CreateIndex"></a>Etapa 2: Criar um índice
 
-Se ainda não tiver um, crie um índice de destino da Pesquisa do Azure. Você pode fazer isso na [Interface do Portal do Azure](../search-get-started.md#test-service-operations) ou usando a [API de Criação de Índices](https://msdn.microsoft.com/library/azure/dn798941.aspx).
+Se ainda não tiver um, crie um índice de destino da Pesquisa do Azure. Você pode fazer isso na [Interface do usuário do Portal Clássico do Azure](../search-get-started.md#test-service-operations) ou usando a [API de Criação de Índices](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
 	POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
 	Content-Type: application/json
@@ -270,4 +270,4 @@ Parabéns! Você acaba de aprender como integrar o Banco de Dados do Azure à Pe
  - Para saber mais sobre a Pesquisa do Azure, clique [aqui](/services/search/).
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,18 +1,16 @@
 ## Criar um aplicativo de dispositivo simulado
 
-Nesta seção, você escreverá um aplicativo do console do Windows que simula um dispositivo que envia mensagens do dispositivo para a nuvem para um hub IoT.
+Nesta seção, você criará um aplicativo do console do Windows que simula um dispositivo que envia mensagens do dispositivo para a nuvem para um hub IoT.
 
-1. Na atual solução do Visual Studio, clique em **Arquivo->Adicionar->Projeto** para criar um novo projeto de Aplicativo da Área de Trabalho do Visual C# usando o modelo de projeto do **Aplicativo do Console**. Nomeie o projeto **SimulatedDevice**.
+1. No Visual Studio, adicione um novo projeto de Área de Trabalho Clássica do Windows no Visual C# para a solução atual usando o modelo de projeto do **Aplicativo do Console**. Chame o projeto de **SimulatedDevice**.
 
    	![][30]
 
-2. No Gerenciador de Soluções, clique com o botão direito do mouse na solução e, então, clique em **Gerenciar Pacotes NuGet para Solução...**.
+2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **SimulatedDevice** e clique em **Gerenciar Pacotes NuGet**.
 
-	Isso exibe a janela Gerenciar Pacotes NuGet.
+3. Na janela **Gerenciador de Pacotes NuGet**, verifique se a opção **Incluir pré-lançamento** está marcada. Procure **Cliente de Dispositivos do Microsoft Azure**, clique em **Instalar** e aceite os termos de uso.
 
-3. Pesquise por `Microsoft Azure Devices Client`, clique em **Instalar** e aceite os termos de uso.
-
-	Isso baixa, instala e adiciona uma referência ao [pacote NuGet do SDK de Dispositivo - IoT do Azure].
+	Isso baixa, instala e adiciona uma referência ao [pacote NuGet do SDK do Dispositivo - IoT do Azure][lnk-device-nuget].
 
 4. Adicione a seguinte instrução `using` na parte superior do arquivo **Program.cs**:
 
@@ -20,10 +18,10 @@ Nesta seção, você escreverá um aplicativo do console do Windows que simula u
         using Newtonsoft.Json;
         using System.Threading;
 
-5. Adicione os seguintes campos à classe **Programa**, substituindo os valores de espaço reservado pelo URI do hub IoT e pela chave do dispositivo recuperada nas seções **Criar um hub IoT** e **Criar uma identidade do dispositivo**, respectivamente:
+5. Adicione os seguintes campos à classe **Program**, substituindo os valores de espaço reservado pelo nome de host do hub IoT recuperado na seção *Criar um hub IoT* e a chave de dispositivo recuperada na seção *Criar uma identidade do dispositivo*:
 
 		static DeviceClient deviceClient;
-        static string iotHubUri = "{iot hub URI}";
+        static string iotHubUri = "{iot hub hostname}";
         static string deviceKey = "{deviceKey}";
 
 6. Adicione o seguinte método à classe **Programa**:
@@ -52,7 +50,7 @@ Nesta seção, você escreverá um aplicativo do console do Windows que simula u
             }
         }
 
-	Esse método enviará uma nova mensagem do dispositivo para a nuvem a cada segundo, contendo um objeto serializado pelo JSON com a ID do dispositivo e um número gerado aleatoriamente, que representa um sensor de velocidade eólica simulado.
+	Esse método envia uma nova mensagem de dispositivo para a nuvem a cada segundo. A mensagem contém um objeto serializado por JSON com a deviceId e um número gerado aleatoriamente para simular um sensor de velocidade do vento.
 
 7. Por fim, adicione as seguintes linhas ao método **Principal**:
 
@@ -62,17 +60,17 @@ Nesta seção, você escreverá um aplicativo do console do Windows que simula u
         SendDeviceToCloudMessagesAsync();
         Console.ReadLine();
 
-  Por padrão, o método **Create** cria um **DeviceClient** que usa o protocolo AMQP para se comunicar com o Hub IoT. Para usar o protocolo HTTPS, use a substituição do método **Create** para especificar o protocolo. Se você optar por usar o protocolo HTTPS, você também deve adicionar o pacote NuGet **Microsoft.AspNet.WebApi.Client** ao seu projeto para incluir o namespace **System.Net.Http.Formatting**.
+  Por padrão, o método **Create** cria um **DeviceClient** que usa o protocolo AMQP para se comunicar com o Hub IoT. Para usar o protocolo HTTPS, use a substituição do método **Create** que permite especificar o protocolo. Se você optar por usar o protocolo HTTPS, você também deve adicionar o pacote NuGet **Microsoft.AspNet.WebApi.Client** ao seu projeto para incluir o namespace **System.Net.Http.Formatting**.
 
 
-> [AZURE.NOTE]Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, é recomendado implementar políticas de repetição (como a retirada exponencial), como sugerido no artigo [Tratamento de falhas transitórias] do MSDN.
+> [AZURE.NOTE]Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), como sugerido no artigo [Tratamento de falhas transitórias][lnk-transient-faults] do MSDN.
 
 <!-- Links -->
 
-[pacote NuGet do SDK de Dispositivo - IoT do Azure]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
-[Tratamento de falhas transitórias]: https://msdn.microsoft.com/pt-BR/library/hh680901(v=pandp.50).aspx
+[lnk-device-nuget]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
+[lnk-transient-faults]: https://msdn.microsoft.com/pt-BR/library/hh680901(v=pandp.50).aspx
 
 <!-- Images -->
 [30]: ./media/iot-hub-getstarted-device-csharp/create-identity-csharp1.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

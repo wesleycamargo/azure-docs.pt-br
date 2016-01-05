@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Como escalar o processamento de mídia usando o Portal do Azure"
+	pageTitle="Como escalar o processamento de mídia usando o Portal Clássico do Azure"
 	description="Saiba como dimensionar os Serviços de Mídia especificando o número de Unidades Reservadas para Streaming por Demanda e Unidades Reservadas para Codificação com as quais você deseja provisionar sua conta."
 	services="media-services"
 	documentationCenter=""
@@ -17,13 +17,14 @@
 	ms.author="juliako"/>
 
 
-# Como escalar o processamento de mídia usando o Portal do Azure
+# Como escalar o processamento de mídia usando o Portal Clássico do Azure
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encoding-units.md)
 - [Portal](media-services-portal-encoding-units.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+- [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 
 ## Visão geral
 
@@ -35,7 +36,7 @@ Além de especificar o tipo de unidade reservada, você pode especificar para pr
 
 Para alterar o tipo de unidade reservada e o número de unidades reservadas para codificação, faça o seguinte:
 
-1. No [Portal de Gerenciamento](https://manage.windowsazure.com/), clique em **Serviços de Mídia**. Em seguida, clique no nome do serviço de mídia.
+1. No [Portal Clássico do Azure](https://manage.windowsazure.com/), clique em **Serviços de Mídia**. Em seguida, clique no nome do serviço de mídia.
 
 2. Selecione a página **CODIFICAÇÃO**.
 
@@ -69,4 +70,4 @@ Para saber mais sobre as cotas e limitações e sobre como abrir um tíquete de 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

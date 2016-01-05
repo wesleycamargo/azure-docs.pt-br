@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="10/12/2015"
+	ms.date="12/04/2015"
 	ms.author="inhenk"/>
 
 #RBAC: funções internas
@@ -27,7 +27,7 @@ Clique no link correspondente para ver as **ações** e **não** as propriedades
 
 | Nome da função | Descrição |
 | --------- | ----------- |
-| [Colaborador de serviço de gerenciamento de API](#api-management-service-contributor) | Pode gerenciar os componentes do Application Insights |
+| [Colaborador de serviço de gerenciamento de API](#api-management-service-contributor) | Pode gerenciar os serviços de gerenciamento de API |
 | [Colaborador de componente do Application Insights](#application-insights-component-contributor) | Pode gerenciar os componentes do Application Insights |
 | [Operador de automação](#automation-operator) | Capaz de iniciar, parar, suspender e reiniciar trabalhos |
 | [Colaborador do BizTalk](#biztalk-contributor) | Pode gerenciar os serviços BizTalk |
@@ -53,7 +53,7 @@ Clique no link correspondente para ver as **ações** e **não** as propriedades
 | [Administrador de Acesso do Usuário](#user-access-administrator) | Pode gerenciar o acesso do usuário aos recursos do Azure |
 | [Colaborador de Máquina Virtual Clássica](#classic-virtual-machine-contributor) | Pode gerenciar máquinas virtuais clássicas, mas não a rede virtual ou a conta de armazenamento à qual estão conectadas |
 | [Colaborador de Máquina Virtual](#virtual-machine-contributor) | Pode gerenciar máquinas virtuais, mas não a rede virtual ou a conta de armazenamento à qual estão conectadas |
-| [Colaborador de rede clássica](#classic-network-contributor) | Pode gerenciar máquinas virtuais, mas não a rede virtual ou a conta de armazenamento à qual estão conectadas |
+| [Colaborador de rede clássica](#classic-network-contributor) | Pode gerenciar redes virtuais clássicas e IPs reservados |
 | [Colaborador do Plano de Web](#web-plan-contributor) | Pode gerenciar planos da Web |
 | [Colaborador do Site](#website-contributor) | Pode gerenciar sites, mas não os planos da Web ao quais eles estão conectados |
 
@@ -133,7 +133,9 @@ Os colaboradores podem gerenciar tudo, exceto o acesso
 | **Ações** ||
 | ------- | ------ |
 | * | Criar e gerenciar recursos de todos os tipos |
-| ****Not Actions | | | Microsoft.Authorization/*/Write | Não é possível criar funções e atribuições de função | | Microsoft.Authorization/*/Delete | Não é possível excluir funções e atribuições de função |
+| ****Not Actions | |
+| Microsoft.Authorization/*/Write | Não é possível criar funções e atribuições de função |
+| Microsoft.Authorization/*/Delete | Não é possível excluir funções e atribuições de função |
 
 ### Colaborador da fábrica de dados
 Pode gerenciar fábricas de dados
@@ -480,4 +482,4 @@ Pode gerenciar sites, mas não os planos da Web ao quais eles estão conectados
 ## Tópicos sobre RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

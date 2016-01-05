@@ -1,27 +1,27 @@
-<properties 
-	pageTitle="Definir saídas | Microsoft Azure" 
-	description="Noções básicas sobre saídas do Stream Analytics" 
-	keywords="análise de big data, serviço de nuvem, internet das coisas, serviço gerenciado, processamento de fluxo, streaming analytics, dados de streaming"
-	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage" 
-	documentationCenter="" 
-	authors="jeffstokes72" 
-	manager="paulettm" 
+<properties
+	pageTitle="Saídas de transformação de dados: opções de armazenamento e análise | Microsoft Azure"
+	description="Saiba como direcionar as saídas de transformação de dados do Stream Analytics para opções de armazenamento de dados. Além disso, use o Power BI para os resultados da análise."
+	keywords="transformação de dados, resultados da análise, opções de armazenamento de dados"
+	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage"
+	documentationCenter=""
+	authors="jeffstokes72"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="11/12/2015" 
+<tags
+	ms.service="stream-analytics"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-services"
+	ms.date="12/01/2015"
 	ms.author="jeffstok"/>
 
-# Noções básicas sobre saídas do Stream Analytics
+# Direcionar as saídas de transformação de dados do Stream Analytics para ferramentas de análise de opções de armazenamento de dados
 
-Ao criar um trabalho do Stream Analytics, um dos itens a considerar é como a saída do trabalho será consumida. Como os consumidores da transformação de dados estão visualizando os resultados do trabalho do Stream Analytics? Que ferramentas eles usarão para analisar a saída? A retenção ou armazenamento de dados é um requisito?
+Ao criar um trabalho do Stream Analytics, considere como a saída do trabalho de transformação de dados será consumida. Como você exibirá os resultados do trabalho do Stream Analytics? Quais ferramentas você usará para mostrar os resultados da análise de dados? É obrigatório ter uma opção de armazenamento de dados?
 
-Para poder habilitar uma variedade de padrões de aplicação, o Stream Analytics do Azure fornece sete métodos diferentes para armazenar e exibir saídas de trabalho. Banco de dados SQL, armazenamento de Blob, Hubs de Eventos, filas de Barramento de Serviço, tópicos de Barramento de Serviço, Power BI e armazenamento de tabela são saídas compatíveis. Isso proporciona tanto a facilidade de exibição da saída de trabalho quanto a flexibilidade no consumo e armazenamento de saída do trabalho para armazenamento de dados e outros fins.
+Para poder habilitar vários padrões de aplicativo, o Stream Analytics do Azure disponibiliza opções diferentes de armazenamento de saída e de exibição dos resultados da análise. Isso facilita a exibição da saída do trabalho e proporciona flexibilidade no consumo e armazenamento da saída do trabalho para data warehouse e outras finalidades. Qualquer saída configurada no trabalho deve existir antes do trabalho ser iniciado e dos eventos começarem a fluir. Por exemplo, se você usar o armazenamento de Blobs como uma saída, o trabalho não criará uma conta de armazenamento automaticamente. Ele precisa ser criado pelo usuário antes do trabalho ASA ser iniciado.
 
 
 ## Banco de dados SQL ##
@@ -37,7 +37,7 @@ Um [banco de dados SQL do Azure](http://azure.microsoft.com/services/sql-databas
 | Senha | A senha para se conectar ao banco de dados |
 | Tabela | O nome da tabela em que a saída será gravada. O nome da tabela diferencia maiúsculas de minúsculas e o esquema da tabela deve corresponder exatamente ao número de campos e seus tipos sendo gerados por sua saída de trabalho. |
 
-## Armazenamento de Blob ##
+## Armazenamento de blob ##
 
 O armazenamento de Blob oferece uma solução econômica e escalonável para armazenar grandes quantidades de dados não estruturados na nuvem. Para obter uma introdução sobre o Armazenamento de blob do Azure e seu uso, consulte a documentação em [Como usar blobs](./articles/storage-dotnet-how-to-use-blobs.md).
 
@@ -116,7 +116,7 @@ Há alguns parâmetros que são necessários para configurar fluxos de dados de 
 | Formatar | Aplicável somente para o tipo JSON. Uma linha separada especifica que a saída será formatada com cada objeto JSON separado por uma nova linha. Matriz especifica que a saída será formatada como uma matriz de objetos JSON. |
 ## Power BI
 
-O [Power BI](https://powerbi.microsoft.com/) pode ser usado como uma saída de um trabalho do Stream Analytics para fornecer uma experiência rica de visualização para usuários do Stream Analytics. Essa funcionalidade pode ser utilizada para painéis operacionais, geração de relatórios e relatórios orientados por métricas.
+O [Power BI](https://powerbi.microsoft.com/) pode ser usado como saída de um trabalho do Stream Analytics para fornecer uma experiência rica de visualização dos resultados da análise. Essa funcionalidade pode ser usada para painéis operacionais, geração de relatórios e relatórios orientados por métricas.
 
 > [AZURE.NOTE]No momento, não há suporte para a criação e configuração das saídas do Power BI no Portal de Visualização do Azure.
 
@@ -159,7 +159,7 @@ Para resolver esse problema, pare seu trabalho em execução e vá para a saída
 
 ## Armazenamento de tabela
 
-O [armazenamento de tabela do Azure](./articles/storage-introduction.md) oferece armazenamento altamente disponível e altamente escalonável, para que um aplicativo possa ser dimensionado automaticamente para atender à demanda dos usuários. O Armazenamento de tabela é um repositório de chave/atributo NoSQL da Microsoft que pode ser utilizado por alguém com dados estruturados, com menos restrições no esquema. O armazenamento de Tabela do Azure pode ser usado para armazenar dados de persistência e para recuperação eficiente.
+[Armazenamento de Tabelas do Azure](./articles/storage-introduction.md) oferece armazenamento altamente disponível e altamente escalonável, para que um aplicativo possa ser dimensionado automaticamente para atender à demanda dos usuários. O Armazenamento de tabela é um repositório de chave/atributo NoSQL da Microsoft que pode ser utilizado por alguém com dados estruturados, com menos restrições no esquema. O armazenamento de Tabela do Azure pode ser usado para armazenar dados de persistência e para recuperação eficiente.
 
 A tabela a seguir lista os nomes de propriedade e sua descrição para a criação de uma saída da tabela.
 
@@ -171,11 +171,11 @@ A tabela a seguir lista os nomes de propriedade e sua descrição para a criaç�
 | Nome da tabela | O nome da tabela. A tabela será criada se ainda não existir. |
 | Chave de partição | O nome da coluna de saída que contém a chave da partição. A chave de partição é um identificador exclusivo para a partição em uma determinada tabela que forma a primeira parte da chave primária da entidade. É um valor de cadeia de caracteres que pode ter até 1 KB em tamanho. |
 | Chave de linha | O nome da coluna de saída que contém a chave de linha. A chave de linha é um identificador exclusivo para uma entidade em uma determinada partição. Ela forma a segunda parte da chave primária da entidade. A chave de linha é um valor de cadeia de caracteres que pode ter até 1 KB em tamanho. |
-| Tamanho do lote | É o número de registros para uma operação em lote. Normalmente, o padrão é suficiente para a maioria dos trabalhos; consulte a [especificação da Operação em Lote de Tabela](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) para obter mais detalhes sobre como modificar essa configuração. |
+| Tamanho do lote | É o número de registros para uma operação em lote. Normalmente, o padrão é suficiente para a maioria dos trabalhos, consulte a [especificação da operação de lote de tabela](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) para obter mais detalhes sobre como modificar essa configuração. |
 
 ## Filas de barramento de serviço
 
-As [Filas do Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh367516.aspx) oferecem a entrega de mensagens do tipo PEPS (primeiro a entrar, primeiro a sair) para um ou mais consumidores concorrentes. Normalmente, espera-se que as mensagens sejam recebidas e processadas pelos receptores na ordem cronológica em que foram adicionadas à fila, sendo que cada mensagem é recebida e processada por apenas um consumidor de mensagem.
+[Filas do barramento de serviço](https://msdn.microsoft.com/library/azure/hh367516.aspx) oferecem entrega de mensagem do tipo PEPS (primeiro a entrar, primeiro a sair) para um ou mais consumidores concorrentes. Normalmente, espera-se que as mensagens sejam recebidas e processadas pelos receptores na ordem cronológica em que foram adicionadas à fila, sendo que cada mensagem é recebida e processada por apenas um consumidor de mensagem.
 
 A tabela a seguir lista os nomes de propriedade e sua descrição para a criação de uma saída da fila.
 
@@ -193,7 +193,7 @@ A tabela a seguir lista os nomes de propriedade e sua descrição para a criaç�
 
 ## Tópicos do Service Bus
 
-Enquanto as Filas do Barramento de Serviço fornecem um método de comunicação de um-para-um do remetente para o receptor, os [Tópicos sobre o Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh367516.aspx) fornecem uma forma de comunicação de um-para-muitos.
+Enquanto as filas do Barramento de Serviço fornecem um método de comunicação de um-para-um do remetente ao destinatário, os [Tópicos do Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh367516.aspx) fornecem uma forma de comunicação de um-para-muitos.
 
 A tabela a seguir lista os nomes de propriedade e sua descrição para a criação de uma saída da tabela.
 
@@ -210,7 +210,7 @@ A tabela a seguir lista os nomes de propriedade e sua descrição para a criaç�
 
 ## Banco de Dados de Documentos
 
-O [Banco de Dados de Documentos do Azure](http://azure.microsoft.com/services/documentdb/) é um serviço de banco de dados de documentos NoSQL totalmente gerenciado que oferece transações e consulta de dados sem esquema, desempenho previsível e confiável e rápido desenvolvimento.
+[Banco de Dados de Documentos do Azure](http://azure.microsoft.com/services/documentdb/) é um serviço de Banco de Dados de Documentos NoSQL totalmente gerenciado, que oferece transações e consulta de dados sem esquema, desempenho previsível e confiável e rápido desenvolvimento.
 
 A tabela abaixo lista os nomes de propriedade e sua descrição para a criação de uma saída do Banco de Dados de Documentos.
 
@@ -267,4 +267,4 @@ Você foi apresentado ao Stream Analytics, um serviço gerenciado para análise 
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -3,7 +3,7 @@
 	description="Saiba como habilitar o acesso à área de trabalho remota para as máquinas virtuais que hospedam o aplicativo Azure Node.js." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
-	authors="MikeWasson" 
+	authors="rmcmurray" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="mwasson"/>
+	ms.date="11/20/2015" 
+	ms.author="robmcm"/>
 
 
 # Habilitando a Área de Trabalho Remota no Azure
@@ -58,9 +58,9 @@ Execute as etapas a seguir em um computador que contém os arquivos de origem de
 
 Depois de publicar a definição do serviço de atualização, você pode se conectar à instância da função.
 
-1.  No [Portal de Gerenciamento do Azure], selecione **Serviços de Nuvem ** e, em seguida, selecione o serviço.
+1.  No [portal clássico do Azure], selecione **Serviços de Nuvem ** e selecione o serviço.
 
-	![portal de gerenciamento do azure][cloud-services]
+	![portal clássico do Azure][cloud-services]
 
 2.  Clique em **Instâncias** e, em seguida, clique em **Produção** ou **Preparo** para ver as instâncias de seu serviço. Selecione uma instância e clique em **Conectar** na parte inferior da página.
 
@@ -74,7 +74,7 @@ Depois de publicar a definição do serviço de atualização, você pode se con
 
     ![Prompt de segurança do Windows][5]
 
-4.  Clique em **Conectar** e será exibido um prompt de segurança para a inserção das credenciais para acessar a instância. Digite a senha criada na [Etapa1][Etapa 1: Configurar o serviço para acesso à Área de Trabalho Remota usando o PowerShell do Azure] e, em seguida, clique em **OK**.
+4.  Clique em **Conectar** e será exibido um prompt de segurança para a inserção das credenciais para acessar a instância. Digite a senha criada na [Etapa1]\[Etapa 1: Configurar o serviço para acesso à Área de Trabalho Remota usando o PowerShell do Azure] e, em seguida, clique em **OK**.
 
     ![prompt de nome de usuário/senha][6]
 
@@ -102,7 +102,7 @@ Quando você não precisar mais de conexões de área de trabalho remota para as
 
   [PowerShell do Azure]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
 
-[Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
+[portal clássico do Azure]: http://manage.windowsazure.com
 [publish-project]: ./media/cloud-services-nodejs-enable-remote-desktop/publish-rdp.png
 [enable-rdp]: ./media/cloud-services-nodejs-enable-remote-desktop/enable-rdp.png
 [cloud-services]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-services-remote.png
@@ -116,4 +116,4 @@ Quando você não precisar mais de conexões de área de trabalho remota para as
   [Usando a Área de Trabalho Remota com as funções do Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!-----HONumber=AcomDC_1203_2015-->

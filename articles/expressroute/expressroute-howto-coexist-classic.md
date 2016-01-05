@@ -1,6 +1,6 @@
 <properties
    pageTitle="Configurar conexões de VPN site a site e de Rota Expressa que possam coexistir| Microsoft Azure"
-   description="Este tutorial fornece uma orientação sobre a configuração de uma conexão de Rota Expressa e de VPN site a site para que ambas possam coexistir."
+   description="Este artigo orienta você na configuração de conexões de Rota Expressa e VPN site a site que possam coexistir."
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="12/02/2015"
    ms.author="cherylmc"/>
 
 # Configurar conexões de Rota Expressa e de VPN site a site para que coexistam em uma Rede Virtual
@@ -29,7 +29,8 @@ Os circuitos de Rota Expressa devem ser previamente configurados antes de você 
 
 - **O roteamento em trânsito não tem suporte:** não é possível fazer o roteamento (via Azure) entre sua rede local conectada via VPN site a site e sua rede local conectada via Rota Expressa.
 - **Não há suporte para ponto a site:** não é possível habilitar conexões VPN ponto a site para a mesma Rede Virtual conectada à Rota Expressa. A VPN de ponto a site e a Rota Expressa não podem coexistir para a mesma Rede Virtual.
-- **Somente gateways padrão ou de alto desempenho:** você deve usar um gateway padrão ou de alto desempenho para o gateway de Rota Expressa e para o gateway de VPN site a site. Consulte [SKUs de gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) para obter informações sobre SKUs de gateway.
+- **O túnel forçado não pode ser habilitado no gateway de VPN site a site:** você só pode “forçar” todo o tráfego voltado para a Internet de volta para sua rede local por meio da Rota Expressa. 
+- **Somente gateways padrão ou de alto desempenho:** você deve usar um gateway padrão ou de alto desempenho para o gateway de Rota Expressa e para o gateway de VPN site a site. Confira [SKUs de gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) para obter informações sobre SKUs de gateway.
 - **Requisitos de rota estática:** se sua rede local estiver conectada à VPN site a site e a uma Rota Expressa, será necessário ter uma rota estática configurada em sua rede local para rotear a conexão VPN site a site para a Internet pública.
 - **O gateway de Rota Expressa deve ser configurado primeiro:** você deve criar o gateway de Rota Expressa primeiro, antes de adicionar o gateway de VPN site a site.
 
@@ -68,7 +69,7 @@ Este procedimento orientará você pela criação de uma Rede Virtual, bem como 
 
 1. Verifique se você tem a versão mais recente dos cmdlets do PowerShell. Você pode baixar e instalar os cmdlets mais recentes do PowerShell na seção [Página de download](http://azure.microsoft.com/downloads/) do PowerShell.
 
-2. Crie um esquema para a sua rede virtual. Para obter mais informações sobre como trabalhar com o arquivo de configuração de rede, consulte [Configurar uma Rede Virtual usando um arquivo de configuração de rede](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal). Para saber mais sobre o esquema de configuração, consulte [Esquema de configuração de rede virtual do Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+2. Crie um esquema para a sua rede virtual. Para obter mais informações sobre como trabalhar com o arquivo de configuração de rede, consulte [Configurar uma Rede Virtual usando um arquivo de configuração de rede](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Para saber mais sobre o esquema de configuração, confira [Esquema de configuração de Rede Virtual do Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
 	Quando criar seu esquema, certifique-se de usar os seguintes valores:
 
@@ -141,7 +142,7 @@ Este procedimento orientará você pela criação de uma Rede Virtual, bem como 
 
 7. Crie uma entidade de gateway de VPN de site local. Esse comando não configura seu gateway de VPN local. Em vez disso, ele permite que você forneça as configurações de gateway local, como o IP público e o espaço para endereço local, para que o gateway de VPN do Azure possa se conectar a ele.
 
-	> [AZURE.IMPORTANT]O site local para o VPN de site a site não está definido no netcfg. Em vez disso, você deve usar esse cmdlet para especificar os parâmetros do site local. Você não pode defini-los usando o Portal de Gerenciamento ou o arquivo netcfg.
+	> [AZURE.IMPORTANT]O site local para o VPN de site a site não está definido no netcfg. Em vez disso, você deve usar esse cmdlet para especificar os parâmetros do site local. Você não pode defini-los usando o Portal Clássico do Azure ou o arquivo netcfg.
 
 	Use o exemplo a seguir, substituindo os valores existentes pelos seus.
 
@@ -188,7 +189,7 @@ Se você tiver uma rede virtual existente conectada via conexão VPN de Rota Exp
 
 	`Get-AzureVNetConfig –ExportToFile “C:\NetworkConfig.xml”`
 
-3. Edite o esquema do arquivo de configuração de rede para que a sub-rede de gateway seja /27 ou um prefixo menor (como /26 ou /25). Veja os exemplos a seguir. Para obter mais informações sobre como trabalhar com o arquivo de configuração de rede, consulte [Configurar uma Rede Virtual usando um arquivo de configuração de rede](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal). Para saber mais sobre o esquema de configuração, consulte [Esquema de configuração de rede virtual do Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+3. Edite o esquema do arquivo de configuração de rede para que a sub-rede de gateway seja /27 ou um prefixo menor (como /26 ou /25). Veja os exemplos a seguir. Para obter mais informações sobre como trabalhar com o arquivo de configuração de rede, consulte [Configurar uma Rede Virtual usando um arquivo de configuração de rede](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Para saber mais sobre o esquema de configuração, confira [Esquema de configuração de Rede Virtual do Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
           <Subnet name="GatewaySubnet">
             <AddressPrefix>10.17.159.224/27</AddressPrefix>
@@ -204,10 +205,10 @@ Se você tiver uma rede virtual existente conectada via conexão VPN de Rota Exp
 		          </ConnectionsToLocalNetwork>
 		        </Gateway>
 
-5. Neste ponto, você terá uma VNet sem nenhum gateway. Para criar novos gateways e completar suas conexões, vá até a **Etapa 3** desta seção do artigo, [Criar uma nova rede virtual com a Rota Expressa e a conectividade site a site](#create-a-new-virtual-network-with-both-expressroute-and-site-to-site-connectivity).
+5. Neste ponto, você terá uma VNet sem nenhum gateway. Para criar novos gateways e concluir suas conexões, vá até a **Etapa 4** desta seção do artigo, [Criar uma nova rede virtual com a Rota Expressa e a conectividade site a site](#create-a-new-virtual-network-with-both-expressroute-and-site-to-site-connectivity).
 
 ## Próximas etapas
 
-Para obter mais informações sobre a Rota Expressa, consulte [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md).
+Para saber mais sobre a Rota Expressa, confira [Perguntas frequentes sobre Rota Expressa](expressroute-faqs.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

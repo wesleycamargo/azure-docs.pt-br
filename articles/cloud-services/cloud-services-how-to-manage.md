@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Como gerenciar um serviço de nuvem | Microsoft Azure" 
-	description="Saiba como gerenciar serviços de nuvem no Portal do Azure." 
+	description="Saiba como gerenciar serviços de nuvem no portal clássico do Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -23,17 +23,17 @@
 # Como gerenciar serviços de nuvem
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-how-to-manage.md)
-- [Azure Preview Portal](cloud-services-how-to-manage-portal.md)
+- [Azure classic portal](cloud-services-how-to-manage.md)
+- [Azure portal](cloud-services-how-to-manage-portal.md)
 
-Na área **Serviços de Nuvem** do Portal do Azure, você pode atualizar uma função de serviço ou uma implantação, promover uma implantação de preparo para produção, vincular recursos ao Serviço de Nuvem para que você possa ver as dependências de recursos e dimensionar os recursos em conjunto, além de excluir um Serviço de Nuvem ou uma implantação.
+Na área **Serviços de Nuvem** do portal clássico do Azure, você pode atualizar uma função de serviço ou uma implantação, promover uma implantação de preparo para produção, vincular recursos ao Serviço de Nuvem para que você possa ver as dependências de recursos e dimensionar os recursos em conjunto, além de excluir um Serviço de Nuvem ou uma implantação.
 
 
 ## Como atualizar uma função ou implantação de Serviço de Nuvem
 
 Se você precisar atualizar o código do aplicativo para o seu Serviço de Nuvem, use **Atualizar** no painel, página **Serviços de Nuvem** ou página **Instâncias**. Você pode atualizar única função ou todas as funções. Você precisará carregar um novo pacote de serviços e o arquivo de configuração do serviço.
 
-1. No [Portal do Azure](https://manage.windowsazure.com/), no painel, na página **Serviços de Nuvem** ou na página **Instâncias**, clique em **Atualizar**.
+1. No [portal clássico do Azure](https://manage.windowsazure.com/), no painel, na página **Serviços de Nuvem** ou na página **Instâncias**, clique em **Atualizar**.
 
 	![UpdateDeployment](./media/cloud-services-how-to-manage/CloudServices_UpdateDeployment.png)
 
@@ -63,7 +63,7 @@ Use **Permutar** para promover uma implantação de preparo de um Serviço de Nu
 
 É possível permutar implantações na página **Serviços de Nuvem** ou no painel.
 
-1. No [Portal de Gerenciamento](https://manage.windowsazure.com/), clique em **Serviços de Nuvem**.
+1. No [portal clássico do Azure](https://manage.windowsazure.com/), clique em **Serviços de Nuvem**.
 
 2. Na lista de serviços de nuvem, clique no serviço de nuvem para selecioná-lo.
 
@@ -85,7 +85,7 @@ Para mostrar as dependências do serviço de nuvem em outros recursos, é possí
 
 Use **Vincular** para vincular uma instância nova ou existente do Banco de Dados SQL ou conta de armazenamento ao Serviço de Nuvem. Em seguida, é possível dimensionar um banco de dados junto com a função de Serviço de Nuvem que o está usando na página **Escala**. (Uma conta de armazenamento é dimensionada automaticamente à medida que cresce o uso.) Para obter mais informações, consulte [Como dimensionar um Serviço de Nuvem e os recursos vinculados (a página pode estar em inglês)](cloud-services-how-to-scale.md).
 
-Você também pode monitorar, gerenciar e dimensionar o banco de dados no nó **Bancos de dados** do Portal de Gerenciamento.
+Você também pode monitorar, gerenciar e dimensionar o banco de dados no nó **Bancos de dados** do portal clássico do Azure.
 
 Neste sentido, a "vinculação" de um recurso não conecta seu aplicativo ao recurso. Se você criar um novo banco de dados usando **Vincular**, precisará adicionar as cadeias de conexão ao código do seu aplicativo e atualizar o Serviço de Nuvem. Você também deverá adicionar cadeias de conexão se seu aplicativo usar recursos em uma conta do armazenamento vinculada.
 
@@ -93,7 +93,7 @@ O procedimento a seguir descreve como vincular uma nova instância de banco de d
 
 ### Para vincular uma instância de banco de dados SQL a um serviço de nuvem
 
-1. No [Portal de Gerenciamento](http://manage.windowsazure.com/), clique em **Serviços de Nuvem**. Em seguida, clique no nome do Serviço de Nuvem para abrir o painel.
+1. No [portal clássico do Azure](http://manage.windowsazure.com/), clique em **Serviços de Nuvem**. Em seguida, clique no nome do Serviço de Nuvem para abrir o painel.
 
 2. Clique em **Recursos Vinculados**.
 
@@ -109,9 +109,9 @@ O procedimento a seguir descreve como vincular uma nova instância de banco de d
 
 4. Clique em **Crie um novo recurso** ou em **Vincular um recurso existente**.
 
-5. Escolha o tipo de recurso a ser vinculado. No [Portal de Gerenciamento](http://manage.windowsazure.com/), clique em **Banco de Dados SQL**. (A Visualização do Portal de Gerenciamento não dá suporte à vinculação de uma conta do armazenamento a um Serviço de Nuvem.)
+5. Escolha o tipo de recurso a ser vinculado. No [portal clássico do Azure](http://manage.windowsazure.com/), clique em **Banco de Dados SQL**. (A visualização do portal clássico do Azure não dá suporte à vinculação de uma conta do armazenamento a um Serviço de Nuvem).
 
-6. Para concluir a configuração do banco de dados, siga instruções da ajuda para a área **Bancos de Dados SQL** do Portal de Gerenciamento.
+6. Para concluir a configuração do banco de dados, siga instruções da ajuda para a área **Bancos de Dados SQL** do portal clássico do Azure.
 
 	Então, você pode acompanhar o progresso da operação de vínculo na área de mensagem.
 
@@ -121,13 +121,13 @@ O procedimento a seguir descreve como vincular uma nova instância de banco de d
 
 ### Para desvincular um recurso vinculado
 
-1. No [Portal de Gerenciamento](http://manage.windowsazure.com/), clique em **Serviços de Nuvem**. Em seguida, clique no nome do Serviço de Nuvem para abrir o painel.
+1. No [portal clássico do Azure](http://manage.windowsazure.com/), clique em **Serviços de Nuvem**. Em seguida, clique no nome do Serviço de Nuvem para abrir o painel.
 
 2. Clique em **Recursos Vinculados** e selecione o recurso.
 
 3. Clique em **Desvincular**. Em seguida, clique em **Sim** no aviso de confirmação.
 
-	Desvincular o Banco de Dados SQL não afeta o banco de dados ou as conexões do aplicativo ao banco de dados. Ainda é possível monitorar o banco de dados na área **Bancos de Dados SQL** do Portal de Gerenciamento.
+	Desvincular o Banco de Dados SQL não afeta o banco de dados ou as conexões do aplicativo ao banco de dados. Ainda é possível monitorar o banco de dados na área **Bancos de Dados SQL** do portal clássico do Azure.
 
 
 
@@ -139,7 +139,7 @@ Para economizar custos de computação, você pode excluir a implantação de pr
 
 Use o procedimento a seguir para excluir uma implantação ou seu serviço de nuvem.
 
-1. No [Portal de Gerenciamento](http://manage.windowsazure.com/), clique em **Serviços de Nuvem**.
+1. No [portal clássico do Azure](http://manage.windowsazure.com/), clique em **Serviços de Nuvem**.
 
 2. Selecione o Serviço de Nuvem e clique em **Excluir**. (Para selecionar um Serviço de Nuvem sem abrir o painel, clique em qualquer lugar exceto no nome na entrada do Serviço de Nuvem.)
 
@@ -154,8 +154,7 @@ Use o procedimento a seguir para excluir uma implantação ou seu serviço de nu
 
 5. Para excluir o Serviço de Nuvem, clique em **Excluir o Serviço de Nuvem**. Em seguida, clique em **Sim** no prompt de confirmação.
 
-> [AZURE.NOTE]Se o monitoramento detalhado estiver configurado para seu serviço de nuvem, o Azure não exclui os dados de monitoramento de sua conta de armazenamento quando você exclui o serviço de nuvem. Você precisará excluir manualmente os dados. Para obter informações sobre onde encontrar as tabelas de métricas, consulte "Como: acessar dados detalhados de monitoramento fora do Portal de Gerenciamento" em <a href="http://azure.microsoft.com/documentation/articles/cloud-services-how-to-monitor/">Como monitorar serviços de nuvem</a>.
-
+> [AZURE.NOTE]Se o monitoramento detalhado estiver configurado para seu serviço de nuvem, o Azure não exclui os dados de monitoramento de sua conta de armazenamento quando você exclui o serviço de nuvem. Você precisará excluir manualmente os dados. Para saber mais sobre onde encontrar as tabelas de métricas, confira "Como acessar dados detalhados de monitoramento fora do portal clássico do Azure" em [Como monitorar serviços de nuvem](cloud-services-how-to-monitor.md).
 
 ## Próximas etapas
 
@@ -164,4 +163,4 @@ Use o procedimento a seguir para excluir uma implantação ou seu serviço de nu
 * Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name.md).
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

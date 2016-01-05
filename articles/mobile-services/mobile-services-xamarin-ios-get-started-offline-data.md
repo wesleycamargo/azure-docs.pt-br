@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Usando dados offline nos Serviços Móveis (Xamarin iOS) | Microsoft Azure" 
-	description="Saiba como usar serviços móveis do Azure para cache e sincronização de dados offline no aplicativo iOS Xamarin" 
-	documentationCenter="xamarin" 
-	authors="lindydonna" 
-	editor="wesmc" 
-	manager="dwrede" 
+<properties
+	pageTitle="Usando dados offline nos Serviços Móveis (Xamarin iOS) | Microsoft Azure"
+	description="Saiba como usar serviços móveis do Azure para cache e sincronização de dados offline no aplicativo iOS Xamarin"
+	documentationCenter="xamarin"
+	authors="lindydonna"
+	editor="wesmc"
+	manager="dwrede"
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
 	ms.date="11/02/2015"
 	ms.author="donnam"/>
 
 # Usando sincronização de dados offline em Serviços Móveis
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
@@ -42,7 +47,7 @@ Este tutorial apresenta e explica as seguintes etapas básicas:
 Este tutorial exige o seguinte:
 
 * Visual Studio com a [extensão Xamarin] **ou** [Xamarin Studio] no OS X
-* XCode 4.5 e iOS 6.0 (ou versões posteriores) 
+* XCode 4.5 e iOS 6.0 (ou versões posteriores)
 * Conclusão do tutorial [Introdução aos Serviços Móveis]
 
 ## <a name="review-offline"></a>Examinar o código de sincronização dos Serviços Móveis
@@ -66,7 +71,7 @@ A Sincronização offline dos Serviços móveis do Azure permite aos usuários f
             await client.SyncContext.InitializeAsync(store);
         }
 
-    Isso cria um repositório local usando a classe `MobileServiceSQLiteStore`, fornecida no SDK dos Serviços Móveis. Você também pode fornecer uma implementação de repositório local diferente implementando `IMobileServiceLocalStore`.
+    Isso cria um repositório local usando a classe `MobileServiceSQLiteStore`, fornecida no SDK dos Serviços Móveis. Você também pode fornecer uma implementação de repositório local diferente ao implementar `IMobileServiceLocalStore`.
 
     O método `DefineTable` cria uma tabela no repositório local que corresponde aos campos no tipo fornecido, `ToDoItem`, neste caso. O tipo não precisa incluir todas as colunas que estão no banco de dados remoto - é possível armazenar apenas um subconjunto de colunas.
 
@@ -143,11 +148,11 @@ Nesta seção você reconectará o aplicativo ao serviço móvel. Isso simula o 
 
 1. Abra `QSTodoService.cs`. Remova a URL de serviço móvel inválida e adicione novamente a chave correta de aplicativo e URL.
 
-2. Recompile e execute o aplicativo. Observe que os dados têm a mesma aparência do cenário offline mesmo que agora o aplicativo esteja conectado ao serviço móvel. Isso ocorre porque esse aplicativo sempre usa a `IMobileServiceSyncTable`, que está apontada para o repositório local.
+2. Recompile e execute o aplicativo. Observe que os dados têm a mesma aparência do cenário offline mesmo que agora o aplicativo esteja conectado ao serviço móvel. Isso ocorre porque esse aplicativo sempre usa o `IMobileServiceSyncTable`, que está voltado ao repositório local.
 
-3. Faça logon no Portal de Gerenciamento do Microsoft Azure e observe o banco de dados para seu serviço móvel. Se o serviço usar o back-end do JavaScript, você poderá procurar os dados na guia **Dados** do serviço móvel.
+3. Faça logon no [Portal clássico do Azure] e examine o banco de dados para o seu serviço móvel. Se o serviço usar o back-end do JavaScript, você poderá procurar os dados na guia **Dados** do serviço móvel.
 
-    Se você estiver usando o back-end do .NET para o serviço móvel, no Visual Studio, vá para **Gerenciador de Servidores** -> **Azure** -> **Bancos de Dados SQL**. Clique com o botão direito do mouse em seu Banco de Dados e selecione **Abrir no Gerenciador de Objetos do SQL Server**.
+    Se você estiver usando o back-end do .NET para o serviço móvel, no Visual Studio, acesse **Gerenciador de servidores** > **Azure** > **Bancos de dados SQL**. Clique com o botão direito do mouse em seu Banco de Dados e selecione **Abrir no Gerenciador de Objetos do SQL Server**.
 
     Observe que os dados *não* foram sincronizados entre o banco de dados e o repositório local.
 
@@ -182,6 +187,6 @@ Nesta seção você reconectará o aplicativo ao serviço móvel. Isso simula o 
 
 [Xamarin Studio]: http://xamarin.com/download
 [extensão Xamarin]: http://xamarin.com/visual-studio
- 
+[Portal clássico do Azure]: https://manage.windowsazure.com
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

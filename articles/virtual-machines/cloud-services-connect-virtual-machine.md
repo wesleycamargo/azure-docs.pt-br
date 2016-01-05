@@ -41,8 +41,8 @@ As redes virtuais são a maneira recomendada para conectar máquinas virtuais no
 
 Para conectar máquinas virtuais em uma rede virtual:
 
-1.	Crie a rede virtual no [Portal de Visualização do Azure](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md).
-2.	Crie o conjunto de serviços de nuvem para sua implantação de modo a refletir seu design para conjuntos de disponibilidade e balanceamento de carga. No portal do Azure, clique em **Novo > Computação > Serviço de Nuvem > Criação Personalizada** para cada serviço de nuvem.
+1.	Crie a rede virtual no [portal do Azure](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md).
+2.	Crie o conjunto de serviços de nuvem para sua implantação de modo a refletir seu design para conjuntos de disponibilidade e balanceamento de carga. No portal clássico do Azure, clique em **Novo > Computação > Serviço de Nuvem > Criação Personalizada** para cada serviço de nuvem.
 3.	Para criar cada máquina virtual nova, clique em **Novo > Computação > Máquina Virtual > Da Galeria**. Escolha o serviço de nuvem e a rede virtual corretos para a VM. Se o serviço de nuvem já fizer parte de uma rede virtual, seu nome já estará selecionado para você.
 
 ![Selecionar um serviço de nuvem para uma máquina virtual](./media/howto-connect-vm-cloud-service/VMConfig1.png)
@@ -51,7 +51,7 @@ Para conectar máquinas virtuais em uma rede virtual:
 
 Para conectar máquinas virtuais em um serviço de nuvem autônomo:
 
-1.	Crie o serviço de nuvem no [Portal do Azure](http://manage.windowsazure.com). Clique em **Novo > Computação > Serviço de Nuvem > Criação Personalizada**. Ou você pode criar o serviço de nuvem para sua implantação ao criar sua primeira máquina virtual.
+1.	Crie o serviço de nuvem no [portal clássico do Azure](http://manage.windowsazure.com). Clique em **Novo > Computação > Serviço de Nuvem > Criação Personalizada**. Ou você pode criar o serviço de nuvem para sua implantação ao criar sua primeira máquina virtual.
 2.	Ao criar as máquinas virtuais, escolha o nome do serviço de nuvem criado na etapa anterior. ![Adicionar uma máquina virtual a um serviço de nuvem existente](./media/howto-connect-vm-cloud-service/Connect-VM-to-CS.png)
 
 ##Recursos
@@ -67,4 +67,4 @@ Após criar uma máquina virtual, é uma boa ideia adicionar um disco de dados p
 
 [Como anexar um disco de dados a uma máquina virtual Windows](../articles/virtual-machines/storage-windows-attach-disk.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

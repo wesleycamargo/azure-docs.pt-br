@@ -1,27 +1,32 @@
-<properties 
-	pageTitle="Administrando um Serviço móvel na linha de comando | Microsoft Azure" 
-	description="Aprenda a criar, implantar e gerenciar seu serviço móvel do Azure usando as ferramentas de linha de comando." 
-	services="mobile-services" 
-	documentationCenter="Mobile" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Administrando um Serviço móvel na linha de comando | Microsoft Azure"
+	description="Aprenda a criar, implantar e gerenciar seu serviço móvel do Azure usando as ferramentas de linha de comando."
+	services="mobile-services"
+	documentationCenter="Mobile"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="NA" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="11/02/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="NA"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="11/02/2015"
 	ms.author="glenga"/>
 
-# Automatizar os serviços móveis com ferramentas de linha de comando 
+# Automatizar os serviços móveis com ferramentas de linha de comando
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 ##Visão geral
 
 Este tópico mostra como usar as ferramentas de linha de comando do Azure para automatizar a criação e o gerenciamento dos Serviços Móveis do Azure. Este tópico mostra como instalar e usar as ferramentas de linha de comando e como usá-las para executar Serviços Móveis essenciais.
- 
+
 Quando combinadas em um único script ou arquivo em lotes, estes comandos individuais automatizam os processos de criação, verificação e exclusão de um serviço móvel.
 
 Este tópico aborda uma seleção de tarefas para administração comuns compatíveis com as ferramentas de linha de comando do Azure. Para obter mais informações, consulte [Documentação das ferramentas de linha de comando do Azure][reference-docs].
@@ -46,7 +51,7 @@ Para iniciar, você deve primeiro baixar e importar suas configurações de publ
 
 	azure account download
 
-Isto abrirá o navegador padrão e solicitará que você entre no Portal de Gerenciamento. Depois de entrar, seu arquivo `.publishsettings` será baixado. Observe o local onde este arquivo foi salvo.
+Isso abre o navegador padrão e solicita que você se conecte no Portal clássico do Azure. Depois de entrar, seu arquivo `.publishsettings` será baixado. Observe o local onde este arquivo foi salvo.
 
 Em seguida, importe o arquivo `.publishsettings` executando o seguinte comando, substituindo `<path-to-settings-file>` pelo caminho do arquivo `.publishsettings`:
 
@@ -104,9 +109,9 @@ O comando abaixo cria uma nova tabela com permissão para `read` pública, mas c
 
 	azure mobile table create <service-name> <table-name> -p read=public,delete=admin
 
-A tabela a seguir mostra o valor da permissão de script em comparação com o valor da permissão no [Portal de Gerenciamento do Azure]
+A tabela a seguir mostra o valor da permissão de script em comparação ao valor da permissão no [Portal clássico do Azure].
 
-|Valor do script|Valor do Portal de Gerenciamento| |========|========| |`public`| Todos| |`application`(padrão) |Qualquer pessoa com a chave do aplicativo |`user`| Somente usuários autenticados| |`admin`|Somente scripts e admins|
+|Valor do script|Valor do Portal| |========|========| |`public`| Todos| |`application`(padrão) |Qualquer pessoa com a chave do aplicativo |`user`| Somente usuários autenticados| |`admin`|Somente scripts e admins|
 
 O comando `mobile table create` falha quando a tabela especifica já existe. Em seus scripts de automação, você deve tentar excluir uma tabela antes de tentar recriá-la.
 
@@ -140,7 +145,7 @@ A declaração de função no arquivo de script também deve coincidir com a ope
 
 	function insert(item, user, request) {
 	    ...
-	} 
+	}
 
 Para obter mais informações sobre como registrar scripts, consulte [Referência para script de servidor dos Serviços Móveis]
 
@@ -173,7 +178,7 @@ Para obter mais informações sobre como registrar scripts, consulte [Referênci
 <!-- URLs. -->
 [Referência para script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/p?LinkId=262293
 
-[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
+[Portal clássico do Azure]: https://manage.windowsazure.com/
 [nodejs-org]: http://nodejs.org/
 [install-node-linux]: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
 
@@ -182,6 +187,4 @@ Para obter mais informações sobre como registrar scripts, consulte [Referênci
 [reference-docs]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/#Commands_to_manage_mobile_services
 [Como instalar as Ferramentas de Linha de Comando do Azure para Mac e Linux]: http://go.microsoft.com/fwlink/p/?LinkId=275795
 
- 
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

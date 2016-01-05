@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução ao seu primeiro aplicativo de Pesquisa do Azure em .NET | Microsoft Azure | Serviço de pesquisa hospedado na nuvem"
+	pageTitle="Introdução ao seu primeiro aplicativo de Pesquisa do Azure no .NET | Microsoft Azure | Serviço de pesquisa em nuvem hospedado"
 	description="Tutorial sobre como criar uma solução usando a biblioteca de cliente .NET no SDK .NET da Pesquisa do Azure."
 	services="search"
 	documentationCenter=""
@@ -20,7 +20,7 @@
 
 Aprenda como criar um aplicativo personalizado de pesquisa .Net no Visual Studio 2013 ou posterior, que use a Pesquisa do Azure, um serviço de pesquisa hospedado na nuvem no Microsoft Azure, para sua experiência de pesquisa. Este tutorial usa o [SDK do .NET de Pesquisa do Azure](https://msdn.microsoft.com/library/azure/dn951165.aspx) para criar classes para os objetos e operações usados neste exercício, assim como a API REST do serviço de Pesquisa do Azure.
 
-Para executar esse exemplo, você deve ter um serviço de Pesquisa do Azure, para o qual você pode se inscrever no [Portal do Azure](https://portal.azure.com).
+Para executar esse exemplo, você deverá ter um serviço Pesquisa do Azure, no qual você pode se inscrever no [Portal Clássico do Azure](https://portal.azure.com).
 
 > [AZURE.TIP]Baixe o código-fonte deste tutorial em [Exemplos do .NET da Pesquisa do Azure](http://go.microsoft.com/fwlink/p/?LinkId=530196). Aprenda a configurar as conexões e enviar solicitações em [Como usar a Pesquisa do Azure em um aplicativo .NET](search-howto-dotnet-sdk.md).
 
@@ -34,7 +34,7 @@ Neste aplicativo, o programa **DataIndexer** cria e carrega o índice usando um 
 
 ## Criar o serviço de Pesquisa do Azure
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [Portal Clássico do Azure](https://portal.azure.com).
 
 2. Na barra de navegação rápida, clique em **Novo** > **Dados + Armazenamento** > **Pesquisa**.
 
@@ -794,4 +794,4 @@ Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para qu
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

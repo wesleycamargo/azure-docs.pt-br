@@ -1,6 +1,6 @@
 ## O que é o serviço Tabela
 
-O serviço de armazenamento Tabela do Windows Azure armazena grandes quantidades de dados estruturados. O serviço é um repositório de dados NoSQL que aceita chamadas autenticadas de dentro e de fora da nuvem do Azure. As tabelas do Azure são ideais para armazenar dados estruturados não relacionais. Os usos comuns do serviço Tabela incluem:
+O serviço de armazenamento Tabela do Microsoft Azure armazena grandes quantidades de dados estruturados. O serviço é um repositório de dados NoSQL que aceita chamadas autenticadas de dentro e de fora da nuvem do Azure. As tabelas do Azure são ideais para armazenar dados estruturados não relacionais. Os usos comuns do serviço Tabela incluem:
 
 -   Armazenamento de TBs de dados estruturados capazes de atender a aplicativos de dimensionamento da Web
 -   Armazenando conjuntos de dados que não exigem junções complexas, chaves estrangeiras ou procedimentos armazenados e que podem ser desnormalizados para acesso rápido
@@ -33,4 +33,4 @@ O serviço Tabela contém os seguintes componentes:
   [Table1]: ./media/storage-table-concepts-include/table1.png
   [OData.org]: http://www.odata.org/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO3--->

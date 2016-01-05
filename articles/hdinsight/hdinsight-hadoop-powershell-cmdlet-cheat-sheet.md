@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/07/2015" 
+	ms.date="11/29/2015" 
 	ms.author="nitinme"/>
 
 
@@ -34,4 +34,4 @@ O Microsoft Azure HDInsight fornece cmdlets do PowerShell para executar tarefas 
 
 * [Roteiro de aprendizagem para HDInsight](http://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

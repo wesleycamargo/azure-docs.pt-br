@@ -7,16 +7,22 @@
 	authors="lindydonna"
 	editor=""/>
 
+
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="11/30/2015"
 	ms.author="donnam"/>
 
 # Adicionar autenticação ao aplicativo de Serviços Móveis
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
@@ -52,7 +58,7 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
 
 ##<a name="add-authentication"></a>Adicionar autenticação ao aplicativo
 
-1. Abra o arquivo do projeto **ToDoService** e adicione as variáveis a seguir
+1. Abra o arquivo de projeto **QSToDoService** e adicione as variáveis a seguir
 
 		// Mobile Service logged in user
 		private MobileServiceUser user;
@@ -96,18 +102,19 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
         {
             base.ViewDidAppear(animated);
 
-            if (QSToDoService.DefaultService.User == null)
+            if (QSTodoService.DefaultService.User == null)
             {
-                await QSToDoService.DefaultService.LoginAndGetData(this);
+                await QSTodoService.DefaultService.LoginAndGetData(this);
             }
 
-            if (QSToDoService.DefaultService.User == null)
+            if (QSTodoService.DefaultService.User == null)
             {
                 // TODO:: show error
                 return;
             }
 
-            RefreshAsync();
+
+            await RefreshAsync();
         }
 6. Remover a chamada original para **RefreshAsync** de **TodoListViewController.ViewDidLoad**.
 
@@ -145,9 +152,7 @@ No próximo tutorial, [Autorizar usuários com scripts], você irá obter o valo
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-xamarin-ios
 [Get started with push notifications]: /develop/mobile/tutorials/-get-started-with-push-xamarin-ios
 [Autorizar usuários com scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
-
-[Azure Management Portal]: https://manage.windowsazure.com/
 [o projeto de exemplo concluído]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

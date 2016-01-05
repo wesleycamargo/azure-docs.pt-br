@@ -230,11 +230,11 @@ A principal maneira de excluir tópicos e assinaturas é usar um objeto **Servic
 Agora que você aprendeu as noções básicas sobre as filas do Barramento de Serviço, consulte [Filas, tópicos e assinaturas do Barramento de Serviço][] para saber mais.
 
   [SDK do Azure para Java]: http://azure.microsoft.com/develop/java/
-  [Kit de ferramentas do Azure para Eclipse]: https://msdn.microsoft.com/pt-BR/library/azure/hh694271.aspx
-  [Azure portal]: http://manage.windowsazure.com/
+  [Kit de ferramentas do Azure para Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
+  [Azure classic portal]: http://manage.windowsazure.com/
   [Filas, tópicos e assinaturas do Barramento de Serviço]: service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

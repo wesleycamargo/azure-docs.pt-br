@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="dotnet"
-	ms.date="10/01/2015"
+	ms.date="12/09/2015"
 	ms.author="krisragh"/>
 
 # Autorização de serviço de usuários nos Serviços Móveis
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 > [AZURE.SELECTOR-LIST (Platform | Backend)]
 - [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
@@ -34,9 +39,9 @@ Esse tutorial se baseia no Início Rápido dos Serviços Móveis e elabora o tut
 
 	>[AZURE.NOTE]Para fazer com que este modelo de dados altere e mantenha os dados existentes no banco de dados, você deve usar as [Migrações Code First](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
-2. No Visual Studio, expanda a pasta Controllers, abra **TodoItemController.cs** e adicione a seguinte instrução de uso:
+2. No Visual Studio, expanda a pasta Controladores, abra **TodoItemController.cs** e adicione a seguinte instrução using:
 
-		using Microsoft.Azure.Mobile.Server.Security;
+		using Microsoft.WindowsAzure.Mobile.Service.Security;
 
 3. Localize o método **PostTodoItem** e adicione o código a seguir no começo do método.
 
@@ -80,4 +85,4 @@ Esse tutorial se baseia no Início Rápido dos Serviços Móveis e elabora o tut
 [Adicionar autenticação ao aplicativo de Serviços Móveis existentes]: mobile-services-dotnet-backend-ios-get-started-users.md
 [Adicionar autenticação ao aplicativo de serviços móveis existente]: mobile-services-dotnet-backend-ios-get-started-users.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

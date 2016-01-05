@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/07/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
  
 # Uso de Pesquisa de diagnóstico no Application Insights
@@ -36,6 +36,9 @@ Por exemplo, se seu aplicativo for um serviço Web, a folha “Visão geral” m
 O corpo principal da Pesquisa de diagnóstico é uma lista de itens de telemetria - solicitações ao servidor, visualizações de página, eventos personalizados que você codificou e assim por diante. Na parte superior da lista, há um gráfico de resumo mostrando contagens de eventos ao longo do tempo.
 
 Normalmente, os eventos aparecem na pesquisa de diagnóstico antes de aparecerem no gerenciador de métricas. Embora a folha seja atualizada em intervalos, você pode clicar em Atualizar se estiver esperando um evento específico.
+
+
+> [AZURE.NOTE]Se o seu aplicativo gerar muita telemetria (e você estiver usando o SDK do ASP.NET versão 2.0.0-beta3 ou posterior), o módulo de amostragem adaptável reduzirá automaticamente o volume enviado ao portal, enviando apenas uma fração representativa de eventos. No entanto, os eventos relacionados à mesma solicitação serão selecionadas ou desmarcadas como um grupo, para que você possa navegar entre os eventos relacionados. [Saiba mais sobre amostragem](app-insights-sampling.md).
 
 
 ## Inspecionar itens individuais
@@ -200,4 +203,4 @@ Nós não registramos os dados de POSTAGEM automaticamente, mas você pode usar 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -4,7 +4,7 @@
    services="cloud-services" 
    documentationCenter="na" 
    authors="yuemlu" 
-   manager="markkie" 
+   manager="timlt" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="11/06/2015"
+   ms.date="12/15/2015"
    ms.author="yuemlu"/>
 
 # Matriz de Compatibilidade de Versões de SOs Convidados e do SDK do Azure
@@ -27,7 +27,49 @@ Fornece a você informações atualizadas sobre as versões mais recentes do SO 
 > [AZURE.TIP]Assine o [Feed do RSS de atualização do SO de convidado][rss] para receber as notificações mais recentes sobre todas as alterações do SO convidado. As alterações mencionadas nesse feed serão integradas a esta página aproximadamente toda semana.
 
 
+
 ## Notícias atualizadas
+
+###### **9 de dezembro de 2015**
+A distribuição do SO convidado de dezembro começa em 10 de dezembro de 2015 e deve ser lançada em 8 de janeiro de 2016.
+
+###### **12 de novembro de 2015**  
+Em 7 de agosto de 2014, a Microsoft anunciou que o suporte para o .NET Framework 4, 4.5 e 4.5.1 será encerrado em 12 de janeiro de 2016. É recomendável que os clientes e desenvolvedores concluam a atualização in-loco para o .NET Framework 4.5.2, até 12 de janeiro de 2016, para continuar a receber suporte técnico e atualizações de segurança. Visite a Política de Ciclo de Vida de Suporte do Microsoft .NET Framework para saber mais.
+
+Em 27 de outubro, anunciamos que o Azure atualizará o .NET Framework das famílias 2.x, 3.x e 4.x do sistema operacional convidado (SO convidado) do Azure para o .NET Framework 4.5.2 na versão do SO convidado a ser lançado em novembro. Desde então, recebemos comentários de clientes para adiar a atualização automática para uma versão do sistema operacional com o .NET 4.5.2 e fornecer uma imagem com o .NET 4.5.2 para validação do teste.
+
+Para melhor acomodar as necessidades dos clientes e fornecer uma atualização tranquila para o .NET 4.5.2, o Azure atualizará o .NET Framework das famílias 2.x, 3.x e 4.x do sistema operacional convidado (SO convidado) do Azure para o .NET Framework 4.5.2 na versão do SO convidado de janeiro de 2016. Os serviços de nuvem em execução nas famílias 2.x, 3.x e 4.x do SO convidado com as atualizações automáticas habilitadas serão atualizados para o SO convidado com o .NET Framework 4.5.2 de janeiro de 2016. Em novembro, o .NET Framework instalado no SO padrão não será alterado. Para ajudar os clientes a validar seus serviços de nuvem com o .NET 4.5.2, o Azure oferecerá um segundo conjunto de SO convidado Versões do SO 201511-02 de novembro para .NET 4.5.2 para implantação manual.
+
+A tabela a seguir captura as alterações que serão aplicadas.
+ 
+| Família do SO convidado | Instalou o .NET Framework antes da Versão 201511-02 do SO convidado | Instalou o .NET Framework na Versão 201511-02 do SO convidado | Instalou o .NET Framework na Versão 201512-01 do SO convidado | Instalou o .NET Framework na Versão 201601-01 ou posterior do SO convidado |
+| --------------- | ---------------- | ---------------- | ---------------- | ---------------- |
+| Família 2.x do SO com base no Windows Server 2008 R2 | .NET 3.5, .NET 4.0 | .NET 3.5, .NET 4.5.2 | .NET 3.5, .NET 4.0 | .NET 3.5, .NET 4.5.2 |
+| Família 3.x do SO com base no Windows Server 2012 | .NET 4.5 | .NET 4.5.2 | .NET 4.5 | .NET 4.5.2 | 
+| Família 4.x do SO com base no Windows Server 2012 R2 | .NET 4.5.1 | .NET 4.5.2 | .NET 4.5.1 | .NET 4.5.2 | 
+ 
+Se você estiver na atualização manual do SO convidado, haverá duas versões do SO convidado lançadas para todas as famílias de SO convidado em novembro.
+
+   • WA-GUEST-OS-4.26\_201511-01, WA-GUEST-OS-3.33\_201511-01, WA-GUEST-OS-2.45\_201511-01 (Padrão)
+
+   Elas incluem os rollups do Windows de outubro e MSRC de novembro
+
+   • WA-GUEST-OS-4.26\_201511-02, WA-GUEST-OS-3.33\_201511-02, WA-GUEST-OS-2.45\_201511-02
+
+   Eles incluem os rollups do Windows de outubro, o MSRC de novembro e o .NET Framework atualizado para o .NET 4.5.2
+
+
+
+Antes de atualizar, estas são algumas opções para ajudar a validar seu Serviço de Nuvem com o .NET 4.5.2:
+
+1. 	Implantar uma Função de Serviço de Nuvem de teste para a versão 201511-02 e realizar a validação de compatibilidade do aplicativo. 
+
+2. 	Instale o .NET 4.5.2 em uma Função de Serviço de Nuvem de teste e realize a validação de compatibilidade do aplicativo. Visite [Instalar o .NET em uma Função de Serviço de Nuvem] para obter instruções.
+
+3. 	Realize a validação de compatibilidade do aplicativo em uma VM independente, no local ou em uma VM do Azure com o .NET 4.5.2 instalado.
+
+
+
 
 ###### **15 de outubro de 2015**
 A distribuição do SO convidado de outubro está começando hoje, 15 de outubro de 2015, e deverá ser lançada em 13 de novembro de 2015.
@@ -50,7 +92,7 @@ A distribuição do SO convidado de julho está começando hoje, 14 de junho de 
 
 SO convidado versões 4.21, 3.28 e 2.40 lançado em 9 de julho de 2015.
 
-###### **15 de junho de 2015**.
+###### **15 de junho de 2015.**
 A distribuição do SO convidado de junho está começando hoje, 15 de junho de 2015, e está projetado para ser lançado em 9 de julho de 2015.
 
 As versões 4.20, 3.27 e 2.39 do SO convidado foram lançadas em 12 de junho de 2015.
@@ -98,7 +140,7 @@ A edição do SO convidado de dezembro está prevista para começar em 9 de jane
 
 ## Informações de versão do SO convidado
 
-Esta seção lista as versões de SO convidado com suporte no momento. Versões e famílias de SO convidado têm uma data de lançamento, uma data de desabilitação e uma data de validade. A partir da data de lançamento, uma versão de SO convidado pode ser selecionada manualmente no portal de gerenciamento. Um SO convidado é removido do portal de gerenciamento em sua data de desabilitação ou após essa data. Ele fica então "em transição", mas tem suporte com capacidade limitada de atualizar uma implantação. A data de validade é quando uma versão ou família está agendada para ser completamente removida do sistema do Azure. Os serviços de nuvem ainda em execução em uma versão quando ela expira serão interrompidos, excluídos ou sofrerão atualização forçada para uma versão mais recente, conforme detalhado na [Política de suporte e desativação do SO convidado do Azure][retirepolicy].
+Esta seção lista as versões de SO convidado com suporte no momento. Versões e famílias de SO convidado têm uma data de lançamento, uma data de desabilitação e uma data de validade. A partir da data de lançamento, uma versão de SO convidado pode ser selecionada manualmente no portal clássico do Azure. Um SO convidado é removido do portal clássico do Azure em sua data de desabilitação ou após essa data. Ele fica então "em transição", mas tem suporte com capacidade limitada de atualizar uma implantação. A data de validade é quando uma versão ou família está agendada para ser completamente removida do sistema do Azure. Os serviços de nuvem ainda em execução em uma versão quando ela expira serão interrompidos, excluídos ou sofrerão atualização forçada para uma versão mais recente, conforme detalhado na [Política de suporte e desativação do SO convidado do Azure][retirepolicy].
 
 A Microsoft dá suporte a pelo menos duas versões recentes de cada família de SO convidado para a qual há suporte. A data de desabilitação de uma versão existente do SO convidado pode ser adiada para garantir que pelo menos duas versões permaneçam habilitadas para a implantação.
 
@@ -112,7 +154,7 @@ A **Família do SO convidado** corresponde a uma versão do sistema operacional 
 
 Uma **"Versão do SO convidado"** é a imagem do sistema operacional da família mais patches do [Microsoft Security Response Center (MSRC)][msrc] relevantes disponíveis na data em que a nova versão do SO convidado é produzida. Nem todos os patches estarão necessariamente incluídos. Os números começam em 0 e são incrementados em 1 cada vez que um novo conjunto de atualizações é adicionado. Os zeros à direita são mostrados apenas se forem importantes. Ou seja, a versão 2.10 é uma versão diferente e muito posterior à versão 2.1.
 
-Uma **"Versão do SO convidado"** refere-se a um relançamento de uma versão de sistema operacional convidado. Um relançamento ocorre quando a Microsoft encontra, durante os testes, problemas que exigem alterações. A versão mais recente sempre substitui quaisquer lançamentos anteriores, públicos ou não. O portal de gerenciamento só permitirá que os usuários escolham o lançamento mais recente de uma determinada versão. Implantações executadas em uma versão anterior geralmente não sofrem atualização forçada, o que depende da gravidade do bug.
+Uma **"Versão do SO convidado"** refere-se a um relançamento de uma versão de sistema operacional convidado. Um relançamento ocorre quando a Microsoft encontra, durante os testes, problemas que exigem alterações. A versão mais recente sempre substitui quaisquer lançamentos anteriores, públicos ou não. O portal clássico do Azure só permitirá que os usuários escolham o lançamento mais recente de uma determinada versão. Implantações executadas em uma versão anterior geralmente não sofrem atualização forçada, o que depende da gravidade do bug.
 
 No exemplo abaixo, 2 é a família, 12 é a versão e "rel2" é o lançamento.
 
@@ -131,8 +173,11 @@ Dá suporte a .NET 4.0, 4.5, 4.5.1, 4.5.2 (Observação 2)
 
 | Versão do SO convidado | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 4\.27 | WA-GUEST-OS-4.27\_201512-01 | Previsão: 8 de janeiro de 2016 | Será atualizada quando a versão 4.29 for lançada | TBD |
+| 4\.26 | WA-GUEST-OS-4.26\_201511-02 | Previsão: 16 de dezembro de 2015 | Será atualizada quando a 4.28 for lançada | TBD |
+| 4\.26 | WA-GUEST-OS-4.26\_201511-01 | 10 de dezembro de 2015 | Será atualizada quando a 4.28 for lançada | TBD |
 | 4\.25 | WA-GUEST-OS-4.25\_201510-01 | 6 de novembro de 2015 | Será atualizado quando a versão 4.27 for lançada | TBD |
-| 4\.24 | WA-GUEST-OS-4.24\_201509-01 | 1º de outubro de 2015 | Será atualizada quando a 4.26 for lançada | TBD |
+| 4\.24 | WA-GUEST-OS-4.24\_201509-01 | 1º de outubro de 2015 | 10 de janeiro de 2016 | TBD |
 | 4\.23 | WA-GUEST-OS-4.23\_201508-02 | 9 de setembro de 2015 | 6 de dezembro de 2015 | TBD |
 | 4\.22 | WA-GUEST-OS-4.22\_201507-02 | 7 de agosto de 2015 | 1º de novembro de 2015 | TBD |
 | 4\.21 | WA-GUEST-OS-4.21\_201506-01 | 9 de julho de 2015 | 9 de outubro de 2015 | TBD |
@@ -158,8 +203,11 @@ Dá suporte a .NET 4.0, 4.5
 
 | Versão do SO convidado | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 3\.34 | WA-GUEST-OS-3.34\_201512-01 | Previsão: 8 de janeiro de 2016 | Será atualizada quando a versão 3.36 for lançada | TBD |
+| 3\.33 | WA-GUEST-OS-3.33\_201511-02 | Previsão: 16 de dezembro de 2015 | Será atualizada quando a 3.35 for lançada | TBD |
+| 3\.33 | WA-GUEST-OS-3.33\_201511-01 | 10 de dezembro de 2015 | Será atualizada quando a 3.35 for lançada | TBD |
 | 3\.32 | WA-GUEST-OS-3.32\_201510-01 | 6 de novembro de 2015 | Será atualizada quando a versão 3.34 for lançada | TBD |
-| 3\.31 | WA-GUEST-OS-3.31\_201509-01 | 1º de outubro de 2015 | Será atualizada quando a 3.33 for lançada | TBD |
+| 3\.31 | WA-GUEST-OS-3.31\_201509-01 | 1º de outubro de 2015 | 10 de janeiro de 2016 | TBD |
 | 3\.30 | WA-GUEST-OS-3.30\_201508-02 | 9 de setembro de 2015 | 6 de dezembro de 2015 | TBD |
 | 3\.29 | WA-GUEST-OS-3.29\_201507-02 | 7 de agosto de 2015 | 1º de novembro de 2015 | TBD |
 | 3\.28 | WA-GUEST-OS-3.28\_201506-01 | 9 de julho de 2015 | 9 de outubro de 2015 | TBD |
@@ -186,8 +234,11 @@ Dá suporte a .NET 3.5, 4.0
 
 | Versão do SO convidado | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 2\.46 | WA-GUEST-OS-2.46\_201512-01 | Previsão: 8 de janeiro de 2015 | Será atualizada quando a versão 2.48 for lançada | TBD |
+| 2\.45 | WA-GUEST-OS-2.45\_201511-02 | Previsão: 16 de dezembro de 2015 | Será atualizada quando a 2.47 for lançada | TBD |
+| 2\.45 | WA-GUEST-OS-2.45\_201511-01 | 10 de dezembro de 2015 | Será atualizada quando a 2.47 for lançada | TBD |
 | 2\.44 | WA-GUEST-OS-2.44\_201510-01 | 6 de novembro de 2015 | Será atualizada quando a versão 2.46 for lançada | TBD |
-| 2\.43 | WA-GUEST-OS-2.43\_201509-01 | 1º de outubro de 2015 | Será atualizada quando a 2.45 for lançada | TBD |
+| 2\.43 | WA-GUEST-OS-2.43\_201509-01 | 1º de outubro de 2015 | 10 de janeiro de 2016 | TBD |
 | 2\.42 | WA-GUEST-OS-2.42\_201508-02 | 9 de setembro de 2015 | 6 de dezembro de 2015 | TBD |
 | 2\.41 | WA-GUEST-OS-2.41\_201507-02 | 7 de agosto de 2015 | 1º de novembro de 2015 | TBD |
 | 2\.40 | WA-GUEST-OS-2.40\_201506-01 | 9 de julho de 2015 | 9 de outubro de 2015 | TBD |
@@ -239,7 +290,7 @@ Esta página contém informações sobre as próximas versões do SO convidado. 
 
 O Microsoft Azure está constantemente lançando atualizações. O SO convidado é apenas uma atualização desse tipo no pipeline. Uma versão pode ser afetada por um número muito grande de fatores para que se possa listá-los aqui. Além disso, o Azure é executado em literalmente centenas de milhares de computadores. Isso significa que é impossível fornecer uma data e hora exatas em que a função (ou funções) será reinicializada. Atualizaremos o [Feed RSS de atualização do SO convidado][rss] com as informações mais recentes que tivermos, mas considere esse horário como uma janela aproximada. Estamos cientes de que isso causa problemas para clientes e estamos trabalhando em um plano limitar ou programar as reinicializações.
 
-Quando um novo lançamento do SO convidado é realizado, pode levar tempo para que ele se propague totalmente pelo Azure. Como os serviços são atualizados para o novo SO convidado, eles são reinicializados respeitando os domínios de atualização. Os serviços nos quais está definido o uso de atualizações "Automáticas" receberão um lançamento primeiro. Após a atualização, você verá a nova versão do SO convidado listada para seu serviço no Portal de Gerenciamento do Azure. Relançamentos podem ocorrer durante esse período. Algumas versões podem ser implantadas por longos períodos de tempo e reinicializações de atualização automática podem não ocorrer por muitas semanas após a data de lançamento oficial. A partir do momento em que um SO convidado está disponível você pode escolher explicitamente essa versão a partir do portal ou em seu arquivo de configuração.
+Quando um novo lançamento do SO convidado é realizado, pode levar tempo para que ele se propague totalmente pelo Azure. Como os serviços são atualizados para o novo SO convidado, eles são reinicializados respeitando os domínios de atualização. Os serviços nos quais está definido o uso de atualizações "Automáticas" receberão um lançamento primeiro. Após a atualização, você verá a nova versão do SO convidado listada para seu serviço no portal clássico do Azure. Relançamentos podem ocorrer durante esse período. Algumas versões podem ser implantadas por longos períodos de tempo e reinicializações de atualização automática podem não ocorrer por muitas semanas após a data de lançamento oficial. A partir do momento em que um SO convidado está disponível você pode escolher explicitamente essa versão a partir do portal ou em seu arquivo de configuração.
 
 Para uma grande variedade de informações valiosas sobre reinicializações e indicações para mais detalhes técnicos sobre atualizações de SO de Host e de Convidado, consulte a postagem no blog MSDN intitulada [Instância de Função reinicia devido a atualizações do SO][restarts].
 
@@ -281,7 +332,7 @@ Devido à liberação parcial dos duas últimos lançamentos, as pessoas utiliza
 
 1. As alterações na codificação destacadas em Diferenças entre o SO convidado do Azure e padrão do Windows Server não foram distribuídos por todo o Azure. Os clientes que não utilizam as versões de agosto ou setembro receberão essas alterações na versão de outubro. 
 
-2. Os sistemas operacionais convidados de agosto e setembro foram desabilitados no Portal de Gerenciamento. Você não pode escolhê-los manualmente. Isso serve para proteger contra problemas que podem surgir se você selecionar essa versão de SO convidado.
+2. Os sistemas operacionais convidados de agosto e setembro foram desabilitados no portal clássico do Azure. Você não pode escolhê-los manualmente. Isso serve para proteger contra problemas que podem surgir se você selecionar essa versão de SO convidado.
 
 3. As datas desabilitadas algumas versões mais antigas foram ajustadas para frente. Isso é para garantir a disponibilidade contínua no portal e suporte para pelo menos duas versões já liberadas de SO convidado em cada família.
 
@@ -330,7 +381,7 @@ Devido à liberação parcial dos duas últimos lançamentos, as pessoas utiliza
 | 2\.19 versão 3 | WA-GUEST-OS-2.19\_201309-03 | 9 de outubro de 2013 | N/D | 14 de maio de 2014 |
 | 2\.19 versão 1 | WA-GUEST-OS-2.19\_201309-01 | 23 de setembro de 2013 | N/D | 14 de maio de 2014 |
 
-
+[Instalar o .NET em uma Função de Serviço de Nuvem]: https://azure.microsoft.com/pt-BR/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Configurações de atualização de SO convidado do Azure]: cloud-services-how-to-configure.md
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
@@ -351,4 +402,4 @@ Devido à liberação parcial dos duas últimos lançamentos, as pessoas utiliza
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

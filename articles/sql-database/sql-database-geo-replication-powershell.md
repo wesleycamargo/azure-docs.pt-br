@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="11/10/2015"
+    ms.date="12/01/2015"
     ms.author="sstein"/>
 
 # Configurar a replicação geográfica para o Banco de Dados SQL do Azure com o PowerShell
@@ -21,7 +21,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-database-geo-replication-portal.md)
+- [Azure portal](sql-database-geo-replication-portal.md)
 - [PowerShell](sql-database-geo-replication-powershell.md)
 - [Transact-SQL](sql-database-geo-replication-transact-sql.md)
 
@@ -38,10 +38,7 @@ Para configurar a replicação geográfica, você precisará do seguinte:
 
 - Uma assinatura do Azure. Se você precisar de uma assinatura do Azure basta clicar em **AVALIAÇÃO GRATUITA** na parte superior desta página e, em seguida, voltar para concluir este artigo.
 - Um Banco de Dados SQL do Azure - o banco de dados primário que você deseja replicar para uma região geográfica diferente.
-- Azure PowerShell 1.0 Preview. Você pode baixar e instalar os módulos do Azure PowerShell seguindo [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md).
-
-> [AZURE.IMPORTANT]A partir da liberação da Visualização do Azure PowerShell 1.0, o cmdlet Switch-AzureMode não está mais disponível, e os cmdlets contidos no módulo do Gerenciador de Recursos do Azure foram renomeados. Os exemplos neste artigo usam a nova convenção de nomenclatura do PowerShell 1.0 Preview. Para obter informações detalhadas, veja [Substituição de Switch-AzureMode no Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
-
+- Azure PowerShell 1.0 ou posterior. Você pode baixar e instalar os módulos do Azure PowerShell seguindo [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md).
 
 
 
@@ -58,7 +55,7 @@ Depois de se conectar com êxito, você verá algumas informações na tela, inc
 
 ### Selecionar sua assinatura do Azure
 
-Para selecionar a assinatura, você precisa da ID da assinatura. É possível copiar a Id da assinatura nas informações exibidas na etapa anterior ou, se tiver várias assinaturas e precisar de mais detalhes, você pode executar o cmdlet **Get-AzureRmSubscription** e copiar as informações da assinatura desejada do resultset. O cmdlet a seguir usa a Id de assinatura para definir a assinatura atual:
+Para selecionar a assinatura, você precisa da ID da assinatura. É possível copiar a ID da assinatura nas informações exibidas na etapa anterior ou, se tiver várias assinaturas e precisar de mais detalhes, você pode executar o cmdlet **Get-AzureRmSubscription** e copiar as informações da assinatura desejada do conjunto de resultados. O cmdlet a seguir usa a Id de assinatura para definir a assinatura atual:
 
 	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
@@ -71,7 +68,7 @@ Depois de executar **Select-AzureRmSubscription** com êxito, você retornará a
 
 As etapas a seguir criam um novo banco de dados secundário em uma parceria de replicação geográfica.
   
-Para habilitar um secundário, você deverá ser o proprietário ou o co-proprietário da assinatura.
+Para habilitar um secundário, você deverá ser o proprietário ou o coproprietário da assinatura.
 
 Você pode usar o cmdlet **AzureRmSqlDatabaseSecondary novo** para adicionar um banco de dados secundário rm um servidor parceiro a um banco de dados local no servidor ao qual você está conectado (o banco de dados primário).
 
@@ -123,7 +120,7 @@ O comando a seguir cria um secundário legível do banco de dados "mydb" do serv
 
 ## Remover banco de dados secundário
 
-Use o cmdlet **Remove-AzureRmSqlDatabaseSecondary** para encerrar permanentemente a parceria de replicação entre um banco de dados secundário e seu primário. Após o encerramento da relação, o banco de dados secundário se torna um banco de dados de leitura/gravação. Se a conectividade com o banco de dados secundário for interrompida, o comando terá êxito, mas o secundário se tornará de leitura/gravação após a conectividade ser restaurada. Para saber mais, consulte [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603457.aspx) e [Camadas de serviço](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/).
+Use o cmdlet **Remove-AzureRmSqlDatabaseSecondary** para encerrar permanentemente a parceria de replicação entre um banco de dados secundário e seu primário. Após o encerramento da relação, o banco de dados secundário se torna um banco de dados de leitura/gravação. Se a conectividade com o banco de dados secundário for interrompida, o comando terá êxito, mas o secundário se tornará de leitura/gravação após a conectividade ser restaurada. Para saber mais, consulte [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603457.aspx) e [Camadas de serviço](sql-database-service-tiers.md).
 
 Esse cmdlet substitui Stop-AzureSqlDatabaseCopy para a replicação.
 
@@ -151,7 +148,7 @@ O comando executa o seguinte fluxo de trabalho:
 
 2. Alterne as funções dos dois bancos de dados na parceria de replicação geográfica.
 
-Essa sequência garante que não ocorrerá nenhuma perda de dados. Há um breve período durante o qual os bancos de dados não estão disponíveis (na ordem de 0 a 25 segundos) enquanto as funções são alternadas. A operação inteira deve levar menos de um minuto para ser concluída em circunstâncias normais. Para saber mais, consulte [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx).
+Essa sequência garante que não ocorrerá nenhuma perda de dados. Há um breve período durante o qual os bancos de dados não estão disponíveis (na ordem de 0 a 25 segundos) enquanto as funções são alternadas. A operação inteira deve levar menos de um minuto para ser concluída em circunstâncias normais. Para obter mais informações, consulte [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx).
 
 
 > [AZURE.NOTE]Se o banco de dados primário não estiver disponível quando o comando for emitido, ele falhará com uma mensagem de erro indicando que o servidor primário não está disponível. Em situações raras, é possível que a operação não seja concluída e pareça paralisada. Nesse caso, o usuário poderá executar o comando de failover à força e aceitar a perda de dados.
@@ -170,13 +167,13 @@ O comando a seguir alterna as funções do banco de dados chamado "mydb" no serv
 ## Iniciar um failover não planejado do banco de dados primário para o banco de dados secundário
 
 
-Você pode usar o cmdlet **Set-AzureRmSqlDatabaseSecondary** com os parâmetros **–Failover** e **-AllowDataLoss** para promover um banco de dados secundário para se tornar o novo banco de dados primário de maneira planejada, rebaixando o primário existente para se tornar um secundário quando o banco de dados primário não estiver mais disponível.
+Você pode usar o cmdlet **Set-AzureRmSqlDatabaseSecondary** com os parâmetros **–Failover** e **-AllowDataLoss** para promover um banco de dados secundário e ele se tornar o novo banco de dados primário de maneira planejada, rebaixando o primário existente para se tornar um secundário quando o banco de dados primário não estiver mais disponível.
 
 Essa funcionalidade foi designada para a recuperação de desastres quando a restauração da disponibilidade do banco de dados é fundamental e a perda de dados é aceitável. Quando o failover forçado é chamado, o banco de dados secundário especificado imediatamente se torna o banco de dados primário e começa a aceitar as transações de gravação. Assim que o banco de dados primário original for capaz de se reconectar com o novo banco de dados primário após a operação de failover forçado, um backup incremental será realizado no banco de dados primário original e o antigo banco de dados primário será transformado em um banco de dados secundário para o novo banco de dados primário; em seguida, será simplesmente uma réplica do novo primário.
 
 Mas como a Restauração Pontual não tem suporte em bancos de dados secundários, se você quiser confirmar os dados de recuperação no banco de dados primário antigo que não tenham sido replicados para o novo banco de dados primário, deverá contar com o CSS para restaurar um banco de dados para o backup de log conhecido.
 
-> [AZURE.NOTE]Se o comando for emitido quando o primário e o secundário estiverem online, o antigo primário se tornará o novo secundário, mas não haverá uma tentativa de sincronização dos dados e, portanto, poderá ocorrer a perda de alguns dados.
+> [AZURE.NOTE]Se o comando for emitido quando o primário e o secundário estiverem on-line, o antigo primário se tornará o novo secundário, mas não haverá uma tentativa de sincronização dos dados e, portanto, poderá ocorrer a perda de alguns dados.
 
 
 Se o banco de dados primário tiver vários secundários, o comando será parcialmente bem-sucedido. O secundário no qual o comando foi executado se tornará o primário. O primário antigo, entretanto, permanecerá como primário, isto é, os dois primários terminarão em um estado inconsistente e conectados por um link de replicação suspensa. O usuário terá de reparar manualmente essa configuração usando uma API para "remover secundário" em qualquer um desses bancos de dados primários.
@@ -218,4 +215,4 @@ O comando a seguir recupera o status do link de replicação entre o banco de da
 - [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
 - [Documentação do Banco de Dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

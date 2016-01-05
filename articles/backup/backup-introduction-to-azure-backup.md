@@ -1,20 +1,12 @@
 <properties
-	pageTitle="Introdução ao Backup do Azure | Microsoft Azure"
-	description="Este artigo fornece uma visão geral do serviço de Backup do Azure, que permite aos clientes fazer backup de dados no Azure e para o Azure"
+	pageTitle="O que é o Backup do Azure? | Microsoft Azure"
+	description="Com os serviços do Backup e recuperação do Azure, você pode fazer backup e restaurar dados e aplicativos de Windows Servers, máquinas de cliente do Windows, servidores SCDPM ou máquinas virtuais do Azure."
 	services="backup"
 	documentationCenter=""
 	authors="trinadhk"
 	manager="shreeshd"
-	editor="tysonn"/>
-
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/01/2015"
-	ms.author="aashishr"; "trinadhk"; "jimpark"/>
+	editor="tysonn"
+	keywords="backup e restauração; serviços de recuperação"/>
 
 # Introdução ao Backup do Azure
 Este artigo fornece uma visão geral ampla da solução integrada de backup em nuvem da Microsoft que habilita os clientes a fazer backup de seus dados locais ou no Azure.
@@ -47,7 +39,7 @@ Os principais recursos dessa solução são:
 
 6. **Econômico**: os preços do Backup do Azure incluem uma taxa de gerenciamento de backup por instância e o custo do armazenamento (preço do blob de blocos) consumido no Azure. Ao contrário de outra oferta de backup em nuvem, o Backup do Azure não cobra seus clientes por qualquer operação de restauração. Além disso, os clientes não são cobrados por nenhuma transferência de dados de saída durante uma operação de restauração.
 
-7. **Backup na nuvem**: o Backup do Azure fornece backup das máquinas virtuais de IaaS do Azure consistentes com aplicativos com base em VSS em execução sem a necessidade de desligar a máquina virtual. Ele também pode fazer backup de máquinas virtuais Linux no Azure com consistência de sistema de arquivos.
+7. **Backup na Nuvem**: o Backup do Azure fornece backup consistente com o aplicativo e baseado em VSS das máquinas virtuais de IaaS do Azure em execução, sem que haja a necessidade de desligar a máquina virtual. Ele também pode fazer backup de máquinas virtuais Linux no Azure com consistência de sistema de arquivos.
 
 
 ## Cenários de implantação
@@ -78,4 +70,4 @@ Os principais recursos dessa solução são:
 - As perguntas frequentes sobre o serviço de Backup do Azure estão listadas [aqui](backup-azure-backup-faq.md).
 - Visite o [Fórum de backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

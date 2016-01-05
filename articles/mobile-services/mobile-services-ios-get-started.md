@@ -18,6 +18,11 @@
 
 # <a name="getting-started"></a>Introdução aos Serviços Móveis
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
@@ -25,7 +30,7 @@
 
 Este tutorial mostra como adicionar um serviço de back-end baseado em nuvem a um aplicativo iOS usando os Serviços Móveis do Azure.
 
-Neste tutorial, você criará um novo serviço móvel e um aplicativo simples _To do list_ que armazena dados do aplicativo no novo serviço móvel. O serviço móvel que você criará usa JavaScript para a lógica de negócios do lado do servidor. Para criar um serviço móvel com lógica de negócios do servidor no .NET, consulte a [versão back-end .NET] neste tópico.
+Neste tutorial, você criará um novo serviço móvel e um aplicativo simples _To do list_ que armazena dados do aplicativo no novo serviço móvel. O serviço móvel que você criará usa JavaScript para a lógica de negócios do lado do servidor. Para criar um serviço móvel com lógica de negócios do servidor no .NET, veja a [versão back-end .NET] neste tópico.
 
 > [AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Azure. Se não tiver uma conta, você poderá se inscrever para uma avaliação do Azure e obter [serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação](http://azure.microsoft.com/pricing/details/mobile-services/). Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F%20).
 
@@ -35,11 +40,11 @@ Neste tutorial, você criará um novo serviço móvel e um aplicativo simples _T
 
 ## Criar um novo aplicativo iOS
 
-Você pode consultar um Início Rápido simples no Portal de Gerenciamento para criar um novo aplicativo conectado a seu serviço móvel:
+Você pode consultar um Início Rápido simples no portal clássico do Azure para criar um novo aplicativo conectado a seu serviço móvel:
 
-1. No Portal de Gerenciamento, clique em **Serviços Móveis**e, em seguida, clique no serviço móvel que você acabou de criar.
+1. No [portal clássico do Azure], clique em **Serviços Móveis** e clique no serviço móvel que você acabou de criar.
 
-2. Na guia Início Rápido, clique em **iOS**, em **Escolher uma plataforma** e expanda **Criar um novo aplicativo iOS**. Isso exibe as etapas para criar um aplicativo iOS conectado a seu serviço móvel.
+2. Na guia Início Rápido, clique em **iOS** em **Escolher uma plataforma** e expanda **Criar um novo aplicativo iOS**. Isso exibe as etapas para criar um aplicativo iOS conectado a seu serviço móvel.
 
 3. Clique em **Criar tabela TodoItem** para criar uma tabela para armazenar os dados do aplicativo.
 
@@ -49,7 +54,7 @@ Você pode consultar um Início Rápido simples no Portal de Gerenciamento para 
 
 [AZURE.INCLUDE [mobile-services-ios-run-app](../../includes/mobile-services-ios-run-app.md)]
 
-<ol start="4"> <li><p>De volta ao Portal de Gerenciamento, clique na guia **Dados** e na tabela **TodoItem** Isso permite que você procure os dados inseridos pelo aplicativo na tabela.<p></li></ol></p>
+<ol start="4"> <li><p>Novamente no [portal clássico do Azure], clique na guia **DADOS** e clique na tabela **TodoItem**. Isso permite que você procure os dados inseridos pelo aplicativo na tabela.<p></li></ol></p>
 
 ## <a name="next-steps"> </a>Próximas etapas
 Saiba como executar tarefas adicionais importantes nos Serviços Móveis:
@@ -86,8 +91,8 @@ Saiba como executar tarefas adicionais importantes nos Serviços Móveis:
 
 
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[Management Portal]: https://manage.windowsazure.com/
+[portal clássico do Azure]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [versão back-end .NET]: mobile-services-dotnet-backend-ios-get-started.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

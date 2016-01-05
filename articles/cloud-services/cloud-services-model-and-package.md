@@ -145,7 +145,7 @@ Você pode consultar o [esquema de configuração de serviço](https://msdn.micr
 ## Definindo as portas para instâncias de função
 O Azure permite apenas um ponto de entrada para uma função web. Isso significa que todo o tráfego ocorre por meio de um endereço IP. Você pode configurar seus sites para compartilhar uma porta ao configurar o cabeçalho do host para direcionar a solicitação para o local correto. Você também pode configurar seus aplicativos para escutar portas conhecidas no endereço IP.
 
-O exemplo a seguir mostra a configuração de uma função web com um site e o aplicativo Web. O site é configurado como o local de entrada padrão na porta 80, e os aplicativos web são configurados para receber solicitações de um cabeçalho de host alternativo que é chamado de “mail.mysite.cloudapp.net”.
+O exemplo a seguir mostra a configuração de uma função web com um site e o aplicativo Web. O site é configurado como o local de entrada padrão na porta 80, e os aplicativos web são configurados para receber solicitações de um cabeçalho de host alternativo que é chamado de "mail.mysite.cloudapp.net".
 
 ```xml
 <WebRole>
@@ -201,7 +201,7 @@ A [biblioteca de tempo de execução do Azure](https://msdn.microsoft.com/librar
 ## ServicePackage.cspkg
 Para implantar um aplicativo como um serviço de nuvem no Azure, primeiro você deve empacotar o aplicativo no formato apropriado. Você pode usar a ferramenta de linha de comando **CSPack** (instalada com o [SDK do Azure](http://azure.microsoft.com/downloads/)) para criar o arquivo de pacote como uma alternativa para o Visual Studio.
 
-O **CSPack** usa o conteúdo do arquivo de definição de serviço e arquivo de configuração de serviço para definir o conteúdo do pacote. O **CSPack** gera um arquivo de pacote de aplicativos (.cspkg) que você pode carregar no Azure usando o [Portal de Gerenciamento do Azure](cloud-services-how-to-create-deploy/#how-to-deploy-a-cloud-service). Por padrão, o pacote é chamado `[ServiceDefinitionFileName].cspkg`, mas você pode especificar um nome diferente usando a opção `/out` de **CSPack**.
+O **CSPack** usa o conteúdo do arquivo de definição de serviço e arquivo de configuração de serviço para definir o conteúdo do pacote. O **CSPack** gera um arquivo de pacote de aplicativos (.cspkg) que você pode carregar no Azure usando o [portal clássico do Azure](cloud-services-how-to-create-deploy/#how-to-deploy-a-cloud-service). Por padrão, o pacote é chamado `[ServiceDefinitionFileName].cspkg`, mas você pode especificar um nome diferente usando a opção `/out` de **CSPack**.
 
 ###### Local da ferramenta CSPack (no Windows)
 | Versão do SDK | Caminho |
@@ -270,4 +270,4 @@ Estou usando o Visual Studio e desejo...
 [vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
 [vs_create]: https://msdn.microsoft.com/library/ee405487.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

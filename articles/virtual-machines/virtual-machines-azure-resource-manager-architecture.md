@@ -9,12 +9,12 @@
    tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="azure-resource-manager"
+	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="12/01/2015"
 	ms.author="davidmu"/>
 
 # Arquitetura do Gerenciador de Recursos do Azure
@@ -83,4 +83,4 @@ Você também pode ver a componentização e os relacionamentos dependentes entr
 
 [Visão Geral do Gerenciador de Recursos do Azure](resource-group-overview.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -23,7 +23,7 @@
 Nos Serviços de Mídia do Azure, um **Canal** representa um pipeline para processamento de conteúdo de streaming ao vivo. Um **Canal** recebe transmissões de entrada ao vivo de uma das duas maneiras a seguir:
 
 - Um codificador local ao vivo envia **RTMP** ou **Smooth Streaming** (MP4 fragmentado) com múltiplas taxas de bits para o Canal. Você pode usar os codificadores ao vivo a seguir, que produz Smooth Streaming com múltiplas taxas de bits: Elemental, Envivio, Cisco. Os codificadores ao vivo a seguir produzem RTMP: transcodificadores Adobe Flash Live, Telestream Wirecast e Tricaster. Os fluxos ingeridos passam pelos **Canais**sem nenhum processamento adicional. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
-- Um fluxo de taxa de bits única (em um dos seguintes formatos: **RTP** (MPEG TS)), **RTMP** ou **Smooth Streaming** (MP4 fragmentado)) é enviado para o **Canal** que está habilitado a realizar a codificação ao vivo com os Serviços de Mídia. O **Canal** então realiza a codificação ao vivo do fluxo de entrada com taxa de bits única em um fluxo de vídeo (adaptável) de múltiplas taxas de bits. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes. 
+- Um fluxo de taxa de bits única (em um dos seguintes formatos: **RTP** (MPEG TS)), **RTMP** ou **Smooth Streaming** (MP4 fragmentado)) é enviado para o **Canal** que está habilitado a realizar a codificação ao vivo com os Serviços de Mídia. O **Canal** então realiza a codificação ao vivo do fluxo de entrada com taxa de bits única em um fluxo de vídeo (adaptável) de múltiplas taxas de bits. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
 
 A partir da versão 2.10 dos Serviços de Mídia, quando você cria um canal, você pode especificar de que modo você deseja que o canal receba o fluxo de entrada e se deseja ou não que o canal realize a codificação ao vivo do seu fluxo. Você tem duas opções:
 
@@ -36,9 +36,9 @@ A partir da versão 2.10 dos Serviços de Mídia, quando você cria um canal, vo
 
 ##Implicações de cobrança
 
-Um canal de codificação ativo começará a ser cobrado assim que seu estado mudar para "Em execução" por meio da API. Você também pode exibir o estado no Portal do Azure ou na ferramenta Gerenciador de Serviços de Mídia do Azure (http://aka.ms/amse).
+Um canal de codificação ativo começará a ser cobrado assim que seu estado mudar para "Em execução" por meio da API. Você também pode exibir o estado no Portal Clássico do Azure ou na ferramenta Gerenciador dos Serviços de Mídia do Azure (http://aka.ms/amse)).
 
-A tabela a seguir mostra como os estados de Canal são mapeados para os estados de cobrança na API e no Portal. Observe que os estados são ligeiramente diferentes entre a API e o Portal UX. Assim que um canal estiver no estado "Em execução" por meio da API, ou no estado "Pronto" ou "Streaming" no Portal do Azure, a cobrança estará ativa. Para parar a cobrança do Canal, você terá de Parar o Canal por meio da API ou no Portal do Azure. Você é responsável por parar seus canais quando terminar com o canal de codificação ativo. A falha ao interromper um canal de codificação resultará em cobrança contínua.
+A tabela a seguir mostra como os estados de Canal são mapeados para os estados de cobrança na API e no Portal Clássico do Azure. Observe que os estados são ligeiramente diferentes entre a API e o Portal UX. Assim que um canal estiver no estado “Em execução” por meio da API, ou no estado “Pronto” ou “Transmissão” no Portal Clássico do Azure, a cobrança estará ativa. Para parar a cobrança do Canal, você terá de Parar o Canal por meio da API ou no Portal Clássico do Azure. Você é responsável por parar seus canais quando terminar com o canal de codificação ativo. A falha ao interromper um canal de codificação resultará em cobrança contínua.
 
 ###<a id="states"></a>Os estados de canal e como eles são mapeados para o modo de cobrança 
 
@@ -93,7 +93,7 @@ A seguir, as etapas gerais envolvidas na criação de aplicativos comuns de stre
 
 3. Crie um programa.
 
-	Ao usar o Portal de Gerenciamento do Azure, criar um programa também cria um ativo.
+	Ao usar o Portal Clássico do Azure, a criação de um programa também cria um ativo.
 
 	Ao usar o SDK do .NET ou REST, você precisa criar um ativo e especificar o uso desse ativo durante a criação de um programa. 
 1. Publique o ativo associado ao programa.   
@@ -244,7 +244,7 @@ Você pode obter a URL de visualização quando você cria o canal. Para obter a
 
 Depois que o canal inicia a ingestão de dados, você pode visualizar o fluxo.
 
-**Observação** atualmente o fluxo de visualização só pode ser entregue em formato MP4 fragmentado (Smooth Streaming), independentemente do tipo de entrada especificado. Você pode usar o player [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) para testar o Smooth Stream. Você também pode usar um player hospedado no Portal de Gerenciamento do Azure para exibir o fluxo.
+**Observação** atualmente o fluxo de visualização só pode ser entregue em formato MP4 fragmentado (Smooth Streaming), independentemente do tipo de entrada especificado. Você pode usar o player [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) para testar o Smooth Stream. Você também pode usar um player hospedado no Portal Clássico do Azure para exibir a transmissão.
 
 ###Endereços IP permitidos
 
@@ -335,7 +335,7 @@ Uma ID exclusiva para o intervalo comercial, para ser usado pelo aplicativo down
 
 ###Mostrar slate
 
-Opcional. Sinaliza o codificador dinâmico para alternar para a imagem [fixa padrão](media-services-manage-live-encoder-enabled-channels.md#default_slate) durante um intervalo comercial e ocultar o feed de vídeo de entrada. O áudio também é desligado durante o slate. O padrão é **false**.
+Opcional. Sinaliza o codificador ativo para alternar para a imagem [fixa padrão](media-services-manage-live-encoder-enabled-channels.md#default_slate) durante um intervalo comercial e ocultar o feed de vídeo de entrada. O áudio também é desligado durante o slate. O padrão é **false**.
  
 A imagem usada será aquela especificada por meio da propriedade de ID do ativo de slate padrão no momento da criação do canal. O slate será estendido para ajustar-se ao tamanho da imagem de exibição.
 
@@ -466,4 +466,4 @@ Escolha **Portal**, **.NET** e **API REST** para saber como criar e gerenciar ca
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

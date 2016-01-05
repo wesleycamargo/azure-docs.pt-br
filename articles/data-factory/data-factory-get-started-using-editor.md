@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Tutorial: Criar um pipeline com a Atividade de Cópia usando o Data Factory Editor" 
-	description="Neste tutorial, você criará um pipeline do Azure Data Factory com uma Atividade de Cópia usando o Data Factory Editor no Portal do Azure." 
+	description="Neste tutorial, você criará um pipeline do Azure Data Factory com uma Atividade de Cópia usando o Data Factory Editor no Portal Clássico do Azure." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -34,13 +34,13 @@ Etapa | Descrição
 [Etapa 2: Criar serviços vinculados](#CreateLinkedServices) | Nesta etapa, você criará dois serviços vinculados: **StorageLinkedService** e **AzureSqlLinkedService**. O StorageLinkedService vincula o armazenamento do Azure e o AzureSqlLinkedService vincula o banco de dados SQL do Azure à ADFTutorialDataFactory. Os dados de entrada do pipeline residem em um contêiner de blob no armazenamento de blob do Azure e os dados de saída serão armazenados em uma tabela no banco de dados SQL do Azure. Portanto, adicione esses dois repositórios de dados como serviços vinculados à data factory.      
 [Etapa 3: Criar tabelas de entrada e saída](#CreateInputAndOutputDataSets) | Na etapa anterior, você criou serviços vinculados que fazem referência a repositórios de dados que contêm dados de entrada/saída. Nesta etapa, você definirá duas tabelas de data factory – **EmpTableFromBlob** e **EmpSQLTable** – que representam os dados de entrada/saída que são armazenados nos repositórios de dados. Na tabela EmpTableFromBlob, você especifica o contêiner de blob que contém um blob com os dados de origem e, na tabela EmpSQLTable, você especifica a tabela SQL que armazenará os dados de saída. Também é possível especificar outras propriedades, como a estrutura dos dados, a disponibilidade dos dados, etc... 
 [Etapa 4: Criar e executar um pipeline](#CreateAndRunAPipeline) | Nesta etapa, você criará um pipeline chamado **ADFTutorialPipeline** na ADFTutorialDataFactory. O pipeline terá uma **Atividade de Cópia**, que copia os dados de entrada do blob do Azure na tabela de saída SQL do Azure.
-[Etapa 5: Monitorar fatias e pipeline](#MonitorDataSetsAndPipeline) | Nesta etapa, você vai monitorar fatias de tabelas de entrada e saídas usando o Portal de Visualização do Azure.
+[Etapa 5: Monitorar fatias e pipeline](#MonitorDataSetsAndPipeline) | Nesta etapa, você vai monitorar fatias de tabelas de entrada e de saída usando o Portal do Azure.
  
 
 ## <a name="CreateDataFactory"></a>Etapa 1: Criar uma Azure Data Factory
-Nesta etapa, você usa o Portal de Visualização do Azure para criar uma Azure Data Factory denominada **ADFTutorialDataFactory**.
+Nesta etapa, você usa o Portal do Azure para criar uma data factory do Azure denominada **ADFTutorialDataFactory**.
 
-1.	Depois de fazer logon no [Portal de Visualização do Azure][azure-preview-portal], clique em **NOVO** no canto inferior esquerdo, selecione **Análise de dados** na folha **Criar** e clique em **Data Factory** na folha **Análise de dados**. 
+1.	Depois de fazer logon no [Portal do Azure][azure-portal], clique em **NOVO** no canto inferior esquerdo, selecione **Análises de dados** na folha **Criar** e clique em **Data Factory** na folha **Análises de dados**. 
 
 	![Novo -> DataFactory][image-data-factory-new-datafactory-menu]
 
@@ -310,9 +310,9 @@ Nesta etapa, você cria um pipeline com uma **Atividade de Cópia** que utiliza 
  
 
 ## <a name="MonitorDataSetsAndPipeline"></a>Etapa 5: Monitorar os conjuntos de dados e o pipeline
-Nesta etapa, você utilizará o Portal do Azure para monitorar o que está acontecendo em um data factory do Azure. Você também pode usar os cmdlets do PowerShell para monitorar conjuntos de dados e pipelines. Para obter detalhes sobre como utilizar os cmdlets para monitoramento, consulte [Monitorar e gerenciar a Data Factory utilizando os cmdlets do PowerShell][monitor-manage-using-powershell].
+Nesta etapa, você usará o Portal Clássico do Azure para monitorar o que está acontecendo em uma data factory do Azure. Você também pode usar os cmdlets do PowerShell para monitorar conjuntos de dados e pipelines. Para obter detalhes sobre como utilizar os cmdlets para monitoramento, consulte [Monitorar e gerenciar a Data Factory utilizando os cmdlets do PowerShell][monitor-manage-using-powershell].
 
-1. Navegue até o [Portal do Azure (Visualização)][azure-preview-portal] se não estiver com ele aberto. 
+1. Navegue até o [Portal Clássico do Azure (Visualização)][azure-portal] se não estiver com ele aberto. 
 2. Se a folha **ADFTutorialDataFactory** não estiver aberta, abra-a clicando em **ADFTutorialDataFactory** no **Quadro Inicial**. 
 3. Você verá a contagem e os nomes das tabelas e do pipeline criados nessa folha.
 
@@ -327,7 +327,7 @@ Nesta etapa, você utilizará o Portal do Azure para monitorar o que está acont
 	Ambas as listas, **Fatias atualizadas recentemente** e **Fatias com falha recente**, são classificadas pela **HORA DA ÚLTIMA ATUALIZAÇÃO**. A hora de atualização de uma fatia é alterada nas situações a seguir.
     
 
-	-  Você atualiza o status da fatia manualmente, por exemplo, usando o **Set-AzureDataFactorySliceStatus** (ou) clicando em **EXECUTAR** na folha **FATIA** da fatia.
+	-  Você atualiza o status da fatia manualmente, por exemplo, usando o **Set-AzureRmDataFactorySliceStatus** (ou) clicando em **EXECUTAR** na folha **FATIA** da fatia.
 	-  A fatia é alterada devido a uma execução (por exemplo, uma execução iniciada, uma execução finalizada e com falha, uma execução finalizada e bem-sucedida, etc).
  
 	Clique no título das listas ou em **... (reticências)** para ver a lista maior de fatias. Clique em **Filtrar** na barra de ferramentas para filtrar as fatias.
@@ -371,7 +371,7 @@ Nesta etapa, você utilizará o Portal do Azure para monitorar o que está acont
 
 
 ## Resumo 
-Neste tutorial, você criou uma data factory do Azure para copiar dados de um blob do Azure para um banco de dados SQL do Azure. Você utilizou o Portal de Visualização do Azure para criar a data factory, serviços vinculados, tabelas e um pipeline. Aqui estão as etapas de alto nível executadas nesse tutorial:
+Neste tutorial, você criou uma data factory do Azure para copiar dados de um blob do Azure para um banco de dados SQL do Azure. Você utilizou o Portal do Azure para criar a data factory, serviços vinculados, tabelas e um pipeline. Aqui estão as etapas de alto nível executadas nesse tutorial:
 
 1.	Criar uma Azure **Data Factory**.
 2.	Criar **serviços vinculados** que vinculam repositórios de dados e computações (conhecidos como **Serviços Vinculados**) à data factory.
@@ -393,7 +393,7 @@ Para concluir este tutorial usando o PowerShell do Azure, consulte [Criar e moni
 [msdn-linkedservices]: https://msdn.microsoft.com/library/dn834986.aspx
 [data-factory-naming-rules]: https://msdn.microsoft.com/library/azure/dn835027.aspx
 
-[azure-preview-portal]: https://portal.azure.com/
+[azure-portal]: https://portal.azure.com/
 [download-azure-powershell]: http://azure.microsoft.com/documentation/articles/install-configure-powershell
 [sql-management-studio]: http://azure.microsoft.com/documentation/articles/sql-database-manage-azure-ssms/#Step2
 [sql-cmd-exe]: https://msdn.microsoft.com/library/azure/ee336280.aspx
@@ -488,8 +488,6 @@ Para concluir este tutorial usando o PowerShell do Azure, consulte [Criar e moni
 
 [image-data-factory-create-resource-group]: ./media/data-factory-get-started-using-editor/CreateNewResourceGroup.png
 
-[image-data-factory-preview-storage-key]: ./media/data-factory-get-started-using-editor/PreviewPortalStorageKey.png
-
 [image-data-factory-database-connection-string]: ./media/data-factory-get-started-using-editor/DatabaseConnectionString.png
 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-get-started-using-editor/NewDataFactoryMenu.png
@@ -501,4 +499,4 @@ Para concluir este tutorial usando o PowerShell do Azure, consulte [Criar e moni
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

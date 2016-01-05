@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # Visualização do modelo de aplicativo v2.0: proteger uma API da Web MVC
@@ -37,18 +37,18 @@ O código para este tutorial é mantido [no GitHub](https://github.com/AzureADQu
 O aplicativo concluído é fornecido também no final desse tutorial.
 
 
-## 1\. Registrar um aplicativo
+## 1. Registrar um Aplicativo
 Crie um novo aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.com) ou siga estas [etapas detalhadas](active-directory-v2-app-registration.md). Não se esqueça de:
 
 - Copiar a **ID do Aplicativo** designada ao seu aplicativo, você precisará dela logo.
 
-Essa solução do Visual Studio também contém um "TodoListClient”, que é um aplicativo WPF simples. O TodoListClient é usado para demonstrar como um usuário se conecta e como um cliente pode emitir solicitações para sua API Web. Nesse caso, tanto o TodoListClient como TodoListService são representados pelo mesmo aplicativo. Para configurar o TodoListClient, você deverá também:
+Essa solução do Visual Studio também contém um "TodoListClient”, que é um aplicativo WPF simples.  O TodoListClient é usado para demonstrar como um usuário se conecta e como um cliente pode emitir solicitações para sua API Web.  Nesse caso, tanto o TodoListClient como TodoListService são representados pelo mesmo aplicativo.  Para configurar o TodoListClient, você deverá também:
 
 - Adicione a plataforma **Móvel** de seu aplicativo.
 - Copie o **URI de Redirecionamento** do portal. Você deve usar o valor padrão de `urn:ietf:wg:oauth:2.0:oob`.
 
 
-## 2\. Configure seu aplicativo para usar o pipeline de autenticação OWIN
+## 2. Configure seu aplicativo para usar o pipeline de autenticação OWIN
 
 Agora que você registrou um aplicativo, é preciso configurar seu aplicativo para se comunicar com o ponto de extremidade v2.0 para validar tokens e solicitações recebidos.
 
@@ -158,4 +158,4 @@ Agora você pode passar para tópicos adicionais. Você pode desejar experimenta
 
 Para obter recursos adicionais, confira: - [A Visualização do Modelo de Aplicativo v2.0 >>](active-directory-appmodel-v2-overview.md) - [Tag StackOverflow "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

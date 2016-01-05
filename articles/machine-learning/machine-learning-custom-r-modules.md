@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="tbd" 
-	ms.date="07/29/2015" 
+	ms.date="12/11/2015" 
 	ms.author="bradsev;ankarloff" />
 
 
@@ -37,7 +37,7 @@ Um módulo R personalizado é definido por um arquivo .zip que contém, no míni
 Arquivos auxiliares adicionais também podem ser incluídos no arquivo .zip que fornecem funcionalidades que podem ser acessadas por meio do módulo personalizado. Essa opção é discutida abaixo.
 
 ## Exemplo de início rápido: definir, empacotar e registrar um módulo R personalizado
-Este exemplo ilustra como construir os arquivos necessários para um módulo R personalizado, empacotá-los em um arquivo zip e, em seguida, registrar o módulo no espaço de trabalho de Aprendizado de Máquina. Os arquivos de exemplo e pacote de zip exemplo podem ser baixados [aqui](http://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
+Este exemplo ilustra como construir os arquivos necessários para um módulo R personalizado, empacotá-los em um arquivo zip e, em seguida, registrar o módulo no espaço de trabalho de Aprendizado de Máquina. Os arquivos de exemplo e pacote de zip exemplo podem ser baixados de [Baixar arquivo CustomAddRows.zip](http://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
 
 Considere o exemplo de um módulo **Adicionar Linhas personalizado** que modifica a implementação padrão do módulo Adicionar Linhas usado para concatenar linhas (observações) de dois conjuntos de dados (quadros de dados). O módulo Adicionar Linhas padrão acrescenta as linhas do segundo conjunto de dados de entrada ao final do primeiro usando o algoritmo rbind. A função `CustomAddRows` personalizada similarmente aceita dois conjuntos de dados, mas também aceita um parâmetro booliano de troca adicional como entrada. Se o parâmetro de troca for **FALSE**, ele retorna o mesmo conjunto de dados que a implementação padrão. Porém, se o parâmetro de troca for **TRUE**, ele acrescenta linhas do primeiro conjunto de dados de entrada ao final do segundo conjunto de dados. O arquivo que implementa a função `CustomAddRows` R exposta pelo módulo **Adicionar Linhas personalizado** contém o seguinte código R.
 
@@ -92,7 +92,7 @@ Salve esses dois arquivos como *CustomAddRows.R* e *CustomAddRows.xml* e compact
 
 Para registrá-los no seu espaço de trabalho de Aprendizado de Máquina, vá para seu espaço de trabalho no Estúdio de Aprendizado de Máquina, clique no botão **+NOVO** na parte inferior e escolha **MÓDULO -> DO PACOTE ZIP** para carregar o novo módulo Adicionar Linhas personalizado.
 
-![](http://i.imgur.com/RFJhCls.png)
+![Carregar Zip](./media/machine-learning-custom-r-modules/upload-from-zip-package.png)
 
 O módulo **Adicionar Linhas personalizado** agora está pronto para ser acessado pelos seus testes de Aprendizado de Máquina.
 
@@ -363,4 +363,4 @@ O ambiente de execução para o script R usa a mesma versão do R que o módulo 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

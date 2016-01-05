@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Adicionar Serviços Móveis a um aplicativo universal existente da Windows Store | Microsoft Azure" 
-	description="Saiba como começar a usar os serviços móveis para utilizar dados em seu aplicativo da Windows Store." 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Adicionar Serviços Móveis a um aplicativo universal existente da Windows Store | Microsoft Azure"
+	description="Saiba como começar a usar os serviços móveis para utilizar dados em seu aplicativo da Windows Store."
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/02/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="11/10/2015"
 	ms.author="glenga"/>
 
 # Adicionar Serviços Móveis a um aplicativo existente
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
 
@@ -35,7 +40,7 @@ O serviço móvel que você criará neste tutorial é um serviço móvel de back
 Para concluir este tutorial, você precisará do seguinte:
 
 * Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-universal-dotnet-get-started-data%2F).
-* <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio 2013</a> (Atualização 3 ou versão posterior). 
+* <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio 2013</a> (Atualização 3 ou versão posterior).
 
 ##Baixar o projeto GetStartedWithData
 
@@ -47,13 +52,13 @@ Para concluir este tutorial, você precisará do seguinte:
 
 &nbsp;&nbsp;7. No Solution Explorer, abra o arquivo de código App.xaml.cs na pasta de projeto GetStartedWithData.Shared e avise sobre o novo campo estático que foi adicionado à classe **Aplicativo** dentro do bloco de compilação condicional do aplicativo Windows Store, que parece com o exemplo a seguir:
 
-	public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient 
+	public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient
 	    todolistClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
 	        "https://todolist.azure-mobile.net/",
 	        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-		
 
-&nbsp;&nbsp;Esse código fornece acesso ao novo serviço móvel em seu aplicativo usando uma instância da [classe MobileServiceClient](http://go.microsoft.com/fwlink/p/?LinkId=302030). O cliente é criado ao fornecer a URI e a chave de aplicativo do novo serviço móvel. Este campo estático está disponível para todas as páginas em seu aplicativo.
+
+&nbsp;&nbsp;Esse código fornece acesso ao novo serviço móvel em seu aplicativo usando uma instância da classe [MobileServiceClient](http://go.microsoft.com/fwlink/p/?LinkId=302030). O cliente é criado ao fornecer a URI e a chave de aplicativo do novo serviço móvel. Este campo estático está disponível para todas as páginas em seu aplicativo.
 
 &nbsp;&nbsp;8. Clique com o botão direito do mouse no projeto do aplicativo Windows Phone, clique em **Adicionar**, clique em **Serviço Conectado...**, selecione o serviço móvel que você acabou de criar e, em seguida, clique em **OK**. O mesmo código é adicionado ao arquivo App.xaml.cs compartilhado, mas desta vez dentro de um bloco de compilação condicional do aplicativo Windows Phone.
 
@@ -67,7 +72,7 @@ Neste momento, ambos os aplicativos do Windows Store e Windows Phone Store são 
 
 ##Atualizar o aplicativo para usar o serviço móvel
 
-Nesta seção, você atualizará o aplicativo Windows universal para usar o serviço móvel como um serviço de back-end do aplicativo. Você precisa fazer alterações apenas no arquivo de projeto MainPage.xaml.cs na pasta de projeto GetStartedWithData.Shared.
+Nesta seção, você atualizará o aplicativo Windows universal para usar o serviço móvel como um serviço de back-end do aplicativo. Você precisa fazer alterações apenas no arquivo de projeto MainPage.cs na pasta de projeto GetStartedWithData.Shared.
 
 [AZURE.INCLUDE [mobile-services-windows-dotnet-update-data-app](../../includes/mobile-services-windows-dotnet-update-data-app.md)]
 
@@ -86,18 +91,21 @@ Agora podemos testar ambos os serviços do aplicativo Windows universal em rela�
 ##Exibir os dados armazenados no Banco de Dados SQL
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-view-sql-data](../../includes/mobile-services-dotnet-backend-view-sql-data.md)]
- 
+
 Isso conclui o tutorial.
 
 ##Próximas etapas
 
 Este tutorial demonstrou os conceitos básicos de como habilitar um projeto do aplicativo Windows universal para trabalhar com dados nos Serviços Móveis. Em seguida, considere a leitura de um destes outros tópicos:
 
-* [Introdução à autenticação] <br/>Saiba como autenticar usuários de seu aplicativo.
+* [Introdução à autenticação]
+  <br/>Saiba como autenticar usuários de seu aplicativo.
 
-* [Introdução às notificações por push] <br/>Saiba como enviar uma notificação por push bastante básica a seu aplicativo.
+* [Introdução às notificações por push]
+  <br/>Saiba como enviar uma notificação por push bastante básica a seu aplicativo.
 
-* [Referência conceitual de tutorial de C# dos Serviços Móveis](mobile-services-windows-dotnet-how-to-use-client-library.md) <br/>Saiba mais sobre como usar os Serviços Móveis com o .NET.
+* [Referência conceitual de tutorial de C# dos Serviços Móveis](mobile-services-windows-dotnet-how-to-use-client-library.md)
+  <br/>Saiba mais sobre como usar os Serviços Móveis com o .NET.
 
 
 <!-- Images. -->
@@ -113,12 +121,10 @@ Este tutorial demonstrou os conceitos básicos de como habilitar um projeto do a
 
 [Começar a usar a sincronização de dados offline]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 
-[Azure Management Portal]: https://manage.windowsazure.com/
-[Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [site de exemplos de código do desenvolvedor]: http://go.microsoft.com/fwlink/p/?LinkID=510826
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
-  
 
-<!----HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->
+

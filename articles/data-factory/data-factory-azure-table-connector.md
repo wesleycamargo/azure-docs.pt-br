@@ -47,7 +47,7 @@ O exemplo copia dados pertencentes à partição padrão em uma tabela do Azure 
 
 O exemplo pressupõe que você tenha criado uma tabela "MyTable" na Tabela do Azure.
  
-Definir “external”: “true” e especificar a política externalData informa à data factory que essa é uma tabela externa à data factory e não é produzida por uma atividade nessa data factory.
+Definir "external": "true" e especificar a política externalData informa à data factory que essa é uma tabela externa à data factory e não é produzida por uma atividade nessa data factory.
 
 	{
 	  "name": "AzureTableInput",
@@ -205,7 +205,7 @@ O exemplo copia os dados pertencentes a uma série temporal de um blob do Azure 
 
 **Conjunto de dados de entrada de Blob do Azure:**
 
-Os dados são coletados de um novo blob a cada hora (frequência: hora, intervalo: 1). O caminho de pasta e nome de arquivo para o blob são avaliados dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa parte da hora de início do dia, mês e ano e nome de arquivo usa a parte de hora da hora de início. A configuração “external”: ”true” informa o serviço Data Factory que essa é uma tabela externa à data factory e não é produzida por uma atividade na data factory.
+Os dados são coletados de um novo blob a cada hora (frequência: hora, intervalo: 1). O caminho de pasta e nome de arquivo para o blob são avaliados dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa parte da hora de início do dia, mês e ano e nome de arquivo usa a parte de hora da hora de início. A configuração "external": "true" informa o serviço Data Factory que essa é uma tabela externa à data factory e não é produzida por uma atividade na data factory.
 	
 	{
 	  "name": "AzureBlobInput",
@@ -317,8 +317,7 @@ O pipeline contém uma Atividade de Cópia que está configurada para usar os co
 	        ],
 	        "typeProperties": {
 	          "source": {
-	            "type": "BlobSource",
-	            "blobColumnSeparators": ","
+	            "type": "BlobSource"
 	          },
 	          "sink": {
 	            "type": "AzureTableSink",
@@ -348,7 +347,7 @@ Você pode vincular uma conta de armazenamento do Azure a uma Azure Data Factory
 | Propriedade | Descrição | Obrigatório |
 | -------- | ----------- | -------- |
 | type | A propriedade type deve ser definida como: AzureStorage | Sim |
-| connectionString | Especifique as informações necessárias para se conectar ao armazenamento do Azure para a propriedade connectionString. Você pode obter connectionString para o armazenamento do Azure do Portal do Azure. | Sim |
+| connectionString | Especifique as informações necessárias para se conectar ao armazenamento do Azure para a propriedade connectionString. Você pode obter a connectionString para o armazenamento do Azure no Portal Clássico do Azure. | Sim |
 
 ## Propriedades de tipo do Conjunto de Dados da Tabela do Azure
 
@@ -370,8 +369,7 @@ As propriedades disponíveis na seção typeProperties da atividade, por outro l
 
 Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | Utiliza a consulta personalizada para ler os dados. | Cadeia de caracteres de consulta de tabela do Azure. Exemplo: **ColumnA eq ValueA** | Não
-azureTableSourceIgnoreTableNotFound | Indique se assimilar a exceção da tabela não existe. | TRUE<br/>FALSE | Não |
+azureTableSourceQuery | Utiliza a consulta personalizada para ler os dados. | <p>Cadeia de consulta de tabela do Azure.</p>* * Exemplos: * ***<br/> "azureTableSourceQuery": "eq PartitionKey 'DefaultPartitionKey'" <br/><br/>"azureTableSourceQuery": "$$Text.Format ('PartitionKey ge \\'{0:yyyyMMddHH00\_0000}\\ 'e PartitionKey le \\'{0:yyyyMMddHH00\_9999}\\')', SliceStart)" | Nenhum azureTableSourceIgnoreTableNotFound | Indique se assimilar a exceção da tabela não existe. | TRUE<br/>FALSE | Não |
 
 **AzureTableSink** dá suporte às seguintes propriedades na seção typeProperties:
 
@@ -383,7 +381,7 @@ azureTablePartitionKeyName | Nome de coluna do usuário especificado, cujos valo
 azureTableRowKeyName | Nome de coluna especificado pelo usuário, cujos valores de coluna são utilizados como chave de linha. Se não especificado, um GUID é usado para cada linha. | Um nome de coluna. | Não  
 azureTableInsertType | O modo para inserir dados na tabela do Azure. | mesclar<br/>substituir | Não 
 writeBatchSize | Insere dados na tabela do Azure quando o writeBatchSize ou writeBatchTimeout for atingido. | Inteiro de 1 a 100 (unidade = contagem de linhas) | Não (Padrão = 100) 
-writeBatchTimeout | Insere dados na tabela do Azure quando o writeBatchSize ou writeBatchTimeout for atingido | (Unidade = timespan)Exemplo: “00:20:00” (20 minutos) | Não (padrão para 90 seg. de valor de tempo padrão de cliente de armazenamento)
+writeBatchTimeout | Insere dados na tabela do Azure quando o writeBatchSize ou writeBatchTimeout for atingido | (Unidade = timespan)Exemplo: "00:20:00" (20 minutos) | Não (padrão para 90 seg. de valor de tempo padrão de cliente de armazenamento)
 
 ### azureTablePartitionKeyName
 Será necessário mapear uma coluna de origem para uma coluna de destino usando a propriedade JSON do conversor antes de poder usar a coluna de destino como o azureTablePartitionKeyName.
@@ -505,4 +503,4 @@ Nesse caso, a fábrica dados fará automaticamente as conversões de tipo, inclu
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

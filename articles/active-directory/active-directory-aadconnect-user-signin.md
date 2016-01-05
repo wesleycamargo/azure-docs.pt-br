@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD Connect - entrada do usuário | Microsoft Azure"
+	pageTitle="Azure AD Connect: entrada do usuário | Microsoft Azure"
 	description="Entrada do usuário do Azure AD Connect para configurações personalizadas."
 	services="active-directory"
 	documentationCenter=""
@@ -63,4 +63,8 @@ Para a maioria das organizações que desejam apenas habilitar o usuário a faze
 	- Recursos de integração do Active Directory, como o bloqueio de conta suave ou a política de horas de trabalho e senha do AD
 	- Acesso condicional para recursos locais e de nuvem usando o registro de dispositivos, a associação de AD do Azure ou políticas do Intune MDM
 
-<!---HONumber=Oct15_HO3-->
+
+## Próximas etapas
+Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
+
+<!---HONumber=AcomDC_1203_2015-->

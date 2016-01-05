@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/08/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 #Desenvolver topologias do Apache Storm usando o Python no HDInsight
@@ -345,4 +345,4 @@ Neste documento, você aprendeu a usar componentes do Python de uma topologia do
 * [Como usar o Python para trabalhos de MapReduce de streaming](hdinsight-hadoop-streaming-python.md)
 * [Como usar UDF (Funções Definidas pelo Usuário) do Python no Pig e Hive](hdinsight-python.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

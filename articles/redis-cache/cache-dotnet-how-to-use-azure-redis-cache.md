@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="11/10/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # Como utilizar o cache Redis do Azure
@@ -30,7 +30,7 @@ O Cache Redis do Microsoft Azure está disponível nas seguintes camadas:
 
 -	**Básico** – um único nó. Vários tamanhos acima de 53 GB.
 -	**Padrão** – principal/réplica com dois nós. Vários tamanhos acima de 53 GB. SLA de 99,9%.
--	**Premium** – atualmente em visualização. Primário/de Réplica de dois nós com até 10 fragmentos. Vários tamanhos de 6 GB a 530 GB (entre em contato conosco para obter mais informações). Todos os recursos da camada Standard e muito mais, incluindo o suporte para o [cluster Redis](cache-how-to-premium-clustering.md), [persistência do Redis](cache-how-to-premium-persistence.md) e [Rede Virtual do Azure](cache-how-to-premium-vnet.md). Não há SLA durante o período de visualização.
+-	**Premium** – dois nós Primário/Réplica com até 10 fragmentos. Vários tamanhos de 6 GB a 530 GB (entre em contato conosco para obter mais informações). Todos os recursos da camada Standard e muito mais, incluindo o suporte para o [cluster Redis](cache-how-to-premium-clustering.md), [persistência do Redis](cache-how-to-premium-persistence.md) e [Rede Virtual do Azure](cache-how-to-premium-vnet.md). SLA de 99,9%.
 
 Cada camada é diferente em termos de recursos e preços. Para saber mais sobre preços, consulte [Detalhes de preços do cache][].
 
@@ -47,7 +47,7 @@ Começar a usar o cache Redis do Azure é fácil. Para começar, você provision
 <a name="create-cache"></a>
 ## Criar um cache
 
-Para criar um cache, primeiro entre no [portal de visualização do Azure][] e clique em **Novo**, **Dados + Armazenamento** e **Cache Redis**.
+Para criar um cache, primeiro entre no [Portal do Azure][] e clique em **Novo**, **Dados + Armazenamento** e **Cache Redis**.
 
 ![Novo cache][NewCacheMenu]
 
@@ -120,7 +120,7 @@ Para trabalhar de forma programática com um cache, você precisa de uma referê
 
 A conexão com o Cache Redis do Azure é gerenciada pela classe `ConnectionMultiplexer`. Essa classe foi projetada para ser compartilhada e reutilizada em todo aplicativo de cliente e não precisa ser criado em uma base de operação.
 
-Para se conectar a um Cache Redis do Azure e obter uma instância de um `ConnectionMultiplexer` conectado, chame o método estático `Connect` e passe a chave e o ponto de extremidade do cache, como no exemplo a seguir. Use a chave do Azure gerada do portal de visualização como o parâmetro de senha.
+Para se conectar a um Cache Redis do Azure e obter uma instância de um `ConnectionMultiplexer` conectado, chame o método estático `Connect` e passe a chave e o ponto de extremidade do cache, como no exemplo a seguir. Use a chave gerada do Portal do Azure como o parâmetro de senha.
 
 	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
 
@@ -231,7 +231,7 @@ Agora que você aprendeu os conceitos básicos, siga estes links para saber mais
 -	Confira os provedores ASP.NET para o Cache Redis do Azure.
 	-	[Provedor de estado de sessão do Redis do Azure](cache-asp.net-session-state-provider.md)
 	-	[Provedor de Cache de Saída ASP.NET do Cache Redis do Azure](cache-asp.net-output-cache-provider.md)
--	[Habilite o diagnóstico de cache](cache-how-to-monitor.md#enable-cache-diagnostics) para que você possa [monitorar](cache-how-to-monitor.md) a integridade do cache. É possível exibir as métricas no portal de visualização e também [baixá-las e examiná-las](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) usando as ferramentas à sua escolha.
+-	[Habilite o diagnóstico de cache](cache-how-to-monitor.md#enable-cache-diagnostics) para que você possa [monitorar](cache-how-to-monitor.md) a integridade do cache. Você pode exibir as métricas no Portal do Azure e também pode [baixá-las e analisá-las](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) usando as ferramentas de sua escolha.
 -	Confira a [documentação do cliente do cache StackExchange.Redis][].
 	-	O Cache Redis do Azure pode ser acessado por meio de muitos clientes Redis e linguagens de desenvolvimento. Para obter mais informações, consulte [http://redis.io/clients][] e [Desenvolver em outras linguagens para o Cache Redis do Azure][].
 	-	O Cache Redis do Azure também pode ser usado com serviços como Redsmin. Para obter mais informações, consulte [Como recuperar uma cadeia de conexão do Redis do Azure e usá-la com Redsmin][].
@@ -309,7 +309,7 @@ Agora que você aprendeu os conceitos básicos, siga estes links para saber mais
 
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
 [Detalhes de preços do cache]: http://www.windowsazure.com/pricing/details/cache/
-[portal de visualização do Azure]: https://portal.azure.com/
+[Portal do Azure]: https://portal.azure.com/
 
 [Overview of Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=320830
 [Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=398247
@@ -329,4 +329,4 @@ Agora que você aprendeu os conceitos básicos, siga estes links para saber mais
 
 [Avaliação gratuita do Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,12 +13,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="09/02/2015"
+ ms.date="12/02/2015"
  ms.author="danlep"/>
 
 # Executar o NAMD com o Microsoft HPC Pack em nós de computação do Linux no Azure
 
-Este artigo mostra como implantar um cluster do Microsoft HPC Pack no Azure e executar um trabalho do [NAMD](http://www.ks.uiuc.edu/Research/namd/) com **charmrun** em vários nós de computação do Linux em uma rede de cluster virtual para calcular e visualizar a estrutura de um sistema biomolecular grande.
+Este artigo mostra como implantar um cluster do Microsoft HPC Pack no Azure com múltiplos nós de computação Linux e executar um trabalho do [NAMD](http://www.ks.uiuc.edu/Research/namd/) com **charmrun** para calcular e visualizar a estrutura de um sistema biomolecular grande.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
 
@@ -26,7 +26,7 @@ Este artigo mostra como implantar um cluster do Microsoft HPC Pack no Azure e ex
 
 O NAMD (para o programa Nanoscale Molecular Dynamics) é um pacote de dinâmica molecular paralela criado para a simulação de alto desempenho de sistemas biomoleculares grandes que contêm milhões de átomos, como vírus, estruturas celulares e proteínas grandes. O NAMD é dimensionado para centenas de núcleos de simulações típicas e para mais de 500.000 núcleos para as simulações maiores.
 
-O Microsoft HPC Pack fornece recursos para executar uma variedade de aplicativos de HPC e paralelos em larga escala, incluindo aplicativos MPI, em clusters de máquinas virtuais do Microsoft Azure. A partir do Microsoft HPC Pack 2012 R2 Atualização 2, o HPC Pack também dá suporte a aplicativos de HPC no Linux em VMs com nós de computação do Linux implantadas em um cluster do HPC Pack. Veja [Introdução aos nós de computação do Linux em um cluster do HPC Pack no Azure](virtual-machines-linux-cluster-hpcpack.md) para saber como começar a usar os nós de computação do Linux com o HPC Pack.
+O Microsoft HPC Pack fornece recursos para executar uma variedade de aplicativos de HPC e paralelos em larga escala, incluindo aplicativos MPI, em clusters de máquinas virtuais do Microsoft Azure. A partir do Microsoft HPC Pack 2012 R2 Atualização 2, o HPC Pack também dá suporte aos aplicativos de HPC do Linux em execução nas VMs com nós de computação do Linux implantadas em um cluster do HPC Pack. Consulte [Introdução a nós de computação Linux em um cluster de HPC Pack no Azure](virtual-machines-linux-cluster-hpcpack.md) para ver uma introdução.
 
 
 ## Pré-requisitos
@@ -104,16 +104,16 @@ Executar um trabalho de nós cruzados em vários nós do Linux requer que os nó
 
 2. Use os procedimentos padrão do Windows Server para criar uma conta de usuário de domínio no domínio do Active Directory do cluster. Por exemplo, use o Usuário do Active Directory e a ferramenta Computers no nó principal. Com os exemplos neste artigo, supomos que você criará um usuário de domínio chamado hpclab\\hpcuser.
 
-2.	Crie um arquivo chamado C:\\cred.xml e copie os dados da chave RSA nele. Você pode encontrar um exemplo desse arquivo no Apêndice ao final deste artigo.
+2.	Crie um arquivo chamado C:\\cred.xml e copie os dados da chave RSA nele. Você pode encontrar um exemplo nos arquivos de exemplo ao final deste artigo.
 
     ```
     <ExtendedData>
-      <PrivateKey>Copy the contents of private key here</PrivateKey>
-      <PublicKey>Copy the contents of public key here</PublicKey>
+        <PrivateKey>Copy the contents of private key here</PrivateKey>
+        <PublicKey>Copy the contents of public key here</PublicKey>
     </ExtendedData>
     ```
 
-3.	Abra uma janela Comando e digite o seguinte comando para definir os dados de credenciais para a conta de hpclab\\hpcuser. Use o parâmetro **extendeddata** para transmitir o nome do arquivo C:\\cred.xml que você criou para os dados da chave.
+3.	Abra um Prompt de Comando e digite o seguinte comando para definir os dados de credenciais para a conta de hpclab\\hpcuser. Use o parâmetro **extendeddata** para transmitir o nome do arquivo C:\\cred.xml que você criou para os dados da chave.
 
     ```
     hpccred setcreds /extendeddata:c:\cred.xml /user:hpclab\hpcuser /password:<UserPassword>
@@ -129,16 +129,16 @@ Executar um trabalho de nós cruzados em vários nós do Linux requer que os nó
 
 Agora configure um padrão de compartilhamento SMB em uma pasta no nó principal e monte a pasta compartilhada em todos os nós do Linux para permitir que os nós do Linux acessem os arquivos do NAMD com um caminho comum. Confira as opções de compartilhamento de arquivos e as etapas em [Introdução aos nós de computação do Linux em um cluster do HPC Pack no Azure](virtual-machines-linux-cluster-hpcpack.md). (Nesse artigo, recomendamos montar uma pasta compartilhada no nó principal, pois, atualmente, não há suporte para o serviço de Arquivos do Azure nos nós do CentOS 6.6 Linux, que fornece recursos semelhantes. Para saber mais sobre como montar um compartilhamento de Arquivos do Azure, confira [Persistindo conexões para arquivos do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).)
 
-1.	Crie uma pasta no nó principal e compartilhe-a com todos, configurando privilégios de Leitura/Gravação. Neste exemplo, \\CentOS66HN\\Namd é o nome da pasta, em que CentOS66HN é o nome de host do nó principal.
+1.	Crie uma pasta no nó principal e compartilhe-a com todos, configurando privilégios de Leitura/Gravação. Neste exemplo, \\\CentOS66HN\\Namd é o nome da pasta, em que CentOS66HN é o nome de host do nó principal.
 
-2. Extraia os arquivos do NAMD na pasta usando uma versão do Windows de **tar** ou outro utilitário do Windows que funciona em arquivos .tar. Extraia o arquivo tar do NAMD para \\CentOS66HN\\Namd\\namd2 e os arquivos do tutorial em \\CentOS66HN\\Namd\\namd2\\namdsample.
+2. Extraia os arquivos do NAMD na pasta usando uma versão do Windows de **tar** ou outro utilitário do Windows que funciona em arquivos .tar. Extraia o arquivo tar do NAMD para \\\CentOS66HN\\Namd\\namd2 e os arquivos do tutorial em \\\CentOS66HN\\Namd\\namd2\\namdsample.
 
 2.	Abra uma janela do Windows PowerShell e execute os seguintes comandos para montar a pasta compartilhada.
 
     ```
-    PS > clusrun /nodegroup:LinuxNodes mkdir -p /namd2
+    clusrun /nodegroup:LinuxNodes mkdir -p /namd2
 
-    PS > clusrun /nodegroup:LinuxNodes mount -t cifs //CentOS66HN/Namd/namd2 /namd2 -o vers=2.1`,username=<username>`,password='<password>'`,dir_mode=0777`,file_mode=0777
+    clusrun /nodegroup:LinuxNodes mount -t cifs //CentOS66HN/Namd/namd2 /namd2 -o vers=2.1`,username=<username>`,password='<password>'`,dir_mode=0777`,file_mode=0777
     ```
 
 O primeiro comando cria uma pasta chamada /namd2 em todos os nós do grupo LinuxNodes. O segundo comando monta a pasta compartilhada //CentOS66HN/Namd/namd2 para a pasta com os bits de dir\_mode e file\_mode definidos como 777. O *nome de usuário* e a *senha* no comando devem ser as credenciais de um usuário no nó principal.
@@ -182,7 +182,7 @@ host CENTOS66LN-03 ++cpus 2
 ```
 ### Script Bash para criar um arquivo nodelist
 
-Usando um editor de texto de sua escolha, crie o seguinte script Bash na pasta que contém os arquivos do programa NAMD e nomeie-o hpccharmrun.sh. Um exemplo completo desse arquivo pode ser encontrado no Apêndice deste artigo. Este script Bash tem as funções descritas a seguir.
+Usando um editor de texto de sua escolha, crie o seguinte script Bash na pasta que contém os arquivos do programa NAMD e nomeie-o hpccharmrun.sh. Um exemplo completo está nos arquivos de exemplo ao final deste artigo. Este script Bash tem as funções descritas a seguir.
 
 >[AZURE.TIP]Salve o script como um arquivo de texto com as terminações de linha do Linux (somente LF, não CR LF). Isso garante que ele seja executado corretamente nos nós do Linux.
 
@@ -302,13 +302,13 @@ Agora você está pronto para enviar um trabalho do NAMD no Gerenciador de Clust
 
 6.	O trabalho leva vários minutos para ser concluído.
 
-7.	Encontre o log do trabalho em <headnodeName>\\Namd\\namd2\\namd2\_hpccharmrun.log e os arquivos de saída em <headnode>\\Namd\\namd2\\namdsample\\1-2-sphere.
+7.	Encontre o log do trabalho em \<headnodeName>\\Namd\\namd2\\namd2\_hpccharmrun.log e os arquivos de saída em \<headnode>\\Namd\\namd2\\namdsample\\1-2-sphere.
 
 8.	Opcionalmente, inicie o VMD para exibir os resultados do trabalho. As etapas para visualizar os arquivos de saída do NAMD (neste caso, uma molécula da proteína ubiquitina em uma esfera de água) estão além do escopo deste artigo. Veja [Tutorial do NAMD](http://www.life.illinois.edu/emad/biop590c/namd-tutorial-unix-590C.pdf) para obter mais detalhes.
 
     ![Resultados de trabalho][vmd_view]
 
-## Apêndice
+## Arquivos de exemplo
 
 ### Exemplo de script hpccharmrun.sh
 
@@ -408,4 +408,4 @@ a8lxTKnZCsRXU1HexqZs+DSc+30tz50bNqLdido/l5B4EJnQP03ciO0=
 [task_details]: ./media/virtual-machines-linux-cluster-hpcpack-namd/task_details.png
 [vmd_view]: ./media/virtual-machines-linux-cluster-hpcpack-namd/vmd_view.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

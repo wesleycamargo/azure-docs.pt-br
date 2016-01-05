@@ -116,7 +116,7 @@ Após criar uma mensagem de email, você poderá enviá-la usando a API da Web f
 
 O envio de email requer que você forneça suas credenciais de conta do SendGrid (nome de usuário e senha) ou a chave da API do SendGrid. A chave da API é o método preferencial. Se precisar de detalhes sobre como configurar as chaves da API, veja nossa [documentação](https://sendgrid.com/docs/Classroom/Send/api_keys.html)
 
-Você pode armazenar essas credenciais através do portal do Azure clicando em CONFIGURAR e adicionando os pares chave/valor em "configurações do aplicativo".
+Você pode armazenar essas credenciais por meio do Portal do Azure ao clicar em CONFIGURAR e adicionar os pares chave/valor em "configurações do aplicativo".
 
  ![Configurações do aplicativo do Azure][azure_app_settings]
 
@@ -261,4 +261,4 @@ Agora que você já conhece as noções básicas do serviço de email SendGrid, 
   [entrega de e-mail transacional]: https://sendgrid.com/transactional-email
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

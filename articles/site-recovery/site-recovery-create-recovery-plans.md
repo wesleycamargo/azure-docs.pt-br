@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Criando planos de recuperação" 
+	pageTitle="Criar planos de recuperação | Microsoft Azure" 
 	description="O Azure Site Recovery coordena a replicação, o failover e a recuperação de máquinas virtuais localizadas em servidores locais no Azure ou em um armazenamento de dados secundário." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="10/07/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
-# Criando planos de recuperação
+# Criar planos de recuperação
 
 O serviço Recuperação de Site contribui para uma solução robusta de BCDR (continuidade dos negócios e recuperação de desastres) que protege servidores físicos locais e máquinas virtuais, administrando e automatizando a replicação e o failover no Azure ou em um datacenter local secundário. Para obter uma introdução aos cenários de implantação de Recuperação de Site, leia [Visão geral da Recuperação de Site](site-recovery-overview.md).
 
@@ -124,4 +124,4 @@ Você pode estender o seu plano de recuperação executando um runbook da automa
 
  
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

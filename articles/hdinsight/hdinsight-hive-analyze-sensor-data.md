@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/23/2015" 
+	ms.date="12/04/2015" 
 	ms.author="larryfr"/>
 
 #Analisar dados de sensor usando o Console de consulta Hive no Hadoop HDInsight
@@ -54,4 +54,4 @@ Nesta amostra, você usará o Hive para processar dados históricos produzidos p
 
 3. Siga as instruções fornecidas na página da Web para concluir a amostra.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/04/2015"
+   ms.date="12/07/2015"
    ms.author="tomfitz"/>
 
 # Usando modelos vinculados com o Gerenciador de Recursos do Azure
@@ -102,6 +102,12 @@ O exemplo a seguir mostra como usar uma URL base para criar duas URLs para model
         }
     }
 
+Você também pode usar [deployment()](../resource-group-template-functions/#deployment) para obter a URL base para o modelo atual e usá-lo para obter a URL para outros modelos no mesmo local. Isso é útil se o local do modelo é alterado (talvez devido a controle de versão) ou para evitar embutir URLs no arquivo de modelo.
+
+    "variables": {
+        "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
+    }
+
 ## Passando valores de um modelo vinculado
 
 Se você precisar passar um valor de modelo vinculado para o modelo principal, poderá criar um valor na seção **saídas** do modelo vinculado. Para obter um exemplo, confira [Compartilhando o estado em modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-state.md).
@@ -110,4 +116,4 @@ Se você precisar passar um valor de modelo vinculado para o modelo principal, p
 - [Criação de modelos](./resource-group-authoring-templates.md)
 - [Implantação de modelos](resource-group-template-deploy.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

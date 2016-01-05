@@ -1,4 +1,4 @@
-1. No [Portal de Gerenciamento do Azure], clique em seu novo Serviço Móvel ou na guia do ícone de nuvem para acessar a página de visão geral.
+1. No [portal clássico do Azure](https://manage.windowsazure.com/), clique em seu novo Serviço Móvel ou na guia do ícone de nuvem para acessar a página de visão geral.
 
     ![](./media/mobile-services-ios-download-service-locally/mobile-portal-quickstart-ios.png)
 
@@ -19,11 +19,4 @@
 
     ![](./media/mobile-services-ios-download-service-locally/download-publish-profile.png)
 
-
-
-
-
-<!-- URLs. -->
-[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

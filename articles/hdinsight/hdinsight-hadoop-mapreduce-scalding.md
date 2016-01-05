@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="10/15/2015"
+ ms.date="12/04/2015"
  ms.author="larryfr"/>
 
 # Desenvolver trabalhos de MapReduce do Scalding com o Apache Hadoop no HDInsight
@@ -231,7 +231,7 @@ Neste documento, aprenda como usar o Maven para criar um trabalho básico de con
 
 > [AZURE.NOTE]As etapas a seguir usam o Windows PowerShell. Para obter outros métodos de executar trabalhos do MapReduce, consulte [Usar o MapReduce no Hadoop no HDInsight](hdinsight-use-mapreduce.md).
 
-1. [Instalar e configurar o PowerShell do Azure](../install-configure-powershell.md).
+1. [Instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 
 2. Inicie o Azure PowerShell e faça logon em sua conta do Azure. Depois de fornecer suas credenciais, o comando retornará informações sobre sua conta.
 
@@ -298,7 +298,7 @@ Neste documento, aprenda como usar o Maven para criar um trabalho básico de con
             -HttpCredential $creds
         #Download the output of the job
         Get-AzureStorageBlobContent `
-            -Blob example/wordcountout/part-r-00000 `
+            -Blob example/wordcountout/part-00000 `
             -Container $container `
             -Destination output.txt `
             -Context $context
@@ -344,4 +344,4 @@ Agora que você aprendeu como usar o Scalding para criar trabalhos do MapReduce 
 
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

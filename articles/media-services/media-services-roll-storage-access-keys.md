@@ -13,22 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"
+	ms.date="12/15/2015"
 	ms.author="juliako"/>
 
 #Como: Atualizar os Serviços de Mídia após implantar chaves de acesso de armazenamento
 
-Ao criar uma nova conta dos Serviços de Mídia do Azure, você também é solicitado a selecionar uma conta de Armazenamento do Azure, que é usada para armazenar o conteúdo de mídia. Observe que você pode adicionar mais de uma conta de armazenamento à sua conta dos Serviços de Mídia.
+Ao criar uma nova conta dos Serviços de Mídia do Azure, você também é solicitado a selecionar uma conta de Armazenamento do Azure, que é usada para armazenar o conteúdo de mídia. Observe que você pode [adicionar mais de uma conta de armazenamento](meda-services-managing-multiple-storage-accounts.md) à sua conta dos Serviços de Mídia.
 
 Quando uma nova conta de armazenamento é criada, o Azure gera duas chaves de acesso de armazenamento de 512 bits, que são usadas para autenticar o acesso à sua conta de armazenamento. Para manter as conexões de armazenamento mais seguro, é recomendável regenerar periodicamente e fazer uma rotação de sua chave de acesso de armazenamento. Duas chaves de acesso (primária e secundária) são fornecidas para habilitá-lo a manter conexões com a conta de armazenamento usando uma chave de acesso enquanto regenera a outra chave de acesso. Esse procedimento também é chamado de "implantação de chaves de acesso".
 
-Os Serviços de Mídia têm dependência em relação a uma das chaves de armazenamento (primária ou secundária). Especificamente, os localizadores que são usados para transmitir ou baixar os ativos dependem da chave de acesso. Durante a implantação de chaves de acesso de armazenamento, você também precisa atualizar seus localizadores para que não haja interrupção do serviço de streaming.
+Os Serviços de Mídia dependem de uma chave de armazenamento fornecida a eles. Especificamente, os localizadores que são usados para transmitir ou baixar os ativos dependem da chave de acesso de armazenamento especificada. Quando uma conta AMS é criada, ela usa uma dependência na chave de acesso de armazenamento primário por padrão; no entanto, como um usuário, você pode atualizar a chave de armazenamento que o AMS tem. Você deve garantir que os Serviços de Mídia saibam qual chave usar seguindo as etapas descritas neste tópico. Além disso, durante a implantação de chaves de acesso de armazenamento, você precisa atualizar seus localizadores para que não haja interrupção do serviço de streaming (essa etapa também é descrita no tópico).
 
->[AZURE.NOTE]Após regenerar uma chave de armazenamento, sincronize a atualização com os Serviços de Mídia.
-
-Este tópico descreve as etapas que necessárias para implantar chaves de armazenamento e atualizar os Serviços de Mídia para usar a chave de armazenamento apropriada. Observe que, se tiver várias contas de armazenamento, você deverá executar esse procedimento com cada conta de armazenamento.
-
->[AZURE.NOTE]Antes de executar as etapas descritas neste tópico em uma conta de produção, teste-as em uma conta de pré-produção.
+>[AZURE.NOTE]Se tiver várias contas de armazenamento, você deverá executar esse procedimento com cada conta de armazenamento.
+>
+>Antes de executar as etapas descritas neste tópico em uma conta de produção, teste-as em uma conta de pré-produção.
 
 
 ## Etapa 1: Regenerar a chave de acesso de armazenamento secundária
@@ -39,11 +37,11 @@ Comece com a regeneração da chave de armazenamento secundária. Por padrão, a
 
 Atualize os Serviços de Mídia para usar a chave de acesso de armazenamento secundária. Você pode usar um dos dois métodos a seguir para sincronizar a chave de armazenamento regenerada com os Serviços de Mídia.
 
-- Usar o Portal do Azure: selecione sua conta dos Serviços de Mídia e clique no ícone "GERENCIAR CHAVES" na parte inferior da janela do portal. Dependendo de qual chave de armazenamento você desejar sincronizar com os Serviços de Mídia, selecione o botão para sincronizar a chave primária ou sincronizar a chave secundária. Nesse caso, use a chave secundária.
+- Usar o Portal Clássico do Azure: selecione sua conta de Serviços de Mídia e clique no ícone “GERENCIAR CHAVES” na parte inferior da janela do portal. Dependendo de qual chave de armazenamento você desejar sincronizar com os Serviços de Mídia, selecione o botão para sincronizar a chave primária ou sincronizar a chave secundária. Nesse caso, use a chave secundária.
 
 - Use a API REST de gerenciamento dos Serviços de Mídia.
 
-	O exemplo de código a seguir mostra como criar a solicitação https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/Key para sincronizar a chave de armazenamento especificada com os Serviços de Mídia. Nesse caso, o valor da chave de armazenamento secundária é usado. Para obter mais informações, consulte [Como: Use a API REST de gerenciamento dos Serviços de Mídia](http://msdn.microsoft.com/library/azure/dn167656.aspx).
+O exemplo de código a seguir mostra como construir a solicitação https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/Key para sincronizar a chave de armazenamento especificada com os Serviços de Mídia. Nesse caso, o valor da chave de armazenamento secundária é usado. Para obter mais informações, veja [Como: usar a API REST de Gerenciamento dos Serviços de Mídia](http://msdn.microsoft.com/library/azure/dn167656.aspx).
  
 		public void UpdateMediaServicesWithStorageAccountKey(string mediaServicesAccount, string storageAccountName, string storageAccountKey)
 		{
@@ -79,13 +77,15 @@ Atualize os Serviços de Mídia para usar a chave de acesso de armazenamento sec
 		    }
 		}
 
-Em seguida, atualize os localizadores existentes (que têm dependência em relação à chave de armazenamento antiga).
+Após essa etapa, atualize os localizadores existentes (que têm dependência em relação à chave de armazenamento antiga) conforme demonstrado na etapa a seguir.
 
 >[AZURE.NOTE]Aguarde 30 minutos antes de executar quaisquer operações com os Serviços de Mídia (por exemplo, criar novos localizadores) para impedir que haja impacto em relação a trabalhos pendentes.
 
 ##Etapa 3: Atualizar localizadores 
 
-Após 30 minutos, é possível atualizar os localizadores OnDemand para que eles tenham dependência em relação à nova chave de armazenamento secundária e mantenham a URL existente.
+>[AZURE.NOTE]Durante a implantação de chaves de acesso de armazenamento, você precisa atualizar seus localizadores existentes para que não haja interrupção do serviço de streaming.
+
+Aguarde pelo menos 30 minutos após a sincronização a nova chave de armazenamento com o AMS. Então, é possível atualizar os localizadores OnDemand para que eles tenham dependência em relação à chave de armazenamento especificada e mantenham a URL existente.
 
 Observe que ao atualizar (ou recriar) um localizador SAS, a URL sempre vai mudar.
 
@@ -159,4 +159,4 @@ Use o mesmo procedimento, conforme descrito na [etapa 3](media-services-roll-sto
 
 Gostaríamos de agradecer às pessoas que contribuíram para a criação deste documento: Cenk Dingiloglu, Milan Gada, Seva Titov.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

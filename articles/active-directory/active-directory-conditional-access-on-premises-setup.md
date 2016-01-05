@@ -1,4 +1,3 @@
-
 <properties
 	pageTitle="Configurando o acesso condicional no local usando o registro do dispositivo do Active Directory do Azure | Microsoft Azure"
 	description="Um passo a passo para habilitar o acesso condicional para aplicativos locais usando o AD FS (Serviço de Federação do Active Directory) no Windows Server 2012 R2."
@@ -14,8 +13,9 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="11/24/2015"
 	ms.author="femila"/>
+
 
 # Configurando o acesso condicional no local usando o registro do dispositivo do Active Directory do Azure
 
@@ -52,7 +52,7 @@ Problemas conhecidos nesta versão
 * Os dispositivos iOS 7 sempre solicitarão que o usuário selecione um certificado durante a autenticação de certificado de cliente. 
 * Algumas versões do iOS8 anteriores à iOS 8.3 não funcionam. 
 
-## Suposições de Cenário
+## Suposições de cenário
 Este cenário pressupõe que você tenha um ambiente híbrido que consiste de um locatário do AD do Azure Active Directory local. Esses locatários devem ser conectados usando o Azure AD Connect e com um domínio verificado e AD FS para SSO. A lista de verificação a seguir ajudará você a configurar seu ambiente para o estágio descrito acima.
 
 Lista de verificação: Pré-requisitos para o Cenário de Acesso Condicional
@@ -75,8 +75,7 @@ Siga a lista de verificação a seguir para habilitar e configurar o serviço de
 | Habilite o registro de dispositivos em seu locatário do Active Directory do Azure para permitir que dispositivos sejam adicionados ao local de trabalho. Por padrão, a autenticação multifator não está habilitada para o serviço. No entanto, a autenticação multifator é recomendável ao registrar um dispositivo. Antes de habilitar a autenticação multifator em ADRS, verifique se o AD FS está configurado para um provedor de autenticação multifator. | [Habilitar o registro de dispositivos do Active Directory do Azure](active-directory-conditional-access-device-registration-overview.md) |
 | Os dispositivos detectarão o serviço de registro de dispositivos do Active Directory do Azure procurando registros DNS conhecidos. Você deve configurar o DNS da sua empresa para que os dispositivos possam descobrir seu serviço de registro de dispositivo do Active Directory do Azure. | [Configurar a descoberta de registro de dispositivos do Active Directory do Azure](active-directory-conditional-access-device-registration-overview.md) |
 
-##Parte 2: implantar e configurar os Serviços de Federação do Active Directory do Windows Server 2012 R2 e configurar uma relação de federação com o Active Directory do Azure
-
+##Parte 2: implantar e configurar os Serviços de Federação do Active Directory do Windows Server 2012 R2 e configurar uma relação de federação com o AD do Azure
 
 | Tarefa | Referência |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
@@ -124,7 +123,7 @@ Isso ajudará você a integrar o seu locatário do AD do Azure com o Active Dire
    
 
 
-## Atualizar o esquema de serviços do Domínio do Active Directory
+## Atualizar o esquema dos Serviços de Domínio do Active Directory
 > [AZURE.NOTE]A atualização do esquema do Active Directory não pode ser desfeita. É recomendável executar isso primeiro em um ambiente de teste.
 
 1. Faça logon no controlador de domínio com uma conta que tenha direitos de administrador corporativo e de administrador de esquema.
@@ -150,8 +149,8 @@ Isso ajudará você a integrar o seu locatário do AD do Azure com o Active Dire
 ### Habilitar a autenticação de dispositivo no AD FS
 
 1. No servidor de federação, abra o console de gerenciamento do AD FS e navegue até **AD FS** > **Políticas de Autenticação**.
-2. Selecione E**ditar Autenticação Primária Global...** no painel **Ações**.
-3. Verifique **Habilitar a autenticação de dispositivo** e selecione **OK**.
+2. Selecione **Editar Autenticação Primária Global...** no painel **Ações**.
+3. Marque **Habilitar a autenticação de dispositivo** e selecione **OK**.
 4. Por padrão, o AD FS removerá periodicamente dispositivos não utilizados do Active Directory. Você deve desabilitar essa tarefa ao usar o registro de dispositivos do Active Directory do Azure para que os dispositivos possam ser gerenciados no Azure.
 
 
@@ -204,15 +203,15 @@ As etapas a seguir mostram como implementar esse cenário.
 1. Abra a ferramenta AD FS MMC e vá até AD FS > Relações de Confiança > Confiança de Terceira Parte Confiável
 2. Localize o aplicativo ao qual a nova regra de acesso se aplica. Clique com o botão direito do mouse no aplicativo e selecione Editar Regras de Declaração...
 3. Selecione a guia **Regras de Autorização de Emissão** e selecione **Adicionar Regra...**
-4. Da lista suspensa do modelo **Regra de declaração**, selecione **Permitir ou negar usuários baseados em uma declaração de entrada**. Selecione **Avançar**.
-5. No campo Nome da Regra de Declaração:, digite: **Permitir o acesso de dispositivos registrados**
+4. Na lista suspensa do modelo **Regra de declaração**, selecione **Permitir ou negar usuários baseados em uma declaração de entrada**. Selecione **Avançar**.
+5. No campo nome da Regra de Declaração:, digite: **Permitir o acesso de dispositivos registrados**
 6. Na lista suspensa Tipo de declaração de Entrada:, selecione **É um Usuário Registrado**.
 7. No campo Valor da declaração de entrada:, digite: **true**
 8. Selecione o botão de opção **Permitir o acesso a usuários com esta declaração de entrada**.
 9. Selecione **Concluir** e **Aplicar**.
 10. Remova as regras que são mais permissivas do que a regra que você acabou de criar. Por exemplo, remova a regra padrão **Permitir o Acesso a todos os Usuários**.
 
-Seu aplicativo agora está configurado para permitir acesso somente quando o usuário for proveniente de um dispositivo registrado e adicionado ao local de trabalho. Para políticas de acesso mais avançadas, confira [Gerenciar Riscos com Controle de Acesso Multifator](https://technet.microsoft.com/pt-BR/library/dn280949.aspx).
+Seu aplicativo agora está configurado para permitir acesso somente quando o usuário for proveniente de um dispositivo registrado e adicionado ao local de trabalho. Para políticas de acesso mais avançadas, confira [Gerenciar Riscos com Controle de Acesso Multifator](https://technet.microsoft.com/library/dn280949.aspx).
 
 Em seguida, você configurará uma mensagem de erro personalizada para o seu aplicativo. A mensagem de erro avisará aos usuários que eles devem adicionar seu dispositivo ao local de trabalho antes de poder acessar o aplicativo. Você pode criar uma mensagem personalizada de acesso negado de aplicativo usando HTML personalizado e o Windows PowerShell.
 
@@ -238,4 +237,4 @@ Agora, quando os usuários acessam seu aplicativo e um dispositivo que não est�
 
 ![Captura de tela de um erro quando os usuários não tiverem registrado seu dispositivo com o AD do Azure](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

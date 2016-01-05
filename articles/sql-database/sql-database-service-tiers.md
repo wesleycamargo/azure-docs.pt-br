@@ -1,6 +1,7 @@
 <properties
-	pageTitle="Camadas de serviço do Banco de Dados SQL"
-	description="Compare os recursos de continuidade dos negócios e desempenho das camadas de serviço do Banco de Dados SQL do Azure para encontrar o equilíbrio certo entre custo e capacidade à medida que as escala horizontalmente sob demanda e sem tempo de inatividade."
+	pageTitle="Opções e desempenho do Banco de Dados SQL: camadas de serviço | Microsoft Azure"
+	description="Compare os recursos de continuidade dos negócios e o desempenho do Banco de Dados SQL das camadas de serviço para equilibrar o custo e o recurso à medida que você dimensiona."
+	keywords="opções de banco de dados, desempenho do banco de dados, eDTU"
 	services="sql-database"
 	documentationCenter=""
 	authors="rothja"
@@ -16,12 +17,12 @@
 	ms.date="11/10/2015"
 	ms.author="jroth"/>
 
-# Camadas de serviço do Banco de Dados SQL
+# Opções e desempenho de Banco de Dados SQL: compreender o que está disponível em cada camada de serviço
  
-## Visão geral
-O [Banco de Dados SQL do Azure](sql-database-technical-overview.md) fornece várias camadas de serviço para lidar com diferentes tipos de cargas de trabalho. Você tem a opção de [criar um banco de dados individual](sql-database-get-started.md) com características e preços definidos. Ou você pode gerenciar vários bancos de dados [criando um pool de banco de dados elástico](sql-database-elastic-pool-portal.md). Em ambos os casos, as camadas incluem **Básica**, **Standard** e **Premium**. Mas as características dessas camadas variam conforme você cria um banco de dados individual ou um pool de banco de dados elástico. Este artigo fornece uma visão geral das camadas de serviço em ambos os contextos.
 
-## Camadas de serviço
+O [Banco de Dados SQL do Azure](sql-database-technical-overview.md) fornece várias camadas de serviço para lidar com diferentes tipos de cargas de trabalho. Você pode [criar um banco de dados individual](sql-database-get-started.md) com características e preços definidos. Ou você pode gerenciar vários bancos de dados [criando um pool de banco de dados elástico](sql-database-elastic-pool-portal.md). Em ambos os casos, as camadas incluem **Básica**, **Standard** e **Premium**. Mas as opções de banco de dados dessas camadas variam conforme você cria um banco de dados individual ou um pool de bancos de dados elásticos. Este artigo fornece uma visão geral das camadas de serviço em ambos os contextos.
+
+## Opções de camadas de serviço e banco de dados
 Todas as camadas de serviço, Basic, Standard e Premium têm um SLA de tempo de atividade de 99,99% e oferecem desempenho previsível, opções de continuidade dos negócios flexíveis, recursos de segurança e cobrança por hora. A tabela a seguir fornece exemplos das camadas mais adequadas para cargas de trabalho de aplicativos diferentes.
 
 | Camada de serviço | Cargas de trabalho de destino |
@@ -32,8 +33,8 @@ Todas as camadas de serviço, Basic, Standard e Premium têm um SLA de tempo de 
 
 >[AZURE.NOTE]As edições Web e Business estão sendo desativadas. Descubra como [atualizar as edições Web e Business](sql-database-upgrade-new-service-tiers.md). Leia [Perguntas frequentes sobre a descontinuação](http://azure.microsoft.com/pricing/details/sql-database/web-business/) se planeja continuar usando as edições Web e Business.
 
-### Camadas de serviço para bancos de dados individuais
-Para bancos de dados individuais existem vários níveis de desempenho em cada camada de serviço, você tem a flexibilidade de escolher o nível que melhor atende às suas demandas de carga de trabalho. Se precisar expandir ou reduzir, você poderá alterar as camadas do banco de dados com facilidade no Portal do Azure, sem tempo de inatividade dos aplicativos. Consulte [Alterando camadas de serviços e níveis de desempenho do banco de dados](sql-database-scale-up.md) para obter detalhes.
+### Camadas de serviço e níveis de desempenho de banco de dados individual
+Para bancos de dados individuais existem vários níveis de desempenho em cada camada de serviço, você tem a flexibilidade de escolher o nível que melhor atende às suas demandas de carga de trabalho. Se precisar expandir ou reduzir, você poderá alterar as camadas do banco de dados com facilidade no Portal Clássico do Azure, sem tempo de inatividade dos aplicativos. Consulte [Alterando camadas de serviços e níveis de desempenho do banco de dados](sql-database-scale-up.md) para obter detalhes.
 
 As características de desempenho listadas aqui se aplicam a bancos de dados criados com o [Banco de Dados SQL V12](sql-database-v12-whats-new.md). Em situações em que o hardware subjacente no Azure hospeda vários bancos de dados SQL, o banco de dados ainda obterá um conjunto garantido de recursos e as características de desempenho esperadas do banco de dados individual não serão afetadas.
 
@@ -44,7 +45,7 @@ Para entender melhor as DTUs, consulte o [seção sobre DTUs](#understanding-dtu
 
 >[AZURE.NOTE]Para obter uma explicação detalhada de todas as outras linhas nesta tabela de camadas de serviço, consulte [Limites e recursos da camada de serviço](sql-database-performance-guidance.md#service-tier-capabilities-and-limits).
 
-### Camadas de serviço para pools de banco de dados elástico
+### Camadas de serviço e níveis de desempenho em eDTUs de pool de bancos de dados elásticos
 Além de criar e escalar um banco de dados individual, você também tem a opção de gerenciar vários bancos de dados dentro de um [pool de banco de dados elástico](sql-database-elastic-pool.md). Todos os bancos de dados em um pool de banco de dados elástico compartilham um conjunto comum de recursos. As características de desempenho são medidas pelas *Unidades de Transação de Banco de Dados Elástico* (eDTUs). Da mesma forma que ocorre com os bancos de dados individuais, os pools de banco de dados elástico são fornecidos em três camadas de desempenho: **Basic**, **Standard** e **Premium**. Para bancos de dados elásticos essas três camadas de serviço ainda definem os limites de desempenho geral e vários outros recursos.
 
 Pools de banco de dados elástico permitem que esses bancos de dados compartilhem e consumam os recursos DTU sem a necessidade de atribuir um nível de desempenho específicos para os bancos de dados no pool. Por exemplo, um banco de dados individual em um pool Standard pode usar de 0 eDTUs até o máximo de banco de eDTU de banco de dados (qualquer um dos 100 eDTUs definidos pela camada de serviço ou um número personalizado configurado por você). Isso permite que vários bancos de dados com diferentes cargas de trabalho usem os recursos de eDTU disponíveis para todo o pool de forma eficiente.
@@ -59,14 +60,14 @@ Cada banco de dados dentro de um pool também cumpre as características do banc
 
 [AZURE.INCLUDE [Descrição de DTU de Banco de Dados SQL](../../includes/sql-database-understanding-dtus.md)]
 
-## Monitoramento de desempenho
-O monitoramento do desempenho de um Banco de Dados SQL começa com o monitoramento da utilização de recursos em relação ao nível de desempenho escolhido para seu banco de dados. Esses dados relevantes são expostos das seguintes maneiras:
+## Monitorando o desempenho do banco de dados
+O monitoramento do desempenho de um banco de dados SQL começa com o monitoramento da utilização de recursos em relação ao nível de desempenho de banco de dados escolhido. Esses dados relevantes são expostos das seguintes maneiras:
 
-1.	No Portal de Gerenciamento do Microsoft Azure.
+1.	O Portal Clássico do Microsoft Azure.
 
 2.	Nas Exibições de Gerenciamento Dinâmico no banco de dados do usuário e no banco de dados mestre do servidor que contém o banco de dados do usuário.
 
-No [portal de Visualização do Azure](https://portal.azure.com/), é possível monitorar a utilização de um banco de dados individual selecionando-o e clicando no gráfico de **Monitoramento**. Isso abre uma janela **Métrica** que pode ser alterada clicando no botão **Editar gráfico**. Adicione as seguintes métricas:
+No [Portal do Azure](https://portal.azure.com/), é possível monitorar a utilização de um banco de dados individual selecionando-o e clicando no gráfico **Monitoramento**. Isso abre uma janela **Métrica** que pode ser alterada clicando no botão **Editar gráfico**. Adicione as seguintes métricas:
 
 - Porcentagem de CPU
 - Porcentagem de DTU
@@ -75,7 +76,7 @@ No [portal de Visualização do Azure](https://portal.azure.com/), é possível 
 
 Depois de adicionar essas métricas, você pode continuar a exibi-las no gráfico **Monitoramento** com mais detalhes na janela **Métrica**. Todas as quatro métricas mostram o percentual médio de utilização relativo à **DTU** do seu banco de dados.
 
-![monitoramento da camada de serviço](./media/sql-database-service-tiers/sqldb_service_tier_monitoring.png)
+![Monitoramento da camada de serviço do desempenho do banco de dados.](./media/sql-database-service-tiers/sqldb_service_tier_monitoring.png)
 
 Você também pode configurar alertas nas métricas de desempenho. Clique no botão **Adicionar alerta** na janela **Métrica**. Siga o Assistente para configurar o alerta. Você tem a opção de alerta se a métrica exceder um limite determinado ou se ficar abaixo de um limite determinado.
 
@@ -95,4 +96,4 @@ Se estiver interessado em gerenciar vários bancos de dados como um grupo, consi
 Agora que você conhece as camadas do Banco de Dados SQL, teste-as usando uma versão de [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/) e [aprenda a criar seu primeiro banco de dados SQL](sql-database-get-started.md)!
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

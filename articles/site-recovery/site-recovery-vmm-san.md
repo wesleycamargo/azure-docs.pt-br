@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configurar a proteção entre sites locais do VMM com SAN"
+	pageTitle="Configurar a proteção entre sites locais do VMM usando SAN com o Azure Site Recovery | Microsoft Azure"
 	description="O Azure Site Recovery coordena a replicação, o failover e a recuperação de máquinas virtuais Hyper-V entre os sites do VMM locais usando a replicação SAN."
 	services="site-recovery"
 	documentationCenter=""
@@ -16,7 +16,7 @@
 	ms.date="10/12/2015"
 	ms.author="raynew"/>
 
-# Configurar a proteção entre sites locais do VMM com SAN
+# Configurar a proteção entre sites locais do VMM usando SAN com o Azure Site Recovery
 
 O Azure Site Recovery contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) gerenciando replicação, failover e recuperação de máquinas virtuais em vários cenários de implantação. Leia sobre possíveis cenários de implantação na [Visão geral sobre o Azure Site Recovery](site-recovery-overview.md).
 
@@ -383,4 +383,4 @@ A partir de **Painel**, você pode baixar as últimas versões dos arquivos de i
 
 Para saber mais sobre a interação com trabalhos e o painel, confira [Operações e monitoramento](http://go.microsoft.com/fwlink/?LinkId=398534).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

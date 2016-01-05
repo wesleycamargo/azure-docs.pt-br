@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Filas do Azure e filas do Barramento de Serviço — comparações e contrastes"
+   pageTitle="Filas do Azure e filas do Barramento de Serviço – comparações e contrastes | Microsoft Azure"
    description="Analisa diferenças e semelhanças entre dois tipos de fila oferecidos pelo Azure."
    services="service-bus"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="09/11/2015"
+   ms.date="11/18/2015"
    ms.author="sethm" />
 
 # Filas do Azure e filas do Barramento de Serviço — comparações e contrastes
@@ -25,7 +25,7 @@ O Microsoft Azure oferece suporte a dois tipos de mecanismo de fila: **Filas do 
 
 As **Filas do Azure**, que fazem parte da infraestrutura do [armazenamento do Azure](http://azure.microsoft.com/services/storage/), apresentam uma interface Get/Put/Peek baseada em REST, fornecendo sistema de mensagens confiável e persistente dentro e entre serviços.
 
-**As filas do Barramento de Serviço** fazem parte de uma infraestrutura mais ampla de [mensagens do Azure](http://azure.microsoft.com/services/messaging/), que oferece suporte ao enfileiramento, bem como à publicação/assinatura, comunicação remota do serviço Web e padrões de integração. Para obter mais informações sobre filas, tópicos/assinaturas e retransmissões do Barramento de Serviço, consulte [Visão geral dos padrões de sistema de mensagens do Barramento de Serviço](https://msdn.microsoft.com/library/hh410103.aspx).
+**As filas do Barramento de Serviço** fazem parte de uma infraestrutura mais ampla de [mensagens do Azure](http://azure.microsoft.com/services/service-bus/), que oferece suporte ao enfileiramento, bem como à publicação/assinatura, comunicação remota do serviço Web e padrões de integração. Para obter mais informações sobre filas, tópicos/assinaturas e retransmissões do Barramento de Serviço, veja a [Visão geral de mensagens de Barramento de Serviço](service-bus-messaging-overview.md).
 
 Embora ambas as tecnologias de enfileiramento coexistam, as Filas do Azure foram introduzidas primeiro, como um mecanismo de armazenamento de fila dedicado criado com base nos serviços de armazenamento do Azure. As filas do Barramento de Serviço são criadas com base na infraestrutura mais ampla do “sistema de mensagens agenciado”, desenvolvida para integrar aplicativos ou componentes de aplicativo que podem incluir vários protocolos de comunicação, contratos de dados, domínios confiáveis e/ou ambientes de rede.
 
@@ -55,7 +55,7 @@ Como um arquiteto/desenvolvedor de soluções, **você deve considerar o uso das
 
 - Sua solução precisar ser capaz de oferecer suporte à detecção automática de duplicidades.
 
-- Você desejar que seu aplicativo processe mensagens como fluxos paralelos de longa execução (mensagens associadas a um fluxo usando a propriedade [SessionId](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx) na mensagem). Nesse modelo, cada nó no aplicativo de consumo compete por fluxos, em oposição às mensagens. Quando um fluxo é fornecido a um nó de consumo, o nó pode examinar o estado do fluxo do aplicativo usando transações.
+- Você desejar que seu aplicativo processe mensagens como fluxos paralelos de longa execução (mensagens associadas a um fluxo usando a propriedade [SessionId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx) na mensagem). Nesse modelo, cada nó no aplicativo de consumo compete por fluxos, em oposição às mensagens. Quando um fluxo é fornecido a um nó de consumo, o nó pode examinar o estado do fluxo do aplicativo usando transações.
 
 - Sua solução exigir comportamento transacional e atomicidade ao enviar ou receber várias mensagens de uma fila.
 
@@ -67,7 +67,7 @@ Como um arquiteto/desenvolvedor de soluções, **você deve considerar o uso das
 
 - O tamanho da fila não for exceder 80 GB.
 
-- Você desejar usar o agente do sistema de mensagens baseado em padrões AMQP 1.0. Para obter mais informações sobre AMQP, consulte [Visão geral do AMQP do Barramento de Serviço](https://msdn.microsoft.com/library/jj841072.aspx).
+- Você desejar usar o agente do sistema de mensagens baseado em padrões AMQP 1.0. Para obter mais informações sobre AMQP, consulte [Visão geral do AMQP do Barramento de Serviço](service-bus-amqp-overview.md).
 
 - Você puder prever uma migração final da comunicação ponto a ponto baseada em fila para um padrão de troca de mensagens que permita a integração perfeita de receptores (assinantes) adicionais, cada um dos quais recebe cópias independentes de algumas ou todas as mensagens enviadas à fila. O último se refere ao recurso de publicação/assinatura fornecido originalmente pelo Barramento de Serviço.
 
@@ -91,11 +91,11 @@ Esta seção compara alguns dos recursos básicos de enfileiramento fornecidos p
 |Garantia de entrega|**Pelo menos uma vez**|**Pelo menos uma vez**<br/><br/>**No máximo uma vez**|
 |Suporte a transações|**Não**|**Sim**<br/><br/>(pelo uso de transações locais)|
 |Comportamento de recebimento|**Sem bloqueio**<br/><br/>(concluído imediatamente se nenhuma mensagem nova for encontrada)|**Bloqueio com/sem tempo limite**<br/><br/>(oferece sondagem longa ou a ["técnica Comet"](http://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Sem bloqueio**<br/><br/>(apenas pelo uso da API gerenciada pelo .NET)|
-|API de estilo push|**Não**|**Sim**<br/><br/>API .NET [OnMessage](https://msdn.microsoft.com/library/jj908682.aspx) e [sessões OnMessage](https://msdn.microsoft.com/library/dn790528.aspx).|
+|API de estilo push|**Não**|**Sim**<br/><br/>[OnMessage](https://msdn.microsoft.com/library/azure/jj908682.aspx) e sessões **OnMessage** API .NET.|
 |Modo de recebimento|**Inspecionar e Conceder**|**Inspecionar e Bloquear**<br/><br/>**Receber & Excluir**|
 |Modo de acesso exclusivo|**Com base em concessão**|**Com base em bloqueio**|
-|Duração da concessão/do bloqueio|**30 segundos (padrão)**<br/><br/>**7 dias (máximo)** (Você pode renovar ou liberar uma concessão de mensagem usando a API [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx).)|**60 segundos (padrão)**<br/><br/>Você pode renovar um bloqueio de mensagem usando a API [RenewLock](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx).|
-|Precisão da concessão/do bloqueio|**Nível da mensagem**<br/><br/>(cada mensagem pode ter um valor de tempo limite diferente, que pode ser atualizado conforme a necessidade durante o processamento da mensagem, usando a API [UpdateMessage](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx))|**Nível da fila**<br/><br/>(cada fila tem uma precisão de bloqueio aplicada a todas as suas mensagens, mas você pode renovar o bloqueio usando a API [RenewLock](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx).)|
+|Duração da concessão/do bloqueio|**30 segundos (padrão)**<br/><br/>**7 dias (máximo)** (Você pode renovar ou liberar uma concessão de mensagem usando a API [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx).)|**60 segundos (padrão)**<br/><br/>Você pode renovar um bloqueio de mensagem usando a API [RenewLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx).|
+|Precisão da concessão/do bloqueio|**Nível da mensagem**<br/><br/>(cada mensagem pode ter um valor de tempo limite diferente, que pode ser atualizado conforme a necessidade durante o processamento da mensagem, usando a API [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx))|**Nível da fila**<br/><br/>(cada fila tem uma precisão de bloqueio aplicada a todas as suas mensagens, mas você pode renovar o bloqueio usando a API [RenewLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx).)|
 |Recebimento em lote|**Sim**<br/><br/>(especificando explicitamente a contagem de mensagens ao recuperar mensagens, até um máximo de 32 mensagens)|**Sim**<br/><br/>(habilitando implicitamente uma propriedade de pré-busca ou explicitamente pelo uso de transações)|
 |Envio em lote|**Não**|**Sim**<br/><br/>(usando transações ou envio em lote no lado do cliente)|
 
@@ -119,7 +119,7 @@ Esta seção compara alguns dos recursos básicos de enfileiramento fornecidos p
 
 - As Filas do Azure fornecem concessões com a capacidade de estender as concessões para mensagens. Isso permite que os trabalhos mantenham concessões curtas nas mensagens. Desse modo, se um trabalho travar, a mensagem poderá ser processada rapidamente de novo por outro trabalho. Além disso, um trabalho poderá estender a concessão em uma mensagem se precisar processá-la por mais tempo do que o tempo de concessão atual.
 
-- As Filas do Azure oferecem um tempo limite de visibilidade que você pode definir no enfileiramento de uma mensagem ou na remoção dela da fila. Além disso, é possível atualizar uma mensagem com diferentes valores no tempo de execução, bem como atualizar diferentes valores entre mensagens na mesma fila. Os tempos limite de bloqueio do Barramento de Serviço são definidos nos metadados da fila. No entanto, é possível renovar o bloqueio chamando o método [RenewLock](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx).
+- As Filas do Azure oferecem um tempo limite de visibilidade que você pode definir no enfileiramento de uma mensagem ou na remoção dela da fila. Além disso, é possível atualizar uma mensagem com diferentes valores no tempo de execução, bem como atualizar diferentes valores entre mensagens na mesma fila. Os tempos limite de bloqueio do Barramento de Serviço são definidos nos metadados da fila. No entanto, é possível renovar o bloqueio chamando o método [RenewLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx).
 
 - O tempo limite máximo para um bloqueio de operação de recebimento nas filas do Barramento de Serviço é de 24 dias. No entanto, os tempos limite baseados em REST têm um valor máximo de 55 segundos.
 
@@ -141,8 +141,8 @@ Esta seção compara recursos avançados fornecidos pelas Filas do Azure e filas
 |Suporte a mensagens suspeitas|**Sim**|**Sim**|
 |Atualização in-loco|**Sim**|**Sim**|
 |Log de transações do servidor|**Sim**|**Não**|
-|Métricas de armazenamento|**Sim**<br/><br/>**Métricas de Minuto**: fornecem métricas em tempo real para disponibilidade, TPS, contagens de chamada de API, contagens de erros e muito mais, tudo em tempo real (agregados por minuto e relatados em poucos minutos a partir do que acabou de acontecer em produção). Para obter mais informações, consulte [Sobre as Métricas de Analítica de Armazenamento](https://msdn.microsoft.com/library/hh343258.aspx).|**Sim**<br/><br/>(consultas em massa chamando [GetQueues](https://msdn.microsoft.com/library/hh293128.aspx))|
-|Gerenciamento de estado|**Não**|**Sim**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.entitystatus.aspx)|
+|Métricas de armazenamento|**Sim**<br/><br/>**Métricas de Minuto**: fornecem métricas em tempo real para disponibilidade, TPS, contagens de chamada de API, contagens de erros e muito mais, tudo em tempo real (agregados por minuto e relatados em poucos minutos a partir do que acabou de acontecer em produção). Para obter mais informações, consulte [Sobre as Métricas de Analítica de Armazenamento](https://msdn.microsoft.com/library/azure/hh343258.aspx).|**Sim**<br/><br/>(consultas em massa chamando [GetQueues](https://msdn.microsoft.com/library/azure/hh293128.aspx))|
+|Gerenciamento de estado|**Não**|**Sim**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx)|
 |Encaminhamento automático de mensagem|**Não**|**Sim**|
 |Função Limpar fila|**Sim**|**Não**|
 |Grupos de mensagens|**Não**|**Sim**<br/><br/>(pelo uso de sessões de sistema de mensagens)|
@@ -159,7 +159,7 @@ Esta seção compara recursos avançados fornecidos pelas Filas do Azure e filas
 
 - O encaminhamento automático da fila permite que milhares de filas encaminhem automaticamente suas mensagens para uma única fila, na qual o aplicativo de recebimento consome a mensagem. É possível usar esse mecanismo para fins de segurança, controlar o fluxo e isolar o armazenamento entre cada editor de mensagem.
 
-- As Filas do Azure oferecem suporte à atualização do conteúdo da mensagem. Você pode usar essa funcionalidade para informações de estado persistentes e atualizações incrementais de progresso na mensagem para que ela possa ser processada a partir do último ponto de verificação conhecido, em vez de começar do zero. Com filas do Barramento de Serviço, você pode habilitar o mesmo cenário usando as sessões de mensagens. As sessões permitem salvar e recuperar o estado de processamento do aplicativo (usando [SetState](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagesession.setstate.aspx) e [GetState](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagesession.getstate.aspx)).
+- As Filas do Azure oferecem suporte à atualização do conteúdo da mensagem. Você pode usar essa funcionalidade para informações de estado persistentes e atualizações incrementais de progresso na mensagem para que ela possa ser processada a partir do último ponto de verificação conhecido, em vez de começar do zero. Com filas do Barramento de Serviço, você pode habilitar o mesmo cenário usando as sessões de mensagens. As sessões permitem salvar e recuperar o estado de processamento do aplicativo (usando [SetState](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.setstate.aspx) e [GetState](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.getstate.aspx)).
 
 - As mensagens mortas, que têm suporte apenas nas filas do Barramento de Serviço, podem ser úteis para isolar mensagens que não podem ser processadas com êxito pelo aplicativo de recebimento ou quando as mensagens não podem atingir seu destino devido a uma propriedade de TTL expirada. O valor de TTL especifica quanto tempo uma mensagem permanece na fila. Com o Barramento de Serviço, a mensagem será movida para uma fila especial chamada $DeadLetterQueue quando o período TTL expirar.
 
@@ -167,9 +167,9 @@ Esta seção compara recursos avançados fornecidos pelas Filas do Azure e filas
 
 - As Filas do Azure permitem que você obtenha um log detalhado de todas as transações executadas na fila, bem como as métricas agregadas. Essas duas opções são úteis para depurar e entender como o aplicativo usa as Filas do Azure. Elas também são úteis para o ajuste de desempenho do aplicativo e redução dos custos do uso de filas.
 
-- O conceito de "sessões de mensagens" com suporte do Barramento de Serviço permite que as mensagens que pertencem a um determinado grupo lógico sejam associadas a um destinatário específico que, por sua vez, cria uma afinidade de sessão entre as mensagens e seus respectivos destinatários. Você pode habilitar essa funcionalidade avançada no Barramento de Serviço definindo a propriedade [SessionID](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx) em uma mensagem. Os receptores podem escutar em uma ID de sessão específica e receber mensagens que compartilham o identificador de sessão especificado.
+- O conceito de "sessões de mensagens" com suporte do Barramento de Serviço permite que as mensagens que pertencem a um determinado grupo lógico sejam associadas a um destinatário específico que, por sua vez, cria uma afinidade de sessão entre as mensagens e seus respectivos destinatários. Você pode habilitar essa funcionalidade avançada no Barramento de Serviço definindo a propriedade [SessionID](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx) em uma mensagem. Os receptores podem escutar em uma ID de sessão específica e receber mensagens que compartilham o identificador de sessão especificado.
 
-- A funcionalidade de detecção de duplicidade com suporte das filas do Barramento de Serviço remove automaticamente mensagens duplicadas enviadas a uma fila ou um tópico, com base no valor da propriedade [MessageID](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx).
+- A funcionalidade de detecção de duplicidade com suporte das filas do Barramento de Serviço remove automaticamente mensagens duplicadas enviadas a uma fila ou um tópico, com base no valor da propriedade [MessageID](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx).
 
 ## Capacidade e cotas
 
@@ -177,7 +177,7 @@ Esta seção compara as Filas do Azure e as filas do Barramento de Serviço da p
 
 |Critérios de comparação|Filas do Azure|Filas de barramento de serviço|
 |---|---|---|
-|Tamanho máximo da fila|**200 TB**<br/><br/>(limitado a uma capacidade de conta de armazenamento única)|**1 GB a 80 GB**<br/><br/>(definido na criação de uma fila e [habilitando particionamento](https://msdn.microsoft.com/library/dn520246.aspx) – consulte a seção "Informações adicionais")|
+|Tamanho máximo da fila|**200 TB**<br/><br/>(limitado a uma capacidade de conta de armazenamento única)|**1 GB a 80 GB**<br/><br/>(definido na criação de uma fila e [habilitando particionamento](service-bus-partitioning.md) – consulte a seção "Informações adicionais")|
 |Tamanho máximo da mensagem|**64 KB**<br/><br/>(48 KB ao usar codificação **Base64**)<br/><br/>O Azure oferece suporte a mensagens grandes combinando filas e blobs — nesse ponto, você pode enfileirar até 200 GB para um único item.|**256 KB**<br/><br/>(incluindo cabeçalho e corpo, tamanho máximo do cabeçalho: 64 KB)|
 |TTL máxima da mensagem|**7 dias**|**Ilimitada**|
 |Número máximo de filas|**Ilimitado**|**10.000**<br/><br/>(por namespace de serviço, pode ser aumentado)|
@@ -185,9 +185,9 @@ Esta seção compara as Filas do Azure e as filas do Barramento de Serviço da p
 
 ### Informações adicionais
 
-- O Barramento de Serviço impõe limites de tamanho de fila. O tamanho máximo da fila é especificado na criação da fila e pode ter um valor entre 1 e 80 GB. Se o valor do tamanho da fila definido na criação da fila for atingido, mensagens de entrada adicionais serão rejeitadas e uma exceção será recebida pelo código de chamada. Para obter mais informações sobre cotas no Barramento de Serviço, consulte [Cotas do Barramento de Serviço](https://msdn.microsoft.com/library/ee732538.aspx).
+- O Barramento de Serviço impõe limites de tamanho de fila. O tamanho máximo da fila é especificado na criação da fila e pode ter um valor entre 1 e 80 GB. Se o valor do tamanho da fila definido na criação da fila for atingido, mensagens de entrada adicionais serão rejeitadas e uma exceção será recebida pelo código de chamada. Para obter mais informações sobre cotas no Barramento de Serviço, consulte [Cotas do Barramento de Serviço](service-bus-quotas.md).
 
-- Você pode criar filas do Barramento de Serviço em tamanhos de 1, 2, 3, 4 ou 5 GB (o padrão é 1 GB). Com o particionamento habilitado (que é o padrão), o Barramento de Serviço cria 16 partições para cada GB especificado. Assim, se você criar uma fila que tenha 5 GB, com 16 partições, o tamanho máximo da fila será (5 * 16) = 80 GB. É possível ver o tamanho máximo da fila ou do tópico particionado observando sua entrada no portal do Azure.
+- Você pode criar filas do Barramento de Serviço em tamanhos de 1, 2, 3, 4 ou 5 GB (o padrão é 1 GB). Com o particionamento habilitado (que é o padrão), o Barramento de Serviço cria 16 partições para cada GB especificado. Assim, se você criar uma fila que tenha 5 GB, com 16 partições, o tamanho máximo da fila será (5 * 16) = 80 GB. É possível ver o tamanho máximo da fila ou do tópico particionado observando sua entrada no [portal clássico do Azure][].
 
 - Com as Filas do Azure, se o conteúdo da mensagem não for XML seguro, ele deverá ser codificado em **Base64**. Se você codificar a mensagem em **Base64**, a carga de usuário poderá ser de até 48 KB, em vez de 64 KB.
 
@@ -195,7 +195,7 @@ Esta seção compara as Filas do Azure e as filas do Barramento de Serviço da p
 
 - Quando os clientes se comunicam com as filas do Barramento de Serviço pelo protocolo TCP, o número máximo de conexões simultâneas para uma única fila do Barramento de Serviço é limitado a 100. Esse número é compartilhado entre remetentes e receptores. Se essa cota for atingida, as solicitações subsequentes de conexões adicionais serão rejeitadas e uma exceção será recebida pelo código de chamada. Esse limite não é imposto a clientes que se conectam às filas usando a API baseada em REST.
 
-- Se precisar de mais de 10.000 filas em um único namespace do Barramento de Serviço, você poderá entrar em contato com a equipe de suporte do Azure e solicitar um aumento. Para expandir para além de 10.000 filas com Barramento de Serviço, você também pode criar namespaces adicionais usando o portal do Azure.
+- Se precisar de mais de 10.000 filas em um único namespace do Barramento de Serviço, você poderá entrar em contato com a equipe de suporte do Azure e solicitar um aumento. Para dimensionar para além de 10.000 filas com Barramento de Serviço, você também pode criar namespaces adicionais usando o [portal clássico do Azure][].
 
 ## Gerenciamento e operações
 
@@ -204,7 +204,7 @@ Esta seção compara os recursos de gerenciamento fornecidos pelas Filas do Azur
 |Critérios de comparação|Filas do Azure|Filas de barramento de serviço|
 |---|---|---|
 |Protocolo de gerenciamento|**REST por HTTP/HTTPS**|**REST por HTTPS**|
-|Protocolo de tempo de execução|**REST por HTTP/HTTPS**|**REST sobre HTTPS**<br/><br/>**AMQP 1.0 padrão (TCP com TLS)**| |API .NET Gerenciada|**Sim**<br/><br/>(API de cliente de armazenamento gerenciado .NET)|**Sim**<br/><br/>(API do sistema de mensagens agenciado gerenciada pelo .NET)|
+|Protocolo de tempo de execução|**REST por HTTP/HTTPS**|**REST sobre HTTPS**<br/><br/>**AMQP 1.0 Padrão (TCP com TLS)**| |API .NET Gerenciada|**Sim**<br/><br/>(API de Cliente de Armazenamento Gerenciado .NET)|**Sim**<br/><br/>(API do sistema de mensagens agenciado gerenciada pelo .NET)|
 |C++ nativo|**Sim**|**Não**|
 |API Java|**Sim**|**Sim**|
 |API PHP|**Sim**|**Sim**|
@@ -222,7 +222,7 @@ Esta seção compara os recursos de gerenciamento fornecidos pelas Filas do Azur
 
 - As APIs do sistema de mensagens agenciado .NET do Barramento de Serviço aproveitam as conexões de TCP full duplex para melhor desempenho quando comparadas ao REST por HTTP, além de oferecerem suporte ao protocolo padrão AMQP 1.0.
 
-- Os nomes de fila do Azure podem ter de 3 a 63 caracteres, podem conter letras minúsculas, número e hifens. Para obter mais informações, consulte [Nomeando filas e metadados](https://msdn.microsoft.com/library/dd179349.aspx).
+- Os nomes de fila do Azure podem ter de 3 a 63 caracteres, podem conter letras minúsculas, número e hifens. Para obter mais informações, consulte [Nomeando filas e metadados](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 
 - Os nomes de fila do Barramento de Serviço podem ter até 260 caracteres e têm menos regras restritivas de nomenclatura. Os nomes de fila do Barramento de Serviço podem conter letras, números, pontos (.), hifens (-) e sublinhados (\_).
 
@@ -246,9 +246,9 @@ Esta seção compara as Filas do Azure e as filas do Barramento de Serviço de u
 
 - As Filas do Azure e as filas do Barramento de Serviço impõem comportamento de limitação rejeitando solicitações a uma fila que está sendo limitada. No entanto, nenhuma delas trata solicitações limitadas como faturáveis.
 
-- Os parâmetros de comparação em filas do Barramento de Serviço demonstraram que uma única fila pode atingir uma taxa de transferência de até 2.000 mensagens por segundo com um tamanho de aproximadamente 1 KB. Para atingir uma taxa de transferência mais alta, use várias filas. Para obter mais informações sobre otimização de desempenho com Barramento de Serviço, consulte [Práticas recomendadas para melhorias de desempenho usando o sistema de mensagens agenciado do Barramento de Serviço](https://msdn.microsoft.com/library/hh528527.aspx).
+- Os parâmetros de comparação em filas do Barramento de Serviço demonstraram que uma única fila pode atingir uma taxa de transferência de até 2.000 mensagens por segundo com um tamanho de aproximadamente 1 KB. Para atingir uma taxa de transferência mais alta, use várias filas. Para obter mais informações sobre otimização de desempenho com Barramento de Serviço, veja as [Práticas recomendadas para melhorias de desempenho usando o sistema de mensagens agenciado do Barramento de Serviço](service-bus-performance-improvements.md).
 
-- Quando a taxa de transferência máxima é atingida por uma fila do Barramento de Serviço, uma resposta [ServerBusyException](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.serverbusyexception.aspx) (ao usar a API do sistema de mensagens agenciado .NET) ou HTTP 503 (ao usar a API baseada em REST) será retornada ao cliente da fila, indicando que a fila está sendo limitada.
+- Quando a taxa de transferência máxima é atingida por uma fila do Barramento de Serviço, uma resposta [ServerBusyException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.serverbusyexception.aspx) (ao usar a API do sistema de mensagens agenciado .NET) ou HTTP 503 (ao usar a API baseada em REST) será retornada ao cliente da fila, indicando que a fila está sendo limitada.
 
 ## Autenticação e autorização
 
@@ -264,7 +264,7 @@ Esta seção aborda os recursos de autenticação e autorização com suporte na
 
 - Cada solicitação de ambas as tecnologias de enfileiramento deve ser autenticada. Não há suporte para filas públicas com acesso anônimo. Usando SAS, você pode tratar esse cenário publicando uma SAS somente gravação, SAS somente leitura ou até mesmo uma SAS de acesso completo.
 
-- O esquema de autenticação fornecido pelas Filas do Azure envolve o uso de uma chave simétrica, que é um HMAC (Message Authentication Code) baseado em hash, calculado com o algoritmo SHA-256 e codificado como uma cadeia de caracteres **Base64**. Para obter mais informações sobre o respectivo protocolo, consulte [Autenticando o acesso à sua conta de armazenamento](https://msdn.microsoft.com/library/hh225339.aspx). As filas do Barramento de Serviço oferecem suporte a um modelo semelhante usando chaves simétricas. Para obter mais informações, consulte [Autenticação de Assinatura de Acesso Compartilhado com Barramento de Serviço](https://msdn.microsoft.com/library/dn170477.aspx).
+- O esquema de autenticação fornecido pelas Filas do Azure envolve o uso de uma chave simétrica, que é um HMAC (Message Authentication Code) baseado em hash, calculado com o algoritmo SHA-256 e codificado como uma cadeia de caracteres **Base64**. Para obter mais informações sobre o respectivo protocolo, veja [Autenticação para os Serviços de Armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx). As filas do Barramento de Serviço oferecem suporte a um modelo semelhante usando chaves simétricas. Para obter mais informações, consulte [Autenticação de Assinatura de Acesso Compartilhado com Barramento de Serviço](service-bus-shared-access-signature-authentication.md).
 
 ## Custo
 
@@ -272,7 +272,7 @@ Esta seção compara as Filas do Azure e as filas do Barramento de Serviço de u
 
 |Critérios de comparação|Filas do Azure|Filas de barramento de serviço|
 |---|---|---|
-|Custo de transações da fila|**$0,0036**<br/><br/>(a cada 100.000 transações)|**Camada básica**: **US$ 0,05**<br/><br/>(por milhões de operações)|
+|Custo de transações da fila|**US$ 0,0036**<br/><br/>(a cada 100.000 transações)|**Camada básica**: **US$ 0,05**<br/><br/>(por milhões de operações)|
 |Operações faturáveis|**Todas**|**Apenas Enviar/Receber**<br/><br/>(sem cobrança para outras operações)|
 |Transações ociosas|**Faturáveis**<br/><br/>(a consulta de uma fila vazia é contada como transação faturável)|**Faturáveis**<br/><br/>(um recebimento em uma fila vazia é considerado uma mensagem faturável)|
 |Custo de armazenamento|**US$ 0,07**<br/><br/>(por GB/mês)|**US$ 0,00**|
@@ -288,7 +288,7 @@ Esta seção compara as Filas do Azure e as filas do Barramento de Serviço de u
 
 - Dado o suporte à sondagem longa, usar as filas do Barramento de Serviço pode ser econômico em situações em que a entrega de baixa latência é necessária.
 
->[AZURE.NOTE]Todos os custos estão sujeitos a alterações. Esta tabela reflete os preços atuais no momento da elaboração deste artigo e não inclui nenhuma oferta promocional que possa estar disponível no momento. Para obter informações atualizadas sobre os preços do Azure, consulte a página de [preços do Azure](http://azure.microsoft.com/pricing/). Para saber mais sobre o preço do Barramento de Serviço, consulte [Preço do Barra de Serviço](http://azure.microsoft.com/pricing/details/service-bus/).
+>[AZURE.NOTE]Todos os custos estão sujeitos a alterações. Esta tabela reflete os preços atuais no momento da elaboração deste artigo e não inclui nenhuma oferta promocional que possa estar disponível no momento. Para obter informações atualizadas sobre os preços do Azure, consulte a página de [preços do Azure](http://azure.microsoft.com/pricing/). Para obter mais informações sobre o preço do Barramento de Serviço, veja [Preço do Barramento de Serviço](http://azure.microsoft.com/pricing/details/service-bus/).
 
 ## Conclusão
 
@@ -301,14 +301,17 @@ Como as filas do Barramento de Serviço fornecem vários recursos avançados, co
 Os artigos a seguir fornecem mais orientação e informações sobre como usar as Filas do Azure ou as filas do Barramento de Serviço.
 
 - [Como usar as filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md)
-- [Como usar o serviço Armazenamento de Fila](../storage-dotnet-how-to-use-queues.md)
-- [Práticas recomendadas para melhorias de desempenho usando o sistema de mensagens agenciado do Barramento de Serviço](https://msdn.microsoft.com/library/hh528527.aspx)
+- [Como usar o serviço Armazenamento de Fila](../storage/storage-dotnet-how-to-use-queues.md)
+- [Melhores práticas para melhorias de desempenho usando o sistema de mensagens agenciado do Barramento de Serviço](service-bus-performance-improvements.md)
 - [Introdução a filas e tópicos no Barramento de Serviço do Azure](http://www.code-magazine.com/article.aspx?quickid=1112041)
 - [O Guia do Desenvolvedor do Barramento de Serviço](http://www.cloudcasts.net/devguide/)
 - [”Aprofundamento em tabelas e filas do Azure”](http://www.microsoftpdc.com/2009/SVC09)
 - [Arquitetura do Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 - [Usando o serviço de enfileiramento do Azure ](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 - [Noções básicas sobre a cobrança de armazenamento do Azure — largura de banda, transações e capacidade](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
+
+
+[portal clássico do Azure]: http://manage.windowsazure.com
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

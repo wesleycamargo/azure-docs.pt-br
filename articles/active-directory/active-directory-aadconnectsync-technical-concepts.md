@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Sincronização do Azure AD Connect: conceitos técnicos | Microsoft Azure"
-	description="Explica os conceitos técnicos do Azure AD Connect Sync."
+	description="Explica os conceitos técnicos da sincronização do Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
@@ -17,7 +17,7 @@
 	ms.author="markusvi;andkjell"/>
 
 
-# Azure AD Connect Sync: conceitos técnicos
+# Sincronização do Azure AD Connect: conceitos técnicos
 
 O Azure AD Connect Sync tem como base uma plataforma sólida de sincronização de metadiretório. As seções a seguir apresentam os conceitos de sincronização de metadiretório. Complementando MIIS, ILM e FIM, os Serviços de Sincronização do Active Directory do Azure fornecem a próxima plataforma para conexão a fontes de dados, realizando a sincronização de dados entre diferentes fontes e o provisionamento e desprovisionamento de identidades.
 
@@ -35,7 +35,7 @@ As seções a seguir fornecem mais detalhes sobre os seguintes aspectos do Servi
 
 Os módulos de código que são usados para comunicação com um diretório conectado são chamados de conectores (anteriormente conhecidos como agentes de gerenciamento [MAs]).
 
-Eles são instalados no computador que executa o Azure AD Connect Sync. Os conectores fornecem a capacidade de conversar sem agentes usando protocolos de sistema remoto, em vez de depender da implantação de agentes especializados. Isso significa que o risco e tempos de implantação reduzidos, especialmente ao lidar com sistemas e aplicativos críticos.
+Eles são instalados no computador que executa a sincronização do Azure AD Connect. Os conectores fornecem a capacidade de conversar sem agentes usando protocolos de sistema remoto, em vez de depender da implantação de agentes especializados. Isso significa que o risco e tempos de implantação reduzidos, especialmente ao lidar com sistemas e aplicativos críticos.
 
 Na figura acima, o conector é sinônimo de espaço conector, mas abrange toda a comunicação com o sistema externo.
 
@@ -77,7 +77,7 @@ Ao descobrir novas fontes de dados que podem ter objetos preexistentes que preci
 
 Quando uma fonte autoritativa projeta um novo objeto no metaverso, um novo objeto de espaço conector pode ser criado em outro conector, representando uma fonte de dados conectada downstream.
 
-Isso inerentemente estabelece um vínculo e o fluxo de atributo pode prosseguir bidirecionalmente.
+Inerentemente, isso estabelece um vínculo e o fluxo de atributo pode prosseguir bidirecionalmente.
 
 Sempre que uma regra determina que um novo objeto de espaço conector precisa ser criado, ele é chamado de provisionamento. No entanto, como essa operação só ocorre dentro do espaço conector, ele não se transfere para a fonte de dados conectada até que uma exportação seja executada.
 
@@ -89,4 +89,4 @@ Sempre que uma regra determina que um novo objeto de espaço conector precisa se
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

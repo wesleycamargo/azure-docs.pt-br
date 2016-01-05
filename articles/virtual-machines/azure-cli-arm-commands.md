@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Use a CLI do Azure com o Gerenciador de Recursos | Microsoft Azure"
 	description="Saiba como usar o CLI do Azure para Mac, Linux e Windows para gerenciar os recursos do Azure usando a CLI no modo Gerenciador de Recursos do Azure."
-	services="virtual-machines,mobile-services,cloud-services"
+	services="virtual-machines,virtual-network,mobile-services,cloud-services"
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="11/18/2015"
 	ms.author="danlep"/>
 
 # Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciador de Recursos do Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-command-line-tools.md)
 
-Este artigo descreve como usar a interface de linha de comando do Azure (CLI do Azure) no modo do Gerenciador de Recursos do Azure para criar, gerenciar e excluir serviços na linha de comando de computadores Mac, Linux e Windows. É possível realizar muitas das mesmas tarefas usando as várias bibliotecas dos SDKs do Azure, com o Azure PowerShell, e usando o Portal de visualização do Azure.
+Este artigo descreve como usar a interface de linha de comando do Azure (CLI do Azure) no modo do Gerenciador de Recursos do Azure para criar, gerenciar e excluir serviços na linha de comando de computadores Mac, Linux e Windows. É possível realizar muitas das mesmas tarefas usando as várias bibliotecas de SDKs do Azure, com o Azure PowerShell, e usando o portal do Azure.
 
 O Gerenciador de Recursos do Azure permite que você crie um grupo de recursos – máquinas virtuais, sites, bancos de dados e assim por diante – como uma única unidade implantável. Em seguida, você pode implantar, atualizar ou excluir todos os recursos para seu aplicativo em uma única operação coordenada. Você descrever os recursos de grupo em um modelo JSON para implantação e, em seguida, pode usar esse modelo para ambientes diferentes, como teste, preparação e produção.
 
@@ -45,16 +45,16 @@ Os requisitos de configuração para usar o modo Gerenciador de Recursos com a C
 
 - uma conta do Azure ([obtenha uma avaliação gratuita aqui](http://azure.microsoft.com/pricing/free-trial/))
 - [instalando a CLI do Azure](../xplat-cli-install.md)
-- [configurando a CLI do Azure](../xplat-cli-connect.md) para usar uma identidade do Active Directory do Azure ou uma entidade de serviço
+
 
 Depois que você tiver uma conta e tiver instalado a CLI do Azure, você deve:
 
-- alternar para o modo do Gerenciador de Recursos digitando `azure config mode arm`.
-- Faça logon na sua conta do Azure digitando `azure login` e usando a sua identidade de trabalho ou escolar nos prompts
+- [configurar a CLI do Azure](../xplat-cli-connect.md) para usar uma conta corporativa ou de estudante, ou uma identidade de conta da Microsoft 
+- alternar para o modo do Gerenciador de Recursos digitando `azure config mode arm`
 
 
-## azure account: Gerenciar suas informações de conta e configurações de publicação
-As informações da assinatura do Azure são utilizadas pela ferramenta para se conectar à sua conta. Essas informações podem ser obtidas no portal do Azure em um arquivo de configurações de publicação conforme descrito aqui. Você pode importar o arquivo de configurações de publicação como uma definição de configuração local persistente que a ferramenta irá usar para operações subsequentes. Você precisa importar as configurações de publicação apenas uma vez.
+## conta do Azure: gerenciar as informações da sua conta
+As informações da assinatura do Azure são utilizadas pela ferramenta para se conectar à sua conta.
 
 **Lista as assinaturas importadas**
 
@@ -1252,22 +1252,23 @@ Cria um recurso de ip público. Você criará o recurso ip público e o associar
 
 
 Opções de parâmetro:
-	-h, --help                                   informações de uso de saída
-	-v, -- verbose                               usa a saída detalhada
-	-- json                                      usa a saída json
-	-g, --resource-group <resource-group>        o nome do recurso de grupo
-	-n, --nome                                   <name> o nome do ip público
-	-l, --location <location>                    o local
-	-d, --domain-name-label <domain-name-label>  o rótulo de nome de domínio.
-	Isso configura o DNS para <domain-name-label>.<location>.cloudapp.azure.com 
-	-a, --allocation-method <allocation-method>  o método de alocação [Static][Dynamic]
-	-i, --idletimeout <idletimeout>              o tempo limite de ociosidade em minutos
-	-f, --reverse-fqdn <reverse-fqdn>            o fqdn inverso
-	-t, --tags <tags>                            a lista de marcas.
-	Podem ser vários. No formato "name = value".
-	O nome é obrigatório e o valor é opcional.
-	Por exemplo, -t tag1=value1;tag2
-	-s, --subscription <subscription>            o identificador de assinatura
+
+	-h, --help                                   output usage information
+	-v, --verbose                                use verbose output
+	--json                                       use json output
+	-g, --resource-group <resource-group>        the name of the resource group
+	-n, --name <name>                            the name of the public ip
+	-l, --location <location>                    the location
+	-d, --domain-name-label <domain-name-label>  the domain name label.
+	This set DNS to <domain-name-label>.<location>.cloudapp.azure.com
+	-a, --allocation-method <allocation-method>  the allocation method [Static][Dynamic]
+	-i, --idletimeout <idletimeout>              the idle timeout in minutes
+	-f, --reverse-fqdn <reverse-fqdn>            the reverse fqdn
+	-t, --tags <tags>                            the list of tags.
+	Can be multiple. In the format of "name=value".
+	Name is required and value is optional.
+	For example, -t tag1=value1;tag2
+	-s, --subscription <subscription>            the subscription identifier
 <br>
 
 	network public-ip set [options] <resource-group> <name>
@@ -1759,4 +1760,123 @@ Opções de parâmetro:
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!----HONumber=Nov15_HO3-->
+## azure hdinsight: comandos para gerenciar seus clusters HDInsight
+
+**Comandos para criar ou adicionar a um arquivo de configuração de cluster**
+
+	hdinsight config create [options] <configFilePath> <overwrite>
+	hdinsight config add-config-values [options] <configFilePath>
+	hdinsight config add-script-action [options] <configFilePath>
+
+Exemplo: crie um arquivo de configuração que contém uma ação de script para ser executada durante a criação de um cluster.
+
+	hdinsight config create "C:\myFiles\configFile.config"
+	hdinsight config add-script-action --configFilePath "C:\myFiles\configFile.config" --nodeType HeadNode --uri <scriptActionURI> --name myScriptAction --parameters "-param value"
+
+**Comando para criar um cluster em um grupo de recursos**
+
+	hdinsight cluster create [options] <clusterName>
+	 
+Exemplo: criar um Storm no cluster do Linux
+
+	azure hdinsight cluster create -g mahirg001 -l westus -y Linux --clusterType Storm --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 myNewCluster01
+	
+	info:    Executing command hdinsight cluster create
+	+ Submitting the request to create cluster...
+	info:    hdinsight cluster create command OK
+
+Exemplo: criar um cluster com uma ação de script
+
+	azure hdinsight cluster create -g mahirg001 -l westus -y Linux --clusterType Hadoop --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 –configurationPath "C:\myFiles\configFile.config" myNewCluster01
+	
+	info:    Executing command hdinsight cluster create
+	+ Submitting the request to create cluster...
+	info:    hdinsight cluster create command OK
+	
+Opções de parâmetro:
+
+	-h, --help                                                 output usage information
+	-v, --verbose                                              use verbose output
+	-vv                                                        more verbose with debug output
+	--json                                                     use json output
+	-g --resource-group <resource-group>                       The name of the resource group
+	-c, --clusterName <clusterName>                            HDInsight cluster name
+	-l, --location <location>                                  Data center location for the cluster
+	-y, --osType <osType>                                      HDInsight cluster operating system
+	'Windows' or 'Linux'
+	--version <version>                                        HDInsight cluster version
+	--clusterType <clusterType>                                HDInsight cluster type.
+	Hadoop | HBase | Spark | Storm
+	--defaultStorageAccountName <storageAccountName>           Storage account url to use for default HDInsight storage
+	--defaultStorageAccountKey <storageAccountKey>             Key to the storage account to use for default HDInsight storage
+	--defaultStorageContainer <storageContainer>               Container in the storage account to use for HDInsight default storage
+	--headNodeSize <headNodeSize>                              (Optional) Head node size for the cluster
+	--workerNodeCount <workerNodeCount>                        Number of worker nodes to use for the cluster
+	--workerNodeSize <workerNodeSize>                          (Optional) Worker node size for the cluster)
+	--zookeeperNodeSize <zookeeperNodeSize>                    (Optional) Zookeeper node size for the cluster
+	--userName <userName>                                      Cluster username
+	--password <password>                                      Cluster password
+	--sshUserName <sshUserName>                                SSH username (only for Linux clusters)
+	--sshPassword <sshPassword>                                SSH password (only for Linux clusters)
+	--sshPublicKey <sshPublicKey>                              SSH public key (only for Linux clusters)
+	--rdpUserName <rdpUserName>                                RDP username (only for Windows clusters)
+	--rdpPassword <rdpPassword>                                RDP password (only for Windows clusters)
+	--rdpAccessExpiry <rdpAccessExpiry>                        RDP access expiry.
+	For example 12/12/2015 (only for Windows clusters)
+	--virtualNetworkId <virtualNetworkId>                      (Optional) Virtual network ID for the cluster. 
+	Value is a GUID for Windows cluster and ARM resource ID for Linux cluster)
+	--subnetName <subnetName>                                  (Optional) Subnet for the cluster
+	--additionalStorageAccounts <additionalStorageAccounts>    (Optional) Additional storage accounts.
+	Can be multiple.
+	In the format of 'accountName#accountKey'.
+	For example, --additionalStorageAccounts "acc1#key1;acc2#key2"
+	--hiveMetastoreServerName <hiveMetastoreServerName>        (Optional) SQL Server name for the external metastore for Hive
+	--hiveMetastoreDatabaseName <hiveMetastoreDatabaseName>    (Optional) Database name for the external metastore for Hive
+	--hiveMetastoreUserName <hiveMetastoreUserName>            (Optional) Database username for the external metastore for Hive
+	--hiveMetastorePassword <hiveMetastorePassword>            (Optional) Database password for the external metastore for Hive
+	--oozieMetastoreServerName <oozieMetastoreServerName>      (Optional) SQL Server name for the external metastore for Oozie
+	--oozieMetastoreDatabaseName <oozieMetastoreDatabaseName>  (Optional) Database name for the external metastore for Oozie
+	--oozieMetastoreUserName <oozieMetastoreUserName>          (Optional) Database username for the external metastore for Oozie
+	--oozieMetastorePassword <oozieMetastorePassword>          (Optional) Database password for the external metastore for Oozie
+	--configurationPath <configurationPath>                    (Optional) HDInsight cluster configuration file path
+	-s, --subscription <id>                                    The subscription id
+	--tags <tags>                                              Tags to set to the cluster.
+	Can be multiple.
+	In the format of 'name=value'.
+	Name is required and value is optional.
+	For example, --tags tag1=value1;tag2
+
+
+**Comando para excluir um cluster**
+
+	hdinsight cluster delete [options] <clusterName>
+
+**Comando para mostrar detalhes do cluster**
+
+	hdinsight cluster show [options] <clusterName>
+
+**Comando para listar todos os clusters (em um grupo de recursos específico, se fornecido)**
+
+	hdinsight cluster list [options]
+
+**Comando para redimensionar um cluster**
+
+	hdinsight cluster resize [options] <clusterName> <targetInstanceCount>
+
+**Comando para habilitar o acesso HTTP a um cluster**
+
+	hdinsight cluster enable-http-access [options] <clusterName> <userName> <password>
+
+**Comando para desabilitar o acesso HTTP a um cluster**
+
+	hdinsight cluster disable-http-access [options] <clusterName>
+
+**Comando para habilitar o acesso RDP a um cluster**
+
+	hdinsight cluster enable-rdp-access [options] <clusterName> <rdpUserName> <rdpPassword> <rdpExpiryDate>
+
+**Comando para desabilitar o acesso HTTP a um cluster**
+
+	hdinsight cluster disable-rdp-access [options] <clusterName>
+
+<!---HONumber=AcomDC_1217_2015-->

@@ -34,7 +34,7 @@ O **TodoItemController** existente é atualizado para que o método **PostTodoIt
 
 0. Se você ainda não criou sua conta de armazenamento, consulte [Como criar uma conta de armazenamento].
 
-1. No Portal de Gerenciamento, clique em **Armazenamento**, clique na conta de armazenamento e clique em **Gerenciar Chaves**.
+1. No [portal clássico do Azure](https://manage.windowsazure.com/), clique em **Armazenamento**, na conta de armazenamento e em **Gerenciar Chaves**.
 
 2. Anote o **Nome da Conta de Armazenamento** e a **Chave de Acesso**.
  
@@ -132,4 +132,4 @@ Em seguida, você atualizará o aplicativo quickstart para adicionar funcionalid
 [Como criar uma conta de armazenamento]: ../articles/storage/storage-create-storage-account.md
 [Configurações do aplicativo]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

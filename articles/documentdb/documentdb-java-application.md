@@ -52,7 +52,7 @@ Para provisionar uma conta de banco de dados do Banco de Dados de Documentos no 
 1. Se você ainda não tiver uma conta de banco de dados, crie uma seguindo as instruções em [Criar uma conta de banco de dados](documentdb-create-account.md). Se você já tiver uma conta, vá para a etapa 2.
 2. Usando a lâmina **Chaves** mostrada na ilustração a seguir, copie o seu ponto de extremidade **URI** e **CHAVE PRIMÁRIA** para a sua área de transferência e as mantenha à mão, pois usaremos esses valores no aplicativo Web que criaremos em seguida.
 
-![Criar uma conta do Banco de Dados de Documentos — tutorial de banco de dados Captura de tela da visualização do Portal do Azure mostrando uma conta do Banco de Dados de Documentos com o hub ATIVO realçado, o botão Chaves realçado na folha da conta do Banco de Dados de Documentos e os valores de URI, de CHAVE PRIMÁRIA e de CHAVE SECUNDÁRIA realçados na folha Chaves][1]
+![Criar uma conta do Banco de Dados de Documentos — tutorial de banco de dados Captura de tela do Portal do Azure mostrando uma conta do Banco de Dados de Documentos com o hub ATIVO realçado, o botão Chaves realçado na folha da conta do Banco de Dados de Documentos e os valores de URI, de CHAVE PRIMÁRIA e de CHAVE SECUNDÁRIA realçados na folha Chaves][1]
 
 
 ##<a id="CreateJSP"></a>Etapa 2: Criar o aplicativo JSP Java
@@ -786,4 +786,4 @@ Todos os exemplos neste tutorial foram incluídos no projeto [tarefas](https://g
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

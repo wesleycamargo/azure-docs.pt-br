@@ -1,11 +1,12 @@
 <properties 
-   pageTitle="Criar um Banco de Dados SQL do Azure com C#" 
-   description="Este artigo mostra como criar um Banco de Dados SQL do Azure com C# usando a Biblioteca de Banco de Dados SQL do Azure para .NET." 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="stevestein" 
-   manager="jeffreyg" 
-   editor=""/>
+	pageTitle="Experimentar o Banco de Dados SQL: Usar C# para criar um banco de dados SQL | Microsoft Azure" 
+	description="Experimente o banco de dados SQL para o desenvolvimento de aplicativos SQL e C# e crie um banco de dados SQL do Azure com o C# usando a Biblioteca do Banco de Dados SQL para .NET." 
+	keywords="experimentar o sql, c# sql"   
+	services="sql-database" 
+	documentationCenter="" 
+	authors="stevestein" 
+	manager="jeffreyg" 
+	editor="cgronlun"/>
 
 <tags
    ms.service="sql-database"
@@ -13,23 +14,23 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="09/01/2015"
+   ms.date="12/01/2015"
    ms.author="sstein"/>
 
-# Criar um Banco de Dados SQL com C&#x23;
+# Experimentar o Banco de Dados SQL: Usar o C&#x23; para criar um banco de dados SQL com a Biblioteca do Banco de Dados SQL para .NET 
 
 **Banco de dados individual**
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-get-started.md)
+- [Azure portal](sql-database-get-started.md)
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
 
 
-Este artigo fornece comandos para criar um banco de dados SQL do Azure com C# usando a [Biblioteca do Banco de Dados SQL do Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
+Saiba como usar comandos do C# para criar um banco de dados SQL do Azure com a [Biblioteca do Banco de Dados SQL do Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
 
-Este artigo mostra como criar um banco de dados individual. Para criar bancos de dados elásticos, consulte [Criar um pool de bancos de dados elásticos](sql-database-elastic-pool-portal.md).
+Você experimentará o Banco de Dados SQL criando um banco de dados individual com SQL e C#. Para criar bancos de dados elásticos, consulte [Criar um pool de banco de dados elástico](sql-database-elastic-pool-portal.md).
 
 Trechos de código individuais foram divididos por motivos de clareza, e um exemplo de aplicativo de console reúne todos os comandos na seção no fim deste artigo.
 
@@ -49,7 +50,7 @@ Para concluir as etapas neste artigo, você precisa do seguinte:
 
 ## Instalando as bibliotecas necessárias
 
-Obtenha as bibliotecas de gerenciamento necessárias instalando os seguintes pacotes com o [console do gerenciador de pacotes](http://docs.nuget.org/Consume/Package-Manager-Console):
+Para configurar um banco de dados SQL com C#, obtenha as bibliotecas de gerenciamento necessárias instalando os seguintes pacotes com o [console do gerenciador de pacotes](http://docs.nuget.org/Consume/Package-Manager-Console):
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
     PM> Install-Package Microsoft.Azure.Management.Resources –Pre
@@ -62,39 +63,39 @@ Primeiro, você precisa permitir que o aplicativo cliente acesse a API REST ao c
 
 As [APIs REST do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx) usam o Active Directory do Azure para autenticação.
 
-Para autenticar seu aplicativo cliente com base no usuário atual, primeiro você precisa registrar seu aplicativo no domínio AAD associado à assinatura sob a qual os recursos do Azure foram criados. Se sua assinatura do Azure tiver sido criada com uma conta da Microsoft em vez de uma conta de trabalho ou escolar, você já terá um domínio AAD padrão. O registro do aplicativo pode ser feito no [Portal do Azure](https://manage.windowsazure.com/).
+Para autenticar seu aplicativo cliente com base no usuário atual, primeiro você precisa registrar seu aplicativo no domínio AAD associado à assinatura sob a qual os recursos do Azure foram criados. Se sua assinatura do Azure tiver sido criada com uma conta da Microsoft em vez de uma conta de trabalho ou escolar, você já terá um domínio AAD padrão. O registro do aplicativo pode ser feito no [Portal Clássico do Azure](https://manage.windowsazure.com/).
 
 Para criar um novo aplicativo e registrá-lo no active directory correto, faça o seguinte:
 
 1. Role o menu à esquerda para localizar o serviço do **Active Directory** e abri-lo.
 
-    ![AAD][1]
+    ![Experimentar o Banco de Dados SQL: Configurar o Active Directory do Azure (AAD).][1]
 
 2. Selecione o diretório para autenticar seu aplicativo e clique em seu **Nome**.
 
-    ![Diretórios][4]
+    ![Selecione o diretório para autenticar seu aplicativo C# SQL.][4]
 
 3. Na página do diretório, clique em **APLICATIVOS**.
 
-    ![Aplicativos][5]
+    ![A página do diretório com Aplicativos.][5]
 
-4. Clique em **ADICIONAR** para criar um novo aplicativo.
+4. Clique em **ADICIONAR** para criar um novo aplicativo C# para o banco de dados SQL.
 
-    ![Adicionar aplicativo][6]
+    ![Adicione o aplicativo C# SQL.][6]
 
 5. Selecione **Adicionar um aplicativo que minha organização esteja desenvolvendo**.
 
 5. Forneça um **NOME** para o aplicativo e selecione **APLICATIVO CLIENTE NATIVO**.
 
-    ![Adicionar aplicativo][7]
+    ![Forneça informações sobre seu aplicativo C# SQL.][7]
 
 6. Forneça um **URI DE REDIRECIONAMENTO**. Não precisa ser um ponto de extremidade real, apenas um URI válido.
 
-    ![Adicionar aplicativo][8]
+    ![Adicione uma URL de redirecionamento ao seu aplicativo C# SQL.][8]
 
 7. Conclua a criação do aplicativo, clique em **CONFIGURAR** e copie a **ID DO CLIENTE** (você precisará da ID do cliente em seu código).
 
-    ![obter id do cliente][9]
+    ![Obtenha a ID de cliente do aplicativo C# SQL.][9]
 
 
 1. Na parte inferior da página, clique em **Adicionar aplicativo**.
@@ -102,7 +103,7 @@ Para criar um novo aplicativo e registrá-lo no active directory correto, faça 
 1. Selecione **API de Gerenciamento de Serviços do Azure** e conclua o assistente.
 2. Com a API selecionada, você precisa conceder as permissões específicas necessárias para acessar essa API selecionando **Acessar o Gerenciamento de Serviços do Azure (visualização)**.
 
-    ![permissões][2]
+    ![Defina permissões.][2]
 
 2. Clique em **SALVAR**.
 
@@ -112,10 +113,10 @@ Para criar um novo aplicativo e registrá-lo no active directory correto, faça 
 
 O nome de domínio é necessário para seu código. Uma maneira fácil de identificar o nome de domínio adequado é:
 
-1. Vá para o [Portal de Visualização do Azure](https://portal.azure.com).
+1. Vá para o [Portal do Azure](https://portal.azure.com).
 2. Passe o mouse sobre o nome no canto superior direito e observe o Domínio que aparece na janela pop-up.
 
-    ![Identificar nome de domínio][3]
+    ![Identifique o nome de domínio.][3]
 
 
 
@@ -220,12 +221,12 @@ O exemplo a seguir cria uma regra que abre o acesso ao servidor de qualquer ende
 
 
 
-Para permitir que outros serviços do Azure acessem um servidor, adicione uma regra de firewall em defina StartIpAddress e EndIpAddress como 0.0.0.0. Observe que isso permitirá que o tráfego do Azure de *qualquer* assinatura do Azure acesse o servidor.
+Para permitir que outros serviços do Azure acessem um servidor, adicione uma regra de firewall em defina StartIpAddress e EndIpAddress como 0.0.0.0. Observe que isso permite que o tráfego do Azure de *qualquer* assinatura do Azure acesse o servidor.
 
 
-## Criar um banco de dados
+## Usar o C&#x23; para criar um banco de dados SQL Basic
 
-O comando a seguir criará um novo banco de dados Basic se não existir um banco de dados com o mesmo nome no servidor. Se existir um banco de dados com o mesmo nome, ele será atualizado.
+O comando C# a seguir criará um novo banco de dados SQL Basic se ainda não existir um banco de dados com o mesmo nome no servidor; se existir um banco de dados com o mesmo nome, ele será atualizado.
 
         // Create a database
 
@@ -250,7 +251,7 @@ O comando a seguir criará um novo banco de dados Basic se não existir um banco
 
 
 
-## Exemplo de aplicativo do console
+## Exemplo de aplicativo de console C&#x23;
 
 
     using Microsoft.Azure;
@@ -411,6 +412,7 @@ O comando a seguir criará um novo banco de dados Basic se não existir um banco
 
 
 ## Próximas etapas
+Agora que você já experimentou o Banco de Dados SQL e configurou um banco de dados com o C#, está pronto para os seguintes artigos:
 
 - [Conectar-se e consultar o Banco de Dados SQL com C#](sql-database-connect-query.md)
 - [Conectar-se ao SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
@@ -434,4 +436,4 @@ O comando a seguir criará um novo banco de dados Basic se não existir um banco
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

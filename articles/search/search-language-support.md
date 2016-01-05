@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Criar um índice para documentos em vários idiomas na Pesquisa do Azure | Microsoft Azure | Serviço de pesquisa de nuvem hospedado"
+   pageTitle="Crie um índice para documentos em vários idiomas na Pesquisa do Azure | Microsoft Azure | Serviço de pesquisa de nuvem hospedado"
    description="A Pesquisa do Azure dá suporte a 56 idiomas, aproveitando os analisadores de linguagem da Lucene e a tecnologia Processamento de Linguagem Natural da Microsoft."
    services="search"
    documentationCenter=""
@@ -16,7 +16,7 @@
    ms.date="10/19/2015"
    ms.author="jlembicz"/>
 
-# Criar um índice para documentos em vários idiomas na Pesquisa do Azure
+# Crie um índice para documentos em vários idiomas na Pesquisa do Azure
 > [AZURE.SELECTOR]
 - [Portal](search-language-support.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn879793.aspx)
@@ -24,11 +24,11 @@
 
 Ampliar o poder dos analisadores de linguagem é tão fácil quanto definir uma propriedade em um campo pesquisável na definição de índice. Agora você pode realizar esta etapa no portal.
 
-Veja abaixo as capturas de tela das folhas do portal do Azure para a Pesquisa do Azure que permitem que os usuários definam um esquema de índice. Nesta folha, os usuários podem criar todos os campos e definir a propriedade do analisador de cada um deles.
+Veja abaixo as capturas de tela das folhas do Portal clássico do Azure para a Pesquisa do Azure que permitem que os usuários definam um esquema de índice. Nesta folha, os usuários podem criar todos os campos e definir a propriedade do analisador de cada um deles.
 
 > [AZURE.NOTE]Você pode definir um analisador de linguagem apenas durante a definição de campo, como ao criar um novo índice do zero ou ao adicionar um novo campo a um índice existente. Lembre-se de especificar por completo todos os atributos, incluindo o analisador, ao criar o campo. Você não poderá editar os atributos ou alterar o tipo de analisador depois que o campo for definido.
 
-1. Entre no [portal do Azure](https://portal.azure.com) e abra a folha de serviço do serviço de pesquisa.
+1. Conecte-se no [Portal clássico do Azure](https://portal.azure.com) e abra a folha de serviço do serviço de pesquisa.
 2. Clique em **Adicionar um Índice** na parte superior do painel do serviço para iniciar um novo índice, ou abra um índice existente para definir um analisador nos novos campos que você está adicionando a um índice existente.
 3. A folha Campos é exibida, oferecendo opções para definir o esquema do índice, incluindo a guia Analisador, usada para escolher um analisador de linguagem.
 4. Em Campos, inicie uma definição de campo fornecendo um nome, escolhendo o tipo de dados e definindo atributos para marcar o campo como texto completo pesquisável, recuperável nos resultados da pesquisa, usável em estruturas de navegação facetada, classificável e assim por diante. 
@@ -74,4 +74,4 @@ Se você é um desenvolvedor do .NET, é importante lembrar que você pode confi
 [2]: ./media/search-language-support/SelectAnalyzer.png
 [3]: ./media/search-language-support/IndexDefinition.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

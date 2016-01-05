@@ -26,10 +26,10 @@
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-    Esse código envia uma notificação por push (com o texto do item inserido) depois de inserir um item de tarefa pendente. Se ocorrer um erro, o código adicionará uma entrada no log de erros que pode ser visualizada na guia **Logs** do serviço móvel no Portal de Gerenciamento.
+    Esse código envia uma notificação por push (com o texto do item inserido) depois de inserir um item de tarefa pendente. Se ocorrer um erro, o código adicionará uma entrada de log de erros que pode ser exibida na guia **Logs** do serviço móvel no [portal clássico do Azure](https://manage.windowsazure.com/).
 
 	>[AZURE.NOTE]Você pode usar notificações de modelo para enviar uma única notificação por push para os clientes em várias múltiplas. Para obter mais informações, consulte [Suporte a plataformas de múltiplos dispositivos por meio de um único serviço móvel](../articles/mobile-services-how-to-use-multiple-clients-single-service.md#push).
 
 2. Republique o projeto de serviço móvel no Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

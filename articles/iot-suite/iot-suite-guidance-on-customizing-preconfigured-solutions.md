@@ -45,7 +45,7 @@ O segundo trabalho opera nos valores de Dispositivo para limite criados na pági
 
 ## Adicionando suas próprias regras
 
-Além de alterar os trabalhos do Stream Analytics do Azure, você pode usar o portal de visualização do Azure para adicionar novos trabalhos ou adicionar novas consultas a trabalhos existentes.
+Além de alterar os trabalhos de Stream Analytics do Azure, você pode usar o portal do Azure para adicionar novos trabalhos ou adicionar novas consultas para trabalhos existentes.
 
 ## Personalizando dispositivos
 
@@ -69,4 +69,4 @@ Para obter mais informações sobre dispositivos IoT, consulte o [Site de desenv
 
 [SDK do Dispositivo IoT]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

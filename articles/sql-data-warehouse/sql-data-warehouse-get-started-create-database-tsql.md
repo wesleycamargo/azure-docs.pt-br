@@ -20,7 +20,7 @@
 # Criar um banco de dados do SQL Data Warehouse usando TSQL (Transact-SQL)
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-data-warehouse-get-started-provision.md)
+- [Azure Portal](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
@@ -32,7 +32,7 @@ Para concluir as etapas neste artigo, você precisa do seguinte:
 
 - Uma assinatura do Azure. Se você precisar de uma assinatura do Azure basta clicar em **AVALIAÇÃO GRATUITA** na parte superior desta página e, em seguida, voltar para concluir este artigo.
 - Visual Studio. Para obter uma cópia gratuita do Visual Studio, consulte a página [Downloads do Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
-- Um servidor SQL lógico V12. Será necessário um SQL Server V12 para criar um SQL Data Warehouse. Se você não tiver um servidor SQL lógico V12, o [tutorial do portal de visualização do Azure][] mostra como criar um.
+- Um servidor SQL lógico V12. Será necessário um SQL Server V12 para criar um SQL Data Warehouse. Se você não tiver um servidor SQL V12 lógico, o [tutorial do Portal do Azure][] mostrará como criar um.
 
 ## Criar um banco de dados com o Visual Studio
 
@@ -53,7 +53,7 @@ SERVICE\_OBJECTIVE indicará o número de DWUs com os quais sua instância será
 ## Próximas etapas
 Após o provisionamento do SQL Data Warehouse, você poderá [carregar dados de exemplo][] ou conferir como [desenvolver][], [carregar][] ou [migrar][].
 
-[tutorial do portal de visualização do Azure]: ./sql-data-warehouse-get-started-provision.md
+[tutorial do Portal do Azure]: ./sql-data-warehouse-get-started-provision.md
 [conexão e consulta]: ./sql-data-warehouse-get-started-connect.md
 [migrar]: ./sql-data-warehouse-overview-migrate.md
 [desenvolver]: ./sql-data-warehouse-overview-develop.md
@@ -61,4 +61,4 @@ Após o provisionamento do SQL Data Warehouse, você poderá [carregar dados de 
 [carregar dados de exemplo]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [página de preços]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -39,11 +39,11 @@ O Banco de Dados SQL fornece serviços de armazenamento, acesso e gerenciamento 
 
 ## Criar e configurar o Banco de Dados SQL
 
-Em seguida, crie e configure um servidor e banco de dados. No Portal de Gerenciamento do Azure, os fluxos de trabalho revisados permitem que você crie o banco de dados primeiro e, em seguida, acompanhe o provisionamento do servidor.
+Em seguida, crie e configure um servidor e banco de dados. No Portal Clássico do Azure, os fluxos de trabalho revisados permitem que você crie o banco de dados primeiro e, em seguida, acompanhe o provisionamento do servidor.
 
 **Criar uma instância de banco de dados e um servidor lógico:**
 
-1. Entre no [Portal de Gerenciamento do Azure](http://manage.windowsazure.com).
+1. Entre no [Portal Clássico do Azure](http://manage.windowsazure.com).
 
 2. Clique em **NOVO** na parte inferior da página.
 
@@ -77,7 +77,7 @@ Em seguida, crie e configure um servidor e banco de dados. No Portal de Gerencia
 
 12. Escolha uma região. A Região determina a localização geográfica do servidor. As Regiões não podem ser facilmente alternadas, portanto, escolha uma que faça sentido para este servidor. Escolha um local mais próximo de você. Ao manter seu aplicativo do Azure e o banco de dados na mesma região, você economiza em custo de largura de banda de entrada e em latência de dados.
 
-13. Certifique-se de manter a opção **Permitir que os Serviços do Azure acessem o servidor** selecionada para que você possa se conectar ao banco de dados usando o Portal de Gerenciamento do Banco de Dados SQL, os serviços de armazenamento e outros serviços no Azure.
+13. Certifique-se de manter a opção **Permitir que os Serviços do Azure acessem o servidor** selecionada para que você possa se conectar ao banco de dados usando o Portal Clássico do Banco de Dados SQL, os serviços de armazenamento e outros serviços no Azure.
 
 14. Clique na marca de seleção localizada na parte inferior da página quando tiver concluído.
 
@@ -211,4 +211,4 @@ Para obter mais informações, consulte [EntityClient Provider para o Entity Fra
 Agora que você aprendeu as noções básicas de conexão ao banco de dados SQL, consulte [Desenvolvimento: tópicos de instruções (banco de dados SQL)](http://msdn.microsoft.com/library/windowsazure/ee621787.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

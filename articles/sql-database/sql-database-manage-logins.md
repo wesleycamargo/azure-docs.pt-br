@@ -79,7 +79,7 @@ CREATE LOGIN login1 WITH password='<ProvidePassword>';
 
 #### Uso de novos logons
 
-Para se conectar ao Banco de dados SQL do Microsoft Azure usando os logons que você criou, primeiro será necessário conceder permissões no nível de banco de dados a cada logon usando o comando ``CREATE USER``. Para obter mais informações, confira [Concedendo permissões no nível de banco de dados a um logon](https://msdn.microsoft.com/library/ee336235.aspx#DatabasePerms).
+Para se conectar ao Banco de dados SQL do Microsoft Azure usando os logons que você criou, primeiro será necessário conceder permissões no nível de banco de dados a cada logon usando o comando ``CREATE USER``. Para obter mais informações, consulte a seção **Concedendo acesso de banco de dados para um logon** abaixo.
 
 Como algumas ferramentas implementam o protocolo TDS (TDS) de forma diferente, talvez seja necessário acrescentar o nome do servidor do Banco de Dados SQL do Azure ao logon na cadeia de conexão usando a notação ``<login>@<server>``. Nesses casos, separe o logon e o nome do servidor do Banco de Dados SQL do Azure com o símbolo ``@``. Por exemplo, se o nome de logon for **logon1** e o nome totalmente qualificado do seu servidor do Banco de Dados SQL do Azure for **nomedoservidor.database.windows.net**, o parâmetro de nome de usuário da cadeia de conexão deverá ser: ****login1@servername**. Essa restrição impõe limitações no texto que você pode escolher para o nome de logon. Para saber mais, confira [CREATE LOGIN (Transact-SQL)](https://msdn.microsoft.com/library/ms189751.aspx).
 
@@ -169,4 +169,4 @@ SELECT * FROM sys.databases;
 
 [Limitações e diretrizes de segurança do Banco de Dados SQL do Azure](sql-database-security-guidelines.md) [Conectando-se ao Banco de Dados SQL usando a autenticação do Active Directory do Azure](sql-database-aad-authentication.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

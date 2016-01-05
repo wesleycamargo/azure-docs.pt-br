@@ -32,7 +32,7 @@ As etapas a seguir são suficientes para ativar o relatório de logs necessário
 
 ##Incorporar o SDK do Engagement em seu projeto do iOS
 
-Adicione o SDK do Engagement ao seu projeto do iOS: no Xcode, clique com o botão direito do mouse no seu projeto e selecione **"Adicionar arquivos a..."** e escolha a pasta `EngagementSDK`.
+Baixe o SDK do iOS [daqui](http://aka.ms/qk2rnj). Adicione o SDK do Engagement ao seu projeto do iOS: no Xcode, clique com o botão direito do mouse no seu projeto e selecione **"Adicionar arquivos a..."** e escolha a pasta `EngagementSDK`.
 
 O Engagement exige estruturas adicionais para funcionar: no Explorador de projeto, abra o painel de projeto e selecione o destino correto. Em seguida, abra a guia **"Compilar fases"** e no menu **"Link binário com bibliotecas"**, adicione essas estruturas:
 
@@ -54,7 +54,7 @@ Você precisa modificar seu representante de Aplicativo:
 		[...]
 		#import "EngagementAgent.h"
 
--   Inicialize o Engagement dentro do método '**applicationDidFinishLaunching**:' ou '**application: didFinishLaunchingWithOptions:**':
+-   Inicialize o Engagement dentro do método '**applicationDidFinishLaunching:**' ou '**application: didFinishLaunchingWithOptions:**':
 
 		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 		{
@@ -207,4 +207,4 @@ O exemplo a seguir de `Settings.bundle` mostra como implementá-lo:
 [startMonitoringSignificantLocationChanges]: http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

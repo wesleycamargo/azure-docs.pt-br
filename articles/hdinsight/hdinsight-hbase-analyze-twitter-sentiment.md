@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/09/2015" 
+	ms.date="12/02/2015" 
 	ms.author="jgao"/>
 
 # Analisar sentimento no Twitter em tempo real com HBase no HDInsight.
@@ -220,9 +220,9 @@ Você precisa criar um aplicativo de console para obter tweets, calcular pontua�
         const string HBASETABLENAME = "tweets_by_words";
 
         // Sentiment dictionary file and the punctuation characters
-        const string DICTIONARYFILENAME = @"....\data\dictionary\dictionary.tsv";
+        const string DICTIONARYFILENAME = @"..\..\data\dictionary\dictionary.tsv";
         private static char[] _punctuationChars = new[] { 
-            ' ', '!', '"', '#', '$', '%', '&', ''', '(', ')', '*', '+', ',', '-', '.', '/',   //ascii 23--47
+            ' ', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/',   //ascii 23--47
             ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~' };   //ascii 58--64 + misc.
 
         // For writting to HBase
@@ -678,9 +678,9 @@ Nesta seção, você criará um aplicativo Web MVC ASP.NET para ler os dados de 
 	- **CLUSTERNAME**: o nome do cluster HBase, por exemplo, *https://<HBaseClusterName>.azurehdinsight.net/*. 
     - **HADOOPUSERNAME**: o nome de usuário do Hadoop do cluster HBase. O nome padrão é *admin*.
     - **HADOOPUSERPASSWORD**: a senha do usuário do Hadoop do cluster HBase.
-    - **HBASETABLENAME** = "tweets_by_words";
+    - **HBASETABLENAME** = "tweets\_by\_words";
 
-	O nome da tabela HBase é **"tweets_by_words";**. Os valores devem corresponder aos valores que você enviou no serviço de streaming, para que o aplicativo Web leia os dados por meio da tabela HBase.
+	O nome da tabela HBase é **"tweets\_by\_words";**. Os valores devem corresponder aos valores que você enviou no serviço de streaming, para que o aplicativo Web leia os dados por meio da tabela HBase.
 
 
 
@@ -1283,7 +1283,7 @@ Nesta seção, você criará um aplicativo Web MVC ASP.NET para ler os dados de 
 
 		using System.Web.Http;
 
-2. E as seguintes linhas dentro da função **Application_Start()**:
+2. E as seguintes linhas dentro da função **Application\_Start()**:
 
 		// Register API routes
 		GlobalConfiguration.Configure(WebApiConfig.Register);
@@ -1357,4 +1357,4 @@ Neste tutorial, você aprendeu como obter tweets, analisar o sentimento dos twee
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=AcomDC_1203_2015-->

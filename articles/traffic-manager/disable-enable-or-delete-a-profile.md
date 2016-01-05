@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="12/02/2015"
    ms.author="joaoma" />
 
 # Desabilitar, habilitar ou excluir um perfil
 
 
-Você pode desabilitar um perfil existente do Gerenciador de Tráfego para que ele não referencie solicitações de usuários para seus pontos de extremidade configurados. Quando você desabilita um perfil do Gerenciador de Tráfego, o próprio perfil e as informações contidas nele permanecem intactos e podem ser editados na interface do Gerenciador de Tráfego. Quando quiser reabilitar o perfil, você poderá fazer isso facilmente no Portal de Gerenciamento, e as referências serão retomadas. Quando você cria um perfil do Gerenciador de Tráfego no Portal de Gerenciamento, ele é automaticamente habilitado.
+Você pode desabilitar um perfil existente do Gerenciador de Tráfego para que ele não referencie solicitações de usuários para seus pontos de extremidade configurados. Quando você desabilita um perfil do Gerenciador de Tráfego, o próprio perfil e as informações contidas nele permanecem intactos e podem ser editados na interface do Gerenciador de Tráfego. Quando quiser habilitar o perfil novamente, você poderá fazer isso facilmente no Portal do Azure, e as referências serão retomadas. Quando você cria um perfil do Gerenciador de Tráfego no Portal do Azure, ele é automaticamente habilitado.
 
 ## Para desabilitar um perfil
 
@@ -46,8 +46,12 @@ Você pode desabilitar um perfil existente do Gerenciador de Tráfego para que e
 
 [Gerenciador de Tráfego - Desabilitar ou habilitar um ponto de extremidade](disable-or-enable-an-endpoint.md)
 
-[O que é o Gerenciador de Tráfego?](traffic-manager-overview.md)
+[Configurar o método de roteamento de failover](traffic-manager-configure-failover-routing-method.md)
 
- 
+[Configurar o método de roteamento de round robin](traffic-manager-configure-round-robin-routing-method.md)
 
-<!---HONumber=Oct15_HO3-->
+[Configurar o método de roteamento de desempenho](traffic-manager-configure-performance-routing-method.md)
+
+[Solucionando problemas de estado degradado do Gerenciador de Tráfego](traffic-manager-troubleshooting-degraded.md)
+
+<!---HONumber=AcomDC_1210_2015-->

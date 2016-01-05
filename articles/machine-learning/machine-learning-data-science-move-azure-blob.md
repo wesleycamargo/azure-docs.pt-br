@@ -30,13 +30,13 @@ O melhor método para você depende de seu cenário. O artigo [Cenários para AD
 
 > [AZURE.NOTE]Para obter uma introdução completa ao armazenamento de Blobs do Azure, consulte [Noções básicas do Serviço Blob do Azure](../storage-dotnet-how-to-use-blobs.md) e [Serviço de Blob do Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 
-> [AZURE.TIP]Como alternativa, você pode usar o [Azure Data Factory](https://azure.microsoft.com/pt-BR/services/data-factory/) para criar e agendar um pipeline que baixará os dados do armazenamento de Blob do Azure, os passará para um serviço Web publicado do Aprendizado de Máquina do Azure, receberá os resultados de análise preditiva e carregará os resultados no armazenamento. Para obter mais informações, consulte [Criar pipelines preditivos usando o Azure Data Factory e o Aprendizado de Máquina do Azure](../data-factory/data-factory-create-predictive-pipelines.md).
+> [AZURE.TIP]Como alternativa, você pode usar o [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) para criar e agendar um pipeline que baixará os dados do armazenamento de Blob do Azure, os passará para um serviço Web publicado do Aprendizado de Máquina do Azure, receberá os resultados de análise preditiva e carregará os resultados no armazenamento. Para obter mais informações, consulte [Criar pipelines preditivos usando o Azure Data Factory e o Aprendizado de Máquina do Azure](../data-factory/data-factory-create-predictive-pipelines.md).
 
 ## Pré-requisitos
 
 Este documento pressupõe que você tenha uma assinatura, uma conta de armazenamento do Azure e a chave de armazenamento correspondente dessa conta. Antes de carregar/baixar os dados, você deve conhecer o nome e a chave da sua conta do Armazenamento do Azure.
 
-- Para configurar uma assinatura do Azure, consulte [Avaliação gratuita de um mês](https://azure.microsoft.com/pt-BR/pricing/free-trial/).
+- Para configurar uma assinatura do Azure, confira [Avaliação gratuita de um mês](https://azure.microsoft.com/pricing/free-trial/).
 - Para obter instruções sobre como criar uma conta de armazenamento e para obter informações sobre conta e chave, consulte [Sobre contas do armazenamento do Azure](../storage-create-storage-account.md).
 
 
@@ -44,4 +44,4 @@ Este documento pressupõe que você tenha uma assinatura, uma conta de armazenam
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

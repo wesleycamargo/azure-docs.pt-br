@@ -16,11 +16,11 @@ Para começar a usar as assinaturas e os tópicos do Barramento de Serviço no A
 
 Para criar um namespace de serviço:
 
-1.  Faça logon no [Portal de Gerenciamento do Azure][].
+1.  Entre no [portal clássico do Azure][].
 
-2.  No painel de navegação esquerdo do Portal de Gerenciamento, clique em**Service Bus**.
+2.  No painel de navegação esquerdo do portal, clique em **Barramento de Serviço**.
 
-3.  No painel inferior do Portal de Gerenciamento, clique em **Criar**. ![][0]
+3.  No painel inferior do portal, clique em **Criar**. ![][0]
 
 4.  No diálogo **Adicionar um novo namespace**, digite um nome de namespace. O sistema imediatamente verifica para ver se o nome está disponível. ![][2]
 
@@ -35,7 +35,7 @@ Para criar um namespace de serviço:
 
 ## Obter as credenciais de gerenciamento padrão do namespace
 
-A fim de executar operações de gerenciamento, como a criação de um tópico ou assinatura no novo namespace, obtenha as credenciais de gerenciamento para o namespace. Você pode obter essas credenciais no portal de gerenciamento do Azure.
+A fim de executar operações de gerenciamento, como a criação de um tópico ou assinatura no novo namespace, obtenha as credenciais de gerenciamento para o namespace. Você pode obter essas credenciais no portal.
 
 ### Para obter as credenciais de gerenciamento do portal
 
@@ -48,7 +48,7 @@ A fim de executar operações de gerenciamento, como a criação de um tópico o
 4.  Anote a chave primária ou copie-a na área de transferência.
 
 
-  [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
+  [Azure portal]: http://manage.windowsazure.com
   [0]: ./media/service-bus-java-how-to-create-topic/sb-queues-13.png
   [2]: ./media/service-bus-java-how-to-create-topic/sb-queues-04.png
   [3]: ./media/service-bus-java-how-to-create-topic/sb-queues-09.png
@@ -57,4 +57,4 @@ A fim de executar operações de gerenciamento, como a criação de um tópico o
   [6]: ./media/service-bus-java-how-to-create-topic/getting-started-multi-tier-27.png
   [34]: ./media/service-bus-java-how-to-create-topic/VSProperties.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

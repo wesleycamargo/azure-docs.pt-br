@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/11/2015" 
+	ms.date="12/08/2015" 
 	ms.author="stefsch"/>
 
 # Como controlar o tráfego de entrada para um ambiente de serviço de aplicativo
 
 ## Visão geral ##
 Um Ambiente do Serviço de Aplicativo sempre é criado em uma sub-rede de uma [rede virtual][virtualnetwork] regional clássica "v1". Uma nova rede virtual regional clássica "v1" e nova sub-rede podem ser definidas no momento em que um Ambiente do Serviço de Aplicativo é criado. Como alternativa, um Ambiente do Serviço de Aplicativo pode ser criado em uma rede virtual regional clássica "v1" existente e sub-rede preexistente. Para obter mais detalhes sobre a criação de um ambiente de serviço de aplicativo, consulte [Como criar um ambiente de serviço de aplicativo][HowToCreateAnAppServiceEnvironment].
+
+**Observação:** um Ambiente do Serviço de Aplicativo não pode ser criado em uma rede virtual "v2" gerenciada por ARM.
 
 Um ambiente de serviço de aplicativo sempre deve ser criado em uma sub-rede, porque uma sub-rede fornece um limite de rede que pode ser usado para bloquear o tráfego de entrada por trás de dispositivos e serviços de upstream, de modo que o tráfego HTTP e HTTPS é aceito apenas de endereços IP upstream específicos.
 
@@ -45,16 +47,27 @@ A seguir está uma lista de portas usadas por um ambiente de serviço de aplicat
 - 4020: usado para depuração remota com o Visual Studio 2015. Essa porta pode ser bloqueada com segurança se o recurso não está sendo usado.
 
 ## Requisitos de DNS e conectividade de saída ##
-Observe que, para um Ambiente do Serviço de Aplicativo funcionar corretamente, ele também requer acesso de saída ao Armazenamento do Azure no mundo todo, bem como ao banco de dados SQL na mesma região do Azure. Se o acesso de saída à Internet for bloqueado na rede virtual, os Ambientes de Serviço de Aplicativo não poderão acessar esses pontos de extremidade do Azure.
+Para um Ambiente de Serviço de Aplicativo funcionar corretamente, ele exige acesso de saída ao Armazenamento do Azure no mundo, bem como ao Banco de Dados SQL na mesma região do Azure. Se o acesso de saída à Internet for bloqueado na rede virtual, os Ambientes de Serviço de Aplicativo não poderão acessar esses pontos de extremidade do Azure.
 
-O cliente também pode ter servidores DNS personalizados configurados na rede virtual. Os Ambientes de Serviço de Aplicativo precisam poder resolver pontos de extremidade do Azure em *.database.windows.net, *.file.core.windows.net e *.blob.core.windows.net.
+Ambientes de serviço de aplicativo também exigem uma infraestrutura DNS válida configurada para a rede virtual. Se por algum motivo, a configuração do DNS for alterada após ter sido criado um Ambiente do Serviço de Aplicativo, os desenvolvedores podem forçar um Ambiente do Serviço de Aplicativo para captar a nova configuração de DNS. Disparar uma reinicialização do ambiente sem interrupção usando o ícone “Reiniciar” localizado na parte superior da folha de gerenciamento do Ambiente do Serviço de Aplicativo no [novo portal de gerenciamento][NewPortal] fará com que o ambiente capture a nova configuração de DNS.
+
+A lista a seguir detalha a conectividade e os requisitos de DNS para um Ambiente do Serviço de Aplicativo:
+
+-  Conectividade de rede de saída para pontos de extremidade do Armazenamento do Azure em todo o mundo. Isso inclui os pontos de extremidade localizados na mesma região que o Ambiente do Serviço de Aplicativo, bem como pontos de extremidade de armazenamento localizados em **outras** regiões do Azure. Os pontos de extremidade do Armazenamento do Azure são resolvidos nos seguintes domínios DNS: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* e *file.core.windows.net*.  
+-  Conectividade de rede de saída para pontos de extremidade de Banco de Dados SQL localizados na mesma região que o Ambiente de Serviço de Aplicativo. Resolver pontos de extremidade do Banco de Dados SQL nos seguintes domínios: *database.windows.net*.
+-  Conectividade de rede de saída para os pontos de extremidade do plano de gerenciamento do Azure (pontos de extremidade ASM e ARM). Inclui conectividade de saída para *management.core.windows.net* e *management.azure.com*. 
+-  Conectividade de rede de saída para *ocsp.msocsp.com*. Necessária para dar suporte à funcionalidade SSL.
+-  A configuração DNS para a rede virtual deve ser capaz de resolver todos os pontos de extremidade e domínios mencionados nos pontos anteriores. Se esses pontos de extremidade não puderem ser resolvidos, tentativas de criação do Ambiente de Serviço de Aplicativo irão falhar, e Ambientes de Serviços de Aplicativo existentes serão marcados como não íntegros.
+-  Se houver um servidor DNS personalizado na outra extremidade de um gateway de VPN, o servidor DNS deverá estar acessível a partir da sub-rede contendo o Ambiente de Serviço de Aplicativo. 
+-  O caminho da rede de saída não pode passar por proxies corporativos internos, nem pode ser encapsulado à força em locais. Isso altera o endereço NAT eficiente de tráfego de rede de saída do Ambiente de Serviço de Aplicativo. Alterar o endereço NAT do tráfego de rede de saída de um Ambiente do Serviço de Aplicativo causará falhas de conectividade em muitos dos pontos de extremidade listados acima. Isso resulta em tentativas de criação de Ambiente de Serviço de Aplicativo, e faz com que Ambientes de Serviços de Aplicativo anteriormente íntegros sejam marcados como não íntegros.  
+-  O acesso de rede de entrada a portas obrigatórias para os Ambientes do Serviço de Aplicativo deve ser permitido, como descrito neste [artigo](app-service-app-service-environment-control-inbound-traffic.md).
 
 Também é recomendável que todos os servidores DNS personalizados na rede virtual sejam configurados com antecedência antes da criação de um ambiente do Serviço de Aplicativo. Se a configuração DNS de uma rede virtual for alterada enquanto um Ambiente de Serviço de Aplicativo estiver sendo criado, isso resultará em falha do processo de criação do Ambiente de Serviço de Aplicativo. Do mesmo modo, se um servidor DNS personalizado existir na outra extremidade de um gateway de VPN e estiver inacessível ou indisponível, o processo de criação do Ambiente do Serviço de Aplicativo também falhará.
 
 ## Criando um grupo de segurança de rede ##
 Para obter detalhes completos sobre como funcionam os grupos de segurança de rede, consulte as seguintes [informações][NetworkSecurityGroups]. Os detalhes abaixo tocam em pontos de destaque dos grupos de segurança de rede, com foco em como configurar e aplicar um grupo de segurança de rede a uma sub-rede que contém um ambiente de serviço de aplicativo.
 
-**Observação**: os grupos de segurança de rede pode ser configurados somente usando o cmdlets do Powershell descritos abaixo. Os grupos de segurança de rede não podem ser configurados graficamente usando o novo portal (portal.azure.com) porque o novo portal permite apenas configuração gráfica de NSGs associados às redes virtuais "v2". No entanto, os Ambientes de Serviços de Aplicativo atualmente funcionam apenas com redes virtuais clássicas "v1". Consequentemente, apenas os cmdlets do Powershell podem ser usados para configurar grupos de segurança de rede associados às redes virtuais "v1".
+**Observação**: os grupos de segurança de rede podem ser configurados somente usando o cmdlets do Powershell descritos abaixo. Os grupos de segurança de rede não podem ser configurados graficamente usando o [Portal do Azure](portal.azure.com) porque esse portal permite apenas a configuração gráfica de NSGs associados às redes virtuais "v2". No entanto, os Ambientes de Serviços de Aplicativo atualmente funcionam apenas com redes virtuais clássicas "v1". Consequentemente, apenas os cmdlets do Powershell podem ser usados para configurar grupos de segurança de rede associados às redes virtuais "v1".
 
 Grupos de segurança de rede são criados pela primeira vez como uma entidade autônoma associada a uma assinatura. Como os grupos de segurança de rede são criados em uma região do Azure, certifique-se de que o grupo de segurança de rede é criado na mesma região que o ambiente de serviço de aplicativo.
 
@@ -131,7 +144,8 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [IntroToAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [SecurelyConnecttoBackend]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-securely-connecting-to-backend-resources/
+[NewPortal]: https://portal.azure.com
 
 <!-- IMAGES -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -25,9 +25,9 @@
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
 - [Python](web-sites-python-ptvs-django-mysql.md)
 
-Este tutorial mostra como criar um [Aplicativo Web no Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) usando o [portal de visualização do Azure](https://portal.azure.com/). O portal de visualização do Azure é uma interface da Web que você pode usar para gerenciar recursos do Azure.
+Este tutorial mostra como criar um [Aplicativo Web Java no Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) usando o [Portal do Azure](https://portal.azure.com/). O Portal do Azure é uma interface da Web que você pode usar para gerenciar recursos do Azure.
 
-> [AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [ativar os benefícios de assinante MSDN][] ou [inscrever-se para uma avaliação gratuita][].
+> [AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [ativar os benefícios de assinante do Visual Studio][] ou [inscrever-se em uma avaliação gratuita][].
 >
 > Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo][]. Lá, você poderá criar imediatamente um aplicativo Web de curta duração inicial no Serviço de Aplicativo – sem exigência de cartão de crédito e sem compromissos.
 
@@ -41,7 +41,7 @@ Há várias maneiras de configurar um aplicativo Java em um aplicativo Web do Se
  
 1. Crie um aplicativo e defina as**Configurações do aplicativo**.
 
-	O Serviço de aplicativo oferece várias versões do Tomcat e do Jetty, com a configuração padrão. Se o aplicativo que será hospedado funcionará com uma das versões internas, este método de configuração de um contêiner da Web será o mais fácil, mas não terá os recursos de configuração de outros métodos. Para este método, crie um aplicativo no portal e acesse a folha **Configurações do aplicativo** para escolher a versão do Java com o contêiner Web Java desejado. Quando você usar esse método, o aplicativo será executado no disco rígido local usado pelo trabalhador para hospedar o aplicativo, que não ocupa o espaço em disco do locatário. Quando você usar esse modelo, não terá acesso para editar arquivos nesta parte do sistema de arquivos, o que significa que você não poderá fazer coisas como configurar o arquivo *server.xml* ou colocar os arquivos de biblioteca na pasta */lib*. Para saber mais, consulte a seção [Criar e configurar um aplicativo Web Java](#appsettings) mais adiante neste tutorial.
+	O Serviço de aplicativo oferece várias versões do Tomcat e do Jetty, com a configuração padrão. Se o aplicativo que será hospedado funcionará com uma das versões internas, este método de configuração de um contêiner da Web será o mais fácil, mas não terá os recursos de configuração de outros métodos. Para este método, crie um aplicativo no Portal do Azure e acesse a folha **Configurações do aplicativo** do aplicativo para escolher a versão do Java com o contêiner Web Java desejado. Quando você usar esse método, o aplicativo será executado no disco rígido local usado pelo trabalhador para hospedar o aplicativo, que não ocupa o espaço em disco do locatário. Quando você usar esse modelo, não terá acesso para editar arquivos nesta parte do sistema de arquivos, o que significa que você não poderá fazer coisas como configurar o arquivo *server.xml* ou colocar os arquivos de biblioteca na pasta */lib*. Para saber mais, consulte a seção [Criar e configurar um aplicativo Web Java](#appsettings) mais adiante neste tutorial.
   
 3. Criar um aplicativo e copiar e editar manualmente os arquivos de configuração
 
@@ -52,13 +52,13 @@ Há várias maneiras de configurar um aplicativo Java em um aplicativo Web do Se
 	* Você deseja configurar o contêiner da Web do zero por conta própria. 
 	* Você deseja usar uma versão do Java que não tem suporte no Serviço de Aplicativo e deseja carregá-la por conta própria.
 
-	Para casos como esse, crie um aplicativo usando o portal e forneça manualmente os arquivos de tempo de execução apropriados. Nesse caso, os arquivos serão contados em relação às suas cotas de espaço de armazenamento para seu plano do Serviço de Aplicativo. Para saber mais, consulte [Carregar um aplicativo Web Java personalizado no Azure](https://acom-sandbox.azurewebsites.net/pt-BR/documentation/articles/web-sites-java-custom-upload/).
+	Para casos como esse, crie um aplicativo usando o Portal do Azure e forneça manualmente os arquivos de tempo de execução apropriados. Nesse caso, os arquivos serão contados em relação às suas cotas de espaço de armazenamento para seu plano do Serviço de Aplicativo. Para saber mais, consulte [Carregar um aplicativo Web Java personalizado no Azure](https://acom-sandbox.azurewebsites.net/pt-BR/documentation/articles/web-sites-java-custom-upload/).
 
 ## <a name="marketplace"></a> Usar um modelo Java do Azure Marketplace
 
 Esta seção mostra como usar o Azure Marketplace para criar um aplicativo Web Java. O mesmo fluxo geral também pode ser usado para criar um aplicativo de API ou um aplicativo móvel baseado em Java.
 
-1. Entre no [portal de visualização do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 
 2. Clique em **Novo > Marketplace**.
 
@@ -84,7 +84,7 @@ Esta seção mostra como usar o Azure Marketplace para criar um aplicativo Web J
 
 8. Selecione um **Grupo de Recursos** ou crie um novo.
 
-	Para saber mais sobre grupos de recursos, consulte [Usando o Portal de Visualização do Azure para gerenciar os recursos do Azure](../resource-group-portal.md).
+	Para saber mais sobre grupos de recursos, confira [Usando o Portal do Azure para gerenciar os recursos do Azure](../resource-group-portal.md).
 
 9. Selecione um **Plano/Local do Serviço de Aplicativo** ou crie um novo.
 
@@ -116,7 +116,7 @@ Agora que você criou o aplicativo Web com um contêiner de aplicativos, confira
 
 Esta seção mostra como criar um aplicativo Web e como configurá-lo para Java usando a folha **Configurações do aplicativo** do portal.
 
-1. Entre no [portal de visualização do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 
 2. Clique em **Novo > Web + Móvel > Aplicativo Web**.
 
@@ -128,7 +128,7 @@ Esta seção mostra como criar um aplicativo Web e como configurá-lo para Java 
 
 5. Selecione um **Grupo de Recursos** ou crie um novo.
 
-	Para saber mais sobre grupos de recursos, consulte [Usando o Portal de Visualização do Azure para gerenciar os recursos do Azure](../resource-group-portal.md).
+	Para saber mais sobre grupos de recursos, confira [Usando o Portal do Azure para gerenciar os recursos do Azure](../resource-group-portal.md).
 
 6. Selecione um **Plano/Local do Serviço de Aplicativo** ou crie um novo.
 
@@ -171,9 +171,9 @@ Neste ponto, você tem um servidor de aplicativos Java em execução em seu apli
 Para saber mais sobre o desenvolvimento de aplicativos Java no Azure, consulte o [Centro de Desenvolvedores do Java](/develop/java/).
 
 <!-- External Links -->
-[ativar os benefícios de assinante MSDN]: http://go.microsoft.com/fwlink/?LinkId=623901
-[inscrever-se para uma avaliação gratuita]: http://go.microsoft.com/fwlink/?LinkId=623901
+[ativar os benefícios de assinante do Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
+[inscrever-se em uma avaliação gratuita]: http://go.microsoft.com/fwlink/?LinkId=623901
 
 [Experimentar o Serviço de Aplicativo]: http://go.microsoft.com/fwlink/?LinkId=523751
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -22,7 +22,7 @@
 
 O Azure oferece diagnóstico integrado para ajudar na depuração de um [aplicativo Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714). Neste artigo, você saberá como habilitar o registro em log de diagnóstico e adicionar instrumentação ao seu aplicativo, bem como acessar as informações registradas pelo Azure.
 
-Este artigo usa o [portal de visualização do Azure](http://go.microsoft.com/fwlink/?LinkId=529715), o PowerShell do Azure e a interface de linha de comando do Azure (Azure CLI) para trabalhar com logs de diagnóstico. Para saber mais sobre como trabalhar com logs de diagnóstico usando o Visual Studio, confira [Solucionando problemas do Azure no Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+Este artigo usa o [Portal do Azure](https://portal.azure.com), o Azure PowerShell e a interface de linha de comando do Azure (CLI do Azure) para trabalhar com logs de diagnóstico. Para saber mais sobre como trabalhar com logs de diagnóstico usando o Visual Studio, confira [Solucionando problemas do Azure no Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -50,7 +50,7 @@ Os aplicativos Web do Serviço de Aplicativo também registram informações de 
 
 ## <a name="enablediag"></a>Como habilitar o diagnóstico
 
-Para habilitar o diagnóstico no [portal de visualização do Azure](https://portal.azure.com), vá até a folha de seu aplicativo Web e clique em **Configurações > Logs de diagnóstico**.
+Para habilitar o diagnóstico no [Portal do Azure](https://portal.azure.com), vá até a folha de seu aplicativo Web e clique em **Configurações > Logs de diagnóstico**.
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![Parte de logs](./media/web-sites-enable-diagnostic-log/logspart.png)
@@ -59,9 +59,9 @@ Ao habilitar o **diagnóstico de aplicativos**, você também escolhe o **Nível
 
 > [AZURE.NOTE]Diferentemente de alterar o arquivo web.config, habilitar o diagnóstico de aplicativos ou alterar os níveis de log do diagnóstico não recicla o domínio do aplicativo em que este é executado.
 
-Na guia **Configurar** do aplicativo Web do [portal do Azure ](https://manage.windowsazure.com), você pode selecionar **armazenamento** ou **sistema de arquivos** para **log de servidor Web**. Selecionar **armazenamento** permite que você selecione uma conta de armazenamento e, em seguida, um contêiner de blob onde os logs estarão gravados. Todos os outros logs para **diagnóstico de site** serão gravados apenas no sistema de arquivos.
+Na guia **Configurar** do aplicativo Web do [portal clássico ](https://manage.windowsazure.com), você pode selecionar **armazenamento** ou **sistema de arquivos** para **log de servidor Web**. Selecionar **armazenamento** permite que você selecione uma conta de armazenamento e, em seguida, um contêiner de blob onde os logs estarão gravados. Todos os outros logs para **diagnóstico de site** serão gravados apenas no sistema de arquivos.
 
-A guia **Configurar** do aplicativo Web do [portal do Azure](https://manage.windowsazure.com) também apresenta configurações adicionais para diagnóstico de aplicativos:
+A guia **Configurar** do aplicativo Web do [portal clássico](https://manage.windowsazure.com) também apresenta configurações adicionais para diagnóstico de aplicativos:
 
 * **Sistema de arquivos** - armazena as informações de diagnóstico de aplicativos no sistema de arquivos do aplicativo Web. Estes arquivos podem ser acessados por FTP ou baixados como um arquivo Zip usando o PowerShell do Azure ou a interface de linha de comando do Azure (CLI do Azure).
 * **Armazenamento de tabela** - armazena as informações de diagnóstico de aplicativo na Conta especificada de Armazenamento do Azure e no nome da tabela.
@@ -99,7 +99,7 @@ A estrutura de diretórios onde os logs estão armazenados é a seguinte:
 
 ### FTP
 
-Para acessar informações de diagnóstico usando o FTP, visite o **Painel** do seu aplicativo Web no [portal do Azure](https://manage.windowsazure.com). Na seção **visão rápida**, use o link **Logs de diagnóstico de FTP** para acessar os arquivos de log usando FTP. A entrada **Implantação/Usuário FTP** lista o nome de usuário que deve ser usado para acessar o site FTP.
+Para acessar informações de diagnóstico usando o FTP, visite o **Painel** do seu aplicativo Web no [portal clássico](https://manage.windowsazure.com). Na seção **visão rápida**, use o link **Logs de diagnóstico de FTP** para acessar os arquivos de log usando FTP. A entrada **Implantação/Usuário FTP** lista o nome de usuário que deve ser usado para acessar o site FTP.
 
 > [AZURE.NOTE]Se a entrada **Implantação/Usuário FTP** não estiver definida ou se você esqueceu a senha para este usuário, uma nova senha e nome de usuário poderão ser criados usando o link **Redefinir credenciais de implantação** na seção **visão rápida** do **Painel**.
 
@@ -132,7 +132,7 @@ O Application Insights do Visual Studio fornece ferramentas para filtrar e pesqu
 2. Adicionar o pacote do Ouvinte de Rastreamento ao seu projeto.
  * Clique com o botão direito do mouse em seu projeto e escolha Gerenciar Pacotes NuGet. Selecione `Microsoft.ApplicationInsights.TraceListener` [Saiba mais](../application-insights/app-insights-asp-net-trace-logs.md)
 3. Carregue seu projeto e execute-o para gerar dados de log.
-4. No [Portal de Visualização do Azure](http://portal.azure.com/), navegue até o novo recurso do Application Insights e abra **Pesquisa**. Você verá os dados de log, a solicitação, o uso e outras telemetrias. Algumas telemetrias podem levar alguns minutos para aparecer: clique em Atualizar. [Saiba mais](../application-insights/app-insights-diagnostic-search.md)
+4. No [Portal do Azure](http://portal.azure.com/), navegue até o novo recurso do Application Insights e abra **Pesquisa**. Você verá os dados de log, a solicitação, o uso e outras telemetrias. Algumas telemetrias podem levar alguns minutos para aparecer: clique em Atualizar. [Saiba mais](../application-insights/app-insights-diagnostic-search.md)
 
 [Saiba mais sobre desempenho de rastreamento com o Application Insights](../insights-perf-analytics.md)
 
@@ -259,15 +259,15 @@ Os logs do servidor da Web são formatados usando o [formato W3C estendido de ar
 
 ##<a name="nextsteps"></a> Próximas etapas
 
-- [Como monitorar aplicativos Web](/pt-BR/manage/services/web-sites/how-to-monitor-websites/)
+- [Como monitorar aplicativos Web](/manage/services/web-sites/how-to-monitor-websites/)
 - [Solucionando problemas de aplicativos Web do Azure no Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 - [Analisar logs de aplicativos Web no HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
-> [AZURE.NOTE]Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> [AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Escrever consultas | Microsoft Azure" 
-	description="Segmento do roteiro de aprendizagem Escrever consultas."
+	pageTitle="Como escrever consultas em Stream Analytics| Microsoft Azure" 
+	description="Escrever consultas no Stream Analytics e consultar dados | segmento do roteiro de aprendizagem."
+	keywords="como escrever consultas, dados de consulta, escrever uma consulta, escrever consultas"
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,31 +14,31 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="12/11/2015" 
 	ms.author="jeffstok"/>
 
-# Escrever consultas
+# Como escrever consultas em Stream Analytics
 
-A lógica de processamento de fluxo no Stream Analytics do Azure é implementada como uma "consulta permanente" que é definida antes de um trabalho ser iniciado e executado em dados assim que ela atinge o trabalho. A transformação de dados é expressa em uma linguagem de consulta do tipo SQL, que é basicamente um subconjunto de T-SQL com algumas extensões de linguagem adicionadas como [Janelas](https://msdn.microsoft.com/library/azure/dn835019.aspx) usadas para expressar semânticas temporais.
+Escrevendo consulta para lógica de processamento de fluxo no Stream Analytics do Azure é implementada como uma "consulta permanente" que é definida antes de um trabalho ser iniciado e executado em dados assim que ela atinge o trabalho. A transformação de dados é expressa em uma linguagem de consulta do tipo SQL, que é basicamente um subconjunto de T-SQL com algumas extensões de linguagem adicionadas como [Janelas](https://msdn.microsoft.com/library/azure/dn835019.aspx) usadas para expressar semânticas temporais.
 
-## Para criar uma consulta do Stream Analytics: ##
+## Escrevendo consultas: ##
 
 1. Em seu trabalho do Stream Analytics no portal de Gerenciamento do Azure, clique em **Consulta**.
 
     ![Selecionar Consulta](./media/stream-analytics-write-queries/1-stream-analytics-write-queries.png)
 
-    No portal de visualização do Azure, clique em **Consulta**.
+    No Portal de Visualização do Azure, clique em **Consulta**.
 
     ![Selecionar Visualização da Consulta](./media/stream-analytics-write-queries/query-preview-portal.png)
 
 2.	Os novos trabalhos têm um modelo de consulta que ajuda você a começar. O modelo de consulta executa uma consulta de "passagem" que projeta todos os campos dos eventos de entrada na saída.
 
     - Se tiver definido pelo menos uma entrada e saída para seu trabalho, você poderá substituir os campos de espaço reservado "[YourOutputAlias]" e "[YourInputAlias]" pelos aliases da entrada e saída que deseja usar primeiro. Além disso, você ainda pode criar e testar sua consulta no portal do Azure sem definir entradas e saídas no trabalho.
-    - Se quiser executar mais processamento do que uma simples passagem, você pode editar a definição da consulta. Para começar a criar uma consulta, veja alguns padrões comuns de consulta capturados [aqui](stream-analytics-query-patterns).  
+    - Se quiser executar mais processamento do que uma simples passagem, você pode editar a definição da consulta. Para começar a criar uma consulta, veja alguns padrões comuns de consulta capturados [aqui](stream-analytics-stream-analytics-query-patterns.md).  
   
-    ![Janela de Consulta](./media/stream-analytics-write-queries/2-stream-analytics-write-queries.png)
+    ![Janela de Consulta de dados](./media/stream-analytics-write-queries/2-stream-analytics-write-queries.png)
 
-## Para testar uma consulta: ##
+## Para validar que a consulta de dados está funcionando: ##
 
 Você pode testar se sua consulta se comporta conforme esperado executando-a no navegador em um ou mais arquivos JSON locais contendo dados de teste. Isso não iniciará o trabalho nem terá nenhuma implicação de faturamento.
 
@@ -45,11 +46,11 @@ Você pode testar se sua consulta se comporta conforme esperado executando-a no 
 
 1.	Verifique se não há erros na consulta (caso contrário, o botão Testar será desabilitado) e clique no botão Testar.  
 
-    ![Teste de Consulta](./media/stream-analytics-write-queries/3-stream-analytics-write-queries.png)
+    ![Teste de Consultar de dados](./media/stream-analytics-write-queries/3-stream-analytics-write-queries.png)
 
 2.	Será solicitado que você especifique arquivos para cada uma das entradas referenciadas na consulta. Neste exemplo, a consulta do modelo é deixada como está, de modo que a caixa de diálogo está solicitando uma entrada denominada "yourinputalias".
 
-    ![Dados de Teste](./media/stream-analytics-write-queries/4-stream-analytics-write-queries.png)
+    ![Testar Consulta de dados](./media/stream-analytics-write-queries/4-stream-analytics-write-queries.png)
 
 3.	Procure um arquivo de teste. Vários exemplos de arquivos estão disponíveis no [github](https://github.com/Azure/azure-stream-analytics/tree/master/Sample Dados) e você também pode recuperar exemplos de dados de suas próprias entradas de transmissão de dados por meio da função Sample Data na guia de entradas.
 
@@ -70,4 +71,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

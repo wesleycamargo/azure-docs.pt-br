@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="12/16/2015"
 	ms.author="wesmc"/>
 
 # Registrar o usuário atual para notificações por push usando o ASP.NET
@@ -111,7 +111,7 @@ Este tópico mostra como solicitar o registro de notificações por push com os 
 
 	Isso define o token de dispositivo para a solicitação.
 
-	> [AZURE.NOTE]Neste ponto, não deve haver nenhum outro código nesse método. Se já houver uma chamada para o método **registerNativeWithDeviceToken** adicionado quando você concluiu o tutorial [Introdução aos Hubs de Notificação](/manage/services/notification-hubs/get-started-notification-hubs-ios/%20target="_blank"), será necessário comentar ou remover essa chamada.
+	> [AZURE.NOTE]Neste ponto, não deve haver nenhum outro código nesse método. Se já houver uma chamada para o método **registerNativeWithDeviceToken** adicionado quando você concluiu o tutorial [Introdução aos Hubs de Notificação](/manage/services/notification-hubs/get-started-notification-hubs-ios/), será necessário comentar ou remover essa chamada.
 
 10.	No arquivo PushToUserAppDelegate, adicione o seguinte método de manipulador:
 
@@ -237,7 +237,6 @@ Agora que o aplicativo cliente foi atualizado, retorne para [Notificar os usuár
 [Notificar os usuários com os Hubs de Notificação]: /manage/services/notification-hubs/notify-users-aspnet
 [Notificar usuários com Hubs de Notificação]: /manage/services/notification-hubs/notify-users-aspnet
 
-[Azure Management Portal]: https://manage.windowsazure.com/
 [Introdução aos Hubs de Notificação]: /manage/services/notification-hubs/get-started-notification-hubs-ios
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

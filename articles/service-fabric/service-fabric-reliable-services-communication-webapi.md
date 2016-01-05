@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="07/23/2015"
+   ms.date="11/13/2015"
    ms.author="vturecek"/>
 
 # Introdução aos serviços de API Web da malha de serviço do Microsoft Azure com auto-hospedagem do OWIN
@@ -33,9 +33,9 @@ A API Web na Malha de Serviço é o mesma API Web ASP.NET que você conhece e ad
 O próprio aplicativo API Web não muda aqui - não é diferente de aplicativos de API Web que você possa ter desenvolvido no passado e você poderá simplesmente mover a maioria do código do aplicativo diretamente. A hospedagem do aplicativo pode ser um pouco diferente da que você está acostumado, caso normalmente use a hospedagem no IIS. Mas antes de entrar na parte de hospedagem, vamos começar com a parte mais familiar: o aplicativo API Web.
 
 
-## Configuração de um aplicativo de API Web
+## Criar o aplicativo
 
-Comece criando um novo aplicativo, com um único serviço sem estado no Visual Studio 2015:
+Comece criando um novo aplicativo do Service Fabric, com um único serviço sem estado no Visual Studio 2015:
 
 ![Criar um novo aplicativo da Malha de Serviço](media/service-fabric-reliable-services-communication-webapi/webapi-newproject.png)
 
@@ -53,13 +53,13 @@ Com os pacotes instalados, podemos começar a criar a estrutura de projeto bási
  + Controladores
  + Modelos
 
-Adicione as classes de configuração básicas do API Web no diretório App\_Start:
+Adicione as classes de configuração básicas do API Web no diretório App\_Start. Agora vamos adicionar uma configuração do formatador de tipo de mídia vazia:
 
  + FormatterConfig.cs
 
 ```csharp
 
-namespace WebApi
+namespace WebApiService
 {
     using System.Net.Http.Formatting;
 
@@ -73,65 +73,48 @@ namespace WebApi
 
 ```
 
- + RouteConfig.cs
-
-```csharp
-
-namespace WebApi
-{
-    using System.Web.Http;
-
-    public static class RouteConfig
-    {
-        public static void RegisterRoutes(HttpRouteCollection routes)
-        {
-            routes.MapHttpRoute(
-                    name: "DefaultApi",
-                    routeTemplate: "api/{controller}/{id}",
-                    defaults: new { controller = "Default", id = RouteParameter.Optional }
-                );
-        }
-    }
-}
-
-```
-
 Adicione um controlador padrão no diretório de controladores:
 
  + DefaultController.cs
 
 ```csharp
 
-namespace WebApi.Controllers
+namespace WebApiService.Controllers
 {
     using System.Collections.Generic;
     using System.Web.Http;
 
+    [RoutePrefix("api")]
     public class DefaultController : ApiController
     {
         // GET api/values
+        [Route("values")]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
         // GET api/values/5
+        [Route("values/{id}")]
         public string Get(int id)
         {
             return "value";
         }
 
         // POST api/values
+        [Route("values")]
         public void Post([FromBody]string value)
         {
         }
 
         // PUT api/values/5
+        [Route("values/{id}")]
         public void Put(int id, [FromBody]string value)
         {
         }
 
         // DELETE api/values/5
+        [Route("values/{id}")]
         public void Delete(int id)
         {
         }
@@ -146,7 +129,7 @@ Finalmente, adicione uma classe de Inicialização à raiz do projeto para regis
 
 ```csharp
 
-namespace WebApi
+namespace WebApiService
 {
     using Owin;
     using System.Web.Http;
@@ -157,8 +140,8 @@ namespace WebApi
         {
             HttpConfiguration config = new HttpConfiguration();
 
+            config.MapHttpAttributeRoutes();
             FormatterConfig.ConfigureFormatters(config.Formatters);
-            RouteConfig.RegisterRoutes(config.Routes);
 
             appBuilder.UseWebApi(config);
         }
@@ -171,7 +154,7 @@ namespace WebApi
 
 ```csharp
 
-namespace WebApi
+namespace WebApiService
 {
     using Owin;
 
@@ -202,7 +185,7 @@ public class Program
         {
             using (FabricRuntime fabricRuntime = FabricRuntime.Create())
             {
-                fabricRuntime.RegisterServiceType(Service.ServiceTypeName, typeof(Service));
+                fabricRuntime.RegisterServiceType("WebApiServiceType", typeof(Service));
 
                 Thread.Sleep(Timeout.Infinite);
             }
@@ -217,9 +200,7 @@ public class Program
 
 ```
 
-Se parecer anormalmente o ponto de entrada para um aplicativo de console, é porque é:
-
-![](media/service-fabric-reliable-services-communication-webapi/webapi-projectproperties.png)
+Se parecer anormalmente o ponto de entrada para um aplicativo de console, é porque é.
 
 Os detalhes sobre o processo de hospedagem do serviço e o registro do serviço estão além do escopo deste artigo, mas é importante saber por enquanto que **seu código de serviço está sendo executado em seu próprio processo**.
 
@@ -234,24 +215,11 @@ Neste artigo, vamos usar Katana como host OWIN para o aplicativo API Web. Katana
 
 ## Configuração do servidor Web
 
-O API de Serviços Confiáveis fornece dois pontos de entrada para a lógica de negócios:
-
- + Um método de ponto de entrada aberto onde você pode começar executando qualquer carga de trabalho que deseja, destinada principalmente a cargas de trabalho de computação de longa execução:
+A API do Reliable Services fornece um ponto de entrada de comunicação no qual você pode conectar pilhas de comunicação para permitir que os usuários e clientes se conectem ao serviço:
 
 ```csharp
 
-protected override async Task RunAsync(CancellationToken cancellationToken)
-{
-    ...
-}
-
-```
-
- + Um ponto de entrada de comunicação onde você pode conectar a pilha de comunicação de sua escolha:
-
-```csharp
-
-protected override ICommunicationListener CreateCommunicationListener()
+protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
 {
     ...
 }
@@ -275,7 +243,7 @@ namespace WebApi
     using System.Threading;
     using System.Threading.Tasks;
     using Microsoft.Owin.Hosting;
-    using Microsoft.ServiceFabric.Services;
+    using Microsoft.ServiceFabric.Services.Communication.Runtime;
 
     public class OwinCommunicationListener : ICommunicationListener
     {
@@ -287,10 +255,6 @@ namespace WebApi
         {
         }
 
-        public void Initialize(ServiceInitializationParameters serviceInitializationParameters)
-        {
-        }
-
         public Task<string> OpenAsync(CancellationToken cancellationToken)
         {
         }
@@ -299,9 +263,8 @@ namespace WebApi
 
 ```
 
-A interface ICommunicationListener fornece quatro métodos para gerenciar um ouvinte de comunicação para seu serviço:
+A interface ICommunicationListener fornece três métodos para gerenciar um ouvinte de comunicação para seu serviço:
 
- + **Initialize**: normalmente é onde você define o endereço que o serviço estará ouvindo. Para o servidor Web, este é local onde a URL está configurada.
  + **OpenAsync**: começar a ouvir solicitações.
  + **CloseAsync**: parar de ouvir solicitações, concluir todas as solicitações em andamento e desligar normalmente.
  + **Abort**: cancelar tudo e parar imediatamente.
@@ -316,20 +279,22 @@ public class OwinCommunicationListener : ICommunicationListener
     private readonly string appRoot;
     private IDisposable serverHandle;
     private string listeningAddress;
+    private readonly ServiceInitializationParameters serviceInitializationParameters;
 
-    public OwinCommunicationListener(string appRoot, IOwinAppBuilder startup)
+    public OwinCommunicationListener(string appRoot, IOwinAppBuilder startup, ServiceInitializationParameters serviceInitializationParameters)
     {
         this.startup = startup;
         this.appRoot = appRoot;
-    }
+        this.serviceInitializationParameters = serviceInitializationParameters;
+    }        
 
     ...
 
 ```
 
-### Inicializar
+### Implementação
 
-A URL do servidor Web será configurada aqui. Para fazer isso, você precisa de algumas informações:
+Para configurar o servidor Web, precisamos de duas partes de informações:
 
  + **Um prefixo de caminho de URL**. Embora seja opcional, é bom configurar isso agora para que você possa hospedar vários serviços Web com segurança em seu aplicativo.
  + **Uma porta**.
@@ -350,11 +315,12 @@ Configure um ponto de extremidade de HTTP em PackageRoot\\ServiceManifest.xml:
 
 Essa etapa é importante porque o processo de hospedagem de serviço é executado sob credenciais restritas (serviço de rede no Windows), o que significa que o serviço não terá acesso para configurar um ponto de extremidade HTTP por conta própria. Ao usar a configuração de ponto de extremidade, a Malha de Serviços sabe como definir a ACL apropriada para a URL que o serviço escutará enquanto fornece um local padrão para configurar pontos de extremidade.
 
-De volta ao OwinCommunicationListener.cs, obtenha as informações de ponto de extremidade no método Initialize para obter a porta. Crie a URL em que o serviço ouvirá e salve-a para na variável de membro de classe criada anteriormente. Ela será usada em OpenAsync para iniciar o servidor Web.
+
+Em OwinCommunicationListener.cs, podemos começar a implementar o OpenAsync. É onde podemos iniciar o servidor Web. Primeiro, obtenha as informações do ponto de extremidade e crie a URL que o serviço escutará.
 
 ```csharp
 
-public void Initialize(ServiceInitializationParameters serviceInitializationParameters)
+public Task<string> OpenAsync(CancellationToken cancellationToken)
 {
     EndpointResourceDescription serviceEndpoint = serviceInitializationParameters.CodePackageActivationContext.GetEndpoint("ServiceEndpoint");
     int port = serviceEndpoint.Port;
@@ -366,15 +332,11 @@ public void Initialize(ServiceInitializationParameters serviceInitializationPara
         String.IsNullOrWhiteSpace(this.appRoot)
             ? String.Empty
             : this.appRoot.TrimEnd('/') + '/');
-}
+    ...
 
 ```
 
 Observe que "http://+" é usado aqui. Isso é para garantir que o servidor Web esteja escutando em todos os endereços disponíveis, incluindo localhost, FQDN e o IP da máquina.
-
-### OpenAsync
-
-OpenAsync é chamado pela plataforma depois do Initialize. Isso é onde você pode usar o endereço que foi criado em Initialize para abrir o servidor Web.
 
 Implementar o OpenAsync é uma das razões mais importantes pelas quais o servidor Web (ou qualquer pilha de comunicação) seja implementada como um ICommunicationListener em vez de apenas abri-lo diretamente do RunAsync() no serviço. O valor de retorno de OpenAsync é o endereço que o servidor Web está escutando. Quando esse endereço é retornado ao sistema, ele registra o endereço com o serviço. A Malha de Serviço fornece um API que permite aos clientes ou outros serviços pedir esse endereço pelo nome do serviço. Isso é importante porque o endereço do serviço não é estático, já que os serviços são movidos no cluster para fins de disponibilidade e balanceamento de recursos. Esse é o mecanismo que permite aos clientes resolver o endereço de escuta de um serviço.
 
@@ -382,15 +344,14 @@ Com isso em mente, OpenAsync inicia o servidor Web e retorna o endereço em que 
 
 ```csharp
 
-public Task<string> OpenAsync(CancellationToken cancellationToken)
-{
+    ...
+
     this.serverHandle = WebApp.Start(this.listeningAddress, appBuilder => this.startup.Configuration(appBuilder));
+    string publishAddress = this.listeningAddress.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
 
-    string resultAddress = this.listeningAddress.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
+    ServiceEventSource.Current.Message("Listening on {0}", publishAddress);
 
-    ServiceEventSource.Current.Message("Listening on {0}", resultAddress);
-
-    return Task.FromResult(resultAddress);
+    return Task.FromResult(publishAddress);
 }
 
 ```
@@ -438,13 +399,16 @@ Nesse exemplo de implementação, o CloseAsync e o Abort simplesmente interrompe
 
 ## Inicie o servidor Web.
 
-Agora você está pronto para criar e retornar uma instância de OwinCommunicationListener para iniciar o servidor web. De volta para a classe de serviço (Service.cs), substitua o método **CreateCommunicationListener()**:
+Agora você está pronto para criar e retornar uma instância de OwinCommunicationListener para iniciar o servidor web. De volta para a classe de serviço (Service.cs), substitua o método **CreateServiceInstanceListeners()**:
 
 ```csharp
 
-protected override ICommunicationListener CreateCommunicationListener()
+protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
 {
-	return new OwinCommunicationListener("api", new Startup());
+    return new[]
+    {
+        new ServiceInstanceListener(initParams => new OwinCommunicationListener("webapp", new Startup(), initParams))
+    };
 }
 
 ```
@@ -459,28 +423,31 @@ A implementação do serviço final deve ser muito simples, já que ele só prec
 
 ```csharp
 
-namespace WebApi
+namespace WebApiService
 {
-    using Microsoft.ServiceFabric.Services;
+    using System.Collections.Generic;
+    using Microsoft.ServiceFabric.Services.Communication.Runtime;
+    using Microsoft.ServiceFabric.Services.Runtime;
 
-    public class Service : StatelessService
+    public class WebApiService : StatelessService
     {
-        public const string ServiceTypeName = "WebApiType";
-
-        protected override ICommunicationListener CreateCommunicationListener()
+        protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
         {
-            return new OwinCommunicationListener("api", new Startup());
+            return new[]
+            {
+                new ServiceInstanceListener(initParams => new OwinCommunicationListener("webapp", new Startup(), initParams))
+            };
         }
     }
 }
 
 ```
 
-E a classe OwinCommunicationListener completa:
+E complete a `OwinCommunicationListener` classe:
 
 ```csharp
 
-namespace WebApi
+namespace WebApiService
 {
     using System;
     using System.Fabric;
@@ -489,22 +456,24 @@ namespace WebApi
     using System.Threading;
     using System.Threading.Tasks;
     using Microsoft.Owin.Hosting;
-    using Microsoft.ServiceFabric.Services;
+    using Microsoft.ServiceFabric.Services.Communication.Runtime;
 
     public class OwinCommunicationListener : ICommunicationListener
     {
         private readonly IOwinAppBuilder startup;
         private readonly string appRoot;
+        private readonly ServiceInitializationParameters serviceInitializationParameters;
         private IDisposable serverHandle;
         private string listeningAddress;
-
-        public OwinCommunicationListener(string appRoot, IOwinAppBuilder startup)
+        
+        public OwinCommunicationListener(string appRoot, IOwinAppBuilder startup, ServiceInitializationParameters serviceInitializationParameters)
         {
             this.startup = startup;
             this.appRoot = appRoot;
+            this.serviceInitializationParameters = serviceInitializationParameters;
         }
 
-        public void Initialize(ServiceInitializationParameters serviceInitializationParameters)
+        public Task<string> OpenAsync(CancellationToken cancellationToken)
         {
             EndpointResourceDescription serviceEndpoint = serviceInitializationParameters.CodePackageActivationContext.GetEndpoint("ServiceEndpoint");
             int port = serviceEndpoint.Port;
@@ -516,21 +485,19 @@ namespace WebApi
                 String.IsNullOrWhiteSpace(this.appRoot)
                     ? String.Empty
                     : this.appRoot.TrimEnd('/') + '/');
-        }
 
-        public Task<string> OpenAsync(CancellationToken cancellationToken)
-        {
             this.serverHandle = WebApp.Start(this.listeningAddress, appBuilder => this.startup.Configuration(appBuilder));
+            string publishAddress = this.listeningAddress.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
 
-            string resultAddress = this.listeningAddress.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
+            ServiceEventSource.Current.Message("Listening on {0}", publishAddress);
 
-            ServiceEventSource.Current.Message("Listening on {0}", resultAddress);
-
-            return Task.FromResult(resultAddress);
+            return Task.FromResult(publishAddress);
         }
 
         public Task CloseAsync(CancellationToken cancellationToken)
         {
+            ServiceEventSource.Current.Message("Close");
+
             this.StopWebServer();
 
             return Task.FromResult(true);
@@ -538,6 +505,8 @@ namespace WebApi
 
         public void Abort()
         {
+            ServiceEventSource.Current.Message("Abort");
+
             this.StopWebServer();
         }
 
@@ -570,7 +539,7 @@ Com todas as peças no lugar, seu projeto agora deve se parecer com um aplicativ
 [Configure seu ambiente de desenvolvimento](service-fabric-get-started.md), caso ainda não tenha feito isso.
 
 
-Agora você pode criar e implantar seu serviço. Pressione **F5** no Visual Studio para compilar e implantar o aplicativo. Na janela Eventos de Diagnóstico, você deverá ver uma mensagem indicando o servidor Web aberto em ****http://localhost:80/api**
+Agora você pode criar e implantar seu serviço. Pressione **F5** no Visual Studio para compilar e implantar o aplicativo. Na janela Eventos de Diagnóstico, você deverá ver uma mensagem indicando o servidor Web aberto em ****http://localhost:80/webapp/api**
 
 
 ![](media/service-fabric-reliable-services-communication-webapi/webapi-diagnostics.png)
@@ -578,7 +547,7 @@ Agora você pode criar e implantar seu serviço. Pressione **F5** no Visual Stud
 > [AZURE.NOTE]Se a porta já tiver sido aberta por outro processo em seu computador, talvez você receba um erro nesse ponto indicando que não foi possível abrir o ouvinte. Se esse for o caso, tente usar uma porta diferente na configuração do ponto de extremidade em ServiceManifest.xml.
 
 
-Quando o serviço estiver em execução, abra um navegador e navegue para [http://localhost/api](http://localhost/api) para testá-lo.
+Quando o serviço estiver em execução, abra um navegador e navegue para [http://localhost/webapp/api/values](http://localhost/webapp/api/values) para testá-lo.
 
 ## Escalar horizontalmente
 
@@ -614,4 +583,4 @@ No ASP.NET 5, o conceito e o modelo de programação de separação do *aplicati
 
 [Depurando seu aplicativo da Malha de Serviços no Visual Studio](service-fabric-debugging-your-application.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

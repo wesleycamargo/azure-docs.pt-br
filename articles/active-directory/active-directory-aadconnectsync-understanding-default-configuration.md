@@ -16,7 +16,7 @@
    ms.date="11/10/2015"
    ms.author="andkjell"/>
 
-# Noções básicas sobre a configuração padrão
+# Sincronização do Azure AD Connect: noções básicas sobre a configuração padrão
 
 Este artigo o orienta durante a configuração padrão da sincronização do Azure AD Connect. O objetivo é que o leitor compreenda como o modelo de configuração, chamado de provisionamento declarativo, está funcionando em um exemplo do mundo real. Este artigo pressupõe que você já instalou e configurou a sincronização do AD do Azure usando o assistente de instalação.
 
@@ -150,4 +150,4 @@ Agora sabemos o suficiente sobre Regras de Sincronização para poder entender c
 * [Azure AD Connect Sync: personalizando opções de sincronização](active-directory-aadconnectsync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

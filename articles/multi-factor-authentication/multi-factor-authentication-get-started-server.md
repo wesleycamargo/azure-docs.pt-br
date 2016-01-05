@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/24/2015" 
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 # Introdução ao Servidor Azure Multi-Factor Authentication
@@ -186,4 +186,4 @@ Método|Descrição
 [Sincronizar com o Active Directory do Windows Server](multi-factor-authentication-get-started-server-dirint.md)|Informações sobre instalação e como configurar a sincronização entre o Active Directory e o Servidor Azure MFA.
 [Implantando o Serviço Web do aplicativo móvel do Servidor Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md)|Informações sobre instalação e como configurar o serviço Web do Servidor Azure MFA.
 
-<!----HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

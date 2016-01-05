@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/11/2015" 
+	ms.date="12/08/2015" 
 	ms.author="stefsch"/>
 
 # Conexão segura a recursos de back-end a partir de um ambiente do Serviço de Aplicativo #
@@ -21,7 +21,7 @@
 ## Visão geral ##
 Como um Ambiente do Serviço de Aplicativo sempre é criado em uma sub-rede de uma [rede virtual][virtualnetwork] regional clássica "v1", as conexões de saída de um Ambiente do Serviço de Aplicativo com outros recursos de back-end podem fluir exclusivamente pela rede virtual.
 
-**Observação:** um Ambiente do Serviço de Aplicativo não pode ser criado em uma rede virtual "v2".
+**Observação:** um Ambiente do Serviço de Aplicativo não pode ser criado em uma rede virtual "v2" gerenciada por ARM.
 
 Por exemplo, pode haver um SQL Server em execução em um cluster de máquinas virtuais com a porta 1433 bloqueada. O ponto de extremidade pode ser ACLd, para permitir apenas acesso de outros recursos na mesma rede virtual.
 
@@ -114,4 +114,4 @@ Para obter mais informações sobre a plataforma do Serviço de Aplicativo do Az
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

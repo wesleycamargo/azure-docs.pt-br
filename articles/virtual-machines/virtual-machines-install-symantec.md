@@ -30,7 +30,7 @@ Se tiver uma assinatura da Symantec para uma solução local, você poderá usá
 
 ## Instalar o Symantec Endpoint Protection em uma máquina virtual nova
 
-O [Portal de Gerenciamento do Azure][Portal] permite instalar o Agente de VM e a extensão de segurança da Symantec quando você usa a opção **Da Galeria** para criar a máquina virtual. Usar essa abordagem é uma maneira fácil de adicionar proteção da Symantec caso você esteja criando uma única máquina virtual.
+O [portal clássico do Azure][Portal] permite instalar o agente de VM e a extensão de segurança Symantec quando você usar a opção **da galeria** para criar a máquina virtual. Usar essa abordagem é uma maneira fácil de adicionar proteção da Symantec caso você esteja criando uma única máquina virtual.
 
 Essa opção **Da Galeria** abre um assistente que ajuda você a configurar a máquina virtual. Você usa a última página do assistente para instalar o Agente de VM e a extensão de segurança da Symantec.
 
@@ -98,4 +98,4 @@ Para verificar se a extensão de segurança Symantec foi instalada e está atual
 
 [Ext]: http://go.microsoft.com/fwlink/p/?linkid=390493
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

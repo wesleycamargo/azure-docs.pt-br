@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="event-hubs"
-	ms.workload="core"
+	ms.workload="na"
 	ms.tgt_pltfrm="c"
 	ms.devlang="csharp"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="12/09/2015"
 	ms.author="sethm"/>
 
 # Introdução aos Hubs de Evento
@@ -24,13 +24,13 @@
 
 Hubs de Eventos são um sistema de inclusão altamente dimensionável que pode receber milhões de eventos por segundo, permitindo que um aplicativo processe e analise grandes quantidades de dados produzidos por aplicativos e dispositivos conectados. Depois de coletados em Hubs de Evento, você pode transformar e armazenar dados usando qualquer provedor de análise em tempo real ou cluster de armazenamento.
 
-Para obter mais informações, consulte [Visão geral de Hubs de Evento].
+Para obter mais informações, consulte [Visão geral de Hubs de Evento][].
 
-Neste tutorial, você aprenderá a receber mensagens em um Hub de Eventos usando um aplicativo de console em C, e recuperá-los em paralelo usando a biblioteca do [Host do Processador de Eventos] em C#.
+Neste tutorial, você aprenderá a receber mensagens em um Hub de Eventos usando um aplicativo de console em C, e recuperá-los em paralelo usando a biblioteca do [Host do Processador de Eventos][] em C#.
 
 Para concluir este tutorial, você precisará do seguinte:
 
-+ Um ambiente de desenvolvimento C. Para este tutorial, vamos pressupor a pilha gcc em uma [Máquina Virtual Linux do Azure](../virtual-machines-linux-tutorial.md) com Ubuntu 14.04. Serão fornecidas instruções para outros ambientes em links externos.
++ Um ambiente de desenvolvimento C. Para este tutorial, vamos pressupor a pilha gcc em uma [Máquina Virtual Linux do Azure](../virtual-machines/virtual-machines-linux-tutorial.md) com Ubuntu 14.04. Serão fornecidas instruções para outros ambientes em links externos.
 
 + Microsoft Visual Studio Express 2013 para Windows
 
@@ -38,7 +38,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 ## Criar um Hub de Evento
 
-1. Entre no [portal do Azure] e clique em **NOVO** na parte inferior da tela.
+1. Faça logon no [portal clássico do Azure][] e clique em **NOVO** na parte inferior da tela.
 
 2. Clique em **Serviços de Aplicativos**, em seguida, **Barramento de Serviço**, em seguida, **Hub de eventos** e, em seguida, **Criação rápida**.
 
@@ -79,11 +79,11 @@ Seu Hub de Evento foi criado, e você tem as cadeias de conexão que precisa par
 
 Agora você está pronto para executar os aplicativos.
 
-1.	Execute o projeto **Receiver** do Visual Studio, então espere para ele iniciar os receptores para todas as partições.
+1.	Execute o projeto **Receptor** no Visual Studio e aguarde que ele inicie os receptores de todas as partições.
 
    	![][21]
 
-2.	Execute o programa **sender** e veja os eventos aparecerem na janela do receptor.
+2.	Execute o programa **Remetente** e veja os eventos aparecerem na janela do receptor.
 
    	![][24]
 
@@ -91,10 +91,10 @@ Agora você está pronto para executar os aplicativos.
 
 Agora que criou um aplicativo funcional que cria um Hub de Eventos e envia e recebe dados, você pode passar para os seguintes cenários:
 
-- Um [aplicativo de exemplo completo que usa os Hubs de Evento].
-- O exemplo de [Escala horizontal do processamento de eventos com Hubs de Eventos].
-- Uma [solução de mensagens na fila] usando filas do Barramento de Serviço.
-- [Visão geral de Hubs de Evento]
+- Um [aplicativo de exemplo completo que usa os Hubs de Evento][].
+- O exemplo de [Escala horizontal do processamento de eventos com Hubs de Eventos][].
+- Uma [solução de mensagens na fila][] usando filas do Barramento de Serviço.
+- [Visão geral de Hubs de Evento][]
 
 <!-- Images. -->
 [1]: ./media/event-hubs-c-ephcs-getstarted/create-event-hub1.png
@@ -110,11 +110,11 @@ Agora que criou um aplicativo funcional que cria um Hub de Eventos e envia e rec
 [24]: ./media/event-hubs-c-ephcs-getstarted/receive-eph-c.png
 
 <!-- Links -->
-[portal do Azure]: https://manage.windowsazure.com/
+[portal clássico do Azure]: https://manage.windowsazure.com/
 [Host do Processador de Eventos]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Visão geral de Hubs de Evento]: event-hubs-overview.md
-[aplicativo de exemplo completo que usa os Hubs de Evento]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
-[Escala horizontal do processamento de eventos com Hubs de Eventos]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
-[solução de mensagens na fila]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[aplicativo de exemplo completo que usa os Hubs de Evento]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Escala horizontal do processamento de eventos com Hubs de Eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[solução de mensagens na fila]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -29,7 +29,7 @@ Pesquisa do Azure é um serviço de API para desenvolvedores e integradores de s
 
 A Pesquisa do Azure é um [serviço PaaS](https://wikipedia.org/wiki/Platform_as_a_service) que delega o gerenciamento de servidores e infra-estrutura para a Microsoft, deixando você com um serviço pronto para uso que você preenche com dados de pesquisa e, em seguida, acessa de seu aplicativo. Dependendo de como você configura o serviço, você usará o serviço gratuito que é compartilhado com outros assinantes de Pesquisa do Azure, ou a camada de preços Standard que oferece recursos dedicados usados apenas pelo seu serviço. A Pesquisa padrão é escalonável, com opções para atender às demandas crescentes de armazenamento ou cargas de consulta.
 
-A Pesquisa do Azure armazena seus dados em um índice que pode ser pesquisado por meio de consultas de texto completo. O esquema desses índices pode ser criado no Portal do Azure, ou programaticamente usando a biblioteca de cliente ou APIs REST. Quando o esquema é definido, você pode carregar, em seguida, os dados no serviço de Pesquisa do Azure onde ele será indexado posteriormente.
+A Pesquisa do Azure armazena seus dados em um índice que pode ser pesquisado por meio de consultas de texto completo. O esquema desses índices pode ser criado no Portal clássico do Azure, ou programaticamente usando a biblioteca de cliente ou APIs REST. Quando o esquema é definido, você pode carregar, em seguida, os dados no serviço de Pesquisa do Azure onde ele será indexado posteriormente.
 
 Você pode usar os modelos push ou pull para carregar dados para o índice. O modelo de pull é fornecido por meio de indexadores podem ser configurados para sob demanda ou atualizações agendadas (consulte [(API de REST de serviço de pesquisa do Azure](https://msdn.microsoft.com/library/azure/dn946891.aspx)) as operações do indexador), que permite uma fácil inclusão dos dados e as alterações de dados de um Banco de Dados de Documentos do Azure, Banco de Dados SQL do Azure, ou SQL Server hospedado em uma VM do Azure. O modelo de push é fornecido por meio do SDK ou APIs REST usados para enviar documentos atualizados para um índice. Você pode enviar dados de praticamente qualquer conjunto de dados, mas eles devem estar no formato JSON. Consulte [Adicionar, atualizar ou excluir Documentos](https://msdn.microsoft.com/library/azure/dn798930.aspx) ou [Como usar o SDK do .NET)](search-howto-dotnet-sdk.md) para obter orientação sobre como carregar dados.
 
@@ -131,4 +131,4 @@ Você também pode tentar estes tutoriais:
 
 [Como usar a Pesquisa do Azure no .NET](search-howto-dotnet-sdk.md) [Introdução ao .NET da Pesquisa do Azure](search-get-started-dotnet.md) [Pesquisa do Azure: tutoriais, demonstrações em vídeo e exemplos](search-video-demo-tutorial-list.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

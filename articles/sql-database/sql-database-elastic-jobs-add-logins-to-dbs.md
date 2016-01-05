@@ -17,7 +17,7 @@
 
 # Como adicionar usuários a um pool de bancos de dados elástico
 
-O recurso **trabalhos de Banco de Dados Elástico** (visualização) permite que você execute um script Transact-SQL em um grupo de bancos de dados incluindo uma coleção de bancos de dados definida de modo personalizado, um **pool de Banco de Dados Elástico** ou um **conjunto de fragmentos de banco de dados elástico** no Banco de Dados SQL do Azure. Para executar o script, um usuário com as permissões apropriadas deverá ser adicionado a cada banco de dados em que o trabalho será executado. Para saber mais, confira [Gerenciando bancos de dados e logons no SQL do Azure](https://msdn.microsoft.com/library/azure/ee336235.aspx) ou [Adicionando usuários ao Banco de Dados SQL do Azure](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/)
+O recurso **trabalhos de Banco de Dados Elástico** (visualização) permite que você execute um script Transact-SQL em um grupo de bancos de dados incluindo uma coleção de bancos de dados definida de modo personalizado, um **pool de Banco de Dados Elástico** ou um **conjunto de fragmentos de banco de dados elástico** no Banco de Dados SQL do Azure. Para executar o script, um usuário com as permissões apropriadas deverá ser adicionado a cada banco de dados em que o trabalho será executado. Para saber mais, confira [Gerenciando bancos de dados e logons no SQL do Azure](sql-database-manage-logins.md) ou [Adicionando usuários ao Banco de Dados SQL do Azure](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/)
 
 ## Pré-requisitos
 * Instalar os [componentes de trabalho elástico](sql-database-elastic-jobs-service-installation.md). 
@@ -36,7 +36,7 @@ O recurso **trabalhos de Banco de Dados Elástico** (visualização) permite que
 
 ## Próximas etapas
 
-Criar e gerenciar trabalhos: veja [Criando e gerenciando trabalhos de banco de dados elástico](sql-database-elastic-jobs-create-and-manage.md).
+Para criar e gerenciar trabalhos com o portal do Azure, consulte [Criando e gerenciando trabalhos de banco de dados elástico](sql-database-elastic-jobs-create-and-manage.md). Para criar trabalhos com PowerShell, [Criar e gerenciar trabalhos de banco de dados elástico de Banco de Dados SQL usando o PowerShell (visualização)](sql-database-elastic-jobs-powershell.md)
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -44,4 +44,4 @@ Criar e gerenciar trabalhos: veja [Criando e gerenciando trabalhos de banco de d
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

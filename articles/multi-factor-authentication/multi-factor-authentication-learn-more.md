@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 # Saiba mais sobre o Azure Multi-Factor Authentication
@@ -38,4 +38,4 @@ Veja a seguir uma coleção de recursos adicionais que lhe ajudarão a aproveita
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

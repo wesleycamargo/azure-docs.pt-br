@@ -4,8 +4,8 @@
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
-	manager="udayh"
-	editor="inhenk"/>
+	manager="stevenpo"
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="12/16/2015"
 	ms.author="maheshu"/>
 
 # Serviços de domínio do AD do Azure *(visualização)*
@@ -70,55 +70,15 @@ Alguns aspectos de destaque do domínio gerenciado que é provisionado pelos Ser
 - Uma vez que o domínio é gerenciado pelos Serviços de Domínio do Azure AD, o administrador de TI da Litware não tem privilégios de administrador corporativo ou de administrador de domínio nesse domínio.
 
 
-## Cenários e casos de uso
-Nesta seção, vamos dar uma olhada em alguns cenários e casos de uso que podem se beneficiar dos Serviços de Domínio do AD do Azure.
-
-### Administração segura e fácil de máquinas virtuais do Azure
-Conforme servidores e outras infraestruturas atingem o fim da vida útil, a Contoso está movendo muitos aplicativos atualmente hospedados no local para a nuvem. O padrão de TI atual exige que os servidores que hospedam aplicativos corporativos estejam ingressados no mesmo domínio e gerenciados usando a Política de Grupo. O administrador de TI da Contoso prefere ingressar as máquinas virtuais implantadas no Azure no mesmo domínio para facilitar a administração (ou seja, administradores podem fazer logon usando credenciais corporativas). A Contoso prefere não ter que implantar, monitorar e gerenciar controladores de domínio no Azure para proteger máquinas virtuais do Azure.
-
-Alguns pontos importantes a se observar ao considerar este cenário:
-
-- Os domínios gerenciados fornecidos pelos Serviços de Domínio do AD do Azure dão suporte a somente uma estrutura de UO (unidade organizacional) simples. Todos os computadores com ingresso no domínio residem em uma única UO simples e não há suporte para estruturas de UO hierárquicas.
-- Os Serviços de Domínio do AD do Azure dão suporte à política de grupo simples na forma de um GPO interno para os usuários e um para os contêineres de computador. Você não pode definir GP por departamento/UO, realizar a filtragem WMI ou criar GPOs personalizados.
-- Os Serviços de Domínio do AD do Azure dão suporte ao esquema do objeto de computador AD base. Você não pode estender o esquema do objeto de computador.
-
-
-### Fazer a mudança de aplicativos locais que usam autenticação de associação LDAP para os Serviços de Infraestrutura do Azure
-A Contoso tem um aplicativo local que foi comprado de um ISV há muitos anos. O aplicativo está atualmente no modo de manutenção pelo ISV e a solicitação de alterações no aplicativo é extremamente dispendioso para Contoso. Este aplicativo tem um front-end baseado na Web que coleta credenciais de usuário usando um formulário da Web e autentica usuários executando uma associação LDAP para o Active Directory corporativo. A Contoso deseja migrar esse aplicativo para os Serviços de Infraestrutura do Azure. É recomendável que o aplicativo funcione como está, sem exigir nenhuma alteração. Além disso, os usuários devem ser capazes de autenticar usando suas credenciais corporativas existentes e sem ter que ser treinados novamente para fazer coisas de forma diferente. Em outras palavras, os usuários finais não devem se lembrar de onde o aplicativo está sendo executado e a migração deve ser clara para eles.
-
-Alguns pontos importantes a se observar ao considerar este cenário:
-
-- Verifique se o aplicativo não precisa modificar/gravar no diretório. Não há suporte a acesso para gravação LDAP para domínios gerenciados fornecidos pelos Serviços de Domínio do Azure AD.
-- Os usuários não podem alterar a senha diretamente em relação ao domínio. Os usuários podem alterar suas senhas ou usando o mecanismo de alteração de senha de autoatendimento do Azure AD ou no diretório local. Essas alterações serão automaticamente sincronizadas e estarão disponíveis no domínio gerenciado.
-
-
-### Fazer a mudança de aplicativos locais que usam leitura LDAP para acessar o diretório que leva aos Serviços de Infraestrutura do Azure
-A Contoso tem uma linha local de aplicativo de negócios desenvolvida quase uma década atrás. Esse aplicativo percebe diretórios e foi projetado para funcionar com o AD do Windows Server. O aplicativo usa LDAP (Lightweight Directory Access Protocol) para ler informações/atributos sobre os usuários do Active Directory. O aplicativo não modifica atributos ou gravar no diretório de forma alguma. A Contoso deseja migrar esse aplicativo para os Serviços de Infraestrutura do Azure e desativar o hardware local antigo que atualmente hospeda esse aplicativo. O aplicativo não pode ser reescrito para usar APIs de diretório modernas, como a Graph API do Azure AD baseada em REST. Portanto, uma opção de mudança é desejada por meio da qual o aplicativo possa ser migrado para executar na nuvem sem modificar o código ou reescrever o aplicativo.
-
-Alguns pontos importantes a se observar ao considerar este cenário:
-
-- Verifique se o aplicativo não precisa modificar/gravar no diretório. Não há suporte a acesso para gravação LDAP para domínios gerenciados fornecidos pelos Serviços de Domínio do Azure AD.
-- Verifique se o aplicativo não precisa de um esquema do Active Directory estendido/personalizado. As extensões de esquema não têm suporte nos Serviços de Domínio do AD do Azure.
-- Verifique se o aplicativo não exige acesso LDAPS. LDAPS não tem suporte dos Serviços de Domínio do AD do Azure.
-
-
-### Migrar um aplicativo de serviço ou daemon do local para os Serviços de Infraestrutura do Azure
-A Contoso tem um aplicativo personalizado de cofre que inclui um front-end da Web, um SQL Server e um servidor FTP de back-end. Eles aproveitam a autenticação integrada do Windows usando contas de serviço para autenticar o front-end da Web para o servidor FTP. Eles gostariam de mover esse aplicativo para os Serviços de Infraestrutura do Azure e preferem não ter que implantar uma máquina virtual do controlador de domínio na nuvem para dar suporte às necessidades de identidade do aplicativo. O administrador de TI da Contoso pode implantar os servidores que hospedam o front-end da Web, o SQL server e o servidor FTP para máquinas virtuais no Azure e ingressá-los em um domínio dos Serviços de Domínio do AD do Azure. Em seguida, eles podem usar a mesma conta de serviço em seu diretório para fins de autenticação do aplicativo.
-
-Alguns pontos importantes a se observar ao considerar este cenário:
-
-- Verifique se o aplicativo usa o nome de usuário e senha para autenticação. A autenticação com certificado/cartão inteligente não tem suporte dos Serviços de Domínio do AD do Azure.
-
-
 ## Benefícios
 Com os serviços de domínio do AD do Azure, você pode aproveitar os seguintes benefícios:
 
--	**Simples**: você pode atender às necessidades de identidade de máquinas virtuais implantadas para serviços de infraestrutura do Azure com alguns cliques, sem a necessidade de implantar e gerenciar a infraestrutura de identidades no Azure ou configurar a conectividade para sua infraestrutura de identidade no local.
+-	**Simples** – Você pode atender às necessidades de identidade de máquinas virtuais implantadas nos serviços de Infraestrutura do Azure com alguns cliques, sem a necessidade de implantar e gerenciar a infraestrutura de identidade no Azure ou configurar a conectividade para sua infraestrutura de identidade local.
 
--	**Integrados**: os Serviços de Domínio do AD do Azure estão profundamente integrados ao seu locatário do Azure AD. Agora, você pode contar com o Azure AD para ser um diretório corporativo integrado baseado em nuvem que atende às necessidades tanto de seus aplicativos modernos, como aplicativos com reconhecimento de diretório tradicionais.
+-	**Integrados** – Os Serviços de Domínio do Azure AD são profundamente integrados ao seu locatário do Azure AD. Agora, você pode contar com o Azure AD para ser um diretório corporativo integrado baseado em nuvem que atende às necessidades tanto de seus aplicativos modernos, como aplicativos com reconhecimento de diretório tradicionais.
 
--	**Compatíveis**: como os Serviços de Domínio do AD do Azure se baseiam na infraestrutura de nível corporativo comprovada do Active Directory do Windows Server, os aplicativos podem depender de um maior grau de compatibilidade com os recursos do Active Directory do Windows Server. Observe que nem todos os recursos disponíveis no AD do Windows Server estão atualmente disponíveis nos Serviços de Domínio do AD do Azure. No entanto, os recursos disponíveis são compatíveis com os recursos correspondentes do AD do Windows Server que se baseiam na sua infraestrutura local. LDAP, Kerberos, NTLM, política de grupo e recursos de ingresso no domínio fornecidos pelos Serviços de Domínio do AD do Azure constituem uma oferta madura que foi testada e refinada em várias versões do Windows Server.
+-	**Compatíveis** – Como os Serviços de Domínio do Azure AD se baseiam na infraestrutura de nível corporativo comprovada do Active Directory do Windows Server, os aplicativos podem depender de um maior grau de compatibilidade com os recursos do Active Directory do Windows Server. Observe que nem todos os recursos disponíveis no AD do Windows Server estão atualmente disponíveis nos Serviços de Domínio do AD do Azure. No entanto, os recursos disponíveis são compatíveis com os recursos correspondentes do AD do Windows Server que se baseiam na sua infraestrutura local. LDAP, Kerberos, NTLM, política de grupo e recursos de ingresso no domínio fornecidos pelos Serviços de Domínio do AD do Azure constituem uma oferta madura que foi testada e refinada em várias versões do Windows Server.
 
--	**Econômicos**: com os Serviços de Domínio do AD do Azure, você pode evitar a sobrecarga de gerenciamento e infraestrutura associada ao gerenciamento de infraestrutura de identidade para dar suporte a aplicativos com reconhecimento de diretório tradicionais. Você pode mover esses aplicativos para os Serviços de Infraestrutura do Azure e aproveitar economias ainda maiores em despesas operacionais.
+-	**Econômicos** – Com os Serviços de Domínio do Azure AD, você pode evitar a sobrecarga de gerenciamento e infraestrutura associada ao gerenciamento de infraestrutura de identidade para dar suporte a aplicativos tradicionais com reconhecimento de diretório. Você pode mover esses aplicativos para os Serviços de Infraestrutura do Azure e aproveitar economias ainda maiores em despesas operacionais.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

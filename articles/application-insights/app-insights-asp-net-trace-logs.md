@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/19/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Explorar os logs de rastreamento do .NET no Application Insights  
@@ -79,6 +79,7 @@ Por exemplo, você pode:
 * Localizar outra telemetria relacionada à mesma solicitação de usuário (ou seja, com o mesmo OperationId) 
 * Salvar a configuração dessa página como um favorito
 
+> [AZURE.NOTE]**Amostragem.** Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Application Insights para o ASP.NET versão 2.0.0-beta3 ou posterior, o recurso de amostragem adaptável poderá operar e enviar apenas uma porcentagem de sua telemetria. [Saiba mais sobre amostragem.](app-insights-sampling.md)
 
 ## Próximas etapas
 
@@ -104,6 +105,10 @@ No Gerenciador de Soluções, clique com o botão direito do mouse em `Applicati
 
 Até 500 eventos por segundo de cada aplicativo. Os eventos são retidos por sete dias.
 
+### Não estou vendo algumas das entradas de log que eu esperava
+
+Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Application Insights para o ASP.NET versão 2.0.0-beta3 ou posterior, o recurso de amostragem adaptável poderá operar e enviar apenas uma porcentagem de sua telemetria. [Saiba mais sobre amostragem.](app-insights-sampling.md)
+
 ## <a name="add"></a>Próximas etapas
 
 * [Configurar testes de disponibilidade e capacidade de resposta][availability]
@@ -124,4 +129,4 @@ Até 500 eventos por segundo de cada aplicativo. Os eventos são retidos por set
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

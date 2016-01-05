@@ -73,7 +73,7 @@ Nesta etapa, você criará dois serviços vinculados: **AzureStorageLinkedServic
 
 5. Clique com o botão direito no nó **Serviços Vinculados** no **Gerenciador de Soluções** novamente, aponte para **Adicionar** e clique em **Novo Item**. 
 6. Desta vez, selecione **Serviço Vinculado SQL do Azure** e clique em **Adicionar**. 
-7. No **arquivo AzureSqlLinkedService1.json**, substitua **servername**, **databasename**, **username@servername** e **password** pelos nomes do seu servidor SQL do Azure, banco de dados, conta de usuário e senha.
+7. No **arquivo AzureSqlLinkedService1.json**, substitua **servername**, **databasename**, ****username@servername** e **password** pelos nomes do seu servidor SQL do Azure, banco de dados, conta de usuário e senha.
 8.  Salve o arquivo **AzureSqlLinkedService1.json**. 
 
 
@@ -239,6 +239,6 @@ Para atualizar as ferramentas da Azure Data Factory para o Visual Studio, faça 
 2. Selecione **Atualizações** no painel esquerdo e selecione **Galeria do Visual Studio**.
 4. Selecione **Ferramentas do Azure Data Factory para Visual Studio** e clique em **Atualizar**. Se você não vir essa entrada, você já tem a versão mais recente das ferramentas. 
 
-Confira [Monitorar conjuntos de dados e pipeline](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline) para obter instruções sobre como usar o Portal de Visualização do Azure para monitorar o pipeline e os conjuntos de dados que você criou neste tutorial.
+Confira [Monitorar os conjuntos de dados e o pipeline](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline) para obter instruções sobre como usar o Portal do Azure para monitorar o pipeline e os conjuntos de dados que você criou neste tutorial.
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

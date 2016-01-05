@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="12/03/2015"
 	ms.author="inhenk"/>
 
 # Aplicativos do Azure AD: Atribuindo grupos a um aplicativo
 Antes de atribuir usuários e grupos a um aplicativo, você precisa exigir a atribuição de usuários. Para saber como exigir a atribuição de usuários, consulte o artigo [Exigindo atribuição de usuários](active-directory-applications-guiding-developers-requiring-user-assignment.md).
 
-Este artigo pressupõe que você já tenha criado grupos no Active Directory que está usando para este aplicativo. As etapas estão incluídas no vídeo abaixo.
+Este artigo pressupõe que você já tenha criado grupos no Active Directory que está usando para este aplicativo.
 
 ## Atribuindo grupos a um aplicativo
 1. Faça logon no Portal do Azure com uma conta de administrador.
@@ -36,4 +36,4 @@ Este artigo pressupõe que você já tenha criado grupos no Active Directory que
 ## Próximas etapas
 [AZURE.INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

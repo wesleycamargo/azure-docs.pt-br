@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Introdução à Stream Analytics: detecção de fraudes em tempo real | Microsoft Azure"
 	description="Aprenda a criar uma solução para detecção de fraudes em tempo real com a Stream Analytics. Use um hub de eventos para o processamento de eventos em tempo real."
-	keywords="hub de eventos, detecção de fraudes, tempo real, processamento em tempo real"
+	keywords="detecção de anomalias, detecção de fraudes, detecção de anomalias em tempo real"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,14 +14,14 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="11/06/2015"
+	ms.date="12/04/2015"
 	ms.author="jeffstok" />
 
 
 
 # Introdução ao uso de Stream Analytics do Azure: detecção de fraudes em tempo real
 
-Aprenda a criar uma solução de ponta a ponta para detecção de fraudes em tempo real com o Stream Analytics da Azure. Exibir eventos nos Hubs de eventos do Azure, escrever consultas de Stream Analytics para agregação ou alerta e enviar os resultados em um coletor de saída para obter informações sobre os dados com processamento em tempo real.
+Aprenda a criar uma solução de ponta a ponta para detecção de fraudes em tempo real com o Stream Analytics da Azure. Exibir eventos nos Hubs de eventos do Azure, escrever consultas de Stream Analytics para agregação ou alerta e enviar os resultados em um coletor de saída para obter informações sobre os dados com processamento em tempo real. A detecção de anomalias em tempo real para telecomunicações é abrangida, mas a técnica de exemplo é igualmente adequada para outros tipos de detecção de fraudes, como cenários de roubo de identidade ou de cartão de crédito.
 
 O Stream Analytics é um serviço completamente gerenciado que oferece baixa latência, alta disponibilidade e processamento escalonável de eventos complexos por streaming de dados na nuvem. Para obter mais informações, consulte [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md).
 
@@ -50,7 +50,7 @@ Para criar um Hub de Evento:
 	![Políticas de Acesso Compartilhado em que você pode criar uma política com permissões para Gerenciar.](./media/stream-analytics-get-started/stream-ananlytics-shared-access-policies.png)
 
 5.	Na parte inferior da página, clique em **Salvar**.
-6.	Navegue até o **Painel**, clique em **Informações de conexão** na parte inferior da página e, em seguida, copie e salve as informações de conexão.
+6.	Navegue até o **Painel**, clique em **Informações de Conexão** na parte inferior da página e copie e salve as informações de conexão.
 
 ## Configurar e iniciar o aplicativo gerador de evento
 
@@ -84,7 +84,7 @@ Agora que temos um fluxo de eventos de telecomunicações, podemos configurar um
 
 ### Provisionar um trabalho de análise de fluxo
 
-1.	No **Portal do Azure, clique em Novo > Serviços de dados > Stream Analytics > Criação rápida**.
+1.	No **Portal do Azure, clique em Novo > Serviços de Dados > Stream Analytics > Criação Rápida**.
 2.	Especifique os seguintes valores e, em seguida, clique em **Criar trabalho de Stream Analytics**:
 
 	* **Nome do Trabalho**: Insira um nome de trabalho.
@@ -127,11 +127,11 @@ Agora que temos um fluxo de eventos de telecomunicações, podemos configurar um
 O Stream Analytics oferece suporte a um modelo de consulta simples e declarativo para descrever as transformações. Para saber mais sobre a linguagem, consulte a [Referência de linguagem de consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/dn834998.aspx). Este tutorial o ajudará a criar e testar várias consultas sobre o fluxo de dados em tempo real de chamada.
 
 #### Opcional: Dados de entrada de exemplo
-Para validar sua consulta em relação aos dados do trabalho real, você pode usar o recurso de **Dados de Exemplo** para extrair eventos de seu fluxo e criar um arquivo .JSON dos eventos para teste. As etapas a seguir mostram como fazer isso, e também fornecemos um arquivo de amostra [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) para fins de teste.
+Para validar sua consulta em relação aos dados do trabalho real, você pode usar o recurso de **Dados de Exemplo** para extrair eventos de seu fluxo e criar um arquivo .JSON dos eventos para teste. As etapas a seguir mostram como fazer isso e também fornecemos um arquivo [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) de exemplo para teste.
 
 1.	Selecione a entrada do seu Hub de Eventos e clique em **Dados de exemplo** na parte inferior da página.
-2.	Na caixa de diálogo que será exibida, especifique uma **Hora de início** para iniciar a coleta de dados e uma **Duração** para indicar quantos dados extras devem ser consumidos.
-3.	Clique no botão de verificação para iniciar os dados de amostragem da entrada. Pode levar um ou dois minutos para o arquivo de dados ser produzido. Quando o processo estiver concluído, clique em **Detalhes**, baixe e salve o arquivo .JSON que é gerado.
+2.	Na caixa de diálogo que será exibida, especifique uma **Hora de Início** para iniciar a coleta de dados e uma **Duração** para indicar quantos dados extras devem ser consumidos.
+3.	Clique no botão de verificação para iniciar os dados de amostragem da entrada. Pode levar um ou dois minutos para o arquivo de dados ser produzido. Quando o processo estiver concluído, clique em **Detalhes**, baixe e salve o arquivo .JSON gerado.
 
 	![Baixe e salve os dados processados em um arquivo JSON](./media/stream-analytics-get-started/stream-analytics-download-save-json-file.png)
 
@@ -147,7 +147,7 @@ Se deseja arquivar todos os eventos, você pode usar uma consulta de passagem pa
 	> Certifique-se de que o nome da fonte de entrada corresponde ao nome da entrada que você especificou anteriormente.
 
 3.	Clique em **Teste** no editor de consultas.
-4.	Forneça um arquivo de teste, que pode ser um que você criou usando as etapas acima ou o arquivo [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json).
+4.	Forneça um arquivo de teste, que poderá ser o criado nas etapas anteriores, ou use [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json).
 5.	Clique no botão verificar e veja o resultado exibido abaixo da definição de consulta.
 
 	![Resultados da definição de consulta](./media/stream-analytics-get-started/stream-analytics-sim-fraud-output.png)
@@ -208,8 +208,8 @@ Agora que definimos um fluxo de eventos, uma entrada de Hub de Eventos para a in
 
 Siga as etapas abaixo para criar um contêiner para o armazenamento de Blob, se ainda não tiver um.
 
-1.	Use uma conta de Armazenamento existente ou crie uma nova conta de armazenamento clicando em **NOVO > SERVIÇOS DE DADOS > ARMAZENAMENTO > CRIAÇÃO RÁPIDA** e seguindo as instruções.
-2.	Selecione a conta de armazenamento, clique em **CONTÊINERES** na parte superior da página e, então, clique em **ADICIONAR**.
+1.	Use uma conta de armazenamento existente ou crie uma nova conta de armazenamento clicando em **NOVO > SERVIÇOS DE DADOS > ARMAZENAMENTO > CRIAÇÃO RÁPIDA** e seguindo as instruções.
+2.	Selecione a conta de armazenamento, clique em **CONTÊINERES** na parte superior da página e clique em **ADICIONAR**.
 3.	Especifique um **NOME** para seu contêiner e defina seu **ACESSO** como Blob Público.
 
 ## Especifique a saída do trabalho
@@ -219,7 +219,7 @@ Siga as etapas abaixo para criar um contêiner para o armazenamento de Blob, se 
 3.	Digite ou selecione os seguintes valores na terceira página:
 
 	* **ALIAS DE SAÍDA**: insira um nome amigável para essa saída de trabalho.
-	* **ASSINATURA**: se o armazenamento de Blob que você criou estiver na mesma assinatura que o trabalho de Stream Analytics, selecione **Usar Conta de Armazenamento da Assinatura Atual**. Se o armazenamento estiver em uma assinatura diferente, selecione **Usar Conta de Armazenamento de Outra Assinatura** e insira manualmente as informações para **CONTA DE ARMAZENAMENTO**, **CHAVE DA CONTA DE ARMAZENAMENTO** e **CONTÊINER**.
+	* **ASSINATURA**: se o armazenamento de Blobs que você criou estiver na mesma assinatura que o trabalho de Stream Analytics, selecione **Usar Conta de Armazenamento da Assinatura Atual**. Se o armazenamento estiver em uma assinatura diferente, selecione **Usar Conta de Armazenamento de Outra Assinatura** e insira manualmente as informações para **CONTA DE ARMAZENAMENTO**, **CHAVE DA CONTA DE ARMAZENAMENTO** e **CONTÊINER**.
 	* **CONTA DE ARMAZENAMENTO**: selecione o nome da conta de armazenamento.
 	* **CONTÊINER**: selecione o nome do contêiner.
 	* **PREFIXO DE NOME DE ARQUIVO**: digite um prefixo de arquivo a ser usado durante a gravação da saída do blob.
@@ -237,7 +237,7 @@ Siga as etapas abaixo para criar um contêiner para o armazenamento de Blob, se 
 Visto que uma entrada de trabalho, uma consulta e uma saída foram especificadas, estamos prontos para iniciar o trabalho de Stream Analytics para uma detecção de fraude em tempo real.
 
 1.	No trabalho **PAINEL**, clique em **INICIAR** na parte inferior da página.
-2.	Na caixa de diálogo que será exibida, selecione **HORA DE INÍCIO DO TRABALHO** e, então, clique no botão de seleção na parte inferior da caixa de diálogo. O status do trabalho será alterado para **Iniciando** e logo mudará para **Em execução**.
+2.	Na caixa de diálogo que será exibida, selecione **HORA DE INÍCIO DO TRABALHO** e clique no botão de seleção na parte inferior da caixa de diálogo. O status do trabalho será alterado para **Iniciando** e logo mudará para **Em execução**.
 
 ## Exiba a saída de detecção de fraudes
 
@@ -257,4 +257,4 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -39,7 +39,7 @@ Observe que se o seu código de aplicativo lidar com *operações de gerenciamen
 
 O aplicativo de exemplo documentado em [Introdução à API REST de Gerenciamento da Pesquisa do Azure](http://go.microsoft.com/fwlink/p/?linkID=516968) demonstra as técnicas de autenticação para cada tipo de operação. As instruções sobre como configurar um aplicativo cliente para usar o Active Directory estão incluídas na introdução.
 
-O controle de acesso para o Gerenciador de Recursos do Azure usa as funções internas Proprietário, Colaborador e Leitor. Por padrão, todos os administradores de serviço são membros da função Proprietário. Para obter mais detalhes, confira [Controle de acesso baseado em função no portal do Azure](../role-based-access-control-configure.md).
+O controle de acesso para o Gerenciador de Recursos do Azure usa as funções internas Proprietário, Colaborador e Leitor. Por padrão, todos os administradores de serviço são membros da função Proprietário. Para obter mais detalhes, consulte o [Controle de acesso baseado em função no portal clássico do Azure](../role-based-access-control-configure.md).
 
 
 ### Resumo das APIs ##
@@ -812,4 +812,4 @@ O código de status de resposta será HTTP 200 (OK) se tiver êxito.
 
 Nenhum.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

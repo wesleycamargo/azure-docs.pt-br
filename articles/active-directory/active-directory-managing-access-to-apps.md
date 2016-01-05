@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="10/16/2015"
+  ms.date="12/08/2015"
   ms.author="stevenpo"/>
 
 
@@ -25,13 +25,13 @@ Gerenciamento de acesso contínuo, avaliação de uso e relatórios continuam a 
 
  O AD do Azure oferece suporte a gerenciamento de acesso abrangente para aplicativos configurados, permitindo que as organizações obtenham facilmente as políticas de acesso corretas desde a atribuição automática, com base em atributo (cenários de ABAC ou RBAC) por meio da delegação e incluindo gerenciamento de administradores. Com o AD do Azure, você pode facilmente obter políticas complexas, combinando vários modelos de gerenciamento de um único aplicativo e pode até reutilizar regras de gerenciamento entre aplicativos com o mesmo público.
 
- - [Adicionando novos aplicativos](active-directory-sso-newly-acquired-saas-apps.md)
- - [Adicionando aplicativos existentes](active-directory-sso-integrate-existing-apps)
+ - [Adicionando aplicativos novos ou existentes](active-directory-sso-integrate-saas-apps.md)
+
 
  A atribuição de aplicativo do AD do Azure se concentra em dois modos de atribuição principais:
 
-- **Atribuição individual** Um administrador de TI com privilégio global, de usuário ou AU pode selecionar as contas de usuário individuais e conceder a elas acesso ao aplicativo.
-- **Atribuição baseada em grupo (somente no AD do Azure pago)** Um administrador de TI com privilégio global, de usuário ou AU pode atribuir um grupo ao aplicativo. O acesso de um usuário específico é determinado dependendo se ele é membro do grupo no momento em que tenta acessar o aplicativo. Nesse modo, um administrador pode efetivamente criar uma regra de atribuição informando que "qualquer membro atual do grupo atribuído tem acesso ao aplicativo". Com essa opção de atribuição, os administradores podem se beneficiar de qualquer uma das opções de gerenciamento de grupo do AD do Azure, incluindo grupos dinâmicos baseados em atributo, grupos de sistema externo (por exemplo, AD no local ou Workday), grupos gerenciados de autoatendimento ou por administrador. Um único grupo pode ser atribuído facilmente a vários aplicativos, garantindo que os aplicativos com afinidade de atribuição possam compartilhar as regras de atribuição, reduzindo a complexidade do gerenciamento geral.
+- **Atribuição individual** Um administrador de TI com permissões de Administrador Global de diretório pode selecionar as contas de usuário individuais e conceder a elas acesso ao aplicativo.
+- **Atribuição baseada em grupo (somente no AD do Azure pago)** Um administrador de TI com permissões de Administrador Global de diretório pode atribuir um grupo ao aplicativo. O acesso de um usuário específico é determinado dependendo se ele é membro do grupo no momento em que tenta acessar o aplicativo. Nesse modo, um administrador pode efetivamente criar uma regra de atribuição informando que "qualquer membro atual do grupo atribuído tem acesso ao aplicativo". Com essa opção de atribuição, os administradores podem se beneficiar de qualquer uma das opções de gerenciamento de grupo do AD do Azure, incluindo grupos dinâmicos baseados em atributo, grupos de sistema externo (por exemplo, AD no local ou Workday), grupos gerenciados de autoatendimento ou por administrador. Um único grupo pode ser atribuído facilmente a vários aplicativos, garantindo que os aplicativos com afinidade de atribuição possam compartilhar as regras de atribuição, reduzindo a complexidade do gerenciamento geral. Por favor, note que associações de grupo aninhadas não têm suporte para atribuição com base em grupo de aplicativos atualmente.
 
 Usando esses dois modos de atribuição, os administradores podem obter qualquer abordagem de gerenciamento de atribuição desejada.
 
@@ -45,7 +45,7 @@ Com o AD do Azure, aplicativos como o Salesforce podem ser pré-configurados par
 
 - Grupos baseados em atributo podem ser definidos para representar automaticamente todos os membros das equipes de marketing e vendas usando atributos como o departamento ou a função:
     - Todos os membros de grupos de marketing seriam atribuídos à função de "marketing" no Salesforce
-    - Todos os membros dos grupos da equipe de vendas seriam atribuídos à função de "venda" no Salesforce. Um ajuste adicional poderia usar vários grupos que representam equipes de vendas regionais que recebem funções diferentes no Salesforce.
+    - Todos os membros dos grupos da equipe de vendas seriam atribuídos à função de "vendas" no Salesforce. Um ajuste adicional poderia usar vários grupos que representam equipes de vendas regionais que são atribuídos a funções diferentes no Salesforce.
 - Para habilitar o mecanismo de exceção, um grupo de autoatendimento poderia ser criado para cada função. Por exemplo, o grupo "exceção de marketing do Salesforce" pode ser criado como um grupo de autoatendimento. O grupo pode ser atribuído à função de marketing do Salesforce e a equipe de liderança de marketing pode ser definida como proprietária. Membros da equipe de liderança de marketing podem adicionar ou remover usuários, definir uma política de associação ou até mesmo aprovar ou negar as solicitações de usuários individuais para ingressar. Isso é suportado por meio de uma experiência adequada ao operador de informações que não exige treinamento especializado para os proprietários ou membros.
 
 Nesse caso, todos os usuários atribuídos poderiam ser provisionados automaticamente no Salesforce. Como são adicionados a grupos diferentes, sua atribuição de função seria atualizada no Salesforce. Os usuários poderiam descobrir e acessar o Salesforce por meio do painel de acesso de aplicativos Microsoft, clientes do Office na web ou até mesmo navegando para sua página de logon organizacional do Salesforce. Os administradores poderiam exibir facilmente o status de atribuição e uso usando os relatórios do AD do Azure.
@@ -71,4 +71,4 @@ Recursos do AD do Azure que permitem o compartilhamento de contas incluem:
 - [Protegendo aplicativos com acesso condicional](active-directory-conditional-access.md)
 - [Gerenciamento de grupo de autoatendimento/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

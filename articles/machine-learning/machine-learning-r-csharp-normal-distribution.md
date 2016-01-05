@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/02/2015" 
+	ms.date="12/01/2015" 
 	ms.author="ireiter"/>
 
 #Pacote de distribuição normal
@@ -265,4 +265,4 @@ Para obter as perguntas frequentes sobre o consumo do serviço Web ou a publica�
 [4]: ./media/machine-learning-r-csharp-normal-distribution/normal-img4.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

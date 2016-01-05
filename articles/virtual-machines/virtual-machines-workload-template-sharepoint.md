@@ -29,17 +29,17 @@ Para um farm básico do SharePoint Server 2013, um modelo do Gerenciador de Recu
 
 ![](./media/virtual-machines-workload-template-sharepoint/three-server-sharepoint-farm.png)
 
-Você pode executar o modelo com o portal de visualização do Azure, o Azure PowerShell ou CLI do Azure.
+Você pode executar o modelo com o portal do Azure, o Azure PowerShell ou a CLI do Azure.
 
-> [AZURE.NOTE]Você também pode criar essa configuração usando o item [Farm do SharePoint 2013 não HA](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) no Azure Marketplace do portal de Visualização do Azure.
+> [AZURE.NOTE]Você também pode criar essa configuração usando o item [Farm do SharePoint 2013 não HA](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) no Azure Marketplace do portal do Azure.
 
-### Portal de Visualização do Azure
+### Portal do Azure
 
-Para implantar essa carga de trabalho usando um modelo do Gerenciador de Recursos e o portal de Visualização do Azure, clique [aqui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-three-vm%2Fazuredeploy.json).
+Para implantar essa carga de trabalho usando um modelo do Gerenciador de Recursos e o portal do Azure, clique [aqui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-three-vm%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
-1.	Clique em **Parâmetros**. No painel **Parâmetros**, insira novos valores, selecione os valores permitidos ou aceite os valores padrão e, em seguida, clique em **OK**.
+1.	Clique em **Parâmetros**. No painel **Parâmetros**, insira novos valores, selecione os valores permitidos ou aceite os valores padrão e clique em **OK**.
 2.	Se necessário, clique em **Assinatura** e selecione a assinatura correta do Azure.
 3.	Clique em **Grupo de recursos** e selecione um grupo de recursos existente. Como alternativa, clique em **Ou criar novo** para criar um novo para essa carga de trabalho.
 4.	Se necessário, clique em **Local do grupo de recursos** e selecione o local correto do Azure.
@@ -103,15 +103,15 @@ Para um farm do SharePoint Server 2013 de alta disponibilidade, um modelo do Ger
 
 ![](./media/virtual-machines-workload-template-sharepoint/nine-server-sharepoint-farm.png)
 
-> [AZURE.NOTE]Você também pode criar essa configuração usando o item [Farm do SharePoint 2013 HA](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) no Azure Marketplace do portal de Visualização do Azure.
+> [AZURE.NOTE]Você também pode criar essa configuração usando o item [Farm do SharePoint 2013 HA](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) no Azure Marketplace do portal do Azure.
 
-### Portal de Visualização do Azure
+### Portal do Azure
 
-Para implantar essa carga de trabalho usando um modelo do Gerenciador de Recursos e o portal de Visualização do Azure, clique [aqui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-server-farm-ha%2Fazuredeploy.json).
+Para implantar essa carga de trabalho usando um modelo do Gerenciador de Recursos e o portal do Azure, clique [aqui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-server-farm-ha%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
-1.	Clique em **Parâmetros**. No painel **Parâmetros**, insira novos valores, selecione os valores permitidos ou aceite os valores padrão e, em seguida, clique em **OK**.
+1.	Clique em **Parâmetros**. No painel **Parâmetros**, insira novos valores, selecione os valores permitidos ou aceite os valores padrão e clique em **OK**.
 2.	Se necessário, clique em **Assinatura** e selecione a assinatura correta do Azure.
 3.	Clique em **Grupo de recursos** e selecione um grupo de recursos existente. Como alternativa, clique em **Ou criar novo** para criar um novo para essa carga de trabalho.
 4.	Se necessário, clique em **Local do grupo de recursos** e selecione o local correto do Azure.
@@ -186,4 +186,4 @@ Quando a execução do modelo for concluída, você terá, então, um novo farm 
 
 [Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -24,12 +24,6 @@ Na última etapa do cenário de processamento de log do primeiro passo a passo c
  
 Para copiar dados de eficácia de campanha de marketing do Blob do Azure para o SQL Server local, você precisa criar Serviço Vinculado local, Tabela e Pipeline adicionais usando o mesmo conjunto de cmdlets introduzidos no primeiro passo a passo.
 
-> [AZURE.IMPORTANT]Este artigo não cobre todos os cmdlets de Data Factory. Consulte [Referência de cmdlet de Data Factory][cmdlet-reference] para obter uma documentação abrangente sobre os cmdlets de Data Factory.
->    
-> Se estiver usando o Azure PowerShell 1.0 Preview, você precisará usar os cmdlets documentados [aqui](https://msdn.microsoft.com/library/dn820234.aspx). Por exemplo, use New-AzureRMDataFactory em vez de New-AzureDataFactory.
-
-## Pré-requisitos
-
 Você **deve** executar o passo a passo no [Tutorial: Mover e processar arquivos de log usando Data Factory][datafactorytutorial] antes de executar o passo a passo deste artigo.
 
 **(recomendado)** Examine e pratique o passo a passo no artigo [Habilitar seus pipelines para trabalhar com dados locais][useonpremisesdatasources] para ver um passo a passo sobre como criar um pipeline para mover dados do SQL Server local para um armazenamento de blob do Azure.
@@ -44,7 +38,7 @@ Neste tutorial, você realizará as seguintes etapas:
 2. [Etapa 2: criar um serviço vinculado para o SQL Server local](#OnPremStep2). Nesta etapa, você primeiro cria um banco de dados e uma tabela no computador local do SQL Server e, em seguida, cria o serviço vinculado: **OnPremSqlLinkedService**.
 3. [Etapa 3: criar tabela e pipeline](#OnPremStep3). Nesta etapa, você criará uma tabela **MarketingCampaignEffectivenessOnPremSQLTable** e um pipeline **EgressDataToOnPremPipeline**. 
 
-4. [Etapa 4: monitorar o pipeline e exibir o resultado](#OnPremStep4). Nesta etapa, você monitorará as fatias de dados, tabelas e pipelines usando o Portal do Azure.
+4. [Etapa 4: monitorar o pipeline e exibir o resultado](#OnPremStep4). Nesta etapa, você monitorará as fatias de dados, tabelas e pipelines usando o Portal Clássico do Azure.
 
 
 ## <a name="OnPremStep1"></a> Etapa 1: criar um gateway de gerenciamento de dados
@@ -55,7 +49,7 @@ Você deve ter pelo menos um gateway instalado no seu ambiente corporativo, bem 
 
 Se você tiver um gateway de dados existente que você possa usar, ignore esta etapa.
 
-1.	Crie um gateway de dados lógicos. No **Portal de Visualização do Azure**, clique em **Serviços vinculados** na folha **DATA FACTORY**.
+1.	Crie um gateway de dados lógicos. No **Portal do Azure**, clique em **Serviços Vinculados** na folha **DATA FACTORY**.
 2.	Clique em **Adicionar (+) Gateway de Dados** na barra de comandos.  
 3.	Na folha **Novo gateway de dados**, clique em **CRIAR**.
 4.	Na folha **Criar**, insira **MyGateway** para o **nome** do gateway de dados.
@@ -101,7 +95,7 @@ Para começar, você precisa criar o banco de dados SQL Server, a tabela, os tip
 
 ### Criar o serviço vinculado
 
-1.	No **Portal de Visualização do Azure**, clique no bloco **Serviços Vinculados** na folha **DATA FACTORY** de **LogProcessingFactory**.
+1.	No **Portal do Azure**, clique no bloco **Serviços Vinculados** na folha **DATA FACTORY** de **LogProcessingFactory**.
 2.	Na folha **Serviços Vinculados**, clique em **Adicionar (+) armazenamento de dados**.
 3.	Na folha **Novo armazenamento de dados**, insira **OnPremSqlLinkedService** como o **Nome**. 
 4.	Clique em **Tipo (Configurações necessárias)** e selecione **SQL Server**. Agora você deve ver as configurações de **GATEWAY DE DADOS**, **Servidor**, **Banco de dados** e **CREDENCIAIS** na folha **Novo armazenamento de dados**. 
@@ -120,22 +114,22 @@ Para começar, você precisa criar o banco de dados SQL Server, a tabela, os tip
 ### Criar a tabela lógica local
 
 1.	No **PowerShell do Azure**, alterne para a pasta **C:\\ADFWalkthrough\\OnPremises**. 
-2.	Use o cmdlet **New-AzureDataFactoryDataset** para criar as Tabelas para **MarketingCampaignEffectivenessOnPremSQLTable.json**, como descrito a seguir.
+2.	Use o cmdlet **New-AzureRmDataFactoryDataset** para criar as Tabelas para **MarketingCampaignEffectivenessOnPremSQLTable.json**, como descrito a seguir.
 
 			
-		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
+		New-AzureRmDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
 	 
 #### Criar o pipeline para copiar os dados do Blob do Azure para o SQL Server
 
-1.	Use o cmdlet **New-AzureDataFactoryPipeline** para criar o Pipeline da seguinte maneira para **EgressDataToOnPremPipeline.json**.
+1.	Use o cmdlet **New-AzureRmDataFactoryPipeline** para criar o Pipeline para **EgressDataToOnPremPipeline.json**, conforme descrito a seguir.
 
 			
-		New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EgressDataToOnPremPipeline.json
+		New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EgressDataToOnPremPipeline.json
 	 
-2. Use o cmdlet **Set-AzureDataFactoryPipelineActivePeriod** para especificar o período ativo de **EgressDataToOnPremPipeline**.
+2. Use o cmdlet **Set-AzureRmDataFactoryPipelineActivePeriod** para especificar o período ativo para **EgressDataToOnPremPipeline**.
 
 			
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name EgressDataToOnPremPipeline
+		Set-AzureRmDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name EgressDataToOnPremPipeline
 
 	Pressione **‘Y’** para continuar.
 	
@@ -158,7 +152,7 @@ Parabéns! Você verificou com êxito o passo a passo para usar sua fonte de dad
 [adfintroduction]: data-factory-introduction.md
 [useonpremisesdatasources]: data-factory-move-data-between-onprem-and-cloud.md
 
-[azure-preview-portal]: http://portal.azure.com
+[azure-portal]: http://portal.azure.com
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -169,9 +163,11 @@ Parabéns! Você verificou com êxito o passo a passo para usar sua fonte de dad
 [download-azure-powershell]: http://azure.microsoft.com/documentation/articles/install-configure-powershell
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
+[old-cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
+
 
 [image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial-extend-onpremises-using-powershell/DataManagementGatewayConfigurationManager.png
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

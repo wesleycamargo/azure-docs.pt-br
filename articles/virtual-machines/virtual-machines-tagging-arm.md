@@ -28,7 +28,7 @@ Este artigo descreve as diferentes maneiras de marcar uma máquina virtual no Az
 
 Primeiramente, vamos observar uma marcação por meio de modelos. [Este modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm) coloca marcas nos seguintes recursos: Computação (Máquina Virtual), Armazenamento (Conta de Armazenamento) e Rede (Endereço IP Público, Rede Virtual e Interface de Rede).
 
-Clique no botão **Implantar no Azure** no [link do modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm). Isso o levará ao [Portal de Visualização do Azure](http://portal.azure.com/), em que será possível implantar esse modelo.
+Clique no botão **Implantar no Azure** no [link do modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm). Você será direcionado para o [Portal do Azure](http://portal.azure.com/), onde poderá implantar esse modelo.
 
 ![Implantação simples com marcas](./media/virtual-machines-tagging-arm/deploy-to-azure-tags.png)
 
@@ -111,11 +111,11 @@ O terceiro comando adiciona uma marca extra à variável *tags*. Observe o uso d
 
         PS C:\> $tags +=@{Name="Location";Value="MyLocation"}
 
-O quarto comando define todas as marcas definidas na variável *tags* para o recurso fornecido. Nesse caso, é MyWindowsVM.
+O quarto comando define todas as marcas definidas na variável *tags* para o recurso determinado. Nesse caso, é MyWindowsVM.
 
         PS C:\> Set-AzureResource -Name MyWindowsVM -ResourceGroupName MyResourceGroup -ResourceType "Microsoft.Compute/VirtualMachines" -ApiVersion 2015-05-01-preview -Tag $tags
 
-O quinto comando exibe todas as marcas no recurso. Como pode ser visto, *Location* agora está definido como uma marca com *MyLocation* como o valor.
+O quinto comando exibe todas as marcas no recurso. Como você pode ver, *Location* agora está definido como uma marca com *MyLocation* como valor.
 
         PS C:\> (Get-AzureResource -ResourceName "MyWindowsVM" -ResourceGroupName "MyResourceGroup" -ResourceType "Microsoft.Compute/VirtualMachines" -ApiVersion 2015-05-01-preview).Tags
 
@@ -132,7 +132,7 @@ O quinto comando exibe todas as marcas no recurso. Como pode ser visto, *Locatio
         Value		MyLocation
         Name		Location
 
-Para saber mais sobre marcação usando o PowerShell, confira [Cmdlets de Recurso do Azure][].
+Para saber mais sobre marcação usando o PowerShell, confira [Cmdlets de recursos do Azure][].
 
 
 ## Marcando com a CLI do Azure
@@ -141,11 +141,11 @@ A marcação também tem suporte de recursos que já foram criados por meio da C
 
         azure vm show -g MyResourceGroup -n MyVM
 
-Diferentemente do PowerShell, se estiver adicionando marcas a um recurso que já contém marcas, você não precisa especificar todas as marcas (antigas e novas) antes de usar o comando `azure vm set`. Em vez disso, esse comando permite acrescentar uma marca ao recurso. Para adicionar uma nova marca VM usando a CLI do Azure, você pode usar o comando `azure vm set` juntamente com o parâmetro de marca **-t**:
+Ao contrário do PowerShell, se você estiver adicionando marcas a um recurso que já contenha marcas, não será necessário especificar todas as marcas, antigas ou novas, antes de usar o comando `azure vm set`. Em vez disso, esse comando permite acrescentar uma marca ao recurso. Para adicionar uma nova marca de VM usando a CLI do Azure, use o comando `azure vm set` juntamente com o parâmetro de marca **-t**:
 
         azure vm set -g MyResourceGroup -n MyVM –t myNewTagName1=myNewTagValue1;myNewTagName2=myNewTagValue2
 
-Para remover todas as marcas, é possível usar o parâmetro **–T** no comando `azure vm set`.
+Para remover todas as marcas, use o parâmetro **–T** no comando `azure vm set`.
 
         azure vm set – g MyResourceGroup –n MyVM -T
 
@@ -155,17 +155,17 @@ Agora que aplicamos marcas aos nossos recursos por meio do PowerShell, da CLI do
 
 ## Exibindo suas marcas nos detalhes de uso
 
-As marcas colocadas nos recursos de Computação, Rede e Armazenamento por meio do Gerenciador de Recursos do Azure serão populadas nos detalhes de uso no [portal de cobrança](https://account.windowsazure.com/).
+As marcas colocadas nos recursos de Computação, Rede e Armazenamento por meio do Gerenciador de Recursos do Azure serão preenchidas nos detalhes de uso no [portal de cobrança](https://account.windowsazure.com/).
 
-Clique em **Baixar detalhes de uso** para exibir os detalhes de uso na sua assinatura.
+Clique em **Baixar detalhes de uso** para exibir os detalhes de uso da assinatura.
 
 ![Detalhes de uso no Portal do Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-usage-details.png)
 
-Selecione o extrato de cobrança e os detalhes de uso da **Versão 2**:
+Selecione o demonstrativo e os detalhes de uso da **Versão 2**:
 
-![Detalhes de uso da Versão 2 Preview no Portal do Azure](./media/virtual-machines-tagging-arm/azure-portal-version2-usage-details.png)
+![Detalhes de uso da versão de visualização 2 no Portal do Azure](./media/virtual-machines-tagging-arm/azure-portal-version2-usage-details.png)
 
-Em detalhes de uso, você pode ver todas as marcas na coluna **Marcas**:
+Nos detalhes de uso, você pode ver todas as marcas na coluna **Marcas**:
 
 ![Coluna Marcas no Portal do Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-column.png)
 
@@ -183,11 +183,11 @@ Ao analisar essas marcas juntamente com o uso, as organizações poderão adquir
 
 
 [ambiente do PowerShell com o Gerenciador de Recursos do Azure]: ../powershell-azure-resource-manager.md
-[Cmdlets de Recurso do Azure]: https://msdn.microsoft.com/pt-BR/library/azure/dn757692.aspx
+[Cmdlets de recursos do Azure]: https://msdn.microsoft.com/library/azure/dn757692.aspx
 [ambiente da CLI do Azure]: ./xplat-cli-azure-resource-manager.md
 [Visão Geral do Gerenciador de Recursos do Azure]: ../resource-group-overview.md
 [Usando marcas para organizar os recursos do Azure]: ../resource-group-using-tags.md
 [Noções básicas de sua fatura do Azure]: ../billing-understand-your-bill.md
 [Obtenha informações sobre o consumo de recursos do Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

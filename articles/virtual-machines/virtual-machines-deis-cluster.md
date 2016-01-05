@@ -90,9 +90,9 @@ Nesta seção, você usará um modelo do [Gerenciador de Recursos do Azure](../r
         ./deploy-deis.sh -n "[resource group name]" -l "West US" -f ./azuredeploy.json -e ./azuredeploy-parameters.json
         -c ./cloud-config.yaml  
 
-11. Após o grupo de recursos ser provisionado, você pode ver todos os recursos do grupo no Portal do Azure. Conforme mostrado na captura de tela a seguir, o grupo de recursos contém uma rede virtual com três VMs, que fazem parte do mesmo conjunto de disponibilidade. O grupo também contém um balanceador de carga, que tem um IP público associado.
+11. Após o grupo de recursos ser provisionado, você pode ver todos os recursos do grupo no portal clássico do Azure. Conforme mostrado na captura de tela a seguir, o grupo de recursos contém uma rede virtual com três VMs, que fazem parte do mesmo conjunto de disponibilidade. O grupo também contém um balanceador de carga, que tem um IP público associado.
 
-  ![O grupo de recursos provisionado no portal do Azure](media/virtual-machines-deis-cluster/resource-group.png)
+  ![O grupo de recursos provisionado no portal clássico do Azure](media/virtual-machines-deis-cluster/resource-group.png)
 
 ## Instalar o cliente
 
@@ -113,7 +113,7 @@ Você precisa do **deisctl** para controlar seu cluster Deis. Embora o deisctl s
 
         export DEISCTL_TUNNEL=[public ip of the load balancer]:2223
 
-O modelo define regras NAT de entrada que mapeiam 2223 à instância 1, 2224 à instância 2 e 2225 à instância 3. Isso fornece redundância ao uso da ferramenta deisctl. Você pode examinar essas regras no Portal do Azure:
+O modelo define regras NAT de entrada que mapeiam 2223 à instância 1, 2224 à instância 2 e 2225 à instância 3. Isso fornece redundância ao uso da ferramenta deisctl. Você pode examinar essas regras no portal clássico do Azure:
 
 ![Regras NAT no balanceador de carga](media/virtual-machines-deis-cluster/nat-rules.png)
 
@@ -258,4 +258,4 @@ Este artigo percorreu todas as etapas para provisionar um novo cluster Deis no A
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/19/2015"
+	ms.date="12/11/2015"
 	ms.author="jroth" />
 
 # Business Intelligence do SQL Server em máquinas virtuais do Azure
@@ -41,7 +41,7 @@ A galeria de Máquinas Virtuais do Microsoft Azure inclui várias imagens com o 
 
 ![PowerShell](./media/virtual-machines-sql-server-business-intelligence/IC660119.gif) O script do PowerShell a seguir retorna a lista de imagens do Azure que contêm "SQL-Server" em ImageName:
 
-	# assumes you have already uploaded a management certificate to your Microsoft Azure Subscription. View the thumbprint value from the "settings" menu in Microsoft Azure Management Portal
+	# assumes you have already uploaded a management certificate to your Microsoft Azure Subscription. View the thumbprint value from the "settings" menu in Azure classic portal.
 	
 	$subscriptionID = ""    # REQUIRED: Provide your subscription ID.
 	$subscriptionName = "" # REQUIRED: Provide your subscription name.
@@ -431,4 +431,4 @@ O diagrama a seguir ilustra as portas a serem abertas no firewall da VM a fim de
 
 - [Gerenciamento de banco de dados SQL do Azure com o PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

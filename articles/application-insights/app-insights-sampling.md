@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
 
 #  Amostragem no Application Insights
@@ -20,47 +20,119 @@
 *O Application Insights está em modo de visualização.*
 
 
-A amostragem é uma opção no Application Insights que permite coletar e armazenar um conjunto reduzido de telemetria, ao mesmo tempo que mantém uma análise estatisticamente correta dos dados do aplicativo. Você normalmente a usaria para reduzir o tráfego e evitar a [limitação](app-insights-pricing.md#data-rate). Os dados são filtrados de forma que os itens relacionados são permitidos, para que você possa realizar investigações de diagnóstico com um conjunto reduzido de dados. Os lados do cliente e do servidor são coordenados automaticamente para filtrar itens relacionados. Quando as contagens de métrica são apresentadas a você no portal, elas são normalizadas novamente para levar em conta a amostragem, a fim de minimizar qualquer efeito sobre as estatísticas.
+A amostragem é um recurso no Application Insights que permite coletar e armazenar um conjunto reduzido de telemetria, ao mesmo tempo que mantém uma análise estatisticamente correta dos dados do aplicativo. Ela reduz o tráfego e ajuda a evitar a [limitação](app-insights-pricing.md#data-rate). Os dados são filtrados de tal forma que itens relacionados sejam permitidos, de modo que você possa navegar entre os itens quando estiver realizando investigações de diagnóstico. Quando as contagens de métrica são apresentadas a você no portal, elas são normalizadas novamente para levar em conta a amostragem, a fim de minimizar qualquer efeito sobre as estatísticas.
+
+A amostragem adaptável está habilitada por padrão no SDK do Application Insights para ASP.NET, versão 2.0.0-beta3 ou posterior. A amostragem está atualmente na versão Beta e pode ser alterada no futuro.
+
+Há dois módulos de amostragem alternativos:
+
+* A amostragem adaptável ajusta automaticamente a porcentagem de amostragem para atingir um determinado volume de solicitações. Disponível atualmente somente para telemetria ASP.NET do lado do servidor.  
+* A amostragem de taxa fixa também está disponível. Especifique a porcentagem de amostragem. Disponível para o código do aplicativo Web ASP.NET e páginas Web do JavaScript. O cliente e o servidor sincronizarão suas amostragens para que, na Pesquisa, você possa navegar entre exibições de página e solicitações relacionadas.
+
+## Habilitando a amostragem adaptável
+
+**Atualize os pacotes NuGet** de seu projeto para a versão de *pré-lançamento* mais recente do Application Insights: clique com o botão direito do mouse no projeto no Gerenciador de Soluções, marque a opção **Incluir pré-lançamento** e procure por Microsoft.ApplicationInsights.Web.
+
+Em [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), é possível ajustar diversos parâmetros no nó `AdaptiveSamplingTelemetryProcessor`. Os números mostrados são os valores padrão:
+
+* `<MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>`
+
+    A taxa de destino desejada pelo algoritmo adaptável para **um host de servidor único**. Se o seu aplicativo Web for executado em muitos hosts, convém reduzir esse valor para permanecer dentro de sua taxa de destino de tráfego no portal do Application Insights.
+
+* `<EvaluationInterval>00:00:15</EvaluationInterval>`
+
+    O intervalo no qual a taxa atual de telemetria é reavaliada. Avaliação é executada como uma média móvel. Talvez você queira reduzir esse intervalo se a sua telemetria estiver sujeita a picos repentinos.
+
+* `<SamplingPercentageDecreaseTimeout>00:02:00</SamplingPercentageDecreaseTimeout>`
+
+    Quando o valor da porcentagem de amostragem muda, quanto tempo depois temos permissão para diminuir a porcentagem de amostragem novamente a fim de capturar menos dados.
+
+* `<SamplingPercentageIncreaseTimeout>00:15:00</SamplingPercentageDecreaseTimeout>`
+
+    Quando o valor da porcentagem de amostragem muda, quanto tempo depois temos permissão para aumentar a porcentagem de amostragem novamente a fim de capturar mais dados.
+
+* `<MinSamplingPercentage>0.1</MinSamplingPercentage>`
+
+    À medida que a porcentagem de amostragem varia, qual é o valor mínimo que podemos definir.
+
+* `<MaxSamplingPercentage>100.0</MaxSamplingPercentage>`
+
+    À medida que a porcentagem de amostragem varia, qual é o valor máximo que podemos definir.
+
+* `<MovingAverageRatio>0.25</MovingAverageRatio>`
+
+    No cálculo da média móvel, o peso atribuído ao valor mais recente. Use um valor menor ou igual a 1. Valores menores tornam o algoritmo menos reativo a mudanças repentinas.
+
+* `<InitialSamplingPercentage>100</InitialSamplingPercentage>`
+
+    O valor atribuído quando o aplicativo acabou de ser iniciado. Não o reduza enquanto estiver depurando.
+
+### Alternativa: configurar amostragem adaptável no código
+
+Em vez de ajustar a amostragem no arquivo .config, você pode usar o código. Isso permite especificar uma função de retorno de chamada invocada sempre que a taxa de amostragem é avaliada novamente. Você pode usar isso, por exemplo, para descobrir qual taxa de amostragem está sendo usada.
+
+Remova o nó `AdaptiveSamplingTelemetryProcessor` do arquivo .config.
 
 
-A amostragem está atualmente na versão Beta e pode ser alterada no futuro.
 
-## Configurando a amostragem para o seu aplicativo
+*C#*
 
-A amostragem está atualmente disponível para o SDK do ASP.NET ou para [qualquer página da Web](#other-web-pages).
+```C#
 
-### Servidor ASP.NET
+    using Microsoft.ApplicationInsights;
+    using Microsoft.ApplicationInsights.Extensibility;
+    using Microsoft.ApplicationInsights.WindowsServer.Channel.Implementation;
+    using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
+    ...
 
-1. Atualize os pacotes NuGet do seu projeto para a versão de *pré-lançamento* mais recente do Application Insights. Clique com o botão direito do mouse no projeto no Gerenciador de Soluções, marque a opção **Incluir pré-lançamento** e procure por Microsoft.ApplicationInsights.Web. 
+    var adaptiveSamplingSettings = new SamplingPercentageEstimatorSettings();
 
-2. Adicione esse trecho de código a [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
+    // Optional: here you can adjust the settings from their defaults.
 
-```XML
+    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    
+    builder.UseAdaptiveSampling(
+         adaptiveSamplingSettings,
 
-    <TelemetryProcessors>
-     <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+        // Callback on rate re-evaluation:
+        (double afterSamplingTelemetryItemRatePerSecond,
+         double currentSamplingPercentage,
+         double newSamplingPercentage,
+         bool isSamplingPercentageChanged,
+         SamplingPercentageEstimatorSettings s
+        ) =>
+        {
+          if (isSamplingPercentageChanged)
+          {
+             // Report the sampling rate.
+             telemetryClient.TrackMetric("samplingPercentage", newSamplingPercentage);
+          }
+      });
 
-     <!-- Set a percentage close to 100/N where N is an integer. -->
-     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
-     <SamplingPercentage>10</SamplingPercentage>
-     </Add>
-   </TelemetryProcessors>
+    // If you have other telemetry processors:
+    builder.Use((next) => new AnotherProcessor(next));
+
+    builder.Build();
 
 ```
 
-> [AZURE.NOTE]Para o percentual de amostragem, escolha um percentual que esteja próximo a 100/N, em que N é um inteiro. Atualmente, a amostragem não dá suporte a outros valores.
+([Saiba mais sobre os processadores de telemetria](app-insights-api-filtering-sampling.md#filtering).)
+
 
 <a name="other-web-pages"></a>
-### Páginas da Web com JavaScript
+## Amostragem para áginas da Web com JavaScript
 
-Você pode configurar páginas da Web para a amostragem em qualquer servidor. Para servidores ASP.NET, configure os lados do cliente e do servidor.
+Você pode configurar as páginas da Web para amostragem de taxa fixa de qualquer servidor.
 
-Ao [configurar as páginas da Web para o Application Insights](app-insights-javascript.md), modifique o trecho de código que você receber do portal do Application Insights. (No ASP.NET, você o encontrará em \_Layout.cshtml.) Insira uma linha como `samplingPercentage: 10,` antes da chave de instrumentação:
+Ao [configurar as páginas da Web para o Application Insights](app-insights-javascript.md), modifique o trecho de código que você receber do portal do Application Insights. (Em aplicativos ASP.NET, o trecho de código geralmente vai em \_Layout.cshtml.) Insira uma linha como `samplingPercentage: 10,` antes da chave de instrumentação:
 
     <script>
 	var appInsights= ... 
 	}({ 
 
+
+    // Value must be 100/N where N is an integer.
+    // Valid examples: 50, 25, 20, 10, 5, 1, 0.1, ...
 	samplingPercentage: 10, 
 
 	instrumentationKey:...
@@ -70,15 +142,52 @@ Ao [configurar as páginas da Web para o Application Insights](app-insights-java
 	appInsights.trackPageView(); 
 	</script> 
 
-Lembre-se de fornecer o mesmo percentual de amostragem no JavaScript fornecido no lado do servidor.
+Para o percentual de amostragem, escolha um percentual que esteja próximo a 100/N, em que N é um inteiro. Atualmente, a amostragem não dá suporte a outros valores.
 
-[Saiba mais sobre a API](app-insights-api-custom-events-metrics.md)
-
-
-### Alternativa: definir a amostragem no código do servidor
+Se você também habilitar a amostragem de taxa fixa no servidor, o cliente e o servidor serão sincronizados para que, na Pesquisa, você possa navegar entre exibições de página e solicitações relacionadas.
 
 
-Em vez de definir o parâmetro de amostragem no arquivo .config, você pode usar o código. Isso permitiria ativar e desativar a amostragem.
+## Habilitando a amostragem de taxa fixa no servidor
+
+1. **Atualize os pacotes NuGet do seu projeto** para a versão de *pré-lançamento* mais recente do Application Insights. Clique com o botão direito do mouse no projeto no Gerenciador de Soluções, marque a opção **Incluir pré-lançamento** e procure por Microsoft.ApplicationInsights.Web. 
+
+2. **Desabilitar a amostragem adaptável**: em [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), remova ou comente o nó `AdaptiveSamplingTelemetryProcessor`.
+
+    ```xml
+
+    <TelemetryProcessors>
+    <!-- Disabled adaptive sampling:
+      <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+        <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
+      </Add>
+    -->
+    
+
+    ```
+
+2. **Habilitar o módulo de amostragem de taxa fixa.** Adicione esse trecho de código a [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
+
+    ```XML
+
+    <TelemetryProcessors>
+     <Add  Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+
+      <!-- Set a percentage close to 100/N where N is an integer. -->
+     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
+      <SamplingPercentage>10</SamplingPercentage>
+      </Add>
+    </TelemetryProcessors>
+
+    ```
+
+> [AZURE.NOTE]Para o percentual de amostragem, escolha um percentual que esteja próximo a 100/N, em que N é um inteiro. Atualmente, a amostragem não dá suporte a outros valores.
+
+
+
+### Alternativa: habilite a amostragem de taxa fixa no código do servidor
+
+
+Em vez de definir o parâmetro de amostragem no arquivo .config, você pode usar o código.
 
 *C#*
 
@@ -86,26 +195,42 @@ Em vez de definir o parâmetro de amostragem no arquivo .config, você pode usar
 
     using Microsoft.ApplicationInsights.Extensibility;
     using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
+    ...
 
-    // It's recommended to set SamplingPercentage in the .config file instead.
+    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    builder.UseSampling(10.0); // percentage
 
-    // This configures sampling percentage at 10%:
-    TelemetryConfiguration.Active.TelemetryChannel = new TelemetryChannelBuilder().UseSampling(10.0).Build();
+    // If you have other telemetry processors:
+    builder.Use((next) => new AnotherProcessor(next));
+
+    builder.Build();
 
 ```
 
+([Saiba mais sobre os processadores de telemetria](app-insights-api-filtering-sampling.md#filtering).)
 
 ## Quando usar a amostragem?
+
+Amostragem adaptável é habilitada automaticamente se você usar o SDK do ASP.NET versão 2.0.0-beta3 ou posterior.
 
 A amostragem não é necessária para a maioria dos aplicativos de pequeno e médio porte. As informações de diagnóstico mais úteis e as estatísticas mais precisas são obtidas por meio da coleta de dados em todas as atividades de usuário.
 
  
-As principais razões pelas quais você usaria a amostragem são:
-
+As principais vantagens da amostragem são:
 
 * O serviço Application Insights remove (“limita”) os pontos de dados quando o aplicativo envia uma taxa muito alta de telemetria em um curto intervalo de tempo. 
-* Você deseja permanecer dentro da [cota](app-insights-pricing.md) de pontos de dados para o seu tipo de preço. 
+* Permanecer dentro da [cota](app-insights-pricing.md) de pontos de dados para o seu tipo de preço. 
 * Para reduzir o tráfego de rede da coleção de telemetria. 
+
+### Amostragem fixa ou adaptável
+
+Use a amostragem de taxa fixa se:
+
+* Você quiser uma amostragem sincronizada entre cliente e servidor, para que, quando estiver investigando eventos na [Pesquisa](app-insights-diagnostic-search.md), possa navegar entre os eventos relacionados no cliente e no servidor, como exibições de página e solicitações http.
+* Você tiver certeza sobre a porcentagem de amostragem apropriada para seu aplicativo. Ela deve ser alta o suficiente para obter métricas precisas, mas abaixo da taxa que excede sua cota de preços e limitações. 
+* Você não está depurando seu aplicativo. Quando você pressiona F5 e experimenta algumas páginas de seu aplicativo, provavelmente deseja ver toda a telemetria.
+
+Caso contrário, recomendamos a amostragem adaptável.
 
 ## Como funciona a amostragem?
 
@@ -120,6 +245,10 @@ Ao apresentar a telemetria de volta para você, o serviço Application Insights 
 A precisão da aproximação depende principalmente do percentual de amostragem configurado. Além disso, a precisão aumenta para os aplicativos que lidam com um grande volume de solicitações geralmente semelhantes de uma grande quantidade de usuários. Por outro lado, para aplicativos que não funcionam com uma carga significativa, a amostragem não é necessária, pois esses aplicativos geralmente podem enviar toda a sua telemetria, ao mesmo tempo que permanecem dentro da cota, sem causar perda de dados da limitação.
 
 Observe que o Application Insights não realiza a amostragem dos tipos de telemetria Métricas e Sessões, já que para esses tipos, uma redução na precisão pode ser altamente indesejável.
+
+### Amostragem adaptável
+
+A amostragem adaptável adiciona um componente que monitora a taxa atual de transmissão do SDK e ajusta a porcentagem de amostragem a fim de tentar permanecer dentro da taxa máxima desejada. O ajuste é recalculado em intervalos regulares e tem base em uma média móvel da taxa de transmissão de saída.
 
 ## Amostragem e o SDK do JavaScript
 
@@ -140,11 +269,17 @@ O SDK do lado do cliente (JavaScript) participa da amostragem em conjunto com o 
 
 *O percentual de amostragem pode ser alterado com o tempo?*
 
- * Na implementação de hoje, normalmente o percentual de amostragem após sua configuração na inicialização do aplicativo não seria alterado. Embora você tenha controle sobre o tempo de execução do percentual de amostragem, não há nenhuma maneira de determinar qual percentual de amostragem será ideal e coletará “apenas a quantidade certa de volume de dados” antes que a lógica de limitação seja acionada ou antes que a cota do volume de dados mensal seja atingida. As versões futuras do SDK do Application Insights incluirão uma amostragem adaptável que, imediatamente, ajustará o percentual de amostragem para cima e para baixo, com base no volume atualmente observado da telemetria e de outros fatores. 
+ * Sim, a amostragem adaptável altera gradualmente a porcentagem de amostragem com base no volume atualmente observado da telemetria.
 
-*Como saber qual percentual de amostragem funcionará melhor para o meu aplicativo?*
+*Posso descobrir a taxa de amostragem que a amostragem adaptável está usando?*
 
-* Hoje, é preciso adivinhar. Analise seu uso atual de telemetria em AI, observe as remoções de dados relacionados à limitação e estime o volume da telemetria coletada. Essas três entradas, junto com o tipo de preço selecionado, sugerirão quanto você talvez deseje reduzir o volume da telemetria coletada. No entanto, uma mudança no padrão do volume telemetria pode invalidar o percentual de amostragem configurado de modo ideal (por exemplo, um aumento no número de usuários). Quando implementada, a amostragem adaptável controlará automaticamente o percentual de amostragem até seu nível ideal, com base no volume de telemetria observado.
+ * Sim - use o método do código de configuração de amostragem adaptável para oferecer um retorno de chamada que obtenha a taxa de amostragem.
+
+*Se eu usar a amostragem de taxa fixa, como saber qual percentual de amostragem funcionará melhor para o meu aplicativo?*
+
+* Uma maneira é iniciar com a amostragem adaptável, descobrir qual taxa se adequa (consulte a pergunta anterior) e, em seguida, alternar para a amostragem de taxa fixa usando essa taxa. 
+
+    Caso contrário, é preciso adivinhar. Analise o uso atual da telemetria na AI, observe qualquer limitação que esteja ocorrendo e estime o volume da telemetria coletada. Essas três entradas, junto com seu tipo de preço selecionado, sugerirá quanto você talvez queira reduzir o volume da telemetria coletada. No entanto, um aumento no número de usuários ou alguma outra mudança no volume de telemetria pode invalidar sua estimativa.
 
 *O que acontece se eu configurar o percentual de amostragem com um valor muito baixo?*
 
@@ -156,12 +291,10 @@ O SDK do lado do cliente (JavaScript) participa da amostragem em conjunto com o 
 
 *Em quais plataformas posso usar a amostragem?*
 
-* Atualmente, a amostragem está disponível para todas as páginas da Web e para os lados do servidor e do cliente de aplicativos Web do .NET.
+* Atualmente, a amostragem adaptável está disponível para os lados do servidor de aplicativos Web ASP.NET (hospedados no Azure ou em seu próprio servidor). A amostragem de taxa fixa está disponível para todas as páginas Web e para os lados do servidor e do cliente de aplicativos Web .NET.
 
-*Posso usar a amostragem com aplicativos de dispositivo (Windows Phone, iOS, Android ou aplicativos da área de trabalho)?*
+*Há alguns eventos raros que sempre desejo ver. Como posso fazê-los passar pelo módulo de amostragem?*
 
-* Não, atualmente, não há suporte para a amostragem de aplicativos do dispositivo. 
+ * Inicialize uma instância separada de TelemetryClient com um novo TelemetryConfiguration (não o Active padrão). Use isso para enviar seus eventos raros.
 
->>>>>>> 36f8b905a3f60271ee6dc3a17c3ca431937287dc
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

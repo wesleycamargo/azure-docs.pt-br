@@ -14,22 +14,19 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="12/08/2015"
 	ms.author="rasquill"/>
-
-
 
 
 #Como fazer logon em uma máquina virtual que executa o Linux #
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-machines-linux-tutorial-portal-rm.md).
 
-Em uma máquina virtual que executa o sistema operacional Linux, use um cliente Secure Shell (SSH) para fazer logon.
-
 Instale um cliente SSH no computador que você deseja usar para fazer logon na máquina virtual. Há muitos programas de cliente SSH que você pode escolher. Estas são algumas opções:
 
 - Em um computador que executa um sistema operacional Windows, poderá usar um cliente SSH como PuTTY. Para obter mais informações, consulte a [Página de download do PuTTY (em inglês)](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
-- Em um computador que executa um sistema operacional Linux, poderá usar um cliente SSH como OpenSSH. Para obter mais informações, consulte [OpenSSH](http://www.openssh.org/).
+- Para uma máquina virtual executando um sistema operacional Linux, você deve usar um cliente SSH (Secure Shell) para fazer logon; é difícil imaginar uma distribuição que ainda não isso tenha instalado por padrão. Consulte [Como usar SSH](virtual-machines-linux-use-ssh-key.md) para obter mais informações sobre o Linux.
+
 
 >[AZURE.NOTE]Para mais dicas de requisitos e solução de problemas, confira [Conecte-se à uma máquina virtual Azure com RDP ou SSH](http://go.microsoft.com/fwlink/p/?LinkId=398294).
 
@@ -56,4 +53,4 @@ Você agora pode trabalhar com a máquina virtual, como faria com qualquer outro
 <!-- LINKS -->
 [Como redefinir uma senha ou SSH para máquinas virtuais Linux]: http://go.microsoft.com/fwlink/p/?LinkId=512138
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

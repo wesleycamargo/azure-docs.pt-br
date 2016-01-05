@@ -131,7 +131,7 @@ Você seguirá as etapas abaixo para executar o aplicativo na nuvem:
 
 Um serviço de nuvem do Azure é o ambiente em que o aplicativo será executado.
 
-1. Em seu navegador, abra o [Portal do Azure](http://manage.windowsazure.com).
+1. No seu navegador, abra o [portal clássico do Azure](http://manage.windowsazure.com).
 
 2. Clique em **Novo > Computação > Serviço de Nuvem > Criação Rápida**.
 
@@ -153,7 +153,7 @@ Um serviço de nuvem do Azure é o ambiente em que o aplicativo será executado.
 
 Quando o aplicativo é executado na nuvem, ele usa um banco de dados com base na nuvem.
 
-1. No [Portal do Azure](http://manage.windowsazure.com), clique em **Novo > Serviços de Dados > Banco de Dados SQL > Criação Rápida**.
+1. No [portal clássico do Azure](http://manage.windowsazure.com), clique em **Novo > Serviços de Dados > Banco de Dados SQL > Criação Rápida**.
 
 1. Na caixa **Nome do Banco de Dados**, insira *contosoads*.
 
@@ -189,7 +189,7 @@ Uma conta de armazenamento do Azure fornece os recursos para dados de blob e fil
 
 Em um aplicativo do mundo real, geralmente você cria contas separadas para dados de aplicativos e dados de log, e contas separadas para dados de teste e dados de produção. Neste tutorial você usará apenas uma conta.
 
-1. No [Portal do Azure](http://manage.windowsazure.com), clique em **Novo > Serviços de Dados > Armazenamento > Criação Rápida**.
+1. No [portal clássico do Azure](http://manage.windowsazure.com), clique em **Novo > Serviços de Dados > Armazenamento > Criação Rápida**.
 
 4. Na caixa da **URL**, insira um prefixo de URL.
 
@@ -228,7 +228,7 @@ Você usará uma [transformação de Web.config](http://www.asp.net/mvc/tutorial
 
 	Deixe o arquivo aberto para edição.
 
-2. No [Portal do Azure](http://manage.windowsazure.com), clique em **Bancos de Dados SQL** no painel esquerdo, clique no banco de dados criado para este tutorial, clique na guia **Painel** e, em seguida, clique em **Mostrar cadeias de conexão**.
+2. No [portal clássico do Azure](http://manage.windowsazure.com), clique em **Bancos de Dados SQL** no painel esquerdo, clique no banco de dados criado para este tutorial, clique na guia **Painel** e, em seguida, clique em **Mostrar cadeias de conexão**.
 
 	![Mostrar Cadeias de Conexão](./media/cloud-services-dotnet-get-started/showcs.png)
 
@@ -236,7 +236,7 @@ Você usará uma [transformação de Web.config](http://www.asp.net/mvc/tutorial
 
 	![Cadeias de conexão](./media/cloud-services-dotnet-get-started/connstrings.png)
 
-4. No arquivo de transformação *Web.Release.config*, exclua `{connectionstring}` e cole, em seu lugar, a cadeia de conexão ADO.NET do Portal do Azure.
+4. No arquivo de transformação *Web.Release.config*, exclua `{connectionstring}` e cole, em seu lugar, a cadeia de conexão ADO.NET do portal clássico do Azure.
 
 5. Na cadeia de conexão que você colou no arquivo de transformação *Web.Release.config*, substitua `{your_password_here}` pela senha que você criou para o novo Banco de Dados SQL.
 
@@ -325,7 +325,7 @@ A configuração `<Instances>` especifica o número de máquinas virtuais onde o
 
 3. Na etapa **Configurações** do assistente clique em **Avançar**.
 
-	![Etapa de configurações](./media/cloud-services-dotnet-get-started/pubsettings.png)
+	![Etapa configurações](./media/cloud-services-dotnet-get-started/pubsettings.png)
 
 	As configurações padrão na guia **Avançado** são adequadas para este tutorial. Para obter mais informações sobre a guia avançada, consulte [Assistente de publicação de aplicativo do Azure](http://msdn.microsoft.com/library/hh535756.aspx).
 
@@ -345,7 +345,7 @@ A configuração `<Instances>` especifica o número de máquinas virtuais onde o
 
 9. Você pode testar o aplicativo criando, visualizando e editando alguns anúncios, como fez ao executar o aplicativo localmente.
 
->[AZURE.NOTE]Ao finalizar o teste, exclua ou interrompa o serviço de nuvem. Mesmo que não estiver usando o serviço de nuvem, seus acúmulos serão cobrados porque os recursos do computador virtual serão reservados para o serviço. E se você deixá-lo em execução, qualquer um que encontrar sua URL poderá criar e exibir anúncios. No [Portal do Azure](http://manage.windowsazure.com) acesse a guia **Painel** para seu serviço de nuvem e depois clique no botão **Excluir**, na parte inferior da página. Se apenas deseja evitar que outros acessem temporariamente o site, em vez disso clique em **Parar**. Nesse caso, as tarifas continuarão a acumular. Você pode seguir um procedimento semelhante para excluir o banco de dados SQL e a conta de armazenamento quando não precisar mais dela.
+>[AZURE.NOTE]Ao finalizar o teste, exclua ou interrompa o serviço de nuvem. Mesmo que não estiver usando o serviço de nuvem, seus acúmulos serão cobrados porque os recursos do computador virtual serão reservados para o serviço. E se você deixá-lo em execução, qualquer um que encontrar sua URL poderá criar e exibir anúncios. No [portal clássico do Azure](http://manage.windowsazure.com) acesse a guia **Painel** para seu serviço de nuvem e depois clique no botão **Excluir**, na parte inferior da página. Se apenas deseja evitar que outros acessem temporariamente o site, em vez disso clique em **Parar**. Nesse caso, as tarifas continuarão a acumular. Você pode seguir um procedimento semelhante para excluir o banco de dados SQL e a conta de armazenamento quando não precisar mais dela.
 
 ## Criar o aplicativo do zero
 
@@ -377,7 +377,7 @@ Após a solução ser criada, você revisará o código exclusivo dos projetos d
 
 5. Quando a caixa de diálogo **Novo Projeto ASP.NET** da função web for exibida, selecione o modelo MVC e então clique em **Alterar Autenticação**.
 
-	![Alterar Autenticação](./media/cloud-services-dotnet-get-started/chgauth.png)
+	![Alterar autenticação](./media/cloud-services-dotnet-get-started/chgauth.png)
 
 7. Na caixa de diálogo **Alterar Autenticação**, escolha **Sem Autenticação** e clique em **OK**.
 
@@ -813,4 +813,4 @@ Para saber mais, consulte os recursos a seguir:
 * [Como gerenciar serviços de nuvem](cloud-services-how-to-manage.md)
 * [Armazenamento do Azure](/documentation/services/storage/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

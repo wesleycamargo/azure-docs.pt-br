@@ -22,7 +22,7 @@ Quando você encontra um problema durante a implantação, é preciso descobrir 
 
 Este tópico se concentra principalmente em como usar os comandos de implantação para solucionar problemas com implantações. Para obter informações sobre como usar os logs de auditoria para acompanhar todas as operações de seus recursos, consulte [Auditar operações com o Gerenciador de Recursos](../resource-group-audit.md).
 
-Este tópico mostra como recuperar informações para solução de problemas por meio do Azure PowerShell, da CLI do Azure e da API REST. Para obter informações sobre como usar o portal de visualização para solucionar problemas de implantações, consulte [Usando o Portal de Visualização do Azure para gerenciar os recursos do Azure](../azure-portal/resource-group-portal.md).
+Este tópico mostra como recuperar informações para solução de problemas por meio do Azure PowerShell, da CLI do Azure e da API REST. Para obter informações sobre como usar o portal de visualização para solucionar problemas de implantações, consulte a seção [Como usar o Portal do Azure para gerenciar os recursos do Azure](../azure-portal/resource-group-portal.md).
 
 Também são descritas neste tópico as soluções para erros comuns que os usuários encontram.
 
@@ -136,7 +136,7 @@ O comando **azure group log show** pode retornar muitas informações. Na soluç
       },
       "properties": {
         "statusCode": "Conflict",
-        "statusMessage": "{"Code":"Conflict","Message":"Website with given name mysite already exists.","Target":null,"Details":[{"Message":"Website with given name 
+        "statusMessage": "{"Code":"Conflict","Message":"Website with given name mysite already exists.","Target":null,"Details":[{"Message":"Website with given name
           mysite already exists."},{"Code":"Conflict"},{"ErrorEntity":{"Code":"Conflict","Message":"Website with given name mysite already exists.","ExtendedCode":
           "54001","MessageTemplate":"Website with given name {0} already exists.","Parameters":["mysite"],"InnerErrors":null}}],"Innererror":null}"
       },
@@ -259,7 +259,7 @@ Para a CLI do Azure, você pode usar a **lista local do Azure**. Como a lista de
     }
 
 ### API REST
-        
+
 Para a API REST, consulte [Obter informações sobre um provedor de recursos](https://msdn.microsoft.com/library/azure/dn790534.aspx).
 
 ## Criando nomes de recurso exclusivos
@@ -408,7 +408,7 @@ Se você estiver usando modelos que criou, é importante entender que o sistema 
 
 No entanto, observe que isso não significa necessariamente que seu grupo de recursos está "ativo e pronto para seus usuários". Por exemplo, a maioria das implantações solicita que implantação para baixar atualizações, aguarde por outros recursos que não são de modelo ou instale scripts complexos, ou realize alguma outra atividade executável sobre a qual o Azure não sabe, sobre porque ela não é uma atividade que um provedor está rastreando. Nesses casos, pode levar algum tempo antes que os recursos estejam prontos para uso no mundo real. Como resultado, você deve esperar que o status da implantação seja bem-sucedida algum tempo antes que sua implantação possa ser usada.
 
-Você pode impedir o Azure de relatar êxito da implantação, no entanto, ao criar um script personalizado para seu modelo personalizado - usando o [CustomScriptExtension](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/), por exemplo - que sabe como monitorar toda a implantação para preparação de todo o sistema e retorna com êxito somente quando os usuários podem interagir com toda a implantação. Se você quiser garantir que sua extensão seja a última a ser executada, use a propriedade **dependsOn** em seu modelo. Um exemplo pode ser visto [aqui](https://msdn.microsoft.com/library/azure/dn790564.aspx).
+Você pode impedir o Azure de relatar êxito da implantação, no entanto, ao criar um script personalizado para seu modelo personalizado - usando o [CustomScriptExtension](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/), por exemplo - que sabe como monitorar toda a implantação para preparação de todo o sistema e retorna com êxito somente quando os usuários podem interagir com toda a implantação. Se você quiser garantir que sua extensão seja a última a ser executada, use a propriedade **dependsOn** em seu modelo. Um exemplo pode ser visto ao [criar implantações de modelo](https://msdn.microsoft.com/library/azure/dn790564.aspx).
 
 ## Ferramentas úteis para interagir com o Azure
 Ao trabalhar com recursos do Azure na linha de comando, você coletará ferramentas que lhe ajudam a fazer seu trabalho. Os modelos de grupo de recursos do Azure são documentos JSON, e a API do Gerenciador de Recursos do Azure aceita e retorna JSON. Sendo assim, ferramentas de análise de JSON são algumas das primeiras coisas que ajudarão você a navegar pelas informações sobre seus recursos, bem como a criar ou interagir com modelos e arquivos de parâmetro de modelo.
@@ -434,4 +434,4 @@ Para dominar a criação de modelos, leia [Criando modelos do Gerenciador de Rec
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

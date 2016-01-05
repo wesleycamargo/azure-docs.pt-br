@@ -12,20 +12,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/26/2015"
+   ms.date="11/16/2015"
    ms.author="cherylmc" />
 
 # Perguntas frequentes de gateway de VPN
 
-## Conectando-se a redes virtuais
+## Conectando-se a Redes Virtuais
 
 ### Posso conectar redes virtuais em diferentes regiões do Azure?
-
 Sim. Na verdade, não há nenhuma restrição de região. Uma rede virtual pode se conectar a outra rede virtual na mesma região ou em outra região do Azure.
 
 ### Posso conectar redes virtuais em assinaturas diferentes?
-
 Sim.
+
 ### Posso me conectar vários sites de uma única rede virtual?
 
 Você pode se conectar a vários sites usando o Windows PowerShell e as APIs REST do Azure. Consulte a seção [Conectividade multissite e de VNet para VNet](#multi-site-and-vnet-to-vnet-connectivity) das perguntas frequentes.
@@ -42,6 +41,8 @@ Há suporte para as seguintes conexões entre locais:
 - [Multissite](vpn-gateway-multi-site.md) - essa é uma variação de uma configuração de site a site que permite conectar vários sites locais a uma rede virtual.
 
 - [Rota Expressa](../expressroute/expressroute-introduction.md) - Rota Expressa é uma conexão direta para o Azure de sua WAN, não pela Internet pública. Consulte a [Visão geral técnica da Rota Expressa](../expressroute/expressroute-introduction.md) e as [Perguntas frequentes sobre a Rota Expressa](../expressroute/expressroute-faqs.md) para obter mais informações.
+
+Para obter mais informações sobre conexões entre locais, consulte [Sobre a conectividade entre locais segura para redes virtuais](vpn-gateway-cross-premises-options.md).
 
 ### Qual é a diferença entre uma conexão site a site e ponto a site?
 
@@ -81,7 +82,7 @@ Há suporte para servidores RRAS (Roteamento e Acesso Remoto) do Windows Server 
 
 Outras soluções VPN de software devem funcionar com nosso gateway, contanto que estejam em conformidade com implementações de IPsec padrão do setor. Contate o fornecedor do software para obter instruções de configuração e suporte.
 
-## Conexões ponto a site
+## Conexões Ponto a Site
 
 Atualmente, conexões ponto a site estão disponíveis somente para o modelo de implantação clássico (também conhecido como Gerenciamento de Serviço). Estamos trabalhando em uma solução do tipo ponto a site para o modelo de implantação do Gerenciador de Recursos do Azure. Quando ela estiver disponível, essa página será atualizada.
 
@@ -97,9 +98,11 @@ Há suporte para os seguintes sistemas operacionais:
 
 - Windows Server 2012
 
+- Windows 10
+
 ### Posso usar qualquer cliente de VPN de software para ponto a site que dê suporte a SSTP?
 
-Não. O suporte é limitado somente às versões do sistema operacional Windows listadas acima. O cliente Windows 10 está sendo verificado no momento.
+Não. O suporte é limitado somente às versões do sistema operacional Windows listadas acima.
 
 ### Quantos pontos de extremidade de cliente VPN posso ter em minha configuração ponto a site?
 
@@ -135,11 +138,11 @@ Sim, isso é possível. Porém, as redes virtuais não podem ter prefixos IP sob
 
 ## Gateways
 
-### O que é um gateway de roteamento estático?
+### O que é um gateway baseado em políticas (roteamento estático)?
 
 Os gateways de roteamento estático implementam VPNs baseadas em política. As VPNs baseadas em política criptografam e direcionam pacotes por meio de túneis IPsec com base em combinações de prefixos de endereço entre sua rede local e a VNet do Azure. A política (ou o seletor de tráfego) normalmente é definida como uma lista de acesso na configuração de VPN.
 
-### O que é um gateway de roteamento dinâmico?
+### O que é um gateway baseado em rotas (roteamento dinâmico)?
 
 Os gateways de roteamento dinâmico implementam VPNs baseadas em rota. As VPNs baseadas em rota usam "rotas" da tabela de roteamento ou de encaminhamento de IP para direcionar pacotes para as interfaces de túnel correspondentes. As interfaces de túnel criptografam ou descriptografam então os pacotes para dentro e para fora dos túneis. O seletor de política ou de tráfego para as VPNs baseadas em rota são configurados como qualquer para qualquer (ou curingas).
 
@@ -167,7 +170,7 @@ Observe que você não deve implantar máquinas virtuais ou instâncias de funç
 
 ### Como especificar qual tráfego passa pelo gateway de VPN?
 
-Se você estiver usando o Portal do Azure, adicione cada intervalo que você deseja enviar pelo gateway para sua rede virtual na página Redes, em Redes Locais.
+Se estiver usando o Portal do Azure, adicione cada intervalo que deseja enviar pelo gateway para sua rede virtual na página Redes, em Redes Locais.
 
 ### Posso configurar o Túnel Forçado?
 
@@ -176,6 +179,13 @@ Sim. Consulte [Configurar o túnel forçado](vpn-gateway-about-forced-tunneling.
 ### Posso configurar meu próprio servidor de VPN no Azure e usá-lo para me conectar à minha rede local?
 
 Sim, você pode implantar seus próprios gateways de VPN ou servidores no Azure, por meio do Azure Marketplace, ou criar seus próprios roteadores de VPN. Você precisará configurar Rotas Definidas pelo Usuário em sua rede virtual para garantir que o tráfego seja roteado corretamente entre suas redes locais e suas sub-redes de rede virtual.
+
+### Por que determinadas portas serão abertas no meu gateway VPN?
+
+Elas são necessárias para a comunicação de infraestrutura do Azure. Elas são protegidas (bloqueadas) por certificados do Azure. Sem certificados apropriados, entidades externas, incluindo os clientes desses gateways, não poderão causar efeitos nesses pontos de extremidade.
+
+Um gateway de VPN é fundamentalmente um dispositivo de hospedagem múltipla com um toque de NIC para a rede privada do cliente e uma NIC voltada para a rede pública. As entidades de infraestrutura do Azure não podem tocar em redes privadas de cliente por motivos de conformidade, devendo utilizar pontos de extremidade públicos para comunicação de infraestrutura. Os pontos de extremidade públicos são verificados periodicamente pela auditoria de segurança do Azure.
+
 
 ### Mais informações sobre tipos de gateway, requisitos e taxa de transferência
 
@@ -240,7 +250,7 @@ Sim, isso é suportado. Para obter mais informações, consulte [Configurar cone
 
 ### Se minha máquina virtual estiver em uma rede virtual e eu tiver uma conexão entre locais, como devo me conectar à VM?
 
-Você tem algumas opções. Se tiver um protocolo RDP habilitado e tiver criado um ponto de extremidade, você poderá se conectar à sua máquina virtual usando o VIP. Nesse caso, você especificaria o VIP e a porta à qual deseja se conectar. Você precisará configurar a porta em sua máquina virtual para o tráfego. Normalmente, você deve ir para o Portal de Gerenciamento e salvar as configurações para a conexão de RDP em seu computador. As configurações conterão as informações de conexão necessárias.
+Você tem algumas opções. Se tiver um protocolo RDP habilitado e tiver criado um ponto de extremidade, você poderá se conectar à sua máquina virtual usando o VIP. Nesse caso, você especificaria o VIP e a porta à qual deseja se conectar. Você precisará configurar a porta em sua máquina virtual para o tráfego. Normalmente, você deve ir para o Portal Clássico do Azure e salvar as configurações para a conexão de RDP em seu computador. As configurações conterão as informações de conexão necessárias.
 
 Se tiver uma rede virtual com conectividade entre locais configurada, você poderá se conectar à sua máquina virtual usando o DIP interno ou o endereço IP privado. Você também pode se conectar à sua máquina virtual por DIP interno de outra máquina virtual localizada na mesma rede virtual. Você não poderá RDP para sua máquina virtual usando o DIP se estiver conectando de um local fora de sua rede virtual. Por exemplo, se tiver uma rede virtual de ponto para site configurada e não estabelecer uma conexão do seu computador, você não poderá se conectar à máquina virtual por DIP.
 
@@ -251,7 +261,7 @@ Não. Somente o tráfego com um destino IP contido em intervalos de endereços I
 
 ## Perguntas frequentes sobre rede virtual
 
-Você exibe informações adicionais de rede virtual nas [Perguntas Frequentes sobre rede virtual](../virtual-network/virtual-networks-faq.md).
+As informações adicionais de rede virtual são exibidas em [Perguntas Frequentes sobre Rede Virtual](../virtual-network/virtual-networks-faq.md).
 
 ## Próximas etapas
 
@@ -259,4 +269,4 @@ Você pode exibir mais informações sobre Gateways de VPN na [página de docume
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

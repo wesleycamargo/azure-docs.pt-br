@@ -90,7 +90,7 @@ Para obter instruções sobre como alocar recursos em um cluster do Spark, consu
 
 ### Criar um aplicativo de streaming usando o Zeppelin
 
-1. No [Portal de Visualização do Azure](https://portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**.   
+1. No [Portal do Azure](https://portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**.   
 
 2. Na folha do cluster Spark, clique em **Links Rápidos** e, na folha do **Painel de Cluster**, clique em **Bloco de notas Zeppelin**. Se você receber uma solicitação, insira as credenciais de administrador para o cluster.
 
@@ -192,4 +192,4 @@ Instruções sobre como executar essas etapas e um exemplo de aplicativo de stre
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

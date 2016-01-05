@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="12/09/2015"
 	ms.author="cephalin"/>
 
 # Configurações avançadas e extensões de aplicativo Web do Serviço de Aplicativo do Azure
@@ -26,7 +26,7 @@ Usando declarações [XDT (Transformação de documento XML)](http://msdn.micros
 ##<a id="transform"></a>Configuração avançada por meio de ApplicationHost.config
 A plataforma do Serviço de Aplicativo fornece flexibilidade e controle para configuração de aplicativos Web. Embora o arquivo de configuração ApplicationHost.config do IIS padrão não esteja disponível para edição direta no Serviço de Aplicativo, a plataforma dá suporte a um modelo de transformação ApplicationHost.config declarativo com base em XDT (Transformação de documento XML).
 
-Para aproveitar essa funcionalidade de transformação, você cria um arquivo ApplicationHost.xdt com conteúdo XDT e o coloca na raiz do aplicativo Web. Talvez seja necessário reiniciar o aplicativo Web para que as alterações entrem em vigor.
+Para aproveitar essa funcionalidade de transformação, você cria um arquivo ApplicationHost.xdt com conteúdo XDT e o coloca na raiz do site (d:\\home\\site) no [Console do Kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console). Talvez seja necessário reiniciar o aplicativo Web para que as alterações entrem em vigor.
 
 O exemplo applicationHost.xdt a seguir mostra como adicionar uma nova variável de ambiente personalizada para um aplicativo Web que utilize PHP 5.4.
 
@@ -46,7 +46,7 @@ O exemplo applicationHost.xdt a seguir mostra como adicionar uma nova variável 
 
 Um arquivo de log com status e detalhes de transformação está disponível na raiz FTP em LogFiles\\Transform.
 
-Para ver exemplos adicionais, consulte [https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions).
+Para ver outros exemplos, veja [https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples).
 
 **Observação**<br /> os elementos da lista de módulos em `system.webServer` não podem ser removidos ou reorganizados, mas adições à lista são possíveis.
 
@@ -175,11 +175,10 @@ Observe que a URL se parece com a URL do aplicativo Web, exceto por usar HTTPS e
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- IMAGES -->
 [TransformSitePHPUI]: ./media/web-sites-transform-extend/TransformSitePHPUI.png
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

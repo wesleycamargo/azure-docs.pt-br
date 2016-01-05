@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Como implementar a recuperação de desastre usando o backup de serviço e restaurar no Gerenciamento de API no Azure
@@ -36,9 +36,9 @@ Todas as tarefas que você faz em recursos usando o Gerenciador de Recursos do A
 -	Defina permissões para o aplicativo que você adicionou.
 -	Obtenha o token para autenticar solicitações ao Gerenciador de Recursos do Azure.
 
-A primeira etapa é criar um aplicativo do Active Directory do Azure. Faça logon no [Portal de Gerenciamento](http://manage.windowsazure.com/) usando a assinatura que contém sua instância de serviço Gerenciamento de API e navegue até a guia **Aplicativos** para o Active Directory do Azure padrão.
+A primeira etapa é criar um aplicativo do Active Directory do Azure. Faça logon no [Portal Clássico do Azure](http://manage.windowsazure.com/) usando a assinatura que contém sua instância de serviço Gerenciamento de API e navegue até a guia **Aplicativos** para o Active Directory do Azure padrão.
 
->[AZURE.NOTE]Se o diretório padrão do Active Directory do Azure não é visível para sua conta, contate o administrador da assinatura do Azure para conceder as permissões necessárias para sua conta. Para obter informações sobre como localizar seu diretório padrão, consulte [Localizar seu diretório padrão no Portal do Azure](../virtual-machines/resource-group-create-work-id-from-persona.md/#locate-your-default-directory-in-the-azure-portal).
+>[AZURE.NOTE]Se o diretório padrão do Active Directory do Azure não é visível para sua conta, contate o administrador da assinatura do Azure para conceder as permissões necessárias para sua conta. Para obter informações sobre como localizar seu diretório padrão, consulte [Localizar seu diretório padrão](../virtual-machines/resource-group-create-work-id-from-persona.md/#locate-your-default-directory-in-the-azure-portal).
 
 ![Criar aplicativo do Active Directory do Azure][api-management-add-aad-application]
 
@@ -189,4 +189,4 @@ Confira os seguintes blogs da Microsoft para duas diferentes orientações passo
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

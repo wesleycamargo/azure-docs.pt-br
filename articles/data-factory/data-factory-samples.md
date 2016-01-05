@@ -18,8 +18,8 @@
 
 # Azure Data Factory - Exemplos
 
-## Exemplos no Portal do Azure
-Você pode rapidamente implantar, analisar e testar um exemplo da Azure Data Factory usando a folha **Pipelines de exemplo** no Portal do Azure.
+## Exemplos no Portal Clássico do Azure
+Você pode implantar, examinar e testar rapidamente um exemplo do Azure Data Factory usando a folha **Pipelines de exemplo** no Portal Clássico do Azure.
 
 1. Crie uma nova data factory ou abra uma existente. Consulte [Introdução à Azure Data Factory][data-factory-get-started] para conhecer as etapas para criar uma data factory.
 2. Na folha **DATA FACTORY** para a data factory em questão, clique no bloco **Pipelines de exemplo**.
@@ -57,4 +57,4 @@ O [repositório GitHub Azure-DataFactory](https://github.com/azure/azure-datafac
 
 [data-factory-get-started]: data-factory-get-started.md#CreateDataFactory
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

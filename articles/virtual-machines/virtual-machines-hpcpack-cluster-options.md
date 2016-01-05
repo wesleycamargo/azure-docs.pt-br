@@ -49,15 +49,17 @@ Aproveite os serviços de computação e de infraestrutura do Microsoft HPC Pack
 
 ### Tutoriais
 
-* [Tutorial: Introdução a nós de computação Linux em um cluster de HPC Pack no Azure](../virtual-machines/virtual-machines-linux-cluster-hpcpack.md)
+* [Tutorial: Introdução a nós de computação Linux em um cluster de HPC Pack no Azure](virtual-machines-linux-cluster-hpcpack.md)
 
-* [Tutorial: executar o NAMD com o Microsoft HPC Pack em nós de computação Linux no Azure](../virtual-machines/virtual-machines-linux-cluster-hpcpack-namd.md)
+* [Tutorial: executar o NAMD com o Microsoft HPC Pack em nós de computação Linux no Azure](virtual-machines-linux-cluster-hpcpack-namd.md)
 
-* [Tutorial: Introdução com um cluster de HPC Pack no Azure para executar cargas de trabalho do Excel e SOA](../virtual-machines/virtual-machines-excel-cluster-hpcpack.md)
+* [Tutorial: Executar OpenFOAM com o Microsoft HPC Pack em um cluster de RDMA do Linux no Azure](virtual-machines-linux-cluster-hpcpack-openfoam.md)
+
+* [Tutorial: Introdução com um cluster de HPC Pack no Azure para executar cargas de trabalho do Excel e SOA](virtual-machines-excel-cluster-hpcpack.md)
 
 
 
-### Implantação manual com o portal do Azure
+### Implantação manual com o portal clássico do Azure
 
 
 
@@ -74,11 +76,10 @@ Aproveite os serviços de computação e de infraestrutura do Microsoft HPC Pack
 * [Enviar trabalhos para um cluster HPC Pack no Azure](virtual-machines-hpcpack-cluster-submit-jobs.md)
 
 
-
 ## Adicionar nós de função de trabalho a um cluster HPC Pack
 
 
-* [Intermitência no Azure com o HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
+* [Aumento para instâncias de trabalho do Azure com o HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
 
 * [Tutorial: Configurar um cluster híbrido com o HPC Pack no Azure](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
 
@@ -86,11 +87,16 @@ Aproveite os serviços de computação e de infraestrutura do Microsoft HPC Pack
 
 * [Aumentar ou reduzir os recursos de computação do Azure em um cluster HPC Pack](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)
 
+## Integrar ao lote do Azure 
+
+* [Aumento para o lote do Azure com o HPC Pack](https://technet.microsoft.com/library/mt612877.aspx)
 
 ## Criar clusters de RDMA para cargas de trabalho MPI
 
 * [Configurar um cluster de RDMA do Windows com o HPC Pack para executar aplicativos MPI](virtual-machines-windows-hpcpack-cluster-rdma.md)
 
+* [Tutorial: Executar OpenFOAM com o Microsoft HPC Pack em um cluster de RDMA do Linux no Azure](virtual-machines-linux-cluster-hpcpack-openfoam.md)
+
 <!-- * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-hpcpack-cluster-rdma.md) -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

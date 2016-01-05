@@ -22,7 +22,7 @@ A Pesquisa do Azure é um serviço de pesquisa hospedado na nuvem do Microsoft A
 
 ##Como é feito o controle de versão e lançamento dos recursos
 
-Os recursos são lançados separadamente ou em conjunto por meio da [API REST](https://msdn.microsoft.com/library/azure/dn798935.aspx), [SDK do .NET](http://go.microsoft.com/fwlink/?LinkId=528216) ou no painel de serviço do [Portal do Azure](https://portal.azure.com).
+Os recursos são lançados separadamente ou em conjunto por meio da [API REST](https://msdn.microsoft.com/library/azure/dn798935.aspx), [SDK do .NET](http://go.microsoft.com/fwlink/?LinkId=528216) ou no painel de serviço do [Portal clássico do Azure](https://portal.azure.com).
 
 A biblioteca .NET e as APIs REST têm várias versões. APIs mais antigas permanecerão operacionais à medida que lançamos novos recursos. Você pode visitar o [Controle de versão de serviço de pesquisa](https://msdn.microsoft.com/library/azure/dn864560.aspx) para saber mais sobre nossa política de controle de versão.
 
@@ -87,7 +87,7 @@ Visite [Agora a Pesquisa do Azure está disponível](http://go.microsoft.com/fwl
 
 - [Analisadores de linguagem Lucene](search-api-2014-10-20-preview.md) foram adicionados para fornecer suporte aos vários analisadores de linguagem personalizada distribuídos com o Lucene. 
 
-- O suporte à ferramenta foi introduzido para a criação de índices, incluindo perfis de pontuação, no [Portal de gerenciamento do Azure](https://portal.azure.com).
+- O suporte à ferramenta foi introduzido para a criação de índices, incluindo perfis de pontuação, no [Portal clássico do Azure](https://portal.azure.com).
 
 ##Versão da Api 2014-07-31-Preview
 **Lançamento: 21 de agosto de 2014**
@@ -100,7 +100,7 @@ Esta versão foi a versão de visualização pública da Pesquisa do Azure, forn
 
 - O suporte geoespacial está disponível desde o início, fornecido por meio do tipo de dados `Edm.GeographyPoint`, que faz parte da Pesquisa do Azure desde sua criação.
 
-- Provisionamento na versão de visualização do [Portal de gerenciamento do Azure](https://portal.azure.com). A Pesquisa do Azure era um dos poucos serviços disponíveis apenas no novo portal.
+- Provisionamento na versão de visualização do [Portal clássico do Azure](https://portal.azure.com). A Pesquisa do Azure era um dos poucos serviços disponíveis apenas no novo portal.
 
 ##API de gerenciamento versão 2015-08-19
 **Lançamento: 11 de setembro de 2015**
@@ -125,4 +125,4 @@ A versão de visualização da [API REST de gerenciamento](search-management-api
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -733,14 +733,14 @@ PERCENTILE\_DISC não interpola valores; portanto, o mediano para Web é 200, o 
 ## Consulte também
 
 - [Visão geral da Análise do Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-- [Introdução à Análise do Data Lake usando o Portal de Visualização do Azure](data-lake-analytics-get-started-portal.md)
-- [Introdução à Análise do Data Lake usando o Azure PowerShell](data-lake-analytics-get-started-powershell.md)
+- [Introdução à Análise do Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md)
+- [Introdução à Análise Data Lake usando o Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Usar tutoriais interativos da Análise do Azure Data Lake](data-lake-analytics-use-interactive-tutorials.md)
 - [Analisar logs de site usando a Análise do Azure Data Lake](data-lake-analytics-analyze-weblogs.md)
-- [Introdução à linguagem U-SQL da Análise do Azure Data Lake](data-lake-analytics-u-sql-get-started.md)
-- [Gerenciar a Análise do Azure Data Lake usando o Portal de Visualização do Azure](data-lake-analytics-use-portal.md)
-- [Gerenciar a Análise do Azure Data Lake usando o Azure PowerShell](data-lake-analytics-use-powershell.md)
-- [Monitorar e solucionar problemas em trabalhos da Análise do Azure Data Lake usando o Portal de Visualização do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Introdução à linguagem U-SQL da Análise Azure Data Lake](data-lake-analytics-u-sql-get-started.md)
+- [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-use-portal.md)
+- [Gerenciar a Análise Azure Data Lake usando o Azure PowerShell](data-lake-analytics-use-powershell.md)
+- [Monitorar e solucionar problemas em trabalhos da Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

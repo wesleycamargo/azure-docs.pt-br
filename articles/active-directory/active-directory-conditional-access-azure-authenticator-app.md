@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="11/24/2015"
 	ms.author="femila"/>
 
 # Azure Authenticator para Android
@@ -112,4 +112,4 @@ Em um dispositivo Samsung Android, os privilégios de administrador do dispositi
 
 Se você vir o **Erro do Keystore**, isso pode ocorrer por não ter o bloqueio de tela configurado com um PIN. Para contornar esse problema, desinstale o aplicativo Azure Authenticator, configure um PIN para a tela de bloqueio e reinstale o aplicativo.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

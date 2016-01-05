@@ -20,9 +20,9 @@
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-
-> [AZURE.NOTE]Este artigo não aborda como implementar conexão, registro e gerenciamento de perfil com o Azure AD B2C. Ele se concentra na chamada a APIs Web depois que o usuário já está autenticado. Se não estiver, você deve começar com o [tutorial de introdução ao aplicativo Web do .NET](active-directory-b2c-devquickstarts-web-dotnet.md) para saber mais sobre os conceitos básicos do Azure AD B2C.
-
+> [AZURE.NOTE]
+	Este artigo não aborda como implementar conexão, registro e gerenciamento de perfil com o Azure AD B2C. Ele se concentra na chamada a APIs Web depois que o usuário já está autenticado.
+Se não estiver, você deve começar com o [tutorial de introdução ao aplicativo Web do .NET](active-directory-b2c-devquickstarts-web-dotnet.md) para saber mais sobre os conceitos básicos do Azure AD B2C.
 
 > [AZURE.NOTE]Este exemplo foi escrito para ser conectado ao nosso [aplicativo de exemplo B2C para iOS.](active-directory-b2c-devquickstarts-ios.md) Primeiramente, explore este passo a passo e depois acompanhe usando esse exemplo.
 
@@ -45,14 +45,13 @@ O aplicativo completo também é fornecido no final deste tutorial.
 > [AZURE.WARNING]Para Visualização do B2C, você deve usar a mesma ID do Aplicativo/ID do cliente e políticas tanto para o servidor de tarefa API Web quanto para o cliente que se conecta a ele. Isso é verdadeiro para nossos tutoriais do Android e iOS. Se você tiver criado anteriormente um aplicativo em qualquer um desses guias de início rápido, use esses valores em vez de criar novos abaixo.
 
 
-## 1. Obter um diretório AD B2C do Azure
+## 1\. Obter um diretório AD B2C do Azure
 
 Antes de usar AD B2C do Azure, você deve criar um diretório ou locatário. Um diretório é um contêiner para todos os seus usuários, aplicativos, grupos e assim por diante. Se você não tiver um, acesse [criar um diretório B2C](active-directory-b2c-get-started.md) antes de prosseguir.
 
-## 2. Criar um aplicativo
+## 2\. Criar um aplicativo
 
-Agora você precisa criar um aplicativo no diretório B2C, que dá ao AD do Azure algumas informações que ele precisa para se comunicar de forma segura com seu aplicativo. O aplicativo cliente e a API Web serão representados por uma única **ID do Aplicativo** nesse caso, pois abrangem um aplicativo lógico. Para criar um aplicativo,
-siga [estas instruções](active-directory-b2c-app-registration.md). Certifique-se de
+Agora você precisa criar um aplicativo no diretório B2C, que dá ao AD do Azure algumas informações que ele precisa para se comunicar de forma segura com seu aplicativo. O aplicativo cliente e a API Web serão representados por uma única **ID do Aplicativo** nesse caso, pois abrangem um aplicativo lógico. Para criar um aplicativo, [siga estas instruções](active-directory-b2c-app-registration.md). Certifique-se de
 
 - Incluir um **aplicativo Web/api Web** no aplicativo
 - Digitar `http://localhost/TodoListService` como uma **URL de Resposta** - é a URL padrão para este exemplo de código.
@@ -61,7 +60,7 @@ siga [estas instruções](active-directory-b2c-app-registration.md). Certifique-
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
-## 3. Criar suas políticas
+## 3\. Criar suas políticas
 
 No AD B2C do Azure, cada experiência do usuário é definida por uma [**política**](active-directory-b2c-reference-policies.md). Este aplicativo contém três experiências de identidade: inscrição, entrada e entrada com o Facebook. Você precisará criar uma política de cada tipo, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Ao criar suas três políticas, não se esqueça de:
 
@@ -259,6 +258,8 @@ Crie um arquivo `server.js` no nosso editor favorito e adicione as informações
 /**
 * Module dependencies.
 */
+var fs = require('fs');
+var path = require('path');
 var util = require('util');
 var assert = require('assert-plus');
 var mongoose = require('mongoose/');
@@ -266,7 +267,7 @@ var bunyan = require('bunyan');
 var restify = require('restify');
 var config = require('./config');
 var passport = require('passport');
-var OIDCBearerStrategy = require('passport-azure-ad').BearerStategy;
+var OIDCBearerStrategy = require('passport-azure-ad').BearerStrategy;
 ```
 
 Salve o arquivo. Voltaremos a ele em breve.
@@ -287,7 +288,7 @@ Crie um arquivo `config.js` no nosso editor favorito e adicione as informações
 exports.creds = {
 mongoose_auth_local: 'mongodb://localhost/tasklist', // Your mongo auth uri goes here
 audience: '<your audience URI>',
-identityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-configuration' // For using Microsoft you should never need to change this.
+identityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-configuration', // For using Microsoft you should never need to change this.
 tenantName:'<tenant name>',
 policyName:'b2c_1_<sign in policy name>',
 };
@@ -709,7 +710,7 @@ Date: Tue, 14 Jul 2015 05:43:38 GMT
 
 Então, podemos adicionar uma tarefa deste modo:
 
-`$ curl -isS -X POST http://127.0.0.1:8888/tasks/brandon/Hello`
+`$ curl -isS -X POST http://127.0.0.1:8080/tasks/brandon/Hello`
 
 A resposta deve ser:
 
@@ -845,7 +846,7 @@ next();
 });
 ```
 
-## 18: executar o aplicativo de servidor novamente e certificar-se de que rejeitará você
+## 20: execute o aplicativo de servidor novamente e certifique-se de que ele rejeitará você
 
 Vamos usar `curl` novamente para ver se agora temos proteção OAuth2 para nossos pontos de extremidade. Faremos isso antes de executar qualquer um dos nossos SDKs de cliente para esse ponto de extremidade. Os cabeçalhos retornados devem ser suficientes para demonstrar a nós que estamos no caminho certo.
 
@@ -892,4 +893,4 @@ Agora você pode ir para tópicos mais avançados. Você pode desejar experiment
 
 [Conectar-se a uma API Web usando o iOS com o B2C >>](active-directory-b2c-devquickstarts-ios.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

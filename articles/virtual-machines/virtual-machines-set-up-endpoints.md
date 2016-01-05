@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configurar pontos de extremidade em uma máquina virtual no Azure"
-	description="Saiba como configurar pontos de extremidade no portal do Azure para permitir a comunicação com uma máquina virtual no Azure."
+	description="Saiba como configurar pontos de extremidade no portal clássico do Azure para permitir a comunicação com uma máquina virtual no Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -23,7 +23,7 @@
 
 Todas as máquinas virtuais criadas no Azure podem se comunicar automaticamente com outras máquinas virtuais no mesmo serviço de nuvem ou rede virtual usando um canal de rede privada. No entanto, os computadores na Internet ou outras redes virtuais requerem pontos de extremidade para direcionar o tráfego de rede de entrada para uma máquina virtual.
 
-Quando você cria uma máquina virtual no Portal do Azure, pontos de extremidade para a Área de Trabalho Remota, Comunicação Remota do Windows PowerShell e SSH (Secure Shell) são criados automaticamente. Você pode configurar pontos de extremidade adicionais criando a máquina virtual ou posteriormente, conforme a necessidade.
+Quando você cria uma máquina virtual no portal clássico do Azure, pontos de extremidade para a Área de Trabalho Remota, Comunicação Remota do Windows PowerShell e SSH (Secure Shell) são criados automaticamente. Você pode configurar pontos de extremidade adicionais criando a máquina virtual ou posteriormente, conforme a necessidade.
 
 [AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
 
@@ -38,7 +38,7 @@ Cada ponto de extremidade tem uma porta pública e uma privada:
 - A porta pública é usada pelo balanceador de carga do Azure para ouvir o tráfego de entrada da Internet com destino à máquina virtual.
 - A porta privada é usada pela máquina virtual para ouvir o tráfego de entrada normalmente com destino a um aplicativo ou serviço em execução na máquina virtual.
 
-Valores padrão para o protocolo IP e as portas TCP ou UDP para protocolos de rede conhecidos são fornecidos quando você cria pontos de extremidade com o portal do Azure. Para pontos de extremidade personalizados, você precisará especificar o protocolo IP correto (TCP ou UDP) e as portas públicas e privadas. Para distribuir o tráfego de entrada aleatoriamente entre várias máquinas virtuais, você precisará criar um conjunto com balanceamento de carga composto de vários pontos de extremidade.
+Valores padrão para o protocolo IP e as portas TCP ou UDP para protocolos conhecidos são fornecidos quando você cria pontos de extremidade com o portal clássico do Azure. Para pontos de extremidade personalizados, você precisará especificar o protocolo IP correto (TCP ou UDP) e as portas públicas e privadas. Para distribuir o tráfego de entrada aleatoriamente entre várias máquinas virtuais, você precisará criar um conjunto com balanceamento de carga composto de vários pontos de extremidade.
 
 Depois de criar um ponto de extremidade, você pode usar uma lista de controle de acesso (ACL) para definir regras que permitam ou neguem o tráfego de entrada na porta pública do ponto de extremidade com base em seu endereço IP de origem. No entanto, se a máquina virtual estiver em uma rede virtual do Azure, você deverá usar grupos de segurança de rede. Para obter detalhes, veja [Sobre os grupos de segurança de rede](virtual-networks-nsg.md).
 
@@ -46,7 +46,7 @@ Depois de criar um ponto de extremidade, você pode usar uma lista de controle d
 
 ##Criar um ponto de extremidade
 
-1.	Se ainda não tiver feito isso, entre no portal do Azure.
+1.	Se você ainda não fez isso, entre no portal clássico do Azure.
 2.	Clique em **Máquinas Virtuais** e, em seguida, clique no nome da máquina virtual que você deseja configurar.
 3.	Clique em **Pontos de Extremidade**. A página **Pontos de Extremidade** lista todos os pontos de extremidade atuais para a máquina virtual.
 
@@ -76,9 +76,9 @@ Para definir o conjunto de computadores que pode enviar tráfego, a ACL em um po
 
 > [AZURE.NOTE]se o ponto de extremidade é parte de um conjunto com balanceamento de carga, quaisquer alterações feitas na ACL em um ponto de extremidade são aplicadas a todos os pontos de extremidade no conjunto.
 
-Se a máquina virtual estiver em uma rede virtual do Azure, recomendamos grupos de segurança de rede em vez de ACLs. Para obter detalhes, consulte [Sobre grupos de segurança de rede](virtual-networks-nsg.md).
+Se a máquina virtual estiver em uma rede virtual do Azure, recomendamos grupos de segurança de rede em vez de ACLs. Para obter detalhes, veja [Sobre os grupos de segurança de rede](virtual-networks-nsg.md).
 
-1.	Se ainda não tiver feito isso, entre no portal do Azure.
+1.	Se você ainda não fez isso, entre no portal clássico do Azure.
 2.	Clique em **Máquinas Virtuais** e, em seguida, clique no nome da máquina virtual que você deseja configurar.
 3.	Clique em **Pontos de Extremidade**. Na lista, selecione o ponto de extremidade apropriado.
 
@@ -100,4 +100,4 @@ Para usar um cmdlet do Azure PowerShell para configurar isso, consulte [Gerencia
 
 [Balanceamento de carga para serviços de infraestrutura do Azure](virtual-machines-load-balance.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

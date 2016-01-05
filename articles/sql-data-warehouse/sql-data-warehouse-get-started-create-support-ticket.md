@@ -22,7 +22,7 @@
 
 ## Como criar um tíquete de suporte
 
-1. Abra o [Portal do Azure][]. 
+1. Abra o [Portal Clássico do Azure][]. 
 2. Na tela Inicial, clique no bloco **Ajuda + suporte**.
 
     ![Ajuda + suporte](./media/sql-data-warehouse-get-started-create-support-ticket/help-support.png)
@@ -78,10 +78,10 @@ Além disso, você pode se conectar com a comunidade do SQL Data Warehouse usand
 
 <!-- External links -->
 
-[Portal do Azure]: https://portal.azure.com/
+[Portal Clássico do Azure]: https://portal.azure.com/
 [Planos de suporte do Azure]: http://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/
 [Portal online Microsoft Premier]: https://premier.microsoft.com/
 [Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw/
 [Fórum do MSDN do Azure SQL Data Warehouse]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

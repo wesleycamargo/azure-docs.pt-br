@@ -3,9 +3,9 @@
 	description="Saiba como criar um pacote do aplicativo de API Java e implantá-lo no Serviço de Aplicativo do Azure."
 	services="app-service\api"
 	documentationCenter="java"
-	authors="pkefal"
+	authors="bradygaster"
 	manager="mohisri" 
-	editor="jimbe"/>
+	editor="tdykstra"/>
 
 <tags
 	ms.service="app-service-api"
@@ -13,267 +13,286 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="get-started-article"
-	ms.date="08/11/2015"
-	ms.author="pakefali"/>
+	ms.date="11/27/2015"
+	ms.author="bradygaster"/>
 
 # Criar e implantar um aplicativo de API Java no Serviço de Aplicativo do Azure
 
-> [AZURE.SELECTOR]
-- [.NET - Visual Studio 2015](app-service-dotnet-create-api-app.md)
-- [.NET - Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
-- [Node.js](app-service-api-nodejs-api-app.md)
-- [Java](app-service-api-java-api-app.md)
-
-Este tutorial mostra como criar um aplicativo Java e implantá-lo em aplicativos de API do Serviço de Aplicativo do Azure usando o [Git](http://git-scm.com). As instruções deste tutorial podem ser seguidas em qualquer sistema operacional que seja capaz de executar o Java. Este tutorial também usa o [Gradle](https://gradle.org) para habilitar a automação de compilação e a resolução de dependências de pacotes para o aplicativo Java. Por fim, [RESTEasy](http://resteasy.jboss.org/) é usado para criar o Serviço RESTful, implementando completamente a especificação [JaxRS](https://jax-rs-spec.java.net/).
-
-Eis aqui uma captura de tela do aplicativo concluído:
-
-![][sample-api-app-page]
-
-## Criar um aplicativo de API no Portal do Azure
-
-> [AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [ativar os benefícios de assinante MSDN](/pricing/member-offers/msdn-benefits-details/) ou [inscrever-se para uma avaliação gratuita](/pricing/free-trial/). Você também pode experimentar gratuitamente [Exemplos de aplicativos do serviço de aplicativo](http://tryappservice.azure.com).
-
-1. Faça logon no [Portal de Visualização do Azure](https://portal.azure.com).
-
-2. Clique em **NOVO** na parte inferior esquerda do portal.
-
-3. Clique em **Web + Móvel > Aplicativo de API**.
-
-	![][portal-quick-create]
-
-4. Insira um valor para **Nome**, como JavaAPIApp.
-
-5. Selecione um plano de Serviço de Aplicativo ou crie um plano novo. Se você criar um novo plano, selecione a camada de preços, localização e outras opções.
-
-	![][portal-create-api]
-
-6. Clique em **Criar**.
-
-	![][api-app-blade]
-
-	Se você deixou a caixa de seleção **Adicionar ao quadro inicial** marcada, o portal abre automaticamente a folha de seu aplicativo de API após sua criação. Se você desmarcou a caixa de seleção, clique em **Notificações** na home page do portal para ver o status de criação do aplicativo de API e clique na notificação para ir até a folha do novo aplicativo de API.
-
-7. Clique em **Configurações > Configurações do aplicativo**.
-
-9. Defina o nível de acesso como **Público (anônimo)**.
-
-11. Clique em **Salvar**.
-
-	![][set-api-app-access-level]
-
-## Habilitar a publicação de Git para o novo aplicativo de API
-
-[O Git](http://git-scm.com) é um sistema de controle de versão distribuído que você pode usar para implantar seu Site do Azure. Você armazenará o código que você escreve para seu aplicativo de API em um repositório Git local e você implantará seu código no Azure enviando-o por push para um repositório remoto. Esse método de implantação é um recurso dos aplicativos Web do serviço de aplicativo que pode ser usado em um aplicativo de API, já que aplicativos de API se baseiam em aplicativos Web: um aplicativo de API no serviço de aplicativo do Azure é um aplicativo Web com recursos adicionais para a hospedagem de serviços da Web.
-
-No portal, você gerencia os recursos específicos dos aplicativos de API na folha **Aplicativo de API** e gerencia os recursos que são compartilhados com os aplicativos Web na folha **Host de aplicativo de API**. Portanto, nesta seção, você vai até a folha **Host de aplicativo de API** para configurar o recurso de implantação do Git.
-
-1. Na folha Aplicativo de API, clique em **Host de aplicativo de API**.
-
-	![][api-app-host]
-
-2. Encontre a seção **Implantação** da folha **Aplicativo de API** e clique em **Configurar implantação contínua**. Talvez seja necessário rolar para baixo para ver essa parte da folha.
-
-	![][deployment-part]
-
-3. Clique em **Escolher fonte > Repositório Git local**.
-
-5. Clique em **OK**.
-
-	![][setup-git-publishing]
-
-6. Se você não configurou previamente as credenciais de implantação para publicação de um Aplicativo de API ou outro aplicativo de Serviço de Aplicativo, configure-as agora:
-
-	* Clique em **Configurar as credenciais de implantação**.
-
-	* Digite um nome de usuário e senha.
-
-	* Clique em **Salvar**.
-
-	![][deployment-credentials]
-
-1. Na folha **Host de aplicativo de API**, clique em **Configurações > Propriedades**. A URL do repositório Git remoto na qual você vai implantar é mostrada em "URL GIT".
-
-2. Copie a URL para uso posterior no tutorial.
-
-	![][git-url]
-
-## Habilitar o tempo de execução do Java no novo aplicativo de API
-
-Para que o aplicativo de API hospede um aplicativo Java com êxito, temos que habilitar o tempo de execução do Java e escolher um servidor de aplicativos. O portal fornece uma maneira fácil de fazer isso. Vamos habilitar o Java 7 e o Jetty para hospedar nosso aplicativo.
-
-1. Na folha Aplicativo de API, clique em **Host de aplicativo de API**.
-
-	![][api-app-host]
-
-2. Clique em **Configurações > Configurações do aplicativo**. Habilite o Java e selecione Jetty como o servidor de aplicativos. Clique em **Salvar**
-
-	![][api-app-enable-java]
-
-Isso vai **habilitar o tempo de execução do Java** em seu aplicativo de API e criar uma pasta **webapps/** na raiz do site. Essa pasta conterá todos os arquivos. .war de seus aplicativos.
-
-## Baixar e inspecionar o código para um aplicativo de API do Java
-
-Nesta seção, você vai baixar e examinar o código fornecido como parte do exemplo JavaAPIApp.
-
-1. Baixe o código [neste repositório GitHub](http://go.microsoft.com/fwlink/?LinkId=571009). Você pode clonar o repositório ou clicar em **Baixar Zip** para baixá-lo como um arquivo .zip. Se você baixar o arquivo .zip, descompacte-o em seu disco local.
-
-2. Navegue até a pasta em que você descompactou o exemplo e navegue até a pasta `build\libs`.
-
-	![][api-app-folder-browse]
-
-3. Abra o arquivo **apiapp.json** em um editor de texto e inspecione o conteúdo.
-
-	![][apiapp-json]
-
-	O Serviço de Aplicativo do Azure tem dois pré-requisitos para reconhecer um aplicativo do Java como um aplicativo de API:
-
-	+ Um arquivo chamado *apiapp.json* deve estar presente no diretório raiz do aplicativo.
-	+ Um ponto de extremidade de metadados Swagger 2.0 precisa ser exposto pelo aplicativo. A URL do ponto de extremidade é especificada no arquivo *apiapp.json*.
-
-	Observe a propriedade **apiDefinition**. O caminho para essa URL é relativo à URL da sua API e aponta para o ponto de extremidade Swagger 2.0. O Serviço de Aplicativo do Azure usa essa propriedade para descobrir a definição de sua API e habilitar muitos dos recursos de aplicativos de API do serviço de aplicativo.
-
-4. Navegue até `src\main\java\com\microsoft\trysamples\javaapiapp`, abra o arquivo **App.java** e inspecione o código.
-
-	![][app-java]
-
-	O código usa o pacote do Swagger para JaxRS para criar o ponto de extremidade do Swagger 2.0.
-
-		beanConfig.setVersion("1.0.0");
-		beanConfig.setBasePath("/JavaAPIApp/api");
-		beanConfig.setHost(websitehostname);
-		beanConfig.setResourcePackage("com.microsoft.trysamples.javaapiapp");
-		beanConfig.setSchemes(new String[]{"http", "https"});
-		beanConfig.setScan(true);
-
-	O método `setVersion` define a versão de API nos metadados servidos pelo Swagger.
-
-	O método `setBasePath` define o caminho base que o Swagger usa para gerar os metadados. Essa URL é relativa ao caminho base de seu aplicativo de API.
-
-	O método `setHost` define o host em que a API está escutando. Nesse caso, estamos usando a variável `websitehostname` que atribuímos algumas linhas antes para definir dinamicamente para `localhost`, quando executado localmente, ou o nome de host do aplicativo de API, quando o aplicativo é executado no Serviço de Aplicativo do Azure.
-
-	O método `setResourcePackage` define o pacote que o Swagger examinará e incluirá no arquivo Swagger.json, que contém os metadados de API.
-
-	O método `setSchemes` define os esquemas com suporte.
-
-	O método `setScan` faz o Swagger gerar a documentação do aplicativo.
-
-	Há mais métodos disponíveis que personalizam a saída do Swagger ao usar RESTEasy. Eles podem ser encontrados na [página do Wiki](https://github.com/swagger-api/swagger-core/wiki/Swagger-Core-RESTEasy-2.X-Project-Setup-1.5#using-swaggers-beanconfig) do Swagger
-
-	> [AZURE.NOTE]O arquivo de metadados do Swagger pode ser acessado em `/JavaAPIApp/api/swagger.json`.
-
-## Execute o código de aplicativo de API localmente
-
-Nesta seção você executa o aplicativo localmente para verificar se que ele funciona antes da implantação.
-
-1. Navegue até a pasta de que você baixou o exemplo.
-
-2. Abra um prompt de linha de comando e digite o seguinte comando:
-
-		gradlew.bat
-
-3. Quando o comando for concluído, digite o seguinte comando:
-
-		gradlew.bat jettyRunWar
-
-	A saída da janela de linha de comando exibe:
-
-		17:25:49 INFO  JavaAPIApp runs at:
-		17:25:49 INFO    http://localhost:8080/JavaAPIApp
-
-5. Aponte seu navegador para `http://localhost:8080/JavaAPIApp/`
-
-	Você verá a página a seguir
-
-	![][sample-api-app-page]
-
-6. Para exibir o arquivo Swagger.json, navegue até `http://localhost:8080/JavaAPIApp/api/Swagger.json`.
-
-## Publicar seu código de aplicativo de API no serviço de aplicativo do Azure
-
-Nesta seção você criará um repositório Git local e enviará por push a partir desse repositório para o Azure, para implantar seu aplicativo de exemplo no Aplicativo de API em execução no Serviço de Aplicativo do Azure.
-
-1. Se o Git não estiver instalado, instale-o a partir da [página de download do Git](http://git-scm.com/download).
-
-1. Na linha de comando, alterne para o diretório do aplicativo de exemplo e `build\libs` e, em seguida, digite os comandos a seguir para inicializar um repositório Git local.
+[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
+
+Este tutorial mostra como criar um aplicativo Java e implantá-lo em aplicativos de API do Serviço de Aplicativo do Azure usando o [Git](http://git-scm.com). As instruções deste tutorial podem ser seguidas em qualquer sistema operacional que seja capaz de executar o Java. O código deste tutorial foi criado usando o [Maven](https://maven.apache.org/). O [Jax-RS](https://jax-rs-spec.java.net/) é usado para criar o serviço RESTful e é gerado com base na especificação de metadados do [Swagger](http://swagger.io) usando o [Editor do Swagger](http://editor.swagger.io/).
+
+## Pré-requisitos
+
+1. [Java Developer's Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (ou posterior)
+1. Uma assinatura paga ou de [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) para o [Microsoft Azure](https://azure.microsoft.com)
+1. O [Maven](https://maven.apache.org/) instalado na máquina de desenvolvimento
+1. O Git instalado na máquina de desenvolvimento. 
+
+## Gerar automaticamente a API usando o Swagger.IO
+Usando o editor online swagger.io, você pode entrar no código JSON ou YAML do Swagger que representa a estrutura da sua API. Após o design da área de superfície de API, você poderá exportar o código em uma variedade de plataformas e de estruturas. Na próxima seção, o código gerado automaticamente será modificado para incluir funcionalidade fictícia.
+
+Esta demonstração começa com um corpo JSON do Swagger que será colado no editor swagger.io, que então será usado para gerar código utilizando RS-JAX para acessar um ponto de extremidade da API REST. Em seguida, você editará o código gerado automaticamente para retornar dados fictícios, simulando uma API REST criada sobre um mecanismo de persistência de dados.
+
+1. Copiar o código JSON Swagger abaixo para a área de transferência
+
+		{
+			"swagger": "2.0",
+			"info": {
+				"version": "v1",
+				"title": "Contact List",
+				"description": "A Contact list API based on Swagger and built using Java"
+			},
+			"host": "localhost",
+			"schemes": [
+				"http",
+				"https"
+			],
+			"basePath": "/api",
+			"paths": {
+				"/contacts": {
+					"get": {
+						"tags": [
+							"Contact"
+						],
+						"operationId": "contacts_get",
+						"consumes": [],
+						"produces": [
+							"application/json",
+							"text/json"
+						],
+						"responses": {
+							"200": {
+								"description": "OK",
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/definitions/Contact"
+									}
+								}
+							}
+						},
+						"deprecated": false
+					}
+				},
+				"/contacts/{id}": {
+					"get": {
+						"tags": [
+							"Contact"
+						],
+						"operationId": "contacts_getById",
+						"consumes": [],
+						"produces": [
+							"application/json",
+							"text/json"
+						],
+						"parameters": [
+							{
+								"name": "id",
+								"in": "path",
+								"required": true,
+								"type": "integer",
+								"format": "int32"
+							}
+						],
+						"responses": {
+							"200": {
+								"description": "OK",
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/definitions/Contact"
+									}
+								}
+							}
+						},
+						"deprecated": false
+					}
+				}
+			},
+			"definitions": {
+				"Contact": {
+					"type": "object",
+					"properties": {
+						"Id": {
+							"format": "int32",
+							"type": "integer"
+						},
+						"Name": {
+							"type": "string"
+						},
+						"EmailAddress": {
+							"type": "string"
+						}
+					}
+				}
+			}
+		}
+		
+1. Navegue até o [editor online do Swagger](http://editor.swagger.io/). Quando estiver lá, clique no item de menu **Arquivo -> Colar JSON**.
+
+    ![Colar Json](media/app-service-api-java-api-app/paste-json.png)
+
+1. Cole o JSON do Swagger da API de Lista de Contatos copiado anteriormente.
+
+    ![Swagger Colado](media/app-service-api-java-api-app/pasted-swagger.png)
+
+1. Exiba as páginas de documentação e o resumo da API renderizadas no editor.
+
+    ![Exibir Documentos Gerados pelo Swagger](media/app-service-api-java-api-app/view-swagger-generated-docs.png)
+
+1. Selecione a opção de menu **Gerar Servidor -> JAX-RS** para gerar automaticamente o código do lado do servidor que você editará posteriormente para adicionar a implementação fictícia.
+
+    ![Gerar Item de Menu de Código](media/app-service-api-java-api-app/generate-code-menu-item.png)
+	
+	Após a geração do código, será fornecido um arquivo ZIP que você poderá baixar. Esse arquivo contém o código gerado automaticamente pelo gerador de código do Swagger e todos os scripts de compilação associados. Descompacte a biblioteca inteira em um diretório em sua estação de trabalho de desenvolvimento.
+
+## Editar o código para adicionar a implementação da API
+Nesta seção, você substituirá a implementação do lado servidor do código gerado pelo seu código personalizado. O novo código retornará uma ArrayList de entidades de Contact para o cliente da chamada.
+
+1. Abra o arquivo de modelo *Contact.java* localizado na pasta *src/gen/java/swagger/model* usando o [Visual Studio Code](https://code.visualstudio.com) ou em seu editor de texto favorito. 
+
+    ![Abrir Arquivo de Modelo de Contato](media/app-service-api-java-api-app/open-contact-model-file.png)
+
+1. Adicione o construtor a seguir à classe **Contact**.
+
+        public Contact(Integer id, String name, String email) 
+		{
+			this.id = id;
+			this.name = name;
+			this.emailAddress = email;
+		}
+
+1. Abra o arquivo de implementação do serviço *ContactsApiServiceImpl.java* localizado na pasta *src/main/java/swagger/api/impl* usando o [Visual Studio Code](https://code.visualstudio.com) ou em seu editor de texto favorito.
+
+    ![Abrir Arquivo de Código de Serviço de Contato](media/app-service-api-java-api-app/open-contact-service-code-file.png)
+
+1. Substitua o código no arquivo por esse novo código para adicionar uma implementação fictícia ao código de serviço.
+
+        package io.swagger.api.impl;
+
+        import io.swagger.api.*;
+        import io.swagger.model.*;
+        import com.sun.jersey.multipart.FormDataParam;
+        import io.swagger.model.Contact;
+        import java.util.*;
+        import io.swagger.api.NotFoundException;
+        import java.io.InputStream;
+        import com.sun.jersey.core.header.FormDataContentDisposition;
+        import com.sun.jersey.multipart.FormDataParam;
+        import javax.ws.rs.core.Response;
+
+        @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JaxRSServerCodegen", date = "2015-11-24T21:54:11.648Z")
+        public class ContactsApiServiceImpl extends ContactsApiService {
+  
+            private ArrayList<Contact> loadContacts()
+            {
+                ArrayList<Contact> list = new ArrayList<Contact>();
+                list.add(new Contact(1, "Barney Poland", "barney@contoso.com"));
+                list.add(new Contact(2, "Lacy Barrera", "lacy@contoso.com"));
+                list.add(new Contact(3, "Lora Riggs", "lora@contoso.com"));
+                return list;
+            }
+  
+            @Override
+            public Response contactsGet()
+            throws NotFoundException {
+                ArrayList<Contact> list = loadContacts();
+                return Response.ok().entity(list).build();
+                }
+  
+            @Override
+            public Response contactsGetById(Integer id)
+            throws NotFoundException {
+                ArrayList<Contact> list = loadContacts();
+                Contact ret = null;
+            
+                for(int i=0; i<list.size(); i++)
+                {
+                    if(list.get(i).getId() == id)
+                    {
+                        ret = list.get(i);
+                    }
+                }
+                return Response.ok().entity(ret).build();
+            }
+        }
+
+1. Abra um prompt de comando.
+
+1. Execute o comando do Maven a seguir para compilar o código e execute-o usando o servidor de aplicativo Jetty localmente.
+
+		mvn package jetty:run
+		
+1. Você deverá ver a janela de comando mostrar que o Jetty iniciou seu código na porta 8080.
+
+	![Abrir Arquivo de Código de Serviço de Contato](media/app-service-api-java-api-app/run-jetty-war.png)
+	
+1. Use o [Postman](https://www.getpostman.com/) para fazer uma solicitação ao método de API "obter todos os contatos", localizado em http://localhost:8080/api/contacts.
+
+	![Chamar a API de Contatos](media/app-service-api-java-api-app/calling-contacts-api.png)
+	
+1. Use o [Postman](https://www.getpostman.com/) para fazer uma solicitação ao método de API "obter contato específico", localizado em http://localhost:8080/api/contacts/2.
+
+	![Chamar a API de Contatos](media/app-service-api-java-api-app/calling-specific-contact-api.png)
+	
+1. Por fim, compile o arquivo WAR Java (Web ARchive) executando o comando do Maven a seguir no seu console.
+
+		mvn package war:war
+		
+	Depois que o arquivo WAR for criado, ele será colocado na pasta **target**. Navegue até a pasta **target** e renomeie o arquivo WAR para **ROOT.war** (utilize as maiúsculas/minúsculas dessa forma).
+	
+		rename swagger-jaxrs-server-1.0.0.war ROOT.war
+		
+	Por fim, execute os comandos a seguir para criar uma pasta **deploy** a ser usada para implantar o arquivo WAR no Azure.
+	
+		mkdir deploy
+		mkdir deploy\webapps
+		copy target\ROOT.war deploy\webapps
+		cd deploy
+	
+## Publicar a saída no Serviço de Aplicativo do Azure
+Nesta seção, você vai aprender a criar um novo Aplicativo de API usando o Portal do Azure, a preparar esse Aplicativo de API para hospedar aplicativos Java e a implantar o arquivo WAR recém-criado no Serviço de Aplicativo do Azure para executar seu novo Aplicativo de API.
+
+1. crie um novo aplicativo de API no [portal do Azure](http://portal.azure.com) clicando no item de menu **Novo -> Web + Móvel -> aplicativo de API**.
+	
+	![Criar um novo Aplicativo de API](media/app-service-api-java-api-app/create-api-app.png)
+
+1. Clique na opção **Configurações do aplicativo** na folha de configurações do Aplicativo de API. Em seguida, selecione as versões mais recentes do Java nos menus de versão de Java e selecione o Tomcat mais recente no menu de contêiner da Web.
+
+	![Configurar o Java na folha Aplicativo de API](media/app-service-api-java-api-app/set-up-java.png)
+
+1. Clique no item de menu das configurações de **Credenciais de implantação** e forneça um nome de usuário e uma senha que você queira usar para publicar arquivos em seu Aplicativo de API.
+
+	![Definir credenciais de implantação](media/app-service-api-java-api-app/deployment-credentials.png)
+
+1. Clique no item de menu das configurações de **Implantação Contínua**. Quando estiver lá, clique no botão **Escolher fonte** e selecione a opção **Repositório Git Local**. Isso criará um repositório Git em execução no Azure, com uma associação ao seu Aplicativo de API. Sempre que você confirmar código para a ramificação *mestre* do repositório Git, seu código será publicado em sua instância do Aplicativo de API App em execução em tempo real.
+
+	![Configurar um novo repositório Git local](media/app-service-api-java-api-app/select-git-repo.png)
+
+1. Copie a URL do novo repositório Git para a área de transferência. Salve-a porque ela será importante daqui a pouco.
+
+	![Configurar um novo repositório Git para seu aplicativo](media/app-service-api-java-api-app/copy-git-repo-url.png)
+
+1. Envie por push do Git o arquivo WAR para o repositório online. Para fazer isso, navegue até a pasta **deploy** criada anteriormente para que você possa confirmar com facilidade o código no repositório em execução no seu Serviço de Aplicativo. Quando você estiver na janela do console e tiver navegado até a pasta onde a pasta webapps está localizada, emita os comandos Git a seguir para iniciar o processo e disparar uma implantação.
 
 		git init
-
-
-2. Insira os comandos a seguir para adicionar arquivos ao repositório:
-
 		git add .
-		git commit -m "Initial commit of the API App"
-
-3. Crie uma referência remota para enviar atualizações por push para o aplicativo Web (host de aplicativo de API) criado anteriormente, usando a URL de Git que você copiou anteriormente:
-
-		git remote add azure [URL for remote repository]
-
-4. Envie as alterações por push ao Azure usando o seguinte comando:
-
+		git commit -m "initial commit"
+		git remote add azure [YOUR GIT URL]		
 		git push azure master
+		
+	Quando você emitir a solicitação **push**, será solicitada a senha criada anteriormente para a credencial de implantação. Se você a inserir, deverá ver seu portal exibir que a atualização chegou e foi implantada.
+		
+1. Se você usar novamente o Postman para acessar o Aplicativo de API recém-implantado em execução no Serviço de Aplicativo do Azure, verá que o comportamento é consistente e que agora ele está retornando os dados de contato esperados e usando alterações de código simples feitas no código Java do Swagger.io gerado automaticamente.
 
-	Será solicitada a senha que você criou anteriormente.
-
-	A saída deste comando termina com uma mensagem de que a implantação foi bem-sucedida:
-
-		remote: Deployment successful.
-		To https://user@testsite.scm.azurewebsites.net/testsite.git
-	 	* [new branch]      master -> master
-
-## Exibir a definição de API no portal do Azure
-
-Agora que você implantou uma API para seu aplicativo de API, você pode ver a definição de API no portal do Azure. Você começará reiniciando o *gateway*, que permite que o Azure reconheça que a definição de API de um aplicativo de API foi alterada. O gateway é um aplicativo Web que trata da administração da API e da autorização para os Aplicativos de API em um grupo de recursos.
-
-6. No portal do Azure, vá até a folha **Aplicativo de API** para o aplicativo de API que você criou anteriormente e clique no link **Gateway**.
-
-	![][click-gateway]
-
-7. Na folha **Gateway**, clique em **Reiniciar**. Agora você pode fechar esta folha.
-
-	![][restart-gateway]
-
-8. Na folha **Aplicativo de API**, clique em **Definição de API**.
-
-	![][api-definition-click]
-
-	A folha **Definição de API** mostra um método Get.
-
-	![][api-definition-blade]
-
-## Executar o aplicativo de exemplo no Azure
-
-No portal do Azure, vá até a folha **Host de aplicativo de API** para seu aplicativo de API e clique em **Procurar** .
-
-![][browse-api-app-page]
-
-O navegador exibe a home page que vimos anteriormente, quando você executou o aplicativo de exemplo localmente.
-
+	![Usando a API REST de Contatos Java dinamicamente no Azure](media/app-service-api-java-api-app/postman-calling-azure-contacts.png)
+	
 ## Próximas etapas
+Neste artigo, você conseguiu começar com um arquivo JSON do Swagger e um código Java gerado automaticamente obtido do editor Swagger.io. A partir daí, suas alterações simples e um processo de implantação Git resultaram em um aplicativo de API funcional escrito em Java. O próximo tutorial na série de introdução aos Aplicativos de API mostra como [consumir aplicativos de API de clientes JavaScript usando CORS](app-service-api-cors-consume-javascript.md).
 
-Você implantou um aplicativo Web Java que usa um back-end do aplicativo de API para o Azure. Para obter mais informações sobre como usar o Java no Azure, consulte o [Centro de desenvolvedores do Java](/develop/java/).
+Para expandir esse exemplo, você pode aprender mais sobre o [SDK de Armazenamento para Java](../storage/storage-java-how-to-use-blob-storage.md) para manter os blobs JSON. Ou então, você pode usar o [SDK do Java do Banco de Dados de Documentos](../documentdb/documentdb-java-application.md) para salvar os dados de contato no Banco de Dados de Documentos do Azure.
 
-Você pode experimentar esse aplicativo de API de exemplo no [Serviço TryApp](http://tryappservice.azure.com)
+Para obter mais informações sobre como usar o Java no Azure, consulte o [Centro de desenvolvedores do Java](/develop/java/).
 
-[portal-quick-create]: ./media/app-service-api-java-api-app/portal-quick-create.png
-[portal-create-api]: ./media/app-service-api-java-api-app/portal-create-api.png
-[api-app-blade]: ./media/app-service-api-java-api-app/api-app-blade.png
-[api-app-folder-browse]: ./media/app-service-api-java-api-app/api-app-folder-browse.png
-[api-app-host]: ./media/app-service-api-java-api-app/api-app-host.png
-[deployment-part]: ./media/app-service-api-java-api-app/continuous-deployment.png
-[set-api-app-access-level]: ./media/app-service-api-java-api-app/set-api-app-access.png
-[setup-git-publishing]: ./media/app-service-api-java-api-app/local-git-repo.png
-[deployment-credentials]: ./media/app-service-api-java-api-app/deployment-credentials.png
-[git-url]: ./media/app-service-api-java-api-app/git-url.png
-[apiapp-json]: ./media/app-service-api-java-api-app/apiapp-json.png
-[app-java]: ./media/app-service-api-java-api-app/app-java.png
-[sample-api-app-page]: ./media/app-service-api-java-api-app/sample-api-app-page.png
-[browse-api-app-page]: ./media/app-service-api-java-api-app/browse-api-app-page.png
-[api-app-enable-java]: ./media/app-service-api-java-api-app/api-app-enable-java.png
-[click-gateway]: ./media/app-service-api-java-api-app/clickgateway.png
-[restart-gateway]: ./media/app-service-api-java-api-app/gatewayrestart.png
-[api-definition-click]: ./media/app-service-api-java-api-app/apidef.png
-[api-definition-blade]: ./media/app-service-api-java-api-app/apidefblade.png
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

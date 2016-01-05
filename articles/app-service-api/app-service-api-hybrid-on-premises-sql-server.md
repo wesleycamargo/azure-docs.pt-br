@@ -18,11 +18,13 @@
 
 # Conectar-se ao SQL Server local por meio de um aplicativo de API no Serviço de Aplicativo do Azure usando Conexões Híbridas
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 As Conexões Híbridas podem conectar aplicativos de API do [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) a recursos locais que usam uma porta TCP estática. Os recursos com suporte incluem Microsoft SQL Server, MySQL, APIs Web HTTP, Serviços Móveis e os serviços Web mais personalizados.
 
 Neste tutorial, você aprenderá como criar um aplicativo de API do Serviço de Aplicativo na [Visualização do Azure](http://go.microsoft.com/fwlink/?LinkId=529715) que se conecta a um banco de dados SQL Server local usando o novo recurso de Conexão Híbrida. O tutorial pressupõe que você não tem nenhuma experiência anterior com o Azure ou com o SQL Server.
 
->[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE]Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## Pré-requisitos
 
@@ -73,7 +75,7 @@ Se você já tiver o SQL Server instalado em uma configuração e em um ambiente
 <a name="InstallSQL"></a>
 ## Instalar o SQL Server Express, habilitar TCP/IP e criar um banco de dados SQL Server local
 
-Esta seção mostra a você como instalar o SQL Server Express, habilitar o TCP/IP e criar um banco de dados, de modo que seu aplicativo de API funcionará com o [Portal de Visualização do Azure](https://portal.azure.com).
+Esta seção mostra como instalar o SQL Server Express, habilitar o TCP/IP e criar um banco de dados, de modo que seu aplicativo de API funcionará com o [Portal de Visualização do Azure](https://portal.azure.com).
 
 <a name="InstallSQLDB"></a>
 ### Instalar SQL Server Express
@@ -112,11 +114,11 @@ Para habilitar TCP/IP, você utilizará o SQL Server Configuration Manager, que 
 <a name="CreateSQLDB"></a>
 ### Crie um banco de dados local do SQL Server
 
-1. No **SQL Server Management Studio**, conecte-se ao SQL Server que você acabou de instalar. Para **Tipo de servidor**, selecione **Mecanismo de Banco de Dados**. Como **Nome do Servidor**, você pode utilizar **localhost** ou o nome do computador que você está utilizando. Escolha **Autenticação do SQL Server** e faça logon com o nome de usuário `sa` e a senha que você criou anteriormente.
+1. No **SQL Server Management Studio**, conecte-se ao SQL Server que você acabou de instalar. Para **Tipo de servidor**, selecione **Mecanismo de Banco de Dados**. Como **Nome do Servidor**, você pode utilizar **localhost** ou o nome do computador que você está utilizando. Escolha **Autenticação do SQL Server** e faça logon com o nome de usuário `sa` e a senha criada anteriormente.
 
 	![Conectar-se ao servidor](./media/app-service-api-hybrid-on-premises-sql-server/connect-to-server.png)
 	
-	Se a caixa de diálogo **Conectar ao Servidor** não aparecer automaticamente, vá até **Pesquisador de Objetos** no painel à esquerda, clique em **Conectar** e em **Mecanismo de Banco de Dados**.
+	Se a caixa de diálogo **Conectar ao Servidor** não for exibida automaticamente, navegue para o **Gerenciador de Objetos** no painel esquerdo, clique em **Conectar** e, depois, clique em **Mecanismo de Banco de Dados**.
 	
 2. Para criar um novo banco de dados utilizando o SQL Server Management Studio, clique com o botão direito em **Bancos de Dados** no Pesquisador de Objetos, e clique em **Novo Bancos de Dados**.
 	
@@ -140,7 +142,7 @@ Para habilitar TCP/IP, você utilizará o SQL Server Configuration Manager, que 
 
 	![Novas colunas da tabela](./media/app-service-api-hybrid-on-premises-sql-server/table-def.png)
 
-4. Pressione **&lt;Ctrl>S** para salvar a nova definição da tabela. Será solicitado que você insira um nome de tabela. Digite `Speakers` e pressione **OK**.
+4. Pressione **& lt; Ctrl > S** para salvar a nova definição da tabela. Será solicitado que você insira um nome de tabela. Digite `Speakers` e pressione **OK**.
 
 	![Salvar nova tabela](./media/app-service-api-hybrid-on-premises-sql-server/save-new-table.png)
 
@@ -166,7 +168,7 @@ Esta seção orienta você pela criação do aplicativo de API de demonstração
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/new-project-api-app.png)
 
-4. No **Gerenciador de Soluções**, clique com o botão direito do mouse na pasta **Modelos** e selecione **Adicionar > Classe...** no menu de contexto.
+4. No **Gerenciador de Soluções**, clique com o botão direito na pasta **Modelos** e selecione a opção do menu de contexto **Adicionar > Classe...**.
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/new-model-menu.png)
 
@@ -190,7 +192,7 @@ Esta seção orienta você pela criação do aplicativo de API de demonstração
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/new-controller.png)
 
-8. Na caixa de diálogo **Adicionar Scaffold**, selecione a opção **Controlador de API Web 2 - Vazio** e clique em **Adicionar**.
+8. Na caixa de diálogo **Adicionar Scaffold**, selecione a opção **Controlador de API da Web 2 - Vazio** e clique em **Adicionar**.
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/add-scaffold.png)
 
@@ -430,4 +432,4 @@ Agora que a infraestrutura de conexão híbrida está concluída, é o momento d
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

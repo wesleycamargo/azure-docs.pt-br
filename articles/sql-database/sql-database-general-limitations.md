@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="11/05/2015"
+   ms.date="11/16/2015"
    ms.author="jroth" />
 
 # Diretrizes e limitações gerais do Banco de Dados SQL do Azure
@@ -59,9 +59,9 @@ Além disso, os nomes de usuário e logon não podem conter o caractere \\ (não
 
 ## Diretrizes adicionais
 
-- Além das limitações gerais descritas neste artigo, o Banco de Dados SQL tem cotas e limitações de recursos específicas com base em sua [camada de serviço](sql-database-service-tiers.md). Para obter uma descrição detalhada dos limites da camada de serviço, veja [Limites e recursos da camada de serviço](sql-database-performance-guidance.md#service-tier-capabilities-and-limits).
+- Além das limitações gerais descritas neste artigo, o Banco de Dados SQL tem cotas e limitações de recursos específicas com base em sua **camada de serviço**. Para obter uma visão geral das camadas de serviço, consulte [Camadas de serviço do banco de dados SQL](sql-database-service-tiers.md).
 
-- Para ver outros limites do Banco de Dados SQL, veja [Limites de recursos do Banco de Dados SQL do Azure](sql-database-limits.md).
+- Para ver outros limites do Banco de Dados SQL, veja [Limites de recursos do Banco de Dados SQL do Azure](sql-database-resource-limits.md).
 
 - Para ver diretrizes relacionadas à segurança, veja [Diretrizes e limitações de segurança do Banco de Dados SQL do Azure](sql-database-security-guidelines.md).
 
@@ -69,4 +69,4 @@ Além disso, os nomes de usuário e logon não podem conter o caractere \\ (não
 
 - Para obter informações sobre a disponibilidade de drivers e o suporte ao Banco de Dados SQL, veja [Bibliotecas de conexões para Banco de Dados SQL e SQL Server](sql-database-libraries.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

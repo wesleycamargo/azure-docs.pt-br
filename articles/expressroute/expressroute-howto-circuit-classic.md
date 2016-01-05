@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/05/2015"
+   ms.date="12/08/2015"
    ms.author="cherylmc"/>
 
 # Criar e modificar um circuito da Rota Expressa usando o PowerShell
@@ -29,7 +29,7 @@ Este artigo fornece uma orientação pelas etapas de criação de um circuito da
 
 ## Pré-requisitos de configuração
 
-- Você precisará da versão mais recente dos módulos do Azure PowerShell. Baixe o módulo mais recente do PowerShell na seção PowerShell da [página Downloads do Azure](http://azure.microsoft.com/downloads). Siga as instruções na página [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para obter orientação detalhada sobre como configurar o computador a fim de usar os módulos do Azure PowerShell. 
+- Você precisará da versão mais recente dos módulos do Azure PowerShell. Baixe o módulo mais recente do PowerShell na seção PowerShell da [página Downloads do Azure](http://azure.microsoft.com/downloads). Siga as instruções na página [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para obter orientações detalhadas sobre como configurar o computador para usar os módulos do Azure PowerShell. 
 - Examine a página [Pré-requisitos](expressroute-prerequisites.md) e a página [Fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 
 ## Criar e provisionar um circuito da Rota Expressa
@@ -108,11 +108,11 @@ Este artigo fornece uma orientação pelas etapas de criação de um circuito da
 		$ServiceProvider = "Equinix"
 		$Location = "Silicon Valley"
 
-		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Standard
+		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Standard -BillingType MeteredData 
 
 	Ou, se você quiser criar um circuito da Rota Expressa com o complemento premium, use o exemplo a seguir. Consulte a página [Perguntas frequentes sobre a Rota Expressa](expressroute-faqs.md) para obter mais detalhes sobre o complemento premium.
 
-		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Premium
+		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Premium - BillingType MeteredData
 	
 	
 	A resposta conterá a chave de serviço. Você pode obter descrições detalhadas de todos os parâmetros executando o seguinte:
@@ -327,6 +327,5 @@ Se o provedor de serviços tiver desprovisionado o circuito (o estado de provisi
 ## Próximas etapas
 
 - [Configurar o roteamento](expressroute-howto-routing-classic.md)
-- [Vincular uma Rede Virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-classic.md) 
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

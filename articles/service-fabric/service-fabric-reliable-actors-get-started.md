@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="11/13/2015"
    ms.author="vturecek"/>
 
 # Atores Confiáveis: o cenário canônico HelloWorld passo a passo
@@ -26,7 +26,7 @@ Antes de começar, verifique se há um ambiente de desenvolvimento da Malha do S
 Para começar a usar os Atores Confiáveis, você só precisa entender quatro conceitos básicos:
 
 * **Serviço do Ator**. Os Atores Confiáveis são empacotados em Serviços que podem ser implantados na infraestrutura da Malha do Serviço. Um serviço pode hospedar um ou mais atores. Posteriormente, examinaremos mais detalhadamente as vantagens e desvantagens de ter um ator ou vários atores por serviço. Por enquanto, vamos supor que precisamos implementar apenas um ator.
-* **Interface do Ator**. A interface do ator é usada para definir a interface pública de um ator. Na terminologia do modelo de ator, ela define o tipo de mensagem que o ator é capaz de entender no processo. A interface do ator é usada por outros atores ou aplicativos cliente para ‘enviar’ (de modo assíncrono) mensagens ao ator. Os Atores Confiáveis podem implementar várias interfaces, como veremos, um Ator de HelloWorld pode implementar a interface IHelloWorld, mas também uma interface ILogging que define diferentes mensagens/funcionalidades.
+* **Interface do Ator**. A interface do ator é usada para definir a interface pública de um ator. Na terminologia do modelo de ator, ela define o tipo de mensagem que o ator é capaz de entender e processar. A interface do ator é usada por outros atores ou aplicativos cliente para ‘enviar’ (de modo assíncrono) mensagens ao ator. Os Atores Confiáveis podem implementar várias interfaces, como veremos, um Ator de HelloWorld pode implementar a interface IHelloWorld, mas também uma interface ILogging que define diferentes mensagens/funcionalidades.
 * **Registro do Ator**. No Serviço do Ator, o Tipo de Ator precisa ser registrado para que a Malha do Serviço esteja ciente do novo tipo e possa usá-lo para criar novos atores.
 * **Classe ActorProxy**. A classe ActorProxy é usada para associar um Ator e invocar os métodos expostos por meio de suas interfaces. A classe ActorProxy apresenta duas funcionalidades importantes:
 	* Resolução de nome: é capaz de localizar o Ator no cluster (encontrar em qual nó do cluster ele está hospedado).
@@ -58,18 +58,14 @@ Uma solução comum de Atores Confiáveis é composta por 3 projetos:
 
 ```csharp
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.ServiceFabric.Actors;
-
-namespace HelloWorld.Interfaces
+namespace MyActor.Interfaces
 {
-    public interface IHelloWorld : IActor
+    using System.Threading.Tasks;
+    using Microsoft.ServiceFabric.Actors;
+
+    public interface IMyActor : IActor
     {
-        Task<string> SayHello(string greeting);
+        Task<string> HelloWorld();
     }
 }
 
@@ -79,22 +75,18 @@ namespace HelloWorld.Interfaces
 
 ```csharp
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using HelloWorld.Interfaces;
-using Microsoft.ServiceFabric;
-using Microsoft.ServiceFabric.Actors;
-
-namespace HelloWorld
+namespace MyActor
 {
-    public class HelloWorld : Actor, IHelloWorld
+    using System;
+    using System.Threading.Tasks;
+    using Interfaces;
+    using Microsoft.ServiceFabric.Actors;
+
+    internal class MyActor : StatelessActor, IMyActor
     {
-        public Task<string> SayHello(string greeting)
+        public Task<string> HelloWorld()
         {
-            return Task.FromResult("You said: '" + greeting + "', I say: Hello Actors!");
+            throw new NotImplementedException();
         }
     }
 }
@@ -105,26 +97,34 @@ O projeto Serviço do Ator contém o código para criar um serviço da Malha do 
 
 ```csharp
 
-public class Program
+namespace MyActor
 {
-    public static void Main(string[] args)
-    {
-        try
-        {
-            using (FabricRuntime fabricRuntime = FabricRuntime.Create())
-            {
-                fabricRuntime.RegisterActor(typeof(HelloWorld));
+    using System;
+    using System.Fabric;
+    using System.Threading;
+    using Microsoft.ServiceFabric.Actors;
 
-                Thread.Sleep(Timeout.Infinite);
+    internal static class Program
+    {
+        private static void Main()
+        {
+            try
+            {
+                using (FabricRuntime fabricRuntime = FabricRuntime.Create())
+                {
+                    fabricRuntime.RegisterActor<MyActor>();
+
+                    Thread.Sleep(Timeout.Infinite);  // Prevents this host process from terminating so services keeps running.
+                }
+            }
+            catch (Exception e)
+            {
+                ActorEventSource.Current.ActorHostInitializationFailed(e.ToString());
+                throw;
             }
         }
-        catch (Exception e)
-        {
-            ActorEventSource.Current.ActorHostInitializationFailed(e);
-            throw;
-        }
     }
-}  
+}
 
 ```
 
@@ -132,7 +132,7 @@ Se você iniciar um novo projeto no Visual Studio e tiver apenas uma definição
 
 ```csharp
 
-fabricRuntime.RegisterActor(typeof(MyNewActor));
+fabricRuntime.RegisterActor<MyActor>();
 
 
 ```
@@ -158,4 +158,4 @@ As ferramentas para Visual Studio da Malha do Serviço oferecem suporte à depur
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

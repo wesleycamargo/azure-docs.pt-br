@@ -4,7 +4,7 @@
 	tags="azure-portal"
 	services="app-service\web, storage"
 	documentationCenter="nodejs"
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 
 
@@ -500,7 +500,9 @@ Nesta etapa, você baixará um arquivo que contém informações sobre sua assin
 
 	Esse comando inicia um navegador e acessa a página de download. Se solicitado, faça o logon usando a conta associada à sua assinatura do Azure.
 
-	<!-- ![The download page][download-publishing-settings] -->O download do arquivo começa automaticamente. Se não, você pode clicar no link no início da página para baixar manualmente o arquivo. Salve o arquivo e anote o caminho do arquivo.
+	<!-- ![The download page][download-publishing-settings] -->
+
+	O download do arquivo começa automaticamente. Se não, você pode clicar no link no início da página para baixar manualmente o arquivo. Salve o arquivo e anote o caminho do arquivo.
 
 2. Digite o seguinte comando para importar as configurações:
 
@@ -599,7 +601,6 @@ Embora as etapas neste artigo descrevam como usar o Serviço Tabela para armazen
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia para a alteração do portal do Azure para o portal de visualização do Azure, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [Criar e implantar um aplicativo Web Node.js no Serviço de Aplicativo do Azure]: web-sites-nodejs-develop-deploy-mac.md
 [Criar e implantar um aplicativo Web do Node.js no Serviço de Aplicativo do Azure]: web-sites-nodejs-develop-deploy-mac.md
@@ -642,4 +643,4 @@ Embora as etapas neste artigo descrevam como usar o Serviço Tabela para armazen
 [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!-----HONumber=AcomDC_1203_2015-->

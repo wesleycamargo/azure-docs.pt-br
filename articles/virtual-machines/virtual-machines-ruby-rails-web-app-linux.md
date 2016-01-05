@@ -3,7 +3,7 @@
 	description="Configurar e hospedar um site da Web baseado no Ruby on Rails no Azure usando uma máquina virtual do Linux."
 	services="virtual-machines"
 	documentationCenter="ruby"
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""
 	tags="azure-service-management"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="06/09/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 
 
@@ -34,11 +34,11 @@ Este tutorial foi validado usando o Ubuntu Server 14.04 LTS. Se você usar uma d
 
 Comece criando uma VM do Azure com uma imagem do Linux.
 
-Para criar a VM, você pode usar o Portal de Gerenciamento do Azure ou a CLI (interface de linha de comando) do Azure.
+Para criar a VM, você pode usar o portal clássico do Azure ou a CLI (interface de linha de comando) do Azure.
 
 ### Portal de Gerenciamento do Azure
 
-1. Entre no [Portal de Gerenciamento do Azure](http://manage.windowsazure.com)
+1. Entre no [portal clássico do Azure](http://manage.windowsazure.com)
 2. Clique em **Novo** > **Calcular** > **Máquina Virtual** > **Criação Rápida**. Selecione uma imagem do Linux.
 3. Digite uma senha.
 
@@ -97,7 +97,7 @@ Você deve ver saídas semelhantes às seguintes.
 
 ## Adicionar um ponto de extremidade
 
-1. Vá para o [Portal de Gerenciamento do Azure][management-portal] e selecione sua VM.
+1. Vá para o [portal clássico do Azure][management-portal] e selecione sua VM.
 
 	![lista da máquina virtual][vmlist]
 
@@ -175,4 +175,4 @@ Para usar os serviços do Azure de seu aplicativo Ruby, consulte:
 
 [new-endpoint1]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

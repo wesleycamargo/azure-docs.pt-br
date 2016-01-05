@@ -3,8 +3,8 @@
 	description="Um tutorial que ensina como implantar um serviço de nuvem que serve o conteúdo de um ponto de extremidade CDN do Azure integrado" 
 	services="cdn, cloud-services" 
 	documentationCenter=".net" 
-	authors="cephalin" 
-	manager="wpickett" 
+	authors="camsoper" 
+	manager="dwrede" 
 	editor="tysonn"/>
 
 <tags 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="cephalin"/>
+	ms.date="12/02/2015" 
+	ms.author="casoper"/>
 
 
 # <a name="intro"></a> Integrar um serviço de nuvem à CDN do Azure 
 
-Um serviço de nuvem pode ser integrado à CDN do Azure, fornecendo conteúdo do caminho `~/CDN` do serviço de nuvem. Esta abordagem lhe dá as seguintes vantagens:
+Um serviço de nuvem pode ser integrado com o CDN do Azure, fornecendo qualquer conteúdo do local do serviço de nuvem. Esta abordagem lhe dá as seguintes vantagens:
 
 - Implantar e atualizar, de maneira fácil, imagens, scripts e folhas de estilo nos diretórios de projetos de seu serviço de nuvem
 - Atualizar de maneira fácil os pacotes NuGet em seu serviço de nuvem, como as versões jQuery ou Bootstrap 
@@ -46,18 +46,16 @@ Você implantará uma função Web de serviço de nuvem usando o modelo ASP.NET 
 Este tutorial tem os seguintes pré-requisitos:
 
 -	Uma [conta do Microsoft Azure](/account/) ativa
--	Visual Studio 2013 com o [SDK do Azure](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
+-	Visual Studio 2015 com [SDK do Azure](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409)
 
-> [AZURE.NOTE]Você precisa de uma conta do Azure para concluir este tutorial:
-> + você pode [Abrir uma conta do Azure gratuitamente](/pricing/free-trial/) - Você recebe créditos que podem ser usados para experimentar os serviços do Azure pagos e, mesmo depois que tiverem se esgotado, você pode manter a conta e usar serviços do Azure gratuitos, como sites.
-> + Você pode [ativar os benefícios de assinante MSDN](/pricing/member-offers/msdn-benefits-details/) - Sua assinatura do MSDN fornece você créditos a cada mês que podem ser usados para serviços do Azure pagos.
+> [AZURE.NOTE]Você precisa de uma conta do Azure para concluir este tutorial: +, você pode [Abrir uma conta do Azure gratuitamente](/pricing/free-trial/) - Você recebe créditos que podem ser usados para experimentar os serviços do Azure pagos e, mesmo depois que tiverem se esgotado, você pode manter a conta e usar serviços do Azure gratuitos, como sites. + Você pode [ativar os benefícios de assinante MSDN](/pricing/member-offers/msdn-benefits-details/) - Sua assinatura do MSDN fornece você créditos a cada mês que podem ser usados para serviços do Azure pagos.
 
 <a name="deploy"></a>
-## Implantar um serviço de nuvem com um ponto de extremidade da CDN integrado ##
+## Implantar um serviço de nuvem ##
 
-Nesta seção, você implantará o modelo de aplicativo ASP.NET MVC padrão no Visual Studio 2013 em uma função Web de serviço de nuvem e, depois, o integrará a um novo ponto de extremidade da CDN. Siga as instruções abaixo:
+Nesta seção, você vai implantar o modelo de aplicativo MVC ASP.NET padrão no Visual Studio 2015 para uma função de Web do serviço de nuvem e, em seguida, integrá-la a um novo ponto de extremidade CDN. Siga as instruções abaixo:
 
-1. No Visual Studio 2013, crie um novo serviço de nuvem do Azure na barra de menu acessando **Arquivo > Novo > Projeto > Nuvem > Serviço de Nuvem do Azure**. Dê um nome a ele e clique em **OK**.
+1. No Visual Studio 2015, crie um novo serviço de nuvem do Azure na barra de menu acessando **Arquivo > Novo > Projeto > Nuvem > Serviço de Nuvem do Azure**. Dê um nome a ele e clique em **OK**.
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-1-new-project.PNG)
 
@@ -73,7 +71,7 @@ Nesta seção, você implantará o modelo de aplicativo ASP.NET MVC padrão no V
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-4-publish-a.png)
 
-5. Se ainda não tiver entrado no Microsoft Azure, clique no botão **Entrar**.
+5. Se você ainda não entrou no Microsoft Azure, clique em **Adicionar uma conta...** na lista suspensa e clique no item de menu **Adicionar uma conta**.
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-5-publish-signin.png)
 
@@ -82,7 +80,7 @@ Nesta seção, você implantará o modelo de aplicativo ASP.NET MVC padrão no V
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-6-publish-signedin.png)
 
-8. Se você ainda não tiver criado uma conta de armazenamento ou um serviço de nuvem, o Visual Studio o ajudará a criar ambos. Na caixa de diálogo **Criar Serviço de Nuvem e Conta**, digite o nome do serviço desejado. Em seguida, clique em **Criar**.
+8. Se você ainda não tiver criado uma conta de armazenamento ou um serviço de nuvem, o Visual Studio o ajudará a criar ambos. Na caixa de diálogo **Criar Serviço de Nuvem e Conta**, digite o nome do serviço desejado e selecione a região desejada. Em seguida, clique em **Criar**.
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-7-publish-createserviceandstorage.png)
 
@@ -93,63 +91,82 @@ Nesta seção, você implantará o modelo de aplicativo ASP.NET MVC padrão no V
 	>[AZURE.NOTE]O processo de publicação para serviços de nuvem leva muito tempo. A opção Habilitar Implantação da Web para todas as funções pode acelerar muito a depuração do serviço de nuvem fornecendo atualizações rápidas (mas temporárias) para suas funções Web. Para saber mais sobre esta opção, consulte [Publicando um Serviço de Nuvem usando as Ferramentas do Azure](http://msdn.microsoft.com/library/ff683672.aspx).
 
 	Quando o **Log de atividades do Microsoft Azure** mostrar que o status da publicação é **Concluído**, crie um ponto de extremidade CDN que esteja integrado a esse serviço de nuvem.
+	
+	>[AZURE.WARNING]Se após a publicação o serviço de nuvem implantado exibir uma tela de erro, provavelmente é porque o serviço de nuvem que você implantou está usando um [SO convidado que não inclui o .NET 4.5.2](../cloud-services/cloud-services-guestos-update-matrix.md#news-updates). Você pode contornar esse problema [Implantando o .NET 4.5.2 como uma tarefa de inicialização](../cloud-services/cloud-services-dotnet-install-dotnet.md).
 
-1. Para criar um ponto de extremidade CDN, faça logon no [portal de gerenciamento do Azure](http://manage.windowsazure.com/).
-2. Clique em **Novo** > **Serviços de Aplicativos** > **CDN** > **Criação Rápida**. Selecione **http://*&lt;servicename>*.cloudapp.net/cdn/** e clique em **Criar**.
+## Criar um novo perfil CDN
 
-	![](media/cdn-cloud-service-with-cdn/cdn-cs-10-createcdn.png)
+Um perfil CDN é um conjunto de pontos de extremidade CDN. Cada perfil contém um ou mais pontos de extremidade CDN. Você pode usar vários perfis para organizar seus pontos de extremidade CDN por domínio de Internet, aplicativo Web ou algum outro critério.
 
-	>[AZURE.NOTE]Após a criação do ponto de extremidade da CDN, o portal do Azure mostrará sua URL e o domínio de origem ao qual ele está integrado. No entanto, pode levar algum tempo para que a configuração do novo ponto de extremidade da CDN seja totalmente propagada a todos os locais de nó de CDN.
+> [AZURE.TIP]Se já tiver um perfil CDN que deseja usar para este tutorial, vá para [Criar um novo ponto de extremidade CDN](#create-a-new-cdn-endpoint).
 
-	Observe que o ponto de extremidade CDN está vinculado ao caminho **cdn/** do serviço de nuvem. Você pode criar uma pasta **cdn** em seu projeto **FunçãoDaWeb1** ou usar o URL reescrito para remover todos o links de entrada deste caminho. Neste tutorial, você adotará a segunda opção.
+**Para criar um perfil CDN**
 
-3. No portal do Azure, na guia **CDN**, clique no nome do ponto de extremidade CDN que você acabou de criar.
+1. No [Portal de Gerenciamento do Azure](https://portal.azure.com), no canto superior esquerdo, clique em **Novo**. Na folha **Novo**, selecione **Mídia + CDN** e, em seguida, **CDN**.
 
-	![](media/cdn-cloud-service-with-cdn/cdn-cs-11-disablequerya.png)
+    A folha do novo perfil CDN é exibida.
+    
+    ![Novo perfil CDN][new-cdn-profile]
 
-3. Clique em **Habilitar Cadeia de Consulta** para habilitar cadeias de consulta no cache do CDN. Após você ter habilitado, o mesmo link acessado com diferentes cadeias de consulta será armazenado em cache como entradas diferentes.
+2. Insira um nome para o perfil CDN.
 
-	![](media/cdn-cloud-service-with-cdn/cdn-cs-12-disablequeryb.png)
+3. Selecione um **Tipo de preço** ou use o padrão.
 
-	>[AZURE.NOTE]Embora habilitar a cadeia de consulta não seja necessário para esta seção do tutorial, é aconselhável fazer isso o quanto antes para maior conveniência, uma vez que qualquer alteração aqui levará tempo para ser propagada para todos os nós da CDN, e você não quer um acúmulo de conteúdo não habilitado para cadeia de consulta no cache da CDN (a atualização do conteúdo da CDN será abordada mais adiante).
+4. Selecione ou crie um **Grupo de Recursos**. Não é necessário que esse seja o mesmo Grupo de Recursos da sua conta de armazenamento.
 
-3. Execute o ping de seu ponto de extremidade da CDN para garantir que ele esteja propagado para os nós de CDN. Talvez seja necessário esperar por até uma hora antes de ele responder a pings.
+5. Selecione a **Assinatura** para este perfil CDN. Essa precisará ser a mesma assinatura que a da conta de armazenamento para os fins deste tutorial.
 
-	![](media/cdn-cloud-service-with-cdn/cdn-cs-13-testcdn.png)
+6. Selecione um **Local**. Esse é o local do Azure onde suas informações de perfil CDN serão armazenadas. Ele não tem impacto sobre os locais de ponto de extremidade CDN. Não precisa ser o mesmo local da conta de armazenamento.
 
-2. De volta ao Visual Studio 2013, abra **Web.config** em seu projeto **FunçãodaWeb1** e adicione o seguinte código à marca `<system.webServer>`:
+7. Clique no botão **Criar** para criar um novo perfil.
 
-		<system.webServer>
-		  <rewrite>
-		    <rules>
-		      <rule name="RewriteIncomingCdnRequest" stopProcessing="true">
-		        <match url="^cdn/(.*)$"/>
-		        <action type="Rewrite" url="{R:1}"/>
-		      </rule>
-		    </rules>
-		  </rewrite>
-		  ...
-		</system.webServer>
+## Criar um novo ponto de extremidade CDN
 
-4. Publique o serviço de nuvem novamente. Clique com o botão direito do mouse no projeto do serviço de nuvem e selecione **Publicar**.
+**Para criar um novo ponto de extremidade CDN para sua conta de armazenamento**
 
-	![](media/cdn-cloud-service-with-cdn/cdn-cs-4-publish-a.png)
+1. No [Portal de Gerenciamento do Azure](https://portal.azure.com), navegue até o seu perfil CDN. Você pode ter fixado ao painel na etapa anterior. Se não, poderá encontrá-lo clicando em **Procurar**, em **perfis CDN** e clicando no perfil ao qual pretende adicionar o ponto de extremidade.
 
-1. Quando o status da publicação for **Concluído**, abra uma janela do navegador e vá até **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**. Em minha configuração, essa URL é:
+    A folha do perfil CDN é exibida.
+    
+    ![Perfil CDN][cdn-profile-settings]
+    
+2. Clique no botão **Adicionar Ponto de Extremidade**.
 
-		http://az632148.vo.msecnd.net/Content/bootstrap.css
+    ![Adicionar botão de ponto de extremidade][cdn-new-endpoint-button]
 
-	Que corresponde à seguinte URL de origem no ponto de extremidade da CDN:
+    A folha **Adicionar um ponto de extremidade** é exibida.
+    
+    ![Adicionar folha de ponto de extremidade][cdn-add-endpoint]
 
-		http://cephalinservice.cloudapp.net/cdn/Content/bootstrap.css
+3. Insira um **Nome** para esse ponto de extremidade CDN. Esse nome será usado para acessar os recursos armazenados em cache no domínio `<EndpointName>.azureedge.net`.
 
-	Após reescrever a URL no aplicativo da Web, o arquivo que é de fato armazenado em meu cache CDN é:
+4. No menu suspenso **Tipo de origem**, selecione *Serviço de nuvem*.
 
-		http://cephalinservice.cloudapp.net/Content/bootstrap.css
+5. No menu suspenso **Nome do host de origem**, selecione Serviço de nuvem.
 
-	Ao navegar até **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**, você receberá uma solicitação para baixar o bootstrap.css proveniente de seu aplicativo Web publicado.
+6. Mantenha os padrões para **Caminho de origem**, **Cabeçalho de host de origem** e **Porta de protocolo/origem**. Especifique pelo menos um protocolo (HTTP ou HTTPS).
 
-	![](media/cdn-cloud-service-with-cdn/cdn-1-browser-access.PNG)
+7. Clique no botão **Adicionar** para criar um novo ponto de extremidade.
+
+8. Depois que o ponto de extremidade é criado, ele aparece em uma lista de pontos de extremidade do perfil. O modo de exibição de lista mostra a URL a ser usada para acessar o conteúdo armazenado em cache, bem como o domínio de origem.
+
+    ![Ponto de extremidade CDN][cdn-endpoint-success]
+
+    > [AZURE.NOTE]O ponto de extremidade não estará imediatamente disponível para uso. Pode levar até 90 minutos para que o registro seja propagado pela rede CDN. Os usuários que tentarem usar imediatamente o nome de domínio CDN poderão receber o código de status 404 até que o conteúdo esteja disponível pela CDN.
+	
+## Testar o ponto de extremidade CDN
+
+Quando o status da publicação for **Concluído**, abra uma janela do navegador e vá para **http://<cdnName>*.azureedge.net/Content/bootstrap.css**. Em minha configuração, essa URL é:
+
+	http://camservice.azureedge.net/Content/bootstrap.css
+
+Que corresponde à seguinte URL de origem no ponto de extremidade da CDN:
+
+	http://camcdnservice.cloudapp.net/Content/bootstrap.css
+
+Ao navegar até **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**, você receberá uma solicitação para baixar ou abrir o bootstrap.css proveniente de seu aplicativo Web publicado.
+
+![](media/cdn-cloud-service-with-cdn/cdn-1-browser-access.PNG)
 
 De modo similar, você pode acessar qualquer URL publicamente acessível em **http://*&lt;serviceName>*.cloudapp.net/**, diretamente do seu ponto de extremidade da CDN. Por exemplo:
 
@@ -158,24 +175,17 @@ De modo similar, você pode acessar qualquer URL publicamente acessível em **ht
 -	Qualquer controller/action 
 -	Se cadeias de consulta estiverem habilitadas em seu ponto de extremidade da CDN, qualquer URL com cadeias de consulta
 
-De fato, com a configuração acima, você pode hospedar todo o serviço de nuvem por meio de **http://*&lt;cdnName>*.vo.msecnd.net/**. Se eu navegar até ****http://az632148.vo.msecnd.net/**, obterei o resultado da ação de Home/Index.
+De fato, com a configuração acima, você pode hospedar todo o serviço de nuvem **http://*&lt;cdnName>*.azureedge.net/**. Se eu navegar até ****http://camservice.azureedge.net/**, obterei o resultado da ação de Home/Index.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
 No entanto, isso não significa que sempre é uma boa ideia (ou uma boa ideia de modo geral) fornecer um serviço de nuvem inteiro por meio da CDN do Azure. Alguns dos empecilhos são:
 
--	Esta abordagem requer que todo o seu site seja público, por que a CDN do Azure não pode fornecer nenhum conteúdo privado.
+-	Esta abordagem requer que todo o seu site seja público, por que a CDN do Azure não pode fornecer nenhum conteúdo privado neste momento.
 -	Se o ponto de extremidade da CDN ficar offline por qualquer motivo, seja para uma manutenção programada ou por erro do usuário, todo o seu serviço de nuvem ficará offline a menos que os clientes possam ser redirecionados à URL de origem, **http://*&lt;serviceName>*.cloudapp.net/**. 
 -	Mesmo com as configurações personalizadas de controle de cache (consulte [Configurar opções de cache para arquivos estáticos em seu serviço de nuvem](#caching)), um ponto de extremidade CDN não melhora o desempenho de conteúdo altamente dinâmico. Se você tiver tentado carregar a página inicial de seu ponto de extremidade CDN conforme mostrado acima, observe que foram necessários pelo menos 5 segundos para carregar pela primeira vez a página inicial, que é uma página bem simples. Imagine o que aconteceria com a experiência do cliente se esta página tivesse conteúdo dinâmico que precisasse ser atualizado a cada minuto. Fornecer conteúdo dinâmico de um ponto de extremidade da CDN requer uma validade curta do cache, o que significa frequentes perdas de cache no ponto de extremidade da CDN. Isso prejudica o desempenho de seu serviço de nuvem e frustra o propósito de uma CDN.
 
 A alternativa é determinar que conteúdo fornecer por meio da CDN do Azure caso a caso, em seu serviço de nuvem. Para isso, você já viu como acessar arquivos de conteúdo individuais do ponto de extremidade CDN. Você verá como fornecer uma ação de controlador específica por meio do ponto de extremidade CDN em [Fornecer conteúdo por meio de ações do controlador por meio da CDN do Azure](#controller).
-
-Você pode especificar uma regra mais restritiva de reescrita de URL para limitar o conteúdo acessível por meio do seu ponto de extremidade da CDN. Por exemplo, para limitar a reescrita de URL à pasta *\\Scripts*, altere a regra de reescrita acima da seguinte forma:
-   
-	<rule name="RewriteIncomingCdnRequest" stopProcessing="true">
-	  <match url="^cdn/Scripts/(.*)$"/>
-	  <action type="Rewrite" url="Scripts/{R:1}"/>
-	</rule>
 
 <a name="caching"></a>
 ## Configurar opções de cache para arquivos estáticos em seu serviço de nuvem ##
@@ -269,7 +279,7 @@ Siga as etapas acima para configurar esta ação do controlador:
 		            }
 		            else // Get content from Azure CDN
 		            {
-		                return Redirect(string.Format("http://<yourCdnName>.vo.msecnd.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+		                return Redirect(string.Format("http://<yourCdnName>.azureedge.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
 		            }
 		        }
 		
@@ -341,36 +351,33 @@ Siga as etapas acima para configurar esta ação do controlador:
 
 Quando você envia os valores de formulário a `/MemeGenerator/Index`, o método de ação `Index_Post` retorna um link para o método de ação `Show` com o respectivo identificador de entrada. Quando clicar em senha, você chegará ao seguinte código:
 
-	[OutputCache(VaryByParam = ";*";, Duration = 1, Location = OutputCacheLocation.Downstream)]
+	[OutputCache(VaryByParam = "*", Duration = 1, Location = OutputCacheLocation.Downstream)]
 	public ActionResult Show(string id)
 	{
-	    Tuple&lt;string, string&gt; data = null;
-	    if (!Memes.TryGetValue(id, out data))
-	    {
-	        return new HttpStatusCodeResult(HttpStatusCode.NotFound);
-	    }
-	
-	    if (Debugger.IsAttached) // Preserve the debug experience
-	    {
-	        return Redirect(string.Format(";/MemeGenerator/Generate?top={0}&bottom={1}";, data.Item1, data.Item2));
-	    }
-	    else // Get content from Azure CDN
-	    {
-	        return Redirect(string.Format(";http://<mark>&lt;cdnName&gt;</mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}";, data.Item1, data.Item2));
-	    }
+		Tuple<string, string> data = null;
+		if (!Memes.TryGetValue(id, out data))
+		{
+			return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+		}
+
+		if (Debugger.IsAttached) // Preserve the debug experience
+		{
+			return Redirect(string.Format("/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+		}
+		else // Get content from Azure CDN
+		{
+			return Redirect(string.Format("http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+		}
 	}
 	
 Se o seu depurador local estiver anexado, você terá a experiência de depuração normal com um redirecionamento local. Se estiver sendo executado no serviço de nuvem, será redirecionado para:
 
-	http://<yourCDNName>.vo.msecnd.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
+	http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
 
-Que corresponde ao seguinte URL de origem no ponto de extremidade CDN:
-
-	http://<youCloudServiceName>.cloudapp.net/cdn/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
-
-Após a regra de reescrita de URL aplicada anteriormente, o arquivo que é de fato armazenado em cache em meu ponto de extremidade da CDN é:
+Que corresponde ao seguinte URL de origem no ponto de extremidade da CDN:
 
 	http://<youCloudServiceName>.cloudapp.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
+
 
 Você então pode usar o atributo `OutputCacheAttribute` no método `Generate` para especificar como o resultado da ação deve ser armazenado em cache, e a CDN do Azure seguirá a especificação. O código abaixo especifica uma validade de cache de 1 hora (3.600 segundos).
 
@@ -391,7 +398,7 @@ Scripts e folhas de estilo CSS são alterados com pouca frequência e são candi
 -	Mecanismo de fallback quando ocorre falha em seu ponto de extremidade CDN
 -	Minimizar modificações de código
 
-No projeto **FunçãoDaWeb1** criado em [Integrar um ponto de extremidade da CDN do Azure a seu site do Azure e fornecer conteúdo estático em suas páginas Web na CDN do Azure](#deploy), abra *App\_Start\\BundleConfig.cs* e examine as chamadas de método `bundles.Add()`.
+No projeto **FunçãoDaWeb1** criado em [Integrar um ponto de extremidade da CDN do Azure ao seu site do Azure e fornecer conteúdo estático em suas páginas Web na CDN do Azure](#deploy), abra *App\_Start\\BundleConfig.cs* e examine as chamadas de método `bundles.Add()`.
 
     public static void RegisterBundles(BundleCollection bundles)
     {
@@ -423,7 +430,7 @@ Siga as etapas abaixo para integrar agrupamento e minificação ASP.NET ao ponto
 		    bundles.UseCdn = true;
 		    var version = System.Reflection.Assembly.GetAssembly(typeof(Controllers.HomeController))
 		        .GetName().Version.ToString();
-		    var cdnUrl = "http://<yourCDNName>.vo.msecnd.net/{0}?v=" + version;
+		    var cdnUrl = "http://<yourCDNName>.azureedge.net/{0}?v=" + version;
 		
 		    bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")).Include(
 		                "~/Scripts/jquery-{version}.js"));
@@ -453,7 +460,7 @@ Siga as etapas abaixo para integrar agrupamento e minificação ASP.NET ao ponto
 
 	é igual a:
 
-		new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "http://<yourCDNName>.vo.msecnd.net/bundles/jquery?v=<W.X.Y.Z>"))
+		new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "http://<yourCDNName>.azureedge.net/bundles/jquery?v=<W.X.Y.Z>"))
 
 	Este construtor instrui o agrupamento e minificação ASP.NET a renderizar arquivos de script individuais quando depurados localmente, mas usar o endereço CDN especificado para acessar o script em questão. No entanto, observe duas importantes características dessa URL da CDN criada cuidadosamente:
 	
@@ -471,15 +478,15 @@ Siga as etapas abaixo para integrar agrupamento e minificação ASP.NET ao ponto
 
 		...
 		
-		<link href="http://az632148.vo.msecnd.net/Content/css?v=1.0.0.25449" rel="stylesheet"/>
+		<link href="http://camservice.azureedge.net/Content/css?v=1.0.0.25449" rel="stylesheet"/>
 		
-		<script src="http://az632148.vo.msecnd.net/bundles/modernizer?v=1.0.0.25449"></script>
+		<script src="http://camservice.azureedge.net/bundles/modernizer?v=1.0.0.25449"></script>
 		
 		...
 		
-		<script src="http://az632148.vo.msecnd.net/bundles/jquery?v=1.0.0.25449"></script>
+		<script src="http://camservice.azureedge.net/bundles/jquery?v=1.0.0.25449"></script>
 		
-		<script src="http://az632148.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25449"></script>
+		<script src="http://camservice.azureedge.net/bundles/bootstrap?v=1.0.0.25449"></script>
 		
 		...
 
@@ -516,32 +523,32 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 		{
 		    var version = System.Reflection.Assembly.GetAssembly(typeof(BundleConfig))
 		        .GetName().Version.ToString();
-		    var cdnUrl = ";http://cdnurl.vo.msecnd.net/.../{0}?"; + version;
+		    var cdnUrl = "http://cdnurl.azureedge.net/.../{0}?" + version;
 		    bundles.UseCdn = true;
 		
-		    bundles.Add(new ScriptBundle(";~/bundles/jquery";, string.Format(cdnUrl, ";bundles/jquery";)) 
-						<mark>{ CdnFallbackExpression = ";window.jquery"; }</mark>
-		                .Include(";~/Scripts/jquery-{version}.js";));
+		    bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")) 
+						{ CdnFallbackExpression = "window.jquery" }
+		                .Include("~/Scripts/jquery-{version}.js"));
 		
-		    bundles.Add(new ScriptBundle(";~/bundles/jqueryval";, string.Format(cdnUrl, ";bundles/jqueryval";)) 
-						<mark>{ CdnFallbackExpression = ";$.validator"; }</mark>
-		            	.Include(";~/Scripts/jquery.validate*";));
+		    bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval")) 
+						{ CdnFallbackExpression = "$.validator" }
+		            	.Include("~/Scripts/jquery.validate*"));
 		
 		    // Use the development version of Modernizr to develop with and learn from. Then, when you're
 		    // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-		    bundles.Add(new ScriptBundle(";~/bundles/modernizr";, string.Format(cdnUrl, ";bundles/modernizer";)) 
-						<mark>{ CdnFallbackExpression = ";window.Modernizr"; }</mark>
-						.Include(";~/Scripts/modernizr-*";));
+		    bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")) 
+						{ CdnFallbackExpression = "window.Modernizr" }
+						.Include("~/Scripts/modernizr-*"));
 		
-		    bundles.Add(new ScriptBundle(";~/bundles/bootstrap";, string.Format(cdnUrl, ";bundles/bootstrap";)) 	
-						<mark>{ CdnFallbackExpression = ";$.fn.modal"; }</mark>
+		    bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")) 	
+						{ CdnFallbackExpression = "$.fn.modal" }
 		        		.Include(
-			              		";~/Scripts/bootstrap.js";,
-			              		";~/Scripts/respond.js";));
+			              		"~/Scripts/bootstrap.js",
+			              		"~/Scripts/respond.js"));
 		
-		    bundles.Add(new StyleBundle(";~/Content/css";, string.Format(cdnUrl, ";Content/css";)).Include(
-		                ";~/Content/bootstrap.css";,
-		                ";~/Content/site.css";));
+		    bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
+		                "~/Content/bootstrap.css",
+		                "~/Content/site.css"));
 		}
 
 	Quando `CdnFallbackExpression` não é nulo, o script é injetado no HTML para testar se o grupo é carregado com sucesso e, se não, acessar o grupo diretamente por meio do servidor Web de origem. Esta propriedade precisa ser definida como uma expressão JavaScript que testa se o grupo CDN respectivo é carregado corretamente. A expressão necessária para testar cada grupo difere de acordo com o conteúdo. Para os grupos padrão acima:
@@ -557,7 +564,7 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 
 2. Para usar a solução alternativa para CSS, crie um novo arquivo .cs na pasta *App\_Start* de seu projeto de função Web, nomeie esse arquivo como *StyleBundleExtensions.cs* e substitua seu conteúdo pelo [código do GitHub](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs).
 
-4. Em *App_Start\StyleFundleExtensions.cs*, renomeie o namespace como nome da sua função Web (por exemplo, **FunçãoDaWeb1**).
+4. Em *App\_Start\\StyleFundleExtensions.cs*, renomeie o namespace como nome da sua função Web (por exemplo, **FunçãoDaWeb1**).
 
 3. Volte para e `App_Start\BundleConfig.cs` modifique a última `bundles.Add` instrução com o seguinte código em destaque:
 
@@ -575,13 +582,13 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 
 		...
 		
-	    <link href="http://az632148.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
+	    <link href="http://az632148.azureedge.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
 		<script>(function() {
 		                var loadFallback,
 		                    len = document.styleSheets.length;
 		                for (var i = 0; i < len; i++) {
 		                    var sheet = document.styleSheets[i];
-		                    if (sheet.href.indexOf('http://az632148.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) {
+		                    if (sheet.href.indexOf('http://camservice.azureedge.net/Content/css?v=1.0.0.25474') !== -1) {
 		                        var meta = document.createElement('meta');
 		                        meta.className = 'sr-only';
 		                        document.head.appendChild(meta);
@@ -595,15 +602,15 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 		                return true;
 		            }())||document.write('<script src="/Content/css"><\/script>');</script>
 		
-		    <script src="http://az632148.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474"></script>
+		    <script src="http://camservice.azureedge.net/bundles/modernizer?v=1.0.0.25474"></script>
 		<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
 		
 		... 
 		
-		    <script src="http://az632148.vo.msecnd.net/bundles/jquery?v=1.0.0.25474"></script>
+		    <script src="http://camservice.azureedge.net/bundles/jquery?v=1.0.0.25474"></script>
 		<script>(window.jquery)||document.write('<script src="/bundles/jquery"><\/script>');</script>
 		
-		    <script src="http://az632148.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474"></script>
+		    <script src="http://camservice.azureedge.net/bundles/bootstrap?v=1.0.0.25474"></script>
 		<script>($.fn.modal)||document.write('<script src="/bundles/bootstrap"><\/script>');</script>
 		
 		...
@@ -611,7 +618,7 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 
 	Observe que o script injetado para o grupo CSS ainda contém o excedente errante da propriedade `CdnFallbackExpression` na linha:
 
-        }())||document.write('<script src="/Content/css"></script>');</script>
+        }())||document.write('<script src="/Content/css"><\/script>');</script>
 
 	Mas como a primeira parte da expressão || sempre retornará o valor verdadeiro (na linha diretamente acima), a função document.write() nunca será executada.
 
@@ -622,4 +629,11 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 - [Agrupamento e minificação ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 - [Usando a CDN para Azure](cdn-how-to-use.md)
 
-<!---HONumber=Oct15_HO3-->
+
+[new-cdn-profile]: ./media/cdn-cloud-service-with-cdn/cdn-new-profile.png
+[cdn-profile-settings]: ./media/cdn-cloud-service-with-cdn/cdn-profile-settings.png
+[cdn-new-endpoint-button]: ./media/cdn-cloud-service-with-cdn/cdn-new-endpoint-button.png
+[cdn-add-endpoint]: ./media/cdn-cloud-service-with-cdn/cdn-add-endpoint.png
+[cdn-endpoint-success]: ./media/cdn-cloud-service-with-cdn/cdn-endpoint-success.png
+
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 
 
-1. Faça logon no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com/), e clique em **+NOVO** na parte inferior da tela.
+1. Faça logon no [Portal Clássico do Azure](https://manage.windowsazure.com/) e clique em **+NOVO** na parte inferior da tela.
 
 2. Clique em **Serviços de Aplicativo**, em **Service Bus**, em **Hub de Notificação** e, em seguida, **Criação Rápida**.
 
@@ -19,10 +19,10 @@
 
 5. Em seu namespace, clique na guia **Hubs de Notificação** na parte superior e então clique no hub de notificação que você acabou de criar. Isso abrirá o painel do novo hub de notificação.
 
-6. No painel do seu novo hub, clique em **Exibir Cadeia de Conexão**. Anote as duas cadeias de conexão. Você as usará mais tarde.
+6. No painel do novo hub, clique em **Exibir Cadeia de Conexão**. Anote as duas cadeias de conexão. Você as usará mais tarde.
 
    	![](./media/notification-hubs-portal-create-new-hub/notification-hubs-view-connection-strings.png)
 
 	![](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings.png)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

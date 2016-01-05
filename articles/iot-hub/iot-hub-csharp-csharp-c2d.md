@@ -22,7 +22,7 @@
 
 O Hub IoT do Azure é um serviço totalmente gerenciado que permite comunicações bidirecionais confiáveis e seguras entre milhões de dispositivos IoT e um back-end de aplicativo. O tutorial [Introdução ao Hub IoT] mostra como criar um hub IoT, provisionar uma identidade do dispositivo e codificar um dispositivo simulado que envia mensagens do dispositivo para a nuvem.
 
-Este tutorial se baseia na [Introdução ao Hub IoT] e mostra como enviar mensagens da nuvem para o dispositivo (*comentários*) do Hub IoT e recebê-lo do seu black-end da nuvem do aplicativo.
+Este tutorial se baseia na [Introdução ao Hub IoT] e mostra como enviar mensagens da nuvem para o dispositivo a um único dispositivo, como solicitar o reconhecimento de entrega (*comentários*) do Hub IoT e recebê-lo de seu back-end da nuvem do aplicativo.
 
 Encontre mais informações sobre as mensagens da nuvem para o dispositivo no [Guia do Desenvolvedor do Hub IoT][IoT Hub Developer Guide - C2D].
 
@@ -67,7 +67,7 @@ Informações adicionais sobre o Hub IoT:
 
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 
-[Azure preview portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [Mensagens do processo de dispositivo para nuvem]: iot-hub-csharp-csharp-process-d2c.md
@@ -81,4 +81,4 @@ Informações adicionais sobre o Hub IoT:
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Centro de Desenvolvedores do IoT do Azure]: http://www.azure.com/develop/iot
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

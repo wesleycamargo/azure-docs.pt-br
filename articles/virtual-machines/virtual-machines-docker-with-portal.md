@@ -18,14 +18,14 @@
 	ms.author="rasquill"/>
 
 
-# Usando a extensão de máquina virtual Docker com o Portal do Azure
+# Usando a extensão de VM do Docker com o portal clássico do Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
 
 
 O [Docker](https://www.docker.com/) é uma das abordagens de virtualização mais populares que utiliza [contêineres Linux](http://en.wikipedia.org/wiki/LXC) em vez de máquinas virtuais como forma de isolar dados e computar recursos compartilhados. Você pode usar a extensão da VM Docker gerenciada pelo [Agente Linux do Azure] para criar uma VM Docker que hospede diversos contêineres para seus aplicativos no Azure.
 
-> [AZURE.NOTE]Este tópico descreve como criar uma VM Docker no Portal do Azure. Para ver como criar uma máquina virtual Docker na linha de comando, confira [Como usar a extensão de máquina virtual do Docker na interface de linha de comando (CLI do Azure)]. Para participar de um debate de alto nível sobre contêineres e suas vantagens, confira o [Quadro de comunicações de alto nível do Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
+> [AZURE.NOTE]Este tópico descreve como criar uma VM Docker no portal clássico do Azure. Para ver como criar uma máquina virtual Docker na linha de comando, confira [Como usar a extensão de máquina virtual do Docker na interface de linha de comando (CLI do Azure)]. Para participar de um debate de alto nível sobre contêineres e suas vantagens, confira o [Quadro de comunicações de alto nível do Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 
 ## Criar uma nova máquina virtual na Galeria de Imagens
 A primeira etapa requer uma máquina virtual do Azure obtida por meio de uma imagem Linux compatível com a extensão de máquina virtual Docker, usando uma imagem Ubuntu 14.04 LTS da Galeria de Imagens como exemplo de imagem do servidor e um desktop Ubuntu 14.04 como cliente. No portal, clique em **+ Novo** no canto inferior esquerdo para criar uma nova instância de máquina virtual e selecione uma imagem Ubuntu 14.04 LTS dentre as opções disponíveis ou na Galeria de Imagens, como mostramos abaixo.
@@ -148,4 +148,4 @@ Você está pronto para conferir o [Guia do usuário do Docker] e usar sua máqu
 [Executando Docker com https]: http://docs.docker.com/articles/https/
 [Guia do usuário do Docker]: https://docs.docker.com/userguide/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 # Integração de diretórios entre o Azure MFA Server e o Active Directory
@@ -137,4 +137,4 @@ Os servidores adicionais Multi-Factor Auth podem ser configurados para servir co
 
 ![Servidores Multi-Factor Auth](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->
