@@ -43,6 +43,7 @@ Localize a URL para Blobs do novo [Portal do Microsoft Azure](https://ms.portal.
 
 ### Baixe um VHD
 Depois de conhecer a URL para Blobs, você pode baixar o VHD usando o [Portal do Azure](http://manage.windowsazure.com/) ou o PowerShell.
+
 > [AZURE.NOTE]No momento da criação deste guia, a funcionalidade para baixar um VHD ainda não estava presente no novo Portal do Microsoft Azure.
 
 **Baixar o VHD do sistema operacional pelo atual [Portal do Azure](http://manage.windowsazure.com/)**
@@ -138,4 +139,4 @@ Com a [ferramenta de linha de comando do Linux](../virtual-machines/command-line
 - [Criar uma imagem de máquina virtual para o Marketplace](marketplace-publishing-vm-image-creation.md)
 - [Configurando o PowerShell do Azure](marketplace-publishing-powershell-setup.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-----HONumber=AcomDC_1210_2015-->

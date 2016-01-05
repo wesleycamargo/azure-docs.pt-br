@@ -88,12 +88,12 @@ As etapas a seguir descrevem o fluxo de trabalho mais comum ao usar a API REST d
 	> Você também poderá receber uma resposta HTTP/1.1 200 que contém a descrição de metadados API ODATA.
 3. Postando suas chamadas de API subsequentes para a nova URL. 
 	
-	Por exemplo, se depois de tentar se conectar, você tem o seguinte:
+		Por exemplo, se depois de tentar se conectar, você tem o seguinte:
 		
 		HTTP/1.1 301 Moved Permanently
 		Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
-	Você deve postar suas chamadas à API subsequentes para https://wamsbayclus001rest-hs.cloudapp.net/api/.
+		Você deve postar suas chamadas à API subsequentes para https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
 ###Obtendo um token de acesso
 

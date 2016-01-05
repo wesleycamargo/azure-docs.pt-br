@@ -142,4 +142,4 @@ O teste de carga do Visual Studio Team Services fornece APIs que permitem o gere
 [8]: ./media/service-fabric-vso-load-test/RunTest2.png
 [9]: ./media/service-fabric-vso-load-test/Graph.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!-----HONumber=AcomDC_1217_2015-->

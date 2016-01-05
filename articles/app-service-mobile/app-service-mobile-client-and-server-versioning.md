@@ -141,4 +141,6 @@ A verificação de versão está incluída nas seguintes versões do SDK do serv
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Migrar um Serviço Móvel para o Serviço de Aplicativo do Azure]: app-service-mobile-migrating-from-mobile-services.md
 
-<!---HONumber=AcomDC_1217_2015-->
+
+<!-----HONumber=AcomDC_1217_2015-->
+
