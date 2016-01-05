@@ -388,7 +388,9 @@ Esta seção resume os pontos de extremidade de máquina virtual do Microsoft Az
 
 	|Port|Tipo|Descrição|
 |---|---|---|
-|**80**|TCP|Acesso remoto ao servidor de relatório (*).| |**1433**|TCP|SQL Server Management Studio (*).| |**1434**|UDP|SQL Server Browser. Necessário quando a VM ingressa em um domínio.|
+|**80**|TCP|Acesso remoto ao servidor de relatório (*).|
+|**1433**|TCP|SQL Server Management Studio (*).|
+|**1434**|UDP|SQL Server Browser. Necessário quando a VM ingressa em um domínio.|
 |**2382**|TCP|SQL Server Browser.|
 |**2383**|TCP|Instância padrão do SQL Server Analysis Services e instâncias nomeadas em cluster.|
 |**Definido pelo usuário**|TCP|Crie uma porta de instância nomeada estática do Analysis Services para um número de porta de sua escolha e desbloqueie o número da porta no firewall.|
@@ -431,4 +433,4 @@ O diagrama a seguir ilustra as portas a serem abertas no firewall da VM a fim de
 
 - [Gerenciamento de banco de dados SQL do Azure com o PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

@@ -146,12 +146,15 @@ Você pode atualizar qualquer parte da configuração usando o cmdlet a seguir. 
 
 ### Excluir um emparelhamento privado do Azure
 
+
 Você pode remover a configuração de emparelhamento executando o seguinte cmdlet.
+
+>[AZURE.IMPORTANT]Verifique se todas as redes virtuais estão desvinculadas do circuito da Rota Expressa antes de executar esse cmdlet.
 
 	Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
->[AZURE.IMPORTANT]Verifique se todas as redes virtuais estão desvinculadas do circuito da Rota Expressa antes de executar esse cmdlet.
+
 
 ## Emparelhamento público do Azure
 
@@ -388,4 +391,4 @@ Depois, Vincular uma Rede Virtual a um circuito da Rota Expressa. Você pode usa
 
 -  Para obter mais informações sobre o emparelhamento de circuito, veja [Circuitos e domínios de roteamento da Rota Expressa](expressroute-circuit-peerings.md).
 
-<!-----HONumber=Nov15_HO4-->
+<!------HONumber=Nov15_HO4-->
