@@ -42,9 +42,10 @@ Para usar o [EventProcessorHost], você deve ter uma [Conta de armazenamento do 
 
 	Em seguida, substitua o seguinte código no corpo da classe:
 
-	``` class SimpleEventProcessor : IEventProcessor 
+	```
+    class SimpleEventProcessor : IEventProcessor
 	{
-	 Stopwatch checkpointStopWatch;
+	    Stopwatch checkpointStopWatch;
 
 	    async Task IEventProcessor.CloseAsync(PartitionContext context, CloseReason reason)
 	    {
@@ -80,7 +81,8 @@ Para usar o [EventProcessorHost], você deve ter uma [Conta de armazenamento do 
                 this.checkpointStopWatch.Restart();
             }
 	    }
-	} ````
+	}
+    ````
 
 	Essa classe será chamada pelo **EventProcessorHost** para processar eventos recebidos do Hub de Eventos. Observe que a classe `SimpleEventProcessor` usa um cronômetro para chamar o método de ponto de verificação periodicamente no contexto do **EventProcessorHost**. Isso garante que, se o destinatário for reiniciado, ele perderá, no máximo, cinco minutos de trabalho de processamento.
 

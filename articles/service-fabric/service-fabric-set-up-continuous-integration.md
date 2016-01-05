@@ -39,7 +39,8 @@ Antes de configurar a máquina de build, será necessário criar uma "Entidade d
 
 1.	Instale o PowerShell do Azure.
     - Instale o PowerShellGet. Para fazer isso, instale o [Windows Management Framework 5.0](http://www.microsoft.com/download/details.aspx?id=48729), que inclui o PowerShellGet.
-    >[AZURE.NOTE]Você pode ignorar esta etapa se estiver executando o Windows 10 com as atualizações mais recentes.
+
+    >[AZURE.NOTE] Você pode ignorar esta etapa se estiver executando o Windows 10 com as atualizações mais recentes.
 
 1.	Instale e atualize o módulo AzureRM.
     1.  Se você tiver qualquer versão anterior do Azure PowerShell instalada, remova-a. Clique com o botão direito no botão Iniciar e selecione "Adicionar/Remover Programas". Procurar por "Azure PowerShell" e desinstale-o.
@@ -137,7 +138,7 @@ Instale o [SDK do Service Fabric](https://azure.microsoft.com/campaigns/service-
     ```
 
 3.	Se NuGet.config ainda não existir, crie-o com o seguinte conteúdo. Substitua `<path to service fabric SDK>` pelo caminho para o SDK do Service Fabric na máquina de build.
->[AZURE.NOTE]Por padrão, `<path to service fabric SDK>` é `%ProgramFiles%\Microsoft SDKs\Service Fabric`.
+>[AZURE.NOTE] Por padrão, `<path to service fabric SDK>` é `%ProgramFiles%\Microsoft SDKs\Service Fabric`.
 
     NuGet.config:
 
