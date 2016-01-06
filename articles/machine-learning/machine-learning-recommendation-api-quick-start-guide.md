@@ -85,9 +85,12 @@ Criando uma solicitação para "criar modelo":
 |:--------|:--------|
 |POST |`<rootURI>/CreateModel?modelName=%27<model_name>%27&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/CreateModel?modelName=%27MyFirstModel%27&apiVersion=%271.0%27`|
 
-|	Nome do Parâmetro |	Valores Válidos |
+|	Nome do Parâmetro |	Valores Válidos						|
 |:--------			|:--------								|
-|	modelName |	Somente letras (A-Z, a-z), números (0-9), hifens (-) e o sublinhado (\_) são permitidos.<br>Comprimento máximo: 20 | | apiVersion | 1.0 | ||| | Corpo da Solicitação | NENHUM |
+|	modelName |	Somente letras (A-Z, a-z), números (0-9), hifens (-) e o sublinhado (\_) são permitidos.<br>Comprimento máximo: 20 |
+| apiVersion | 1.0 |
+|||
+| Corpo da Solicitação | NENHUM |
 
 
 **Resposta**:
@@ -184,7 +187,7 @@ Esta seção mostra como carregar dados de uso usando um arquivo. Você pode cha
 |:--------|:--------|
 |POST |`<rootURI>/ImportUsageFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/ImportUsageFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27ImplicitMatrix10_Guid_small.txt%27&apiVersion=%271.0%27`|
 
-|	Nome do Parâmetro |	Valores Válidos |
+|	Nome do Parâmetro |	Valores Válidos						|
 |:--------			|:--------								|
 |	modelId	|	O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
 | nome do arquivo | Identificador textual do catálogo.<br>Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados<br>Comprimento máximo: 50 |
@@ -292,7 +295,23 @@ Esta seção mostra como enviar eventos em tempo real para as Recomendações do
   		</EventData>
 		</Event>
 
-- Exemplo de evento “Purchase”: <Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> <ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId> <SessionId>11112222</SessionId> <EventData> <EventData> <Name>Purchase</Name> <PurchaseItems> <PurchaseItems> <ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId> <Count>3</Count> </PurchaseItems> </PurchaseItems> </EventData> </EventData> </Event>
+- Exemplo de evento “Purchase”:
+
+		<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
+		<SessionId>11112222</SessionId>
+		<EventData>
+		<EventData>
+			<Name>Purchase</Name>
+			<PurchaseItems>
+			<PurchaseItems>
+				<ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
+				<Count>3</Count>
+			</PurchaseItems>
+		</PurchaseItems>
+		</EventData>
+		</EventData>
+		</Event>
 
 - Exemplo de envio de dois eventos “Click” e “AddShopCart”:
 
@@ -425,9 +444,19 @@ A resposta inclui uma entrada por compilação. Cada entrada tem os seguintes da
 - `feed/entry/content/properties/ExecutionTime` – Duração da compilação.
 - `feed/entry/content/properties/ProgressStep` – Detalhes sobre o estágio atual de uma compilação em andamento.
 
-Status válidos da compilação: - Criada - A entrada da solicitação de compilação foi criada. - Na fila – A solicitação de compilação foi disparada e está na fila. -Criando – A compilação está em andamento. - Êxito – Compilação concluída com êxito. - Erro – Compilação concluída com falha. - Cancelada – A compilação foi cancelada. - Cancelando – A compilação está sendo cancelada.
+Status válidos da compilação:
+- Criada - A entrada da solicitação de compilação foi criada.
+- Na fila – A solicitação de compilação foi disparada e está na fila.
+-Criando – A compilação está em andamento.
+- Êxito – Compilação concluída com êxito.
+- Erro – Compilação concluída com falha.
+- Cancelada – A compilação foi cancelada.
+- Cancelando – A compilação está sendo cancelada.
 
-Os valores válidos para o tipo de compilação: - classificação - compilação de classificação. (Detalhes da compilação para classificação, consulte o documento "Documentação de API de recomendação de Aprendizado de Máquina"). -Recomendação - Compilação de recomendação. -Fbt - frequentemente comprados juntos na compilação.
+Os valores válidos para o tipo de compilação:
+- classificação - compilação de classificação. (Detalhes da compilação para classificação, consulte o documento "Documentação de API de recomendação de Aprendizado de Máquina").
+-Recomendação - Compilação de recomendação.
+-Fbt - frequentemente comprados juntos na compilação.
 
 XML de OData
 
@@ -646,7 +675,8 @@ A resposta de exemplo a seguir inclui 10 itens recomendados:
 	</feed>
 
 ###Atualizar modelo
-Você pode atualizar a descrição do modelo ou a ID de compilação ativa. *ID de compilação ativa* – cada compilação para cada modelo tem uma ID de compilação. A ID de compilação ativa é a primeira compilação executada com êxito de cada novo modelo. Depois que tiver uma ID de compilação ativa e criar compilações adicionais para o mesmo modelo, você precisará defini-lo explicitamente como a ID de compilação padrão, se desejar. Ao consumir recomendações, se você não especificar a ID de compilação que deseja usar, o padrão será usado automaticamente.
+Você pode atualizar a descrição do modelo ou a ID de compilação ativa.
+*ID de compilação ativa* – cada compilação para cada modelo tem uma ID de compilação. A ID de compilação ativa é a primeira compilação executada com êxito de cada novo modelo. Depois que tiver uma ID de compilação ativa e criar compilações adicionais para o mesmo modelo, você precisará defini-lo explicitamente como a ID de compilação padrão, se desejar. Ao consumir recomendações, se você não especificar a ID de compilação que deseja usar, o padrão será usado automaticamente.
 
 Esse mecanismo permite, depois de ter um modelo de recomendação em produção, compilar e testar novos modelos antes de promovê-los para produção.
 
@@ -655,7 +685,7 @@ Esse mecanismo permite, depois de ter um modelo de recomendação em produção,
 |PUT |`<rootURI>/UpdateModel?id=%27<modelId>%27&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/UpdateModel?id=%279559872f-7a53-4076-a3c7-19d9385c1265%27&apiVersion=%271.0%27`|
 
 
-|	Nome do Parâmetro |	Valores Válidos |
+|	Nome do Parâmetro |	Valores Válidos						|
 |:--------			|:--------								|
 | ID | O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
 | apiVersion | 1\.0 |
@@ -678,7 +708,9 @@ XML de OData
 	</feed>
 
 ##Legal
-Este documento é fornecido "no estado em que se encontra". As informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio. Alguns exemplos aqui representados são fornecidos somente para fins de ilustração e são fictícios. Nenhuma associação ou conexão real é intencional ou deve ser inferida. Este documento não fornece a você nenhum direito legal a qualquer propriedade intelectual de qualquer produto da Microsoft. Você pode copiar e usar este documento para fins de consulta interna. © 2014 Microsoft. Todos os direitos reservados.
+Este documento é fornecido "no estado em que se encontra". As informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio.
+Alguns exemplos aqui representados são fornecidos somente para fins de ilustração e são fictícios. Nenhuma associação ou conexão real é intencional ou deve ser inferida.
+Este documento não fornece a você nenhum direito legal a qualquer propriedade intelectual de qualquer produto da Microsoft. Você pode copiar e usar este documento para fins de consulta interna. © 2014 Microsoft. Todos os direitos reservados.
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

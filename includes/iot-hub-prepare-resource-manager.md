@@ -26,9 +26,9 @@ As etapas a seguir mostram como configurar a autenticação de senha para um apl
 3. Crie um novo aplicativo do Active Directory do Azure usando o seguinte comando, substituindo os espaços reservados:
 
     - **{Display name}:** um nome de exibição para seu aplicativo, como **MySampleApp**
-    - **{Home page URL}:** a URL da página inicial de seu aplicativo, como ****http://mysampleapp/home**. Essa URL não precisa levar para um aplicativo real.
-- **{Application identifier}:** um identificador exclusivo, como ****http://mysampleapp**. Essa URL não precisa levar para um aplicativo real.
-- **{Password}:** uma senha que você usará para autenticar com seu aplicativo.
+    - **{Home page URL}:** a URL da página inicial de seu aplicativo, como **http://mysampleapp/home**. Essa URL não precisa levar para um aplicativo real.
+    - **{Application identifier}:** um identificador exclusivo, como **http://mysampleapp**. Essa URL não precisa levar para um aplicativo real.
+    - **{Password}:** uma senha que você usará para autenticar com seu aplicativo.
 
     ```
     New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} IdentifierUris {Application identifier} -Password {Password}
@@ -58,4 +58,4 @@ Você terminou de criar o aplicativo do AD do Azure que permitirá autenticar a 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
 [lnk-powershell-install]: https://azure.microsoft.com/pt-BR/blog/azps-1-0-pre/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
