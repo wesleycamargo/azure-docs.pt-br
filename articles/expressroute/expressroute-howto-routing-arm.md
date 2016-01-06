@@ -149,7 +149,7 @@ Você pode atualizar qualquer parte da configuração usando o cmdlet a seguir. 
 
 Você pode remover a configuração de emparelhamento executando o seguinte cmdlet.
 
->[AZURE.IMPORTANT]Verifique se todas as redes virtuais estão desvinculadas do circuito da Rota Expressa antes de executar esse cmdlet.
+>[AZURE.WARNING]Verifique se todas as redes virtuais estão desvinculadas do circuito da Rota Expressa antes de executar esse cmdlet.
 
 	Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
