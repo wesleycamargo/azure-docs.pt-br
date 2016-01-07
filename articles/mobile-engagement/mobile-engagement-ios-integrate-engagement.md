@@ -36,12 +36,12 @@ Baixe o SDK do iOS [daqui](http://aka.ms/qk2rnj). Adicione o SDK do Engagement a
 
 O Engagement exige estruturas adicionais para funcionar: no Explorador de projeto, abra o painel de projeto e selecione o destino correto. Em seguida, abra a guia **"Compilar fases"** e no menu **"Link binário com bibliotecas"**, adicione essas estruturas:
 
-> -   `AdSupport.framework` - defina o link como opcional `Optional`
-> -   `SystemConfiguration.framework`
-> -   `CoreTelephony.framework`
-> -   `CFNetwork.framework`
-> -   `CoreLocation.framework`
-> -   `libxml2.dylib`
+ -   `AdSupport.framework` - defina o link como opcional `Optional`
+ -   `SystemConfiguration.framework`
+ -   `CoreTelephony.framework`
+ -   `CFNetwork.framework`
+ -   `CoreLocation.framework`
+ -   `libxml2.dylib`
 
 > [AZURE.NOTE] A estrutura AdSupport pode ser removida. O Engagement precisa dessa estrutura para coletar o IDFA. No entanto, a coleção de IDFA pode ser desabilitada < ios-sdk-contrato-idfa > de acordo com a nova política Apple em relação a essa ID.
 
