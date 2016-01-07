@@ -23,19 +23,29 @@
 
 1. No [Portal do Azure](https://portal.azure.com/), entre com sua conta de trabalho. Por exemplo, entre com *Seunomedeusuário*@* SuaEmpresa*.com. Quando fizer isso, entrará automaticamente na assinatura de sua empresa.
  
-2. Selecione **Procurar** na barra de tarefas: ![][14]
+2. Selecione **Procurar** na barra de tarefas:  
+![][14]
 
-3. Na lista, você pode usar a barra de rolagem para localizar PowerApps ou digitar *powerapps*: ![][15]
+3. Na lista, você pode usar a barra de rolagem para localizar PowerApps ou digitar *powerapps*:  
+![][15]
 
-4. Em **PowerApps**, selecione **Gerenciar APIs**: ![Navegue até as APIs registradas][1]
+4. Em **PowerApps**, selecione **Gerenciar APIs**:
 
-5. Em **Gerenciar APIs**, selecione **Adicionar** para adicionar a nova API: ![Adicionar API][2]
+	![Navegue até as APIs registradas][1]
+
+5. Em **Gerenciar APIs**, selecione **Adicionar** para adicionar a nova API:
+
+	![Adicionar API][2]
 
 6. Insira um **nome** descritivo para sua API.
 	
-7. Em **Fonte**, selecione as **APIs disponíveis** para selecionar as APIs criadas previamente e selecione ** Usuários do Office 365**: ![Selecione api dos Usuários do Office 365][3]
+7. Em **Fonte**, selecione as **APIs disponíveis** para selecionar as APIs criadas previamente e selecione ** Usuários do Office 365**:
 
-8. Selecione **Configurações - Definir as configurações necessárias**: ![definir configurações de API dos Usuários do Office 365][4]
+	![Selecione api dos Usuários do Office 365][3]
+
+8. Selecione **Configurações - Definir as configurações necessárias**:
+
+	![definir configurações de API dos Usuários do Office 365][4]
 
 9. Digite a *ID do cliente* e a *Chave do Cliente* do seu aplicativo do Active Directory do Azure (AAD) do Office 365. Se você não tiver uma, consulte a seção “Registrar um aplicativo do AAD para uso com o PowerApps” neste tópico para criar a ID e os valores secretos necessários.
 
@@ -55,9 +65,13 @@ Se não tiver um aplicativo do AAD existente com a chave e valores do segredo, e
 
 	> [AZURE.NOTE]Isso abre o Active Directory no portal clássico do Azure.
 
-3. Selecione o nome do locatário da sua instituição: ![Inicie o Active Directory do Azure][6]
+3. Selecione o nome do locatário da sua instituição:
 
-4. Selecione a guia **Aplicativos** e selecione **Adicionar**: ![Aplicativos de locatário do AAD][7]
+	![Inicie o Active Directory do Azure][6]
+
+4. Selecione a guia **Aplicativos** e selecione **Adicionar**:
+
+	![Aplicativos de locatário do AAD][7]
 
 5. Em **Adicionar aplicativo**:
 
@@ -71,9 +85,13 @@ Se não tiver um aplicativo do AAD existente com a chave e valores do segredo, e
 
 	![Adicionar aplicativo do AAD - propriedades do aplicativo][9]
 
-7. Após a conclusão bem-sucedida, você será redirecionado para o novo aplicativo do AAD. Selecione **Configurar**: ![Aplicativo Contoso do AAD][10]
+7. Após a conclusão bem-sucedida, você será redirecionado para o novo aplicativo do AAD. Selecione **Configurar**:
 
-8. Defina a **URL de resposta** na seção _OAuth 2_ para a URL de redirecionamento que você recebeu quando adicionou a nova API dos Usuários do Office 365 no Portal do Azure (neste tópico): Selecione **Adicionar aplicativo**: ![Configure o aplicativo Contoso do AAD][11]
+	![Aplicativo Contoso do AAD][10]
+
+8. Defina a **URL de resposta** na seção _OAuth 2_ para a URL de redirecionamento que você recebeu quando adicionou a nova API dos Usuários do Office 365 no Portal do Azure (neste tópico): Selecione **Adicionar aplicativo**:
+
+	![Configure o aplicativo Contoso do AAD][11]
 
 9. Na janela **Permissões para outros aplicativos**, selecione **API Unificada do Office 365 (Visualização)** e, em seguida, selecione **OK**.
 
@@ -102,4 +120,4 @@ Neste tópico, você adicionou a API dos Usuários do Office 365 ao PowersApps E
 [10]: ./media/powerapps-create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/powerapps-create-api-office365-users/contoso-aad-app-configure.PNG
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->
