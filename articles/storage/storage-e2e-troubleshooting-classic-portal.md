@@ -347,9 +347,20 @@ Agora que você está familiarizado com o uso do Analisador de Mensagem para ana
 | Para Investigar... | Use a Expressão do Filtro... | A expressão se Aplica ao Log (Cliente, Servidor, Rede, Todos) |
 |------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
 | Atrasos inesperados na entrega de mensagens em uma fila | AzureStorageClientDotNetV4.Description contém "Repetindo a operação que falhou". | Cliente |
-| Aumento de HTTP no PercentThrottlingError | HTTP.Response.StatusCode == 500 || HTTP.Response.StatusCode == 503 | Rede |
+| Aumento de HTTP no PercentThrottlingError | HTTP.Response.StatusCode == 500 | HTTP.Response.StatusCode == 503 | Rede |
 | Aumento em PercentTimeoutError | HTTP.Response.StatusCode == 500 | Rede |
-| Aumento em PercentTimeoutError (todos) |    **StatusCode == 500 |Todos | | Aumentar PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Cliente | | Mensagens HTTP 403 (Proibido) | HTTP.Response.StatusCode == 403 | Rede | | Mensagens HTTP 404 (Não encontrado) | HTTP.Response.StatusCode == 404 | Rede | | 404 (todos) | *StatusCode == 404 | Todos | | Problema de autorização da Assinatura de Acesso Compartilhado (SAS) | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Rede | | Mensagens HTTP 409 (Conflito) | HTTP.Response.StatusCode == 409 |Rede | | 409 (todos) | *StatusCode == 409 | Todos | |O PercentSuccess Baixo ou as entradas do log de análise têm operações com o status de transação ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Servidor | | Aviso Nagle | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) e (AzureStorageLog.RequestPacketSize <1460) e (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Servidor | | Intervalo de tempo nos logs de Servidor e Rede | #Timestamp >= 2014-10-20T16:36:38 e #Timestamp <= 2014-10-20T16:36:39 | Servidor, Rede | | Intervalo de tempo nos logs de Servidor | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 e AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Servidor |
+| Aumento em PercentTimeoutError (todos) |    **StatusCode == 500 |Todos |
+| Aumentar PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Cliente |
+| Mensagens HTTP 403 (Proibido) | HTTP.Response.StatusCode == 403 | Rede |
+| Mensagens HTTP 404 (Não encontrado) | HTTP.Response.StatusCode == 404 | Rede |
+| 404 (todos) | *StatusCode == 404 | Todos |
+| Problema de autorização da Assinatura de Acesso Compartilhado (SAS) | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Rede |
+| Mensagens HTTP 409 (Conflito) | HTTP.Response.StatusCode == 409 |Rede |
+| 409 (todos) | *StatusCode == 409 | Todos |
+|O PercentSuccess Baixo ou as entradas do log de análise têm operações com o status de transação ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Servidor |
+| Aviso Nagle | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) e (AzureStorageLog.RequestPacketSize <1460) e (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Servidor |
+| Intervalo de tempo nos logs de Servidor e Rede | #Timestamp >= 2014-10-20T16:36:38 e #Timestamp <= 2014-10-20T16:36:39 | Servidor, Rede |
+| Intervalo de tempo nos logs de Servidor | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 e AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Servidor |
 
 
 ## Próximas etapas
@@ -364,4 +375,4 @@ Para obter mais informações sobre cenários de ponta a ponta para solução de
  
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

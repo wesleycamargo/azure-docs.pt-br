@@ -77,11 +77,7 @@ Execute as seguintes etapas para restaurar seu dispositivo para um dispositivo f
 
 	1. Na lista de contêineres de volume, selecione os contêineres de volume para failover.
 
-		>[AZURE.NOTE]**São exibidos apenas os contêineres de volume com instantâneos de nuvem e volumes offline associados.**
-
-	1. Em **Escolher um dispositivo de destino** para os volumes nos contêineres selecionados, selecione um dispositivo de destino na lista suspensa de dispositivos disponíveis. Apenas os dispositivos que têm a capacidade disponível são exibidos na lista suspensa.
-
-	1. Finalmente, revise as configurações de failover em **Confirmar failover**. Clique no ícone de verificação ![Ícone de verificação](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
+		>[AZURE.NOTE]**São exibidos apenas os contêineres de volume com instantâneos de nuvem e volumes offline associados.** 1. Em **Escolher um dispositivo de destino** para os volumes nos contêineres selecionados, selecione um dispositivo de destino na lista suspensa de dispositivos disponíveis. Apenas os dispositivos que têm a capacidade disponível são exibidos na lista suspensa. 1. Finalmente, revise as configurações de failover em **Confirmar failover**. Clique no ícone de verificação ![Ícone de verificação](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
 
 1. Após a conclusão do failover, vá para a página **Dispositivos**.
 
@@ -165,4 +161,4 @@ Depois de realizar o failover, talvez você precise:
 Para obter informações sobre como usar o serviço StorSimple Manager, acesse [Usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1217_2015--->

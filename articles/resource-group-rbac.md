@@ -47,7 +47,8 @@ Para entender os conceitos RBAC, vejamos alguns exemplos de definições de fun�
 
 | Função | Ações permitidas |
 | ------- | ----------------- |
-| Leitor | **/read (Read anything) | | Owner | * (Read/write anything) |
+| Leitor | **/read (Read anything) |
+| Owner | * (Read/write anything) |
 
 Para atribuir a função do **Leitor** função ao **Usuário A** para o grupo de recursos denominado **ExampleGroup**, e a função **Proprietário** ao **Usuário B** para a assinatura inteira, atribua o seguinte:
 
@@ -280,4 +281,4 @@ Crie a atribuição de função.
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
