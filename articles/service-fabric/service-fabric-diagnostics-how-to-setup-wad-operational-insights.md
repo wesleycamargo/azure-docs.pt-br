@@ -1,6 +1,6 @@
 <properties
    pageTitle="Como coletar logs com WAD e Operational Insights | Microsoft Azure"
-   description="Este artigo descreve como você pode configurar o Windows Azure Diagnostics e o Operational Insights para coletar logs de um cluster de Malha de Serviços em execução no Azure"
+   description="Este artigo descreve como você pode configurar o Microsoft Azure Diagnostics e o Operational Insights para coletar logs de um cluster de Malha de Serviços em execução no Azure"
    services="service-fabric"
    documentationCenter=".net"
    authors="kunaldsingh"
@@ -17,12 +17,12 @@
    ms.author="kunalds"/>
 
 
-# Coletando logs de um cluster de Malha de Serviço no Azure usando WAD (Windows Azure Diagnostics) e Operational Insights
+# Coletando logs de um cluster de Malha de Serviço no Azure usando WAD (Microsoft Azure Diagnostics) e Operational Insights
 
-Ao executar um cluster de Malha de Serviço no Azure, você deve coletar os logs de todos os nós em um local central. Ter os logs em um local central facilita analisar e solucionar quaisquer problemas que você possa observar no cluster ou nos aplicativos e serviços em execução nesse cluster. Uma das maneiras de carregar e coletar logs é usar a extensão WAD (Windows Azure Diagnostics) que carrega os logs no armazenamento de tabela do Azure. Operational Insights (parte do Microsoft Operations Management Suite) é uma solução de SaaS que torna facilita a análise e pesquisa dos logs. As etapas a seguir descrevem como você pode definir WAD nas VMs no cluster para carregar logs para um repositório central e, em seguida, configurar Insights Operacionais para extrair os logs de forma que você possa exibi-los no portal Operational Insights. O Operational Insights identifica as fontes dos diferentes tipos de log carregados de um cluster de Malha de Serviço pelos nomes das tabelas de armazenamento do Azure que nas quais são armazenados, então o WAD precisa ser configurado para carregar os logs em tabelas de armazenamento do Azure com nomes que coincidem com o que o Operational Insights procurará, os exemplos de definições de configuração neste documento mostrarão quais devem ser os nomes das tabelas de armazenamento.
+Ao executar um cluster de Malha de Serviço no Azure, você deve coletar os logs de todos os nós em um local central. Ter os logs em um local central facilita analisar e solucionar quaisquer problemas que você possa observar no cluster ou nos aplicativos e serviços em execução nesse cluster. Uma das maneiras de carregar e coletar logs é usar a extensão WAD (Microsoft Azure Diagnostics) que carrega os logs no armazenamento de tabela do Azure. Operational Insights (parte do Microsoft Operations Management Suite) é uma solução de SaaS que torna facilita a análise e pesquisa dos logs. As etapas a seguir descrevem como você pode definir WAD nas VMs no cluster para carregar logs para um repositório central e, em seguida, configurar Insights Operacionais para extrair os logs de forma que você possa exibi-los no portal Operational Insights. O Operational Insights identifica as fontes dos diferentes tipos de log carregados de um cluster de Malha de Serviço pelos nomes das tabelas de armazenamento do Azure que nas quais são armazenados, então o WAD precisa ser configurado para carregar os logs em tabelas de armazenamento do Azure com nomes que coincidem com o que o Operational Insights procurará, os exemplos de definições de configuração neste documento mostrarão quais devem ser os nomes das tabelas de armazenamento.
 
 ## Sugestões de leitura
-* [Windows Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) (serviços de nuvem relacionados, mas oferece a você algumas boas informações e exemplos)
+* [Microsoft Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) (serviços de nuvem relacionados, mas oferece a você algumas boas informações e exemplos)
 * [Insights Operacionais](https://azure.microsoft.com/services/operational-insights/)
 * [Gerenciador de Recursos do Azure](https://azure.microsoft.com/documentation/articles/resource-group-overview/)
 
@@ -37,7 +37,7 @@ Essas ferramentas serão usadas para executar algumas das operações neste docu
 2. Eventos do aplicativo: Esses são os eventos emitidos de seu código de serviços e escritos usando a classe auxiliar EventSource fornecida nos modelos do Visual Studio. Para obter mais informações sobre como gravar logs do aplicativo consulte este [artigo](https://azure.microsoft.com/documentation/articles/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/).
 
 
-## Implantar o WAD (Windows Azure Diagnostics) em um cluster de Malha de Serviço para coletar e carregar logs
+## Implantar o WAD (Microsoft Azure Diagnostics) em um cluster de Malha de Serviço para coletar e carregar logs
 A primeira etapa para coletar logs será implantar a extensão WAD em cada uma das máquinas virtuais no cluster de Malha de Serviço. O WAD coletará os logs em cada VM e irá carregá-los na conta de armazenamento que você especificar. As etapas variam um pouco conforme você usa o Portal ou ARM e se a implantação está sendo feita como parte da criação do cluster ou para um cluster que já existe. Vejamos as etapas para cada cenário.
 
 ### Implantar WAD como parte da criação de cluster por meio do Portal
@@ -164,7 +164,7 @@ Para ver as etapas para criar um espaço de trabalho do Operational Insights con
 [Operational Insights Integrado](https://technet.microsoft.com/library/mt484118.aspx)
 
 ### Configurar o espaço de trabalho do Operational Insights para exibir os logs do cluster
-Depois de criar o espaço de trabalho do Operational Insights conforme descrito acima a próxima etapa é configurar o espaço de trabalho para extrair os logs das tabelas do Azure, onde eles estão sendo carregados do cluster pelo WAD. Atualmente, essa configuração não é possível por meio do Portal do Operational Insights e só pode ser feita por meio de comandos do Powershell. Execute este script de PS. ```powershell <# Esse script irá configurar um espaço de trabalho do Operations Management Suite (também conhecido como espaço de trabalho do Operational Insights) para ler o Windows Azure Diagnostics a partir de uma conta de armazenamento do Azure.
+Depois de criar o espaço de trabalho do Operational Insights conforme descrito acima a próxima etapa é configurar o espaço de trabalho para extrair os logs das tabelas do Azure, onde eles estão sendo carregados do cluster pelo WAD. Atualmente, essa configuração não é possível por meio do Portal do Operational Insights e só pode ser feita por meio de comandos do Powershell. Execute este script de PS. ```powershell <# Esse script irá configurar um espaço de trabalho do Operations Management Suite (também conhecido como espaço de trabalho do Operational Insights) para ler o Microsoft Azure Diagnostics a partir de uma conta de armazenamento do Azure.
 
     It will enable all supported data types (currently Windows Event Logs, Syslog, Service Fabric Events, ETW Events and IIS Logs).
 
