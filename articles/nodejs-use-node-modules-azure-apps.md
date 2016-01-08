@@ -6,18 +6,18 @@
 
 
 
-# Usando Módulos no Node.js com aplicativos do Windows Azure
+# Usando Módulos no Node.js com aplicativos do Microsoft Azure
 
-Este documento fornece orientação sobre como usar módulos no Node.js com aplicativos hospedados no Windows Azure. Fornece orientação para garantir que seu aplicativo use uma versão específica do módulo, bem como para usar módulos nativos com o Windows Azure.
+Este documento fornece orientação sobre como usar módulos no Node.js com aplicativos hospedados no Microsoft Azure. Fornece orientação para garantir que seu aplicativo use uma versão específica do módulo, bem como para usar módulos nativos com o Microsoft Azure.
 
 Se já estiver acostumado a usar os módulos no Node.js e os arquivos **package.json** e **shrinkwrap.json npm**, encontre a seguir um rápido resumo do que será discutido neste artigo:
 
-* Os Sites do Windows Azure compreendem arquivos **package.json** e **npm-shrinkwrap.json** e podem instalar módulos com base em entradas nestes arquivos.
-* Os Serviços de Nuvem do Windows Azure esperam que todos os módulos sejam instalados no ambiente de desenvolvimento e que o diretório **node\_modules** seja incluído como parte do pacote de implantação.
+* Os Sites do Microsoft Azure compreendem arquivos **package.json** e **npm-shrinkwrap.json** e podem instalar módulos com base em entradas nestes arquivos.
+* Os Serviços de Nuvem do Microsoft Azure esperam que todos os módulos sejam instalados no ambiente de desenvolvimento e que o diretório **node\_modules** seja incluído como parte do pacote de implantação.
 
-> [AZURE.NOTE]As Máquinas Virtuais do Windows Azure não serão discutidas neste artigo, já que a experiência de implantação em uma VM depende do sistema operacional hospedado pela Máquina Virtual.
+> [AZURE.NOTE]As Máquinas Virtuais do Microsoft Azure não serão discutidas neste artigo, já que a experiência de implantação em uma VM depende do sistema operacional hospedado pela Máquina Virtual.
 
-> [AZURE.NOTE]É possível habilitar o suporte para instalar módulos usando arquivos **package.json** ou **npm-shrinkwrap.json** no Windows Azure, no entanto, isto requer uma personalização dos scripts padrão usados por projetos de Serviços de Nuvem. Para obter um exemplo de como fazer isso, consulte [Tarefa de Inicialização do Azure para executar npm install e evitar a implantação de módulos de nó](http://nodeblog.azurewebsites.net/startup-task-to-run-npm-in-azure)
+> [AZURE.NOTE]É possível habilitar o suporte para instalar módulos usando arquivos **package.json** ou **npm-shrinkwrap.json** no Microsoft Azure, no entanto, isto requer uma personalização dos scripts padrão usados por projetos de Serviços de Nuvem. Para obter um exemplo de como fazer isso, consulte [Tarefa de Inicialização do Azure para executar npm install e evitar a implantação de módulos de nó](http://nodeblog.azurewebsites.net/startup-task-to-run-npm-in-azure)
 
 ##Módulos no Node.js
 
@@ -29,7 +29,7 @@ Ao implantar o diretório **node\_modules** como parte de seu aplicativo, este a
 
 ###Módulos Nativos
 
-Enquanto a maioria dos módulos são simples arquivos de texto JavaScript, outros são imagens binárias específicas de plataforma. Estes módulos são compilados no momento da instalação, geralmente usando o Python e o node-gyp. Uma vez que os Serviços de Nuvem do Windows Azure contam com a pasta **node\_modules** sendo implantada como parte do aplicativo, qualquer módulo nativo incluído como parte dos módulos instalados deve funcionar em um serviço de nuvem, desde que tenha sido instalado e compilado em um sistema de desenvolvimento do Windows.
+Enquanto a maioria dos módulos são simples arquivos de texto JavaScript, outros são imagens binárias específicas de plataforma. Estes módulos são compilados no momento da instalação, geralmente usando o Python e o node-gyp. Uma vez que os Serviços de Nuvem do Microsoft Azure contam com a pasta **node\_modules** sendo implantada como parte do aplicativo, qualquer módulo nativo incluído como parte dos módulos instalados deve funcionar em um serviço de nuvem, desde que tenha sido instalado e compilado em um sistema de desenvolvimento do Windows.
 
 Os Sites do Azure não oferecem suporte a todos os módulos nativos e podem falhar em compilá-los com pré-requisitos muito específicos. Embora alguns módulos populares como o MongoDB tenham dependências nativas opcionais e funcionem bem sem elas, duas soluções alternativas foram comprovadamente bem-sucedidas com quase todos os módulos nativos disponíveis hoje:
 

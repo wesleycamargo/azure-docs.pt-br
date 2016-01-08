@@ -21,7 +21,7 @@
 
 
 
-# Criar um aplicativo web do Node.js usando o Express em um Serviço de Nuvem do Windows Azure
+# Criar um aplicativo web do Node.js usando o Express em um Serviço de Nuvem do Microsoft Azure
 
 O Node.js inclui um conjunto mínimo de funcionalidades em tempo de execução básico. Os desenvolvedores normalmente usam módulos de terceiros para fornecer funcionalidade adicional ao desenvolver um aplicativo do Node.js. Neste tutorial, você vai criar um novo aplicativo usando o módulo [Express][] que fornece uma estrutura MVC para criar aplicativos web do Node.js.
 

@@ -22,7 +22,7 @@
 
 # Constrói um aplicativo de bate-papo Node.js com Socket.IO em um serviço de nuvem do Azure
 
-O Socket.IO fornece comunicação em tempo real entre seu servidor e clientes do node.js. Este tutorial explica como hospedar um aplicativo de chat baseado em socket.IO no Windows Azure. Para mais informações sobre o Socket.IO, consulte <a href="http://socket.io/">http://socket.io/</a>.
+O Socket.IO fornece comunicação em tempo real entre seu servidor e clientes do node.js. Este tutorial explica como hospedar um aplicativo de chat baseado em socket.IO no Microsoft Azure. Para mais informações sobre o Socket.IO, consulte <a href="http://socket.io/">http://socket.io/</a>.
 
 A seguinte é uma captura de tela do aplicativo concluído:
 
@@ -79,7 +79,7 @@ Para este projeto, usaremos o exemplo de chat do repositório [Socket.IO GitHub]
 
 ### Modificar o Server.js e instalar os módulos
 
-Antes de testar o aplicativo no emulador do Windows Azure, é necessário fazer algumas modificações secundárias. Execute as seguintes etapas para o arquivo server.js:
+Antes de testar o aplicativo no emulador do Microsoft Azure, é necessário fazer algumas modificações secundárias. Execute as seguintes etapas para o arquivo server.js:
 
 1.  Abra o arquivo **server.js** no Visual Studio ou em qualquer editor de texto.
 

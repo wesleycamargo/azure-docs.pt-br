@@ -25,7 +25,7 @@
 
 ## Visão geral
 
-Este guia demonstra como executar tarefas comuns de programação com o serviço de email SendGrid no Windows Azure. Os exemplos são escritos em código C# e utilizam a API .NET. Os cenários abordados incluem a **construção de email**, **envio de email**, **adição de anexos** e o **uso de filtros**. Para obter mais informações sobre o SendGrid e o envio de emails, consulte a seção [Próximas etapas][].
+Este guia demonstra como executar tarefas comuns de programação com o serviço de email SendGrid no Microsoft Azure. Os exemplos são escritos em código C# e utilizam a API .NET. Os cenários abordados incluem a **construção de email**, **envio de email**, **adição de anexos** e o **uso de filtros**. Para obter mais informações sobre o SendGrid e o envio de emails, consulte a seção [Próximas etapas][].
 
 ## O que é o serviço de email SendGrid?
 

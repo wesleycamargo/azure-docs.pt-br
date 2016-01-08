@@ -1,7 +1,7 @@
 
 # Criar uma máquina virtual executando o Windows Server #
 
-Este tutorial mostra como é fácil criar uma máquina virtual no Azure executando o Windows Server, usando a Galeria de imagem no Portal de Gerenciamento do Windows Azure. A Galeria de imagem oferece uma variedade de imagens, inclusive os sistema operacionais Windows, os sistemas operacionais baseados em Linux e as imagens do aplicativo.
+Este tutorial mostra como é fácil criar uma máquina virtual no Azure executando o Windows Server, usando a Galeria de imagem no Portal de Gerenciamento do Microsoft Azure. A Galeria de imagem oferece uma variedade de imagens, inclusive os sistema operacionais Windows, os sistemas operacionais baseados em Linux e as imagens do aplicativo.
 
 > [AZURE.NOTE]Não é necessária nenhuma experiência com VMs do Azure para concluir este tutorial. Porém, você precisa de uma conta do Azure. Você pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Criar uma conta do Azure](http://www.windowsazure.com/develop/php/tutorials/create-a-windows-azure-account/).
 

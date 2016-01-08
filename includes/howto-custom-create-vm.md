@@ -42,7 +42,7 @@ Uma máquina virtual *personalizada* refere-se a uma máquina virtual que você 
 
 14. Se você quiser que a máquina virtual deve pertencer a um conjunto de disponibilidade, na **disponibilidade definida**, selecione **criar conjunto de disponibilidade** ou adicioná-la a um conjunto existente de disponibilidade.
 
-	**Observação**: as máquinas virtuais contidas um conjunto de disponibilidade são implantadas em domínios de falha diferentes. Saiba como usar várias máquinas virtuais no Windows Azure para que seus aplicativos permaneçam disponíveis durante falhas de rede locais, falhas de hardware de disco local e tempo de inatividade planejado.
+	**Observação**: as máquinas virtuais contidas um conjunto de disponibilidade são implantadas em domínios de falha diferentes. Saiba como usar várias máquinas virtuais no Microsoft Azure para que seus aplicativos permaneçam disponíveis durante falhas de rede locais, falhas de hardware de disco local e tempo de inatividade planejado.
 
 15.  Em **pontos de extremidade**, examine os novos pontos de extremidade que serão criados para permitir conexões para a máquina virtual, como a área de trabalho remota ou um cliente de Secure Shell (SSH). Você pode também adicionar mais pontos de extremidade agora ou criá-los mais tarde. Para obter instruções sobre como criá-las mais tarde, consulte [Como configurar pontos de extremidade para uma máquina virtual](../articles/virtual-machines/virtual-machines-set-up-endpoints.md).
 

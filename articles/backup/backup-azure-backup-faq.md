@@ -166,8 +166,8 @@ O tamanho da fonte de dados é medido como mencionado abaixo
 
 	| Caminho do registro | Chave do Registro | Valor |
 	| ------ | ------- | ------ |
-	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | <i>Novo local da pasta de cache</i> |
-	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>Novo local da pasta de cache</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Azure Backup\Config` | ScratchLocation | <i>Novo local da pasta de cache</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>Novo local da pasta de cache</i> |
 
 
 + Inicie o OBEngine executando o comando abaixo em um prompt de comando elevado:
