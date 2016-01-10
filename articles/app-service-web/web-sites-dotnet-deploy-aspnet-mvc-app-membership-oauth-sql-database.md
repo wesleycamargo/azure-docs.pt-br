@@ -450,7 +450,7 @@ Nesta seção, você irá adicionar um usuário local e a função *canEdit* ao 
 
 	![imagem de código](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss24.PNG)
 
-	Esse código cria uma nova função chamada *canEdit*, cria um novo usuário local **user1@contoso.com* e adiciona **user1@contoso.com* à função *canEdit*. Para obter mais informações, veja os [tutoriais de Identidade do ASP.NET](http://www.asp.net/identity/overview/features-api) no site do ASP.NET.
+	Esse código cria uma nova função chamada *canEdit*, cria um novo usuário local *user1@contoso.com* e adiciona *user1@contoso.com* à função *canEdit*. Para obter mais informações, veja os [tutoriais de Identidade do ASP.NET](http://www.asp.net/identity/overview/features-api) no site do ASP.NET.
 
 ## Usar código temporário para adicionar novos usuários de logon social à função canEdit  ##
 
@@ -506,7 +506,7 @@ No **Console do Gerenciador de Pacotes** pressione a tecla de seta para cima par
 
 		Update-Database
 
-O comando **Update-Database** executa o método **Seed**, que executa o método **AddUserAndRole** adicionado anteriormente. O método **AddUserAndRole** cria o usuário **user1@contoso.com* e o adiciona à função *canEdit*.
+O comando **Update-Database** executa o método **Seed**, que executa o método **AddUserAndRole** adicionado anteriormente. O método **AddUserAndRole** cria o usuário *user1@contoso.com* e o adiciona à função *canEdit*.
 
 ## Proteger o aplicativo com SSL e o atributo Authorize ##
 
@@ -593,9 +593,9 @@ Nesta seção, você aplica o atributo [Authorize](http://msdn.microsoft.com/lib
 
 1. Clique em um link de edição na página para ser redirecionado para a página de logon (já que um novo usuário local não é adicionado à função *canEdit*).
 
-1. Faça logon como **user1@contoso.com* com a senha “P\_assw0rd1” (o “0” em “word” é um zero). Você é redirecionado para a página de edição selecionada anteriormente.
+1. Faça logon como *user1@contoso.com* com a senha “P\_assw0rd1” (o “0” em “word” é um zero). Você é redirecionado para a página de edição selecionada anteriormente.
 
-	Se você não puder efetuar logon com essa conta e senha, tente copiar a senha do código-fonte e colá-la. Se ainda não for possível fazer logon, verifique a coluna **UserName** da tabela **AspNetUsers** para verificar se **user1@contoso.com* foi adicionado.
+	Se você não puder efetuar logon com essa conta e senha, tente copiar a senha do código-fonte e colá-la. Se ainda não for possível fazer logon, verifique a coluna **UserName** da tabela **AspNetUsers** para verificar se *user1@contoso.com* foi adicionado.
 
 1. Verifique se você pode fazer alterações nos dados.
 
@@ -619,7 +619,7 @@ Nesta seção, você aplica o atributo [Authorize](http://msdn.microsoft.com/lib
 
 1. Clique em **Publicar**.
 
-1. Faça logon como **user1@contoso.com* (com a senha “P\_assw0rd1”) e verifique se você consegue editar os dados.
+1. Faça logon como *user1@contoso.com* (com a senha “P\_assw0rd1”) e verifique se você consegue editar os dados.
 
 1. Faça logoff.
 
@@ -701,7 +701,7 @@ Se ainda não preencheu o nome e o sobrenome das informações da sua conta do G
 
 	![Página CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrr8.png)
  
-1. Observe a ID da conta do Google com a qual você se registrou para estar na função **canEdit** e a ID do **user1@contoso.com*. Esses devem ser os únicos usuários na função **canEdit**. (Você verificará isso na próxima etapa.)
+1. Observe a ID da conta do Google com a qual você se registrou para estar na função **canEdit** e a ID do *user1@contoso.com*. Esses devem ser os únicos usuários na função **canEdit**. (Você verificará isso na próxima etapa.)
 
 	![Página CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/s2.png)
  
@@ -709,7 +709,7 @@ Se ainda não preencheu o nome e o sobrenome das informações da sua conta do G
 
 	![Página CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rs1.png)
  
-3. Verifique se a **UserId** é de **user1@contoso.com* e da conta do Google que você registrou.
+3. Verifique se a **UserId** é de *user1@contoso.com* e da conta do Google que você registrou.
 
 ## Solucionar problemas
 
@@ -800,4 +800,4 @@ Este tutorial foi escrito por [Rick Anderson](http://blogs.msdn.com/b/rickandy/)
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

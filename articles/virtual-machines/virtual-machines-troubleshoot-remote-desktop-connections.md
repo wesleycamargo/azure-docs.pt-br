@@ -119,7 +119,7 @@ A parte do endereço neste arquivo RDP tem o nome de domínio totalmente qualifi
 
 Causa: a VM de destino não pôde localizar a autoridade de segurança na parte do nome de usuário das suas credenciais.
 
-Quando seu nome de usuário estiver no formato *SecurityAuthority*\*UserName* (exemplo: CORP\\User1), o trecho *SecurityAuthority* será o nome do computador da máquina virtual (para a autoridade de segurança local) ou um nome de domínio do Active Directory.
+Quando seu nome de usuário estiver no formato *SecurityAuthority\UserName* (exemplo: CORP\\User1), o trecho *SecurityAuthority* será o nome do computador da máquina virtual (para a autoridade de segurança local) ou um nome de domínio do Active Directory.
 
 Soluções possíveis:
 
@@ -134,8 +134,8 @@ Causa: o VM de destino não pôde validar seu nome de conta e senha.
 
 Um computador baseado em Windows pode validar as credenciais de uma conta local ou de uma conta de domínio.
 
-- Para contas locais, use a sintaxe *ComputerName*\*UserName* (exemplo: SQL1\\Admin4798).
-- Para contas de domínio, use a sintaxe *DomainName*\*UserName* (exemplo: CONTOSO\\johndoe).
+- Para contas locais, use a sintaxe *ComputerName\UserName* (exemplo: SQL1\\Admin4798).
+- Para contas de domínio, use a sintaxe *DomainName\UserName* (exemplo: CONTOSO\\johndoe).
 
 Se você promoveu sua máquina virtual a um controlador de domínio em uma nova floresta do Active Directory, a conta de administrador local à qual você está conectado também é convertida em uma conta equivalente com a mesma senha na nova floresta e domínio. A conta de administrador local é então excluída. Por exemplo, se você estiver conectado à conta de administrador local DC1\\DCAdmin e tiver promovido a máquina virtual como um controlador de domínio em uma nova floresta para o domínio corp.contoso.com, a conta local DC1\\DCAdmin será excluída, e uma nova conta de domínio (CORP\\DCAdmin) será criada com a mesma senha.
 
@@ -169,4 +169,4 @@ Se nenhum desses erros ocorreu e ainda não foi possível para você conectar-se
 
 [Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

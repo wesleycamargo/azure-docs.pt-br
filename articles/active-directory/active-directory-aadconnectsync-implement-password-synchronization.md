@@ -72,7 +72,7 @@ Quando você habilita a sincronização de senha, as políticas de complexidade 
 
 **Política de expiração de senha**
 
-Se um usuário estiver no escopo de sincronização de senha, a senha da conta de nuvem é definida como “*Never Expire*”. Isso significa que é possível que a senha do usuário expire no ambiente local, mas ele podem continuar a fazer logon nos serviços de nuvem usando essa senha expirada.
+Se um usuário estiver no escopo de sincronização de senha, a senha da conta de nuvem é definida como "*Never Expire*". Isso significa que é possível que a senha do usuário expire no ambiente local, mas ele podem continuar a fazer logon nos serviços de nuvem usando essa senha expirada.
 
 A senha de nuvem será atualizada na próxima vez que o usuário alterar a senha no ambiente local.
 
@@ -160,4 +160,4 @@ Não deve ser necessário forçar uma sincronização completa de todas as senha
 * [Azure AD Connect Sync: personalizando opções de sincronização](active-directory-aadconnectsync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

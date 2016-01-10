@@ -284,7 +284,8 @@ Também vale a pena observar que a URL publicada é ligeiramente diferente do pr
     Vamos ver o passo a passo. O código lê a primeira letra do parâmetro da cadeia de caracteres de consulta `lastname` dentro de um char. Isso determina a chave de partição para essa letra, subtraindo o valor hex. de `A` do valor hex. da primeira letra do último nome.
 
     ```CSharp
-    string lastname = context.Request.QueryString["lastname"]; char firstLetterOfLastName = lastname.First(); int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A'; ```
+    string lastname = context.Request.QueryString["lastname"]; char firstLetterOfLastName = lastname.First(); int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A';
+    ```
 
     Lembre-se que neste exemplo, estamos usando 26 partições com uma chave de partição por partição. Em seguida, obtemos a partição de serviço `partition` para essa chave usando o método `ResolveAsync` no objeto `servicePartitionResolver`. `servicePartitionResolver` é definido como
 
@@ -336,4 +337,4 @@ Para obter informações sobre os conceitos de malha do serviço, consulte:
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 
-<!----HONumber=AcomDC_1125_2015-->
+<!-----HONumber=AcomDC_1125_2015-->
