@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/14/2015"
+	ms.date="12/18/2015"
 	ms.author="jeedes"/>
 
 
@@ -64,7 +64,7 @@ Para configurar a integração do Small Improvements ao Azure AD, você precisar
 4. Clique em **Adicionar** na parte inferior da página.<br><br> ![Aplicativos][3]<br>
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.<br><br> ![Aplicativos][4]<br>
 6. Na caixa de pesquisa, digite **Small Improvements**.<br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_01.png)<br>
-7. No painel de resultados, escolha **Small Improvements** e clique em **Concluir** para adicionar o aplicativo.<br><br>
+7. No painel de resultados, escolha **Small Improvements** e clique em **Concluir** para adicionar o aplicativo.<br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_02.png)<br>
 
 ##  Configurar e testar o logon único do AD do Azure
 O objetivo desta seção é mostrar como configurar e testar logon único do Azure AD com o Small Improvements com base em um usuário de teste chamado "Brenda Fernandes".
@@ -73,11 +73,11 @@ Para que o logon único funcione, o Azure AD precisa saber qual usuário do Smal
 
 Para configurar e testar o logon único do Azure AD com o Small Improvements, você precisará concluir os seguintes blocos de construção:
 
-1. **[Configurar o logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)** - para permitir que seus usuários usem esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
+2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**: para testar o logon único do AD do Azure com Brenda Fernandes.
 4. **[Criação de um usuário de teste do Small Improvements](#creating-a-small-improvements-test-user)**: para ter um equivalente de Brenda Fernandes no Small Improvements que esteja vinculado à representação dela no Azure AD.
-5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** - para verificar se a configuração funciona.
+5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)**: para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
 
 ### Configuração do logon único do AD do Azure
 
@@ -91,7 +91,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 
 2. Na página **Como você deseja que os usuários façam logon no Small Improvements**, escolha **Logon único do Azure AD** e clique em **Avançar**. <br><br> ![Configurar o logon único](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_03.png) <br>
 
-3. Na página de diálogo **Definir Configurações de Aplicativo**, execute as seguintes etapas: <br><br>![Configurar o logon único](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_04.png) <br>
+3. Na página da caixa de diálogo **Definir Configurações de Aplicativo**, execute as seguintes etapas:<br><br>![Configurar o logon único](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_04.png) <br>
 
     > [AZURE.NOTE]Entre em contato com a equipe do Small Improvements no endereço [Support@small-improvements.com](mailto:support@small-improvements.com) para configurar um nome de domínio para sua conta. Isso é necessário para que o logon único funcione.
 
@@ -135,7 +135,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 
 
 ### Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no portal clássico do Azure chamado Brenda Fernandes.<br> Na lista Usuários, escolha **Brenda Fernandes**.<br><br>![Criar um usuário do AD do Azure][20]<br>
+O objetivo desta seção é criar um usuário de teste no Portal clássico do Azure chamado Brenda Fernandes.<br> Na lista Usuários, selecione **Brenda Fernandes**.<br><br>![Criar um usuário do AD do Azure][20]<br>
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
@@ -145,17 +145,17 @@ O objetivo desta seção é criar um usuário de teste no portal clássico do Az
 
 3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_03.png) <br>
 
-4. Para abrir o diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_04.png) <br>
+4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**. <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_04.png) <br>
 
-5. Na página de diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas: <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_05.png) <br>
+5. Na página da caixa de diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas: <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_05.png)<br>
 
     a. Em Tipo de Usuário, selecione Novo usuário na organização.
 
-    b. Na **caixa de texto** Nome de Usuário, digite **BrendaFernandes**.
+    b. Na caixa de texto **Nome de Usuário**, digite **BrendaFernandes**.
 
     c. Clique em **Próximo**.
 
-6.  Na página de diálogo **Perfil do Usuário**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_06.png) <br>
+6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_06.png) <br>
 
     a. Na caixa de texto **Nome**, digite **Brenda**.
 
@@ -165,9 +165,9 @@ O objetivo desta seção é criar um usuário de teste no portal clássico do Az
 
     d. Na lista **Função**, selecione **Usuário**. e. Clique em **Próximo**.
 
-7. Na página de diálogo **Obter senha temporária**, clique em **criar**. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_07.png) <br>
+7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_07.png) <br>
 
-8. Na página de diálogo **Obter senha temporária**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_08.png) <br>
+8. Na página da caixa de diálogo **Obter senha temporária**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_08.png) <br>
 
     a. Anote o valor da **Nova Senha**.
 
@@ -177,7 +177,7 @@ O objetivo desta seção é criar um usuário de teste no portal clássico do Az
 
 ### Criar um usuário de teste para Small Improvements
 
-O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Small Improvements. Você já habilitou isso em [Configurar Logon Único do Azure AD](#configuring-azure-ad-single-single-sign-on).
+O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Small Improvements. Você já habilitou isso em [Configurar o logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on).
 
 
 **Para criar um usuário chamado Brenda Fernandes no Small Improvements, execute as seguintes etapas:**
@@ -208,7 +208,7 @@ O objetivo desta seção é permitir que Brenda Fernandes use o logon único do 
 
 1. No menu na parte superior, clique em **Usuários**. <br><br>![Atribuir usuário][203] <br>
 
-1. Na lista Usuários, escolha **Brenda Fernandes**.
+1. Na lista Usuários, selecione **Brenda Fernandes**.
 
 2. Na barra de ferramentas na parte inferior, clique em **Atribuir**. <br><br>![Atribuir usuário][205]
 
@@ -216,7 +216,7 @@ O objetivo desta seção é permitir que Brenda Fernandes use o logon único do 
 
 ### Teste do logon único
 
-O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.<br> Ao clicar no bloco Small Improvements no Painel de Acesso, você deve ser conectado automaticamente ao aplicativo Small Improvements.
+O objetivo desta seção é testar a configuração de logon único do AD do Azure usando o Painel de Acesso.<br> Ao clicar no bloco Small Improvements no Painel de Acesso, você deve ser conectado automaticamente ao aplicativo Small Improvements.
 
 
 ## Recursos adicionais
@@ -243,4 +243,4 @@ O objetivo desta seção é testar sua configuração de logon único do Azure A
 [204]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

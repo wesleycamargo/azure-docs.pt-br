@@ -4,8 +4,8 @@ O gerenciador de tráfego e seu recurso de ponto de extremidade filho habilitam 
 
 | Propriedade | Descrição |
 |---|---|
-|**Método de roteamento de tráfego**| os valores possíveis são *Desempenho*, *Ponderado* e *Prioridade*. | 
-| **Configuração DNS** | FQDN para o perfil | 
+|**trafficRoutingMethod**| os valores possíveis são *Desempenho*, *Ponderado* e *Prioridade* | 
+| **dnsConfig** | FQDN para o perfil | 
 | **Protocolo** | protocolo de monitoramento, os valores possíveis são *HTTP* e *HTTPS*|
 | **Porta** | porta de monitoramento |  
 | **Caminho** | caminho de monitoramento |
@@ -17,8 +17,8 @@ Um ponto de extremidade é um recurso de filho de um perfil de Gerenciador de Tr
 
 | Propriedade | Descrição | 
 |---|---| 
-| **Tipo** | o tipo do ponto de extremidade, os valores possíveis são *Ponto de extremidade do Azure*, *Ponto de extremidade externo* e *Ponto de extremidade aninhado* | 
-| **ID do recurso de destino** | endereço IP público de um ponto de extremidade de serviço ou da Web. Isso pode ser um ponto de extremidade do Azure ou externo. | 
+| **Tipo** | o tipo do ponto de extremidade, os valores possíveis são *Ponto de Extremidade do Azure*, *Ponto de Extremidade Externo* e *Ponto de Extremidade Aninhado* | 
+| **targetResourceId** | endereço IP público de um ponto de extremidade de serviço ou da Web. Isso pode ser um ponto de extremidade do Azure ou externo. | 
 | **Peso** | peso de ponto de extremidade usado no gerenciamento de tráfego. | 
 | **Prioridade** | prioridade do ponto de extremidade, usada para definir uma ação de failover |
 
@@ -82,6 +82,6 @@ Exemplo do Gerenciador de Tráfego no formato Json:
  
 ## Recursos adicionais
 
-Leia a [documentação da API REST para Gerenciador de Tráfego](https://msdn.microsoft.com/library/azure/mt163664.aspx) para obter mais informações.
+Leia a [documentação da API REST para o Gerenciador de Tráfego](https://msdn.microsoft.com/library/azure/mt163664.aspx) para saber mais.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

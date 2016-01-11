@@ -15,7 +15,7 @@
    ms.date="12/14/2015"
    ms.author="v-sharos"/>
 
-# Usar o serviço StorSimple Manager para gerenciar políticas de backup
+# Usar o serviço StorSimple Manager para gerenciar políticas de backup (Atualização 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-manage-backup-policies](../../includes/storsimple-version-selector-manage-backup-policies.md)]
 
@@ -96,4 +96,4 @@ Execute as etapas a seguir no Portal clássico do Azure para criar uma política
 
 - Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

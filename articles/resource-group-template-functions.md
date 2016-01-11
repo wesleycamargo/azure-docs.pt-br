@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/07/2015"
+   ms.date="12/23/2015"
    ms.author="tomfitz"/>
 
 # Expressões de modelo do Gerenciador de Recursos do Azure
@@ -167,6 +167,7 @@ O Gerenciador de Recursos fornece as seguintes expressões para trabalhar com ca
 - [substitui](#replace)
 - [split](#split)
 - [string](#string)
+- [substring](#substring)
 - [toLower](#tolower)
 - [toUpper](#toupper)
 - [cortar](#trim)
@@ -292,6 +293,28 @@ O exemplo a seguir converte o valor do parâmetro fornecido pelo usuário em Str
     },
     "variables": { 
         "stringValue": "[string(parameters('appId'))]"
+    }
+
+<a id="substring" />
+### substring
+
+**substring(stringToParse, startIndex, length)**
+
+Retorna uma subcadeia de caraceteres que começa na posição do caractere especificado e contém o número especificado de caracteres.
+
+| Parâmetro | Obrigatório | Descrição
+| :--------------------------------: | :------: | :----------
+| stringToParse | Sim | A cadeia original da qual a subcadeia de caracteres é extraída.
+| startIndex | Não | A posição inicial do caractere baseada em zero para a subcadeia de caracteres.
+| length | Não | O número de caracteres para a subcadeia de caracteres.
+
+O exemplo a seguir extrai os três primeiros caracteres de um parâmetro.
+
+    "parameters": {
+        "inputString": { "type": "string" }
+    },
+    "variables": { 
+        "prefix": "[substring(parameters('inputString'), 0, 3)]"
     }
 
 <a id="tolower" />
@@ -743,7 +766,7 @@ O exemplo a seguir mostra a função de assinatura chamada na seção de saídas
 ## Próximas etapas
 - Para obter uma descrição das seções de um modelo do Gerenciador de Recursos do Azure, confira a seção [Criação de modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md)
 - Para mesclar diversos modelos, confira a seção [Como usar modelos vinculados com o Gerenciador de Recursos do Azure](resource-group-linked-templates.md)
-- Para iterar um número de vezes especificado ao criar um tipo de recurso, confira [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
-- Para ver como implantar o modelo que você criou, confira [Implantar um aplicativo com o Modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md)
+- Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
+- Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o Modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

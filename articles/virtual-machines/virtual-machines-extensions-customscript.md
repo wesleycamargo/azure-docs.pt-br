@@ -23,8 +23,7 @@ Este artigo fornece uma visão geral de como usar a extensão de Script Personal
 
 As extensões de VM (máquina virtual) são criadas pela Microsoft e por editores confiáveis de terceiros para estender a funcionalidade da VM. Para obter uma visão geral das extensões de VM, veja [Recursos e extensões de VM do Azure](virtual-machines-extensions-features.md).
 
-Link:
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Modelo do Gerenciador de Recursos](virtual-machines-extensions-customscript%20-with%20template.md).
+Link:[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-extensions-customscript%20-with%20template.md).
 
 
 ## Visão geral da extensão de Script Personalizado
@@ -34,7 +33,7 @@ A extensão de Script Personalizado para Windows permite executar scripts do Pow
 ### Pré-requisitos para execução da Extensão de Script Personalizado
 
 1. Instale a versão 0.8.0 ou posterior dos cmdlets do Azure PowerShell <a href="http://azure.microsoft.com/downloads" target="_blank">aqui</a>.
-2. Se os scripts forem executados em uma VM existente, verifique se o Agente de VM está habilitado na VM; se não estiver, siga este <a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank">artigo</a> para instalar um.
+2. Se os scripts forem executados em uma VM existente, verifique se o Agente de VM está habilitado na VM; se não estiver, siga este <a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank">artigo</a> para instalar um. (Se você estiver provisionando a VM a partir da galeria do Azure, os agentes da VM estarão habilitados por padrão e não será necessário habilitá-los)
 3. Carregue os scripts que você deseja executar na máquina virtual para o armazenamento do Azure. Os scripts podem vir de um único ou vários contêineres de armazenamento.
 4. O script deve ser criado de forma que o script de entrada, que é iniciado pela extensão, inicie outros scripts.
 
@@ -87,10 +86,9 @@ A Extensão de Script Personalizado pode ser desinstalada da VM usando o cmdlet 
 
 ### Usando a extensão de Script Personalizado com modelos
 
-Para saber como usar a extensão de Script Personalizado com modelos, confira a documentação [aqui](virtual-machines-extensions-customscript -with template.md).
+Para saber mais sobre como usar a extensão de Script Personalizado com modelos do Gerenciador de Recursos do Azure, confira a documentação [aqui](virtual-machines-extensions-customscript%20-with%20template.md).
 
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
 
-<!---HONumber=AcomDC_1203_2015-->
-
+<!---HONumber=AcomDC_1223_2015-->

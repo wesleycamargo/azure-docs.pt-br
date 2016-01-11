@@ -44,7 +44,7 @@ Trabalhar com o Gerenciador de Recursos do Azure por meio da CLI do Azure exige 
 
 Para saber mais sobre a autenticação para o Microsoft Azure, consulte [Conectar-se a uma assinatura do Azure a partir da CLI do Azure](xplat-cli-connect.md).
 
->[AZURE.NOTE]Quando você usa uma conta corporativa ou de estudante, que é gerenciada pelo Active Directory do Azure, você também pode usar o controle de acesso baseado em função (RBAC) do Azure para gerenciar o acesso e o uso de recursos do Azure. Para obter detalhes, consulte [Gerenciar e auditar o acesso a recursos](resource-group-rbac.md)
+>[AZURE.NOTE]Quando você usa uma conta corporativa ou de estudante, que é gerenciada pelo Active Directory do Azure, você também pode usar o controle de acesso baseado em função (RBAC) do Azure para gerenciar o acesso e o uso de recursos do Azure. Para obter detalhes, confira [Controle de acesso baseado em função do Azure](./active-directory/role-based-access-control-configure.md).
 
 ## Definir o modo Gerenciador de Recursos do Azure
 
@@ -77,7 +77,7 @@ Você pode começar a adicionar recursos a este grupo logo em seguida e usá-lo 
 
 Ao trabalhar com modelos, você poderá [criar o seu próprio modelo](resource-group-authoring-templates.md) ou usar um dos modelos da [Galeria de Modelos](https://azure.microsoft.com/documentation/templates/) que estão disponíveis também no [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
-Criar um novo modelo está além do escopo deste artigo. Então, para começar, vamos usar o modelo _101-simple-vm-from-image_ disponível no [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm). Por padrão, isso cria uma única máquina virtual do Ubuntu 4.04.2-LTS em uma nova rede virtual com uma única sub-rede na região Oeste dos EUA. Você só precisa especificar os seguintes parâmetros para usar este modelo:
+Criar um novo modelo está além do escopo deste artigo. Então, para começar, vamos usar o modelo _101-simple-vm-from-image_ disponível no [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm). Por padrão, isso cria uma única máquina virtual do Ubuntu 14.04.2-LTS em uma nova rede virtual com uma única sub-rede na região Oeste dos EUA. Você só precisa especificar os seguintes parâmetros para usar este modelo:
 
 * Um nome de conta de armazenamento exclusivo
 * Um nome de usuário de administrador para a VM
@@ -210,4 +210,4 @@ Para exibir informações registradas em log sobre operações realizadas em um 
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

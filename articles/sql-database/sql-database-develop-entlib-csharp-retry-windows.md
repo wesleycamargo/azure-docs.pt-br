@@ -14,11 +14,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/16/2015" 
+	ms.date="12/17/2015" 
 	ms.author="genemi"/>
 
 
 # Exemplo de código: lógica de repetição da Enterprise Library 6, em C&#x23; para conexão com o Banco de Dados SQL
+
+
+> [AZURE.SELECTOR]
+- [PHP](sql-database-develop-php-retry-windows.md)
+- [C#](sql-database-develop-csharp-retry-windows.md)
+- [C# EntLib6](sql-database-develop-entlib-csharp-retry-windows.md)
 
 
 Este tópico apresenta um exemplo de código completo que demonstra a Enterprise Library (EntLib). A EntLib simplifica muitas tarefas para programas clientes que interagem com os serviços de nuvem, como o Banco de Dados SQL do Azure. Nosso exemplo se concentra na importante tarefa de incluir a lógica de repetição para falhas transitórias.
@@ -29,7 +35,11 @@ As classes da EntLib foram projetadas para distinguir duas categorias de erros d
 - Erros que nunca serão corrigidos automaticamente, como um nome de servidor escrito incorretamente.
 - Falhas transitórias, como a suspensão por parte do servidor da aceitação de novas conexões durante vários segundos, enquanto o sistema do Azure equilibra a carga.
 
+
 A Enterprise Library 6 (EntLib60) é a versão mais recente e foi lançada em abril de 2013.
+
+- A Microsoft lançou o código-fonte para o público.
+- A Microsoft não tem mais planos de manter o código-fonte.
 
 
 ## Pré-requisitos
@@ -320,4 +330,4 @@ SELECT TOP 3
 
 - [Exemplos de código do cliente de início rápido do Banco de Dados SQL](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

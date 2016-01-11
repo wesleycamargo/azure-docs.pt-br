@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="11/10/2015"
+	ms.date="12/18/2015"
 	ms.author="gauravbh;tomfitz"/>
 
 # Usar a política para gerenciar recursos e controlar o acesso
@@ -50,7 +50,7 @@ A definição de política é criada usando JSON. Consiste em uma ou mais condi�
 
 Basicamente, uma política contém o seguinte:
 
-**Condição/operadores lógicos/:** contém um conjunto de condições que podem ser manipuladas por meio de um conjunto de operadores lógicos.
+**Condição/operadores lógicos:** contém um conjunto de condições que podem ser manipuladas por meio de um conjunto de operadores lógicos.
 
 **Efeito:** descreve qual será o efeito quando a condição for satisfeita – negar ou auditar. Um efeito de auditoria emitirá um log de aviso de serviço de evento. Por exemplo, um administrador pode criar uma política que ocasiona uma auditoria se alguém criar uma VM grande e examinar os logs mais tarde.
 
@@ -71,10 +71,10 @@ Os operadores lógicos compatíveis junto com a sintaxe estão listados abaixo:
 | Nome do operador | Sintaxe |
 | :------------- | :------------- |
 | Not | "not" : {&lt;condition or operator &gt;} |
-| e | "allOf" : [ {&lt;condition1&gt;},{&lt;condition2&gt;}] |
-| Ou | "anyOf" : [ {&lt;condition1&gt;},{&lt;condition2&gt;}] |
+| e | "allOf" : [ {&lt;condição ou operador &gt;},{&lt;condição ou operador &gt;}] |
+| Ou | "anyOf" : [ {&lt;condição ou operador &gt;},{&lt;condição ou operador &gt;}] |
 
-Não há suporte para condições aninhadas.
+O Gerenciador de Recursos permite que você especifique uma lógica complexa em sua política por meio de operadores aninhados. Por exemplo, você pode recusar a criação de recursos em um local específico para um tipo de recurso especificado. Veja abaixo um exemplo de operadores aninhados.
 
 ## Condições
 
@@ -88,7 +88,6 @@ Uma condição avalia se um **campo** ou uma **fonte** atende a determinados cri
 | No | "in" : [ "&lt;value1&gt;","&lt;value2&gt;" ]|
 | ContainsKey | containsKey" : "&lt;keyName&gt;" |
 
-
 ## Campos e fontes
 
 As condições são formadas por meio do uso de campos e fontes. Um campo representa propriedades na carga de solicitação de recursos. Uma fonte representa as características da solicitação em si.
@@ -99,7 +98,7 @@ Campos: **nome**, **forma**, **tipo**, **local**, **tags**, **tags.***.
 
 Fontes: **ação**.
 
-Para obter mais informações sobre ações, veja [RBAC - Funções internas](active-directory/role-based-access-built-in-roles.md).
+Para saber mais sobre ações, confira [RBAC - Funções internas](active-directory/role-based-access-built-in-roles.md). Atualmente, a política só funciona em solicitações PUT.
 
 ## Exemplos de definições de política
 
@@ -185,6 +184,30 @@ O exemplo abaixo mostra o uso de curingas que é compatível com a condição "c
         "effect" : "deny"
       }
     }
+    
+### Requisito de marca apenas para recursos de Armazenamento
+
+O exemplo abaixo mostra como aninhar operadores lógicos para exigir uma marca de aplicativo somente para recursos de armazenamento.
+
+    {
+        "if": {
+            "allOf": [
+              {
+                "not": {
+                  "field": "tags",
+                  "containsKey": "application"
+                }
+              },
+              {
+                "source": "action",
+                "like": "Microsoft.Storage/*"
+              }
+            ]
+        },
+        "then": {
+            "effect": "audit"
+        }
+    }
 
 ## Atribuição de política
 
@@ -226,7 +249,7 @@ Com um corpo de solicitação semelhante ao seguinte:
     }
 
 
-Definição de política pode ser definida como um dos exemplos mostrados acima. Para a versão de api, use a *2015-10-01-preview*. Para obter mais detalhes e exemplos, consulte a [API REST para Definições de Política](https://msdn.microsoft.com/library/azure/mt588471.aspx).
+Definição de política pode ser definida como um dos exemplos mostrados acima. Para a versão de API, use *2015-10-01-preview*. Para obter exemplos e mais detalhes, veja a [API REST para Definições de Política](https://msdn.microsoft.com/library/azure/mt588471.aspx).
 
 ### Criar definição de política usando o PowerShell
 
@@ -258,7 +281,7 @@ Para criar uma nova atribuição de política, execute:
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-A {Atribuição da política} é o nome da atribuição da política. Para a versão de api, use a *2015-10-01-preview*.
+A {Atribuição da política} é o nome da atribuição da política. Para a versão de API, use *2015-10-01-preview*.
 
 Com um corpo de solicitação semelhante ao seguinte:
 
@@ -273,7 +296,7 @@ Com um corpo de solicitação semelhante ao seguinte:
       "name":"VMPolicyAssignment"
     }
 
-Para obter mais detalhes e exemplos, veja a [API REST para Atribuições de Política](https://msdn.microsoft.com/library/azure/mt588466.aspx).
+Para obter exemplos e mais detalhes, veja a [API REST para Atribuições de Política](https://msdn.microsoft.com/library/azure/mt588466.aspx).
 
 ### Atribuição de política usando o PowerShell
 
@@ -291,4 +314,17 @@ Você pode obter, alterar ou remover as definições de políticas por meio dos 
 
 Da mesma forma, você pode obter, alterar ou remover as atribuições da política por meio dos cmdlets Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment e Remove-AzureRmPolicyAssignment respectivamente.
 
-<!---HONumber=Nov15_HO3-->
+##Eventos de auditoria de política
+
+Depois de aplicar a política, você começará a ver eventos relacionados à política. Você pode acessar o portal ou usar o PowerShell para obter esses dados.
+
+Para exibir todos os eventos relacionados ao efeito de recusa, você pode usar o comando a seguir.
+
+    Get-AzureRmLog | where {$_.subStatus -eq "Forbidden"}     
+
+Para exibir todos os eventos relacionados ao efeito de auditoria, você pode usar o comando a seguir.
+
+    Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
+    
+
+<!---HONumber=AcomDC_1223_2015-->

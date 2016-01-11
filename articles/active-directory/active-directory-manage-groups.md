@@ -52,6 +52,8 @@ O acesso a um recurso é derivado de uma fonte externa; por exemplo, um grupo qu
 
 Você pode assistir a um breve vídeo que explica mais sobre isso:
 
+[Azure AD: introdução a Associações Dinâmicas para Grupos](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD--Introduction-to-Dynamic-Memberships-for-Groups)
+
 > [AZURE.VIDEO azure-ad--introduction-to-dynamic-memberships-for-groups]
 
 ## Como funciona o Gerenciamento de Acesso no Active Directory do Azure?
@@ -96,4 +98,4 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
 * [Referência de Graph API para grupos](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

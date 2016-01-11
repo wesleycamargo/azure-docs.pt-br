@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/20/2015"
+   ms.date="12/18/2015"
    ms.author="maroche"/>
 
 
@@ -41,6 +41,8 @@ Na visualização atual, o **Catálogo de Dados do Azure** dá suporte ao regist
 * Arquivos e diretórios HDFS
 * Tabelas do Apache Hive
 * Tabelas e exibições do Teradata
+* Diretórios e Arquivos de Armazenamento do Azure Data Lake
+* Tabelas e Modos de Exibição do MySQL
 
 > [AZURE.NOTE]O suporte do SQL Server também inclui o Banco de Dados SQL do Microsoft Azure e o Microsoft Azure SQL Data Warehouse
 
@@ -86,7 +88,6 @@ Essas estatísticas são copiadas no catálogo com os metadados estruturais e de
 
 > [AZURE.NOTE]As colunas de data e texto não incluirão estatísticas de desvio médio ou padrão no respectivo perfil de dados.
 
-
 ## Atualização de registros
 
 Registrar uma fonte de dados a tornará detectável no **Catálogo de Dados do Azure** usando os metadados e a visualização opcional extraídos durante o registro. Se a fonte de dados precisa ser atualizada no catálogo (por exemplo, se o esquema de um objeto foi alterado, ou tabelas originalmente excluídas devem ser incluídas ou um usuário quiser atualizar os dados incluídos nas visualizações), a ferramenta de registro da fonte de dados pode ser executada novamente.
@@ -96,4 +97,4 @@ O novo registro de uma fonte de dados já registrada executa uma operação de m
 ## Resumo
 Registrar uma fonte de dados no **Catálogo de Dados do Azure** facilita a descoberta e a compreensão desta fonte de dados ao copiar os metadados estruturais e descritivos da fonte de dados no serviço do catálogo. Depois que uma fonte de dados tiver sido registrada, ela poderá ser anotada, gerenciada e descoberta usando o portal do **Catálogo de Dados do Azure**.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

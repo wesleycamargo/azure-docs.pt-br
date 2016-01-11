@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Usando importação/exportação para transferir dados para o Armazenamento de Blob | Microsoft Azure" 
-	description="Saiba como criar trabalhos de importação e exportação no Portal de Gerenciamento do Azure para transferir dados para o armazenamento de blob." 
+	description="Saiba como criar trabalhos de importação e exportação no Portal Clássico do Azure para transferir dados para o Armazenamento de Blobs." 
 	authors="robinsh" 
 	manager="carmonm" 
 	editor="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/04/2015" 
+	ms.date="12/22/2015" 
 	ms.author="robinsh"/>
 
 
@@ -29,10 +29,10 @@ Para transferir um grande conjunto de dados de arquivo para o armazenamento de B
 
 Você pode criar e gerenciar trabalhos de importação e exportação de duas maneiras:
 
-- Usando o Portal de Gerenciamento do Azure.
+- Usando o Portal Clássico do Azure.
 - Usando uma interface REST para o serviço.
 
-Este artigo apresenta uma visão geral do serviço Importar/Exportar e descreve como usar o Portal de Gerenciamento para funcionar com esse serviço. Para obter informações sobre a API REST, consulte a [Referência da API REST do serviço de importação e exportação do Azure](http://go.microsoft.com/fwlink/?LinkID=329099).
+Este artigo apresenta uma visão geral do serviço Importação/Exportação e descreve como usar o Portal Clássico para trabalhar com esse serviço. Para obter informações sobre a API REST, consulte a [Referência da API REST do serviço de importação e exportação do Azure](http://go.microsoft.com/fwlink/?LinkID=329099).
 
 ## Introdução ao Serviço de Importação/Exportação ##
 
@@ -60,7 +60,7 @@ Ao criar um trabalho de importação ou de exportação, você também precisar�
 
   >[AZURE.IMPORTANT]Não há suporte para unidades de disco rígido externas que vêm com um adaptador USB integrado neste serviço. Não prepare um HDD externo. O disco dentro da estrutura externa também não pode ser usado para importar dados. Use uma unidades de disco rígido **interna** SATA II/III de 3,5 polegadas. Se você não conseguir conectar o disco SATA diretamente ao seu computador, use um SATA externo para o adaptador USB. Consulte a lista de adaptadores recomendados na seção de perguntas frequentes.
 
-## Criar um trabalho de importação no Portal de Gerenciamento##
+## Criar um trabalho de importação no Portal Clássico##
 
 Crie um trabalho de importação para notificar o serviço Importar/Exportar de que você enviará uma ou mais unidades contendo dados para o data center e que eles deverão ser importados para a sua conta de armazenamento.
 
@@ -78,7 +78,7 @@ A Ferramenta de Importação/Exportação do Microsoft Azure gera um arquivo de 
 
 ### Criar o trabalho de importação
 
-1.	Depois de preparar a unidade, navegue até a conta de armazenamento no Portal de Gerenciamento e exiba o Painel. Em **Visão Rápida**, clique em **Criar um Trabalho de Importação**. 
+1.	Depois de preparar a unidade, navegue até a conta de armazenamento no Portal Clássico e exiba o Painel. Em **Visão Rápida**, clique em **Criar um Trabalho de Importação**. 
  
 2.	Na Etapa 1 do assistente, indique que você preparou a unidade e que o arquivo de diário de unidade está disponível.
  
@@ -98,17 +98,17 @@ A Ferramenta de Importação/Exportação do Microsoft Azure gera um arquivo de 
 
 	Se ainda não tiver um número de controle, escolha **Fornecerei minhas informações de remessa para este trabalho de importação após enviar meu pacote** e, em seguida, conclua o processo de importação.
 
-7. Para inserir o número de controle após enviar o pacote, volte à página **Importar/Exportar** da sua conta de armazenamento no Portal de Gerenciamento, selecione seu trabalho na lista e selecione **Informações de Remessa**. Navegue pelo assistente e insira o número de acompanhamento na Etapa 2.
+7. Para inserir o número de acompanhamento após enviar o pacote, volte à página **Importação/Exportação** da sua conta de armazenamento no Portal Clássico, selecione seu trabalho na lista e selecione **Informações de Remessa**. Navegue pelo assistente e insira o número de acompanhamento na Etapa 2.
 	
 	Se o número de acompanhamento não está atualizado em 2 semanas após a criação do trabalho, este irá expirar.
 
-	Você também pode atualizar o número da conta da transportadora na Etapa 2 do assistente, caso o trabalho esteja nas fases Criando, Enviando ou Transferindo. Você não pode atualizar o número da conta da transportadora para o trabalho em questão a partir da fase de Empacotamento.
+	Você também pode atualizar o número da conta da transportadora na Etapa 2 do assistente, caso o trabalho esteja nas fases Criando, Enviando ou Transferindo. Você não poderá atualizar o número da conta da transportadora para o trabalho em questão quando ele estiver na fase de Empacotamento.
 
-## Criar um trabalho de exportação no Portal de Gerenciamento##
+## Criar um trabalho de exportação no Portal Clássico##
 
 Crie um trabalho de exportação para notificar o serviço Importar/Exportar que você enviará uma ou mais unidades vazias para o data center, para que os dados podem ser exportados de sua conta de armazenamento para as unidades e, em seguida, as unidades sejam enviadas para você.
 
-1. 	Para criar um trabalho de exportação, navegue até a sua conta de armazenamento no Portal de Gerenciamento e exiba o Painel. Em **Visão Rápida**, clique em **Criar um Trabalho de Exportação** e continue com o assistente.
+1. 	Para criar um trabalho de exportação, navegue até a sua conta de armazenamento no Portal Clássico e exiba o Painel. Em **Visão Rápida**, clique em **Criar um Trabalho de Exportação** e continue com o assistente.
 
 2. 	Na Etapa 2, forneça as informações de contato da pessoa responsável por esse trabalho de exportação. Se desejar salvar dados de log detalhados para o trabalho de exportação, marque a opção para **Salvar o log detalhado no meu contêiner de blob 'waimportexport'**.
 
@@ -142,7 +142,7 @@ Crie um trabalho de exportação para notificar o serviço Importar/Exportar que
 
 	Se ainda não tiver um número de controle, escolha **Fornecerei minhas informações de remessa para este trabalho de exportação após enviar meu pacote** e, em seguida, conclua o processo de exportação.
 
-6. Para inserir o número de controle após enviar o pacote, volte à página **Importar/Exportar** da sua conta de armazenamento no Portal de Gerenciamento, selecione seu trabalho na lista e selecione **Informações de Remessa**. Navegue pelo assistente e insira o número de acompanhamento na Etapa 2.
+6. Para inserir o número de acompanhamento após enviar o pacote, volte à página **Importação/Exportação** da sua conta de armazenamento no Portal Clássico, selecione seu trabalho na lista e selecione **Informações de Remessa**. Navegue pelo assistente e insira o número de acompanhamento na Etapa 2.
 	
 	Se o número de acompanhamento não está atualizado em 2 semanas após a criação do trabalho, este irá expirar.
 
@@ -150,9 +150,9 @@ Crie um trabalho de exportação para notificar o serviço Importar/Exportar que
 
 > [AZURE.NOTE]Se o blob a ser exportado estiver em uso no momento da cópia do disco rígido, o serviço de Importação/Exportação do Azure tira um instantâneo do blob e copia o instantâneo.
 
-## Acompanhar o status do trabalho No Portal de Gerenciamento##
+## Acompanhar o status do trabalho no Portal Clássico##
 
-Você pode acompanhar o status dos seus trabalhos de importação ou exportação no Portal de Gerenciamento. No Portal de Gerenciamento, navegue até a sua conta de armazenamento e clique na guia **Importar/Exportar**. Uma lista dos seus trabalhos será exibida na página. Você pode filtrar a lista por status do trabalho, nome do trabalho, tipo de trabalho ou número de controle.
+Você pode acompanhar o status de seus trabalhos de importação ou exportação no Portal Clássico. Navegue até a sua conta de armazenamento no Portal Clássico e clique na guia **Importação/Exportação**. Uma lista dos seus trabalhos será exibida na página. Você pode filtrar a lista por status do trabalho, nome do trabalho, tipo de trabalho ou número de controle.
 
 A tabela descreve o que significa cada designação de status do trabalho:
 
@@ -167,7 +167,7 @@ Concluído|Seu disco rígido foi enviado de volta para você.
 
 ## Exibir Chaves do BitLocker para um trabalho de exportação ##
 
-Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocker geradas pelo serviço para a sua unidade, para poder descriptografar os dados exportados ao receber as unidades do data center do Azure. No Portal de Gerenciamento, navegue até a sua conta de armazenamento e clique na guia **Importar/Exportar**. Selecione o trabalho de exportação na lista e clique no botão **Exibir Chaves**. As chaves do BitLocker serão exibidas desta forma:
+Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocker geradas pelo serviço para a sua unidade, para poder descriptografar os dados exportados ao receber as unidades do data center do Azure. Navegue até a sua conta de armazenamento no Portal Clássico e clique na guia **Importação/Exportação**. Selecione o trabalho de exportação na lista e clique no botão **Exibir Chaves**. As chaves do BitLocker serão exibidas desta forma:
 
 ![Exibir chaves do BitLocker para um trabalho de exportação][export-job-bitlocker-keys]
 
@@ -212,7 +212,7 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 
 - Você pode cancelar um trabalho quando seu status for Criando ou Enviando.
 
-**Durante quanto tempo consigo exibir o status dos trabalhos concluídos no Portal de Gerenciamento?**
+**Durante quanto tempo consigo exibir o status dos trabalhos concluídos no Portal Clássico?**
 
 - Você pode exibir o status dos trabalhos concluídos por até 90 dias. Todos os trabalhos concluídos serão excluídos após 90 dias.
 
@@ -278,4 +278,4 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/24/2015"
+   ms.date="12/18/2015"
    ms.author="tarcher" />
 
 # Configurando e usando o emulador de armazenamento com o Visual Studio
@@ -43,4 +43,4 @@ O emulador de armazenamento fornece uma interface do usuário para exibir o stat
 
 O nó de Armazenamento do Azure no Gerenciador de Servidores habilita você a exibir dados e alterar as configurações de dados de blob e de tabela em suas contas de armazenamento, incluindo o emulador de armazenamento. Para obter mais informações, consulte [Procurando e Gerenciando Recursos de Armazenamento com o Gerenciador de Servidores](https://msdn.microsoft.com/library/azure/ff683677.aspx).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

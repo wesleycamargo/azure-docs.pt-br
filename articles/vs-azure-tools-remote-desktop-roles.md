@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/24/2015"
+   ms.date="12/18/2015"
    ms.author="tarcher" />
 
 # Usando a Área de Trabalho Remota com as funções do Azure
@@ -37,7 +37,7 @@ Usando o SDK do Azure e os Serviços de Área de Trabalho Remota, você pode ace
  
     Isso exibe uma caixa de listagem suspensa que permite que você crie ou escolha um certificado para que você possa criptografar informações de credenciais ao conectar-se via área de trabalho remota.
 
-1. Na lista suspensa, escolha **<Create>**, ou escolha na lista um já existente.
+1. Na lista suspensa, escolha **&lt;Criar>,** ou escolha na lista um já existente.
 
     Se você escolher um certificado existente, ignore as etapas a seguir.
 
@@ -75,4 +75,4 @@ Depois de publicar o serviço de nuvem no Azure, você pode usar o Gerenciador d
 
 1. Insira o nome de usuário e a senha que você criou anteriormente. Agora você está conectado na sessão remota.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

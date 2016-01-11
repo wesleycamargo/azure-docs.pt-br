@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="12/01/2015"
+   ms.date="12/21/2015"
    ms.author="curtand;kareni;ruchic"/>
 
 # Transferindo uma assinatura do Azure
@@ -94,7 +94,7 @@ Agora você pode fazer isso facilmente no Centro de Contas do Microsoft Azure, p
 
 -   **O destinatário pode usar um mecanismo de pagamento diferente?**
 
-    Sim e, de fato, você pode usar esse mecanismo para alterar o método de pagamento em sua assinatura de fatura para cartão de crédito. Transfira apenas para outra conta que você possua e insira seu cartão de crédito ao receber a assinatura. Há limitações aqui: agora o histórico de cobrança da assinatura é dividido em duas contas. Mas a vantagem é que você pode fazer isso sem precisar [entre em contato com o suporte](http://go.microsoft.com/fwlink/?LinkID=619338).
+    Sim. Há limitações aqui: agora o histórico de cobrança da assinatura é dividido em duas contas. Mas a vantagem é que você pode fazer isso sem precisar [entre em contato com o suporte](http://go.microsoft.com/fwlink/?LinkID=619338).
 
 ## Próximas etapas depois de aceitar a posse de uma assinatura
 
@@ -107,4 +107,4 @@ Agora você pode fazer isso facilmente no Centro de Contas do Microsoft Azure, p
 4. Atualizar alertas de cobrança para essa assinatura no [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions) [Saiba mais](http://go.microsoft.com/fwlink/?LinkID=533292)
 5. 	Se estiver trabalhando com um parceiro, considere a atualização da ID do parceiro nesta assinatura. Você pode fazê-lo no [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -5,14 +5,14 @@
    documentationCenter="na"
    authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags 
    ms.service="visual-studio-online"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="mobile"
-   ms.date="08/12/2015"
+   ms.date="12/16/2015"
    ms.author="tarcher" />
 
 # Adicionando Serviços Móveis usando os serviços conectados do Visual Studio
@@ -49,9 +49,7 @@ Você pode usar a caixa de diálogo Serviços Conectados para se conectar a Serv
 
 1. Na caixa de diálogo **Serviços Móveis do Azure**, escolha um serviço móvel existente, se houver. Se você precisar criar um novo serviço móvel do Azure, siga o procedimento abaixo para fazer isso. Caso contrário, avance para a próxima etapa.
 
-    Para criar uma nova conta de serviço móvel:
-    1. Escolha o link **Criar Serviço** na parte inferior da caixa de diálogo.
-        ![Adicionar novo serviço conectado móvel](./media/vs-azure-tools-connected-services-add-mobile-services/IC797637.png)
+    Para criar uma nova conta de serviço móvel: 1. Escolha o link **Criar Serviço** na parte inferior da caixa de diálogo. ![Adicionar novo serviço conectado móvel](./media/vs-azure-tools-connected-services-add-mobile-services/IC797637.png)
 
 
 
@@ -91,4 +89,4 @@ Faça perguntas e obtenha ajuda:
 
  - [Documentação dos Serviços Móveis do Azure em azure.microsoft.com](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/02/2015"
+   ms.date="12/18/2015"
    ms.author="tarcher" />
 
 # Configurando credenciais de autenticação nomeadas
@@ -71,4 +71,4 @@ O procedimento a seguir pressupõe que a caixa de diálogo **Nova Assinatura** e
 
     1. Cole o caminho completo do arquivo .cer que você acabou de criar e, em seguida, digite a senha que especificou.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

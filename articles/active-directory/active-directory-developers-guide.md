@@ -31,7 +31,7 @@ Como uma plataforma IDMaaS (Gerenciamento de Identidade como um Serviço), o Act
 
 1. [Graph API do Active Directory do Azure](active-directory-graph-api.md): use a Graph API do Active Directory do Azure para acessar programaticamente o Active Directory do Azure por meio de pontos de extremidade da API REST. Observe que a Graph API do Azure AD também é acessível por meio da [Microsoft Graph](https://graph.microsoft.io/), uma API unificada que permite acesso a várias APIs do serviço de nuvem da Microsoft por meio de um único ponto de extremidade da API REST e com um token de acesso único.
 
-1. [Bibliotecas de autenticação do Active Directory do Azure](active-directory-authentication-libraries.md): autentique facilmente os usuários para obter tokens de acesso usando as bibliotecas de autenticação do Azure.
+1. [Bibliotecas de autenticação do Active Directory do Azure](active-directory-authentication-libraries.md): autentique facilmente os usuários para obter tokens de acesso usando as bibliotecas de autenticação do Azure para [.NET](https://msdn.microsoft.com/library/azure/mt417579.aspx), [JavaScript](https://github.com/AzureAD/azure-activedirectory-library-for-js), [Objective-C](https://github.com/AzureAD/azure-activedirectory-library-for-objc), [Android](http://search.maven.org/remotecontent?filepath=com/microsoft/aad/adal/o) e [mais](active-directory-authentication-libraries.md).
 
 
 ## Introdução
@@ -86,7 +86,7 @@ Esses artigos fornecem referências básicas para REST e biblioteca de autentica
 
 - [Bibliotecas de código aberto do Active Directory do Azure](http://github.com/AzureAD): a maneira mais fácil de encontrar a fonte de uma biblioteca é usando nossa [lista de bibliotecas](active-directory-authentication-libraries.md).
 
-- [Exemplos do Active Directory do Azure](http://github.com/AzureADSamples): a maneira mais fácil de navegar pela lista de exemplos é usando o [índice de exemplos de código](active-directory-code-samples.md).
+- [Exemplos do Active Directory do Azure](https://github.com/azure-samples?query=active-directory): a maneira mais fácil de navegar pela lista de exemplos é usando o [índice de exemplos de código](active-directory-code-samples.md).
 
 
 ### API gráfica
@@ -95,6 +95,9 @@ Esses artigos fornecem referências básicas para REST e biblioteca de autentica
 
 - [Escopos de permissão da Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes): os escopos de permissão do OAuth 2.0 usados para controlar o acesso que um aplicativo tem aos dados do diretório em um locatário.
 
+### Bibliotecas de autenticação
+
+- [.NET](https://msdn.microsoft.com/library/azure/mt417579.aspx): documentação para a biblioteca de autenticação do .NET.
 
 ### Protocolos de autenticação
 
@@ -138,4 +141,4 @@ O [Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/) 
 
 - [Active Directory do Azure no Twitter](https://twitter.com/azuread): comunicados do Active Directory do Azure em 140 caracteres ou menos.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

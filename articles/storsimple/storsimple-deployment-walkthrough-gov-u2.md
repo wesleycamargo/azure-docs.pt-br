@@ -15,7 +15,7 @@
    ms.date="12/09/2015"
    ms.author="v-sharos" />
 
-# Implantar seu dispositivo StorSimple local no Portal do governo
+# Implantar seu dispositivo StorSimple local no Portal do governo (Atualização 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-deploy-gov](../../includes/storsimple-version-selector-deploy-gov.md)]
 
@@ -243,4 +243,4 @@ Configurar um [dispositivo virtual](storsimple-virtual-device.md).
 Use o [Serviço StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) para gerenciar o seu dispositivo StorSimple.
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

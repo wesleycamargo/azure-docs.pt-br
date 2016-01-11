@@ -14,13 +14,27 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="12/08/2015"
-	ms.author="mebha"/>
+	ms.date="12/17/2015"
+	ms.author="meetb"/>
 
 
 # Conectar-se ao Banco de Dados SQL usando Ruby no Windows
 
-[AZURE.INCLUDE [SQL-Database-develop-Includes-Selector-Language-Platform-Depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+
+<!--
+Older Selector technique, with dynamic drop-down lists.
+ [ A ZURE . I NCLUDE [s ql-database-develop-includes-selector-language-platform-depth](../../inclu des/sql-database-develop-includes-selector-language-platform-depth.m d)]
+-->
+
+
+> [AZURE.SELECTOR]
+- [C#](sql-database-develop-dotnet-simple.md)
+- [PHP](sql-database-develop-php-simple-windows.md)
+- [Python](sql-database-develop-python-simple-windows.md)
+- [Ruby](sql-database-develop-ruby-simple-windows.md)
+- [Java](sql-database-develop-java-simple-windows.md)
+- [Node.js](sql-database-develop-nodejs-simple-windows.md)
+
 
 Este tópico apresenta um exemplo de código Ruby que é executado em um computador Windows executando Windows 8.1 para se conectar a um Banco de Dados SQL.
 
@@ -40,7 +54,7 @@ Abra seu terminal e instale o seguinte:
 - Na tela de configurações de instalação, selecione as caixas de seleção ao lado de ambos *Adicionar executáveis do Ruby ao seu caminho* e *Associar arquivos .rb e .rbw a esta instalação do Ruby*.
 
 
-**2) DevKit:** baixar DevKit da [página do RubyInstaller](http://rubyinstaller.org/downloads/)
+**2) DevKit:** Baixar DevKit da [página do RubyInstaller](http://rubyinstaller.org/downloads/)
 
 Depois que o download for concluído, faça o seguinte:
 
@@ -105,9 +119,9 @@ No exemplo de código, A função [TinyTds::Result](https://github.com/rails-sql
 
 Nesse exemplo, você verá como executar uma instrução [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) com segurança, passar parâmetros que protegem seu aplicativo contra vulnerabilidade [a injeção de SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) e recuperar o valor da [Chave Primária](https://msdn.microsoft.com/library/ms179610.aspx) gerado automaticamente.
 
-Para usar o TinyTDS com o Azure, é recomendável que você execute várias instruções `SET` para alterar como a sessão atual lida com informações específicas. As instruções `SET` recomendadas são fornecidas no exemplo de código. Por exemplo, `SET ANSI_NULL_DFLT_ON` permitirá novas colunas criadas para permitir valores nulos, mesmo que o status de nulidade da coluna não seja declarado explicitamente.
+Para usar o TinyTDS com o Azure, recomendamos a execução de várias `SET` instruções para alterar o modo como a sessão atual lida com informações específicas. Instruções `SET` recomendadas são fornecidas no código de exemplo. Por exemplo, `SET ANSI_NULL_DFLT_ON` permitirá novas colunas criadas para permitir valores nulos, mesmo que o status de nulidade da coluna não seja declarado explicitamente.
 
-Para alinhar com o formato [datetime](http://msdn.microsoft.com/library/ms187819.aspx) do Microsoft SQL Server, use a função [strftime](http://ruby-doc.org/core-2.2.0/Time.html#method-i-strftime) a ser convertida para o formato de datetime correspondente.
+Para alinhar com o formato [datetime](http://msdn.microsoft.com/library/ms187819.aspx) do Microsoft SQL Server, use a função [strftime](http://ruby-doc.org/core-2.2.0/Time.html#method-i-strftime) a ser convertida para o formato de data e hora correspondente.
 
     require 'tiny_tds'
     client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword',
@@ -130,4 +144,4 @@ Para alinhar com o formato [datetime](http://msdn.microsoft.com/library/ms187819
     puts row
     end
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

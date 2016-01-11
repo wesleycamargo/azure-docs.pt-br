@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="12/09/2015"
+   ms.date="12/17/2015"
    ms.author="guayan"/>
 
 # Registre uma API gerenciada pela Microsoft ou por TI
@@ -55,7 +55,7 @@ API | Descrição | Link de etapas
 ![][33] | **Excel**<br/><br/> você pode obter, atualizar, excluir itens e muito mais. | [**Guia de introdução**](powerapps-create-api-excel.md)
 ![][34] | **Google Drive**<br/><br/> você pode obter, atualizar, excluir itens e muito mais. | [**Guia de introdução**](powerapps-create-api-googledrive.md)
 ![][35] | **Microsoft Translator**<br/><br/>Traduz texto, detecta idiomas e muito mais. | [**Guia de introdução**](powerapps-create-api-microsofttranslator.md)
-![][36] | **Outlook Office365**<br/><br/>Gerencie seu email. | [**Guia de introdução**](powerapps-create-api-office365-outlook.md)
+![][36] | **Office 365 Outlook**<br/><br/>Gerenciar seu email. | [**Guia de introdução**](powerapps-create-api-office365-outlook.md)
 ![][37] | **Usuários do Office365**<br/><br/>Acesse perfis de usuário, seus gerentes, seus relatórios diretos e muito mais. | [**Guia de introdução**](powerapps-create-api-office365-users.md)
 ![][38] | **OneDrive**<br/><br/> você pode obter, atualizar, excluir itens e muito mais. | [**Guia de introdução**](powerapps-create-api-onedrive.md)
 ![][39] | **Salesforce**<br/><br/> Você pode obter, atualizar, excluir itens e muito mais. | [**Guia de introdução**](powerapps-create-api-salesforce.md)
@@ -70,7 +70,7 @@ Alguns benefícios extras abrangem:
 
 - Os recursos, incluindo a rede, memória ou as configurações de segurança, são monitorados por você. Por exemplo, se você precisa de mais memória para exibir os dados do Excel em seu aplicativo, você controla a quantidade de memória para adicionar em seu ambiente. 
 - Você configura a relação de confiança e controla a segurança entre seus aplicativos e a API. Por exemplo, você determina se a API do Office365 pode ser gerenciada pela Microsoft (uma relação de confiança automática) ou usa a API do Office365 em seu próprio ambiente (crie sua própria relação de confiança). 
-- **Todas** as APIs gerenciadas pela Microsoft também podem ser gerenciadas pela TI. Por exemplo, se desejar criar sua própria instância do Office365 e ter controle total sobre essa instância, você pode. Você pode usar sua API gerenciada pela TI e a API gerenciada pela Microsoft do Office365 no mesmo ambiente. Ela realmente depende das necessidades do seu aplicativo.
+- **Todas** as APIs gerenciadas pela Microsoft também podem ser gerenciadas pela TI. Por exemplo, se quiser criar sua própria instância do Office365 e ter controle total sobre essa instância, você pode. Você pode usar sua API gerenciada pela TI e a API gerenciada pela Microsoft do Office365 no mesmo ambiente. Ela realmente depende das necessidades do seu aplicativo.
 - Ao se conectar a sistemas locais ou usando a API de pesquisa do Bing, você controla a segurança, autenticação, licenciamento e muito mais.
 
 
@@ -151,4 +151,4 @@ Neste tópico, você viu como registrar sua própria instância das APIs dispon�
 [42]: ./media/powerapps-register-from-available-apis/sqlserver.png
 [43]: ./media/powerapps-register-from-available-apis/twitter.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

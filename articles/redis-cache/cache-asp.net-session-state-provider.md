@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="12/03/2015"
+   ms.date="12/17/2015"
    ms.author="sdanie" />
 
 # Provedor de estado de sessão ASP.NET para Cache Redis do Azure
@@ -29,7 +29,7 @@ Para configurar um aplicativo de cliente no Visual Studio utilizando o pacote Nu
 
 Digite **RedisSessionStateProvider** na caixa de texto Pesquisar Online, selecione-o nos resultados e clique em Instalar.
 
->[AZURE.IMPORTANT]Se você estiver usando o recurso de cluster a partir da camada premium, use [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.0 ou superior, caso contrário uma exceção será emitida. Isso é uma alteração significativa; para saber mais, confira [Detalhes de alteração significativa da v2.0.0](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
+>[AZURE.IMPORTANT]Se você estiver usando o recurso de cluster a partir da camada premium, use [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 ou superior, caso contrário uma exceção será emitida. Isso é uma alteração significativa; para saber mais, confira [Detalhes de alteração significativa da v2.0.0](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
 
 ![Provedor de estado de sessão do Cache Redis do Azure](./media/cache-asp.net-session-state-provider/IC751730.png)
 
@@ -106,4 +106,4 @@ Para saber mais sobre o estado da sessão e outras práticas recomendadas, consu
 
 Confira o [Provedor de cache de saída ASP.NET para o Cache Redis do Azure](cache-asp.net-output-cache-provider.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

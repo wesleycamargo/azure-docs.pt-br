@@ -14,14 +14,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="12/17/2015"
 	ms.author="meetb"/>
 
 
 # Conectar-se ao Banco de Dados SQL usando Phyton no Mac OS
 
 
-[AZURE.INCLUDE [SQL-Database-develop-Includes-Selector-Language-Platform-Depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+> [AZURE.SELECTOR]
+- [Node.js](sql-database-develop-nodejs-simple-mac.md)
+- [Python](sql-database-develop-python-simple-mac-osx.md)
+- [Ruby](sql-database-develop-ruby-simple-mac-osx.md)
 
 
 Este tópico apresenta um exemplo de código escrito em Python. O exemplo é executado em um computador Mac. O exemplo conecta-se ao Banco de Dados SQL do Azure usando o driver **pymssql**. Além disso, use nosso vídeo [Introdução ao Python no Mac](https://www.youtube.com/watch?v=OMpugPTwnTI) para suplementar esta documentação.
@@ -104,11 +107,11 @@ Nesse exemplo, você verá como executar uma instrução [INSERT](https://msdn.m
 Este exemplo de código demonstra o uso de transações nas quais você:
 
 
--Inicia uma transação
+- Inicia uma transação
 
--Insere uma linha de dados
+- Insere uma linha de dados
 
--Reverte a transação para desfazer a inserção
+- Reverte a transação para desfazer a inserção
 
 
 	import pymssql
@@ -123,4 +126,4 @@ Este exemplo de código demonstra o uso de transações nas quais você:
 
 Para saber mais, consulte o [Centro de Desenvolvedores do Python](/develop/python/).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

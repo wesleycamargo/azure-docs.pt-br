@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/08/2015"
+   ms.date="12/23/2015"
    ms.author="tomfitz"/>
 
 # Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure
@@ -38,7 +38,7 @@ Por meio do Azure PowerShell ou da API REST, você pode especificar uma atualiza
 - **adiciona** os recursos especificados no modelo, mas que não existem no grupo de recursos 
 - **não reprovisiona** os recursos existentes no grupo de recursos na mesma condição definida no modelo
  
-Especifique o tipo de implantação por meio da propriedade **Mode**.
+Especifique o tipo de implantação por meio da propriedade **Mode**, conforme mostrado nos exemplos abaixo para o PowerShell e API REST.
 
 ## Implantação com o PowerShell
 
@@ -100,9 +100,9 @@ Especifique o tipo de implantação por meio da propriedade **Mode**.
           Mode              : Incremental
           ...
 
-     Para executar uma implantação completa, defina **Mode** como **Complete**.
+     Para executar uma implantação completa, defina **Mode** como **Complete**. Observe que você receberá uma solicitação para confirmar que deseja usar o modo Completo que pode envolver a exclusão de recursos.
 
-          PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -Mode Complete
+          PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -Mode Complete -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> 
           Confirm
           Are you sure you want to use the complete deployment mode? Resources in the resource group 'ExampleResourceGroup' which are not
           included in the template will be deleted.
@@ -203,7 +203,7 @@ Se você não utilizou anteriormente a CLI do Azures com o Gerenciamento de Recu
              }
            }
    
-3. Criar um novo grupo de recursos. Forneça seu id de assinatura, o nome do grupo dos recursos para a serem implantados, o nome da implantação e o local do seu modelo. Para obter informações sobre o arquivo de modelo, consulte [Arquivo de parâmetro](./#parameter-file). Para obter mais informações sobre a API REST para criar um grupo de recursos, consulte [Criar uma implantação de modelo](https://msdn.microsoft.com/library/azure/dn790564.aspx). Para executar uma implantação completa, defina **mode** como **Complete**.
+3. Criar um novo grupo de recursos. Forneça seu id de assinatura, o nome do grupo dos recursos para a serem implantados, o nome da implantação e o local do seu modelo. Para obter informações sobre o arquivo de modelo, consulte [Arquivo de parâmetro](./#parameter-file). Para obter mais informações sobre a API REST para criar um grupo de recursos, consulte [Criar uma implantação de modelo](https://msdn.microsoft.com/library/azure/dn790564.aspx). Observe que **mode** está definido como **Incremental**. Para executar uma implantação completa, defina **mode** como **Complete**.
     
          PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
             <common headers>
@@ -230,7 +230,7 @@ Se você não utilizou anteriormente a CLI do Azures com o Gerenciamento de Recu
 
 Com o Visual Studio você pode criar um projeto do grupo de recursos e implantá-lo ao Azure por meio da interface do usuário. Selecione o tipo de recursos a serem incluídos em seu projeto e os recursos serão adicionados automaticamente ao modelo do Gerenciador de recursos. O projeto também fornece um script do PowerShell para implantar o modelo.
 
-Para obter uma introdução ao uso do Visual Studio com grupos de recursos, confira [Criando e implantando grupos de recursos do Azure usando o Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
+Para obter uma introdução ao uso do Visual Studio com grupos de recursos, confira [Criação e implantação de grupos de recursos do Azure usando o Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 ## Faça a implantação com o portal
 
@@ -238,7 +238,7 @@ E adivinhe? Todos os aplicativos criados por meio do [portal](https://portal.azu
 
 ![Novo](./media/resource-group-template-deploy/new.png)
 
-Para saber mais sobre como usar o portal com o Gerenciador de Recursos do Azure, confira [Usando o Portal do Azure para gerenciar os recursos do Azure](azure-portal/resource-group-portal.md).
+Para saber mais sobre como usar o portal com o Gerenciador de Recursos do Azure, confira [Como usar o Portal do Azure para gerenciar os recursos do Azure](azure-portal/resource-group-portal.md).
 
 
 ## Arquivo de parâmetro.
@@ -267,9 +267,9 @@ O tamanho do arquivo de parâmetro não pode ser superior a 64 KB.
 - Para obter um exemplo de como implantar recursos por meio da biblioteca de cliente do .NET, confira [Implantar recursos usando bibliotecas .NET e um modelo](arm-template-deployment.md)
 - Para obter um exemplo detalhado de implantação de um aplicativo, confira [Provisionar e implantar microsserviços de forma previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
 - Para obter orientação sobre como implantar a solução em ambientes diferentes, confira [Ambientes de desenvolvimento e de teste no Microsoft Azure](solution-dev-test-environments-preview-portal.md).
-- Para saber mais sobre as seções do modelo do Gerenciador de Recursos do Azure, confira [Criando modelos](resource-group-authoring-templates.md)
+- Para saber mais sobre as seções do modelo do Gerenciador de Recursos do Azure, confira [Criação de modelos](resource-group-authoring-templates.md)
 - Para obter uma lista das funções que você pode usar em um modelo do Gerenciador de Recursos do Azure, confira [Funções do modelo](resource-group-template-functions.md)
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

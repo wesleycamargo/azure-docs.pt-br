@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/13/2015"
+	ms.date="12/17/2015"
 	ms.author="mmercuri"/>
 
 # Exemplos contextuais de práticas recomendadas para a implementação de modelos
@@ -254,4 +254,4 @@ Por fim, pode haver um desejo de garantir que determinados recursos não sejam e
 - Para obter recomendações de como lidar com segurança no Gerenciador de Recursos do Azure, consulte [Considerações de segurança do Gerenciador de Recursos do Azure](best-practices-resource-manager-security.md).
 - Para saber mais sobre o estado de compartilhamento dentro e fora dos modelos, consulte [O estado de compartilhamento em modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-state.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

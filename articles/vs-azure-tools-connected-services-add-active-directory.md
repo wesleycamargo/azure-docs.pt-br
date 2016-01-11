@@ -5,8 +5,15 @@
    documentationCenter="na"
    authors="TomArcher"
    manager="douge"
-   editor="tlee" />
-<tags  ms.service="visual-studio-online"" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="visual-studio-online" ms.date="08/12/2015" ms.author="tarcher" />
+   editor="" />
+<tags 
+   ms.service="visual-studio-online"
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="visual-studio-online"
+   ms.date="12/16/2015"
+   ms.author="tarcher" />
 
 # Adicionando um Active Directory do Azure usando Serviços Conectados no Visual Studio 
 
@@ -24,10 +31,10 @@ Você pode usar a caixa de diálogo Serviços Conectados para se conectar ao AD 
 
 ### Conectar-se ao AD do Azure usando a caixa de diálogo Serviços Conectados
 
-1. Certifique-se de que tenha uma conta do Azure. Se não tiver uma conta do Azure, você pode se inscrever para uma [avaliação gratuita](http://go.microsoft.com/fwlink/?LinkId=518146).
+1. Certifique-se de que tenha uma conta do Azure. Se não tiver uma conta do Azure, poderá se inscrever para uma [avaliação gratuita](http://go.microsoft.com/fwlink/?LinkId=518146).
 
 1. No Visual Studio, abra o menu de atalho do nó **Referências** em seu projeto e escolha **Adicionar Serviços Conectados**.
-1. Selecione **Autenticação do AD do Azure** e escolha **Configurar**.
+1. Selecione **Autenticação do Azure AD** e escolha **Configurar**.
 
     ![Escolher Adicionar Autenticação AD do Azure](./media/vs-azure-tools-connected-services-add-active-directory/connected-services-add-active-directory.png)
 
@@ -60,7 +67,7 @@ Você pode usar a caixa de diálogo Serviços Conectados para se conectar ao AD 
 
 ## Como o projeto é modificado
 
-Quando você executa o assistente, o Visual Studio adiciona o AD do Azure e referências associadas a seu projeto. Os arquivos de configuração e os arquivos de código em seu projeto também são modificados para adicionar suporte ao AD do Azure. As modificações específicas que o Visual Studio faz dependem do tipo de projeto. Para obter informações detalhadas sobre como os projetos MVC ASP.NET são modificados, consulte [O que aconteceu — projetos MVC](http://go.microsoft.com/fwlink/p/?LinkID=513809). Para projetos API Web, consulte [O que aconteceu — projetos API Web](http://go.microsoft.com/fwlink/p/?LinkId=513810).
+Quando você executa o assistente, o Visual Studio adiciona o AD do Azure e referências associadas a seu projeto. Os arquivos de configuração e os arquivos de código em seu projeto também são modificados para adicionar suporte ao AD do Azure. As modificações específicas que o Visual Studio faz dependem do tipo de projeto. Para obter informações detalhadas sobre como os projetos MVC ASP.NET são modificados, consulte [O que aconteceu — projetos MVC](http://go.microsoft.com/fwlink/p/?LinkID=513809). Para projetos de API Web, confira [O que aconteceu — projetos API Web](http://go.microsoft.com/fwlink/p/?LinkId=513810).
 
 ##Próximas etapas
 
@@ -72,4 +79,4 @@ Faça perguntas e obtenha ajuda.
 
  - [Postagem do blog: Introdução ao AD do Azure](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

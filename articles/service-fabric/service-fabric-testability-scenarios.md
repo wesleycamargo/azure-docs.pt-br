@@ -16,30 +16,33 @@
    ms.date="08/26/2015"
    ms.author="anmola"/>
 
-# Cenários de teste
-Sistemas grandes distribuídos como infraestruturas de nuvem não são confiáveis por natureza. A Malha do Serviço fornece aos desenvolvedores a capacidade de gravar os serviços para serem executados sobre infraestruturas não confiáveis. Para gravar serviços de alta qualidade, os desenvolvedores precisam ser capazes de induzir essa infraestrutura confiável a testar a estabilidade dos seus serviços. A Malha do Serviço fornece aos desenvolvedores a capacidade de induzir ações de falha para testar serviços na presença de falhas. No entanto, falhas simuladas direcionadas não o levarão tão longe. Para elevar o teste a um outro patamar, a Malha do Serviço fornece cenários de teste predefinidos. Os cenários simulam falhas intercaladas contínuas, amigáveis e não amigáveis, em todo o cluster por longos períodos de tempo. Quando configurado com a taxa e o tipo de falha, ele é executado como uma ferramenta do lado do cliente, por meio de APIs do C# ou PowerShell para gerar falhas no cluster e no serviço. Como parte do recurso de capacidade de teste, fornecemos os cenários a seguir.
+# Cenários da possibilidade de teste
+Sistemas grandes distribuídos como infraestruturas de nuvem não são confiáveis por natureza. O Service Fabric do Azure permite aos desenvolvedores gravar os serviços para serem executados em infraestruturas não confiáveis. Para gravar serviços de alta qualidade, os desenvolvedores precisam ser capazes de induzir essa infraestrutura não confiável a testar a estabilidade dos seus serviços.
 
-1.	Teste de Caos
-2.	Teste de Failover
+O Service Fabric fornece aos desenvolvedores a capacidade de induzir ações de falha para testar serviços na presença de falhas. No entanto, falhas simuladas direcionadas não o levarão tão longe. Para fazer mais testes, você pode usar os cenários de teste no Service Fabric: um teste de caos e um de failover. Esses cenários simulam falhas intercaladas contínuas, amigáveis e não amigáveis, em todo o cluster por longos períodos de tempo. Quando um teste é configurado com a taxa e o tipo de falha, ele é executado como uma ferramenta do lado do cliente, por meio de APIs do C# ou do PowerShell para gerar falhas no cluster e no serviço.
 
-## Teste de Caos
-O cenário de caos gera falhas no cluster de toda a malha de serviço. O cenário compacta falhas geralmente vistas em meses ou em anos em apenas algumas horas. A combinação de falhas intercaladas com a alta taxa de falhas localiza casos específicos que de outra forma seriam ignorados. Isso leva a uma melhoria significativa na qualidade do código do serviço.
+## Teste de caos
+O cenário de caos gera falhas em todo o cluster do Service Fabric. O cenário compacta falhas geralmente vistas em meses ou em anos em apenas algumas horas. A combinação de falhas intercaladas com a alta taxa de falhas localiza casos específicos que de outra forma seriam ignorados. Isso leva a uma melhoria significativa na qualidade do código do serviço.
 
-### Falha simulada no teste de caos
- - Reinício de um nó
- - Reinício de um pacote de código implantado
- - Remoção de uma Réplica
- - Reinício de uma réplica
- - Movimentação de uma réplica primária (opcional)
- - Movimentação de uma réplica secundária (opcional)
+### Falhas simuladas no teste de caos
+ - Reiniciar um nó
+ - Reiniciar um pacote de códigos implantado
+ - Remover uma réplica
+ - Reiniciar uma réplica
+ - Mover uma réplica primária (opcional)
+ - Mover uma réplica secundária (opcional)
 
-O teste de caos executa várias iterações de falhas e validações de cluster durante o período de tempo especificado. O tempo gasto para o cluster se estabilizar e a validação de êxito também são configuráveis. A falha do cenário quando nos deparamos com uma única falha na validação do cluster. Por exemplo, considere um conjunto de teste a ser executado por 1 hora e com o máximo de 3 falhas simultâneas. O teste induzirá 3 falhas e validará a integridade do cluster. O teste vai iterar a etapa anterior até que o cluster se torne não íntegro ou que decorra 1 hora. Se em uma iteração o cluster se tornar não íntegro, ou seja, não se estabilizar em um tempo configurado, o teste falhará com uma exceção. Essa exceção indica que algo deu errado e precisa de mais investigação. Em sua forma atual, o teste do mecanismo de geração de falha de teste de caos induz apenas a falhas seguras. Isso significa que, na ausência de falhas externas, uma perda de quorum ou dados nunca ocorrerá.
+O teste de caos executa várias iterações de falhas e validações de cluster durante o período de tempo especificado. O tempo gasto para o cluster se estabilizar e a validação de êxito também são configuráveis. O cenário falha quando nos deparamos com uma única falha na validação do cluster.
+
+Por exemplo, considere um teste definido para ser executado por uma hora com um máximo de três falhas simultâneas. O teste induzirá três falhas e validará a integridade do cluster. O teste será iterado por meio da etapa anterior até que o cluster perca a integridade ou tenha decorrido uma hora. Se o cluster se tornar não íntegro em qualquer iteração, ou seja, não se estabilizar em um tempo configurado, o teste falhará com uma exceção. Essa exceção indica que algo deu errado e precisa de mais investigação.
+
+Em sua forma atual, o mecanismo de geração de falha no teste de caos induz somente a falhas seguras. Isso significa que, na ausência de falhas externas, uma perda de quorum ou dados nunca ocorrerá.
 
 ### Opções de configuração importantes
- - **TimeToRun**: tempo total em que o teste será executado antes de ser concluído com êxito. O teste pode ser concluído antes, no lugar de uma falha de validação.
- - **MaxClusterStabilizationTimeout**: a quantidade máxima de tempo de espera para que o cluster se torne íntegro antes de falhar no teste. As verificações executadas são as seguintes: se a integridade do cluster está OK, se a integridade do serviço está OK, tamanho do conjunto de réplicas de destino obtido para a partição de serviço e nenhuma réplica do InBuild.
+ - **TimeToRun**: tempo total em que o teste será executado antes de ser finalizado com êxito. O teste pode ser finalizado antes, no lugar de uma falha de validação.
+ - **MaxClusterStabilizationTimeout**: a quantidade máxima de tempo de espera para que o cluster se torne íntegro antes de falhar no teste. As verificações executadas são as seguintes: se a integridade do cluster está OK, se a integridade do serviço está OK, se o tamanho do conjunto de réplicas de destino foi atingido para a partição de serviço e se não existe réplica do InBuild.
  - **MaxConcurrentFaults**: número máximo de falhas simultâneas induzidas em cada iteração. Quanto maior o número, mais agressivo o teste, resultando em failovers mais complexos e combinações de transição. O teste garante que, na ausência de falhas externas, não haverá uma perda de quorum ou de dados, independentemente de quão alta essa configuração está.
- - **EnableMoveReplicaFaults**: habilita ou desabilita as falhas, causando a movimentação das réplicas primárias ou secundárias. Essas falhas estão desabilitadas por padrão.
+ - **EnableMoveReplicaFaults**: habilita ou desabilita as falhas que estão causando a movimentação das réplicas primárias ou secundárias. Essas falhas estão desabilitadas por padrão.
  - **WaitTimeBetweenIterations**: tempo de espera entre as iterações, isto é, após uma rodada de falhas e a validação correspondente.
 
 ### Como executar o teste de caos
@@ -89,10 +92,10 @@ class Test
         uint maxConcurrentFaults = 3;
         bool enableMoveReplicaFaults = true;
 
-        // Create FabricClient with connection & security information here.
+        // Create FabricClient with connection and security information here.
         FabricClient fabricClient = new FabricClient(clusterConnection);
 
-        // The Chaos Test Scenario should run at least 60 minutes or up until it fails.
+        // The chaos test scenario should run at least 60 minutes or until it fails.
         TimeSpan timeToRun = TimeSpan.FromMinutes(60);
         ChaosTestScenarioParameters scenarioParameters = new ChaosTestScenarioParameters(
           maxClusterStabilizationTimeout,
@@ -121,7 +124,7 @@ class Test
 }
 ```
 
-Powershell
+PowerShell
 
 ```powershell
 $connection = "localhost:19000"
@@ -138,23 +141,23 @@ Invoke-ServiceFabricChaosTestScenario -TimeToRunMinute $timeToRun -MaxClusterSta
 
 ## Teste de failover
 
-O cenário do teste de failover é uma versão do cenário de teste de Caos que visa uma partição de serviço específica. Ele testa o efeito de failover em uma partição de serviço específica, sem afetar os outros serviços. Quando configurado com as informações de partição de destino e outros parâmetros, ele é executado como uma ferramenta do lado do cliente usando APIs do C# ou Powershell para gerar falhas para uma partição de serviço. O cenário itera por meio de uma sequência de falhas simuladas e validação de serviço enquanto a lógica de negócios é executada ao lado para fornecer uma carga de trabalho. Uma falha na validação do serviço indica um problema que precisa de mais investigação.
+O cenário do teste de failover é uma versão do cenário de teste de caos que visa uma partição de serviço específica. Ele testa o efeito de failover em uma partição de serviço específica, sem afetar os outros serviços. Quando configurado com as informações de partição de destino e outros parâmetros, ele é executado como uma ferramenta do lado do cliente que usa as APIs do C# ou o PowerShell para gerar falhas para uma partição de serviço. O cenário é iterado por meio de uma sequência de falhas simuladas e validação de serviço enquanto a lógica de negócios é executada ao lado para fornecer uma carga de trabalho. Uma falha na validação do serviço indica um problema que precisa de mais investigação.
 
 ### Falhas simuladas no teste de failover
-- Reiniciar um pacote de código implantado onde a partição está hospedada
-- Remover uma réplica Primária/Secundária ou uma instância sem estado
-- Reiniciar uma Réplica Primária Secundária (se o serviço persistir)
+- Reiniciar um pacote de códigos implantado onde a partição está hospedada
+- Remover uma réplica primária/secundária ou uma instância sem estado
+- Reiniciar uma réplica primária secundária (se o serviço persistir)
 - Mover uma réplica primária
 - Mover uma réplica secundária
-- Reinicie a partição.
+- Reiniciar a partição
 
-O teste de failover induz uma falha escolhida e depois executa a validação no serviço para assegurar sua estabilidade. O teste de failover apenas induz a uma falha de cada vez, em vez de possíveis várias falhas no teste de Caos. Se, depois de cada falha, a partição de serviço não estabilizar dentro do tempo limite configurado, o teste falhará. O teste induz apenas falhas seguras. Isso significa que, na ausência de falhas externas, não ocorre uma perda de quorum ou dados.
+O teste de failover induz a uma falha escolhida e depois executa a validação no serviço para assegurar sua estabilidade. O teste de failover induz apenas a uma falha de cada vez, em vez de possíveis várias falhas no teste de caos. Se a partição de serviço não estabilizar no tempo limite configurado após cada falha, o teste falhará. O teste induz apenas a falhas seguras. Isso significa que, na ausência de falhas externas, não ocorre uma perda de quorum ou dados.
 
 ### Opções de configuração importantes
  - **PartitionSelector**: objeto seletor que especifica a partição que precisa ser direcionada.
- - **TimeToRun**: tempo total que o teste será executado antes da conclusão
- - **MaxServiceStabilizationTimeout**: a quantidade máxima de tempo de espera para que o cluster se torne íntegro antes da falha no teste. As verificações executadas são as seguintes: se a integridade do serviço está OK, o tamanho do conjunto de réplicas de destino obtido para todas as partições e nenhuma réplica do InBuild.
- - **WaitTimeBetweenFaults**: tempo de espera entre cada ciclo de falha e validação
+ - **TimeToRun**: tempo total pelo qual o teste será executado antes da finalização.
+ - **MaxServiceStabilizationTimeout**: a quantidade máxima de tempo de espera para que o cluster se torne íntegro antes da falha no teste. As verificações executadas são as seguintes: se a integridade do serviço está OK, se o tamanho do conjunto de réplicas de destino foi atingido para todas as partições e se não existe réplica do InBuild.
+ - **WaitTimeBetweenFaults**: tempo de espera entre cada ciclo de falha e validação.
 
 ### Como executar o teste de failover
 Exemplo de C#
@@ -203,10 +206,10 @@ class Test
         TimeSpan maxServiceStabilizationTimeout = TimeSpan.FromSeconds(180);
         PartitionSelector randomPartitionSelector = PartitionSelector.RandomOf(serviceName);
 
-        // Create FabricClient with connection & security information here.
+        // Create FabricClient with connection and security information here.
         FabricClient fabricClient = new FabricClient(clusterConnection);
 
-        // The Chaos Test Scenario should run at least 60 minutes or up until it fails.
+        // The chaos test scenario should run at least 60 minutes or until it fails.
         TimeSpan timeToRun = TimeSpan.FromMinutes(60);
         FailoverTestScenarioParameters scenarioParameters = new FailoverTestScenarioParameters(
           randomPartitionSelector,
@@ -235,7 +238,7 @@ class Test
 ```
 
 
-Powershell
+PowerShell
 
 ```powershell
 $connection = "localhost:19000"
@@ -249,6 +252,4 @@ Connect-ServiceFabricCluster $connection
 Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxServiceStabilizationTimeoutSec $maxStabilizationTimeSecs -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ServiceName $serviceName -PartitionKindSingleton
 ```
 
- 
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1223_2015-->

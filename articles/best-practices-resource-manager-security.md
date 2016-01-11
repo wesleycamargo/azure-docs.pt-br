@@ -21,7 +21,7 @@
 
 Ao examinar os aspectos de segurança dos modelos do Gerenciador de Recursos do Azure, existem várias áreas a considerar: chaves e segredos, controle de acesso baseado em função e grupos de segurança de rede.
 
-Este tópico pressupõe que você esteja familiarizado com o RBAC (controle de acesso baseado em função) no Gerenciador de Recursos do Azure. Para obter mais informações, consulte [Controle de acesso baseado em função no portal do Microsoft Azure](role-based-access-control-configure.md) e [Gerenciar e auditar o acesso a recursos](resource-group-rbac.md)
+Este tópico pressupõe que você esteja familiarizado com o RBAC (controle de acesso baseado em função) no Gerenciador de Recursos do Azure. Para saber mais, consulte [Controle de acesso baseado em função no Azure](./active-directory/role-based-access-control-configure.md).
 
 Este tópico faz parte de um whitepaper mais amplo. Para ler o documento completo, baixe [Considerações e práticas comprovadas de modelos ARM de nível mundial](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
@@ -224,7 +224,7 @@ NEGAR TODAS AS SAÍDAS | 65500 | * | * | * | * | * | NEGAR
 
 As regras NSG são explícitas. Nenhum tráfego é permitido ou negado além do que é especificado nas regras de NSG. No entanto, dois tipos de tráfego são sempre permitidos, independentemente da especificação do grupo de segurança de rede. Estes provisionamentos são feitos para dar suporte à infraestrutura:
 
-- **IP Virtual do Nó do Host:** os serviços básicos de infraestrutura, como DHCP, DNS e monitoramento de integridade, são fornecidos pelo endereço IP virtualizado do host 168.63.129.16. Este endereço IP público pertence à Microsoft e será o único endereço IP virtualizado usado em todas as regiões para essa finalidade. Esse endereço IP é mapeado para o endereço IP físico do computador do servidor (nó do host) que hospeda a VM. O nó do host atua como a retransmissão DHCP, o solucionador de DNS recursivo e a fonte de sonda para a investigação de integridade do balanceador de carga e a investigação de integridade da máquina. A comunicação com esse endereço IP não deve ser considerada como um ataque.
+- **IP virtual do nó do host**: serviços básicos de infraestrutura, como DHCP, DNS e integridade de monitoramento, são fornecidos pelo endereço IP virtualizado host 168.63.129.16. Este endereço IP público pertence à Microsoft e será o único endereço IP virtualizado usado em todas as regiões para essa finalidade. Esse endereço IP é mapeado para o endereço IP físico do computador do servidor (nó do host) que hospeda a VM. O nó do host atua como a retransmissão DHCP, o solucionador de DNS recursivo e a fonte de sonda para a investigação de integridade do balanceador de carga e a investigação de integridade da máquina. A comunicação com esse endereço IP não deve ser considerada como um ataque.
 - **Licenciamento (Serviço de Gerenciamento de Chaves)**: as imagens do Windows em execução nas VMs devem ser licenciadas. Para fazer isso, uma solicitação de licenciamento é enviada para os servidores de host do serviço de gerenciamento de chaves que lidar com essas consultas. Isso sempre será na porta de saída 1688.
 
 ### Marcas padrão
@@ -335,6 +335,6 @@ Essa VM de dispositivo virtual deve ser capaz de receber o tráfego de entrada n
 - Para entender como configurar as entidades de segurança com o acesso correto para funcionar com os recursos em sua organização, consulte [Autenticando uma entidade de serviço com o Gerenciador de Recursos do Azure](resource-group-authenticate-service-principal.md)
 - Se precisar bloquear o acesso a um recurso, você pode usar bloqueios de gerenciamento. Consulte [Bloquear recursos com o Gerenciador de Recursos do Azure](resource-group-lock-resources.md)
 - Para configurar o roteamento e o encaminhamento IP, consulte [Como criar rotas e habilitar o encaminhamento IP no Azure](virtual-network/virtual-networks-udr-how-to.md) 
-- Para obter uma visão geral do controle de acesso baseado em função, consulte [Controle de acesso baseado em função no portal do Microsoft Azure](role-based-access-control-configure.md)
+- Para obter uma visão geral do controle de acesso baseado em função, veja [Controle de acesso baseado em função no portal do Microsoft Azure](role-based-access-control-configure.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

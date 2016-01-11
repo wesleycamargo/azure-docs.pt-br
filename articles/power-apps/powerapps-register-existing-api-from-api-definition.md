@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="12/09/2015"
+   ms.date="12/17/2015"
    ms.author="guayan"/>
 
 # Registrar uma API da definição da API do Swagger 2.0  
@@ -40,19 +40,19 @@ Este artigo mostra como **registrar uma de suas próprias APIs usando a definiç
 	- A propriedade ``host`` deve apontar para o ponto de extremidade real da API existente. Não use esquemas ou subcaminhos. Por exemplo, insira ``api.contoso.com``. <br/><br/>
 	- A propriedade ``basePath`` deve relacionar os subcaminhos do ponto de extremidade da API existente, se houver algum. Comece com uma barra invertida ``/``. Por exemplo, insira ``/purchaseorderapi``.
 
-2. Verifique se a API existente pode ser acessada pelo ambiente do serviço de aplicativo de forma segura: <br/><br/> a) Se você estiver familiarizado com a criação da API acessível por meio da Internet, poderá configurar a autenticação básica de HTTP entre o ambiente de serviço de aplicativo e a API existente. Entre [aqui](powerapps-configure-apis.md) para saber como. <br/><br/> b) Se você quiser manter a API na rede de sua organização, poderá configurar uma rede virtual no ambiente de serviço de aplicativo para acessar a rede de sua organização com segurança. Entre [aqui](../app-service-app-service-environment-intro.md) para saber como.
+2. Verifique se a API existente pode ser acessada pelo ambiente do serviço de aplicativo de forma segura: <br/><br/> a) Se você estiver familiarizado com a criação da API acessível por meio da Internet, poderá configurar a autenticação básica de HTTP entre o ambiente de serviço de aplicativo e a API existente. [Atualizar uma API existente](powerapps-configure-apis.md) para saber como. <br/><br/> b) Se você quiser manter a API na rede de sua organização, poderá configurar uma rede virtual no ambiente de serviço de aplicativo para acessar a rede de sua organização com segurança. Saiba mais sobre os [ambientes do Serviço de Aplicativo](../app-service-app-service-environment-intro.md)
 
 3. No [portal do Azure](https://portal.azure.com/), selecione **PowerApps** e selecione **Gerenciar APIs**: ![][11]
 4. Na seção Gerenciar APIs, selecione **Adicionar**: ![][12]
 5. Em **Adicionar API**, insira as propriedades da API:  
 
-	- Em **Nome**, insira um nome para sua API. Observe que o nome inserido é incluído na URL de tempo de execução da API. Verifique o nome significativo e exclusivo em sua organização.
+	- Em **Nome**, insira um nome para sua API. Observe que o nome inserido está incluído na URL de tempo de execução da API. Verifique o nome significativo e exclusivo em sua organização.
 	- Em **Fonte**, selecione **Importar do Swagger 2.0**.
 
 6. Em **Definição da API (Swagger 2.0)**, carregue o arquivo de definição da API do Swagger 2.0: ![][13]
 7. Selecione **ADICIONAR** para concluir estas etapas.
 
-> [AZURE.TIP]Ao registrar uma API, você estará registrando a API para seu ambiente do serviço de aplicativo. Uma vez no ambiente de serviço de aplicativo, ela poderá ser usada por outros aplicativos no mesmo ambiente do serviço de aplicativo.
+> [AZURE.TIP]Ao registrar uma API, você está registrando a API para seu ambiente de serviço de aplicativo. Uma vez no ambiente de serviço de aplicativo, ela poderá ser usada por outros aplicativos no mesmo ambiente de serviço de aplicativo.
 
 ## Resumo e próximas etapas
 
@@ -67,4 +67,4 @@ Neste tópico, você viu como registrar uma API a partir da definição da API d
 [12]: ./media/powerapps-register-existing-api-from-api-definition/add-api-button.png
 [13]: ./media/powerapps-register-existing-api-from-api-definition/add-api-blade.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -3,7 +3,7 @@
 	description="Descreve como funciona o script do PowerShell no projeto de implantação do Grupo de Recursos do Azure."
 	services="visual-studio-online"
 	documentationCenter="na"
-	authors="kempb"
+	authors="TomArcher"
 	manager="douge"
 	editor="tlee" />
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
 	ms.date="11/17/2015"
-	ms.author="kempb" />
+	ms.author="tarcher" />
 
 # Visão geral do script de implantação de projeto do Grupo de Recursos do Azure
 
@@ -264,4 +264,4 @@ Saiba mais sobre o Gerenciador de Recursos do Azure lendo [Visão geral do Geren
 [4]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy5c.png
 [5]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy6c.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

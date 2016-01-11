@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/26/2015" 
+	ms.date="12/17/2015" 
 	ms.author="bradsev" />
 
 
@@ -91,6 +91,20 @@ Depois de criar a VM, é possível fazer logon nela usando a área de trabalho r
 
 Depois de criar e provisionar sua VM, você estará pronto para começar a usar as ferramentas que estão instaladas e configuradas nela. Há ícones da área de trabalho e blocos do menu Iniciar para várias das ferramentas.
 
+## Como criar uma senha forte na Máquina Virtual de Ciência de Dados
+
+Execute o seguinte comando a partir de um prompt de comando na Máquina Virtual de Ciência de Dados para criar sua própria senha forte para a máquina.
+
+	c:\anaconda\python.exe -c "import IPython;print IPython.lib.passwd()"
+
+Insira a senha quando solicitado.
+
+Você verá o hash de senha no formato "sha1:xxxxxx" na saída. Copie esse hash de senha e substitua o hash existente em seu arquivo de configuração do bloco de anotações localizado em: **C:\\Aaqs.ipython\\profile\_nbserver\\ipython\_notebook\_config.py** com um nome de parâmetro ***c.NotebookApp.password***.
+
+Você só deve substituir o valor de hash existente que está entre aspas. As aspas e o prefixo ***sha1:*** para o valor do parâmetro precisam ser mantidos.
+
+Por fim, você precisa parar e reiniciar o servidor do Ipython que está em execução na VM como uma tarefa agendada do Windows chamada "Start\_IPython\_Notebook". Se a nova senha não for aceita após a reinicialização dessa tarefa, tente reiniciar a máquina virtual.
+
 ## Ferramentas Instaladas na Máquina Virtual de Ciência de Dados da Microsoft
 
 ### R
@@ -115,11 +129,11 @@ Várias ferramentas do Azure são instaladas na VM: - há um atalho da área de 
 
 ###Power BI
 
-Para ajudá-lo a compilar ótimos painéis e visualizações, o **Power BI Desktop** foi instalado. Use essa ferramenta para extrair dados de fontes diferentes, criar painéis e relatórios e publicá-los na nuvem. Para obter informações, visite o site do [Power BI](http://powerbi.microsoft.com).
+Para ajudá-lo a compilar ótimos painéis e visualizações, o **Power BI Desktop** foi instalado. Use essa ferramenta para extrair dados de fontes diferentes, criar painéis e relatórios e publicá-los na nuvem. Para saber mais, visite o site do [Power BI](http://powerbi.microsoft.com).
 
 Observação: será necessário uma conta do Office 365 para acessar o Power BI.
 
 ## Ferramentas de desenvolvimento adicionais da Microsoft
 O [**Microsoft Web Platform Installer**](https://www.microsoft.com/web/downloads/platform.aspx) pode ser usado para descobrir e baixar outras ferramentas de desenvolvimento da Microsoft. Também é um atalho para a ferramenta fornecida na área de trabalho de Máquina de Virtual de Ciência de Dados da Microsoft.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

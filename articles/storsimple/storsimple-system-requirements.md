@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="12/14/2015"
+   ms.date="12/18/2015"
    ms.author="alkohli"/>
 
 # Software StorSimple, alta disponibilidade e requisitos de rede
@@ -103,17 +103,12 @@ A Atualização 2 contém vários aprimoramentos relacionados à rede; além dis
 
 - Um conjunto de valores predeterminados foi atribuído a interfaces de rede. 	
 		
-- Considere uma tabela de exemplo mostrada abaixo, com valores (de exemplo) atribuídos às várias interfaces de rede quando são habilitadas ou desabilitadas para a nuvem, mas com um gateway configurado.
+- Considere uma tabela de exemplo mostrada abaixo, com valores atribuídos às várias interfaces de rede quando são habilitadas ou desabilitadas para a nuvem, mas com um gateway configurado. Observe que os valores atribuídos aqui são apenas exemplos.
 
 		
 	| Interface de rede | Habilitado para nuvem | Desabilitado para a nuvem com o gateway |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - |
-	| Data 1 | 2 | 20 |
-	| Data 2 | 3 | 30 |
-	| Data 3 | 4 | 40 |
-	| Data 4 | 5 | 50 |
-	| Data 5 | 6 | 60 |
+	| Data 0 | 1 | - | | Data 1 | 2 | 20 | | Data 2 | 3 | 30 | | Data 3 | 4 | 40 | | Data 4 | 5 | 50 | | Data 5 | 6 | 60 |
 
 
 - A ordem na qual o tráfego da nuvem será roteado pelas interfaces de rede é:
@@ -136,7 +131,7 @@ A Atualização 2 contém vários aprimoramentos relacionados à rede; além dis
 - Se houver uma falha de VIP para uma interface de rede habilitada para iSCSI, haverá três tentativas com um atraso de 2 segundos. Esse comportamento permanece o mesmo em relação às versões anteriores. Se todas as interfaces de rede iSCSI falharem, ocorrerá um failover de controlador (acompanhado por uma reinicialização).
 
 
-- Um alerta também será gerado no dispositivo do StorSimple quando houver uma falha de VIP. Para obter mais informações, vá para [alerta de falha de VIP](storsimple-manage-alerts.md).
+- Um alerta também será gerado no dispositivo do StorSimple quando houver uma falha de VIP. Para saber mais, acesse a [referência rápida de alerta](storsimple-manage-alerts.md).
 	
 - Quanto às repetições, o iSCSI terá precedência sobre a nuvem.
 
@@ -261,4 +256,4 @@ Leia com atenção essas práticas recomendadas para garantir a alta disponibili
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

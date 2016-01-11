@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
+   ms.date="12/17/2015"
    ms.author="masashin"/>
 
 # Diretrizes de monitoramento e diagnóstico
@@ -92,7 +92,7 @@ Os dados de instrumentação devem ser agregados e correlacionados para dar supo
 
 - A disponibilidade imediata do sistema e dos subsistemas.
 - As taxas de falha de disponibilidade do sistema e dos subsistemas. O ideal é que um operador seja capaz de correlacionar falhas a atividades específicas; o que estava acontecendo quando o sistema falhou?
-- Uma exibição do histórico de taxas de falha do sistema ou de quaisquer subsistemas em qualquer período de tempo especificado, assim como o carregamento do sistema (número de solicitações de usuário,s por exemplo) quando uma falha ocorreu.
+- Uma exibição do histórico de taxas de falha do sistema ou de quaisquer subsistemas em qualquer período de tempo especificado, assim como o carregamento do sistema (número de solicitações de usuários, por exemplo) quando uma falha ocorreu.
 - Os motivos para a indisponibilidade do sistema ou de quaisquer subsistemas. Por exemplo, o serviço não é executado, perda de conectividade, há conectividade mas é atingido o tempo limite e há conectividade mas são retornados erros.
 
 Você pode calcular o percentual de disponibilidade de um serviço em um período de tempo usando a fórmula:
@@ -101,7 +101,7 @@ Você pode calcular o percentual de disponibilidade de um serviço em um períod
 %Availability =  ((Total Time – Total Downtime) / Total Time ) * 100
 ```
 
-Isso é útil para fins de SLA (o [Monitoramento de SLA](#SLA-monitoring) é descrito em mais detalhes posteriormente neste guia). A definição de _Tempo de inatividade_ depende do serviço. Por exemplo, o Visual Studio Team Services define o tempo de inatividade como o período durante o qual as tentativas do cliente de se conectar ao serviço levam mais de 120 segundos e todas as operações básicas de gravação e leitura falham após a conexão ser estabelecida dentro desse período.
+Isso é útil para fins de SLA (o [Monitoramento de SLA](#SLA-monitoring) é descrito em mais detalhes posteriormente neste guia). A definição de _Tempo de inatividade_ depende do serviço. Por exemplo, o Serviço de Compilação do Visual Studio Team Services define o tempo de inatividade como o período (total de minutos acumulados) durante o qual o Serviço de Compilação está indisponível. Um minuto é considerado indisponível se todas as solicitações HTTP contínuas para o Serviço de Compilação realizar operações iniciadas pelo cliente durante o minuto resultarem em um código de erro ou não retornarem nenhuma resposta.
 
 ## Monitoramento de desempenho
 Conforme o sistema é colocado cada vez mais sob pressão enquanto o volume de usuários aumenta e o tamanho dos conjuntos de dados que esses usuários acessam cresce, a possível falha de um ou mais componentes se torna provável. Frequentemente, a falha de um componente é precedida por uma queda no desempenho. Se conseguir detectar uma redução desse tipo, você pode tomar medidas proativas para corrigir a situação.
@@ -283,14 +283,14 @@ Para examinar o uso do sistema, normalmente é necessário que o operador consul
 - O volume de armazenamento de dados ocupado por cada usuário.
 - Os recursos que estão sendo acessados por cada usuário.
 
-O operador também deve ser capaz de gerar gráficos, exibindo por exemplo os usuários que mais consomem recursos ou os recursos acessados com maior frequência.
+O operador também deve ser capaz de gerar gráficos, exibindo por exemplo os usuários que mais consomem recursos ou os recursos acessados ou recursos do sistema com maior frequência.
 
 ### Requisitos para coleta de dados, fontes de dados e instrumentação
 O rastreamento do uso pode ser executado em um nível relativamente amplo, observando a hora de início e término de cada solicitação e a natureza da solicitação (ler, gravar e assim por diante, dependendo do recurso em questão). Você pode obter essas informações:
 
 - Rastreando as atividades do usuário.
 - Capturando contadores de desempenho que medem a utilização de cada recurso.
-- Monitorando a utilização de CPU e E/S das operações executadas por cada usuário.
+- Monitorando o consumo de recursos por cada usuário.
 
 Para fins de medição, também é necessário ser capaz de identificar quais usuários são responsáveis por executar quais operações e os recursos que essas operações utilizam. As informações coletadas devem ser detalhadas o suficiente para permitir uma cobrança precisa.
 
@@ -446,14 +446,15 @@ Observe que essa é uma exibição simplificada. O serviço de coleta não é ne
 
 Para serviços e aplicativos do Azure, o WAD (Diagnóstico do Azure) fornece uma possível solução para a captura de dados. O WAD reúne dados das seguintes fontes para cada nó de computação, agrega-os e os carrega no armazenamento do Azure:
 
-- Logs do Azure
-- Logs do IIS
+- Logs IIS
 - Logs de solicitação de falha do IIS
 - Logs de Eventos do Windows
 - Contadores de desempenho
 - Despejos de memória
 - Logs de infraestrutura do Diagnóstico do Azure  
 - Logs de erros personalizados
+- .NET EventSource
+- Manifesto com base no ETW
 
 Para saber mais, consulte o artigo [Azure: Noções básicas de telemetria e solução de problemas](http://social.technet.microsoft.com/wiki/contents/articles/18146.windows-azure-telemetry-basics-and-troubleshooting.aspx) no site da Microsoft.
 
@@ -465,7 +466,7 @@ Para otimizar o uso da largura de banda, você pode optar por transferir dados m
 #### _Receber e enviar dados de instrumentação_
 O subsistema de coleta de dados de instrumentação pode recuperar ativamente dados de instrumentação dos logs e outras fontes para cada instância do aplicativo (o _modelo de pull_), ou pode atuar como um receptor passivo aguardando que os dados sejam enviados dos componentes que constituem cada instância do aplicativo (o _modelo de push_).
 
-Uma abordagem para implementar o modelo de pull é usar agentes de monitoramento em execução localmente com cada instância do aplicativo. Um agente de monitoramento é um processo separado que recupera periodicamente (recebe por pull) dados de telemetria coletados no nó local e grava essas informações diretamente no armazenamento centralizado que é compartilhado por todas as instâncias do aplicativo. Esse é o mecanismo implementado pelo WAD. Cada instância de uma função de trabalho ou web do Azure pode ser configurada para capturar informações de diagnóstico e outras informações de rastreamento que são armazenadas localmente. O agente de monitoramento que é executado em conjunto copia os dados especificados para o armazenamento do Azure. A página [Configurando o diagnóstico para os Serviços de Nuvem do Azure e máquinas virtuais](https://msdn.microsoft.com/library/azure/dn186185.aspx) no site da Microsoft fornece mais detalhes sobre esse processo. Alguns elementos, como logs de IIS, despejos de memória e logs de erros personalizados são gravados no armazenamento de blob, enquanto dados do log de Eventos do Windows, eventos do ETW e contadores de desempenho são registrados no armazenamento de tabela. A Figura 3 ilustra esse mecanismo:
+Uma abordagem para implementar o modelo de pull é usar agentes de monitoramento em execução localmente com cada instância do aplicativo. Um agente de monitoramento é um processo separado que recupera periodicamente (recebe por pull) dados de telemetria coletados no nó local e grava essas informações diretamente no armazenamento centralizado que é compartilhado por todas as instâncias do aplicativo. Esse é o mecanismo implementado pelo WAD. Cada instância de uma função de trabalho ou web do Azure pode ser configurada para capturar informações de diagnóstico e outras informações de rastreamento que são armazenadas localmente. O agente de monitoramento que é executado em conjunto copia os dados especificados para o armazenamento do Azure. A página [Habilitando o diagnóstico para os Serviços de Nuvem do Azure e máquinas virtuais](cloud-services-dotnet-diagnostics.md) no site da Microsoft fornece mais detalhes sobre esse processo. Alguns elementos, como logs de IIS, despejos de memória e logs de erros personalizados são gravados no armazenamento de blob, enquanto dados do log de Eventos do Windows, eventos do ETW e contadores de desempenho são registrados no armazenamento de tabela. A Figura 3 ilustra esse mecanismo:
 
 ![](media/best-practices-monitoring/PullModel.png)
 
@@ -473,7 +474,6 @@ _Figura 3. Usando um agente de monitoramento para obter informações e gravar e
 
 > [AZURE.NOTE]Usar um agente de monitoramento é ideal para capturar dados de instrumentação obtidos naturalmente de uma fonte de dados, como informações de Exibições de Gerenciamento do SQL Server ou o comprimento de uma Fila do barramento de serviço do Azure.
 
-Para obter informações sobre como configurar e usar o Diagnóstico do Azure, visite a página [Coletando dados de log usando o Diagnóstico do Azure](https://msdn.microsoft.com/library/azure/gg433048.aspx) no site da Microsoft.
 
 Dados de telemetria de um aplicativo de pequena escala em execução em um número limitado podem ser armazenados em um único local usando a abordagem descrita. No entanto, um aplicativo em nuvem global complexo, altamente dimensionável, pode facilmente gerar volumes enormes de dados de centenas de funções da Web e de trabalho, de fragmentos de bancos de dados e outros serviços. Esse fluxo de dados poderia facilmente sobrecarregar a largura de banda de E/S disponível com um único local central. Portanto, sua solução de telemetria deve ser dimensionável para impedir que ele atue como um ponto de estrangulamento conforme o sistema expandir, e idealmente deve incorporar um grau de redundância para reduzir os riscos de perder informações de monitoramento importantes (como dados de cobrança ou de auditoria) se parte do sistema falhar.
 
@@ -604,12 +604,11 @@ Em muitos casos, relatórios podem ser gerados por processos em lotes de acordo 
 ## Mais informações
 - O artigo [Monitoramento, diagnóstico e solução de problemas de Armazenamento do Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md) no site da Microsoft.
 - O artigo [Azure: Noções básicas de telemetria e solução de problemas](http://social.technet.microsoft.com/wiki/contents/articles/18146.windows-azure-telemetry-basics-and-troubleshooting.aspx) no site da Microsoft.
-- A página [Coletando dados de log usando o Diagnóstico do Azure](https://msdn.microsoft.com/library/azure/gg433048.aspx) no site da Microsoft.
-- A página [Configurando o diagnóstico para os Serviços de Nuvem do Azure e máquinas virtuais](https://msdn.microsoft.com/library/azure/dn186185.aspx) no site da Microsoft.
+- A página [Habilitando o diagnóstico para os Serviços de Nuvem do Azure e máquinas virtuais](cloud-services-dotnet-diagnostics.md) no site da Microsoft.
 - As páginas do [Cache Redis do Azure](http://azure.microsoft.com/services/cache/), do [Banco de Dados de Documentos do Azure](http://azure.microsoft.com/services/documentdb/) e do [HDInsight](http://azure.microsoft.com/services/hdinsight/) no site da Microsoft.
-- A página [Como usar Filas do barramento de serviço](http://azure.microsoft.com/) no site da Microsoft.
+- A página [Como usar Filas do barramento de serviço](service-bus-dotnet-how-to-use-queues.md) no site da Microsoft.
 - O artigo [Microsoft SQL Server Business Intelligence em Máquinas Virtuais do Azure](./virtual-machines/virtual-machines-sql-server-business-intelligence.md) no site da Microsoft.
-- A página [Noções básicas sobre alertas e notificações de monitoramento no Azure](https://msdn.microsoft.com/library/azure/dn306639.aspx) no site da Microsoft.
-- A página do [Application Insights](app-insights-get-started/) no site da Microsoft.
+- As páginas [Receber notificações de alerta](insights-receive-alert-notifications.md) e [Acompanhar a integridade do serviço](insights-service-health.md) no site da Microsoft.
+- A página do [Application Insights](app-insights-get-started.md) no site da Microsoft.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

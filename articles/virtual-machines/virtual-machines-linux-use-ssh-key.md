@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="12/15/2015" 
 	ms.author="rasquill"/>
 
 #Como usar SSH com Linux e Mac no Azure
@@ -86,7 +86,7 @@ Depois de criar os arquivos necessários, há muitas maneiras de criar uma VM co
 
 ### Exemplo: criando uma VM com o arquivo id\_rsa.pub
 
-O uso mais comum é durante a criação obrigatória de uma VM, ou durante o carregamento de um modelo para criar uma VM. O exemplo de código a seguir mostra como criar uma nova VM Linux segura no Azure passando o nome de arquivo público (neste caso, o arquivo padrão `~/.ssh/id_rsa`) para o comando `azure vm create`. (Os outros argumentos foram criados anteriormente.)
+O uso mais comum é durante a criação obrigatória de uma VM, ou durante o carregamento de um modelo para criar uma VM. O exemplo de código a seguir mostra como criar uma nova VM Linux segura no Azure passando o nome de arquivo público (neste caso, o arquivo padrão `~/.ssh/id_rsa.pub`) para o comando `azure vm create`. (Os outros argumentos foram criados anteriormente.)
 
 	azure vm create \
 	--nic-name testnic \
@@ -96,7 +96,7 @@ O uso mais comum é durante a criação obrigatória de uma VM, ou durante o car
 	--storage-account-name computeteststore 
 	--image-urn canonical:UbuntuServer:14.04.3-LTS:latest \
 	--username ops \
-	-ssh-publickey-file ~/.ssh/id_rsa \
+	-ssh-publickey-file ~/.ssh/id_rsa.pub \
 	testrg testvm westeurope linux
 
 O próximo exemplo mostra o uso do formato **ssh-rsa** com um modelo do Gerenciador de Recursos e a CLI do Azure para criar uma VM Ubuntu protegida por um nome de usuário e o conteúdo de `~/.ssh/id_rsa.pub` como uma cadeia de caracteres. (Nesse caso, a cadeia de caracteres de chave pública é reduzida para ser mais legível.)
@@ -264,7 +264,7 @@ Se você criou uma VM usando um arquivo .pem criado a partir de seu arquivo `~/.
 	Are you sure you want to continue connecting (yes/no)? yes
 	Warning: Permanently added 'testpemasm.cloudapp.net,40.83.178.221' (RSA) to the list of known hosts.
 	Saving password to keychain failed
-	Identity added: /Users/rasquill/.ssh/id_rsa (/Users/rasquill/.ssh/id_rsa)
+	Identity added: /Users/user/.ssh/id_rsa.pub (/Users/user/.ssh/id_rsa.pub)
 	Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.19.0-28-generic x86_64)
 
 	* Documentation:  https://help.ubuntu.com/
@@ -298,4 +298,4 @@ Leia as sugestões em [Solucionando problemas de conexões SSH](virtual-machines
  
 Agora que você conectou-se à sua VM, atualize sua distribuição escolhida antes de continuar a usá-la.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

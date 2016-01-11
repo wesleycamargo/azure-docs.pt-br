@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
+   ms.date="12/18/2015"
    ms.author="masashin"/>
 
 # Diretrizes de trabalhos em segundo plano
@@ -26,7 +26,7 @@
 
 Muitos tipos de aplicativos requerem tarefas em segundo plano executadas independentemente da interface do usuário (IU). Os exemplos incluem trabalhos em lotes, uso intensivo de processamento de tarefas e processos de longa duração, como fluxos de trabalho. Os trabalhos em segundo plano podem ser executados sem a necessidade de interação do usuário; o aplicativo pode iniciar o trabalho e, em seguida, continuar a processar solicitações interativas de usuários. Isso pode ajudar a reduzir a carga na interface do usuário do aplicativo, que pode melhorar a disponibilidade e reduzir os tempos de resposta interativa.
 
-Por exemplo, se for necessário um aplicativo para gerar miniaturas de imagens carregadas por usuários, ele pode fazer isso como um trabalho em segundo plano e salvar a miniatura para o armazenamento ao concluir sem precisar aguardar o processo do usuário ser concluído. Da mesma forma, um usuário fazendo um pedido pode iniciar um fluxo de trabalho em segundo plano que processa o pedido, enquanto a interface do usuário permite que o usuário continue a navegação do site. Quando o trabalho em segundo plano for concluído, ele poderá atualizar os dados armazenados pedidos e enviar um email para o usuário para confirmar o pedido.
+Por exemplo, se for necessário um aplicativo para gerar miniaturas de imagens carregadas por usuários, ele pode fazer isso como um trabalho em segundo plano e salvar a miniatura para o armazenamento ao concluir sem precisar aguardar o processo do usuário ser concluído. Da mesma forma, um usuário fazendo um pedido pode iniciar um fluxo de trabalho em segundo plano que processa o pedido, enquanto a interface do usuário permite que o usuário continue a navegação no aplicativo Web. Quando o trabalho em segundo plano for concluído, ele poderá atualizar os dados armazenados pedidos e enviar um email para o usuário para confirmar o pedido.
 
 Ao considerar a implementação de uma tarefa como um trabalho em segundo plano, o critério principal é uma tarefa que pode ser executada sem interação do usuário e sem a interface do usuário precisar aguardar a conclusão do trabalho. As tarefas que exigem que o usuário ou a interface do usuário aguardem enquanto elas são concluídas podem não ser apropriadas como trabalhos em segundo plano.
 
@@ -38,7 +38,7 @@ Os trabalhos em segundo plano normalmente têm uma ou mais das seguintes caracte
 - Os trabalhos intensivos de E/S conforme executa uma série de transações de armazenamento ou arquivos de indexação.
 - Os trabalhos em lotes, como atualizações de dados todas as noites ou processamento agendado.
 - Os fluxos de trabalho, como preenchimento de pedidos de execução demorada ou serviços e sistemas de provisionamento.
-- O processamento de dados confidenciais em que a tarefa é transferida para um local mais seguro para processamento. Por exemplo, você pode não querer processar dados confidenciais em uma função web e, em vez disso, usar um padrão como [Gatekeeper](http://msdn.microsoft.com/library/dn589793.aspx) para transferir os dados para uma função em segundo plano isolada que tenha acesso ao armazenamento protegido.
+- O processamento de dados confidenciais em que a tarefa é transferida para um local mais seguro para processamento. Por exemplo, você pode não querer processar dados confidenciais em um aplicativo Web e, em vez disso, usar um padrão como o [Gatekeeper](http://msdn.microsoft.com/library/dn589793.aspx) a fim de transferir os dados para um processo em segundo plano isolado que tenha acesso ao armazenamento protegido.
 
 ## Gatilhos
 
@@ -85,15 +85,15 @@ Os trabalhos em segundo plano são executados de forma assíncrona em um process
 
 Você pode hospedar as tarefas em segundo plano usando uma variedade de serviços diferentes da plataforma Azure:
 
-- [**Sites do Azure**](#azure-web-sites-and-webjobs). Você pode usar WebJobs para executar trabalhos personalizados com base em uma variedade de diferentes tipos de script ou programa executável dentro do contexto do site.
+- [**Aplicativos Web do Azure e Azure WebJobs**](#azure-web-apps-and-webjobs). Você pode usar WebJobs para executar trabalhos personalizados com base em uma variedade de diferentes tipos de script ou programa executável dentro do contexto de um aplicativo Web.
 - [**Funções de web e de trabalho dos Serviços de Nuvem do Azure**](#azure-cloud-services-web-and-worker-roles). Você pode gravar código dentro de uma função que é executada como uma tarefa em segundo plano.
 - [**Máquinas Virtuais do Azure**](#azure-virtual-machines). Se você tiver um serviço do Windows ou desejar usar o Agendador de Tarefas do Windows, é comum hospedar as suas tarefas em segundo plano em uma máquina virtual dedicada.
 
 As seções a seguir descrevem cada uma dessas opções em mais detalhes e incluem considerações para ajudá-lo a escolher a opção apropriada.
 
-### Sites do Azure e WebJobs
+### Aplicativos Web do Azure e Azure WebJobs
 
-Você pode usar os WebJobs do Azure para executar trabalhos personalizados como tarefas em segundo plano em um aplicativo hospedado do Site do Azure. Os WebJobs podem executar scripts ou programas executáveis no contexto do seu site como um processo contínuo, ou em resposta a um evento de gatilho do Agendador do Azure ou ainda fatores externos, como alterações aos blobs de armazenamento e filas de mensagens. Os trabalhos podem ser iniciados e interrompidos sob demanda, e serem desligados normalmente. Se um WebJob em execução continuamente falhar, ele será reiniciado automaticamente. As ações de nova tentativa e erro são configuráveis.
+Você pode usar os Azure WebJobs para executar trabalhos personalizados como tarefas em segundo plano em um aplicativo Web do Azure. Os WebJobs são executados no contexto do seu aplicativo Web como um processo contínuo, ou em resposta a um evento de gatilho do Agendador do Azure ou a fatores externos, como alterações nos blobs de armazenamento e nas filas de mensagens. Os trabalhos podem ser iniciados e interrompidos sob demanda, e serem desligados normalmente. Se um WebJob em execução continuamente falhar, ele será reiniciado automaticamente. As ações de nova tentativa e erro são configuráveis.
 
 Ao configurar um WebJob:
 
@@ -101,11 +101,11 @@ Ao configurar um WebJob:
 - Se você quiser que o trabalho responda a um gatilho controlado por programação, ele deve ser configurado como **Executado com agendamento**. O script ou o programa é armazenado na pasta chamada site/wwwroot/app\_data/jobs/triggered.
 - Se você escolher a opção **Executar sob demanda** ao configurar um trabalho, ele executará o mesmo código que a opção **Executar em um agendamento** quando você iniciá-lo.
 
-Os WebJobs do Azure são executados na área restrita do site, o que significa que eles podem acessar variáveis de ambiente e compartilhar informações, como cadeias de conexão com o site. O trabalho tem acesso ao identificador exclusivo do computador que executa o trabalho. A cadeia de conexão chamada **AzureJobsStorage** fornece acesso a filas de armazenamento do Azure, blobs e tabelas para dados de aplicativo e o Barramento de Serviço para mensagens e comunicação. A cadeia de conexão chamada **AzureJobsDashboard** fornece acesso aos arquivos de log de ação do trabalho.
+Os Azure WebJobs são executados na área restrita do aplicativo Web, o que significa que eles podem acessar variáveis de ambiente e compartilhar informações, como cadeias de conexão com o aplicativo Web. O trabalho tem acesso ao identificador exclusivo do computador que executa o trabalho. A cadeia de conexão chamada **AzureWebJobsStorage** fornece acesso a filas de armazenamento, blobs e tabelas do Azure para dados de aplicativo e o Barramento de Serviço para mensagens e comunicação. A cadeia de conexão chamada **AzureWebJobsDashboard** fornece acesso aos arquivos de log de ação do trabalho.
 
-Os WebJobs do Azure têm as seguintes características:
+Os Azure WebJobs têm as seguintes características:
 
-- **Segurança**: os WebJobs são protegidos pelas credenciais de implantação do site.
+- **Segurança**: os WebJobs são protegidos pelas credenciais de implantação do aplicativo Web.
 - **Tipos de arquivo com suporte**: os WebJobs podem ser definidos usando scripts de comando (.cmd), arquivos em lotes (.bat), scripts do PowerShell (.ps1), scripts bash shell (.sh), scripts PHP (.PHP), scripts Python (.py), código JavaScript (.js) e programas executáveis (.exe, .jar e muito mais).
 - **Implantação**: os scripts e executáveis podem ser implantados usando o Portal do Azure, criado e implantado usando o suplemento [WebJobsVs](https://visualstudiogallery.msdn.microsoft.com/f4824551-2660-4afa-aba1-1fcc1673c3d0) para o Visual Studio ou o [Visual Studio 2013, Atualização 4](http://www.visualstudio.com/news/vs2013-update4-rc-vs), usando o [Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md), ou copiando-os diretamente para os seguintes locais:
   - para a execução acionada: site/wwwroot/app\_data/jobs/triggered/{nome do trabalho}
@@ -119,12 +119,12 @@ Os WebJobs do Azure têm as seguintes características:
 
 ### Considerações
 
-- Por padrão, o WebJobs faz escala com o site. No entanto, os trabalhos podem ser configurados para serem executados em única instância definindo a propriedade de configuração **is\_singleton** como true. Os WebJobs de instância única são úteis para tarefas que você não deseja dimensionar ou executar como várias instâncias simultâneas, como reindexação, análise de dados e tarefas semelhantes.
-- Para minimizar o impacto dos trabalhos no desempenho do site, considere a criação de uma instância vazia de Sites do Azure em um novo Plano de Serviço de Aplicativo para hospedar WebJobs que podem ser executados continuamente ou serem um recurso intensivo.
+- Por padrão, os WebJobs são dimensionados com o aplicativo Web. No entanto, os trabalhos podem ser configurados para serem executados em única instância definindo a propriedade de configuração **is\_singleton** como true. Os WebJobs de instância única são úteis para tarefas que você não deseja dimensionar ou executar como várias instâncias simultâneas, como reindexação, análise de dados e tarefas semelhantes.
+- Para minimizar o impacto dos trabalhos no desempenho do aplicativo Web, considere a criação de uma instância vazia do Aplicativo Web do Azure em um novo Plano de Serviço de Aplicativo para hospedar WebJobs que podem ter execução longa ou consumir muitos recursos.
 
 ### Mais informações
 
-- Os [Recursos Recomendados dos WebJobs do Azure](websites-webjobs-resources/) listam os muitos recursos, downloads e exemplos de trabalhos úteis.
+- Os [Recursos Recomendados dos Azure WebJobs](websites-webjobs-resources.md) listam os muitos recursos, downloads e exemplos de trabalhos úteis.
 
 ## Funções de web e de trabalho dos Serviços de Nuvem do Azure
 
@@ -132,10 +132,10 @@ As tarefas em segundo plano podem ser executadas dentro de uma função web ou e
 
 Há várias maneiras de implementar tarefas em segundo plano em uma função de Serviços de Nuvem:
 
-- Criar uma implementação da classe **RoleEntryPoint** na função e usar os seus métodos para executar tarefas em segundo plano. As tarefas são executadas no contexto de WaIISHost.exe e podem usar o método **GetSetting** da classe **CloudConfigurationManager** para carregar definições de configuração. Para obter mais informações, consulte [Ciclo de Vida (Serviços de Nuvem)](#lifecycle-cloud-services-).
-- Use as tarefas de inicialização para executar tarefas em segundo plano quando o aplicativo for iniciado. Para forçar as tarefas a continuar a executar em segundo plano, configure a propriedade **taskType** para **background** (se você não fizer isso, o processo de inicialização do aplicativo será interrompido e aguardará até que a tarefa seja concluída). Para obter mais informações, consulte [Executar Tarefas de Inicialização no Azure](http://msdn.microsoft.com/library/azure/hh180155.aspx).
+- Criar uma implementação da classe **RoleEntryPoint** na função e usar os seus métodos para executar tarefas em segundo plano. As tarefas são executadas no contexto de WaIISHost.exe e podem usar o método **GetSetting** da classe **CloudConfigurationManager** para carregar definições de configuração. Para obter mais informações, consulte [Ciclo de Vida (Serviços de Nuvem)](#lifecycle-cloud-services).
+- Use as tarefas de inicialização para executar tarefas em segundo plano quando o aplicativo for iniciado. Para forçar as tarefas a continuar a executar em segundo plano, configure a propriedade **taskType** para **background** (se você não fizer isso, o processo de inicialização do aplicativo será interrompido e aguardará até que a tarefa seja concluída). Para obter mais informações, consulte [Executar Tarefas de Inicialização no Azure](cloud-services-startup-tasks.md).
 - Use o SDK WebJobs para implementar tarefas em segundo plano como WebJobs, que são iniciados como uma tarefa de inicialização. Para obter mais informações, consulte [Comece a usar o SDK de Trabalhos Web do Azure](websites-dotnet-webjobs-sdk-get-started.md).
-- Use uma tarefa de inicialização para instalar um serviço do Windows que executa uma ou mais tarefas em segundo plano. Você deve definir a propriedade **taskType** para **background** para que o serviço seja executado em segundo plano. Para obter mais informações, consulte [Executar Tarefas de Inicialização no Azure](http://msdn.microsoft.com/library/azure/hh180155.aspx).
+- Use uma tarefa de inicialização para instalar um serviço do Windows que executa uma ou mais tarefas em segundo plano. Você deve definir a propriedade **taskType** para **background** para que o serviço seja executado em segundo plano. Para obter mais informações, consulte [Executar Tarefas de Inicialização no Azure](cloud-services-startup-tasks.md).
 
 ### Executando tarefas em segundo plano na função web
 
@@ -160,18 +160,18 @@ Considere os seguintes pontos ao escolher como e onde implantar tarefas em segun
 - As exceções que levam uma tarefa em segundo plano a falhar têm um impacto diferente dependendo da forma como são hospedadas:
   - Se você usar a abordagem de classe **RoleEntryPoint**, uma tarefa com falha fará com que a função reinicie para que a tarefa seja reiniciada automaticamente. Isso pode afetar a disponibilidade do aplicativo. Para evitar isso, certifique-se de incluir um tratamento de exceções robusto na classe **RoleEntryPoint** e todas as tarefas em segundo plano. Use o código para reiniciar tarefas que falham onde for apropriado e lançar a exceção para reiniciar a função somente se você não puder se recuperar normalmente da falha dentro do seu código.
   - Se usar tarefas de inicialização, você é responsável por gerenciar a execução da tarefa e verificar se ela falhar.
-- Gerenciar e monitorar tarefas de inicialização é mais difícil do que usar a abordagem de classe **RoleEntryPoint**. No entanto, o SDK de WebJobs do Azure inclui um painel para facilitar o gerenciamento de WebJobs que são iniciados por meio de tarefas de inicialização.
+- Gerenciar e monitorar tarefas de inicialização é mais difícil do que usar a abordagem de classe **RoleEntryPoint**. No entanto, o SDK dos Azure WebJobs inclui um painel para facilitar o gerenciamento de WebJobs que são iniciados por meio de tarefas de inicialização.
 
 ### Mais informações
 
 - [Padrão de consolidação de recursos de computação](http://msdn.microsoft.com/library/dn589778.aspx)
-- [Introdução ao SDK de Trabalhos Web do Azure](websites-dotnet-webjobs-sdk-get-started/)
+- [Introdução ao SDK de Trabalhos Web do Azure](websites-dotnet-webjobs-sdk-get-started.md)
 
 ## Máquinas Virtuais do Azure
 
-As tarefas em segundo plano podem ser implementadas de forma que as impeça de serem implantadas nos sites da Web do Azure ou nos Serviços de Nuvem, ou isso pode não ser conveniente. Exemplos típicos são serviços do Windows, utilitários de terceiros e programas executáveis. Isso também pode incluir programas escritos para um ambiente de execução diferente daquele que hospeda o aplicativo; por exemplo, pode ser um programa Unix ou Linux que você deseja executar por meio de um aplicativo Windows ou .NET. Você pode escolher entre uma variedade de sistemas operacionais para uma máquina virtual do Azure e executar o serviço ou o executável naquela máquina virtual.
+As tarefas em segundo plano podem ser implementadas de forma que as impeça de serem implantadas nos Aplicativos Web do Azure ou nos Serviços de Nuvem, ou essas opções podem não ser convenientes. Exemplos típicos são serviços do Windows, utilitários de terceiros e programas executáveis. Isso também pode incluir programas escritos para um ambiente de execução diferente daquele que hospeda o aplicativo; por exemplo, pode ser um programa Unix ou Linux que você deseja executar por meio de um aplicativo Windows ou .NET. Você pode escolher entre uma variedade de sistemas operacionais para uma máquina virtual do Azure e executar o serviço ou o executável naquela máquina virtual.
 
-Para ajudá-lo a escolher quando usar Máquinas Virtuais, consulte a [Comparação de Sites do Azure, Serviços de Nuvem e Máquinas Virtuais](choose-web-site-cloud-service-vm.md). Para obter informações sobre as opções para [Máquinas Virtuais, consulte a Máquina Virtual e os tamanhos de Serviço de Nuvem do Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Para obter mais informações sobre os sistemas operacionais e imagens predefinidas disponíveis para Máquinas Virtuais, consulte a [Galeria de Máquinas Virtuais do Azure](http://azure.microsoft.com/gallery/virtual-machines/).
+Para ajudar com a escolha de quando usar Máquinas Virtuais, confira a [Comparação de Serviço de Aplicativo, Serviços de Nuvem e Máquinas Virtuais do Azure](choose-web-site-cloud-service-vm.md). Para obter informações sobre as opções para [Máquinas Virtuais, consulte a Máquina Virtual e os tamanhos de Serviço de Nuvem do Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Para obter mais informações sobre os sistemas operacionais e imagens predefinidas disponíveis para Máquinas Virtuais, consulte a [Galeria de Máquinas Virtuais do Azure](http://azure.microsoft.com/gallery/virtual-machines/).
 
 Para iniciar a tarefa em segundo plano em uma máquina virtual separada, você tem várias opções:
 
@@ -191,8 +191,8 @@ Considere os seguintes pontos ao decidir se deseja implantar tarefas em segundo 
 
 ### Mais informações
 
-- [Máquinas virtuais](http://azure.microsoft.com/services/virtual-machines/) no site do Azure
-- [Perguntas frequentes sobre Máquinas Virtuais do Azure](http://msdn.microsoft.com/library/azure/dn683781.aspx)
+- [Máquinas Virtuais](http://azure.microsoft.com/services/virtual-machines/) no Azure
+- [Perguntas frequentes sobre Máquinas Virtuais do Azure](virtual-machines-questions.md)
 
 ## Considerações sobre o design
 
@@ -200,7 +200,7 @@ Há vários fatores fundamentais a serem consideradas durante a criação de tar
 
 ## Particionamento
 
-Se você decidir incluir tarefas em segundo plano em uma instância de computação existente (como um site, uma função web, uma função de trabalho existente ou uma máquina virtual), você deve considerar como isso afetará os atributos de qualidade da instância de computação e a própria tarefa em segundo plano. Esses fatores vão ajudá-lo a decidir se deseja co-localizar as tarefas com a instância de computação existente ou separá-las em uma instância de computação separada:
+Se decidir incluir tarefas em segundo plano em uma instância de computação existente (como um aplicativo Web, uma função Web, uma função de trabalho existente ou uma máquina virtual), você deverá considerar como isso afetará os atributos de qualidade da instância de computação e a própria tarefa em segundo plano. Esses fatores vão ajudá-lo a decidir se deseja co-localizar as tarefas com a instância de computação existente ou separá-las em uma instância de computação separada:
 
 - **Disponibilidade**: as tarefas em segundo plano podem não precisar ter o mesmo nível de disponibilidade que outras partes do aplicativo, em particular, a interface do usuário e outras partes diretamente envolvidas na interação do usuário. As tarefas em segundo plano podem ser mais tolerantes a falhas de conexão repetida, latência e outros fatores que afetam a disponibilidade porque as operações podem ser colocadas na fila. No entanto, deve haver capacidade suficiente para impedir o backup de solicitações que poderiam bloquear as filas e afetar o aplicativo como um todo.
 - **Escalabilidade**: é provável que as tarefas em segundo plano tenham um requisito de escalabilidade diferente para a interface do usuário e as partes interativas do aplicativo. Pode ser necessário o dimensionamento da interface do usuário para atender a picos de demanda, enquanto as tarefas pendentes em segundo plano podem ser concluídas em horários com menor demanda por menos instâncias de computação.
@@ -252,7 +252,7 @@ Ao planejar como você executará tarefas em segundo plano em uma função de tr
 - Se uma tarefa em segundo plano lançar uma exceção sem tratamento, essa tarefa deve ser reciclada, permitindo que outras tarefas de segundo plano na função continuem em execução. No entanto, se a exceção for causada por corrupção de objetos fora da tarefa, como armazenamento compartilhado, a exceção deve ser tratada pela sua classe **RoleEntryPoint**, todas as tarefas devem ser canceladas e deve ser permitido que o método **Run** seja encerrado. Em seguida, o Azure reiniciará a função.
 - Use o método **OnStop** para pausar ou interromper as tarefas em segundo plano e limpar os recursos. Isso pode envolver a interrupção das tarefas de execução longa ou com várias etapas e é essencial considerar como isso pode ser feito para evitar inconsistências de dados. Se uma instância de função para por algum motivo que não seja um desligamento iniciado pelo usuário, o código em execução no método **OnStop** deve ser concluído em cinco minutos antes da finalização forçada. Certifique-se de que o seu código possa ser concluído naquele momento ou que ele possa tolerar não estar em execução até a conclusão.  
 - O balanceador de carga do Azure inicia o direcionamento do tráfego para a função de instância quando o método **RoleEntryPoint** retorna true. Portanto, considere colocar todo o código de inicialização no método **OnStart** para que as instâncias de função não inicializadas com êxito não recebam qualquer tráfego.
-- Você pode usar as tarefas de inicialização além dos métodos da classe **RoleEntryPoint**. Você deve usar as tarefas de inicialização para inicializar as configurações que precisa alterar no balanceador de carga do Azure, pois essas tarefas serão executadas antes de a função receber quaisquer solicitações. Para obter mais informações, consulte [Executar Tarefas de Inicialização no Azure](http://msdn.microsoft.com/library/azure/hh180155.aspx).
+- Você pode usar as tarefas de inicialização além dos métodos da classe **RoleEntryPoint**. Você deve usar as tarefas de inicialização para inicializar as configurações que precisa alterar no balanceador de carga do Azure, pois essas tarefas serão executadas antes de a função receber quaisquer solicitações. Para obter mais informações, consulte [Executar Tarefas de Inicialização no Azure](cloud-services-startup-tasks.md).
 - Se houver um erro em uma tarefa de inicialização, isso pode forçar a função a reiniciar continuamente. Isso pode impedir que você execute uma Permuta de VIP para uma versão preparada anteriormente porque a permuta requer acesso exclusivo à função, e isso não é possível obter enquanto a função está reiniciando. Para resolver esse problema:
 	-  Adicione o seguinte código ao início dos métodos **OnStart** e **Run** em sua função:
 
@@ -286,11 +286,11 @@ As tarefas em segundo plano devem ser resilientes para fornecer serviços confi�
 
 As tarefas em segundo plano devem oferecer desempenho suficiente para garantir que elas não bloqueiem o aplicativo nem causem inconsistências devido à operação atrasada quando o sistema estiver sob carga. Normalmente, o desempenho é aprimorado expandindo as instâncias de computação que hospedam as tarefas em segundo plano. Para planejar e criar tarefas em segundo plano, considere os seguintes pontos ligados ao desempenho e à escalabilidade:
 
-- O dimensionamento automático do Azure dá suporte ao dimensionamento automático (escalar horizontalmente e escalar verticalmente de novo) com base na demanda atual e na carga ou em um planejamento predefinido, para Sites da Web, web dos Serviços de Nuvem, funções de trabalho e implantações de Máquinas Virtuais hospedadas. Use esse recurso para garantir que o aplicativo como um todo tenha recursos suficientes de desempenho enquanto minimiza os custos de tempo de execução.
+- O Azure oferece suporte ao dimensionamento automático (escalar horizontalmente e escalar verticalmente de volta) com base na demanda atual e na carga ou em um planejamento predefinido, para Aplicativos Web, funções de trabalho e Web dos Serviços de Nuvem e implantações de Máquinas Virtuais hospedadas. Use esse recurso para garantir que o aplicativo como um todo tenha recursos suficientes de desempenho enquanto minimiza os custos de tempo de execução.
 - Onde as tarefas em segundo plano têm uma funcionalidade de desempenho diferente de outras partes de um aplicativo de Serviços de Nuvem (por exemplo, a interface do usuário ou os componentes, como a camada de acesso a dados), hospedar as tarefas em segundo plano juntas em uma função de trabalho separada permite que as a interface do usuário e as funções da tarefa de segundo plano sejam dimensionadas de forma independente para gerenciar a carga. Se várias tarefas em segundo plano tiverem recursos de desempenho significativamente diferentes umas das outras, considere dividi-las em funções de trabalho separadas e dimensionar cada tipo de função independentemente, mas observe que isso pode aumentar os custos de tempo de execução em comparação com a combinação de todas as tarefas em funções menores.
 - Simplesmente dimensionar as funções pode não ser suficiente para evitar a perda de desempenho sob carga. Talvez também seja necessário dimensionar as filas de armazenamento e outros recursos para impedir que um ponto único do canal geral de processamento se torne um afunilamento. Além disso, considere outras limitações, como a taxa de transferência máxima de armazenamento e outros serviços do aplicativo e as tarefas em segundo plano relacionadas.
 - As tarefas em segundo plano devem ser projetadas para dimensionamento. Por exemplo, eles devem ser capazes de detectar dinamicamente o número de filas de armazenamento em uso para escutar ou enviar mensagens à fila apropriada.
-- Por padrão, a escala WebJobs com sua instância associada de Sites do Azure. No entanto, se quiser que um WebJob seja executado como uma única instância, você pode criar um arquivo Settings.job que contém os dados JSON **{ "is\_singleton": true }**. Isso força o Azure a executar apenas uma instância do WebJob, mesmo se houver várias instâncias do site associado, o que pode ser uma técnica útil para trabalhos agendados que devem ser executados como uma única instância.
+- Por padrão, os WebJobs são dimensionados com a respectiva instância de Aplicativos Web do Azure associada. No entanto, se quiser que um WebJob seja executado como uma única instância, você pode criar um arquivo Settings.job que contém os dados JSON **{ "is\_singleton": true }**. Isso força o Azure a executar apenas uma instância do WebJob, mesmo se houver várias instâncias do aplicativo Web associado, o que pode ser uma técnica útil para trabalhos agendados que devem ser executados como uma única instância.
 
 ## Padrões relacionados
 
@@ -313,8 +313,8 @@ As tarefas em segundo plano devem oferecer desempenho suficiente para garantir q
 - [Executando tarefas em segundo plano](http://msdn.microsoft.com/library/ff803365.aspx)
 - [Ciclo de vida de inicialização de função do Azure](http://blog.syntaxc4.net/post/2011/04/13/windows-azure-role-startup-life-cycle.aspx) (postagem de blog)
 - [Ciclo de vida da função de Serviços de Nuvem do Azure](http://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Windows-Azure-Cloud-Services-Role-Lifecycle) (vídeo)
-- [Introdução ao SDK de Trabalhos Web do Azure](websites-dotnet-webjobs-sdk-get-started/)
-- [Filas do Azure e filas do Barramento de Serviço – comparações e contrastes](http://msdn.microsoft.com/library/hh767287.aspx)
-- [Como habilitar o diagnóstico em um serviço de nuvem](http://msdn.microsoft.com/library/dn482131.aspx)
+- [Introdução ao SDK de Trabalhos Web do Azure](websites-dotnet-webjobs-sdk-get-started.md)
+- [Filas do Azure e filas do Barramento de Serviço – comparações e contrastes](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+- [Como habilitar o diagnóstico em um serviço de nuvem](cloud-services-dotnet-diagnostics.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

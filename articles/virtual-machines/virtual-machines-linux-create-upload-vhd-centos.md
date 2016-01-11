@@ -322,11 +322,21 @@ A preparação de uma máquina virtual CentOS 7 para o Azure é muito parecida c
 
 12.	Confira se o servidor SSH está instalado e configurado para iniciar no tempo de inicialização. Geralmente, esse é o padrão.
 
-13. Instale o Agente Linux do Azure executando o seguinte comando:
+13.	**Somente se estiver criando a imagem a partir do VMWare, VirtualBox ou KVM:** adicione módulos Hyper-V no initramfs:
+
+    Edite `/etc/dracut.conf` e adicione o conteúdo:
+
+        add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
+
+    Recompile o initramfs:
+
+        # dracut –f -v
+
+14. Instale o Agente Linux do Azure executando o seguinte comando:
 
 		# sudo yum install WALinuxAgent
 
-14.	Não crie espaço swap no disco do sistema operacional
+15.	Não crie espaço swap no disco do sistema operacional
 
 	O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco *temporário* e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (consulte a etapa anterior), modifique os seguintes parâmetros em /etc/waagent.conf de maneira apropriada:
 
@@ -336,12 +346,12 @@ A preparação de uma máquina virtual CentOS 7 para o Azure é muito parecida c
 		ResourceDisk.EnableSwap=y
 		ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-15.	Execute os comandos a seguir para desprovisionar a máquina virtual e prepará-la para provisionamento no Azure:
+16.	Execute os comandos a seguir para desprovisionar a máquina virtual e prepará-la para provisionamento no Azure:
 
 		# sudo waagent -force -deprovision
 		# export HISTSIZE=0
 		# logout
 
-16. Clique em **Ação -> Desligar** no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
+17. Clique em **Ação -> Desligar** no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1223_2015-->
