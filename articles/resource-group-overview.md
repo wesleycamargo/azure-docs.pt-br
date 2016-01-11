@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/08/2015"
+   ms.date="12/22/2015"
    ms.author="tomfitz"/>
 
 # Visão geral do Gerenciador de Recursos do Azure
@@ -57,6 +57,12 @@ Existem alguns fatores importantes a considerar ao definir seu grupo de recursos
 5. Um grupo de recursos pode ser usado para definir o escopo de controle de acesso para ações administrativas.
 6. Um recurso pode ser vinculado a um recurso em outro grupo de recursos quando os dois recursos tiverem que interagir entre si, mas eles não compartilham o mesmo ciclo de vida (por exemplo, vários aplicativos conectando-se a um banco de dados). Para obter mais informações, confira [Associando recursos no Gerenciador de Recursos do Azure](resource-group-link-resources.md).
 
+## Provedores de recursos
+
+Um provedor de recursos é um serviço que fornece os recursos que você pode implantar e gerenciar por meio do Gerenciador de Recursos. Cada provedor de recursos oferece operações da API REST para trabalhar com os recursos. Por exemplo, se quiser implantar um Cofre da Chave do Azure para armazenar chaves e segredos, você trabalhará com o provedor de recursos **Microsoft.KeyVault**. Este provedor de recursos oferece um tipo de recurso chamado **cofres** para criar o cofre da chave, um tipo de recurso chamado **cofres/segredos** para criar um segredo no cofre da chave e um conjunto de [operações da API REST](https://msdn.microsoft.com/library/azure/dn903609.aspx).
+
+Para implantar e gerenciar sua infraestrutura, você precisará conhecer os detalhes sobre os provedores de recursos, como os tipos de recursos que ele oferece, os números de versão das operações API REST, as operações às quais ele oferece suporte e o esquema a ser usado ao definir os valores do tipo de recurso a criar. Para saber mais sobre os provedores de recursos compatíveis, consulte [Provedores, regiões, versões de API e esquemas do Gerenciador de Recursos](resource-manager-supported-services.md).
+
 ## Implantação de modelo
 
 Com o Gerenciador de Recursos, você pode criar um modelo simples (no formato JSON) que define a implantação e a configuração do seu aplicativo. Esse modelo é conhecido como um modelo do Gerenciador de Recursos e fornece uma forma declarativa de definir a implantação. Usando um modelo, você pode implantar seu aplicativo em todo seu ciclo de vida repetidamente e com a confiança que seus recursos são implantados em um estado consistente.
@@ -76,8 +82,6 @@ Quando você cria uma solução do Marketplace, ela inclui automaticamente um mo
 Finalmente, o modelo se torna parte do código-fonte do seu aplicativo. Você pode adicioná-lo ao repositório de código-fonte e atualizá-lo conforme a evolução de seu aplicativo. Você pode editar o modelo com o Visual Studio.
 
 Para obter mais informações sobre como definir o modelo, consulte [Criação de modelos do Gerenciador de Recursos do Azure](./resource-group-authoring-templates.md).
-
-Para esquemas de modelo, confira [Esquemas do Gerenciador de Recursos do Azure](https://github.com/Azure/azure-resource-manager-schemas).
 
 Para saber mais sobre como usar um modelo de implantação, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 
@@ -99,9 +103,7 @@ O Gerenciador de Recursos permite controlar quem tem acesso a ações específic
 
 O Gerenciador de Recursos registra automaticamente as ações do usuário para auditoria. Para saber mais sobre como trabalhar com os logs de auditoria, confira [Operações de auditoria com o Gerenciador de Recursos](resource-group-audit.md).
 
-Para obter mais informações sobre o controle de acesso baseado em função, consulte [Controle de acesso baseado em função no portal de visualização do Microsoft Azure](role-based-access-control-configure.md). Este tópico contém uma lista de funções internas e ações permitidas. As funções internas incluem funções gerais de Proprietário, Leitor e Colaborador; bem como funções específicas do serviço, como Colaborador da Máquina Virtual, Colaborador de Rede Virtual e o Gerenciador de Segurança do SQL (para citar apenas algumas das funções disponíveis).
-
-Para obter exemplos de atribuição de funções, consulte [Gerenciando o acesso a recursos](resource-group-rbac.md).
+Para obter mais informações sobre o controle de acesso baseado em função, consulte [Controle de acesso baseado em função do Azure](./active-directory/role-based-access-control-configure.md). O tópico [RBAC: funções internas](./active-directory/role-based-access-built-in-roles.md) contém uma lista de funções internas e ações permitidas. As funções internas incluem funções gerais de Proprietário, Leitor e Colaborador; bem como funções específicas do serviço, como Colaborador da Máquina Virtual, Colaborador de Rede Virtual e o Gerenciador de Segurança do SQL (para citar apenas algumas das funções disponíveis).
 
 Você pode bloquear explicitamente recursos essenciais para impedir que os usuários possam excluí-los ou modificá-los. Para saber mais, confira [Bloquear recursos com o Gerenciador de Recursos do Azure](resource-group-lock-resources.md).
 
@@ -113,7 +115,7 @@ O Gerenciador de Recursos permite que você crie políticas personalizadas para 
 
 ## Camada de gerenciamento consistente
 
-O Gerenciador de Recursos do Azure fornece operações completamente compatíveis por meio do Azure PowerShell, do CLI do Azure para Mac, do Linux e do Windows, do portal de visualização do Azure ou da API REST. Você pode usar a interface que funciona melhor para você e alternar rapidamente entre as interfaces sem problemas. O portal exibe até mesmo notificação para ações executadas fora do portal.
+O Gerenciador de Recursos fornece operações completamente compatíveis por meio do Azure PowerShell, CLI do Azure para Mac, Linux e Windows, o Portal do Azure ou a API REST. Você pode usar a interface que funciona melhor para você e alternar rapidamente entre as interfaces sem problemas. O portal exibe até mesmo notificação para ações executadas fora do portal.
 
 Para obter informações sobre o PowerShell, consulte [Usando o PowerShell do Azure com o Gerenciador de Recursos](./powershell-azure-resource-manager.md) e [Cmdlets do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn757692.aspx).
 
@@ -121,13 +123,13 @@ Para obter informações sobre a CLI do Azure, consulte [Usando a CLI do Azure p
 
 Para obter informações sobre a API REST, consulte [Referência da API REST do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx).
 
-Para saber mais sobre o uso do portal de visualização, confira [Usando o Portal de Visualização do Azure para gerenciar os recursos do Azure](azure-portal/resource-group-portal.md).
+Para saber mais sobre o uso do portal, confira [Usando o Portal do Azure para gerenciar os recursos do Azure](azure-portal/resource-group-portal.md).
 
 O Gerenciador de Recursos do Azure oferece suporte a compartilhamento de recursos entre origens (CORS). Com o CORS, você pode chamar a API REST do Gerenciador de Recursos ou uma API REST do serviço do Azure de um aplicativo Web que resida em um domínio diferente. Sem suporte do CORS, o navegador da Web impediria que um aplicativo em um domínio acessasse recursos em outro domínio. O Gerenciador de Recursos habilita o CORS para todas as solicitações com credenciais de autenticação válidas.
 
 ## Próximas etapas
 
-- Para saber mais sobre a criação de modelos, confira [Criando modelos](./resource-group-authoring-templates.md).
+- Para saber mais sobre a criação de modelos, veja [Criando modelos](./resource-group-authoring-templates.md).
 - Para implantar o modelo criado, consulte [Implantando modelos](resource-group-template-deploy.md)
 - Para entender as funções que você pode usar em um modelo, confira [Funções de modelo](./resource-group-template-functions.md)
 - Para obter diretrizes sobre como criar os modelos, confira [Práticas recomendadas para a criação de modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-design-templates.md)
@@ -136,4 +138,4 @@ Veja uma demonstração em vídeo desta visão geral:
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

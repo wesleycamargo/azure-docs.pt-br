@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/08/2015"
+	ms.date="12/17/2015"
 	ms.author="juliako"/>
 
 
@@ -22,28 +22,18 @@
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 
->[AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Avaliação Gratuita do Azure</a>.
+>[AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
+ 
+##Visão geral 
 
 Este tutorial orienta você pelas etapas de implementação de um aplicativo de entrega de conteúdo de vídeo sob demanda (VoD) com os Serviços de Mídia do Azure (AMS) para .NET.
 
 
 O tutorial apresenta o fluxo de trabalho básico dos Serviços de Mídia e os objetos e as tarefas de programação mais comuns necessárias para o desenvolvimento dos Serviços de Mídia do Microsoft Azure. No final do tutorial, você poderá transmitir ou baixar progressivamente um arquivo de mídia de exemplo que você carregou, codificou e baixou.
 
+## O que você aprenderá
 
-##Baixar exemplo
-
-Obtenha e execute um exemplo [aqui](http://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
-
-
-## Pré-requisitos
-Os seguintes pré-requisitos são necessários para começar a desenvolver com o SDK dos Serviços de Mídia para .NET.
-
-- Sistemas operacionais: Windows 8 ou posterior, Windows 2008 R2, Windows 7.
-- .NET Framework 4.5 ou .NET Framework 4.0
-- Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express) ou posterior.
-
-
-As tarefas a seguir são mostradas neste guia de início rápido.
+O tutorial mostra como concluir as seguintes tarefas:
 
 1.  Criar uma conta do Serviços de Mídia (usando o Portal Clássico do Azure).
 2.  Configurar o ponto de extremidade de streaming (usando o portal).
@@ -52,8 +42,23 @@ As tarefas a seguir são mostradas neste guia de início rápido.
 6.  Criar um novo ativo e carregar um arquivo de vídeo.
 7.  Codificar o arquivo de origem em um conjunto de arquivos MP4 com taxa de bits adaptável.
 8.  Publicar o ativo e obter URLs para streaming e download progressivo.
-9.  Reproduzir o conteúdo.
+9.  Testar ao reproduzir o conteúdo.
 
+## Pré-requisitos
+
+Os itens a seguir são necessários para concluir o tutorial.
+
+- Para concluir este tutorial, você precisa de uma conta do Azure. 
+	
+	Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Obtenha créditos que possam ser usados para experimentar os serviços pagos do Azure. Mesmo depois que os créditos são usados, você pode manter a conta e usar os serviços e recursos do Azure gratuitos, como o recurso de aplicativos Web do Serviço de Aplicativo do Azure.
+- Sistemas operacionais: Windows 8 ou posterior, Windows 2008 R2, Windows 7.
+- .NET Framework 4.0 ou posterior
+- Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express) ou versões posteriores.
+
+
+##Baixar exemplo
+
+Obtenha e execute um exemplo [aqui](http://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
 ##Criar uma conta de Serviços de Mídia usando o portal
 
@@ -73,7 +78,7 @@ As tarefas a seguir são mostradas neste guia de início rápido.
 
 Você pode monitorar o status do processo na área de mensagem na parte inferior da janela.
 
-Depois que a conta é criada com sucesso, o status muda para **Ativo**.
+Depois que a conta for criada com êxito, o status mudará para **Ativo**.
 
 Na parte inferior da página, o botão **GERENCIAR CHAVES** é exibido. Quando você clica nesse botão, é exibida uma caixa de diálogo com o nome da conta de Serviços de Mídia e as chaves primárias e secundárias. Será necessário o nome da conta e as informações de chave primária para acessar a conta de Serviços de Mídia de modo programático.
 
@@ -118,9 +123,9 @@ A alocação de quaisquer novas unidades de streaming leva cerca de 20 minutos p
 
 1. Crie um novo Aplicativo de Console C# no Visual Studio 2013, no Visual Studio 2012 ou no Visual Studio 2010 SP1. Digite o **nome**, o **Local** e o **Nome da solução** e **OK**.
 
-2. Use o pacote Nuget [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) para instalar **extensões do SDK .NET dos Serviços de Mídia do Azure**. As Extensões do SDK do .NET dos Serviços de Mídia do Azure são um conjunto de métodos de extensão e funções auxiliares que simplificarão seu código e tornarão mais fácil desenvolver com os Serviços de Mídia. Instalar esse pacote também instala o **SDK do .NET dos Serviços de Mídia** e adiciona todas as outras dependências necessárias.
+2. Use o pacote Nuget [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) para instalar as **Extensões do SDK .NET dos Serviços de Mídia do Azure**. As Extensões do SDK do .NET dos Serviços de Mídia do Azure são um conjunto de métodos de extensão e funções auxiliares que simplificarão seu código e tornarão mais fácil desenvolver com os Serviços de Mídia. Instalar esse pacote também instala o **SDK do .NET dos Serviços de Mídia** e adiciona todas as outras dependências necessárias.
 
-3. Adicione uma referência ao assembly do System.Configuration. Este assembly contém a classe **System.Configuration.ConfigurationManager** que é utilizada para acessar arquivos de configuração, como App.config.
+3. Adicione uma referência ao assembly do System.Configuration. Esse assembly contém a classe **System.Configuration.ConfigurationManager** que é utilizada para acessar arquivos de configuração, como App.config.
 
 4. Abra o arquivo App.config (adicione o arquivo ao seu projeto se ele não foi adicionado por padrão) e adicione uma seção *appSettings* ao arquivo. Defina os valores para o nome e chave de conta de seus Serviços de Mídia do Azure, conforme mostrado no exemplo a seguir. Para obter as informações de nome da conta e de chave, abra o Portal Clássico do Azure, selecione sua conta de serviços de mídia e clique no botão **GERENCIAR CHAVES**.
 
@@ -128,7 +133,7 @@ A alocação de quaisquer novas unidades de streaming leva cerca de 20 minutos p
 		  
 		</configuration>
 
-5. Substitua a instruções **using** existentes no início do arquivo Program.cs pelo código a seguir.
+5. Substitua as instruções **using** existentes no início do arquivo Program.cs pelo código a seguir.
 
 		using System;
 		using System.Collections.Generic;
@@ -200,7 +205,7 @@ A função **Main** chama métodos que serão definidos posteriormente nesta se�
 
 ##Criar um novo ativo e carregar um arquivo de vídeo
 
-No Serviços de Mídia, você carrega (ou insere) seus arquivos digitais em um ativo. A entidade **Asset** pode conter vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e arquivos de legendas (e os metadados sobre esses arquivos). Depois que os arquivos são carregados, o conteúdo é armazenado com segurança na nuvem para processamento adicional e transmissão. Os arquivos no ativo são chamados **Arquivos de Ativo**.
+No Serviços de Mídia, você carrega (ou insere) seus arquivos digitais em um ativo. A entidade **Asset** pode conter vídeo, áudio, imagens, coleções de miniaturas, sequências de texto e arquivos de legendas (e os metadados sobre esses arquivos). Depois que os arquivos são carregados, o conteúdo é armazenado com segurança na nuvem para processamento adicional e transmissão. Os arquivos no ativo são chamados **Arquivos de Ativo**.
 
 O método **UploadFile** definido abaixo chama **CreateFromFile** (definido em Extensões do SDK .NET). **CreateFromFile** cria um novo ativo no qual o arquivo de origem especificado é carregado.
 
@@ -378,7 +383,7 @@ Adicionar o método a seguir à classe do programa.
         Console.WriteLine("Output asset files available at '{0}'.", Path.GetFullPath(outputFolder));
     }
 
-##Reproduzir o conteúdo  
+##Testar ao reproduzir o conteúdo  
 
 Depois que você executar o programa definido na seção anterior, as URLs semelhantes à seguinte serão exibidas na janela do console.
 
@@ -441,4 +446,4 @@ Se este tópico não contiver o que você esperava, se estiver faltando alguma i
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

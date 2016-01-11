@@ -14,25 +14,27 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/16/2015"
+   ms.date="12/16/2015"
    ms.author="cherylmc"/>
 
 # Configurar uma conexão VPN ponto a site para uma Rede Virtual
 
 
-Este artigo se aplica a conexões ponto a site para redes virtuais criadas usando o modelo clássico de implantação (Gerenciamento de Serviços).
+Este artigo se aplica a conexões de Gateway de VPN Ponto a Site para uma rede virtual criada usando o modelo clássico de implantação (Gerenciamento de Serviços). Agora, as conexões Ponto a Site para redes virtuais criadas usando o modelo de implantação do Gerenciador de Recursos do Azure estão disponíveis usando as APIs REST e o PowerShell. Estamos trabalhando em um artigo que orientará você durante as etapas de uso do PowerShell. Atualizarei esta página e incluirei o link quando o artigo estiver pronto. No momento, estamos planejando para o início de janeiro.
 
-**Neste momento, não há suporte para conexões ponto a site para uma rede virtual criada usando o modelo de implantação do Gerenciador de Recursos do Azure.** Esta página será atualizada quando este recurso tiver suporte para o modelo de implantação do Gerenciador de Recursos.
+**Sobre modelos de implantação do Azure**
 
-[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-O procedimento a seguir orientará você durante as etapas para criar uma conexão ponto a site segura para uma rede virtual. Embora a configuração de uma conexão ponto a site exija várias etapas, ela é uma ótima maneira de obter uma conexão segura do computador com sua rede virtual sem adquirir e configurar um dispositivo VPN.
+## Sobre a criação de uma conexão Ponto a Site
+ 
+As etapas a seguir orientarão você durante as etapas para criar uma conexão Ponto a Site segura para uma rede virtual. Embora a configuração de uma conexão Ponto a Site exija várias etapas, ela é uma ótima maneira de obter uma conexão segura do computador com sua rede virtual sem adquirir e configurar um dispositivo VPN.
 
-A configuração de uma conexão ponto a site é dividida em três seções: a rede virtual e o gateway de VPN, os certificados usados para autenticação e o cliente VPN que será usado para conectar você à sua rede virtual. A ordem em que você configura cada um deles é importante, portanto, não ignore nem pule as etapas.
+A configuração de uma conexão Ponto a Site é dividida em três seções. A **Seção 1** orientará você durante a criação de uma rede virtual e de um gateway de VPN, a **Seção 2** ajudará a criar os certificados usados para autenticação e a **Seção 3** explicará as etapas para o cliente VPN que será usado para se conectar à rede virtual. A ordem em que você configura cada um deles é importante, portanto, não ignore nem pule as etapas.
 
 ## Seção 1 - Criar uma rede virtual e um gateway de VPN
 
-Uma conexão ponto a site requer uma rede virtual com um gateway de roteamento dinâmico. As etapas a seguir orientarão você pelo seguinte:
+Uma conexão Ponto a Site requer uma rede virtual com um gateway de roteamento dinâmico. As etapas a seguir orientarão você pelo seguinte:
 
 Etapa 1 - Criar uma rede virtual.
 
@@ -40,7 +42,7 @@ Etapa 2 - Criar um gateway de roteamento dinâmico.
 
 ### Criar uma rede virtual
 
-1. Faça logon no **Portal Clássico do Azure** (Não é o Portal do Azure).
+1. Faça logon no **Portal Clássico do Azure** (e não no Portal do Azure).
 1. No canto inferior esquerdo da tela, clique em **Novo**. No painel de navegação, clique em **Serviços de Rede** e, em seguida, clique em **Rede Virtual**. Clique em **Criação Personalizada** para iniciar o assistente de configuração.
 1. Na página **Detalhes da Rede Virtual**, insira as informações a seguir e, em seguida, clique na seta de avanço na parte inferior direita.
 	- **Nome**: nome da sua rede virtual. Por exemplo, "VNetEast". Esse será o nome você usará ao implantar as VMs e instâncias de PaaS para esta VNet.
@@ -88,7 +90,7 @@ Se você não estiver usando uma solução de certificado corporativo, será pre
 
 1. Uma maneira de criar um certificado X.509 é usando a Ferramenta de Criação de Certificado (makecert.exe). Para usar a ferramenta makecert, baixe e instale o [Microsoft Visual Studio Express](https://www.visualstudio.com/products/visual-studio-express-vs.aspx), que é gratuito.
 2. Navegue até a pasta Ferramentas do Visual Studio e inicie o prompt de comando como administrador.
-3. O comando no exemplo a seguir criará e instalará um certificado raiz no repositório de certificados Pessoais do seu computador e também criará um arquivo *.cer* correspondente, que você posteriormente carregará no Portal Clássico do Azure.
+3. O comando no exemplo a seguir cria e instala um certificado raiz no repositório de certificados Pessoais do seu computador e também cria um arquivo *.cer* correspondente, que você posteriormente carregará no Portal Clássico do Azure.
 4. Vá para o diretório no qual deseja colocar o arquivo .cer e execute o comando a seguir, em que *RootCertificateName* é o nome que você deseja usar para o certificado. Se você executar o exemplo a seguir sem alterações, o resultado será um certificado raiz e o arquivo *RootCertificateName.cer* correspondente.
 
 >[AZURE.NOTE]Como você criou um certificado raiz do qual serão gerados certificados de cliente, você pode querer exportar o certificado juntamente com a sua chave privada e salvá-lo em um local seguro onde possa ser recuperado.
@@ -185,12 +187,8 @@ Exemplo:
 
 ## Próximas etapas
 
-Você pode saber mais sobre a conectividade entre locais da rede virtual neste artigo: [Sobre a conectividade segura entre locais da rede virtual](vpn-gateway-cross-premises-options.md).
-
-Se você quiser configurar uma conexão VPN site a site, consulte [Configurar uma rede virtual com uma conexão de gateway de VPN site a site](vpn-gateway-site-to-site-create.md).
-
-Você pode adicionar máquinas virtuais à sua rede virtual. Consulte [Como criar uma máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md).
+Você pode adicionar máquinas virtuais à sua rede virtual. Veja [Como criar uma máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md).
 
 Se quiser saber mais sobre Redes Virtuais, consulte a página [Documentação da Rede Virtual](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->
