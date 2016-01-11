@@ -22,7 +22,7 @@ Este artigo é a documentação de referência para a `api-version=2015-02-28-Pr
 
 - A [sintaxe de consulta Lucene](https://msdn.microsoft.com/library/mt589323.aspx) agora pode ser usada para consultas de pesquisa do Azure. Para usar o analisador de consulta Lucene, especifique `queryType` em operações de pesquisa.
 - [Analisadores personalizado](https://msdn.microsoft.com/library/azure/mt605304.aspx) permitem assumir o controle do processo de conversão de texto para tokens indexáveis/pesquisáveis
-- `moreLikeThis` é um parâmetro de consulta usado em [operações de pesquisa](#SearchDocs) que localiza outros documentos relevantes para outro documento específico.
+- `moreLikeThis` é um parâmetro de consulta usado em [operações de Pesquisa](#SearchDocs) que localiza outros documentos relevantes para outro documento específico.
 
 O serviço Azure Search está disponível em várias versões. Consulte [Controle de versão de serviço de pesquisa](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obter detalhes.
 

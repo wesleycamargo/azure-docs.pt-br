@@ -40,7 +40,7 @@ O clustering é habilitado na folha **Novo Cache Redis** durante a criação do 
 
 ![Criar um Cache Redis][redis-cache-new-cache-menu]
 
-Para configurar o clustering, primeiro selecione um dos caches **Premium** na folha **Escolha o tipo de preço**.
+Para configurar o clustering, primeiro selecione um dos caches **Premium** na folha **Escolha o Tipo de preço**.
 
 ![Escolha sua camada de preço][redis-cache-premium-pricing-tier]
 
@@ -122,7 +122,7 @@ O maior tamanho de cache premium é de 53 GB. Você pode criar até 10 fragmento
 
 ## Todos os clientes do Redis dão suporte ao clustering?
 
-No momento, nem todos os clientes dão suporte ao clustering do Redis. StackExchange.Redis é o que dá suporte a ele. Para obter mais informações sobre outros clientes, confira a seção [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) do [Redis cluster tutorial](http://redis.io/topics/cluster-tutorial).
+No momento, nem todos os clientes dão suporte ao clustering do Redis. StackExchange.Redis é o que dá suporte a ele. Para obter mais informações sobre outros clientes, confira a seção [Reproduzindo com o cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) do [Tutorial de cluster do Redis](http://redis.io/topics/cluster-tutorial).
 
 >[AZURE.NOTE]Se estiver usando o StackExchange.Redis como seu cliente, verifique se está usando a versão mais recente do [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 ou posterior para que o clustering funcione corretamente.
 
@@ -132,7 +132,7 @@ Você pode conectar ao seu cache usando os mesmos [pontos de extremidade, portas
 
 ## Posso me conectar diretamente aos fragmentos individuais do meu cache?
 
-Oficialmente, não há suporte para isso. Dito isso, cada fragmento consiste em um par de cache primário/de réplica que é conhecido coletivamente como uma instância de cache. Você pode se conectar a essas instâncias de cache usando o utilitário redis-cli na ramificação [unstable](http://redis.io/download) do repositório do Redis no GitHub. Esta versão implementa o suporte básico quando iniciado com o switch `-c`. Para obter mais informações, confira [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) em [http://redis.io](http://redis.io) no [Redis cluster tutorial](http://redis.io/topics/cluster-tutorial).
+Oficialmente, não há suporte para isso. Dito isso, cada fragmento consiste em um par de cache primário/de réplica que é conhecido coletivamente como uma instância de cache. Você pode se conectar a essas instâncias de cache usando o utilitário redis-cli na ramificação [instável](http://redis.io/download) do repositório do Redis no GitHub. Esta versão implementa suporte básico quando iniciado com o `-c` switch. Para obter mais informações, consulte [Reprodução com o cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) em [http://redis.io](http://redis.io) no [tutorial de cluster Redis](http://redis.io/topics/cluster-tutorial).
 
 Para não SSL, use os comandos a seguir.
 
@@ -154,8 +154,8 @@ O clustering está disponível apenas para os caches premium.
 
 ## Posso usar clustering com os provedores de Estado de Sessão ASP.NET Redis e Caching de Saída?
 
--	**Provedor de Cache de Saída Redis**: sem necessidade de alterações.
--	**Provedor de Estado de Sessão Redis**: para usar o clustering, você deve usar [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 ou superior; do contrário, uma exceção será lançada. Essa é uma alteração significativa; para saber mais, confira [v2.0.0 Breaking Change Details](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
+-	**Provedor de cache de saída Redis** - sem necessidade de alterações.
+-	**Provedor de estado de sessão Redis**: para usar o clustering, você deve usar [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.0 ou superior; do contrário, uma exceção será lançada. Isso é uma alteração significativa; para saber mais, confira [Detalhes de alteração significativa da v2.0.0](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
 
 ## Próximas etapas
 Aprenda a usar mais recursos de cache premium.

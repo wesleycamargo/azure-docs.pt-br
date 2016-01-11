@@ -95,7 +95,7 @@ O Service Fabric faz uma cópia do conteúdo do diretório raiz do aplicativo, p
 >[AZURE.NOTE]Certifique-se de incluir todos os arquivos/dependências de que o aplicativo precisa. A Malha de Serviço copiará o conteúdo do pacote de aplicativos em todos os nós do cluster onde os serviços do aplicativo serão implantados. O pacote deve conter todos os códigos que o aplicativo precisa para ser executado. Não recomendamos supor que as dependências já estão instaladas.
 
 ### Editar o arquivo de manifesto do serviço
-A próxima etapa é editar o arquivo de manifesto do serviço para incluir as seguintes informações:
+A próxima etapa é editar o arquivo de Manifesto do Serviço para incluir as seguintes informações:
 
 - O nome da fila do tipo de serviço. Esse é um ID que o Service Fabric usa para identificar um serviço.
 - O comando a ser usado para iniciar o aplicativo (ExeHost).

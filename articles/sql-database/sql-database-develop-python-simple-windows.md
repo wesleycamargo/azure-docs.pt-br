@@ -46,10 +46,10 @@ Instale [pymssql](http://www.lfd.uci.edu/~gohlke/pythonlibs/#pymssql).
 
 Certifique-se de que escolheu o arquivo whl correto.
 
-Por exemplo: se você estiver usando o Python 2.7 em um computador de 64 bits, escolha: pymssql‑2.1.1‑cp27‑none‑win\_amd64.whl. Depois de baixar o arquivo .whl, coloque-o na pasta C:/Python27.
+Por exemplo: se você estiver usando o Python 2.7 em um computador de 64 bits, escolha: pymssql‑2.1.1‑cp27‑none‑win_amd64.whl. Depois de baixar o arquivo .whl, coloque-o na pasta C:/Python27.
 
 Agora, instale o driver pymssql usando pip na linha de comando. cd em C:/Python27 e execute o seguinte
-
+	
 	pip install pymssql‑2.1.1‑cp27‑none‑win_amd64.whl
 
 É possível encontrar instruções para habilitar o uso de pip [aqui](http://stackoverflow.com/questions/4750806/how-to-install-pip-on-windows)
@@ -109,11 +109,11 @@ Nesse exemplo, você verá como executar uma instrução [INSERT](https://msdn.m
 Este exemplo de código demonstra o uso de transações nas quais você:
 
 
-- Inicia uma transação
+-Inicia uma transação
 
-- Insere uma linha de dados
+-Insere uma linha de dados
 
-- Reverte a transação para desfazer a inserção
+-Reverte a transação para desfazer a inserção
 
 
 	import pymssql

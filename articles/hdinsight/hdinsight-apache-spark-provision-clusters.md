@@ -32,7 +32,7 @@ Antes de começar a seguir as instruções neste artigo, você deve ter uma assi
 
 ##<a id="configuration"></a>Quais são as opções de configuração diferentes?
 
-### Armazenamento adicional
+###Armazenamento adicional
 
 Durante a configuração, você deve especificar uma conta de Armazenamento do Blobs do Azure e um contêiner padrão. Eles são usados como o local de armazenamento padrão pelo cluster. Opcionalmente, você pode especificar uma conta de armazenamento do Azure adicional que também será associada ao cluster.
 
@@ -40,7 +40,7 @@ Durante a configuração, você deve especificar uma conta de Armazenamento do B
 
 Para obter mais informações sobre o uso de repositórios de blob secundários, consulte [Usando o Armazenamento de Blobs do Azure com o HDInsight](hdinsight-use-blob-storage.md).
 
-### Metastore
+###Metastore
 
 O Spark permite definir esquema e tabelas do Hive em dados brutos. Você pode salvar esses esquemas e metadados da tabela em metastores externos. Usar o metastore ajuda a manter seus metadados do Hive para que você não precise recriar tabelas do Hive ao criar um novo cluster. Por padrão, o Hive usa um banco de dados integrado para armazenar essas informações. O banco de dados integrado não é capaz de preservar os metadados quando o cluster é excluído.
 
@@ -51,7 +51,7 @@ Para obter instruções sobre como criar um banco de dados SQL do Azure, confira
 Você pode instalar componentes adicionais ou personalizar a configuração de cluster por meio de scripts durante a criação. Tais scripts são chamados usando a **Ação de Script**, que é uma opção de configuração que pode ser usada no portal do Azure, cmdlets do Windows PowerShell do HDInsight ou SDK do .NET do HDInsight. Para obter mais informações, consulte [Personalizar cluster HDInsight usando a Ação de Script][hdinsight-customize-cluster].
 
 
-### Rede Virtual
+###Rede Virtual
 
 A [Rede Virtual do Azure](http://azure.microsoft.com/documentation/services/virtual-network/) permite que você crie uma rede segura e persistente contendo os recursos necessários para sua solução. Uma rede virtual permite que você:
 
@@ -77,7 +77,7 @@ Para obter mais informações sobre os recursos, benefícios e capacidades das r
 >
 > É altamente recomendado designar uma única sub-rede para um cluster.
 
-##<a id="portal"></a>Usando o Portal de Visualização do Azure
+##<a id="portal"></a> Usando o portal de visualização do Azure
 
 Os clusters do Spark no HDInsight usam um contêiner de armazenamento de blobs do Azure como o sistema de arquivos padrão. Uma conta de Armazenamento do Azure localizada no mesmo data center é necessária para poder criar um cluster HDInsight. Para obter mais informações, consulte [Usar o Armazenamento de Blobs do Azure com o HDInsight](hdinsight-hadoop-use-blob-storage.md). Para obter detalhes sobre como criar uma conta do Armazenamento do Azure, consulte [Como criar uma conta de armazenamento][azure-create-storageaccount].
 
@@ -112,7 +112,7 @@ Os clusters do Spark no HDInsight usam um contêiner de armazenamento de blobs d
 
 	- **Selecionar conta de armazenamento/Criar Nova**: clique em **Selecionar conta de armazenamento** para procurar e escolher uma conta de armazenamento existente que deseja associar ao cluster. Ou clique em **Criar Nova** para criar uma nova conta de armazenamento. Use o campo exibido para inserir o nome da conta de armazenamento. Uma marca de seleção verde será exibida se o nome estiver disponível.
 
-	- **Escolher Contêiner Padrão**: use essa opção para inserir o nome do contêiner padrão a ser usado para o cluster. Embora você possa inserir qualquer nome aqui, é recomendável usar o mesmo nome que o cluster para que você possa reconhecer facilmente que o contêiner é usado para este cluster específico.
+	- **Escolher contêiner padrão**: use essa opção para inserir o nome do contêiner padrão a ser usado para o cluster. Embora você possa inserir qualquer nome aqui, é recomendável usar o mesmo nome que o cluster para que você possa reconhecer facilmente que o contêiner é usado para este cluster específico.
 
 	- **Local**: a região geográfica na qual a conta de armazenamento está ou será criada.
 
@@ -209,10 +209,10 @@ Especifique o tipo de cluster Spark:
 
 ##<a id="nextsteps"></a> Próximas etapas
 
-* Confira [Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools-v1.md) para saber como usar o Apache Spark no HDInsight com ferramentas de BI, como Power BI e Tableau.
-* Confira [Use Spark in HDInsight for building machine learning applications](hdinsight-apache-spark-ipython-notebook-machine-learning-v1.md) para saber como criar aplicativos de aprendizado de máquina usando o Apache Spark no HDInsight.
-* Confira [Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md) para saber como criar aplicativos de streaming usando o Apache Spark no HDInsight.
-* Confira [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager-v1.md) para saber como usar o Gerenciador de Recursos para gerenciar os recursos alocados para o cluster Spark.
+* Confira [Executar análises de dados interativas usando o Spark no HDInsight com ferramentas de BI](hdinsight-apache-spark-use-bi-tools-v1.md) para saber como usar o Apache Spark no HDInsight com ferramentas de BI, como Power BI e Tableau.
+* Confira [Usar o Spark no HDInsight para a criação de aplicativos de aprendizado de máquina](hdinsight-apache-spark-ipython-notebook-machine-learning-v1.md) para saber como criar aplicativos de aprendizado de máquina usando o Apache Spark no HDInsight.
+* Confira [Usar o Spark no HDInsight para a criação de aplicativos de streaming em tempo real](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md) para saber como criar aplicativos de streaming usando o Apache Spark no HDInsight.
+* Confira [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-resource-manager-v1.md) para saber como usar o Gerenciador de Recursos para gerenciar os recursos alocados para o cluster Spark.
 
 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
