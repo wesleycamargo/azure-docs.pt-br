@@ -3,7 +3,7 @@
 	description="Saiba como atualizar com facilidade seu aplicativo de Serviços Móveis para um Aplicativo Móvel do Serviço de Aplicativo"
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="christopheranderson"
+	authors="adrianhall"
 	manager="dwrede"
 	editor=""/>
 
@@ -42,13 +42,13 @@ A atualização para o novo [SDK de Aplicativos Móveis](https://www.npmjs.com/p
 
 - Criado para o desenvolvimento local e de plataforma cruzada, o SDK dos Aplicativos Móveis pode ser desenvolvido e executado localmente nas plataformas do Windows, do Linux e do OSX. Agora é fácil usar técnicas comuns de desenvolvimento em Node, como a execução de testes [Mocha](https://mochajs.org/) antes da implantação.
 
-- Você pode usar o Redis com módulos nativos, como o [hiredis](https://www.npmjs.com/package/hiredis); e uma vez que o Serviço de Aplicativo instalará os pacotes npm para você, não será necessário incluir na implantação binários em seus pacotes de implantação.
+- Você pode usar o Redis com módulos nativos como o [hiredis](https://www.npmjs.com/package/hiredis). Não é necessário incluir binários nos pacotes de implantação, pois o Serviço de Aplicativo instalará os pacotes npm para você.
 
 ## <a name="overview"></a>Visão geral da atualização básica
 
 Ao contrário do SDK de Aplicativos Móveis .NET, atualizar um back-end do Node dos Serviços Móveis para os Aplicativos Móveis não é tão simples quanto trocar pacotes. Agora você possui sua própria pilha de aplicativos, e o Azure não a controla mais. Portanto, você precisa criar um aplicativo básico do Express para hospedar o back-end móvel. Para os controladores de tabela e de API, os conceitos são semelhantes, mas agora você deve exportar objetos de tabela e as APIs de função mudaram um pouco. Este artigo explica as estratégias básicas de atualização. Mas antes de migrar, convém ler as [Instruções de back-end do Node](app-service-mobile-node-backend-how-to-use-server-sdk.md) antes de começar.
 
->[AZURE.TIP]Recomendamos a leitura e compreensão do restante deste tópico antes de iniciar uma atualização. Tome nota de todos os recursos que você usar que são descritos abaixo.
+>[AZURE.TIP]Leia e compreenda o restante deste tópico antes de iniciar uma atualização. Tome nota de todos os recursos que você usa que são descritos abaixo.
 
 Os SDKs do cliente de Serviços Móveis **não** são compatíveis com o novo SDK do servidor de Aplicativos Móveis. Para permitir a continuidade do serviço de seu aplicativo, não publique alterações em um site que esteja servindo clientes publicados. Em vez disso, você deve criar um novo aplicativo móvel que sirva como uma duplicata. Você pode colocar esse aplicativo no mesmo plano de Serviço de Aplicativo para evitar custos adicionais.
 
@@ -56,20 +56,23 @@ Assim, você terá duas versões do aplicativo: uma que permanece inalterada e a
 
 A estrutura completa para o processo de atualização é a seguinte:
 
-1. Criar um novo Aplicativo Móvel
-2. Atualizar o projeto para usar os novos SDKs de Servidor
-3. Lançar uma nova versão do aplicativo cliente
-4. (Opcional) Excluir seu aplicativo de serviço móvel migrado original
+1. Criar um novo Aplicativo Móvel.
+2. Atualizar o projeto para usar os novos SDKs de Servidor.
+3. Publicar seu projeto no novo Aplicativo Móvel.
+4. Lançar uma nova versão do aplicativo cliente que use o novo Aplicativo Móvel
+5. (Opcional) Excluir seu aplicativo de serviço móvel migrado original.
+
+A exclusão pode ocorrer quando você não vê nenhum tráfego no aplicativo de serviço móvel migrado original.
 
 ## <a name="mobile-app-version"></a> Iniciando a atualização
-A primeira etapa de atualização é criar o recurso de Aplicativo Móvel que hospedará a nova versão do seu aplicativo. Se você já tiver migrado um serviço móvel existente, convém criar esta versão no mesmo plano de hospedagem. Abra o [portal do Azure] e navegue até seu aplicativo migrado. Anote o Plano de Serviço de Aplicativo no qual ele está sendo executado.
+A primeira etapa de atualização é criar o recurso de Aplicativo Móvel que hospedará a nova versão do seu aplicativo. Se você já tiver migrado um serviço móvel existente, convém criar esta versão no mesmo plano de hospedagem. Abra o [Portal do Azure] e navegue até o aplicativo migrado. Anote o Plano de Serviço de Aplicativo no qual ele está sendo executado.
 
 ### Criando uma segunda instância do aplicativo
 Em seguida, crie uma segunda instância do aplicativo. Quando receber uma solicitação para escolher o Plano de Serviço de Aplicativo ou o "plano de hospedagem", escolha o plano de seu aplicativo migrado.
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-Você provavelmente desejará usar o mesmo banco de dados e Hub de Notificação, como você fez nos Serviços Móveis. Você pode copiar esses valores abrindo o [portal do Azure] e navegando até o aplicativo original, clicando em **Configurações** > **Configurações do aplicativo**. Em **Cadeias de Conexão**, copie `MS_NotificationHubConnectionString` e `MS_TableConnectionString`. Navegue até o novo site de atualização e cole-as, substituindo os valores existentes. Repita esse processo para quaisquer outras configurações de aplicativo exigidas por seu aplicativo. Se você não estiver usando um serviço migrado, leia as cadeias de conexão e as configurações de aplicativo da guia **Configurar** da seção Serviços Móveis do [portal do Azure].
+Você provavelmente desejará usar o mesmo banco de dados e Hub de Notificação, como você fez nos Serviços Móveis. Você pode copiar esses valores abrindo o [Portal do Azure], navegando até o aplicativo original e clicando em **Configurações** > **Configurações do aplicativo**. Em **Cadeias de Conexão**, copie `MS_NotificationHubConnectionString` e `MS_TableConnectionString`. Navegue até o novo site de atualização e cole-as, substituindo os valores existentes. Repita esse processo para quaisquer outras configurações de aplicativo exigidas por seu aplicativo. Se não estiver usando um serviço migrado, você poderá ler as cadeias de conexão e as configurações de aplicativo na guia **Configurar** da seção Serviços Móveis do [Portal do Azure].
 
 ### Criar um back-end básico do Aplicativo Móvel com o Node
 
@@ -110,10 +113,13 @@ Cada back-end de Node.js do Aplicativo Móvel do Serviço de Aplicativo do Azure
            app.use(mobile);
 
            // Start listening on HTTP
-           app.listen(process.env.PORT || 3000);
-           console.log('Now listening on ' + (process.env.PORT || 3000)));
+           var port = process.env.PORT || 3000;
+           app.listen(port, function () {
+               console.log('Now listening on ', port)
+           });
         });
 
+Para obter mais amostras, veja o [repositório GitHub](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples).
 
 ## Atualizando o projeto de servidor
 
@@ -121,7 +127,7 @@ Os Aplicativos Móveis fornecem um novo [SDK do Servidor de Aplicativo Móvel] q
 
 ### Configuração base
 
-O servidor tem muitas configurações, mas tem diversos valores padrão para facilitar o uso inicial. Muitas das configurações serão definidas para você, no [portal do Azure], por meio dos menus de configuração **Dados**, **Autenticação/Autorização** e **Push**. Para desenvolvimento local, se você quiser usar os dados, autenticação e push, talvez seja necessário configurar seu ambiente de desenvolvimento local.
+O servidor tem muitas configurações, mas tem diversos valores padrão para facilitar o uso inicial. Muitas das configurações serão definidas para você, no [Portal do Azure], por meio dos menus de configuração **Dados**, **Autenticação/Autorização** e **Push**. Para desenvolvimento local, se você quiser usar os dados, autenticação e push, talvez seja necessário configurar seu ambiente de desenvolvimento local.
 
 Você pode definir a configuração do servidor por meio de variáveis de ambiente que podem ser definidas por meio das Configurações do Aplicativo em seu back-end do Aplicativo Móvel.
 
@@ -131,7 +137,7 @@ Você pode personalizar ainda mais o SDK de Aplicativos Móveis, passando um [ob
 
 O SDK vem com um provedor de dados na memória a fim de facilitar e agilizar a experiência inicial. Você deve passar a usar um Banco de Dados SQL logo no início, pois o provedor na memória perderá todos os dados na reinicialização e não permanecerá consistente entre várias instâncias.
 
-Para começar a mudar sua lógica de negócios do seu Serviço Móvel para os Aplicativos Móveis, primeiro convém criar um arquivo com o nome da tabela (seguido por ‘.js’) no diretório `./tables`. Veja o exemplo completo de uma tabela de Aplicativo Móvel no [GitHub](https://github.com/Azure/azure-mobile-apps-node/blob/master/samples/todo/tables/TodoItem.js). A versão mais simples é:
+Para começar a mudar a lógica de negócios do seu Serviço Móvel para os Aplicativos Móveis, primeiro convém criar um arquivo com o nome da tabela (seguido por '.js') no diretório de `./tables`. Veja o exemplo completo de uma tabela de Aplicativo Móvel no [GitHub](https://github.com/Azure/azure-mobile-apps-node/blob/master/samples/todo/tables/TodoItem.js). A versão mais simples é:
 
     var azureMobileApps = require('azure-mobile-apps');
 
@@ -140,11 +146,14 @@ Para começar a mudar sua lógica de negócios do seu Serviço Móvel para os Ap
 
     module.exports = table;
 
-Para iniciar a portabilidade de sua lógica, para cada um dos seus `<tablename>.<operation>.js`, você precisará de uma função para sua tabela. Vamos adicionar uma função de leitura a um exemplo.
+Para iniciar a portabilidade de sua lógica, para cada um dos seus `<tablename>.<operation>.js`, você precisará de uma função para a tabela. Vamos adicionar uma função de leitura a um exemplo.
 
 Em um Serviço Móvel com uma tabela TodoItem e uma operação de leitura que filtra os itens com base na ID de usuário, como esta:
 
-  function(query, user, request) { query.where({ userId: user.userId}); request.execute(); }
+    function(query, user, request) {
+        query.where({ userId: user.userId});
+        request.execute();
+    }
 
 A função que adicionamos ao código de tabela dos Aplicativos Móveis do Azure teria esta aparência:
 
@@ -153,17 +162,32 @@ A função que adicionamos ao código de tabela dos Aplicativos Móveis do Azure
         return context.execute();
     });
 
-Inspecionando o código, você pode ver que a maioria dos parâmetros de função de
+A consulta, o usuário e a solicitação são combinados em um contexto. Os campos a seguir estão disponíveis no objeto de contexto:
+
+| Campo | Tipo | Descrição |
+| :------ | :--------------------- | :---------- |
+| query | queryjs/Query | A consulta OData analisada |
+| ID | cadeia de caracteres ou número | A ID associada à solicitação |
+| item | objeto | O item que está sendo inserido ou excluído |
+| req | express.Request | O objeto de solicitação expresso atual |
+| res | express.Response | O objeto de resposta expresso atual |
+| data | data | O provedor de dados configurado |
+| tables | função | Uma função que aceita um nome de tabela de cadeia de caracteres e retorna um objeto de acesso de tabela |
+| usuário | autenticação/usuário | O objeto de usuário autenticado |
+| results | objeto | Os resultados da operação de execução |
+| push | NotificationHubService | O serviço Hubs de Notificação, se configurado |
+
+Para obter mais informações, veja a [documentação da API atual](http://azure.github.io/azure-mobile-apps-node).
 
 ### CORS
 
-CORS pode ser habilitada por meio de uma [configuração de CORS](http://azure.github.io/azure-mobile-apps-node/global.html#corsConfiguration) no SDK.
+CORS pode ser habilitado por meio de uma [configuração de CORS](http://azure.github.io/azure-mobile-apps-node/global.html#corsConfiguration) no SDK.
 
-As principais áreas com que você deve se preocupar ao usar CORS são os cabeçalhos `eTag` e `Location`, que devem ser permitidos para que os SDKs do cliente funcionem corretamente.
+As principais áreas com que você deve se preocupar ao usar o CORS são os cabeçalhos `eTag` e `Location`, que devem ser permitidos para que os SDKs do cliente funcionem corretamente.
 
 ### Notificações por Push
 
-Os SDK dos Hubs de Notificação do Azure sofreram algumas atualizações consideráveis desde os Serviços Móveis, portanto, algumas assinaturas de função dos Hubs de Notificação podem ser diferentes. Caso contrário, a funcionalidade será semelhante aos Serviços Móveis; o Azure Mobile SDK provisionará uma instância dos Hubs de Notificação se a Configuração do Aplicativo para os Hubs de Notificação existir e a exibirá em `context.push`. Encontre um exemplo no [GitHub](https://github.com/Azure/azure-mobile-apps-node/blob/master/samples/push-on-insert/tables/TodoItem.js), com a seção relevante mostrada abaixo:
+Os SDK dos Hubs de Notificação do Azure sofreram algumas atualizações consideráveis desde os Serviços Móveis, portanto, algumas assinaturas de função dos Hubs de Notificação podem ser diferentes. Caso contrário, a funcionalidade será semelhante aos Serviços Móveis. O Azure Mobile SDK provisionará uma instância dos Hubs de Notificação se a Configuração do Aplicativo para os Hubs de Notificação existir e a exibirá em `context.push`. Encontre um exemplo no [GitHub](https://github.com/Azure/azure-mobile-apps-node/blob/master/samples/push-on-insert/tables/TodoItem.js), com a seção relevante mostrada abaixo:
 
     table.insert(function (context) {
         // For details of the Notification Hubs JavaScript SDK,
@@ -197,7 +221,7 @@ Os SDK dos Hubs de Notificação do Azure sofreram algumas atualizações consid
 
 
 ### Trabalhos agendados
-Trabalhos agendados não são criados em aplicativos móveis, portanto, todos os trabalhos existentes que você tem no back-end do Serviço Móvel precisam ser atualizado individualmente. Uma opção é criar um [Trabalho Web] agendado no site de código do Aplicativo Móvel. Você também pode configurar uma API que contenha o código de trabalho e configurar o [Agendador do Azure] para atingir o ponto de extremidade como o esperado.
+Trabalhos agendados não são criados em aplicativos móveis, portanto, todos os trabalhos existentes que você tem no back-end do Serviço Móvel precisam ser atualizado individualmente. Uma opção é criar um [Trabalho Web] agendado no site de código do Aplicativo Móvel. Você também pode configurar uma API que contenha o código de trabalho e configurar o [Agendador do Azure] para atingir o ponto de extremidade na agenda esperada.
 
 ## <a name="authentication"></a>Considerações sobre autenticação
 
@@ -207,7 +231,7 @@ Para alguns provedores, como o AAD, o Facebook e o Google, você deverá aprovei
 
 ### Identidade de usuário e autorização de ação do controlador
 
-Para limitar o acesso à sua tabela, configure isso no nível da tabela com `table.access = 'authenticated';`. Veja um exemplo completo no [GitHub](https://github.com/Azure/azure-mobile-apps-node/blob/master/samples/authentication/tables/TodoItem.js).
+Para limitar o acesso à sua tabela, configure-a no nível da tabela com `table.access = 'authenticated';`. Veja um exemplo completo no [GitHub](https://github.com/Azure/azure-mobile-apps-node/blob/master/samples/authentication/tables/TodoItem.js).
 
 Você pode obter acesso às informações de identidade do usuário por meio do método `user.getIdentity` descrito [aqui](http://azure.github.io/azure-mobile-apps-node/module-azure-mobile-apps_auth_user.html#~getIdentity).
 
@@ -250,7 +274,7 @@ Quando a nova versão do cliente estiver pronta, faça um teste em seu projeto d
 [preços do Serviço de Aplicativo]: https://azure.microsoft.com/pt-BR/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-[portal do Azure]: https://portal.azure.com/
+[Portal do Azure]: https://portal.azure.com/
 [OData]: http://www.odata.org
 [Promise]: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [basicapp sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
@@ -264,4 +288,4 @@ Quando a nova versão do cliente estiver pronta, faça um teste em seu projeto d
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

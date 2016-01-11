@@ -25,9 +25,11 @@ O Armazenamento Premium do Azure dá suporte de disco de alto desempenho e baixa
 
 Uma VM do Azure dá suporte à anexação vários discos de Armazenamento Premium, para que seus aplicativos possam ter até 64 TB de armazenamento por VM. Com o Armazenamento Premium, seus aplicativos podem atingir 80.000 IOPS (operações de entrada/saída por segundo) por VM e taxa de transferência de disco de 2.000 MB por segundo por VM com latências extremamente baixas para operações de leitura.
 
+Com o Armazenamento Premium, o Azure oferece a capacidade de realmente deslocar os exigentes aplicativos empresariais, por exemplo, Dynamics AX, Dynamics CRM, Exchange Server, Farms do SharePoint e SAP Business Suite, para a nuvem. Você pode executar várias cargas de trabalho de banco de dados com desempenho intenso, como o SQL Server, Oracle, MongoDB, MySQL, Redis, que exigem um desempenho alto e consistente e baixa latência no Armazenamento Premium.
+
 >[AZURE.NOTE]É recomendável migrar qualquer disco de máquina virtual que exija IOPS alta para o Armazenamento Premium do Azure para obter o melhor desempenho para o seu aplicativo. Se o disco não requer IOPS alta, você pode limitar os custos mantendo-a no armazenamento padrão, que armazena dados de disco da máquina virtual em HDDs (unidades de disco rígido) em vez de SSDs.
 
-Para começar com o Armazenamento Premium do Azure, visite a página [Introdução gratuita](http://azure.microsoft.com/pricing/free-trial/). Para obter informações sobre como migrar as máquinas virtuais existentes para o Armazenamento Premium, consulte [Migrando para o Armazenamento Premium do Azure](storage-migration-to-premium-storage.md).
+Para começar com o Armazenamento Premium do Azure, visite a página [Introdução gratuita](http://azure.microsoft.com/pricing/free-trial/). Para saber mais sobre como migrar as máquinas virtuais existentes para o Armazenamento Premium, confira [Migração para o Armazenamento Premium do Azure](storage-migration-to-premium-storage.md).
 
 ## Coisas importantes a saber sobre o Armazenamento Premium
 
@@ -49,7 +51,7 @@ A seguir está uma lista de pontos importantes a considerar antes ou quando usar
 
 - Uma conta de Armazenamento Premium não pode ser mapeada para um nome de domínio personalizado.
 
-- Não há suporte atualmente para a análise de armazenamento para Armazenamento Premium. Para analisar as métricas de desempenho de VMs usando discos em contas de Armazenamento Premium, use as ferramentas baseados no sistema operacional, por exemplo, [Monitor de Desempenho do Windows](https://technet.microsoft.com/library/cc749249.aspx) para VMs do Windows e [IOSTAT](http://linux.die.net/man/1/iostat) para VMs do Linux. Você também pode habilitar o diagnóstico de VM do Azure no Portal de visualização do Azure. Consulte o [Monitoramento de máquina virtual do Microsoft Azure com extensão de diagnóstico do Azure](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/) para obter detalhes.
+- Não há suporte atualmente para a análise de armazenamento para Armazenamento Premium. Para analisar as métricas de desempenho de VMs usando discos em contas de Armazenamento Premium, use as ferramentas baseados no sistema operacional, por exemplo, [Monitor de Desempenho do Windows](https://technet.microsoft.com/library/cc749249.aspx) para VMs do Windows e [IOSTAT](http://linux.die.net/man/1/iostat) para VMs do Linux. Você também pode habilitar o diagnóstico de VM do Azure no Portal de visualização do Azure. Confira [Microsoft Azure Virtual Machine Monitoring with Azure Diagnostics Extension](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/) para obter detalhes.
 
 ## Usando o Armazenamento Premium para discos
 Você pode usar o Armazenamento Premium para discos de uma das seguintes maneiras:
@@ -59,7 +61,7 @@ Você pode usar o Armazenamento Premium para discos de uma das seguintes maneira
 
 O Azure usa a conta de armazenamento como um contêiner para seu sistema operacional (SO) e discos de dados. Em outras palavras, se você cria uma VM do Azure da série DS ou série GS e seleciona uma conta de Armazenamento Premium do Azure, o sistema operacional e os discos de dados são armazenados nessa conta de armazenamento.
 
-Para obter informações sobre como migrar as máquinas virtuais existentes para o Armazenamento Premium, consulte [Migrando para o Armazenamento Premium do Azure](storage-migration-to-premium-storage.md).
+Para saber mais sobre como migrar as máquinas virtuais existentes para o Armazenamento Premium, consulte [Migração para o Armazenamento Premium do Azure](storage-migration-to-premium-storage.md).
 
 Para aproveitar os benefícios do Armazenamento Premium, crie uma conta de Armazenamento Premium usando primeiro um tipo de conta *Premium\_LRS*. Para fazer isso, você pode usar o [Portal do Azure](portal.azure.com), o [Azure PowerShell](../install-configure-powershell.md) ou a [API REST do Serviço de Gerenciamento](http://msdn.microsoft.com/library/azure/ee460799.aspx). Para obter instruções detalhadas, consulte [Criação e uso da conta do Armazenamento Premium para discos](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
@@ -201,7 +203,7 @@ Consulte instruções importantes abaixo para configurar suas VMs do Linux no Ar
 	- Se você usar **XFS**, desabilite as barreiras usando a opção de montagem “nobarrier” (para habilitar as barreiras, use a opção “barrier”)
 
 - Para discos de Armazenamento Premium com a configuração de cache "ReadWrite", as barreiras devem ser habilitadas para durabilidade de gravações.
-- Para que os rótulos de volume persistam após a reinicialização da VM, atualize o /etc/fstab com as referências de UUID para os discos. Além disso, consulte também [Como anexar um disco de dados a uma máquina virtual Linux](../virtual-machines/virtual-machines-linux-how-to-attach-disk)
+- Para que os rótulos de volume persistam após a reinicialização da VM, atualize o /etc/fstab com as referências de UUID para os discos. Além disso, confira também [Como anexar um disco de dados a uma máquina virtual Linux](../virtual-machines/virtual-machines-linux-how-to-attach-disk)
 
 A seguir estão as distribuições do Linux que são validadas com o Armazenamento Premium. Recomendamos a atualização de suas VMs para pelo menos uma dessas versões (ou posterior) para obter melhor desempenho e estabilidade com o Armazenamento Premium. Além disso, algumas das versões exigem um LIS (Serviços de Integração do Linux v4.0 para Microsoft Azure) mais recente. Siga o link fornecido abaixo para download e instalação. Continuaremos a adicionar mais imagens à lista à medida que concluirmos validações adicionais. Perceba que nossas validações mostraram que o desempenho varia para essas imagens, e também depende de características da carga de trabalho e das configurações nas imagens. Imagens diferentes são ajustadas para tipos diferentes de carga de trabalho.
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
@@ -385,7 +387,7 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 ## Próximas etapas
 
 - [Usando operações do serviço Blob com o Armazenamento Premium do Azure](http://go.microsoft.com/fwlink/?LinkId=521969)
-- [Migrando para o Armazenamento Premium do Azure](storage-migration-to-premium-storage.md).
+- [Migração para o Armazenamento Premium do Azure](storage-migration-to-premium-storage.md).
 - [Criar uma máquina virtual executando o Windows](../virtual-machines-windows-tutorial-azure-preview.md)
 - [Tamanhos de máquinas virtuais e serviços de nuvem do Azure](../virtual-machines/virtual-machines-size-specs.md)
 - [Documentação de armazenamento](http://azure.microsoft.com/documentation/services/storage/)
@@ -393,4 +395,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -1,4 +1,11 @@
-<properties pageTitle="O que aconteceu com meu projeto da API Web (serviço conectado do Active Directory do Azure do Visual Studio) |Microsoft Azure " description="Descreve o que acontece com seu projeto da API Web do MVC que você conecta ao AD do Azure usando os serviços do Visual Studio="active-directory" services="active-directory" documentationCenter="" authors="TomArcher" manager="douge" editor="tglee"/>
+<properties
+	pageTitle="O que aconteceu com meu projeto de WebApi (serviço conectado do Active Directory do Azure do Visual Studio) | Microsoft Azure"
+	description="Descreve o que acontece ao seu projeto do MVC WebApi quando você se conecta ao Azure AD usando o Visual Studio"
+  services="active-directory"
+	documentationCenter=""
+	authors="TomArcher"
+	manager="douge"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -6,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/18/2015"
 	ms.author="tarcher"/>
 
 # O que aconteceu com meu projeto da API Web (serviço conectado do Active Directory do Azure do Visual Studio)
@@ -66,7 +73,7 @@ Um Aplicativo Azure AD foi criado no diretório selecionado no assistente.
 
 [Saiba mais sobre o Active Directory do Azure](http://azure.microsoft.com/services/active-directory/)
 
-##Se eu marquei *Desabilitar autenticação de contas de usuários individuais*, que alterações adicionais foram feitas ao meu projeto?
+##Se eu tiver marcado *desabilitar a autenticação de Contas de Usuários Individuais*, quais alterações adicionais foram feitas ao meu projeto?
 Referências ao pacote NuGet foram removidas e arquivos foram removidos e copiados. Dependendo do estado do seu projeto, você terá de remover manualmente referências ou arquivos adicionais ou modificar o código conforme apropriado.
 
 ###Referências ao pacotes NuGet removidas (para aquelas presentes)
@@ -92,7 +99,7 @@ Cada um dos seguintes arquivos foi copiado antes de ser substituído. Arquivos d
 - `Startup.cs`
 - `App_Start\Startup.Auth.cs`
 
-##Se eu marquei *Ler dados do diretório*, quais alterações adicionais foram feitas ao meu projeto?
+##Se eu tiver marcado *Ler dados do diretório*, quais alterações adicionais foram feitas ao meu projeto?
 
 ###Foram feitas alterações adicionais em sua app.config ou web.config
 
@@ -105,8 +112,8 @@ As outras entradas de configuração a seguir foram adicionadas.
 ```
 
 ###Seu aplicativo Active Directory do Azure foi atualizado
-Seu Aplicativo do Active Directory do Azure foi atualizado para incluir a permissão *Ler dados do diretório* e uma chave adicional foi criada, que então foi usada como o *ida:Password* no arquivo `web.config`.
+Seu aplicativo Active Directory do Azure foi atualizado para incluir a permissão *Ler dados do diretório* e uma chave adicional foi criada e, em seguida, utilizada como *ida:Password* no arquivo `web.config`.
 
 [Saiba mais sobre o Active Directory do Azure](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

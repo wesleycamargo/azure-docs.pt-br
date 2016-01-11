@@ -14,14 +14,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="12/17/2015"
 	ms.author="meetb"/>
 
 
 # Conectar-se ao Banco de Dados SQL usando Node.js com Tedious no Mac OS X
 
 
-[AZURE.INCLUDE [SQL-Database-develop-Includes-Selector-Language-Platform-Depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+> [AZURE.SELECTOR]
+- [Node.js](sql-database-develop-nodejs-simple-mac.md)
+- [Python](sql-database-develop-python-simple-mac-osx.md)
+- [Ruby](sql-database-develop-ruby-simple-mac-osx.md)
 
 
 Este tópico apresenta um exemplo de código Node.js que é executado no Mac OS X. O exemplo conecta-se ao Banco de Dados SQL usando o driver Tedious.
@@ -30,12 +33,12 @@ Este tópico apresenta um exemplo de código Node.js que é executado no Mac OS 
 ## Pré-requisitos
 
 
-Instale o **nó** se ele não estiver instalado no seu computador.
+Instale o **node** se ele não estiver instalado no seu computador.
 
 
-Para instalar o node.js no OSX 10.10 Yosemite, você pode baixar um pacote binário pré-compilado que faz uma instalação fácil e interessante. [Vá até nodejs.org](http://nodejs.org/) e clique no botão Instalar para baixar o pacote mais recente.
+Para instalar o node.js no OSX 10.10 Yosemite, você pode baixar um pacote binário pré-compilado que faz uma instalação fácil e interessante. [Acesse nodejs.org](http://nodejs.org/) e clique no botão Instalar para baixar o pacote mais recente.
 
-Instale o pacote de .dmg seguindo o assistente que instalará tanto o **nó** quanto o **npm**; npm é o Gerenciador de Pacotes de Nós que facilita a instalação de pacotes adicionais para node.js.
+Instale o pacote de .dmg seguindo o assistente que instalará tanto o **node** quanto o **npm**; npm é o Gerenciador de Pacotes do Node que facilita a instalação de pacotes adicionais para node.js.
 
 
 Após seu computador estar configurado com **node** e **npm**, navegue até um diretório no qual você planeja criar seu projeto Node.js e digite os comandos a seguir
@@ -170,6 +173,6 @@ Nesse exemplo, você verá como executar uma instrução [INSERT](https://msdn.m
 
 ## Próximas etapas
 
-Para obter mais informações, consulte o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
+Para saber mais, confira o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

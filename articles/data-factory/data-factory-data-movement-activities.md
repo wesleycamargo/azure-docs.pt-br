@@ -109,4 +109,8 @@ Propriedades, como nome, descrição, tabelas de entrada e saída, várias polí
 
 No caso da atividade de cópia, a seção **typeProperties** varia de acordo com os tipos de fontes e coletores. Cada uma das páginas especificas do armazenamento de dados listadas acima documenta essas propriedades específicas para o tipo de armazenamento de dados.
 
-<!---HONumber=AcomDC_1203_2015-->
+
+### Desempenho e Ajuste da Atividade de Cópia 
+Confira o artigo [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) que descreve os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory. Ele também lista o desempenho observado durante os testes internos e discute várias maneiras de otimizar o desempenho da Atividade de Cópia.
+
+<!---HONumber=AcomDC_1223_2015-->

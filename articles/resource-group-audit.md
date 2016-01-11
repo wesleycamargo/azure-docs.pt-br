@@ -158,8 +158,8 @@ Você pode selecionar qualquer operação para obter mais detalhes sobre ela.
 
 ## Próximas etapas
 
-- Para saber mais sobre como definir políticas de segurança, veja [Gerenciando o acesso aos recursos](resource-group-rbac.md).
+- Para aprender sobre como definir políticas de segurança, confira [Controle de acesso baseado em função do Azure](./active-directory/role-based-access-control-configure.md).
 - Para saber mais sobre como conceder acesso a uma entidade de serviço, veja [Autenticando uma entidade de serviço com o Gerenciador de Recursos do Azure](resource-group-authenticate-service-principal.md).
 - Para saber como realizar ações em um recurso para todos os usuários, veja [Bloquear recursos com o Gerenciador de Recursos do Azure](resource-group-lock-resources.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

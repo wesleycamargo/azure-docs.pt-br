@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/30/2015"
+   ms.date="12/17/2015"
    ms.author="rajram"/>
 
 # Comece a usar o Conector do BizTalk Edifact e adicione-o a seu Aplicativo Lógico  
@@ -32,24 +32,32 @@ Para usar o Conector do Edifact, você precisa primeiro criar uma instância do 
 ## Configurando o conector do Edifact
 Parceiros comerciais são as entidades envolvidas em comunicações B2B (business-to-business). Quando dois parceiros estabelecem uma relação, isso é chamado de um Contrato. O acordo definido se baseia na comunicação que os dois parceiros desejam atingir e é específica com relação a transporte ou protocolo.
 
-As etapas envolvidas na criação de um contrato de parceiro comercial são documentadas [aqui][2].
+Consulte as etapas para [criar um contrato de parceiro comercial][2].
 
 ## Usando o Conector do Edifact na superfície do designer de aplicativos lógicos
 O Conector do Edifact pode ser usado como um gatilho ou uma ação.
 
 ### Gatilho
 - Iniciar o designer de fluxo de Aplicativos Lógicos do Azure
-- Clique no Conector do Edifact no painel à direita: ![Configurações do gatilho][3]
-- Clique em ->: ![Opções do gatilho][4]
-- O Conector do EDIFACT expõe um único gatilho. Selecione *Lote da liberação*: ![Entrada do lote de liberação][5]
-- Esse gatilho não tem entradas. Clique em ->: ![Lote de liberação configurado][6]
+- Clique no conector do Edifact no painel à direita:  
+![Configurações do gatilho][3]
+- Clique em ->:  
+![Opções do gatilho][4]
+- O Conector do EDIFACT expõe um único gatilho. Selecione *Lote da liberação*:  
+![Entrada do lote de liberação][5]
+- Esse gatilho não tem entradas. Clique em ->:  
+![Lote de liberação configurado][6]
 - Como parte da saída, o conector retorna a carga útil do Edifact, o id do contrato, bem como informações sobre se a mensagem é feita em lotes ou não.
 
 ### Ação
-- Clique no Conector do Edifact no painel à direita: ![Configurações de ação][7]
-- Clique em ->: ![Lista de ações][8]
-- O conector do Edifact dá suporte a várias ações. Selecione *Codificar*: ![Codificar entrada][9]
-- Forneça as entradas para a ação e configure-a: ![Codificação configurada][10]
+- Clique no conector do Edifact no painel à direita:  
+![Configurações de ação][7]
+- Clique em ->:  
+![Lista de ações][8]
+- O conector do Edifact dá suporte a várias ações. Selecione *Codificar*:  
+![Codificar entrada][9]
+- Forneça as entradas para a ação e configure-a:
+![Codificação configurada][10]
 
 	Parâmetro|Tipo|Descrição do parâmetro
 ---|---|---
@@ -89,4 +97,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

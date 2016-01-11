@@ -1,6 +1,6 @@
 <properties
    pageTitle="Noções básicas sobre o manifesto de aplicativo do Active Directory do Azure | Microsoft Azure"
-   description="Fornece detalhes adicionais sobre o manifesto de aplicativo do Azure AD que acompanha cada configuração de aplicativo em um locatário do Azure AD."
+   description="Cobertura detalhada de como usar o manifesto do aplicativo do Active Directory do Azure, que representa a configuração de identidade de um aplicativo em um locatário do AD do Azure, e é usado para facilitar a autorização do OAuth, experiência de consentimento e muito mais."
    services="active-directory"
    documentationCenter=""
    authors="bryanla"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/01/2015"
+   ms.date="12/18/2015"
    ms.author="dkershaw;bryanla"/>
 
 # Noções básicas sobre o manifesto de aplicativo do Active Directory do Azure
@@ -33,60 +33,98 @@ Através do [portal clássico do Azure][AZURE-CLASSIC-PORTAL], você pode gerenc
 
 Como resultado, para entender o formato e as propriedades do manifesto do aplicativo, você precisará consultar a documentação de Graph API [Entidade de aplicativo][APPLICATION-ENTITY]. Exemplos de atualizações que podem ser executadas através do carregamento do manifesto do aplicativo incluem:
 
-- Declarar escopos de permissão (oauth2Permissions) expostos pela sua API Web. Consulte o tópico "Expondo APIs Web para outros aplicativos" em [Integrando aplicativos ao Active Directory do Azure][INTEGRATING-APPLICATIONS-AAD] para obter informações sobre como implementar a representação de usuário usando o escopo de permissão delegada oauth2Permissions. Conforme mencionado anteriormente, todas as propriedades de entidade de aplicativo estão documentadas no artigo de referência do Graph API [Referência de entidade e tipo complexo][APPLICATION-ENTITY], incluindo o membro de oauth2Permissions, que é uma coleção do tipo [OAuth2Permission][APPLICATION-ENTITY-OAUTH2-PERMISSION]
-- Declarar funções de aplicativo (appRoles) expostas pelo seu aplicativo. O membro de appRole da entidade de aplicativo é uma coleção do tipo [AppRole][APPLICATION-ENTITY-APP-ROLE]. Consulte o artigo [Controle de acesso com base em função nos aplicativos em nuvem usando o Azure AD][RBAC-CLOUD-APPS-AZUREAD] para obter um exemplo de implementação.
-- Declarar aplicativos clientes conhecidos.
-- Solicite ao Azure AD que emita uma declaração de associações de grupo para o usuário conectado. Observação: isso pode ser configurado para emitir adicionalmente declarações sobre as associações de funções de diretório do usuário. Consulte o artigo [Autorização em aplicativos na nuvem usando grupos do AD][AAD-GROUPS-FOR-AUTHORIZATION] para obter um exemplo de implementação.
-- Permitir que o aplicativo dê suporte a fluxos de concessão OAuth 2.0 implícita (para páginas da Web em JavaScript incorporadas ou aplicativos de página única (SPA))
-- Habilitar o uso dos certificados X509 como chave secreta. Consulte os artigos [Compilar aplicativos de serviço e daemon no Office 365][O365-SERVICE-DAEMON-APPS] e [Guia do desenvolvedor para autenticação com a API do Gerenciador de Recursos do Azure ][DEV-GUIDE-TO-AUTH-WITH-ARM] para ver exemplos de implementação.
+- Declarar escopos de permissão (oauth2Permissions) expostos pela sua API Web. Consulte o tópico "Expondo APIs Web para outros aplicativos" em [Integrando aplicativos ao Active Directory do Azure][INTEGRATING-APPLICATIONS-AAD] para obter informações sobre como implementar a representação de usuário usando o escopo de permissão delegada oauth2Permissions. Conforme mencionado anteriormente, todas as propriedades da entidade de aplicativo estão documentadas no artigo de referência do Graph API [Referência de Entidade e Tipo Complexo][APPLICATION-ENTITY], incluindo a propriedade oauth2Permissions, que é uma coleção do tipo [OAuth2Permission][APPLICATION-ENTITY-OAUTH2-PERMISSION]
+- Declarar funções de aplicativo (appRoles) expostas pelo seu aplicativo. A propriedade appRole da entidade de aplicativo é uma coleção do tipo [AppRole][APPLICATION-ENTITY-APP-ROLE]. Consulte o artigo [Controle de acesso com base em função nos aplicativos em nuvem usando o Azure AD][RBAC-CLOUD-APPS-AZUREAD] para obter um exemplo de implementação.
+- Declarar aplicativos cliente conhecidos (knownClientApplications), que permitem vincular de modo lógico o consentimento dos aplicativos cliente especificados à API de recurso/Web.
+- Solicitar ao AD do Azure que emita uma declaração de associações de grupo para o usuário conectado (groupMembershipClaims). Observação: isso pode ser configurado para emitir adicionalmente declarações sobre as associações de funções de diretório do usuário. Consulte o artigo [Autorização em aplicativos na nuvem usando grupos do AD][AAD-GROUPS-FOR-AUTHORIZATION] para obter um exemplo de implementação.
+- Permitir que o aplicativo ofereça suporte aos fluxos de concessão implícitos do OAuth 2.0 (oauth2AllowImplicitFlow). Esse tipo de fluxo de concessão é usado com páginas da Web JavaScript ou SPA (Aplicativos de Única Página) inseridos.
+- Habilitar o uso dos certificados X509 como chave secreta (keyCredentials). Consulte os artigos [Compilar aplicativos de serviço e daemon no Office 365][O365-SERVICE-DAEMON-APPS] e [Guia do desenvolvedor para autenticação com a API do Gerenciador de Recursos do Azure ][DEV-GUIDE-TO-AUTH-WITH-ARM] para ver exemplos de implementação.
 
 O manifesto do aplicativo também fornece uma boa maneira de controlar o estado de seu registro de aplicativo. Porque ele está disponível no formato JSON, a representação de arquivo pode ser inserida no seu controle de origem, junto com o código-fonte do aplicativo.
 
-### Exemplo passo a passo
-Agora, vamos percorrer as etapas necessárias para atualizar a configuração de identidade do aplicativo por meio do manifesto do aplicativo:
+## Exemplo passo a passo
+Agora, vamos percorrer as etapas necessárias para atualizar a configuração de identidade do aplicativo por meio do manifesto do aplicativo. Destacaremos um dos exemplos fornecidos acima, mostrando como declarar um novo escopo de permissão em um aplicativo de recurso:
 
 1. Navegue até o [portal clássico do Azure][AZURE-CLASSIC-PORTAL] e entre com uma conta que tenha privilégios de administrador ou coadministrador de serviços.
 
-
 2. Depois de autenticado, role para baixo e selecione a extensão do "Active Directory" do Azure no painel de navegação à esquerda (1) e clique no locatário do Azure AD onde seu aplicativo está registrado (2).
 
-	![Selecionar locatário do Azure AD][SELECT-AZURE-AD-TENANT]
-
+    ![Selecionar locatário do Azure AD][SELECT-AZURE-AD-TENANT]
 
 3. Quando a página de diretório aparecer, clique em "Aplicativos" (1) na parte superior da página para ver uma lista de aplicativos registrados no locatário. Localize o aplicativo que você deseja atualizar na lista e clique nele (2).
 
-	![Selecionar locatário do Azure AD][SELECT-AZURE-AD-APP]
-
+    ![Selecionar locatário do Azure AD][SELECT-AZURE-AD-APP]
 
 4. Agora que você selecionou a página principal do aplicativo, observe o recurso "Gerenciar Manifesto" na parte inferior da página (1). Se você clicar nesse link, será solicitado a baixar ou carregar o arquivo de manifesto JSON. Clique em "Baixar Manifesto" (2), que será seguido imediatamente pela caixa de diálogo de confirmação de download solicitando que você confirme clicando em "Baixar Manifesto" (3). Em seguida, abra ou salve o arquivo localmente (4).
 
-	![Gerenciar o manifesto, opção de download][MANAGE-MANIFEST-DOWNLOAD]
+    ![Gerenciar o manifesto, opção de download][MANAGE-MANIFEST-DOWNLOAD]
 
-	![Baixar o manifesto][DOWNLOAD-MANIFEST]
-
+    ![Baixar o manifesto][DOWNLOAD-MANIFEST]
 
 5. Neste exemplo, salvamos o arquivo localmente, o que nos permite abrir em um editor, fazer alterações em JSON e salvar novamente. Aqui está a aparência da estrutura JSON dentro do editor de JSON do Visual Studio. Observe que ela segue o esquema da [Entidade de aplicativo][APPLICATION-ENTITY] como mencionamos anteriormente:
 
-	![Atualizar o JSON do manifesto][UPDATE-MANIFEST]
+    ![Atualizar o JSON do manifesto][UPDATE-MANIFEST]
 
+    Por exemplo, supondo que queremos implementar/expor uma nova permissão chamada "Employees.Read.All" em nosso aplicativo de recurso (API). Para isso, basta adicionar um elemento novo/secundário à coleção oauth2Permissions, isto é:
+
+        "oauth2Permissions": [
+        {
+        "adminConsentDescription": "Allow the application to access MyWebApplication on behalf of the signed-in user.",
+        "adminConsentDisplayName": "Access MyWebApplication",
+        "id": "aade5b35-ea3e-481c-b38d-cba4c78682a0",
+        "isEnabled": true,
+        "type": "User",
+        "userConsentDescription": "Allow the application to access MyWebApplication on your behalf.",
+        "userConsentDisplayName": "Access MyWebApplication",
+        "value": "user_impersonation"
+        },
+        {
+        "adminConsentDescription": "Allow the application to have read-only access to all Employee data.",
+        "adminConsentDisplayName": "Read-only access to Employee records",
+        "id": "2b351394-d7a7-4a84-841e-08a6a17e4cb8",
+        "isEnabled": true,
+        "type": "User",
+        "userConsentDescription": "Allow the application to have read-only access to your Employee data.",
+        "userConsentDisplayName": "Read-only access to your Employee records",
+        "value": "Employees.Read.All"
+        }
+        ],
+
+    A entrada deve ser exclusiva e, portanto, você deve gerar um novo GUID (identificador global exclusivo) para a propriedade `"id"`. Nesse caso, como especificamos `"type": "User"`, essa permissão pode ser consentida por qualquer conta autenticada pelo locatário do AD do Azure no qual o aplicativo de recurso/API está registrado, concedendo ao aplicativo cliente permissão para acessá-lo em nome da conta. As cadeias de caracteres de descrição e nome de exibição são usadas durante o consentimento e para exibição no portal clássico do Azure.
 
 6. Quando você terminar de atualizar o manifesto, volte para a página de aplicativo do Azure AD no portal clássico do Azure, clique no recurso "Gerenciar manifesto" mais uma vez (1), mas dessa vez selecione a opção "Carregar Manifesto" (2). Semelhante ao download, você será saudado novamente com uma segunda caixa de diálogo solicitando o local do arquivo JSON. Clique em "Procurar arquivo..." (3), use a caixa de diálogo "Escolher arquivo para carregar" para selecionar o arquivo JSON (4) e pressione "Abrir". Depois que a caixa de diálogo desaparecer, marque a caixa de seleção "OK" (5) e seu manifesto será carregado.
 
-	![Gerenciar o manifesto, opção de carregamento][MANAGE-MANIFEST-UPLOAD]
+    ![Gerenciar o manifesto, opção de carregamento][MANAGE-MANIFEST-UPLOAD]
 
-	![Carregar o JSON do manifesto][UPLOAD-MANIFEST]
+    ![Carregar o JSON do manifesto][UPLOAD-MANIFEST]
 
-	![Carregar o JSON do manifesto - confirmação][UPLOAD-MANIFEST-CONFIRM]
+    ![Carregar o JSON do manifesto - confirmação][UPLOAD-MANIFEST-CONFIRM]
 
-É isso. Agora o aplicativo pode ser executado usando a nova configuração do Aplicativo, com base nas alterações feitas no manifesto.
+Agora que o manifesto foi salvo, você pode fornecer a um aplicativo cliente registrado acesso à nova permissão que adicionamos acima, mas dessa vez, pode usar a interface de usuário da Web no portal clássico do Azure em vez de editar o manifesto do aplicativo cliente:
+
+1. Primeiro, acesse a página "Configurar" do aplicativo cliente ao qual deseja adicionar acesso à nova API e clique no botão "Adicionar aplicativo".
+2. Em seguida, você verá uma lista de aplicativos de recurso registrados (APIs) no locatário. Clique no sinal de mais (+) ao lado do nome do aplicativo de recurso para selecioná-lo.  
+3. Em seguida, clique na marca de seleção no canto inferior direito. 
+4. Ao retornar para a seção "Adicionar Aplicativo" da página de configuração do cliente, você verá o novo aplicativo de recurso na lista. Ao passar o mouse sobre a seção "Permissões Delegadas" à direita da linha, uma lista suspensa será exibida. Clique na lista e selecione a nova permissão para adicioná-la à lista de permissões solicitadas do cliente. Observação: essa nova permissão será armazenado na configuração de identidade do aplicativo cliente, na propriedade da coleção "requiredResourceAccess".
+
+![Permissões para outros aplicativos][PERMS-TO-OTHER-APPS]
+
+![Permissões para outros aplicativos][PERMS-SELECT-APP]
+
+![Permissões para outros aplicativos][PERMS-SELECT-PERMS]
+
+É isso. Agora seus aplicativos serão executados usando a nova configuração de identidade.
 
 ## Próximas etapas
 Use a seção de comentários do DISQUS abaixo para fornecer seus comentários e ajudar a refinar e a moldar o nosso conteúdo.
 
 <!--Image references-->
+[DOWNLOAD-MANIFEST]: ./media/active-directory-application-manifest/download-manifest.png
 [MANAGE-MANIFEST-DOWNLOAD]: ./media/active-directory-application-manifest/manage-manifest-download.png
 [MANAGE-MANIFEST-UPLOAD]: ./media/active-directory-application-manifest/manage-manifest-upload.png
-[DOWNLOAD-MANIFEST]: ./media/active-directory-application-manifest/download-manifest.png
+[PERMS-SELECT-APP]: ./media/active-directory-application-manifest/portal-perms-select-app.png
+[PERMS-SELECT-PERMS]: ./media/active-directory-application-manifest/portal-perms-select-perms.png
+[PERMS-TO-OTHER-APPS]: ./media/active-directory-application-manifest/portal-perms-to-other-apps.png
 [SELECT-AZURE-AD-APP]: ./media/active-directory-application-manifest/select-azure-ad-application.png
 [SELECT-AZURE-AD-TENANT]: ./media/active-directory-application-manifest/select-azure-ad-tenant.png
 [UPDATE-MANIFEST]: ./media/active-directory-application-manifest/update-manifest.png
@@ -107,4 +145,4 @@ Use a seção de comentários do DISQUS abaixo para fornecer seus comentários e
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

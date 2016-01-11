@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/20/2015"
+   ms.date="12/18/2015"
    ms.author="maroche"/>
 
 # O que é o Catálogo de Dados do Azure?
@@ -80,6 +80,10 @@ O processo de registro envolve três etapas básicas:
 - Arquivo do HDFS
 - Diretório do HDFS
 - Tabela do Hive
+- Arquivo do Repositório Azure Data Lake
+- Diretório de Armazenamento do Azure Data Lake
+- Tabela do MySQL
+- Modo de Exibição do MySQL
 
 As fontes de dados adicionais e os tipos de ativos serão adicionados durante a visualização do **Catálogo de Dados do Azure**.
 
@@ -124,9 +128,9 @@ Depois que uma fonte de dados é registrada, às vezes, pode ser necessário rem
 
 O objetivo final da descoberta de dados é localizar os dados necessários e usá-los na ferramenta de dados de sua escolha. A experiência de consumo de dados no Catálogo de Dados do Azure permite essa funcionalidade de duas maneiras.
 
-1.	Para aplicativos clientes com suporte direto do **Catálogo de Dados do Azure**, os usuários poderão clicar no menu **Abrir no** no bloco da fonte de dados encontrado no portal. O aplicativo cliente, em seguida, iniciará uma conexão com a fonte de dados selecionada.
+1.	Para aplicativos clientes com suporte direto do **Catálogo de Dados do Azure**, os usuários podem clicar no menu **Abrir em** no bloco da fonte de dados encontrado no portal. O aplicativo cliente, em seguida, iniciará uma conexão com a fonte de dados selecionada.
 2.	Para todos os aplicativos clientes, os usuários podem usar as informações de conexão exibidas no painel Propriedades para uma fonte de dados selecionada. Essas informações incluem todos os detalhes (como nome do servidor, nome do banco de dados e nome do objeto) necessárias para se conectar aos dados e podem ser copiadas na experiência de conexão da ferramenta cliente. Se os detalhes do acesso da solicitação tiverem sido fornecidos por uma fonte de dados, essas informações serão exibidas ao lado dos detalhes da conexão.
 
-> [AZURE.NOTE]Para obter a visualização do Catálogo de Dados do Azure, somente o Microsoft Excel e o Gerenciador de Relatórios do SQL Server Reporting Services terão suporte direto e estarão disponíveis no menu **Abrir no**.
+> [AZURE.NOTE]Na visualização do Catálogo de Dados do Azure, somente o Microsoft Excel e o Gerenciador de Relatórios do SQL Server Reporting Services terão suporte direto e estarão disponíveis no menu **Abrir Em**.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

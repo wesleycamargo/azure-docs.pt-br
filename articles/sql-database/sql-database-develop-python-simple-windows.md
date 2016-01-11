@@ -14,14 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="12/17/2015"
 	ms.author="meetb"/>
 
 
 # Conectar-se ao Banco de Dados SQL usando Phyton no Windows
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+> [AZURE.SELECTOR]
+- [C#](sql-database-develop-dotnet-simple.md)
+- [PHP](sql-database-develop-php-simple-windows.md)
+- [Python](sql-database-develop-python-simple-windows.md)
+- [Ruby](sql-database-develop-ruby-simple-windows.md)
+- [Java](sql-database-develop-java-simple-windows.md)
+- [Node.js](sql-database-develop-nodejs-simple-windows.md)
 
 
 Este tópico apresenta um exemplo de código escrito em Python. O exemplo é executado em um computador com Windows. O exemplo conecta-se ao Banco de Dados SQL do Azure usando o driver **pymssql**.
@@ -40,10 +46,10 @@ Instale [pymssql](http://www.lfd.uci.edu/~gohlke/pythonlibs/#pymssql).
 
 Certifique-se de que escolheu o arquivo whl correto.
 
-Por exemplo: se você estiver usando o Python 2.7 em um computador de 64 bits, escolha: pymssql‑2.1.1‑cp27‑none‑win\_amd64.whl. Depois de baixar o arquivo .whl, coloque-o na pasta C:/Python27.
+Por exemplo: se você estiver usando o Python 2.7 em um computador de 64 bits, escolha: pymssql‑2.1.1‑cp27‑none‑win_amd64.whl. Depois de baixar o arquivo .whl, coloque-o na pasta C:/Python27.
 
 Agora, instale o driver pymssql usando pip na linha de comando. cd em C:/Python27 e execute o seguinte
-
+	
 	pip install pymssql‑2.1.1‑cp27‑none‑win_amd64.whl
 
 É possível encontrar instruções para habilitar o uso de pip [aqui](http://stackoverflow.com/questions/4750806/how-to-install-pip-on-windows)
@@ -121,4 +127,4 @@ Este exemplo de código demonstra o uso de transações nas quais você:
 
 Para saber mais, consulte o [Centro de Desenvolvedores do Python](/develop/python/).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

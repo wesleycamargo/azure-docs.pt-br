@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/30/2015"
+   ms.date="12/17/2015"
    ms.author="rajram"/>
 
 # Introdução ao aplicativo de API BizTalk X12 e à adição do mesmo ao seu Aplicativo Lógico
@@ -33,7 +33,7 @@ Para usar o Conector do BizTalk X12, você precisa primeiro criar uma instância
 ## Configurando o Conector do BizTalk X12
 Parceiros comerciais são as entidades envolvidas em comunicações B2B (business-to-business). Quando dois parceiros estabelecem uma relação, isso é chamado de um Contrato. O acordo definido se baseia na comunicação que os dois parceiros desejam atingir e é específica com relação a transporte ou protocolo.
 
-As etapas envolvidas na criação de um contrato de parceiro comercial são documentadas [aqui][2].
+Consulte as etapas para [criar um contrato de parceiro comercial][2].
 
 ## Usando o Conector X12 na superfície do designer de aplicativos lógicos
 O Conector X12 pode ser usado como um gatilho ou uma ação.
@@ -83,4 +83,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [10]: ./media/app-service-logic-connector-x12/EncodeConfigured.PNG
 [11]: ./media/app-service-logic-connector-x12/TriggerSettings.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

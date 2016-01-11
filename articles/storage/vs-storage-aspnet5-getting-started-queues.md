@@ -57,12 +57,12 @@ Para acessar filas em projetos do ASP.NET 5, você precisa incluir os itens a se
 3. Obtenha um objeto **CloudQueueClient** para referenciar objetos de fila em sua conta de armazenamento.
 
 	    // Create the table client.
-    	CloudQuecClient queueClient = storageAccount.CreateCloudTableClient();
+    	CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
 4. Obtenha um objeto **CloudQueue** para referenciar uma fila específica.
 
     	// Get a reference to a table named "messageQueue"
-	    CloudTable messageQueue = queueClient.GetQueueReference("messageQueue");
+	    CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
 
 
 **OBSERVAÇÃO:** use todos os códigos acima diante do código nos exemplos a seguir.
@@ -176,4 +176,4 @@ Para excluir uma fila e todas as mensagens que ela contém, chame o método **De
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

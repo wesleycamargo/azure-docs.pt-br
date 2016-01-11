@@ -28,10 +28,6 @@ Este tópico mostra como executar tarefas comuns, como criar, atualizar e dimens
 
 ## Pré-requisitos
 
->[AZURE.IMPORTANT]Na primeira vez que você cria um cache Redis em uma assinatura usando o portal do Azure, o portal registra o `Microsoft.Cache` namespace para essa assinatura. Se você tentar criar o cache Redis primeiro em uma assinatura usando o PowerShell, deverá primeiro registrar esse namespace usando o seguinte comando; caso contrário, cmdlets como `New-AzureRmRedisCache` e `Get-AzureRmRedisCache` irão falhar.
->
->`Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Cache"`
-
 Se você já instalou o Azure PowerShell, você deve ter o Azure PowerShell versão 1.0.0 ou posterior. Você pode verificar a versão do Azure PowerShell instalada com o comando este comando no prompt de comando do Azure PowerShell.
 
 	Get-Module azure | format-table version
@@ -79,7 +75,7 @@ A tabela a seguir contém as propriedades e as descrições dos parâmetros usad
 | RedisConfiguration | Especifica as configurações do Redis para maxmemory-delta, maxmemory-policy e notify-keyspace-events. Observe que os eventos maxmemory-delta e notify-keyspace-events estão disponíveis para os caches Standard e Premium apenas. | |
 | EnableNonSslPort | Indica se a porta não SSL está habilitada. | Falso |
 | MaxMemoryPolicy | Esse parâmetro foi desaprovado - use RedisConfiguration em vez disso. | |
-| StaticIP | Ao hospedar o cache em uma VNET, especifica um endereço IP exclusivo na sub-rede do cache. | |
+| StaticIP | Ao hospedar o cache em uma VNET, especifica um endereço IP exclusivo na sub-rede do cache. Se ele não for fornecido, um será escolhido para você na sub-rede. | |
 | Sub-rede | Ao hospedar o cache em uma VNET, especifica o nome da sub-rede na qual implantar o cache. | |
 | VirtualNetwork | Ao hospedar o cache em uma VNET, especifica a ID do recurso da VNET na qual implantar o cache. | |
 | KeyType | Especifica qual chave de acesso regenerar durante a renovação das chaves de acesso. Os valores válidos são: Primary, Secondary | | | |
@@ -88,6 +84,10 @@ A tabela a seguir contém as propriedades e as descrições dos parâmetros usad
 ## Para criar uma Cache Redis
 
 As novas instâncias Cache Redis do Azure são criadas usando o cmdlet [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx).
+
+>[AZURE.IMPORTANT]Na primeira vez em que você cria um cache Redis em uma assinatura usando o portal do Azure, o portal registra o namespace `Microsoft.Cache` para a assinatura. Se você tentar criar o cache Redis primeiro em uma assinatura usando o PowerShell, deverá primeiro registrar esse namespace usando o comando a seguir; caso contrário, cmdlets como `New-AzureRmRedisCache` e `Get-AzureRmRedisCache` irão falhar.
+>
+>`Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Cache"`
 
 Para ver uma lista dos parâmetros disponíveis e suas descrições para `New-AzureRmRedisCache`, execute o seguinte comando.
 
@@ -242,20 +242,21 @@ O comando a seguir atualiza a maxmemory-policy do Cache Redis chamada myCache.
 
 	Set-AzureRmRedisCache -ResourceGroupName "myGroup" -Name "myCache" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random"}
 
-## Dimensionar um cache Redis com o PowerShell
+<a name="scale"></a>
+## Para dimensionar um cache Redis
 
 `Set-AzureRmRedisCache` pode ser usado para dimensionar uma instância do cache Redis do Azure quando as propriedades `Size`, `Sku` ou `ShardCount` são modificadas.
 
 >[AZURE.NOTE]Dimensionar um cache usando o PowerShell está sujeito aos mesmos limites e diretrizes de dimensionar um cache no Portal do Azure. Você pode dimensionar para uma camada de preços diferente com as restrições a seguir.
 >
->-	Não é possível dimensionar para ou a partir de um cache **Premium**.
->-	Não é possível dimensionar de um cache **Standard** para um cache **Básico**.
->-	É possível di8mensionar de um cache **Básico** para um cache **Standard**, mas não é possível alterar o tamanho ao mesmo tempo. Se precisar de um tamanho diferente, você pode fazer uma operação de dimensionamento subsequente para o tamanho desejado.
->-	Não é possível dimensionar de um tamanho maior para o tamanho **C0 (250 MB)**.
+>-	Você não pode escalonar para ou de um cache **Premium**.
+>-	Você não pode escalonar de um cache **Standard** para um cache **Básico**.
+>-	Você pode escalonar de um cache **Básico** para um cache **Standard**, mas não pode alterar o tamanho ao mesmo tempo. Se precisar de um tamanho diferente, você pode fazer uma operação de dimensionamento subsequente para o tamanho desejado.
+>-	Você não pode escalonar de um tamanho maior para o tamanho **C0 (250 MB)**.
 >
->Para obter mais informações, consulte [Como Dimensionar o Cache Redis do Azure](cache-how-to-scale.md).
+>Para saber mais, confira [Como dimensionar o Cache Redis do Azure](cache-how-to-scale.md).
 
-O exemplo a seguir mostra como dimensionar um cache denominado `myCache` para um cache de 2.5 GB. Observe que esse comando funcionará para um cache Básico ou Standard.
+O exemplo a seguir mostra como dimensionar um cache denominado `myCache` para um cache de 2,5 GB. Observe que esse comando funcionará para um cache Básico ou Standard.
 
 	Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
@@ -288,7 +289,7 @@ Depois do comando ser emitido, o status do cache é retornado (semelhante a cham
 	TenantSettings     : {}
 	ShardCount         :
 
-Quando a operação de dimensionamento é concluída, `ProvisioningState` será alterado para `Succeeded`. Se você precisar fazer uma operação de dimensionamento subsequente, como alterar de Básico para Standard, em seguida, alterar o tamanho, deverá aguardar até que a operação anterior seja concluída ou receberá um erro semelhante ao seguinte.
+Quando a operação de dimensionamento for concluída, `ProvisioningState` será alterado para `Succeeded`. Se você precisar fazer uma operação de dimensionamento subsequente, como alterar de Básico para Standard, em seguida, alterar o tamanho, deverá aguardar até que a operação anterior seja concluída ou receberá um erro semelhante ao seguinte.
 
 	Set-AzureRmRedisCache : Conflict: The resource '...' is not in a stable state, and is currently unable to accept the update request.
 
@@ -296,7 +297,7 @@ Quando a operação de dimensionamento é concluída, `ProvisioningState` será 
 
 Você pode recuperar informações sobre um cache usando o cmdlet [Get-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634514.aspx).
 
-Para ver uma lista dos parâmetros disponíveis e suas descrições para `Get-AzureRmRedisCache`, execute o seguinte comando.
+Para ver uma lista dos parâmetros disponíveis e suas descrições para `Get-AzureRmRedisCache`, execute o comando a seguir.
 
 	PS C:\> Get-Help Get-AzureRmRedisCache -detailed
 	
@@ -373,7 +374,7 @@ Para retornar informações sobre um cache específico, execute `Get-AzureRmRedi
 
 Para recuperar as chaves de acesso para seu cache, você pode usar o cmdlet [Get-AzureRmRedisCacheKey](https://msdn.microsoft.com/library/azure/mt634516.aspx).
 
-Para ver uma lista dos parâmetros disponíveis e suas descrições para `Get-AzureRmRedisCacheKey`, execute o seguinte comando.
+Para ver uma lista dos parâmetros disponíveis e suas descrições para `Get-AzureRmRedisCacheKey`, execute o comando a seguir.
 
 	PS C:\> Get-Help Get-AzureRmRedisCacheKey -detailed
 	
@@ -414,7 +415,7 @@ Para recuperar as chaves para seu cache, chame o cmdlet `Get-AzureRmRedisCacheKe
 
 Para recuperar as chaves de acesso para seu cache, você pode usar o cmdlet [New-AzureRmRedisCacheKey](https://msdn.microsoft.com/library/azure/mt634512.aspx).
 
-Para ver uma lista dos parâmetros disponíveis e suas descrições para `New-AzureRmRedisCacheKey`, execute o seguinte comando.
+Para ver uma lista dos parâmetros disponíveis e suas descrições para `New-AzureRmRedisCacheKey`, execute o comando a seguir.
 
 	PS C:\> Get-Help New-AzureRmRedisCacheKey -detailed
 	
@@ -465,7 +466,7 @@ Para regenerar a chave primária ou secundária para seu cache, chame o cmdlet `
 
 Para excluir um cache Redis, use o cmdlet [Remove-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634515.aspx).
 
-Para ver uma lista dos parâmetros disponíveis e suas descrições para `Remove-AzureRmRedisCache`, execute o seguinte comando.
+Para ver uma lista dos parâmetros disponíveis e suas descrições para `Remove-AzureRmRedisCache`, execute o comando a seguir.
 
 	PS C:\> Get-Help Remove-AzureRmRedisCache -detailed
 	
@@ -568,4 +569,4 @@ Para saber mais sobre como usar o Windows PowerShell com o Azure, consulte os se
 - [Blog do Windows PowerShell](http://blogs.msdn.com/powershell): obtenha informações sobre os novos recursos do Windows PowerShell.
 - [Blog "Hey, Scripting Guy!" Blog](http://blogs.technet.com/b/heyscriptingguy/): obtenha dicas reais e truques da comunidade.do Windows PowerShell.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

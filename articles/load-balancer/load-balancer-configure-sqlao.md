@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/19/2015"
+   ms.date="12/21/2015"
    ms.author="joaoma" />
 
 # Configurar o balanceador de carga para SQL sempre ativo
@@ -53,7 +53,7 @@ Etapa 2.
 
 No exemplo acima, você tem 2 VMs chamadas "sqlsvc1" e "sqlsvc2" em execução no serviço de nuvem "Sqlsvc". Depois de criar o ILB com a opção "DirectServerReturn", você adicionará pontos de extremidade com balanceamento de carga ao ILB para permitir que o SQL configure os ouvintes para os grupos de disponibilidade.
 
-Você pode encontrar mais detalhes sobre a criação de um AlwaysOn do SQL no [Tutorial: grupos de disponibilidade AlwaysOn no Azure](https://msdn.microsoft.com/library/dn249504.aspx) ou em [Usando a Galeria do Portal](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
+Você pode encontrar mais detalhes sobre a criação de um SQL AlwaysOn [na implantação do SQL AlwaysOn usando o modelo do Gerenciador de Recursos do Azure](virtual-machines-workload-template-sql-alwayson.md) ou [usando a Galeria do Portal](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
 
 
 ## Consulte também
@@ -67,4 +67,4 @@ Você pode encontrar mais detalhes sobre a criação de um AlwaysOn do SQL no [T
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1223_2015-->

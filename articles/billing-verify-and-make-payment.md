@@ -4,9 +4,8 @@
 	services="billing"
 	documentationCenter=""
 	authors="genlin"
-	manager="felixw"
+	manager="msmbaldwin"
 	editor="meerak"
-	tags="billing"
 	/>
 
 <tags
@@ -15,10 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/18/2015"
+	ms.date="12/21/2015"
 	ms.author="genli"/>
 
 # Como verificar a forma de pagamento e fazer pagamentos para uma assinatura do Azure
+
+>[AZURE.NOTE]Se você receber um erro após enviar as informações do cartão de crédito, confira o artigo [Meu cartão de crédito não é aprovado ao tentar me inscrever no Azure](../billing-credit-card-fails-during-azure-sign-up.md).
 
 ## Verifique a forma de pagamento atual
 1. Faça logon no [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions) como o Administrador da Conta.
@@ -41,4 +42,4 @@ Se você tiver configurado um cartão de crédito ou débito como a forma de pag
 
 Se você estiver em um modo de pagamento de fatura, envie seu pagamento para o local indicado na parte inferior de sua fatura. Para obter mais ajuda, entre em contato com o [Suporte da Microsoft](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

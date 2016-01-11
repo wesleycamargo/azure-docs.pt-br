@@ -11,8 +11,8 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
-	ms.author="sergkanz"/>
+	ms.date="12/17/2015" 
+	ms.author="abaranch"/>
  
 # Notas de versão do SDK do Application Insights para .NET
 
@@ -35,11 +35,21 @@ Consulte [Introdução ao Application Insights para .NET](app-insights-asp-net.m
 
 ## Versão 2.0.0-beta3
 
-- [Amostragem adaptável](app-insights-sampling.md)
+- [Amostragem adaptável](app-insights-sampling.md) ativada por padrão no canal de telemetria do servidor. 
+- Assinatura fixa de ```UseSampling``` para permitir o encadeamento com outras chamadas para ```Use``` dos processadores de telemetria.  
+- Propriedade ```Request.ID``` retornada. ```OperationContext``` agora tem uma propriedade ```ParentId``` para correlação de ponta a ponta.
+- ```TimestampTelemetryInitializer``` foi removida. O carimbo de hora será adicionado automaticamente por ```TelemetryClient```.
+- ```OperationCorrelationTelemetryInitializer``` é adicionado por padrão para ativar a correlação de operações.
+- ```OperationCorrelationTelemetryInitializer``` é usado em vez de ```OperationIdTelemetryInitializer```.
+- O Agente do Usuário não será coletado por padrão. O inicializador de telemetria do Agente do Usuário foi removido.
+- O campo ```DependencyTelemetry.Async``` não será coletado pelo módulo de telemetria do coletor de dependência. 
+- As solicitações de diagnóstico e conteúdo estático não serão coletadas pelo módulo de telemetria de solicitação. Use ```HandlersToFilter``` da coleção ```RequestTrackingTelemetryModule``` para filtrar solicitações geradas por manipuladores específicos de http. 
+- A telemetria de solicitação gerada automaticamente acessível através do método de extensão HttpContext: System.Web.HttpContextExtension.GetRequestTelemetry  
+
 
 ## Versão 2.0.0-beta2
 - Suporte adicionado a ITelemetryProcessor e a capacidade de configurar por meio de código ou configuração. [Habilita a filtragem personalizada no SDK](app-insights-api-telemetry-processors/#telemetry-processors)
-- Inicializadores de contexto removidos. Em vez disso, use [Inicializadores de Telemetria](https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-initializers).
+- Inicializadores de contexto removidos. Em vez disso, use [Inicializadores de Telemetria]( https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-initializers).
 - Application Insights atualizado para o .NET Framework 4.6. 
 - Os nomes de evento personalizado agora podem ter até 512 caracteres.
 - Propriedade ```OperationContext.Name``` renomeada para ```RootName```.
@@ -114,4 +124,4 @@ Não há notas de versão disponíveis para versões anteriores.
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015--->

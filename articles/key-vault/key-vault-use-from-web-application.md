@@ -36,13 +36,13 @@ Esse tutorial foi projetado para desenvolvedores da Web que compreendem os funda
 
 
 ## <a id="packages"></a>Adicionar pacotes NuGet ##
-Há três pacotes que precisam estar instalados para o seu aplicativo Web.
+Há dois pacotes que precisam estar instalados para o seu aplicativo Web.
 
 - Biblioteca de autenticação do Active Directory - contém métodos para interagir com o Active Directory do Azure e gerenciar a identidade do usuário
 - Biblioteca de cofre da chave do Azure - contém métodos para interagir com o cofre da chave do Azure
 
 
-Esses três esses pacotes podem ser instalados usando o console do Gerenciador de Pacotes e o comando Install-Package.
+Ambos os pacotes podem ser instalados usando o console do Gerenciador de Pacotes e o comando Install-Package.
 
 	// this is currently the latest stable version of ADAL
 	Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
@@ -133,7 +133,7 @@ Outra maneira de autenticar um aplicativo do AD do Azure é usar uma ID do Clien
 
 Anote a data de término e a senha para o .pfx (neste exemplo: 31/07/2016 e test123). Você precisará delas mais tarde.
 
-Para obter mais informações sobre a criação de um certificado de teste, consulte [Como criar seu próprio certificado de teste](https://msdn.microsoft.com/en-in/library/ff699202.aspx)
+Para saber mais sobre a criação de um certificado de teste, confira [Como criar seu próprio certificado de teste](https://msdn.microsoft.com/library/ff699202.aspx)
 
 
 **Associar o Certificado um aplicativo do AD do Azure** Agora que você tem um certificado e precisa associá-lo a um aplicativo do AD do Azure. Mas o Portal de Gerenciamento do Azure não oferece suporte a isso no momento. Em vez disso, você precisará usar o Powershell. A seguir, os comandos que você precisa executar:
@@ -243,4 +243,4 @@ Para referências de programação, consulte [Referência de API do cliente C# d
 [2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

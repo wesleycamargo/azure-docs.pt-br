@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/20/2015" 
+	ms.date="12/17/2015" 
 	ms.author="juliako"/>
 
 #Implementando o cenário de streaming de failover
@@ -314,6 +314,8 @@ Nesta seção você irá criar e configurar um projeto de aplicativo de console 
 		    IAssetFile manifestFile = GetPrimaryFile(assetToStream);
 		
 		    // Create a 30-day readonly access policy. 
+        	// You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
+        
 		    IAccessPolicy policy = context.AccessPolicies.Create("Streaming policy",
 		        TimeSpan.FromDays(30),
 		        AccessPermissions.Read);
@@ -395,7 +397,8 @@ Nesta seção você irá criar e configurar um projeto de aplicativo de console 
 		    if (!string.IsNullOrEmpty(acsToken))
 		    {
 		        var asset = context.Assets.Where(a => a.Id == targetAssetId).FirstOrDefault();
-		
+
+            	// You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
 		        var accessPolicy = context.AccessPolicies.Create("RestTest", TimeSpan.FromDays(100),
 		                                                            AccessPermissions.Read);
 		        if (asset != null)
@@ -969,4 +972,4 @@ Agora você pode usar um gerenciador de tráfego para rotear solicitações entr
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

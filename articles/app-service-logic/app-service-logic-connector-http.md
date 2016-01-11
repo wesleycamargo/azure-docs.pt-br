@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/25/2015"
+   ms.date="12/17/2015"
    ms.author="prkumar"/>
 
 
@@ -61,7 +61,7 @@ Depois de criar o aplicativo de API, você pode usar o ouvinte HTTP como gatilho
 9.	Por fim, para enviar uma resposta, adicione outro ouvinte HTTP e selecione a ação Enviar Resposta HTTP. Defina a ID da solicitação como a RequestID obtida do ouvinte HTTP e preencha o corpo da resposta e o status HTTP que você deseja retornar: ![][9]
 
 ## Usando a ação HTTP
-A ação HTTP tem suporte nativo pelos aplicativos lógicos e não exige a criação de um aplicativo de API para ser usada. Você pode inserir uma ação HTTP a qualquer momento em seu aplicativo lógico e escolher o URI, os cabeçalhos e o corpo para a chamada. A ação HTTP dá suporte a várias opções para segurança do cliente. Para usá-las, analise o artigo [aqui](http://aka.ms/logicapphttpauth).
+A ação HTTP tem suporte nativo pelos aplicativos lógicos e não exige a criação de um aplicativo de API para ser usada. Você pode inserir uma ação HTTP a qualquer momento em seu aplicativo lógico e escolher o URI, os cabeçalhos e o corpo para a chamada. A ação HTTP dá suporte a várias opções para segurança do cliente. Consulte as [opções de segurança do lado do cliente](../scheduler-outbound-authentication.md).
 
 A saída da ação HTTP são os cabeçalhos e o corpo, que podem ser usados downstream no fluxo, de maneira semelhante a como as saídas de outras ações e conectores são usadas.
 
@@ -86,4 +86,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

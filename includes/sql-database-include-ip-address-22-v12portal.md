@@ -15,7 +15,7 @@ articles/sql-database/sql-database-connect-query.md
 -->
 
 
-1. Faça logon pelo [portal de visualização do Azure](http://portal.azure.com/), em http://portal.azure.com/.
+1. Faça logon no [Portal do Azure](http://portal.azure.com/) em http://portal.azure.com/..
 
 2. Na faixa à esquerda, clique em **PROCURAR TUDO**. A folha **Procurar** é exibida.
 
@@ -63,4 +63,4 @@ includes/sql-database-include-ip-address-22-v12portal.md
 ? includes/sql-database-include-ip-address-*.md
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

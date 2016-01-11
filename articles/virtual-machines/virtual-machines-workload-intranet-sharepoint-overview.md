@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="12/17/2015"
 	ms.author="josephd"/>
 
 # Implantando o SharePoint com Grupos de Disponibilidade AlwaysOn do SQL Server no Azure
@@ -34,6 +34,44 @@ Essa é a configuração, com nomes de espaço reservado para cada servidor.
 ![](./media/virtual-machines-workload-intranet-sharepoint-overview/workload-spsqlao_05.png)
 
 Duas máquinas para cada função asseguram a alta disponibilidade. Todas as máquinas virtuais estão em uma só região. Cada grupo de máquinas virtuais para uma função específica está em seu próprio conjunto de disponibilidade.
+
+## Lista de materiais
+
+Essa configuração de linha de base exige o seguinte conjunto de componentes e serviços do Azure:
+
+- Nove máquinas virtuais.
+- Quatro discos de dados extras para os controladores de domínio e servidores SQL.
+- Quatro conjuntos de disponibilidade.
+- Uma rede virtual entre locais.
+- Uma conta de armazenamento.
+- Uma assinatura do Azure.
+
+Aqui estão as máquinas virtuais e seus tamanhos padrão para essa configuração.
+
+Item | Descrição da máquina virtual | Imagem da galeria | Tamanho padrão
+--- | --- | --- | ---
+1\. | Primeiro controlador de domínio | Windows Server 2012 R2 Datacenter | A2
+2\. | Segundo controlador de domínio | Windows Server 2012 R2 Datacenter | A2
+3\. | Primeiro servidor de banco de dados | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
+4\. | Segundo servidor de banco de dados | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
+5\. | Nó principal para o cluster | Windows Server 2012 R2 Datacenter | A1
+6\. | Primeiro servidor de aplicativos do SharePoint | Avaliação do Microsoft SharePoint Server 2013 – Windows Server 2012 R2 | A4
+7\. | Segundo servidor de aplicativos do SharePoint | Avaliação do Microsoft SharePoint Server 2013 – Windows Server 2012 R2 | A4
+8\. | Primeiro servidor Web do SharePoint | Avaliação do Microsoft SharePoint Server 2013 – Windows Server 2012 R2 | A4
+9\. | Segundo servidor Web do SharePoint | Avaliação do Microsoft SharePoint Server 2013 – Windows Server 2012 R2 | A4
+
+Para calcular os custos estimados para essa configuração, confira a [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/).
+
+1. Em **Módulos**, clique em **Computação**, e, em seguida, clique em **Máquinas Virtuais** vezes suficientes para criar uma lista de nove máquinas virtuais.
+2. Para cada máquina virtual, selecione:
+	- A região desejada
+	- **Windows** para o tipo
+	- **Standard** para o tipo de preço
+	- O tamanho padrão da tabela anterior ou o tamanho desejado para o **Tamanho da instância**
+
+> [AZURE.NOTE]A Calculadora de preços do Azure não inclui os custos adicionais para a licença do SQL Server para as duas máquinas virtuais executando o SQL Server 2014 Enterprise. Consulte [Preços das máquinas virtuais - SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql) para obter mais informações.
+
+## Fases da implantação
 
 Implante essa configuração nas seguintes fases:
 
@@ -63,4 +101,4 @@ Para saber mais sobre o SharePoint com Grupos de Disponibilidade AlwaysOn do SQL
 
 - Inicie a configuração desta carga de trabalho com [Fase 1](virtual-machines-workload-intranet-sharepoint-phase1.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

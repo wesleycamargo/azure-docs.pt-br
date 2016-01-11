@@ -58,12 +58,6 @@ Os instantâneos são copiados de modo assíncrono para uma região remota do Az
 
 O SQL Data Warehouse armazena dados em um ou mais nós de computação, e cada um desses nós armazena alguns dados do usuário e controla a execução da consulta nesses dados. Como parte da arquitetura do processamento altamente paralelo (MPP, massively parallel processing), as consultas são executadas em paralelo em todos os nós de computação. O SQL Data Warehouse detecta e reduz as falhas de nó de computação automaticamente. No entanto, durante a visualização, uma operação (por exemplo, a consulta ou o carregamento de dados) pode falhar devido a falhas de nós individuais. Durante a visualização, estamos fazendo aprimoramentos contínuos para concluir com êxito as operações independentemente de falhas de nó.
 
-Com base nos dados de telemetria, estimamos a confiabilidade atual do SQL Data Warehouse do Azure em 98%. Isso significa que, em média, 2 de 100 consultas podem falhar devido a erros do sistema. Isso não é um SLA. A probabilidade de falha na consulta aumenta com o tempo de execução. Por exemplo, uma consulta executada por mais de 2 horas tem uma probabilidade muito maior de falha que uma consulta que é executada por menos de 10 minutos. Durante a visualização, estamos aperfeiçoando a confiabilidade para garantirmos o mesmo nível de confiabilidade para operações independentemente de seu tempo de execução. Nós atualizaremos a confiabilidade esperada à medida que lançamos esses aprimoramentos. Para disponibilidade geral, a confiabilidade será apoiada por um SLA.
-
-### Tempo de atividade do serviço
-
-Durante a visualização, o SQL Data Warehouse pode ter até 4 eventos de manutenção por mês para instalar correções críticas. Cada evento pode causar falhas de consulta por até 2 horas. O tempo dependerá do número de DWUs alocadas para o serviço.
-
 
 ## Próximas etapas
 
@@ -78,4 +72,4 @@ Durante a visualização, o SQL Data Warehouse pode ter até 4 eventos de manute
 
 <!--Other Web references-->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

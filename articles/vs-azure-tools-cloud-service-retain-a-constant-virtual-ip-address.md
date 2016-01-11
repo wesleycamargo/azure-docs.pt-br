@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/08/2015"
+   ms.date="12/19/2015"
    ms.author="tarcher" />
 
 # Como manter um endereço IP virtual constante para um serviço de nuvem
@@ -45,4 +45,4 @@ O VIP de um serviço de nuvem é alocado ao implantá-lo pela primeira vez no Az
 
 Para saber mais sobre a publicação do Azure por meio do Visual Studio, consulte o [assistente Publicar aplicativo do Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

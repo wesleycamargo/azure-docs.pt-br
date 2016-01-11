@@ -12,16 +12,21 @@
 	ms.service="sql-database" 
 	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="12/17/2015" 
 	ms.author="genemi"/>
 
 
 # Exemplo de código: repetir a lógica em C# para se conectar ao Banco de Dados SQL
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+
+> [AZURE.SELECTOR]
+- [PHP](sql-database-develop-php-retry-windows.md)
+- [C#](sql-database-develop-csharp-retry-windows.md)
+- [C# EntLib6](sql-database-develop-entlib-csharp-retry-windows.md)
+
 
 
 Este tópico fornece um exemplo de código C# que demonstra uma lógica de repetição personalizada. A lógica de repetição foi criada para processar normalmente erros temporários ou *falhas transitórias* que tendem a desaparecer se o programa aguardar alguns segundos e tentar novamente.
@@ -282,4 +287,6 @@ Execute o programa com o parâmetro “test” e verifique se ele primeiro falha
 
 - [Exemplos de código do cliente de início rápido do Banco de Dados SQL](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+- [Experimentar o Banco de Dados SQL: Usar o C# para criar um Banco de Dados SQL com a Biblioteca do Banco de Dados SQL para .NET](sql-database-get-started-csharp.md)
+
+<!---HONumber=AcomDC_1223_2015-->

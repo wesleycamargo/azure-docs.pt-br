@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/25/2015" 
+	ms.date="12/23/2015" 
 	ms.author="mimig"/>
 
 # Usando níveis de consistência para maximizar a disponibilidade e o desempenho no Banco de Dados de Documentos
@@ -88,4 +88,4 @@ Se você quiser ler mais sobre níveis de consistência e tradeoffs, recomendamo
 -	Werner Vogels. Eventual Consistent - Revisited. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

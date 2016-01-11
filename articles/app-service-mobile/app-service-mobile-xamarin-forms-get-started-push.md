@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin" 
 	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="11/25/2015" 
+	ms.date="12/19/2015" 
 	ms.author="wesmc"/>
 
 # Adicionar notificações por push ao aplicativo Xamarin.Forms
@@ -59,10 +59,6 @@ Essas etapas orientarão você pela criação de um novo hub de notificação. S
 
 [AZURE.INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
-##Implantar o projeto de servidor atualizado no Azure
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
-
 
 ##(Opcional) Configurar e executar o projeto do Android
 
@@ -77,7 +73,7 @@ Esta seção trata da execução do projeto droid Xamarin para Android. Você po
 
 ####Configurar o hub de notificação para o GCM
 
-1. Faça logon no [portal do Azure](https://portal.azure.com/). Clique em **Procurar** > **Aplicativos Móveis** > seu aplicativo móvel > **Configurações** > **Push** > **Google (GCM)**. Cole a chave de API do servidor criada anteriormente e clique em **Salvar**. Agora, seu serviço móvel está configurado para funcionar com notificações por push no Android.
+1. Faça logon no [Portal do Azure](https://portal.azure.com/). Clique em **Procurar** > **Aplicativos Móveis** > seu aplicativo móvel > **Configurações** > **Push** > **Google (GCM)**. Cole a chave de API do servidor criada anteriormente e clique em **Salvar**. Agora, seu serviço móvel está configurado para funcionar com notificações por push no Android.
 
 	![](./media/app-service-mobile-xamarin-forms-get-started-push/mobile-app-save-gcm-api-key.png)
 
@@ -194,7 +190,7 @@ Esta seção trata da execução do projeto droid Xamarin para Android. Você po
 
 12. Adicione o código a seguir à classe GcmService que substitui o manipulador de eventos OnRegistered e implementa um método `Register`.
 
-	Esse código registrará um corpo de modelo para receber notificações de modelo usando o parâmetro `messageParam`. Notificações de modelo permitem que você envie notificações entre plataformas. Para saber mais, confira [Modelos](https://msdn.microsoft.com/library/azure/dn530748.aspx).
+	Esse código registrará um corpo de modelo para receber notificações de modelo usando o parâmetro `messageParam`. Notificações de modelo permitem que você envie notificações entre plataformas. Para saber mais, veja [Modelos](https://msdn.microsoft.com/library/azure/dn530748.aspx).
 		
 		protected override void OnRegistered(Context context, string registrationId)
 		{
@@ -330,7 +326,7 @@ Esta seção trata da execução do projeto do iOS Xamarin para dispositivos iOS
 
 ####Configurar o hub de notificação para APNS
 
-1. Faça logon no [portal do Azure](https://portal.azure.com/). Clique em **Procurar** > **Aplicativos Móveis** > seu aplicativo móvel > **Configurações** > **Push** > **Apple (APNS)** > **Carregar Certificado**. Carregue o arquivo de certificado de push .p12 exportado anteriormente. Selecione **Sandbox** se tiver criado um certificado de push de desenvolvimento para desenvolvimento e teste. Caso contrário, escolha **Produção**. Agora, seu serviço móvel está configurado para funcionar com notificações por push para iOS.
+1. Faça logon no [Portal do Azure](https://portal.azure.com/). Clique em **Procurar** > **Aplicativos Móveis** > seu aplicativo móvel > **Configurações** > **Push** > **Apple (APNS)** > **Carregar Certificado**. Carregue o arquivo de certificado de push .p12 exportado anteriormente. Selecione **Sandbox** se tiver criado um certificado de push de desenvolvimento para desenvolvimento e teste. Caso contrário, escolha **Produção**. Agora, seu serviço móvel está configurado para funcionar com notificações por push para iOS.
 
 	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-upload-apns-cert.png)
 
@@ -541,4 +537,4 @@ Esta seção trata da execução do projeto WinApp Xamarin para dispositivos Win
 [Instalando o Xamarin.iOS no Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-<!---HONumber=AcomDC_1203_2015--->
+<!----HONumber=AcomDC_1223_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/14/2015"
+	ms.date="12/18/2015"
 	ms.author="jeedes"/>
 
 
@@ -64,7 +64,7 @@ Para configurar a integração do Capriza ao Azure AD, você precisa adicionar o
 4. Clique em **Adicionar** na parte inferior da página.<br><br> ![Aplicativos][3]<br>
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.<br><br> ![Aplicativos][4]<br>
 6. Na caixa de pesquisa, digite **Capriza**.<br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-capriza-tutorial/tutorial_capriza_01.png)<br>
-7. No painel de resultados, selecione **Capriza** e clique em **Concluir** para adicionar o aplicativo.<br><br>
+7. No painel de resultados, selecione **Capriza** e clique em **Concluir** para adicionar o aplicativo.<br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-capriza-tutorial/tutorial_capriza_02.png)<br>
 
 ##  Configurar e testar o logon único do AD do Azure
 O objetivo desta seção é mostrar como configurar e testar o logon único do Azure AD com o Capriza, com base em um usuário de teste chamado “Brenda Fernandes”.
@@ -74,10 +74,10 @@ Para que o logon único funcione, o Azure AD precisa saber qual usuário do Capr
 Para configurar e testar o logon único do Azure AD com o Capriza, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**: para testar o logon único do AD do Azure com Brenda Fernandes.
+2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Simon Britta.
 4. **[Criação de um usuário de teste do Capriza](#creating-a-capriza-test-user)** – para ter um equivalente de Brenda Fernandes no Capriza que esteja vinculado à representação dela no Azure AD.
-5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)**: para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
+5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - habilitar Simon Britta a usar o logon único do AD do Azure.
+5. **[Testes do Logon único](#testing-single-sign-on)** - para verificar se a configuração funciona.
 
 ### Configuração do logon único do AD do Azure
 
@@ -91,17 +91,17 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 
 2. Na página **Como você deseja que os usuários façam logon no Capriza**, selecione **Logon Único do Azure AD** e clique em **Avançar**. <br><br> ![Configurar o logon único](./media/active-directory-saas-capriza-tutorial/tutorial_capriza_03.png) <br>
 
-3. Na página de diálogo **Definir Configurações de Aplicativo**, execute as seguintes etapas: <br><br>![Configurar o logon único](./media/active-directory-saas-capriza-tutorial/tutorial_capriza_04.png) <br>
+3. Na página da caixa de diálogo **Definir Configurações de Aplicativo**, execute as seguintes etapas:<br><br>![Configurar o logon único](./media/active-directory-saas-capriza-tutorial/tutorial_capriza_04.png) <br>
 
 
     a. Na caixa de texto URL de Logon, digite a URL usada pelos usuários para fazer logon no seu aplicativo do Capriza usando o seguinte padrão: **“https://companyname.capriza.com/tenantid”**.
 
-    b. Clique em **Próximo**.
+    b. Clique em **Avançar**.
 
 
 4. Na página **Configurar logon único no Capriza**, execute as seguintes etapas: <br><br>![Configurar o logon único](./media/active-directory-saas-capriza-tutorial/tutorial_capriza_05.png) <br>
 
-    a. Clique em **Baixar certificado** e salve o arquivo em seu computador.
+    a. Clique em **Baixar certificado** e salve o certificado localmente no computador.
 
     b. Clique em **Próximo**.
 
@@ -117,7 +117,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 
 
 ### Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no portal clássico do Azure chamado Brenda Fernandes.<br> Na lista Usuários, escolha **Brenda Fernandes**.<br><br>![Criar um usuário do AD do Azure][20]<br>
+O objetivo desta seção é criar um usuário de teste no Portal clássico do Azure chamado Brenda Fernandes.<br> Na lista Usuários, selecione **Brenda Fernandes**.<br><br>![Criar um usuário do AD do Azure][20]<br>
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
@@ -127,17 +127,17 @@ O objetivo desta seção é criar um usuário de teste no portal clássico do Az
 
 3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-capriza-tutorial/create_aaduser_03.png) <br>
 
-4. Para abrir o diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-capriza-tutorial/create_aaduser_04.png) <br>
+4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**. <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-capriza-tutorial/create_aaduser_04.png) <br>
 
-5. Na página de diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas: <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-capriza-tutorial/create_aaduser_05.png) <br>
+5. Na página da caixa de diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas: <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-capriza-tutorial/create_aaduser_05.png)<br>
 
     a. Em Tipo de Usuário, selecione Novo usuário na organização.
 
-    b. Na **caixa de texto** Nome de Usuário, digite **BrendaFernandes**.
+    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
 
     c. Clique em **Próximo**.
 
-6.  Na página de diálogo **Perfil do Usuário**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-capriza-tutorial/create_aaduser_06.png) <br>
+6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-capriza-tutorial/create_aaduser_06.png) <br>
 
     a. Na caixa de texto **Nome**, digite **Brenda**.
 
@@ -149,9 +149,9 @@ O objetivo desta seção é criar um usuário de teste no portal clássico do Az
 
     e. Clique em **Próximo**.
 
-7. Na página de diálogo **Obter senha temporária**, clique em **criar**. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-capriza-tutorial/create_aaduser_07.png) <br>
+7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-capriza-tutorial/create_aaduser_07.png) <br>
 
-8. Na página de diálogo **Obter senha temporária**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-capriza-tutorial/create_aaduser_08.png) <br>
+8. Na página da caixa de diálogo **Obter senha temporária**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-capriza-tutorial/create_aaduser_08.png) <br>
 
     a. Anote o valor da **Nova Senha**.
 
@@ -163,7 +163,7 @@ O objetivo desta seção é criar um usuário de teste no portal clássico do Az
 
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Capriza. O Capriza dá suporte ao provisionamento just-in-time, que está habilitado por padrão. **Certifique-se de que seu nome de domínio esteja configurado no Capriza para o provisionamento do usuário. Depois disso, somente o provisionamento de usuário just-in-time funciona.**
 
-Não há itens de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar o Capriza, caso ainda não exista. [Configurando o logon único do Azure AD](#configuring-azure-ad-single-single-sign-on).
+Não há itens de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar o Capriza, caso ainda não exista. [Configuração do logon único do Azure AD](#configuring-azure-ad-single-single-sign-on)
 
 > [AZURE.NOTE]Se precisar criar um usuário manualmente, entre em contato com a equipe de suporte do Capriza.
 
@@ -180,7 +180,7 @@ O objetivo desta seção é permitir que Brenda Fernandes use o logon único do 
 
 1. No menu na parte superior, clique em **Usuários**. <br><br>![Atribuir usuário][203] <br>
 
-1. Na lista Usuários, selecione **Brenda Fernandes**.
+1. Na lista Usuários, escolha **Brenda Fernandes**.
 
 2. Na barra de ferramentas na parte inferior, clique em **Atribuir**. <br><br>![Atribuir usuário][205]
 
@@ -215,4 +215,4 @@ O objetivo desta seção é testar sua configuração de logon único do Azure A
 [204]: ./media/active-directory-saas-capriza-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-capriza-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

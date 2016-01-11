@@ -262,7 +262,7 @@ Esta seção pressupõe que você já instalou uma imagem RHEL a partir de um ar
 
 8.	Registre a sua assinatura do Red Hat para habilitar a instalação de pacotes do repositório RHEL ao executar o seguinte comando:
 
-        # subscription-manager register –auto-attach --username=XXX --password=XXX
+        # subscription-manager register --auto-attach --username=XXX --password=XXX
 
 9.	Modifique a linha de inicialização do kernel em sua configuração de grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer isso, abra `/boot/grub/menu.lst` em um editor de texto e verifique se o kernel padrão inclui os seguintes parâmetros:
 
@@ -379,7 +379,7 @@ Esta seção pressupõe que você já instalou uma imagem RHEL a partir de um ar
 
 7.	Registre a sua assinatura do Red Hat para habilitar a instalação de pacotes do repositório RHEL ao executar o seguinte comando:
 
-        # subscription-manager register –auto-attach --username=XXX --password=XXX
+        # subscription-manager register --auto-attach --username=XXX --password=XXX
 
 8.	Modifique a linha de inicialização do kernel em sua configuração de grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer isso, abra `/etc/default/grub` em um editor de texto e edite o parâmetro **GRUB\_CMDLINE\_LINUX**, por exemplo:
 
@@ -396,12 +396,22 @@ Esta seção pressupõe que você já instalou uma imagem RHEL a partir de um ar
 9.	Depois de editar `/etc/default/grub` como mostrado acima, execute o comando a seguir para recompilar a configuração do grub:
 
         # grub2-mkconfig -o /boot/grub2/grub.cfg
+        
+10.	Adicione os módulos do Hyper-V em initramfs:
 
-10.	Desinstale cloud-init:
+    Edite `/etc/dracut.conf` e adicione o conteúdo:
+
+        add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
+
+    Recompile o initramfs:
+
+        # dracut –f -v
+        
+11.	Desinstale cloud-init:
 
         # yum remove cloud-init
 
-11.	Verifique se o servidor SSH está instalado e configurado para começar na hora da inicialização:
+12.	Verifique se o servidor SSH está instalado e configurado para começar na hora da inicialização:
 
         # systemctl enable sshd
 
@@ -414,12 +424,12 @@ Esta seção pressupõe que você já instalou uma imagem RHEL a partir de um ar
 
         systemctl restart sshd	
 
-12.	O pacote WALinuxAgent `WALinuxAgent-<version>` foi enviado para o repositório Fedora EPEL 6. Habilite o repositório epel para a VM executando o seguinte comando:
+13.	O pacote WALinuxAgent `WALinuxAgent-<version>` foi enviado para o repositório Fedora EPEL 6. Habilite o repositório epel para a VM executando o seguinte comando:
 
         # wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
         # rpm -ivh epel-release-7-5.noarch.rpm
 
-13.	Instale o Agente Linux do Azure executando o seguinte comando:
+14.	Instale o Agente Linux do Azure executando o seguinte comando:
 
         # yum install WALinuxAgent
 
@@ -427,7 +437,7 @@ Esta seção pressupõe que você já instalou uma imagem RHEL a partir de um ar
 
         # systemctl enable waagent.service
 
-14.	Não crie espaço de permuta no disco do SO. O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco temporário e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (confira a etapa anterior), modifique adequadamente os seguintes parâmetros em `/etc/waagent.conf`:
+15.	Não crie espaço de permuta no disco do SO. O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco temporário e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (confira a etapa anterior), modifique adequadamente os seguintes parâmetros em `/etc/waagent.conf`:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -435,19 +445,19 @@ Esta seção pressupõe que você já instalou uma imagem RHEL a partir de um ar
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-15.	Cancele o registro da assinatura (se necessário) executando o seguinte comando:
+16.	Cancele o registro da assinatura (se necessário) executando o seguinte comando:
 
         # subscription-manager unregister
 
-16.	Execute os comandos a seguir para desprovisionar a máquina virtual e prepará-la para provisionamento no Azure:
+17.	Execute os comandos a seguir para desprovisionar a máquina virtual e prepará-la para provisionamento no Azure:
 
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
 
-17.	Finalize a máquina virtual no KVM.
+18.	Finalize a máquina virtual no KVM.
 
-18.	Converta a imagem qcow2 no formato vhd:
+19.	Converta a imagem qcow2 no formato vhd:
 
     Primeiro, converta a imagem no formato bruto:
 
@@ -834,4 +844,4 @@ Este problema é intermitente, porém ocorre com mais frequência durante as ope
 ## Próximas etapas
 Agora você está pronto para usar o .vhd do Red Hat Enterprise Linux para criar novas Máquinas Virtuais do Azure. Para obter mais detalhes sobre os hipervisores certificados para execução do Red Hat Enterprise Linux, visite [o site da Red Hat](https://access.redhat.com/certified-hypervisors).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

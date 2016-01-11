@@ -2,7 +2,7 @@
     pageTitle="Tutorial: integração do Active Directory do Azure ao EmpCenter | Microsoft Azure" 
     description="Saiba como usar o EmpCenter com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/01/2015" 
-    ms.author="markvi" />
+    ms.date="12/18/2015" 
+    ms.author="jeedes" />
 
 #Tutorial: integração do Active Directory do Azure ao EmpCenter
   
@@ -55,7 +55,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-empcenter-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
-6.  Na **caixa de pesquisa**, digite **EmpCenter**.
+6.  Na **caixa de pesquisa **, digite **EmpCenter**.
 
     ![Galeria de Aplicativos](./media/active-directory-saas-empcenter-tutorial/IC802917.png "Galeria de Aplicativos")
 
@@ -118,4 +118,4 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1223_2015-->

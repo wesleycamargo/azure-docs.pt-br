@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/13/2015"
+	ms.date="12/22/2015"
 	ms.author="jroth" />
 
 # Práticas recomendadas relacionadas ao desempenho para o SQL Server em máquinas virtuais do Azure
@@ -71,21 +71,23 @@ A unidade de armazenamento temporário, rotulada como unidade **D**:, não é ma
 
 Armazene somente o TempDB e/ou Extensões do Pool de Buffer na unidade **D** ao usar VMs da série D ou G. Ao contrário de outras séries de VM, a unidade **D** das VMs das séries D e G é baseada em SSD. Isso pode melhorar o desempenho de cargas de trabalho que usam muitos objetos temporários ou que têm conjuntos de trabalho que não cabem na memória. Para saber mais, consulte [Usando SSDs em VMs do Azure para armazenar o TempDB do SQL Server e Extensões do Pool de Buffer](http://blogs.technet.com/b/dataplatforminsider/archive/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions.aspx).
 
+Para VMs que oferecem suporte ao armazenamento Premium, recomendamos o armazenamento do TempDB em um disco que oferece suporte ao armazenamento Premium com o caching de leitura habilitado.
+
 ### Disco de dados
 
-- **Número de discos de dados para arquivos de dados e de log**: no mínimo, use dois [discos P30](../storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whpt-BRing-premium-storage), sendo que um deles contém os arquivos de log e o outro contém os arquivos de dados e o TempDB. Para obter uma taxa de transferência superior, talvez seja necessário mais discos de dados. Para determinar o número de discos de dados, você precisa analisar o número de IOPS disponível para seus discos de dados e de log. Para obter essas informações, consulte as tabelas sobre IOPS por [tamanho da VM](virtual-machines-size-specs.md) e tamanho de disco no seguinte artigo: [Usando o Armazenamento Premium para discos](../storage/storage-premium-storage-preview-portal.md). Se você precisar de mais largura de banda, anexe outros discos usando o Particionamento de Disco. Se você não estiver usando o Armazenamento Premium, a recomendação será adicionar o número máximo de discos de dados suportados pelo [Tamanho da VM](virtual-machines-size-specs.md) e usar a Distribuição de disco. Para saber mais sobre Distribuição de disco, consulte a seção relacionada abaixo.
+- **Número de discos de dados para arquivos de dados e de log**: no mínimo, use dois [discos P30](../storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whpt-BRing-premium-storage), um deles com os arquivos de log e o outro com os arquivos de dados e o TempDB. Para obter uma taxa de transferência superior, talvez seja necessário mais discos de dados. Para determinar o número de discos de dados, você precisa analisar o número de IOPS disponível para seus discos de dados e de log. Para obter essas informações, consulte as tabelas sobre IOPS por [tamanho da VM](virtual-machines-size-specs.md) e tamanho de disco no seguinte artigo: [Usando o Armazenamento Premium para Discos](../storage/storage-premium-storage-preview-portal.md). Se você precisar de mais largura de banda, anexe outros discos usando o Particionamento de Disco. Se você não estiver usando o Armazenamento Premium, a recomendação será adicionar o número máximo de discos de dados com suporte pelo [Tamanho da VM](virtual-machines-size-specs.md) e usar a Distribuição de Disco. Para saber mais sobre Distribuição de disco, consulte a seção relacionada abaixo.
 
-- **Política de caching**: habilite o caching nos discos de dados que hospedam seus arquivos de dados e TempDB. Se você não estiver usando o Armazenamento Premium, não habilite o caching em discos de dados. Para obter instruções sobre como configurar o caching de disco, consulte os tópicos a seguir: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) e [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx).
+- **Política de cache**: habilite o cache de leitura nos discos de dados que hospedam somente seus arquivos de dados e o TempDB. Se você não estiver usando o Armazenamento Premium, não habilite o caching em discos de dados. Para obter instruções sobre como configurar o cache de disco, consulte os tópicos a seguir: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) e [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx).
 
 - **Tamanho de unidade de alocação de NTFS**: ao formatar o disco de dados, recomendamos o uso de um tamanho de unidade de alocação de 64 KB para arquivos de dados e de log e também para o TempDB.
 
-- **Distribuição de disco**: recomendamos estas diretrizes:
+- **Distribuição de Disco**: recomendamos que você siga estas diretrizes:
 
-	- Para o Windows 8/Windows Server 2012 ou posterior, use [Espaços de armazenamento](https://technet.microsoft.com/library/hh831739.aspx). Defina o tamanho da distribuição como 64 KB para cargas de trabalho OLTP, e 256 KB para cargas de trabalho de data warehouse, a fim de evitar o impacto no desempenho devido ao desalinhamento da partição. Além disso, defina a contagem de colunas = número de discos físicos. Para configurar um Espaço de Armazenamento com mais de oito discos é necessário usar o PowerShell (não a UI do Gerenciador de Servidores) para definir explicitamente o número de colunas, a fim de corresponder ao número de discos. Para saber mais sobre como configurar os [Espaços de armazenamento](https://technet.microsoft.com/library/hh831739.aspx), consulte [Cmdlets de espaços de armazenamento no Windows PowerShell](https://technet.microsoft.com/library/jj851254.aspx)
+	- Para Windows 8/Windows Server 2012 ou posterior, use [Espaços de Armazenamento](https://technet.microsoft.com/library/hh831739.aspx). Defina o tamanho da distribuição como 64 KB para cargas de trabalho OLTP, e 256 KB para cargas de trabalho de data warehouse, a fim de evitar o impacto no desempenho devido ao desalinhamento da partição. Além disso, defina a contagem de colunas = número de discos físicos. Para configurar um Espaço de Armazenamento com mais de oito discos é necessário usar o PowerShell (não a UI do Gerenciador de Servidores) para definir explicitamente o número de colunas, a fim de corresponder ao número de discos. Para obter mais informações sobre como configurar os [Espaços de Armazenamento](https://technet.microsoft.com/library/hh831739.aspx), consulte [Cmdlets de Espaços de Armazenamento no Windows PowerShell](https://technet.microsoft.com/library/jj851254.aspx)
 	
-	- Para o Windows 2008 R2 ou anterior, é possível usar discos dinâmicos (volumes de SO distribuídos) e o tamanho da faixa será sempre 64 KB. Observe que essa opção tornou-se obsoleta no Windows 8/Windows Server 2012. Para saber mais, consulte a declaração de suporte em [O serviço de Disco Virtual está em transição para a API de Gerenciamento de Armazenamento do Windows](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx).
+	- Para o Windows 2008 R2 ou anterior, é possível usar discos dinâmicos (volumes de SO distribuídos) e o tamanho da faixa será sempre 64 KB. Observe que essa opção tornou-se obsoleta no Windows 8/Windows Server 2012. Para obter informações, consulte a declaração de suporte em [O Serviço de Disco Virtual está em transição para a API de Gerenciamento de Armazenamento do Windows](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx).
 	
-	- Se sua carga de trabalho não utilizar muito o log e não precisar de um IPS dedicado, você poderá configurar apenas um pool de armazenamento. Caso contrário, crie dois pools de armazenamento, um para os arquivos de log e outro para os arquivos de dados e o TempDB. Determine o número de discos associados a cada pool de armazenamento com base em suas expectativas de carga. Tenha em mente que tamanhos de VM diferentes permitem quantidades diferentes de discos de dados anexados. Para saber mais, consulte [Tamanhos de máquinas virtuais](virtual-machines-size-specs.md).
+	- Se sua carga de trabalho não utilizar muito o log e não precisar de um IPS dedicado, você poderá configurar apenas um pool de armazenamento. Caso contrário, crie dois pools de armazenamento, um para os arquivos de log e outro para os arquivos de dados e o TempDB. Determine o número de discos associados a cada pool de armazenamento com base em suas expectativas de carga. Tenha em mente que tamanhos de VM diferentes permitem quantidades diferentes de discos de dados anexados. Para obter mais informações, consulte [Tamanhos de Máquinas Virtuais](virtual-machines-size-specs.md).
 
 ## Considerações sobre desempenho de E/S
 
@@ -95,23 +97,13 @@ Armazene somente o TempDB e/ou Extensões do Pool de Buffer na unidade **D** ao 
 
 - Considere a compactação de qualquer arquivo de dados durante a transferência de entrada/saída do Azure.
 
-- Considere a habilitação da inicialização instantânea de arquivo a fim de reduzir o tempo necessário para alocação inicial do arquivo. Para aproveitar a inicialização instantânea de arquivo, conceda à conta de serviço do SQL Server (MSSQLSERVER) SE\_MANAGE\_VOLUME\_NAME e adicione-a à política de segurança **Executar Tarefas de Manutenção de Volume**. Se você estiver usando uma imagem da plataforma do SQL Server para o Azure, a conta de serviço padrão (NT Service\\MSSQLSERVER) não será adicionada à política de segurança **Executar Tarefas de Manutenção de volume**. Em outras palavras, a inicialização instantânea de arquivo não está habilitada em uma imagem de plataforma do SQL Server do Azure. Depois de adicionar a conta de serviço do SQL Server à política de segurança **Executar Tarefas de Manutenção de Volume**, reinicie o serviço SQL Server. Talvez existam considerações de segurança sobre a utilização desse recurso. Para saber mais, consulte [Inicialização de arquivo de banco de dados](https://msdn.microsoft.com/library/ms175935.aspx).
+- Considere a habilitação da inicialização instantânea de arquivo a fim de reduzir o tempo necessário para alocação inicial do arquivo. Para aproveitar a inicialização instantânea de arquivo, conceda à SE\_MANAGE\_VOLUME\_NAME à conta de serviço do SQL Server (MSSQLSERVER) e adicione-a à política de segurança **Executar Tarefas de Manutenção de Volume**. Se você estiver usando uma imagem da plataforma do SQL Server para o Azure, a conta de serviço padrão (NT Service\\MSSQLSERVER) não será adicionada à política de segurança **Executar Tarefas de Manutenção de Volume**. Em outras palavras, a inicialização instantânea de arquivo não está habilitada em uma imagem de plataforma do SQL Server do Azure. Depois de adicionar a conta de serviço do SQL Server à política de segurança **Executar Tarefas de Manutenção de Volume**, reinicie o serviço do SQL Server. Talvez existam considerações de segurança sobre a utilização desse recurso. Para obter mais informações, consulte [Inicialização de Arquivo de Banco de Dados](https://msdn.microsoft.com/library/ms175935.aspx).
 
 - O **crescimento automático** é considerado meramente uma contingência para o crescimento inesperado. Não gerencie diariamente o crescimento de seus dados e do log com o crescimento automático. Se o crescimento automático for usado, aumente previamente o arquivo usando a opção Tamanho.
 
-- Certifique-se de que a **redução automática** esteja desabilitada a fim de evitar uma sobrecarga desnecessária que possa afetar negativamente o desempenho.
+- Verifique se a **redução automática** está desabilitada a fim de evitar uma sobrecarga desnecessária que pode afetar negativamente o desempenho.
 
-- Se você estiver executando o SQL Server 2012, instale a Atualização Cumulativa 10 do Service Pack 1. Essa atualização contém a correção para o desempenho ruim de E/S ao executar a instrução seleção na tabela temporária no SQL Server 2012. Para saber mais, consulte este [artigo da Base de Dados de Conhecimento](http://support.microsoft.com/kb/2958012).
-
-- Mova os bancos de dados do sistema (por exemplo, msdb e TempDB), backups e os diretórios de log e de dados padrão do SQL Server para os discos de dados não armazenados em cache a fim de melhorar o desempenho. Em seguida, execute as seguintes ações:
-
-	- Ajuste os caminhos do arquivo XEvent e de Rastreamento.
-	
-	- Ajuste o caminho do Log de Erros do SQL.
-	
-	- Ajuste o caminho de backup padrão.
-	
-	- Ajuste o local do banco de dados padrão.
+- Se você estiver executando o SQL Server 2012, instale a Atualização Cumulativa 10 do Service Pack 1. Essa atualização contém a correção para o desempenho ruim de E/S ao executar a instrução seleção na tabela temporária no SQL Server 2012. Para obter informações, consulte este [artigo da base de dados de conhecimento](http://support.microsoft.com/kb/2958012).
 
 - Estabeleça páginas bloqueadas a fim de reduzir atividades de ES e de paginação.
 
@@ -133,4 +125,4 @@ Para conferir as práticas recomendadas de segurança, consulte [Considerações
 
 Revise outros tópicos sobre máquina virtual do SQL Server em [Visão geral do SQL Server em máquinas virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

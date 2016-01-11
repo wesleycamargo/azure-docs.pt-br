@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2015"
+   ms.date="12/17/2015"
    ms.author="masashin"/>
 
 # Diretrizes para implementação de API
@@ -247,26 +247,26 @@ Depois de uma solicitação de um aplicativo cliente ter sido roteada com êxito
 	...
 	Content-Length: ...
 	{"CustomerID":2,"CustomerName":"Bert","Links":[
-	  {"Relationship":"self",
-	   "HRef":"http://adventure-works.com/customers/2",
-	   "Action":"GET",
-	   "LinkedResourceMIMETypes":["text/xml","application/json"]},
-	  {"Relationship":"self",
-	   "HRef":"http://adventure-works.com/customers/2",
-	   "Action":"PUT",
-	   "LinkedResourceMIMETypes":["application/x-www-form-urlencoded"]},
-	  {"Relationship":"self",
-	   "HRef":"http://adventure-works.com/customers/2",
-	   "Action":"DELETE",
-	   "LinkedResourceMIMETypes":[]},
-	  {"Relationship":"orders",
-	   "HRef":"http://adventure-works.com/customers/2/orders",
-	   "Action":"GET",
-	   "LinkedResourceMIMETypes":["text/xml","application/json"]},
-	  {"Relationship":"orders",
-	   "HRef":"http://adventure-works.com/customers/2/orders",
-	   "Action":"POST",
-	   "LinkedResourceMIMETypes":["application/x-www-form-urlencoded"]}
+	  {"rel":"self",
+	   "href":"http://adventure-works.com/customers/2",
+	   "action":"GET",
+	   "types":["text/xml","application/json"]},
+	  {"rel":"self",
+	   "href":"http://adventure-works.com/customers/2",
+	   "action":"PUT",
+	   "types":["application/x-www-form-urlencoded"]},
+	  {"rel":"self",
+	   "href":"http://adventure-works.com/customers/2",
+	   "action":"DELETE",
+	   "types":[]},
+	  {"rel":"orders",
+	   "href":"http://adventure-works.com/customers/2/orders",
+	   "action":"GET",
+	   "types":["text/xml","application/json"]},
+	  {"rel":"orders",
+	   "href":"http://adventure-works.com/customers/2/orders",
+	   "action":"POST",
+	   "types":["application/x-www-form-urlencoded"]}
 	]}
 	```
 
@@ -283,10 +283,10 @@ Depois de uma solicitação de um aplicativo cliente ter sido roteada com êxito
 
 	public class Link
 	{
-    	public string Relationship { get; set; }
-    	public string HRef { get; set; }
+    	public string Rel { get; set; }
+    	public string Href { get; set; }
     	public string Action { get; set; }
-    	public string [] LinkedResourceMIMETypes { get; set; }
+    	public string [] Types { get; set; }
 	}
 	```
 
@@ -294,11 +294,11 @@ Depois de uma solicitação de um aplicativo cliente ter sido roteada com êxito
 
 	- A relação entre o objeto que está sendo retornado e o objeto descrito pelo link. Nesse caso, "self" indica que o link é uma referência para o objeto em si (semelhante a um ponteiro `this` em muitas linguagens orientadas a objeto), enquanto "orders" é o nome de uma coleção que contém as informações de pedido relacionadas.
 
-	- O hiperlink (`HRef`) para o objeto sendo descrito pelo link na forma de um URI.
+	- O hiperlink (`Href`) para o objeto sendo descrito pelo link na forma de um URI.
 
 	- O tipo de solicitação HTTP (`Action`) que pode ser enviada para esse URI.
 
-	- O formato de quaisquer dados (`LinkedResourceMIMETypes`) que devam ser fornecidos na solicitação HTTP ou que possam ser retornados na resposta, dependendo do tipo da solicitação.
+	- O formato de quaisquer dados (`Types`) que devam ser fornecidos na solicitação HTTP ou que possam ser retornados na resposta, dependendo do tipo da solicitação.
 
 	Os links HATEOAS mostrados no exemplo de resposta HTTP indicam que um aplicativo cliente pode executar as seguintes operações:
 
@@ -406,7 +406,7 @@ Em um ambiente distribuído, como aquele envolvendo um servidor Web e aplicativo
 	Cache-Control: max-age=600, private
 	Content-Type: text/json; charset=utf-8
 	Content-Length: ...
-	{"OrderID":2,"ProductID":4,"Quantity":2,"OrderValue":10.00}
+	{"orderID":2,"productID":4,"quantity":2,"orderValue":10.00}
 	```
 
 	Neste exemplo, o cabeçalho Cache-Control especifica que os dados retornados devem expirar após 600 segundos e ser adequados para um único cliente; além disso, esses dados não devem ser armazenados em um cache compartilhado usado por outros clientes (eles são _private_, particulares). O cabeçalho Cache-Control pode especificar _public_ em vez de _private_ caso os dados possam ser armazenados em um cache compartilhado, ou então pode especificar _no-store_ caso os dados **não** possam ser armazenados em cache pelo cliente. O exemplo de código a seguir mostra como construir um cabeçalho Cache-Control em uma mensagem de resposta:
@@ -514,7 +514,7 @@ Em um ambiente distribuído, como aquele envolvendo um servidor Web e aplicativo
 	Content-Type: text/json; charset=utf-8
 	ETag: "2147483648"
 	Content-Length: ...
-	{"OrderID":2,"ProductID":4,"Quantity":2,"OrderValue":10.00}
+	{"orderID":2,"productID":4,"quantity":2,"orderValue":10.00}
 	```
 
 	> [AZURE.TIP]Por motivos de segurança, não permita que dados confidenciais ou dados retornados por uma conexão autenticada (HTTPS) sejam armazenados em cache.
@@ -646,7 +646,7 @@ Em um ambiente distribuído, como aquele envolvendo um servidor Web e aplicativo
 	...
 	Date: Fri, 12 Sep 2014 09:18:37 GMT
 	Content-Length: ...
-	ProductID=3&Quantity=5&OrderValue=250
+	productID=3&quantity=5&orderValue=250
 	```
 
 	- A operação PUT na API da Web obtém a ETag atual para os dados solicitados (pedido 1 no exemplo acima) e compara-a ao valor do cabeçalho If-Match.
@@ -1152,4 +1152,4 @@ Você pode usar essas informações para determinar se uma operação ou API da 
 - A página [Verificando o Código Pelo Uso de Testes de Unidade](https://msdn.microsoft.com/library/dd264975.aspx), no site da Microsoft, fornece informações detalhadas sobre criação e gerenciamento de testes de unidade pelo uso do Visual Studio.
 - A página [Executar testes de desempenho em um aplicativo antes do lançamento](https://msdn.microsoft.com/library/dn250793.aspx) no site da Microsoft descreve como usar o Visual Studio Ultimate para criar um projeto de teste de carga e desempenho da Web.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

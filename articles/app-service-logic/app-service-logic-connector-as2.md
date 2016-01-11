@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/30/2015"
+   ms.date="12/17/2015"
    ms.author="rajram"/>
 
 # Comece a usar o Conector do AS2 e adicione-o a seu Aplicativo Lógico
@@ -59,7 +59,7 @@ Nome da instância do TPM | Insira o nome do Aplicativo de API do **Gerenciament
 
 Parceiros comerciais são as entidades envolvidas em comunicações B2B (business-to-business). Quando dois parceiros estabelecem uma relação, isso é chamado de um Contrato. O acordo definido se baseia na comunicação que os dois parceiros desejam atingir e é específica com relação a transporte ou protocolo.
 
-As etapas envolvidas na criação de um contrato de parceiro comercial são documentadas [aqui][2].
+Consulte as etapas para [criar um contrato de parceiro comercial][2].
 
 ## Usar o Conector como um Gatilho
 
@@ -117,4 +117,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->
