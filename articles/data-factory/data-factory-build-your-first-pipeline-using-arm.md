@@ -39,7 +39,7 @@ Além dos pré-requisitos listados no tópico Visão Geral do Tutorial, você pr
 
 ## Etapa 1: Criar o modelo do ARM
 
-Crie um arquivo JSON denominado **ADFTutorialARM.json** na pasta **C:\\ADFGetStarted** com este conteúdo:
+Crie um arquivo JSON denominado **ADFTutorialARM.json** na pasta **C:\ADFGetStarted** com este conteúdo:
 
 > [AZURE.IMPORTANT]Altere os valores das variáveis **storageAccountName** e **storageAccountKey**. Altere o **dataFactoryName** também porque o nome precisa ser exclusivo.
 

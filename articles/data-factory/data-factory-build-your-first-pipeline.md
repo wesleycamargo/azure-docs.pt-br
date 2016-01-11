@@ -193,7 +193,7 @@ Você pode usar qualquer ferramenta que desejar (por exemplo: Azure Storage Expl
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
 
-	3. Navegue até a pasta c:\\adfgettingstarted e execute o seguinte comando para carregar o arquivo **input.log** na conta de armazenamento (o contêiner **adfgetstarted** e a pasta **inputdata**). Substitua **StorageAccountName** pelo nome da sua conta de armazenamento e **Storage Key** pela chave de armazenamento da conta.
+	3. Navegue até a pasta c:\adfgettingstarted e execute o seguinte comando para carregar o arquivo **input.log** na conta de armazenamento (o contêiner **adfgetstarted** e a pasta **inputdata**). Substitua **StorageAccountName** pelo nome da sua conta de armazenamento e **Storage Key** pela chave de armazenamento da conta.
 
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/inputdata /DestKey:<storagekey>  /Pattern:input.log
 

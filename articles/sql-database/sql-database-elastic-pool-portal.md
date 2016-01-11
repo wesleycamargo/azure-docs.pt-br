@@ -47,7 +47,7 @@ No [portal do Azure](https://portal.azure.com/), clique em **Servidores SQL**, c
 Se você receber uma mensagem informando que há um pool recomendado para este servidor, clique nela para examinar e criar facilmente um pool que é otimizado para os bancos de dados do seu servidor. Para obter detalhes, consulte [Pools de banco de dados elástico recomendados](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools).
 
 
-![Criar Pool Elástico][1]
+   ![Criar Pool Elástico][1]
 
 
 A folha **Pool de banco de dados elástico** oferece opções para escolher o tipo de preço, adicionar bancos de dados e configurar as características de desempenho do pool.

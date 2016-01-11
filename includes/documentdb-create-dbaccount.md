@@ -19,7 +19,8 @@
  
 	- Use **Local** para especificar a localização geográfica na qual hospedar a sua conta do Banco de Dados de Documentos.
 
-4.	Após as opções da nova conta do Banco de Dados de Documentos serem configuradas, clique em **Criar**. Pode levar alguns minutos para criar a conta do Banco de Dados de Documentos. Para verificar o status, você pode monitorar o progresso no quadro inicial. ![Captura de tela do bloco Criando no quadro inicial - criador de banco de dados online](media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)
+4.	Após as opções da nova conta do Banco de Dados de Documentos serem configuradas, clique em **Criar**. Pode levar alguns minutos para criar a conta do Banco de Dados de Documentos. Para verificar o status, você pode monitorar o progresso no quadro inicial. 
+	![Captura de tela do bloco Criando no quadro inicial - criador de banco de dados online](media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)
   
 	Ou então, você pode monitorar o progresso do hub de notificações.
 

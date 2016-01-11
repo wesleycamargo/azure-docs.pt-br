@@ -73,7 +73,7 @@ Nesta etapa, você vinculará sua conta do Armazenamento do Azure e um cluster d
 ### Criar o serviço vinculado do armazenamento do Azure
 Nesta etapa, você vinculará a conta do Armazenamento do Azure ao data factory. Para o tutorial, use a mesma conta do Armazenamento do Azure para armazenar dados de entrada/saída e o arquivo do script do HQL.
 
-1. Crie um arquivo JSON chamado StorageLinkedService.json na pasta C:\\ADFGetStarted com o conteúdo a seguir. Crie a pasta ADFGetStarted se ela ainda não existir.
+1. Crie um arquivo JSON chamado StorageLinkedService.json na pasta C:\ADFGetStarted com o conteúdo a seguir. Crie a pasta ADFGetStarted se ela ainda não existir.
 
 		{
 	    	"name": "StorageLinkedService",
@@ -89,7 +89,7 @@ Nesta etapa, você vinculará a conta do Armazenamento do Azure ao data factory.
 	Substitua o **nome da conta** pelo nome da conta de armazenamento do Azure e a **chave de conta** pela chave de acesso da sua conta do armazenamento do Azure. Para saber como obter sua chave de acesso de armazenamento, confira [Exibir, copiar e regenerar chaves de acesso de armazenamento](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys).
 
 2. No Azure PowerShell, alterne para a pasta ADFGetStarted.
-3. Você pode usar o cmdlet **New-AzureDataFactoryLinkedService** para criar um serviço vinculado. Esse cmdlet e outros cmdlets de Data Factory que você usa neste tutorial exigem que os valores sejam passados aos parâmetros *ResourceGroupName* e *DataFactoryName*. Como alternativa, é possível usar **Get-AzureRmDataFactory** para obter um objeto **DataFactory** e passar o objeto sem digitar *ResourceGroupName* e *DataFactoryName* sempre que você executar um cmdlet. Execute o comando a seguir para atribuir a saída do cmdlet **Get-AzureDataFactory** a uma variável **$df**.
+3. Você pode usar o cmdlet **New-AzureRmDataFactoryLinkedService** para criar um serviço vinculado. Esse cmdlet e outros cmdlets de Data Factory que você usa neste tutorial exigem que os valores sejam passados aos parâmetros *ResourceGroupName* e *DataFactoryName*. Como alternativa, é possível usar **Get-AzureRmDataFactory** para obter um objeto **DataFactory** e passar o objeto sem digitar *ResourceGroupName* e *DataFactoryName* sempre que você executar um cmdlet. Execute o comando a seguir para atribuir a saída do cmdlet **Get-AzureDataFactory** a uma variável **$df**.
 
 		$df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH
 
@@ -106,7 +106,7 @@ Nesta etapa, você vinculará a conta do Armazenamento do Azure ao data factory.
 ### Criar o serviço vinculado do Azure HDInsight
 Nesta etapa, você vinculará um cluster do HDInsight sob demanda ao seu data factory. O cluster do HDInsight é automaticamente criado no tempo de execução e excluído após a conclusão do processamento, ficando ocioso durante o período especificado. Você pode usar seu próprio cluster do HDInsight em vez de usar um cluster do HDInsight sob demanda. Veja [Serviços vinculados de computação](data-factory-compute-linked-services.md) para obter detalhes.
 
-1. Crie um arquivo JSON chamado **HDInsightOnDemandLinkedService**.json na pasta **C:\\ADFGetStarted** com o conteúdo a seguir.
+1. Crie um arquivo JSON chamado **HDInsightOnDemandLinkedService**.json na pasta **C:\ADFGetStarted** com o conteúdo a seguir.
 
 		{
 		  "name": "HDInsightOnDemandLinkedService",
@@ -139,7 +139,7 @@ Nesta etapa, você vinculará um cluster do HDInsight sob demanda ao seu data fa
 Nesta etapa, você criará conjuntos de dados para representar dados de entrada e de saída para o processamento do Hive. Esses conjuntos de dados fazem referência ao **StorageLinkedService** que você criou anteriormente neste tutorial. Os pontos de serviço apontam para uma conta do Armazenamento do Azure e os conjuntos de dados especificam o contêiner, a pasta, o nome no armazenamento que contém os dados de entrada e de saída.
 
 ### Criar o conjunto de dados de entrada
-1. Crie um arquivo JSON denominado **InputTable.json** na pasta **C:\\ADFGetStarted** com o seguinte conteúdo:
+1. Crie um arquivo JSON denominado **InputTable.json** na pasta **C:\ADFGetStarted** com o seguinte conteúdo:
 
 		{
 			"name": "AzureBlobInput",
@@ -184,7 +184,7 @@ Nesta etapa, você criará conjuntos de dados para representar dados de entrada 
 ### Criar o conjunto de dados de saída
 Agora, você criará o conjunto de dados de saída para representar os dados de saída armazenados no armazenamento de Blobs do Azure.
 
-1. Crie um arquivo JSON denominado **OutputTable.json** na pasta **C:\\ADFGetStarted** com o seguinte conteúdo:
+1. Crie um arquivo JSON denominado **OutputTable.json** na pasta **C:\ADFGetStarted** com o seguinte conteúdo:
 
 		{
 		  "name": "AzureBlobOutput",
@@ -215,7 +215,7 @@ Agora, você criará o conjunto de dados de saída para representar os dados de 
 Nesta etapa, você criará seu primeiro pipeline com a atividade **HDInsightHive**. Observe que a fatia de entrada está disponível mensalmente (frequência: mês, intervalo: 1), a fatia de saída é produzida mensalmente e a propriedade do agendador para a atividade também é definida como mensal (veja abaixo). As configurações para o conjunto de dados de saída e o agendador de atividades devem corresponder. Neste momento, o conjunto de dados de saída é o que aciona a agenda, então você deve criar um conjunto de dados de saída, mesmo que a atividade não produza qualquer saída. Se a atividade não receber entradas, ignore a criação de conjunto de dados de entrada. As propriedades usadas no JSON a seguir são explicadas no final desta seção.
 
 
-1. Crie um arquivo JSON denominado MyFirstPipelinePSH.json na pasta C:\\ADFGetStarted com o conteúdo a seguir:
+1. Crie um arquivo JSON denominado MyFirstPipelinePSH.json na pasta C:\ADFGetStarted com o conteúdo a seguir:
 
 	> [AZURE.IMPORTANT]Substitua **storageaccountname** pelo nome da sua conta de armazenamento no JSON.
 		

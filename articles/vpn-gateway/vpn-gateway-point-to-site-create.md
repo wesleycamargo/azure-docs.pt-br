@@ -24,7 +24,7 @@ Este artigo se aplica a conexões de Gateway de VPN Ponto a Site para uma rede v
 
 **Sobre modelos de implantação do Azure**
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
 ## Sobre a criação de uma conexão Ponto a Site
  
