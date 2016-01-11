@@ -284,7 +284,9 @@ Também vale a pena observar que a URL publicada é ligeiramente diferente do pr
     Vamos ver o passo a passo. O código lê a primeira letra do parâmetro da cadeia de caracteres de consulta `lastname` dentro de um char. Isso determina a chave de partição para essa letra, subtraindo o valor hex. de `A` do valor hex. da primeira letra do último nome.
 
     ```CSharp
-    string lastname = context.Request.QueryString["lastname"]; char firstLetterOfLastName = lastname.First(); int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A';
+    string lastname = context.Request.QueryString["lastname"];
+    char firstLetterOfLastName = lastname.First();
+    int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A';
     ```
 
     Lembre-se que neste exemplo, estamos usando 26 partições com uma chave de partição por partição. Em seguida, obtemos a partição de serviço `partition` para essa chave usando o método `ResolveAsync` no objeto `servicePartitionResolver`. `servicePartitionResolver` é definido como
@@ -322,8 +324,10 @@ Também vale a pena observar que a URL publicada é ligeiramente diferente do pr
   </Parameters>
   ```
 
-16. Após a implantação, verifique o serviço e todas as respectivas partições no Gerenciador do Service Fabric. ![O Barramento de](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
-17. Insira `http://localhost:8090/?lastname=somename` em um navegador para testar a lógica de particionamento. Você verá que cada sobrenome iniciado com a mesma letra será armazenado na mesma partição. ![Navegador](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
+16. Após a implantação, verifique o serviço e todas as respectivas partições no Gerenciador do Service Fabric.
+![O Barramento de](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
+17. Insira `http://localhost:8090/?lastname=somename` em um navegador para testar a lógica de particionamento. Você verá que cada sobrenome iniciado com a mesma letra será armazenado na mesma partição.
+![Navegador](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
 
 O código-fonte completo do exemplo está disponível no [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions)
 
