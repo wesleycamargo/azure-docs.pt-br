@@ -1,4 +1,11 @@
-<propriedades pageTitle = "Habilitar o diagnóstico em uma máquina virtual do Azure que executa o Windows usando o PowerShell | Microsoft Azure" description="Saiba como usar o PowerShell para habilitar o diagnóstico em uma máquina Virtual Azure que executa o Windows" services="virtual-machines" documentationCenter="" authors="sbtron" manager="" editor="""/>
+<properties 
+	pageTitle="Habilitar o diagnóstico em uma máquina virtual do Azure que executa o Windows usando o PowerShell | Microsoft Azure" 
+	description="Saiba como usar o PowerShell para habilitar o diagnóstico em uma máquina Virtual Azure que executa o Windows" 
+	services="virtual-machines" 
+	documentationCenter=""
+	authors="sbtron"
+	manager=""
+	editor="""/>
 
 <tags
 	ms.service="virtual-machines"
@@ -193,4 +200,4 @@ A configuração precisa ser atualizada para incluir o seguinte:
 - Para obter orientação adicional sobre como usar o diagnóstico do Azure e outras técnicas para solucionar problemas, consulte [Habilitar o Diagnóstico nos Serviços de Nuvem do Azure e Máquinas Virtuais](cloud-services-dotnet-diagnostics.md).
 - O [Esquema de Configuração de Diagnóstico](https://msdn.microsoft.com/library/azure/mt634524.aspx) explica as várias opções de configurações de XML para a extensão de diagnóstico.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_1223_2015--->
