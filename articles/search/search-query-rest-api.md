@@ -21,7 +21,6 @@
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
 - [Fiddler](search-fiddler.md)
-- [Postman](search-chrome-postman.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
@@ -67,4 +66,4 @@ Pesquise o índice inteiro e ordene por um campo específico (lastRenovationDate
 
 Uma solicitação de consulta bem-sucedida resultará em um código de Status "200 OK" e os resultados da pesquisa serão encontrados no formato JSON no corpo da resposta. Para saber mias, visite a seção "Resposta" [desta página](https://msdn.microsoft.com/library/azure/dn798927.aspx).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

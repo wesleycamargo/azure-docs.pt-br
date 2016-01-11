@@ -13,14 +13,13 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/10/2015"
+	ms.date="12/18/2015"
 	ms.author="heidist"/>
 
 # Usar o Fiddler para avaliar e testar as APIs REST de Pesquisa do Azure
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
 - [Fiddler](search-fiddler.md)
-- [Postman](search-chrome-postman.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
@@ -34,7 +33,7 @@ Para concluir essas etapas, você precisará de um serviço de Pesquisa do Azure
 
 1. Inicie o Fiddler. No menu **Arquivo**, desabilite **Capturar Tráfego** para ocultar atividades HTTP externas não relacionadas à atividade atual.
 
-3. Na guia **Composer**, você formulará uma solicitação semelhante a captura de tela a seguir:
+3. Na guia **Compositor**, você formulará uma solicitação semelhante a captura de tela a seguir:
 
   	![][1]
 
@@ -43,7 +42,7 @@ Para concluir essas etapas, você precisará de um serviço de Pesquisa do Azure
 3. Insira uma URL que especifique a URL do serviço, solicite atributos e a versão da API. Alguns aspectos a ter em mente:
    + Use HTTPS como o prefixo.
    + O atributo de solicitação é "/indexes/hotels". Isso diz à Pesquisa para criar um índice chamado “hotels”.
-   + A versão da API fica em letras minúsculas, especificada como "?api-version=2015-02-28". As versões da API são importantes porque a Pesquisa do Azure implanta atualizações regularmente. Em ocasiões raras, uma atualização do serviço pode introduzir uma alteração de última hora na API. Usando as versões da API, você pode continuar usando sua versão existente e atualizando para a seguinte quando for conveniente.
+   + A versão da API fica em letras minúsculas, especificada como "?api-version=2015-02-28". As versões da API são importantes porque a Pesquisa do Azure implanta atualizações regularmente. Em ocasiões raras, uma atualização do serviço pode introduzir uma alteração de última hora na API. Por esse motivo, a Pesquisa do Azure requer uma versão de api em cada solicitação para que você tenha controle total sobre qual delas será usada.
 
     A URL completa deve se parecer com o exemplo a seguir.
 
@@ -63,7 +62,7 @@ Para concluir essas etapas, você precisará de um serviço de Pesquisa do Azure
         "fields": [
           {"name": "hotelId", "type": "Edm.String", "key":true, "searchable": false},
           {"name": "baseRate", "type": "Edm.Double"},
-          {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false,},
+          {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
           {"name": "hotelName", "type": "Edm.String"},
           {"name": "category", "type": "Edm.String"},
           {"name": "tags", "type": "Collection(Edm.String)"},
@@ -83,7 +82,7 @@ Se obtiver o HTTP 504, veja se a URL especifica HTTPS. Caso veja HTTP 400 ou 404
 
 ## Carregue os documentos
 
-Na guia **Composer**, sua solicitação para publicar documentos terá a seguinte aparência. O corpo da solicitação contém os dados de pesquisa de 4 hotéis.
+Na guia **Compositor**, sua solicitação para publicar documentos terá a seguinte aparência. O corpo da solicitação contém os dados de pesquisa de 4 hotéis.
 
    ![][2]
 
@@ -169,7 +168,7 @@ Em alguns segundos, você verá uma resposta HTTP 200 na lista de sessões. Isso
 
 ## Consulte o índice
 
-Agora que o índice e os documentos foram carregados, você pode consultá-los. Na guia **Composer**, um comando **GET** que consulta seu serviço será semelhante à captura de tela a seguir.
+Agora que o índice e os documentos foram carregados, você pode consultá-los. Na guia **Compositor**, um comando **GET** que consulta seu serviço será semelhante à captura de tela a seguir.
 
    ![][3]
 
@@ -204,7 +203,7 @@ O exemplo de consulta a seguir é da [operação Pesquisar Índice (API da Pesqu
 
 ## Consulte o sistema
 
-Você também pode consultar o sistema para obter informações de contagens de documentos e consumo de armazenamento. Na guia **Composer**, sua solicitação será semelhante à seguinte, e a resposta retornará uma contagem do número de documentos e do espaço usado.
+Você também pode consultar o sistema para obter informações de contagens de documentos e consumo de armazenamento. Na guia **Compositor**, sua solicitação será semelhante à seguinte, e a resposta retornará uma contagem do número de documentos e do espaço usado.
 
  ![][5]
 
@@ -225,14 +224,12 @@ Você também pode consultar o sistema para obter informações de contagens de 
 
 5.	Clique em **Executar**. Você deverá ver um código de status HTTP 200 na lista de sessões. Selecione a entrada publicada para seu comando.
 
-6.	Clique na guia **Inspetores**, clique na guia **Cabeçalhos** e, em seguida, selecione o formato JSON. Você deverá ver a contagem de documentos e o tamanho do armazenamento (em KB).
+6.	Clique na guia **Inspetores**, clique na guia **Cabeçalhos** e selecione o formato JSON. Você deverá ver a contagem de documentos e o tamanho do armazenamento (em KB).
 
 ## Próximas etapas
 
-Os links a seguir fornecem informações adicionais para uma abordagem sem código para gerenciar e usar a Pesquisa do Azure.
+Consulte [Gerenciar seu serviço de Pesquisa no Azure](search-manage.md) para obter uma abordagem sem código para o gerenciamento e o uso da Pesquisa do Azure.
 
--  [Gerencie seu serviço de Pesquisa no Azure](search-manage.md)
--  [Como usar o Chrome Postman com a Pesquisa do Azure](search-chrome-postman.md)
 
 <!--Image References-->
 [1]: ./media/search-fiddler/AzureSearch_Fiddler1_PutIndex.png
@@ -241,4 +238,4 @@ Os links a seguir fornecem informações adicionais para uma abordagem sem códi
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

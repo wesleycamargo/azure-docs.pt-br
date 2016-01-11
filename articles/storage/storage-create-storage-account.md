@@ -65,7 +65,7 @@ Também é possível configurar um nome de domínio para usar com a conta de arm
 
 ## Criar uma conta de armazenamento
 
-1. Entre no [Portal do Azure](portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 
 2. No menu Hub, selecione **Novo** -> **Dados + Armazenamento** -> **Conta de armazenamento**.
 
@@ -103,7 +103,7 @@ Quando você cria uma conta de armazenamento, o Azure gera duas chaves de acesso
 
 ### Exibir e copiar as chaves de acesso de armazenamento
 
-No [Portal do Azure](portal.azure.com), navegue até a conta de armazenamento e clique no ícone **Chaves** para exibir, copiar e regenerar as chaves de acesso da conta. A folha **Chaves de Acesso** também inclui cadeias de conexão pré-configuradas usando suas chaves primária e secundária, que você pode copiar para usar em seus aplicativos.
+No [Portal do Azure](https://portal.azure.com), navegue até a conta de armazenamento e clique no ícone **Chaves** para exibir, copiar e regenerar as chaves de acesso da conta. A folha **Chaves de Acesso** também inclui cadeias de conexão pré-configuradas usando suas chaves primária e secundária, que você pode copiar para usar em seus aplicativos.
 
 ### Regenerar chaves de acesso de armazenamento
 
@@ -129,7 +129,7 @@ Veja o processo para trocar suas chaves de acesso de armazenamento:
 
 ## Excluir uma conta de armazenamento
 
-Para remover uma conta de armazenamento que você não estiver mais usando, navegue até a conta de armazenamento do [Portal do Azure](portal.azure.com) e clique em **Excluir**. A exclusão de uma conta de armazenamento exclui a conta inteira, incluindo todos os dados na conta.
+Para remover uma conta de armazenamento que você não estiver mais usando, navegue até a conta de armazenamento do [Portal do Azure](https://portal.azure.com) e clique em **Excluir**. A exclusão de uma conta de armazenamento exclui a conta inteira, incluindo todos os dados na conta.
 
 > [AZURE.WARNING]Não é possível restaurar uma conta de armazenamento excluída nem recuperar nenhuma parte de seu conteúdo antes da exclusão. Não se esqueça de fazer backup de todas as informações que você deseja salvar antes de excluir a conta. Isso também é verdadeiro para todos os recursos na conta – depois que você excluir um blob, tabela, fila ou arquivo, ele será excluído permanentemente.
 
@@ -139,4 +139,4 @@ Para remover uma conta de armazenamento que você não estiver mais usando, nave
 - Visite o [Blog da equipe do Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 - [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

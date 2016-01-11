@@ -25,7 +25,7 @@ A Pesquisa do Microsoft Azure é um novo serviço de pesquisa de nuvem hospedado
 
 Como administrador, você pode adicionar a Pesquisa do Azure a uma assinatura do Azure existente sem custos adicionais ao selecionar o serviço compartilhado, ou por um valor padrão ao optar por recursos dedicados.
 
-1. Entre no [Portal Clássico do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 
 2. Na barra de navegação rápida, clique em **Novo** > **Dados + Armazenamento** > **Pesquisa**.
 
@@ -92,10 +92,7 @@ Depois que o serviço for criado, você poderá retornar ao Portal Clássico do 
 <a id="sub-4"></a>
 ## Testar operações de serviço
 
-Confirmar que seu serviço está funcionando e pode ser acessado por meio de um aplicativo cliente é a etapa final da configuração da Pesquisa do Azure. Você pode usar qualquer um dos links abaixo para uma abordagem sem código para verificar a disponibilidade do serviço.
-
-- [Como usar o Chrome Postman com a Pesquisa do Azure](search-chrome-postman.md)
-- [Como usar o Telerik Fiddler com a Pesquisa do Azure](search-fiddler.md)
+Confirmar que seu serviço está funcionando e pode ser acessado por meio de um aplicativo cliente é a etapa final da configuração da Pesquisa do Azure. Você pode usar o [Fidler com a Pesquisa do Azure](search-fiddler.md) para verificar a disponibilidade do serviço.
 
 <!--Next steps and links -->
 <a id="next-steps"></a>
@@ -123,4 +120,4 @@ As informações a seguir mostram como compilar e gerenciar aplicativos de pesqu
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->
