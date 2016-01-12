@@ -49,7 +49,8 @@ Você pode adicionar vários domínios ao seu diretório. No entanto, você não
 
 Se você planeja usar o logon único com o serviço de nuvem, é recomendável que ajude a preparar o ambiente do Active Directory, executando a ferramenta de preparação de implantação da Microsoft. Essa ferramenta inspeciona o ambiente do Active Directory e fornece um relatório que inclui informações sobre se você está pronto para configurar o logon único. Caso contrário, ele lista as alterações que você precisa fazer para se preparar para logon único. Por exemplo, inspeciona se seus usuários têm UPNs e se esses UPNs estão no formato correto. Para baixar a ferramenta, consulte [Ferramenta de preparação de implantação da Microsoft](http://go.microsoft.com/fwlink/?linkid=235650).
 
-> [AZURE.NOTE]Usando o Office 365? Depois que você configurar seu domínio, você pode começar a criar endereços de email, conta do Lync Online e grupos de distribuição que usam seu nome de domínio personalizado. Você também pode usar seu nome de domínio para um site público hospedado no SharePoint Online.
+> [AZURE.NOTE]
+> Usando o Office 365? Depois que você configurar seu domínio, você pode começar a criar endereços de email, conta do Lync Online e grupos de distribuição que usam seu nome de domínio personalizado. Você também pode usar seu nome de domínio para um site público hospedado no SharePoint Online.
 
 - [Adicionar e verificar um nome de domínio usando o portal clássico do Azure](#add-and-verify-a-domain-using-the-azure-management-portal)
 - [Editar registros DNS para serviços de nuvem](#edit-dns-records-for-your-cloud-services)
@@ -69,11 +70,13 @@ Se você planeja usar o logon único com o serviço de nuvem, é recomendável q
         1. Deixe a caixa de seleção **Eu planejo configurar este domínio para logon único com o Active Directory local** selecionada e clique no botão **Adicionar**.
         2. Depois de ver a mensagem de que o domínio foi adicionado com êxito ao AD do Azure, clique na seta para ir para a próxima página e, em seguida, siga as instruções na página para configurar o domínio adicionado para logon único.
 
-> [AZURE.NOTE]Depois de adicionar seu nome de domínio ao AD do Azure, você pode alterar o nome de domínio padrão para novos endereços de email. Para obter mais informações, consulte [Como alterar o nome de domínio primário para os usuários?](#how-can-i-change-the-primary-domain-name-for-users?) Você também pode editar o perfil de uma conta de usuário existente para atualizar o endereço de email (que também é a ID de usuário) para usar o nome de domínio personalizado em vez do domínio onmicrosoft.com.
+> [AZURE.NOTE]
+> Depois de adicionar seu nome de domínio ao AD do Azure, você pode alterar o nome de domínio padrão para novos endereços de email. Para obter mais informações, consulte [Como alterar o nome de domínio primário para os usuários?](#how-can-i-change-the-primary-domain-name-for-users?) Você também pode editar o perfil de uma conta de usuário existente para atualizar o endereço de email (que também é a ID de usuário) para usar o nome de domínio personalizado em vez do domínio onmicrosoft.com.
 
 ### Editar os registros DNS para os serviços de nuvem
 
-> [AZURE.NOTE]Usando o Microsoft Intune? Você não precisa editar registros DNS para o serviço de nuvem Microsoft Intune.
+> [AZURE.NOTE]
+> Usando o Microsoft Intune? Você não precisa editar registros DNS para o serviço de nuvem Microsoft Intune.
 
 Depois de adicionar e verificar seu nome de domínio personalizado, a próxima etapa é editar os registros DNS no seu registrador de domínio ou provedor de hospedagem de DNS que aponta o tráfego para seu serviço de nuvem. O AD do Azure fornece as informações de DNS que você precisa.
 

@@ -61,7 +61,8 @@ Vamos começar criando uma conta do Banco de Dados de Documentos. Se já tiver u
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-<br/> Agora vamos mostrar como criar um novo aplicativo Web Python Flask desde o início.
+<br/> 
+Agora vamos mostrar como criar um novo aplicativo Web Python Flask desde o início.
 
 ## Etapa 2: Criar um novo aplicativo Web Python Flask
 

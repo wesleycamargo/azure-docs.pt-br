@@ -39,7 +39,7 @@ Além dos pré-requisitos listados no tópico Visão Geral do Tutorial, você pr
 
 ## Etapa 1: Criar o modelo do ARM
 
-Crie um arquivo JSON denominado **ADFTutorialARM.json** na pasta **C:\\ADFGetStarted** com este conteúdo:
+Crie um arquivo JSON denominado **ADFTutorialARM.json** na pasta **C:\ADFGetStarted** com este conteúdo:
 
 > [AZURE.IMPORTANT]Altere os valores das variáveis **storageAccountName** e **storageAccountKey**. Altere o **dataFactoryName** também porque o nome precisa ser exclusivo.
 
@@ -226,9 +226,11 @@ Clique na guia **Usando o Editor do Data Factory** para alternar para o artigo c
 
 ## Monitorar o Pipeline
  
-1.	Depois de fazer logon no [Portal do Azure](http://portal.azure.com/), clique em **Procurar** e selecione **Data factories**. ![Procurar-> Data factories](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
+1.	Depois de fazer logon no [Portal do Azure](http://portal.azure.com/), clique em **Procurar** e selecione **Data factories**. 
+		![Procurar-> Data factories](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2.	Na folha **Data Factories**, clique no data factory (**TutorialFactoryARM**) que você criou.	
-2.	Na folha **Data Factory** do seu data factory, clique em **Diagrama**. ![Bloco Diagrama](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
+2.	Na folha **Data Factory** do seu data factory, clique em **Diagrama**.
+		![Bloco Diagrama](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
 4.	Na **Exibição de Diagrama**, você terá uma visão geral dos pipelines e dos conjuntos de dados usados neste tutorial.
 	
 	![Exibição de diagrama](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
