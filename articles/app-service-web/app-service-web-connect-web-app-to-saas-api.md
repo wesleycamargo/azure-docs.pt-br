@@ -13,12 +13,12 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na" 
-	ms.date="09/15/2015"
+	ms.date="12/24/2015"
 	ms.author="cfowler"/>
 
 # Conectar um aplicativo Web a um aplicativo de API no Serviço de Aplicativo do Azure
 
-Este tutorial mostra como consumir um aplicativo de API de um aplicativo Web ASP.NET hospedado em [Serviço de Aplicativo](../app-service.md).
+Este tutorial mostra como consumir um aplicativo de API de um aplicativo Web ASP.NET hospedado em [Serviço de Aplicativo](https://azure.microsoft.com/services/app-service/).
 
 ## Pré-requisitos
 
@@ -28,11 +28,6 @@ Este tutorial se baseia na série de tutoriais de Aplicativos de API:
 3. [Implantar um aplicativo de API do Azure](../app-service-dotnet-deploy-api-app)
 4. [Depurar um aplicativo de API do Azure](../app-service-dotnet-remotely-debug-api-app)
 
-## Tornar o aplicativo de API publicamente acessível
-
-No [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715), selecione o aplicativo de API. Clique no botão **Configurações** na barra de comandos. Na folha **Configurações do Aplicativo**, altere o **Nível de Acesso** para **Público (anônimo)**.
-
-![](./media/app-service-web-connect-web-app-to-saas-api/4-5-Change-Access-Level-To-Public.png)
 
 ## Criar um Aplicativo MVC ASP.NET no Visual Studio
 
@@ -44,11 +39,11 @@ No [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715), selecione o
 
 	![Novo aplicativo ASP.NET](./media/app-service-web-connect-web-app-to-saas-api/2-Change-Auth-To-No-Auth.png)
 
-1. No Gerenciador de Soluções, clique com botão direito do mouse no projeto de Aplicativo Web recém-criado e selecione **Adicionar Referência de Aplicativo do Azure**.
+1. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto de aplicativo Web recém-criado e selecione **Adicionar** > **Cliente API REST...**.
 
 	![Adicione referência de aplicativo de API do Azure...](./media/app-service-web-connect-web-app-to-saas-api/3-Add-Azure-API-App-SDK.png)
 
-1. Na lista suspensa **Aplicativos de API existentes**, selecione o aplicativo de API ao qual você deseja se conectar.
+1. Em **Adicionar cliente API REST**, selecione o download do aplicativo de API do Microsoft Azure e clique em Procurar. Selecione o aplicativo de API ao qual você gostaria de se conectar.
 
 	![Selecione o aplicativo de API existente](./media/app-service-web-connect-web-app-to-saas-api/4-Add-Azure-API-App-SDK-Dialog.png)
 
@@ -57,15 +52,14 @@ No [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715), selecione o
 1. Para aproveitar o código de API gerado, abra o arquivo HomeController.cs e substitua a ação `Contact` pelo seguinte:
 
 	    public async Task<ActionResult> Contact()
-	    {
-	        ViewBag.Message = "Your contact page.";
-	
-	        var contacts = new ContactsList();
-	        var response = await contacts.Contacts.GetAsync();
-	        var contactList = response.Body;
-	
-	        return View(contactList);
-	    }
+        {
+            ViewBag.Message = "Your contact page.";
+
+            var contacts = new ContactsList12242015();
+            var contactList = await contacts.Contacts.GetAsync();
+            
+            return View(contactList);
+        }
 
 	![Atualizações de código HomeController.cs](./media/app-service-web-connect-web-app-to-saas-api/5-Write-Code-Which-Leverages-Swagger-Generated-Code.png)
 
@@ -93,4 +87,4 @@ Siga as instruções disponíveis em [Como Implantar um Aplicativo Web do Azure]
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

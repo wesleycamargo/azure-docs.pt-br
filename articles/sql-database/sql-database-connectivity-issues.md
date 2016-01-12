@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/10/2015"
+	ms.date="01/06/2016"
 	ms.author="daleche"/>
 
 
@@ -144,7 +144,7 @@ A cadeia de conexão necessária para conectar ao Banco de Dados SQL do Azure é
 ### Parâmetros SqlConnection .NET para repetição de conexão
 
 
-Se o programa cliente se conecta ao Banco de Dados SQL do Azure usando a classe **System.Data.SqlClient.SqlConnection** do .NET Framework, você deverá usar o .NET 4.5.1 ou posterior para poder aproveitar o recurso de repetição de conexão. Os detalhes do recurso estão [aqui](http://go.microsoft.com/fwlink/?linkid=393996).
+Se o programa cliente se conectar ao Banco de Dados SQL do Azure usando a classe **System.Data.SqlClient.SqlConnection** do .NET Framework, você deverá usar o .NET 4.6.1 ou posterior para poder aproveitar o recurso de repetição de conexão. Os detalhes do recurso estão [aqui](http://go.microsoft.com/fwlink/?linkid=393996).
 
 
 <!--
@@ -228,19 +228,19 @@ Para saber mais sobre a configuração de portas e de endereços IP, consulte: [
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
-## Conexão: ADO.NET 4.5
+## Conexão: ADO.NET 4.6.1
 
 
-Se seu programa usar classes do ADO.NET como **System.Data.SqlClient.SqlConnection** para se conectar ao Banco de Dados SQL do Azure, recomendamos que você use o .NET Framework versão 4.5 ou posterior.
+Se seu programa usar classes do ADO.NET como **System.Data.SqlClient.SqlConnection** para se conectar ao Banco de Dados SQL do Azure, recomendamos que você use o .NET Framework versão 4.6.1 ou posterior.
 
 
-ADO.NET 4.5: - adiciona suporte ao protocolo TDS 7.4. Isso inclui aprimoramentos de conexão além dos que ocorreram na versão 4.0. -oferece suporte a pool de conexões. Isso inclui uma verificação eficiente de que o objeto de conexão oferecido ao seu programa esteja funcionando.
+ADO.NET 4.6.1: - adiciona suporte ao protocolo TDS 7.4. Isso inclui aprimoramentos de conexão além dos que ocorreram na versão 4.0. -oferece suporte a pool de conexões. Isso inclui uma verificação eficiente de que o objeto de conexão oferecido ao seu programa esteja funcionando.
 
 
 Quando você usa um objeto de conexão de um pool de conexões, é recomendável que seu programa feche temporariamente a conexão quando ela não for usada imediatamente. Reabrir uma conexão não é tão caro quanto criar uma nova conexão.
 
 
-Se você estiver usando o ADO.NET 4.0 ou anterior, será recomendável atualizar para o ADO.NET mais recente. - A partir de julho de 2015, você poderá [baixar o ADO.NET 4.6](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
+Se você estiver usando o ADO.NET 4.0 ou anterior, será recomendável atualizar para o ADO.NET mais recente. - A partir de novembro de 2015, você poderá [baixar o ADO.NET 4.6.1](http://blogs.msdn.com/b/dotnet/archive/2015/11/30/net-framework-4-6-1-is-now-available.aspx).
 
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
@@ -265,7 +265,7 @@ Uma vez conectado, teste se uma consulta SQL SELECT curta funciona.
 Suponha que você suspeite que as tentativas de conexão estão falhando devido a problemas de porta. Em seu computador, você poderá executar um utilitário que relate as configurações de porta.
 
 
-No Linux, os utilitários a seguir podem ser úteis:- `netstat -nap` - `nmap -sS -O 127.0.0.1` - (altere o valor de exemplo para seu endereço IP).
+No Linux, os utilitários a seguir podem ser úteis:- `netstat -nap` - `nmap -sS -O 127.0.0.1` -(altere o valor de exemplo para seu endereço IP).
 
 
 No Windows, o utilitário [PortQry.exe](http://www.microsoft.com/download/details.aspx?id=17148) pode ser útil. Veja uma execução de exemplo que consultou a situação da porta no servidor do Banco de Dados SQL do Azure e que foi executado em um computador laptop:
@@ -514,4 +514,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying* é uma biblioteca de tentativas de repetições de finalidade geral licenciada do Apache 2.0, escrita em **Python**, para simplificar a tarefa de adicionar comportamento de tentativa de repetição para quase tudo.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

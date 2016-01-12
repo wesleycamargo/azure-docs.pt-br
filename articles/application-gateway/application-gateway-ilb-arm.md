@@ -37,7 +37,7 @@ O Application Gateway pode ser configurado com um VIP voltado para a Internet ou
 - **Configurações do pool de servidores back-end:** cada pool tem configurações como porta, protocolo e afinidade baseada em cookie. Essas configurações são vinculadas a um pool e aplicadas a todos os servidores no pool.
 - **Porta front-end:** essa porta é a porta pública aberta no Application Gateway. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end.
 - **Ouvinte:** o ouvinte tem uma porta front-end, um protocolo (Http ou Https, que diferencia maiúsculas de minúsculas) e o nome do certificado SSL (se estiver configurando o descarregamento SSL). 
-- **Regra:** a regra vincula o ouvinte e o pool de servidores back-end e define à qual pool de servidores back-end o tráfego deve ser direcionado quando atinge um ouvinte específico. Atualmente, há suporte apenas para a regra *basic*. A regra *basic* é a distribuição de carga round robin.
+- **Regra:** a regra vincula o ouvinte e o pool de servidores back-end e define à qual pool de servidores back-end o tráfego deve ser direcionado quando atinge um ouvinte específico. Atualmente, há suporte apenas para a regra *básica*. A regra *básica* é a distribuição de carga round robin.
 
 
  
@@ -102,7 +102,7 @@ Atribui o Intervalo de endereços 10.0.0.0/24 à variável de sub-rede a ser usa
 	
 	$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnetconfig
 
-Cria uma rede virtual chamada "appgwvnet" no grupo de recursos "appw-rg" para a região Oeste dos EUA usando o prefixo 10.0.0.0/16 com a sub-rede 10.0.0.0/24
+Cria uma rede virtual chamada "appgwvnet" no grupo de recursos "appgw-rg" para a região Oeste dos EUA usando o prefixo 10.0.0.0/16 com a sub-rede 10.0.0.0/24
 	
 ### Etapa 3
 
@@ -161,49 +161,13 @@ Cria a regra de roteamento do balanceador de carga chamada "rule01", configurand
 
 Configura o tamanho da instância do Application Gateway
 
->[AZURE.NOTE]O valor padrão para *InstanceCount* é 2, com um valor máximo de 10. O valor padrão para *GatewaySize* é Medium. Você pode escolher entre Standard\_Small, Standard\_Medium e Standard\_Large.
+>[AZURE.NOTE]O valor padrão para *InstanceCount* é 2, com um valor máximo de 10. O valor padrão para *GatewaySize* é Médio. Você pode escolher entre Standard\_Small, Standard\_Medium e Standard\_Large.
 
 ## Criar Application Gateway usando New-AzureApplicationGateway
 
 	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 
 Cria um Application Gateway com todos os itens de configuração das etapas acima. No exemplo, o Application Gateway se chama "appgwtest".
-
-
-
-## Iniciar o gateway
-
-Depois que o gateway tiver sido configurado, use o cmdlet `Start-AzureRmApplicationGateway` para iniciá-lo. A cobrança por um gateway de aplicativo começa depois que o gateway tiver sido iniciado com êxito.
-
-
-**Observação:** a conclusão do cmdlet `Start-AzureRmApplicationGateway` pode demorar de 15 a 20 minutos.
-
-No exemplo abaixo, o Application Gateway é chamado "appgwtest" e o grupo de recursos é "appgw-rg":
-
-
-### Etapa 1
-
-Obtenha o objeto do Application Gateway e associe-o a uma variável de "$getgw":
- 
-	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
-
-### Etapa 2
-	 
-Use o `Start-AzureRmApplicationGateway` para iniciar o Application Gateway:
-
-	PS C:\> Start-AzureRmApplicationGateway -ApplicationGateway $getgw  
-
-	PS C:\> Start-AzureRmApplicationGateway AppGwTest 
-
-	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway 
-	VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error 
-	----       ----------------     ------------                             ----
-	Successful OK                   fc592db8-4c58-2c8e-9a1d-1c97880f0b9b
-
-## Verifique o status do Application Gateway
-
-Use o cmdlet `Get-AzureRmApplicationGateway` para verificar o status do gateway. Se *Start-AzureApplicationGateway* tiver sido bem-sucedido na etapa anterior, o Estado deverá ser *Em Execução*.
 
 
 ## Excluir um Application Gateway
@@ -246,9 +210,9 @@ Depois que o gateway de aplicativo estiver em um estado Parado, use o cmdlet `Re
 	Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 
 >[AZURE.NOTE]O comutador “-force” pode ser usado para suprimir a mensagem de confirmação da remoção
->
 
-Para verificar se o serviço foi removido, você poderá usar o cmdlet `Get-AzureRmApplicationGateway`. Essa etapa não é necessária.
+
+Para verificar se o serviço foi removido, você pode usar o cmdlet `Get-AzureRmApplicationGateway`. Essa etapa não é necessária.
 
 
 	PS C:\>Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
@@ -262,11 +226,11 @@ Para verificar se o serviço foi removido, você poderá usar o cmdlet `Get-Azur
 
 Se desejar configurar o descarregamento SSL, consulte [Configurar um Application Gateway para descarregamento SSL](application-gateway-ssl.md).
 
-Se desejar configurar um Application Gateway para usar com o ILB, consulte [Criar um Application Gateway com um ILB (Balanceador de Carga Interno)](application-gateway-ilb.md).
+Se desejar configurar um Application Gateway para usar com o ILB, confira [Criar um Application Gateway com um ILB (Balanceador de Carga Interno)](application-gateway-ilb.md).
 
 Se deseja obter mais informações sobre as opções de balanceamento de carga no geral, consulte:
 
-- [Balanceador de Carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
+- [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

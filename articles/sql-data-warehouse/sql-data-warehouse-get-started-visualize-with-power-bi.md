@@ -1,20 +1,20 @@
 <properties
-    pageTitle="Visualizar os dados do SQL Data Warehouse com o Power BI | Microsoft Azure"
-    description="Visualizar os dados do SQL Data Warehouse com o Power BI"
-    services="sql-data-warehouse"
-    documentationCenter="NA"
-    authors="lodipalm"
-    manager="barbkess"
-    editor=""/>
+   pageTitle="Visualizar os dados do SQL Data Warehouse com o Power BI | Microsoft Azure"
+   description="Visualizar os dados do SQL Data Warehouse com o Power BI"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="lodipalm"
+   manager="barbkess"
+   editor="" />
 
 <tags
-    ms.service="sql-data-warehouse"
-    ms.devlang="NA"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-services"
-    ms.date="10/21/2015"
-    ms.author="lodipalm"/>
+   ms.service="sql-data-warehouse"
+   ms.devlang="NA"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="01/04/2016"
+   ms.author="lodipalm" />
 
 # Visualizar os dados com o Power BI
 
@@ -111,4 +111,4 @@ Agora que proporcionamos a você uma introdução à verificação de dados de e
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

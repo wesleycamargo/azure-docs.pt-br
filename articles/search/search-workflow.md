@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="12/29/2015"
 	ms.author="heidist"/>
 
 # Fluxo de trabalho típico para o desenvolvimento da Pesquisa do Azure
@@ -42,7 +42,7 @@ Há duas camada de preços à sua escolha. Recomendamos o serviço compartilhado
 
 Depois de criar o serviço, você está pronto para criar um índice, começando com a definição de esquema.
 
-A maneira mais rápida e mais fácil de criar um índice é por meio do Portal Clássico do Azure. No mínimo, cada documento deve ter uma chave exclusiva e pelo menos um campo contendo dados pesquisáveis. Para começar, consulte [Criar um índice no portal](search-create-index-portal.md).
+A maneira mais rápida e fácil de criar um índice é por meio do Portal do Azure. No mínimo, cada documento deve ter uma chave exclusiva e pelo menos um campo contendo dados pesquisáveis. Para começar, consulte [Criar um índice no portal](search-create-index-portal.md).
 
 > [AZURE.NOTE]Dentro de um índice da Pesquisa do Azure
 >
@@ -73,7 +73,7 @@ Uma segunda opção é escrever um programa simples usando a API REST ou a bibli
 - [Adicionar, atualizar ou excluir documentos (API REST)](https://msdn.microsoft.com/library/dn798930.aspx)
 - [Classe DocumentOperationsExtensions](https://msdn.microsoft.com/library/microsoft.azure.search.documentoperationsextensions.aspx)
 
-Uma terceira opção que funciona para pequenos conjuntos de dados é usar o [Fiddler](search-fiddler.md) ou o [Chrome Postman](search-chrome-postman.md) para carregar documentos.
+Uma terceira opção que funciona para conjuntos de dados bem pequenos é usar o [Fiddler](search-fiddler.md) para carregar documentos.
 
 Uma quarta opção, talvez a mais fácil delas, é obter código do [Exemplo de API REST do Adventure Works C#](https://azuresearchadventureworksdemo.codeplex.com/) que carrega os documentos de um banco de dados incorporado (.mdf) na solução ou do [Exemplo de API REST de Perfis de Pontuação C#](https://azuresearchscoringprofiles.codeplex.com/) que carrega dados de arquivos de dados JSON incluídos na solução.
 
@@ -83,7 +83,7 @@ Uma quarta opção, talvez a mais fácil delas, é obter código do [Exemplo de 
 
 Depois que os documentos forem carregados no índice, você poderá escrever sua primeira consulta.
 
-A maneira mais rápida de obter resultados da pesquisa iniciais de seu serviço de Pesquisa é usar o [Fiddler](search-fiddler.md) ou o [Chrome Postman](search-chrome-postman.md) para exibir uma resposta, mas na verdade, é mais útil escrever um código simples da interface de usuário para exibir os resultados em um formato legível.
+A maneira mais rápida de obter resultados da pesquisa iniciais de seu serviço de pesquisa é usar o [Fiddler](search-fiddler.md) para exibir uma resposta, mas será mais útil escrever um código simples da interface de usuário para exibir os resultados em um formato legível.
 
 APIs para operações de pesquisa incluem:
 
@@ -140,7 +140,8 @@ A Pesquisa do Azure fornece dois modelos de programação: a biblioteca .NET par
 
 Atualmente, um pequeno subconjunto de recursos ainda não estão presentes na biblioteca .NET, por isso mesmo se você preferir escrever código gerenciado, convém usar a API REST para obter os recursos desejados. Recursos que só estão disponíveis na API REST:
 
-- [Processadores de Idioma Natural da Microsoft - somente visualização](../search-api-2015-02-28-preview/)
+- [Analisadores personalizados - somente visualização](https://msdn.microsoft.com/library/azure/mt605304.aspx)
+- [Analisador de consultas do Lucene - somente visualização](https://msdn.microsoft.com/library/azure/mt589323.aspx)
 - [Recurso moreLikeThis - somente visualização](../search-api-2015-02-28-preview/)
 - [API de Gerenciamento](https://msdn.microsoft.com/library/dn832684.aspx)
 
@@ -190,4 +191,4 @@ Lembre-se de que somente a camada de preços Standard pode ser escalada ou reduz
 <!--Image references-->
 [1]: ./media/search-workflow/AzSearch-Workflow.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

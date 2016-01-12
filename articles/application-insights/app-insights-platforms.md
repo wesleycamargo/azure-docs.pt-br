@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/07/2015"
+	ms.date="12/21/2015"
 	ms.author="awills"/>
 
 # Application Insights: linguagens, plataformas e integrações
@@ -49,6 +49,7 @@ Estas são algumas das implementações das quais ouvimos falar, incluindo algum
 + [J2EE – para aplicativos que já estejam em tempo real](app-insights-java-live.md)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
++ [Spring](http://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
 + [Windows Store C#|VB](app-insights-windows-get-started.md)
 + [Windows Store C++](app-insights-windows-cpp.md)
 + [Funções de trabalho, serviços e aplicativos da área de trabalho do Windows](app-insights-windows-desktop.md)
@@ -83,4 +84,4 @@ Estas são algumas das implementações das quais ouvimos falar, incluindo algum
 
 Se não há ainda um SDK para sua linguagem ou plataforma, talvez você deseje criar um? Examine o código dos SDKs existentes listados no [projeto do SDK do Application Insights no GitHub](https://github.com/Microsoft/AppInsights-Home).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

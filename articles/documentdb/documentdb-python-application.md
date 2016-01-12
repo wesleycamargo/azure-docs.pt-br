@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="python"
     ms.topic="hero-article"
-    ms.date="12/23/2015"
+    ms.date="01/05/2016"
     ms.author="ryancraw"/>
 
 # Desenvolvimento de aplicativo Web Python Flask com Banco de Dados de Documentos
@@ -43,6 +43,7 @@ Seguindo este tutorial, você criará um aplicativo simples de votação que per
 
 Antes de seguir as instruções deste artigo, verifique se você tem os seguintes itens instalados:
 
+- Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 - [Visual Studio 2013](http://www.visualstudio.com/) ou superior, ou [Visual Studio Express](), que é a versão gratuita. As instruções neste tutorial foram escritas especificamente para o Visual Studio 2015. 
 - Ferramentas Python para o Visual Studio do [GitHub](http://microsoft.github.io/PTVS/). Este tutorial usa as Ferramentas Python para o VS 2015. 
 - SDK do Azure Python para o Visual Studio, versão 2.4 ou superior disponível em [azure.com](https://azure.microsoft.com/downloads/). Nós usamos o SDK do Microsoft Azure para Python 2.7.
@@ -60,8 +61,7 @@ Vamos começar criando uma conta do Banco de Dados de Documentos. Se já tiver u
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-<br/> 
-Agora vamos mostrar como criar um novo aplicativo Web Python Flask desde o início.
+<br/> Agora vamos mostrar como criar um novo aplicativo Web Python Flask desde o início.
 
 ## Etapa 2: Criar um novo aplicativo Web Python Flask
 
@@ -198,7 +198,7 @@ def create():
         message='You just created a new database, collection, and document.  Your old votes have been deleted')
 ```
 
-> [AZURE.TIP]O método **CreateCollection** usa um **RequestOptions** opcional como o terceiro parâmetro. Ele pode ser usado para especificar o Tipo de Oferta da coleção. Se nenhum valor de offerType for fornecido, a coleção será criada usando o Tipo de Oferta padrão. Para saber mais sobre os Tipos de Oferta do Banco de Dados de Documentos, consulte [Níveis de desempenho no Banco de Dados de Documentos](documentdb-performance-levels.md).
+> [AZURE.TIP]O método **CreateCollection** usa um **RequestOptions** opcional como o terceiro parâmetro. Ele pode ser usado para especificar o Tipo de Oferta da coleção. Se nenhum valor de offerType for fornecido, a coleção será criada usando o Tipo de Oferta padrão. Para obter mais informações sobre os Tipos de Oferta do Banco de Dados de Documentos, consulte [Níveis de desempenho no Banco de Dados de Documentos](documentdb-performance-levels.md).
 
 
 ### Ler o banco de dados, a coleção, o documento e enviar o formulário
@@ -366,7 +366,7 @@ def vote():
 
 	![Captura de tela do Aplicativo de votação do Python + Banco de Dados de Documentos exibido em um navegador da Web](./media/documentdb-python-application/image16.png)
 
-3. Clique em **Criar/Limpar o Banco de Dados da Votação** para gerar o banco de dados.
+3. Clique em **Criar/limpar o banco de dados de votação** para gerar o banco de dados.
 
 	![Captura de tela de Criar Página do aplicativo Web — detalhes de desenvolvimento](./media/documentdb-python-application/image17.png)
 
@@ -422,7 +422,7 @@ Atualizamos e aperfeiçoamos este tópico com frequência, de acordo com seus co
 
 Para incluir funcionalidade adicional no aplicativo, examine as APIs disponíveis no [SDK do Python do Banco de Dados de Documentos](documentdb-sdk-python.md).
 
-Para saber mais sobre o Azure, o Visual Studio e o Python, consulte o [Centro de desenvolvedores do Python](/develop/python/).
+Para saber mais sobre o Azure, o Visual Studio e o Python, consulte o [Centro de desenvolvedores do Python](https://azure.microsoft.com/develop/python/).
 
 Para obter outros tutoriais do Python Flask, consulte [The Flask Mega-Tutorial, Part I: Hello, World!](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world).
 
@@ -432,4 +432,4 @@ Para obter outros tutoriais do Python Flask, consulte [The Flask Mega-Tutorial, 
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

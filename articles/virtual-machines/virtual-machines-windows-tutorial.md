@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="08/14/2015"
+	ms.date="01/07/2016"
 	ms.author="cynthn"/>
 
 # Criar uma máquina virtual executando o Windows no portal do Azure#
@@ -32,7 +32,7 @@
 
 Este tutorial mostra como é fácil e rápido criar uma máquina virtual do Azure no portal do Azure. Usaremos uma imagem do Windows Server 2012 R2 Datacenter como exemplo para criar a máquina virtual, mas essa é apenas uma das muitas imagens oferecidas pelo Azure. Suas opções de imagem dependem de sua assinatura. Por exemplo, imagens de desktop podem estar disponíveis para assinantes do MSDN.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico. Para obter detalhes sobre o Gerenciador de Recursos, consulte [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
 
 Você também pode criar máquinas virtuais usando suas próprias imagens, com modelos do Gerenciador de Recursos ou com ferramentas de automação. Para saber mais sobre esse e outros métodos, consulte [Diferentes maneiras de criar uma máquina virtual do Windows](virtual-machines-windows-choices-create-vm.md).
 
@@ -62,12 +62,17 @@ Aqui está um passo a passo deste tutorial.
 
 Depois de selecionar a imagem, você poderá usar as configurações padrão do Azure para a maior parte das configurações e criar rapidamente a máquina virtual.
 
-1. Na folha **Criar máquina virtual**, clique em **Noções básicas**. Insira um **Nome** desejado para a máquina virtual, o **Nome de usuário** administrativo e uma **Senha** forte. Se você tiver mais de uma assinatura, especifique a assinatura certa para a nova máquina virtual, bem como um **Grupo de recursos** novo ou existente e um **Local** para o data center do Azure.
+1. Na folha **Criar máquina virtual**, clique em **Noções básicas**.
+
+2. Insira um **Nome** para a máquina virtual. O nome não pode conter caracteres especiais.
+
+3. Insira um **Nome de usuário** administrativo e uma **Senha** forte. A senha deve ter entre 8 e 123 caracteres e ter pelo menos 3 dos seguintes: um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial. **Você precisará do nome do usuário e da senha para fazer logon na máquina virtual**
+
+4. Se você tiver mais de uma assinatura, especifique a assinatura certa para a nova máquina virtual, bem como um **Grupo de recursos** novo ou existente e um **Local** para o data center do Azure.
 
 	![Captura de tela que mostra as configurações básicas a serem definidas para uma VM do Azure](./media/virtual-machines-windows-tutorial/create_vm_basics.PNG)
 
-	>[AZURE.NOTE]O **Nome de usuário** se refere à conta administrativa que você usa para gerenciar o servidor. Crie uma senha que seja difícil para outras pessoas adivinharem mas da qual você possa se lembrar. **Você precisará do nome do usuário e da senha para fazer logon na máquina virtual**.
-
+	
 2. Clique em **Tamanho** e selecione um tamanho de máquina virtual apropriado para suas necessidades. Cada tamanho especifica o número de núcleos de computação, memória e outros recursos, como suporte para Armazenamento Premium, o que afetará o preço. O Azure recomenda automaticamente determinados tamanhos, dependendo da imagem escolhida.
 
 	![Captura de tela que mostra os tamanhos de VM do Azure que você pode selecionar](./media/virtual-machines-windows-tutorial/create_vm_size.PNG)
@@ -82,7 +87,7 @@ Depois de selecionar a imagem, você poderá usar as configurações padrão do 
 
 	![Captura de tela que mostra o resumo das opções de configuração feitas para a VM do Azure](./media/virtual-machines-windows-tutorial/create_vm_summary.PNG)
 
-8. Enquanto o Azure cria a máquina virtual, é possível acompanhar o andamento em **Notificações**, no menu Hub. Após o Azure criar a máquina virtual, você a verá no Quadro Inicial, a menos que tenha desmarcado **Fixar no Quadro Inicial** na folha **Criar máquina virtual**.
+8. Enquanto o Azure cria a máquina virtual, é possível acompanhar o andamento em **Máquinas virtuais**, no menu do hub.
 
 ## Faça logon na máquina virtual
 
@@ -92,7 +97,7 @@ Após criar a máquina virtual, você poderá fazer logon para gerenciar as conf
 
 1. Se ainda não tiver feito isso, entre no portal do Azure.
 
-2. Clique em sua máquina virtual no Quadro inicial. Se precisar encontrá-la, clique em **Procurar Tudo** > **Recente** ou **Procurar Tudo** > **Máquinas virtuais**. Em seguida, selecione sua máquina virtual na lista.
+2. Clique em sua máquina virtual no painel ou clique em Máquinas Virtuais e selecione-a na lista.
 
 3. Na folha da máquina virtual, clique em **Conectar**.
 
@@ -106,11 +111,11 @@ Após criar a máquina virtual, você poderá fazer logon para gerenciar as conf
 
 7. Clique em **Sim** para verificar a identidade da máquina virtual.
 
-	Você agora pode trabalhar com a máquina virtual, como faria com qualquer outro servidor.
+Você agora pode trabalhar com a máquina virtual, como faria com qualquer outro servidor.
 
 ## Próximas etapas
 
 * Use o Azure PowerShell e CLI do Azure para [localizar e selecionar imagens da máquina virtual](resource-groups-vm-searching.md).
 * Automatize a máquina virtual e a implantação e o gerenciamento da carga de trabalho usando o [Gerenciador de Recursos do Azure](virtual-machines-how-to-automate-azure-resource-manager.md) e os [modelos do Gerenciador de Recursos do Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

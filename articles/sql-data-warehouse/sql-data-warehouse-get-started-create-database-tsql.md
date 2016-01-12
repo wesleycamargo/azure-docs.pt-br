@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Criar um SQL Data Warehouse com o TSQL | Microsoft Azure"
-	description="Saiba como criar um SQL Data Warehouse do Azure com o TSQL"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="lodipalm"
-	manager="barbkess"
-	editor=""
-	tags="azure-sql-data-warehouse"/>
+   pageTitle="Criar um SQL Data Warehouse com o TSQL | Microsoft Azure"
+   description="Saiba como criar um SQL Data Warehouse do Azure com o TSQL"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="lodipalm"
+   manager="barbkess"
+   editor=""
+   tags="azure-sql-data-warehouse"/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="01/04/2016"
    ms.author="lodipalm"/>
 
 # Criar um banco de dados do SQL Data Warehouse usando TSQL (Transact-SQL)
@@ -61,4 +61,4 @@ Após o provisionamento do SQL Data Warehouse, você poderá [carregar dados de 
 [carregar dados de exemplo]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [página de preços]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

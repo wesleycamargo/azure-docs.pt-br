@@ -57,7 +57,7 @@ Vamos criar uma conta de Banco de Dados de Documentos. Se você já tem uma cont
 ##<a id="SetupVS"></a> Etapa 2: Configurar a sua solução do Visual Studio
 
 1. Abra o **Visual Studio** em seu computador.
-2. No menu **Arquivo**, selecione **Novo** e escolha **Projeto**.
+2. No menu **Arquivo**, selecione **Novo** e depois **Projeto**.
 3. Na caixa de diálogo **Novo Projeto**, selecione **Modelos**/**Visual C#**/**Aplicativo de Console**, nomeie o projeto e clique em **OK**.
 4. No **Gerenciador de Soluções**, clique com o botão direito do mouse no seu novo aplicativo de console, que está em sua solução do Visual Studio.
 5. Sem sair do menu, clique em **Gerenciar Pacotes NuGet...**
@@ -471,13 +471,11 @@ Para restaurar as referências do Banco de Dados de Documentos do SDK do .NET no
 -   Quer um tutorial mais complexo do NoSQL do ASP.NET MVC? Consulte [Criar um aplicativo Web com ASP.NET MVC usando o Banco de Dados de Documentos](documentdb-dotnet-application.md).
 -	Saiba como [monitorar uma conta do Banco de Dados de Documentos](documentdb-monitor-accounts.md).
 -	Executar consultas em nosso conjunto de dados de exemplo no [Query Playground](https://www.documentdb.com/sql/demo).
--	Saiba mais sobre o modelo de programação na seção Desenvolvimento da [Página de documentação do Banco de Dados de Documentos](../../services/documentdb/).
+-	Saiba mais sobre o modelo de programação na seção Desenvolvimento da [Página de documentação do Banco de Dados de Documentos](https://azure.microsoft.com/documentation/services/documentdb/).
 
-[doc-landing-page]: ../../services/documentdb/
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
-
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

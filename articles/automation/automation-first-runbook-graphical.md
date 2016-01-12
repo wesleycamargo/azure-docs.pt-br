@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Meu primeiro runbook gráfico na Automação do Azure"
-	description="Tutorial que orienta você pela criação, teste e publicação de um runbook gráfico simples. São abordados diversos conceitos, como a autenticação para recursos do Azure, parâmetros de entrada e links condicionais."
+	pageTitle="Meu primeiro runbook gráfico na Automação do Azure | Microsoft Azure"
+	description="Tutorial que orienta você pela criação, teste e publicação de um runbook gráfico simples."
 	services="automation"
 	documentationCenter=""
 	authors="bwren"
@@ -22,6 +22,7 @@
 > [AZURE.SELECTOR]
 - [Graphical](automation-first-runbook-graphical.md)
 - [PowerShell Workflow](automation-first-runbook-textual.md)
+- [PowerShell](automation-first-runbook-textual-PowerShell.md)
 
 Este tutorial orienta você durante a criação de um [runbook gráfico](automation-runbook-types.md#graphical-runbooks) na Automação do Azure. Começaremos com um runbook simples, que testaremos e publicaremos enquanto explicamos como acompanhar o status do trabalho do runbook. Em seguida, modificaremos o runbook para gerenciar recursos do Azure, nesse caso, iniciando uma máquina virtual do Azure. Depois, tornaremos o runbook mais robusto adicionando parâmetros de runbook e um link condicional.
 
@@ -84,7 +85,7 @@ O runbook que acabamos de criar ainda está em Modo de rascunho. Precisamos publ
 8.  Feche o painel Saída.
 9.  Clique em **Fluxos** para abrir o painel Fluxos do trabalho do runbook. Devemos ver apenas *Olá mundo* no fluxo de saída, mas isso pode mostrar outros fluxos de um trabalho do runbook como Detalhado e Erro se o runbook gravar neles.<br>![Resumo do trabalho](media/automation-first-runbook-graphical/job-pane-streams.png) 
 9. Feche o painel Fluxos e o painel Trabalho para retornar ao painel MyFirstRunbook.
-9.  Clique em **Trabalhos** para abrir o painel Trabalhos para esse runbook. Ele lista todos os trabalhos criados por esse runbook. Devemos ver apenas um trabalho listado, uma vez que executamos o trabalho apenas uma vez.<br> ![Trabalhos](media/automation-first-runbook-graphical/runbook-control-jobs.png) 
+9.  Clique em **Trabalhos** para abrir o painel de trabalhos para este runbook. Ele lista todos os trabalhos criados por esse runbook. Devemos ver apenas um trabalho listado, já que executamos o trabalho apenas uma vez.<br> ![Trabalhos](media/automation-first-runbook-graphical/runbook-control-jobs.png) 
 9. Você pode clicar neste trabalho para abrir o mesmo painel Trabalho que exibimos quando iniciamos o runbook. Isso permite que você volte no tempo e veja os detalhes de qualquer trabalho que foi criado para um determinado runbook.
 
 ## Etapa 5: adicionar autenticação para gerenciar recursos do Azure
@@ -125,7 +126,7 @@ No momento, nosso runbook inicia a máquina virtual que especificamos no cmdlet 
 2. Clique em **Entrada e saída** e em **Adicionar entrada** para abrir o painel Parâmetro de Entrada do Runbook.<br> ![Entrada e Saída de runbook](media/automation-first-runbook-graphical/runbook-edit-toolbar-inputoutput.png)
 4. Especifique *VMName* para o **Nome**. Mantenha a *cadeia de caracteres* para o **Tipo**, mas altere **Obrigatório** para *Sim*. Clique em **OK**.
 5. Crie um segundo parâmetro de entrada obrigatório chamado *VMServiceName* e clique em **OK** para fechar o painel **Entrada e Saída**.<br> ![Parâmetros de Entrada de Runbook](media/automation-first-runbook-graphical/input-parameters.png) 
-6. Selecione a atividade **Start-AzureVM** atividade e clique em **Parâmetros**.
+6. Selecione a atividade **Start-AzureVM** atividade e clique **Parâmetros**.
 7. Altere a **Fonte de dados** de **Name** para **Entrada do runbook** e selecione **VMName**.<br> ![Parâmetro Name de Start-AzureVM](media/automation-first-runbook-graphical/vmname-property.png) 
 8. Altere a **Fonte de dados** de **ServiceName** para **Entrada do runbook** e selecione **VMServiceName**.<br> ![Parâmetros de Start-AzureVM](media/automation-first-runbook-graphical/start-azurevm-params-inputs.png) 
 9. Salve o runbook e abra o Painel de teste. Observe que agora você pode fornecer valores para as duas variáveis de entrada que serão usadas no teste. 
@@ -166,7 +167,7 @@ Agora modificaremos o runbook para que ele tente iniciar o runbook apenas se ele
 
 - [Criação gráfica na Automação do Azure](automation-graphical-authoring-intro.md)
 - [Meu primeiro runbook de Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md)
-
+- [Meu primeiro runbook do PowerShell](automation-first-runbook-textual-PowerShell.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -40,7 +40,7 @@ Seguindo este tutorial de banco de dados, você criará um aplicativo simples de
 
 ![Captura de tela do aplicativo Minha lista de tarefas pendentes criado neste tutorial](./media/documentdb-nodejs-application/image1.png)
 
-Não há tempo para concluir o tutorial e deseja apenas a solução completa? Não é um problema, você pode obter a solução de exemplo completa do [GitHub][].
+Não há tempo para concluir o tutorial e deseja apenas a solução completa? Não é um problema, você pode obter a solução de exemplo completo da [GitHub][].
 
 ## <a name="_Toc395783176"></a>Pré-requisitos
 
@@ -48,7 +48,7 @@ Não há tempo para concluir o tutorial e deseja apenas a solução completa? N�
 
 Antes de seguir as instruções deste artigo, verifique se você possui o seguinte:
 
-- Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](../../pricing/free-trial/).
+- Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 - [Node.js][] versão v0.10.29 ou superior.
 - [Gerador Expresso](http://www.expressjs.com/starter/generator.html) (você pode instalá-lo por meio de `npm install express-generator -g`)
 - [Git][].
@@ -63,7 +63,7 @@ Vamos iniciar pela criação de uma conta do Banco de Dados de Documentos. Se j�
 
 ## <a name="_Toc395783178"></a>Etapa 2: Aprender a criar um novo aplicativo Node.js
 
-Agora vamos aprender a criar um projeto Node.js Hello World básico usando a estrutura [Express](http://expressjs.com/).
+Agora vamos aprender a criar um projeto Hello World Node.js básico usando a estrutura [Express](http://expressjs.com/).
 
 1. Abra seu terminal favorito.
 
@@ -542,9 +542,9 @@ Agora vamos voltar a atenção para criar a interface do usuário, desse modo, u
 
 4. Para concluir uma tarefa, basta marcar a caixa de seleção na coluna Concluir e clicar em **Atualizar tarefas**.
 
-## <a name="_Toc395783182"></a>Etapa 7: Implantar seu projeto de desenvolvimento de aplicativos em sites do Azure
+## <a name="_Toc395783182"></a>Etapa 7: implantar seu projeto de desenvolvimento de aplicativo nos sites do Azure
 
-1. Se ainda não o fez, habilite um repositório git do seu site do Azure. Você poderá encontrar instruções sobre como fazer isso [aqui](../web-sites-publish-source-control-git.md#step4).
+1. Se ainda não o fez, habilite um repositório git do seu site do Azure. Encontre instruções sobre como fazer isso no tópico [Implantação contínua usando GIT no Serviço de Aplicativo do Azure](../app-service-web/web-sites-publish-source-control.md).
 
 2. Adicione seu site do Azure como um git remoto.
 
@@ -562,11 +562,11 @@ Parabéns! Você acabou de criar seu primeiro Aplicativo Web Express do Node.js 
 
 O código-fonte para o aplicativo de referência completo pode ser baixado do [GitHub][].
 
-Para saber mais, consulte o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
+Para saber mais, consulte o [Centro de desenvolvedores do Node.js](https://azure.microsoft.com/develop/nodejs/).
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

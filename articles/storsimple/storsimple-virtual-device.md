@@ -17,7 +17,10 @@
 
 # Implantar e gerenciar um dispositivo virtual StorSimple no Azure
 
-[AZURE.INCLUDE [storsimple-version-selector-sva](../../includes/storsimple-version-selector-sva.md)]
+> [AZURE.SELECTOR]
+- [Update 2](../articles/storsimple/storsimple-virtual-device-u2.md)
+- [Update 1](../articles/storsimple/storsimple-virtual-device-u1.md)
+- [GA Release](../articles/storsimple/storsimple-virtual-device.md)
 
 ## Visão geral
 
@@ -151,7 +154,7 @@ Execute as seguintes etapas para configurar e registrar o dispositivo virtual St
 1. No assistente Configurar dispositivo:
 
 	1. Insira a **Chave de Criptografia de Dados de Serviço** no espaço fornecido.
-	2. Insira a **senha do Snapshot Manager**. A **senha do Snapshot Manager** deve ter 14 ou 15 caracteres e uma combinação de letras minúsculas, maiúsculas, números e caracteres especiais.
+	2. Insira a **senha do Gerenciador de Instantâneos**. A **senha do Snapshot Manager** deve ter 14 ou 15 caracteres e uma combinação de letras minúsculas, maiúsculas, números e caracteres especiais.
 	3. Insira a **senha de administrador do dispositivo**. A **senha de administrador do dispositivo** deve ter entre 8 a 15 caracteres e uma combinação de letras minúsculas, maiúsculas, números e caracteres especiais.
 	4. Clique no ícone de seleção para concluir a configuração inicial e o registro do dispositivo virtual.
 
@@ -388,4 +391,4 @@ Se você excluir ou desligar o dispositivo virtual, ele será exibido como **Off
 
 Para administrar o dispositivo virtual, confira a lista detalhada dos fluxos de trabalho em [Administrar o dispositivo StorSimple usando o serviço StorSimple Manager](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->
