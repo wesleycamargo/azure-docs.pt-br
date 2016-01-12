@@ -1,6 +1,6 @@
 <properties
 	pageTitle="O meu primeiro runbook de Fluxo de Trabalho do PowerShell na Automação do Azure | Microsoft Azure"
-	description="Tutorial que orienta você pela criação, teste e publicação de um runbook textual simples usando o Fluxo de Trabalho do PowerShell. São abordados diversos conceitos, como a autenticação para recursos do Azure, parâmetros de entrada e links condicionais."
+	description="Tutorial que orienta você pela criação, teste e publicação de um runbook textual simples usando o Fluxo de Trabalho do PowerShell."
 	services="automation"
 	documentationCenter=""
 	authors="bwren"
@@ -22,6 +22,7 @@
 > [AZURE.SELECTOR]
 - [Graphical](automation-first-runbook-graphical.md)
 - [PowerShell Workflow](automation-first-runbook-textual.md)
+- [PowerShell](automation-first-runbook-textual-PowerShell.md)
 
 Este tutorial orienta você durante a criação de um [runbook de Fluxo de Trabalho do PowerShell](automation-runbook-types.md#powerShell-workflow-runbooks) na Automação do Azure. Começaremos com um runbook simples, que testaremos e publicaremos enquanto explicamos como acompanhar o status do trabalho do runbook. Em seguida, modificaremos o runbook para gerenciar recursos do Azure, nesse caso, iniciando uma máquina virtual do Azure. Depois, tornaremos o runbook mais robusto adicionando parâmetros de runbook.
 
@@ -99,7 +100,7 @@ Testamos e publicamos nosso runbook, mas até o momento ele não faz nada útil.
 Agora que nosso runbook está se autenticando em nossa assinatura do Azure, podemos gerenciar recursos. Adicionaremos um comando para iniciar uma máquina virtual. Você pode escolher qualquer máquina virtual na sua assinatura do Azure e, por enquanto, embutiremos esse nome no cmdlet.
 
 
-1. Após *Add-AzureAccount*, digite *Start-AzureVM -Name 'VMName' -ServiceName 'VMServiceName'*, fornecendo o nome e o nome do serviço da máquina virtual a ser iniciada. <br> ![Autenticar](media/automation-first-runbook-textual/start-azurevm.png) 
+1. Após *Add-AzureAccount*, digite *Start-AzureVM-nome 'VMName' - ServiceName 'VMServiceName'*fornecendo o nome e o nome do serviço da máquina virtual a ser iniciada.<br>![Autenticar](media/automation-first-runbook-textual/start-azurevm.png) 
 9. Salve o runbook e, para que possamos testá-lo, clique em **Painel de teste**.
 10. Clique em **Iniciar** para iniciar o teste. Quando for concluído, verifique se a máquina virtual foi iniciada.
 
@@ -121,5 +122,6 @@ No momento, nosso runbook inicia a máquina virtual que codificamos no runbook, 
 ## Artigos relacionados
 
 - [O meu primeiro runbook gráfico](automation-first-runbook-graphical.md)
+- [Meu primeiro runbook do PowerShell](automation-first-runbook-textual-PowerShell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

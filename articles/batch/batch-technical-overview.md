@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Noções básicas do serviço Lote do Azure | Microsoft Azure"
-	description="Saiba mais sobre os conceitos, os fluxos de trabalho e os cenários do serviço Lote do Azure para cargas de trabalho paralelas em larga escala e HPC."
+	description="Saiba mais sobre o uso do serviço Lote do Azure para cargas de trabalho paralelas e HPC em larga escala."
 	services="batch"
 	documentationCenter=""
 	authors="dlepow"
@@ -38,9 +38,9 @@ Os exemplos incluem:
 * Análise de sequência genética
 * Teste de software
 
-O Lote também pode realizar cálculos paralelos com uma etapa de redução ao término, além de outras cargas de trabalho paralelas mais complexas.
+O lote também pode realizar cálculos paralelos com uma etapa de redução no final, além de cargas de trabalho HPC mais complexas, como aplicativos de interface de transmissão de mensagens (MPI).
 
->[AZURE.NOTE]Neste momento, o Lote só oferece suporte a cargas de trabalho executadas em máquinas virtuais baseadas no Windows Server. Além disso, o Lote atualmente não oferece suporte a aplicativos de interface de troca de mensagens (MPI).
+>[AZURE.NOTE]Neste momento, o Lote só oferece suporte a cargas de trabalho executadas em máquinas virtuais baseadas no Windows Server.
 
 Para obter uma comparação do Lote com outras opções de solução HPC no Azure, confira [Soluções do Lote e HPC](batch-hpc-solutions.md).
 
@@ -103,4 +103,4 @@ A Figura 2 mostra um fluxo de trabalho que usa um aplicativo cliente .NET do Lot
 [parallel]: ./media/batch-technical-overview/parallel.png
 [work_item_workflow]: ./media/batch-technical-overview/work_item_workflow.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->
