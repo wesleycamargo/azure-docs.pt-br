@@ -55,11 +55,11 @@ Você pode criar um clone no mesmo dispositivo, em outro dispositivo ou mesmo em
 
   1. Identificar um dispositivo de destino. Esse é o local onde o clone será criado. Você pode escolher o mesmo dispositivo ou especificar outro dispositivo. Se você escolher um volume associado a outros provedores de serviço de nuvem (não do Azure), a lista suspensa do dispositivo de destino mostrará apenas os dispositivos físicos. Não é possível clonar um volume associado a outros provedores de serviço de nuvem em um dispositivo virtual.
 
-        >[AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
+        >[AZURE.NOTE] Verifique se a capacidade necessária para o clone é menor que a capacidade disponível no dispositivo de destino.
 
   2. Especifique um nome de volume exclusivo para o clone. O nome deve conter entre 3 e 127 caracteres.
     
-        >[AZURE.NOTE] The **Clone Volume As** field will be **Tiered** even if you are cloning a locally pinned volume. You cannot change this setting; however, if you need the cloned volume to be locally pinned as well, you can convert the clone to a locally pinned volume after you successfully create the clone. For information about converting a tiered volume to a locally pinned volume, go to [Change the volume type](storsimple-manage-volumes-u2.md#change-the-volume-type).
+        >[AZURE.NOTE] O campo **Clonar Volume Como** será colocado **Em Camadas** mesmo que você esteja clonando um volume fixado localmente. Não é possível alterar esta configuração, no entanto, caso precise que o volume clonado também seja fixado localmente, você pode converter o clone para um volume fixado localmente após a criação com êxito do clone. Para obter mais informações sobre como converter um volume em camadas para um volume fixado localmente, acesse [Alterar tipo de volume](storsimple-manage-volumes-u2.md#change-the-volume-type).
 
         ![Clone wizard 1](./media/storsimple-clone-volume-u2/clone1.png) 
 
@@ -117,4 +117,4 @@ Você precisa verificar um bug de teste no ambiente de produção. Você cria um
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!----HONumber=AcomDC_1223_2015-->
