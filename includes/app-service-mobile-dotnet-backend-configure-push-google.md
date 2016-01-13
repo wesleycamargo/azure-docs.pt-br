@@ -50,6 +50,8 @@ Use o procedimento correspondente ao seu tipo de projeto de back-end, um [back-e
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
+4. Republicar o projeto de servidor.
+
 ### <a name="nodejs"></a>Projeto de back-end Node.js
 
 1. Se você ainda não fez isso, [baixe o projeto de início rápido](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) ou, caso contrário, use o [editor online no Portal do Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
@@ -103,4 +105,4 @@ Use o procedimento correspondente ao seu tipo de projeto de back-end, um [back-e
 
 2. Ao editar o arquivo no seu computador local, republique o projeto do servidor.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

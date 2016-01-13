@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="12/11/2015"
+	ms.date="12/16/2015"
 	ms.author="sdanie" />
 
 # Como configurar o Cache Redis do Azure
@@ -118,17 +118,18 @@ Clique em **OK** para salvar a configuração de persistência.
 
 >[AZURE.IMPORTANT]A persistência de dados do Redis só está disponível para os caches Premium. Para obter mais informações, veja [Como configurar a persistência para um Cache Redis do Azure Premium](cache-how-to-premium-persistence.md).
 
+<a name="cluster-size"></a>
 ## Tamanho do Cluster Redis
 
-Clique em **Tamanho do Cluster Redis (VISUALIZAÇÃO)** para adicionar ou remover fragmentos de um cache premium em execução com clustering habilitado.
+Clique em **Tamanho do Cluster Redis (VISUALIZAÇÃO)** para alterar o tamanho do cluster de um cache premium em execução com clustering habilitado.
 
 >[AZURE.NOTE]Observe que, enquanto a camada Cache Redis do Azure Premium foi liberada para disponibilidade geral, o recurso de Tamanho do Cluster Redis está atualmente em visualização.
 
 ![Tamanho do cluster Redis](./media/cache-configure/redis-cache-redis-cluster-size.png)
 
-Para alterar a contagem de fragmento, use o controle deslizante ou digite um número entre 1 e 10 na caixa de texto **Contagem de fragmentos** e clique em **OK** para salvar.
+Para alterar o tamanho do cluster, use o controle deslizante ou digite um número entre 1 e 10 na caixa de texto **Contagem de fragmentos** e clique em **OK** para salvar.
 
->[AZURE.IMPORTANT]O clustering está disponível apenas para os Caches premium. Para obter mais informações, veja [Como configurar o clustering para um Cache Redis do Azure Premium](cache-how-to-premium-clustering.md).
+>[AZURE.IMPORTANT]O clustering está disponível apenas para os Caches premium. Para saber mais, confira [Como configurar o clustering para um Cache Redis do Azure Premium](cache-how-to-premium-clustering.md).
 
 
 ## Usuários e marcas
@@ -137,7 +138,7 @@ Para alterar a contagem de fragmento, use o controle deslizante ou digite um nú
 
 A seção **Usuários** dá suporte ao RBAC (controle de acesso baseado em função) no Portal do Azure para ajudar as organizações a atender aos seus requisitos de gerenciamento de acesso de maneira simples e precisa. Para saber mais, confira [Controle de acesso baseado em função no Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=512803).
 
-A seção **Marcas** o ajuda a organizar seus recursos. Para obter mais informações, veja [Usando marcas para organizar os recursos do Azure](../resource-group-using-tags.md).
+A seção **Marcas** o ajuda a organizar seus recursos. Para saber mais, confira [Usando marcas para organizar os recursos do Azure](../resource-group-using-tags.md).
 
 ## Configuração padrão do servidor Redis
 
@@ -147,17 +148,17 @@ Novas instâncias de Cache Redis do Azure são configuradas com os seguintes val
 >
 >`StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 >  
->Todos os valores que podem ser configurados, como **max-memory-policy**, podem sê-lo no Portal do Azure.
+>Todos os valores que podem ser configurados, como **max-memory-policy**, podem ser configurados por meio do Portal do Azure ou de ferramentas de gerenciamento de linha de comando, como a CLI do Azure ou o PowerShell.
 
 |Configuração|Valor padrão|Descrição|
 |---|---|---|
 |databases|16|O banco de dados padrão é o DB 0. você pode selecionar um valor diferente por conexão usando connection.GetDataBase(dbid), em que dbid é um número entre 0 e 15.|
 |maxclients|Depende do tipo de preço<sup>1</sup>|Esse é o número máximo de clientes conectados permitidos ao mesmo tempo. Quando o limite é atingido, Redis fecha todas as novas conexões enviando um erro "número máximo de clientes atingido".|
-|maxmemory-policy|volatile-lru|A política MaxMemory é a configuração de como o Redis seleciona o que remover quando maxmemory (o tamanho da oferta de cache que você selecionou quando criou o cache) é atingido. Com o Cache Redis do Azure, a configuração padrão é volatile-lru, que remove as chaves com um conjunto de expiração usando um algoritmo LRU. Essa configuração pode ser definida no portal do Azure. Para obter mais informações, veja [Maxmemory-policy e maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved).|
+|maxmemory-policy|volatile-lru|A política MaxMemory é a configuração de como o Redis seleciona o que remover quando maxmemory (o tamanho da oferta de cache que você selecionou quando criou o cache) é atingido. Com o Cache Redis do Azure, a configuração padrão é volatile-lru, que remove as chaves com um conjunto de expiração usando um algoritmo LRU. Essa configuração pode ser definida no portal do Azure. Para saber mais, confira [Maxmemory-policy e maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved).|
 |maxmemory-samples|3|LRU e algoritmos TTL mínimos não são algoritmos precisos, mas aproximados (para economizar memória), para que você possa selecionar também o tamanho da amostra para verificar. Por exemplo, por padrão, o Redis verificará três chaves e escolherá aquela que foi usada menos recentemente.|
 |lua-time-limit|5\.000|Tempo máximo de execução de um script Lua em milissegundos. Se o tempo de execução máximo for atingido, o Redis registrará em log que um script ainda está em execução depois do tempo máximo permitido e começará a responder a consultas com um erro.|
 |lua-event-limit|500|Esse é o tamanho máximo da fila de eventos de script.|
-|client-output-buffer-limit normalclient-output-buffer-limit pubsub|0 0 032mb 8mb 60|Os limites de buffer de saída do cliente podem ser usados para impor a desconexão de clientes que não estão lendo dados do servidor de forma rápida o suficiente, por algum motivo (uma razão comum é que um cliente Pub/Sub não consegue consumir mensagens de forma tão rápida quanto o editor consegue produzi-las). Para obter mais informações, veja [http://redis.io/topics/clients](http://redis.io/topics/clients).|
+|client-output-buffer-limit normalclient-output-buffer-limit pubsub|0 0 032mb 8mb 60|Os limites de buffer de saída do cliente podem ser usados para impor a desconexão de clientes que não estão lendo dados do servidor de forma rápida o suficiente, por algum motivo (uma razão comum é que um cliente Pub/Sub não consegue consumir mensagens de forma tão rápida quanto o editor consegue produzi-las). Para saber mais, confira [http://redis.io/topics/clients](http://redis.io/topics/clients).|
 
 <sup>1</sup>`maxclients` é diferente para cada tipo de preço do Cache Redis do Azure.
 
@@ -177,7 +178,7 @@ Novas instâncias de Cache Redis do Azure são configuradas com os seguintes val
 
 ## Comandos Redis não têm suporte no Cache Redis do Azure
 
->[AZURE.IMPORTANT]Como a configuração e o gerenciamento de instâncias de Cache Redis do Azure são feitas usando o Portal do Azure, os comandos a seguir são desabilitados. Se tentar invocá-los, você receberá uma mensagem de erro semelhante a `"(error) ERR unknown command"`.
+>[AZURE.IMPORTANT]Como a configuração e o gerenciamento de instâncias de Cache Redis do Azure é gerenciada pela Microsoft, os comandos a seguir são desabilitados. Se tentar invocá-los, você receberá uma mensagem de erro semelhante a `"(error) ERR unknown command"`.
 >
 >-	BGREWRITEAOF
 >-	BGSAVE
@@ -188,7 +189,7 @@ Novas instâncias de Cache Redis do Azure são configuradas com os seguintes val
 >-	SHUTDOWN
 >-	SLAVEOF
 
-Para obter mais informações sobre os comandos do Redis, veja [http://redis.io/commands](http://redis.io/commands).
+Para saber mais sobre os comandos do Redis, confira [http://redis.io/commands](http://redis.io/commands).
 
 ## Console do Redis
 
@@ -196,8 +197,8 @@ Você pode emitir com segurança comandos para as suas instâncias do Cache Redi
 
 >[AZURE.IMPORTANT]O Console do Redis não funciona com VNET ou cluster.
 >
->-	[VNET](cache-how-to-premium-vnet.md) - quando o seu cache faz parte de uma VNET, somente os clientes na VNET podem acessar o cache. Como o Console do Redis usa o cliente redis cli.exe hospedado em máquinas virtuais que não fazem parte da sua VNET, não pode se conectar ao seu cache.
->-	[Clustering](cache-how-to-premium-clustering.md) - O Console do Redis usa o cliente redis-cli.exe que não dá suporte ao clustering neste momento. O utilitário redis-cli na ramificação [instável](http://redis.io/download) do repositório do Redis no GitHub implementa um suporte básico quando iniciado com a opção `-c`. Para obter mais informações, veja [Reproduzindo com o cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) em [http://redis.io](http://redis.io) no [tutorial do cluster Redis](http://redis.io/topics/cluster-tutorial).
+>-	[VNET](cache-how-to-premium-vnet.md) – quando o seu cache faz parte de uma VNET, somente os clientes na VNET podem acessar o cache. Como o Console do Redis usa o cliente redis cli.exe hospedado em máquinas virtuais que não fazem parte da sua VNET, não pode se conectar ao seu cache.
+>-	[Clustering](cache-how-to-premium-clustering.md) – o Console do Redis usa o cliente redis-cli.exe, que não dá suporte a clustering neste momento. O utilitário redis-cli na ramificação [instável](http://redis.io/download) do repositório do Redis no GitHub implementa um suporte básico quando iniciado com a opção `-c`. Para saber mais, confira [Reproduzindo com o cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) em [http://redis.io](http://redis.io) no [tutorial do cluster Redis](http://redis.io/topics/cluster-tutorial).
 
 Para acessar o Console do Redis, clique em **Console** na folha **Cache Redis**.
 
@@ -207,9 +208,9 @@ Para emitir comandos em sua instância de cache, simplesmente digite no comando 
 
 ![Console do Redis](./media/cache-configure/redis-console.png)
 
-Para obter uma lista de comandos do Redis que estão desabilitados para o Cache Redis do Azure, veja a seção anterior [Comandos do Redis sem suporte no Cache Redis do Azure](#redis-commands-not-supported-in-azure-redis-cache). Para obter mais informações sobre os comandos do Redis, veja [http://redis.io/commands](http://redis.io/commands).
+Para obter uma lista de comandos do Redis que estão desabilitados para o Cache Redis do Azure, confira a seção anterior [Comandos do Redis sem suporte no Cache Redis do Azure](#redis-commands-not-supported-in-azure-redis-cache). Para saber mais sobre os comandos do Redis, confira [http://redis.io/commands](http://redis.io/commands).
 
 ## Próximas etapas
--	Para obter mais informações sobre como trabalhar com os comandos do Redis, veja [Como faço para executar comandos do Redis?](cache-faq.md#how-can-i-run-redis-commands).
+-	Para saber mais sobre como trabalhar com os comandos do Redis, confira [Como faço para executar comandos do Redis?](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

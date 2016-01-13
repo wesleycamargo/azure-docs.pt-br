@@ -15,7 +15,7 @@
 		ms.tgt_pltfrm="vm-linux"
 		ms.devlang="na"
 		ms.topic="article"
-		ms.date="07/20/2015"
+		ms.date="12/15/2015"
 		ms.author="Ning"/>
 
 
@@ -35,7 +35,7 @@ Para a versão 2.0, os dados incluem:
 - Todos os dados de sistema especificados neste [documento](https://scx.codeplex.com/wikipage?title=xplatproviders").
 - Arquivos de log especificados pelo usuário.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+Observe que essa extensão funciona com os modelos de implantação clássico e do Gerenciador de Recursos.
 
 
 ## Como habilitar a extensão
@@ -49,7 +49,7 @@ Este artigo se concentra na habilitação e configuração de extensão por meio
 
 ## Pré-requisitos
 - Agente Linux do Microsoft Azure versão 2.0.6 ou posterior. Observe que a maioria das imagens de galeria da VM Linux do Azure inclui a versão 2.0.6 ou posterior. É possível executar **WAAgent-version** para confirmar a versão instalada na VM. Se a VM estiver executando uma versão anterior ao 2.0.6, execute estas [instruções](https://github.com/Azure/WALinuxAgent "instruções") para atualizá-la.
-- [CLI do Azure](./xplat-cli-install.md). Siga [esta orientação](./xplat-cli-install.md) para configurar o ambiente da CLI do Azure em seu computador. Depois de instalar a CLI do Azure, você poderá usar o comando **azure** em sua interface de linha de comando (Bash, Terminal, prompt de comando) para acessar os comandos da CLI do Azure. Por exemplo, execute **azure vm extension set --help** para ver o uso detalhado, execute **azure login** para fazer logon no Azure e execute **azure vm list** para listar todas as máquinas virtuais que você tem no Azure.
+- [CLI do Azure](./xplat-cli-install.md) Siga [esta orientação](./xplat-cli-install.md) para configurar o ambiente da CLI do Azure em seu computador. Depois de instalar a CLI do Azure, você poderá usar o comando **azure** em sua interface de linha de comando (Bash, Terminal, prompt de comando) para acessar os comandos da CLI do Azure. Por exemplo, execute **azure vm extension set --help** para ver o uso detalhado, execute **azure login** para fazer logon no Azure e execute **azure vm list** para listar todas as máquinas virtuais que você tem no Azure.
 - Uma conta de armazenamento para armazenar os dados. Você precisará de um nome de conta de armazenamento e de uma tecla de acesso criados anteriormente para carregar os dados no armazenamento.
 
 
@@ -142,6 +142,5 @@ Se tiver habilitado fileCfg ou perfCfg especificado nos Cenários 2 e 3, você p
 
 ## Problemas conhecidos
 - Para a versão 2.0, as informações do Rsyslog e o arquivo de log especificado pelo cliente só podem ser acessados por meio de scripts.
-- Para a versão 2.0, se você tiver habilitado primeiramente a extensão de diagnóstico do Linux por meio de script, não é possível ver os dados no portal. Se você tiver habilitado a extensão no portal primeiro, os scripts ainda funcionarão.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

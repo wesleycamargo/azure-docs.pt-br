@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/12/2015"
+	ms.date="12/18/2015"
 	ms.author="billmath;andkjell"/>
 
 # Habilitando write-back de dispositivo no Azure AD Connect
@@ -26,6 +26,9 @@ Isso fornece segurança adicional e a garantia de que o acesso aos aplicativos �
 
 >[AZURE.NOTE]Uma assinatura do Azure AD Premium é necessária para write-back do dispositivo.
 
+.
+
+>[AZURE.IMPORTANT]Os dispositivos devem estar localizados na mesma floresta que os usuários. Como o write-back dos dispositivos deve ser feito numa única floresta, esse recurso não é compatível com uma implantação com várias florestas de usuário.
 
 ## Parte 1: instalar o Azure AD Connect
 1. Instale o Azure AD Connect usando configurações expressas ou personalizadas. A recomendação é iniciar para ter todos os usuários e grupos sincronizados com êxito antes de habilitar o write-back do dispositivo.
@@ -126,4 +129,4 @@ Verifique a configuração no Active Directory:-Verifique se o serviço de regis
 ## Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

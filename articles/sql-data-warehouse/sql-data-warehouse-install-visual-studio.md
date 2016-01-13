@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="01/04/2016"
    ms.author="twounder;barbkess"/>
 
 # Instalar o Visual Studio 2015 e/ou o SSDT para SQL Data Warehouse
@@ -49,4 +49,4 @@ Agora que você tem a versão mais recente do SSDT, está pronto para [conectar-
 
 <!--Image references-->
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

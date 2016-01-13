@@ -70,7 +70,7 @@ Os dispositivos ingressados no domínio usarão esse objeto para descobrir as in
 
 >[AZURE.NOTE]Substitua [*nome da conta do conector*] pela conta de domínio usada como a conta do AD Connector.
 
->[AZURE.NOTE]O nome de usuário da credencial inserida quando o pop-up Get-Credential aparece precisa estar no formato **user@example.com*
+>[AZURE.NOTE]O nome de usuário da credencial inserida quando o pop-up Get-Credential aparece precisa estar no formato *user@example.com*
 
 ### Configurar regras de declaração do AD FS
 Isso permite o registro instantâneo de um computador com o Azure DRS, permitindo que os computadores se autentiquem usando Kerberos/NTLM por meio do AD FS. Sem essa etapa, os computadores chegarão ao AD do Azure com atraso (sujeito aos tempos de sincronização do Azure AD Connect).
@@ -137,4 +137,4 @@ Você pode usar uma Política de Grupo do Active Directory e configurar os dispo
 * [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

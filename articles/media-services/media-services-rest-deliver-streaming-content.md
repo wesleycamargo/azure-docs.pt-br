@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"  
+	ms.date="12/17/2015"  
 	ms.author="juliako"/>
 
 
@@ -46,6 +46,7 @@ Para criar o localizador de streaming sob demanda e obter URLs, você precisa fa
    		
 	Se você planeja fazer download progressivo, obtenha os nomes dos arquivos MP4 no ativo. 
    4. Crie URLs para o arquivo de manifesto ou arquivos MP4. 
+   5. Observe que você não pode criar um localizador de streaming usando um AccessPolicy que inclui permissões de gravação ou de exclusão.
 
 
 ###Crie uma política de acesso
@@ -186,4 +187,8 @@ exemplo:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+##Consulte também
+
+[Configurar política de entrega de ativos](media-services-rest-configure-asset-delivery-policy.md)
+
+<!---HONumber=AcomDC_1223_2015-->

@@ -39,7 +39,7 @@ O disco temporário é criado automaticamente para você. Nas máquinas virtuais
 
 Um disco de dados é um VHD anexado a uma máquina virtual para armazenar dados de aplicativo ou outros dados que você precisa manter. Discos de dados são registrados como unidades SCSI e rotulados com a letra que você escolher. Cada disco de dados tem uma capacidade máxima de 1023 GB. O tamanho da máquina virtual determina quantos discos de dados você pode anexar a ele e o tipo de armazenamento que pode usar para hospedar os discos.
 
-	For more details about virtual machines capacities, see [Sizes for virtual machines](virtual-machines-size-specs.md).
+>[AZURE.NOTE]Para obter mais detalhes sobre as capacidades de máquinas virtuais, consulte [Tamanhos das máquinas virtuais](virtual-machines-size-specs.md).
 
 Quando você cria uma máquina virtual por meio de uma imagem, o Azure cria um disco do sistema operacional. Se você usar uma imagem que inclui discos de dados, o Azure também cria os discos de dados quando cria a máquina virtual. (Você pode usar uma imagem do Azure, de um parceiro ou uma que você mesmo fornecer.) Caso contrário, adicione discos de dados após criar a máquina virtual.
 
@@ -74,4 +74,4 @@ Máquinas virtuais do Windows:
 -  [Capturar uma máquina virtual do Windows](virtual-machines-capture-image-windows-server.md)
 -  [Desanexar um disco](storage-windows-detach-disk.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -4,6 +4,8 @@ Um banco de dados Básico tem cinco DTUs, o que significa que ele pode concluir 
 
 ![Introdução ao Banco de Dados SQL: DTUs de banco de dados individual por camada e por nível.](./media/sql-database-understanding-dtus/single_db_dtus.png)
 
+>[AZURE.NOTE]Se você estiver migrando um banco de dados do SQL Server existente, poderá usar uma ferramenta de terceiros, [a Calculadora de DTU do Banco de Dados SQL do Azure](http://dtucalculator.azurewebsites.net/), para obter uma estimativa do nível de desempenho e a camada de serviço que seu banco de dados poderá exibir no Banco de Dados SQL do Azure.
+
 ### DTU versus eDTU
 
 DTU para bancos de dados individuais é o mesmo que eDTU para bancos de dados elásticos. Por exemplo, um banco de dados em um pool de bancos de dados elásticos Basic oferece até cinco eDTUs. Esse é o mesmo desempenho de um banco de dados individual Basic. A diferença é que o banco de dados elástico não consumirá eDTUs do pool até que isso seja necessário.
@@ -12,4 +14,4 @@ DTU para bancos de dados individuais é o mesmo que eDTU para bancos de dados el
 
 Um exemplo simples pode ajudar: pegue um pool de banco de dados elástico Basic com 1000 DTUs e solte 800 bancos de dados nele. Contanto que apenas 200 bancos de dados, do total de 800, estejam sendo usados a qualquer momento (5 DTU X 200 = 1000), você não atingirá a capacidade do pool, e o desempenho do banco de dados não será afetado. Este exemplo foi simplificado para manter a clareza. O cálculo real é um pouco mais detalhado. O portal faz os cálculos para você e faz também uma recomendação com base no histórico de uso do banco de dados. Confira [Considerações de preço e desempenho para um pool de banco de dados elástico](../articles/sql-database/sql-database-elastic-pool-guidance.md) para aprender como as recomendações funcionam ou para fazer os cálculos você mesmo.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

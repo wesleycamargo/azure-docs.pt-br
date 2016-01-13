@@ -14,19 +14,19 @@
 	ms.workload="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="12/11/2015" 
+	ms.date="12/17/2015" 
 	ms.author="betorres"
 />
 
 
-# Habilitação e uso da análise de tráfego de pesquisa #
+# Habilitação e uso da análise de tráfego de pesquisa
 
 A análise de tráfego de pesquisa é um recurso de pesquisa do Azure que permite que você ganhe visibilidade em seu serviço de pesquisa e tenha ideias sobre os usuários e seus comportamentos. Quando você habilita esse recurso, os dados do serviço de pesquisa são copiados para uma conta de armazenamento de sua escolha. Esses dados incluem os logs do serviço de pesquisa e as métricas operacionais agregadas. Depois, você pode processar e manipular os dados de uso de qualquer forma.
 
 
-## Como habilitar a análise de tráfego de pesquisa ##
+## Como habilitar a análise de tráfego de pesquisa
 
-### 1\. Usando o portal ###
+### 1\. Usando o portal
 Abra o serviço de Pesquisa do Azure no [Portal do Azure](http://portal.azure.com). Em Configurações, você encontrará a opção Análise de tráfego de pesquisa.
 
 ![][1]
@@ -40,7 +40,7 @@ Selecione esta opção e uma nova folha será aberta. Altere o status para **Ati
 > 
 > Os encargos padrão se aplicam para essa conta de armazenamento
 
-### 2\. Usando o PowerShell ###
+### 2\. Usando o PowerShell
 
 Você também pode habilitar este recurso ao executar os seguintes cmdlets do PowerShell.
 
@@ -68,7 +68,7 @@ Uma vez habilitado, os dados começarão a fluir para sua conta de armazenamento
     insights-metrics-pt1m: aggregated metrics
 
 
-## Compreendendo os dados ##
+## Compreendendo os dados
 
 Os dados são armazenados em blobs de armazenamento do Azure, formatados como JSON.
 
@@ -76,13 +76,13 @@ Haverá um blob por hora, por contêiner.
   
 Exemplo de caminho: `resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2015/m=12/d=25/h=01/m=00/name=PT1H.json`
 
-### Logs ###
+### Logs
 
 Os blobs de logs contêm seus logs de tráfego do serviço de pesquisa.
 
 Cada blob tem um objeto-raiz chamado **registros** que contém uma matriz de objetos do log
 
-####Esquema do log####
+####Esquema do log
 
 Nome |Tipo |Exemplo |Observações 
 ------|-----|----|-----
@@ -96,7 +96,7 @@ resultSignature |int |200 |Código do resultado HTTP
 durationMS |int |50 |Duração da operação em milissegundos 
 propriedades |objeto |veja abaixo |Objeto que contém os dados específicos da operação
 
-####Esquema de propriedades####
+####Esquema de propriedades
 
 |Nome |Tipo |Exemplo |Observações|
 |------|-----|----|-----|
@@ -105,7 +105,7 @@ propriedades |objeto |veja abaixo |Objeto que contém os dados específicos da o
 |Documentos |int |42 |Número de documentos processados|
 |IndexName |cadeia de caracteres |"testindex"|Nome do índice associado à operação |
 
-### Métricas ###
+### Métricas
 
 Os blobs de métricas contêm os valores agregados para o serviço de pesquisa. Cada arquivo tem um objeto-raiz chamado **registros** que contém uma matriz de objetos de métrica.
 
@@ -113,7 +113,7 @@ Métricas disponíveis:
 
 - Latência
 
-####Esquema de métricas####
+####Esquema de métricas
 
 |Nome |Tipo |Exemplo |Observações|
 |------|-----|----|-----|
@@ -127,7 +127,7 @@ Métricas disponíveis:
 |count |int |4 |O número de amostras brutas usadas para gerar a métrica |
 |intervalo de tempo |cadeia de caracteres |"PT1M" |O intervalo de agregação da métrica no ISO 8601|
 
-## Análise dos dados ##
+## Análise dos dados
 
 Os dados estão em sua própria conta de armazenamento e incentivamos que você explore os dados da maneira que funciona melhor para seu caso.
 
@@ -135,7 +135,7 @@ Como ponto de partida, é recomendável usar o [Power BI Desktop](https://powerb
 
 Verifique a seguinte consulta de exemplo que permitirá a você criar seus próprios relatórios no Power BI Desktop.
 
-### Instruções ###
+### Instruções
 
 1. Abra um novo relatório do Power BI Desktop
 2. Selecione Obter Dados -> Mais...
@@ -147,8 +147,8 @@ Verifique a seguinte consulta de exemplo que permitirá a você criar seus próp
 	![][4]
 
 4. Inserir o Nome e a Chave da Conta de sua conta de armazenamento
-5. Clique com o botão direito do mouse em insight-logs-operationlogs e selecionar Carregar
-6. O Editor de Consulta será aberto. Agora, abra o Editor Avançado selecionando Exibir -> Editor Avançado.
+5. Selecione "insight-logs-operationlogs" e "insights-metrics-pt1m" e clique em Editar
+6. O Editor de Consultas abrirá. Verifique se "insight-logs-operationlogs" está selecionado à esquerda. Agora, abra o Editor Avançado selecionando Exibir -> Editor Avançado.
 
 	![][5]
 
@@ -156,7 +156,7 @@ Verifique a seguinte consulta de exemplo que permitirá a você criar seus próp
 
 	>     #"insights-logs-operationlogs" = Source{[Name="insights-logs-operationlogs"]}[Data],
 	>     #"Sorted Rows" = Table.Sort(#"insights-logs-operationlogs",{{"Date modified", Order.Descending}}),
-	>     #"Kept First Rows" = Table.FirstN(#"Sorted Rows",288),
+	>     #"Kept First Rows" = Table.FirstN(#"Sorted Rows",744),
 	>     #"Removed Columns" = Table.RemoveColumns(#"Kept First Rows",{"Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}),
 	>     #"Parsed JSON" = Table.TransformColumns(#"Removed Columns",{},Json.Document),
 	>     #"Expanded Content" = Table.ExpandRecordColumn(#"Parsed JSON", "Content", {"records"}, {"records"}),
@@ -181,13 +181,35 @@ Verifique a seguinte consulta de exemplo que permitirá a você criar seus próp
 	>     in
 	>     #"Changed Type2"
 
-8. Clique em Concluído e selecione Fechar e Aplicar na guia Início.
+8. Clique em Concluído
 
-9. Agora, seus dados estão prontos para serem consumidos. Vá em frente e crie algumas [visualizações](https://powerbi.microsoft.com/pt-BR/documentation/powerbi-desktop-report-view/).
+9. Selecione agora "insights-metrics-pt1m" na última das consultas à esquerda e abra o editor Avançado novamente. Mantenha as duas primeiras linhas e substitua o restante com a seguinte consulta:
 
-## Próximas etapas ##
+	>     #"insights-metrics-pt1m1" = Source{[Name="insights-metrics-pt1m"]}[Data],
+	>     #"Sorted Rows" = Table.Sort(#"insights-metrics-pt1m1",{{"Date modified", Order.Descending}}),
+	>     #"Kept First Rows" = Table.FirstN(#"Sorted Rows",744),
+    	#"Removed Columns" = Table.RemoveColumns(#"Kept First Rows",{"Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}),
+	>     #"Parsed JSON" = Table.TransformColumns(#"Removed Columns",{},Json.Document),
+	>     #"Expanded Content" = Table.ExpandRecordColumn(#"Parsed JSON", "Content", {"records"}, {"records"}),
+	>     #"Expanded records" = Table.ExpandListColumn(#"Expanded Content", "records"),
+	>     #"Expanded records1" = Table.ExpandRecordColumn(#"Expanded records", "records", {"resourceId", "metricName", "time", "average", "minimum", "maximum", "total", "count", "timeGrain"}, {"resourceId", "metricName", "time", "average", "minimum", "maximum", "total", "count", "timeGrain"}),
+	>     #"Filtered Rows" = Table.SelectRows(#"Expanded records1", each ([metricName] = "Latency")),
+	>     #"Removed Columns1" = Table.RemoveColumns(#"Filtered Rows",{"timeGrain"}),
+	>     #"Renamed Columns" = Table.RenameColumns(#"Removed Columns1",{{"time", "Datetime"}, {"resourceId", "ResourceId"}, {"metricName", "MetricName"}, {"average", "Average"}, {"minimum", "Minimum"}, {"maximum", "Maximum"}, {"total", "Total"}, {"count", "Count"}}),
+	>     #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"ResourceId", type text}, {"MetricName", type text}, {"Datetime", type datetimezone}, {"Average", type number}, {"Minimum", Int64.Type}, {"Maximum", Int64.Type}, {"Total", Int64.Type}, {"Count", Int64.Type}}),
+	>         Rounding = Table.TransformColumns(#"Changed Type",{{"Average", each Number.Round(_, 2)}}),
+	>     #"Changed Type1" = Table.TransformColumnTypes(Rounding,{{"Average", type number}}),
+	>     #"Inserted Date" = Table.AddColumn(#"Changed Type1", "Date", each DateTime.Date([Datetime]), type date)
+	>     in
+    	#"Inserted Date"
 
-Saiba mais sobre os parâmetros de sintaxe e consulta de pesquisa. Consulte [Pesquisar Documentos (API REST da Pesquisa do Azure)](https://msdn.microsoft.com/library/azure/dn798927.aspx) para obter detalhes.
+10. Clique em Concluído e selecione Fechar e Aplicar na guia Início.
+
+11. Os dados dos últimos 30 dias estão prontos para serem consumidos. Vá em frente e crie algumas [visualizações](https://powerbi.microsoft.com/pt-BR/documentation/powerbi-desktop-report-view/).
+
+## Próximas etapas
+
+Saiba mais sobre os parâmetros de sintaxe e consulta de pesquisa. Confira [Pesquisar Documentos (API REST da Pesquisa do Azure)](https://msdn.microsoft.com/library/azure/dn798927.aspx) para obter detalhes.
 
 Saiba mais sobre como criar relatórios incríveis. Confira [Introdução ao Power BI Desktop](https://powerbi.microsoft.com/pt-BR/documentation/powerbi-desktop-getting-started/) para obter detalhes
 
@@ -199,4 +221,4 @@ Saiba mais sobre como criar relatórios incríveis. Confira [Introdução ao Pow
 [4]: ./media/search-traffic-analytics/BlobStorage.png
 [5]: ./media/search-traffic-analytics/QueryEditor.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

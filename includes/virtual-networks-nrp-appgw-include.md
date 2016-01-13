@@ -4,11 +4,12 @@ O Application Gateway o fornece uma solução de balanceamento de carga HTTP ger
 
 | Propriedade | Descrição | 
 |---|---|
-|*Pool de servidores back-end* | Lista de endereços IP dos servidores back-end. Os endereços IP listados devem pertencer à sub-rede da rede virtual ou devem ser um IP/VIP público ou IP privado. |
-| *Configurações de pool do servidor de back-end* | Cada pool tem configurações como porta, protocolo e afinidade baseada em cookie. Essas configurações são vinculadas a um pool e aplicadas a todos os servidores no pool. |
-| *Porta front-end* | Essa porta é a porta pública aberta no application gateway. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end. |
-| *Ouvinte* | O ouvinte tem uma porta front-end, um protocolo (Http ou Https, que diferencia maiúsculas de minúsculas) e o nome do certificado SSL (se estiver configurando o descarregamento SSL). |
-| *Regra* | A regra vincula o ouvinte e o pool de servidores back-end e define a qual pool de servidores back-end o tráfego deve ser direcionado quando atingir um ouvinte específico. Atualmente, há suporte apenas para a regra básica. A regra básica é a distribuição de carga round robin. |
+| **backendAddressPools** | Lista de endereços IP dos servidores back-end. Os endereços IP listados devem pertencer à sub-rede da rede virtual ou devem ser um IP/VIP público ou IP privado. |
+| **backendHttpSettingsCollection** | Cada pool tem configurações como porta, protocolo e afinidade baseada em cookie. Essas configurações são vinculadas a um pool e aplicadas a todos os servidores no pool. |
+| **frontendPorts** | Essa porta é a porta pública aberta no application gateway. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end. |
+| **httpListeners** | O ouvinte tem uma porta front-end, um protocolo (Http ou Https, que diferencia maiúsculas de minúsculas) e o nome do certificado SSL (se estiver configurando o descarregamento SSL). |
+| **requestRoutingRules** | A regra vincula o ouvinte e o pool de servidores back-end e define a qual pool de servidores back-end o tráfego deve ser direcionado. Atualmente, funciona apenas como Round robin |
+
 
 Exemplo de um modelo Json de application gateway:
 
@@ -215,8 +216,9 @@ Exemplo de um modelo Json de application gateway:
   	]	
 	}
 
+
 ### Recursos adicionais
 
 Leitura de [API REST do application gateway](https://msdn.microsoft.com/library/azure/mt299388.aspx) para obter mais informações.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -82,7 +82,8 @@ Observação: as SDKs do cliente dos Serviços Móveis *não* enviam um valor de
 
 | Plataforma servidor | Versão | Cabeçalho de versão aceito |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
-| .NET | [WindowsAzure.MobileServices.Backend.* versão 1.0. x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | ****Nenhum cabeçalho de versão**| | Node.js | (em breve) | **Nenhum cabeçalho de versão** |
+| .NET | [WindowsAzure.MobileServices.Backend.* versão 1.0. x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **Nenhum cabeçalho de versão**|
+| Node.js | (em breve) | **Nenhum cabeçalho de versão** |
 
 <!-- TODO: add Node npm version -->
 
@@ -140,4 +141,6 @@ A verificação de versão está incluída nas seguintes versões do SDK do serv
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Migrar um Serviço Móvel para o Serviço de Aplicativo do Azure]: app-service-mobile-migrating-from-mobile-services.md
 
-<!---HONumber=AcomDC_1217_2015-->
+
+<!-----HONumber=AcomDC_1217_2015-->
+

@@ -2,8 +2,7 @@ A tabela a seguir lista os limites associados às diferentes camadas de serviço
 
 | Recurso | S1 Standard | S2 Standard | F1 Gratuito |
 | -------- | ----------- | ----------- | ------- |
-| Dispositivos/unidade | 500 | 500 | 10 |
-| Mensagens/dia | 50\.000 | 1\.500.000 | 3\.000 |
+| Mensagens/dia | 400\.000 | 6\.000.000 | 8\.000 |
 | Máximo de unidades | 200 | 200 | 1 |
 | Atualizações de dispositivo (criar, atualizar, <br/> excluir) por unidade/dia | 1100 | 1100 | 1100 |
 
@@ -29,9 +28,9 @@ O serviço do Hub IoT restringe as solicitações quando as seguintes cotas são
 
 | Restrição | Valor por hub |
 | -------- | ------------- |
-| Operações de registro de identidade <br/> (criar, recuperar, listar, atualizar e excluir), <br/> importação/exportação individual ou em massa | 100/min/unidade, até 5000/min |
+| Operações de registro de identidade <br/> (criar, recuperar, listar, atualizar e excluir), <br/> importação/exportação em massa ou individual | 100/min/unidade, até 5000/min |
 | Conexões do dispositivo | 100/s/unidade |
-| Envios do dispositivo para a nuvem | 2\.000/min/unidade (para S2), 60/min/unidade (para S1) <br/> Mínimo de 100/s |
+| Envios do dispositivo para a nuvem | 120/s/unidade (para S2), 12/s/unidade (para S1) <br/> Mínimo de 100/s |
 | Operações da nuvem para o dispositivo <br/> (envios, recebimentos e comentários) | 100/min/unidade |
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1223_2015-->

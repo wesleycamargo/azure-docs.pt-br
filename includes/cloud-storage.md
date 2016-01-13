@@ -157,7 +157,7 @@ Esse tipo de problema é um ajuste natural para a nuvem pública. Em vez de mant
 
 **Figura 7: o Hadoop no Microsoft Azure executa trabalhos de MapReduce que processam dados em paralelo usando várias máquinas virtuais.**
 
-Para usar o Hadoop no Azure, primeiro você solicita que essa plataforma de nuvem crie um cluster Hadoop, especificando o número de VMs que você precisa. A configuração de um cluster Hadoop não é uma tarefa trivial, por isso permitir que o Windows Azure faça isso por você faz sentido. Ao terminar de usar o cluster, feche-o. Não é necessário pagar por recursos de computação que você não esteja usando.
+Para usar o Hadoop no Azure, primeiro você solicita que essa plataforma de nuvem crie um cluster Hadoop, especificando o número de VMs que você precisa. A configuração de um cluster Hadoop não é uma tarefa trivial, por isso permitir que o Microsoft Azure faça isso por você faz sentido. Ao terminar de usar o cluster, feche-o. Não é necessário pagar por recursos de computação que você não esteja usando.
 
 Um aplicativo de Hadoop, normalmente chamado de um *trabalho*, utiliza um modelo de programação conhecido como *MapReduce*. Como mostra a figura, a lógica de um trabalho de MapReduce é executado simultaneamente em várias VMs. Ao processar dados em paralelo, o Hadoop pode analisar dados muito mais rapidamente que as soluções de máquina única.
 

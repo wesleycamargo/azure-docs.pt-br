@@ -14,14 +14,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="12/17/2015"
 	ms.author="meetb"/>
 
 
 # Conectar-se ao Banco de Dados SQL usando Node.js com Tedious no Ubuntu Linux
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+> [AZURE.SELECTOR]
+- [Python](sql-database-develop-python-simple-ubuntu-linux.md)
+- [Node.js](sql-database-develop-nodejs-simple-linux.md)
+- [Ruby](sql-database-develop-ruby-simple-linux.md)
 
 
 Este tópico apresenta um exemplo de código Node.js executado no Ubuntu Linux. O exemplo conecta-se ao Banco de Dados SQL do Azure usando o driver Tedious.
@@ -170,6 +173,6 @@ Nesse exemplo, você verá como executar uma instrução [INSERT](https://msdn.m
 
 ## Próximas etapas
 
-Para obter mais informações, consulte o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
+Para saber mais, confira o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

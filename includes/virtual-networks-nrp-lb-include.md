@@ -5,11 +5,11 @@ Um balanceador de carga é usado quando você deseja dimensionar seus aplicativo
 
 | Propriedade | Descrição |
 |---|---|
-| *Configuração de IP front-end* | um balanceador de carga pode incluir um ou mais endereços IP front-end, também conhecidos como VIPs (IPs virtuais). Esses endereços de IP servem como entrada para o tráfego e podem ser IP público ou IP privado |
-|*Pool de endereços de back-end* | estes são os endereços IP associados a NICs de VM aos quais a carga será distribuída. |
-|*Regras de balanceamento de carga* | uma propriedade de regra mapeia determinada combinação de porta e IP front-end para um conjunto de endereços IP back-end e combinação de portas. Com uma única definição de um recurso de balanceador de carga, você pode definir várias regras de balanceamento de carga, cada regra refletindo uma combinação de um IP de front-end e porta e outra combinação de IP de back-end e porta, ambas associadas às máquinas virtuais. A regra é uma porta no pool de front-end para várias máquinas virtuais no pool de back-end |  
+| *frontendIPConfigurations* | um balanceador de carga pode incluir um ou mais endereços IP front-end, também conhecidos como VIPs (IPs virtuais). Esses endereços de IP servem como entrada para o tráfego e podem ser IP público ou IP privado |
+|*backendAddressPools* | estes são os endereços IP associados a NICs de VM aos quais a carga será distribuída. |
+|*loadBalancingRules* | uma propriedade de regra mapeia determinada combinação de porta e IP front-end para um conjunto de endereços IP back-end e combinação de portas. Com uma única definição de um recurso de balanceador de carga, você pode definir várias regras de balanceamento de carga, cada regra refletindo uma combinação de um IP de front-end e porta e outra combinação de IP de back-end e porta, ambas associadas às máquinas virtuais. A regra é uma porta no pool de front-end para várias máquinas virtuais no pool de back-end |  
 | *Investigações* | as investigações permitem que você controle a integridade das instâncias VM. Se um teste de integridade falhar, a instância de máquina virtual será retirada automaticamente do rodízio. |
-| *Regras NAT de entrada* | regras NAT definem o tráfego de entrada que flui pelo IP front-end e é distribuído para o IP back-end para a instância de uma máquina virtual específica. A regra NUT é uma porta no pool de front-end para uma máquina virtual no pool de back-end | 
+| *inboundNatRules* | regras NAT definem o tráfego de entrada que flui pelo IP front-end e é distribuído para o IP back-end para a instância de uma máquina virtual específica. A regra NUT é uma porta no pool de front-end para uma máquina virtual no pool de back-end | 
 
 Exemplo de modelo de Balanceador de carga no formato Json:
 
@@ -190,4 +190,4 @@ Exemplo de modelo de Balanceador de carga no formato Json:
 
 Para obter mais informações, leia [API REST do balanceador de carga](https://msdn.microsoft.com/library/azure/mt163651.aspx).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

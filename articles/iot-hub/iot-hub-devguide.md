@@ -475,7 +475,7 @@ A seguir, a lista de limitações impostas. Os valores referem-se a um hub indiv
 | -------- | ------------- |
 | Operações de registro de identidade (criar, recuperar, listar, atualizar e excluir), importação/exportação em massa ou individual | 100/min/unidade, até 5000/min |
 | Conexões do dispositivo | 100/s/unidade |
-| Envios de D2C | 2000/min/unidade (para S2), 60/min/unidade (para S1). Mínimo de 100/s. |
+| Envios de D2C | 120/s/unidade (para S2), 12/s/unidade (para S1). Mínimo de 100/s. |
 | Operações de C2D (enviar, receber, comentários) | 100/min/unidade |
 
 **Observação**. A qualquer momento, é possível aumentar as cotas ou restrições aumentando o número de unidades provisionadas em um Hub IoT.
@@ -532,4 +532,4 @@ Você viu uma visão geral do desenvolvimento para Hub IoT. Siga estes links par
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

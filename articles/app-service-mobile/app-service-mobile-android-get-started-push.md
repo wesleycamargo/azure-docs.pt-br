@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="12/18/2015"
 	ms.author="yuaxu"/>
 
 # Adicionar notificações de push ao seu aplicativo Android
@@ -49,11 +49,9 @@ Para concluir este tutorial, você precisará do seguinte:
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-configure-push-google](../../includes/app-service-mobile-dotnet-backend-configure-push-google.md)]
 
-## <a name="publish-the-service"></a>Publicar o back-end móvel no Azure
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
-
 ## Adicionar notificações de push para seu aplicativo
+
+Você deve certificar-se de que seu projeto de aplicativo do Android está pronto para lidar com notificações por push.
 
 ###Verificar Versão de SDK do Android
 
@@ -82,4 +80,4 @@ Você pode testar o aplicativo anexando um telefone Android com um cabo USB dire
 <!-- URLs -->
 [início rápido do Android]: app-service-mobile-android-get-started.md
 
-<!---HONumber=AcomDC_1210_2015--->
+<!----HONumber=AcomDC_1223_2015-->

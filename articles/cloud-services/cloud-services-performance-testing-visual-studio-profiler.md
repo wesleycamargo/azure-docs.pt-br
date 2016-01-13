@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Criando um perfil de serviço de nuvem localmente no emulador de computação" 
+	pageTitle="Criação de um perfil de serviço de nuvem localmente no emulador de computação | Microsoft Azure" 
 	services="cloud-services"
 	description="Investigar problemas de desempenho nos serviços de nuvem com o criador de perfil do Visual Studio" 
 	documentationCenter=""
 	authors="TomArcher" 
 	manager="douge" 
-	editor="tglee"
+	editor=""
 	tags="" 
 	/>
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/14/2015" 
+	ms.date="12/21/2015" 
 	ms.author="tarcher"/>
 
 # Testando o desempenho de um serviço de nuvem localmente no emulador de computação do Azure usando o criador de perfis do Visual Studio
@@ -186,4 +186,4 @@ A instrumentação de binários do Azure no emulador não tem suporte no criador
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

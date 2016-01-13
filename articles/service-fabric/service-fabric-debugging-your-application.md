@@ -16,29 +16,29 @@
    ms.date="10/15/2015"
    ms.author="jesseb"/>
 
-# Depurando seu aplicativo do Service Fabric usando o Visual Studio
+# Depurar seu aplicativo do Service Fabric usando o Visual Studio
 
-Você economizar tempo e dinheiro implantando e depurando seu aplicativo da Malha do Serviço no cluster de desenvolvimento de um computador local. O Visual Studio pode implantar o aplicativo no cluster local e conectar o depurador automaticamente a todas as instâncias do seu aplicativo.
+Você pode economizar tempo e dinheiro implantando e depurando seu aplicativo do Service Fabric do Azure no cluster de desenvolvimento de um computador local. O Visual Studio pode implantar o aplicativo no cluster local e conectar o depurador automaticamente a todas as instâncias do seu aplicativo.
 
-1. Inicie um cluster de desenvolvimento local seguindo as etapas em [Configurando o ambiente de desenvolvimento da Malha do Serviço](service-fabric-get-started.md).
+1. Inicie um cluster de desenvolvimento local seguindo as etapas em [Configurando o ambiente de desenvolvimento do Service Fabric](service-fabric-get-started.md).
 
 2. Pressione **F5** ou clique em **Depurar** > **Iniciar Depuração**
 
     ![Iniciar depuração de um aplicativo][startdebugging]
 
-3. Defina os pontos de interrupção no seu código e explore o aplicativo clicando nos comandos do menu **Depurar**.
+3. Defina os pontos de interrupção em seu código e explore o aplicativo clicando nos comandos do menu **Depurar**.
 
-    > [AZURE.NOTE]O Visual Studio se conecta a todas as instâncias do seu aplicativo. Ao percorrer o código, os pontos de interrupção podem ser atingidos por vários processos, resultando em sessões simultâneas. Tente desabilitar os pontos de interrupção depois que eles forem atingidos, tornando o ponto de interrupção condicional na ID do thread, ou usando Eventos de Diagnóstico.
+    > [AZURE.NOTE]O Visual Studio se conecta a todas as instâncias do seu aplicativo. Ao percorrer o código, os pontos de interrupção podem ser atingidos por vários processos, resultando em sessões simultâneas. Tente desabilitar os pontos de interrupção depois que eles forem atingidos, tornando o ponto de interrupção condicional na ID do thread, ou usando eventos de diagnóstico.
 
 4. A janela **Eventos de Diagnóstico** abrirá automaticamente para exibir eventos de diagnóstico em tempo real.
 
     ![Exibir eventos de diagnóstico em tempo real][diagnosticevents]
 
-5. Você também pode abrir a janela **Eventos de Diagnóstico** no Gerenciador de Servidores. Em **Azure**, clique com o botão direito do mouse em **Cluster da Malha do Serviço** > **Exibir Eventos de Diagnóstico...**
+5. Você também pode abrir a janela **Eventos de Diagnóstico** no Gerenciador de Servidores. Em **Azure**, clique com o botão direito do mouse em **Cluster do Service Fabric** > **Exibir Eventos de Diagnóstico**.
 
     ![Abrir a janela de eventos de diagnóstico][viewdiagnosticevents]
 
-6. Os eventos de diagnóstico podem ser vistos no **ServiceEventSource.cs** gerado automaticamente e são chamados do código do aplicativo.
+6. Os eventos de diagnóstico podem ser vistos no arquivo **ServiceEventSource.cs** gerado automaticamente e são chamados do código do aplicativo.
 
     ```csharp
     ServiceEventSource.Current.ServiceTypeRegistered(Process.GetCurrentProcess().Id, Service.ServiceTypeName);
@@ -48,7 +48,7 @@ Você economizar tempo e dinheiro implantando e depurando seu aplicativo da Malh
 
     ![Filtrar, pausar e retomar ou inspecionar eventos em tempo real][diagnosticeventsactions]
 
-8. A depuração de serviços é semelhante à depuração de qualquer outro aplicativo. Os pontos de interrupção podem ser definidos normalmente por meio do Visual Studio para depuração fácil. Embora Coleções Confiáveis sejam aplicadas em vários nós, elas ainda implementam IEnumerable, o que significa que você pode usar a Exibição de Resultados no Visual Studio na depuração para ver o que foi armazenado dentro. Basta definir um ponto de interrupção em qualquer lugar no seu código.
+8. A depuração de serviços é semelhante à depuração de qualquer outro aplicativo. Os pontos de interrupção podem ser definidos normalmente por meio do Visual Studio para depuração fácil. Embora as Coleções Confiáveis sejam replicadas em vários nós, elas ainda implementam IEnumerable. Isso significa que você pode usar o Modo de Exibição Resultados no Visual Studio durante a depuração para ver o que foi armazenado. Basta definir um ponto de interrupção em qualquer lugar em seu código.
 
     ![Iniciar depuração de um aplicativo][breakpoint]
 
@@ -56,7 +56,7 @@ Você economizar tempo e dinheiro implantando e depurando seu aplicativo da Malh
 ## Próximas etapas
 
 - [Testar um serviço da Malha do Serviço](service-fabric-testability-overview.md).
-- [Gerenciando seu aplicativo da Malha do Serviço no Visual Studio](service-fabric-manage-application-in-visual-studio.md).
+- [Gerenciar seu aplicativo do Service Fabric no Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 
 <!--Image references-->
 [startdebugging]: ./media/service-fabric-debugging-your-application/startdebugging.png
@@ -65,4 +65,4 @@ Você economizar tempo e dinheiro implantando e depurando seu aplicativo da Malh
 [diagnosticeventsactions]: ./media/service-fabric-debugging-your-application/diagnosticeventsactions.png
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

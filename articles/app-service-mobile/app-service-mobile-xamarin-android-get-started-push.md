@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/02/2015" 
+	ms.date="12/18/2015" 
 	ms.author="glenga"/>
 
 # Adicionar notificações por push ao aplicativo Xamarin.Android
@@ -86,4 +86,4 @@ Você pode testar o aplicativo usando um dispositivo virtual no emulador. Há et
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=AcomDC_1203_2015--->
+<!----HONumber=AcomDC_1223_2015-->

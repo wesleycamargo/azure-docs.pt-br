@@ -18,23 +18,23 @@
 
 # Suporte a protocolos adicionais para Hub IoT
 
-O Hub IoT nativamente dá suporte à comunicação pelos protocolos HTTPS e AMQP. Em alguns casos os dispositivos ou gateways de campo não poderão usar um desses protocolos padrão em exigirão a adaptação do protocolo. Nesses casos, um gateway personalizado pode habilitar a adaptação de protocolo para pontos de extremidade do Hub IoT preenchendo o tráfego para e do Hub IoT. O gateway de protocolo do IoT do Azure possibilita a adaptação do protocolo para o Hub IoT e implementa um adaptador de protocolo MQTT para habilitar a comunicação entre o dispositivo IoT e o Hub IoT sobre o protocolo MQTT.
+O Hub IoT do Azure dá suporte nativo à comunicação pelos protocolos HTTPS e AMQP. Em alguns casos, os dispositivos ou gateways de campo não poderão usar um desses protocolos padrão e exigirão a adaptação do protocolo. Nesses casos, você pode usar um gateway personalizado. Nesses casos, um gateway personalizado pode habilitar a adaptação de protocolo para pontos de extremidade do Hub IoT preenchendo o tráfego para e do Hub IoT. Um gateway de protocolo IoT (Internet das Coisas) do Azure permite a adaptação do protocolo ao Hub IoT. Ele também implementa um adaptador de protocolo MQTT para permitir a comunicação entre um dispositivo IoT e Hub IoT usando o protocolo MQTT.
 
 ## Gateway de protocolo IoT do Azure
 
-O gateway de protocolo do IoT do Azure é uma estrutura para a adaptação do protocolo feito para uma comunicação com o dispositivo bi-direcional de alta escala com o Hub IoT. O gateway de protocolo é um componente de passagem que aceita conexões de dispositivo por meio de um protocolo específico e ponte de tráfego para o Hub IoT sobre o AMQP 1.0. O gateway de protocolo IoT está disponível como um projeto de software livre (OSS) para fornecer flexibilidade adicionando suporte para uma variedade de protocolos e versões de protocolo.
+O gateway de protocolo do IoT do Azure é uma estrutura para a adaptação do protocolo feito para uma comunicação com o dispositivo bidirecional de alta escala com o Hub IoT. O gateway de protocolo é um componente de passagem que aceita conexões de dispositivo usando um protocolo específico. Ele preenche o tráfego para o Hub IoT sobre AMQP 1.0. O gateway de protocolo IoT está disponível como um projeto de software livre para flexibilizar a adição de suporte para uma variedade de protocolos e versões de protocolo.
 
-O gateway de protocolo pode ser implantado no Azure de maneira altamente escalonável usando as funções de trabalho de Serviços de Nuvem. Além disso, o gateway de protocolo pode ser implantado em ambientes locais como gateways de campo.
+Você pode implantar o gateway de protocolo no Azure de maneira altamente escalonável usando as funções de trabalho dos Serviços de Nuvem. Além disso, o gateway de protocolo pode ser implantado em ambientes locais, como gateways de campo.
 
-O gateway de protocolo IoT do Azure inclui um adaptador MQTT para facilitar a comunicação com os dispositivos sobre o protocolo MQTT v3.1.1. O gateway de protocolo e a implementação de MQTT são fornecidos como um projeto OSS para flexibilidade para permitir a personalização da implementação conforme necessário.
+O gateway de protocolo IoT do Azure inclui um adaptador MQTT para facilitar a comunicação com os dispositivos sobre o protocolo MQTT v3.1.1. O gateway de protocolo e a implementação de MQTT são fornecidos como um projeto de software livre para flexibilidade. Isso permite que você personalize a implementação conforme a necessidade.
 
-O adaptador MQTT também demonstra o modelo de programação para a criação de adaptadores de protocolo para outros protocolos. Além disso, o modelo de programação do gateway de protocolo IoT permite conectar componentes personalizados para processamento especializados como autenticação personalizada, transformações de mensagens, compactação/descompactação ou criptografia/descriptografia de tráfego entre os dispositivos e Hub IoT.
+O adaptador MQTT também demonstra o modelo de programação para a criação de adaptadores de protocolo para outros protocolos. Além disso, o modelo de programação do gateway de protocolo IoT permite que você conecte componentes personalizados para processamento especializados, como autenticação personalizada, transformações de mensagens, compactação/descompactação ou criptografia/descriptografia de tráfego entre os dispositivos e Hub IoT.
 
 ## Próximas etapas
 
-Para saber mais sobre o gateway de protocolo IoT do Azure e como usar e implantá-lo como parte de sua solução de IoT, consulte:
+Para saber mais sobre o gateway de protocolo IoT do Azure e como usar e implantá-lo como parte de sua solução de IoT, confira:
 
 * [Repositório de gateway de protocolo IoT do Azure no GitHub](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
 * [Guia de desenvolvedor do gateway do protocolo IoT do Azure](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

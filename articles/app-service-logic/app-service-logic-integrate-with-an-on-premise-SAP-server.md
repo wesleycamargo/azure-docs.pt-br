@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="12/17/2015"
 	ms.author="sameerch"/>
 
 
@@ -36,7 +36,7 @@ Há suporte para as seguintes ações:
 - Enviar IDoc
 
 ## Pré-requisitos
-As bibliotecas de cliente específicas do SAP são necessárias no computador cliente em que o ouvinte híbrido está instalado e em execução. Os detalhes precisos são capturados [aqui][9] na seção denominada **Para o adaptador SAP**.
+As bibliotecas de cliente específicas do SAP são necessárias no computador cliente em que o ouvinte híbrido está instalado e em execução. Os detalhes precisos estão no [Guia de Instalação do Pacote do Adaptador BizTalk][9] na seção denominada **Para o adaptador SAP**.
 
 
 ## Criar um novo conector SAP
@@ -119,6 +119,6 @@ Para a ação selecionada, você verá os parâmetros de entrada e saída. Você
 [6]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnectionManager.Install.InProgress.PNG
 [7]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnectionManager.Install.Completed.PNG
 [8]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG
-[9]: http://download.microsoft.com/download/2/D/7/2D7CE8DF-A6C5-45F0-8319-14C3F1F9A0C7/InstallationGuide.htm
+[9]: http://www.microsoft.com/download/details.aspx?id=35552
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

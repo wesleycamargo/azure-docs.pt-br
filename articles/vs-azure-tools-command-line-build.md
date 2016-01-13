@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Compilação de linha de comando do Azure"
+   pageTitle="Build de linha de comando do Azure | Microsoft Azure"
    description="Compilação de linha de comando do Azure"
    services="visual-studio-online"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/24/2015"
+   ms.date="12/18/2015"
    ms.author="tarcher" />
 
 # Compilação de linha de comando do Azure
@@ -62,4 +62,4 @@ Se você quiser usar um diretório alternativo para o pacote armazenado e arquiv
 
 Depois que o pacote é compilado, você pode implantá-lo no Azure. Para obter um tutorial que demonstre esse processo, consulte o site do Azure. Para obter informações sobre como automatizar esse processo, consulte [Entrega contínua de serviços de nuvem no Azure](../cloud-services/cloud-services-dotnet-continuous-delivery).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

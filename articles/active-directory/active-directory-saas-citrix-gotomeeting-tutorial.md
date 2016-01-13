@@ -2,7 +2,7 @@
     pageTitle="Tutorial: integração do Active Directory do Azure ao Citrix GoToMeeting | Microsoft Azure" 
     description="Saiba como usar o Citrix GoToMeeting com o Active Directory do Azure para habilitar o logon único, o provisionamento automatizado e muito mais!" 
     services="active-directory" 
-    authors="MarkusVi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 
@@ -11,8 +11,8 @@
     ms.devlang="na" ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/01/2015" 
-    ms.author="markvi" />
+    ms.date="12/18/2015" 
+    ms.author="jeedes" />
 
 #Tutorial: integração do Active Directory do Azure ao Citrix GoToMeeting  
 Aplica-se ao Azure
@@ -164,4 +164,4 @@ Se você quiser testar suas configurações de logon único, abra o Painel de Ac
 
 Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

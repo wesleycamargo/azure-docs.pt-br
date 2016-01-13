@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/20/2015"
-   ms.author="twounder"/>
+   ms.date="01/04/2016"
+   ms.author="twounder;barbkess"/>
 
 # Conectar e consultar com o Visual Studio
 
@@ -91,4 +91,4 @@ Agora que você pode se conectar e consultar, tente [conectar-se ao PowerBI][].
 [3]: ./media/sql-data-warehouse-get-started-connect-query/connection-dialog.png
 [4]: ./media/sql-data-warehouse-get-started-connect-query/new-query.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

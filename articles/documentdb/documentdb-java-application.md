@@ -39,10 +39,10 @@ Este tutorial de aplicativo Java mostra como criar um aplicativo de gerenciament
 ##<a id="Prerequisites"></a>Pré-requisitos para este tutorial de aplicativo Web Java
 Antes de começar este tutorial de desenvolvimento de aplicativo, você deve ter:
 
-- Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](../../pricing/free-trial/).
+- Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 - [Java Development Kit (JDK) 7 +](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 - [Eclipse IDE para desenvolvedores de Java EE.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
-- [Um site do Azure com um Java runtime environment (por exemplo, Tomcat ou Jetty) habilitado.](../web-sites-java-get-started.md)
+- [Um site do Azure com um Java runtime environment (por exemplo, Tomcat ou Jetty) habilitado.](../app-service-web/web-sites-java-get-started.md)
 
 Se você estiver instalando essas ferramentas pela primeira vez, o coreservlets.com fornecerá um passo a passo do processo de instalação na seção de Início rápido do artigo [Tutorial: Instalar TomCat7 e usá-lo com o Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html).
 
@@ -751,7 +751,7 @@ Sites do Azure tornam a implantação de aplicativos Java tão simples quanto a 
  - Na caixa Destino, escolha um destino para salvar o arquivo WAR.
  - Clique em **Concluir**.
 
-3. Agora que tem um arquivo WAR em mãos, você pode simplesmente carregá-lo no seu diretório **webapps** do site do Azure. Para obter instruções sobre como carregar o arquivo, consulte [Adicionar um aplicativo ao seu site Java no Azure](../web-sites-java-add-app.md).
+3. Agora que tem um arquivo WAR em mãos, você pode simplesmente carregá-lo no seu diretório **webapps** do site do Azure. Para obter instruções sobre como carregar o arquivo, consulte [Adicionar um aplicativo ao seu site Java no Azure](../app-service-web/web-sites-java-add-app.md).
 
 	Uma vez carregado o arquivo WAR na pasta webapps, o ambiente de tempo de execução irá detectar que você o adicionou e o carregará automaticamente.
 4. Para exibir seu produto acabado, navegue até http://YOUR\_SITE\_NAME.azurewebsites.net/azure-documentdb-java-sample/ e comece a adicionar suas tarefas!
@@ -770,7 +770,7 @@ Todos os exemplos neste tutorial foram incluídos no projeto [tarefas](https://g
 8. Na tela **Destino Local**, clique em **Procurar** para selecionar uma pasta onde o repositório possa ser copiado e, em seguida, clique em **Próximo**.
 9. Na tela **Selecionar um assistente a ser usado para importar projetos**, verifique se **Importar projetos existentes** está selecionado e, em seguida, clique em **Próximo**.
 10. Na tela **Importar projetos**, desmarque o projeto **Banco de Dados de Documentos** e, em seguida, clique em **Concluir**. O projeto Banco de Dados de Documentos contém o SDK Java do Banco de Dados de Documentos, que adicionaremos como uma dependência em seu lugar.
-11. No **Explorador de Projeto**, navegue até azure-documentdb-java-sample\\src\\com.microsoft.azure.documentdb.sample.dao\\DocumentClientFactory.java e substitua os valores HOST e MASTER\_KEY pela URI e a CHAVE PRIMÁRIA para a sua conta do Banco de Dados de Documentos e, em seguida, salve o arquivo. Para obter mais informações, consulte a [Etapa 1. Criar uma conta de banco de dados do Banco de Dados de Documentos](#CreateDB).
+11. No **Explorador de Projeto**, navegue até azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java e substitua os valores HOST e MASTER_KEY pela URI e a CHAVE PRIMÁRIA para a sua conta do Banco de Dados de Documentos e, em seguida, salve o arquivo. Para obter mais informações, consulte a [Etapa 1. Criar uma conta de banco de dados do Banco de Dados de Documentos](#CreateDB).
 12. Em **Explorador de Projeto**, clique com o botão direito do mouse em **azure-documentdb-java-sample**, clique em **Caminho de compilação** e, em seguida, clique em **Configurar caminho de compilação**.
 13. Na tela **Caminho de compilação Java**, no painel direito, selecione a guia **Bibliotecas** e, em seguida, clique em **Adicionar JARs Externos**. Navegue até o local do arquivo lombok.jar e clique em **Abrir** e, em seguida, clique em **OK**.
 14. Use a Etapa 12 para abrir a janela **Propriedades** novamente e, no painel esquerdo, clique em **Tempos de Execução Direcionados**.
@@ -786,4 +786,4 @@ Todos os exemplos neste tutorial foram incluídos no projeto [tarefas](https://g
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

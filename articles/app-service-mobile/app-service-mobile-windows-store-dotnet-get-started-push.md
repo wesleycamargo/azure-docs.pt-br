@@ -103,6 +103,8 @@ Agora que as notificações por push estão habilitadas no aplicativo, você dev
 	
 	Esse código informa o hub de notificação para enviar uma notificação por push após uma inserção de item nova.
 
+4. Republicar o projeto de servidor.
+
 ### <a name="nodejs"></a>Projeto de back-end Node.js
 
 1. Se você ainda não fez isso, [baixe o projeto de início rápido](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) ou, caso contrário, use o [editor online no Portal do Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
@@ -152,10 +154,6 @@ Agora que as notificações por push estão habilitadas no aplicativo, você dev
 	Isso envia uma notificação WNS que contém o item.text quando um novo item todo é inserido.
 
 2. Ao editar o arquivo no seu computador local, republique o projeto do servidor.
-
-## <a name="publish-the-service"></a>Publicar o back-end móvel no Azure
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
 ##<a id="update-service"></a>Adicionar notificações de push para seu aplicativo
 
@@ -214,4 +212,4 @@ Seu aplicativo agora está pronto para receber notificações do sistema.
 
 <!-- Images. -->
 
-<!---HONumber=AcomDC_1210_2015--->
+<!----HONumber=AcomDC_1223_2015-->

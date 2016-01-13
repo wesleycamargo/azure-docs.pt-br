@@ -26,7 +26,13 @@
 
 ##SDK do Java do Banco de Dados de Documentos
 
-<table> <tr><td>**Download**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr> <tr><td>**Colabore**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr> <tr><td>**Documentação**</td><td>[Documentação de referência do SDK Java](http://azure.github.io/azure-documentdb-java/)</td></tr> <tr><td>**Introdução**</td><td>[Introdução ao SDK do Java](documentdb-java-application.md)</td></tr> <tr><td>**Temp de execução com suporte no momento**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr> </table></br>
+<table>
+<tr><td>**Download**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr>
+<tr><td>**Colabore**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
+<tr><td>**Documentação**</td><td>[Documentação de referência do SDK Java](http://azure.github.io/azure-documentdb-java/)</td></tr>
+<tr><td>**Introdução**</td><td>[Introdução ao SDK do Java](documentdb-java-application.md)</td></tr>
+<tr><td>**Temp de execução com suporte no momento**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
+</table></br>
 
 ## Notas de versão
 
@@ -85,4 +91,4 @@ As solicitações feitas ao Banco de Dados de Documentos usando um SDK obsoleto 
 
 Para saber mais sobre o Banco de Dados de Documentos, confira a página de serviço do [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->

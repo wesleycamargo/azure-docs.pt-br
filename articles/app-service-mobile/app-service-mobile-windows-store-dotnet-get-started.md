@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/16/2015"
+	ms.date="12/19/2015"
 	ms.author="glenga"/>
 
 #Criar um aplicativo do Windows
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
+&nbsp;
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Visão geral
@@ -74,9 +74,11 @@ Quando você tiver configurado o back-end do Aplicativo Móvel, poderá criar um
 
 ##Próximas etapas
 
-* [Adicionar autenticação ao seu aplicativo](app-service-mobile-windows-store-dotnet-get-started-users.md) <br/>Saiba como autenticar usuários de seu aplicativo com um provedor de identidade.
+* [Adicionar autenticação ao seu aplicativo](app-service-mobile-windows-store-dotnet-get-started-users.md) 
+<br/>Saiba como autenticar usuários de seu aplicativo com um provedor de identidade.
 
-* [Adicionar notificações por push ao seu aplicativo](app-service-mobile-windows-store-dotnet-get-started-push.md) <br/>Saiba como enviar uma notificação por push bem básica ao seu aplicativo.
+* [Adicionar notificações por push ao seu aplicativo](app-service-mobile-windows-store-dotnet-get-started-push.md) 
+<br/>Saiba como enviar uma notificação por push bem básica ao seu aplicativo.
 
 <!-- Anchors. -->
 <!-- Images. -->
@@ -85,4 +87,4 @@ Quando você tiver configurado o back-end do Aplicativo Móvel, poderá criar um
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1223_2015-->

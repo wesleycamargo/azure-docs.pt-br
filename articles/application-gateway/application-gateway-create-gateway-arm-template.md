@@ -33,11 +33,6 @@ Você aprenderá a baixar e a modificar um modelo ARM existente do GitHub e impl
 Se você estiver simplesmente implantando o modelo ARM diretamente do GitHub, sem nenhuma alteração, pule para implantar um modelo do github.
 
 
->[AZURE.IMPORTANT]Antes de trabalhar com os recursos do Azure, é importante entender que, no momento, o Azure apresenta dois modelos de implantação: Gerenciador de Recursos e clássico. Verifique se você entendeu [os modelos e as ferramentas de implantação](azure-classic-rm.md) antes de trabalhar com qualquer recurso do Azure. Você pode exibir a documentação de diferentes ferramentas clicando nas guias na parte superior deste artigo. Este documento abordará a criação de um Application Gateway usando o Gerenciador de Recursos do Azure. Para usar a versão clássica, vá para [criar uma implantação clássica de Application Gateway usando o PowerShell](application-gateway-create-gateway.md).
-
-
-
-
 ## Cenário
 
 Neste cenário, você criará:
@@ -121,20 +116,36 @@ No github, você pode baixar o modelo ARM existente para criar uma rede virtual 
  
 ## Implantar o modelo ARM usando o PowerShell
 
-1. Se você nunca usou o Azure PowerShell, consulte [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
-2. Em um prompt do Azure PowerShell, execute o cmdlet **Switch-AzureMode** para alternar para o modo Gerenciador de Recursos, como mostrado abaixo.
+1. Se você nunca usou o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](powershell-install-configure.md) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
 
-		Switch-AzureMode AzureResourceManager
+### Etapa 1
+
+		Login-AzureRmAccount
+
+
+
+### Etapa 2
+
+Verificar as assinaturas da conta
+
+		get-AzureRmSubscription 
+
+Você deverá se autenticar com suas credenciais.<BR>
+
+### Etapa 3 
+
+Escolha quais das suas assinaturas do Azure deseja usar.<BR>
+
+
+		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+
+
+### Etapa 4
+
 	
-Saída esperada:
+Se necessário, crie um novo grupo de recursos usando o cmdlet `New-AzureResourceGroup`. No exemplo abaixo, você criará um novo grupo de recursos chamado AppgatewayRG no local Leste dos EUA:
 
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
-
->[AZURE.WARNING]O cmdlet Switch-AzureMode será preterido em breve. Quando isso acontecer, todos os cmdlets do Gerenciador de Recursos serão renomeados.
-	
-3. Se necessário, crie um novo grupo de recursos usando o cmdlet `New-AzureResourceGroup`. No exemplo abaixo, você criará um novo grupo de recursos chamado AppgatewayRG no local Leste dos EUA:
-
-		PS C:\> New-AzureResourceGroup -Name AppgatewayRG -Location "East US"
+	 New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
 		VERBOSE: 5:38:49 PM - Created resource group 'AppgatewayRG' in location 'eastus'
 
 
@@ -149,9 +160,9 @@ Saída esperada:
 
 		ResourceId        : /subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/AppgatewayRG
 
-4. Execute o cmdlet New-AzureResourceGroupDeployment para implantar a nova rede virtual usando o modelo e os arquivos de parâmetro que você baixou e modificou acima.
+4. Execute o cmdlet New-AzureRmResourceGroupDeployment para implantar a nova rede virtual usando os arquivos de modelo e parâmetro que você baixou e modificou acima.
 
-		New-AzureResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+		New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
  		   -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
 
 A saída gerada pela linha de comando será a seguinte:
@@ -181,7 +192,7 @@ A saída gerada pela linha de comando será a seguinte:
 Para implantar o modelo ARM baixado usando a CLI do Azure, siga as etapas abaixo.
 
 1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
-2. Execute o comando **azure config mode** para alternar para o modo Gerenciador de Recursos, como mostrado abaixo.
+2. Execute o comando **azure config mode** para alternar para o modo do Gerenciador de Recursos, como mostrado abaixo.
 
 		azure config mode arm
 
@@ -264,7 +275,7 @@ Na folha "implantação personalizada", clique em "criar".
  
 ## Próximas etapas
 
-Se desejar configurar o descarregamento SSL, consulte [Configurar um Application Gateway para descarregamento SSL](application-gateway-ssl.md).
+Se desejar configurar o descarregamento SSL, confira [Configurar um Application Gateway para descarregamento SSL](application-gateway-ssl.md).
 
 Se desejar configurar um Application Gateway para usar com o ILB, consulte [Criar um Application Gateway com um ILB (Balanceador de Carga Interno)](application-gateway-ilb.md).
 
@@ -273,4 +284,4 @@ Se deseja obter mais informações sobre as opções de balanceamento de carga n
 - [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -539,7 +539,7 @@ Com todas as peças no lugar, seu projeto agora deve se parecer com um aplicativ
 [Configure seu ambiente de desenvolvimento](service-fabric-get-started.md), caso ainda não tenha feito isso.
 
 
-Agora você pode criar e implantar seu serviço. Pressione **F5** no Visual Studio para compilar e implantar o aplicativo. Na janela Eventos de Diagnóstico, você deverá ver uma mensagem indicando o servidor Web aberto em ****http://localhost:80/webapp/api**
+Agora você pode criar e implantar seu serviço. Pressione **F5** no Visual Studio para compilar e implantar o aplicativo. Na janela Eventos de Diagnóstico, você deverá ver uma mensagem indicando o servidor Web aberto em **http://localhost:80/webapp/api**
 
 
 ![](media/service-fabric-reliable-services-communication-webapi/webapi-diagnostics.png)
@@ -583,4 +583,4 @@ No ASP.NET 5, o conceito e o modelo de programação de separação do *aplicati
 
 [Depurando seu aplicativo da Malha de Serviços no Visual Studio](service-fabric-debugging-your-application.md)
 
-<!---HONumber=Nov15_HO4-->
+<!----HONumber=Nov15_HO4-->

@@ -58,7 +58,7 @@ Consulte [Requisitos de NAT da Rota Expressa](expressroute-nat.md) para obter or
 Examine os recursos a seguir para saber mais sobre os requisitos do Office 365.
 
 - [Planejamento de rede e ajuste de desempenho para o Office 365](http://aka.ms/tune)
-- [Gerenciamento de tráfego de rede do Office 365](https://msft.spoppe.com/teams/cpub/teams/IW_Admin/modsquad/_layouts/15/WopiFrame.aspx?sourcedoc=%7b23f09224-0668-4476-8627-aaff30931439%7d&action=edit&source=https%3A%2F%2Fmsft%2Espoppe%2Ecom%2Fteams%2Fcpub%2Fteams%2FIW%5FAdmin%2Fmodsquad%2FSitePages%2FHome%2Easpx)
+- [Gerenciamento de tráfego de rede do Office 365](https://support.office.com/article/Office-365-network-traffic-management-e1da26c6-2d39-4379-af6f-4da213218408)
 - Consulte o artigo [Requisitos de Qualidade do Serviço (QoS) da Rota Expressa](expressroute-qos.md) para obter orientações detalhadas sobre os requisitos e configurações de QoS. Verifique se seu provedor de conectividade oferece várias classes de serviço para sua VPN. 
 
 ## Próximas etapas
@@ -71,4 +71,4 @@ Examine os recursos a seguir para saber mais sobre os requisitos do Office 365.
 	- [Configurar o roteamento](expressroute-howto-routing-classic.md)
 	- [Vincular uma rede virtual a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -55,7 +55,7 @@ Para saber mais sobre SLAs, consulte a seção "Serviços de Nuvem, máquinas vi
 
 ## Atualizações de configuração de várias instâncias
 
-Durante a manutenção planejada, a plataforma Windows Azure primeiro atualiza o conjunto de máquinas virtuais que estão hospedadas em uma configuração de várias instâncias. Isso gera uma reinicialização para essas máquinas virtuais.
+Durante a manutenção planejada, a plataforma Microsoft Azure primeiro atualiza o conjunto de máquinas virtuais que estão hospedadas em uma configuração de várias instâncias. Isso gera uma reinicialização para essas máquinas virtuais.
 
 Em uma configuração de várias instâncias, as máquinas virtuais são atualizadas de maneira a preservar a disponibilidade ao longo de todo o processo, pressupondo-se que cada máquina ofereça uma função semelhante à função das outras no conjunto.
 

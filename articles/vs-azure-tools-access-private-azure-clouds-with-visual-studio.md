@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Acessando nuvens privadas do Azure com o Visual Studio"
+   pageTitle="Como acessar nuvens privadas do Azure com o Visual Studio | Microsoft Azure"
    description="Saiba como acessar recursos de nuvem privada usando o Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/13/2015"
+   ms.date="12/17/2015"
    ms.author="tarcher" />
 
 # Acessando nuvens privadas do Azure com o Visual Studio
@@ -43,4 +43,4 @@ Por padrão, o Visual Studio dá suporte a pontos de extremidade REST de nuvem p
 
 [Como baixar e importar informações de assinatura e configurações de publicação] (https://msdn.microsoft.com/library/dn385850(v=nav.70).aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

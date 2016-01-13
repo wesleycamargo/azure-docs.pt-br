@@ -14,14 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="12/17/2015"
 	ms.author="meetb"/>
 
 
 # Conectar-se ao Banco de Dados SQL usando Node.js no Windows
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+> [AZURE.SELECTOR]
+- [C#](sql-database-develop-dotnet-simple.md)
+- [PHP](sql-database-develop-php-simple-windows.md)
+- [Python](sql-database-develop-python-simple-windows.md)
+- [Ruby](sql-database-develop-ruby-simple-windows.md)
+- [Java](sql-database-develop-java-simple-windows.md)
+- [Node.js](sql-database-develop-nodejs-simple-windows.md)
 
 
 Este tópico apresenta um exemplo de código Node.js que pode ser usado para se conectar ao Banco de Dados SQL do Azure. O programa do Node.js é executado em um computador cliente com Windows. Para gerenciar a conexão, o driver msnodesql é usado.
@@ -226,6 +232,6 @@ Para que este exemplo de código funcione, você deve primeiro ter ou criar um p
 
 ## Próximas etapas
 
-Para obter mais informações, consulte o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
+Para saber mais, confira o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

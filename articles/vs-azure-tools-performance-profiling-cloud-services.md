@@ -5,14 +5,14 @@
    documentationCenter="n/a"
    authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags 
    ms.service="visual-studio-online"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="08/14/2015"
+   ms.date="12/17/2015"
    ms.author="tarcher" />
 
 
@@ -106,7 +106,7 @@ A seguinte ilustração mostra como definir as configurações de criação de p
 
 ### Para definir configurações de criação de perfil
 
-1. No Gerenciador de Soluções, abra o menu de atalho para o seu projeto do Azure e escolha **Publicar**. Para obter etapas detalhadas sobre como publicar um serviço de nuvem, consulte [Publicando um serviço de nuvem usando as ferramentas do Azure](http://go.microsoft.com/fwlink/p?LinkId=623012).
+1. No Gerenciador de Soluções, abra o menu de atalho para o seu projeto do Azure e escolha **Publicar**. Para obter etapas detalhadas sobre como publicar um serviço de nuvem, consulte [Publicando um serviço na nuvem usando as ferramentas do Azure](http://go.microsoft.com/fwlink/p?LinkId=623012).
 
 1. Na caixa de diálogo **Publicar Aplicativo do Azure**, escolha a guia **Configurações Avançadas**.
 
@@ -146,4 +146,4 @@ Uma sessão de criação de perfil é gerada para cada instância de uma funçã
 
 [Publicando em um Serviço de Nuvem do Azure do Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -21,7 +21,10 @@ Este artigo descreve os benefícios de e como colocar os contadores de desempenh
 
 Os contadores de desempenho disponíveis para o Windows Server, o IIS e o ASP.NET podem ser coletados e usados para determinar a integridade das suas funções Web, funções de trabalho e Máquinas Virtuais do Azure. Você também pode criar e usar contadores de desempenho personalizados.
 
-Você pode analisar os dados 1 do contador de desempenho. Diretamente no host do aplicativo com a ferramenta Monitor de Desempenho acessada usando a Área de Trabalho Remota 2. Com o System Center Operations Manager, usando o Azure Management Pack 3. Com outras ferramentas de monitoramento que acessam os dados de diagnóstico transferidos para o armazenamento do Azure. Consulte [Armazenar e exibir dados de diagnóstico no armazenamento do Azure](https://msdn.microsoft.com/library/azure/hh411534.aspx) para saber mais.
+Você pode analisar os dados 
+1 do contador de desempenho. Diretamente no host do aplicativo com a ferramenta Monitor de Desempenho acessada usando a Área de Trabalho Remota 
+2. Com o System Center Operations Manager, usando o Azure Management Pack 
+3. Com outras ferramentas de monitoramento que acessam os dados de diagnóstico transferidos para o armazenamento do Azure. Consulte [Armazenar e exibir dados de diagnóstico no armazenamento do Azure](https://msdn.microsoft.com/library/azure/hh411534.aspx) para saber mais.
 
 Para saber mais sobre como monitorar o desempenho do seu aplicativo no [portal clássico do Azure](http://manage.azure.com/), confira [Como monitorar Serviços de Nuvem](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/).
 
@@ -53,7 +56,16 @@ O Azure fornece um subconjunto de contadores de desempenho disponíveis para o W
 |ASP.NET v4.0.30319 |Solicitações Rejeitadas |Contadores de Desempenho do ASP.NET|
 |Memória |MBytes Disponíveis |Contadores de Desempenho de Memória|
 |Memória |Bytes Confirmados |Contadores de Desempenho de Memória|
-|Processador(\_Total) |% de Tempo do Processador |Contadores de Desempenho do ASP.NET| |TCPv4 |Falhas de Conexão |Objeto TCP | |TCPv4 |Conexões Estabelecidas |Objeto TCP | |TCPv4 |Conexões Estabelecidas |Objeto TCP| |TCPv4 |Segmentos Enviados/sec |Objeto TCP| |Interface de Rede(*) |Bytes Recebidos/sec |Objeto de Interface de Rede| |Interface de Rede(*) |Bytes Enviados/sec |Objeto de Interface de Rede| |Interface de Rede(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Recebidos/sec|Objeto de Interface de Rede| |Interface de Rede(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Enviados/sec|Objeto de Interface de Rede| |Interface de Rede(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Total/sec|Objeto de Interface de Rede|
+|Processador(\_Total) |% de Tempo do Processador |Contadores de Desempenho do ASP.NET|
+|TCPv4 |Falhas de Conexão |Objeto TCP |
+|TCPv4 |Conexões Estabelecidas |Objeto TCP |
+|TCPv4 |Conexões Estabelecidas |Objeto TCP|
+|TCPv4 |Segmentos Enviados/sec |Objeto TCP|
+|Interface de Rede(*) |Bytes Recebidos/sec |Objeto de Interface de Rede|
+|Interface de Rede(*) |Bytes Enviados/sec |Objeto de Interface de Rede|
+|Interface de Rede(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Recebidos/sec|Objeto de Interface de Rede|
+|Interface de Rede(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Enviados/sec|Objeto de Interface de Rede|
+|Interface de Rede(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Total/sec|Objeto de Interface de Rede|
 
 ## Criar e adicionar contadores de desempenho personalizados ao seu aplicativo
 
@@ -313,4 +325,4 @@ Agora que você aprendeu os conceitos básicos de como coletar contadores de des
 
 [Como monitorar serviços de nuvem](./how-to-monitor-a-cloud-service.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

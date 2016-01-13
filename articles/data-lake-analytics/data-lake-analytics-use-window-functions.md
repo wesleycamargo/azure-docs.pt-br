@@ -604,7 +604,7 @@ Há seis linhas na partição em que a chave de partição é "Web" (quarta linh
 
 - Há seis linhas com o valor igual ou inferior a 500; portanto, CUME\_DIST é igual a 6/6 = 1
 - Há 5 linhas com valor igual ou inferior a 400; portanto, CUME\_DIST é igual a 5/6=0.83
-- Há 4 linhas com valor igual ou inferior a 300; portanto, CUME\_DIST é igual a 5/6=0.66
+- Há quatro linhas com o valor igual ou inferior a 300; portanto, CUME\_DIST é igual a 4/6 = 0,66
 - Há 3 linhas com valor igual ou inferior a 200; portanto, CUME\_DIST é igual a 3/6=0.5. Há duas linhas com o mesmo valor de latência.
 - Há uma linha com valor igual ou inferior a 100; portanto, CUME\_DIST é igual a 1/6=0.16. 
 
@@ -743,4 +743,4 @@ PERCENTILE\_DISC não interpola valores; portanto, o mediano para Web é 200, o 
 - [Gerenciar a Análise Azure Data Lake usando o Azure PowerShell](data-lake-analytics-use-powershell.md)
 - [Monitorar e solucionar problemas em trabalhos da Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

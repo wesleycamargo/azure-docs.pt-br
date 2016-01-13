@@ -44,6 +44,7 @@ Primeiro, vamos começar com a criação de um projeto Java.
 * Clique em **Concluir**.
 * No modo de exibição do Gerenciador de Projeto do Eclipse, expanda **MyHelloWorld**. Clique com o botão direito do mouse em **WebContent**, clique em **Novo** e, em seguida, clique em **Arquivo JSP**.
 * Na caixa de diálogo **Novo Arquivo JSP**, nomeie o arquivo **index.jsp**. Mantenha a pasta pai como **MyHelloWorld/WebContent**, conforme mostrado a seguir:
+
     ![][ic659262]
 * Para o objetivo deste tutorial, na caixa de diálogo **Selecionar Modelo JSP**, escolha **Novo Arquivo JSP (html)** e clique em **Concluir**.
 * Quando o arquivo index.jsp for aberto no Eclipse, adicione o texto para exibir dinamicamente **Hello World!** dentro do elemento `<body>` existente. Seu conteúdo `<body>` atualizado deve ser semelhante ao seguinte:
@@ -62,6 +63,7 @@ Assim que você tiver um aplicativo Web Java pronto para testar, poderá usar o 
 1. Na barra de ferramentas do Eclipse, clique no botão **Publicar na Nuvem do Azure**
     ![][ic710882].
 1. Se você estiver publicando esse aplicativo no Azure pela primeira vez e nunca tiver criado um projeto de implantação do Azure para este aplicativo, um projeto de implantação do Azure será criado automaticamente para você. Você deverá ver o seguinte prompt, que também lista o pacote JDK e o servidor de aplicativos que será automaticamente implantado para executar o aplicativo.
+
     ![][ic789598]
     Essa abordagem de atalho permite uma maneira rápida e fácil de testar seu aplicativo no Azure sem precisar configurar um servidor ou JDK específico diferente dos padrões. Se você estiver satisfeito com os padrões, clique em **OK** para continuar com as etapas a seguir.
     No entanto, se você quiser alterar o JDK ou o servidor de aplicativos a ser usado para seu aplicativo, faça isso mais tarde editando o projeto de implantação do Azure criado automaticamente para você, ou clique em **Cancelar** agora e leia a seção **Sobre projetos de implantação do Azure** deste tutorial.
@@ -70,6 +72,7 @@ Assim que você tiver um aplicativo Web Java pronto para testar, poderá usar o 
         1. Clique em **Importar do arquivo PUBLISH-SETTINGS**.
         1. Na caixa de diálogo **Importar Informações de Assinatura**, clique em **Baixar arquivo PUBLISH-SETTINGS**. Se você ainda não estiver conectado à sua conta do Azure, receberá uma solicitação para fazer logon. Em seguida, você receberá uma solicitação para salvar um arquivo de configurações de publicação do Azure. Salve-o em seu computador local.
         1. Ainda na caixa de diálogo **Importar Informações de Assinatura**, clique no botão **Procurar**, selecione o arquivo de configurações de publicação que você salvou localmente na etapa anterior e, em seguida, clique em **Abrir**. Sua tela deve ser semelhante à seguinte:
+
             ![][ic644267]
         1. Clique em **OK**.
     1. Para **Assinatura**, selecione a assinatura que você deseja usar para sua implantação.
@@ -193,4 +196,4 @@ Para saber mais sobre como usar o Azure com Java, confira a [Central de Desenvol
 [ic719491]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic719491.png
 [ic789598]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic789598.png
 
-<!----HONumber=AcomDC_1210_2015-->
+<!-----HONumber=AcomDC_1210_2015-->

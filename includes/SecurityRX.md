@@ -38,7 +38,7 @@ Uma ameaça é um resultado potencial incorreto que você deseja evitar, como a 
 
 Vulnerabilidades são bugs que nós, como desenvolvedores, inserimos no código, fazendo com que um aplicativo possa ser explorado por invasores. Por exemplo, enviar dados confidenciais em formato de texto não criptografado possibilita uma ameaça de divulgação de informações por um ataque de detecção de tráfego.
 
-Os ataques são a exploração dessas vulnerabilidades de causar danos a um aplicativo. Por exemplo, um script entre sites, ou XSS, é um ataque que explora saída não corrigida. Outro exemplo é espionagem de rede para capturar as credenciais enviadas em formato de texto não criptografado. Esses ataques podem levar à realização de uma ameaça de falsificação de identidade. Para simplificar, considere ameaças, vulnerabilidades e ataques como coisas ruins. Considere os diagramas a seguir como um modo de exibição geral das coisas ruins relacionadas a uma aplicação Web implantada em Windows Azure (do [PDF de observações de segurança do Azure](http://blogs.msdn.com/b/jmeier/archive/2010/08/03/now-available-azure-security-notes-pdf.aspx) de J.D. Meier):
+Os ataques são a exploração dessas vulnerabilidades de causar danos a um aplicativo. Por exemplo, um script entre sites, ou XSS, é um ataque que explora saída não corrigida. Outro exemplo é espionagem de rede para capturar as credenciais enviadas em formato de texto não criptografado. Esses ataques podem levar à realização de uma ameaça de falsificação de identidade. Para simplificar, considere ameaças, vulnerabilidades e ataques como coisas ruins. Considere os diagramas a seguir como um modo de exibição geral das coisas ruins relacionadas a uma aplicação Web implantada em Microsoft Azure (do [PDF de observações de segurança do Azure](http://blogs.msdn.com/b/jmeier/archive/2010/08/03/now-available-azure-security-notes-pdf.aspx) de J.D. Meier):
 
 ![Ameaças, vulnerabilidades e ataques][02]
 
@@ -294,10 +294,10 @@ Para resolver esse cenário, consulte o seguinte tópico da Ajuda:<br/>[Desenvol
 Ou consulte um dos seus diversos tópicos secundários, entre eles:
 
 
-- [Como: Conectar-se ao Banco de Dados SQL do Windows Azure usando o sqlcmd](http://msdn.microsoft.com/library/azure/ee336280.aspx)
+- [Como: Conectar-se ao Banco de Dados SQL do Microsoft Azure usando o sqlcmd](http://msdn.microsoft.com/library/azure/ee336280.aspx)
 - [Exemplo de código: repetir a lógica para se conectar ao Banco de Dados SQL do Azure com o ADO.NET](http://msdn.microsoft.com/library/azure/ee336243.aspx)
 - [Como conectar-se ao Banco de Dados SQL usando PHP](http://msdn.microsoft.com/library/azure/ff394110.aspx)
-- [Como: Conectar-se ao Banco de dados SQL do Windows Azure usando o JDBC](http://msdn.microsoft.com/library/azure/gg715284.aspx)
+- [Como: Conectar-se ao Banco de dados SQL do Microsoft Azure usando o JDBC](http://msdn.microsoft.com/library/azure/gg715284.aspx)
 
 
 Ou consulte:<br/> [Limitações e diretrizes de segurança do Banco de Dados SQL do Azure](http://msdn.microsoft.com/library/azure/ff394108.aspx#authentication)

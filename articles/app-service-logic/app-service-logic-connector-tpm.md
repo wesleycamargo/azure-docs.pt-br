@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/30/2015"
+   ms.date="12/17/2015"
    ms.author="rajram"/>
 
 # Introdução ao Gerenciamento de Parceiros Comerciais do BizTalk e à adição dele ao seu Aplicativo Lógico
@@ -25,7 +25,7 @@ O Aplicativo de API TPM é o requisito básico para o conector de AS2 e os Aplic
 - Banco de dados vazio do SQL Azure - você precisa criar um banco de dados do SQL Azure vazio para depois criar um novo aplicativo de API do TPM.
 
 ## Entendendo parceiros, contratos e perfis
-Para saber mais sobre o contrato de parceiro comercial, clique [aqui][1].
+Saiba mais sobre como [criar um contrato de parceiro comercial][1].
 
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
@@ -39,4 +39,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 <!--References-->
 [1]: app-service-logic-create-a-trading-partner-agreement.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Criar uma coleção de banco de dados do Banco de Dados de Documentos | Microsoft Azure" 
-	description="Saiba como criar coleções usando o portal de serviço online do Banco de Dados de Documentos do Azure, um banco de dados de documentos NoSQL gerenciado para JSON. Obtenha hoje mesmo uma avaliação gratuita." 
+	description="Saiba como criar coleções de documento JSON usando o portal de serviço online para Banco de Dados de Documentos do Azure, um banco de dados de documento NoSQL com base na nuvem. Obtenha hoje mesmo uma avaliação gratuita." 
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -13,56 +13,69 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="12/18/2015" 
 	ms.author="mimig"/>
 
 # Criar uma coleção do Banco de Dados de Documentos
 
 Para usar o Banco de Dados de Documentos do Microsoft Azure, você deve ter uma conta do [Banco de Dados de Documentos](documentdb-create-account.md), um [banco de dados](documentdb-create-database.md), uma coleção e documentos. Este tópico descreve como criar uma coleção do Banco de Dados de Documentos no Portal do Azure.
 
+Não sabe direito o que é uma coleção? Confira [O que é uma coleção do Banco de Dados de Documentos?](#what-is-a-documentdb-collection)
+
 ![Captura de tela realçando as contas do Banco de Dados de Documentos no Jumpbar, a conta na folha do Banco de Dados de Documentos e o banco de dados na folha da conta do Banco de Dados de Documentos, nas lentes dos Bancos de Dados](./media/documentdb-create-collection/docdb-database-creation-1-3.png)
 
 1.  No [Portal do Azure](https://portal.azure.com/), no Jumpbar, clique em **Contas do Banco de Dados de Documentos**. 
 
-2.  Na folha **Contas do Banco de Dados de Documentos**, selecione a conta na qual adicionar uma coleção. Se você não tiver contas listadas, você precisará [criar uma conta do Banco de Dados de Documentos](documentdb-create-account.md).
+2.  Na folha **Contas do Banco de Dados de Documentos**, escolha a conta na qual adicionar uma coleção. Se você não tiver contas listadas, você precisará [criar uma conta do Banco de Dados de Documentos](documentdb-create-account.md).
 
-3. Na folha **Conta de Banco de Dados de Documentos** para a conta selecionada, role para baixo até as lentes dos **Bancos de dados** e, em seguida, selecione o banco de dados ao qual adicionar a uma coleção.
+3. Na folha **Conta de Banco de Dados de Documentos** da conta selecionada, role para baixo até as lentes dos **Bancos de dados** e escolha o banco de dados ao qual adicionar uma coleção.
     
 4. Na folha **Banco de dados**, clique em **Adicionar coleções**.
 
-	![Captura de tela realçando o botão Adicionar coleção na folha do Banco de dados, a configurações na folha Adicionar Coleção e o botão OK](./media/documentdb-create-collection/docdb-collection-creation-4-7.png)
+	![Captura de tela realçando o botão Adicionar Coleção na folha do Banco de Dados, as configurações na folha Adicionar Coleção e o botão OK — portal do Azure para Banco de Dados de Documentos — criador do banco de dados baseado na nuvem para bancos de dados JSON NoSQL](./media/documentdb-create-collection/docdb-collection-creation-4-7.png)
 
-5. Na folha **Adicionar coleção**, insira a ID da nova coleção. Quando o nome for validado, uma marca de seleção verde será exibida na caixa de identificação.
+5. Na folha **Adicionar coleção**, insira a ID da nova coleção. Os nomes de coleção devem ter entre 1 e 255 caracteres e não podem conter `/ \ # ?` nem espaços à direita. Quando o nome for validado, uma marca de seleção verde será exibida na caixa de identificação.
 
 6. Selecione uma faixa de preço para a nova coleção. Cada coleção que você cria é uma entidade faturável. Para obter mais informações sobre os níveis de desempenho disponíveis, consulte [Níveis de desempenho no Banco de Dados de Documentos](documentdb-performance-levels.md).
 
-7. Selecione uma das seguintes **Políticas de Indexação**.
+7. Escolha uma das seguintes **Políticas de Indexação**.
 
-	- **Padrão**. Essa política é mais útil quando você está executando consultas de igualdade em cadeias de caracteres e usando as consultas ORDER BY, intervalo e igualdade para números. Essa política tem uma sobrecarga de armazenamento de índice menor que o **Intervalo**.
-	- **Hash**. Essa política é mais útil quando você está executando consultas de igualdade para números e cadeias de caracteres. Essa política tem a menor sobrecarga de armazenamento do índice.
-	- **Intervalo**. Essa política é mais útil quando você está usando consultas ORDER BY, de intervalo e de igualdade em números e cadeias de caracteres. Essa política tem uma sobrecarga de armazenamento de índice maior do que o **Padrão** ou **Hash**.
+	- **Padrão**. Essa política usa a indexação de hash para cadeias de caracteres e indexação de intervalo para números. Ela é mais adequada para consultas de igualdade em relação a cadeias de caracteres, ORDER BY, e consultas de intervalo e igualdade em números. Essa política tem uma sobrecarga de armazenamento de índice menor e inclui indexação geoespacial.
+	- **Intervalo**. Essa política é mais útil quando você está usando consultas ORDER BY, de intervalo e de igualdade em números e cadeias de caracteres. Essa política tem uma sobrecarga de armazenamento de índice maior que a **Padrão** e inclui indexação geoespacial.
 
-	Para obter mais informações sobre políticas de indexação, consulte [Políticas de indexação do Banco de Dados de Documentos](documentdb-indexing-policies.md).
+	Para obter mais informações sobre políticas de indexação, confira [Políticas de indexação do Banco de Dados de Documentos](documentdb-indexing-policies.md).
 
 8. Clique em **OK** na parte inferior da tela para criar uma nova coleção.
 
 
 9. A nova coleção agora aparece na lente **Coleções** na folha **Banco de dados**.
  
-	![Captura de tela da nova coleção na folha do banco de dados](./media/documentdb-create-collection/docdb-collection-creation-8.png)
+	![Captura de tela da nova coleção na folha Banco de Dados — Portal do Azure para Banco de Dados de Documentos — criador do banco de dados baseado na nuvem para bancos de dados JSON NoSQL](./media/documentdb-create-collection/docdb-collection-creation-8.png)
+
+## O que é uma coleção do Banco de Dados de Documentos? 
+
+Uma coleção é um contêiner de documentos JSON e uma lógica de aplicativo JavaScript associada. Uma coleção é uma entidade faturável, em que o [custo](documentdb-performance-levels.md) é determinado pelo nível de desempenho associado à coleção.
+
+As coleções são o limite de transação para procedimentos e gatilhos armazenados, bem como o ponto de entrada para consultas e operações CRUD. Cada coleção tem uma quantidade reservada de produtividade específica, que não é compartilhada com outras coleções na mesma conta. Portanto, você pode escalar horizontalmente o aplicativo em termos de armazenamento e produtividade, acrescentando mais coleções e distribuindo seus documentos entre elas.
+
+Coleções não são o mesmo que tabelas em bancos de dados relacionais. As coleções não impõem esquemas. Na verdade, o Banco de Dados de Documentos não impõe nenhum esquema. Trata-se de um banco de dados livre de esquema. Sendo assim, você pode armazenar tipos diferentes de documentos com vários esquemas na mesma coleção. É possível optar por usar coleções para armazenar objetos de um único tipo, assim como acontece com as tabelas. O melhor modelo depende apenas de como os dados aparecem juntos em consultas e transações.
 
 ## Outra formas de criar uma coleção do Banco de Dados de Documentos
 
-As coleções não precisam ser criadas usando o Portal; você também pode criá-las usando os [SDKs do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn781482.aspx). Para ver um exemplo de código em C# mostrando como criar uma coleção usando o SDK .NET do Banco de Dados de Documentos, consulte o arquivo [Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/CollectionManagement/Program.cs) arquivo no projeto CollectionManagement, disponível no repositório [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net) em [GitHub.com](https://github.com).
+As coleções não precisam ser criadas usando o portal, também é possível criá-las usando os [SDKs do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn781482.aspx). Para ver um exemplo de código em C# mostrando como criar uma coleção usando o SDK .NET do Banco de Dados de Documentos, consulte o arquivo [Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/CollectionManagement/Program.cs) arquivo no projeto CollectionManagement, disponível no repositório [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net) em [GitHub.com](https://github.com).
+
+## Solucionar problemas
+
+Se a opção **Adicionar Coleção** estiver desabilitada no Portal do Azure, isso significa que sua conta está desabilitada no momento, o que normalmente ocorre quando todos os créditos de benefícios do mês são usados.
 
 ## Próximas etapas
 
 Agora que você tem uma coleção, a próxima etapa é adicionar documentos ou importar documentos na coleção. Quando se trata de adicionar documentos a uma coleção, você tem algumas opções:
 
-- Você pode [adicionar documentos](../documentdb-view-json-document-explorer.md) usando o Gerenciador de Documentos no Portal.
+- Você pode [adicionar documentos](documentdb-view-json-document-explorer.md) usando o Gerenciador de Documentos no portal.
 - Você pode [importar documentos e dados](documentdb-import-data.md) usando a ferramenta de migração de dados do Banco de Dados de Documentos, que permite importar arquivos JSON e CSV, bem como dados do SQL Server, MongoDB, armazenamento de tabela do Azure e outras coleções do Banco de Dados de Documentos. 
-- Ou você pode adicionar documentos usando um dos [SDKs do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn781482.aspx). O Banco de Dados de Documentos tem SDKs de API de JavaScript, .NET, Java, Python e Node.js. O arquivo [Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/DocumentManagement/Program.cs) arquivo no projeto DocumentManagement, disponível no repositório [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net) no [GitHub.com](https://github.com), demonstra operações CRUD em documentos usando o SDK .NET do Banco de Dados de Documentos.
+- Ou você pode adicionar documentos usando um dos [SDKs do Banco de Dados de Documentos](documentdb-sdk-dotnet.md). O Banco de Dados de Documentos tem SDKs de API de JavaScript, .NET, Java, Python e Node.js. O arquivo [Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/DocumentManagement/Program.cs) arquivo no projeto DocumentManagement, disponível no repositório [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net) no [GitHub.com](https://github.com), demonstra operações CRUD em documentos usando o SDK .NET do Banco de Dados de Documentos.
 
-Depois que seus documentos estiverem em uma coleção, você pode usar o [SQL do Banco de Dados de Documentos](documentdb-sql-query.md) para [executar consultas](documentdb-sql-query.md#executing-queries) em seus documentos usando o [Gerenciador de Consultas](documentdb-query-collections-query-explorer.md) no Portal, a [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou um dos [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+Depois que os documentos estiverem em uma coleção, você poderá usar o [SQL do Banco de Dados de Documentos](documentdb-sql-query.md) para [executar consultas](documentdb-sql-query.md#executing-queries) nos documentos usando o [Gerenciador de Consultas](documentdb-query-collections-query-explorer.md) no portal, a [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou um dos [SDKs](documentdb-sdk-dotnet.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

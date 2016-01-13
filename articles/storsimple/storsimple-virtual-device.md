@@ -17,7 +17,10 @@
 
 # Implantar e gerenciar um dispositivo virtual StorSimple no Azure
 
-[AZURE.INCLUDE [storsimple-version-selector-sva](../../includes/storsimple-version-selector-sva.md)]
+> [AZURE.SELECTOR]
+- [Update 2](../articles/storsimple/storsimple-virtual-device-u2.md)
+- [Update 1](../articles/storsimple/storsimple-virtual-device-u1.md)
+- [GA Release](../articles/storsimple/storsimple-virtual-device.md)
 
 ## Visão geral
 
@@ -131,7 +134,8 @@ Execute as seguintes etapas para criar o dispositivo virtual StorSimple.
 
 	4. **Conta de Armazenamento para Criação de Dispositivo Virtual** – a conta de armazenamento que será usada para armazenar a imagem do dispositivo virtual durante o provisionamento. Esta conta de armazenamento deve estar na mesma região do dispositivo virtual e da rede virtual. Ela não deve ser usada para armazenamento de dados, o dispositivo físico ou o dispositivo virtual. Por padrão, uma nova conta de armazenamento será criada para essa finalidade. No entanto, se você souber que você já tem uma conta de armazenamento adequada para esse uso, poderá selecioná-la da lista.
 
-4. Clique na marca de seleção para indicar que você entende que os dados armazenados no dispositivo virtual serão hospedados em um datacenter da Microsoft. Um dispositivo virtual será criado agora. Pode levar de 45 minutos a 1 hora para um dispositivo virtual ser criado.![Estágio de criação do dispositivo virtual StorSimple](./media/storsimple-virtual-device/StorSimple_VirtualDeviceCreating1M.png)
+4. Clique na marca de seleção para indicar que você entende que os dados armazenados no dispositivo virtual serão hospedados em um datacenter da Microsoft. Um dispositivo virtual será criado agora. Pode levar de 45 minutos a 1 hora para um dispositivo virtual ser criado.
+	![Estágio de criação do dispositivo virtual StorSimple](./media/storsimple-virtual-device/StorSimple_VirtualDeviceCreating1M.png)
 
 Quando você usa apenas um dispositivo físico, sua chave de criptografia é mantida com seu dispositivo; portanto, a Microsoft não pode descriptografá-la. Quando você usa um dispositivo virtual, a chave de criptografia e a chave de descriptografia são armazenadas no Microsoft Azure. Para saber mais, consulte [Considerações de segurança para usar um dispositivo virtual](#security-considerations-for-using-a-virtual-device).
 
@@ -151,7 +155,7 @@ Execute as seguintes etapas para configurar e registrar o dispositivo virtual St
 1. No assistente Configurar dispositivo:
 
 	1. Insira a **Chave de Criptografia de Dados de Serviço** no espaço fornecido.
-	2. Insira a **senha do Snapshot Manager**. A **senha do Snapshot Manager** deve ter 14 ou 15 caracteres e uma combinação de letras minúsculas, maiúsculas, números e caracteres especiais.
+	2. Insira a **senha do Gerenciador de Instantâneos**. A **senha do Snapshot Manager** deve ter 14 ou 15 caracteres e uma combinação de letras minúsculas, maiúsculas, números e caracteres especiais.
 	3. Insira a **senha de administrador do dispositivo**. A **senha de administrador do dispositivo** deve ter entre 8 a 15 caracteres e uma combinação de letras minúsculas, maiúsculas, números e caracteres especiais.
 	4. Clique no ícone de seleção para concluir a configuração inicial e o registro do dispositivo virtual.
 
@@ -388,4 +392,4 @@ Se você excluir ou desligar o dispositivo virtual, ele será exibido como **Off
 
 Para administrar o dispositivo virtual, confira a lista detalhada dos fluxos de trabalho em [Administrar o dispositivo StorSimple usando o serviço StorSimple Manager](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->
