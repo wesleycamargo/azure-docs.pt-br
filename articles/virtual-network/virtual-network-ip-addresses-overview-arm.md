@@ -23,7 +23,7 @@ Endereços IP públicos são usados para comunicação com a Internet, incluindo
 
 Endereços IP privados são usados para comunicação em uma VNet (rede virtual) do Azure e na sua rede local quando você usa um gateway de VPN ou circuito de Rota Expressa para estender sua rede para o Azure.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-network-ip-addresses-overview-classic.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [modelo de implantação clássico](virtual-network-ip-addresses-overview-classic.md).
 
 ## Endereços IP públicos
 Endereços IP públicos permitem que os recursos do Azure comuniquem-se com os serviços públicos do Azure, como [Cache Redis do Azure](https://azure.microsoft.com/services/cache), [Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs), [bancos de dados SQL](sql-database-technical-overview.md) e [armazenamento do Azure](storage-introduction.md).
@@ -125,7 +125,16 @@ A tabela a seguir mostra cada tipo de recurso com os métodos de alocação poss
 ## Comparação entre as implantações do Gerenciador de recursos e clássica
 A seguir está uma comparação do endereço IP no Gerenciador de recursos com o modelo de implantação clássico.
 
-||Recurso|Clássico|Gerenciador de Recursos| |---|---|---|---| |**Endereço IP Público**|VM|Chamado de ILPIP (apenas dinâmico)|Chamado de IP público (dinâmico ou estático)| |||Atribuído a uma VM IaaS ou a uma instância de função PaaS|Associado à NIC da VM| ||Balanceador de carga voltado para a Internet|Chamado de VIP (dinâmico) ou IP reservado (estático)|Chamado de IP público (dinâmico ou estático)| |||Atribuído a um serviço de nuvem|Associado à configuração de front-end do balanceador de carga| |||| |**Endereço IP Privado**|VM|Chamado de DIP|Chamado de endereço IP Privado| |||Atribuído a uma VM IaaS ou a uma instância de função PaaS|Atribuído à NIC da VM| ||Balanceador de carga interno (ILB)|Atribuído ao ILB (dinâmico ou estático)|Atribuído à configuração de front-end do ILB (dinâmica ou estática)|
+||Recurso|Clássico|Gerenciador de Recursos|
+|---|---|---|---|
+|**Endereço IP Público**|VM|Chamado de ILPIP (apenas dinâmico)|Chamado de IP público (dinâmico ou estático)|
+|||Atribuído a uma VM IaaS ou a uma instância de função PaaS|Associado à NIC da VM|
+||Balanceador de carga voltado para a Internet|Chamado de VIP (dinâmico) ou IP reservado (estático)|Chamado de IP público (dinâmico ou estático)|
+|||Atribuído a um serviço de nuvem|Associado à configuração de front-end do balanceador de carga|
+||||
+|**Endereço IP Privado**|VM|Chamado de DIP|Chamado de endereço IP Privado|
+|||Atribuído a uma VM IaaS ou a uma instância de função PaaS|Atribuído à NIC da VM|
+||Balanceador de carga interno (ILB)|Atribuído ao ILB (dinâmico ou estático)|Atribuído à configuração de front-end do ILB (dinâmica ou estática)|
 
 ## Próximas etapas
 - [Implantar uma VM com um endereço IP público estático](virtual-network-deploy-static-pip-arm-template.md)
@@ -137,3 +146,4 @@ A seguir está uma comparação do endereço IP no Gerenciador de recursos com o
 - [Criar um pool de back-end com endereços IP estáticos privados para um application gateway usando o PowerShell](application-gateway-create-gateway-arm.md#create-an-application-gateway-configuration-object)
 
 <!---HONumber=AcomDC_1223_2015-->
+

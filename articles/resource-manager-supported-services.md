@@ -63,7 +63,8 @@ Recursos de máquinas virtuais (clássico) podem ser movidos para um novo grupo 
 | Banco de Dados SQL | Sim | Sim | [Criar banco de dados](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) | [Microsoft.Sql](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Sql%22&type=Code) |
 | Pesquisar | Sim | Sim | [REST de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) | | [Microsoft.Search](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Search%22&type=Code) |
 | SQL Data Warehouse | Sim | | | |
-| StorSimple | Não | - | - | - | | Cache gerenciado | Não | - | - | - |
+| StorSimple | Não | - | - | - |
+| Cache gerenciado | Não | - | - | - |
 
 ## Web e serviços móveis
 
@@ -106,13 +107,16 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 | ------- | ------- | -------------- | -------- | ------ | ------ |
 | Serviços do BizTalk | Sim | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) | [Microsoft.BizTalkServices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.BizTalkServices%22&type=Code) |
 | Barramento de Serviço | Sim | | [REST do Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh780717.aspx) | | [Microsoft.ServiceBus](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
-| Backup | Não | - | - | - | | Recuperação de Site | Não | - | - | - |
+| Backup | Não | - | - | - |
+| Recuperação de Site | Não | - | - | - |
 
 ## Gerenciamento de acesso e identidade 
 
 | O Barramento de | Gerenciador de Recursos habilitado | Mover recursos | API REST | Esquema | Modelos de Início Rápido |
 | ------- | ------- | -------------- | -------- | ------ | ------ |
-| Active Directory do Azure | Não | - | - | - | | Actice Directory B2C do Azure | Não | - | - | - | | Multi-Factor Authentication | Não | - | - | - |
+| Active Directory do Azure | Não | - | - | - |
+| Actice Directory B2C do Azure | Não | - | - | - |
+| Multi-Factor Authentication | Não | - | - | - |
 
 ## Serviços para Desenvolvedores 
 
