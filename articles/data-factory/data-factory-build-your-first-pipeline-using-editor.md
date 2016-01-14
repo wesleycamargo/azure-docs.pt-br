@@ -290,7 +290,7 @@ Nesta etapa, você criará seu primeiro pipeline com a atividade **HDInsightHive
 
 	![Conjunto de dados](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
 9. Quando o processamento for concluído, você verá a fatia no estado **Pronto**.
-	>[AZURE.IMPORTANT]A criação de um cluster do HDInsight sob demanda geralmente leva algum tempo (20 minutos, aproximadamente).  
+>[AZURE.IMPORTANT]A criação de um cluster do HDInsight sob demanda geralmente leva algum tempo (20 minutos, aproximadamente).  
 
 	![Conjunto de dados](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)
 	
@@ -312,4 +312,4 @@ Neste artigo, você criou um pipeline com uma atividade de transformação (ativ
 
   
 
-<!---HONumber=AcomDC_1223_2015-->
+<!----HONumber=AcomDC_1223_2015-->
