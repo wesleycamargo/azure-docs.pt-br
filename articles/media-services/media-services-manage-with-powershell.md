@@ -19,7 +19,6 @@
 
 #Gerenciar contas dos Serviços de Mídia do Azure com o PowerShell
 
-
 > [AZURE.SELECTOR]
 - [Portal](media-services-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
@@ -122,4 +121,4 @@ Quando você estiver pronto para excluir a conta de mídia do Azure, use [Remove
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->
