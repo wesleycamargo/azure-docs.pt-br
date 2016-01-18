@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
+   ms.date="12/17/2015"
    ms.author="barbkess"/>
 
 # Migrar seus dados
@@ -194,4 +194,4 @@ Para saber mais sobre a migração, consulte [Migrar sua solução para o SQL Da
 [Adaptador de destino ADO.NET]: https://msdn.microsoft.com/library/bb934041.aspx
 [documentação do SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1223_2015-->

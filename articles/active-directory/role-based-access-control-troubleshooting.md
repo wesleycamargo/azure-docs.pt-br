@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="12/04/2015"
 	ms.author="inhenk"/>
 
 # Solução de problemas de controle de acesso baseado em função
@@ -82,4 +82,4 @@ As máquinas virtuais têm esses recursos relacionados: * Nomes de domínio * Re
 
 Se você não conseguir acessar nenhum desses blocos, precisará solicitar ao seu administrador o acesso de Colaborador para o Grupo de recursos.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1210_2015-->

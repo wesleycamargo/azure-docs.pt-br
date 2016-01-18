@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/30/2015" 
+	ms.date="12/14/2015" 
 	ms.author="jeffstok"
 />
 
@@ -142,7 +142,7 @@ Anote a URL do serviço Web e a tecla de acesso da planilha em Excel baixada, co
 
 Neste tutorial, um trabalho de Stream Analytics foi criado para ler fluxo de dados de texto e analisar o sentimento nele em tempo real. Você conseguiu fazer tudo isso sem precisar se preocupar com a complexidade de criar um modelo de análise de sentimento. Essa é uma das vantagens do pacote Análise da Cortana.
 
-A métrica relativa à função de Aprendizado de Máquina do Azure também pode ser observada. Clique na guia **MONITOR**. Há três métricas relativas à função.
+A métrica relativa à função linguística do Aprendizado de Máquina também pode ser observada. Clique na guia **MONITOR**. Há três métricas relativas à função.
   
 - SOLICITAÇÕES DE FUNÇÃO indica o número de solicitações para o serviço Web de aprendizado de máquina.  
 - EVENTOS DE FUNÇÃO indica o número de eventos na solicitação. Por padrão, cada solicitação ao serviço Web do AM contém até mil eventos.  
@@ -150,4 +150,4 @@ A métrica relativa à função de Aprendizado de Máquina do Azure também pode
 
     ![tutorial stream analytics aprendizado de máquina exibição no monitor am](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1217_2015-->

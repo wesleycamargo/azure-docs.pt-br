@@ -21,7 +21,10 @@
 # Conectar-se ao Banco de Dados SQL usando Ruby no Ubuntu Linux
 
 
-[AZURE.INCLUDE [SQL-Database-develop-Includes-Selector-Language-Platform-Depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+> [AZURE.SELECTOR]
+- [Python](sql-database-develop-python-simple-ubuntu-linux.md)
+- [Node.js](sql-database-develop-nodejs-simple-linux.md)
+- [Ruby](sql-database-develop-ruby-simple-linux.md)
 
 
 Este tópico apresente um exemplo de código Ruby executado em um computador cliente Ubuntu Linux, para se conectar a um Banco de Dados SQL do Azure.
@@ -118,4 +121,4 @@ Para alinhar com o formato [datetime](http://msdn.microsoft.com/library/ms187819
     puts row
     end
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1223_2015-->

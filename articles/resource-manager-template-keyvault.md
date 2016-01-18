@@ -1,6 +1,6 @@
 <properties
    pageTitle="Modelo do Gerenciador de Recursos para o cofre da chave | Microsoft Azure"
-   description="Mostra o esquema do Gerenciador de Recursos para a implantação de cofres da chave por meio de um modelo."
+   description="Mostra o esquema de cofres de chave do Gerenciador de Recursos."
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
+   ms.date="12/15/2015"
    ms.author="tomfitz"/>
 
 # Esquema de modelo do cofre da chave
@@ -234,16 +234,10 @@ O exemplo a seguir implanta um cofre da chave e um segredo.
         }]
     }
 
-## Modelos de início rápido
-
-O modelo de início rápido a seguir implanta um cofre da chave.
-
-- [Criar Cofre da Chave](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
-
 
 ## Próximas etapas
 
 - Para obter informações gerais sobre cofres de chave, veja [Introdução ao Cofre da Chave do Azure](./key-vault/key-vault-get-started.md).
 - Para obter um exemplo de como fazer referência a um segredo do cofre da chave durante a implantação de modelos, veja [Transmitir valores seguros durante a implantação](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1217_2015-->

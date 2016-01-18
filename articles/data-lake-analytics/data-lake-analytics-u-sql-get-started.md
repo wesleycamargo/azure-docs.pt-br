@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/04/2016"
+   ms.date="11/30/2015"
    ms.author="jgao"/>
 
 # Tutorial: introdução à linguagem U-SQL da Análise do Azure Data Lake
+
+Saiba como desenvolver scripts U-SQL.
 
 O U-SQL é uma linguagem que unifica as vantagens do SQL com o poder expressivo do seu próprio código para processar todos os dados em qualquer escala. A capacidade de consulta distribuída escalonável do U-SQL permite a análise eficiente dos dados no repositório e entre repositórios relacionais, como o Banco de Dados SQL do Azure. Ele permite que você processe dados não estruturados aplicando o esquema na leitura, na inserção de lógica personalizada e em UDFs, e inclui extensibilidade para habilitar o controle refinado sobre como executar em grande escala. Para saber mais sobre a filosofia de design por trás do U-SQL, consulte a esta [postagem de blog do Visual Studio](http://blogs.msdn.com/b/visualstudio/archive/2015/09/28/introducing-u-sql.aspx).
 
@@ -24,28 +26,107 @@ Existem algumas diferenças de T-SQL ou ANSI SQL. Por exemplo, as palavras-chave
 
 É um sistema de inserção e de linguagem de expressão em cláusulas SELECT, em que os predicados e afins estão em C#. Isso significa que os tipos de dados são os tipos C# e os tipos de dados usam a semântica C# NULL, e as operações de comparação dentro de um predicado seguem uma sintaxe C# (por exemplo, um == "foo"). Isso também significa que os valores são objetos totalmente .NET, permitindo que você use facilmente qualquer método para operar no objeto (por exemplo, "f o o o".Split(' ')).
 
-Para saber mais, consulte [Referência do U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
+Para saber mais, consulte [Referência U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
-###Pré-requisitos
+**Pré-requisitos**
 
-É necessário concluir [Tutorial: desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
+- **Visual Studio 2015, Visual Studio 2013 atualização 4 ou Visual Studio 2012 com Visual C++ instalado** 
+- **SDK do Microsoft Azure para .NET versão 2.7 ou posterior**. Instale-o usando o [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
+- **[Ferramentas do Data Lake para Visual Studio](http://aka.ms/adltoolsvs)**. 
+	
+	Quando as Ferramentas do Data Lake para Visual Studio forem instaladas, você verá um menu do **Data Lake** no Visual Studio:
+	
+	![Menu Visual Studio U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-menu.png)
 
-No tutorial, você executou um trabalho de Análise Data Lake com o seguinte script U-SQL:
+- **Conhecimento básico da Análise Data Lake e das Ferramentas do Data Lake para Visual Studio**. Para começar. confira:
+ 
+	- [Introdução à Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md).
+	- [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 
-    @searchlog =
-        EXTRACT UserId          int,
-                Start           DateTime,
-                Region          string,
-                Query           string,
-                Duration        int?,
-                Urls            string,
-                ClickedUrls     string
-        FROM "/Samples/Data/SearchLog.tsv"
-        USING Extractors.Tsv();
-    
-    OUTPUT @searchlog   
-        TO "/output/SearchLog-first-u-sql.csv"
-    USING Outputters.Csv();
+- **Uma conta da Análise do Data Lake**. Veja [Criar uma conta da Análise do ADL (Azure Data Lake)](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
+- **Carregue os dados de exemplo na conta da Análise Data Lake.** Confira [Carregar SearchLog.tsv na conta padrão de Armazenamento do Data Lake](data-lake-analytics-get-started-portal.md#update-data-to-the-default-adl-storage-account).
+
+	As Ferramentas do Data Lake não dão suporte à criação de contas da Análise Data Lake. Portanto, você precisa criá-la usando o Portal do Azure, Azure PowerShell, SDK do .NET ou a CLI do Azure. Para executar o trabalho da Análise Data Lake, você precisará de alguns dados. Embora as Ferramentas do Data Lake deem suporte ao carregamento de dados, você poderá usar o portal para carregar os dados de exemplo para deixar o tutorial mais fácil de acompanhar.
+
+## Conectar-se ao Azure do Visual Studio
+
+Antes de criar e testar qualquer script U-SQL, é preciso se conectar ao Azure.
+
+**Para conectar-se à Análise Data Lake**
+
+1. Abra o Visual Studio.
+2. No menu **Data Lake**, clique em **Opções e Configurações**.
+4. Clique em **Entrar** ou em **Alterar Usuário** se alguém estiver conectado e siga as instruções para entrar.
+5. Clique em **OK** para fechar a caixa de diálogo Opções e Configurações.
+
+**Para procurar suas contas da Análise Data Lake**
+
+1. No Visual Studio, abra o **Gerenciador de Servidores** pressionando **CTRL+ALT+S**.
+2. No **Gerenciador de Servidores**, expanda **Azure** e **Análise Data Lake**. Você deverá ver uma lista das suas contas da Análise Data Lake, caso haja alguma. Não é possível criar contas da Análise Data Lake a partir do estúdio. Para criar uma conta, veja [Introdução à Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md) ou [Introdução à Análise do Azure Data Lake usando o Azure PowerShell](data-lake-get-started-powershell.md).
+
+
+## Desenvolver seus primeiros scripts U-SQL 
+
+O objetivo principal desta seção é entender o processo de escrever e testar um aplicativo U-SQL usando ferramentas Data Lake para Visual Studio. As instruções U-SQL também são usadas em outros tutoriais de Análises Data Lake. Ele simplesmente lê um arquivo delimitado por tabulação (tsv) e gera o arquivo como um arquivo delimitado por vírgulas (csv).
+ 
+**Para criar e enviar um trabalho da Análise Date Lake**
+
+1. No menu **Arquivo**, clique em **Novo** e em **Projeto**.
+2. Selecione o tipo Projeto do U-SQL.
+
+	![novo projeto de U-SQL do Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
+	
+3. Clique em **OK**. O Visual Studio cria uma solução com um arquivo Script.usql.
+4. Insira o seguinte script no painel de script:
+
+        @searchlog =
+            EXTRACT UserId          int,
+                    Start           DateTime,
+                    Region          string,
+                    Query           string,
+                    Duration        int?,
+                    Urls            string,
+                    ClickedUrls     string
+            FROM "/Samples/Data/SearchLog.tsv"
+            USING Extractors.Tsv();
+        
+        OUTPUT @searchlog   
+            TO "/output/SearchLog-first-u-sql.csv"
+        USING Outputters.Csv();
+
+		The next section in this article will explain the script in details.  You just need to focus on understanding the development and testing process in this section.
+5. Ao lado do botão **Enviar**, especifique a conta de análise.
+5. No **Gerenciador de Soluções**, clique com botão direito do mouse em **Script.usql** e clique em **Criar Script**. Verifique o resultado no painel Saída. Se você tiver um erro no script, verá aqui uma saída de erro. 
+6. No **Gerenciador de Soluções**, clique com botão direito do mouse em **Script.usql** e clique em **Enviar Script**.
+7. Verifique a **Análise de Conta**, e clique em **Enviar**. Os resultados do envio e o link do trabalho ficarão disponíveis na janela de resultados das Ferramentas do Date Lake para Visual Studio quando o envio for concluído.
+8. Você pode clicar no botão **Atualizar** para ver o status do trabalho mais recente e atualizar a tela. Aguarde até que o trabalho seja concluído com êxito. Se houver falha no trabalho, é provável que esteja faltando o arquivo original. Você pode usar a guia "erro" na ferramenta para ver o erro retornado do serviço. Consulte a seção Pré-requisito deste tutorial. Para saber mais, consulte [Monitorar e solucionar problemas com trabalhos de análise do Azure Data Lake](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
+
+	
+**Para ver a saída do trabalho**
+
+1. No **Gerenciador de Servidores**, expanda o **Azure**, expanda a **Análise Data Lake**, expanda sua conta da Análise Data Lake, expanda **Contas de Armazenamento**, clique com o botão direito do mouse na conta padrão de Armazenamento do Data Lake e clique em **Gerenciador**. 
+2.  Clique duas vezes em **Saída** para abrir a pasta
+3.  Clique duas vezes em **SearchLog-frist-u-sql.csv**.
+4.  Também é possível clicar duas vezes no arquivo de saída no modo de exibição de gráficos a fim de navegar diretamente até o arquivo de saída.
+
+## Noções básicas sobre o primeiro script U-SQL
+
+Vamos examinar melhor o script que você escreveu na última seção:
+
+        @searchlog =
+            EXTRACT UserId          int,
+                    Start           DateTime,
+                    Region          string,
+                    Query           string,
+                    Duration        int?,
+                    Urls            string,
+                    ClickedUrls     string
+            FROM "/Samples/Data/SearchLog.tsv"
+            USING Extractors.Tsv();
+        
+        OUTPUT @searchlog   
+            TO "/output/SearchLog-first-usql.csv"
+        USING Outputters.Csv();
 
 Esse script não possui nenhuma etapa de transformação. Ele lê a partir do arquivo de origem chamado **SearchLog.tsv**, esquematiza-o e gera o conjunto de linhas de volta em um arquivo chamado **SearchLog-from-adltools.csv**.
 
@@ -68,7 +149,7 @@ Alguns conceitos e palavras-chave encontrados no script:
 
 ## Usar variáveis escalares
 
-Você pode usar variáveis escalares também para facilitar a manutenção do seu script. O script U-SQL anterior também pode ser escrito da seguinte forma:
+Você pode usar variáveis escalares também para facilitar a manutenção do seu script. O primeiro script U-SQL também pode ser escrito da seguinte forma:
 
     DECLARE @in  string = "/Samples/Data/SearchLog.tsv";
     DECLARE @out string = "/output/SearchLog-scalar-variables.csv";
@@ -88,7 +169,7 @@ Você pode usar variáveis escalares também para facilitar a manutenção do se
         TO @out
         USING Outputters.Csv();
       
-## Transformar conjuntos de linhas
+##Transformar conjuntos de linhas
 
 Use **SELECT** para transformar conjuntos de linhas:
 
@@ -143,7 +224,7 @@ O script a seguir usa o método DateTime.Parse() e um conjunto.
         
 Observe que a segunda consulta está operando no resultado do primeiro conjunto de linhas e, portanto, o resultado é uma composição de dois filtros. Também é possível reutilizar um nome de variável; os nomes passam lexicalmente.
 
-## Agregar conjuntos de linhas
+##Agregar conjuntos de linhas
 
 O U-SQL fornece as conhecidas funções **ORDER BY**, **GROUP BY** e agregações.
 
@@ -215,6 +296,7 @@ A cláusula U-SQL HAVING pode ser usada para restringir a saída aos grupos que 
         TO "/output/Searchlog-having.csv"
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
+
 
 ## Join data
 
@@ -419,4 +501,4 @@ O que é abordado no tutorial é apenas uma pequena parte do U-SQL. Por causa do
 - [Obter ajuda nos fóruns](http://aka.ms/adlaforums)
 - [Fornecer comentários sobre o U-SQL](http://aka.ms/usqldiscuss)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1203_2015-->

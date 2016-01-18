@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="11/03/2015"
 	ms.author="curtand"/>
 
 
@@ -60,4 +60,4 @@ A tabela a seguir descreve as configurações de política de senha disponíveis
 * [Solucionar problemas do Gerenciamento de Senhas](active-directory-passwords-troubleshoot.md)
 * [Saiba mais](active-directory-passwords-learn-more.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # Como usar o armazenamento de tabela do Azure com o SDK de Trabalhos Web
@@ -22,7 +22,7 @@
 
 Este guia fornece exemplos de código em C# que mostram como ler e gravar tabelas de armazenamento do Azure usando o [SDK de Trabalhos Web](websites-dotnet-webjobs-sdk.md) versão 1.x.
 
-Com esse guia, pressupomos que você saiba [como criar um projeto do Trabalho Web no Visual Studio com cadeias de conexão que apontam para sua conta de armazenamento](websites-dotnet-webjobs-sdk-get-started.md) ou [várias contas de armazenamento](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).
+O guia pressupõe que você saiba [como criar um projeto de Trabalho Web no Visual Studio com cadeias de conexão que apontam para sua conta de armazenamento](websites-dotnet-webjobs-sdk-get-started.md).
 		
 Alguns dos trechos de código mostram o atributo `Table` usado nas funções que são [chamadas manualmente](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual), ou seja, que não usam um dos atributos de acionamento.
 
@@ -163,4 +163,4 @@ Os tópicos abordados nesse artigo incluem o seguinte:
 Este guia forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com tabelas do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure – Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=Oct15_HO3-->

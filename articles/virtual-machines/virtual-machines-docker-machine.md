@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="01/04/2016"
+   ms.date="09/22/2015"
    ms.author="rasquill"/>
 
 # Como usar a máquina de suporte com o Azure
@@ -201,7 +201,7 @@ Abra seu navegador favorito e dê uma olhada.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Próximas etapas
-Vá para o [guia do usuário Docker](https://docs.docker.com/userguide/) e crie alguns aplicativos no Microsoft Azure. Ou vá brincar com o [**docker** e o swarm](https://github.com/docker/swarm) no Azure](virtual-machines-docker-swarm.md) e veja como o swarm pode ser usado com o docker e o Azure.
+Vá para o [guia do usuário Docker](https://docs.docker.com/userguide/) e crie alguns aplicativos no Microsoft Azure. Ou vá brincar com o [**docker** e o swarm](https://github.com/docker/swarm) no Azure](virtual-machines-docker-swarm) e veja como o swarm pode ser usado com o docker e o Azure.
 
 <!--Image references-->
 [nginx]: ./media/virtual-machines-docker-machine/nginxondocker.png
@@ -214,4 +214,4 @@ Vá para o [guia do usuário Docker](https://docs.docker.com/userguide/) e crie 
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="10/01/2015" 
 	ms.author="stefsch"/>
 
 # Visão geral da arquitetura de rede dos Ambientes de Serviço de Aplicativo
@@ -87,4 +87,4 @@ Os detalhes sobre como usar rotas definidas pelo usuário para conceder acesso �
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 [CallsBetweenAppServiceEnvironments]: ./media/app-service-app-service-environment-network-architecture-overview/CallsBetweenEnvironments-1.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=Oct15_HO3-->

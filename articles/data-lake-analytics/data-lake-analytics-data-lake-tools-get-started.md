@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/07/2015"
+   ms.date="12/21/2015"
    ms.author="jgao"/>
 
 # Tutorial: desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio
@@ -79,7 +79,7 @@ Caso você queira usar seus próprios dados, estes são os procedimentos para ca
 
 ## Desenvolver scripts U-SQL 
 
-Os trabalhos de Análise Data Lake são escritos na linguagem U-SQL. Para saber mais sobre o U-SQL, consulte [Introdução à linguagem U-SQL](data-lake-analytics-u-sql-get-started.md) e [Referência da linguagem U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
+Os trabalhos de Análise Data Lake são escritos na linguagem U-SQL. Para saber mais sobre o U-SQL, confira [Introdução à linguagem U-SQL](data-lake-analytics-u-sql-get-started.md) e [Referência de linguagem U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 
 **Para criar e enviar um trabalho da Análise Data Lake**
 
@@ -88,8 +88,6 @@ Os trabalhos de Análise Data Lake são escritos na linguagem U-SQL. Para saber 
 
 	![novo projeto de U-SQL do Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 
-	>[AZURE.NOTE]Atualmente, as ferramentas do Data Lake não dão suporte a caminhos de projeto UNC em execução local.
-	
 3. Clique em **OK**. O Visual Studio cria uma solução com um arquivo **Script.usql**.
 4. Insira o seguinte script em **Script.usql**:
 
@@ -221,10 +219,6 @@ Você verá uma conta *Local* no Visual Studio e o instalador cria uma pasta *Da
 - Para um determinado script: se um caminho relativo for referenciado nos caminhos de entrada/saída, pesquisaremos o DataRoot (bem como caminho do script se a entrada)
 - A pasta DataRoot não será referenciada se você estiver tentando registrar um assembly e usar um caminho relativo (veja a parte “Usar assemblies ao fazer a execução local” para obter mais detalhes)
 
-O vídeo a seguir demonstra o recurso de execução local do U-SQL:
-
->[AZURE.VIDEO usql-localrun]
-
 ### Problemas e limitações conhecidos
 
 - A Execução Local do U-SQL não dá suporte à consulta de conjuntos de arquivos localmente. Confira [Conjuntos de arquivos U-SQL](https://msdn.microsoft.com/library/azure/mt621294.aspx). Isso será resolvido no futuro.
@@ -269,6 +263,8 @@ O procedimento a seguir só funciona no Visual Studio 2015. No Visual Studio mai
         CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
 3.	Definir pontos de interrupção no código C#.
 4.	Pressione **F5** para depurar o script referenciando o dll do C# localmente.  
+ 
+
 
 ##Consulte também
 
@@ -357,4 +353,4 @@ O script do PowerShell a seguir prepara uma conta da Análise Data Lake do Azure
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1223_2015-->

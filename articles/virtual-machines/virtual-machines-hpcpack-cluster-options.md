@@ -99,4 +99,4 @@ Aproveite os serviços de computação e de infraestrutura do Microsoft HPC Pack
 
 <!-- * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-hpcpack-cluster-rdma.md) -->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1210_2015-->

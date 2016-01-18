@@ -1,4 +1,3 @@
-
 <properties
 	pageTitle="Use a CLI do Azure com o Gerenciador de Recursos | Microsoft Azure"
 	description="Use a CLI do Azure para Mac, Linux e Windows para implantar vários recursos como um grupo de recursos."
@@ -69,7 +68,7 @@ Um grupo de recursos é um agrupamento lógico de rede, armazenamento e outros r
 
 	azure group create -n "testRG" -l "West US"
 
-Você implantará a esse grupo de recursos "testRG" posteriormente quando usar um modelo para iniciar uma VM do Ubuntu. Depois de ter criado um grupo de recursos, você pode adicionar recursos, como máquinas virtuais e redes ou armazenamento.
+Você pode começar a adicionar recursos a este grupo logo em seguida e usá-lo para configurar um recursos tal como uma nova máquina virtual.
 
 
 ## Usar modelos do grupo de recursos
@@ -80,50 +79,48 @@ Ao trabalhar com modelos, você poderá [criar o seu próprio modelo](resource-g
 
 Criar um novo modelo está além do escopo deste artigo. Então, para começar, vamos usar o modelo _101-simple-vm-from-image_ disponível no [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm). Por padrão, isso cria uma única máquina virtual do Ubuntu 14.04.2-LTS em uma nova rede virtual com uma única sub-rede na região Oeste dos EUA. Você só precisa especificar os seguintes parâmetros para usar este modelo:
 
-* Um nome de usuário de administrador para a VM = `adminUsername`
-* Uma senha = `adminPassword`
-* Um nome de domínio para a VM = `dnsLabelPrefix`
+* Um nome de conta de armazenamento exclusivo
+* Um nome de usuário de administrador para a VM
+* Uma senha
+* Um nome de domínio para a VM
 
 >[AZURE.TIP]Estas etapas mostram apenas uma maneira de usar um modelo de VM com a CLI do Azure. Para obter outros exemplos, consulte [Implantar e gerenciar máquinas virtuais usando modelos do Gerenciador de Recursos do Azure e a CLI do Azure](../virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md)
 
-1. Baixe os arquivos azuredeploy.json e azuredeploy.parameters.json de [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux) para uma pasta de trabalho no computador local.
+1. Baixe os arquivos azuredeploy.json e azuredeploy.parameters.json de [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm) para uma pasta de trabalho no computador local.
 
 2. Abra o arquivo azuredeploy.parameters.json em um editor de texto e insira valores de parâmetro adequados para seu ambiente (deixando o valor **ubuntuOSVersion** inalterado).
 
+		{
+	  	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	  	"contentVersion": "1.0.0.0",
+	  	"parameters": {
+		    "newStorageAccountName": {
+		      "value": "MyStorageAccount"
+		    },
+		    "adminUsername": {
+		      "value": "MyUserName"
+		    },
+		    "adminPassword": {
+		      "value": "MyPassword"
+		    },
+		    "dnsNameForPublicIP": {
+		      "value": "MyDomainName"
+		    },
+		    "ubuntuOSVersion": {
+		      "value": "14.04.2-LTS"
+		    }
+		  }
+		}
+	```
+3. Depois de salvar o arquivo azuredeploy.parameters.json, use o comando a seguir para criar um novo grupo de recursos com base no modelo. A opção `-e` especifica o arquivo azuredeploy.parameters.json que você modificou na etapa anterior. Substitua *testRG* pelo nome do grupo que deseja usar e *testDeploy* por um nome de implantação de sua escolha. O local deve ser o mesmo que o especificado no seu arquivo de parâmetro do modelo.
 
-```
-			{
-			  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-			  "contentVersion": "1.0.0.0",
-			  "parameters": {
-			    "adminUsername": {
-			      "value": "azureUser"
-			    },
-			    "adminPassword": {
-			      "value": "GEN-PASSWORD"
-			    },
-			    "dnsLabelPrefix": {
-			      "value": "GEN-UNIQUE"
-			    },
-			    "ubuntuOSVersion": {
-			      "value": "14.04.2-LTS"
-			    }
-			  }
-			}
-
-```
-
-3.  Agora que os parâmetros de implantação foram modificados, você implantará a VM do Ubuntu para o grupo de recursos criado anteriormente. Escolha um nome para a implantação e, em seguida, use o seguinte comando para iniciá-lo.
-
-		azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json testRG testRGdeploy
-
-	Este exemplo cria uma implantação chamada _testRGDeploy_ que é implantada no grupo de recursos _testRG_. A opção `-e` especifica o arquivo azuredeploy.parameters.json que você modificou na etapa anterior. A opção `-f` especifica o arquivo de modelo azuredeploy.json.
+		azure group create "testRG" "West US" -f azuredeploy.json -d "testDeploy" -e azuredeploy.parameters.json
 
 	Esse comando retornará OK assim que a implantação for carregada, mas antes da implantação ser aplicada aos recursos do grupo.
 
 4. Para verificar o status da implantação, use o comando a seguir.
 
-		azure group deployment show "testRG" "testRGDeploy"
+		azure group deployment show "testRG" "testDeploy"
 
 	O **ProvisioningState** mostra o status da implantação.
 
@@ -166,7 +163,7 @@ Você também pode usar um modelo diretamente do [GitHub](https://github.com/Azu
 	azure group deployment create "testDeploy" -g "testResourceGroup" --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json
 Você precisará inserir os parâmetros de modelo necessários.
 
-> [AZURE.NOTE]É importante abrir o modelo JSON no modo _bruto_. A URL que aparece na barra de endereços do navegador é diferente daquela que aparece no modo normal. Para abrir o arquivo no modo _raw_ ao exibir o arquivo no GitHub, no canto superior direito, clique em **Raw**.
+> [AZURE.NOTE]É importante abrir o modelo JSON no modo _bruto_. A URL que aparece na barra de endereços do navegador é diferente daquela que aparece no modo normal. Para abrir o arquivo no modo _bruto_ ao exibir o arquivo no GitHub, no canto superior direito, clique em **Bruto**.
 
 ## Trabalhando com recursos
 
@@ -213,4 +210,4 @@ Para exibir informações registradas em log sobre operações realizadas em um 
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1223_2015-->

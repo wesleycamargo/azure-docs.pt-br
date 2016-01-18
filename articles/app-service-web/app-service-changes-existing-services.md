@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/24/2015" 
+	ms.date="09/15/2015" 
 	ms.author="yochayk"/>
 
 
@@ -61,7 +61,7 @@ A tabela a seguir explica como os serviços existentes do Azure são mapeados pa
 <td align="left">Aplicativos Móveis</td>
 <td align="left"><p><li>Os Serviços Móveis continuam disponíveis como um serviço autônomo e permanecem com suporte completo.</p>
 <p><li>Os Aplicativos Móveis são um novo tipo de aplicativo do Serviço de Aplicativo, que integram toda a funcionalidade dos Serviços Móveis e muito mais. Os Aplicativos Móveis estão em visualização pública.</p>
-<p><li>É fácil [migrar dos Serviços Móveis para os Aplicativos Móveis](../app-service-mobile/app-service-mobile-migrating-from-mobile-services.md). Como os Aplicativos Móveis ainda estão em visualização, ainda não são recomendados para a execução de aplicativos de produção.</p>
+<p><li>É fácil <a href="http://azure.microsoft.com/documentation/articles/app-service-mobile-dotnet-backend-migrating-from-mobile-services-preview/">migrar dos Serviços Móveis para Aplicativos Móveis</a>. Como os Aplicativos Móveis ainda estão em visualização, ainda não são recomendados para a execução de aplicativos de produção.</p>
 <p><li>Como parte do Serviço de Aplicativo, os Aplicativos Móveis obtêm novos recursos além de Serviços Móveis, como a integração com sistemas de SaaS e locais, slots de preparação, WebJobs, melhores opções de dimensionamento e muito mais.</p>
 <p><li><a href="http://azure.microsoft.com/services/app-service/mobile/">Saiba mais sobre os Aplicativos Móveis</a>.</p>
 </tr>
@@ -93,4 +93,4 @@ A tabela a seguir explica como os serviços existentes do Azure são mapeados pa
 Para saber mais, acesse a documentação do [Serviço de Aplicativo](http://azure.microsoft.com/documentation/services/app-service/).
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=Oct15_HO3-->

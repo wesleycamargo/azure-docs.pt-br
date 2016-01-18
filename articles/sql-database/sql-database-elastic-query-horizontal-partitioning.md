@@ -4,7 +4,7 @@
     services="sql-database"
     documentationCenter=""  
     manager="jeffreyg"
-    authors="torsteng"/>
+    authors="sidneyh"/>
 
 <tags
     ms.service="sql-database"
@@ -12,14 +12,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/06/2016"
+    ms.date="10/15/2015"
     ms.author="sidneyh;torsteng" />
 
 # Consultas do banco de dados elástico para fragmentação (particionamento horizontal)
 
 Este documento explica como configurar consultas de banco de dados elástico para cenários de particionamento horizontal e como executar as consultas. Para obter uma definição do cenário de particionamento horizontal, confira a [Visão geral da consulta de banco de dados elástico (visualização)](sql-database-elastic-query-overview.md).
-
-![Consultar em fragmentos][1]
 
 A funcionalidade faz parte do [conjunto de recursos do Banco de Dados Elástico do Banco de Dados](sql-database-elastic-scale.md) SQL do Azure.
  
@@ -238,7 +236,6 @@ Use cadeias de conexão regulares do SQL Server para conectar seu aplicativo e s
 
 
 <!--Image references-->
-[1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=Oct15_HO4-->

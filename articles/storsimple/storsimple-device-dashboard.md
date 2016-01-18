@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carmonm"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/30/2015"
+   ms.date="09/15/2015"
    ms.author="alkohli" />
 
 # Usar o painel de dispositivo do StorSimple Manager
@@ -21,7 +21,7 @@
 
 O painel de dispositivo do StorSimple Manager proporciona uma visão geral das informações de um dispositivo StorSimple específico, ao contrário do painel de serviço, que fornece informações sobre todos os dispositivos incluídos em sua solução Microsoft Azure StorSimple.
 
-![Página Painel de dispositivo](./media/storsimple-device-dashboard/StorSimple_DeviceDashbaord1M.png)
+![Página Painel de dispositivo](./media/storsimple-device-dashboard/HCS_DeviceDashboardPage.png)
 
 O painel contém as seguintes informações:
 
@@ -100,4 +100,4 @@ Talvez você precise do IQN de destino do dispositivo ao configurar o protocolo 
 - Saiba mais sobre o [painel de serviços do StorSimple Manager](storsimple-service-dashboard.md).
 - Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=Oct15_HO3-->

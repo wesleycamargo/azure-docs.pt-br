@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="10/08/2015"
 	ms.author="klam"/>
 
 #O que são aplicativos lógicos?
@@ -26,15 +26,15 @@
 
 O Serviço de Aplicativo do Azure é uma PaaS (plataforma como serviço) totalmente gerenciada para desenvolvedores que torna mais fácil compilar aplicativos Web, móveis e de integração. Os aplicativos lógicos são uma parte desse pacote e permitem que qualquer usuário técnico ou desenvolvedor automatize a execução do processo de negócios e o fluxo de trabalho por meio de um designer visual fácil de usar.
 
-O melhor de tudo é que os aplicativos lógicos podem ser combinados com [Conectores][connectors] do nosso Marketplace para ajudar a solucionar inclusive cenários de integração complicados com facilidade:
+O melhor de tudo é que os aplicativos lógicos podem ser combinados com [Conectores][connectors] do nosso Marketplace para ajudar a solucionar inclusive cenários de integração complicados com facilidade.
 
 ![Designer de aplicativo de fluxo](./media/app-service-logic-what-are-logic-apps/Designer.png)
 
-Você pode replicar automaticamente novos registros em seu Banco de Dados SQL e enviar para a recepção. Ou localizar automaticamente tweets negativos e enviá-los para um canal de margem de atraso.
+Se você quiser replicar automaticamente novos registros no banco de dados SQL e enviar por correio para a recepção ou automaticamente localizar tweets negativos e enviá-los para um canal de margem de atraso
 
 ##Por que aplicativos lógicos?
 
-Aplicativos Lógicos permitem que os desenvolvedores projetem fluxos de trabalho iniciados de um gatilho e, em seguida, executem uma série de etapas. Cada etapa invocará um aplicativo de API do Serviço de Aplicativo enquanto cuida com segurança da autenticação e das práticas recomendadas, como ponto de verificação e execução durável.
+Aplicativos lógicos permitem que os desenvolvedores projetem fluxos de trabalho que comecem em um gatilho e então executem uma série de etapas, cada uma chamando um aplicativo de API do Serviço de Aplicativo ao mesmo tempo em que cuida com segurança da autenticação e práticas recomendadas, como definição de ponto de verificação e execução durável.
 
 Se quiser automatizar qualquer processo de negócios (por exemplo, localizar tweets negativos e postar no canal de margem de atraso interna ou replicar novos registros de cliente no SQL assim que chegarem em seu sistema CRM), aplicativos lógicos tornam fácil integrar fontes de dados diferentes da nuvem para o local. Confira nosso [conectores][connectors] para mais inspiração e [comece][create] a usá-los agora para ver o que você pode fazer.
 
@@ -75,4 +75,4 @@ Para obter mais informações a respeito da plataforma de Serviço de Aplicativo
 [templates]: app-service-logic-use-logic-app-templates.md
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1203_2015-->

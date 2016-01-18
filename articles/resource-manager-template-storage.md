@@ -1,6 +1,6 @@
 <properties
    pageTitle="Modelo de armazenamento do Gerenciador de Recursos | Microsoft Azure"
-   description="Mostra o esquema do Gerenciador de Recursos para a implantação de contas de armazenamento por meio de um modelo."
+   description="Mostra o esquema de contas de armazenamento do Gerenciador de Recursos."
    services="azure-resource-manager,storage"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
+   ms.date="10/25/2015"
    ms.author="tomfitz"/>
 
 # Conta de armazenamento - esquema do modelo
@@ -78,22 +78,9 @@ O exemplo a seguir implementa uma conta de armazenamento com Redundância Local 
 	    "outputs": {}
     }
 
-## Modelos de início rápido
-
-Há muitos modelos de início rápido que incluem uma conta de armazenamento. Os modelos a seguir ilustram alguns cenários comuns:
-
-- [Criar uma conta de armazenamento padrão](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create)
-- [Implantação simples de uma VM do Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
-- [Implantação simples de uma VM do Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
-- [Criar um perfil de CDN, um ponto de extremidade CDN com uma conta de armazenamento como origem](https://github.com/Azure/azure-quickstart-templates/tree/master/201-cdn-with-storage-account)
-- [Criar um farm de SharePoint de alta disponibilidade com 9 VMs usando a extensão de DSC do Powershell](https://github.com/Azure/azure-quickstart-templates/tree/master/sharepoint-server-farm-ha)
-- [Implantação simples de um cluster seguro do Service Fabric de 5 nós com WAD habilitado](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad)
-- [Criar uma máquina virtual de uma imagem do Windows com 4 discos de dados vazios](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk)
-
-
 ## Próximas etapas
 
 - Para obter informações gerais sobre armazenamento, veja [Introdução ao Armazenamento do Microsoft Azure](./storage/storage-introduction.md).
 - Por ver exemplos de modelos que usam uma nova conta de armazenamento com uma Máquina Virtual, veja [Implantar uma VM simples do Linux](https://azure.microsoft.com/documentation/templates/101-simple-linux-vm/) ou [Implantar uma VM simples do Windows](https://azure.microsoft.com/documentation/templates/101-simple-windows-vm/).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=Nov15_HO1-->

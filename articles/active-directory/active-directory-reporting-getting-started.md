@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/05/2016"
+   ms.date="12/01/2015"
    ms.author="curtand;kenhoff"/>
 
 # Introdução aos Relatórios do Active Directory do Azure
@@ -156,4 +156,4 @@ Envie um email para [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@mic
 
 > [AZURE.TIP]Para obter mais documentação sobre os Relatórios do AD do Azure, consulte [Exibir relatórios de acesso e uso](active-directory-view-access-usage-reports.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1203_2015-->

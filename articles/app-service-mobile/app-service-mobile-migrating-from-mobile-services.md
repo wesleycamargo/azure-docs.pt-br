@@ -45,6 +45,7 @@ Há alguns motivos pelos quais você não deve migrar seus Serviços Móveis ago
   *  Você está atualmente em um período ocupado e não pode reiniciar um site no momento.
   *  Você não deseja afetar seu site de produção antes de testar o processo de migração.
   *  Você tem vários sites nos tipos de preços Básico ou Gratuito e não deseja migrar todos os sites ao mesmo tempo.
+  *  Você tem trabalhos agendados configurados como sob demanda que deseja migrar.
 
 Você está em um período ocupado, assim, planeje a migração durante uma janela de manutenção programada. O processo de migração reinicia seu site como parte do processo e seus usuários podem observar essa interrupção momentânea de disponibilidade.
 
@@ -145,24 +146,6 @@ Essa é uma tarefa opcional, mas fornece uma melhor experiência de gerenciament
 
 > [AZURE.TIP]Uma das vantagens de usar um Serviço de Aplicativo do Azure é que você pode executar seu site da web e serviço móvel no mesmo site. Consulte a seção de [próximas etapas](#next-steps) para obter mais informações.
 
-### <a name="download-publish-profile"></a>Baixar um novo Perfil de publicação
-
-O perfil de publicação do seu site é alterado durante a migração para o Serviço de Aplicativo do Azure. Você precisará de um novo perfil de publicação se pretende publicar o site de dentro do Visual Studio. Para baixar um novo perfil de publicação:
-
-  1.  Faça logon no [Portal do Azure].
-  2.  Selecione **Todos os recursos** ou **Serviços de Aplicativos** e clique no nome do Serviço Móvel migrado.
-  3.  Clique em **Obter perfil de publicação**.
-
-O arquivo PublishSettings será baixado para o seu computador. Ele normalmente será chamado _sitename_. PublishSettings. Você pode importar as configurações de publicação para o seu projeto existente:
-
-  1.  Abra o Visual Studio e o seu projeto de Serviço móvel do Azure.
-  2.  No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e selecione **Publicar...**
-  3.  Clique em **Importar**
-  4.  Clique em **Procurar** e selecione seu arquivo de configurações de publicação baixado. Clique em **OK**
-  5.  Clique em **Validar Conexão** para garantir que as configurações de publicação funcionem.
-  6.  Clique em **Publicar** para publicar seu site.
-
-
 ## <a name="working-with-your-site"></a>Trabalhando com seu site após a migração
 
 Você começará a trabalhar com o novo Serviço de Aplicativo no [Portal do Azure] após a migração. A seguir estão algumas observações sobre operações específicas que você usou para executar o [Portal Clássico do Azure], juntamente com seus equivalentes do Serviço de Aplicativo.
@@ -241,24 +224,33 @@ A guia _API_ nos Serviços Móveis foi substituída pelas _APIs Fáceis_ no Port
 
 Suas APIs migradas já estarão listadas na folha. Você também pode adicionar uma nova API a partir dessa folha. Para gerenciar uma API específica, clique na API. Na nova folha, você pode ajustar as permissões e editar os scripts para a API.
 
-### <a name="on-demand-jobs"></a>Trabalhos do Agendador
+### <a name="on-demand-jobs"></a>Trabalhos agendados sob demanda
 
-Todos os trabalhos do Agendador estão disponíveis por meio da seção de Coleções de trabalhos do Agendador. Para acessar seus trabalhos do Agendador:
+Trabalhos agendados sob demanda são disparados por meio de uma solicitação da web. É recomendável usar um cliente HTTP como [Postman], [Fiddler] ou [curl]. Se o site se chamar 'contoso', você terá um ponto de extremidade https://contoso.azure-mobile.net/jobs/_yourjobname_ que você poderá usar para disparar o trabalho sob demanda. Você precisará enviar um cabeçalho adicional **X-ZUMO-MASTER** com a chave mestra.
+
+A chave mestra poderá ser obtida da seguinte maneira:
 
   1. Faça logon no [Portal do Azure].
-  2. Selecione **Procurar>**, digite **Agenda** na caixa _Filtro_ e, em seguida, selecione **Coleções do Agendador**.
-  3. Selecione a Coleção de trabalhos para seu site. Ela será nomeada _sitename_-Jobs.
-  4. Clique em **Configurações**.
-  5. Clique em **Trabalhos do Agendador** em GERENCIAR.
+  2. Selecione **Todos os recursos** ou **Serviços de Aplicativos** e clique no nome do Serviço Móvel migrado.
+  3. A folha Configurações será aberta por padrão; se não abrir, clique em **Configurações**.
+  4. Clique em **Configurações do aplicativo** no menu GERAL.
+  5. Procure a configuração de aplicativo **MS\_MasterKey**.
 
-Trabalhos agendados serão listados com a frequência especificada antes da migração. Trabalhos sob demanda serão desabilitados. Para executar um trabalho sob demanda:
+Você pode copiar e colar a chave mestra na sessão do Postman. Aqui está um exemplo de acionar um trabalho sob demanda em um serviço móvel migrado:
 
-  1. Selecione o trabalho que você deseja executar.
-  2. Se necessário, clique em **Habilitar** para habilitar o trabalho.
-  3. Clique em **Configurações** e, depois, **Agenda**.
-  4. Selecione uma Recorrência de **Uma vez** e clique em **Salvar**
+  ![Disparar um trabalho sob demanda com o Postman][2]
 
-Os trabalhos sob demanda estão localizados em `App_Data/config/scripts/scheduler post-migration`. É recomendável converter todos os trabalhos sob demanda para [WebJobs]. Você deve escrever novos trabalhos do Agendador como [WebJobs].
+Observe as configurações:
+
+  * Método: **POST**
+  * URL: https://_yoursite_.azure-mobile.net/jobs/_yourjobname_
+  * Cabeçalhos: X-ZUMO-MASTER: _sua-chave-mestra_
+
+Como alternativa, você pode usar [curl] para disparar o trabalho sob demanda em uma linha de comando:
+
+    curl -H 'X-ZUMO-MASTER: yourmasterkey' --data-ascii '' https://yoursite.azure-mobile.net/jobs/yourjob
+
+Os trabalhos sob demanda estão localizados em `App_Data/config/scripts/scheduler post-migration`. É recomendável converter todos os trabalhos sob demanda para [WebJobs].
 
 ### <a name="notification-hubs"></a>Hubs de Notificação
 
@@ -393,4 +385,4 @@ Note que seu aplicativo é migrado para o serviço de aplicativo, há ainda mais
 [VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1223_2015-->

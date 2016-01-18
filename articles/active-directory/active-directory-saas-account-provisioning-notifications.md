@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="10/20/2015"
 	ms.author="markusvi"/>
 
 
@@ -46,4 +46,4 @@ Se você tiver notificações de provisionamento de conta habilitadas, receberá
 [1]: ./media/active-directory-saas-account-provisioning-notifications/ic766307.png
 [2]: ./media/active-directory-saas-account-provisioning-notifications/ic766308.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=Oct15_HO4-->

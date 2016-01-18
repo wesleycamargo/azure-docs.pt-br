@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/22/2015"
+	ms.date="09/28/2015"
 	ms.author="dastrock"/>
 
 # Visualização do AD B2C do Azure: tipos de aplicativos
@@ -23,9 +23,9 @@ O AD B2C do Azure dá suporte à autenticação para uma variedade de arquitetur
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## Noções básicas
-Todos os aplicativos que usam o AD B2C do Azure precisarão ser registrados no seu [diretório B2C](active-directory-b2c-get-started.md) por meio de [Portal do Azure](https://portal.azure.com). O processo de registro de aplicativo vai coletar e atribuir alguns valores para seu aplicativo:
+Todos os aplicativos que usam o AD B2C do Azure precisarão ser registrados no seu [diretório B2C](active-directory-b2c-get-started.md) por meio de [Portal de Visualização do Azure](https://portal.azure.com). O processo de registro de aplicativo vai coletar e atribuir alguns valores para seu aplicativo:
 
-- Uma **Id de Aplicativo** que identifica exclusivamente o aplicativo
+- Uma **ID de Aplicativo** que identifica exclusivamente o aplicativo
 - Um **URI de Redirecionamento** que pode ser usado para direcionar as respostas de volta ao aplicativo
 - Alguns outros valores específicos de cenário. Para obter mais detalhes, saiba como [registrar um aplicativo](active-directory-b2c-app-registration.md).
 
@@ -128,4 +128,4 @@ Muitas arquiteturas incluem uma API da Web que precisa chamar outra API da Web d
 
 Este cenário de API Web encadeada pode ter suporte usando a concessão Credencial de Portador Jwt do OAuth 2.0, também conhecido como fluxo Em nome de. No entanto, o fluxo Em nome de não está implementado atualmente na visualização do AD B2C do Azure.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=Oct15_HO3-->

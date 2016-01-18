@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
+   ms.date="09/22/2015"
    ms.author="barbkess"/>
 
 # Elementos de linguagem
@@ -287,4 +287,4 @@ Para obter mais informações de referência, consulte [Visão geral de referên
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1125_2015-->

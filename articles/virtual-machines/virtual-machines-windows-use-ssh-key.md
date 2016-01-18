@@ -14,7 +14,7 @@ description="Saiba como gerar e usar chaves SSH em um computador Windows para se
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="10/05/2015" 
 	ms.author="rasquill"/>
 
 #Como usar SSH com Windows no Azure
@@ -48,7 +48,7 @@ Uma configuração SSH básica para o Azure inclui um par de chaves **ssh-rsa** 
 Estes são os cenários de implantação e os tipos de arquivo que você usa em cada um deles:
 
 1. As chaves **ssh-rsa** são exigidas para qualquer implantação que use o [portal de visualização](https://portal.azure.com), independentemente do modelo de implantação.
-2. O arquivo .pem é necessário para criar VMs usando o [portal clássico](https://manage.windowsazure.com). Arquivos .pem também recebem suporte em implantações clássicas que usam a [CLI do Azure](../xplat-cli-install.md).
+2. O arquivo .pem é necessário para criar VMs usando o [portal clássico](https://manage.windowsazure.com). Arquivos .pem também recebem suporte em implantações clássicas que usam a [CLI do Azure](xplat-cli-install.md).
 
 > [AZURE.NOTE]Se você planeja gerenciar o serviço implantado com o modelo de implantação clássico, convém criar também um arquivo no formato **.cer** para carregar no portal, embora isso não envolva **ssh** ou a conexão com VMS do Linux, que é o assunto deste artigo. Para criar esses arquivos no Linux ou Mac, digite
 
@@ -70,21 +70,21 @@ Estes são os cenários de implantação e os tipos de arquivo que você usa em 
 
 > [AZURE.NOTE]É possível encontrar o seguinte erro ao executar os comandos `openssl` acima:
 
-        Unable to load config info from /usr/local/ssl/openssl.cnf
-
-A maneira mais fácil de resolver esse problema é definir a variável de ambiente `OPENSSL_CONF`. O processo de configuração dessa variável irá variar dependendo do shell que você configurou no Github:
-
-**Powershell:**
-
-        $Env:OPENSSL_CONF="$Env:GITHUB_GIT\ssl\openssl.cnf"
-
-**CMD:**
-
-        set OPENSSL_CONF=%GITHUB_GIT%\ssl\openssl.cnf
-
-**Git Bash:**
-
-        export OPENSSL_CONF=$GITHUB_GIT/ssl/openssl.cnf
+			Unable to load config info from /usr/local/ssl/openssl.cnf
+	<!-- -->
+		The easiest way to resolve this is to set the `OPENSSL_CONF` environment variable. The process for setting this variable will vary depending on the shell that you have configured in Github:
+	<!-- -->
+		**Powershell:**
+	<!-- -->
+			$Env:OPENSSL_CONF="$Env:GITHUB_GIT\ssl\openssl.cnf"
+	<!-- -->
+		**CMD:**
+	<!-- -->
+			set OPENSSL_CONF=%GITHUB_GIT%\ssl\openssl.cnf
+	<!-- -->
+		**Git Bash:**
+	<!-- -->
+			export OPENSSL_CONF=$GITHUB_GIT/ssl/openssl.cnf
 	
 
 ###Usar Cygwin###
@@ -155,4 +155,4 @@ A maneira mais fácil de resolver esse problema é definir a variável de ambien
 5.	Clique em **Abrir** para se conectar a sua máquina virtual
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=Nov15_HO1-->

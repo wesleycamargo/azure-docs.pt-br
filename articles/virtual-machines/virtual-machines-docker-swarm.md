@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="01/04/2016"
+   ms.date="09/22/2015"
    ms.author="rasquill"/>
 
 # Como usar o docker com o swarm
@@ -24,7 +24,9 @@
 
 Este tópico mostra uma forma muito simples de usar o [docker](https://www.docker.com/) com o [swarm](https://github.com/docker/swarm) para criar um cluster gerenciado por swarm no Azure. Ele cria quatro máquinas virtuais no Azure, uma que atuará como o Gerenciador de Swarm e três atuando como parte do cluster dos hosts do docker. Quando tiver terminado, você pode usar o swarm para visualizar o cluster e começar a usar o docker nele. Além disso, as chamadas da CLI do Azure neste tópico usam o modo de gerenciamento do serviço (asm).
 
-> [AZURE.NOTE]Este tópico usa o docker com swarm e a CLI do Azure *sem* a **docker-machine** para mostrar como as diferentes ferramentas funcionam juntas, mas permanecem independentes. A **docker-machine** tem a opção **--swarm** que permite que você use a **docker-machine** para adicionar nós diretamente a um swarm. Para obter um exemplo, confira a documentação da [máquina docker](https://github.com/docker/machine). Caso você tenha perdido a execução da **máquina docker** nas VMs do Azure, confira [Como usar a máquina docker com o Azure](virtual-machines-docker-machine.md).
+> [AZURE.NOTE] Essa é uma versão de software anterior, portanto, verifique se há atualizações sobre como usá-lo no Azure para criar clusters grandes, equilibrados e controlados de contêineres do Docker, bem como verificar a documentação swarm do docker para descobrir todos os seus recursos.
+<!-- -->
+> Além disso, este tópico usa o docker com swarm e a CLI do Azure *sem* a **máquina docker** para mostrar como as diferentes ferramentas funcionam juntas, mas permanecem independentes. A **máquina docker** tem a opção **--swarm** que permite que você use a **máquina docker** para adicionar nós diretamente a um swarm. Para obter um exemplo, confira a documentação da [máquina docker](https://github.com/docker/machine). Caso você tenha perdido a execução da **máquina docker** nas VMs do Azure, confira [Como usar a máquina docker com o Azure](virtual-machines-docker-machine.md).
 
 ## Criar hosts do docker com máquinas virtuais do Azure
 
@@ -135,4 +137,4 @@ Vá executar as coisas em seu swarm. Para procurar inspiração, confira [https:
 [docker-machine-azure]: virtual-machines-docker-machine.md
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=Oct15_HO3-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/28/2015"
+   ms.date="09/16/2015"
    ms.author="sethm" />
 
 # Criar aplicativos que usem os tópicos e as assinaturas do Barramento de Serviço
@@ -148,6 +148,6 @@ Todos os motivos para usar o enfileiramento de mensagens descrito em [Criar apli
 
 ## Próximas etapas
 
-Consulte [Criar aplicativos que usem as filas do Barramento de Serviço](service-bus-create-queues.md) para informações sobre como usar as filas no cenário de varejo de PDV.
+Consulte [Criar aplicativos que usem os tópicos e as assinaturas do Barramento de Serviço](service-bus-create-topics-subscriptions.md) para ver como usar as filas no cenário de varejo de PDV.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=Oct15_HO3-->

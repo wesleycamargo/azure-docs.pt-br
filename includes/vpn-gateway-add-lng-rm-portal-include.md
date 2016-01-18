@@ -1,13 +1,11 @@
-Para criar um gateway de rede local, siga as etapas abaixo:
+To create a local network gateway, follow the steps below:
 
-1. Use **Procurar** e fildter para localizar a folha **Gateways de Rede Local** e clique em **Adicionar**.
-2. Na **folha Criar Gateways de Rede Local**, **nomeie** seu objeto de gateway de rede local. Para esse exemplo, chamaremos o gateway de rede local de *GW1LocalNet*.
-3. Configure um **Endereço IP** para seu gateway. Esse é o endereço IP do dispositivo VPN externo ao qual você deseja se conectar. Ele não pode estar por trás do NAT e deve ser acessível pelo Azure. Esse é o endereço IP do dispositivo ao qual seu gateway do Azure será conectado.
-4. **Espaço de Endereço** refere-se aos intervalos de endereços na sua rede local (normalmente local). Você pode adicionar vários intervalos de espaço de endereço. Os intervalos que você digitar aqui não podem sobrepor nenhum dos intervalos de espaço de endereço que você está usando para qualquer uma das redes virtuais que se comunicarão através do gateway. Será necessário coordenar com sua configuração local, bem como com os espaços de endereço de rede virtual do Azure. 
-5. Para **assinatura**, verifique se a assinatura correta está sendo exibida.
-6. Para **Grupo de Recursos**, selecione o grupo de recursos que você deseja usar. Você pode criar um novo grupo de recursos ou selecionar um que você já criou. Para criar um novo grupo de recursos, digite o nome na caixa. Para selecionar um grupo de recursos que você criou, clique em **Grupo de Recursos** para abrir a folha **Grupo de Recursos** e selecione o grupo de recursos que você deseja usar.
-7. Para **local**, verifique se o local é o mesmo que o gateway de rede virtual com o qual você fará a associação.
-8. Deixe "Fixar ao Painel" selecionado se desejar localizar esse gateway de rede local facilmente no painel.
-9. Clique em **Criar** para criar o gateway de rede local. Você verá "Implantando Gateway de Rede Local" no seu painel. A criação não demora muito.
-
-<!---HONumber=AcomDC_0107_2016-->
+1. Use **Browse** and fildter to locate the **Local network gateways** blade, then click **Add**.
+2. On the **Create local network gateways blade**, **Name** your local network gateway object. For this example, we'll name the local network gateway *GW1LocalNet*.
+3. Configure an **IP address** for your gateway. This is the IP address of the external VPN device that you want to connect to. It cannot be behind NAT and has to be reachable by Azure. This is the device IP address that your Azure gateway will connect to.
+4. **Address Space** refers to the address ranges on your local (typically on-premises) network. You can add multiple address space ranges. The ranges that you enter here cannot overlap any of the address space ranges that you are using for any of the virtual networks that will communicate through the gateway.  You will need to coordinate with your on-premises configuration as well as with your Azure virtual network address spaces. 
+5. For **Subscription**, verify that the correct subscription is showing.
+6. For **Resource Group**, select the resource group that you want to use. You can either create a new resource group, or select one that you have already created. To create a new resource group, type the name in the box. To select a resource group that you've already created, click **Resource Group** to open the **Resource group** blade, and then select the resource group that you want to use.
+7. For **Location**, verify that the location is the same as the virtual network gateway that you will associate this with.
+8. Leave "Pin to dashboard" selected if you want to find this local network gateway easily from the dashboard.
+9. Click **Create** to create the local network gateway. You'll see "Deploying Local network gateway" on your dashboard. This shouldn't take very long to create.

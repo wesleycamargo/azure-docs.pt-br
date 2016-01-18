@@ -32,7 +32,7 @@ O dispositivo virtual StorSimple é um recurso adicional que acompanha a sua sol
 O dispositivo virtual do StorSimple está disponível em dois modelos, um 8010 padrão e um 8020 premium (introduzido na Atualização 2). Uma comparação dos dois modelos é mostrada na tabela abaixo.
 
 
-| Modelo do dispositivo | 8010<sup>1</sup> | 8020 |
+| Modelo do dispositivo | 8010<sup>1, 2</sup> | 8020<sup>3</sup> |
 |-----------------------|---------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | **Capacidade máxima** | 30 TB | 64 TB |
 | **VM do Azure** | Standard\_A3 (4 núcleos, 7 GB de memória) | Standard\_DS3 (4 núcleos, 14 GB de memória) |
@@ -41,7 +41,7 @@ O dispositivo virtual do StorSimple está disponível em dois modelos, um 8010 p
 | **Tipo de armazenamento** | Usa o Armazenamento do Azure Standard<br></br> Saiba como [criar uma conta de Armazenamento Standard]() | Usa o Armazenamento do Azure Premium<br></br>Saiba como [criar uma conta de Armazenamento Premium](storage-premium-storage-preview-portal.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
 | **Diretrizes sobre carga de trabalho** | Recuperação no nível de item de arquivos de backups | Cenários de desenvolvimento e teste na nuvem, baixa latência, cargas de trabalho de desempenho mais altas <br></br>Dispositivo secundário para recuperação de desastre |
  
-<sup>1</sup> *Conhecido anteriormente como 1100*.
+<sup>1</sup> *Anteriormente conhecido como 1100*, <sup>2</sup> *A representa um fator forma do Azure*, <sup>3</sup> *AP representa um fator forma do Azure Premium.*
 
 
 Este artigo descreve o processo passo a passo de implantação de um dispositivo virtual do StorSimple no Azure. Depois de ler este artigo, você irá:
@@ -259,4 +259,4 @@ Se você excluir ou desligar o dispositivo virtual, ele será exibido como **Off
  
 - Entenda como [Restaurar um volume do StorSimple de um conjunto de backups](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/22/2015"
+	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 	
 # Visualização do AD B2C do Azure: compilar um aplicativo Web do .NET
@@ -33,7 +33,7 @@ Antes de usar AD B2C do Azure, você deve criar um diretório ou locatário. Um 
 Agora você precisa criar um aplicativo no diretório B2C, que dá ao AD do Azure algumas informações que ele precisa para se comunicar de forma segura com seu aplicativo. Para criar um aplicativo, [siga estas instruções](active-directory-b2c-app-registration.md). Certifique-se de
 
 - Incluir um **app/api Web** no aplicativo.
-- Para o aplicativo Web, use o **URI de Redirecionamento** `https://localhost:44316/` - é o local padrão do aplicativo Web cliente para este exemplo de código.
+- Para o aplicativo Web, use o **Uri de Redirecionamento** `https://localhost:44316/` - é o local padrão do aplicativo Web cliente para este exemplo de código.
 - Copiar a **ID do Aplicativo** atribuída ao aplicativo. Você precisará dele em breve.
 
  [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -45,7 +45,7 @@ No AD B2C do Azure, cada experiência do usuário é definida por uma [**políti
 - Escolha **inscrição de ID de usuário** ou **inscrição de Email** na folha de provedores de identidade.
 - Escolha o **Nome de exibição** e alguns outros atributos de inscrição em sua política de inscrição.
 - Escolha o **nome de exibição** e as declarações **ID de objeto** como um aplicativo de declaração em cada política. Você pode escolher outras declarações também.
-- Copie o **Nome** de cada política após criá-lo. Em breve, você precisará esses nomes de política. 
+- Copie o **nome** de cada política após criá-lo. Em breve, você precisará esses nomes de política. 
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -61,11 +61,11 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-Dot
 
 O aplicativo completo também está [disponível como. zip](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/complete.zip) ou na `complete` ramificação do mesmo repositório.
 
-Depois de baixar o código de exemplo, abra o arquivo `.sln` do Visual Studio para começar. Você observará que existem dois projetos na solução: um `TaskWebApp` projeto e um `TaskService` projeto. O `TaskWebApp` é um aplicativo Web MVC com o qual o usuário interage. O `TaskService` é a API que armazena a lista de tarefas pendentes de cada usuário da web do back-end do aplicativo.
+Depois de baixar o código de exemplo, abra o arquivo Visual Studio `.sln` para começar. Você observará que existem dois projetos na solução: um `TaskWebApp` projeto e um `TaskService` projeto. O `TaskWebApp` é um aplicativo Web MVC com o qual o usuário interage. O `TaskService` é a API que armazena a lista de tarefas pendentes de cada usuário da web do back-end do aplicativo.
 
 ## 5\. Configurar o aplicativo Web da tarefa
 
-Quando o usuário interage com o `TaskWebApp`, o cliente envia solicitações ao AD do Azure e recebe de volta tokens que podem ser usados para chamar a API Web `TaskService`. Para o usuário entrar e obter tokens, você precisa fornecer o `TaskWebApp` com algumas informações sobre seu aplicativo. No `TaskWebApp` projeto, abra o arquivo `web.config` na raiz do projeto e substitua os valores na seção `<appSettings>`:
+Quando o usuário interage com o `TaskWebApp`, o cliente envia solicitações ao AD do Azure e recebe back tokens que podem ser usados para chamar o `TaskService` API da web. Para o usuário entrar e obter tokens, você precisa fornecer o `TaskWebApp` com algumas informações sobre seu aplicativo. No `TaskWebApp` projeto, abra o arquivo `web.config` na raiz do projeto e substitua os valores na seção `<appSettings>`:
 
 ```
 <appSettings>
@@ -74,8 +74,8 @@ Quando o usuário interage com o `TaskWebApp`, o cliente envia solicitações ao
     <add key="ClientValidationEnabled" value="true" />
     <add key="UnobtrusiveJavaScriptEnabled" value="true" />
     <add key="ida:Tenant" value="{Enter the name of your B2C directory, e.g. contoso.onmicrosoft.com}" />
-    <add key="ida:ClientId" value="{Enter the Application Id assigned to your app by the Azure Portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609}" />
-    <add key="ida:ClientSecret" value="{Enter the Application Secret you created in the Azure Portal, e.g. yGNYWwypRS4Sj1oYXd0443n}" />
+    <add key="ida:ClientId" value="{Enter the Application Id assinged to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609}" />
+    <add key="ida:ClientSecret" value="{Enter the Application Secret you created in the Azure portal, e.g. yGNYWwypRS4Sj1oYXd0443n}" />
     <add key="ida:AadInstance" value="https://login.microsoftonline.com/{0}{1}{2}" />
     <add key="ida:RedirectUri" value="https://localhost:44316/" />
     <add key="ida:SignUpPolicyId" value="[Enter your sign up policy name, e.g. b2c_1_sign_up]" />
@@ -200,7 +200,7 @@ public class TasksController : ApiController
 ```
 
 #### Obter informações de usuário do token
-O `TaskController` armazena tarefas em um banco de dados, no qual cada tarefa tem um usuário associado que é o "proprietário" da tarefa. O proprietário é identificado pela **ID de objeto** do usuário (motivo pelo qual você teve que adicionar a ID de objeto como uma declaração de aplicativo em todas as suas políticas):
+O `TaskController` armazena tarefas em um banco de dados, em que cada tarefa tem um usuário associado que "detém" a tarefa. O proprietário é identificado pela **ID de objeto** do usuário (motivo pelo qual você teve que adicionar a ID de objeto como uma declaração de aplicativo em todas as suas políticas):
 
 ```C#
 // Controllers\TasksController.cs
@@ -215,12 +215,12 @@ public IEnumerable<Models.Task> Get()
 
 ## 7\. Executar o aplicativo de exemplo
 
-Finalmente, compile e execute ambos o `TaskWebApp` e o `TaskService`. Inscreva-se para o aplicativo com um endereço de email ou nome de usuário. Crie algumas tarefas na lista de tarefas do usuário e observe como elas são persistentes na API, mesmo depois que você para e reinicia o cliente.
+Finalmente, compile e execute o `TaskWebApp` e o `TaskService`. Inscreva-se para o aplicativo com um endereço de email ou nome de usuário. Crie algumas tarefas na lista de tarefas do usuário e observe como elas são persistentes na API, mesmo depois que você para e reinicia o cliente.
 
 ## 8\. Editar suas políticas
 
 Agora que você tem uma API protegida com o AD B2C do Azure, pode brincar com as políticas do aplicativo e exibir o efeito (ou falta dele) na API. Você pode <!--add **identity providers**
-to the policies, allowing you users to sign into the Task Client using social accounts.  You can also -->manipular as **declarações do aplicativo** nas políticas e alterar as informações do usuário que estão disponíveis na API da Web. Quaisquer declarações extras que você adicionar estarão disponíveis para a API Web de MVC do .NET no objeto `ClaimsPrincipal`, conforme descrito acima.
+to the policies, allowing you users to sign into the Task Client using social accounts.  You can also -->manipular as **declarações do aplicativo** nas políticas e alterar as informações do usuário que estão disponíveis na API da Web. Quaisquer declarações adicionais que você adicionar estarão disponíveis para o seu .NET MVC web api no `ClaimsPrincipal` objeto, conforme descrito acima.
 
 <!--
 
@@ -234,4 +234,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=Oct15_HO3-->

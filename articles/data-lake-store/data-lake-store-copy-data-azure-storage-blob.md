@@ -13,14 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/05/2016"
+   ms.date="12/11/2015"
    ms.author="nitinme"/>
 
 # Copiar dados de Blobs do Armazenamento do Azure para o Repositório Data Lake
 
-O Repositório Azure Data Lake fornece uma ferramenta de linha de comando, [AdlCopy](http://aka.ms/downloadadlcopy), para copiar dados **de Blobs de Armazenamento do Azure para o Repositório Data Lake**. Você não pode usar o AdlCopy para copiar dados do Repositório Data Lake para os blobs de Armazenamento do Azure.
-
-Você pode usar a ferramenta AdlCopy de duas maneiras:
+O Repositório Azure Data Lake fornece uma ferramenta de linha de comando, [AdlCopy](http://aka.ms/downloadadlcopy), para copiar dados de Blobs de Armazenamento do Azure para o Repositório Data Lake. Você pode usar a ferramenta de duas maneiras:
 
 * **Autonomamente**, em que a ferramenta usa recursos do Repositório Data Lake para executar a tarefa.
 * **Usando uma conta da Análise Data Lake**, em que as unidades atribuídas à sua conta da Análise Data Lake são usadas para executar a operação de cópia. Você pode usar essa opção quando quiser executar as tarefas de cópia de forma previsível.
@@ -70,12 +68,9 @@ Os parâmetros na sintaxe estão descritos abaixo:
 		Initializing Copy.
 		Copy Started.
 		...............
-		0.00% data copied.
+		The total progress of copy operation is 0.00%.
 		. . .
-		. . .
-		100% data copied.
-		Finishing copy.
-		....
+		The total progress of copy operation is 100.00%.
 		Copy Completed.
 
 1. Você também pode copiar todos os blobs de um contêiner para a conta do Repositório Data Lake usando o seguinte comando:
@@ -108,14 +103,10 @@ Por exemplo:
 
 * Se você usar a ferramenta AdlCopy com sua conta da Análise Data Lake, as [taxas de cobrança da Análise Data Lake](https://azure.microsoft.com/pricing/details/data-lake-analytics/) padrão serão aplicadas.
 
-## Considerações para o uso do AdlCopy
-
-* O AdlCopy não dá suporte a cópia de dados de fontes que têm mais de 1000 arquivos e pastas, coletivamente. Uma abordagem alternativa seria distribuir os arquivos/pastas em subpastas diferentes e usar o caminho para as subpastas como a origem em vez disso.
-
 ## Próximas etapas
 
 - [Proteger dados no Repositório Data Lake](data-lake-store-secure-data.md)
 - [Usar a Análise Data Lake do Azure com o Repositório Data Lake](data-lake-analytics-get-started-portal.md)
 - [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1217_2015-->

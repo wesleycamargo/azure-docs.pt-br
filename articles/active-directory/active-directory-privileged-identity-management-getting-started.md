@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Sumário de como usar o sumário do Privileged Identity Managment do Azure"
+   pageTitle="Sumário de como usar o Privileged Identity Managment do Azure"
    description="Aprenda a gerenciar identidades privilegiadas com a extensão Privileged Identity Managment do Azure."
    services="active-directory"
    documentationCenter=""
@@ -23,8 +23,8 @@
 1.  Crie um diretório no Active Directory do Azure.
 2.  Adicione usuários ao seu Active Directory do Azure.
 3.  Crie alguns administradores globais em seu diretório.
-4.  Faça logon no [Portal do Azure](http://portal.azure.com) com uma conta de administrador global.
-5.  Clique no **nome de usuário** no canto superior esquerdo do portal do Azure.
+4.  Faça logon no <http://portal.azure.com> com uma conta de administrador global.
+5.  Clique no **nome de usuário** no canto superior esquerdo do portal.
 6.  Selecione o **diretório** que você acabou de criar.
 7.  Clique no ícone **Novo** no painel de navegação esquerdo.
 8.  Selecione **Segurança + Identidade** no menu Criar.
@@ -35,4 +35,4 @@
 ## Próximas etapas
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=Oct15_HO3-->

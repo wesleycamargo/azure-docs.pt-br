@@ -466,7 +466,7 @@ Esta seção fornece mais detalhes e observações sobre o código no método Ex
 		outputBlob.UploadText(output);
 
 
-## Criar o data factory
+### Criar o data factory
 
 Na seção [Criar atividade personalizada](#create-the-custom-activity), você criou uma atividade personalizada e carregou o arquivo zip com binários e o arquivo PDB em um contêiner de blob do Azure. Nesta seção, você criará um Azure **data factory** com um **pipeline** que usa **atividade personalizada**.
 
@@ -935,4 +935,4 @@ Depois de processar dados, é possível consumi-lo com ferramentas online como o
 
     -   [Introdução ao .NET da Biblioteca de Lote do Azure](../batch/batch-dotnet-get-started.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1223_2015-->

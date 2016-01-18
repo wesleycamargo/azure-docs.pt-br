@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
+   ms.date="09/30/2015"
    ms.author="sahajs;twounder"/>
 
 # Usar o Stream Analytics do Azure com o SQL Data Warehouse
@@ -96,4 +96,4 @@ Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvol
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1203_2015-->

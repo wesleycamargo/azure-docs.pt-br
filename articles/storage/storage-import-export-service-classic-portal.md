@@ -19,6 +19,8 @@
 
 # Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados para o Armazenamento de Blob
 
+[AZURE.INCLUDE [storage-selector-portal-import-export-service](../../includes/storage-selector-portal-import-export-service.md)]
+
 ## Visão geral
 
 Você pode usar o serviço de Importação/Exportação do Microsoft Azure para transferir grandes quantidades de dados de arquivo para o armazenamento de Blob do Azure em situações onde o carregamento pela rede é extremamente dispendioso ou inviável. Você também pode usar o serviço Importar/Exportar para transferir grandes quantidades de dados residentes no armazenamento de Blob para suas instalações locais no devido tempo e de forma economicamente viável.
@@ -276,4 +278,4 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1223_2015-->

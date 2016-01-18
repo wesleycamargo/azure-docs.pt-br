@@ -1,6 +1,14 @@
 ## Application Gateway
 
-O Application Gateway o fornece uma solução de balanceamento de carga HTTP gerenciada pelo Azure com base no balanceamento de carga de camada 7. O balanceamento de carga do aplicativo permite o uso de regras de roteamento de tráfego de rede com base em HTTP. <BR> | Propriedade | Descrição | |---|---| | **backendAddressPools** | A lista de endereços IP dos servidores de back-end. Os endereços IP listados devem pertencer à sub-rede da rede virtual, ou devem ser um IP/VIP público ou IP privado | | **backendHttpSettingsCollection** | Cada pool tem configurações como porta, protocolo e afinidade baseada em cookie. Essas configurações estão vinculadas a um pool e são aplicadas a todos os servidores no pool | | **frontendPorts** | Essa porta é a porta pública aberta no gateway de aplicativo. o tráfego atinge essa porta e é redirecionado para um dos servidores de back-end | | **httpListeners** | O ouvinte tem uma porta de front-end, um protocolo (Http ou Https, eles diferenciam maiúsculas de minúsculas) e o nome do certificado SSL (se estiver configurando o descarregamento SSL) | | **requestRoutingRules** | A regra vincula o ouvinte e o pool do servidor de back-end e define a qual pool de servidor de back-end o tráfego deve ser direcionado. Atualmente, funciona apenas como Round robin
+O Application Gateway o fornece uma solução de balanceamento de carga HTTP gerenciada pelo Azure com base no balanceamento de carga de camada 7. O balanceamento de carga do aplicativo permite o uso de regras de roteamento para o tráfego de rede com base em HTTP.
+
+| Propriedade | Descrição | 
+|---|---|
+| **backendAddressPools** | Lista de endereços IP dos servidores back-end. Os endereços IP listados devem pertencer à sub-rede da rede virtual ou devem ser um IP/VIP público ou IP privado. |
+| **backendHttpSettingsCollection** | Cada pool tem configurações como porta, protocolo e afinidade baseada em cookie. Essas configurações são vinculadas a um pool e aplicadas a todos os servidores no pool. |
+| **frontendPorts** | Essa porta é a porta pública aberta no application gateway. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end. |
+| **httpListeners** | O ouvinte tem uma porta front-end, um protocolo (Http ou Https, que diferencia maiúsculas de minúsculas) e o nome do certificado SSL (se estiver configurando o descarregamento SSL). |
+| **requestRoutingRules** | A regra vincula o ouvinte e o pool de servidores back-end e define a qual pool de servidores back-end o tráfego deve ser direcionado. Atualmente, funciona apenas como Round robin |
 
 
 Exemplo de um modelo Json de application gateway:
@@ -213,4 +221,4 @@ Exemplo de um modelo Json de application gateway:
 
 Leitura de [API REST do application gateway](https://msdn.microsoft.com/library/azure/mt299388.aspx) para obter mais informações.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -20,8 +20,8 @@
 
 ## Ativar ou Desativar uma Função
 
-1. Faça logon no [Portal do Azure](http://portal.azure.com).
-2. Siga as etapas em [Introdução ao Privileged Identity Management do Azure](active-directory-privileged-identity-management-getting-started.md) para colocar o PIM do Azure no painel do portal do Azure.
+1. Faça logon em [http://portal.azure.com](http://portal.azure.com).
+2. Siga as etapas em [Introdução ao Privileged Identity Management do Azure](active-directory-privileged-identity-management-getting-started.md) para colocar o PIM do Azure no painel do portal.
 3. Depois de concluir as etapas no Assistente de Segurança, você verá o menu principal do PIM do Azure.
 4. Clique em **Ativar minha função**.
 5. Será exibida uma lista das funções que foram atribuídas a você.
@@ -38,4 +38,4 @@
 ## Próximas etapas
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=Oct15_HO3-->

@@ -21,7 +21,10 @@
 # Conectar-se ao Banco de Dados SQL usando Python no Ubuntu Linux
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+> [AZURE.SELECTOR]
+- [Python](sql-database-develop-python-simple-ubuntu-linux.md)
+- [Node.js](sql-database-develop-nodejs-simple-linux.md)
+- [Ruby](sql-database-develop-ruby-simple-linux.md)
 
 
 Este tópico apresente um exemplo de código Python executado em um computador cliente Ubuntu Linux, para se conectar a um Banco de Dados SQL do Azure.
@@ -99,11 +102,11 @@ Nesse exemplo, você verá como executar uma instrução [INSERT](https://msdn.m
 Este exemplo de código demonstra o uso de transações nas quais você:
 
 
-- Inicia uma transação
+-Inicia uma transação
 
-- Insere uma linha de dados
+-Insere uma linha de dados
 
-- Reverte a transação para desfazer a inserção
+-Reverte a transação para desfazer a inserção
 
 
 	import pymssql
@@ -117,4 +120,4 @@ Este exemplo de código demonstra o uso de transações nas quais você:
 
 Para saber mais, consulte o [Centro de Desenvolvedores do Python](/develop/python/).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1223_2015-->

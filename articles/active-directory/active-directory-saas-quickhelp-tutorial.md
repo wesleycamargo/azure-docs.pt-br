@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2015"
+	ms.date="12/01/2015"
 	ms.author="jeedes"/>
 
 
@@ -60,7 +60,7 @@ Para configurar a integração do QuickHelp ao AD do Azure, você precisa adicio
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
-3. Para abrir a exibição dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu superior.<br><br> ![Aplicativos][2]<br>
+3. Para abrir o modo de exibição de aplicativo, no modo de exibição de diretório, clique em **Aplicativos** no menu superior.<br><br> ![Aplicativos][2]<br>
 4. Clique em **Adicionar** na parte inferior da página.<br><br> ![Aplicativos][3]<br>
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.<br><br> ![Aplicativos][4]<br>
 6. Na caixa de pesquisa, digite **QuickHelp**.<br><br> ![Aplicativos][5]<br>
@@ -77,7 +77,7 @@ Para configurar e testar o logon único do AD do Azure com o QuickHelp, você pr
 2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
 4. **[Criação de um usuário de teste do QuickHelp](#creating-a-quickhelp-test-user)**: para ter um equivalente de Brenda Fernandes no QuickHelp que esteja vinculado à representação dela no AD do Azure.
 5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
+5. **[Teste do logon único](#testing-single-sign-on)** - para verificar se a configuração funciona.
 
 ### Configuração do logon único do AD do Azure
 
@@ -117,13 +117,13 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal do
 
     b. Para carregar o arquivo de metadados do Azure baixado, clique em **Procurar**, navegue até o arquivo e clique em **Carregar Metadados**.
 
-    c. Na caixa de texto **Email**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    d. Na caixa de texto **Email**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
-    d. Na caixa de texto **Nome**, **digite http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    e. Na caixa de texto **Nome**, **digite http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
 
-    e. Na caixa de texto **Sobrenome**, **digite http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+    f. Na caixa de texto **Sobrenome**, **digite http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
 
-    f. No **ação barra**, clique em **Salvar**.
+    g. No **ação barra**, clique em **Salvar**.
 
 
 
@@ -165,7 +165,7 @@ O objetivo desta seção é criar um usuário de teste no portal do Azure chamad
 
     b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
 
-    c. Na caixa de texto **Nome de exibição**, digite **Brenda Fernandes**.
+    c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
 
     d. Na lista **Função**, selecione **Usuário**. e. Clique em **Próximo**.
 
@@ -194,7 +194,7 @@ O objetivo desta seção é habilitar Brenda Fernandes para usar o logon único 
 
 **Para atribuir Brenda Fernandes ao QuickHelp, execute as seguintes etapas:**
 
-1. No portal do Azure, para abrir a exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu principal. <br><br>![Atribuir usuário][201] <br>
+1. No portal do Azure, para abrir a exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior. <br><br>![Atribuir usuário][201] <br>
 
 2. Na lista de aplicativos, selecione **QuickHelp**. <br><br>![Atribuir usuário][202] <br>
 
@@ -255,4 +255,4 @@ O objetivo desta seção é testar sua configuração de logon único do AD do A
 [401]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_401.png
 [402]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_402.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="12/23/2015" 
 	ms.author="nitinme"/>
 
 
@@ -37,17 +37,7 @@ Saiba como instalar blocos de anotações do Zeppelin em clusters Spark e como u
 
 ## Instalar o Zeppelin como parte da criação do cluster
 
-Você pode instalar o Zeppelin em um cluster Spark usando ação de script. A ação de script usa scripts personalizados para instalar componentes no cluster que não estão disponíveis por padrão. O script personalizado para instalar o Zeppelin em um cluster Spark está disponível em ****https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
-
-### Usando o Portal do Azure
-
-Para obter instruções sobre como usar o SDK do .NET do HDInsight para executar a ação de script a fim de instalar o Zeppelin, confira [Personalizar os clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-azure-portal). Você deve fazer algumas alterações nas instruções deste artigo.
-
-* Você deve usar o script para instalar o Zeppelin. O script a ser usado é ****https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
-
-* Você deve executar a ação de script somente no nó principal.
-
-* O script não precisa de parâmetros.
+>[AZURE.NOTE]Pule essa etapa se você criou o cluster Spark usando o portal. Essa etapa será necessária somente se você estiver usando o SDK do .NET do HDInsight ou o Azure PowerShell.
 
 ### Usando o SDK do .NET do HDInsight
 
@@ -268,7 +258,7 @@ Depois de configurar o túnel SSH, você poderá acessar o bloco de anotações 
 	 Clique nas opções de exibição (realçadas no retângulo) para alternar entre diferentes representações para o mesmo resultado. Clique em **Configurações** para escolher o que constitui a chave e os valores na saída. A captura de tela acima usa **buildingID** como a chave e a média de **temp\_diff** como o valor.
 
 	
-6. Você também pode executar instruções Spark SQL usando variáveis na consulta. O seguinte trecho mostra como definir uma variável, **Temp**, na consulta com os possíveis valores com os quais você deseja consultar. Quando você executa a consulta pela primeira vez, uma lista suspensa é preenchida automaticamente com os valores especificados para a variável.
+6. Você também pode executar instruções Spark SQL usando variáveis na consulta. O trecho a seguir mostra como definir uma variável, **Temp**, na consulta com os possíveis valores com os quais deseja consultar. Quando você executa a consulta pela primeira vez, uma lista suspensa é preenchida automaticamente com os valores especificados para a variável.
 
 		%sql
 		select buildingID, date, targettemp, (targettemp - actualtemp) as temp_diff
@@ -279,7 +269,7 @@ Depois de configurar o túnel SSH, você poderá acessar o bloco de anotações 
 
 	![Executar uma instrução do Spark SQL usando o bloco de anotações](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.note.sparksqlquery2.png "Executar uma instrução do Spark SQL usando o bloco de anotações")
 
-	Em consultas subsequentes, você pode selecionar um novo valor na lista suspensa e executar a consulta novamente. Clique em **Configurações** para escolher o que constitui a chave e os valores no resultado. A captura de tela acima usa o **buildingID** como chave, a média de **temp\_diff** como valor e a **targettemp** como grupo.
+	Em consultas subsequentes, você pode selecionar um novo valor na lista suspensa e executar a consulta novamente. Clique em **Configurações** para escolher o que constitui a chave e os valores na saída. A captura de tela acima usa **buildingID** como chave, a média de **temp\_diff** como valor e **targettemp** como o grupo.
 
 7. Reinicie o interpretador do SQL Sparks para sair do aplicativo. Clique na guia **Interpretador** na parte superior e, para o interpretador do Spark, clique em **Reiniciar**.
 
@@ -295,7 +285,7 @@ Depois de configurar o túnel SSH, você poderá acessar o bloco de anotações 
 
 * [Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para analisar a temperatura de prédios usando dados do sistema HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para analisar a temperatura de prédios usando dados HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
 * [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
@@ -307,7 +297,7 @@ Depois de configurar o túnel SSH, você poderá acessar o bloco de anotações 
 
 * [Criar um aplicativo autônomo usando Scala](hdinsight-apache-spark-create-standalone-application.md)
 
-* [Executar trabalhos remotamente em um cluster do Spark usando Livy](hdinsight-apache-spark-livy-rest-interface.md)
+* [Executar trabalhos remotamente em um cluster Spark usando Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### Extensões
 
@@ -328,4 +318,4 @@ Depois de configurar o túnel SSH, você poderá acessar o bloco de anotações 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1223_2015-->

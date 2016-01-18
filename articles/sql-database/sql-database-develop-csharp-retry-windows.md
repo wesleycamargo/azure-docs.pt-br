@@ -1,20 +1,20 @@
-<properties
-	pageTitle="Lógica de repetição em C# para se conectar ao Banco de Dados SQL | Microsoft Azure"
-	description="O exemplo em C# inclui uma lógica de repetição para interagir de forma confiável com o Banco de Dados SQL do Azure."
-	services="sql-database"
-	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
+<properties 
+	pageTitle="Lógica de repetição em C# para se conectar ao Banco de Dados SQL | Microsoft Azure" 
+	description="O exemplo em C# inclui uma lógica de repetição para interagir de forma confiável com o Banco de Dados SQL do Azure." 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="MightyPen" 
+	manager="jeffreyg" 
 	editor=""/>
 
 
-<tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="12/17/2015"
+<tags 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="12/17/2015" 
 	ms.author="genemi"/>
 
 
@@ -22,7 +22,10 @@
 
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+> [AZURE.SELECTOR]
+- [PHP](sql-database-develop-php-retry-windows.md)
+- [C#](sql-database-develop-csharp-retry-windows.md)
+- [C# EntLib6](sql-database-develop-entlib-csharp-retry-windows.md)
 
 
 
@@ -286,4 +289,4 @@ Execute o programa com o parâmetro “test” e verifique se ele primeiro falha
 
 - [Experimentar o Banco de Dados SQL: Usar o C# para criar um Banco de Dados SQL com a Biblioteca do Banco de Dados SQL para .NET](sql-database-get-started-csharp.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1223_2015-->

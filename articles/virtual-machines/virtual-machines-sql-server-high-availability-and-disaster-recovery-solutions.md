@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Alta Disponibilidade e Recuperação de Desastres para SQL Server | Microsoft Azure"
-	description="Uma discussão sobre os diversos tipos de estratégias HADR do SQL Server em execução em máquinas virtuais do Azure."
+	description="Este tutorial usa recursos criados com o modelo de implantação clássica e discute os vários tipos de estratégias HADR do SQL Server em execução em Máquinas Virtuais do Azure."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="01/07/2015"
+	ms.date="11/13/2015"
 	ms.author="jroth" />
 
 # Alta disponibilidade e recuperação de desastres para SQL Server em Máquinas Virtuais do Azure
@@ -39,7 +39,6 @@ As tecnologias HADR do SQL Server que têm suporte no Azure incluem:
 - [Espelhamento de banco de dados](https://technet.microsoft.com/library/ms189852.aspx)
 - [Envio de logs](https://technet.microsoft.com/library/ms187103.aspx)
 - [Backup e restauração com o Serviço de armazenamento de blob do Azure](https://msdn.microsoft.com/library/jj919148.aspx)
-- [Instâncias do cluster de failover do AlwaysOn](https://technet.microsoft.com/library/ms189134.aspx) 
 
 É possível combinar as tecnologias para implementar uma solução SQL Server com alta disponibilidade e recursos de recuperação de desastre. Dependendo da tecnologia usada, uma implantação híbrida pode exigir um túnel VPN com a rede virtual do Azure. As seções a seguir mostram algumas das arquiteturas de implantação de exemplo.
 
@@ -49,9 +48,8 @@ Você pode ter uma solução de alta disponibilidade para seus bancos de dados d
 
 |Tecnologia|Arquiteturas de exemplo|
 |---|---|
-|**Grupos de disponibilidade AlwaysOn**|Todas as réplicas de disponibilidade executadas em VMs do Azure para alta disponibilidade na mesma região. Você precisa configurar uma VM de controlador de domínio, porque o WSFC (Windows Server Failover Clustering) requer um domínio do Active Directory.<br/> ![Grupos de disponibilidade AlwaysOn](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_always_on.gif)<br/>Para obter mais informações, consulte [Configurar Grupos de Disponibilidade AlwaysOn no Azure (GUI)](virtual-machines-sql-server-alwayson-availability-groups-gui.md).|
+|**Grupos de disponibilidade AlwaysOn**|Todas as réplicas de disponibilidade executadas em VMs do Azure para alta disponibilidade na mesma região. Você precisa configurar um controlador de domínio além das máquinas virtuais do SQL Server, porque o WSFC (Windows Server Failover Clustering) requer um domínio do Active Directory.<br/> ![Grupos de disponibilidade AlwaysOn](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_always_on.gif)<br/>Para obter mais informações, consulte [Configurar Grupos de Disponibilidade AlwaysOn no Azure (GUI)](virtual-machines-sql-server-alwayson-availability-groups-gui.md).|
 |**Espelhamento de banco de dados**|Os servidores principal, de espelho e testemunha, todos em execução no mesmo data center do Azure para alta disponibilidade. Você pode implantar usando um controlador de domínio.<br/>![Espelhamento de banco de dados](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_dbmirroring1.gif)<br/>Você também pode implantar a mesma configuração de espelhamento de banco de dados sem um controlador de domínio, usando certificados do servidor.<br/>![Espelhamento de banco de dados](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_dbmirroring2.gif)|
-|**Instâncias do cluster de failover do AlwaysOn**|FCI (Instâncias de cluster de failover), que requerem armazenamento compartilhado, podem ser criadas de duas maneiras diferentes.<br/><br/>1. Uma FCI em um WSFC de dois nós em execução nas VMs do Azure com armazenamento que dá suporte a uma solução de cluster de terceiros. Para obter um exemplo específico que usa SIOS DataKeeper, consulte [Alta disponibilidade para um compartilhamento de arquivos usando WSFC e o software de terceiros SIOS Datakeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).<br/><br/>2. Uma FCI em um WSFC de dois nós em execução em VMs do Azure com armazenamento em um bloco compartilhado de destino iSCSI por meio da Rota Expressa. Por exemplo, o NPS (Armazenamento privado do NetApp) expõe um destino iSCSI por meio da Rota Expressa com Equinix para VMs do Azure.<br/><br/>Para armazenamento compartilhado de terceiros e soluções de replicação de dados, você deve contatar o fornecedor para tratar de problemas relacionados ao acesso a dados no failover.<br/><br/>Observe que usar o FCI sobre o [Armazenamento de arquivos do Azure](https://azure.microsoft.com/services/storage/files/) ainda não tem suporte, porque esta solução não utilizam o Armazenamento Premium. Estamos trabalhando para dar suporte a isso em breve.|
 
 ## Somente Azure: soluções de recuperação de desastres
 
@@ -154,4 +152,4 @@ Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, c
 - [Instalar uma nova floresta do Active Directory no Azure](../active-directory/active-directory-new-forest-virtual-machine.md)
 - [Criar cluster WSFC para Grupos de Disponibilidade AlwaysOn em VM do Azure](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1203_2015-->

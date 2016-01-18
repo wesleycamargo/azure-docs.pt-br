@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Configurando seu projeto do Azure usando várias configurações de serviço | Microsoft Azure"
+   pageTitle="Configurando seu projeto do Azure usando várias configurações de serviço"
    description="Saiba como configurar um projeto de serviço de nuvem do Azure alterando os arquivos Servicedefinition e ServiceConfiguration."
    services="visual-studio-online"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/05/2016"
+   ms.date="09/29/2015"
    ms.author="tarcher" />
 
 # Configurando seu projeto do Azure usando várias configurações de serviço
@@ -59,7 +59,7 @@ Por padrão, o diagnóstico é habilitado para a função web. A conta de armaze
 
 ## Página Configurações
 
-Na página **Configurações**, você pode adicionar parâmetros de configuração para o serviço. Definições de configuração são pares nome-valor. O código em execução na função pode ler os valores das suas configurações em tempo de execução usando classes fornecidas pelo [Biblioteca Gerenciada do Azure](http://go.microsoft.com/fwlink?LinkID=171026). Especificamente, o método [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx) retorna o valor de uma definição de configuração nomeada em tempo de execução.
+Na página **Configurações**, você pode adicionar parâmetros de configuração para o serviço. Definições de configuração são pares nome-valor. O código em execução na função pode ler os valores das suas configurações em tempo de execução usando classes fornecidas pelo [Biblioteca Gerenciada do Azure](http://go.microsoft.com/fwlink?LinkID=171026). Especificamente, o método [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx) retorna o valor de um parâmetro de configuração nomeado em tempo de execução.
 
 ### Configurando uma cadeia de conexão para uma conta de armazenamento
 
@@ -85,7 +85,7 @@ Uma função de trabalho pode ter qualquer número de pontos de extremidade HTTP
 
 ## Página Armazenamento Local
 
-Você pode usar a página de propriedades **Armazenamento Local** para reservar um ou mais recursos de armazenamento local para uma função. Um recurso de armazenamento local é um diretório reservado no sistema de arquivos da máquina virtual do Azure no qual uma instância de uma função está em execução. Para obter mais informações sobre como trabalhar com recursos de armazenamento local, consulte [Configurar recursos de armazenamento local](cloud-services-configure-local-storage-resources.md).
+Você pode usar a página de propriedades **Armazenamento Local** para reservar um ou mais recursos de armazenamento local para uma função. Um recurso de armazenamento local é um diretório reservado no sistema de arquivos da máquina virtual do Azure no qual uma instância de uma função está em execução. Para obter mais informações sobre como trabalhar com recursos de armazenamento local, consulte [Configurar recursos de armazenamento Local](cloud-services-configure-local-storage-resources.md).
 
 ## Página Certificados
 
@@ -110,4 +110,4 @@ Para definir configurações que se aplicam a todo um projeto de serviço de nuv
 |Desenvolvimento|Nessa página, você pode especificar instruções de configuração da compilação e as condições sob as quais eventos de pós-compilação são executados.|
 |Web|Nessa página, você pode definir as configurações relacionadas ao servidor Web.|
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1217_2015-->

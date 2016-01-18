@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2015"  
+	ms.date="10/29/2015"  
 	ms.author="juliako"/>
 
 #Visão Geral e Comparação de Codificadores de Mídia sob Demanda do Azure
@@ -72,17 +72,13 @@ Os metadados de entrada dos codificadores estão descritos [aqui](http://msdn.mi
 
 Os metadados de saída dos codificadores estão descritos [aqui](http://msdn.microsoft.com/library/azure/dn783217.aspx).
 
-###Gerar miniaturas
+###Miniatura
 
-Para obter informações, consulte [Como gerar miniaturas usando o Codificador de Mídia Padrão](media-services-custom-mes-presets-with-dotnet.md#thumbnails).
+Para saber mais sobre como gerar miniaturas, consulte [Como gerar miniaturas usando o Codificador de Mídia Padrão](media-services-dotnet-generate-thumbnail-with-mes.md).
 
-###Cortar vídeos (recorte)
+###Sobreposições de áudio e/ou vídeo
 
-Para obter informações, consulte [Como cortar vídeos usando o Codificador de Mídia Padrão](media-services-custom-mes-presets-with-dotnet.md#trim_video).
-
-###Criar sobreposições
-
-Para obter informações, consulte [Como criar sobreposições usando o Codificador de Mídia Padrão](media-services-custom-mes-presets-with-dotnet.md#overlay).
+Não é suportado no momento.
 
 ###Consulte também
 
@@ -269,4 +265,4 @@ MP3 (MPEG-1 Audio Layer 3)|Não|Não|Sim
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1203_2015-->

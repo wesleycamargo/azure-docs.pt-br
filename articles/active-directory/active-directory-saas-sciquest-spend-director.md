@@ -3,7 +3,7 @@
 	description="Saiba como configurar o logon único entre o Active Directory do Azure e o SciQuest Spend Director."
 	services="active-directory"
 	documentationCenter=""
-	authors="jeevansd"
+	authors="markusvi"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
-	ms.author="jeedes"/>
+	ms.date="10/20/2015"
+	ms.author="markusvi"/>
 
 
 # Tutorial: Integração do Active Directory do Azure com o SciQuest Spend Director
@@ -60,7 +60,7 @@ Para configurar a integração do SciQuest Spend Director com o Azure AD, você 
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
-3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.<br><br> ![Aplicativos][2]
+3. Para abrir a exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu principal.<br><br> ![Aplicativos][2]
 4. Clique em **Adicionar** na parte inferior da página.<br><br> ![Aplicativos][3]
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo por meio da galeria**.<br><br> ![Aplicativos][4]
 6. Na caixa de pesquisa, digite **sciQuest spend director**.<br>![Aplicativos][5]
@@ -78,7 +78,7 @@ Para configurar e testar o logon único do Azure AD com o SciQuest Spend Directo
 2. **[Criando um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
 4. **[Criando um usuário de teste do SciQuest Spend Director](#creating-a-halogen-software-test-user)** - para ter um equivalente de Brenda Fernandes no SciQuest Spend Director vinculado à representação dela no AD do Azure.
 5. **[Atribuindo o usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** - para verificar se a configuração funciona.
+5. **[Testando o logon único](#testing-single-sign-on)** - para verificar se a configuração funciona.
 
 ### Configuração do logon único do Azure AD
 
@@ -113,23 +113,23 @@ O objetivo desta seção é criar um usuário de teste no portal do Azure chamad
 
 **Para criar um usuário de teste no Azure AD, execute as seguintes etapas:**
 
-1. No **Portal de Gerenciamento do Azure**, no painel navegação à esquerda, clique em **Active Directory**. <br><br>![O que é o Azure AD Connect][100] 
+1. No **Portal de Gerenciamento do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. <br><br>![O que é o Azure AD Connect][100] 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**. <br><br>![O que é o Azure AD Connect][101] 
-4. Para abrir a caixa de diálogo **Adicionar usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar usuário**.<br><br>![O que é o Azure AD Connect][102] 
+4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.<br><br>![O que é o Azure AD Connect][102] 
 5. Na página de caixa de diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:<br><br>![O que é o Azure AD Connect][103] 
-  1. Em **Tipo de usuário**, selecione **Novo usuário na organização**.
-  2. Na **caixa de texto** de Nome de usuário, digite **BrittaSimon**.
+  1. Em **Tipo de Usuário**, selecione **Novo usuário na organização**.
+  2. Na caixa de texto **Nome de Usuário**, digite **BrendaFernandes**.
   3. Clique em Avançar.
-6.  Na página de caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:<br><br>![O que é o Azure AD Connect][104] 
-  1. Na caixa de texto **Nome**, digite **Britta**.  
+6.  Na página de caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas: <br><br>![O que é o Azure AD Connect][104] 
+  1. Na caixa de texto **Nome**, digite **Brenda**.  
   2. Na caixa de texto **Sobrenome**, digite **Fernandes**.
   3. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
   4. Na lista **Função**, selecione **Usuário**.
   5. Clique em **Próximo**.
 7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**. <br><br>![O que é o Azure AD Connect][105]  
 8. Na página de caixa de diálogo **Obter senha temporária** execute as seguintes etapas:<br><br>![O que é o Azure AD Connect][106]   
-  1. Anote o valor da **Nova senha**.
+  1. Anote o valor da **Nova Senha**.
   2. Clique em **Concluído**.   
   
  
@@ -153,7 +153,7 @@ O objetivo desta seção é permitir que Brenda Fernandes use o logon único do 
 1. No portal do Azure, para abrir a exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu principal.<br> <br><br>![O que é o Azure AD Connect][201]
 2. Na lista de aplicativos, selecione **SciQuest Spend Director**. <br><br>![O que é o Azure AD Connect][202]
 1. No menu na parte superior, clique em **Usuários**.<br> <br><br>![O que é o Azure AD Connect][203]
-1. Na lista de Usuários, selecione **Britta Simon**. <br><br>![O que é o Azure AD Connect][204]
+1. Na lista Usuários, selecione **Brenda Fernandes**. <br><br>![O que é o Azure AD Connect][204]
 2. Na barra de ferramentas na parte inferior, clique em **Atribuir**. <br><br>![O que é o Azure AD Connect][205]
 
 
@@ -166,7 +166,7 @@ O objetivo desta seção é testar sua configuração de logon único do AD do A
 ## Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Active Directory do Azure?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_01.png
@@ -195,4 +195,4 @@ O objetivo desta seção é testar sua configuração de logon único do AD do A
 [204]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_19.png
 [205]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_20.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=Oct15_HO4-->

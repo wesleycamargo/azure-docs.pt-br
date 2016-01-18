@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="12/23/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 #Novidades na atualização mais recente para a Pesquisa do Azure#
@@ -105,7 +105,7 @@ Esta versão foi a versão de visualização pública da Pesquisa do Azure, forn
 ##API de gerenciamento versão 2015-08-19
 **Lançamento: 11 de setembro de 2015**
 
-A [API REST de gerenciamento](https://msdn.microsoft.com/library/azure/dn832684.aspx) inclui as seguintes atualizações.
+A [API REST de Gerenciamento](https://msdn.microsoft.com/library/azure/dn832684.aspx) inclui as seguintes atualizações.
 
 - checkNameAvailability verifica se o nome de um determinado serviço já está sendo usado.
 - O intervalo de réplica era de 1 a 6, e agora é de 1 a 12.
@@ -125,4 +125,4 @@ A versão de visualização da [API REST de gerenciamento](search-management-api
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1203_2015-->

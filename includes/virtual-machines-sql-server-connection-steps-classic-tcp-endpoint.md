@@ -1,22 +1,20 @@
-### Criar um ponto de extremidade TCP para a máquina virtual
+### Create a TCP endpoint for the virtual machine
 
-Para acessar o SQL Server da Internet, a máquina virtual deve ter um ponto de extremidade para escutar comunicação TCP de entrada. Essa etapa de configuração do Azure, direciona o tráfego da porta TCP de entrada para uma porta TCP que está acessível para a máquina virtual.
+In order to access SQL Server from the internet, the virtual machine must have an endpoint to listen for incoming TCP communication. This Azure configuration step, directs incoming TCP port traffic to a TCP port that is accessible to the virtual machine.
 
->[AZURE.NOTE]Se estiver se conectando dentro do mesmo serviço de nuvem ou rede virtual, você não precisa criar um ponto de extremidade acessível publicamente. Nesse caso, você pode continuar para a próxima etapa. Para obter mais informações, consulte [Cenários de conexão](../articles/virtual-machines/virtual-machines-sql-server-connectivity.md#connection-scenarios).
+>[AZURE.NOTE] If you are connecting within the same cloud service or virtual network, you do not have to create a publically accessible endpoint. In that case, you could continue to the next step. For more information, see [Connection Scenarios](../articles/virtual-machines/virtual-machines-sql-server-connectivity.md#connection-scenarios).
 
-1. No Portal de Gerenciamento do Azure, clique em **MAQUINAS VIRTUAIS**.
+1. On the Azure Management Portal, click on **VIRTUAL MACHINES**.
 	
-2. Clique na máquina virtual recém-criada. As informações sobre sua máquina virtual são apresentadas.
+2. Click on your newly created virtual machine. Information about your virtual machine is presented.
 	
-3. Próximo à parte superior da página, selecione a página **PONTOS DE EXTREMIDADE** e, na parte inferior da página, clique em **ADICIONAR**.
+3. Near the top of the page, select the **ENDPOINTS** page, and then at the bottom of the page, click **ADD**.
 	
-4. Na página **Adicionar Ponto de Extremidade à Máquina Virtual**, clique em **Adicionar Ponto de Extremidade Independente** e, em seguida, clique na seta de avanço para continuar.
+4. On the **Add an Endpoint to a Virtual Machine** page, click **Add a Stand-alone Endpoint**, and then click the Next arrow to continue.
 	
-5. Na página **Especificar os detalhes do ponto de extremidade**, forneça as seguintes informações.
+5. On the **Specify the details of the endpoint** page, provide the following information.
 
-	- Na caixa **NOME**, forneça um nome para o ponto de extremidade.
-	- Na caixa **PROTOCOLO**, selecione **TCP**. Você pode digitar **57500** na caixa **PORTA PÚBLICA**. Da mesma forma, você pode digitar a porta de escuta padrão do SQL Server **1433** na caixa **Porta Particular**. Observe que muitas organizações selecionam números de porta diferentes para evitar ataques de segurança mal-intencionados. 
+	- In the **NAME** box, provide a name for the endpoint.
+	- In the **PROTOCOL** box, select **TCP**. You may type **57500** in the **PUBLIC PORT** box. Similarly, you may type SQL Server's default listening port **1433** in the **Private Port** box. Note that many organizations select different port numbers to avoid malicious security attacks. 
 
-6. Clique na marca de seleção para continuar. O ponto de extremidade é criado.
-
-<!---HONumber=AcomDC_0107_2016-->
+6. Click the check mark to continue. The endpoint is created.

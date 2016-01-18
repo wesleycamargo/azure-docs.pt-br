@@ -5,8 +5,8 @@
 	documentationCenter=""
 	authors="danielsollondon"
 	manager="jeffreyg"
-	editor="monicar"    
-	tags="azure-service-management"/>
+   editor="monicar"    
+   tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="01/06/2015"
+	ms.date="10/02/2015"
 	ms.author="jroth"/>
 
 # Usar o Armazenamento Premium do Azure com o SQL Server em máquinas virtuais
@@ -126,7 +126,7 @@ Para cada disco, siga estas etapas:
 
 	![DisknameAndLUN][2]
 
-1. Área de trabalho remota na VM. Em seguida, vá para **Gerenciamento do Computador** | **Gerenciador de Dispositivos ** | **Unidades de Disco**. Examine as propriedades de cada um dos 'Discos Virtuais da Microsoft'
+1. Área de trabalho remota na VM. Em seguida, vá para **Gerenciamento do Computador** | **Gerenciador de Dispositivos** | **Unidades de Disco**. Examine as propriedades de cada um dos 'Discos Virtuais da Microsoft'
 
 	![VirtualDiskProperties][3]
 
@@ -401,8 +401,10 @@ Você deve provisionar o tempo em que você possa executar o failover manual e t
 1. Crie dois novos SQL Servers no novo serviço de nuvem com Armazenamento Premium anexado.
 1. Copie sobre backups e restauração completos com **NORECOVERY**.
 1. Copie sobre objetos dependentes de ‘banco de dados fora do usuário’, como logons etc.
-1. Crie um novo ILB (balanceador de carga interno) ou use um ELB (balanceador de carga externo) e configure pontos de extremidade balanceados de carga em ambos os nós novos.
-> [AZURE.NOTE]Verifique se todos os nós têm a configuração do ponto de extremidade correta antes de continuar
+1. Crie um novo ILB (balanceador de carga interno) ou use um ELB (balanceador de carga externo) e configure pontos de extremidade balanceados de carga em ambos os nós novos.  
+
+> [AZURE.NOTE] Verifique se todos os nós têm a configuração do ponto de extremidade correta antes de continuar  
+
 
 1. Interrompa o acesso de usuário/aplicativo ao SQL Server (se você estiver usando pools de armazenamento).
 1. Interrompa serviços de mecanismo do SQL Server em todos os nós (se você estiver usando pools de armazenamento).
@@ -468,7 +470,7 @@ Uma estratégia para tempo de inatividade mínimo é usar uma réplica secundár
 - A reconexão do cliente pode ser atrasada dependendo da configuração do cliente/DNS.
 - Haverá um tempo de inatividade adicional se você optar por colocar offline o grupo de cluster AlwaysOn para trocar os endereços IP. Você pode evitar isso usando uma dependência OR e possíveis proprietários para o recurso de endereço IP adicionado. Consulte a seção "Adicionando o recurso de endereço IP na mesma sub-rede" do [Apêndice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
 
-> [AZURE.NOTE]Quando quer que o nó adicional participe como um parceiro de failover AlwaysOn, você precisa adicionar um ponto de extremidade do Azure com uma referência a um conjunto de balanceamento de carga. Quando você executa o comando **Add-AzureEndpoint** para fazer isso, as conexões atuais permanecem abertas, mas as novas conexões com o ouvinte não poderão ser estabelecidas até o balanceador de carga ser atualizado. Em testes, observou-se que isso durava de 90 a 120 segundos, mas é necessário conferir.
+> [AZURE.NOTE]Quando quer que o nó adicional participe como um parceiro de failover AlwaysOn, você precisa adicionar um ponto de extremidade do Azure com uma referência a um conjunto de balanceamento de carga. Quando você executa o comando **Add-AzureEndpoint** para fazer isso, as conexões atuais permanecem abertas, mas as novas conexões com o ouvinte não poderão ser estabelecidas até o balanceador de carga ser atualizado. Em testes, observou-se que isso durava 90 a 120 segundos, mas é necessário conferir.
 
 ##### Vantagens
 
@@ -1149,4 +1151,4 @@ Para adicionar o endereço IP, confira o [Apêndice](#appendix-migrating-a-multi
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!----HONumber=AcomDC_1203_2015-->

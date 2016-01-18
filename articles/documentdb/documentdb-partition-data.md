@@ -18,7 +18,7 @@
 
 # Particionar e dimensionar dados no Banco de Dados de Documentos
 
-O [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/) foi criado para ajudá-lo a obter um desempenho rápido e previsível e para *expandir* diretamente com seu aplicativo conforme ele cresce. O Banco de Dados de Documentos tem sido usado para alimentar serviços de produção de grande escala na Microsoft, como o Repositório de Dados do Usuário que alimenta o pacote MSN de aplicativos Web e para celular.
+O [Banco de Dados de Documentos do Microsoft Azure](../../services/documentdb/) foi criado para ajudá-lo a obter um desempenho rápido e previsível e para *expandir* diretamente com seu aplicativo conforme ele cresce. O Banco de Dados de Documentos tem sido usado para alimentar serviços de produção de grande escala na Microsoft, como o Repositório de Dados do Usuário que alimenta o pacote MSN de aplicativos Web e para celular.
 
 Você pode conseguir reduzir horizontalmente quase infinitamente em termos de armazenamento e produtividade para seu aplicativo no Banco de Dados de Documentos, particionando seus dados horizontalmente - um conceito comumente chamado de **fragmentação**. Contas do Banco de Dados de Documentos podem ser dimensionadas linearmente com o custo, por meio de unidades empilháveis chamadas de **coleções**. A melhor forma de particionar os dados entre as coleções depende do formato dos dados e dos padrões de acesso.
 
@@ -112,4 +112,4 @@ Neste artigo, apresentamos algumas técnicas comuns para particionar dados com o
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=Oct15_HO4-->

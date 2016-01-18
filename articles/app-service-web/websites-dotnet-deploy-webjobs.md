@@ -100,7 +100,8 @@ Para criar um projeto habilitado para Trabalhos Web, é possível usar o modelo 
 
 	Crie um projeto que seja configurado para ser implantado automaticamente como um Trabalho Web quando um projeto Web na mesma solução for implantado. Use esta opção quando quiser executar o Trabalho Web no mesmo aplicativo Web em que você executa o aplicativo Web relacionado.
 
-> [AZURE.NOTE]O modelo new-project do WebJobs instala automaticamente pacotes NuGet e inclui o código em *Program.cs* para o [SDK WebJobs](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). Se você não quiser usar o SDK WebJobs, ou quiser usar um WebJob agendado em vez de contínuo, remova ou altere a instrução `host.RunAndBlock` em *Program.cs*.
+Na versão do SDK 2.4, o novo modelo de projeto de Trabalhos Web não é muito mais fácil do que a criação de um projeto do Aplicativo de Console e a habilitação da implantação de Trabalhos Web. No futuro, o novo modelo de projeto de Trabalhos Web será mais conveniente para o desenvolvimento do [SDK de Trabalhos Web](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs), porque ele instalará automaticamente os pacotes NuGet do SDK de Trabalhos Web apropriados. Até lá, você pode configurar um projeto para usar o SDK de Trabalhos Web instalando os pacotes manualmente conforme mostrado no [tutorial do SDK de Trabalhos Web](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs).
+
 
 ### <a id="createnolink"></a> Usar o novo modelo de projeto de Trabalhos Web para um Trabalho Web independente
   
@@ -197,4 +198,4 @@ Este artigo explicou como implantar WebJobs usando o Visual Studio. Para obter i
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1203_2015-->

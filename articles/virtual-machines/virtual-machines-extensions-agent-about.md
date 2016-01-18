@@ -14,12 +14,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="01/04/2016"
+ ms.date="09/22/2015"
  ms.author="rasquill"/>
 
 #Sobre o agente e extensões de máquina virtual
 
-O agente de máquina Virtual do Azure (agente de VM) é usado para instalar, configurar, gerenciar e executar extensões de máquina Virtual do Azure (extensões de VM). As Extensões de VM fornecem recursos dinâmicos que a Microsoft e outros fornecedores fornecem. O agente e as extensões são adicionados principalmente por meio do Portal de Gerenciamento, mas você também pode usar os cmdlets do [Powershell](../powershell-install-configure.md) ou a [CLI do Azure](../xplat-cli-install.md) para adicionar e configurar quando criar uma VM ou com VMs existentes.
+O agente de máquina Virtual do Azure (agente de VM) é usado para instalar, configurar, gerenciar e executar extensões de máquina Virtual do Azure (extensões de VM). As Extensões de VM fornecem recursos dinâmicos que a Microsoft e outros fornecedores fornecem. O agente e as extensões são adicionados principalmente por meio do Portal de Gerenciamento, mas você também pode usar os cmdlets do [Powershell](../install-configure-powershell.md) ou a [CLI do Azure](xplat-install.md) para adicionar e configurar quando criar uma VM ou com VMs existentes.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
 
@@ -46,7 +46,7 @@ O Agente de VM é habilitado nas seguintes situações:
 
 -   Quando você cria uma instância de uma Máquina Virtual usando o método de **Criação rápida** no Portal de Gerenciamento ou o método de **Criação personalizada** no Portal de Gerenciamento e verificando se a caixa de seleção **Instalar o Agente de VM** está marcada (como mostrado na imagem abaixo). Para saber mais, consulte [Como criar uma máquina virtual personalizada](virtual-machines-create-custom.md).
 
-    ![Caixa de seleção do Agente de VM](media/virtual-machines-extensions-agent-about/IC719409.png)
+    ![Caixa de seleção do Agente de VM](./media/virtual-machines-extensions-agent-about/IC719409.png "Caixa de seleção do Agente de VM")
 
 -   Quando você cria uma instância de uma Máquina Virtual usando o cmdlet [New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx) ou [New-AzureQuickVM](https://msdn.microsoft.com/library/azure/dn495183.aspx). Você pode criar uma VM sem o Agente de VM instalado adicionando o parâmetro **– DisableGuestAgent** ao cmdlet [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx).
 
@@ -66,4 +66,4 @@ O Agente de VM é habilitado nas seguintes situações:
 
 Para obter detalhes sobre essas tarefas, veja [Adicionar, encontrar, atualizar e remover Extensões de VM do Azure](virtual-machines-extensions-install.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=Oct15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/24/2015" 
+	ms.date="09/15/2015" 
 	ms.author="naziml"/>
 
 # Configurando um WAF (Firewall do Aplicativo Web) para Ambiente do Serviço de Aplicativo
@@ -29,7 +29,7 @@ Neste documento, vamos configurar nosso Ambiente do Serviço de Aplicativo por t
 ![Arquitetura][Architecture]
 
 ## Configurando o Ambiente do Serviço de Aplicativo ##
-Para configurar um Ambiente de Serviço de Aplicativo, consulte a [nossa documentação](app-service-web-how-to-create-an-app-service-environment.md) sobre o assunto. Depois que você criar um Ambiente do Serviço de Aplicativo, será possível criar [Aplicativos Web](app-service-web-overview.md), [Aplicativos de API](app-service-api-apps-why-best-platform.md) e [Aplicativos Móveis](app-service-mobile-value-prop-preview.md) nesse ambiente e todos eles serão protegidos pelo WAF que configuraremos na próxima seção.
+Para configurar um Ambiente do Serviço de Aplicativo, consulte a [nossa documentação](app-service-web-how-to-create-an-app-service-environment.md) sobre o assunto. Depois que você criar um Ambiente do Serviço de Aplicativo, será possível criar [Aplicativos Web](app-service-web-overview.md), [Aplicativos de API](app-service-api-apps-why-best-platform.md) e [Aplicativos Móveis](app-service-mobile-value-prop-preview.md) nesse ambiente e todos eles serão protegidos pelo WAF que configuraremos na próxima seção.
 
 ## Configurando o Serviço de Nuvem Barracuda WAF ##
 O Barracuda tem um [artigo detalhado](https://techlib.barracuda.com/WAF/AzureDeploy) sobre como implantar seu WAF em uma máquina virtual no Azure. Mas como queremos redundância, e não introduzir um único ponto de falha, você quer implantar pelo menos 2 VMs da instância WAF no mesmo Serviço de Nuvem ao seguir estas instruções.
@@ -79,7 +79,7 @@ Para encaminhar os pings do Gerenciador de Tráfego do seu WAF para o aplicativo
 ![Website Translations][WebsiteTranslations]
 
 ## Protegendo o tráfego do Ambiente do Serviço de Aplicativo usando grupos de recursos de rede##
-Siga a [documentação sobre como controlar o tráfego de entrada](app-service-app-service-environment-control-inbound-traffic.md) para obter detalhes sobre como restringir o tráfego para o Ambiente do Serviço de Aplicativo do WAF apenas usando o endereço VIP do Serviço de Nuvem. Veja um exemplo de comando do PowerShell para executar essa tarefa para a porta TCP 80.
+Siga a [documentação sobre Controlar Tráfego de Entrada](app-service-app-service-environment-control-inbound-traffic.md) para obter detalhes sobre como restringir o tráfego para o Ambiente do Serviço de Aplicativo do WAF apenas usando o endereço VIP do Serviço de Nuvem. Veja um exemplo de comando do PowerShell para executar essa tarefa para a porta TCP 80.
 
 
     Get-AzureNetworkSecurityGroup -Name "RestrictWestUSAppAccess" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP Barracuda" -Type Inbound -Priority 201 -Action Allow -SourceAddressPrefix '191.0.0.1'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
@@ -99,4 +99,4 @@ Substitua SourceAddressPrefix pelo VIP (Endereço IP Virtual) do Serviço de Nuv
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1203_2015-->

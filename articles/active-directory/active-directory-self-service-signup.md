@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/05/2016"
+	ms.date="09/21/2015"
 	ms.author="stevenpo"/>
 
 
@@ -232,4 +232,4 @@ Para obter mais informações e exemplos de como usar esses parâmetros, consult
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=Oct15_HO3-->

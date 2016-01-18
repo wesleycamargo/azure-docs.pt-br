@@ -25,7 +25,7 @@ O suporte à autenticação SAS está incluído no SDK do Azure versão 2.0 e po
 
 A autenticação SAS no Barramento de Serviço envolve a configuração de uma chave criptográfica com direitos associados em um recurso do Barramento de Serviço. Os clientes solicitam acesso aos recursos do Barramento de Serviço ao apresentarem um token SAS. Esse token consiste no URI do recurso sendo acessado e uma expiração assinada com a chave configurada.
 
-Você pode configurar as regras de autorização da Assinatura de Acesso Compartilhado em [retransmissões](service-bus-fundamentals-hybrid-solutions.md#relays), [filas](service-bus-fundamentals-hybrid-solutions.md#queues), [tópicos](service-bus-fundamentals-hybrid-solutions.md#topics) e [Hubs de Eventos](https://azure.microsoft.com/documentation/services/event-hubs/) do Barramento de Serviço.
+Você pode configurar as regras de autorização da Assinatura de Acesso Compartilhado em [retransmissões](service-bus-fundamentals-hybrid-solutions.md/#relays), [filas](service-bus-fundamentals-hybrid-solutions.md/#queues), [tópicos](service-bus-fundamentals-hybrid-solutions.md/#topics) e [Hubs de Eventos](https://azure.microsoft.com/documentation/services/event-hubs/) do Barramento de Serviço.
 
 A autenticação SAS utiliza os seguintes elementos:
 
@@ -258,4 +258,4 @@ Confira [Autenticação e autorização do Barramento de Serviço](service-bus-a
 
 [portal clássico do Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1217_2015-->

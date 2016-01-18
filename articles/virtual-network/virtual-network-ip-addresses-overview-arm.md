@@ -13,19 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/23/2015"
+   ms.date="12/14/2015"
    ms.author="telmos" />
 
-# Endereços IP no Azure
+# Endereços IP no Gerenciador de Recursos do Azure
 Você pode atribuir endereços IP aos recursos do Azure para se comunicar com outros recursos do Azure, sua rede local e a Internet. Há dois tipos de endereços IP que você pode usar no Azure: público e privado.
 
 Endereços IP públicos são usados para comunicação com a Internet, incluindo serviços públicos do Azure.
 
 Endereços IP privados são usados para comunicação em uma VNet (rede virtual) do Azure e na sua rede local quando você usa um gateway de VPN ou circuito de Rota Expressa para estender sua rede para o Azure.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-network-ip-addresses-overview-classic.md).
-
-Se você estiver familiarizado com o modelo de implantação clássico, verifique as [diferenças de endereçamento IP entre o clássico e o Gerenciador de Recursos](virtual-network-ip-addresses-overview-classic.md#Differences-between-Resource-Manager-and-classic-deployments).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [modelo de implantação clássico](virtual-network-ip-addresses-overview-classic.md).
 
 ## Endereços IP públicos
 Endereços IP públicos permitem que os recursos do Azure comuniquem-se com os serviços públicos do Azure, como [Cache Redis do Azure](https://azure.microsoft.com/services/cache), [Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs), [bancos de dados SQL](sql-database-technical-overview.md) e [armazenamento do Azure](storage-introduction.md).
@@ -47,8 +45,8 @@ Para garantir que o endereço IP para o recurso associado permaneça o mesmo, vo
 Os endereços IP públicos estáticos são comumente usados nas seguintes situações:
 
 - os usuários finais precisam atualizar regras de firewall para comunicarem-se com os recursos do Azure.
-- Resolução de nome DNS, em que uma alteração no endereço IP exigiria a atualização de registros A.
-- seus recursos do Azure comunicam-se com outros aplicativos ou serviços que usam um endereço IP baseado em um modelo de segurança.
+- sua resolução de nome DNS, em que uma alteração no endereço IP exigiria a atualização de registros A.
+- os recursos do Azure comunicam-se com outros serviços Web que usam o modelo de segurança com base em IP.
 - você usa certificados SSL vinculados a um endereço IP.
 
 >[AZURE.NOTE]A lista de intervalos IP do qual os endereços IP públicos (dinâmicos ou estáticos) são alocados a recursos do Azure é publicada a [intervalos de IP do Datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653).
@@ -124,27 +122,19 @@ A tabela a seguir mostra cada tipo de recurso com os métodos de alocação poss
 |Front-end do balanceador de carga interno|Sim|Sim|Sim|
 |Front-end do Application Gateway|Sim|Sim|Sim|
 
-## Limites
+## Comparação entre as implantações do Gerenciador de recursos e clássica
+A seguir está uma comparação do endereço IP no Gerenciador de recursos com o modelo de implantação clássico.
 
-A tabela abaixo mostra os limites impostos ao endereçamento IP no Azure por região, por assinatura. Você pode [entrar em contato com o suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar os limites padrão até os limites máximos com base nas necessidades de sua empresa.
-
-||Limite padrão|Limite máximo| |---|---|---| |Endereços IP públicos (dinâmicos)|60|entrar em contato com o suporte| |Endereços IP públicos (estáticos)|20|entrar em contato com o suporte| |IP de front-end público por balanceador de carga|5|entrar em contato com o suporte| |IP de front-end privado por balanceador de carga|1|entrar em contato com o suporte|
-
-Certifique-se de ler o conjunto completo de [limites de rede](azure-subscription-service-limits.md#networking-limits) do Azure.
-
-## Preços
-
-Na maioria dos casos, endereços IP públicos são gratuitos. Há um custo nominal para usar endereços IP públicos adicionais e/ou estáticos. Verifique se você entende a [estrutura de preços para IPs públicos](https://azure.microsoft.com/pricing/details/ip-addresses/).
-
-Em resumo, a estrutura de preços a seguir se aplica a recursos IP públicos:
-
-- Gateways de VPN e gateways de aplicativo usam apenas um IP público dinâmico, que é gratuito.
-- As VMs usam apenas um IP público, que é gratuito desde que seja um endereço IP dinâmico. Se uma VM usar um endereço IP público estático, ele é contabilizado no uso de IP de público estático (reservado).
-- Cada balanceador de carga pode usar vários IPs públicos. O primeiro IP público é gratuito. IPs dinâmicos adicionais são cobradas a US$ 0,004/hora. IPs públicos estáticos são contabilizados no uso de IP de público estático (reservado).
-- Uso de IP público estático (reservado): 
-	- Os primeiros 5 (em uso) são gratuitos. IPs públicos estáticos adicionais são cobradas a US$ 0,004/hora. 
-	- IPs públicos estáticos não atribuídos a qualquer recurso são cobradas US$ 0,004/hora.
-	- O uso é calculado com base no número total de IPs públicos estáticos na assinatura.
+||Recurso|Clássico|Gerenciador de Recursos|
+|---|---|---|---|
+|**Endereço IP Público**|VM|Chamado de ILPIP (apenas dinâmico)|Chamado de IP público (dinâmico ou estático)|
+|||Atribuído a uma VM IaaS ou a uma instância de função PaaS|Associado à NIC da VM|
+||Balanceador de carga voltado para a Internet|Chamado de VIP (dinâmico) ou IP reservado (estático)|Chamado de IP público (dinâmico ou estático)|
+|||Atribuído a um serviço de nuvem|Associado à configuração de front-end do balanceador de carga|
+||||
+|**Endereço IP Privado**|VM|Chamado de DIP|Chamado de endereço IP Privado|
+|||Atribuído a uma VM IaaS ou a uma instância de função PaaS|Atribuído à NIC da VM|
+||Balanceador de carga interno (ILB)|Atribuído ao ILB (dinâmico ou estático)|Atribuído à configuração de front-end do ILB (dinâmica ou estática)|
 
 ## Próximas etapas
 - [Implantar uma VM com um endereço IP público estático](virtual-network-deploy-static-pip-arm-template.md)
@@ -155,4 +145,5 @@ Em resumo, a estrutura de preços a seguir se aplica a recursos IP públicos:
 - [Criar um front-end privado endereço IP estático para um balanceador de carga interno usando PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-front-end-ip-pool-and-backend-address-pool)
 - [Criar um pool de back-end com endereços IP estáticos privados para um application gateway usando o PowerShell](application-gateway-create-gateway-arm.md#create-an-application-gateway-configuration-object)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1223_2015-->
+

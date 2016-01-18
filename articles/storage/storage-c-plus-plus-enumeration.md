@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="01/05/2016" 
+    ms.date="09/23/2015" 
     ms.author="zhimingyuan;tamram"/>
 
 # Listar recursos de armazenamento do Azure em C++
@@ -184,4 +184,4 @@ Para obter mais informações sobre o Armazenamento do Azure e a Biblioteca de C
 -	[Blog da equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 -	[Documentação do Armazenamento do Azure](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=Oct15_HO3-->

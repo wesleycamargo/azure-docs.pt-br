@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/29/2015" 
+	ms.date="12/02/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -25,7 +25,7 @@ Historicamente, para gerenciar um recurso (como um servidor de banco de dados, u
 
 Normalmente, um grupo de recursos contém recursos relacionados a um aplicativo específico. Por exemplo, um grupo pode conter um aplicativo Web que hospeda seu site público, um Banco de Dados SQL que armazena dados relacionais usados pelo site e uma conta de Armazenamento que armazena ativos não relacionais. Todos os recursos em um grupo de recursos devem compartilhar o mesmo ciclo de vida. Para obter mais informações sobre o Gerenciador de Recursos, consulte [Visão geral do Gerenciador de Recursos](../resource-group-overview.md).
 
-Este tópico fornece uma visão geral de como usar grupos de recursos no portal do Azure. Atualmente, nem todo serviço dá suporte ao portal ou ao Gerenciador de Recursos. Para esses serviços, você precisará usar o [portal clássico](https://manage.windowsazure.com). Para conhecer o status de cada serviço, consulte o [Gráfico de disponibilidade do portal do Azure](https://azure.microsoft.com/features/azure-portal/availability/)
+Este tópico fornece uma visão geral de como usar grupos de recursos no portal do Azure. Atualmente, nem todo serviço dá suporte ao portal ou ao Gerenciador de Recursos. Para esses serviços, você precisará usar o [portal clássico](https://manage.windowsazure.com). Para saber o status de cada serviço, confira [Suporte do Gerenciador de Recursos do Azure para serviços, regiões e versões de API](resource-manager-supported-services.md)
 
 ## Criar recursos e grupo de recursos
 
@@ -146,7 +146,7 @@ Depois de iniciar a implantação de modelo, você pode criar o modelo personali
 ## Próximas etapas
 Introdução
 
-- Para obter uma introdução aos conceitos no Gerenciador de Recursos, consulte [Visão Geral do Gerenciador de Recursos do Azure](../resource-group-overview.md).  
+- Para obter uma introdução aos conceitos no Gerenciador de Recursos, confira [Visão Geral do Gerenciador de Recursos do Azure](../resource-group-overview.md).  
 - Para obter uma introdução ao uso do Azure PowerShell ao implantar recursos, confira [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md).
 - Para obter uma introdução ao uso da CLI do Azure ao implantar recursos, confira [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](../xplat-cli-azure-resource-manager.md). 
   
@@ -154,4 +154,4 @@ Introdução
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1203_2015-->

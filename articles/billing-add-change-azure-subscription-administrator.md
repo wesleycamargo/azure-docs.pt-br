@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2015"
+	ms.date="12/21/2015"
 	ms.author="genli"/>
 
 # Como adicionar ou alterar funções de administrador do Azure
@@ -42,13 +42,13 @@ O seguinte endereço de email pode ser adicionado como Coadministrador:
 
 **Observação**
 
- * Cada assinatura é associada a um Active Directory do Azure (também conhecido como Diretório Padrão). Para localizar o Diretório Padrão a que a assinatura está associada, vá até o [Portal clássico do Azure](https://manage.windowsazure.com/), selecione **Configurações** > **Assinaturas**. Verifique a ID da assinatura para localizar o Diretório Padrão.
+ * Cada assinatura é associada a um Active Directory do Azure (também conhecido como Diretório Padrão). Para localizar o Diretório Padrão ao qual a assinatura está associada, vá para o [portal clássico do Azure](https://manage.windowsazure.com/), selecione **Configurações** > **Assinaturas** e verifique a ID da assinatura para localizar o Diretório Padrão ao qual ela está associada.
 
  * Se estiver conectado com uma Conta da Microsoft, você poderá apenas adicionar outras Contas da Microsoft ou usuários no Diretório Padrão como Coadministrador.
  * Se você estiver conectado a uma conta organizacional, você pode adicionar outras contas institucionais em sua organização como Coadministrador. Por exemplo, abby@contoso.com pode adicionar bob@contoso.com como Administrador de Serviços ou Coadministrador, mas não pode adicionar john@notcontoso.com, a menos que john@noncontoso.com seja o usuário no Diretório Padrão. Usuários conectados usando contas da organização podem continuar adicionando usuários da Conta da Microsoft como Coadministradores ou Administradores de Serviços.
  * Agora que é possível fazer logon no Azure com uma conta organizacional, estas são as alterações de requisitos de conta de administrador de serviço e coadministrador:
 
-| Método de logon| Adicionar Conta da Microsoft ou usuários no Diretório Padrão como CA ou SA? |Adicionar conta organizacional na mesma organização como CA ou SA? |Adicionar conta organizacional em uma organização diferente como CA ou SA?
+| Método de logon| Adicionar Conta da Microsoft ou usuários no Diretório Padrão como Coadministradores ou Administradores de Serviços? |Adicionar uma conta organizacional na mesma organização como Coadministrador ou Administrador de Serviços? |Adicionar uma conta organizacional em uma organização diferente como Coadministrador ou Administrador de Serviços?
 | ------------- | ------------- |---------------|---------------|
 |Conta da Microsoft |Sim|Não|Não|
 |Conta organizacional|Sim|Sim|Não|
@@ -66,4 +66,4 @@ Somente o Administrador da Conta pode alterar o Administrador de Serviços de um
 
 Para transferir a propriedade da conta do Azure para outra conta, confira [Transferindo uma assinatura do Azure](../billing-subscription-transfer.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1223_2015-->

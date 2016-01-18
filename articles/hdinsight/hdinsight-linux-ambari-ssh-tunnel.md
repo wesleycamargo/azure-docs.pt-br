@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="01/05/2015"
+ms.date="11/02/2015"
 ms.author="larryfr"/>
 
 #Usar túnel SSH para acessar a interface do usuário do Ambari Web, ResourceManager, JobHistory, NameNode, Oozie, entre outras
@@ -44,9 +44,9 @@ O [Túnel SSH](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tun
 
 Ao usar um túnel SSH para o tráfego da Web, você deverá ter o seguinte:
 
-* Um cliente SSH. Para distribuições Linux e Unix ou o Macintosh OS X, o comando `ssh` é fornecido com o sistema operacional. Para sistemas Windows, é recomendável [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+* Um cliente SSH. Para distribuições do Linux e do Unix ou o Macintosh OS X, o comando `ssh` é fornecido com o sistema operacional. Para o Windows, recomendamos o [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
-	> [AZURE.NOTE]Se você quiser usar um cliente SSH diferente de `ssh` ou PuTTY, consulte a documentação de seu cliente sobre como estabelecer um túnel SSH.
+	> [AZURE.NOTE]Se você quiser usar um cliente SSH diferente do `ssh` ou o PuTTY, consulte a documentação de seu cliente sobre como estabelecer um túnel SSH.
 
 * Um navegador da Web que pode ser configurado para usar um proxy SOCKS
 
@@ -56,7 +56,7 @@ Ao usar um túnel SSH para o tráfego da Web, você deverá ter o seguinte:
 
 ##<a name="usessh"></a>Criar um túnel usando o comando SSH
 
-Use o comando a seguir para criar um túnel SSH usando o comando `ssh`. Substitua __USERNAME__ por um usuário SSH para seu cluster HDInsight e substitua __CLUSTERNAME__ pelo nome do seu cluster HDInsight
+Use o comando a seguir para criar um túnel SSH usando o comando `ssh`. Substitua __NOMEDEUSUÁRIO__ por um usuário SSH para seu cluster HDInsight e substitua __NOMEDOCLUSTER__ pelo nome do seu cluster HDInsight
 
 	ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
@@ -86,7 +86,7 @@ Quando o comando terminar, o tráfego enviado para a porta 9876 no computador lo
 
 Use as etapas a seguir para criar um túnel SSH usando o PuTTY.
 
-1. Abra o PuTTY e insira as informações da sua conexão. Se você não estiver familiarizado com o PuTTY, confira [Usar SSH com Hadoop baseado em Linux no HDInsight do Windows](hdinsight-hadoop-linux-use-ssh-windows.md) para obter informações sobre como usá-lo com o HDInsight.
+1. Abra o PuTTY e insira as informações da sua conexão. Se você não estiver familiarizado com o PuTTY, confira [Usar o SSH com o Hadoop baseado em Linux no HDInsight do Windows](hdinsight-hadoop-linux-use-ssh-windows.md) para obter informações sobre como usá-lo com o HDInsight.
 
 2. Na seção **Categoria** à esquerda da caixa de diálogo, expanda **Conexão**, expanda **SSH** e selecione **Túneis**.
 
@@ -149,11 +149,6 @@ Se você tiver instalado o FoxyProxy Standard, use as seguintes etapas para conf
 	* **Padrão de URL** – ***internal.cloudapp.net*** – Isso define um padrão que corresponde ao nome de domínio totalmente qualificado interno de nós do cluster.
 
 	![padrão do foxyproxy](./media/hdinsight-linux-ambari-ssh-tunnel/foxypattern.png)
-    
-    Se estiver usando um Storm no cluster HDInsight, você também deve adicionar um padrão com os seguintes valores:
-    
-    * **Nome do padrão** - **nós de trabalho**
-    * **Padrão de URL** - ***10.0.0*** - permite que a interface do usuário do Storm acesse dados em nós de trabalho por endereço IP.
 
 4. Clique em **OK** para adicionar o proxy e fechar **Configurações de Proxy**.
 
@@ -175,11 +170,11 @@ Assim que o cluster tiver sido estabelecido, use as etapas a seguir para verific
 
 	![Imagem com o YARN selecionado](./media/hdinsight-linux-ambari-ssh-tunnel/yarnservice.png)
 
-3. Quando as informações do serviço YARN forem exibidas, selecione __Links Rápidos__. Será exibida uma lista de nós de cabeçalho do cluster. Escolha um dos nós de cabeçalho e __Interface de Usuário do ResourceManager__.
+3. Quando as informações do serviço YARN forem exibidas, selecione __Links Rápidos__. Será exibida uma lista de nós de cabeçalho do cluster. Selecione um dos nós de cabeçalho e então selecione __Interface de Usuário do ResourceManager__.
 
 	![Imagem do menu Links Rápidos expandido](./media/hdinsight-linux-ambari-ssh-tunnel/yarnquicklinks.png)
 
-	> [AZURE.NOTE]Se você tiver uma conexão lenta com a Internet ou se o nó de cabeçalho estiver muito ocupado, será possível obter um indicador de espera em vez de um menu quando você selecionar __Links Rápidos__. Nesse caso, aguarde um minuto ou dois pelos dados a serem recebidos do servidor e experimente a lista novamente.
+	> [AZURE.NOTE]Se você tiver uma conexão lenta com a Internet ou se o nó de cabeçalho estiver muito ocupado, é possível obter um indicador de espera em vez de um menu quando você selecionar __Links Rápidos__. Nesse caso, aguarde um minuto ou dois pelos dados a serem recebidos do servidor e experimente a lista novamente.
 
 
 	> [AZURE.TIP]Se o monitor de resolução for inferior, ou se a janela do navegador não estiver maximizada, algumas entradas do menu __Links Rápidos__ poderão ser cortadas no lado direito da tela. Nesse caso, expanda o menu usando o mouse e a tecla de seta para a direita para rolar a tela para a direita e ver o restante do menu.
@@ -202,4 +197,4 @@ Para obter mais informações sobre como usar SSH com o HDInsight, consulte o se
 
 * [Usar SSH com Hadoop baseado em Linux no HDInsight no Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=Nov15_HO2-->

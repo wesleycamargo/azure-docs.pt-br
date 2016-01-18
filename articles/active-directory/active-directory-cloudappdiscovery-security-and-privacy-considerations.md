@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2015"
+	ms.date="12/01/2015"
 	ms.author="markusvi"/>
 
 # Considerações de privacidade e segurança no Cloud App Discovery
@@ -91,8 +91,6 @@ As seguintes informações de HTTP:
 > [AZURE.NOTE]As informações de HTTP acima são coletadas para todas as conexões não criptografadas. Para conexões de TLS, essas informações só são capturadas quando a configuração “Inspeção profunda” é ativada no portal. A configuração é “ON” por padrão. Para obter mais detalhes, consulte abaixo, e [Introdução ao Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
 
 
-Além dos dados que o agente coleta sobre a atividade de rede, ele também coleta informações anônimas sobre a configuração de software e hardware, relatórios de erros e informações sobre como o agente está sendo usado.
-
 <br><br>
 ### Como funciona o agente
 
@@ -158,7 +156,7 @@ Se o agente não consegue se comunicar com o serviço Cloud App Discovery por al
 
 ## Recebendo os dados ao final do serviço
 
-Os agentes se autenticam no serviço Cloud App Discovery usando o certificado de autenticação de cliente específico do computador mencionado acima e encaminha dados por um canal criptografado. <br> Os processos de pipeline analíticos do serviço Cloud App Discovery processa metadados para cada cliente separadamente, particionando-o logicamente em todos os estágios do pipeline de análise. Os metadados analisados conduzem os vários relatórios no portal.
+Os agentes se autenticam no serviço Cloud App Discovery usando o certificado de autenticação de cliente específico do computador mencionado acima e encaminha dados por um canal criptografado. <br> Os processos de pipeline analítico do serviço Cloud App Discovery processam metadados para cada cliente separadamente, particionando-os logicamente em todos os estágios do pipeline analítico Os metadados analisados conduzem os vários relatórios no portal.
 
 Os metadados não processados e analisados metadados são armazenados por até 180 dias. Além disso, os clientes podem escolher capturar metadados analisados em uma conta de armazenamento de blob do Azure de sua escolha. Isso é útil para análise offline de metadados, bem como retenção mais longa dos dados.
 
@@ -179,4 +177,4 @@ Em um esforço para proteger os metadados coletados seguros, por padrão somente
 
 * [Como descobrir aplicativos na nuvem não aprovados, usados em minha organização](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1203_2015-->

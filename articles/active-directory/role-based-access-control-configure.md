@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/04/2016"
+	ms.date="12/14/2015"
 	ms.author="inhenk"/>
 
 # Controle de acesso baseado em função do Azure
@@ -22,7 +22,7 @@
 O RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento de acesso refinado para o Azure. Com o RBAC, você pode separar as tarefas dentro de sua equipe de operação de desenvolvimento e conceder somente a quantidade de acesso que os usuários precisam para realizar seus trabalhos.
 
 ### Noções básicas de gerenciamento de acesso no Azure
-Cada assinatura do Azure está associada com um Active Directory do Azure. Somente usuários, grupos e aplicativos desse diretório podem receber acesso para gerenciar recursos na assinatura do Azure, usando o portal do Azure, as ferramentas de Linha de Comando do Azure e as APIs de Gerenciamento do Azure.
+Cada assinatura do Azure está hospedada em um Active Directory do Azure. Somente usuários, grupos e aplicativos desse diretório podem receber acesso para gerenciar recursos na assinatura do Azure, usando o portal do Azure, as ferramentas de Linha de Comando do Azure e as APIs de Gerenciamento do Azure.
 
 O acesso é concedido atribuindo-se a função RBAC apropriada a usuários, grupos e aplicativos no escopo correto. Para conceder acesso para toda a assinatura, atribua uma função no escopo de assinatura. Para conceder acesso a um grupo de recursos específico em uma assinatura, atribua uma função no escopo do grupo de recursos. Você também pode atribuir funções a recursos específicos, como sites, máquinas virtuais e sub-redes, para conceder acesso apenas a um recurso.
 
@@ -70,6 +70,7 @@ Selecione as configurações de acesso na seção de fundamentos da folha do gru
 
 > [AZURE.NOTE]Atribuições herdadas não podem ser removidas de escopos filho. Navegue até o escopo pai e remova essas atribuições.
 
+
 ![](./media/role-based-access-control-configure/remove-access2.png)
 
 ## Gerenciar o acesso usando o Azure PowerShell
@@ -97,9 +98,6 @@ O acesso pode ser gerenciado usando comandos de RBAC na interface da linha de co
 -	Use `azure role assignment delete` para remover o acesso.
 
 Consulte [Gerenciar o acesso usando a CLI do Azure](role-based-access-control-manage-access-azure-cli.md) para obter exemplos mais detalhados de gerenciamento de acesso usando a CLI do Azure.
-
-## Gerenciar o acesso usando a API REST
-Consulte [Gerenciando o controle de acesso baseado em funções com a API REST](role-based-access-control-manage-access-rest.md) para obter mais exemplos detalhados de gerenciamento de acesso com a API REST.
 
 ## Usando o relatório de histórico de alterações de acesso
 Todas as alterações de acesso que ocorrem em suas assinaturas do Azure ficam registradas em eventos do Azure.
@@ -175,12 +173,10 @@ Use os comandos `Get-AzureRmProviderOperation` ou `azure provider operations sho
 ### Não-ações
 Se o conjunto de operações que você deseja permitir for expresso facilmente excluindo operações específicas, em vez de incluir todas as operações exceto aquelas que você deseja excluir, use a propriedade **NotActions** de uma função personalizada. O acesso efetivo concedido por uma função personalizada é computado por meio da exclusão de operações **NotActions** das operações Actions.
 
-> [AZURE.NOTE]Se um usuário recebe uma função que exclui uma operação em **NotActions**, e recebe uma segunda função que concede acesso à mesma operação, o usuário terá permissão para executar essa operação. **NotActions** não é uma regra de negação, é simplesmente uma maneira conveniente de criar um conjunto de operações permitidas quando for necessário excluir operações específicas.
+Observe que se um usuário recebe uma função que exclui uma operação em **NotActions**, e recebe uma segunda função que concede acesso à mesma operação, o usuário terá permissão para executar essa operação. **NotActions** não é uma regra de negação, é simplesmente uma maneira conveniente de criar um conjunto de operações permitidas quando for necessário excluir operações específicas.
 
 ### AssignableScopes
-A propriedade **AssignableScopes** da função personalizada especifica os escopos (assinaturas, grupos de recursos ou recursos) dentro dos quais a função personalizada ficará disponível para atribuição a usuários, grupos e aplicativos. Com **AssignableScopes** você pode disponibilizar a função personalizada para atribuição apenas nas assinaturas ou grupos de recursos que a exijam, e não sobrecarregar a experiência do usuário nas assinaturas ou grupos de recursos restantes.
-
-> [AZURE.NOTE]Você deve usar pelo menos uma assinatura, grupo de recursos ou ID de recurso. **AssignableScopes** de uma função personalizada também controlam quem tem permissão para exibir, atualizar e excluir a função. Veja a seguir alguns escopos válidos que podem ser atribuídos:
+A propriedade **AssignableScopes** da função personalizada especifica os escopos (assinaturas, grupos de recursos ou recursos) dentro dos quais a função personalizada ficará disponível para atribuição a usuários, grupos e aplicativos. Com **AssignableScopes** você pode disponibilizar a função personalizada para atribuição apenas nas assinaturas ou grupos de recursos que a exijam, e não sobrecarregar a experiência do usuário nas assinaturas ou grupos de recursos restantes. A propriedade **AssignableScopes** de uma função personalizada também controla quem tem permissão para exibir, atualizar e excluir a função. Veja a seguir alguns escopos válidos que podem ser atribuídos:
 
 -	“/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e”, “/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624”: disponibiliza a função para atribuição em duas assinaturas.
 -	“/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e”: disponibiliza a função para atribuição em uma única assinatura.
@@ -195,4 +191,4 @@ A propriedade **AssignableScopes** da função personalizada determina quem pode
 
 **Quem pode exibir funções personalizadas disponíveis para atribuição em um escopo?** Os usuários que podem executar a operação `Microsoft.Authorization/roleDefinition/read` em um escopo podem exibir as funções de RBAC disponíveis para atribuição nesse escopo. Todas as funções internas no RBAC do Azure permitem a visualização de funções disponíveis para atribuição.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1217_2015-->

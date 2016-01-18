@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/30/2015"   
+   ms.date="12/10/2015"   
    ms.author="seanmck"/>
 
 # Modelar um aplicativo no Malha do Serviço
@@ -24,16 +24,14 @@ Este artigo fornece uma visão geral do modelo de aplicativo do Service Fabric d
 
 Um aplicativo é uma coleção de serviços membros que executam determinadas funções. Um serviço executa uma função autônoma completa (que pode iniciar e ser executada independentemente de outros serviços) e é composto de código, configuração e dados. Para cada serviço, o código consiste em binários executáveis, a configuração consiste em configurações do serviço que podem ser carregadas no tempo de execução e os dados consistem em dados estáticos arbitrários a serem consumidos pelo serviço. Cada componente nesse modelo hierárquico de aplicativo pode ser atualizado e transformado em outra versão independentemente.
 
-![O modelo de aplicativo Service Fabric][appmodel-diagram]
+![][1]
 
 
 Um tipo de aplicativo é uma categorização de um aplicativo e consiste em um pacote de tipos de serviço. Um tipo de serviço é uma categorização de um serviço. A categorização pode ter diferentes definições e configurações, mas a funcionalidade núcleo permanece a mesma. As instâncias de um serviço são as diferentes variações de configuração de serviço de um mesmo tipo de serviço.
 
-Classes (ou "tipos") de aplicativos e de serviços são descritos usando arquivos XML (manifestos de aplicativo e manifestos do serviço), que são os modelos em relação ao qual os aplicativos podem ser instanciados do repositório de imagens do cluster.
+Classes (ou "tipos") de aplicativos e de serviços são descritos usando arquivos XML (manifestos de aplicativo e manifestos do serviço), que são os modelos em relação ao qual os aplicativos podem ser instanciados. O código para instâncias do aplicativo diferentes será executado como processos separados, mesmo quando hospedadas pelo mesmo nó da Malha do Serviço. Além disso, o ciclo de vida de cada instância do aplicativo pode ser gerenciado (ou seja, atualizado) independentemente. O diagrama a seguir mostra como os tipos de aplicativo são compostos de tipos de serviço, que, por sua vez, são compostos de código, configuração e pacotes.
 
-O código para instâncias do aplicativo diferentes será executado como processos separados, mesmo quando hospedadas pelo mesmo nó da Malha do Serviço. Além disso, o ciclo de vida de cada instância do aplicativo pode ser gerenciado (ou seja, atualizado) independentemente. O diagrama a seguir mostra como os tipos de aplicativo são compostos de tipos de serviço, que, por sua vez, são compostos de código, configuração e pacotes. Para simplificar o diagrama, somente os pacotes código/configuração/dados para `ServiceType4` são mostrados, embora cada tipo de serviço inclua alguns ou todos os tipos de pacotes.
-
-![Tipos de aplicativos do Service Fabric e tipos de serviço][cluster-imagestore-apptypes]
+![Tipos de aplicativos do Service Fabric e tipos de serviço][Image1]
 
 Dois arquivos de manifesto diferentes são usados para descrever aplicativos e serviços: o manifesto do serviço e o manifesto do aplicativo. Isso é abordado em detalhes nas seções a seguir.
 
@@ -41,10 +39,8 @@ Pode haver uma ou mais instâncias de um tipo de serviço ativo no cluster. Por 
 
 O diagrama a seguir mostra a relação entre aplicativos e instâncias de serviço, partições e réplicas.
 
-![Partições e réplicas dentro de um serviço][cluster-application-instances]
+![Partições e réplicas dentro de um Serviço][Image2]
 
-
->[AZURE.TIP]Você pode exibir o layout de aplicativos em um cluster usando a ferramenta de Gerenciador do Service Fabric disponível em http://&lt;yourclusteraddress&gt;:19080/Explorer. Para obter mais detalhes, consulte [Visualizando o cluster com o Gerenciador do Service Fabric](service-fabric-visualizing-your-cluster.md).
 
 ## Descrever um serviço
 
@@ -109,7 +105,6 @@ For more information about other features supported by service manifests, refer 
 
 
 O manifesto do aplicativo declarativamente descreve o tipo de aplicativo e a versão. Ele especifica os metadados de composição de serviço, como nomes estáveis, esquema de particionamento, fator de replicação/contagem de instância, política de segurança/isolamento, restrições de posicionamento, substituições de configuração e tipos de serviço membro. Também são descritos os domínios de balanceamento de carga no qual o aplicativo é colocado.
-
 Portanto, um manifesto de aplicativo descreve os elementos no nível do aplicativo e faz referência a um ou mais manifestos do serviço para compor um tipo de aplicativo. Aqui está um manifesto de aplicativo de exemplo simples:
 
 ~~~
@@ -190,9 +185,9 @@ Cenários típicos de uso do **SetupEntryPoint** quando você precisa executar u
 
 Se você usar o Visual Studio 2015 para criar o seu aplicativo, pode usar o comando Package para criar automaticamente um pacote que corresponda ao layout descrito acima.
 
-Para criar um pacote, clique com o botão direito do mouse no projeto de aplicativo no Gerenciador de Soluções e escolha o comando de Pacote, conforme mostrado abaixo:
+Para criar um pacote, clique com o botão direito do mouse no projeto de aplicativo no Gerenciador de Soluções e escolha o comando de pacote, conforme mostrado abaixo:
 
-![Empacotando um aplicativo no Visual Studio][vs-package-command]
+![][2]
 
 Quando o empacotamento estiver concluído, você encontrará o local do pacote na janela **Saída**. Observe que a etapa de empacotamento ocorre automaticamente quando você implanta ou depura seu aplicativo no Visual Studio.
 
@@ -244,14 +239,14 @@ Depois que o aplicativo é empacotado corretamente e passa pela verificação, e
 [RunAs: executando um aplicativo de Service Fabric com permissões de segurança diferentes][12]
 
 <!--Image references-->
-[appmodel-diagram]: ./media/service-fabric-application-model/application-model.png
-[cluster-imagestore-apptypes]: ./media/service-fabric-application-model/cluster-imagestore-apptypes.png
-[cluster-application-instances]: media/service-fabric-application-model/cluster-application-instances.png
-[vs-package-command]: ./media/service-fabric-application-model/vs-package-command.png
+[1]: ./media/service-fabric-application-model/application-model.jpg
+[2]: ./media/service-fabric-application-model/vs-package-command.png
+[Image1]: media/service-fabric-application-model/Service1.jpg
+[Image2]: media/service-fabric-application-model/Service2.jpg
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1217_2015-->

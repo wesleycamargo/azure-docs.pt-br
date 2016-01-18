@@ -218,10 +218,10 @@ Nesse caso, a compactação de dados BZIP2 poderia estar desacelerando todo o pi
 Aqui estão algumas referências de monitoramento e ajuste de desempenho para alguns dos armazenamentos de dados com suporte:
 
 - Armazenamento do Azure (incluindo o Blob do Azure e a Tabela do Azure): [metas de escalabilidade do Armazenamento do Azure](../storage/storage-scalability-targets.md) e [Lista de verificação de escalabilidade e desempenho do Armazenamento do Azure](../storage//storage-performance-checklist.md)
-- Banco de dados SQL Azure: você pode [monitorar o desempenho](../sql-database/sql-database-service-tiers.md#monitoring-performance) e verificar a porcentagem de unidade de DTU (taxa de transferência do banco de dados).
-- Azure SQL Data Warehouse: sua capacidade é medida por DWUs (Unidades de Data Warehouse). Consulte [Desempenho e escala elásticos com o SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-performance-scale.md).
-- Banco de Dados de Documentos do Azure: [nível de desempenho no Banco de Dados de Documentos](../documentdb/documentdb-performance-levels.md).
+- Banco de dados SQL Azure: você pode [monitorar o desempenho](../sql-database/sql-database-service-tiers.md?rnd=1#monitoring-performance) e verificar a porcentagem de unidade de DTU (taxa de transferência do banco de dados).
+- Azure SQL Data Warehouse: sua capacidade é medida por DWUs (Unidades de Data Warehouse). Consulte [Desempenho e escala elásticos com o SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-performance-scale/).
+- Banco de Dados de Documentos do Azure: [nível de desempenho no Banco de Dados de Documentos](../documentdb/documentdb-performance-levels/).
 - SQL Server local: [monitoramento e ajuste de desempenho](https://msdn.microsoft.com/library/ms189081.aspx).
 - Servidor de arquivos local: [ajuste de desempenho para servidores de arquivos](https://msdn.microsoft.com/library/dn567661.aspx)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1223_2015-->

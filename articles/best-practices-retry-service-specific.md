@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/28/2015"
+   ms.date="04/28/2015"
    ms.author="masashin"/>
 
 # Diretriz específica do serviço de repetição
@@ -899,7 +899,7 @@ Não há mecanismo de repetição interno para Pesquisa, uma vez que o uso comum
 Considere as seguintes diretrizes ao usar a Pesquisa do Azure:
 
 * Use o código de status retornado pelo serviço para determinar o tipo de falha. Os códigos de status são definidos nos [códigos de status HTTP (Pesquisa do Azure)](http://msdn.microsoft.com/library/dn798925.aspx). O código de status 503 (Serviço Indisponível) indica que o serviço está sob carga pesada e a solicitação não pode ser processada imediatamente. A ação adequada é repetir a operação apenas após o tempo permitido para recuperação do serviço. Repetir após um intervalo muito curto provavelmente prolongará a indisponibilidade.
-* Consulte a seção [Diretrizes gerais de repetição e REST](#general-rest-and-retry-guidelines) mais adiante nesta diretriz para obter informações gerais sobre como repetir operações REST.
+* Consulte a seção [Diretrizes gerais de repetição e REST](#general-rest-and-retry-guidelines) mais adiante neste guia para obter informações gerais sobre como repetir operações REST.
 
 ## Mais informações
 
@@ -1121,4 +1121,4 @@ O Bloco de Aplicativos para Tratamento de Falhas Transitórias tem as estratégi
 | **Linear (intervalo fixo)** | retryCount<br />retryInterval<br />fastFirstRetry<br /> | 10<br />1 segundo<br />verdadeiro | O número de tentativas de repetição.<br />O intervalo entre repetições.<br />Se a primeira tentativa de repetição será feita imediatamente. |
 Para exemplos de como usar o Bloco de Aplicativos para Tratamento de Falhas Transitórias, consulte as seções Exemplos anteriormente nesta diretriz para Banco de Dados SQL usando o ADO.NET e Active Directory do Azure.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=Oct15_HO3-->

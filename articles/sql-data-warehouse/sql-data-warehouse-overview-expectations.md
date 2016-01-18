@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
+   ms.date="09/22/2015"
    ms.author="lvargas;twounder;barbkess"/>
 
 # Expectativas de visualização do SQL Data Warehouse
@@ -72,4 +72,4 @@ O SQL Data Warehouse armazena dados em um ou mais nós de computação, e cada u
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1223_2015-->

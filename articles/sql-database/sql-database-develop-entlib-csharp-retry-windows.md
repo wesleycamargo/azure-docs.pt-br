@@ -1,4 +1,4 @@
-<properties
+<properties 
 	pageTitle="Tentativa da EntLib de se conectar ao Banco de Dados SQL | Microsoft Azure"
 	description="A Enterprise Library foi projetada para facilitar várias tarefas para os programas clientes de serviços de nuvem, incluindo a integração da lógica de repetição para falhas transitórias."
 	services="sql-database"
@@ -8,19 +8,23 @@
 	editor="" />
 
 
-<tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="12/17/2015"
+<tags 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="12/17/2015" 
 	ms.author="genemi"/>
 
 
 # Exemplo de código: lógica de repetição da Enterprise Library 6, em C&#x23; para conexão com o Banco de Dados SQL
 
-[AZURE.INCLUDE [SQL-Database-develop-Includes-Selector-Language-Platform-Depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+
+> [AZURE.SELECTOR]
+- [PHP](sql-database-develop-php-retry-windows.md)
+- [C#](sql-database-develop-csharp-retry-windows.md)
+- [C# EntLib6](sql-database-develop-entlib-csharp-retry-windows.md)
 
 
 Este tópico apresenta um exemplo de código completo que demonstra a Enterprise Library (EntLib). A EntLib simplifica muitas tarefas para programas clientes que interagem com os serviços de nuvem, como o Banco de Dados SQL do Azure. Nosso exemplo se concentra na importante tarefa de incluir a lógica de repetição para falhas transitórias.
@@ -326,4 +330,4 @@ SELECT TOP 3
 
 - [Exemplos de código do cliente de início rápido do Banco de Dados SQL](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1223_2015-->

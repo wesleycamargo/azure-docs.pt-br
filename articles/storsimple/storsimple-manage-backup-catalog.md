@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carmonm"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/30/2015"
+   ms.date="09/14/2015"
    ms.author="v-sharos" />
 
 # Usar o serviço StorSimple Manager para gerenciar o catálogo de backup
 
 ## Visão geral
 
-A página **Catálogo de Backup** do serviço StorSimple Manager exibe todos os conjuntos de backup criados após a realização de backups manuais ou agendados. Você pode usar esta página para listar todos os backups para uma política de backup ou volume, selecionar ou excluir os backups, ou usar um backup para restaurar ou clonar um volume.
+A página **Catálogo de Backup** do serviço StorSimple Manager exibe todos os conjuntos de backup criados após a realização de backups manuais ou automatizados. Você pode usar esta página para listar todos os backups para uma política de backup ou volume, selecionar ou excluir os backups, ou usar um backup para restaurar ou clonar um volume.
 
 Este tutorial explica como listar, selecionar e excluir um conjunto de backup. Para saber como restaurar seu dispositivo de backup, vá para [Restaurar seu dispositivo por meio de um conjunto de backup](storsimple-restore-from-backup-set.md). Para saber como clonar um volume, vá para [Clonar um volume do StorSimple](storsimple-clone-volume.md).
 
@@ -39,11 +39,11 @@ Os conjuntos de backup filtrados são então tabulados com base nos seguintes at
 
 - **Tamanho** – O tamanho real do conjunto de backup.
 
-- **Criado em** – O intervalo de data e hora quando os backups foram criados.
+- **Criado** em – o intervalo de datas e horas em que os backups foram criados.
 
 - **Tipo** – Conjuntos de Backup podem ser instantâneos locais ou instantâneos de nuvem. Um instantâneo local é um backup de todos os dados do volume armazenadas localmente no dispositivo, enquanto um instantâneo de nuvem refere-se ao backup dos dados do volume que residem na nuvem. Instantâneos locais fornecem acesso mais rápido, enquanto os instantâneos de nuvem são escolhidos para resiliência de dados.
 
-- **Iniciada por** – os backups podem ser iniciados de forma automática, de acordo com uma agenda ou de forma manual por um usuário. Você pode usar uma política de backup para agendar backups. Como alternativa, você pode usar a opção **Fazer backup** para fazer um backup manual.
+- **Iniciada por** – os backups podem ser iniciados de forma automática, de acordo com uma agenda ou de forma manual por um usuário. Você pode usar uma política de backup para agendar backups. Como alternativa, você pode usar a opção **Fazer backup** para fazer um backup interativo.
 
 ## Listar conjuntos de backup para um volume
  
@@ -85,7 +85,7 @@ Conclua as seguintes etapas para selecionar um conjunto de backup para uma polí
 
     Os backups associados ao volume ou à política de backup selecionada devem aparecer na lista de conjuntos de backup.
 
-3. Selecione e expanda um conjunto de backups. As opções **Restaurar** e **Excluir** são exibidas na parte inferior da página. Você pode executar qualquer uma dessas ações no conjunto de backup selecionado.
+3. Selecione e expanda um conjunto de backups. As opções **Restaurar e Excluir** são exibidas na parte inferior da página. Você pode executar qualquer uma dessas ações no conjunto de backup selecionado.
 
 ## Excluir um conjunto de backups
 
@@ -107,7 +107,7 @@ Exclua um backup quando você não quiser mais manter os dados associados a ele.
 
     Os backups associados ao volume ou à política de backup selecionada devem aparecer na lista de conjuntos de backup.
 
-3. Selecione e expanda um conjunto de backups. As opções **Restaurar** e **Excluir** são exibidas na parte inferior da página. Clique em **Excluir**.
+3. Selecione e expanda um conjunto de backups. As opções **Restaurar e Excluir** são exibidas na parte inferior da página. Clique em **Excluir**.
 
 4. Você será notificado quando a exclusão estiver em andamento e quando ela for concluída com êxito. Após a exclusão, atualize a consulta nesta página. O conjunto de backup excluído não aparecerá mais na lista de conjuntos de backup.
 
@@ -117,4 +117,4 @@ Exclua um backup quando você não quiser mais manter os dados associados a ele.
 
 - Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=Oct15_HO3-->

@@ -8,7 +8,7 @@
 
 3. Na caixa de diálogo **Modificar Contêiner de Volume**, faça o seguinte:
 
-    1. Altere o nome do contêiner de volume e modifique a configuração de largura de banda associada. 
+    1. Altere o nome do contêiner de volume, modifique a largura de banda associada e especifique se é preciso criptografar os dados na nuvem.
 
         ![Modificar o contêiner de volume com o Modelo de Largura de Banda 1](./media/storsimple-modify-volume-container/HCS_ModifyVCBT1-include.png)
 
@@ -26,4 +26,4 @@
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=Oct15_HO3-->

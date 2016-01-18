@@ -1,28 +1,27 @@
-<properties
+<properties 
 	pageTitle="Criar uma Máquina Virtual do SQL Server no PowerShell | Microsoft Azure"
 	description="Fornece etapas e scripts do PowerShell para criar uma VM do Azure com imagens da galeria de máquinas virtuais do SQL Server."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"
-	tags="azure-service-management" />
-<tags
+	editor="monicar" 
+	tags="azure-service-management"
+	 />
+<tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="01/06/2015"
+	ms.date="08/26/2015"
 	ms.author="jroth" />
 
 # Criar uma máquina virtual do SQL Server no Azure (PowerShell)
 
 > [AZURE.SELECTOR]
-- [Classic portal](virtual-machines-provision-sql-server.md)
+- [Azure classic portal](virtual-machines-provision-sql-server.md)
 - [PowerShell](virtual-machines-sql-server-create-vm-with-powershell.md)
-- [Azure Resource Manager portal](virtual-machines-sql-server-provision-resource-manager.md)
-
 
 ## Visão geral
 
@@ -33,8 +32,8 @@ Este artigo fornece as etapas para a criação de uma máquina virtual do SQL Se
 
 ## Instalar e configurar o Azure PowerShell
 
-1. Se você não tiver uma conta do Azure, visite [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-
+1. Se você não tiver uma conta do Azure, visite [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
+ 
 2. [Instale os cmdlets mais recentes do Azure PowerShell](../powershell-install-configure.md/#how-to-install-azure-powershell).
 
 3. [Conecte o PowerShell com sua assinatura do Azure](../powershell-install-configure.md/#how-to-connect-to-your-subscription).
@@ -69,18 +68,18 @@ A máquina virtual do SQL Server será hospedada em um serviço de nuvem que res
 
 	>[AZURE.NOTE]Se precisar de uma nova conta de armazenamento, primeiro crie um nome de conta de armazenamento com todas as letras minúsculas usando o comando New-AzureStorageAccount, como mostra o seguinte exemplo: **New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation**
 
-1. Atribua o nome da conta de armazenamento de destino para **$staccount**. Em seguida, use **Set-AzureSubscription** para definir a assinatura e a conta de armazenamento atual.
+1. Atribua o nome da conta de armazenamento de destino à **$staccount**. Em seguida, use **Set-AzureSubscription** para definir a assinatura e a conta de armazenamento atual.
 
 		$staccount="<storage account name>"
 		Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
 ## Selecione uma imagem de máquina virtual do SQL Server
 
-1. Descubra a lista de imagens de máquinas virtuais do SQL Server disponíveis na Galeria. Todas essas imagens têm uma propriedade **ImageFamily** que começa com "SQL". A consulta a seguir exibe a família de imagens disponível com o SQL Server pré-instalado.
+1. Descubra a lista de imagens de máquinas virtuais do SQL Server disponíveis na Galeria. Todas essas imagens têm uma propriedade **ImageFamily** que começa com “SQL”. A consulta a seguir exibe a família de imagens disponível com o SQL Server pré-instalado.
 
 		Get-AzureVMImage | where { $_.ImageFamily -like "SQL*" } | select ImageFamily -Unique | Sort-Object -Property ImageFamily
 
-1. Quando você encontrar a família de imagens da máquina virtual, talvez exista várias imagens publicadas nessa família. Use o script a seguir para localizar o nome de imagem de máquina virtual publicado recentemente para sua família de imagens selecionada (por exemplo, **SQL Server 2014 SP1 Enterprise no Windows Server 2012 R2**):
+1. Quando você encontrar a família de imagens da máquina virtual, talvez exista várias imagens publicadas nessa família. Use o script a seguir para localizar o nome da imagem de máquina virtual publicado mais recentemente para sua família de imagens selecionada (por exemplo, **SQL Server 2014 SP1 Enterprise no Windows Server 2012 R2**):
 
 		$family="<ImageFamily value>"
 		$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
@@ -97,7 +96,7 @@ Por fim, crie a máquina virtual com o PowerShell:
 		$svcname = "<cloud service name>"
 		New-AzureService -ServiceName $svcname -Label $svcname -Location $dcLocation
 
-2. Especifique o nome e o tamanho da máquina virtual. Para saber mais sobre tamanhos de máquina virtual, consulte [Tamanhos de Máquina virtual para o Azure](virtual-machines-size-specs.md).
+2. Especifique o nome e o tamanho da máquina virtual. Para obter mais informações sobre tamanhos de máquina virtual, veja [Tamanhos de máquina virtual para o Azure](virtual-machines-size-specs.md).
 
 		$vmname="<machine name>"
 		$vmsize="<Specify a valid machine size>" # see the link to virtual machine sizes
@@ -112,11 +111,11 @@ Por fim, crie a máquina virtual com o PowerShell:
 
 		New-AzureVM –ServiceName $svcname -VMs $vm1
 
->[AZURE.NOTE]Para obter explicações adicionais e outras opções de configuração, consulte a seção **Criar o conjunto de comandos** em [Usar o Azure PowerShell para criar e pré-configurar as Máquinas Virtuais baseadas no Windows](virtual-machines-ps-create-preconfigure-windows-vms.md).
+>[AZURE.NOTE]Para obter explicações adicionais e outras opções de configuração, veja a seção **Compilar o conjunto de comandos** em [Usar o Azure PowerShell para criar e pré-configurar Máquinas Virtuais baseadas em Windows](virtual-machines-ps-create-preconfigure-windows-vms.md).
 
 ## Exemplo de script do PowerShell
 
-O script a seguir fornece um exemplo de um script completo que cria uma máquina virtual **SQL Server 2014 SP1 Enterprise no Windows Server 2012 R2**. Se você usar esse script, personalize as variáveis iniciais com base nas etapas anteriores deste tópico.
+O script a seguir fornece um exemplo de um script completo que cria uma máquina virtual do **SQL Server 2014 SP1 Enterprise no Windows Server 2012 R2**. Se você usar esse script, personalize as variáveis iniciais com base nas etapas anteriores deste tópico.
 
 	# Customize these variables based on your settings and requirements:
 	$dcLocation = "East US"
@@ -125,30 +124,30 @@ O script a seguir fornece um exemplo de um script completo que cria uma máquina
 	$family="SQL Server 2014 SP1 Enterprise on Windows Server 2012 R2"
 	$svcname = "mycloudservice"
 	$vmname="myvirtualmachine"
-	$vmsize="A5"
-
+	$vmsize="A5" 
+	
 	# Set the current subscription and storage account
 	# Comment out the New-AzureStorageAccount line if the account already exists
 	Select-AzureSubscription -SubscriptionName $subscr –Current
 	New-AzureStorageAccount -StorageAccountName $staccount -Location $dcLocation
 	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
-
+	
 	# Select the most recent VM image in this image family:
 	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-
+	
 	# Create the new cloud service; comment out this line if cloud service exists already:
 	New-AzureService -ServiceName $svcname -Label $svcname -Location $dcLocation
-
+	
 	# Create the VM config:
 	$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
-
+	
 	# Set administrator credentials:
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account."
 	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
-
+	
 	# Create the SQL Server VM:
 	New-AzureVM –ServiceName $svcname -VMs $vm1
-
+	 
 
 ## Conectar-se à área de trabalho remota
 
@@ -175,4 +174,4 @@ Se você também está interessado em ver como executar essas etapas no portal c
 
 Além desses recursos, recomendamos ver [outros tópicos relacionados à execução do SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1203_2015-->

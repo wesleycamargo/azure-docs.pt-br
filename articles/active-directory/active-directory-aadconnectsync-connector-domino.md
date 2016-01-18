@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/28/2015"
+   ms.date="12/16/2015"
    ms.author="andkjell"/>
 
 # Referência técnica do conector Lotus Domino
@@ -34,7 +34,7 @@ Partindo de um ponto de vista detalhado, os seguintes recursos têm suporte na v
 
 | Recurso | Suporte |
 | --- | --- |
-| Fonte de dados conectada | Servidor: <li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>Cliente:<li>Lotus Notes 9.x</li> |
+| Fonte de dados conectada | Servidor: <li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>Cliente:<li>Lotus Notes 8.5.x</li><li>Lotus Notes 9.x</li> |
 | Cenários | <li>Gerenciamento de ciclo de vida do objeto</li><li>Gerenciamento de grupos</li><li>Gerenciamento de senhas</li> |
 | Operações | <li>Importação completa e Delta</li><li>Exportação</li><li>Definição e alteração de senha em senha HTTP</li> |
 | Esquema | <li>Pessoa (Usuário móvel, Contato [pessoas sem certificado])</li><li>Grupo</li><li>Recurso (Recurso, Sala, Reunião online)</li><li>Banco de dados Entrada de Email</li><li>Descoberta dinâmica de atributos para objetos com suporte</li> |
@@ -246,7 +246,7 @@ Se um novo Assistente chamado **Pedro Gonçalves** for atribuído a esse objeto 
 
 **Importar**
 
-A opção de operação Importar dá suporte a dois modos:
+A opção de operação Exportar oferece suporte a dois modos:
 
 - Padrão
 - Múltiplos Valores para Valor Único
@@ -539,4 +539,4 @@ Há várias maneiras no Domino de estender o esquema, de modo que ele parecerá 
 
 -	Para saber mais sobre como habilitar o registro em log para solucionar problemas do conector, confira [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1217_2015-->

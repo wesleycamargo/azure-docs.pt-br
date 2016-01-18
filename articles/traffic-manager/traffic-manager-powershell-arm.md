@@ -65,7 +65,7 @@ Instale a última versão do PowerShell do Azure, disponível na página de down
 ### Etapa 2
 Faça logon na sua conta do Azure.
 
-	PS C:\> Login-AzureRmAccount
+	PS C:\> Login-AzureRmAccopunt
 
 Você deverá se autenticar com suas credenciais.
 
@@ -141,13 +141,12 @@ Por exemplo, para alterar a TTL do perfil:
 	PS C:\> $profile.Ttl = 300
 	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
-## Adicionar Pontos de Extremidade do Gerenciador de Tráfego
+## Adicionar Pontos de Extremidade do Gerenciador de Tráfego [](#adding-traffic-manager-endpoints)
 Há três tipos de pontos de extremidade do Gerenciador de Tráfego: 1. Pontos de extremidade do Azure: representam os serviços hospedados no Azure. 2. Pontos de extremidade externos: representam os serviços hospedados fora do Azure. 3. Pontos de extremidade aninhados: são usados para construir hierarquias aninhadas de perfis do Gerenciador de Tráfego, para habilitar as configurações avançadas de roteamento de tráfego para aplicativos mais complexos. Eles ainda não têm suporte da API do ARM.
 
 Em todos os três casos, os pontos de extremidade podem ser adicionados de duas maneiras: 1. Usando um processo de três etapas semelhante ao descrito em [Atualizar um perfil do Gerenciador de Tráfego](#update-traffic-manager-profile): obtenha o objeto de perfil usando Get-AzureRmTrafficManagerProfile; atualize-o offline para adicionar um ponto de extremidade usando Add-AzureRmTrafficManagerEndpointConfig; carregue as alterações no Gerenciador de Tráfego do Azure usando Set-AzureRmTrafficManagerProfile. A vantagem desse método é que várias alterações de ponto de extremidade podem ser feitas em uma única atualização. 2. Usando o cmdlet New-AzureRmTrafficManagerEndpoint. Isso adiciona um ponto de extremidade a um perfil existente do Gerenciador de Tráfego em uma única operação.
 
 ### Adicionando pontos de extremidade do Azure
-
 Os pontos de extremidade do Azure fazem referência a outros serviços hospedados no Azure. Atualmente, há suporte para três tipos de pontos de extremidade do Azure: 1. Aplicativos Web do Azure 2. Serviços de nuvem ‘clássicos’ (que podem conter um serviço PaaS ou máquinas virtuais IaaS) 3. Recursos Microsoft.Network/publicIpAddress ARM (que podem ser anexados ao balanceador de carga ou a uma NIC de máquina virtual). Observe que o publicIpAddress deve ter um nome DNS atribuído para poder ser usado no Gerenciador de Tráfego.
 
 Em cada caso: - O serviço é especificado usando o parâmetro 'targetResourceId' de Add-AzureRmTrafficManagerEndpointConfig ou de New-AzureRmTrafficManagerEndpoint. - O 'Target' e o 'EndpointLocation' não devem ser especificados, mas são implícitos por meio do TargetResourceId especificado acima - A especificação de 'Weight' é opcional. Os pesos só serão usados se o perfil for configurado para usar o método de roteamento de tráfego ‘Weighted’; caso contrário, eles serão ignorados. Se especificado, ele deverá estar no intervalo de 1...1000. O valor padrão é '1'. -A especificação de 'Priority' é opcional. As prioridades só serão usadas se o perfil for configurado para usar o método de roteamento de tráfego ‘Priority’; caso contrário, elas serão ignoradas. Os valores válidos vão de 1 a 1000 (valores mais baixos têm prioridade mais alta). Se especificados para um ponto de extremidade, deverão ser especificados para todos os pontos de extremidade. Se omitidos, os valores padrão começando por 1, 2, 3 etc. serão aplicados na ordem em que os pontos de extremidade forem fornecidos.
@@ -229,7 +228,7 @@ Para habilitar um ponto de extremidade do Gerenciador de Tráfego, use Enable-Az
 
 	PS C:\> Enable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyResourceGroup
 
-Da mesma forma, para desabilitar um ponto de extremidade do Gerenciador de Tráfego:
+Da mesma forma, para desabilitar um perfil do Gerenciador de Tráfego:
 
  	PS C:\> Disable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyResourceGroup -Force
 
@@ -265,4 +264,4 @@ Essa sequência também pode ser transferida:
 [Considerações sobre desempenho do Gerenciador de Tráfego](traffic-manager-performance-considerations.md)
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1125_2015-->

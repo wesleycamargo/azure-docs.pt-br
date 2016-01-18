@@ -242,7 +242,7 @@ Observe o seguinte:
 - Uma nova propriedade **external** é adicionada um nível acima e definida como **true** para uma tabela externa. 
 - As propriedades do elemento **waitOnExternal**, como **retryInterval**, são adicionados à nova seção **externalData** no elemento **Política**.
 - O elemento **externalData** é um elemento opcional. 
-- Quando você usa o elemento **externalData**, você deve ter a propriedade **external** definida para **true**. 
+- Ao usar o elemento **externalData**, você deve ter a propriedade **external** definida como **true**. 
  
 
 ## Nova propriedade copyBehavior para o BlobSink
@@ -257,7 +257,7 @@ O **BlobSink** dá suporte à nova propriedade chamada: **copyBehavior**. Essa p
 **MergeFiles**: mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo/blob for especificado, o nome do arquivo mesclado será o nome especificado; caso contrário, será o nome de arquivo gerado automaticamente.
  
 ## Nova propriedade getDebugInfo para todas as atividades do HDInsight
-As atividades do HDInsight (Hive, Pig, MapReduce, Streaming do Hadoop) oferecem suporte à nova propriedade: **getDebugInfo**. A propriedade **getDebugInfo** é um elemento opcional. Quando ela é definida como **Falha**, os logs são baixados somente em caso de falha de execução. Quando ela é definida como **Todos**, os logs sempre são baixados, não importa o status de execução. Quando ela é definida para **Nenhum**, nenhum log é baixado.
+As atividades do HDInsight (Hive, Pig, MapReduce, Streaming do Hadoop) oferecem suporte à nova propriedade: **getDebugInfo**. A propriedade **getDebugInfo** é um elemento opcional. Quando ela é definida como **Falha**, os logs são baixados somente em caso de falha de execução. Quando ela é definida como **Todos**, os logs sempre são baixados, não importa o status de execução. Quando ela é definida como **Nenhum**, nenhum log é baixado.
 
   
      
@@ -270,7 +270,10 @@ Você verá as listas **Fatias atualizadas recentemente** e **Fatias com falha r
 
 Clique no título das listas ou em **... (reticências)** para ver a lista maior de fatias. Clique em **Filtrar** na barra de ferramentas para filtrar as fatias.
  
-Você ainda poderá exibir fatias classificadas segundo os horários da fatia clicando no bloco **Fatias de dados (por horário da fatia)**. As fatias nessas coleções são ordenadas segundo o horário da fatia. Por exemplo, se for um agendamento por hora, as fatias serão: - 4/4/2015 às 17h em andamento - 4/4/2015 às 16h Bem-sucedida - 4/4/2015 15h Falhou
+Você ainda poderá exibir fatias classificadas segundo os horários da fatia clicando no bloco **Fatias de dados (por horário da fatia)**. As fatias nessas coleções são ordenadas segundo o horário da fatia. Por exemplo, se for um agendamento por hora, as fatias serão:
+- 4/4/2015 às 17h em andamento
+- 4/4/2015 às 16h Bem-sucedida
+- 4/4/2015 15h Falhou
 
 Porém, se uma fatia mais antiga for executada novamente, ela não aparecerá na parte superior desta lista mesmo que provavelmente seja nisso que o usuário esteja mais interessado.
 
@@ -338,7 +341,7 @@ Consulte a postagem de blog: [Atualização da Azure Data Factory - novos armaze
     
   		Consulte [Usar atividades personalizadas em um pipeline da Azure Data Factory][adf-custom-activities] para obter uma explicação passo a passo sobre como criar uma atividade personalizada e usá-la em um pipeline da Azure Data Factory.
 
-[adf-azure-ml]: data-factory-azure-ml-batch-execution-activity.md
+[adf-azure-ml]: data-factory-create-predictive-pipelines.md
 [adf-custom-activities]: data-factory-use-custom-activities.md
 [adf-editor]: data-factory-editor.md
 
@@ -354,4 +357,4 @@ Consulte a postagem de blog: [Atualização da Azure Data Factory - novos armaze
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1210_2015-->

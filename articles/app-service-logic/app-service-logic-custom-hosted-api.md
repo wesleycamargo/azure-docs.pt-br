@@ -7,18 +7,15 @@
 	services="app-service\logic" 
 	documentationCenter=""/>
 
-<tags
-	ms.service="app-service-logic"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"	
+<tags ms.service="app-service-logic" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na"
+	
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="10/07/2015"
 	ms.author="stepsic"/>
 	
 # Usando a API personalizada hospedada no Serviço de Aplicativo com Aplicativos Lógicos
 
-Embora os Aplicativos Lógicos tenham um conjunto avançado de mais de 40 conectores para uma gama de serviços, convém chamar a sua própria API personalizada que pode executar seu próprio código. Uma das maneiras mais fáceis e mais escalonáveis de hospedar sua própria API Web personalizada é usar o Serviço de Aplicativo. Este artigo aborda como chamar a API Web hospedada em um aplicativo de API do Serviço de Aplicativo, aplicativo Web ou aplicativo móvel.
+Embora os Aplicativos Lógicos tenham um conjunto avançado de mais de 40 conectores para uma gama de serviços, convém chamar a sua própria API personalizada que pode executar seu próprio código. Uma das maneiras mais fáceis e mais escalonáveis de hospedar sua própria API Web personalizada é usar o Serviço de Aplicativo. Este artigo aborda como chamar a API Web hospedada em um aplicativo Web de Serviço de Aplicativo.
 
 ## Implante seu aplicativo Web.
 
@@ -32,7 +29,7 @@ Comece criando um novo Aplicativo Lógico em branco. Uma vez criado o Aplicativo
 
 Primeiro, é preferível usar um disparador de recorrência ou clicar em **Executar essa lógica manualmente**. Em seguida, convém fazer a chamada efetivamente para a API. Para isso, clique na ação verde **HTTP** no lado direito.
 
-1. Escolha o **Método**: ele é definido no código da API
+1. Escolha o **Método**: ele será definido no código da API
 2. Na seção **URL**, cole na **URL** do seu aplicativo Web implantado
 3. Se precisar de **Cabeçalhos**, inclua-os no formato JSON da seguinte forma: `{"Content-type" : "application/json", "Accept" : "application/json" }`
 4. Se sua API é pública, você pode deixar **Autenticação** em branco. Se você deseja proteger as chamadas à API, consulte as seções a seguir.
@@ -40,7 +37,7 @@ Primeiro, é preferível usar um disparador de recorrência ou clicar em **Execu
 
 Clique em **Salvar** na barra de comandos. Se você clicar em **Executar agora**, deve ver a chamada para a API e a resposta na lista de execução.
 
-Isso funciona bem se você tiver uma API pública. Mas se deseja proteger sua API, existem duas maneiras diferentes de fazer isso:
+Isso funciona muito bem se você tem uma API pública, mas se deseja proteger sua API, existem duas maneiras diferentes de fazer isso:
 
 1. *Nenhuma alteração de código necessária*: o Active Directory do Azure pode ser usado para proteger sua API sem exigir alterações ou reimplantação de código.
 2. Impor as autenticações básica, AAD ou de certificado no código de sua API. 
@@ -51,7 +48,7 @@ Nesta seção, você vai criar dois aplicativos do Active Directory do Azure, um
 
 ### Parte 1: configurando uma identidade de aplicativo para seu Aplicativo Lógico
 
-Isso é o que o Aplicativo Lógico usa para autenticar no Active Directory. Você só *precisa* fazer isso uma vez para seu diretório. Por exemplo, você pode optar por usar a mesma identidade para todos os seus aplicativos lógicos, embora também possa criar identidades exclusivas por aplicativo lógico se desejar. Você pode fazer isso na interface do usuário ou usar o PowerShell.
+Isso é o que o Aplicativo Lógico usará para autenticar no Active Directory. Você *precisa* fazer isso somente uma vez para seu diretório. Por exemplo, você pode optar por usar a mesma identidade para todos os seus Aplicativos Lógicos, embora também possa, se quiser, criar identidades exclusivas para cada Aplicativo Lógico. Você pode fazer isso na interface do usuário ou usar o PowerShell.
 
 #### Criar a identidade do aplicativo usando o Portal clássico do Azure
 
@@ -82,7 +79,7 @@ Se seu aplicativo Web já está implantado, você pode habilitá-lo no portal. C
 2. Clique em **Autenticação/Autorização**. 
 3. Clique em **Ativado**.
 
-Neste ponto, um aplicativo é criado automaticamente para você. Você precisará da ID do cliente do aplicativo para a Parte 3, então você precisará:
+Em seguida, um aplicativo será automaticamente criado para você. Você precisará da ID do cliente do aplicativo para a Parte 3; assim:
 
 1. Vá para o [Active Directory no Portal clássico do Azure](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory) e selecione seu diretório. 
 2. Procure o aplicativo na caixa de pesquisa
@@ -96,7 +93,7 @@ Primeiro, você precisa criar um aplicativo para seu aplicativo Web. Ele deve se
 
 >[AZURE.NOTE]Quando você cria o aplicativo para seu aplicativo Web, deve usar a [abordagem do Portal clássico do Azure](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory), já que o commandlet do PowerShell não configura as permissões necessárias para conectar os usuários a um site.
 
-Quando tiver a ID de cliente a ID de locatário, inclua o seguinte como um recurso secundário do aplicativo Web no seu modelo de implantação:
+Quando tiver as IDs de cliente e de locatário, inclua o seguinte como um sub-recurso do aplicativo Web em seu modelo de implantação:
 
 ```
 "resources" : [
@@ -171,6 +168,6 @@ Se você quiser restringir a API somente para o Aplicativo Lógico, por exemplo,
 
 Além disso, se você deseja implementá-lo inteiramente em seu próprio código e não utilizar o recurso de Portal, pode ler este artigo: [Usar o Active Directory para autenticação no Serviço de Aplicativo do Azure](web-sites-authentication-authorization.md).
 
-Você ainda precisa seguir as etapas acima para criar uma identidade de aplicativo para seu Aplicativo Lógico e usá-la para chamar a API.
+Você ainda precisará seguir as etapas acima para criar uma identidade de aplicativo para seu Aplicativo Lógico e usá-la para chamar a API.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1210_2015-->

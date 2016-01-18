@@ -1,31 +1,29 @@
-Para criar um VNet com base no cenário anterior, usando o Portal do Azure, siga as etapas abaixo.
+To create a VNet based on the scenario above by using the Azure portal, follow the steps below.
 
-1. Em um navegador, vá até http://portal.azure.com e, se necessário, entre com sua conta do Azure.
+1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
 
-2. Clique em **NOVO** > **Rede** > **Rede Virtual** e, em seguida, clique em **Gerenciador de Recursos** na lista **Selecionar um Modelo de Implantação** e, em seguida, clique em **Criar**.
+2. Click **NEW** > **Networking** > **Virtual network**, then click **Resource Manager** from the **Select a deployment model** list, and then click **Create**.
 
-3. Na folha **Criar rede virtual**, defina as configurações de Rede Virtual, como mostrado na figura abaixo.
+3. On the **Create virtual network** blade, configure the VNet settings as shown in the figure below.
 
-	![Criar folha de rede virtual](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure2.png)
+	![Create virtual network blade](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure2.png)
 
-4. Clique em **Grupo de recursos** e selecione um grupo de recursos ao qual adicionar a Rede Virtual ou clique em **Criar novo** para adicionar a Rede Virtual a um novo grupo de recursos. A figura a seguir mostra as configurações de grupo de recurso para um novo grupo de recursos denominado **TestRG**. Para obter mais informações sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md/#resource-groups).
+4. Click **Resource group** and select a resource group to add the VNet to, or click **Create new** to add the VNet to a new resource group. The figure below shows the resource group settings for a new resource group called **TestRG**. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md/#resource-groups).
 
-	![Grupo de recursos](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure3.png)
+	![Resource group](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure3.png)
 
-5. Se necessário, altere as configurações de **Assinatura** e **Local** da sua rede virtual.
+5. If necessary, change the **Subscription** and **Location** settings for your VNet. 
 
-6. Clique em **Criar** e observe o bloco chamado **Criando a rede virtual** como mostrado na figura abaixo.
+6. Click **Create** and notice the tile named **Creating Virtual network** as shown in the figure below.
 
-	![Criar bloco de rede virtual](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure4.png)
+	![Creating virtual network tile](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure4.png)
 
-7. Aguarde a criação do VNET e, na folha **Rede Virtual**, clique em **Todas as Configurações** > **Sub-redes** > **Adicionar**.
+7. Wait for the VNet to be created, then in the **Virtual network** blade, click **All settings** > **Subnets** > **Add**.
 
-8. Especifique as configurações de sub-rede para a sub-rede *back-end*, como mostrado abaixo e clique **OK**.
+8. Specify the subnet settings for the *BackEnd* subnet, as shown below, and then click **OK**. 
 
-	![Configurações de sub-rede](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure6.png)
+	![Subnet settings](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure6.png)
 
-9. Exibir lista de sub-redes.
+9. View the list of subnets.
 
-	![Lista de sub-redes na Rede Virtual](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
-
-<!---HONumber=AcomDC_0107_2016-->
+	![List of subnets in VNet](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)

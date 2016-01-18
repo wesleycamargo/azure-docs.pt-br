@@ -13,15 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/04/2016"
+	ms.date="12/04/2015"
 	ms.author="inhenk"/>
 
 # Gerenciar função com base no Controle de Acesso (RBAC) com a Interface de Linha de Comando (CLI) do Azure
-
+<!-- Azure Selector -->
 > [AZURE.SELECTOR]
 - [PowerShell](role-based-access-control-manage-access-powershell.md)
 - [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
-- [REST API](role-based-access-control-manage-access-rest.md)
 
 ## Relacionar funções RBAC
 ###	Relacionar todas as funções disponíveis
@@ -154,4 +153,4 @@ No exemplo a seguir, a função personalizada *Operador de Máquina Virtual* nã
 ## Tópicos RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1210_2015-->

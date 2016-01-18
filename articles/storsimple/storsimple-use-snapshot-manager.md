@@ -12,20 +12,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/28/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # Interface do usuário do StorSimple Snapshot Manager
 
 ## Visão geral
 
-O StorSimple Snapshot Manager tem uma GUI (interface gráfica do usuário) intuitiva que você pode usar para gerenciar cópias de backup de grupos de volumes, incluindo aqueles armazenados localmente e na nuvem. Este tutorial fornece uma introdução à interface e explica como usar cada um dos componentes. Para obter uma descrição detalhada do StorSimple Snapshot Manager, confira a seção [O que é o StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
+O StorSimple Snapshot Manager tem uma GUI (interface gráfica do usuário) intuitiva que você pode usar para gerenciar cópias de backup de grupos de volumes, incluindo aqueles armazenados localmente e na nuvem. Este tutorial fornece uma introdução à interface e explica como usar cada um dos componentes. (Para obter uma descrição detalhada do StorSimple Snapshot Manager, confira a seção [O que é o StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 
 ### Descrição do console
 
 Para exibir a interface do usuário, clique no ícone do StorSimple Snapshot Manager na área de trabalho. A janela de console aparece, conforme mostrado na ilustração a seguir.
 
 ![Painéis do Gerenciador de instantâneos do StorSimple](./media/storsimple-use-snapshot-manager/HCS_SSM_gui_panes.png)
+
+**Figura 1: UI do StorSimple Snapshot Manager**
 
 A janela do console tem cinco elementos principais. Clique no link apropriado para obter uma descrição completa de cada elemento.
 
@@ -55,6 +57,8 @@ Clique em qualquer item na barra de menus para ver uma lista dos comandos dispon
 
 ![Menu de Exibição selecionado](./media/storsimple-use-snapshot-manager/HCS_SSM_View_menu.png)
 
+**Figura 2: Barra de menus do StorSimple Snapshot Manager com o menu Exibição selecionado**
+
 ### Menu Arquivo
 
 O menu **Arquivo** contém comandos padrão do MMC (Console de Gerenciamento Microsoft).
@@ -65,6 +69,8 @@ Para exibir o menu **Arquivo**, clique em **Arquivo** na barra de menus. O segui
 
 ![Menu Arquivo do StorSimple Snapshot Manager](./media/storsimple-use-snapshot-manager/HCS_SSM_FileMenu.png)
 
+**Figura 3: Menu Arquivo do StorSimple Snapshot Manager**
+
 #### Descrição do menu
 
 A tabela a seguir descreve os itens que aparecem no menu **Arquivo**.
@@ -74,7 +80,7 @@ A tabela a seguir descreve os itens que aparecem no menu **Arquivo**.
 | Novo | Clique em **Novo** para criar um novo console com base no StorSimple Snapshot Manager. |
 | Aberto | Clique em **Abrir** para abrir um console existente. |
 | Salvar | Clique em **Salvar** para salvar o console atual. |
-| Salvar como | Clique em **Salvar Como** para criar uma nova instância renomeada do console atual. Use a opção **Salvar como** para personalizar uma exibição e salvá-la para recuperação posterior. Por exemplo, você pode criar snap-ins do StorSimple Snapshot Manager que apontem para servidores específicos. |
+| Salvar como | Clique em **Salvar Como** para criar uma nova instância renomeada do console atual. Use a opção **Salvar Como** para personalizar uma exibição e salvá-la para recuperação posterior. Por exemplo, você pode criar snap-ins do StorSimple Snapshot Manager que apontem para servidores específicos. |
 | Adicionar/Remover Snap-in | Clique em **Adicionar/Remover Snap-in** para adicionar ou remover snap-ins e organizar nós no painel **Escopo**. Para obter mais informações, vá para [Adicionar, Remover e Organizar Snap-ins e Extensões no MMC 3.0](https://technet.microsoft.com/library/cc722035.aspx). |
 | Opções | Clique em **Opções** para alterar o ícone do console, especificar permissões e modos de acesso do usuário ou excluir arquivos de console para aumentar o espaço em disco disponível. |
 | Lista de caminhos de arquivo | Clique em um caminho na lista numerada para reabrir um arquivo que você abriu recentemente. |
@@ -96,9 +102,13 @@ Por exemplo, se você selecionar o nó superior do painel **Escopo** e depois cl
  
 ![Menu Ação do StorSimple Snapshot Manager](./media/storsimple-use-snapshot-manager/HCS_SSM_Action_menu.png)
 
+**Figura 4: Menu Ação do StorSimple Snapshot Manager**
+
 O painel **Ações** (à direita do console) contém a mesma lista de ações que o menu **Ação**. Além disso, o painel **Ações** contém as opções do menu **Exibição**, que permitem criar uma exibição personalizada do painel **Resultados**.
 
 ![Painel Ações com o menu Exibição aberto](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane_Results.png)
+
+**Figura 5: Painel Ações do StorSimple Snapshot Manager com o menu Exibir**
 
 #### Descrição do menu
 
@@ -114,23 +124,23 @@ A tabela a seguir contém uma lista em ordem alfabética das ações do StorSimp
  
 | Ação | Navegação | Descrição |
 |:--------|:------------|:-------------|
-| Autenticar | Clique no nó **Dispositivos** e clique com o botão direito em um dispositivo no painel **Resultados**. | Clique em **Autenticar** para digitar a senha que você configurou para o dispositivo. |
+| Autenticar | Clique no nó **Dispositivos** e clique com o botão direito do mouse em um dispositivo no painel **Resultados**. | Clique em **Autenticar** para digitar a senha que você configurou para o dispositivo. |
 | Clone | Expanda **Catálogo de Backups**, expanda **Instantâneos em Nuvem**, clique em um backup com data e selecione um volume no painel **Resultados**. | Clique em **Clone** para criar uma cópia de um instantâneo de nuvem e armazená-la em um local que você designar. |
 | Configurar um Dispositivo | Clique com o botão direito do mouse no nó **Dispositivos**. | Clique em **Configurar um Dispositivo** para configurar um ou vários dispositivos para se conectar ao host do Windows. |
-| Criar Política de Backup | Faça o seguinte: <ul><li>Clique com o botão direito em **Políticas de Backup**.</li><li>Clique ou expanda **Grupos de Volumes** e clique com o botão direito em um grupo de volumes. </li><li>Clique ou expanda **Catálogo de Backups** e clique com o botão direito em um grupo de volumes.</li></ul> | Clique em **Criar Política de Backup** para configurar um backup agendado para um grupo de volumes. |
+| Criar Política de Backup | Execute uma das seguintes opções: <ul><li>clique com o botão direito do mouse em **Políticas de Backup**.</li><li>Clique ou expanda **Grupos de Volumes** e clique com o botão direito do mouse em um grupo de volumes. </li><li>Clique ou expanda **Catálogo de Backups** e clique com o botão direito do mouse em um grupo de volumes.</li></ul> | Clique em **Criar Política de Backup** para configurar um backup agendado para um grupo de volumes. |
 | Criar Grupo de Volumes | Execute uma das seguintes opções: <ul><li>clique no nó **Volumes** e clique com o botão direito do mouse em um volume no painel **Resultados**. </li><li>Clique com o botão direito no nó **Grupos de Volumes**.</li></ul> | Clique em **Criar Grupo de Volumes** para atribuir volumes a um grupo de volumes. |
 | Excluir | Clique em um nó ou resultado (esse item aparece em vários menus de **Ação** e nos painéis de **Ações**). | Clique em **Excluir** para excluir o nó ou o resultado que você selecionou. Quando a caixa de diálogo de confirmação aparecer, confirme ou cancele a exclusão. |
-| Detalhes | Clique no nó **Dispositivos** e, em seguida, clique com o botão direito em um dispositivo no painel **Resultados**. | Clique em **Detalhes** para ver os detalhes da configuração de um dispositivo. |
+| Detalhes | Clique no nó **Dispositivos** e, em seguida, clique com o botão direito do mouse em um dispositivo no painel **Resultados**. | Clique em **Detalhes** para ver os detalhes da configuração de um dispositivo. |
 | Editar | Clique em **Políticas de Backup** e clique com o botão direito do mouse em uma política no painel **Resultados**. | Clique em **Editar** para alterar o agendamento de backup de um grupo de volumes. |
 | Exportar Lista | Clique em um nó ou resultado (esse item aparece em todos os menus de **Ação** e nos painéis de **Ações**). | Clique em **Exportar Lista** para salvar uma lista em um arquivo CSV (valores separados por vírgulas). Em seguida, você pode importar esse arquivo para um aplicativo de planilha para análise. |
 | Ajuda | Clique em qualquer nó ou resultado. (Esse item aparece em todos os menus de **Ação** e painéis de **Ações**.) | Clique em **Ajuda** para abrir a Ajuda online em uma janela separada do navegador. |
 | Nova Janela a Partir Daqui | Clique em um nó ou resultado (esse item aparece em todos os menus de **Ação** e nos painéis de **Ações**). | Clique em **Nova Janela a Partir Daqui** para abrir uma nova janela do StorSimple Snapshot Manager.|
-| Atualizar | Clique em um nó ou resultado (esse item aparece em todos os menus de **Ação** e nos painéis de **Ações**). | Clique em **Atualizar** para atualizar a janela StorSimple Snapshot Manager exibida atualmente. |
+| Atualizar | Clique em um nó ou resultado (esse item aparece em todos os menus de **Ação** e nos painéis de **Ações**). | Clique em **Atualizar** para atualizar a janela do StorSimple Snapshot Manager exibida atualmente. |
 | Atualizar Dispositivo | Clique no nó **Dispositivos** e clique com o botão direito do mouse em um dispositivo no painel **Resultados**. | Clique em **Atualizar Dispositivo** para sincronizar um dispositivo específico conectado ao StorSimple Snapshot Manager. |
 | Atualizar Dispositivos | Clique com o botão direito do mouse no nó **Dispositivos**. | Clique em **Atualizar Dispositivos** para sincronizar sua lista de dispositivos conectados com o StorSimple Snapshot Manager. |
 | Examinar volumes novamente | Clique com o botão direito do mouse no nó **Volumes**. | Clique em **Examinar volumes novamente** para atualizar a lista de volumes que aparece no painel **Resultados**. |
 | Restaurar | Expanda **Catálogo de Backups**, expanda um grupo de volumes, expanda **Instantâneos Locais** ou **Instantâneos em Nuvem** e clique com o botão direito do mouse em um backup. | Clique em **Restaurar** para substituir os dados do grupo de volumes atual pelos dados do backup selecionado. |
-| Fazer Backup | Execute uma das seguintes opções: <ul><li>Expanda **Grupos de Volumes** e clique com o botão direito em um grupo de volumes. </li><li>Expanda **Catálogo de Backups** e clique com o botão direito em um grupo de volumes.</li></ul> | Clique em **Fazer Backup** para iniciar um trabalho de backup imediatamente. |
+| Fazer Backup | Execute uma das seguintes opções: <ul><li>Expanda **Grupos de Volumes** e clique com o botão direito do mouse em um grupo de volumes. </li><li>Expanda **Catálogo de Backups** e clique com o botão direito do mouse em um grupo de volumes.</li></ul> | Clique em **Fazer Backup** para iniciar um trabalho de backup imediatamente. |
 | Alternar Exibição de Importações | Clique com o botão direito do mouse no nó superior do painel **Escopo** (o nó **StorSimple Snapshot Manager** nos exemplos). | Clique em **Alternar Exibição de Importações** para mostrar ou ocultar os grupos de volumes e backups associados que foram importados do painel de serviço do StorSimple Manager. |
 
 ### Menu Exibir
@@ -142,6 +152,8 @@ Use o menu **Exibir** para criar uma exibição personalizada do conteúdo do pa
 Você pode acessar o menu **Exibir** na barra de menus ou no painel **Ações**.
 
 ![Menu Exibir do StorSimple Snapshot Manager](./media/storsimple-use-snapshot-manager/HCS_SSM_View_menu.png)
+
+**Figura 6: Menu Exibir do StorSimple Snapshot Manager**
 
 #### Descrição do menu
 
@@ -162,6 +174,8 @@ Você pode acessar o menu **Favoritos** na barra de menus.
 
 ![Menu Favoritos do StorSimple Snapshot Manager](./media/storsimple-use-snapshot-manager/HCS_SSM_FavoritesMenu.png)
 
+**Figura 7: Menu Favoritos do StorSimple Snapshot Manager**
+
 #### Descrição do menu
 
 A tabela a seguir descreve os itens que aparecem no menu **Favoritos**.
@@ -181,6 +195,8 @@ Você pode acessar o menu **Janela** na barra de menus.
 
 ![Menu Janela do StorSimple Snapshot Manager](./media/storsimple-use-snapshot-manager/HCS_SSM_WindowMenu.png)
 
+**Figura 8: Menu Janela do StorSimple Snapshot Manager**
+
 A lista numerada na parte inferior do menu mostra as janelas que estão abertas. Clique em qualquer janela da lista para trazer a janela ao primeiro plano.
 
 #### Descrição do menu
@@ -196,11 +212,13 @@ A tabela a seguir descreve os itens que aparecem no menu da Janela.
 
 ### Menu Ajuda
 
-Use o menu **Ajuda** para exibir a ajuda online disponível para o MMC e o StorSimple Snapshot Manager. Você também pode exibir informações sobre as versões de software do MMC e do StorSimple Snapshot Manager que estão instaladas no sistema.
+Use o menu **Ajuda** para exibir a ajuda online disponível para o StorSimple Snapshot Manager e o MMC. Você também pode exibir informações sobre as versões de software do MMC e do StorSimple Snapshot Manager que estão instaladas no sistema.
 
 Você pode acessar o menu **Ajuda** na barra de menus. Você também pode acessar os tópicos de ajuda do StorSimple Snapshot Manager no painel **Ações**.
 
 ![Menu Ajuda do StorSimple Snapshot Manager](./media/storsimple-use-snapshot-manager/HCS_SSM_HelpMenu.png)
+
+**Figura 9: Menu Ajuda do StorSimple Snapshot Manager**
 
 #### Descrição do menu
 
@@ -241,6 +259,8 @@ O painel **Escopo** é o painel esquerdo da UI do StorSimple Snapshot Manager. E
 O painel **Escopo** contém uma série de objetos que podem ser clicados (nós), organizados em uma estrutura de árvore.
 
 ![Painel Escopo](./media/storsimple-use-snapshot-manager/HCS_SSM_Scope_pane.png)
+
+**Figura 10: Painel Escopo do StorSimple Snapshot Manager**
 
 - Para expandir ou recolher um nó, clique no ícone de seta ao lado do nome do nó.
 
@@ -283,7 +303,7 @@ O nó **Volumes** representa as unidades que correspondem aos volumes montados p
 
 - Para expandir o nó, clique no ícone de seta ao lado de **Volumes**.
 
-- Para ver um menu das ações disponíveis, clique com o botão direito no nó **Volumes** ou em qualquer um dos nós que aparecem na exibição expandida.
+- Para ver um menu das ações disponíveis, clique com o botão direito do mouse no nó **Volumes** ou em qualquer um dos nós que aparecem na exibição expandida.
 
 - Para ver uma lista de volumes, clique em **Volumes** no painel **Escopo**. A lista de volumes, com informações sobre cada volume, aparece no painel **Resultados**.
 
@@ -326,7 +346,7 @@ O nó **Instantâneos Locais** relaciona os instantâneos locais para um grupo d
 
 - Para expandir o nó, clique no ícone de seta ao lado de **Instantâneos Locais**.
 
-- Para ver um menu das ações disponíveis, clique com o botão direito no nó **Instantâneos Locais** ou em qualquer um dos nós que aparecem na exibição expandida.
+- Para ver um menu das ações disponíveis, clique com o botão direito do mouse no nó **Instantâneos Locais** ou em qualquer um dos nós que aparecem na exibição expandida.
 
 - Para ver uma lista de instantâneos locais, clique em **Instantâneos Locais** no painel **Escopo**. A lista de instantâneos, com informações sobre cada um deles, aparece no painel **Resultados**.
 
@@ -364,6 +384,8 @@ Para ver o exemplo a seguir, clique no nó **Grupos de Volumes** no painel **Esc
 
 ![Painel Resultados](./media/storsimple-use-snapshot-manager/HCS_SSM_Results_pane.png)
 
+**Figura 11: Painel Resultados do StorSimple Snapshot Manager**
+
 Você pode configurar os detalhes mostrados no painel **Resultados**: clique com o botão direito do mouse em um nó no painel **Escopo**, clique em **Exibir** e clique em **Adicionar/Remover Colunas**.
 
 ## Painel Ações
@@ -376,9 +398,13 @@ Para ver o exemplo a seguir, no painel **Escopo**, expanda o nó **Trabalhos** e
 
 ![Exemplo de trabalhos agendados do painel Ações](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane.png)
 
+**Figura 12: Painel Ações do StorSimple Snapshot Manager (trabalhos agendados)**
+
 Para ver mais opções, no painel **Escopo**, expanda o nó **Trabalhos**, clique em **Agendado** e clique em um trabalho agendado no painel **Resultados**. O painel **Ações** exibe as ações disponíveis para o trabalho agendado, conforme mostrado no exemplo a seguir.
 
 ![Exemplo de ações de trabalho do painel Ações](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane_Results.png)
+
+**Figura 13: Painel Ações do StorSimple Snapshot Manager (para um trabalho específico)**
 
 ## Navegação por teclado e atalhos
 
@@ -425,7 +451,7 @@ A tabela a seguir descreve as combinações de teclas de atalho da barra de menu
 | | | L | Abre a página **Exportar Lista**. 
 | | | H | Abre a Ajuda online.|
 | ALT+V | Abre o menu **Exibição**. | Uma | Abre a página **Adicionar/Remover Colunas**. |
-| | | U | Abre a página **Personalizar Modo de Exibição**. |
+| | | U | Abre a página **Personalizar Exibição**. |
 | ALT+O | Abre o menu **Favoritos**. | Uma | Abre a página **Adicionar aos Favoritos**. |
 | | | O | Abre a página **Organizar Favoritos**.|
 | ALT+W | Abre o menu **Janela**.| N | Abre outra janela do StorSimple Snapshot Manager.|
@@ -515,4 +541,4 @@ As tabelas a seguir mostram as combinações de teclas de atalho para cada nó n
 - Saiba como [usar o StorSimple Snapshot Manager para administrar sua solução do StorSimple](storsimple-snapshot-manager-admin.md).
 - Saiba como [usar o StorSimple Snapshot Manager para conectar e gerenciar dispositivos](storsimple-snapshot-manager-manage-devices.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=Oct15_HO3-->

@@ -15,7 +15,7 @@
    ms.date="09/18/2015"
    ms.author="sethm" />
 
-# Práticas recomendadas para isolar aplicativos contra interrupções e desastres do Barramento de Serviço
+# Práticas recomendadas para isolar aplicativos contra interrupções de serviço e desastres do Barramento de Serviço
 
 Os aplicativos de missão crítica devem funcionar continuamente, mesmo na presença de interrupções ou de desastres não planejados. Este tópico descreve técnicas que podem ser usadas para proteger aplicativos do Barramento de Serviço contra uma potencial interrupção de serviço ou desastre.
 
@@ -109,4 +109,4 @@ Para saber mais sobre a recuperação de desastres, confira estes artigos:
   [Continuidade dos negócios no Banco de dados SQL do Azure]: https://msdn.microsoft.com/library/azure/hh852669.aspx
   [Orientação técnica sobre a continuação de negócios do Azure]: https://msdn.microsoft.com/library/azure/hh873027.aspx
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=Oct15_HO3-->

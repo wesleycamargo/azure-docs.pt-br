@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/05/2016"
+   ms.date="09/30/2015"
    ms.author="tarcher" />
 
 # Criar e gerenciar máquinas virtuais do Azure no Visual Studio
@@ -63,13 +63,13 @@ Embora você possa criar uma máquina virtual no [Portal de Gerenciamento do Azu
 
         >[AZURE.NOTE] If you choose larger sizes for the virtual machine, extra charges may apply. See [Virtual Machines Pricing Details](http://azure.microsoft.com/pricing/details/virtual-machines/) for more information.
 
-1. Máquinas virtuais criadas no Visual Studio exigem um serviço de nuvem. Na página **Configurações de serviço de nuvem**, selecione um serviço de nuvem para a máquina virtual ou clique em **<Criar novo... >** na lista suspensa, se você ainda não tiver uma nuvem de serviço ou deseja usar um novo. Também é necessária uma conta de armazenamento, então escolha uma conta de armazenamento (ou crie uma nova conta de armazenamento) na caixa de listagem suspensa **Conta de armazenamento**. Para saber mais, consulte: [Introdução ao Armazenamento do Microsoft Azure](./storage/storage-introduction/).
+1. Máquinas virtuais criadas no Visual Studio exigem um serviço de nuvem. Na página **Configurações de serviço de nuvem**, selecione um serviço de nuvem para a máquina virtual ou clique em **<Criar novo... >** na lista suspensa, se você ainda não tiver uma nuvem de serviço ou deseja usar um novo. Também é necessária uma conta de armazenamento, então escolha uma conta de armazenamento (ou crie uma nova conta de armazenamento) na caixa de listagem suspensa **Conta de armazenamento**. Consulte [Introdução ao Armazenamento do Microsoft Azure](./storage/storage-introduction/) para obter mais informações.
 
 1. Se você quiser especificar uma rede virtual (que é opcional), selecione-a nas caixas de listagem suspensa da Sub-rede e Rede Virtual.
 
     Máquinas virtuais que são membros de um conjunto de disponibilidade são implantadas em domínios de falha diferentes. Consulte [Rede Virtual do Azure](http://www.windowsazure.com/services/virtual-network/) para obter mais informações.
 
-1. Se quiser que sua máquina virtual pertença a um conjunto de disponibilidade (também opcional), selecione a caixa de seleção **Especificar um conjunto de disponibilidade** e, em seguida, escolha um conjunto de disponibilidade na caixa de listagem suspensa. Quando terminar, escolha o botão **Próximo**.
+1. Se quiser que sua máquina virtual pertença a um conjunto de disponibilidade (também opcional), selecione a caixa de seleção **Especificar um conjunto de disponibilidade** e, em seguida, escolha um conjunto de disponibilidade na caixa de listagem suspensa. Quando terminar, escolha o **próximo** botão.
 
     Adicionar suas máquinas virtuais em um conjunto de disponibilidade ajuda seus aplicativos a permanecer disponíveis durante falhas de rede, falhas de hardware de disco local e tempo de inatividade planejado. Você precisa usar o [Portal de Gerenciamento](http://go.microsoft.com/fwlink/?LinkID=253103) para criar redes virtuais, sub-redes e definir disponibilidade. Consulte [Gerenciar a disponibilidade das máquinas virtuais](http://www.windowsazure.com/documentation/articles/manage-availability-virtual-machines/) para obter mais informações.
 
@@ -91,7 +91,7 @@ Embora você possa criar uma máquina virtual no [Portal de Gerenciamento do Azu
 
     ![Log de atividades de máquina virtual - concluído.](./media/vs-azure-tools-virtual-machines-create-manage/IC744139.png)
 
-    Se a operação for concluída com êxito, a nova máquina virtual aparece sob o nó **Máquinas virtuais** no Gerenciador de Servidores. Faça logon nele clicando no atalho **Conectar usando a área de trabalho remota**.
+    Se a operação for concluída com êxito, a nova máquina virtual aparece sob o nó **máquinas virtuais** no Gerenciador de Servidores. Faça logon nele clicando no atalho **Conectar usando a área de trabalho remota**.
 
     ![Máquina virtual que aparece no Gerenciador de Servidores.](./media/vs-azure-tools-virtual-machines-create-manage/IC744140.png)
 
@@ -177,4 +177,4 @@ Como você configura sua máquina virtual e instala o software, é uma boa ideia
 
 Para saber mais sobre a criação de máquinas virtuais, consulte [criar uma máquina Virtual executando Linux](virtual-machines-linux-tutorial.md) e [criar uma máquina virtual executando o Windows no portal de visualização do Azure](virtual-machines-windows-tutorial.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1217_2015-->

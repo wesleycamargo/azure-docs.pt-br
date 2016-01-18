@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Integração do Active Directory do Azure com o ITRP | Microsoft Azure" 
     description="Saiba como usar o ITRP com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
     services="active-directory" 
-    authors="jeevansd"  
+    authors="markusvi"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/05/2016" 
-    ms.author="jeedes" />
+    ms.date="10/20/2015" 
+    ms.author="markvi" />
 
 #Tutorial: Integração do Active Directory do Azure com o ITRP
   
@@ -51,7 +51,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar aplicativo](./media/active-directory-saas-itrp-tutorial/IC749321.png "Adicionar aplicativo")
 
-5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-itrp-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
@@ -76,7 +76,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-itrp-tutorial/IC775567.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do aplicativo**, na caixa de texto **URL de entrada do ITRP**, digite sua URL usando o seguinte padrão "*https://\<nome do locatário>.ITRP.com*" e, em seguida, clique em **Próximo**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do ITRP**, digite a URL usando o padrão "*https://\<nome-locatário>.ITRP.com*" e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-itrp-tutorial/IC775568.png "Configurar a URL do Aplicativo")
 
@@ -105,11 +105,11 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     3.  No portal do Azure, na página do diálogo **Configurar logon único no ITRP**, copie o valor da **URL de SSO do SAML** e cole-o na caixa de texto **URL de SSO do SAML**.
     4.  Copie o valor de **Impressão Digital** do certificado exportado e cole-o na caixa de texto **Impressão Digital do Certificado**.
         
-		>[AZURE.TIP]Para obter mais detalhes, consulte [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI)
+		>[AZURE.TIP]Para obter mais detalhes, veja [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI)
 
     5.  Clique em **Salvar**.
 
-9.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+9.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-itrp-tutorial/IC775574.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -159,4 +159,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=Nov15_HO1-->

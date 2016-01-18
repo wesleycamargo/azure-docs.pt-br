@@ -24,7 +24,7 @@ Este artigo é uma introdução à funcionalidade geoespacial do [Banco de Dados
 - Como faço para consultar dados geoespaciais no Banco de Dados de Documentos do Azure no SQL e no LINQ?
 - Como eu habilito ou desabilito a indexação espacial no Banco de Dados de Documentos?
 
-Consulte este [projeto Github](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) para obter exemplos de código.
+Consulte este [projeto Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.Spatial) para obter exemplos de código.
 
 ## Introdução aos dados espaciais
 
@@ -350,9 +350,9 @@ E veja como você pode modificar uma coleção existente para aproveitar a index
 ## Próximas etapas
 Agora que você já aprendeu como começar a usar o suporte geoespacial no Banco de Dados de Documentos, poderá:
 
-- Começar a codificar com os [exemplos de código geoespacial .NET no Github](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs)
+- Começar a codificar com os [exemplos de código geoespacial .NET no Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.Spatial)
 - Pratique com as consultas geoespaciais no [Query Playground do Banco de Dados de Documentos](http://www.documentdb.com/sql/demo#geospatial)
 - Saiba mais sobre [consultas do Banco de Dados de Documentos](documentdb-sql-query.md)
 - Saiba mais sobre [Políticas de indexação do Banco de Dados de Documentos](documentdb-indexing-policies.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1217_2015-->

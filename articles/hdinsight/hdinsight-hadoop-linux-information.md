@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/06/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 # Informações sobre o uso do HDInsight no Linux
@@ -69,7 +69,7 @@ Isso retorna um documento JSON que descreve o serviço e, em seguida, o jq extra
 
 Arquivos relacionados ao Hadoop encontram-se nos nós de cluster em `/usr/hdp`. O diretório raiz contém os seguintes subdiretórios:
 
-* __2.2.4.9-1__: este diretório é nomeado de acordo com a versão do Hortonworks Data Platform usada pelo HDInsight e, portanto, o número em seu cluster pode ser diferente daquele listado aqui.
+* __2.2.4.9-1__: este diretório é nomeado de acordo com a versão do Hortonworks Data Platform usada pelo HDInsight e, portanto, o número em seu cluster pode ser diferente do listado aqui.
 * __atual__: este diretório contém links para os diretórios sob o diretório __2.2.4.9-1__ e existe para que você não precise digitar um número de versão (que pode ser alterado) sempre que quiser acessar um arquivo.
 
 Dados de exemplo e arquivos JAR encontram-se no HDFS (Sistema de Arquivos Distribuído do Hadoop) ou no armazenamento de Blob do Azure em '/example' ou 'wasb:///example'.
@@ -98,31 +98,27 @@ O HDInsight também permite que você associe várias contas de armazenamento de
 
 Durante a criação do cluster, você optou por usar uma conta e um contêiner existentes do Armazenamento do Azure ou por criar uma nova conta. Em seguida, você provavelmente esquece dela. Você pode a API REST do Ambari para localizar a conta e o contêiner de armazenamento padrão.
 
-1. Use o comando a seguir para recuperar informações de configuração do HDFS usando o curl e filtrá-las usando [jq](https://stedolan.github.io/jq/):
+1. Use o comando a seguir para recuperar informações de configuração do HDFS:
 
-        curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'
-    
-    > [AZURE.NOTE]Isso retornará a primeira configuração aplicada ao servidor (`service_config_version=1`) que conterá essas informações. Se você estiver recuperando um valor que foi modificado após a criação do cluster, talvez seja necessário listar as versões de configuração e recuperar a mais recente.
+        curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1"
 
-    Isso retornará um valor semelhante ao seguinte, no qual __CONTÊINER__ é o contêiner padrão e __NOMEDACONTA__ é o nome da conta de Armazenamento do Azure:
+2. Nos dados JSON retornados, localize a entrada `fs.defaultFS`. Ela conterá o contêiner e a conta de armazenamento padrão em um formato semelhante ao seguinte:
 
-        wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net
+        wasb://CONTAINTERNAME@STORAGEACCOUNTNAME.blob.core.windows.net
 
-1. Obter o grupo de recursos para a conta de armazenamento, usar a [CLI do Azure](../xplat-cli-install.md). No comando a seguir, substitua __NOMEDACONTA__ pelo nome da conta de armazenamento recuperada do Ambari:
+	> [AZURE.TIP]Se você tiver instalado o [jq](http://stedolan.github.io/jq/), poderá usar o seguinte para retornar apenas a entrada `fs.defaultFS`:
+	>
+	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'`
 
-        azure storage account list --json | jq '.[] | select(.name=="ACCOUNTNAME").resourceGroup'
-    
-    Isso retornará o nome do grupo de recursos para a conta.
-    
-    > [AZURE.NOTE]Se nada for retornado por este comando, talvez você precise alterar a CLI do Azure para o modo do Gerenciador de Recursos do Azure e executar o comando novamente. Para alternar para o modo do Gerenciador de Recursos do Azure, use o seguinte comando.
-    >
-    > `azure config mode arm`
-    
-2. Obtenha a chave da conta de armazenamento. Substitua __NOMEDOGRUPO__ pelo Grupo de recursos criado na seção anterior: Substitua __NOMEDACONTA__ pelo nome da conta de armazenamento:
+3. Para localizar a chave usada para autenticar a conta de armazenamento ou para localizar quaisquer contas de armazenamento secundárias associadas ao cluster, use o seguinte:
 
-        azure storage account keys list -g GROUPNAME ACCOUNTNAME --json | jq '.storageAccountKeys.key1'
+		curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1"
 
-    Isso retornará a chave primária da conta.
+4. Nos dados retornados do JSON, localize as entradas que começam com `fs.azure.account.key`. O restante do nome da entrada é o nome da conta de armazenamento. Por exemplo: `fs.azure.account.key.mystorage.blob.core.windows.net`. O valor armazenado nesta entrada é a chave usada para autenticar na conta de armazenamento.
+
+	> [AZURE.TIP]Se tiver instalado o [jq](http://stedolan.github.io/jq/), você poderá usar o seguinte para retornar uma lista das chaves e dos valores:
+	>
+	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties as $in | $in | keys[] | select(. | contains("fs.azure.account.key.")) as $item | $item | ltrimstr("fs.azure.account.key.") | { storage_account: ., storage_account_key: $in[$item] }'`
 
 Você também pode encontrar as informações de armazenamento usando o Portal do Azure:
 
@@ -198,7 +194,7 @@ Os diferentes tipos de cluster são afetados pelo dimensionamento da seguinte ma
 
 		1. [Crie um túnel SSH para o cluster e abra a interface do usuário do Ambari Web](hdinsight-linux-ambari-ssh-tunnel.md).
 
-		2. Na lista de serviços à esquerda da página, selecione __Storm__. Então, selecione __Interface do Usuário do Storm__ em __Links Rápidos__.
+		2. Na lista de serviços à esquerda da página, selecione __Storm__. Depois selecione __Interface do Usuário do Storm__ em __Links Rápidos__.
 
 
 			![Entrada de interface do usuário do Storm em links rápidos](./media/hdinsight-hadoop-linux-information/ambari-storm.png)
@@ -248,7 +244,7 @@ Se o cluster já fornece uma versão de um componente como um arquivo jar indepe
 
 > [AZURE.WARNING]Há suporte total a componentes fornecidos com o cluster HDInsight e o Suporte da Microsoft ajudará a isolar e resolver problemas relacionados a esses componentes.
 >
-> Componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a solucionar o problema. Isso pode resultar na resolução do problema ou na solicitação de você buscar nos canais disponíveis as tecnologias de código-fonte aberto, onde é possível encontrar conhecimento aprofundado sobre essa tecnologia. Por exemplo, há muitos sites de comunidades que podem ser usados, como o [Fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/pt-BR/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Além disso, os projetos do Apache têm sites do projeto em [http://apache.org](http://apache.org), por exemplo: [Hadoop](http://hadoop.apache.org/) e [Spark](http://spark.apache.org/).
+> Componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a solucionar o problema. Isso pode resultar na resolução do problema ou na solicitação de você buscar nos canais disponíveis as tecnologias de código-fonte aberto, onde é possível encontrar conhecimento aprofundado sobre essa tecnologia. Por exemplo, há muitos sites de comunidades que podem ser usados, como o [Fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/pt-BR/home?forum=hdinsight) e [http://stackoverflow.com](http://stackoverflow.com). Além disso, os projetos do Apache têm sites do projeto em [http://apache.org](http://apache.org), por exemplo: [Hadoop](http://hadoop.apache.org/) e [Spark](http://spark.apache.org/).
 
 ## Próximas etapas
 
@@ -256,4 +252,4 @@ Se o cluster já fornece uma versão de um componente como um arquivo jar indepe
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1210_2015-->

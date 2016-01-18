@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
+   ms.date="12/17/2015"
    ms.author="lodipalm;barbkess"/>
 
 # Carregar dados no SQL Data Warehouse
@@ -60,7 +60,7 @@ Depois de exportar os dados para os arquivos, é hora de movê-los para o Azure.
 ## Carregando no Azure com AZCopy ou Importação/Exportação
 Se estiver movendo dados no intervalo de 5 a 10 terabytes ou mais, recomendamos o uso do serviço de envio de disco [Importação/Exportação][] para realizar a movimentação. No entanto, em nossos estudos, fomos capazes de mover confortavelmente os dados no intervalo de TB com um único dígito usando a Internet pública com AZCopy. Esse processo também pode ser acelerado ou estendido com o ExpressRoute.
 
-As etapas a seguir detalharão como mover dados do local para uma conta de armazenamento do Azure usando AZCopy. Se você não tiver uma conta de armazenamento do Azure na mesma região, poderá criar uma seguindo a [Documentação do armazenamento do Azure][]. Você também pode carregar dados de uma conta de armazenamento em uma região diferente, mas o desempenho nesse caso não será o melhor.
+As etapas a seguir detalharão como mover dados do local para uma conta de armazenamento do Azure usando AZCopy. Se você não tiver uma conta de Armazenamento do Azure na mesma região, é possível criar uma seguindo a [Documentação do Armazenamento do Azure][]. Você também pode carregar dados de uma conta de armazenamento em uma região diferente, mas o desempenho nesse caso não será o melhor.
 
 > [AZURE.NOTE]Esta documentação pressupõe que você instalou o utilitário de linha de comando AZCopy e é capaz de executá-lo com o Powershell. Se este não for o caso, siga as [Instruções de instalação do AZCopy][].
 
@@ -198,7 +198,7 @@ Para obter mais dicas de desenvolvimento, confira a [visão geral sobre desenvol
 [Instruções de instalação do AZCopy]: https://azure.microsoft.com/pt-BR/documentation/articles/storage-use-azcopy/
 [Utilitários de Linha de Comando da Microsoft para SQL Server]: http://www.microsoft.com/pt-BR/download/details.aspx?id=36433
 [Importação/Exportação]: https://azure.microsoft.com/pt-BR/documentation/articles/storage-import-export-service/
-[Documentação do armazenamento do Azure]: https://azure.microsoft.com/pt-BR/documentation/articles/storage-create-storage-account/
+[Documentação do Armazenamento do Azure]: https://azure.microsoft.com/pt-BR/documentation/articles/storage-create-storage-account/
 [Documentação da Rota Expressa]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1223_2015-->

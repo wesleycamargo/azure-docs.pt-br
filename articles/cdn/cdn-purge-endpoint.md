@@ -58,4 +58,4 @@ Este tutorial o orienta durante a limpeza de ativos de todos os nós de borda de
 ## Consulte também
 [Referência da API REST da CDN do Azure – limpar ou pré-carregar um ponto de extremidade](https://msdn.microsoft.com/library/mt634451.aspx)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1210_2015-->

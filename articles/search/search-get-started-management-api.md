@@ -34,7 +34,7 @@ Você precisará de uma conta do Azure para concluir este tutorial.
 
 Este tutorial se baseia em um aplicativo de console do Windows escrito em c#, que você pode editar e executar no Visual Studio 2012 ou 2013
 
-Você pode encontrar o aplicativo cliente em Codeplex na [Demonstração da API de Gerenciamento de Pesquisa do Azure](https://github.com/Azure-Samples/search-dotnet-management-api/).
+Você pode encontrar o aplicativo cliente em Codeplex na [Demonstração da API de Gerenciamento de Pesquisa do Azure](https://azuresearchmgmtapi.codeplex.com/).
 
 
 ##Configurar o aplicativo
@@ -58,7 +58,7 @@ Nesta seção, você realizará as seguintes tarefas:
 
 ###Criar um serviço do Active Directory
 
-1. Entre no [Portal do Azure](https://manage.windowsazure.com).
+1. Entre no [Portal Clássico do Azure](https://manage.windowsazure.com).
 
 2. Desça no painel de navegação esquerdo e clique em **Ative Directory**.
 
@@ -119,7 +119,7 @@ Nesta seção, você editará a solução no Visual Studio, substituindo os valo
         private const string SubscriptionId = "<your subscription id>";
         private static readonly Uri RedirectUrl = new Uri("<your redirect url>");
 
-Se você ainda não tiver [baixado o aplicativo de exemplo do Github](https://github.com/Azure-Samples/search-dotnet-management-api/), será preciso baixá-lo para esta etapa.
+Se você ainda não tiver [baixado o aplicativo de exemplo do Codeplex](https://azuresearchmgmtapi.codeplex.com/), será preciso baixá-lo para esta etapa.
 
 1. Abra o **ManagementAPI.sln** no Visual Studio.
 
@@ -204,4 +204,4 @@ Depois de ter concluído este tutorial, você pode querer saber mais sobre geren
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1203_2015-->

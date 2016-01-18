@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Conectar-se a uma Máquina Virtual do SQL Server no Azure (clássico) | Microsoft Azure"
+	pageTitle="Conectar-se a uma Máquina Virtual do SQL Server no Azure | Microsoft Azure"
 	description="Este tópico usa recursos criados com o modelo de implantação clássica e descreve como se conectar ao SQL Server em execução em uma Máquina Virtual no Azure. Os cenários diferem dependendo da configuração da rede e do local do cliente."
 	services="virtual-machines"
 	documentationCenter="na"
@@ -13,14 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="12/18/2015"
+	ms.date="11/12/2015"
 	ms.author="jroth" />
 
-# Conectar-se a uma máquina virtual do SQL Server no Azure (implantação clássica)
-
-> [AZURE.SELECTOR]
-- [Resource Manager](virtual-machines-sql-server-connectivity-resource-manager.md)
-- [Classic](virtual-machines-sql-server-connectivity.md)
+# Conectar-se a uma máquina virtual do SQL Server no Azure
 
 ## Visão geral
 
@@ -78,27 +74,7 @@ Observe que, neste cenário, você pode também especificar o endereço IP da VM
 
 ## Etapas para configurar a conectividade com o SQL Server em uma VM do Azure
 
-As etapas a seguir demonstram como se conectar à instância do SQL Server pela Internet usando o SSMS (SQL Server Management Studio). No entanto, as mesmas etapas se aplicam para tornar sua máquina virtual de SQL Server acessível para seu aplicativos, em execução local e no Azure.
-
-Para poder conectar-se à instância do SQL Server na Internet ou em outra VM, você deve concluir as seguintes tarefas, conforme descrito nas seções a seguir:
-
-- [Criar um ponto de extremidade TCP para a máquina virtual](#create-a-tcp-endpoint-for-the-virtual-machine)
-- [Abrir portas TCP no firewall do Windows](#open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine)
-- [Configurar o SQL Server para escutar no protocolo TCP](#configure-sql-server-to-listen-on-the-tcp-protocol)
-- [Configurar o SQL Server para autenticação do modo misto](#configure-sql-server-for-mixed-mode-authentication)
-- [Criar logons de autenticação do SQL Server](#create-sql-server-authentication-logins)
-- [Determinar o nome DNS da máquina virtual](#determine-the-dns-name-of-the-virtual-machine)
-- [Conectar-se ao Mecanismo de Banco de Dados de outro computador](#connect-to-the-database-engine-from-another-computer)
-
-O caminho de conexão é resumido pelo diagrama a seguir:
-
-![Conectando-se a uma máquina virtual do SQL Server](../../includes/media/virtual-machines-sql-server-connection-steps/SQLServerinVMConnectionMap.png)
-
-[AZURE.INCLUDE [Conectar-se ao SQL Server em um ponto de extremidade TCP clássico em uma VM](../../includes/virtual-machines-sql-server-connection-steps-classic-tcp-endpoint.md)]
-
 [AZURE.INCLUDE [Conectar-se ao SQL Server em uma VM](../../includes/virtual-machines-sql-server-connection-steps.md)]
-
-[AZURE.INCLUDE [Etapas para conectar-se ao SQL Server em uma VM clássica](../../includes/virtual-machines-sql-server-connection-steps-classic.md)]
 
 ## Próximas etapas
 
@@ -110,4 +86,4 @@ Se pretende usar os Grupos de Disponibilidade AlwaysOn para alta disponibilidade
 
 Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, consulte [SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=Nov15_HO4-->

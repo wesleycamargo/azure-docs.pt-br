@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="10/05/2015" 
 	ms.author="awills"/>
 
 #  Application Insights: Exemplos e Guias de Código
@@ -28,7 +28,7 @@ Os [SDK Labs](https://www.myget.org/gallery/applicationinsights-sdk-labs) são u
 ## Serviços Web
 
 * [Adicionar telemetria a funções Web e de trabalho do Azure](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService).
-* [Aplicativo universal do Windows 8.1.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal/)
+* [Aplicativo universal do Windows 8.1](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal/).
 
 ## Exportação Contínua
 
@@ -42,9 +42,7 @@ Para analisar os dados de telemetria com suas próprias ferramentas, [exporte-os
 
 ## Automatizar tarefas
 
-* [Usando o PowerShell para enviar Diagnósticos do Azure para o Application Insights](app-insights-powershell.md)
 * [Script para criar um novo recurso do Application Insights](app-insights-powershell-script-create-resource.md)
-* [Usando o PowerShell para enviar Diagnósticos do Azure para o Application Insights](app-insights-powershell-azure-diagnostics.md)
 
 
 
@@ -55,4 +53,4 @@ Para analisar os dados de telemetria com suas próprias ferramentas, [exporte-os
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=Oct15_HO3-->

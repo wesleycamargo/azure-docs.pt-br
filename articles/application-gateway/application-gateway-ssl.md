@@ -23,11 +23,12 @@
 
 O Application Gateway pode ser configurado para encerrar a sessão SSL no gateway para evitar que a onerosa tarefa de descriptografia de SSL aconteça no web farm. O descarregamento SSL também simplifica a configuração do servidor front-end e o gerenciamento do aplicativo Web.
 
+>[AZURE.IMPORTANT]Antes de trabalhar com os recursos do Azure, é importante entender que, no momento, o Azure apresenta dois modelos de implantação: Gerenciador de Recursos e o modelo de implantação clássica. Verifique se você entendeu [os modelos e as ferramentas de implantação](azure-classic-rm.md) antes de trabalhar com qualquer recurso do Azure. Você pode exibir a documentação de diferentes ferramentas clicando nas guias na parte superior deste artigo. Este documento abordará a criação de um Application Gateway usando o modelo de implantação clássica do Azure. Para usar a versão do Gerenciador de Recursos do Azures, vá para [Configurar o descarregamento SSL do Application Gateway usando o Gerenciador de Recursos do Azure](application-gateway-ssl-arm.md).
 
 
 ## Antes de começar
 
-1. Instale a versão mais recente dos cmdlets do Azure PowerShell usando o Web Platform Installer. Você pode baixar e instalar a versão mais recente na seção **Windows PowerShell** da [página Download](http://azure.microsoft.com/downloads/).
+1. Instale a versão mais recente dos cmdlets do Azure PowerShell usando o Web Platform Installer. Você pode baixar e instalar a versão mais recente na seção **Windows PowerShell** da [página de download](http://azure.microsoft.com/downloads/).
 2. Verifique se você tem uma rede virtual em funcionamento com uma sub-rede válida.
 3. Verifique se você tem servidores back-end na rede virtual ou com um IP/VIP público atribuído.
 
@@ -55,7 +56,7 @@ Este exemplo mostra o cmdlet na primeira linha, seguido pela saída.
 	----       ----------------     ------------                             ----
 	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 
-**Para validar** que esse gateway foi criado, você pode usar o cmdlet `Get-AzureApplicationGateway`.
+**Para validar** esse gateway que foi criado, você pode usar o cmdlet `Get-AzureApplicationGateway`.
 
 
 No exemplo, *Description*, *InstanceCount* e *GatewaySize* são parâmetros opcionais. O valor padrão para *InstanceCount* é 2, com um valor máximo de 10. O valor padrão para *GatewaySize* é Medium. Small e Large são outros valore disponíveis. *Vip* e *DnsName* são mostrados em branco porque o gateway ainda não foi iniciado. Eles serão criados depois que o gateway estiver em estado de execução.
@@ -80,7 +81,7 @@ Este exemplo mostra o cmdlet na primeira linha, seguido pela saída.
 
 ## Carregar certificados SSL 
 
-Use `Add-AzureApplicationGatewaySslCertificate` para carregar o certificado do servidor no formato *pfx* no Application Gateway. O nome do certificado é um nome escolhido pelo usuário e deve ser exclusivo dentro do gateway de aplicativo. Esse certificado é conhecido por esse nome em todas as operações de gerenciamento de certificado no gateway de aplicativo.
+Use `Add-AzureApplicationGatewaySslCertificate` para carregar o certificado do servidor no formato *pfx* no gateway de aplicativo. O nome do certificado é um nome escolhido pelo usuário e deve ser exclusivo dentro do gateway de aplicativo. Esse certificado é conhecido por esse nome em todas as operações de gerenciamento de certificado no gateway de aplicativo.
 
 Este exemplo mostra o cmdlet na primeira linha, seguido pela saída. Substitua os valores no exemplo pelos seus próprios.
 
@@ -92,7 +93,7 @@ Este exemplo mostra o cmdlet na primeira linha, seguido pela saída. Substitua o
 	----       ----------------     ------------                             ----
 	Successful OK                   21fdc5a0-3bf7-2c12-ad98-192e0dd078ef
 
-Em seguida, valide o carregamento do certificado. Use o `Get-AzureApplicationGatewayCertificate`.
+Em seguida, valide o carregamento do certificado. Use `Get-AzureApplicationGatewayCertificate`.
 
 Este exemplo mostra o cmdlet na primeira linha, seguido pela saída.
 
@@ -117,11 +118,11 @@ Os valores são:
 - **Configurações do pool de servidores back-end:** cada pool tem configurações como porta, protocolo e afinidade baseada em cookie. Essas configurações são vinculadas a um pool e aplicadas a todos os servidores no pool.
 - **Porta front-end:** essa porta é a porta pública aberta no Application Gateway. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end.
 - **Ouvinte:** o ouvinte tem uma porta front-end, um protocolo (HTTP ou HTTPS, que diferencia maiúsculas de minúsculas) e o nome do certificado SSL (se estiver configurando o descarregamento SSL). 
-- **Regra:** a regra vincula o ouvinte e o pool de servidores back-end e define à qual pool de servidores back-end o tráfego deve ser direcionado quando atinge um ouvinte específico. Atualmente, há suporte apenas para a regra *básica*. A regra *basic* é a distribuição de carga round robin.
+- **Regra:** a regra vincula o ouvinte e o pool de servidores back-end e define a qual pool de servidores back-end o tráfego deve ser direcionado quando atinge um ouvinte específico. Atualmente, há suporte apenas para a regra *basic*. A regra *basic* é a distribuição de carga round robin.
 
 **Observações adicionais sobre a configuração:**
 
-Para a configuração de certificados SSL, o protocolo em **HttpListener** deve ser alterado para *Https* (com distinção entre maiúsculas e minúsculas). O elemento **SslCert** precisa ser adicionado ao **HttpListener** com o valor definido como o mesmo nome que foi usado no upload de certificados SSL acima. A porta front-end deve ser atualizada para 443.
+Para a configuração de certificados SSL, o protocolo em **HttpListener** deve ser alterado para *Https* (com distinção entre maiúsculas e minúsculas). O elemento **SslCert** precisa ser adicionado ao **HttpListener** com o valor definido para o mesmo nome que foi usado no carregamento de certificados SSL acima. A porta front-end deve ser atualizada para 443.
 
 **Para habilitar a afinidade baseada em cookie**: um gateway de aplicativo pode ser configurado para garantir que a solicitação de uma sessão de cliente sempre seja direcionada para a mesma VM no web farm. Isso é feito pela injeção de um cookie de sessão que permite que o gatewy redirecione o tráfego corretamente. Para habilitar a afinidade baseada em cookie, defina **CookieBasedAffinity** como *Habilitado* no elemento **BackendHttpSettings**.
 
@@ -210,7 +211,7 @@ Depois que o gateway tiver sido configurado, use o cmdlet `Start-AzureApplicatio
 
 ## Verificar o status do gateway
 
-Use o cmdlet `Get-AzureApplicationGateway` para verificar o status do gateway. Se *Start-AzureApplicationGateway* foi bem-sucedido na etapa anterior, o item State deverá ser *Running*, e Vip e DnsName deverão ter entradas válidas.
+Use o cmdlet `Get-AzureApplicationGateway` para verificar o status do gateway. Se *Start-AzureApplicationGateway* foi bem-sucedido na etapa anterior, o Estado deverá ser *Running*, e Vip e DnsName devem ter entradas válidas.
 
 Este exemplo mostra um gateway de aplicativo que está ativo, em execução e pronto para assumir o tráfego
 
@@ -235,4 +236,4 @@ Se deseja obter mais informações sobre as opções de balanceamento de carga n
 - [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=Nov15_HO3-->

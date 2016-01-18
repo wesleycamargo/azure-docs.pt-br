@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
+   ms.date="12/10/2015"
    ms.author="lodipalm;barbkess;twounder;JRJ@BigBangData.co.uk;"/>
 
 
@@ -103,7 +103,7 @@ Além de adotar a área de superfície do TSQL do SQL Server, o SQL Data Warehou
 
 **Ferramentas tradicionais do SQL Server:** integração total com o SQL Server Analysis Services, Integration Services e Reporting services está disponível com o SQL Data Warehouse.
 
-**Ferramentas baseadas em nuvem:** o SQL Data Warehouse pode ser usado junto com várias ferramentas novas do Azure, e apresenta integração total com o Data Factory, o Stream Analytics, o Aprendizado de Máquina e o Power BI do Azure.
+**Ferramentas baseadas em nuvem:** O SQL Data Warehouse pode ser usado associado a um número de novas ferramentas do Azure e tem integração profunda com o Data Factory do Azure, Stream Analytics, Aprendizado de Máquina e Power BI.
 
 **Ferramentas de terceiros:** vários provedores de ferramenta de terceiros têm integração certificada de suas ferramentas com o SQL Data Warehouse. Consulte a lista completa.
 
@@ -138,4 +138,4 @@ Agora que você sabe um pouco sobre o SQL Data Warehouse, saiba mais sobre a [ca
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1210_2015-->

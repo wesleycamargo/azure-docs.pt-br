@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/28/2015"
+   ms.date="09/18/2015"
    ms.author="sethm" />
 
 # Entidades de mensagens particionadas
@@ -31,7 +31,7 @@ Não há custo adicional ao enviar ou receber uma mensagem de uma fila ou um tó
 
 ## Habilitar particionamento
 
-Para usar filas e tópicos particionados com o Barramento de Serviço do Azure, use o Azure SDK versão 2.2 ou posterior ou especifique `api-version=2013-10` em suas solicitações HTTP.
+Para usar filas e tópicos particionados com o Barramento de Serviço do Microsoft Azure, use o Azure SDK versão 2.2 ou posterior ou especifique `api-version=2013-10` em suas solicitações HTTP.
 
 Você pode criar filas e tópicos do Barramento de Serviço em tamanhos de 1, 2, 3, 4 ou 5 GB (o padrão é 1 GB). Com o particionamento habilitado, o Barramento de Serviço cria 16 partições para cada GB especificado. Assim, se você criar uma fila que tenha 5 GB, com 16 partições, o tamanho máximo da fila será (5 * 16) = 80 GB. É possível ver o tamanho máximo da fila ou do tópico particionado observando sua entrada no [portal clássico do Azure][].
 
@@ -125,7 +125,7 @@ Em sua implementação atual, o Barramento de Serviço impõe as seguintes limit
 
 ## Próximas etapas
 
-Consulte a discussão sobre o suporte do [AMQP 1.0 para tópicos e filas particionados do Barramento de Serviço][] para saber mais sobre o particionamento de entidades de mensagens.
+Consulte a discussão sobre o suporte do AMQP 1.0 para tópicos e filas particionados do Barramento de Serviço (em breve!) para saber mais sobre o particionamento de entidades de mensagens.
 
   [Arquitetura do Barramento de Serviço]: service-bus-architecture.md
   [portal clássico do Azure]: http://manage.windowsazure.com
@@ -142,6 +142,6 @@ Consulte a discussão sobre o suporte do [AMQP 1.0 para tópicos e filas partici
   [MessagingFactorySettings.OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
   [OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
   [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
-  [AMQP 1.0 para tópicos e filas particionados do Barramento de Serviço]: service-bus-partitioned-queues-and-topics-amqp-overview.md
+  [AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-entities-amqp-overview.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1203_2015-->

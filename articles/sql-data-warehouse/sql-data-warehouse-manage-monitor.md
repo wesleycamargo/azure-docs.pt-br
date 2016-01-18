@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
+   ms.date="12/15/2015"
    ms.author="sahajs"/>
 
 # Monitore sua carga de trabalho usando DMVs
@@ -203,4 +203,4 @@ Para obter mais dicas sobre como gerenciar o SQL Data Warehouse, consulte [Geren
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_1217_2015-->

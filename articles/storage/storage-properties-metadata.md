@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na" 
   ms.devlang="na" 
   ms.topic="article" 
-  ms.date="01/05/2016" 
+  ms.date="10/26/2015" 
   ms.author="tamram"/>
 
 
@@ -99,4 +99,4 @@ Para recuperar os metadados, chame o método **FetchAttributes** no blob ou no c
 - [Biblioteca do Cliente de Armazenamento do Azure para a referência do .NET](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 - [Biblioteca do Cliente de Armazenamento do Azure para o pacote do .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) 
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=Nov15_HO1-->

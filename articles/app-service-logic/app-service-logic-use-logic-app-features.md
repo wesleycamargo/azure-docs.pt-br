@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Usar recursos de aplicativo lógico | Microsoft Azure" 
+	pageTitle="Usar recursos de aplicativo lógico" 
 	description="Saiba como usar os recursos avançados de aplicativos lógicos." 
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="10/15/2015"
 	ms.author="stepsic"/>
 	
 # Usar recursos de aplicativos lógicos
@@ -49,15 +49,15 @@ A repetição pega uma lista de itens e executa a ação para cada item da lista
 
 3. Clique no ícone de engrenagem e selecione **Repetir em uma Lista**.
  
-2. Ao lado da caixa **Repetir**, clique em `...` e selecione **Corpo**. Isso insere:
+2. Ao lado da caixa **Repetir**, clique em `...` e selecione **Corpo**. Isso inserirá:
 
     	@body('twitterconnector')
 
 	Na caixa de texto. Esta função gera uma lista de tweets.
 
-3. Selecione todo o texto da caixa de texto **Conteúdo** e exclua-o. Em seguida, clique em `...` e selecione **Texto do Tweet**. Isso insere a função **repeatItem()**, que retorna cada elemento na lista.
+3. Selecione todo o texto da caixa de texto **Conteúdo** e exclua-o. Em seguida, clique em `...` e selecione **Texto do Tweet**. Isso vai inserir a função **repeatItem()**, que retorna cada elemento na lista.
 
-Finalmente, observe que as saídas de ações repetidas são especiais. Se você quisesse fazer referência aos resultados da operação de Dropbox, por exemplo, *não* poderia fazer o `@actions('dropboxconnector').outputs.body` normal. Em vez disso, você faria: `@actions('dropboxconnector').outputs.repeatItems`. Isso retorna uma lista de todas as vezes que a operação foi executada, juntamente com as saídas de cada. Por exemplo, `@first(actions('dropboxconnector').outputs.repeatItems).outputs.body.FilePath` retorna o caminho do primeiro arquivo carregado.
+Finalmente, observe que as saídas de ações repetidas são especiais. Se você quisesse fazer referência aos resultados da operação de Dropbox, por exemplo, *não* poderia fazer o `@actions('dropboxconnector').outputs.body` normal; em vez disso, você faria: `@actions('dropboxconnector').outputs.repeatItems`. Isso retorna uma lista de todas as vezes que a operação foi executada, juntamente com as saídas de cada. Por exemplo, `@first(actions('dropboxconnector').outputs.repeatItems).outputs.body.FilePath` retornará o caminho do primeiro arquivo carregado.
 
 ### Condicional
 Esse aplicativo lógico ainda resulta em muitos arquivos sendo carregados na Pasta de Recados. As etapas a seguir adicionam lógica extra para certificar-se de que você receba apenas um arquivo quando o tweet tiver um determinado número de retweets.
@@ -143,4 +143,4 @@ Para iniciar o aplicativo lógico sob demanda, clique no botão **Executar agora
 [Criar um novo aplicativo lógico]: app-service-logic-create-a-logic-app.md
 [Portal do Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=Oct15_HO4-->
