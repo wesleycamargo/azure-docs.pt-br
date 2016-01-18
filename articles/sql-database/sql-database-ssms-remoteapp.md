@@ -1,4 +1,11 @@
-<properties pageTitle="Conectar-se ao Banco de Dados SQL usando o SQL Server Management Studio no Azure RemoteApp | Microsoft Azure" descrição="Use este tutorial para saber como usar o SQL Server Management Studio no Azure RemoteApp para segurança e desempenho ao conectar-se ao Banco de Dados SQL" serviços="sql-database" documentationCenter="" autores="adhurwit" manager="" tags=""//>
+<properties 
+	pageTitle="Conectar-se ao Banco de Dados SQL usando o SQL Server Management Studio no Azure RemoteApp | Microsoft Azure" 
+	description="Use este tutorial para saber como usar o SQL Server Management Studio no Azure RemoteApp para segurança e desempenho ao conectar-se ao Banco de Dados SQL" 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="adhurwit" 
+	manager=""
+	tags=""//>
 
 <tags 
 	ms.service="sql-database" 
@@ -152,4 +159,4 @@ Isso é tudo por enquanto. Aproveite!
 [5]: ./media/sql-database-ssms-remoteapp/publish.png
 [6]: ./media/sql-database-ssms-remoteapp/user.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!----HONumber=AcomDC_0107_2016-->

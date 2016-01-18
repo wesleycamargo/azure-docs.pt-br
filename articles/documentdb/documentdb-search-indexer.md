@@ -267,7 +267,7 @@ Parabéns! Você acaba de aprender como integrar o Banco de Dados do Azure à Pe
 
  - Para saber mais sobre oBanco de Dados de Documentos do Azure, confira a [página de serviço do Banco de Dados de Documentos](https://azure.microsoft.com/services/documentdb/).
 
- - Para saber mais sobre a Pesquisa do Azure, confira a [página de serviço da Pesquisa](https://azure.microsoft.com/pt-BR/services/search/).
+ - Para saber mais sobre a Pesquisa do Azure, confira a [página de serviço da Pesquisa](https://azure.microsoft.com/services/search/).
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0107_2016--->
