@@ -30,7 +30,7 @@ Para criar um aplicativo que aceita a inscrição e a conexão do consumidor, pr
 
 Você pode navegar até a folha de recursos B2C do Portal do Azure ou o Portal clássico do Azure.
 
-### 1\. Diretamente no Portal do Azure
+### 1. Diretamente no Portal do Azure
 
 Se você tiver a folha de recursos B2C fixada em seu quadro inicial, você a verá assim que entrar no [Portal do Azure](https://portal.azure.com/) como o Administrador Global do locatário B2C.
 
@@ -39,9 +39,9 @@ Você também pode acessar a folha clicando em **Procurar** e em **B2C do Azure 
 Você também pode acessá-la diretamente, navegando para [https://portal.azure.com/{tenant}.onmicrosoft.com/?#blade/Microsoft\_AAD\_B2CAdmin/TenantManagementBlade/id/](https://portal.azure.com/{tenant}.onmicrosoft.com/?#blade/Microsoft_AAD_B2CAdmin/TenantManagementBlade/id/) em que **{tenant}** deve ser substituído pelo nome usado no momento da criação do locatário (por exemplo, contosob2c). Você pode marcar como favorito esse link para referência futura.
 
    >[AZURE.IMPORTANT]
-   >Você precisa ser um Administrador Global do locatário do B2C para ser capaz de acessar a folha de recursos do B2C. Um Administrador Global de qualquer outro locatário ou um Usuário de qualquer outro locatário não pode acessá-la.
+   Você precisa ser um Administrador Global do locatário do B2C para ser capaz de acessar a folha de recursos do B2C. Um Administrador Global de qualquer outro locatário ou um Usuário de qualquer outro locatário não pode acessá-la.
 
-### 2\. Acesso através do Portal Clássico do Azure
+### 2. Acesso através do Portal Clássico do Azure
 
 Entre no [Portal Clássico do Azure](https://manage.windowsazure.com/) como o administrador de assinatura (esse é o mesmo trabalho ou conta da escola ou a mesma conta da Microsoft que você usou para inscrever-se no Azure). Navegue até a extensão do Active Directory à esquerda e clique no locatário B2C. Na guia **Início rápido** (a primeira guia que abre), clique em **Gerenciar configurações B2C** em **Administrar**. Isso abrirá a folha de recursos do B2C em uma nova janela do navegador ou guia.
 
@@ -54,7 +54,8 @@ Você também pode encontrar o link **Gerenciar configurações B2C** (na seçã
 3. O **Nome** do aplicativo descreverá seu aplicativo para os consumidores. Por exemplo, digite "Aplicativo B2C da Contoso".
 4. Se você estiver escrevendo um aplicativo baseado na web, alterne o botão **incluir o aplicativo web / API da web** para **Sim**. O **Reply URLs** são pontos de extremidade em que o AD B2C do Azure retornará quaisquer tokens de suas solicitações de aplicativo. Por exemplo, insira: `https://localhost:44321/`. Se seu aplicativo incluir um componente do lado do servidor (API) que precisa ser protegido, você desejará criar (e copiar) um **segredo do aplicativo** também clicando no botão **Gerar chave**.
 
-    > [AZURE.NOTE]**Segredo do aplicativo** é uma credencial de segurança importante.
+    > [AZURE.NOTE]
+    **Segredo do aplicativo** é uma credencial de segurança importante.
 
 5. Se você estiver escrevendo um aplicativo móvel, alterne o **incluir cliente nativo** para **Sim**. Copie o padrão **URI de redirecionamento** criado automaticamente para você.
 6. Clique em **Criar** para registrar seu aplicativo.

@@ -128,7 +128,12 @@ A tabela a seguir mostra cada tipo de recurso com os métodos de alocação poss
 
 A tabela abaixo mostra os limites impostos ao endereçamento IP no Azure por região, por assinatura. Você pode [entrar em contato com o suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar os limites padrão até os limites máximos com base nas necessidades de sua empresa.
 
-||Limite padrão|Limite máximo| |---|---|---| |Endereços IP públicos (dinâmicos)|60|entrar em contato com o suporte| |Endereços IP públicos (estáticos)|20|entrar em contato com o suporte| |IP de front-end público por balanceador de carga|5|entrar em contato com o suporte| |IP de front-end privado por balanceador de carga|1|entrar em contato com o suporte|
+||Limite padrão|Limite máximo|
+|---|---|---|
+|Endereços IP públicos (dinâmicos)|60|entrar em contato com o suporte|
+|Endereços IP públicos (estáticos)|20|entrar em contato com o suporte|
+|IP de front-end público por balanceador de carga|5|entrar em contato com o suporte|
+|IP de front-end privado por balanceador de carga|1|entrar em contato com o suporte|
 
 Certifique-se de ler o conjunto completo de [limites de rede](azure-subscription-service-limits.md#networking-limits) do Azure.
 

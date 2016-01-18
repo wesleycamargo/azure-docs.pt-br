@@ -402,7 +402,7 @@ Você deve provisionar o tempo em que você possa executar o failover manual e t
 1. Copie sobre backups e restauração completos com **NORECOVERY**.
 1. Copie sobre objetos dependentes de ‘banco de dados fora do usuário’, como logons etc.
 1. Crie um novo ILB (balanceador de carga interno) ou use um ELB (balanceador de carga externo) e configure pontos de extremidade balanceados de carga em ambos os nós novos.
-> [AZURE.NOTE]Verifique se todos os nós têm a configuração do ponto de extremidade correta antes de continuar
+> [AZURE.NOTE] Verifique se todos os nós têm a configuração do ponto de extremidade correta antes de continuar
 
 1. Interrompa o acesso de usuário/aplicativo ao SQL Server (se você estiver usando pools de armazenamento).
 1. Interrompa serviços de mecanismo do SQL Server em todos os nós (se você estiver usando pools de armazenamento).
@@ -468,7 +468,7 @@ Uma estratégia para tempo de inatividade mínimo é usar uma réplica secundár
 - A reconexão do cliente pode ser atrasada dependendo da configuração do cliente/DNS.
 - Haverá um tempo de inatividade adicional se você optar por colocar offline o grupo de cluster AlwaysOn para trocar os endereços IP. Você pode evitar isso usando uma dependência OR e possíveis proprietários para o recurso de endereço IP adicionado. Consulte a seção "Adicionando o recurso de endereço IP na mesma sub-rede" do [Apêndice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
 
-> [AZURE.NOTE]Quando quer que o nó adicional participe como um parceiro de failover AlwaysOn, você precisa adicionar um ponto de extremidade do Azure com uma referência a um conjunto de balanceamento de carga. Quando você executa o comando **Add-AzureEndpoint** para fazer isso, as conexões atuais permanecem abertas, mas as novas conexões com o ouvinte não poderão ser estabelecidas até o balanceador de carga ser atualizado. Em testes, observou-se que isso durava de 90 a 120 segundos, mas é necessário conferir.
+> [AZURE.NOTE] Quando quer que o nó adicional participe como um parceiro de failover AlwaysOn, você precisa adicionar um ponto de extremidade do Azure com uma referência a um conjunto de balanceamento de carga. Quando você executa o comando **Add-AzureEndpoint** para fazer isso, as conexões atuais permanecem abertas, mas as novas conexões com o ouvinte não poderão ser estabelecidas até o balanceador de carga ser atualizado. Em testes, observou-se que isso durava de 90 a 120 segundos, mas é necessário conferir.
 
 ##### Vantagens
 

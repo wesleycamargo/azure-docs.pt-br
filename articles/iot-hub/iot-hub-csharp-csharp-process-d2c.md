@@ -41,7 +41,7 @@ No final deste tutorial, você executará três aplicativos de console do Window
 * **ProcessDeviceToCloudMessages**, que usa a classe [EventProcessorHost] para recuperar mensagens do ponto de extremidade compatível com o Hub de Eventos e, depois, armazenar com confiança mensagens de ponto de dados em um blob do Azure e encaminhar mensagens interativas para uma fila do Barramento de Serviço.
 * **ProcessD2CInteractiveMessages**, que desenfileira as mensagens interativas da fila do Barramento de Serviço.
 
-> [AZURE.NOTE]O Hub IoT tem suporte de SDK para várias plataformas de dispositivo e linguagens, incluindo C, Java e JavaScript. Consulte o [Centro de Desenvolvedores do IoT do Azure] para obter instruções passo a passo sobre como substituir o dispositivo simulado neste tutorial por um dispositivo físico e, de modo geral, como conectar dispositivos ao Hub IoT do Azure.
+> [AZURE.NOTE] O Hub IoT tem suporte de SDK para várias plataformas de dispositivo e linguagens, incluindo C, Java e JavaScript. Consulte o [Centro de Desenvolvedores do IoT do Azure] para obter instruções passo a passo sobre como substituir o dispositivo simulado neste tutorial por um dispositivo físico e, de modo geral, como conectar dispositivos ao Hub IoT do Azure.
 
 Este tutorial se aplica diretamente a outras formas de consumir mensagens compatíveis com Hubs de Eventos, como projetos do [HDInsight (Hadoop)]. Veja o [Guia do desenvolvedor do Hub IoT do Azure - Dispositivo para nuvem] para saber mais.
 
@@ -69,7 +69,7 @@ Agora você está pronto para executar os aplicativos.
 
   ![][50]
 
-> [AZURE.NOTE]Para ver as atualizações em seu arquivo de blob, talvez seja necessário reduzir a constante **MAX\_BLOCK\_SIZE** na classe **StoreEventProcessor** para como um valor menor, como **1024**. Isso ocorre porque leva algum tempo para alcançar o limite de tamanho de bloco com os dados enviados pelo dispositivo simulado. Com um tamanho de bloco menor, você não precisa esperar muito tempo para ver o blob ser criado e atualizado. No entanto, usar um tamanho maior de bloco torna o aplicativo mais dimensionável.
+> [AZURE.NOTE] Para ver as atualizações em seu arquivo de blob, talvez seja necessário reduzir a constante **MAX\_BLOCK\_SIZE** na classe **StoreEventProcessor** para como um valor menor, como **1024**. Isso ocorre porque leva algum tempo para alcançar o limite de tamanho de bloco com os dados enviados pelo dispositivo simulado. Com um tamanho de bloco menor, você não precisa esperar muito tempo para ver o blob ser criado e atualizado. No entanto, usar um tamanho maior de bloco torna o aplicativo mais dimensionável.
 
 ## Próximas etapas
 

@@ -287,7 +287,8 @@ Procurar e testar seu aplicativo Web de preparo. Considerando um cenário em que
 
 ![Alternar alterações de visualização do WordPress](./media/app-service-web-staged-publishing-realworld-scenarios/6swaps1.png)
 
- >[AZURE.NOTE]>Se você tiver um cenário em que precisa somente enviar arquivos (nenhuma atualização de banco de dados), **Verifique** a **Configuração de Slot** para todas as *configurações do aplicativo* e *configurações de cadeias de conexão* relacionadas ao banco de dados na folha de configuração do aplicativo Web no Portal do Azure antes de ALTERNAR. Neste caso, DB\_NAME, DB\_HOST, DB\_PASSWORD, DB\_USER, as configurações de cadeia de conexão padrão devem aparecer nas alterações de visualização ao **Alternar**. Neste momento, quando você concluir a operação **Alternar**, o aplicativo Web WordPress terá **SOMENTE** os arquivos atualizados.
+ >[AZURE.NOTE]
+ >Se você tiver um cenário em que precisa somente enviar arquivos (nenhuma atualização de banco de dados), **Verifique** a **Configuração de Slot** para todas as *configurações do aplicativo* e *configurações de cadeias de conexão* relacionadas ao banco de dados na folha de configuração do aplicativo Web no Portal do Azure antes de ALTERNAR. Neste caso, DB\_NAME, DB\_HOST, DB\_PASSWORD, DB\_USER, as configurações de cadeia de conexão padrão devem aparecer nas alterações de visualização ao **Alternar**. Neste momento, quando você concluir a operação **Alternar**, o aplicativo Web WordPress terá **SOMENTE** os arquivos atualizados.
 
 Antes de ALTERNAR, aqui está o aplicativo Web de produção do WordPress ![Aplicativo Web de produção antes de alternar slots](./media/app-service-web-staged-publishing-realworld-scenarios/7bfswap.png)
 
@@ -342,7 +343,8 @@ Clique em **Obter configurações de publicação** para o **estágio** do slot 
 - Após a publicação bem-sucedida do aplicativo Web Umbraco local no aplicativo Web de preparo, procure seu aplicativo Web de preparo e execute alguns testes para eliminar problemas.
 
 #### Configurar módulo de implantação Courier2
-Com o módulo [Courier2](http://umbraco.com/products/more-add-ons/courier-2), você pode enviar conteúdo por push, folhas de estilo, módulos de desenvolvimento e muito mais com um simples clique com o botão direito do mouse em um aplicativo Web de preparo para implantações sem problemas e reduzindo o risco de danificar seu aplicativo Web de produção ao implantar uma atualização. Compre uma licença para o Courier2 para o domínio `*.azurewebsites.net` e seu domínio personalizado (digamos http://abc.com) Depois que você adquirir a licença, coloque a licença baixada (arquivo .LIC) na pasta `bin`.
+Com o módulo [Courier2](http://umbraco.com/products/more-add-ons/courier-2), você pode enviar conteúdo por push, folhas de estilo, módulos de desenvolvimento e muito mais com um simples clique com o botão direito do mouse em um aplicativo Web de preparo para implantações sem problemas e reduzindo o risco de danificar seu aplicativo Web de produção ao implantar uma atualização. 
+Compre uma licença para o Courier2 para o domínio `*.azurewebsites.net` e seu domínio personalizado (digamos http://abc.com) Depois que você adquirir a licença, coloque a licença baixada (arquivo .LIC) na pasta `bin`.
 
 ![Soltar o arquivo de licença na pasta bin](./media/app-service-web-staged-publishing-realworld-scenarios/13droplic.png)
 
@@ -371,14 +373,21 @@ Para configurar, você precisa atualizar o arquivo courier.config na pasta **Con
   </repositories>
  ```
 
-Under `<repositories>`, enter the production site URL and user information. If you are using default Umbraco Membership provider, then add the ID for the Administration user in <user> section . If you are using a custom Umbraco membership provider, use `<login>`,`<password>` to Courier2 module know how to connect to the production site. For more details, review the [documentation](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) for Courier module.
+Em `<repositories>`, insira a URL do site de produção e as informações do usuário. Se estiver usando o provedor de associação Umbraco padrão, adicione a ID do usuário Administração na seção <user>. Se estiver usando o provedor de associação Umbraco personalizado, use `<login>`,`<password>` para o módulo Courier 2 saber como se conectar ao site de produção. Para obter mais detalhes, examine a [documentação](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) do módulo Courier.
 
-Similarly, install Courier module on your production site and configure it point to stage web app in its respective courier.config file as shown here
+De maneira semelhante, instale o módulo Courier em seu site de produção e configure-o para apontar para o aplicativo Web de estágio em seu respectivo arquivo courier.config, conforme mostrado aqui
 
 ```xml
   <!-- Repository connection settings -->
   <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
-  <repositories> <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  --> <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true"> <url>http://umbracositecms-1-stage.azurewebsites.net</url> <user>0</user> </repository> </repositories> ```
+  <repositories>
+        <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  -->
+        <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
+            <url>http://umbracositecms-1-stage.azurewebsites.net</url>
+            <user>0</user>
+           </repository>
+  </repositories>
+```
 
 Clique na guia Courier2 no painel do aplicativo Web Umbraco CMS e selecione os locais. Você deve ver o nome do repositório, como mencionado em `courier.config`. Faça isso em seus aplicativos Web de preparo e de produção.
 
@@ -420,7 +429,10 @@ Após a atualização do site de desenvolvimento local, publique as alterações
 
 ![Alternar visualização para implantar o Umbraco CMS](./media/app-service-web-staged-publishing-realworld-scenarios/22umbswap.png)
 
-A vantagem de alternar o aplicativo Web e o banco de dados: 1. Fornece a capacidade de reverter para a versão anterior do seu aplicativo Web com outra **Alternância** se houver algum problema com o aplicativo. 2. Para uma atualização, você precisa implantar arquivos e banco de dados do aplicativo Web de preparo para o aplicativo Web de produção e o banco de dados. Há muitas coisas que podem dar errado durante a implantação de banco de dados e de arquivos. Usando o recurso **Alternância** dos slots, podemos reduzir o tempo de inatividade durante uma atualização e reduzir o risco de falhas que podem ocorrer na implantação das alterações. 3. Fornece a capacidade de fazer **testes A/B** usando o recurso [Teste em produção](http://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
+A vantagem de alternar o aplicativo Web e o banco de dados:
+ 1. Fornece a capacidade de reverter para a versão anterior do seu aplicativo Web com outra **Alternância** se houver algum problema com o aplicativo.
+ 2. Para uma atualização, você precisa implantar arquivos e banco de dados do aplicativo Web de preparo para o aplicativo Web de produção e o banco de dados. Há muitas coisas que podem dar errado durante a implantação de banco de dados e de arquivos. Usando o recurso **Alternância** dos slots, podemos reduzir o tempo de inatividade durante uma atualização e reduzir o risco de falhas que podem ocorrer na implantação das alterações. 
+ 3. Fornece a capacidade de fazer **testes A/B** usando o recurso [Teste em produção](http://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
 
 Este exemplo mostra a flexibilidade da plataforma, onde você pode criar módulos personalizados semelhantes ao módulo Umbraco Courier para gerenciar a implantação entre ambientes.
 

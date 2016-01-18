@@ -23,7 +23,8 @@ Este artigo descreve como implantar o Site Recovery para:
 - **Proteger máquinas virtuais VMware**: coordene a replicação, o failover e a recuperação de máquinas virtuais VMware locais no Azure
 - **Proteger servidores físicos**: coordene a replicação, o failover e a recuperação de servidores físicos locais Windows e Linux no Azure usando o serviço Azure Site Recovery.
 
-O artigo inclui uma visão geral, pré-requisitos de implantação e instruções de configuração. No fim do artigo, suas máquinas virtuais VMware ou servidores físicos serão replicados no Azure. Em caso de problemas, publique suas perguntas no [Fórum de Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+O artigo inclui uma visão geral, pré-requisitos de implantação e instruções de configuração. No fim do artigo, suas máquinas virtuais VMware ou servidores físicos serão replicados no Azure. 
+Em caso de problemas, publique suas perguntas no [Fórum de Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## O que é o Azure Site Recovery?
@@ -228,7 +229,8 @@ Verifique a barra de status para confirmar que o cofre foi criado com sucesso. O
 4. Em **Novos Detalhes do Servidor de Configuração**, especifique:
 
 	- Um nome para o servidor de configuração e credenciais para se conectar a ele.
-	- No menu suspenso com os tipos de conectividade de rede, selecione Internet pública ou VPN.[AZURE.NOTE]Esta configuração é uma escolha feita no momento da implantação, que não pode ser alterada posteriormente.  
+	- No menu suspenso com os tipos de conectividade de rede, selecione Internet pública ou VPN.
+	[AZURE.NOTE]Esta configuração é uma escolha feita no momento da implantação, que não pode ser alterada posteriormente.  
 	- Selecione a rede do Azure na qual o servidor deve estar localizado. Se você especificou VPN como o tipo de conectividade de rede, verifique se a vnet do Azure está conectada ao seu site local através de uma conexão da Rota Expressa ou uma VPN site a site.
 	- O endereço IP interno e a sub-rede a serem atribuídos ao servidor. Observe que os quatro primeiros endereços IP em qualquer sub-rede são reservados para uso interno do Azure. Use qualquer outro endereço IP disponível.
 	
@@ -273,11 +275,11 @@ O servidor de configuração é implantado em um serviço de nuvem do Azure cria
 	- Quando você clicar em **Avançar**, um teste será executado para verificar a conexão proxy.
 	- Se você usar um proxy personalizado ou se o seu proxy padrão exigir autenticação, será preciso inserir os detalhes do proxy, incluindo o endereço, a porta e as credenciais.
 	- As URLs a seguir devem poder ser acessadas pelo proxy:
-		- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
+		- *.hypervrecoverymanager.windowsazure.com
+		- *.accesscontrol.windows.net
+		- *.backup.windowsazure.com
+		- *.blob.core.windows.net
+		- *.store.core.windows.net
 - Se você tiver regras de firewall baseadas no endereço IP, verifique se as regras estão definidas para permitir a comunicação do servidor de configuração com os endereços IP descritos em [Intervalos IP do datacenter do Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) e o protocolo HTTPS (443). Você terá que colocar os intervalos IP em uma lista de permissões da região do Azure que planeja usar e uma para o Oeste dos EUA.
 
 	![Registro do proxy](./media/site-recovery-vmware-to-azure/ASRVMWare_RegistrationProxy.png)
@@ -382,7 +384,8 @@ Observe que os quatro primeiros endereços IP em qualquer sub-rede são reservad
 	1. Certifique-se de ter os LIS (Linux Integration Services) mais recentes instalados antes de instalar o Software do servidor de destino mestre. Você pode encontrar a versão mais recente dos LIS com instruções sobre como instalá-los [aqui](https://www.microsoft.com/pt-BR/download/details.aspx?id=46842). Reinicie a máquina após instalar os LIS.
 	2. Em **Preparar Recursos de Destino do Azure**, clique em **Baixar e Instalar software adicional (somente para o Servidor de Destino Mestre Linux)** para baixar o pacote do servidor de destino mestre do Linux. Copie o arquivo tar baixado na máquina virtual usando um cliente sftp. Como alternativa, você pode fazer logon no servidor de destino mestre Linux implantado e usar *wget http://go.microsoft.com/fwlink/?LinkID=529757&clcid=0x409* para baixar o arquivo.
 2. Faça logon no servidor usando um cliente do Secure Shell. Observe que, se você estiver conectado à rede do Azure pela VPN, use o endereço IP interno. Caso contrário, use o endereço IP externo e o ponto de extremidade público do SSH.
-	3. Extraia os arquivos do instalador compactado executando **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64*** ![Servidor de destino mestre Linux](./media/site-recovery-vmware-to-azure/ASRVMWare_TSLinuxTar.png)
+	3. Extraia os arquivos do instalador compactado executando **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64*** 
+	![Servidor de destino mestre Linux](./media/site-recovery-vmware-to-azure/ASRVMWare_TSLinuxTar.png)
 	4. Verifique se você está no diretório no qual extraiu o conteúdo do arquivo tar.
 	5. Copie a senha do servidor de configuração para um arquivo local usando o comando **echo *`<passphrase>`* >passphrase.txt**
 	6. Execute o comando “**sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i *`<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt**”.
@@ -757,8 +760,10 @@ Se um servidor de processo estiver em um estado crítico, um aviso será exibido
 
 1. Vá para a página **SERVIDORES DE CONFIGURAÇÃO** em **SERVIDORES**
 2. Clique no nome do Servidor de Configuração e vá para **Detalhes do Servidor**.
-3. Na lista **Servidores de Processo**, clique em **Alterar Servidor de Processo** ao lado do servidor que deseja modificar. ![Alterar o Servidor de processo 1](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS1.png)
-4. Na caixa de diálogo **Alterar Servidor de Processo**, selecione o novo servidor em **Servidor de Processo de Destino** e selecione as máquinas virtuais que deseja replicar no novo servidor. Clique no ícone de informações próximo ao nome do servidor para obter informações sobre ele, incluindo espaço livre e memória usada. O espaço médio que será exigido para replicar cada máquina virtual selecionada no novo servidor de processo será exibido para lhe ajudar a tomar decisões sobre a carga. ![Alterar o Servidor de processo 2](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS2.png)
+3. Na lista **Servidores de Processo**, clique em **Alterar Servidor de Processo** ao lado do servidor que deseja modificar.
+	![Alterar o Servidor de processo 1](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS1.png)
+4. Na caixa de diálogo **Alterar Servidor de Processo**, selecione o novo servidor em **Servidor do Processo de Destino** e selecione as máquinas virtuais que deseja replicar no novo servidor. Clique no ícone de informações ao lado ao nome do servidor para obter informações sobre ele, incluindo espaço livre e memória usada. O espaço médio que será exigido para replicar cada máquina virtual selecionada no novo servidor de processo será exibido para lhe ajudar a tomar decisões sobre a carga.
+	![Alterar o Servidor de processo 2](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS2.png)
 5. Clique na marca de seleção para começar a replicar no novo servidor de processo. Se você remover todas as máquinas virtuais de um servidor de processo que era essencial, um aviso crítico não deverá mais ser exibido no painel.
 
 

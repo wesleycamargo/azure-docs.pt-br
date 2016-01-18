@@ -219,8 +219,10 @@ Finalmente, compile e execute ambos o `TaskWebApp` e o `TaskService`. Inscreva-s
 
 ## 8\. Editar suas políticas
 
-Agora que você tem uma API protegida com o AD B2C do Azure, pode brincar com as políticas do aplicativo e exibir o efeito (ou falta dele) na API. Você pode <!--add **identity providers**
-to the policies, allowing you users to sign into the Task Client using social accounts.  You can also -->manipular as **declarações do aplicativo** nas políticas e alterar as informações do usuário que estão disponíveis na API da Web. Quaisquer declarações extras que você adicionar estarão disponíveis para a API Web de MVC do .NET no objeto `ClaimsPrincipal`, conforme descrito acima.
+Agora que você tem uma API protegida com o AD B2C do Azure, pode brincar com as políticas do aplicativo e exibir o efeito (ou falta dele) na API. Você pode manipular as **declarações do aplicativo** nas políticas e alterar as informações do usuário disponíveis na API Web. Quaisquer declarações extras que você adicionar estarão disponíveis para a API Web de MVC do .NET no objeto `ClaimsPrincipal`, conforme descrito acima.
+<!--add **identity providers**
+to the policies, allowing you users to sign into the Task Client using social accounts.  You can also 
+-->
 
 <!--
 

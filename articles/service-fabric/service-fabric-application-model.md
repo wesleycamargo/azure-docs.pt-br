@@ -44,7 +44,7 @@ O diagrama a seguir mostra a relação entre aplicativos e instâncias de servi�
 ![Partições e réplicas dentro de um serviço][cluster-application-instances]
 
 
->[AZURE.TIP]Você pode exibir o layout de aplicativos em um cluster usando a ferramenta de Gerenciador do Service Fabric disponível em http://&lt;yourclusteraddress&gt;:19080/Explorer. Para obter mais detalhes, consulte [Visualizando o cluster com o Gerenciador do Service Fabric](service-fabric-visualizing-your-cluster.md).
+>[AZURE.TIP] Você pode exibir o layout de aplicativos em um cluster usando a ferramenta de Gerenciador do Service Fabric disponível em http://&lt;yourclusteraddress&gt;:19080/Explorer. Para obter mais detalhes, consulte [Visualizando o cluster com o Gerenciador do Service Fabric](service-fabric-visualizing-your-cluster.md).
 
 ## Descrever um serviço
 
@@ -93,7 +93,7 @@ Os atributos **Version** são cadeias de caracteres não estruturadas e não ana
 </Settings>
 ~~~
 
-> [AZURE.NOTE]Um manifesto do serviço pode conter vários pacotes de código, de configuração e de dados. Cada um deles pode ser transformado em versão independentemente.
+> [AZURE.NOTE] Um manifesto do serviço pode conter vários pacotes de código, de configuração e de dados. Cada um deles pode ser transformado em versão independentemente.
 
 <!--
 For more information about other features supported by service manifests, refer to the following articles:

@@ -78,8 +78,8 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-cherwell-tutorial/IC798992.png "Configurar a URL do Aplicativo")
 
-    1.  Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no **Cherwell** (por exemplo: **https://pictdev.cherwellondemand.com/cherwellclient*)).
-2.  Clique em **Próximo**.
+    1.  Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no **Cherwell** (por exemplo: **https://pictdev.cherwellondemand.com/cherwellclient*).
+    2.  Clique em **Próximo**.
 
 4.  Na página **Configurar logon único no Cherwell**, realize as seguintes etapas:
 

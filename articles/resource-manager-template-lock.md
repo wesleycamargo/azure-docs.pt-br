@@ -46,7 +46,9 @@ As tabelas a seguir descrevem os valores necessários para definir no esquema.
 | ---- | ---- | -------- | ---------------- | ----------- |
 | type | enum | Sim | Para recursos: <br />**{namespace}/{tipo}/providers/locks**<br /><br />Para grupos de recursos:<br />**Microsoft.Authorization/locks** | O tipo de recurso a ser criado. |
 | apiVersion | enum | Sim | **01-01-2015** | A versão da API a ser usada para criar o recurso. |  
-| name | cadeia de caracteres | Sim | Para recursos:<br />**{recurso}/Microsoft.Authorization/{nomebloqueio}**<br /><br />Para grupos de recursos:<br />**{nomebloqueio}****<br /><br />até 64 caracteres<br />Não pode conter <, >, %, &, ? ou caracteres de controle. | Um valor que especifica o recurso a ser bloqueado e um nome para o bloqueio. | | dependsOn | array | Não | Uma lista separada por vírgulas de nomes de um recurso ou identificadores exclusivos do recurso. | A coleção de recursos do qual o bloqueio depende. Se o recurso que estiver bloqueando for implantado no mesmo modelo, inclua o nome desse recurso neste elemento para garantir que o recurso seja implantado primeiro. | | properties | object | Sim | (mostrado abaixo) | Um objeto que identifica o tipo de bloqueio e observações sobre o bloqueio. | 
+| name | cadeia de caracteres | Sim | Para recursos:<br />**{recurso}/Microsoft.Authorization/{nomebloqueio}**<br /><br />Para grupos de recursos:<br />**{nomebloqueio}****<br /><br />até 64 caracteres<br />Não pode conter <, >, %, &, ? ou caracteres de controle. | Um valor que especifica o recurso a ser bloqueado e um nome para o bloqueio. |
+| dependsOn | array | Não | Uma lista separada por vírgulas de nomes de um recurso ou identificadores exclusivos do recurso. | A coleção de recursos do qual o bloqueio depende. Se o recurso que estiver bloqueando for implantado no mesmo modelo, inclua o nome desse recurso neste elemento para garantir que o recurso seja implantado primeiro. |
+| properties | object | Sim | (mostrado abaixo) | Um objeto que identifica o tipo de bloqueio e observações sobre o bloqueio. | 
 
 ### properties object
 

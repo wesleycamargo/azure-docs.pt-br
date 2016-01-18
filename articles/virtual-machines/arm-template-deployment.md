@@ -32,7 +32,7 @@ Para concluir este tutorial, você também precisa do seguinte:
 - [Conta de armazenamento do Azure](../storage-create-storage-account.md)
 - [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)
 
->[AZURE.NOTE]A conta de armazenamento que você cria neste ponto é usada para armazenar o modelo. Outra conta de armazenamento é criada quando você implanta o modelo que é usado para armazenar o disco da máquina virtual. Crie um contêiner nessa conta de armazenamento chamado modelos.
+>[AZURE.NOTE] A conta de armazenamento que você cria neste ponto é usada para armazenar o modelo. Outra conta de armazenamento é criada quando você implanta o modelo que é usado para armazenar o disco da máquina virtual. Crie um contêiner nessa conta de armazenamento chamado modelos.
 
 [AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
@@ -50,7 +50,7 @@ Para usar o AD do Azure para autenticar solicitações ao Gerenciador de Recurso
 
 			New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-	>[AZURE.NOTE]Anote o identificador do aplicativo retornado depois que o aplicativo é criado, pois você precisará dele para a próxima etapa. Você também pode encontrar o identificador do aplicativo no campo de ID de cliente do aplicativo na seção Active Directory do portal do Azure.
+	>[AZURE.NOTE] Anote o identificador do aplicativo retornado depois que o aplicativo é criado, pois você precisará dele para a próxima etapa. Você também pode encontrar o identificador do aplicativo no campo de ID de cliente do aplicativo na seção Active Directory do portal do Azure.
 
 3. Substitua {id-aplicativo} pelo identificador que acabou de registrar e, em seguida, crie a entidade de serviço para o aplicativo:
 
@@ -318,7 +318,7 @@ Para especificar valores para os parâmetros de recursos que foram definidos no 
 	}
 	```
 
-    >[AZURE.NOTE]Este tutorial cria uma máquina virtual executando uma versão do sistema operacional do Windows Server. Para saber mais sobre a seleção de outras imagens, confira [Navegar e selecionar imagens da máquina virtual do Azure com o Windows PowerShell e a CLI do Azure](resource-groups-vm-searching.md).
+    >[AZURE.NOTE] Este tutorial cria uma máquina virtual executando uma versão do sistema operacional do Windows Server. Para saber mais sobre a seleção de outras imagens, confira [Navegar e selecionar imagens da máquina virtual do Azure com o Windows PowerShell e a CLI do Azure](resource-groups-vm-searching.md).
 
 
 4. Salve o arquivo de parâmetros que você criou.

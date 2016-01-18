@@ -93,13 +93,13 @@ Em seguida, certifique-se de que o arquivo MySetup.bat é incluído no service p
 Agora, abra o arquivo MySetup.bat e adicione os comandos a seguir.
 
 ~~~
-REM Set a system environment variable. This requires administrator privilege
+REM Defina uma variável de ambiente do sistema. Isso requer privilégios de administrador
 setx -m TestVariable "MyValue"
 echo System TestVariable set to > test.txt
 echo %TestVariable% >> test.txt
 
-REM To delete this system variable us
-REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
+REM Para excluir essa variável do sistema use
+REM REG delete "HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment" /v TestVariable /f
 ~~~
 
 Em seguida, compile e implante a solução em um cluster de desenvolvimento local. Após a inicialização do serviço, conforme mostrado no Gerenciador do Service Fabric, é possível ver que MySetup.bat foi bem-sucedido de duas maneiras. Abra um prompt de comando do PowerShell e digite:

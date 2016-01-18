@@ -46,12 +46,13 @@ Abra o seu terminal e instale
 **2) FreeTDS**: execute o comando a seguir no seu terminal. Será feito o download do FreeTDS no seu computador. O FreeTDS é necessário para o funcionamento do pymmsql.
 
     brew install FreeTDS
-
+  
 **3) Pymmsql**: execute o comando a seguir no seu terminal. Ele instalará pymmsql no seu computador
 
     sudo -H pip install pymssql
 
 ### Um Banco de Dados SQL
+
 
 Consulte a [página de introdução](sql-database-get-started.md) para aprender a criar um banco de dados de exemplo. É importante que você siga o guia para criar um **modelo de banco de dados AdventureWorks**. Os exemplos mostrados abaixo funcionam apenas com o **esquema AdventureWorks**.
 
@@ -104,11 +105,11 @@ Nesse exemplo, você verá como executar uma instrução [INSERT](https://msdn.m
 Este exemplo de código demonstra o uso de transações nas quais você:
 
 
-- Inicia uma transação
+-Inicia uma transação
 
-- Insere uma linha de dados
+-Insere uma linha de dados
 
-- Reverte a transação para desfazer a inserção
+-Reverte a transação para desfazer a inserção
 
 
 	import pymssql
@@ -118,7 +119,7 @@ Este exemplo de código demonstra o uso de transações nas quais você:
 	cursor.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, CURRENT_TIMESTAMP)")
 	cnxn.rollback()
 
-
+ 
 ## Próximas etapas
 
 Para saber mais, consulte o [Centro de Desenvolvedores do Python](/develop/python/).

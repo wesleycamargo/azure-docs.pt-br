@@ -19,7 +19,7 @@
 
 # Implantar recursos do Azure usando bibliotecas de computação, rede e armazenamento do .NET
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implantação clássico.
 
 Este tutorial mostra como usar as bibliotecas de computação, armazenamento e rede do .NET para criar e excluir recursos no Microsoft Azure. Ele também mostra como autenticar as solicitações para o Gerenciador de Recursos do Azure usando o Active Directory do Azure.
 
@@ -47,7 +47,7 @@ Para usar o AD do Azure para autenticar solicitações ao Gerenciador de Recurso
 
 			New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-	>[AZURE.NOTE]Anote o identificador do aplicativo retornado depois que o aplicativo é criado, pois você precisará dele para a próxima etapa. Você também pode encontrar o identificador do aplicativo no campo de ID de cliente do aplicativo na seção Active Directory do portal do Azure.
+	>[AZURE.NOTE] Anote o identificador do aplicativo retornado depois que o aplicativo é criado, pois você precisará dele para a próxima etapa. Você também pode encontrar o identificador do aplicativo no campo de ID de cliente do aplicativo na seção Active Directory do portal do Azure.
 
 3. Substitua {id-aplicativo} pelo identificador que acabou de registrar e, em seguida, crie a entidade de serviço para o aplicativo:
 
@@ -489,7 +489,7 @@ Agora que você criou todos os recursos de suporte, você pode criar uma máquin
 	}
 	```
 
-	>[AZURE.NOTE]Este tutorial cria uma máquina virtual executando uma versão do sistema operacional do Windows Server. Para saber mais sobre a seleção de outras imagens, confira [Navegar e selecionar imagens da máquina virtual do Azure com o Windows PowerShell e a CLI do Azure](resource-groups-vm-searching.md).
+	>[AZURE.NOTE] Este tutorial cria uma máquina virtual executando uma versão do sistema operacional do Windows Server. Para saber mais sobre a seleção de outras imagens, confira [Navegar e selecionar imagens da máquina virtual do Azure com o Windows PowerShell e a CLI do Azure](resource-groups-vm-searching.md).
 
 2. Adicione o seguinte código ao método Main para chamar o método que você acabou de adicionar:
 
