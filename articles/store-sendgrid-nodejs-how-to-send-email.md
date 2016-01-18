@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="01/05/2016" 
 	ms.author="erikre"/>
 # Como enviar emails usando o SendGrid do Node.js
 
@@ -188,4 +188,4 @@ Agora que você já conhece as noções básicas do serviço de email SendGrid, 
   [serviço de email baseado em nuvem]: https://sendgrid.com/email-solutions
   [entrega de email transacional]: https://sendgrid.com/transactional-email
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -26,10 +26,10 @@
 ### Análise feita por mim
 1. No menu principal do PIM, clique em **Analisar acesso administrativo**. Será exibida uma lista das análises de segurança.
 2. Selecione o(s) **usuário(s)** na lista para o(s) qual(is) você deseja alterar o acesso. OBSERVAÇÃO: o acesso será realmente alterado. Esse processo é simplesmente criar uma lista de verificação para aqueles cujo acesso à função deseja-se alterar. Quando pelo menos um usuário tiver sido selecionado, os botões **Aprovar acesso** e **Negar acesso** serão habilitados.
-3. Clique em **Aprovar acesso** ou **Negar acesso** para os usuários que você selecionou. Uma notificação será exibida no menu principal do portal e a lista de análise desaparecerá. Feche a folha **Funções de análise do AD do Azure**.
+3. Clique em **Aprovar acesso** ou **Negar acesso** para os usuários que você selecionou. Uma notificação será exibida no menu principal do portal do Azure e a lista de análise desaparecerá. Feche a folha **Funções de análise do AD do Azure**.
 
 ### Autoanálise
-1. O usuário receberá um email indicando que deve analisar seu acesso. O email conterá um link para fazer logon no portal.
+1. O usuário receberá um email indicando que deve analisar seu acesso. O email conterá um link para fazer logon no portal do Azure.
 2. Depois disso, o usuário pode aprovar ou negar seu próprio acesso clicando nos botões **Aprovar acesso** ou **Negar acesso**. O nome desses usuários desaparecerá da lista.
 
 ## Para Gerentes de Análise: Gerenciar Análises de Segurança
@@ -60,4 +60,4 @@ Você pode exportar uma análise para uso com o Excel ou outro programa capaz de
 ## Próximas etapas
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

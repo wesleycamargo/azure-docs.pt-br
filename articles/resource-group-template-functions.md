@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/23/2015"
+   ms.date="12/31/2015"
    ms.author="tomfitz"/>
 
 # Expressões de modelo do Gerenciador de Recursos do Azure
@@ -408,7 +408,7 @@ Exclusivo com base na implantação de um grupo de recursos
 O exemplo a seguir mostra como criar um nome exclusivo para uma conta de armazenamento com base em seu grupo de recursos.
 
     "resources": [{ 
-        "name": "[concat('ContosoStorage', uniqueString(resourceGroup().id))]", 
+        "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]", 
         "type": "Microsoft.Storage/storageAccounts", 
         ...
 
@@ -449,7 +449,7 @@ Para obter valores de recursos, grupos de recursos ou assinaturas, consulte [Exp
 
 Retorna informações sobre a operação de implantação atual.
 
-Essa expressão retorna o objeto que é transmitido durante a implantação. As propriedades no objeto retornado vão variar dependendo se o objeto de implantação for transmitido como um link ou como um objeto na linha. Quando o objeto de implantação é passado na linha, como ao usar o parâmetro **- TemplateFile** no Azure PowerShell para apontar para um arquivo local, o objeto retornado fica no seguinte formato:
+Essa expressão retorna o objeto que é transmitido durante a implantação. As propriedades no objeto retornado vão variar dependendo se o objeto de implantação for transmitido como um link ou como um objeto na linha. Quando o objeto de implantação é passado na linha, como ao usar o parâmetro **- TemplateFile** no PowerShell do Azure para apontar para um arquivo local, o objeto retornado fica no seguinte formato:
 
     {
         "name": "",
@@ -605,7 +605,7 @@ Habilita uma expressão a derivar seu valor do estado de tempo de execução do 
 
 A função **referência** deriva seu valor de um estado de tempo de execução e, portanto, não pode ser usada na seção de variáveis. Ela pode ser usada na seção de saídas de um modelo.
 
-Usando a expressão de referência, você declara implicitamente que um recurso depende de outro recurso se o recurso referenciado é provisionado no mesmo modelo. Não é preciso usar a propriedade **dependsOn** também. A expressão não é avaliada até que o recurso referenciado conclua a implantação.
+Usando a expressão de referência, você declara implicitamente que um recurso depende de outro recurso se o recurso referenciado é provisionado no mesmo modelo. Você não precisa usar a propriedade **dependsOn** também. A expressão não é avaliada até que o recurso referenciado conclua a implantação.
 
 O exemplo a seguir faz referência a uma conta de armazenamento implantada no mesmo modelo.
 
@@ -764,9 +764,9 @@ O exemplo a seguir mostra a função de assinatura chamada na seção de saídas
 
 
 ## Próximas etapas
-- Para obter uma descrição das seções de um modelo do Gerenciador de Recursos do Azure, confira a seção [Criação de modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md)
+- Para obter uma descrição das seções de um modelo do Gerenciador de Recursos do Azure, veja a seção [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md)
 - Para mesclar diversos modelos, confira a seção [Como usar modelos vinculados com o Gerenciador de Recursos do Azure](resource-group-linked-templates.md)
-- Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
+- Para iterar um número de vezes especificado ao criar um tipo de recurso, confira [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
 - Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o Modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/30/2015"
+   ms.date="01/05/2016"
    ms.author="tarcher" />
 
 # Publish-WebApplicationVM (script do Windows PowerShell)
@@ -116,7 +116,7 @@ Se seu valor for true, imprimir mensagens do script para o fluxo de saída.
 
 ## Comentários
 
-Para obter uma explicação completa de como usar o script para criar ambientes de desenvolvimento e teste, consulte [usando Scripts do Windows PowerShell para publicar em ambientes de teste e desenvolvimento](vs-azure-tools-publishing-using-powershell-scripts.md).
+Para obter uma explicação completa de como usar o script para criar ambientes de desenvolvimento e teste, consulte [Usando scripts do Windows PowerShell para publicar para ambientes de desenvolvimento e teste](vs-azure-tools-publishing-using-powershell-scripts.md).
 
 O arquivo de configuração JSON especifica os detalhes daquilo que está para ser implantado. Ele inclui as informações que você especificou quando criou o projeto, como o nome, grupo de afinidades, imagem de VHD e tamanho da máquina virtual. Também inclui os pontos de extremidade na máquina virtual, os bancos de dados a provisionar, se houver, e os parâmetros de implantação de web. O código a seguir mostra um exemplo de arquivo de configuração JSON:
 
@@ -189,4 +189,4 @@ O arquivo de configuração JSON especifica os detalhes daquilo que está para s
 
 Você pode editar o arquivo de configuração do JSON para alterar o que é provisionado. Uma máquina virtual e um serviço de nuvem são necessários, mas a seção de banco de dados é opcional.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -21,13 +21,7 @@
 # Conectar-se ao Banco de Dados SQL usando Phyton no Windows
 
 
-> [AZURE.SELECTOR]
-- [C#](sql-database-develop-dotnet-simple.md)
-- [PHP](sql-database-develop-php-simple-windows.md)
-- [Python](sql-database-develop-python-simple-windows.md)
-- [Ruby](sql-database-develop-ruby-simple-windows.md)
-- [Java](sql-database-develop-java-simple-windows.md)
-- [Node.js](sql-database-develop-nodejs-simple-windows.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 Este tópico apresenta um exemplo de código escrito em Python. O exemplo é executado em um computador com Windows. O exemplo conecta-se ao Banco de Dados SQL do Azure usando o driver **pymssql**.
@@ -56,6 +50,7 @@ Agora, instale o driver pymssql usando pip na linha de comando. cd em C:/Python2
 
 
 ### Um Banco de Dados SQL
+
 
 Consulte a [página de introdução](sql-database-get-started.md) para aprender a criar um banco de dados de exemplo. É importante que você siga o guia para criar um **modelo de banco de dados AdventureWorks**. Os exemplos mostrados abaixo funcionam apenas com o **esquema AdventureWorks**.
 
@@ -127,4 +122,4 @@ Este exemplo de código demonstra o uso de transações nas quais você:
 
 Para saber mais, consulte o [Centro de Desenvolvedores do Python](/develop/python/).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

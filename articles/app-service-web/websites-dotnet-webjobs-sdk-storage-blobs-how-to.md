@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="12/14/2015" 
 	ms.author="tdykstra"/>
 
 # Como usar o armazenamento de blob do Azure com o SDK de Trabalhos Web
@@ -24,7 +24,7 @@ Este guia fornece exemplos de código c# que mostram como disparar um processo q
 
 Para obter exemplos de código que mostram como criar blobs, consulte [Como usar o armazenamento de fila do Azure com o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-storage-queues-how-to.md).
 		
-O guia pressupõe que você saiba [como criar um projeto de Trabalho Web no Visual Studio com cadeias de conexão que apontam para sua conta de armazenamento](websites-dotnet-webjobs-sdk-get-started.md).
+Com esse guia, pressupomos que você saiba [como criar um projeto do Trabalho Web no Visual Studio com cadeias de conexão que apontam para sua conta de armazenamento](websites-dotnet-webjobs-sdk-get-started.md) ou [várias contas de armazenamento](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).
 
 ## <a id="trigger"></a> Como disparar uma função quando um blob é criado ou atualizado
 
@@ -89,9 +89,15 @@ Você pode usar o atributo `BlobTrigger` nos seguintes tipos:
 * `ICloudBlob`
 * `CloudBlockBlob`
 * `CloudPageBlob`
+* `CloudBlobContainer`
+* `CloudBlobDirectory`
+* `IEnumerable<CloudBlockBlob>`
+* `IEnumerable<CloudPageBlob>`
 * Outros tipos desserializados por [ICloudBlobStreamBinder](#icbsb) 
 
 Para trabalhar diretamente com a conta de Armazenamento do Azure, você também pode adicionar um parâmetro `CloudStorageAccount` à assinatura do método.
+
+Para obter exemplos, consulte o [código de associação de blob no repositório azure-webjobs-sdk no GitHub.com](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/BlobBindingEndToEndTests.cs).
 
 ## <a id="string"></a> Obtendo o conteúdo do blob de texto associando à cadeia de caracteres
 
@@ -232,4 +238,4 @@ Os tópicos relacionados abordados neste artigo incluem o seguinte:
 Este guia forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com blobs do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure – Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

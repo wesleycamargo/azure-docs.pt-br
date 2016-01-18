@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/09/2015" 
+	ms.date="01/05/2016" 
 	ms.author="byvinyal"
 />
 	
@@ -170,7 +170,7 @@ O intervalo de Destino definido no perfil é calculado pelas instâncias do mín
 
 O intervalo máximo seria a soma de todos os intervalos máximos de todos os **planos de Serviço de Aplicativo** hospedados no **pool de trabalho**.
 
-A contagem de aumento da escala de regras deve ser definida como pelo menos 1x a **taxa de inflação do plano de Serviço de Aplicativo** para escalar verticalmente.
+A contagem de aumento da escala de regras deve ser definida como pelo menos 1X a **taxa de inflação do plano de Serviço de Aplicativo** para escalar verticalmente.
 
 A contagem de redução pode ser ajustada para algo entre 1/2x ou 1x a **taxa de inflação do plano de Serviço de Aplicativo** para reduzir verticalmente.
 
@@ -227,4 +227,4 @@ Para este cenário, Matheus sabe que a taxa de erro aumenta quando os front-ends
 [Worker-Pool-Scale]: ./media/app-service-environment-auto-scale/wp-scale.png
 [Front-End-Scale]: ./media/app-service-environment-auto-scale/fe-scale.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

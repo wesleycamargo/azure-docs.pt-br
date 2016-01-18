@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/18/2015" 
+	ms.date="01/04/2016" 
 	ms.author="tomfitz"/>
 
 # Mover recursos para um novo grupo de recursos ou uma nova assinatura
@@ -51,24 +51,27 @@ Por enquanto, os serviços que dão suporte à transferência para um novo grupo
 - Insights Operacionais
 - Cache Redis
 - Pesquisar
-- Banco de dados SQL
+- Servidor de Banco de Dados SQL (mover um servidor também move todos os seus bancos de dados. Os bancos de dados não podem ser movidos separadamente do servidor.)
 - Aplicativos Web (algumas [limitações](app-service-web/app-service-move-resources.md) se aplicam)
 
 Os serviços que dão suporte à transferência para um novo grupo de recursos, mas não para uma nova assinatura são:
 
 - Máquinas virtuais (clássico)
 - Armazenamento (clássico)
+- Redes Virtuais
+- Serviços de Nuvem
 
 Os serviços que atualmente não dão suporte à transferência de um recurso são:
 
 - Máquinas Virtuais
-- Redes Virtuais
 - Armazenamento
 
 Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de Aplicativo. Para mover os aplicativos Web, as opções são:
 
 - Mova todos os recursos de um grupo de recursos para um grupo de recursos diferente, se o grupo de recursos de destino ainda não tiver recursos Microsoft.Web.
 - Mova os aplicativos Web para um grupo de recursos diferente, mas mantenha o plano de Serviço de Aplicativo no grupo de recursos original.
+
+Você não pode mover um banco de dados SQL separadamente do seu servidor. O banco de dados e o servidor devem residir no mesmo grupo de recursos. Quando você move um SQL Server, todos os seus bancos de dados também são movidos.
 
 ## Usando o PowerShell para mover recursos
 
@@ -105,7 +108,7 @@ Para mover recursos existentes para outro grupo de recursos ou outra assinatura,
 
     POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
 
-No corpo da solicitação, especifique o grupo de recursos de destino e os recursos para mover. Para saber mais sobre a operação de movimentação REST, consulte [Mover recursos](https://msdn.microsoft.com/library/azure/mt218710.aspx).
+No corpo da solicitação, especifique o grupo de recursos de destino e os recursos para mover. Para obter mais informações sobre a operação de movimentação REST, consulte [Mover recursos](https://msdn.microsoft.com/library/azure/mt218710.aspx).
 
 ## Próximas etapas
 - [Usando o PowerShell do Azure com o Gerenciador de Recursos](./powershell-azure-resource-manager.md)
@@ -113,4 +116,4 @@ No corpo da solicitação, especifique o grupo de recursos de destino e os recur
 - [Usando o Portal do Azure para gerenciar recursos](azure-portal/resource-group-portal.md)
 - [Usando marcas para organizar os recursos](./resource-group-using-tags.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

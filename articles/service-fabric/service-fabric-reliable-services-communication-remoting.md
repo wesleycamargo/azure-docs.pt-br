@@ -17,12 +17,12 @@
    ms.author="bharatn@microsoft.com"/>
 
 # Comunicação remota de serviço com o Reliable Services
-Para serviços que não estão vinculados a um protocolo de comunicação específico ou pilha, como WebAPI, WCF ou outros, a estrutura fornece um mecanismo de comunicação remota para rápida e facilmente configurar a chamada de procedimento remoto para serviços.
+Para serviços que não estão vinculados a um protocolo de comunicação específico ou pilha, como WebAPI, WCF (Windows Communication Foundation) ou outros, a estrutura fornece um mecanismo de comunicação remota para rápida e facilmente configurar a chamada de procedimento remoto para serviços.
 
 ## Configurar a comunicação remota em um serviço
-A configuração da comunicação remota de um serviço é feita em duas etapas simples.
+A configuração da comunicação remota de um serviço é feita em duas etapas simples:
 
-1. Crie uma interface para implementar o serviço. Essa interface define os métodos que estarão disponíveis para chamada de procedimento remoto no seu serviço e devem ser métodos assíncronos que retornam tarefa. A interface deve implementar `Microsoft.ServiceFabric.Services.Remoting.IService` para sinalizar que o serviço tem uma interface de comunicação remota. 
+1. Crie uma interface para implementar o serviço. Essa interface define os métodos que estarão disponíveis para chamada de procedimento remoto no seu serviço. Os métodos devem ser métodos assíncronos que retornam tarefas. A interface deve implementar `Microsoft.ServiceFabric.Services.Remoting.IService` para sinalizar que o serviço tem uma interface de comunicação remota.
 2. Use `Microsoft.ServiceFabric.Services.Remoting.Runtime.ServiceRemotingListener` em seu serviço. Esta é uma implementação de `ICommunicationListener` que fornece recursos de comunicação remota.
 
 Por exemplo, esse serviço Hello World expõe um único método para obter "Hello World" pela chamada de procedimento remoto:
@@ -51,7 +51,7 @@ internal class HelloWorldStateful : StatefulService, IHelloWorldStateful
 
 
 ## Chamar métodos de serviços remotos
-A chamada de métodos em um serviço usando a pilha de comunicação remota é feita usando um proxy local para o serviço por meio da classe `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy`. O `ServiceProxy` cria um proxy local usando a mesma interface que o serviço implementa. Com esse proxy, você pode simplesmente chamar métodos na interface remotamente.
+A chamada de métodos em um serviço usando a pilha de comunicação remota é feita usando um proxy local para o serviço por meio da classe `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy`. O método `ServiceProxy` cria um proxy local usando a mesma interface que o serviço implementa. Com esse proxy, você pode simplesmente chamar métodos na interface remotamente.
 
 
 ```csharp
@@ -63,11 +63,11 @@ string message = await helloWorldClient.GetHelloWorld();
 ```
 
 A estrutura remota propaga exceções lançadas no serviço para o cliente. A lógica de manipulação de exceção no cliente usando `ServiceProxy` pode manipular diretamente as exceções que o serviço lança.
- 
+
 ## Próximas etapas
 
 * [API Web com OWIN no Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 
 * [Comunicação WCF com o Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -125,7 +125,7 @@ Aqui está como você pode criar uma coleção com indexação "Todos os Interva
         });
 
 ## Exemplos
-Vejamos este [projeto de amostras do Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy) que demonstra como usar Order By, incluindo a criação de políticas de indexação e paginação usando Order By. Os exemplos são de software livre e nós o encorajamos a enviar solicitações pull com contribuições que poderiam beneficiar outros desenvolvedores do Banco de Dados de Documentos. Consulte as [Diretrizes de contribuição](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) para obter instruções sobre como contribuir.
+Vejamos este [projeto de amostras do Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) que demonstra como usar Order By, incluindo a criação de políticas de indexação e paginação usando Order By. Os exemplos são de software livre e nós o encorajamos a enviar solicitações pull com contribuições que poderiam beneficiar outros desenvolvedores do Banco de Dados de Documentos. Consulte as [Diretrizes de contribuição](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) para obter instruções sobre como contribuir.
 
 ## Qual é o próximo passo?
 
@@ -168,13 +168,13 @@ Não é possível executar o seguinte:
 
 ## Próximas etapas
 
-Ramifique o [projeto de amostras do Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy) e comece a ordenar os seus dados!
+Ramifique o [projeto de amostras do Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) e comece a ordenar os seus dados!
 
 ## Referências
 * [Referência de consulta do Banco de Dados de Documentos](documentdb-sql-query.md)
 * [Referência de políticas de indexação do Banco de Dados de Documentos](documentdb-indexing-policies.md)
 * [Referência de SQL do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-* [Amostras de Order By do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy)
+* [Amostras de Order By do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

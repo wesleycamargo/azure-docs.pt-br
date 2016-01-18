@@ -1,6 +1,6 @@
 <properties
    pageTitle="Modelo de bloqueios de recursos do Gerenciador de Recursos | Microsoft Azure"
-   description="Mostra o esquema de bloqueios de recursos do Gerenciador de Recursos."
+   description="Mostra o esquema do Gerenciador de Recursos para a implantação de bloqueios de recursos por meio de um modelo."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/25/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
-# Bloqueios de recursos - esquema do modelo
+# Esquema do modelo de bloqueios de recursos
 
 Cria um novo bloqueio em um recurso e em seus recursos filho.
 
@@ -135,4 +135,4 @@ O próximo exemplo aplica um bloqueio somente leitura ao grupo de recursos.
 - Para obter informações sobre a estrutura do modelo, veja [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 - Para obter mais informações sobre bloqueios, confira [Bloquear recursos com o Gerenciador de Recursos do Azure](resource-group-lock-resources.md).
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

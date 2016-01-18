@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="barbkess"/>
 
 # Exibições do sistema
@@ -258,7 +258,7 @@ Esses são links para as exibições do Esquema de Informações do SQL Server d
 - [EXIBIÇÕES (Transact-SQL)](http://msdn.microsoft.com/library/ms181381.aspx)
 
 ## Próximas etapas
-Para obter informações de referência, consulte [Visão geral de referência do SQL Data Warehouse][].
+Para obter mais informações de referência, consulte [Visão geral de referência do SQL Data Warehouse][].
 
 <!--Image references-->
 
@@ -270,4 +270,4 @@ Para obter informações de referência, consulte [Visão geral de referência d
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

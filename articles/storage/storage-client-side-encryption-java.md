@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="01/05/2016" 
 	ms.author="tamram"/>
 
 
@@ -214,7 +214,7 @@ Além de criar uma política de criptografia e defini-la nas opções de solicit
 	TableResult result = currentTable.execute(operation, retrieveOptions, null);
 
 ### Usando atributos  
-Como mencionado acima, se a entidade implementar TableEntity, as propriedades getter e setter poderão ser decoradas com o atributo [Encrypt] em vez de especificar o **EncryptionResolver**.
+Como mencionado acima, se a entidade implementar TableEntity, as propriedades Getter e Setter poderão ser decoradas com o atributo [Encrypt] em vez de especificar o **EncryptionResolver**.
 
 	private string encryptedProperty1;
 
@@ -234,4 +234,4 @@ Observe que criptografar seu armazenamento de dados resulta em uma sobrecarga ad
 ## Próximas etapas  
 Baixar a [Biblioteca de Cliente do Armazenamento do Azure para o pacote Java Maven](<fix URL>) Baixar a [Biblioteca de Cliente do Armazenamento do Azure para o código-fonte do Java no GitHub](https://github.com/Azure/azure-storage-java) Baixar os pacotes Maven de [Núcleo](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Cliente](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) e [Extensões](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) do Cofre da Chave do Azure Visitar a [Documentação do Cofre da Chave do Azure](../articles/key-vault-whatis.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

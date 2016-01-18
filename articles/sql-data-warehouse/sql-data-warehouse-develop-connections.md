@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="01/04/2016"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Conectar ao SQL Data Warehouse 
@@ -158,4 +158,4 @@ Uma vez conectado, você pode começar a criar suas tabelas. Consulte o artigo [
 
 <!--Other references-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

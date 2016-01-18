@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Objective-C"
     ms.topic="article"
-    ms.date="10/07/2015"
+    ms.date="01/05/2016"
     ms.author="micurd"/>
 
 # Como usar o armazenamento de Blob no iOS
@@ -219,7 +219,7 @@ O exemplo a seguir mostra como listar todos os blobs em um contêiner. Ao execut
 	- `AZSBlobListingDetailsSnapshots`: lista os blobs confirmados e instantâneos de blob.
 	- `AZSBlobListingDetailsMetadata`: recupera metadados de blob para cada blob retornado na listagem.
 	- `AZSBlobListingDetailsUncommittedBlobs`: lista os blobs confirmados e não confirmados.
-	- `AZSBlobListingDetailsCopy`: inclui propriedades de cópia na listagem.
+	- `AZSBlobListingDetailsCopy`: incluir propriedades de cópia na listagem.
 	- `AZSBlobListingDetailsAll`: lista todos os blobs confirmados disponíveis, blobs não confirmados e instantâneos e retorna todos os metadados e status de cópia para os blobs.
 - **maxResults** - O número máximo de resultados a serem retornados para a operação. Use -1 para não definir um limite.
 - **completionHandler** - O bloco de código a ser executado com os resultados da operação de listagem.
@@ -359,4 +359,4 @@ Se você tiver dúvidas sobre a biblioteca, fique à vontade para postar em noss
 [API REST de Armazenamento do Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

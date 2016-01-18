@@ -1,11 +1,13 @@
-When adding a VNet-to-VNet connection, verify that both of your virtual networks have a virtual network gateway and that your virtual networks do not have any overlapping address ranges.
+Ao adicionar uma conexão de VNet para VNet, verifique se ambas as redes virtuais têm um gateway de rede virtual e se suas redes virtuais não têm nenhuma sobreposição de intervalos de endereços.
 
-1. From the **Virtual networks** blade, locate your virtual network and click to open the blade. On the blade, you will see your gateway listed as a *Connected device*. You can also configure settings directly from your virtual network gateway without first expanding the VNet.
-2. From the virtual network gateway settings, click **Connections**, and then **Add**.
-3. **Name** your Connection. 
-4. For **Connection type**, select **VNet-to-VNet**
-5. For **Virtual network gateway**, the value is fixed because you are connecting from this gateway.
-6. For **Second virtual network gateway**, select the gateway you want to create a connection to from this gateway.
-8. The remaining values for **Subscription**, **Resource Group**, and **Location** are fixed.
-9. Click **OK** to create your connection. You'll see *Creating Connection* flash on the screen.
-10. When the connection is complete, you'll see it appear in the **Connections** blade for your Gateway.
+1. Na folha **Redes Virtuais**, localize sua rede virtual e clique para abrir a folha. Na folha, você verá seu gateway listado como um *Dispositivo Conectado*. Você também pode definir as configurações diretamente do seu gateway de rede virtual sem primeiro expandir o VNet.
+2. Nas configurações de gateway de rede virtual, clique em **Conexões** e, então, em **Adicionar**.
+3. **Nomeie** sua conexão. 
+4. Para **Tipo de Conexão**, selecione **VNet para VNet**
+5. Para **Gateway de Rede Virtual**, o valor é fixo porque você está se conectando por esse gateway.
+6. Para **Segundo Gateway de Rede Virtual**, selecione o gateway para o qual deseja criar uma conexão desse gateway.
+8. O restante dos valores para **Assinatura**, **Grupo de Recursos** e **Local** são fixos.
+9. Clique em **OK** para criar sua conexão. Você verá *Criar Conexão* piscar na tela.
+10. Quando a conexão for concluída, você a verá na folha **Conexões** do seu Gateway.
+
+<!---HONumber=AcomDC_0107_2016-->

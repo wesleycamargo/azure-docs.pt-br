@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/05/2016"
 	ms.author="curtand"/>
 
 # Atribuindo funções de administrador no Active Directory do Azure (Azure AD)
@@ -30,6 +30,7 @@ As seguintes funções de administrador estão disponíveis:
 - **Administrador de serviço**: gerencia as solicitações de serviço e monitora a integridade do serviço.
     > [AZURE.NOTE]
     > Para atribuir a função de administrador de serviços a um usuário, o administrador global deve primeiro atribuir permissões administrativas para o usuário no serviço, como o Exchange Online, e, em seguida, atribuir a função de administrador de serviço para o usuário no Portal de Gerenciamento do Azure. 
+
 - **Administrador de usuários**: redefine as senhas, monitora a integridade do serviço e gerencia contas de usuário, grupos de usuários e solicitações de serviço. Algumas limitações se aplicam às permissões de um administrador de gerenciamento de usuário. Por exemplo, eles não podem excluir um administrador global ou criar outros administradores. Além disso, eles não podem redefinir senhas para cobrança, globais e administradores de serviço.
 
 ## Permissões de administrador
@@ -68,14 +69,14 @@ O que ele pode fazer | O que não pode fazer
 
 O administrador global tem acesso a todos os recursos administrativos. Por padrão, a pessoa que se inscreve para uma assinatura do Azure recebe a função de administrador global para o diretório. Somente os administradores globais podem atribuir outras funções de administrador.
 
-## Atribuir ou remover funções de administrador
+## Atribuir ou remover funções de administrador 
 
 
 1. No portal clássico do Azure, clique em **Active Directory** e no nome do diretório de sua organização.
 2. Na página **Usuários**, clique no nome de exibição do usuário que deseja editar.
 3. Na lista **Função Organizacional**, selecione a função de administrador que você deseja atribuir a este usuário ou selecione **Usuário** se você quiser remover uma função de administrador existente.
 4. No campo **Endereço de email alternativo**, digite um endereço de email. Este endereço de email é usado para notificações importantes, incluindo redefinição automática de senha, por isso, o usuário deve ser capaz de acessar a conta de email independentemente de poder acessar o Azure ou não.
-5. Selecione **Permitir** ou **Bloquear** para especificar se deseja permitir que o usuário entre e acesse os serviços.
+5. Selecione **Permitir** ou **Bloquear** para especificar se deseja permitir que o usuário entre e acesse os serviços. 
 6. Especifique um local na lista suspensa **Local de Uso**.
 7. Ao terminar, clique em **Salvar**.
 
@@ -85,4 +86,4 @@ O administrador global tem acesso a todos os recursos administrativos. Por padr�
 - [Gerenciar senhas](active-directory-manage-passwords.md)
 - [Gerenciar grupos](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

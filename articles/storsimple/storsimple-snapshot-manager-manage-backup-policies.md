@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/28/2015"
    ms.author="v-sharos" />
 
 # Usar o StorSimple Snapshot Manager para criar e gerenciar políticas de backup
 
 ## Visão geral
 
-Uma política de backup cria um cronograma para o backup de dados de volumes localmente ou na nuvem. Quando cria uma política de backup, você também pode especificar uma política de retenção. (Você pode manter no máximo 64 instantâneos). Para obter mais informações sobre políticas de backup, consulte [Tipos de backup e políticas de backup](storsimple-what-is-snapshot-manager.md#backup-types-and-backup-policies).
+Uma política de backup cria um cronograma para o backup de dados de volumes localmente ou na nuvem. Quando cria uma política de backup, você também pode especificar uma política de retenção. (Você pode manter no máximo 64 instantâneos). Para obter mais informações sobre políticas de backup, consulte [Tipos de Backup](storsimple-what-is-snapshot-manager.md#backup-type) na [StorSimple série 8000: uma solução de nuvem híbrida](storsimple-overview.md).
 
 Este tutorial explica como:
 
@@ -47,7 +47,7 @@ Use o procedimento a seguir para criar uma nova política de backup.
 
    1. Na caixa de texto **Nome**, digite um nome para a política.
 
-   2. Na caixa de texto** Grupo de volumes **, digite o nome do grupo de volumes associado à política.
+   2. Na caixa de texto **Grupo de Volumes**, digite o nome do grupo de volumes associado à política.
 
    3. Selecione **Instantâneo Local** ou **Instantâneo em Nuvem**.
 
@@ -109,7 +109,8 @@ Use o procedimento a seguir para excluir uma política de backup.
 
 2. No painel **Escopo**, clique no nó **Políticas de Backup**. Todas as políticas de backup aparecem no painel **Resultados**.
 
-3. Clique com o botão direito na política de backup que você deseja excluir e clique em **Excluir**. e
+3. Clique com o botão direito do mouse na política de backup que você deseja excluir e clique em **Excluir**.
+
 4. Quando a mensagem de confirmação aparecer, clique em **Sim**.
 
     ![Excluir confirmação da política de backup](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Delete_BU_policy.png)
@@ -119,4 +120,4 @@ Use o procedimento a seguir para excluir uma política de backup.
 - Saiba como [usar o StorSimple Snapshot Manager para administrar sua solução do StorSimple](storsimple-snapshot-manager-admin.md).
 - Saiba como [Usar o StorSimple Snapshot Manager para exibir e gerenciar trabalhos de backup](storsimple-snapshot-manager-manage-backup-jobs.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -18,7 +18,7 @@
 
 # Protegendo o acesso a dados no Banco de Dados de Documentos #
 
-Este artigo fornece uma visão geral de como proteger o acesso a dados armazenados no [Banco de Dados de Documentos do Microsoft Azure](../../services/documentdb/).
+Este artigo fornece uma visão geral de como proteger o acesso a dados armazenados no [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/).
 
 Após ler esta visão geral, você poderá responder as perguntas a seguir:
 
@@ -163,4 +163,4 @@ Para obter facilmente todos os recursos de permissão associados a um determinad
 - Para saber como criar tokens de autorização do Banco de Dados de Documentos, clique [aqui](https://msdn.microsoft.com/library/azure/dn783368.aspx)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

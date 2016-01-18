@@ -21,10 +21,7 @@
 # Conectar-se ao Banco de Dados SQL usando Phyton no Mac OS
 
 
-> [AZURE.SELECTOR]
-- [Node.js](sql-database-develop-nodejs-simple-mac.md)
-- [Python](sql-database-develop-python-simple-mac-osx.md)
-- [Ruby](sql-database-develop-ruby-simple-mac-osx.md)
+[AZURE.INCLUDE [SQL-Database-develop-Includes-Selector-Language-Platform-Depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 Este tópico apresenta um exemplo de código escrito em Python. O exemplo é executado em um computador Mac. O exemplo conecta-se ao Banco de Dados SQL do Azure usando o driver **pymssql**. Além disso, use nosso vídeo [Introdução ao Python no Mac](https://www.youtube.com/watch?v=OMpugPTwnTI) para suplementar esta documentação.
@@ -122,9 +119,9 @@ Este exemplo de código demonstra o uso de transações nas quais você:
 	cursor.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, CURRENT_TIMESTAMP)")
 	cnxn.rollback()
 
-
+ 
 ## Próximas etapas
 
 Para saber mais, consulte o [Centro de Desenvolvedores do Python](/develop/python/).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

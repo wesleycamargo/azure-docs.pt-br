@@ -383,7 +383,7 @@ O principal aspecto deste artigo é entender que modelar dados em um ambiente se
 
 Assim como não há apenas uma forma de representar um dado em uma tela, não há apenas uma forma de modelar seus dados. Você precisa entender eu aplicativo e como ele vai produzir, consumir e processar dados. E então, aplicando algumas das diretrizes apresentadas aqui, você pode começar a criar um modelo que trata das necessidades imediatas do seu aplicativo. Quando seus aplicativos precisarem mudar, você pode tirar proveito da flexibilidade de um banco de dados sem esquemas para adotar as mudanças e desenvolver seu modelo de dados facilmente.
 
-Para saber mais sobre o Banco de Dados de Documentos, consulte a página de [documentação](../../services/documentdb/) do serviço.
+Para saber mais sobre o Banco de Dados de Documentos do Azure, consulte a página de [documentação](https://azure.microsoft.com/documentation/services/documentdb/) do serviço.
 
 Para saber mais sobre o ajuste de índices no Banco de Dados de Documentos do Azure, consulte o artigo sobre as [políticas de indexação](documentdb-indexing-policies.md).
 
@@ -392,4 +392,4 @@ Para saber como fragmentar seus dados em diversas partições, consulte [Partici
 Por fim, para obter diretrizes sobre fragmentação e modelagem de dados para aplicativos multilocatários, consulte [Dimensionando um aplicativo multilocatário com o Banco de Dados de Documentos do Azure](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -1,23 +1,23 @@
 <properties 
-	pageTitle="Introdução à auditoria do banco de dados do SQL Data Warehouse | Microsoft Azure" 
-	description="Introdução à auditoria do banco de dados do SQL Data Warehouse" 
-	services="sql-data-warehouse" 
-	documentationCenter="" 
-	authors="twounder" 
-	manager="" 
-	editor=""/>
+   pageTitle="Introdução à auditoria do banco de dados do SQL Data Warehouse | Microsoft Azure" 
+   description="Introdução à auditoria do banco de dados do SQL Data Warehouse" 
+   services="sql-data-warehouse" 
+   documentationCenter="" 
+   authors="twounder" 
+   manager="" 
+   editor=""/>
 
 <tags 
-	ms.service="sql-data-warehouse" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/06/2015" 
-	ms.author="twounder"/>
+   ms.service="sql-data-warehouse" 
+   ms.workload="data-management" 
+   ms.tgt_pltfrm="na" 
+   ms.devlang="na" 
+   ms.topic="article" 
+   ms.date="01/04/2016" 
+   ms.author="twounder"/>
  
 # Introdução à auditoria do banco de dados do SQL Data Warehouse 
-<p> A Auditoria do SQL Data Warehouse do Azure monitora eventos do banco de dados e grava eventos auditados em um log de auditoria na sua conta de Armazenamento do Azure.
+A Auditoria do SQL Data Warehouse do Azure monitora eventos do banco de dados e grava eventos auditados em um log de auditoria na sua conta de Armazenamento do Azure.
 
 A auditoria pode ajudar você a manter uma conformidade regulatória, a entender a atividade do banco de dados e a obter informações sobre discrepâncias e anomalias que poderiam indicar preocupações de negócios ou suspeitas de violações de segurança.
 
@@ -141,4 +141,4 @@ Quando você estiver no modo do Gerenciador de Recursos do Azure, execute `Get-C
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

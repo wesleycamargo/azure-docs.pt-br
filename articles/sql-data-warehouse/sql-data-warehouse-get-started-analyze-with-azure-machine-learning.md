@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="01/04/2016"
    ms.author="sahajs"/>
 
 # Analisar dados com o Aprendizado de Máquina do Azure
@@ -139,4 +139,4 @@ Para saber mais sobre a criação de modelos de aprendizado de máquina de previ
 [carregar dados de exemplo manualmente]: sql-data-warehouse-get-started-manually-load-samples.md
 [Criar um SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0107_2016-->

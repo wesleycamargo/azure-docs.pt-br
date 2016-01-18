@@ -80,7 +80,7 @@ Ao provisionar um cluster HDInsight, você especifica uma conta de Armazenamento
 
 1. Faça logon no [Portal Clássico do Azure][azure-classic-portal].
 	
-	> [AZURE.NOTE]Atualmente, há suporte para o Azure HDInsight no Portal Clássico do Azure, enquanto que o Banco de Dados de Documentos do Azure existe somente no Portal do Microsoft Azure.
+	> [AZURE.NOTE] Atualmente, há suporte para o Azure HDInsight no Portal Clássico do Azure, enquanto que o Banco de Dados de Documentos do Azure existe somente no Portal do Microsoft Azure.
 
 2. Clique em **+ NOVO** no canto inferior esquerdo, aponte para **SERVIÇOS DE DADOS**, aponte para **ARMAZENAMENTO** e, em seguida, clique em **CRIAÇÃO RÁPIDA**.
 	![Portal Clássico do Azure, em que você pode usar a Criação Rápida para configurar uma nova conta de armazenamento.][image-storageaccount-quickcreate]
@@ -105,8 +105,8 @@ Este tutorial usa a Ação de Script do Portal Clássico do Azure para personali
 	![Fornecer detalhes do cluster HDInsight inicial do Hadoop][image-customprovision-page1]
 
 	<table border='1'>
-		<tr><th>Propriedade</th><th>Valor</th></tr>
-		<tr><td>Nome do cluster</td><td>Nome do cluster.<br/>
+	<tr><th>Propriedade</th><th>Valor</th></tr>
+	<tr><td>Nome do cluster</td><td>Nome do cluster.<br/>
 			O nome DNS deve começar e terminar com um número alfanumérico e pode conter traços.<br/>
 			O campo deve ser uma cadeia com 3 a 63 caracteres.</td></tr>
 		<tr><td>Nome da assinatura</td>
@@ -128,17 +128,17 @@ Este tutorial usa a Ação de Script do Portal Clássico do Azure para personali
 	<tr><td>Nós de dados</td><td>Número de nós de dados que você deseja implantar. </br>Observe que os nós de dados do HDInsight estão associados ao desempenho e ao preço.</td></tr>
 	<tr><td>Região/Rede virtual</td><td>Escolha a mesma região da <strong>Conta de armazenamento</strong> recém-criada e da <strong>Conta do Banco de Dados de Documentos</strong>. </br> O HDInsight requer que a conta de armazenamento esteja localizada na mesma região. Mais adiante na configuração, você poderá escolher somente uma conta de armazenamento que esteja na mesma região especificada aqui.</td></tr>
 	</table>
-
+	
     Clique na seta à direita.
 
 5. Na página **Configurar Usuário de Cluster**, forneça os seguintes valores:
 
     <table border='1'>
-	<tr><th>Propriedade</th><th>Valor</th></tr>
-	<tr><td>Nome de usuário</td>
-		<td>Especifique o nome do usuário do cluster HDInsight.</td></tr>
-	<tr><td>Senha/Confirmar senha</td>
-		<td>Especifique a senha do usuário do cluster HDInsight.</td></tr>
+		<tr><th>Propriedade</th><th>Valor</th></tr>
+		<tr><td>Nome de usuário</td>
+			<td>Especifique o nome do usuário do cluster HDInsight.</td></tr>
+		<tr><td>Senha/Confirmar senha</td>
+			<td>Especifique a senha do usuário do cluster HDInsight.</td></tr>
 	</table>
 	
     Clique na seta à direita.
@@ -162,7 +162,7 @@ Este tutorial usa a Ação de Script do Portal Clássico do Azure para personali
 			<td>Especifica o contêiner padrão na conta de armazenamento usado como o sistema de arquivos padrão para o cluster HDInsight. Se você escolher <strong>Usar Armazenamento Existente</strong> para o campo <strong>Conta de Armazenamento</strong> e não houver contêineres na conta, o contêiner será criado por padrão com o mesmo nome do cluster. Se um contêiner com o nome do cluster já existir, será acrescentado um número de sequência ao nome do contêiner.
 	    </td></tr>
 		<tr><td>Contas de armazenamento adicionais</td>
-			<td>O HDInsight dá suporte a várias contas de armazenamento. Não há limites de contas de armazenamento adicionais que podem ser usadas por um cluster. No entanto, se você criar um cluster usando o Portal Clássico do Azure, você terá um limite de sete, devido às restrições da interface do usuário. Cada conta de armazenamento adicional que você especificar adiciona uma página extra de Conta de Armazenamento ao assistente, onde você pode especificar as informações da conta.</td></tr>
+			<td>O HDInsight dá suporte a várias contas de armazenamento. Não há limites de contas de armazenamento adicionais que podem ser usadas por um cluster. No entanto, se criar um cluster usando o Portal do Azure, você terá um limite de sete contas devido às restrições da interface do usuário. Cada conta de armazenamento adicional que você especificar adiciona uma página extra de Conta de Armazenamento ao assistente, onde você pode especificar as informações da conta.</td></tr>
 	</table>
 
 	Clique na seta à direita.
@@ -192,7 +192,7 @@ Este tutorial usa a Ação de Script do Portal Clássico do Azure para personali
 
 1. Instale o PowerShell do Azure. As instruções podem ser encontradas [aqui][powershell-install-configure].
 
-	> [AZURE.NOTE]Como alternativa, só para consultas Hive, você pode usar o Editor de Hive online do HDInsight. Para fazer isso, entre no [Portal Clássico do Azure][azure-classic-portal] e clique em **HDInsight** no painel esquerdo para exibir uma lista dos clusters HDInsight. Clique no cluster no qual deseja executar consultas Hive e clique em **Console de Consulta**.
+	> [AZURE.NOTE] Como alternativa, só para consultas Hive, você pode usar o Editor de Hive online do HDInsight. Para fazer isso, entre no [Portal Clássico do Azure][azure-classic-portal] e clique em **HDInsight** no painel esquerdo para exibir uma lista dos clusters HDInsight. Clique no cluster no qual deseja executar consultas Hive e clique em **Console de Consulta**.
 
 2. Abra o Ambiente de Script Integrado do PowerShell do Azure:
 	- Em um computador com Windows 8 ou Windows Server 2012 ou posterior, você pode usar a Pesquisa interna. Na tela Inicial, digite **powershell ise** e clique em **Inserir**. 
@@ -227,8 +227,8 @@ Este tutorial usa a Ação de Script do Portal Clássico do Azure para personali
 
 	<p>Primeiro, vamos criar uma tabela Hive por meio da coleção do Banco de Dados de Documentos. Adicione o seguinte trecho de código ao painel de Script do PowerShell <strong>após</strong> o trecho de código do n.º 1. Inclua o parâmetro opcional DocumentDB.query para limitar os documentos a somente _ts e _rid. </p>
 
-    > [AZURE.NOTE] **Ter nomeado DocumentDB.inputCollections não foi um erro**. Sim, podemos permitir a adição de várias coleções como uma entrada: </br>
-    '*DocumentDB.inputCollections*' = '*<Nome 1 de Coleção de Entrada de Banco de Dados de Documentos>*,*<Nome 2 de Coleção de Entrada de Banco de Dados de Documentos>*' </br> Os nomes de coleção são separados sem espaços, usando apenas uma única vírgula.
+	> [AZURE.NOTE]**Ter nomeado DocumentDB.inputCollections não foi um erro**. Sim, podemos permitir a adição de várias coleções como uma entrada: </br>
+    '*DocumentDB.inputCollections*' = '*\<Nome 1 de Coleção de Entrada de Banco de Dados de Documentos\>*,*\<Nome 2 de Coleção de Entrada de Banco de Dados de Documentos\>*' </br>Os nomes de coleção são separados sem espaços, usando apenas uma única vírgula.
 
 
 		# Create a Hive table using data from DocumentDB. Pass DocumentDB the query to filter transferred data to _rid and _ts.
@@ -244,8 +244,8 @@ Este tutorial usa a Ação de Script do Portal Clássico do Azure para personali
  
 3.  Em seguida, vamos criar uma tabela Hive para a coleção de saída. As propriedades do documento de saída serão o mês, dia, hora, minuto e o número total de ocorrências.
 
-	> [AZURE.NOTE] **Mais uma vez, ter nomeado DocumentDB.outputCollections não foi um erro.** Sim, podemos permitir a adição de várias coleções como uma saída: </br>
-    '*DocumentDB.outputCollections*' = '*<Nome 1 de Coleção de Saída de Banco de Dados de Documentos>*,*<Nome 2 de Coleção de Saída de Banco de Dados de Documentos>*' </br> Os nomes de coleção são separados sem espaços, usando apenas uma única vírgula. </br></br>
+	> [AZURE.NOTE]**Mais uma vez, ter nomeado DocumentDB.outputCollections não foi um erro.** Sim, podemos permitir a adição de várias coleções como uma saída: </br>
+    '*DocumentDB.outputCollections*' = '*\<Nome 1 de Coleção de Saída de Banco de Dados de Documentos\>*,*\<Nome 2 de Coleção de Saída de Banco de Dados de Documentos\>*' </br> Os nomes de coleção são separados sem espaços, usando apenas uma única vírgula. </br></br>
     Os documentos são distribuídos por round robin entre várias coleções. Um lote de documentos será armazenado em uma coleção, um segundo lote de documentos será armazenado na coleção seguinte e assim por diante.
 
 		# Create a Hive table for the output data to DocumentDB.
@@ -311,7 +311,7 @@ Este tutorial usa a Ação de Script do Portal Clássico do Azure para personali
 
 ## <a name="RunPig"></a>Etapa 5: Executar um trabalho Pig usando o Banco de Dados de Documentos e o HDInsight
 
-> [AZURE.IMPORTANT] Todas as variáveis indicadas entre < e > devem ser preenchidas usando suas configurações.
+> [AZURE.IMPORTANT]Todas as variáveis indicadas entre < e > devem ser preenchidas usando suas configurações.
 
 1. Defina as seguintes variáveis no seu Painel de Script do PowerShell.
 
@@ -325,7 +325,7 @@ Este tutorial usa a Ação de Script do Portal Clássico do Azure para personali
     <p>Primeiro, carregue documentos do Banco de Dados de Documentos no HDInsight. Adicione o seguinte trecho de código ao painel de Script do PowerShell <strong>após</strong> o trecho de código do n.º 1. Adicione uma consulta do Banco de Dados de Documentos ao parâmetro de consulta opcional do Banco de Dados de Documentos para limitar os documentos a somente _ts e _rid.</p>
 
     > [AZURE.NOTE]Sim, podemos permitir a adição de várias coleções como uma entrada: </br>
-    '*<Nome 1 de Coleção de Entrada de Banco de Dados de Documentos>*,*<Nome 2 de Coleção de Entrada de Banco de Dados de Documentos>*'</br> Os nomes de coleção são separados sem espaços, usando apenas uma única vírgula. </b>
+    '*\<Nome 1 de Coleção de Entrada de Banco de Dados de Documentos\>*,*\<Nome 2 de Coleção de Entrada de Banco de Dados de Documentos\>*'</br> Os nomes de coleção são separados sem espaços, usando apenas uma única vírgula. </b>
 
 	OS documentos são distribuídos em round robin entre várias coleções. Um lote de documentos será armazenado em uma coleção, um segundo lote de documentos será armazenado na coleção seguinte e assim por diante.
 
@@ -346,8 +346,8 @@ Este tutorial usa a Ação de Script do Portal Clássico do Azure para personali
 4. Por fim, vamos armazenar os resultados em nossa nova coleção de saída.
 
     > [AZURE.NOTE]Sim, podemos permitir a adição de várias coleções como uma entrada: </br>
-    '<Nome 1 de Coleção de Saída de Banco de Dados de Documentos>,<Nome 2 de Coleção de Saída de Banco de Dados de Documentos>'</br>
-    Os nomes de coleção são separados sem espaços, usando apenas uma única vírgula.</br> Os documentos serão distribuídos em round robin entre os vários documentos. Um lote de documentos será armazenado em uma coleção, um segundo lote de documentos será armazenado na coleção seguinte e assim por diante.
+    '\<Nome 1 de Coleção de Saída de Banco de Dados de Documentos\>,\<Nome 2 de Coleção de Saída de Banco de Dados de Documentos\>'</br> Os nomes de coleção são separados sem espaços, usando apenas uma única vírgula.</br>
+    Os documentos serão distribuídos em round robin entre os vários documentos. Um lote de documentos será armazenado em uma coleção, um segundo lote de documentos será armazenado na coleção seguinte e assim por diante.
 
 		# Store output data to DocumentDB.
         $queryStringPart3 = "STORE by_minute_count INTO '<DocumentDB Endpoint>' " +
@@ -476,8 +476,8 @@ Para saber mais, consulte os seguintes artigos:
 [hdinsight-custom-provision]: ../hdinsight/hdinsight-provision-clusters.md#powershell
 [hdinsight-develop-deploy-java-mapreduce]: ../hdinsight/hdinsight-develop-deploy-java-mapreduce.md
 [hdinsight-hadoop-customize-cluster]: ../hdinsight/hdinsight-hadoop-customize-cluster.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-get-started]: ../hdinsight/hdinsight-hadoop-tutorial-get-started-windows.md
+[hdinsight-storage]: ../hdinsight/hdinsight-hadoop-use-blob-storage.md
 [hdinsight-use-hive]: ../hdinsight/hdinsight-use-hive.md
 [hdinsight-use-mapreduce]: ../hdinsight/hdinsight-use-mapreduce.md
 [hdinsight-use-pig]: ../hdinsight/hdinsight-use-pig.md
@@ -490,7 +490,7 @@ Para saber mais, consulte os seguintes artigos:
 [image-mapreduce-query-results]: ./media/documentdb-run-hadoop-with-hdinsight/mapreducequeryresults.PNG
 [image-pig-query-results]: ./media/documentdb-run-hadoop-with-hdinsight/pigqueryresults.PNG
 
-[powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: ../powershell-install-configure.md
  
 
-<!-----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

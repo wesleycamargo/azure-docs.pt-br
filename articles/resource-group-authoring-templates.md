@@ -13,20 +13,39 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/07/2015"
+   ms.date="01/05/2016"
    ms.author="tomfitz"/>
 
 # Criando modelos do Gerenciador de Recursos do Azure
 
-Normalmente, os aplicativos do Azure exigem uma combinação de recursos (como servidor de banco de dados, banco de dados ou site) para cumprir as metas desejadas. Em vez de implantar e gerenciar cada recurso separadamente, você pode criar um modelo do Gerenciador de Recursos do Azure que implanta e provisiona todos os recursos para seu aplicativo em uma única operação coordenada. No modelo, você define os recursos que são necessários para o aplicativo e especifica os parâmetros de implantação para inserir valores para ambientes diferentes. O modelo consiste em JSON e expressões que podem ser usados na construção de valores para sua implantação.
+Normalmente, os aplicativos do Azure exigem uma combinação de recursos (como servidor de banco de dados, banco de dados ou site) para cumprir as metas desejadas. Em vez de implantar e gerenciar cada recurso separadamente, você pode criar um modelo do Gerenciador de Recursos do Azure que implanta e provisiona todos os recursos para seu aplicativo em uma única operação coordenada. No modelo, você define os recursos que são necessários para o aplicativo e especifica os parâmetros de implantação para inserir valores para ambientes diferentes. O modelo consiste em JSON e expressões que podem ser usados na construção de valores para sua implantação. Este tópico descreve as seções do modelo.
 
-Este tópico descreve as seções do modelo. Para os esquemas reais, consulte [Esquemas do Gerenciador de Recursos do Azure](https://github.com/Azure/azure-resource-manager-schemas). O Visual Studio fornece ferramentas para ajudá-lo com a criação de modelos. Para obter mais informações sobre como usar o Visual Studio com seus modelos, consulte [Criar e implantar grupos de recursos do Azure com o Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) e modelos [do Gerenciador de Recursos de Edição com o Visual Studio](vs-azure-tools-resource-group-adding-resources.md).
+O Visual Studio fornece ferramentas para ajudá-lo com a criação de modelos. Para obter mais informações sobre como usar o Visual Studio com seus modelos, consulte [Criar e implantar grupos de recursos do Azure com o Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) e modelos [do Gerenciador de Recursos de Edição com o Visual Studio](vs-azure-tools-resource-group-adding-resources.md).
 
 Você deve limitar o tamanho de seu modelo para 1 MB, e cada arquivo de parâmetro para 64 KB. O limite de 1 MB se aplica para o estado final do modelo depois que ele foi expandido com definições de recurso iterativo e valores para variáveis e parâmetros.
 
+## Planejar seu modelo
+
+Antes de começar o modelo, você deve reservar algum tempo para descobrir o que deseja implantar e como usará o modelo. Especificamente, você deve considerar:
+
+1. Quais tipos de recursos você precisa implantar
+2. Onde esses recursos residirão
+3. Qual versão da API do provedor de recursos você usará ao implantar o recurso
+4. Se algum dos recursos deve ser implantado após outros recursos
+5. Quais valores você deseja transmitir durante a implantação e quais valores deseja definir diretamente no modelo
+6. Se você precisa retornar valores da implantação
+
+Para ajudá-lo a descobrir quais tipos de recursos estão disponíveis para implantação, quais regiões têm suporte para o tipo e as versões de API disponíveis para cada tipo, consulte [Provedores, regiões, versões de API e esquemas do Gerenciador de Recursos](resource-manager-supported-services.md). Este tópico fornece exemplos e links que ajudarão a determinar os valores que você precisa fornecer em seu modelo.
+
+Se um recurso precisar ser implantado após outro recurso, você pode marcá-lo como dependente do outro recurso. Você verá como fazer isso na seção [Recursos](#resources) abaixo.
+
+Você pode variar o resultado da implantação do seu modelo fornecendo valores de parâmetros durante a execução. Você verá como fazer isso na seção [Parâmetros](#parameters) abaixo.
+
+Você pode retornar valores de sua implantação na seção [Saídas](#outputs).
+
 ## Formato de modelo
 
-O exemplo a seguir mostra as seções que compõem a estrutura básica de um modelo.
+Em sua estrutura mais simples, um modelo contém os seguintes elementos.
 
     {
        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -39,11 +58,11 @@ O exemplo a seguir mostra as seções que compõem a estrutura básica de um mod
 
 | Nome do elemento | Obrigatório | Descrição
 | :------------: | :------: | :----------
-| $schema | Sim | Local do arquivo de esquema JSON que descreve a versão da linguagem do modelo.
-| contentVersion | Sim | Versão do modelo (como 1.0.0.0). Ao implantar recursos com o modelo, esse valor pode ser usado para garantir que o modelo certo esteja sendo usado.
+| $schema | Sim | Local do arquivo de esquema JSON que descreve a versão da linguagem do modelo. Você deve usar a URL mostrada acima.
+| contentVersion | Sim | Versão do modelo (como 1.0.0.0). Você pode fornecer qualquer valor para esse elemento. Ao implantar recursos com o modelo, esse valor pode ser usado para garantir que o modelo certo esteja sendo usado.
 | parameters | Não | Valores que são fornecidos quando a implantação é executada para personalizar a implantação dos recursos.
 | variáveis | Não | Valores que são usados como fragmentos JSON no modelo para simplificar expressões de linguagem do modelo.
-| recursos | Sim | Tipos de serviço que são implantados ou atualizados em um grupo de recursos.
+| recursos | Sim | Tipos de recursos que são implantados ou atualizados em um grupo de recursos.
 | outputs | Não | Valores que são retornados após a implantação.
 
 Examinaremos as seções do modelo em detalhes mais adiante neste tópico. Por enquanto, analisaremos parte da sintaxe que compõe o modelo.
@@ -67,9 +86,11 @@ Para obter a lista completa das funções de modelo, veja [Funções de modelo d
 
 ## Parâmetros
 
-Na seção de parâmetros do modelo, você deve especificar os valores que um usuário pode inserir ao implantar os recursos. Você pode usar esses valores de parâmetro em todo o modelo para definir valores para os recursos implantados. Somente os parâmetros que são declarados na seção de parâmetros podem ser usados em outras seções do modelo.
+Na seção de parâmetros do modelo, você deve especificar os valores que você pode inserir ao implantar os recursos. Esses valores de parâmetro permitem personalizar a implantação fornecendo valores que são personalizados para um determinado ambiente (como desenvolvimento, teste e produção). Você não precisa fornecer parâmetros em seu modelo, mas sem parâmetros o modelo sempre implantaria os mesmos recursos com o mesmo nomes, locais e propriedades.
 
-Na seção de parâmetros, é possível usar um valor de parâmetro para construir outro valor de parâmetro. Esse tipo de operação geralmente ocorre na seção de variáveis.
+Você pode usar esses valores de parâmetro em todo o modelo para definir valores para os recursos implantados. Somente os parâmetros que são declarados na seção de parâmetros podem ser usados em outras seções do modelo.
+
+Na seção de parâmetros, é possível usar um valor de parâmetro para construir outro valor de parâmetro. Construa novos valores na seção de variáveis.
 
 Você define parâmetros com a seguinte estrutura:
 
@@ -150,7 +171,7 @@ O seguinte exemplo mostra como definir parâmetros:
 
 ## Variáveis
 
-Na seção de variáveis, você constroi valores que podem ser usados para simplificar expressões de idioma do modelo. Normalmente, essas variáveis serão baseadas em valores fornecidos pelos parâmetros.
+Na seção de variáveis, você constrói valores que podem ser usados em todo o seu modelo. Normalmente, essas variáveis serão baseadas em valores fornecidos pelos parâmetros. Você não precisa definir variáveis, mas normalmente elas simplificam seu modelo reduzindo expressões complexas.
 
 Você define variáveis com a seguinte estrutura:
 
@@ -204,7 +225,7 @@ O próximo exemplo mostra uma variável que é um tipo JSON complexo e variávei
 
 ## Recursos
 
-Na seção de recursos, você define os recursos que são implantados ou atualizados.
+Na seção de recursos, você define os recursos que são implantados ou atualizados. É aqui que o modelo pode ficar mais complicado, porque você precisa entender os tipos que está implantando para fornecer os valores corretos. Para aprender a maior parte do que precisa saber sobre provedores de recursos, consulte [Provedores, regiões, versões de API e esquemas do Gerenciador de Recursos](resource-manager-supported-services.md).
 
 Você define recursos com a seguinte estrutura:
 
@@ -221,7 +242,7 @@ Você define recursos com a seguinte estrutura:
          ],
          "properties": "<settings-for-the-resource>",
          "resources": [
-           "<array-of-dependent-resources>"
+           "<array-of-child-resources>"
          ]
        }
     ]
@@ -231,18 +252,46 @@ Você define recursos com a seguinte estrutura:
 | apiVersion | Sim | Versão da API REST a ser usada para criar o recurso. Para determinar os números de versão disponíveis para um tipo de recurso específico, confira [Versões da API com suporte](../resource-manager-supported-services/#supported-api-versions).
 | type | Sim | Tipo do recurso. Esse valor é uma combinação do namespace do provedor de recursos e do tipo de recurso que tem suporte do provedor de recursos.
 | name | Sim | Nome do recurso. O nome deve seguir as restrições de componente URI definidas em RFC3986.
-| location | Não | Locais geográficos com suporte do recurso fornecido.
+| location | Não | Locais geográficos com suporte do recurso fornecido. Para determinar os locais disponíveis, consulte [Regiões com suporte](../resource-manager-supported-services/#supported-regions).
 | marcas | Não | Marcas que são associadas ao recurso.
 | comentários | Não | Suas anotações para documentar os recursos em seu modelo
 | dependsOn | Não | Recursos dos quais o recurso que está sendo definido depende. As dependências entre recursos são avaliadas e os recursos são implantados na ordem de dependência. Quando os recursos não dependem uns dos outros, é possível que tentem ser implantados paralelamente. O valor pode ser uma lista separada por vírgulas de nomes de recursos ou identificadores exclusivos de recursos.
-| propriedades | Não | Definições de configuração específicas do recurso.
-| recursos | Não | Recursos filho que dependem do recurso que está sendo definido. Você pode fornecer apenas os tipos de recurso permitidos pelo esquema do recurso pai. O nome totalmente qualificado do tipo de recurso filho inclui o tipo de recurso pai, como **Microsoft.Web/sites/extensions**.
+| propriedades | Não | Definições de configuração específicas do recurso. Os valores para as propriedades são exatamente iguais aos valores que você fornece no corpo da solicitação para a operação da API REST (método PUT) para criar o recurso. Para obter links para a documentação do esquema de recursos ou a API REST, consulte [Provedores, regiões, versões de API e esquemas do Gerenciador de Recursos](resource-manager-supported-services.md).
+| recursos | Não | Recursos filho que dependem do recurso que está sendo definido. Você pode fornecer apenas os tipos de recurso permitidos pelo esquema do recurso pai. O nome totalmente qualificado do tipo de recurso filho inclui o tipo de recurso pai, como **Microsoft.Web/sites/extensions**. A dependência no recurso pai não é implícita; você deve definir explicitamente essa dependência. 
+
 
 Se o nome do recurso não for exclusivo, você poderá usar a função auxiliar **resourceId** (descrita abaixo) para obter o identificador exclusivo de qualquer recurso.
 
-Os valores para o elemento **properties** são exatamente iguais aos valores que você fornece no corpo da solicitação para a operação da API REST (método PUT) para criar o recurso. Consulte [Referência do Azure](https://msdn.microsoft.com/library/azure/mt420159.aspx) para obter as operações da API REST para o recurso que você deseja implantar.
+A seção de recursos contém uma matriz dos recursos a serem implantados. Dentro de cada recurso, você também pode definir uma matriz de recursos filhos para esses recursos. Portanto, a seção de recursos pode ter uma estrutura como:
 
-O exemplo a seguir mostra um recurso **Microsoft.Web/serverfarms** e um recurso **Microsoft.Web/sites** com um recurso **Extensions** aninhado:
+    "resources": [
+       {
+           "name": "resourceA",
+           ...
+       },
+       {
+           "name": "resourceB",
+           ...
+           "resources": [
+               {
+                   "name": "firstChildResourceB",
+                   ...
+               },
+               {   
+                   "name": "secondChildResourceB",
+                   ...
+               }
+           ]
+       },
+       {
+           "name": "resourceC",
+           ...
+       }
+    ]
+
+
+
+O exemplo a seguir mostra um recurso **Microsoft.Web/serverfarms** e um recurso **Microsoft.Web/sites** com um recurso **Extensions** filho. Observe que o site está marcado como dependente no farm de servidores, uma vez que o farm de servidores deve existir antes que o site possa ser implantado. Observe também que o recurso **Extensions** é um filho do site.
 
     "resources": [
         {
@@ -416,9 +465,9 @@ O modelo a seguir implanta um aplicativo Web e o provisiona com o código de um 
     }
 
 ## Próximas etapas
-- Para obter detalhes sobre as funções que você pode usar de dentro de um modelo, consulte [Funções de modelo do Gerenciador de Recursos do Azure](resource-group-template-functions.md)
-- Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o Modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md)
+- Para obter detalhes sobre as funções que você pode usar em um modelo, veja [Funções de modelo do Gerenciador de Recursos do Azure](resource-group-template-functions.md)
+- Para saber como implantar o modelo que você criou, veja [Implantar um aplicativo com o Modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md)
 - Para obter um exemplo detalhado de implantação de um aplicativo, confira [Provisionar e implantar microsserviços de forma previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
 - Para ver os esquemas disponíveis, consulte [Esquemas do Gerenciador de Recursos do Azure](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

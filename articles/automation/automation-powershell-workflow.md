@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Aprendendo o fluxo de trabalho do PowerShell"
-   description="Os runbooks na Automação do Azure são baseados em fluxo de trabalho do Windows PowerShell. Este artigo é concebido como uma lição rápida para autores familiarizados com o PowerShell para entender as diferenças entre o PowerShell e o fluxo de trabalho do PowerShell."
+   description="Este artigo é concebido como uma lição rápida para autores familiarizados com o PowerShell para entender as diferenças entre o PowerShell e o fluxo de trabalho do PowerShell."
    services="automation"
    documentationCenter=""
    authors="bwren"
@@ -25,9 +25,9 @@ Para obter detalhes completos sobre os tópicos nesse artigo, consulte [Introduz
 
 ## Tipos de runbook
 
-Há dois tipos de runbook na Automação do Azure,*textual* e *gráfico*. Você define o tipo de runbook ao criar o runbook e não pode converter um runbook para outro tipo após ele ser criado.
+Há três tipos de runbook na Automação do Azure, *Fluxo de Trabalho do PowerShell*, *PowerShell* e *gráfico*. Você define o tipo de runbook ao criar o runbook e não pode converter um runbook para outro tipo após ele ser criado.
 
-Os runbooks textuais são para usuários que preferem trabalhar diretamente com o código de fluxo de trabalho do PowerShell usando o editor de texto na Automação do Azure ou um editor offline como o PowerShell ISE. Se estiver criando um runbook textual, você deve compreender as informações neste artigo.
+Os runbooks do fluxo de trabalho do PowerShell e os runbooks do PowerShell são para usuários que preferem trabalhar diretamente com o código do PowerShell usando o editor de texto na Automação do Azure ou um editor offline como o PowerShell ISE. Se estiver criando um runbook do Fluxo de Trabalho do PowerShell, você deve compreender as informações nesse artigo.
 
 Os runbooks gráficos permitem que você crie um runbook usando as mesmas atividades e cmdlets, mas usando uma interface gráfica que oculta as complexidades do fluxo de trabalho do PowerShell subjacente. Os conceitos nesse artigo, como pontos de verificação e execução paralela ainda se aplicam aos runbooks gráficos, mas você não precisa se preocupar com a sintaxe detalhada.
 
@@ -249,4 +249,4 @@ Para saber mais sobre pontos de verificação, confira [Adicionando pontos de ve
 
 - [Introduzindo o Fluxo de Trabalho do Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx) 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

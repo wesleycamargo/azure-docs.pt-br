@@ -12,12 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="11/09/2015"
+    ms.date="01/06/2016"
     ms.author="torsteng;sidneyh" />
 
 # Consulta de banco de dados elástico para consultas entre bancos de dados (particionamento vertical)
 
 Este documento explica como configurar a consulta elástica para cenários de consultas entre bancos de dados (particionamento vertical) e como executar as consultas. Para obter uma definição do cenário de particionamento vertical, confira a [Visão geral da consulta de banco de dados elástico do Banco de Dados SQL do Azure (visualização)](sql-database-elastic-query-overview.md).
+
+![Consultar tabelas em bancos de dados diferentes][1]
 
 ## Criando objetos de banco de dados
 
@@ -182,6 +184,9 @@ Depois de definir a fonte de dados externa e as tabelas externas, agora você po
 
 
 <!--Image references-->
+[1]: ./media/sql-database-elastic-query-vertical-partitioning/verticalpartitioning.png
+
+
 <!--anchors-->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->
