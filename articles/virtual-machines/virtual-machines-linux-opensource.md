@@ -107,8 +107,8 @@ CoreOS é uma distribuição pequena e otimizada para escala de computação pur
 ### FreeBSD
 
 12. [VM Depot do MSOpenTech](https://vmdepot.msopentech.com/List/Index?sort=Date&search=FreeBSD)
-13. [Implantação clássica][Blog: Executando FreeBSD no Azure](http://azure.microsoft.com/blog/2014/05/22/running-freebsd-in-azure/)
-14. [Implantação clássica]: [Blog: Implantação fácil do FreeBSD](http://msopentech.com/blog/2014/10/24/easy-deploy-freebsd-microsoft-azure-vm-depot/)
+13. \[Implantação clássica]: [Blog: Executando FreeBSD no Azure](http://azure.microsoft.com/blog/2014/05/22/running-freebsd-in-azure/)
+14. \[Implantação clássica]: [Blog: Implantação fácil do FreeBSD](http://msopentech.com/blog/2014/10/24/easy-deploy-freebsd-microsoft-azure-vm-depot/)
 15. [Blog: Implantando uma imagem de FreeBSD personalizada](http://msopentech.com/blog/2014/05/14/deploy-customize-freebsd-virtual-machine-image-microsoft-azure/)
 17. [Como instalar o Agente Linux do Azure](virtual-machines-linux-agent-user-guide.md)
 18. [Marketplace: Kaspersky AV para servidor de arquivos do Linux](http://azure.microsoft.com/marketplace/partners/kaspersky-lab/kav-for-lfs-kav-for-lfs/)
@@ -302,4 +302,4 @@ Esta seção começa com uma entrada de blog que contém uma série de vídeos e
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
 
-<!---HONumber=AcomDC_0107_2016--->
+<!---HONumber=AcomDC_0107_2016---->
