@@ -22,14 +22,14 @@ O Azure AD Privileged Identity Management permite gerenciar, controlar e monitor
 
 Para habilitar os usuários a executarem operações privilegiadas, as organizações geralmente precisam oferecer a muitos de seus usuários acesso privilegiado permanente ao Azure AD, ou então a recursos do Azure ou Office 365 ou outros aplicativos SaaS. Para muitos clientes, isso é um risco de segurança cada vez maior para seus recursos hospedados em nuvem porque eles não podem monitorar suficientemente o que os usuários estão fazendo com seus privilégios de administrador. Além disso, uma conta de usuário comprometida que tem acesso privilegiado poderá afetar sua segurança de nuvem como um todo. O gerenciamento de identidades com privilégios do AD do Azure ajuda a resolver esse risco.
 
-O gerenciamento de identidades com privilégios do AD do Azure nesta visualização permite que você:
+O Gerenciamento de identidades com privilégios do AD do Azure:
 
 - Descobrir quais usuários são os administradores do AD do Azure
 - Habilitar acesso administrativo sob demanda a recursos de diretório "just in time"
 - Obter relatórios sobre o histórico de acesso de administrador e sobre as alterações nas atribuições de administrador
 - Receber alertas sobre o acesso a uma função com privilégios
 
-Nesta visualização, o gerenciamento de identidades com privilégios do AD do Azure pode gerenciar funções organizacionais internas do Active Directory do Azure:
+O gerenciamento de identidades com privilégios do AD do Azure pode gerenciar funções organizacionais internas do Active Directory do Azure:
 
 - Administrador global
 - Administrador de cobrança
@@ -43,11 +43,13 @@ Historicamente, você pode atribuir um usuário a uma função de administrador 
 
 ## Habilitando o gerenciamento de identidades com privilégios para seu diretório
 
-Você pode começar a usar o gerenciamento de identidades com privilégios do AD do Azure acessando o [portal do Microsoft Azure](https://portal.azure.com/). Por enquanto, o gerenciamento de identidades com privilégios do AD do Azure aparece apenas no portal do Microsoft Azure. Você deve ser um administrador global para habilitar o gerenciamento de identidades com privilégios do AD do Azure para um diretório.
+Você pode começar a usar o gerenciamento de identidades com privilégios do AD do Azure acessando o [Portal do Azure](https://portal.azure.com/). Por enquanto, o gerenciamento de identidades com privilégios do AD do Azure aparece apenas no Portal do Azure. Ele não aparece no portal clássico. Você deve ser um administrador global para habilitar o gerenciamento de identidades com privilégios do AD do Azure para um diretório.
 
 ![][1]
 
-Após inicializar essa extensão, você tornará automaticamente o primeiro **Administrador de segurança** do diretório. Somente um administrador de segurança pode acessar essa extensão para gerenciar o acesso de outros administradores. Durante a inicialização, será adicionado um bloco do gerenciamento de identidades com privilégios do AD do Azure ao quadro inicial do Portal de Visualização do Azure.
+Após inicializar essa extensão, você tornará automaticamente o primeiro **Administrador de segurança** do diretório. Somente um administrador de segurança pode acessar essa extensão para gerenciar o acesso de outros administradores.
+
+Durante a inicialização, será adicionado um bloco do gerenciamento de identidades com privilégios do AD do Azure ao quadro inicial do Portal do Azure.
 
 ## Painel de gerenciamento de identidades com privilégios
 
@@ -79,7 +81,7 @@ Usando a configuração de ativação de função, você pode configurar as prop
 
 Para ativar uma função, um administrador temporário deve solicitar uma "ativação" com limite de tempo para a função. A ativação pode ser solicitada usando a opção **Ativar minha função** no Gerenciamento de identidades com privilégios do AD do Azure.
 
-Um administrador que deseja ativar uma função precisa inicializar o Gerenciamento de identidades com privilégios do AD do Azure no Portal de Visualização do Azure.
+Um administrador que deseja ativar uma função precisa inicializar o Gerenciamento de identidades com privilégios do AD do Azure no Portal do Azure.
 
 Qualquer tipo de administrador pode usar o Gerenciamento de identidades com privilégios do AD do Azure para ativar sua própria função.
 
@@ -104,4 +106,4 @@ Usando o Gerenciamento de identidades com privilégios do AD do Azure, também �
 [5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
 [6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

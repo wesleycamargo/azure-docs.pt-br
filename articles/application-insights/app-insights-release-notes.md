@@ -21,6 +21,7 @@
 Aqui estão as notas de versão detalhadas e instruções de atualização para nossos SDKs:
 
 * [.NET](app-insights-release-notes-dotnet.md)
+* [Adaptadores de log do .NET](app-insights-release-notes-dotnet-logging.md)
 * [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5/releases)
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android/releases)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
@@ -32,4 +33,4 @@ Aqui estão as notas de versão detalhadas e instruções de atualização para 
 
 Leia também nossas [atualizações de serviço](http://azure.microsoft.com/updates/?service=application-insights) que resumem as principais melhorias no serviço Application Insights como um todo.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0107_2016-->

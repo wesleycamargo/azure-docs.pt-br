@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="12/14/2015" 
 	ms.author="tdykstra"/>
 
 # Como usar o Barramento de Serviço do Azure com o SDK de Trabalhos Web
@@ -26,12 +26,21 @@ O guia pressupõe que você saiba [como criar um projeto de Trabalho Web no Visu
 
 Os trechos de código mostram apenas funções, não o código que cria o objeto `JobHost`, como neste exemplo:
 
-		static void Main(string[] args)
-		{
-		    JobHost host = new JobHost();
-		    host.RunAndBlock();
-		}
-		
+```
+public class Program
+{
+   public static void Main()
+   {
+      JobHostConfiguration config = new JobHostConfiguration();
+      config.UseServiceBus();
+      JobHost host = new JobHost(config);
+      host.RunAndBlock();
+   }
+}
+```
+
+Um [exemplo de código completo do Barramento de Serviço](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Program.cs) está no repositório de exemplos azure-webjobs-sdk no GitHub.com.
+
 ## <a id="prerequisites"></a> Pré-requisitos
 
 Para trabalhar com o Barramento de Serviço, você precisa instalar o pacote do NuGet [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/), além dos pacotes do SDK de Trabalhos Web.
@@ -146,6 +155,17 @@ Para gravar uma função que o SDK chama quando uma mensagem é recebida em um t
 
 Para criar uma mensagem em um tópico, use o atributo `ServiceBus` com um nome de tópico da mesma forma que você pode usá-lo com um nome de fila.
 
+## Recursos adicionados na versão 1.1
+
+Os seguintes recursos foram adicionados na versão 1.1:
+
+* Permitir personalização profunda de processamento de mensagens via `ServiceBusConfiguration.MessagingProvider`.
+* `MessagingProvider` dá suporte à personalização do Barramento de Serviço `MessagingFactory` e `NamespaceManager`.
+* Um padrão de estratégia `MessageProcessor` permite que você especifique um processador por fila/tópico.
+* A simultaneidade de processamento de mensagem tem suporte por padrão. 
+* Personalização f’acil de `OnMessageOptions` via `ServiceBusConfiguration.MessageOptions`.
+* Permita que [AccessRights](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Functions.cs#L71) sejam especificados na `ServiceBusTriggerAttribute`/`ServiceBusAttribute` (para cenários em que você talvez não precise gerenciar direitos). 
+
 ## <a id="queues"></a>Tópicos relacionados abordados no artigo de instruções de filas de armazenamento
 
 Para obter informações sobre cenários do SDK de Trabalhos Web não específicos para o barramento de serviço, consulte [Como usar armazenamento de fila do Azure com o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-storage-queues-how-to.md).
@@ -166,4 +186,4 @@ Os tópicos abordados nesse artigo incluem o seguinte:
 Este guia forneceu exemplos de amostras que mostram como lidar com cenários comuns para trabalhar com o Barramento de Serviço do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure – Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

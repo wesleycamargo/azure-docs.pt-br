@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/04/2016"
 	ms.author="markusvi"/>
 
 
@@ -396,7 +396,7 @@ Ambos os exemplos retornam "*Hello world!*"
 ----------
 ### GUID
 
-**Descrição:** <br> A função GUID gera um novo GUID aleatório
+**Descrição:** <br> a função GUID gera um novo GUID aleatório
 
 **Sintaxe:** <br> `str GUID()`
 
@@ -414,7 +414,7 @@ Ambos os exemplos retornam "*Hello world!*"
 - valueIfTrue: um valor que será retornado se condition for avaliada como true.
 - valueIfFalse: um valor que será retornado se condition for avaliada como false.
 
-**Exemplo:** <br> `IIF([employeeType]=“Intern”,”t-“&[alias],[alias])` <br> Retorna o alias de um usuário com"t-" adicionado ao seu início se o usuário for um estagiário; caso contrário, retorna o alias do usuário como está.
+**Exemplo:** <br> `IIF([employeeType]=“Intern”,”t-“&[alias],[alias])` <br> retorna o alias de um usuário com"t-" adicionado ao seu início se o usuário for um estagiário; caso contrário, retorna o alias do usuário como está.
 
 
 
@@ -430,10 +430,10 @@ Ambos os exemplos retornam "*Hello world!*"
 
 - stringcheck: cadeia de caracteres a ser pesquisada <br>
 - stringmatch: cadeia de caracteres a ser localizada <br>
-- start: posição inicial para localizar a subcadeia de caracteres <br>
+- start: posição inicial para se localizar a subcadeia de caracteres <br>
 - compare: vbTextCompare ou vbBinaryCompare
 
-**Comentários:** <br> Retorna a posição em que a subcadeia de caracteres tiver sido encontrada ou 0 se ela não tiver sido encontrada.
+**Comentários:** <br> retorna a posição em que a subcadeia de caracteres foi encontrada ou 0 se ela não for encontrada.
 
 **Exemplo:** <br> `InStr("The quick brown fox","quick")` <br> É avaliado como 5
 
@@ -445,13 +445,13 @@ Ambos os exemplos retornam "*Hello world!*"
 ----------
 ### InStrRev
 
-**Descrição:** <br> A função InStrRev localiza a última ocorrência de uma subcadeia de caracteres em uma cadeia de caracteres
+**Descrição:** <br> a função InStrRev localiza a última ocorrência de uma subcadeia de caracteres em uma cadeia de caracteres
 
 **Sintaxe:** <br> `num InstrRev(str stringcheck, str stringmatch)` <br> `num InstrRev(str stringcheck, str stringmatch, num start)` <br> `num InstrRev(str stringcheck, str stringmatch, num start, enum compare)`
 
 - stringcheck: cadeia de caracteres a ser pesquisada <br>
 - stringmatch: cadeia de caracteres a ser localizada <br>
-- start: posição inicial para localizar a subcadeia de caracteres <br>
+- start: posição inicial para se localizar a subcadeia de caracteres <br>
 - compare: vbTextCompare ou vbBinaryCompare
 
 **Comentários:** <br> Retorna a posição em que a subcadeia de caracteres tiver sido encontrada ou 0 se ela não tiver sido encontrada.
@@ -464,7 +464,7 @@ Ambos os exemplos retornam "*Hello world!*"
 ----------
 ### IsBitSet
 
-**Descrição:** <br> A função IsBitSet testa se um bit está definido ou não
+**Descrição:** <br> a função IsBitSet testa se um bit está definido ou não
 
 **Sintaxe:** <br> `bool IsBitSet(num value, num flag)`
 
@@ -490,7 +490,7 @@ Ambos os exemplos retornam "*Hello world!*"
 ----------
 ###IsEmpty
 
-**Descrição:** <br> A função IsEmpty será avaliada como True se o atributo estiver presente no CS ou MV, mas será avaliada como uma cadeia de caracteres vazia.
+**Descrição:** <br> a função IsEmpty é avaliada como True se o atributo está presente no CS ou MV, mas é avaliada como uma cadeia de caracteres vazia.
 
 **Sintaxe:** <br> `bool IsEmpty(var Expression)`
 
@@ -500,7 +500,7 @@ Ambos os exemplos retornam "*Hello world!*"
 ----------
 ###IsGuid
 
-**Descrição:** <br> A função IsGuid será avaliada como true se a cadeia de caracteres puder ser convertida em um GUID.
+**Descrição:** <br> a função IsGuid é avaliada como true se a cadeia de caracteres pode ser convertida em um GUID.
 
 **Sintaxe:** <br> `bool IsGuid(str GUID)`
 
@@ -522,7 +522,7 @@ usada para determinar se CGuid() será bem-sucedida.
 
 **Comentários:** <br> Para um atributo, um valor nulo é expresso pela ausência do atributo.
 
-**Exemplo:** <br> `IsNull([displayName])` <br> Retornará True se o atributo não estiver presente no CS ou MV.
+**Exemplo:** <br> `IsNull([displayName])` <br> retorna True se o atributo não está presente no CS ou MV.
 
 
 
@@ -534,9 +534,9 @@ usada para determinar se CGuid() será bem-sucedida.
 
 **Sintaxe:** <br> `bool IsNullOrEmpty(var Expression)`
 
-**Comentários:** <br> Para um atributo, isso poderia ser avaliado como True se o atributo estivesse ausente ou presente, mas fosse uma cadeia de caracteres vazia.<br> O inverso dessa função é chamado de IsPresent.
+**Comentários:** <br> para um atributo, isso poderia ser avaliado como True se o atributo estivesse ausente, ou estivesse presente mas fosse uma cadeia de caracteres vazia.<br> O inverso dessa função é chamado de IsPresent.
 
-**Exemplo:** <br> `IsNull([displayName])` <br> Retornará True se o atributo não estiver presente ou for uma cadeia de caracteres vazia no CS ou MV.
+**Exemplo:** <br> `IsNull([displayName])` <br> retorna True se o atributo não está presente ou é uma cadeia de caracteres vazia no CS ou MV.
 
 
 
@@ -544,7 +544,7 @@ usada para determinar se CGuid() será bem-sucedida.
 ----------
 ### IsNumeric
 
-**Descrição:** <br> A função IsNumeric retorna um valor booliano que indica se uma expressão pode ser avaliada como um tipo numérico.
+**Descrição:** <br> a função IsNumeric retorna um valor booliano que indica se uma expressão pode ser avaliada como um tipo numérico.
 
 **Sintaxe:** <br> `bool IsNumeric(var Expression)`
 
@@ -568,7 +568,7 @@ usada para determinar se CGuid() será bem-sucedida.
 ----------
 ### IsPresent
 
-**Descrição:** <br> A função IsPresent retornará true se a expressão for avaliada como uma cadeia de caracteres que não é nula e não está vazia.
+**Descrição:** <br> a função IsPresent retornará true se a expressão for avaliada como uma cadeia de caracteres que não é nula e não está vazia.
 
 **Sintaxe:** <br> `bool IsPresent(var expression)`
 
@@ -584,7 +584,7 @@ usada para determinar se CGuid() será bem-sucedida.
 ----------
 ### Item
 
-**Descrição:** <br> A função Item retorna um item de um atributo/cadeia de caracteres com valores múltiplos.
+**Descrição:** <br> a função Item retorna um item de um atributo/cadeia de caracteres com vários valores.
 
 **Sintaxe:** <br> `var Item(mvstr attribute, num index)`
 
@@ -603,14 +603,14 @@ Gera um erro se o índice está fora dos limites.
 ----------
 ### ItemOrNull
 
-**Descrição:** <br> A função ItemOrNull retorna um item de um atributo/cadeia de caracteres com valores múltiplos.
+**Descrição:** <br> a função ItemOrNull retorna um item de um atributo/cadeia de caracteres com vários valores.
 
 **Sintaxe:** <br> `var ItemOrNull(mvstr attribute, num index)`
 
 - attribute: atributo com valores múltiplos <br>
 - index: índice para um item na cadeia de caracteres com vários valores.
 
-**Comentários:** <br> A função ItemOrNull é útil com a função Contains, desde que a última função retorne o índice para um item no atributo de valores múltiplos.
+**Comentários:** <br> a função ItemOrNull é útil junto à função Contains, desde a última função retorne o índice de um item no atributo de vários valores.
 
 Retorna um valor nulo se o índice está fora dos limites.
 
@@ -637,7 +637,7 @@ Retorna um valor nulo se o índice está fora dos limites.
 ----------
 ### LCase
 
-**Descrição:** <br> A função LCase converte todos os caracteres de uma cadeia em letras minúsculas.
+**Descrição:** <br> a função LCase o converte todos os caracteres em uma cadeia de caracteres em letras minúsculas.
 
 **Sintaxe:** <br> `str LCase(str value)`
 
@@ -664,7 +664,7 @@ Retorna um valor nulo se o índice está fora dos limites.
 
 Se a cadeia de caracteres contém menos caracteres do que o número especificado em numChars, uma cadeia de caracteres idêntica à cadeia de caracteres (ou seja, que contém todos os caracteres no parâmetro 1) será retornada.
 
-**Exemplo:** <br> `Left(“John Doe”, 3)` <br> Retorna "Joh".
+**Exemplo:** <br> `Left(“John Doe”, 3)` <br> retorna “Joh”.
 
 
 
@@ -672,7 +672,7 @@ Se a cadeia de caracteres contém menos caracteres do que o número especificado
 ----------
 ### Len
 
-**Descrição:** <br> A função Len retorna o número de caracteres em uma cadeia de caracteres.
+**Descrição:** <br> a função Len retorna o número de caracteres em uma cadeia de caracteres.
 
 **Sintaxe:** <br> `num Len(str value)`
 
@@ -737,12 +737,12 @@ Se não houver caracteres numChar restantes na cadeia de caracteres na posição
 ----------
 ### NumFromDate
 
-**Descrição:** <br> A função NumFromDate retorna uma data no formato de data do Active Directory.
+**Descrição:** <br> a função NumFromDate retorna uma data no formato de data do Active Directory.
 
 **Sintaxe:** <br> `num NumFromDate(dt value)`
 
 
-**Exemplo:** <br> `NumFromDate(CDate("2012-01-01 23:00:00"))` <br> Retorna 129699324000000000.
+**Exemplo:** <br> `NumFromDate(CDate("2012-01-01 23:00:00"))` <br> retorna 129699324000000000.
 
 
 
@@ -755,7 +755,7 @@ Se não houver caracteres numChar restantes na cadeia de caracteres na posição
 **Sintaxe:** <br> `str PadLeft(str string, num length, str padCharacter)`
 
 - string: a cadeia de caracteres a ser preenchida. <br>
-- length: um inteiro que representa o comprimento desejado da cadeia de caracteres. <br>
+- length: um inteiro que representa o comprimento da cadeia de caracteres desejado. <br>
 - padCharacter: uma cadeia de caracteres que consiste em um único caractere a ser usado como o caractere de preenchimento
 
 
@@ -796,7 +796,7 @@ Se não houver caracteres numChar restantes na cadeia de caracteres na posição
 - Se a cadeia de caracteres é nula, a função retorna uma cadeia de caracteres vazia.
 
 
-**Exemplo:** <br> `PadRight(“User”, 10, “0”)` <br> Retorna "User000000".
+**Exemplo:** <br> `PadRight(“User”, 10, “0”)` <br> retorna "User000000".
 
 
 
@@ -808,7 +808,7 @@ Se não houver caracteres numChar restantes na cadeia de caracteres na posição
 
 **Sintaxe:** <br> `String PCase(string)`
 
-**Exemplo:** <br> `PCase(“TEsT”)` <br> Retorna "Test".
+**Exemplo:** <br> `PCase(“TEsT”)` <br> retorna “Test”.
 
 
 
@@ -816,7 +816,7 @@ Se não houver caracteres numChar restantes na cadeia de caracteres na posição
 ----------
 ### RandomNum
 
-**Descrição:** <br> A função RandomNum retorna um número aleatório entre um intervalo especificado.
+**Descrição:** <br> a função RandomNum retorna um número aleatório entre um intervalo especificado.
 
 **Sintaxe:** <br> `num RandomNum(num start, num end)`
 
@@ -831,7 +831,7 @@ Se não houver caracteres numChar restantes na cadeia de caracteres na posição
 ----------
 ### RemoveDuplicates
 
-**Descrição:** <br> A função RemoveDuplicates usa uma cadeia de caracteres com valores múltiplos e verifica se cada valor é exclusivo.
+**Descrição:** <br> a função RemoveDuplicates usa uma cadeia de caracteres com vários valores e verifica se cada valor é exclusivo.
 
 **Sintaxe:** <br> `mvstr RemoveDuplicates(mvstr attribute)`
 
@@ -920,7 +920,7 @@ Uma cadeia de caracteres que contém os últimos caracteres numChars na cadeia d
 
 Se a cadeia de caracteres contém menos caracteres do que o número especificado em NumChars, uma cadeia de caracteres idêntica à cadeia de caracteres será retornada.
 
-**Exemplo:** <br> `Right(“John Doe”, 3)` <br> Retorna "Doe".
+**Exemplo:** <br> `Right(“John Doe”, 3)` <br> retorna “Doe”.
 
 
 
@@ -949,7 +949,7 @@ Se a cadeia de caracteres contém menos caracteres do que o número especificado
 - delimitador: um único caractere a ser usado como o delimitador.
 - limite: número máximo de valores a serem retornados.
 
-**Exemplo:** <br> `Split(“SMTP:john.doe@contoso.com,smtp:jd@contoso.com”,”,”)` <br> Retorna uma cadeia de caracteres com valores múltiplos e 2 elementos úteis para o atributo proxyAddress
+**Exemplo:** <br> `Split(“SMTP:john.doe@contoso.com,smtp:jd@contoso.com”,”,”)` <br> retorna uma cadeia de caracteres com valores múltiplos e com 2 elementos úteis para o atributo proxyAddress
 
 
 
@@ -957,7 +957,7 @@ Se a cadeia de caracteres contém menos caracteres do que o número especificado
 ----------
 ### StringFromGuid
 
-**Descrição:**<br> A função StringFromGuid usa um GUID binário e o converte em uma cadeia de caracteres
+**Descrição:**<br> a função StringFromGuid usa um GUID binário e o converte-o em uma cadeia de caracteres
 
 **Sintaxe:** <br> `str StringFromGuid(bin GUID)`
 
@@ -984,7 +984,7 @@ Se a cadeia de caracteres contém menos caracteres do que o número especificado
 - expr: expressão variante que você deseja avaliar.
 - value: valor a ser retornado se a expressão correspondente for True.
 
-**Comentários:** <br> A lista de argumentos da função Switch consiste em pares de expressões e valores. As expressões são avaliadas da esquerda para a direita e o valor associado à primeira expressão avaliada como True é retornado. Se as partes não tiverem pares adequados, ocorrerá um erro em tempo de execução.
+**Comentários:** <br> a lista de argumentos da função Switch consiste em pares de expressões e valores. As expressões são avaliadas da esquerda para a direita e o valor associado à primeira expressão avaliada como True é retornado. Se as partes não tiverem pares adequados, ocorrerá um erro em tempo de execução.
 
 Por exemplo, se expr1 for True, o comutador retornará valor1. Se expr-1 for False, mas expr-2 for True, Switch retorna valor-2 e assim por diante.
 
@@ -1006,7 +1006,7 @@ Valor também pode ser a função Error, que retornaria uma cadeia de caracteres
 
 **Sintaxe:** <br> `str Trim(str value)` <br> `mvstr Trim(mvstr value)`
 
-**Exemplo:** <br> `Trim(“ Test ”)` <br> Retorna "Test".
+**Exemplo:** <br> `Trim(“ Test ”)` <br> retorna “Test”.
 
 `Trim([proxyAddresses])` <br> Remove espaços à direita e à esquerda para cada valor no atributo proxyAddress.
 
@@ -1036,7 +1036,7 @@ Valor também pode ser a função Error, que retornaria uma cadeia de caracteres
 - WordNumber: um número que identifica o número de palavras que deve ser retornado.
 - delimitadores: uma cadeia de caracteres que representa o delimitador(es) que deve ser usado para identificar palavras
 
-**Comentários:** <br> Cada cadeia de caracteres separada por um dos caracteres nos delimitadores na cadeia de caracteres é identificada como palavra:
+**Comentários:** <br> cada cadeia de caracteres separada por um dos caracteres delimitadores na cadeia de caracteres é identificada como palavra:
 
 - Se number < 1, retorna uma cadeia de caracteres vazia.
 - Se a cadeia de caracteres for nula, retorna a cadeia de caracteres vazia.
@@ -1058,4 +1058,4 @@ Se a cadeia de caracteres contém um número menor que o número de palavras ou 
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

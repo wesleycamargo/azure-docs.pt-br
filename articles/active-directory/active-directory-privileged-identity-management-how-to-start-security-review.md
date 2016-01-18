@@ -51,7 +51,7 @@ Quando você clicar no botão **Examinar**, as folhas **Iniciar análise de uma 
   - Quantas pessoas estão sendo revisadas?
   - Com que rapidez os usuários poderão adicionar a extensão e concluir a análise?
 4. Clique no botão OK na folha **Alterar padrões**. Ela será fechada.
-5. Clique no botão OK na folha **Iniciar a análise de uma função**. Ela será fechada. Uma notificação será exibida no menu principal do portal. Atualize o painel clicando no botão **Atualizar** e a análise de segurança aparecerá na seção **Revisões de segurança**.
+5. Clique no botão OK na folha **Iniciar a análise de uma função**. Ela será fechada. Uma notificação será exibida no menu principal do portal do Azure. Atualize o painel clicando no botão **Atualizar** e a análise de segurança aparecerá na seção **Revisões de segurança**.
 6. Notifique os indivíduos na função de que eles precisarão adicionar a extensão e depois examinar o próprio acesso administrativo. Veja a próxima etapa.
 6. [Examinar acesso administrativo](active-directory-privileged-identity-management-how-to-perform-security-review.md)
 
@@ -63,4 +63,4 @@ Se você selecionou a opção "Eu" como o revisor, prossiga para a análise de s
 ## Sumário do PIM
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/15/2015"
+   ms.date="01/04/2016"
    ms.author="v-sharos" />
 
 # Usar o serviço StorSimple Manager para gerenciar volumes (Atualização 2)
@@ -108,7 +108,7 @@ Você [criou um volume](storsimple-deployment-walkthrough-u2.md#step-6-create-a-
 
 3. Clique em **Adicionar** na parte inferior da página. Isso inicia o assistente Adicionar um volume.
 
-     ![Configurações básicas do assistente para Adicionar volume](./media/storsimple-manage-volumes-u2/AddVolume1.png)
+     ![Configurações básicas do assistente para Adicionar volume](./media/storsimple-manage-volumes-u2/TieredVolEx.png)
 
 4. No assistente Adicionar um volume, em **Configurações Básicas**, faça o seguinte:
 
@@ -117,22 +117,19 @@ Você [criou um volume](storsimple-deployment-walkthrough-u2.md#step-6-create-a-
   3. Se você selecionou **Hierárquico** na etapa 2, pode marcar a caixa de seleção **Usar este volume para dados de arquivamento acessados com menos frequência** para configurar um volume de arquivamento.
   4. Especifique a **Capacidade Provisionada** para o seu volume em GB ou TB. Consulte [Capacidade provisionada](#provisioned-capacity) para tamanhos máximos de cada dispositivo e tipo de volume. Examine a **Capacidade Disponível** para determinar a quantidade de armazenamento disponível no dispositivo.
 
-    Se você estiver configurando um volume afixado localmente, verá a seguinte mensagem de erro.
+5. Clique no ícone de seta![Ícone de seta](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png). Se você estiver configurando um volume afixado localmente, verá a seguinte mensagem de erro.
 
-    ![Tipo de mensagem Alterar volume](./media/storsimple-manage-volumes-u2/LocalVolMessage.png)
-
-    A página a seguir será exibida.
+    ![Tipo de mensagem Alterar volume](./media/storsimple-manage-volumes-u2/LocalVolEx.png)
+   
+5. Clique no ícone de seta ![Ícone de seta](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png)novamente para ir para a página **Configurações Adicionais**.
 
     ![Configurações adicionais do assistente para Adicionar volume](./media/storsimple-manage-volumes-u2/AddVolume2.png)<br>
-   
-5. Clique no ícone de seta ![Ícone de seta](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png)para ir para a página **Configurações Adicionais**.
 
 6. Em **Configurações Adicionais**, adicione um novo registro de controle de acesso (ACR):
   
   1. Selecione um registro de controle de acesso (ACR) na lista suspensa. Como opção, você também pode abrir um novo ACR. ACRs determinam quais hosts podem acessar os volumes fazendo a correspondência do IQN do host com aqueles listados no registro. Se você não especificar um ACR, verá a seguinte mensagem de erro.
 
         ![Specify ACR](./media/storsimple-manage-volumes-u2/SpecifyACR.png)
-
 
   2. É recomendável que você marque a caixa de seleção **Habilitar um backup padrão para este volume**.
   3. Clique no ícone de verificação ![Ícone de verificação](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png) para criar o volume com as configurações especificadas.
@@ -211,13 +208,11 @@ Altere um volume afixado localmente para um volume em camadas se precisar de esp
     - Se você estiver alterando o tipo de **Localmente afixado**, o StorSimple verificará se há capacidade suficiente.
     - Se você estiver alterando o tipo para **Em camadas** e esse volume for usado em dados de arquivamento, marque a caixa de seleção **Usar este volume para dados de arquivamento acessados com menos frequência**.
 
-    ![Caixa de seleção Arquivo Morto](./media/storsimple-manage-volumes-u2/ModifyVolume1.png)
+        ![Caixa de seleção Arquivo Morto](./media/storsimple-manage-volumes-u2/ModifyTieredVolEx.png)
 
-5. Clique no ícone de seta ![Ícone de seta](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) para ir para a página **Configurações Adicionais**.
+5. Clique no ícone de seta ![Ícone de seta](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) para ir para a página **Configurações Adicionais**. Se você estiver configurando um volume afixado localmente, a seguinte mensagem de erro aparecerá.
 
-    A seguinte mensagem é exibida.
-
-    ![Tipo de mensagem Alterar volume](./media/storsimple-manage-volumes-u2/TypeChangeMessage.png)
+    ![Tipo de mensagem Alterar volume](./media/storsimple-manage-volumes-u2/ModifyLocalVolEx.png)
 
 6. Clique no ícone de seta ![ícone de seta](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) novamente para continuar.
 
@@ -282,8 +277,6 @@ Execute as seguintes etapas para habilitar ou desabilitar o monitoramento para u
 
 5. No Assistente Modificar Volume, em **Configurações Básicas**, selecione **Habilitar** ou **Desabilitar** da lista suspensa **Monitoramento**.
 
-    ![Caixa de seleção Arquivo Morto](./media/storsimple-manage-volumes-u2/ModifyVolume1.png)
-
 ## Próximas etapas
 
 - Saiba como [Clonar um volume StorSimple](storsimple-clone-volume.md).
@@ -291,4 +284,4 @@ Execute as seguintes etapas para habilitar ou desabilitar o monitoramento para u
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

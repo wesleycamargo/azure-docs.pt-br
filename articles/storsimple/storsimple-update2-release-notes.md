@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/22/2015"
+   ms.date="01/04/2016"
    ms.author="v-sharos" />
 
 # Notas de versão da Atualização 2 da série 8000 do StorSimple  
@@ -97,8 +97,10 @@ A tabela a seguir fornece um resumo dos problemas conhecidos nesta versão.
 | 17 | Volumes afixados localmente | O trabalho de restauração expõe o backup do instantâneo temporário no Catálogo de Backup, mas apenas pelo tempo que durar o trabalho de restauração. | Isso poderá ocorrer se o trabalho de restauração tiver apenas volumes fixados localmente ou uma combinação de volumes fixados e em camadas. Se o trabalho de restauração incluir apenas volumes em camadas, esse comportamento não ocorrerá. Nenhuma intervenção do usuário é necessária. | Sim | Não |
 | 18 | Volumes afixados localmente | Se você cancelar um trabalho de restauração e um failover do controlador ocorrer logo em seguida, o trabalho de restauração mostrará **Falha** em vez de **Cancelado**. Se um trabalho de restauração falhar e um failover do controlador ocorrer logo em seguida, o trabalho de restauração mostrará **Cancelado** em vez de **Falha**. | Isso poderá ocorrer se o trabalho de restauração tiver apenas volumes fixados localmente ou uma combinação de volumes fixados e em camadas. Se o trabalho de restauração incluir apenas volumes em camadas, esse comportamento não ocorrerá. Nenhuma intervenção do usuário é necessária. | Sim | Não |
 | 19 |Volumes afixados localmente | Se você cancelar um trabalho de restauração ou se uma restauração falhar e ocorrer um failover do controlador, outro trabalho de restauração aparecerá na página **Trabalhos**. | Isso poderá ocorrer se o trabalho de restauração tiver apenas volumes fixados localmente ou uma combinação de volumes fixados e em camadas. Se o trabalho de restauração incluir apenas volumes em camadas, esse comportamento não ocorrerá. Nenhuma intervenção do usuário é necessária. | Sim | Não |
-| 20 |Mensagem de visualização na criação do Serviço StorSimple Manager | A mensagem de visualização que é exibida na criação de um Serviço StorSimple Manager aplica-se apenas à série Virtual Array do Microsoft Azure StorSimple A série Virtual Array foi lançada recentemente e, no momento, trata-se de uma oferta de visualização, coberta pelos [termos complementares de visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). O Serviço StorSimple Manager e a série de dispositivos físicos StorSimple são soluções de disponibilidade geral e os termos complementares de visualização não se aplicam a eles. | | |
+| 20 |Mensagem de visualização na criação do Serviço StorSimple Manager | A mensagem de visualização que é exibida na criação de um Serviço StorSimple Manager aplica-se apenas à série Virtual Array do Microsoft Azure StorSimple. A série Virtual Array foi lançada recentemente e, no momento, trata-se de uma oferta de visualização, coberta pelos [termos complementares de visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). O Serviço StorSimple Manager e a série de dispositivos físicos StorSimple são soluções de disponibilidade geral e os termos complementares de visualização não se aplicam a eles. | | |
 | 21 |Volumes afixados localmente | O trabalho de restauração expõe um grupo de discos virtuais com o prefixo **tmpCollection** na página **Políticas de Backup**, mas apenas enquanto durar o trabalho de restauração.|Isso poderá ocorrer se o trabalho de restauração tiver apenas volumes fixados localmente ou uma combinação de volumes fixados e em camadas. Se o trabalho de restauração incluir apenas volumes em camadas, esse comportamento não ocorrerá. Nenhuma intervenção do usuário é necessária.|
+| 22 |Volumes afixados localmente | Se você tentar converter um volume em camadas (criado e clonado com a atualização 1.2 ou anterior) em um volume fixo local e o dispositivo estiver ficando sem espaço ou uma houver interrupção na nuvem, os clones podem estar corrompidos.| Esse problema ocorre apenas com volumes que foram criados e clonados com software anterior à Atualização 2. Isso deve ser um cenário incomum.|
+| 23 | Conversão de volume | Não atualize os ACRs conectados a um volume enquanto a conversão de volume estiver em andamento (em camadas para fixados localmente ou vice-versa). Atualizar os ACRs pode resultar em dados corrompidos. | Se necessário, atualize os ACRs antes da conversão de volume e não faça mais atualizações da ACR enquanto a conversão estiver em andamento. |
 
 ## Atualizações de controlador e firmware na Atualização 2
 
@@ -111,4 +113,4 @@ Essa versão atualiza o driver e o firmware de disco no dispositivo.
 
 Esta atualização não pode ser aplicada ao dispositivo virtual. Novos dispositivos virtuais precisarão ser criados.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

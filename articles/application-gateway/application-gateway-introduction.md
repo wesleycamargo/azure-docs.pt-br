@@ -30,23 +30,12 @@ Atualmente, o Application Gateway oferece suporte à entrega de aplicativo de ca
 
 ![Application Gateway](./media/application-gateway-introduction/appgateway1.png)
 
-## Balanceamento de carga de camada 7 HTTP
-
-O Azure fornece o balanceamento de carga de camada 4 por meio do balanceador de carga do Azure funcionando no nível de transporte (TCP/UDP) e com toda a carga do tráfego de rede de entrada balanceada para o serviço do Application Gateway. O Application Gateway, em seguida, aplicará as regras de roteamento ao tráfego HTTP, fornecendo o balanceamento de carga de nível 7 (HTTP). Quando você cria um Application Gateway, um ponto de extremidade (VIP) será associado e usado como o IP público para o tráfego de rede de entrada.
-
-O Application Gateway roteará o tráfego HTTP com base em sua configuração seja uma máquina virtual, serviço de nuvem, aplicativo Web ou um endereço IP externo.
-
-O diagrama abaixo explica como o tráfego flui para o Application Gateway:
-
- 
-![Application Gateway2](./media/application-gateway-introduction/appgateway2.png)
-
 O balanceamento de carga de camada 7 HTTP é útil para:
-
 
 - Aplicativos que exigem solicitações da mesma sessão de usuário/cliente para acessar a mesma VM back-end. Exemplos disso são os aplicativos de carrinho de compras e servidores de email na Web.
 - Aplicativos que deseja liberar de farms do servidor Web da sobrecarga da terminação SSL.
 - Aplicativos, como o CDN, que exigem que várias solicitações HTTP na mesma conexão TCP de execução longa sejam roteadas/balanceadas por carga para diferentes servidores back-end.
+
 
 ## Instâncias e tamanhos de gateway
 
@@ -68,9 +57,7 @@ A tabela abaixo mostra uma taxa de transferência de desempenho médio para cada
 ## Monitoramento da integridade
  
 
-O Application Gateway do Azure monitora a integridade das instâncias de back-end a cada 30 segundos. Ele envia uma solicitação de investigação de integridade do HTTP para cada instância da porta configurada nos elementos de configuração *BackendHttpSettings*. A investigação de integridade espera uma resposta HTTP bem-sucedida com código de status de resposta no intervalo de 200 a 399.
-
-Quando é recebida uma resposta HTTP com êxito, o servidor back-end é marcado como íntegro e continua a receber tráfego do Application Gateway do Azure. Se a investigação falhar, o endereço IP é removido de um pool de back-end íntegro e o tráfego para de fluir para esse servidor. A investigação de integridade ainda continua a cada 30 segundos para a instância de back-end com falha para verificar o status de integridade atual. Quando a instância da back-end responde com êxito à investigação de integridade, ela é adicionada de volta como íntegro ao pool de back-end e o tráfego começa a fluir para essa instância novamente.
+O Application Gateway do Azure monitora automaticamente a integridade das instâncias de back-end. Acesse [investigações e monitoramento de integridade do Application Gateway](application-gateway-probe-overview.md) para obter mais informações.
 
 ## Configurando e gerenciando
 
@@ -84,4 +71,4 @@ Criar um Application Gateway. Confira [Criar um Application Gateway](application
 
 Configurar o descarregamento SSL. Confira [Configurar o descarregamento de SSL com o Application Gateway](application-gateway-ssl.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

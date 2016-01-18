@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Suporte a clientes de versão anterior do SQL Data Warehouse para auditoria de dados | Microsoft Azure" 
-	description="Saiba mais sobre o suporte a clientes de versão anterior do SQL Data Warehouse para auditoria de dados" 
-	services="sql-data-warehouse" 
-	documentationCenter="" 
-	authors="twounder" 
-	manager="" 
-	editor=""/>
+   pageTitle="Suporte a clientes de versão anterior do SQL Data Warehouse para auditoria de dados | Microsoft Azure" 
+   description="Saiba mais sobre o suporte a clientes de versão anterior do SQL Data Warehouse para auditoria de dados" 
+   services="sql-data-warehouse" 
+   documentationCenter="" 
+   authors="twounder" 
+   manager="" 
+   editor=""/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/06/2015" 
-	ms.author="twounder"/>
+   ms.service="sql-database" 
+   ms.workload="data-management" 
+   ms.tgt_pltfrm="na" 
+   ms.devlang="na" 
+   ms.topic="article" 
+   ms.date="01/04/2016" 
+   ms.author="twounder"/>
  
 # SQL Data Warehouse - Suporte a clientes de versão anterior para auditoria e Mascaramento dinâmico de dados 
 
@@ -40,4 +40,4 @@ Uma lista parcial de "Clientes de versão anterior" inclui:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

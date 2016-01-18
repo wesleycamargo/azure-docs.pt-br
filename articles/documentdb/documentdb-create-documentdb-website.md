@@ -32,8 +32,8 @@ Depois de concluir este tutorial, você poderá responder às seguintes pergunta
 Antes de seguir as instruções neste tutorial, certifique-se de ter o seguinte:
 
 - Uma assinatura do Azure. O Azure é uma plataforma baseada em assinatura. Para obter mais informações sobre como adquirir uma assinatura, consulte [Opções de compra](http://azure.microsoft.com/pricing/purchase-options/), [Ofertas para membros](http://azure.microsoft.com/pricing/member-offers/) ou [Avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
-- Uma Conta de Armazenamento do Azure. Para obter instruções, consulte [Sobre Contas de Armazenamento do Azure](../storage-whatis-account.md).
-- Uma estação de trabalho com o Azure PowerShell 0.9.8. Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure](../install-configure-powershell.md). Este tutorial ainda não foi atualizado para o Azure PowerShell 1.0 Preview. 
+- Uma Conta de Armazenamento do Azure. Para obter instruções, consulte [Sobre Contas de Armazenamento do Azure](../storage/storage-create-storage-account.md).
+- Uma estação de trabalho com o Azure PowerShell 0.9.8. Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure](../powershell-install-configure.md). Este tutorial ainda não foi atualizado para o Azure PowerShell 1.0 Preview. 
 
 ##<a id="CreateDB"></a>Etapa 1: Baixe e extraia os arquivos de exemplo ##
 Vamos começar baixando os arquivos de exemplo que usaremos neste tutorial.
@@ -210,4 +210,4 @@ Parabéns! Você implantou um Banco de Dados de Documentos, aplicativo Web do Se
 >[AZURE.NOTE]Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

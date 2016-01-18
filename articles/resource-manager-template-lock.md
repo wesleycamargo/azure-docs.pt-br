@@ -1,6 +1,6 @@
 <properties
    pageTitle="Modelo de bloqueios de recursos do Gerenciador de Recursos | Microsoft Azure"
-   description="Mostra o esquema de bloqueios de recursos do Gerenciador de Recursos."
+   description="Mostra o esquema do Gerenciador de Recursos para a implantação de bloqueios de recursos por meio de um modelo."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/25/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
-# Bloqueios de recursos - esquema do modelo
+# Esquema do modelo de bloqueios de recursos
 
 Cria um novo bloqueio em um recurso e em seus recursos filho.
 
@@ -46,9 +46,7 @@ As tabelas a seguir descrevem os valores necessários para definir no esquema.
 | ---- | ---- | -------- | ---------------- | ----------- |
 | type | enum | Sim | Para recursos: <br />**{namespace}/{tipo}/providers/locks**<br /><br />Para grupos de recursos:<br />**Microsoft.Authorization/locks** | O tipo de recurso a ser criado. |
 | apiVersion | enum | Sim | **01-01-2015** | A versão da API a ser usada para criar o recurso. |  
-| name | cadeia de caracteres | Sim | Para recursos:<br />**{recurso}/Microsoft.Authorization/{nomebloqueio}**<br /><br />Para grupos de recursos:<br />**{nomebloqueio}****<br /><br />até 64 caracteres<br />Não pode conter <, >, %, &, ? ou caracteres de controle. | Um valor que especifica o recurso a ser bloqueado e um nome para o bloqueio. |
-| dependsOn | array | Não | Uma lista separada por vírgulas de nomes de um recurso ou identificadores exclusivos do recurso. | A coleção de recursos do qual o bloqueio depende. Se o recurso que estiver bloqueando for implantado no mesmo modelo, inclua o nome desse recurso neste elemento para garantir que o recurso seja implantado primeiro. |
-| properties | object | Sim | (mostrado abaixo) | Um objeto que identifica o tipo de bloqueio e observações sobre o bloqueio. | 
+| name | cadeia de caracteres | Sim | Para recursos:<br />**{recurso}/Microsoft.Authorization/{nomebloqueio}**<br /><br />Para grupos de recursos:<br />**{nomebloqueio}****<br /><br />até 64 caracteres<br />Não pode conter <, >, %, &, ? ou caracteres de controle. | Um valor que especifica o recurso a ser bloqueado e um nome para o bloqueio. | | dependsOn | array | Não | Uma lista separada por vírgulas de nomes de um recurso ou identificadores exclusivos do recurso. | A coleção de recursos do qual o bloqueio depende. Se o recurso que estiver bloqueando for implantado no mesmo modelo, inclua o nome desse recurso neste elemento para garantir que o recurso seja implantado primeiro. | | properties | object | Sim | (mostrado abaixo) | Um objeto que identifica o tipo de bloqueio e observações sobre o bloqueio. | 
 
 ### properties object
 
@@ -135,4 +133,4 @@ O próximo exemplo aplica um bloqueio somente leitura ao grupo de recursos.
 - Para obter informações sobre a estrutura do modelo, veja [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 - Para obter mais informações sobre bloqueios, confira [Bloquear recursos com o Gerenciador de Recursos do Azure](resource-group-lock-resources.md).
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

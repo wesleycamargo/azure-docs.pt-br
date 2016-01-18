@@ -14,13 +14,13 @@ Neste procedimento, você vai:
 
 1. No servidor Web front-end, abra o Shell de Gerenciamento do SharePoint 2013 como administrador.
 
-2. Navegue até a pasta <boot drive>:\\Arquivos de Programas\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer.
+2. Navegue até a pasta *unidade de inicialização*:\\Arquivos de Programas\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer.
 
 3. Renomeie **Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config** para **web.config**.
 
 4. Use `aspnet_regiis -pdf connectionStrings` para descriptografar o arquivo web.config.
 
-5. No arquivo web.config descriptografado, sob o nó **<connectionStrings>**, adicione a cadeia de conexão para sua instância de servidor SQL e o nome do banco de dados de conteúdo. Veja os exemplos a seguir.
+5. No arquivo web.config descriptografado, sob o nó `connectionStrings`, adicione a cadeia de conexão para sua instância de SQL Server e o nome do banco de dados de conteúdo. Veja os exemplos a seguir.
 
     `<add name=”RBSMaintainerConnectionWSSContent” connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=";Remote Blob Storage Maintainer for WSS_Content";" providerName="System.Data.SqlClient" />`
 
@@ -64,4 +64,4 @@ Neste procedimento, você vai:
 
 2. No servidor Web front-end, na **Administração Central**, edite as **Configurações Gerais do Aplicativo Web** para o banco de dados de conteúdo desejado a fim de reabilitar a Lixeira. Para fazer isso, clique em **Administração Central** -> **Gerenciamento de Aplicativos** -> **Aplicativos Web (Gerenciar aplicativos Web)** -> **SharePoint - 80** -> **Configurações Gerais de Aplicativos**. Defina o Status da Lixeira para **ATIVADO**.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

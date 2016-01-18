@@ -1,12 +1,14 @@
-When adding a site-to-site connection to your virtual network gateway, you first need to create a local network gateway in order to refer to it from your configuration. Verify that you have a local network gateway configured. You can look for local network gateways by using **Browse** and filtering for **Local network gateways**.
+Ao adicionar uma conexão site a site para o gateway de rede virtual, você precisa primeiro criar um gateway de rede local para fazer referência a ele da sua configuração. Verifique se você tem um gateway de rede local configurado. Você pode procurar os gateways de rede local usando **Procurar** e filtrando **Gateways de Rede Local**.
 
-1. From the **Virtual networks** blade, locate your virtual network and click to open the blade. On the blade, you will see your gateway listed as a *Connected device*.
-2. Click on the ***name of your virtual network gateway*** -> **Virtual network gateway** -> **Settings** -> **Connections** and then click **Add**.
-3. **Name** your Connection. For the purposes of this example, we'll use *GW1S2S*
-4. For **Connection type**, select **Site-to-site(IPSec)**
-5. For **Virtual network gateway**, the value is fixed because you are connecting from this gateway.
-6. For **Local network gateway**, click **Choose a local network gateway** and select the local network gateway that you want to use. For this example, we'll use *GW1LocalNet*
-7. For **Shared Key**, the values here must match what you have for your local VPN device. If your VPN device on your local network doesn't provide a shared key, you can make one up and input it here and on your local device. The important thing is that they both match.
-8. The remaining values for **Subscription**, **Resource Group**, and **Location** are fixed.
-9. Click **OK** to create your connection. You'll see *Creating Connection* flash on the screen.
-10. When the connection is complete, you'll see it appear in the **Connections** blade for your Gateway.
+1. Na folha **Redes Virtuais**, localize sua rede virtual e clique para abrir a folha. Na folha, você verá seu gateway listado como um *Dispositivo Conectado*.
+2. Clique no ***nome do seu gateway de rede virtual*** -> **Gateway de Rede Virtual** -> **Configurações** -> **Conexões** e, em seguida, clique em **Adicionar**.
+3. **Nomeie** sua conexão. Para esse exemplo, vamos usar *GW1S2S*
+4. Para **Tipo de Conexão**, selecione **Site a Site (IPsec)**
+5. Para **Gateway de Rede Virtual**, o valor é fixo porque você está se conectando por esse gateway.
+6. Para **Gateway de Rede Local**, clique em **Escolher um Gateway de Rede Local** e selecione o gateway de rede local que você deseja usar. Para esse exemplo, vamos usar *GW1LocalNet*
+7. Para **Chave Compartilhada**, os valores aqui devem coincidir com o que você tem para seu dispositivo VPN local. Se o seu dispositivo VPN na sua rede local não fornecer uma chave compartilhada, você pode compor uma e inseri-la aqui e em seus dispositivos locais. O importante é que ambos correspondam.
+8. O restante dos valores para **Assinatura**, **Grupo de Recursos** e **Local** são fixos.
+9. Clique em **OK** para criar sua conexão. Você verá *Criar Conexão* piscar na tela.
+10. Quando a conexão for concluída, você a verá na folha **Conexões** do seu Gateway.
+
+<!---HONumber=AcomDC_0107_2016-->

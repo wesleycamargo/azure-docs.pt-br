@@ -24,7 +24,7 @@
 
 Este artigo fornece informações detalhadas e exemplos de como trabalhar com um back-end de Node.js nos Aplicativos Móveis do Serviço de Aplicativo do Azure.
 
-> [AZURE.NOTE]Este SDK está em versão de Visualização. Como resultado, não recomendamos que você use esse SDK em produção. Os exemplos neste documento usam v2.0.0-beta1 do [azure-mobile-apps].
+> [AZURE.NOTE]Este SDK está em versão de Visualização. Como resultado, não recomendamos que você use esse SDK em produção. Os exemplos neste documento usam v2.0.0-beta2 do [azure-mobile-apps].
 
 ## <a name="Introduction"></a>Introdução
 
@@ -91,7 +91,7 @@ Você pode encontrar o código para esse aplicativo básico no [exemplo de aplic
 
 O Visual Studio 2015 exige uma extensão para desenvolver aplicativos Node.js no IDE. Para começar, baixe e instale as [Ferramentas do Node.js 1.1 para Visual Studio]. Depois que as ferramentas do Node.js para o Visual Studio estiverem instaladas, crie um aplicativo Express 4.x:
 
-1. Abra o diálogo **Novo Projeto** (de **Arquivo** > **Novo** > **Projeto...**).
+1. Abra a caixa de diálogo **Novo Projeto** (de **Arquivo** > **Novo** > **Projeto...**).
 
 2. Expanda **Modelos** > **JavaScript** > **Node.js**.
 
@@ -362,7 +362,7 @@ O uso do Banco de Dados SQL do Azure como armazenamento de dados é idêntico em
 
 3. Na caixa **Grupo de Recursos**, digite o mesmo nome do aplicativo.
 
-4. O plano Serviço de Aplicativo Padrão será selecionado. Se você deseja alterar o plano do Serviço do Aplicativo, pode fazê-lo clicando em Plano do Serviço de Aplicativo > **+ Criar Novo**. Forneça um nome ao novo Plano de Serviço de Aplicativo e selecione um local apropriado. Clique em Camada de Preços e selecione uma camada de preços apropriada para o serviço. Escolha **Exibir tudo** para ver mais opções de preço, como **Gratuito** e **Compartilhado**. Depois de escolher o tipo de preço, clique em **Selecionar**. De volta à folha **Plano de Serviço de Aplicativo**, clique em **OK**.
+4. O plano Serviço de Aplicativo Padrão será selecionado. Se você deseja alterar o plano do Serviço do Aplicativo, é possível fazer isso clicando em Plano do Serviço de Aplicativo > **+ Criar Novo**. Forneça um nome ao novo Plano de Serviço de Aplicativo e selecione um local apropriado. Clique em Camada de Preços e selecione uma camada de preços apropriada para o serviço. Selecione **Exibir tudo** para exibir mais opções de preço, como **Gratuito** e **Compartilhado**. Depois de selecionar a camada de preços, clique no botão **Selecionar**. De volta à folha **Plano de Serviço de Aplicativo**, clique em **OK**.
 
 5. Clique em **Criar**. Isso cria um back-end de aplicativo móvel onde você, mais tarde, implantará o projeto do servidor. O provisionamento de um back-end de aplicativo móvel pode levar alguns minutos. Depois que o back-end do Aplicativo Móvel for provisionado, o portal abrirá a folha **Configurações** do back-end do Aplicativo Móvel.
 
@@ -374,19 +374,19 @@ Depois que o back-end do Aplicativo Móvel for criado, você poderá conectar um
 
 7. Na folha **Adicionar conexão de dados**, clique em **Banco de Dados SQL - Definir configurações necessárias** > **Criar um novo banco de dados**. Insira o nome do novo banco de dados no campo **Nome**.
 
-8. Clique em **Servidor**. Na folha **Novo servidor**, insira um nome de servidor exclusivo no campo **Nome do servidor** e forneça um **Logon de administrador do servidor** e **Senha** adequados. Verifique se a opção **Permitir que os serviços do Azure acessem o servidor** está marcada. Clique em **OK**.
+8. Clique em **Servidor**. Na folha **Novo servidor**, insira um nome de servidor exclusivo no campo **Nome do servidor** e forneça um **Logon de administração de servidor** e **Senha**adequados. Verifique se **Permitir que os serviços do Azure acessem o servidor** está marcado. Clique em **OK**.
 
 	![Criar um Banco de Dados SQL do Azure][6]
 
 9. Na folha **Novo banco de dados**, clique em **OK**.
 
-10. De volta à folha **Adicionar conexão de dados**, selecione **Cadeia de conexão** e insira o logon e a senha que você acabou de fornecer ao criar o banco de dados. Se você usar um banco de dados existente, forneça as credenciais de logon desse banco de dados. Depois de inserir, clique em **OK**.
+10. De volta à folha **Adicionar conexão de dados**, selecione **Cadeia de conexão**, insira o logon e a senha que você acabou de fornecer ao criar o banco de dados. Se você usar um banco de dados existente, forneça as credenciais de logon desse banco de dados. Depois de inserir, clique em **OK**.
 
 11. De volta à folha **Adicionar conexão de dados**, clique em **OK** para criar o banco de dados.
 
 <!--- END OF ALTERNATE INCLUDE -->
 
-A criação do banco de dados pode levar alguns minutos. Use a área **Notificações** para monitorar o andamento da implantação. Não siga adiante enquanto o banco de dados não tiver sido implantado com êxito. Uma vez implantado com êxito, uma Cadeia de conexão será criada para a instância do Banco de Dados SQL em suas configurações do aplicativo back-end móvel. Você pode ver essa configuração do aplicativo em **Configurações** > **Configurações do aplicativo** > **Cadeias de conexão**.
+A criação do banco de dados pode levar alguns minutos. Use a área **Notificações** para monitorar o progresso da implantação. Não siga adiante enquanto o banco de dados não tiver sido implantado com êxito. Uma vez implantado com êxito, uma Cadeia de conexão será criada para a instância do Banco de Dados SQL em suas configurações do aplicativo back-end móvel. Você pode ver essa configuração do aplicativo em **Configurações** > **Configurações do aplicativo** > **Cadeias de conexão**.
 
 ### <a name="howto-tables-auth"></a>Como exigir autenticação para acesso às tabelas
 
@@ -422,7 +422,7 @@ A propriedade de acesso pode assumir um dentre três valores
 
   - *anonymous* indica que o aplicativo cliente tem permissão para ler os dados sem autenticação
   - *authenticated* indica que o aplicativo cliente deve enviar um token de autenticação válido com a solicitação
-  - *disabled* indica que essa tabela está desabilitada no momento
+  - *desabilitado* indica que essa tabela está desabilitada no momento
 
 Se a propriedade de acesso estiver indefinida, o acesso não autenticado será permitido.
 
@@ -633,7 +633,7 @@ O Serviço de Aplicativo do Azure fornece várias técnicas de depuração e de 
 
 ### <a name="howto-diagnostic-logs"></a>Como gravar nos logs de diagnóstico dos Aplicativos Móveis do Azure
 
-Os aplicativos Node.js têm acesso a uma ampla gama de ferramentas de log de diagnóstico. Internamente, o SDK do Node.js dos Aplicativos Móveis do Azure usa o [Winston] para o registro em log de diagnóstico. Ele é habilitado automaticamente com a habilitação do modo de depuração ou a definição da configuração do aplicativo **MS\_DebugMode** como true no [Portal do Azure]. Os logs gerados aparecerão nos Logs de Diagnóstico no [Portal do Azure].
+Os aplicativos Node.js têm acesso a uma ampla gama de ferramentas de log de diagnóstico. Internamente, o SDK do Node.js dos Aplicativos Móveis do Azure usa o [Winston] para o registro em log de diagnóstico. Ele é ativado automaticamente habilitando o modo de depuração ou definindo a configuração de aplicativo **MS\_DebugMode** como true no [Portal do Azure]. Os logs gerados aparecerão nos Logs de Diagnóstico no [Portal do Azure].
 
 ## <a name="in-portal-editing"></a>Experiência de edição de código no portal
 
@@ -698,7 +698,7 @@ Também é possível executar, do editor, o código no site
 [Como configurar a autenticação do Google]: app-service-mobile-how-to-configure-google-authentication.md
 [Como configurar a autenticação da Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [Como configurar a autenticação do Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
-[Guia de implantação do Serviço de Aplicativo do Azure]: ../app-service-web/web-site-deploy.md
+[Guia de implantação do Serviço de Aplicativo do Azure]: ../app-service-web/web-sites-deploy.md
 [Monitorando um Serviço de Aplicativo do Azure]: ../app-service-web/web-sites-monitor.md
 [Habilitar o registro em log de diagnósticos no Serviço de Aplicativo do Azure]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [Solucionar problemas de um Serviço de Aplicativo do Azure no Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
@@ -722,4 +722,4 @@ Também é possível executar, do editor, o código no site
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

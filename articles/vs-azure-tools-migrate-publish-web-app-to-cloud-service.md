@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/30/2015"
+   ms.date="01/05/2016"
    ms.author="tarcher" />
 
 # Como migrar e publicar um aplicativo Web em um serviço de nuvem do Azure por meio do Visual Studio
@@ -159,7 +159,7 @@ Se você tiver uma cadeia de conexão para o aplicativo Web que usa um banco de 
     |Aplicativo de navegação Silverlight|Na barra de menus, escolha **Depurar**, **Iniciar depuração** (teclado: escolha a chave **F5**.).|Você precisará navegar até a página específica para seu aplicativo usando o seguinte formato de URL:`<url for deployment>/<name of page>.aspx`|
     |Aplicativo de serviço WCF|Você deve definir o arquivo .svc como a página inicial do seu projeto de serviço WCF. Na barra de menus, escolha **Depurar**, **Iniciar depuração** (teclado: escolha a chave **F5**.).|Você precisará navegar até o arquivo svc para seu aplicativo usando o seguinte formato de URL:`<url for deployment>/<name of service file>.svc`|
     |Aplicativo de serviço de fluxo de trabalho WCF|Você deve definir o arquivo .svc como a página inicial do seu projeto de serviço WCF. Na barra de menus, escolha **Depurar**, **Iniciar depuração** (teclado: escolha a chave **F5**.).|Você precisará navegar até o arquivo svc para seu aplicativo usando o seguinte formato de URL:`<url for deployment>/<name of service file>.svc`|
-    |Entidades dinâmicas do ASP.NET|Na barra de menus, escolha **Depurar**, **Iniciar depuração** (teclado: escolha a chave **F5**.).|Você deve atualizar a cadeia de conexão (consulte a próxima seção). Você precisará navegar até a página específica para seu aplicativo usando o seguinte formato de URL: `<url for deployment>/<name of page>.aspx`|
+    |Entidades dinâmicas do ASP.NET|Na barra de menus, escolha **Depurar**, **Iniciar depuração** (teclado: escolha a chave **F5**.).|Você deve atualizar a cadeia de conexão (consulte a próxima seção). Você também precisará navegar até a página específica para seu aplicativo usando o seguinte formato de URL: `<url for deployment>/<name of page>.aspx`|
     |Dados dinâmicos ASP.NET Linq to SQL|Na barra de menus, escolha **Depurar**, **Iniciar depuração** (teclado: escolha a chave **F5**.).|Você deve seguir as etapas neste procedimento: Usar um banco de dados SQL do Azure para seu aplicativo (consulte a seção anterior neste tópico). Você precisará navegar até a página específica para seu aplicativo usando o seguinte formato de URL: `<url for deployment>/<name of page>.aspx`|
 
 ## Atualizar uma cadeia de conexão para Entidades dinâmicas do ASP.NET
@@ -208,4 +208,4 @@ Para publicar um aplicativo Web no Azure, o aplicativo deve usar um dos modelos 
 ## Próximas etapas
 Para obter mais informações sobre a publicação, consulte [preparar, publicar ou implantar um aplicativo do Azure do Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md). Confira também [Configuração de credenciais de autenticação nomeadas](vs-azure-tools-setting-up-named-authentication-credentials.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

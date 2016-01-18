@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
-# Encadeando entidades do Barramento de Serviço com o Encaminhamento Automático
+# Encadeando entidades do Barramento de Serviço com o encaminhamento automático
 
 O recurso *Encaminhamento Automático* permite que você encadeie uma fila ou uma assinatura com outra fila ou tópico que faça parte do mesmo namespace de serviço. Quando o encaminhamento automático está habilitado, o Barramento de Serviço remove automaticamente as mensagens colocadas na primeira fila ou assinatura (origem) e as coloca na segunda fila ou tópico (destino). Observe que ainda é possível enviar uma mensagem diretamente para a entidade de destino. Observe também que não é possível encadear uma subfila, por exemplo, uma fila de mensagens mortas, com outra fila ou tópico.
 
@@ -59,7 +59,7 @@ Para obter informações detalhadas sobre o Encaminhamento Automático, consulte
 - [QueueDescription][]
 - [SubscriptionDescription][]
 
-Para saber mais sobre as melhorias de desempenho do Barramento de Serviço, consulte [Particionando entidades de mensagens][].
+Para saber mais sobre as melhorias de desempenho do Barramento de Serviço, consulte [Entidades de mensagens particionadas][].
 
   [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
   [SubscriptionDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.forwardto.aspx
@@ -67,6 +67,6 @@ Para saber mais sobre as melhorias de desempenho do Barramento de Serviço, cons
   [SubscriptionDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.aspx
   [0]: ./media/service-bus-auto-forwarding/IC628631.gif
   [1]: ./media/service-bus-auto-forwarding/IC628632.gif
-  [Particionando entidades de mensagens]: service-bus-partitioning.md
+  [Entidades de mensagens particionadas]: service-bus-partitioning.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

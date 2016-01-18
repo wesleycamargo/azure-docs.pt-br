@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/10/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # Barramento de Serviço, preços e cobrança
 
 O Barramento de Serviço é oferecido nas camadas Basic, Standard e [Premium](service-bus-premium-messaging.md). Você pode escolher um nível de serviço para cada namespace do Barramento de Serviço criado por você e essa seleção de camada aplica-se a todas as filas, tópicos/assinaturas, retransmissões e Hubs de eventos criado dentro desse namespace.
 
->[AZURE.NOTE]Para saber mais sobre o preço do Barramento de Serviço, consulte [Perguntas Frequentes sobre Preços do Barramento de Serviço](service-bus-pricing-faq.md).
+>[AZURE.NOTE]Para obter informações detalhadas sobre o preço do Barramento de Serviço, consulte [Perguntas Frequentes sobre Preços do Barramento de Serviço](service-bus-pricing-faq.md).
 
 O Barramento de Serviço usa os dois medidores a seguir para filas e tópicos/assinaturas:
 
@@ -39,19 +39,19 @@ A tabela a seguir resume as diferenças funcionais entre as camadas Basic e Stan
 
 |Recurso|Basic|Standard/Premium|
 |---|---|---|
-|Hubs de Evento|SIM|SIM|
-|Filas|SIM|SIM|
-|Mensagens agendadas|SIM|SIM|
-|Tópicos/assinaturas|NÃO|SIM|
-|Retransmissão|NÃO|SIM|
-|Transações|NÃO|SIM|
-|Eliminação de duplicação|NÃO|SIM|
-|Sessões|NÃO|SIM|
-|Mensagens grandes|NÃO|SIM|
-|ForwardTo|NÃO|SIM|
-|SendVia|NÃO|SIM|
+|Hubs de Eventos|Sim|Sim|
+|Filas|Sim|Sim|
+|Mensagens agendadas|Sim|Sim|
+|Tópicos/assinaturas|Não|Sim|
+|Retransmissão|Não|Sim|
+|Transações|Não|Sim|
+|Eliminação de duplicação|Não|Sim|
+|Sessões|Não|Sim|
+|Mensagens grandes|Não|Sim|
+|ForwardTo|Não|Sim|
+|SendVia|Não|Sim|
 |Conexões orientadas (incluídas)|100 por namespace do Barramento de Serviço|1\.000 por assinatura do Azure|
-|Conexões orientadas (excedente permitido)|NÃO|SIM (Faturável)|
+|Conexões orientadas (excedente permitido)|Não|Sim (faturável)|
 
 ## Operações de mensagens
 
@@ -143,10 +143,10 @@ Por exemplo:
 
 Sim. Não há cobranças de conexão para enviar eventos usando HTTP, independentemente do número de sistemas ou dispositivos remetentes. O recebimento de eventos com HTTP usando um tempo limite maior que zero, às vezes chamado de "sondagem longa", gera encargos de conexão gerenciada. Conexões do AMQP geram encargos de conexão gerenciada independentemente se as conexões estão sendo usadas para enviar ou receber. Observe que são permitidas 100 conexões orientadas gratuitamente em um namespace da camada Basic. Esse também é o número máximo de conexões orientadas permitidas para a assinatura do Azure. As primeiras 1.000 conexões orientadas em todos os namespaces da camada Standard em uma assinatura do Azure são incluídas sem custo adicional (além do custo base). Como essas permissões são suficientes para cobrir muitos cenários de mensagens de serviço para serviço, os encargos de conexão gerenciada normalmente apenas se tornam relevantes se você planeja usar sondagem longa AMQP ou HTTP com um grande número de clientes; por exemplo, para obter um fluxo de eventos mais eficiente ou habilitar a comunicação bidirecional com muitos dispositivos ou instâncias do aplicativo.
 
-## Consulte também
+## Próximas etapas
 
-[Perguntas Frequentes sobre Preços do Barramento de Serviço](service-bus-pricing-faq.md)
+Para obter mais detalhes sobre os preços do Barramento de Serviço, veja [Perguntas Frequentes sobre o Preço do Barramento de Serviço](service-bus-pricing-faq.md).
 
 [portal clássico do Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

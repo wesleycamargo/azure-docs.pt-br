@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Gatilhos de aplicativo de API do Serviço de Aplicativo do Azure" 
-	description="Este artigo demonstra como implementar gatilhos em um aplicativo de API" 
+	pageTitle="Gatilhos de aplicativo da API do Serviço de Aplicativo | Microsoft Azure" 
+	description="Como implementar gatilhos em um aplicativo de API no Serviço de Aplicativo do Azure" 
 	services="app-service\logic" 
 	documentationCenter=".net" 
 	authors="guangyang"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="01/04/2016" 
 	ms.author="guayan"/>
 
 # Gatilhos de aplicativo de API do serviço de aplicativo do Azure
@@ -341,4 +341,4 @@ Este é um exemplo de como essa classe pode ser implementada para facilitar o ce
     }
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

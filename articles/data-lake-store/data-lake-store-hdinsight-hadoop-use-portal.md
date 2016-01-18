@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Provisão de clusters Hadoop do HDInsight com Repositório Data Lake do Azure usando o portal | Azure" 
-   description="Usar o Portal do Azure para configurar e usar clusters HDInsight Hadoop com o Repositório Azure Data Lake" 
+   pageTitle="Criar clusters Hadoop do HDInsight com Repositório Data Lake do Azure usando o portal | Azure" 
+   description="Usar o Portal do Azure para criar e usar clusters HDInsight Hadoop com o Repositório Azure Data Lake" 
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/13/2015"
+   ms.date="01/06/2016"
    ms.author="nitinme"/>
 
-# Provisionar um cluster HDInsight com o Repositório Data Lake usando o Portal do Azure
+# Criar um cluster HDInsight com o Repositório Data Lake usando o Portal do Azure
 
 > [AZURE.SELECTOR]
 - [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-Saiba como usar o Portal do Azure para configurar um cluster HDInsight (Hadoop, HBase ou Storm) para trabalhar com um Repositório Azure Data Lake. Algumas considerações importantes para esta versão:
+Aprenda a usar o Portal do Azure para criar um cluster HDInsight (Hadoop, HBase ou Storm) com acesso ao Repositório Azure Data Lake. Algumas considerações importantes para esta versão:
 
 * **Para clusters Hadoop e Storm (Windows e Linux)**, o Repositório Data Lake só pode ser usado como uma conta de armazenamento adicional. A conta de armazenamento padrão para esses clusters ainda será o WASB (Blobs de Armazenamento do Azure).
 
@@ -92,7 +92,7 @@ Nesta seção, você cria um cluster HDInsight Hadoop que usa o Repositório Dat
 	Execute as seguintes tarefas na sua conta do Repositório Data Lake.
 
 	* [Criar uma pasta no seu Repositório Data Lake](data-lake-store-get-started-portal.md#createfolder).
-	* [Carregar um arquivo no seu Repositório Data Lake](data-lake-store-get-started-portal.md#uploaddata). Se estiver procurando alguns dados de exemplo para carregar, é possível obter a pasta **Dados da Ambulância** no [Repositório Git do Azure Data Lake](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+	* [Carregar um arquivo no seu Repositório Data Lake](data-lake-store-get-started-portal.md#uploaddata). Se estiver procurando alguns dados de exemplo para carregar, é possível obter a pasta **Dados da Ambulância** no [Repositório Git do Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
 	Você usará posteriormente os arquivos carregados quando você testar a conta do Repositório Data Lake dados com o cluster HDInsight.
 
@@ -207,4 +207,4 @@ Para obter instruções sobre como adicionar uma entidade de serviço a um siste
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->
