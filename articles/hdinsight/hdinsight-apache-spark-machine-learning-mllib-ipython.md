@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/22/2015" 
+	ms.date="01/04/2016" 
 	ms.author="nitinme"/>
 
 
@@ -57,13 +57,13 @@ Nas etapas a seguir, você desenvolverá um modelo para ver o que é necessário
 
 1. No [Portal de Visualização do Azure](https://portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**.   
 
-2. Na folha do cluster Spark, clique em **Links Rápidos** e, na folha do **Painel de Cluster**, clique em **Bloco de anotações Jupyter**. Se você receber uma solicitação, insira as credenciais de administrador para o cluster.
+2. Na folha do cluster Spark, clique em **Links Rápidos** e, na folha **Painel do Cluster**, clique em **Notebook do Jupyter**. Se você receber uma solicitação, insira as credenciais de administrador para o cluster.
 
 	> [AZURE.NOTE]Você também pode acessar o Bloco de Notas Jupyter de seu cluster abrindo a seguinte URL no navegador. Substitua __CLUSTERNAME__ pelo nome do cluster:
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. Crie um novo bloco de anotações. Clique em **Novo** e, em seguida, clique em **Python 2**.
+2. Crie um novo bloco de anotações. Clique em **Novo** e em **Python 2**.
 
 	![Criar um novo bloco de anotações do Jupyter](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.createnotebook.png "Criar um novo bloco de anotações do Jupyter")
 
@@ -108,7 +108,7 @@ Já temos um SQLContext que podemos usar para realizar transformações em dados
 		    sio.close()
 		    return value
 		
-		inspections = sc.textFile('wasb:///example/data/Food_Inspections1.csv')\
+		inspections = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
 		                .map(csvParse)
 
 
@@ -278,7 +278,7 @@ Podemos usar o modelo criado anteriormente para *prever* quais serão os resulta
 O trecho de código a seguir cria um novo dataframe, **predictionsDf** que contém a previsão gerada pelo modelo.
 
 
-	testData = sc.textFile('wasb:///example/data/Food_Inspections2.csv')\
+	testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
 	             .map(csvParse) \
 	             .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
 	testDf = sqlContext.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
@@ -351,7 +351,7 @@ Neste gráfico, um resultado "positivo" refere-se a uma reprovação na inspeç�
 
 ## Fechar o notebook
 
-Depois de concluir a execução do aplicativo, você deve encerrar o notebook para liberar os recursos. Para isso, no menu **Arquivo** do notebook, clique em **Fechar e Interromper**. Isso desligará e fechará o notebook.
+Depois de concluir a execução do aplicativo, você deve encerrar o notebook para liberar os recursos. Para isso, no menu **Arquivo** do bloco de anotações, clique em **Fechar e Interromper**. Isso desligará e fechará o bloco de anotações.
 
 
 ## <a name="seealso"></a>Consulte também
@@ -377,12 +377,12 @@ Depois de concluir a execução do aplicativo, você deve encerrar o notebook pa
 
 ### Extensões
 
-* [Usar blocos de anotações Zeppelin com um cluster do Spark no HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Usar blocos de anotações do Zeppelin com um cluster Spark no HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
-* [Kernels disponíveis para o notebook Jupyter no cluster do Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+* [Kernels disponíveis para o bloco de anotações Jupyter no cluster do Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
 ### Gerenciar recursos
 
 * [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

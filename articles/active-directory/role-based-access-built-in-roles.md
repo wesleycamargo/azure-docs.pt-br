@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="12/04/2015"
+	ms.date="01/04/2016"
 	ms.author="inhenk"/>
 
 #RBAC: funções internas
@@ -133,9 +133,7 @@ Os colaboradores podem gerenciar tudo, exceto o acesso
 | **Ações** ||
 | ------- | ------ |
 | * | Criar e gerenciar recursos de todos os tipos |
-| ****Not Actions |  |
-| Microsoft.Authorization/*/Write | Não é possível criar funções e atribuições de função |
-| Microsoft.Authorization/*/Delete | Não é possível excluir funções e atribuições de função |
+| ****Not Actions | | | Microsoft.Authorization/*/Write | Não é possível criar funções e atribuições de função | | Microsoft.Authorization/*/Delete | Não é possível excluir funções e atribuições de função |
 
 ### Colaborador da fábrica de dados
 Pode gerenciar fábricas de dados
@@ -381,8 +379,7 @@ Pode gerenciar o acesso do usuário aos recursos do Azure
 
 | **Ações** ||
 | ------- | ------ |
-| */read | Ler recursos de todos os tipos, exceto segredos. |
-| Microsoft.Authorization/* | Ler autorização |
+| */read | Ler recursos de todos os tipos, exceto segredos. | | Microsoft.Authorization/* | Ler autorização |
 | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 
 ### Colaborador de Máquina Virtual Clássica
@@ -483,4 +480,4 @@ Pode gerenciar sites, mas não os planos da Web ao quais eles estão conectados
 ## Tópicos sobre RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

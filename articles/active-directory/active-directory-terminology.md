@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/05/2016"
 	ms.author="curtand"/>
 
 # Terminologia do AD do Azure
@@ -43,4 +43,4 @@ Conta corporativa ou de estudante | Uma conta de usuário atribuída por uma org
 - [Como as assinaturas do Azure estão associadas ao AD do Azure](active-directory-how-subscriptions-associated-directory.md)
 - [Restrições e limites de serviço do AD do Azure](active-directory-service-limits-restrictions.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

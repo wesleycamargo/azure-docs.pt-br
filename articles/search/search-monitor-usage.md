@@ -21,11 +21,11 @@
 
 Acompanhar o crescimento do tamanho dos índices e do documento pode ajudar você a ajustar a capacidade de forma proativa antes de atingir o limite superior que você estabeleceu para seu serviço.
 
-Para monitorar o uso de recursos, você pode ver contagens e estatísticas com facilidade no [Portal clássico do Azure](https://portal.azure.com), mas também pode obter essas informações por meio de programação se estiver criando uma ferramenta de administração de serviço personalizada. Este artigo aborda as etapas das duas técnicas.
+Para monitorar o uso de recursos, você pode ver contagens e estatísticas com facilidade no [Portal do Azure](https://portal.azure.com), mas também pode obter essas informações por meio de programação se estiver criando uma ferramenta de administração de serviço personalizada. Este artigo aborda as etapas das duas técnicas.
 
 ##Ver contagens e métricas no portal 
 
-1. Entre no [Portal Clássico do Azure](https://portal.azure.com). 
+1. Entre no [Portal do Azure](https://portal.azure.com). 
 
 2. Abra o painel de serviços de seu serviço de Pesquisa do Azure. É possível encontrar blocos do serviço na Home page, ou você pode navegar até o serviço usando Procurar na Barra de navegação rápida. Confira [Criar um serviço](search-create-service-portal.md) para obter instruções passo a passo.
 
@@ -57,4 +57,4 @@ Visite [Gerenciar o serviço de pesquisa no Microsoft Azure](search-manage.md) p
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

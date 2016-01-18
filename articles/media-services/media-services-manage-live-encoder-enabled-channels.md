@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015"  
+	ms.date="12/22/2015"  
 	ms.author="juliako"/>
 
 #Trabalhando com canais habilitados a executar codificação ao vivo com os Serviços de Mídia do Azure
@@ -130,7 +130,8 @@ Difusores profissionais geralmente trabalham com codificadores ao vivo locais de
 
 Considerações:
 
-- O uso de um fluxo de transporte de programa único (SPTS) de entrada é altamente recomendável. Há suporte, no entanto, para uso de faixas de áudio em múltiplos idiomas
+- O uso de um fluxo de transporte de programa único (SPTS) de entrada é altamente recomendável. 
+- Você pode inserir até 8 fluxos de áudio usando MPEG-2 TS sobre RTP. 
 - O fluxo de vídeo deve ter uma taxa de bits média abaixo de 15 Mbps
 - A taxa de bits média agregada dos fluxos de áudio deve estar abaixo de 1 Mbps
 - A seguir, a lista dos codecs com suporte:
@@ -244,7 +245,7 @@ Você pode obter a URL de visualização quando você cria o canal. Para obter a
 
 Depois que o canal inicia a ingestão de dados, você pode visualizar o fluxo.
 
-**Observação** atualmente o fluxo de visualização só pode ser entregue em formato MP4 fragmentado (Smooth Streaming), independentemente do tipo de entrada especificado. Você pode usar o player [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) para testar o Smooth Stream. Você também pode usar um player hospedado no Portal Clássico do Azure para exibir a transmissão.
+>[AZURE.NOTE]Atualmente, o fluxo de visualização só pode ser entregue em formato MP4 fragmentado (Smooth Streaming), independentemente do tipo de entrada especificado. Você pode usar o player [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) para testar o Smooth Stream. Você também pode usar um player hospedado no Portal Clássico do Azure para exibir a transmissão.
 
 ###Endereços IP permitidos
 
@@ -253,6 +254,8 @@ Você pode definir os endereços IP que têm permissão para conectar-se ao pont
 ##Configurações de codificação ao vivo
 
 Esta seção descreve como as configurações para o codificador ao vivo no canal podem ser ajustadas, quando o **Tipo de codificação** de um canal é definido como **Padrão**.
+
+>[AZURE.NOTE]Ao inserir várias faixas de idioma e fazer a codificação ao vivo com o Azure, somente o RTP tem suporte para vários idioma entrada. Você pode definir até 8 fluxos de áudio usando MPEG-2 TS sobre RTP. A ingestão de várias faixas de áudio com RTMP ou Smooth streaming não tem suporte atualmente. Ao fazer a codificação ao vivo com [codificações locais ao vivo](media-services-manage-channels-overview.md), não há nenhuma limitação desse tipo porque tudo o que é enviado para o AMS passa por um canal sem nenhum processamento adicional.
 
 ###Origem do marcador de anúncio
 
@@ -335,7 +338,7 @@ Uma ID exclusiva para o intervalo comercial, para ser usado pelo aplicativo down
 
 ###Mostrar slate
 
-Opcional. Sinaliza o codificador ativo para alternar para a imagem [fixa padrão](media-services-manage-live-encoder-enabled-channels.md#default_slate) durante um intervalo comercial e ocultar o feed de vídeo de entrada. O áudio também é desligado durante o slate. O padrão é **false**.
+Opcional. Sinaliza o codificador dinâmico para alternar para a imagem [fixa padrão](media-services-manage-live-encoder-enabled-channels.md#default_slate) durante um intervalo comercial e ocultar o feed de vídeo de entrada. O áudio também é desligado durante o slate. O padrão é **false**.
  
 A imagem usada será aquela especificada por meio da propriedade de ID do ativo de slate padrão no momento da criação do canal. O slate será estendido para ajustar-se ao tamanho da imagem de exibição.
 
@@ -354,11 +357,11 @@ A duração do slate em segundos. Isso deve ser um valor positivo diferente de z
 
 Quando definida como true, essa configuração configura o codificador ao vivo para inserir uma imagem slate durante um intervalo comercial. O valor padrão é true.
 
-###<a id="default_slate"></a>ID de ativo da imagem fixa padrão
+###<a id="default_slate"></a>ID de ativo de slate padrão
 
 Opcional. Especifica a ID do ativo de Serviços de Mídia que contém a imagem do slate. O padrão é nulo.
 
-**Observação**: antes de criar o Canal, a imagem fixa com as restrições a seguir deverá ser carregada como um ativo dedicado (nenhum outro arquivo deve estar nesse ativo).
+**Observação**: antes de criar o canal, a imagem fixa com as restrições a seguir deverá ser carregada como um ativo dedicado (nenhum outro arquivo deve estar nesse ativo).
 
 - No máximo 1920x1080 na resolução.
 - No máximo 3 megabytes de tamanho.
@@ -427,12 +430,13 @@ Parada|Parada|Não
 - Você será cobrado apenas quando o canal estiver no estado **Executando**. Para obter mais informações, consulte [esta](media-services-manage-live-encoder-enabled-channels.md#states) seção.
 - Atualmente, a duração máxima recomendada de um evento ao vivo é de 8 horas. Entre em contato com amslived@microsoft.com na Microsoft se precisar executar um Canal por períodos mais longos.
 - Certifique-se de ter pelo menos uma unidade reservada para streaming no ponto de extremidade de streaming por meio do qual você deseja transmitir o conteúdo.
+- Ao inserir várias faixas de idioma e fazer a codificação ao vivo com o Azure, somente o RTP tem suporte para vários idioma entrada. Você pode definir até 8 fluxos de áudio usando MPEG-2 TS sobre RTP. A ingestão de várias faixas de áudio com RTMP ou Smooth streaming não tem suporte atualmente. Ao fazer a codificação ao vivo com [codificações locais ao vivo](media-services-manage-channels-overview.md), não há nenhuma limitação desse tipo porque tudo o que é enviado para o AMS passa por um canal sem nenhum processamento adicional.
 - Não se esqueça de PARAR SEUS CANAIS quando terminar. Caso contrário, a cobrança continuará. 
 
 ##Problemas conhecidos
 
 - O tempo de inicialização do canal foi aprimorado para uma média de 2 minutos, mas em momentos de maior demanda pode ainda levar até 20 minutos ou mais.
-- O suporte RTP é fornecido na para difusores profissionais. Examine as observações sobre RTP [neste](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
+- O suporte RTP é fornecido na para difusores profissionais. Leia as observações sobre RTP [neste](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
 - As imagens fixas devem estar de acordo com as restrições descritas [aqui](media-services-manage-live-encoder-enabled-channels.md#default_slate). Se você tentar criar um Canal com um slate padrão que seja maior que 1920 x 1080, a solicitação será um erro.
 - Mais uma vez... não se esqueça de PARAR SEUS CANAIS quando concluir o streaming. Caso contrário, a cobrança continuará.
 
@@ -466,4 +470,4 @@ Escolha **Portal**, **.NET** e **API REST** para saber como criar e gerenciar ca
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="mausher;nicw;barbkess;JRJ@BigBangData.co.uk;"/>
 
 # Ferramentas de gerenciamento para o SQL Data Warehouse
@@ -48,4 +48,4 @@ Para começar a usar essas ferramentas, vá até o tópico [conexão][].
 <!--Other web references-->
 [Portal Clássico do Azure]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

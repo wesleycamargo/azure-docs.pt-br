@@ -74,7 +74,7 @@ Por padrão, todos os documentos são indexados pelo Banco de Dados de Documento
 ## Próximas etapas
 Para obter instruções sobre como monitorar os níveis de desempenho no Portal do Azure, veja [Monitorar uma conta do Banco de Dados de Documentos](documentdb-monitor-accounts.md).
 
-Para obter mais informações sobre como escolher os níveis de desempenho para as coleções, consulte [Níveis de desempenho no Banco de Dados de Documentos](documentdb-performance-levels).
+Para obter mais informações sobre como escolher os níveis de desempenho para as coleções, consulte [Níveis de desempenho no Banco de Dados de Documentos](documentdb-performance-levels.md).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="01/04/2016"
 	ms.author="zarizvi"/>
 	
 # Configurações de movimentação com suporte
@@ -26,4 +26,4 @@ Atualmente, os aplicativos Web do Azure dão suporte para os seguintes cenários
 	* Observação: o grupo de recursos de destino não pode conter nenhum recurso Microsoft.Web nesse cenário
 * Mover aplicativos Web individuais para um grupo de recursos diferente, enquanto ainda os hospeda em seu plano de serviço de aplicativo atual (o plano de serviço de aplicativo permanece no grupo de recursos antigo)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0107_2016-->

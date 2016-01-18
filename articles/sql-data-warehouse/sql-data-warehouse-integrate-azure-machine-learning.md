@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/06/2015"
+   ms.date="01/04/2016"
    ms.author="sahajs"/>
 
 # Use o Aprendizado de Máquina do Azure com o SQL Data Warehouse
@@ -150,4 +150,4 @@ Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvol
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

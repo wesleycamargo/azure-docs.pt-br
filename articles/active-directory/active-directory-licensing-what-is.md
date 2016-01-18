@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="12/01/2015"
+    ms.date="01/05/2016"
     ms.author="curtand"/>
 
 # O que é o licenciamento do Active Directory do Microsoft Azure?
@@ -132,4 +132,4 @@ Agora você pode estar pronto para configurar e usar alguns recursos do AD Premi
 - [Autenticação Multifator do Azure](multi-factor-authentication.md)
 - [Compra direta de licenças do AD Premium do Azure](http://aka.ms/buyaadp)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

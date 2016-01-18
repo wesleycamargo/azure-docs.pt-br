@@ -39,13 +39,13 @@ Neste tutorial, você desenvolverá um trabalho que lê um arquivo TSV (valores 
 Antes de começar este tutorial, você deve ter o seguinte:
 
 - **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Uma estação de trabalho com o PowerShell do Azure**. Veja [Instalar o Azure PowerShell 1.0 e superior](data-lake-analytics-manage-use-powershell.md#install-azure-powershell-10-and-greater).
-
+- **Uma estação de trabalho com o PowerShell do Azure**. Consulte a seção de pré-requisitos em [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](powershell-azure-resource-manager.md#prerequisites).
+	
 ##Criar conta da Análise Data Lake
 
 Você deve ter uma conta da Análise Data Lake antes de executar trabalhos. Para criar uma conta da Análise Data Lake, você deve especificar o seguinte:
 
-- **Grupo de Recursos do Azure**: é necessário criar uma conta da Análise do Data Lake em um Grupo de recursos do Azure. O [Gerenciador de Recursos do Azure](resource-group-overview.md) permite trabalhar com os recursos do seu aplicativo como um grupo. Você pode implantar, atualizar ou excluir todos os recursos para seu aplicativo em uma única operação coordenada.  
+- **Grupo de Recursos do Azure**: é necessário criar uma conta da Análise Data Lake em um grupo de Recursos do Azure. O [Gerenciador de Recursos do Azure](resource-group-overview.md) permite trabalhar com os recursos do seu aplicativo como um grupo. Você pode implantar, atualizar ou excluir todos os recursos para seu aplicativo em uma única operação coordenada.  
 
 	Para enumerar os grupos de recursos em sua assinatura:
     
@@ -58,7 +58,7 @@ Você deve ter uma conta da Análise Data Lake antes de executar trabalhos. Para
 			-Location "<Azure Data Center>" # For example, "East US 2"
 
 - **Nome da conta da Análise Data Lake**
-- **Local**: um dos datacenters do Azure que dá suporte à Análise do Data Lake.
+- **Local**: um dos datacenters do Azure que dá suporte à Análise Data Lake.
 - **Conta padrão do Data Lake**: cada conta da Análise Data Lake tem uma conta padrão do Data Lake.
 
 	Para criar uma nova conta do Data Lake:
@@ -211,10 +211,10 @@ Depois que o trabalho for concluído, você poderá usar os seguintes cmdlets pa
 ## Consulte também
 
 - Para ver o mesmo tutorial usando outras ferramentas, clique nos seletores de guias na parte superior da página.
-- Para ver uma consulta mais complexa, veja [Analisar logs de site usando a Análise do Azure Data Lake](data-lake-analytics-analyze-weblogs.md).
+- Para ver uma consulta mais complexa, veja [Analisar logs de site usando a Análise Azure Data Lake](data-lake-analytics-analyze-weblogs.md).
 - Para começar a desenvolver aplicativos U-SQL, veja [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - Para aprender a usar o U-SQL, veja [Introdução à linguagem U-SQL da Análise do Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
 - Para obter as tarefas de gerenciamento, veja [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-manage-use-portal.md).
 - Para obter uma visão geral da Análise do Data Lake, veja [Visão geral da Análise do Azure Data Lake](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

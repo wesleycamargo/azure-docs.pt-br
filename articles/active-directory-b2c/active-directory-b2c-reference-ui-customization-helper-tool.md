@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor="curtand"/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="12/22/2015"
 	ms.author="swkrish"/>
 
 # Visualização do Active Directory B2C do Azure: uma Ferramenta Auxiliar usada para demonstrar o recurso de Personalização da Interface do Usuário (IU) da Página
@@ -36,7 +36,7 @@ Você precisará [registrar um aplicativo](active-directory-b2c-app-registration
 
 - Compile um dos aplicativos de Início Rápido do Azure AD B2C listados [aqui](active-directory-b2c-overview.md#getting-started).
 - Use o aplicativo predefinido [Playground do AD B2C do Azure](https://aadb2cplayground.azurewebsites.net). Caso opte por usar o playground, você deverá registrar um aplicativo no locatário B2C usando o **URI de redirecionamento** `https://aadb2cplayground.azurewebsites.net/`
-- Na política, use o botão **Executar Agora** no [Portal de Visualização do Azure](https://portal.azure.com).
+- Na política, use o botão **Executar Agora** no [Portal do Azure](https://portal.azure.com).
 
 ## Personalizar a política
 
@@ -44,7 +44,7 @@ Para personalizar a aparência das políticas, primeiramente, você precisa cria
 
 Para os fins deste tutorial, já criamos o conteúdo de exemplo e o hospedamos no Armazenamento de Blob do Azure. O conteúdo de exemplo é uma personalização bastante básica no tema de nossa empresa fictícia, "Contoso B2C". Para testá-lo em sua própria política, siga estas etapas:
 
-1. Entre em seu locatário no [Portal de Visualização do Azure](https://portal.azure.com) e navegue até a folha de recursos do B2C.
+1. Entre em seu locatário no [Portal do Azure](https://portal.azure.com) e navegue até a folha de recursos do B2C.
 2. Clique em **Políticas de inscrição** e clique em sua política de inscrição (por exemplo, "b2c\_1\_sign\_up").
 3. Clique em **Personalização da interface do usuário da página** e em **Página de seleção do provedor de identidade**.
 4. Alterne a opção **Usar modelo personalizado** para **Sim**. No campo **URI da página personalizada**, digite `https://contosob2c.blob.core.windows.net/static/Index.html`. Clique em **OK**.
@@ -59,14 +59,14 @@ Se quiser usar o Armazenamento de Blob do Azure para hospedar o conteúdo da pá
 
 #### Criar uma conta de armazenamento
 
-1. Entre no [Portal de Visualização do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. Clique em **+ Novo** -> **Dados + Armazenamento** -> **Conta de armazenamento**. Você precisará de uma assinatura do Azure para criar uma conta de Armazenamento de Blob do Azure. Você pode se inscrever em uma versão de avaliação gratuita [aqui](https://azure.microsoft.com/pricing/free-trial/).
 3. Forneça um **Nome** para a conta de armazenamento (por exemplo, "contoso") e escolha as seleções apropriadas para **Tipo de preço**, **Grupo de Recursos** e **Assinatura**. Verifique se a opção **Fixar no Quadro Inicial** está marcada. Clique em **Criar**.
 4. Volte para o quadro inicial e clique na conta de armazenamento que você acabou de criar.
 5. Na seção **Resumo**, clique em **Contêineres** e em **+ Adicionar**.
 6. Forneça um **Nome** para o contêiner (por exemplo, "b2c") e selecione **Blob** como o **Tipo de acesso**. Clique em **OK**.
 7. O contêiner que você criou aparecerá na lista da folha **Blobs**. Anote a URL do contêiner; por exemplo, ela deve ter a seguinte aparência: `https://contoso.blob.core.windows.net/b2c`. Feche a folha **Blobs**.
-8. Na folha do armazenamento de conta, clique em **Chaves** e anote os valores dos campos **Nome da Conta de Armazenamento** e **Tecla de Acesso Primária**.
+8. Na folha do armazenamento de conta, clique em **Chaves** e anote os valores dos campos **Nome da Conta de Armazenamento** e **Chave de Acesso Primária**.
 
 > [AZURE.NOTE]A **Tecla de Acesso Primária** é uma credencial de segurança importante.
 
@@ -90,4 +90,4 @@ Agora que você carregou o conteúdo de exemplo em sua própria conta de armazen
         
 Agora, você pode usar o botão **Executar Agora** ou seu próprio aplicativo para executar a política novamente. O resultado deve ser quase o mesmo — você usou o mesmo HTML e CSS de exemplo em ambos os casos. No entanto, as políticas agora estão fazendo referência à sua própria instância do Armazenamento de Blob do Azure, e você é livre para editar e recarregar os arquivos como quiser. Para saber mais sobre como personalizar o HTML e CSS, consulte o [artigo principal sobre personalização da interface do usuário](active-directory-b2c-reference-ui-customization.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

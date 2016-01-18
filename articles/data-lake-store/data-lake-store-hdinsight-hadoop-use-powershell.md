@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Configurar clusters HDInsight com o Repositório Azure Data Lake usando PowerShell | Azure" 
-   description="Usar o Azure PowerShell para configurar e usar clusters HDInsight Hadoop com o Azure Data Lake" 
+   pageTitle="Criar clusters HDInsight com o Repositório Azure Data Lake usando PowerShell | Azure" 
+   description="Usar o Azure PowerShell para criar e usar clusters HDInsight Hadoop com o Azure Data Lake" 
    services="data-lake" 
    documentationCenter="" 
    authors="nitinme" 
@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/04/2015"
+   ms.date="01/06/2016"
    ms.author="nitinme"/>
 
-# Provisionar um cluster HDInsight com o Repositório Data Lake usando o Azure PowerShell
+# Criar um cluster HDInsight com o Repositório Data Lake usando o Azure PowerShell
 
 > [AZURE.SELECTOR]
 - [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-Aprenda a usar o Azure PowerShell para configurar um cluster HDInsight (Hadoop, HBase ou Storm) para trabalhar com um Repositório Azure Data Lake. Algumas considerações importantes para esta versão:
+Aprenda a usar o Azure PowerShell para configurar um cluster HDInsight (Hadoop, HBase ou Storm) com acesso ao Repositório Azure Data Lake. Algumas considerações importantes para esta versão:
 
 * **Para clusters Hadoop e Storm (Windows e Linux)**, o Repositório Data Lake só pode ser usado como uma conta de armazenamento adicional. A conta de armazenamento padrão para esses clusters ainda será o WASB (Blobs de Armazenamento do Azure).
 
@@ -118,7 +118,7 @@ Execute estas etapas para criar um Repositório Data Lake.
 
 	A saída para isso deve ser **True**.
 
-4. Carregue alguns exemplos de dados no Azure Data Lake. Usaremos isso posteriormente neste artigo para verificar se os dados podem ser acessados a partir de um cluster HDInsight. Se estiver procurando alguns dados de exemplo para carregar, é possível obter a pasta **Dados da Ambulância** no [Repositório Git do Azure Data Lake](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+4. Carregue alguns exemplos de dados no Azure Data Lake. Usaremos isso posteriormente neste artigo para verificar se os dados podem ser acessados a partir de um cluster HDInsight. Se estiver procurando alguns dados de exemplo para carregar, é possível obter a pasta **Dados da Ambulância** no [Repositório Git do Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
 		
 		$myrootdir = "/"
@@ -138,7 +138,7 @@ Para configurar a autenticação do Active Directory para o Azure Data Lake, voc
 
 Verifique se o [SDK do Windows](https://dev.windows.com/pt-BR/downloads) está instalado antes de continuar com as etapas nesta seção. Você também deve ter criado um diretório, como **C:\\mycertdir**, no qual o certificado será criado.
 
-1. Na janela do PowerShell, navegue até o local em que você instalou o SDK do Windows (normalmente, `C:\Program Files (x86)\Windows Kits\10\bin\x86` e use o utilitário [MakeCert][makecert] para criar um certificado autoassinado e uma chave privada. Use os seguintes comandos.
+1. Na janela do PowerShell, navegue até o local onde você instalou o SDK do Windows (normalmente, `C:\Program Files (x86)\Windows Kits\10\bin\x86` e use o utilitário [MakeCert][makecert] para criar um certificado autoassinado e uma chave privada. Use os seguintes comandos.
 
 		$certificateFileDir = "<my certificate directory>"
 		cd $certificateFileDir
@@ -300,7 +300,7 @@ Após a configuração do cluster HDInsight para usar o Repositório Data Lake, 
 
 2. Clique em **Procurar**, em **Clusters HDInsight** e clique no cluster HDInsight que você criou.
 
-3. Na folha do cluster, clique em **Área de Trabalho Remota** e então, na folha **Área de Trabalho Remota**, clique em **Conectar**.
+3. Na folha do cluster, clique em **Área de Trabalho Remota** e na folha **Área de Trabalho Remota**, clique em **Conectar**.
 
 	![Remoto em cluster HDI](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.HDI.PS.Remote.Desktop.png "Criar um grupo de recursos do Azure")
 
@@ -325,4 +325,4 @@ Após a configuração do cluster HDInsight para usar o Repositório Data Lake, 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -16,18 +16,18 @@
    ms.date="11/24/2015"
    ms.author="mfussell"/>
 
-# RunAs: executando um aplicativo de Service Fabric com permissões de segurança diferentes
-O Service Fabric fornece o recurso de proteção de aplicativos em execução no cluster em contas de usuário diferentes, conhecido como "RunAs". Além disso, ele também protege os recursos usados pelos aplicativos com a conta de usuário, como arquivos, diretórios e certificados.
+# RunAs: Executar um aplicativo de Service Fabric com permissões de segurança diferentes
+O Service Fabric do Azure fornece o recurso de proteção de aplicativos em execução no cluster em contas de usuário diferentes, conhecido como **RunAs**. O Service Fabric também protege os recursos usados pelos aplicativos com a conta de usuário, como arquivos, diretórios e certificados.
 
-Por padrão, os aplicativos de Service Fabric são executados na conta sob a qual o processo Fabric.exe está sendo executado. Ele também fornece a capacidade de executar aplicativos em uma conta de usuário local, especificada no manifesto do aplicativo. Os tipos de conta com suporte para RunAs são **LocalUser**, **NetworkService**, **LocalService** e **LocalSystem**.
+Por padrão, os aplicativos de Service Fabric são executados na conta sob a qual o processo Fabric.exe está sendo executado. O Service Fabric também fornece a capacidade de executar aplicativos em uma conta de usuário local, especificada no manifesto do aplicativo. Os tipos de conta com suporte para RunAs são **LocalUser**, **NetworkService**, **LocalService** e **LocalSystem**.
 
-> [AZURE.NOTE]As contas de domínio têm suporte em implantações do Windows Server nas quais o Active Directory está disponível.
+> [AZURE.NOTE]As contas de domínio têm suporte em implantações do Windows Server nas quais o Active Directory do Azure está disponível.
 
-É possível definir e criar grupos de usuários nos quais um ou mais usuários podem ser adicionados a esse grupo a gerenciados em conjunto. Isso será particularmente útil se houver vários usuários para pontos de entrada de serviço diferentes e eles precisarem de privilégios comuns disponíveis no nível do grupo.
+É possível definir e criar grupos de usuários onde um ou mais usuários podem ser adicionados a cada grupo a gerenciados em conjunto. Isso será particularmente útil quando houver vários usuários para pontos de entrada de serviço diferentes e eles precisarem de privilégios comuns disponíveis no nível do grupo.
 
-## Configuração da política de RunAs para o Setup EntryPoint
+## Definir a política de RunAs para SetupEntryPoint
 
-Como descrito no [modelo de aplicativo](service-fabric-application-model.md), o **SetupEntryPoint** é um ponto de entrada privilegiado executado com as mesmas credenciais que o Service Fabric (normalmente, a conta *Rede*) antes de qualquer outro ponto de entrada. O arquivo executável especificado pelo **EntryPoint** normalmente é o host de serviço de longa execução; portanto, ter um ponto de entrada de instalação separado evita a necessidade de executar o executável do host de serviço com altos privilégios por longos períodos de tempo. O executável especificado pelo **EntryPoint** é executado depois que o **SetupEntryPoint** é encerrado com êxito. O processo resultante é monitorado e reiniciado (começando novamente com **SetupEntryPoint**) se ele terminar ou falhar.
+Como descrito no [modelo de aplicativo](service-fabric-application-model.md), o **SetupEntryPoint** é um ponto de entrada privilegiado executado com as mesmas credenciais que o Service Fabric (normalmente, a conta *rede*) antes de qualquer outro ponto de entrada. O arquivo executável especificado pelo **EntryPoint** normalmente é o host de serviço de longa execução; portanto, ter um ponto de entrada de instalação separado evita a necessidade de executar o executável do host de serviço com altos privilégios por longos períodos de tempo. O executável especificado pelo **EntryPoint** é executado depois que o **SetupEntryPoint** é encerrado com êxito. O processo resultante é monitorado e reiniciado (começando novamente com **SetupEntryPoint**) se ele terminar ou falhar.
 
 Veja abaixo um exemplo simples de manifesto do serviço mostrando o SetupEntryPoint e o EntryPoint principal para o serviço.
 
@@ -54,9 +54,9 @@ Veja abaixo um exemplo simples de manifesto do serviço mostrando o SetupEntryPo
 </ServiceManifest>
 ~~~
 
-### Configurando a política de RunAs
+### Configurar a política de RunAs
 
-Após a configuração do serviço para ter um SetupEntryPoint, é possível alterar as permissões de segurança sob as quais ele é executado no manifesto do aplicativo. O exemplo a seguir mostra como configurar o serviço para ser executado com privilégios de conta de administrador.
+Após ter configurado do serviço para ter um SetupEntryPoint, é possível alterar as permissões de segurança sob as quais ele é executado no manifesto do aplicativo. O exemplo a seguir mostra como configurar o serviço para ser executado com privilégios de conta de administrador.
 
 ~~~
 <?xml version="1.0" encoding="utf-8"?>
@@ -80,13 +80,15 @@ Após a configuração do serviço para ter um SetupEntryPoint, é possível alt
 </ApplicationManifest>
 ~~~
 
-Primeiro, crie uma seção **Principals** com um nome de usuário SetupAdminUser, por exemplo . Isso indica que o usuário é membro do grupo do sistema Administradores.
+Primeiro, crie uma seção **Principals** com um nome de usuário SetupAdminUser. Isso indica que o usuário é membro do grupo do sistema Administradores.
 
-Em seguida, na seção **ServiceManifestImport**, configure uma política para aplicar essa entidade ao **SetupEntryPoint**. Isso informa ao Service Fabric que quando o arquivo MySetup.bat for executado ele deve ser RunAs com privilégios de Administrador. Considerando que você *não* aplicou uma política ao ponto de entrada principal, o código em MyServiceHost.exe será executado sob o conta do sistema NetworkService, que é a conta padrão na qual todos os pontos de entrada do serviço são executados como RunAs.
+Em seguida, na seção **ServiceManifestImport**, configure uma política para aplicar essa entidade ao **SetupEntryPoint**. Isso informa ao Service Fabric que quando o arquivo **MySetup.bat** for executado ele deve ser RunAs com privilégios de Administrador. Considerando que você *não* aplicou uma política ao ponto de entrada principal, o código em **MyServiceHost.exe** será executado sob o conta do sistema **NetworkService**. Essa é a conta padrão que todos os pontos de entrada de serviço são executados como.
 
-Agora, vamos adicionar o arquivo MySetup.bat ao projeto do Visual Studio para testar os privilégios de Administrador. No Visual Studio, clique com botão direito do mouse no projeto de serviço e adicione uma nova chamada do arquivo MySetup.bat. Em seguida, é necessário assegurar que o arquivo esteja incluído no pacote de serviço, o que não ocorre por padrão. Para garantir que o arquivo MySetup.bat esteja incluído no pacote, selecione o arquivo, clique com botão direito para acessar o menu de contexto, escolha Propriedades e, na caixa de diálogo Propriedades, verifique se **Copiar para o Diretório de Saída** está definido como **Copiar se for mais recente**. Isso é mostrado na captura de tela abaixo.
+Agora, vamos adicionar o arquivo MySetup.bat ao projeto do Visual Studio para testar os privilégios de Administrador. No Visual Studio, clique com botão direito do mouse no projeto de serviço e adicione uma nova chamada do arquivo MySetup.bat.
 
-![CopyToOutput do Visual Studio para o arquivo em lotes SetupEntryPoint][Image1]
+Em seguida, certifique-se de que o arquivo MySetup.bat é incluído no service pack. Por padrão, não é. Selecione o arquivo, clique com o botão direito para exibir o menu de contexto e escolha **Propriedades**. Na caixa de diálogo Propriedades, verifique se **Copiar para diretório de saída** está definido como **Copiar se mais recente**. Isso é mostrado na captura de tela abaixo.
+
+![CopyToOutput do Visual Studio para o arquivo em lotes SetupEntryPoint][image1]
 
 Agora, abra o arquivo MySetup.bat e adicione os comandos a seguir.
 
@@ -100,21 +102,21 @@ REM To delete this system variable us
 REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
 ~~~
 
-Em seguida, compile e implante a solução em um cluster de desenvolvimento local. Após a inicialização do serviço, conforme visto no Gerenciador do Service Fabric, veja que MySetup.bat foi bem-sucedido de duas maneiras. Abra um prompt de comando do PowerShell e digite
+Em seguida, compile e implante a solução em um cluster de desenvolvimento local. Após a inicialização do serviço, conforme mostrado no Gerenciador do Service Fabric, é possível ver que MySetup.bat foi bem-sucedido de duas maneiras. Abra um prompt de comando do PowerShell e digite:
 
 ~~~
 PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
 MyValue
 ~~~
 
-Em seguida, anote o nome do nó no qual o serviço foi implantado e iniciado no Gerenciador do Service Fabric, por exemplo, Nó 1; em seguida, navegue para a pasta de trabalho da instância do aplicativo e localize o arquivo out.txt que mostra o valor de **TestVariable**. Por exemplo, se ele foi implantado no Nó 2, você pode acessar este caminho até o MyApplicationType
+Em seguida, anote o nome do nó em que o serviço foi implantado e iniciado no Gerenciador do Service Fabric, por exemplo, Nó 1. Em seguida, navegue até a pasta de trabalho de instância do aplicativo para localizar o arquivo out.txt que mostra o valor de **TestVariable**. Por exemplo, se ele foi implantado no Nó 2, você pode acessar este caminho até o **MyApplicationType**:
 
 ~~~
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ~~~
 
-##  Iniciando comandos do PowerShell do SetupEntryPoint
-Para executar o PowerShell do ponto **SetupEntryPoint**, execute PowerShell.exe em um arquivo em lotes que aponte para um arquivo do PowerShell. Primeiro, adicione um arquivo do PowerShell ao projeto de serviço, por exemplo, MySetup.ps1. Não deixe de definir a propriedade *Copiar se for mais recente* para que esse arquivo também seja incluído no pacote do serviço. O exemplo a seguir mostra um exemplo de arquivo em lotes para iniciar um arquivo do PowerShell chamado MySetup.ps1, que define uma variável de ambiente do sistema chamada *TestVariable*.
+##  Iniciar comandos do PowerShell a partir do SetupEntryPoint
+Para executar o PowerShell a partir do ponto **SetupEntryPoint**, execute **PowerShell.exe** em um arquivo em lotes que aponte para um arquivo do PowerShell. Primeiro, adicione um arquivo do PowerShell ao projeto de serviço, por exemplo, **MySetup.ps1**. Não deixe de definir a propriedade *Copiar se for mais recente* para que esse arquivo também seja incluído no pacote de serviço. O exemplo a seguir mostra um exemplo de arquivo em lotes para iniciar um arquivo do PowerShell chamado MySetup.ps1, que define uma variável de ambiente do sistema chamada **TestVariable**.
 
 Use MySetup.bat para iniciar o arquivo do PowerShell.
 
@@ -122,18 +124,18 @@ Use MySetup.bat para iniciar o arquivo do PowerShell.
 powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 ~~~
 
-No arquivo do PowerShell, adicione o seguinte para definir uma variável de ambiente do sistema.
+No arquivo do PowerShell, adicione o seguinte para definir uma variável de ambiente do sistema:
 
 ```
 [Environment]::SetEnvironmentVariable("TestVariable", "MyValue", "Machine")
 [Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt
 ```
 
-## Aplicando RunAsPolicy aos serviços 
+## Aplicar RunAsPolicy aos serviços
 Nas etapas acima, você viu como aplicar a política RunAs a um SetupEntryPoint. Agora, vamos analisar com mais detalhes como criar entidades diferentes que possam ser aplicadas como políticas de serviço.
 
 ### Criar grupos de usuários locais
-É possível definir e criar grupos de usuários nos quais um ou mais usuários podem ser adicionados a esse grupo. Isso será particularmente útil se houver vários usuários para pontos de entrada de serviço diferentes e eles precisarem de privilégios comuns disponíveis no nível do grupo. O exemplo a seguir mostra um grupo local chamado **LocalAdminGroup** com privilégios de Administrador. Dois usuários, Customer1 e Customer2, tornam-se membros desse grupo local.
+É possível definir e criar grupos de usuários nos quais um ou mais usuários podem ser adicionados a um grupo. Isso será particularmente útil se houver vários usuários para pontos de entrada de serviço diferentes e eles precisarem de privilégios comuns disponíveis no nível do grupo. O exemplo a seguir mostra um grupo local chamado **LocalAdminGroup** com privilégios de Administrador. Dois usuários, Customer1 e Customer2, tornam-se membros desse grupo local.
 
 ~~~
 <Principals>
@@ -160,7 +162,7 @@ Nas etapas acima, você viu como aplicar a política RunAs a um SetupEntryPoint.
 ~~~
 
 ### Criar usuários locais
-Você pode criar um usuário local que pode ser usado para proteger um serviço dentro do aplicativo. Quando um tipo de conta LocalUser é especificado na seção Principals do manifesto do aplicativo, o Service Fabric cria contas de usuário local em máquinas nas quais o aplicativo foi implantado. Por padrão, essas contas não têm o mesmo nome especificado no manifesto do aplicativo (por exemplo "Customer3" no exemplo abaixo), mas em vez disso, serão geradas dinamicamente e terão senhas aleatórias.
+Você pode criar um usuário local que pode ser usado para proteger um serviço dentro do aplicativo. Quando um tipo de conta **LocalUser** é especificado na seção Principals do manifesto do aplicativo, o Service Fabric cria contas de usuário local em máquinas nas quais o aplicativo foi implantado. Por padrão, essas contas não têm os mesmos nomes especificados no manifesto do aplicativo (por exemplo, Customer3 no exemplo abaixo). Em vez disso, eles são gerados dinamicamente e têm senhas aleatórias.
 
 ~~~
 <Principals>
@@ -169,8 +171,8 @@ Você pode criar um usuário local que pode ser usado para proteger um serviço 
   </Users>
 </Principals>
 ~~~
- 
-<!-- If an application requires that the user account and password be same on all machines (e.g. to enable NTLM authentication), the cluster manifest must set NTLMAuthenticationEnabled to true and also specify an NTLMAuthenticationPasswordSecret that will be used to generate the same password across all machines.
+
+<!-- If an application requires that the user account and password be same on all machines (for example, to enable NTLM authentication), the cluster manifest must set NTLMAuthenticationEnabled to true. The cluster manifest must also specify an NTLMAuthenticationPasswordSecret that will be used to generate the same password across all machines.
 
 <Section Name="Hosting">
       <Parameter Name="EndpointProviderEnabled" Value="true"/>
@@ -179,8 +181,8 @@ Você pode criar um usuário local que pode ser usado para proteger um serviço 
  </Section>
 -->
 
-## Atribuindo políticas aos pacotes de códigos do serviço
-A seção **RunAsPolicy** de um **ServiceManifestImport** especifica a conta da seção Principals que deve ser usada para executar um pacote de códigos e associa os pacotes de códigos do manifesto do serviço às contas de usuário na seção Principals. Você pode especificar isso para os pontos de entrada Setup ou Main, ou especificar All para aplicar a ambos. O exemplo a seguir mostra a aplicação de políticas diferentes.
+## Atribuir políticas aos pacotes de códigos do serviço
+A seção **RunAsPolicy** para um **ServiceManifestImport** especifica a conta da seção de entidades que deve ser usada para executar um pacote de códigos. Ela também associa os pacotes de código do manifesto do serviço com contas de usuário na seção entidades. Você pode especificar isso para os pontos de entrada de configuração ou principal, ou especificar Todos para aplicar a ambos. O exemplo a seguir mostra a aplicação de políticas diferentes:
 
 ~~~
 <Policies>
@@ -189,10 +191,10 @@ A seção **RunAsPolicy** de um **ServiceManifestImport** especifica a conta da 
 </Policies>
 ~~~
 
-Se **EntryPointType** não for especificado, o padrão será definido como EntryPointType ="Main". A especificação de um **SetupEntryPoint** é especialmente útil quando você deseja executar determinada operação de instalação de privilégio alto em uma conta do sistema, embora o código de serviço real possa ser executado em uma conta com privilégios mais baixos.
+Se **EntryPointType** não for especificado, o padrão será definido como EntryPointType ="Main". A especificação de um **SetupEntryPoint** é especialmente útil quando você deseja executar determinada operação de instalação de privilégio alto em uma conta do sistema. O código de serviço real pode ser executado em uma conta de baixo privilégio.
 
-### Aplicando uma política padrão a todos os pacotes de códigos de serviço
-A seção **DefaultRunAsPolicy** é usada para especificar uma conta de usuário padrão para todos os pacotes de códigos que não tenham uma **RunAsPolicy** específica definida. Quando a maioria dos pacotes de códigos especificada nos manifestos do serviço usados por um aplicativo precisar ser executada com o mesmo usuário de RunAs, o aplicativo poderá definir apenas uma política RunAs padrão nessa conta de usuário, em vez de especificar uma **RunAsPolicy** para cada pacote de códigos. O exemplo a seguir especifica que quando um pacote de códigos não tiver uma **RunAsPolicy** especificada, ele deverá ser executado em uma MyDefaultAccount especificada na seção Principals.
+### Aplicar uma política padrão a todos os pacotes de códigos de serviço
+A seção **DefaultRunAsPolicy** é usada para especificar uma conta de usuário padrão para todos os pacotes de códigos que não tenham uma **RunAsPolicy** específica definida. Quando a maioria dos pacotes de códigos especificada nos manifestos do serviço usados por um aplicativo precisar ser executada com o mesmo usuário de RunAs, o aplicativo poderá definir apenas uma política RunAs padrão nessa conta de usuário, em vez de especificar uma **RunAsPolicy** para cada pacote de códigos. O exemplo a seguir especifica que quando um pacote de códigos não tiver uma **RunAsPolicy** especificada, ele deverá ser executado em uma **MyDefaultAccount** especificada na seção Principals.
 
 ~~~
 <Policies>
@@ -200,8 +202,8 @@ A seção **DefaultRunAsPolicy** é usada para especificar uma conta de usuário
 </Policies>
 ~~~
 
-## Atribuindo SecurityAccessPolicy aos pontos de extremidade http e https
-Se você aplicar uma política RunAs a um serviço e o manifesto do serviço declarar recursos de ponto de extremidade com o protocolo HTTP, será necessário especificar uma **SecurityAccessPolicy** para assegurar que as portas alocadas a esses pontos de extremidade sejam corretamente reconhecidas na ACL para a conta de usuário RunAs na qual o serviço é executado. Caso contrário, o http.sys não terá acesso ao serviço e você receberá uma falha com chamadas do cliente. O exemplo a seguir se aplica a conta Customer3 ao ponto de extremidade chamado *ServiceEndpointName*, concedendo a ele direitos de acesso totais.
+## Atribuindo SecurityAccessPolicy aos pontos de extremidade HTTP e HTTPS
+Se você aplicar uma política RunAs a um serviço e o manifesto do serviço declarar recursos de ponto de extremidade com o protocolo HTTP, será necessário especificar uma **SecurityAccessPolicy** para assegurar que as portas alocadas a esses pontos de extremidade sejam corretamente listadas no controle de acesso para a conta de usuário RunAs na qual o serviço é executado. Caso contrário, o **http.sys** não terá acesso ao serviço e você receberá uma falha com chamadas do cliente. O exemplo a seguir se aplica a conta Customer3 a um ponto de extremidade chamado **ServiceEndpointName**, concedendo a ele direitos de acesso totais.
 
 ~~~
 <Policies>
@@ -211,7 +213,7 @@ Se você aplicar uma política RunAs a um serviço e o manifesto do serviço dec
 </Policies>
 ~~~
 
-Para o ponto de extremidade https, você deverá indicar o nome do certificado a ser retornado ao cliente com um **EndpointBindingPolicy** em que o certificado é definido, em uma seção de certificados no manifesto do aplicativo.
+Para o ponto de extremidade HTTPS, você também precisa indicar o nome do certificado para retornar para o cliente. Você pode fazer isso usando **EndpointBindingPolicy**, com o certificado definido em uma seção de certificados no manifesto do aplicativo.
 
 ~~~
 <Policies>
@@ -285,9 +287,9 @@ O manifesto do aplicativo abaixo mostra várias configurações diferentes descr
 ## Próximas etapas
 
 * [Entenda o modelo de aplicativo](service-fabric-application-model.md)
-* [Especificando recursos em um manifesto do serviço](service-fabric-service-manifest-resources.md)
+* [Especificar recursos em um manifesto do serviço](service-fabric-service-manifest-resources.md)
 * [Implantar um aplicativo](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

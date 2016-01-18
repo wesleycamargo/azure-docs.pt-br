@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="08/31/2015"
+    ms.date="01/05/2016"
     ms.author="v-sharos" />
 
 # Usar indicadores de monitoramento do StorSimple para gerenciar seu dispositivo   
@@ -31,7 +31,7 @@ O restante deste artigo descreve os vários LEDs indicadores de monitoramento, s
 
 ## LEDs indicadores no painel frontal
 
-O painel frontal, também conhecido como o *painel de operações* ou *painel ops*, exibe o status agregado de todos os módulos no sistema. O painel frontal é idêntico no dispositivo StorSimple e o compartimento EBOD é ilustrado abaixo.
+O painel frontal, também conhecido como o *painel de operações* ou *painel ops*, exibe o status agregado de todos os módulos no sistema. O painel frontal é idêntico no compartimento StorSimple primário e no compartimento EBOD, e é ilustrado abaixo.
 
    ![Painel frontal do dispositivo][1]
  
@@ -256,4 +256,4 @@ Saiba mais sobre os [componentes e o status de hardware do StorSimple](storsimpl
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

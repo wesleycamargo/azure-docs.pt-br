@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # Práticas recomendadas para melhorias de desempenho usando o sistema de mensagens agenciado do Barramento de Serviço
@@ -142,7 +142,7 @@ Se uma mensagem com informações importantes que não devem ser perdidas for en
 
 ## Uso de filas ou tópicos particionados
 
-Internamente, o Barramento de Serviço usa o mesmo nó e o repositório de mensagens para processar e armazenar todas as mensagens para uma entidade de mensagens (fila ou tópico). Uma fila ou tópico particionado, por outro lado, é distribuído entre vários nós e repositórios de mensagens. As filas e tópicos particionados não só geram uma taxa de transferência mais alta do que as filas e os tópicos normais, como também exibem disponibilidade superior. Para criar uma entidade particionada, defina a propriedade [EnablePartitioning][] como **true**, como mostrado no exemplo a seguir. Para saber mais sobre entidades particionadas, consulte [Particionando entidades do sistema de mensagens][].
+Internamente, o Barramento de Serviço usa o mesmo nó e o repositório de mensagens para processar e armazenar todas as mensagens para uma entidade de mensagens (fila ou tópico). Uma fila ou tópico particionado, por outro lado, é distribuído entre vários nós e repositórios de mensagens. As filas e tópicos particionados não só geram uma taxa de transferência mais alta do que as filas e os tópicos normais, como também exibem disponibilidade superior. Para criar uma entidade particionada, defina a propriedade [EnablePartitioning][] como **true**, como mostrado no exemplo a seguir. Para obter mais informações sobre entidades particionadas, consulte [Entidades de mensagens particionadas][].
 
 ```
 // Create partitioned queue.
@@ -275,7 +275,7 @@ Para maximizar a taxa de transferência, faça o seguinte:
 
 ## Próximas etapas
 
-Para saber mais sobre a otimização do desempenho do Barramento de Serviço, confira [Particionando entidades de mensagens][].
+Para saber mais sobre a otimização do desempenho do Barramento de Serviço, confira [Entidades de mensagens particionadas][].
 
   [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
   [MessageSender]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx
@@ -288,8 +288,7 @@ Para saber mais sobre a otimização do desempenho do Barramento de Serviço, co
   [SubscriptionClient.PrefetchCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.prefetchcount.aspx
   [ForcePersistence]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.forcepersistence.aspx
   [EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx
-  [Particionando entidades de mensagens]: service-bus-partitioning.md
-  [Particionando entidades do sistema de mensagens]: service-bus-partitioning.md
+  [Entidades de mensagens particionadas]: service-bus-partitioning.md
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

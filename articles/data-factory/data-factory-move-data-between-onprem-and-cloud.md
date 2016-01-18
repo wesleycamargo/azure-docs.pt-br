@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="01/07/2016" 
 	ms.author="spelluru"/>
 
 # Mover dados entre fontes locais e nuvem com o Gateway de Gerenciamento de Dados
@@ -49,37 +49,71 @@ Devido ao fato de as execuções da atividade de cópia ocorrerem em uma frequê
 ## Instalação
 O Gateway de Gerenciamento de Dados pode ser instalado baixando um pacote de instalação MSI do Centro de Download da Microsoft. O MSI também pode ser usado para atualizar o Gateway de Gerenciamento de Dados existente para a versão mais recente, com todas as configurações preservadas. Você pode encontrar o link para o pacote MSI no Portal Clássico do Azure seguindo a explicação passo a passo abaixo.
 
+
 ### Práticas recomendadas de instalação:
 1.	Configure o plano de energia no computador host para o gateway para que o computador não hiberne. Se o computador host hibernar, o gateway não poderá responder a solicitações de dados.
 2.	Você deve fazer backup do certificado associado ao gateway.
 
-### Solucionando problemas de instalação:
-Se sua empresa usa um firewall ou servidor proxy, etapas adicionais podem ser necessárias no caso de o Gateway de Gerenciamento de Dados não poder se conectar aos serviços de nuvem da Microsoft.
+## Considerações sobre a porta e segurança
 
-#### Examinando logs do Gateway com o Visualizador de Eventos:
+### Considerações gerais
+Há dois firewalls que você precisa levar em consideração: o **firewall corporativo** em execução no roteador central da organização e o **Firewall do Windows** configurado como um daemon no computador local em que o gateway está instalado. Se você estiver usando um firewall terceiros em vez do Firewall do Windows, use as seguintes recomendações como referência e configure as portas adequadamente. Se um servidor proxy estiver sendo utilizado em sua organização, consulte também as [considerações sobre servidor proxy](#proxy-server-considerations). Estas são algumas considerações gerais:
 
-O aplicativo do gerenciador de configurações de gateway indica o status do gateway como "Desconectado" ou "Conectando".
+**Antes de configurar o gateway:**
 
-Para obter mais informações, você pode examinar os logs de gateway nos logs de eventos do Windows. Você pode encontrá-los usando o **Visualizador de Eventos** do Windows em **Logs de Aplicativos e Serviços** > **Gateway de Gerenciamento de Dados**. Enquanto soluciona problemas relacionados ao gateway, procure por eventos de nível de erro no Visualizador de Eventos.
+- Para o **firewall corporativo e o Firewall do Windows**, você precisa se certificar de que a regra de saída para portas **TCP** **80** e **443** esteja habilitada e, opcionalmente, para as portas **9350** a **9354**. Elas são usadas pelo Barramento de Serviço do Microsoft Azure para estabelecer a conexão entre o Azure Data Factory e o Gateway de Gerenciamento de Dados. Abrir as portas 9350 a 9354 não é obrigatório, mas pode melhorar o desempenho da comunicação entre o Azure Data Factory e o Gateway de Gerenciamento de Dados.
+
+**Durante a configuração do gateway:**
+
+- Por padrão, a instalação do Gateway de Gerenciamento de Dados abre a porta de entrada **8050** no **Firewall do Windows local** no computador do gateway. A porta será usada pelo aplicativo **Setting Credentials** para retransmitir as credenciais para o gateway quando você configurar um serviço vinculado local no Portal do Azure (detalhes mais adiante neste artigo) vinculado. Ela não será acessível na Internet, por isso você não precisa abri-la no firewall corporativo.
+- Se não quiser que a instalação do gateway abra a porta 8050 no Firewall do Windows para o computador do gateway, você pode usar o comando a seguir para instalar o gateway sem configurar o firewall.
+
+		msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
+
+Se a porta de entrada 8050 não estiver aberta no computador do gateway, para configurar um serviço vinculado local você precisará usar mecanismos diferentes do aplicativo **Setting Credentials** para configurar as credenciais do armazenamento de dados. Por exemplo, você pode usar o cmdlet do PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx). Consulte a seção [Configurando credenciais e segurança](#setting-credentials-and-security) sobre como as credenciais de armazenamento de dados pode ser configuradas.
 
 
-#### Possíveis sintomas de problemas relacionados ao firewall:
+**Para copiar dados de um armazenamento de dados de origem para um armazenamento de dados coletor:**
 
-1. Ao tentar registrar o gateway, você recebe o seguinte erro: "Falha ao registrar a chave do gateway. Antes de tentar registrar a chave do gateway novamente, confirme se o Gateway de Gerenciamento de Dados está em um estado conectado e o Serviço de Host do Gateway de Gerenciamento de Dados está iniciado."
-2. Ao abrir o Gerenciador de Configurações, você vê o status “Desconectado” ou “Conectando”. Ao exibir os logs de eventos do Windows, em "Visualizador de Eventos" > "Logs de Aplicativos e Serviços" > "Gateway de Gerenciamento de Dados" você vê mensagens de erro como "Impossível conectar-se ao servidor remoto" ou "Um componente do Gateway de Gerenciamento de Dados parou de responder e será reiniciado automaticamente. Nome do componente: Gateway."
+Você precisa certificar-se de que as regras de firewall estejam habilitadas corretamente no firewall corporativo, no Firewall do Windows no computador do gateway e no armazenamento de dados em si. Isso permite que o gateway se conecte à origem e ao coletor com êxito. Você precisa habilitar regras para cada repositório de dados que está envolvido na operação de cópia.
 
-Esses são causados pela configuração incorreta do servidor proxy ou firewall, o que impede o Gateway de Gerenciamento de Dados de se conectar aos serviços de nuvem para se autenticar.
+Por exemplo, para copiar de um **armazenamento de dados local para um coletor do Banco de Dados SQL do Azure ou um coletor do SQL Data Warehouse do Azure**, você precisa permitir a comunicação **TCP** de saída na porta **1433** para o Firewall do Windows e o firewall corporativo, e precisa definir as configurações de firewall do SQL Server do Azure para adicionar o endereço IP do computador do gateway à lista de endereços IP permitidos.
 
-Os dois firewalls que possivelmente estão no escopo são: firewall corporativo em execução no roteador central da organização e o firewall do Windows configurado como um daemon no computador local em que o gateway está instalado. Aqui estão algumas considerações:
+### Considerações do servidor proxy
+Por padrão, o Gateway de Gerenciamento de Dados utilizará as configurações de proxy do Internet Explorer e usará as credenciais padrão para acessá-lo. Se isso não se adequar ao seu caso, você pode definir as **configurações do servidor proxy** conforme mostrado abaixo para garantir que o gateway seja capaz de se conectar ao Azure Data Factory:
 
-- Não é necessário alterar a política de entrada do firewall corporativo.
-- O firewall corporativo e o firewall do Windows devem habilitar a regra de saída para as portas TCP: 80, 443 e de 9350 a 9354. Elas são usadas pelo Barramento de Serviço do Microsoft Azure para estabelecer a conexão entre os serviços de nuvem e o Gateway de Gerenciamento de Dados.
+1.	Depois de instalar o Gateway de Gerenciamento de Dados, no Explorador de Arquivos, faça uma cópia de segurança de “C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared\\diahost.exe.config” para fazer backup do arquivo original.
+2.	Inicie o Notepad.exe executando como administrador e abra o arquivo de texto “C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared\\diahost.exe.config”. Você encontrará a marca padrão para system.net da seguinte forma:
 
-A instalação do MSI configurará automaticamente regras de firewall do Windows para as portas de entrada do computador do gateway (consulte a seção de considerações sobre portas e segurança acima).
+			<system.net>
+				<defaultProxy useDefaultCredentials="true" />
+			</system.net>	
 
-Mas a instalação presume que as portas de saída mencionadas acima são permitidas por padrão no computador local e no firewall corporativo. Você precisa habilitar essas portas de saída, se esse não for o caso. Se você tiver substituído o firewall do Windows por um firewall de terceiros, talvez seja necessário abrir essas portas manualmente.
+	Você pode adicionar os detalhes do servidor proxy, como o endereço proxy dentro dessa marca pai, por exemplo:
 
-Se sua empresa usa um servidor proxy, você precisa adicionar o Microsoft Azure à lista branca. Você pode baixar uma lista de endereços IP do Microsoft Azure válidos do [Centro de Download da Microsoft](http://msdn.microsoft.com/library/windowsazure/dn175718.aspx).
+			<system.net>
+			      <defaultProxy enabled="true">
+			            <proxy bypassonlocal="true" proxyaddress="http://proxy.domain.org:8888/" />
+			      </defaultProxy>
+			</system.net>
+
+	Propriedades adicionais são permitidas dentro da marca de proxy para especificar as configurações necessárias como scriptLocation. Consulte o [Elemento proxy (configurações de rede)](https://msdn.microsoft.com/library/sa91de1e.aspx) na sintaxe.
+
+			<proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
+
+3. Salve o arquivo de configuração no local original e reinicie o serviço de Gateway de Gerenciamento de Dados para acompanhar as alterações. Você pode fazer isso em **Iniciar** > **Services.msc** ou do **Gerenciador de Configurações do Gateway de Gerenciamento de Dados** > clique no botão **Parar Serviço** e clique em **Iniciar Serviço**. Se o serviço não iniciar, é provável que uma sintaxe de marca XML incorreta tenha sido adicionada ao arquivo de configuração de aplicativo que foi editado.
+
+Além dos pontos acima, você também precisa certificar-se de que o Microsoft Azure esteja na lista branca da sua empresa. A lista de endereços IP do Microsoft Azure válidos pode ser baixada no [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
+
+### Possíveis sintomas de problemas relacionados ao firewall e ao servidor proxy
+Se você encontrar erros como os descritos a seguir, eles provavelmente se devem à configuração incorreta do servidor proxy ou firewall, que impede o Gateway de Gerenciamento de Dados de se conectar ao Azure Data Factory para se autenticar. Consulte a seção acima para garantir que seu firewall e servidor proxy estejam configurados corretamente.
+
+1.	Ao tentar registrar o gateway, você recebe o seguinte erro: "Falha ao registrar a chave do gateway. Antes de tentar registrar a chave do gateway novamente, confirme se o Gateway de Gerenciamento de Dados está em um estado conectado e o Serviço de Host do Gateway de Gerenciamento de Dados está iniciado."
+2.	Ao abrir o Gerenciador de Configurações, você vê o status “Desconectado” ou “Conectando”. Ao exibir os logs de eventos do Windows, em "Visualizador de Eventos" > "Logs de Aplicativos e Serviços" > "Gateway de Gerenciamento de Dados" você vê mensagens de erro como "Impossível conectar-se ao servidor remoto" ou "Um componente do Gateway de Gerenciamento de Dados parou de responder e será reiniciado automaticamente. Nome do componente: Gateway."
+
+## Solução de problemas de gateway:
+Você pode encontrar informações detalhadas nos logs de gateway nos logs de eventos do Windows. Você pode encontrá-los usando o **Visualizador de Eventos** do Windows em **Logs de Aplicativos e Serviços** > **Gateway de Gerenciamento de Dados**. Enquanto soluciona problemas relacionados ao gateway, procure por eventos de nível de erro no Visualizador de Eventos.
+
 
 ## Usando o Gateway de dados: tutorial passo a passo
 Neste passo a passo, você pode criar um data factory com um pipeline que move dados de um banco de dados SQL Server local para um blob do Azure.
@@ -299,10 +333,10 @@ Nesta etapa, você criará conjuntos de dados de entrada e saída que representa
   
 	Observe o seguinte:
 	
-	- **type** é definido como **AzureBlob**.
+	- **tipo** é definido como **AzureBlob**.
 	- **linkedServiceName** é definido como **StorageLinkedService** (você criou esse serviço vinculado na Etapa 2).
 	- **folderPath** é definido como **adftutorial/outfromonpremdf**, em que outfromonpremdf é a pasta no contêiner adftutorial. Você precisa apenas criar o contêiner **adftutorial**.
-	- A **availability** é definida como **hourly** (**frequency** definida como **hour** e **interval** definido como **1**). O serviço Data Factory gerará uma fatia de dados de saída a cada hora na tabela **emp** no banco de dados SQL do Azure. 
+	- A **disponibilidade** é definida como **por hora** (**frequência** definida como **hora** e **intervalo** definido como **1**). O serviço Data Factory gerará uma fatia de dados de saída a cada hora na tabela **emp** no banco de dados SQL do Azure. 
 
 	Se você não especificar um **fileName** para uma **tabela de entradas**, todos os arquivos/blobs da pasta de entrada (**folderPath**) serão considerados como entradas. Se você especificar um nome de arquivo em JSON, apenas arquivo/blob especificado será considerado como entrada de asn. Consulte os arquivos de exemplo no [tutorial][adf-tutorial] para ver exemplos.
  
@@ -384,14 +418,14 @@ Nesta etapa, você criará um **pipeline** com uma **Atividade de Cópia** que u
  
 	- Na seção de atividades, há somente uma atividade cujo **type** é definido como **Copy**.
 	- A **entrada** da atividade é definida como **EmpOnPremSQLTable** e a **saída** da atividade é definida como **OutputBlobTable**.
-	- Na seção **transformation**, **SqlSource** é especificado como o **source type** e **BlobSink** é especificado como o **sink type**.
-	- A consulta SQL **select * from emp** é especificada para a propriedade **sqlReaderQuery** de **SqlSource**.
+	- Na seção **transformation**, **SqlSource** é especificado como o **source type** e **BlobSink **é especificado como o **sink type**.
+- A consulta SQL **select * from emp** é especificada para a propriedade **sqlReaderQuery** de **SqlSource**.
 
 	Substitua o valor da propriedade **início** pelo dia atual e o valor de **término** pelo dia seguinte. Ambos os valores de data/hora de início e de término devem estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. A hora de **end** é opcional, mas nós o usaremos neste tutorial.
 	
-	Se você não especificar o valor para a propriedade **end**, ele será calculado como "**início + 48 horas**". Para executar o pipeline indefinidamente, especifique **9/9/9999** como o valor da propriedade **end**.
+	Se você não especificar o valor para a propriedade **término**, ele será calculado como "**início + 48 horas**". Para executar o pipeline indefinidamente, especifique **9/9/9999** como o valor da propriedade **end**.
 	
-	Especificando o período ativo de um pipeline, você está definindo a duração de tempo em que as fatias de dados serão processadas com base nas propriedades de **Disponibilidade** que foram definidas para cada tabelo da Azure Data Factory.
+	Especificando o período ativo de um pipeline, você está definindo a duração de tempo em que as fatias de dados serão processadas com base nas propriedades de **Disponibilidade** que foram definidas para cada tabela da Azure Data Factory.
 	
 	No exemplo acima, como cada fatia de dados é produzida por hora, haverá 24 fatias de dados.
 	
@@ -413,7 +447,7 @@ Nesta etapa, você criará um **pipeline** com uma **Atividade de Cópia** que u
 	É possível ampliar, reduzir, aplicar zoom de 100%, ajustar nível de zoom, posicionar pipelines e tabelas automaticamente, bem como mostrar informações de linhagem (realça itens upstream e downstream dos itens selecionados). Você pode clicar duas vezes em um objeto (pipeline ou tabela de entrada/saída) para ver as propriedades dele.
 
 ### Etapa 6: Monitorar os conjuntos de dados e os pipelines
-Nesta etapa, você usará o Portal Clássico do Azure para monitorar o que está acontecendo em uma data factory do Azure. Você também pode usar os cmdlets do PowerShell para monitorar conjuntos de dados e pipelines. Para obter detalhes sobre monitoramento, consulte [Monitorar e gerenciar pipelines](monitor-manage-pipelines.md).
+Nesta etapa, você usará o Portal Clássico do Azure para monitorar o que está acontecendo em uma data factory do Azure. Você também pode usar os cmdlets do PowerShell para monitorar conjuntos de dados e pipelines. Para obter detalhes sobre monitoramento, consulte [Monitorar e gerenciar pipelines](data-factory-monitor-manage-pipelines.md).
 
 1. Navegue até o **Portal do Azure** (se você o fechou)
 2. Se a folha para **ADFTutorialOnPremDF** não estiver aberta, abra-a clicando em **ADFTutorialOnPremDF** no **Quadro Inicial**.
@@ -514,15 +548,10 @@ Você também pode criar um serviço do SQL Server vinculado usando a folha de s
 7.	Na folha **Credenciais**, clique em **Clique aqui para definir credenciais**.
 8.	Na caixa de diálogo **Definindo Credenciais**, faça o seguinte:
 
-	![Caixa de diálogo de Configurando Credenciais](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
-	1.	Selecione a **autenticação** que você deseja que o serviço de Data Factory use para se conectar ao banco de dados. 
-	2.	Insira o nome do usuário que tem acesso ao banco de dados para a configuração **NOME DE USUÁRIO**. 
-	3.	Insira a senha do usuário para a configuração **SENHA**.  
-	4.	Clique em **OK** para fechar a caixa de diálogo. 
+	![Caixa de diálogo de Configurando Credenciais](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 1. Selecione a **autenticação** que você deseja que o serviço de Data Factory use para se conectar ao banco de dados. 2. Insira o nome do usuário que tem acesso ao banco de dados para a configuração **NOME DE USUÁRIO**. 3. Insira a senha do usuário para a configuração **SENHA**. 4. Clique em **OK** para fechar a caixa de diálogo. 
 4. Clique em **OK** para fechar a folha **Credenciais**. 
 5. Clique em **OK** na folha **Novo armazenamento de dados**. 	
-6. Confirme se o status de **SqlServerLinkedService** está definido como Online na folha Serviços Vinculados.
-	![Status do serviço vinculado do SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
+6. Confirme se o status de **SqlServerLinkedService** está definido como Online na folha Serviços Vinculados.![Status do serviço vinculado do SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
 
 Se você acessar o portal de um computador diferente do computador do gateway, você deve garantir que o aplicativo Gerenciador de credenciais possa se conectar ao computador do gateway. Se o aplicativo não puder acessar o computador do gateway, ele não permitirá que você defina credenciais da fonte de dados teste a conexão à fonte de dados.
 
@@ -594,8 +623,7 @@ Você pode remover um gateway usando o cmdlet **Remove-AzureRmDataFactoryGateway
 ## Fluxo de dados de cópia usando o Gateway de Gerenciamento de Dados
 Quando você usa uma atividade de cópia em um pipeline de dados para incluir dados locais na nuvem para processamento adicional, ou exportar dados de resultado na nuvem de volta para um armazenamento de dados local, a atividade de cópia usa internamente um gateway para transferir os dados da fonte de dados local para a nuvem e vice-versa.
 
-Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a cópia com o gateway de dados:
-![Fluxo de dados usando o gateway](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
+Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a cópia com o gateway de dados: ![Fluxo de dados usando o gateway](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
 
 1.	O desenvolvedor de dados cria um novo gateway para um Azure Data Factory usando o [Portal Clássico do Azure](http://portal.azure.com) ou o [Cmdlet do PowerShell](https://msdn.microsoft.com/library/dn820234.aspx). 
 2.	O desenvolvedor de dados usa o painel "Serviços vinculados" para definir um novo serviço vinculado para um armazenamento de dados local com o gateway. Como parte da configuração de dados do serviço vinculado, o desenvolvedor usa o aplicativo Configurando Credenciais como mostrado no tutorial passo a passo para especificar as credenciais e tipos de autenticação. A caixa de diálogo do aplicativo Configurando Credenciais se comunicará com o armazenamento de dados para testar a conexão e o gateway para salvar as credenciais.
@@ -604,18 +632,4 @@ Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a có
 5.	O gateway descriptografa as credenciais com o mesmo certificado e se conecta ao armazenamento de dados local com o tipo de autenticação adequado.
 6.	O gateway copia dados do armazenamento local para um armazenamento em nuvem ou de um armazenamento em nuvem para um armazenamento de dados local dependendo de como a atividade de cópia é configurada no pipeline de dados. Observação: para esta etapa, o gateway se comunica diretamente com o serviço de armazenamento baseado em nuvem (por exemplo, Blob do Azure, SQL do Azure etc.) por um canal seguro (HTTPS).
 
-### Considerações de segurança e sobre portas
-
-1. Conforme mencionado anteriormente no tutorial passo a passo, há várias maneiras de configurar credenciais para armazenamentos de dados locais com a data factory. As considerações de porta variam para essas opções.	
-
-	- Usando o aplicativo **Definindo Credenciais**: o programa de instalação do Gateway de Gerenciamento de Dados por padrão abre as portas **8050** e **8051** no firewall do Windows local para o computador do gateway. Essas portas são usadas pelo aplicativo Configurando Credenciais para retransmitir as credenciais para o gateway. Essas portas estão abertas somente para o computador no firewall do Windows local. Elas não podem ser acessadas da Internet e você não precisa mantê-las abertas no firewall corporativo.
-	2.	Usar o cmdlet do PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx): a. Se você estiver usando o comando do PowerShell para criptografar as credenciais e como resultado não deseja que a instalação do gateway abra as portas de entrada no computador do gateway no firewall do Windows, pode fazer isso usando o comando a seguir durante a instalação:
-	
-			msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
-3.	Se estiver usando o aplicativo **Definindo Credenciais**, você deve iniciá-lo em um computador que pode se conectar ao Gateway de Gerenciamento de Dados para poder configurar credenciais para a fonte de dados e para testar a conexão com a fonte de dados.
-4.	Ao copiar dados de/para um banco de dados do SQL Server local de um banco de dados SQL do Azure, certifique-se do seguinte:	
-	- 	Que o firewall no computador do gateway permite a comunicação TCP de saída na porta **TCP** **1433**.
-	- 	Defina as [Configurações de firewall do Azure SQL](https://msdn.microsoft.com/library/azure/jj553530.aspx) para adicionar o **endereço IP do computador do gateway** aos **endereços IP permitidos**.
-5.	Ao copiar dados para/de um SQL Server local para qualquer destino quando os computadores do gateway e do SQL Server forem diferentes, faça o seguinte: [configure o Firewall do Windows](https://msdn.microsoft.com/library/ms175043.aspx) no computador do SQL Server para que o gateway possa acessar o banco de dados por meio de portas que a instância do SQL Server escuta. Para a instância padrão, é a porta 1433.
-
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

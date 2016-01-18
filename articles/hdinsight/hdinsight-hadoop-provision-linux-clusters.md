@@ -18,7 +18,7 @@
    	ms.author="nitinme"/>
 
 
-#Criar clusters baseados em Linux em HDInsight
+#Criar clusters Hadoop baseados em Linux em HDInsight
 
 [AZURE.INCLUDE [seletor](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
@@ -101,7 +101,7 @@ Você pode adicionar outras tecnologias, como Hue ou R a esses tipos básicos us
 
 Você pode provisionar clusters HDInsight em um dos dois sistemas operacionais a seguir:
 
-- **HDInsight no Windows (Windows Server 2012 R2 Datacenter)**: selecione esta opção se precisar integrar com serviços e tecnologias baseados no Windows que serão executados no cluster com Hadoop, ou se estiver migrando de uma distribuição Hadoop existente baseada no Windows.
+- **HDInsight no Windows (Windows Server 2012 R2 Datacenter)**: selecione esta opção se precisar integrar com serviços baseados em Windows e tecnologias que serão executadas no cluster com Hadoop, ou se você estiver migrando de uma distribuição Hadoop baseada em Windows existente.
 
 - **HDInsight em Linux (Ubuntu 12.04 LTS para Linux)**: selecione essa opção se estiver familiarizado com Linux ou Unix, migrando de uma solução Hadoop existente baseada no Linux ou se quiser fácil integração com componentes do ecossistema do Hadoop criados para Linux. Para obter mais informações, consulte [Introdução ao Hadoop no Linux em HDInsight](hdinsight-hadoop-linux-get-started.md).
 
@@ -282,4 +282,4 @@ Neste artigo, você aprendeu as informações básicas sobre como criar um clust
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Use o Sqoop com o HDInsight"
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->
