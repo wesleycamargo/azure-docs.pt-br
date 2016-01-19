@@ -186,9 +186,9 @@ Use as etapas a seguir no modo de exibição do Hive para executar uma consulta 
     
     Os outros ícones são os seguintes:
     
-	* Configurações: o ícone de engrenagem permite que você altere as configurações do Hive, como a configuração `hive.execution.engine` ou os parâmetros do Tez.
-	* Tez: exibe o Gráfico Acíclico Dirigido (DAG) que o Tez utilizou para fazer a consulta. Se você quiser exibir o DAG de consultas executadas anteriormente, use __Modo de Exibição do Tez exibição__.
-	* Notificações: exibe notificações, como “A consulta foi enviada” ou se algum erro ocorrer ao executar uma consulta.
+        * Settings: The gear icon allows you to change Hive settings, such as setting `hive.execution.engine` or Tez parameters.
+        * Tez: Displays the Directed Acyclic Graph (DAG) that Tez used to perform the query. If you want to view the DAG for queries you've ran in the past, use the __Tez View__ instead.
+        * Notifications: Displays notifications, such as "Query has been submitted" or if an error occurs when running a query.
 
 5. Escolha o ícone __SQL__ para retornar ao Editor de Consultas. Em seguida, crie uma nova planilha e insira a seguinte consulta:
 

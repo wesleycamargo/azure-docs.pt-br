@@ -68,7 +68,7 @@ Esta seção mostra a criação de um novo hub de notificação e a configuraç�
 
 
 
-Seu hub de notificação agora está configurado para funcionar com o APNS e você tem as cadeias de conexão para registrar seu aplicativo e enviar notificações.
+Seu hub de notificação agora está configurado para funcionar com o APNs e você tem as cadeias de conexão para registrar seu aplicativo e enviar notificações.
 
 ##Conectar seu aplicativo ao hub de notificação
 
