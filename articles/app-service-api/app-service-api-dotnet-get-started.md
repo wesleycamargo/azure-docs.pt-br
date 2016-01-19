@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/25/2015"
+	ms.date="01/05/2016"
 	ms.author="tdykstra"/>
 
 # Introdução aos aplicativos de API e ao ASP.NET no Serviço de Aplicativo do Azure
@@ -36,7 +36,7 @@ Três recursos do serviço de Aplicativo do Azure são particularmente úteis pa
 * Suporte a CORS
 * Suporte a autenticação e autorização
  
-Este é o primeiro tutorial de uma série que apresenta esses recursos. Este tutorial se concentra nos metadados de API, o segundo se concentra em CORS e o terceiro e o quarto se concentram na autenticação e na autorização.
+Este é o primeiro tutorial de uma série que apresenta esses recursos. Este tutorial se concentra nos metadados de API, o segundo se concentra em CORS e os tutoriais restantes se concentram na autenticação e na autorização.
 
 Nos tutoriais, você aprenderá o seguinte:
 
@@ -46,43 +46,31 @@ Nos tutoriais, você aprenderá o seguinte:
 * Como usar código cliente gerado automaticamente para consumir um aplicativo de API de um cliente .NET.
 * Como usar o portal do Azure para configurar o ponto de extremidade de metadados do aplicativo de API.
 * Como usar o CORS para chamar um aplicativo de API de um cliente JavaScript quando o cliente é de um domínio diferente da API.
-* Como usar o Active Directory do Azure para proteger uma API de acesso não autenticado.
-* Como consumir uma API protegida para usuários registrados no Active Directory do Azure.
-* Como consumir uma API protegida usando uma entidade de serviço.
+* Como usar o Active Directory do Azure (AD do Azure) para proteger uma API de acesso não autenticado.
+* Como consumir uma API protegida para usuários registrados no AD do Azure.
+* Como consumir uma API protegida usando uma entidade de serviço do AD do Azure.
 
 ## Pré-requisitos
 
-### API Web ASP.NET
+[AZURE.INCLUDE [prerequisites](../../includes/app-service-api-dotnet-get-started-prereqs.md)]
 
-O tutorial presume que você esteja familiarizado com a API Web ASP.NET. Se precisar de uma introdução, consulte [Introdução à API Web ASP.NET 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api).
-
-## Visual Studio 2015
-
-As instruções e capturas de tela presumem que você esteja usando o Visual Studio 2015, mas a mesma orientação funciona para o Visual Studio 2013.
-
-## Conta do Azure
-
-Você precisa de uma conta do Azure para concluir este tutorial. Você pode:
-
-* [Abrir uma conta do Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F). Obtenha créditos que possam ser usados para experimentar os serviços pagos do Azure. Mesmo depois que os créditos são usados, você pode manter a conta e usar os serviços e recursos do Azure gratuitos, como o recurso de aplicativos Web do Serviço de Aplicativo do Azure.
-* [Ativar benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). - todos os meses, sua assinatura do MSDN lhe oferece créditos que podem ser usados para serviços pagos do Azure.
-
-Para obter uma introdução ao Serviço de Aplicativo do Azure antes de se inscrever para obter uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751). Lá, você poderá criar imediatamente um aplicativo de curta duração inicial no Serviço de Aplicativo — sem exigência de cartão de crédito e sem compromissos.
-
-[AZURE.INCLUDE [install-sdk-2015-2013](../../includes/install-sdk-2015-2013.md)]
+[AZURE.INCLUDE [set-up-dev-environment](../../includes/install-sdk-2015-2013.md)]
 
 Este tutorial requer a versão 2.8.1 ou posterior do SDK do Azure para .NET.
 
 ## Visão geral do aplicativo de exemplo
 
-O código que você implantará em um aplicativo de API e em um aplicativo Web neste tutorial está no repositório GitHub [Azure-Samples/app-service-api-dotnet-contact-list](https://github.com/Azure-Samples/app-service-api-dotnet-contact-list). A solução ContactsList Visual Studio inclui os seguintes projetos:
+O código que você implantará em um aplicativo de API e em um aplicativo Web neste tutorial está no repositório GitHub [Azure-Samples/app-service-api-dotnet-contact-list](https://github.com/Azure-Samples/app-service-api-dotnet-contact-list). A solução ContactsList do Visual Studio inclui os seguintes projetos usados neste tutorial:
 
 * **ContactsList.API** – projeto de uma API Web ASP.NET que retorna uma lista de nomes e endereços de email. A chamada inicial para o método Get retorna três contatos embutidos em código e as chamadas seguintes para os métodos Put, Post e Delete salvam alterações em um arquivo JSON local.
 * **ContactsList.MVC** - cliente MVC ASP.NET para a API ContactsList.
-* **ContactsList.Angular** - cliente simples da interface do usuário do AngularJS para a API ContactsList. Demonstra como chamar um aplicativo de API desprotegido (sem autenticação).
-* **ContactsList.Angular.AAD** - cliente AngularJS que mostra como usar o Active Directory do Azure para autenticar usuários.
-* **CompanyContacts.API** - projeto de uma API Web ASP.NET que retorna uma lista de contatos codificada em resposta a uma solicitação Get. Chamado pelo método Get **ContactsList.API** para demonstrar como chamar uma API usando a autenticação serviço a serviço (entidade de serviço).
- 
+
+Os tutoriais posteriores usam outros projetos na mesma solução:
+
+* **ContactsList.Angular** - um cliente AngularJS para demonstrar o suporte a CORS.
+* **ContactsList.Angular.AAD** - um cliente AngularJS, para demonstrar a autenticação de usuário.
+* **CompanyContacts.API** - um projeto de API Web ASP.NET para demonstrar a autenticação da conta de serviço.  
+
 ## Baixar o aplicativo de exemplo 
 
 1. Baixe o repositório [Azure-Samples/app-service-api-dotnet-contact-list](https://github.com/Azure-Samples/app-service-api-dotnet-contact-list).
@@ -95,15 +83,13 @@ O código que você implantará em um aplicativo de API e em um aplicativo Web n
 
 ## Usar a interface do usuário e metadados Swagger
 
-O suporte a metadados da API 2.0 do [Swagger](http://swagger.io/) é integrado ao Serviço de Aplicativo do Azure. Cada aplicativo de API pode definir um ponto de extremidade de URL que retorna metadados para a API no formato JSON Swagger. Os metadados retornados do ponto de extremidade podem ser usados para gerar código de cliente que facilita o consumo da API.
+O suporte a metadados da API 2.0 do [Swagger](http://swagger.io/) é integrado ao Serviço de Aplicativo do Azure. Cada aplicativo de API pode definir um ponto de extremidade de URL que retorna metadados para a API no formato JSON Swagger. Os metadados retornados do ponto de extremidade podem ser usados para gerar código de cliente.
 
-Nesta seção do tutorial, você verá como gerar metadados automaticamente para um projeto de API Web ASP.NET e executará uma ferramenta de teste de API. Para essas tarefas, você ainda não usará o Serviço de Aplicativo do Azure. Posteriormente, você verá como os Aplicativos de API utilizam os metadados.
-
-Para fornecer metadados do Swagger 2.0 a um projeto de API Web ASP.NET, você pode instalar o pacote NuGet [Swashbuckle](https://www.nuget.org/packages/Swashbuckle). O Swashbuckle usa a Reflexão para gerar os metadados dinamicamente. O pacote NuGet Swashbuckle já está instalado no projeto ContactsList.API que você baixou e já estará instalado quando você criar um novo projeto usando o modelo de projeto **Aplicativo de API do Azure**. (No Visual Studio: **Arquivo > Novo > Projeto > Aplicativo Web ASP.NET > Aplicativo de API do Azure**.)
+Para fornecer metadados do Swagger 2.0 para um projeto de API Web ASP.NET, você poderá instalar o pacote NuGet [Swashbuckle](https://www.nuget.org/packages/Swashbuckle). O Swashbuckle usa a Reflexão para gerar os metadados dinamicamente. O pacote NuGet Swashbuckle já está instalado no projeto ContactsList.API que você baixou e já estará instalado quando você criar um novo projeto usando o modelo de projeto **Aplicativo de API do Azure**. (No Visual Studio: **Arquivo > Novo > Projeto > Aplicativo Web ASP.NET > Aplicativo de API do Azure**.)
 
 Nesta seção do tutorial, você verá os metadados do Swagger 2.0 gerados e experimentará uma interface do usuário de teste baseada nos metadados do Swagger.
 
-2. Defina o projeto ContactsList.API como projeto de inicialização. (Não o projeto CompanyContacts.API. Esse projeto é usado em um dos tutoriais posteriores.)
+2. Defina o projeto ContactsList.API como projeto de inicialização. (Não o projeto CompanyContacts.API. Esse projeto é usado em um dos tutoriais posteriores.) 
  
 4. Pressione F5 para executar o projeto no modo de depuração.
 
@@ -166,7 +152,7 @@ Nesta seção do tutorial, você verá os metadados do Swagger 2.0 gerados e exp
 
 5. Execute o projeto novamente.
 
-3. Na barra de endereços do navegador, adicione `swagger` no fim da linha e pressione Return. (A URL será `http://localhost:51864/swagger`.)
+3. Na barra de endereços do navegador, adicione `swagger` no fim da linha e pressione Return. (A URL será `http://localhost:51864/swagger`).
 
 4. Quando for exibida a página de interface do usuário do Swagger, clique em **Contatos** para ver os métodos disponíveis.
 
@@ -203,7 +189,7 @@ Nesta seção do tutorial, você verá os metadados do Swagger 2.0 gerados e exp
 
 12. Experimente também os métodos Put, Delete e Get by ID e feche o navegador.
 
-O Swashbuckle funciona com qualquer projeto de API Web ASP.NET. Se você deseja adicionar a geração de metadados de Swagger a um projeto existente, instale o pacote Swashbuckle. Para criar um novo projeto a ser implantado como um aplicativo de API do Serviço de Aplicativo, use o modelo de projeto ASP.NET para o **Aplicativo de API do Azure**, mostrado na ilustração a seguir.
+O Swashbuckle funciona com qualquer projeto de API Web ASP.NET. Se você deseja adicionar a geração de metadados de Swagger a um projeto existente, instale o pacote Swashbuckle. Para criar um novo projeto, use o modelo de projeto ASP.NET para o **Aplicativo de API do Azure**, mostrado na ilustração a seguir.
 
 ![](./media/app-service-api-dotnet-get-started/apiapptemplate.png)
 
@@ -230,6 +216,12 @@ Nesta seção, use as ferramentas do Azure integradas ao assistente **Publicar W
 3. Na guia **Hospedagem** da caixa de diálogo **Criar Serviço de Aplicativo**, clique em **Alterar Tipo** e em **Aplicativo de API**.
 
 	![](./media/app-service-api-dotnet-get-started/apptype.png)
+
+	A alteração do tipo para **Aplicativo de API** não determina os recursos que estarão disponíveis para o novo aplicativo. A URL da definição de API (que você verá posteriormente neste tutorial), o suporte a CORS (que você verá no próximo tutorial) e a autenticação (que você verá nos três últimos tutoriais desta série) estão disponíveis para aplicativos Web e aplicativos móveis, bem como aplicativos de API. A criação de um aplicativo como um aplicativo de API tem apenas estes efeitos:
+
+	a. No portal do Azure, o ícone do tipo de aplicativo ou o texto aparecerá em títulos de folha e listas de aplicativos. Além disso, na folha **Configurações**, a seção API aparece anteriormente na lista para um aplicativo de API em comparação a outros tipos de aplicativos.
+
+	b. No Visual Studio com o SDK do Azure para .NET 2.8.1, o Visual Studio define a URL de definição de API durante a criação de um novo aplicativo de API ASP.NET, mas não para outros tipos de aplicativos.
 
 4. Insira um **Nome de Aplicativo de API** que seja exclusivo no domínio *azurewebsites.net*.
 
@@ -279,7 +271,7 @@ Nesta seção, use as ferramentas do Azure integradas ao assistente **Publicar W
 
 	![](./media/app-service-api-dotnet-get-started/appcreated.png)
 
-11. Adicione "swagger" à URL na barra de endereço do navegador e pressione Enter. (A URL será `http://{apiappname}.azurewebsites.net/swagger`.)
+11. Adicione "swagger" à URL na barra de endereço do navegador e pressione Enter. (A URL será `http://{apiappname}.azurewebsites.net/swagger`).
 
 	O navegador exibe a mesma interface do usuário do Swagger que você viu anteriormente, mas agora ela está em execução na nuvem. Experimente o método Get e você verá que voltará aos três contatos padrão, pois as alterações feitas anteriormente foram salvas em um arquivo local. Qualquer alteração feita agora será salva no sistema de arquivos do aplicativo de API do Azure.
 
@@ -303,13 +295,13 @@ Nesta seção, use as ferramentas do Azure integradas ao assistente **Publicar W
 
 Você também pode configurar a URL de definição de API para um aplicativo de API usando ferramentas do Gerenciador de Recursos do Azure, como o Azure PowerShell, a CLI ou o [Gerenciador de Recursos](https://resources.azure.com/).
 
-Defina a propriedade `apiDefinition` no tipo de recurso Microsoft.Web/sites/config para o recurso <site name>/web. Por exemplo, no **Gerenciador de Recursos**, vá para **assinaturas > {sua assinatura} > resourceGroups > {seu grupo de recursos} > provedores > Microsoft.Web > sites > {seu site} > configuração > web** e você verá a propriedade cors:
+Defina a propriedade `apiDefinition` no tipo de recurso `Microsoft.Web/sites/config` para o recurso `<site name>/web`. Por exemplo, no **Gerenciador de Recursos**, vá para **assinaturas > {sua assinatura} > resourceGroups > {seu grupo de recursos} > provedores > Microsoft.Web > sites > {seu site} > configuração > web** e você verá a propriedade `apiDefinition`:
 
 		"apiDefinition": {
 		  "url": "https://contactslistapi.azurewebsites.net/swagger/docs/v1"
 		}
 
-## <a id="codegen"></a> Consumir de um cliente .NET usando código de cliente gerado 
+## <a id="codegen"></a> Consumir de um cliente .NET usando código de cliente gerado
 
 Uma das vantagens da integração do Swagger a aplicativos de API do Azure é a geração automática de código. As classes de cliente geradas tornam mais fácil escrever código para chamar um aplicativo de API.
 
@@ -319,7 +311,7 @@ Nesta seção, você verá como consumir um aplicativo de API de um aplicativo W
 
 Você pode gerar o código cliente para um aplicativo de API usando o Visual Studio ou a linha de comando. Para este tutorial, você usará o Visual Studio. Para saber mais sobre como fazer isso na linha de comando, confira o arquivo Leiame do repositório [Azure/autorest](https://github.com/azure/autorest) no GitHub.com.
 
-O projeto ContactsList.MVC já tem o código cliente gerado, mas você o excluirá e o regenerará para que a URL de seu próprio aplicativo de API se torne a URL de destino padrão.
+O projeto ContactsList.MVC já tem o código cliente gerado, mas você o excluirá e o regenerará, o que redefinirá a URL de destino padrão para seu próprio aplicativo de API.
 
 1. No **Gerenciador de Soluções** do Visual Studio, no projeto ContactsList.MVC, exclua a pasta *ContactsList.API*.
 
@@ -347,9 +339,9 @@ O projeto ContactsList.MVC já tem o código cliente gerado, mas você o excluir
 
 	![](./media/app-service-api-dotnet-get-started/codegenurlplugged.png)
 
-	Como alternativa, você pode inserir a URL diretamente em vez de passar pelo diálogo Procurar. Por exemplo, se você tiver implantado sua API em um aplicativo Web e ele não apareceu na caixa de diálogo Procurar, poderá inserir manualmente a URL que retorna metadados Swagger aqui.
+	Uma maneira alternativa de obter metadados para a geração de código é inserir a URL diretamente em vez de passar pelo diálogo Procurar. Por exemplo, se você tiver implantado sua API em um aplicativo Web e ele não apareceu na caixa de diálogo Procurar, poderá inserir manualmente a URL que retorna metadados Swagger aqui.
 
-	Observe também a opção **Selecionar um arquivo de metadados do Swagger existente**. Se você quiser gerar código antes de implantar no Azure, poderá executar localmente, baixar o arquivo JSON do Swagger e selecioná-lo aqui.
+	Outra maneira alternativa de obter metadados é usar a opção **Escolher um arquivo de metadados do Swagger existente**. Por exemplo, se você quiser gerar código cliente antes de implantar no Azure, poderá executar localmente, baixar o arquivo JSON do Swagger e selecioná-lo aqui.
 
 9. Na caixa de diálogo **Adicionar Cliente da API REST**, clique em **OK**.
 
@@ -407,7 +399,7 @@ Antes de implantar no Azure, altere o ponto de extremidade de API no projeto MVC
 
 1. No projeto ContactsList.MVC, abra *Controllers\\ContactsController.cs*.
 
-2. Comente a linha que define a URL base da API como a URL de localhost, remova o comentário da linha que não tem parâmetros de construtor. O código é agora semelhante ao exemplo a seguir, com a diferença que, em ambas as linhas, o nome de classe reflete o nome do aplicativo de API do qual você gerou o código.
+2. Comente a linha que define a URL base da API como a URL de localhost, remova o comentário da linha que não tem parâmetros de construtor. O código é agora semelhante ao exemplo a seguir, com a diferença que, em ambas as linhas, o nome de classe reflete o nome do aplicativo de API.
 
 		private ContactsListAPI db = new ContactsListAPI();
 		//private ContactsListAPI db = new ContactsListAPI(new Uri("http://localhost:51864"));
@@ -448,6 +440,6 @@ Antes de implantar no Azure, altere o ponto de extremidade de API no projeto MVC
 
 ## Próximas etapas
 
-Neste tutorial, você viu como criar aplicativos de API, implantar código neles e consumi-los usando clientes .NET. O próximo tutorial na série de introdução aos Aplicativos de API mostra como [consumir aplicativos de API de clientes JavaScript usando CORS](app-service-api-cors-consume-javascript.md).
+Neste tutorial, você viu como criar aplicativos de API, implantar código neles, gerar código cliente para eles e consumi-los usando clientes .NET. O próximo tutorial na série de introdução aos Aplicativos de API mostra como [consumir aplicativos de API de clientes JavaScript usando CORS](app-service-api-cors-consume-javascript.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

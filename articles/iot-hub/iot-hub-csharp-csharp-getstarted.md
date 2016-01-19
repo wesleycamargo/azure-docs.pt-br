@@ -18,6 +18,8 @@
 
 # Tutorial: Introdução ao Hub IoT do Azure
 
+[AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
+
 ## Introdução
 
 O Hub IoT do Azure é um serviço totalmente gerenciado que permite comunicações bidirecionais confiáveis e seguras entre milhões de dispositivos IoT e um back-end da solução. Um dos maiores desafios enfrentados por projetos IoT é como conectar dispositivos de forma confiável e segura para a solução de back-end. Para enfrentar esse desafio, o hub IoT:
@@ -54,17 +56,16 @@ Você precisa criar um hub IoT ao qual o dispositivo simulado se conectará. As 
 
 2. Na barra de navegação, clique em **Novo**, em seguida em **Internet das Coisas** e em **Hub IoT do Azure**.
 
-   	![][1]
+    ![][1]
 
 3. Na folha **Hub IoT**, escolha a configuração para o hub IoT.
 
-   	![][2]
+    ![][2]
 
     * Na caixa **Nome**, insira um nome para identificar seu hub IoT. Se o **Nome** for válido e se estiver disponível, aparecerá uma marca de seleção verde na caixa **Nome**.
     * Selecione um **Tipo de preço e de dimensionamento**. Este tutorial não requer uma camada específica.
     * No **Grupo de recursos**, crie um novo grupo de recursos ou selecione um existente. Para obter mais informações, consulte [Usando os grupos de recursos para gerenciar seus recursos do Azure][lnk-resource-groups].
     * Em **Local**, selecione o local para hospedar o hub IoT.  
-
 
 4. Quando você tiver escolhido as opções de configuração do hub IoT, clique em **Criar**. O Azure poderá demorar alguns minutos para criar seu hub IoT. Para verificar o status, você pode monitorar o progresso no quadro inicial ou no painel Notificações.
 
@@ -72,11 +73,11 @@ Você precisa criar um hub IoT ao qual o dispositivo simulado se conectará. As 
 
 5. Quando o hub IoT tiver sido criado com êxito, abra a folha do novo hub IoT, anote o **Nome do host** e clique no ícone **Chaves**.
 
-   	![][4]
+    ![][4]
 
 6. Clique na política **iothubowner**, copie e anote a cadeia de conexão na folha **iothubowner**.
 
-   	![][5]
+    ![][5]
 
 Agora você criou o hub IoT e tem o nome do hosto e a cadeia de conexão de que precisa para concluir este tutorial.
 
@@ -101,17 +102,17 @@ Agora você está pronto para executar os aplicativos.
 
 Neste tutorial, você configurou um novo hub IoT no portal e depois criou uma identidade de dispositivo no registro de identidade do hub. Você usou essa identidade de dispositivo em um dispositivo simulado que envia mensagens de dispositivo para a nuvem para o hub e criou outro aplicativo que exibe as mensagens recebidas pelo hub. Você pode continuar a explorar os recursos do hub IoT e outros cenários de IoT nestes tutoriais:
 
-- [Enviar mensagens da Nuvem para o Dispositivo com o Hub IoT](lnk-c2d-tutorial) mostra como enviar mensagens para dispositivos e como processar os comentários de entrega produzidos pelo Hub IoT.
-- [Processar mensagens do Dispositivo para a Nuvem](lnk-process-d2c-tutorial) mostra como processar de forma confiável a telemetria e as mensagens interativas vindas dos dispositivos.
-- [Carregando arquivos de dispositivos](lnk-upload-tutorial) descreve um padrão que usa mensagens da nuvem para o dispositivo para facilitar o carregamento de arquivo dos dispositivos.
+- [Enviar mensagens da Nuvem para o Dispositivo com o Hub IoT][lnk-c2d-tutorial] mostra como enviar mensagens para dispositivos e como processar os comentários de entrega produzidos pelo Hub IoT.
+- [Processar mensagens do Dispositivo para a Nuvem][lnk-process-d2c-tutorial] mostra como processar de forma confiável a telemetria e as mensagens interativas vindas dos dispositivos.
+- [Carregando arquivos de dispositivos][lnk-upload-tutorial] descreve um padrão que usa mensagens da nuvem para o dispositivo para facilitar o carregamento de arquivo dos dispositivos.
 
 Veja mais informações sobre o hub IoT nos seguintes artigos:
 
-* [Visão geral do Hub IoT](lnk-hub-overview)
-* [Guia do desenvolvedor do Hub IoT](lnk-hub-dev-guide)
-* [Projetar sua solução do hub IoT](lnk-hub-guidance)
-* [Plataformas e idiomas do dispositivo com suporte](lnk-supported-devices)
-* [Centro de Desenvolvedores do IoT do Azure](lnk-dev-center)
+* [Visão geral do Hub IoT][lnk-hub-overview]
+* [Guia do desenvolvedor do Hub IoT][lnk-hub-dev-guide]
+* [Projetar sua solução do hub IoT][lnk-hub-guidance]
+* [Plataformas e idiomas do dispositivo com suporte][lnk-supported-devices]
+* [Centro de Desenvolvedores do IoT do Azure][lnk-dev-center]
 
 <!-- Images. -->
 [1]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub1.png
@@ -119,23 +120,22 @@ Veja mais informações sobre o hub IoT nos seguintes artigos:
 [3]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub3.png
 [4]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub4.png
 [5]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub5.png
-
 [41]: ./media/iot-hub-csharp-csharp-getstarted/run-apps1.png
 [42]: ./media/iot-hub-csharp-csharp-getstarted/run-apps2.png
 
 <!-- Links -->
-[Enviar mensagens da nuvem para o dispositivo com o Hub IoT]: iot-hub-csharp-csharp-c2d.md
-[Processar mensagens do dispositivo para a nuvem]: iot-hub-csharp-csharp-process-d2c.md
-[Carregando arquivos de dispositivos]: iot-hub-csharp-csharp-file-upload.md
+[lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
+[lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md
 
-[Visão geral do Hub IoT]: iot-hub-what-is-iot-hub.md
-[Orientação sobre o Hub IoT]: iot-hub-guidance.md
-[Guia do desenvolvedor do Hub IoT]: iot-hub-devguide.md
+[lnk-hub-overview]: iot-hub-what-is-iot-hub.md
+[lnk-hub-guidance]: iot-hub-guidance.md
+[lnk-hub-dev-guide]: iot-hub-devguide.md
 [lnk-supported-devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[Centro de Desenvolvedores do IoT do Azure]: http://www.azure.com/develop/iot
+[lnk-dev-center]: http://www.azure.com/develop/iot
 [lnk-hub-sdks]: iot-hub-sdks-summary.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-resource-groups]: resource-group-portal.md
 [lnk-portal]: https://portal.azure.com/
 
-<!----HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_0114_2016-->

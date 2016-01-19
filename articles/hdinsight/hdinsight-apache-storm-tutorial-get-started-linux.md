@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/05/2015"
+   ms.date="01/12/2016"
    ms.author="larryfr"/>
 
 
@@ -148,25 +148,13 @@ Os exemplos de [storm-starter](https://github.com/apache/storm/tree/master/examp
 
 A IU do Storm fornece uma interface Web para trabalhar com as topologias em funcionamento, e é incluída no seu cluster HDInsight.
 
-> [AZURE.IMPORTANT]A IU do Storm não está disponível publicamente pela Internet e devem ser acessada através de um túnel SSH para o nó principal do cluster HDInsight. Para saber mais, consulte [Usar túnel SSH para acessar o ResourceManager, o JobHistory, o NameNode, o Oozie e outras interfaces do usuário da Web](hdinsight-linux-ambari-ssh-tunnel.md).
+Use as etapas a seguir para monitorar a topologia usando a interface do usuário do Storm:
 
-Execute as etapas a seguir para exibir a IU do Storm:
+1. Abra um navegador da Web para https://CLUSTERNAME.azurehdinsight.net/stormui, onde __NOMEDOCLUSTER__ é o nome do seu cluster HDInsight. Isso abrirá a interface do usuário do Storm.
 
-1. Depois de criar um túnel SSH para o cluster, abra um navegador da Web para https://CLUSTERNAME.azurehdinsight.net, em que __CLUSTERNAME__ é o nome do cluster. Isso abrirá a interface da Web Ambari.
+	> [AZURE.NOTE]Se solicitado a forneça um nome de usuário e senha, insira o administrador de cluster (admin) e a senha que você usou ao criar o cluster.
 
-	> [AZURE.NOTE]Se solicitado a forneça um nome de usuário e senha, insira o administrador de cluster (admin) e a senha que você usou ao criar o cluster. Você pode ser solicitado a autenticar duas vezes, uma vez pelo navegador e uma segunda vez pela IU Web do Ambari; Use as mesmas credenciais para ambos.
-
-2. Na lista de serviços à esquerda da página, selecione __Storm__. Então, selecione __Interface do Usuário do Storm__ em __Links Rápidos__.
-
-    ![Entrada de interface do usuário do Storm em links rápidos](./media/hdinsight-apache-storm-tutorial-get-started-linux/ambari-storm.png)
-
-    Isso exibirá a interface do usuário do Storm:
-
-    ![a interface do usuário do storm](./media/hdinsight-apache-storm-tutorial-get-started-linux/stormui.png)
-	
-	> [AZURE.NOTE]Se você receber um erro que o servidor não pode ser localizado, você pode não ter estabelecido um túnel SSH para o cluster. Consulte [Usar túnel SSH para acessar o ResourceManager, o JobHistory, o NameNode, o Oozie e outras interfaces do usuário da Web](hdinsight-linux-ambari-ssh-tunnel.md) para saber mais.
-
-4. Em **Resumo da topologia**, selecione a entrada **wordcount** na coluna **Nome**. Isso exibirá mais informações sobre a topologia.
+2. Em **Resumo da topologia**, selecione a entrada **wordcount** na coluna **Nome**. Isso exibirá mais informações sobre a topologia.
 
 	![Painel do Storm com informações da topologia do Storm Starter WordCount.](./media/hdinsight-apache-storm-tutorial-get-started-linux/topology-summary.png)
 
@@ -192,7 +180,7 @@ Execute as etapas a seguir para exibir a IU do Storm:
 
 	* **Eliminar** - encerra uma topologia do Storm após o tempo limite especificado.
 
-5. Nessa página, selecione uma entrada da seção **Spouts** ou **Bolts**. Isso exibirá informações sobre o componente selecionado.
+3. Nessa página, selecione uma entrada da seção **Spouts** ou **Bolts**. Isso exibirá informações sobre o componente selecionado.
 
 	![Painel do Storm com informações sobre os componentes selecionados.](./media/hdinsight-apache-storm-tutorial-get-started-linux/component-summary.png)
 
@@ -210,7 +198,7 @@ Execute as etapas a seguir para exibir a IU do Storm:
 
 	* **Erros** -erros produzidos por este componente.
 
-5. Ao exibir os detalhes de um spout ou bolt, selecione uma entrada da coluna **Porta** na seção **Executores** para exibir detalhes de uma instância específica do componente.
+4. Ao exibir os detalhes de um spout ou bolt, selecione uma entrada da coluna **Porta** na seção **Executores** para exibir detalhes de uma instância específica do componente.
 
 		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["with"]
 		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["nature"]
@@ -245,4 +233,4 @@ Neste tutorial sobre o Storm Apache, você usou o Storm Starter para aprender a 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

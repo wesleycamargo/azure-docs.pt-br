@@ -5,7 +5,7 @@
             documentationCenter=".net"
             authors="robinsh"
             manager="carmonm"
-            editor="" />
+            editor="tysonn" />
 
 <tags ms.service="storage"
       ms.workload="storage"
@@ -13,7 +13,7 @@
       ms.devlang="dotnet"
       ms.topic="hero-article"
       ms.date="12/17/2015"
-      ms.author="robinsh" />
+      ms.author="jutang" />
 
 # Como usar o armazenamento de arquivo do Azure com o Windows
 
@@ -64,7 +64,7 @@ O [Portal do Azure](portal.azure.com) fornece uma interface do usuário para que
 - Carregar e baixar arquivos de e para o compartilhamento de arquivos
 - Monitorar o uso real de cada compartilhamento de arquivos
 - Ajustar a cota de tamanho de compartilhamento
-- Obtenha o comando `net use` a ser usado para montar o compartilhamento de arquivos de um cliente do Windows 
+- Obtenha o comando `net use` a ser usado para montar o compartilhamento de arquivos de um Windows Client
 
 ## Usar o PowerShell para gerenciar um compartilhamento de arquivos
 
@@ -100,7 +100,7 @@ Agora você tem um compartilhamento de arquivo no armazenamento de arquivos. Em 
 
 ### Criar um diretório no compartilhamento de arquivos
 
-Em seguida, crie um diretório no compartilhamento. No exemplo a seguir, o diretório é denominado `CustomLogs`.
+Em seguida, crie um diretório no compartilhamento. No exemplo a seguir, o diretório é denominado `CustomLogs`:
 
     # create a directory in the share
     New-AzureStorageDirectory -Share $s -Path CustomLogs
@@ -129,13 +129,13 @@ A partir da versão 0.9.7 do Azure PowerShell, você pode copiar um arquivo em o
     # copy a blob to a file directory
     Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 
-## Montar o compartilhamento de arquivos 
+## Montar o compartilhamento de arquivos
 
 Com suporte para SMB 3.0, o armazenamento de arquivos agora dá suporte a criptografia e identificadores persistentes de clientes SMB 3.0. O suporte a criptografia significa que os clientes SMB 3.0 podem montar um compartilhamento de arquivos de qualquer lugar, inclusive de:
 
 - Uma máquina virtual do Azure na mesma região (também com suporte de SMB 2.1)
 - Uma máquina virtual do Azure em uma região diferente (somente SMB 3.0)
-- Um aplicativo cliente local (somente para o SMB 3.0) 
+- Um aplicativo cliente local (somente para o SMB 3.0)
 
 Quando um cliente acessa o armazenamento de arquivos, a versão SMB usada depende da versão SMB com suporte do sistema operacional. A tabela a seguir fornece um resumo de suporte para Windows Clients. Para obter mais detalhes, confira << Which version of the SMB protocol blog post>>.
 
@@ -152,7 +152,7 @@ Quando um cliente acessa o armazenamento de arquivos, a versão SMB usada depend
 
 Para demonstrar como montar um compartilhamento de arquivos do Azure, criaremos agora uma máquina virtual do Azure que executa o Windows e estabeleceremos comunicação remota nela para montar o compartilhamento.
 
-1. Primeiro, crie uma nova máquina virtual do Azure seguindo as instruções em [Criar uma máquina virtual executando o Windows Server](../virtual-machines-windows-tutorial.md).
+1. Primeiramente, crie uma nova máquina virtual do Azure seguindo as instruções em [Criar uma máquina virtual executando o Windows Server](../virtual-machines-windows-tutorial.md).
 2. Em seguida, acesse remotamente a máquina virtual seguindo as instruções em [Como fazer logon em uma máquina virtual executando o Windows Server](../virtual-machines-log-on-windows-server.md).
 3. Abra uma janela do PowerShell na máquina virtual.
 
@@ -170,14 +170,14 @@ Observe que as credenciais são mantidas somente no contexto no qual `cmdkey` é
 
 Após ter uma conexão remota com a máquina virtual, você poderá executar o comando `net use` para montar o compartilhamento de arquivos usando a sintaxe a seguir. Substitua `<storage-account-name>` pelo nome da sua conta de armazenamento e `<share-name>` pelo nome do compartilhamento de armazenamento de arquivos.
 
-    net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>
+    net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name>
 
 	example :
 	net use z: \\samples.file.core.windows.net\logs
 
 Como você persistiu as credenciais da conta de armazenamento na etapa anterior, não será preciso fornecê-las com o comando `net use`. Se ainda não tiver persistido suas credenciais, inclua-as como um parâmetro passado para o comando `net use`, conforme exibido no exemplo a seguir.
 
-    net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /u:<storage-account-name> <storage-account-key>
+    net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name> /u:<storage-account-name> <storage-account-key>
 
 	example :
 	net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>
@@ -186,12 +186,12 @@ Você agora pode trabalhar com o compartilhamento de armazenamento de arquivos n
 
 Você também pode montar o compartilhamento de arquivos por meio de uma função executada em um serviço de nuvem do Azure ao estabelecer comunicação remota à função.
 
-### Montar o compartilhamento de arquivos a partir de um cliente local que executa o Windows 
+### Montar o compartilhamento de arquivos a partir de um cliente local que executa o Windows
 
 Para montar o compartilhamento de arquivos de um cliente local, siga estas etapas:
 
-- Instale uma versão do Windows que dê suporte a SMB 3.0. O Windows aproveitará a criptografia SMB 3.0 para transferir dados com segurança entre o cliente local e o compartilhamento de arquivo do Azure na nuvem. 
-- Abra o acesso à Internet para a porta 445 (TCP de saída) em sua rede local, conforme exigido pelo protocolo SMB. 
+- Instale uma versão do Windows que dê suporte a SMB 3.0. O Windows aproveitará a criptografia SMB 3.0 para transferir dados com segurança entre o cliente local e o compartilhamento de arquivo do Azure na nuvem.
+- Abra o acesso à Internet para a porta 445 (TCP de saída) em sua rede local, conforme exigido pelo protocolo SMB.
 
 > [AZURE.NOTE]Alguns provedores de serviços de Internet podem bloquear a porta 445; portanto, é necessário verificar com seu provedor de serviços.
 
@@ -239,7 +239,7 @@ Você pode recuperar suas credenciais salvas por meio do arquivo app.config usan
 O exemplo aqui mostra como recuperar suas credenciais usando a classe `CloudConfigurationManager` e encapsulá-las com a classe `CloudStorageAccount`. Adicione o código a seguir ao método `Main()` em program.cs.
 
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-    	CloudConfigurationManager.GetSetting("StorageConnectionString")); 
+    	CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
 ### Acessar o compartilhamento de arquivos programaticamente
 
@@ -472,20 +472,20 @@ Você pode habilitar métricas para o Armazenamento de Arquivos no [Portal do Az
 
 ## Perguntas frequentes sobre armazenamento de arquivo
 
-1. **A autenticação baseada no Active Directory tem suporte do armazenamento de arquivos?** 
+1. **A autenticação baseada no Active Directory tem suporte do armazenamento de arquivos?**
 
 	Atualmente não damos suporte a autenticação baseada no AD ou em ACLs, mas a temos em nossa lista de solicitações de recursos. Por enquanto, as chaves de conta de armazenamento do Azure são usadas para permitir a autenticação de compartilhamento de arquivos. Oferecemos uma solução alternativa usando SAS (assinaturas de acesso compartilhado) pela API REST ou pelas bibliotecas de cliente. Com a SAS, você pode gerar tokens com permissões específicas que são válidas em um intervalo de tempo especificado. Por exemplo, você pode gerar um token de acesso somente leitura a um determinado arquivo. Qualquer pessoa que possua esse token enquanto for válido terá acesso somente leitura ao arquivo.
 
 	A SAS tem suporte somente via API REST ou bibliotecas de cliente. Quando você monta o compartilhamento de arquivos por meio do protocolo SMB, não pode usar uma SAS para delegar acesso a seu conteúdo.
 
 2. **Os compartilhamentos de arquivo do Azure são visíveis publicamente na Internet ou somente podem ser acessados do Azure?**
- 
+
 	Desde que a porta 445 (TCP de saída) esteja aberta e o cliente dê suporte ao protocolo SMB 3.0 (*por exemplo,*, o Windows 8 ou o Windows Server 2012), o compartilhamento de arquivos está disponível por meio da Internet.
 
 3. **O tráfego de rede entre uma máquina virtual do Azure e uma contagem de compartilhamento de arquivo conta como largura de banda externa cobrada na assinatura?**
 
 	Se o compartilhamento de arquivos e a máquina virtual estiverem em regiões diferentes, o tráfego entre elas será cobrado como largura de banda externa.
- 
+
 4. **Se o tráfego de rede estiver entre uma máquina virtual e um compartilhamento de arquivos na mesma região, ele será gratuito?**
 
 	Sim. Será gratuito se o tráfego estiver na mesma região.
@@ -497,7 +497,7 @@ Você pode habilitar métricas para o Armazenamento de Arquivos no [Portal do Az
 6. **Uma “testemunha de compartilhamento de arquivo” de um cluster de failover é um dos casos de uso para armazenamento de arquivo do Azure?**
 
 	Não há suporte para isso no momento.
- 
+
 7. **O armazenamento de arquivos é replicado somente via LRS ou GRS agora, certo?**
 
 	Planejamos dar suporte a RA-GRS, mas ainda não há nenhum cronograma para compartilhar.
@@ -546,8 +546,8 @@ Consulte estes links para obter mais informações sobre o armazenamento de arqu
 ### Postagens no blog
 
 - [O Armazenamento de arquivos do Azure agora está disponível ao público geral](http://go.microsoft.com/fwlink/?LinkID=626728&clcid=0x409)
-- [Aprofunde-se com o Armazenamento de arquivos do Azure](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409) 
+- [Aprofunde-se com o Armazenamento de arquivos do Azure](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409)
 - [Apresentando o serviço de arquivo do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persistindo conexões para arquivos do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

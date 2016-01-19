@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/08/2015"
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Criar um aplicativo de API ASP.NET no Serviço de Aplicativo do Azure
@@ -32,7 +32,7 @@ Este tutorial requer a versão 2.6 ou posterior do SDK do Azure para .NET.
 
 ## Criar um pacote de aplicativos de API
 
-Quando as instruções solicitarem que você insira um nome para o projeto, insira **ContactsList**.
+Quando as instruções o direcionarem para digitar um nome para o projeto, digite **ContactsList**.
 
 [AZURE.INCLUDE [app-service-api-create](../../includes/app-service-api-create.md)]
 
@@ -56,4 +56,4 @@ Para saber mais sobre a autenticação de usuários de aplicativos de API, veja 
 
 Para saber mais sobre os recursos de aplicativos de API, veja [O que são aplicativos de API?](app-service-api-apps-why-best-platform.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

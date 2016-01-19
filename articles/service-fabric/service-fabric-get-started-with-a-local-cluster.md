@@ -17,12 +17,12 @@
    ms.author="seanmck"/>
 
 # Introdução à implantação e à atualização de aplicativos em seu cluster local
-O SDK do Service Fabric inclui um ambiente de desenvolvimento local completo e permite que você rapidamente comece a implantar e a gerenciar aplicativos em um cluster local. Neste artigo, você criará um cluster local, implantará um aplicativo existente nele e atualizará o aplicativo para uma nova versão, tudo do Windows PowerShell.
+O SDK do Service Fabric do Azure inclui um ambiente de desenvolvimento local completo que você pode usar para rapidamente começar a implantar e a gerenciar aplicativos em um cluster local. Neste artigo, você criará um cluster local, implantará um aplicativo existente nele e atualizará o aplicativo para uma nova versão, tudo do Windows PowerShell.
 
 > [AZURE.NOTE]Este artigo pressupõe que você já tenha [configurado seu ambiente de desenvolvimento](service-fabric-get-started.md).
 
 ## Criar um cluster local
-Um cluster do Service Fabric representa um conjunto de recursos de hardware em que você pode implantar aplicativos. Normalmente, um cluster é composto de cinco a milhares de computadores, mas o SDK do Service Fabric inclui uma configuração de cluster que pode ser executada em um único computador.
+Um cluster do Service Fabric representa um conjunto de recursos de hardware em que você pode implantar aplicativos. Normalmente, um cluster é composto, em qualquer lugar, de cinco a muitos milhares de computadores. No entanto, o SDK do Service Fabric inclui uma configuração de cluster que pode ser executada em um único computador.
 
 O cluster local do Service Fabric não é um simulador ou um emulador. Ele executa o mesmo código de plataforma encontrado em clusters com vários computadores. A única diferença é que ele executa os processos de plataforma normalmente espalhados por cinco computadores em um só.
 
@@ -39,14 +39,16 @@ O SDK fornece duas maneiras de configurar um cluster local: um script do Windows
 	& "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"
 	```
 
-    A instalação de cluster levará alguns minutos; depois disso, você verá uma saída parecida com esta:
+    A instalação do cluster levará alguns minutos. Após a conclusão da instalação, você verá uma saída parecida com esta:
 
     ![Saída da instalação do cluster][cluster-setup-success]
 
     Agora você está pronto para tentar implantar um aplicativo em seu cluster.
 
 ## Implantar um aplicativo
-O SDK do Service Fabric inclui um conjunto avançado de estruturas e de ferramentas de desenvolvedor para a criação de aplicativos. Se você estiver interessado em aprender a criar aplicativos no Visual Studio, consulte [Criando seu primeiro aplicativo no Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md). Neste tutorial, usaremos um aplicativo de exemplo existente (chamado WordCount) para que possamos nos concentrar nos aspectos de gerenciamento da plataforma, incluindo a implantação, o monitoramento e a atualização.
+O SDK do Service Fabric inclui um conjunto avançado de estruturas e de ferramentas de desenvolvedor para a criação de aplicativos. Se você estiver interessado em aprender a criar aplicativos no Visual Studio, veja [Criar seu primeiro aplicativo do Service Fabric no Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
+
+Neste tutorial, usaremos um aplicativo de exemplo existente (chamado WordCount) para que possamos nos concentrar nos aspectos de gerenciamento da plataforma, incluindo a implantação, o monitoramento e a atualização.
 
 
 1. Inicie uma nova janela do PowerShell como administrador.
@@ -57,14 +59,14 @@ O SDK do Service Fabric inclui um conjunto avançado de estruturas e de ferramen
     Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.psm1"
     ```
 
-3. Crie um diretório para armazenar o aplicativo que será baixado e implantado, como c:\\Service Fabric.
+3. Crie um diretório para armazenar o aplicativo que será baixado e implantado, como C:\\ServiceFabric.
 
     ```powershell
     mkdir c:\ServiceFabric\
     cd c:\ServiceFabric\
     ```
 
-4. Baixe o aplicativo WordCount [daqui](http://aka.ms/servicefabric-wordcountapp) no local que você criou.
+4. [Baixe o aplicativo WordCount](http://aka.ms/servicefabric-wordcountapp) para o local que você criou.
 
 5. Conecte-se ao cluster local:
 
@@ -86,10 +88,12 @@ O SDK do Service Fabric inclui um conjunto avançado de estruturas e de ferramen
 
     ![IU do aplicativo implantado][deployed-app-ui]
 
-    O aplicativo WordCount é muito simples. Ele inclui código JavaScript do lado do cliente para gerar "palavras", de cinco caracteres aleatórias, que serão transmitidas para o aplicativo por meio da WebAPI do ASP.NET. Um serviço com estado mantém o controle sobre o número de palavras contadas, particionadas com base no primeiro caractere da palavra. O aplicativo que foi implantado contém quatro partições e, portanto, as palavras de A a G são armazenadas na primeira partição, de H a N são armazenadas na segunda partição e assim por diante.
+    O aplicativo WordCount é muito simples. Ele inclui código JavaScript do lado do cliente para gerar "palavras", de cinco caracteres aleatórias, que serão transmitidas para o aplicativo por meio da API Web ASP.NET. Um serviço com estado mantém o controle sobre o número de palavras contadas. Elas serão particionadas com base no primeiro caractere da palavra.
+
+    O aplicativo que implantamos contém quatro partições. Dessa forma, as palavras de A a G são armazenadas na primeira partição, as palavras iniciadas com H a N são armazenadas na segunda partição e assim por diante.
 
 ## Exibir detalhes e o status do aplicativo
-Com o aplicativo implantado, vamos examinar alguns dos detalhes do aplicativo no PowerShell.
+Agora que implantamos o aplicativo, vamos examinar alguns dos detalhes do aplicativo no PowerShell.
 
 1. Consulte todos os aplicativos implantados no cluster:
 
@@ -121,16 +125,16 @@ Com o aplicativo implantado, vamos examinar alguns dos detalhes do aplicativo no
 
     ![Exibir detalhes do aplicativo no Service Fabric Explorer][sfx-service-overview]
 
-    > [AZURE.NOTE]Para saber mais sobre o Service Fabric Explorer, consulte [Visualizando o cluster com o Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
+    > [AZURE.NOTE]Para saber mais sobre o Service Fabric Explorer, veja [Visualizando o cluster com o Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
 ## Atualizar um aplicativo
 O Service Fabric oferece atualizações sem tempo de inatividade por meio do monitoramento da integridade do aplicativo à medida que ele percorre o cluster. Vamos fazer uma atualização simples do aplicativo WordCount.
 
-A nova versão do aplicativo agora contará somente as palavras que comecem por vogal. À medida que a atualização for distribuída, veremos duas alterações no comportamento do aplicativo. Primeiro, a taxa na qual a contagem aumenta deve ficar mais lenta, já que menos palavras serão contadas. Em segundo lugar, como a primeira partição tem duas vogais (A e E) e todas as outras contêm apenas uma, sua contagem eventualmente deverá começar a ultrapassar as outras.
+A nova versão do aplicativo agora contará somente as palavras que comecem por vogal. À medida que a atualização for distribuída, veremos duas alterações no comportamento do aplicativo. Primeiro, a taxa na qual a contagem aumenta deve ficar mais lenta, já que menos palavras serão contadas. Em segundo lugar, como a primeira partição tem duas vogais (A e E) e todas as outras partições contêm apenas uma, sua contagem eventualmente deverá começar a ultrapassar as outras.
 
-1. Baixe o pacote v2 [daqui](http://aka.ms/servicefabric-wordcountappv2) no mesmo local onde você baixou o pacote v1.
+1. [Baixe o pacote do WordCount v2](http://aka.ms/servicefabric-wordcountappv2) para o mesmo local onde você baixou o pacote v1.
 
-2. Volte para a janela do PowerShell e use o comando de atualização do SDK para registrar a nova versão do cluster e iniciar a atualização do fabric:/WordCount.
+2. Volte para a janela do PowerShell e use o comando de atualização do SDK para registrar a nova versão do cluster. Em seguida, comece a atualização do aplicativo fabric:/WordCount.
 
     ```powershell
     Publish-UpgradedServiceFabricApplication -ApplicationPackagePath C:\ServiceFabric\WordCountV2.sfpkg -ApplicationName "fabric:/WordCount" -UpgradeParameters @{"FailureAction"="Rollback"; "UpgradeReplicaSetCheckTimeout"=1; "Monitored"=$true; "Force"=$true}
@@ -144,7 +148,7 @@ A nova versão do aplicativo agora contará somente as palavras que comecem por 
 
     ![Andamento da atualização no Service Fabric Explorer][sfx-upgradeprogress]
 
-    Observe que o indicador Andamento da Atualização representa o estado da atualização nos domínios de atualização do cluster. À medida que a atualização prosseguir em cada domínio, serão executadas verificações de integridade para garantir que o aplicativo está se comportando adequadamente antes de prosseguir.
+    Observe que o indicador Andamento da Atualização representa o estado da atualização nos domínios de atualização do cluster. À medida que a atualização prosseguir em cada domínio, serão executadas verificações de integridade para garantir que o aplicativo está se comportando adequadamente.
 
 4. Se você executar novamente a consulta anterior para o conjunto de serviços incluídos no aplicativo fabric:/WordCount, observará que, enquanto a versão do WordCountService foi alterada, a versão do WordCountWebService não foi:
 
@@ -154,16 +158,16 @@ A nova versão do aplicativo agora contará somente as palavras que comecem por 
 
     ![Consultar serviços de aplicativos após a atualização][ps-getsfsvc-postupgrade]
 
-    Isso destaca como o Service Fabric gerencia atualizações de aplicativo, que é tocar apenas o conjunto de serviços (ou pacotes de código/configuração nesses serviços) que foram alterados, tornando o processo de atualização mais rápido e confiável.
+    Isso destaca como o Service Fabric gerencia atualizações de aplicativo. Isso toca apenas o conjunto de serviços (ou pacotes de código/configuração nesses serviços) que foram alterados, tornando o processo de atualização mais rápido e confiável.
 
-5. Por fim, retorne ao navegador para observar o comportamento da nova versão do aplicativo. Conforme o esperado, a contagem é mais lenta e a primeira partição termina com um volume ligeiramente maior.
+5. Por fim, retorne ao navegador para observar o comportamento da nova versão do aplicativo. Como esperado, a contagem é mais lenta e a primeira partição termina com um volume ligeiramente maior.
 
     ![Exibir a nova versão do aplicativo no navegador][deployed-app-ui-v2]
 
 ## Próximas etapas
 - Agora que você implantou e atualizou alguns aplicativos pré-compilados, poderá [tentar compilar seu próprio aplicativo no Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
 - Todas as ações executadas no cluster local neste artigo também podem ser executadas em um [cluster do Azure](service-fabric-cluster-creation-via-portal.md).
-- A atualização executada neste artigo foi muito básica. Consulte a [documentação de atualização](service-fabric-application-upgrade.md) para saber mais sobre a eficiência e a flexibilidade das atualizações do Service Fabric.
+- A atualização que executamos neste artigo foi muito básica. Consulte a [documentação de atualização](service-fabric-application-upgrade.md) para saber mais sobre a eficiência e a flexibilidade das atualizações do Service Fabric.
 
 <!-- Images -->
 
@@ -182,4 +186,4 @@ A nova versão do aplicativo agora contará somente as palavras que comecem por 
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

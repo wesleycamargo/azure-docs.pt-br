@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/10/2015"
+	ms.date="01/08/2016"
 	ms.author="cabailey"/>
 
 # Introdução ao Cofre da Chave do Azure #
@@ -233,9 +233,11 @@ Outros comandos que podem ser úteis para gerenciar o Cofre da Chave do Azure.
 
 Para um tutorial de acompanhamento que usa o Cofre da Chave do Azure em um aplicativo Web, confira [Usar o Cofre da Chave do Azure em um Aplicativo Web](key-vault-use-from-web-application.md).
 
+Para ver como seu cofre da chave está sendo usado, confira [Log do Cofre da Chave do Azure](key-vault-logging.md).
+
 Para obter uma lista dos cmdlets do Azure PowerShell 1.0 para o Cofre da Chave do Azure, confira [Cmdlets do Cofre da Chave do Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx).
  
 
 Para referências de programação, consulte [Guia do desenvolvedor do Cofre da Chave do Azure](key-vault-developers-guide.md).
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

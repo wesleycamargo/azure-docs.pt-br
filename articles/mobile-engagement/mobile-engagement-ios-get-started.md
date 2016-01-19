@@ -2,7 +2,7 @@
 	pageTitle="Introdução ao Mobile Engagement do Azure para iOS em Objective C"
 	description="Aprenda a usar o Mobile Engagement do Azure com análises e notificações por push para aplicativos iOS."
 	services="mobile-engagement"
-	documentationCenter="Mobile"
+	documentationCenter="ios"
 	authors="piyushjo"
 	manager="dwrede"
 	editor="" />
@@ -37,7 +37,7 @@ A conclusão desse tutorial é um pré-requisito para todos os outros tutoriais 
 
 > [AZURE.IMPORTANT]A conclusão desse tutorial é um pré-requisito para todos os outros tutoriais do Mobile Engagement para os aplicativos iOS e para concluí-lo, você deve ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-BR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Avaliação Gratuita do Azure</a>.
 
-##<a id="setup-azme"></a>Configurar o Mobile Engagement para seu aplicativo do iOS
+##<a id="setup-azme"></a>Configurar o Mobile Engagement para seu aplicativo iOS
 
 [AZURE.INCLUDE [Criar Aplicativo de Mobile Engagement no Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
 
@@ -53,7 +53,7 @@ Criaremos um aplicativo básico com XCode para demonstrar a integração.
 
 ###Conectar o aplicativo ao back-end do Mobile Engagement
 
-1. Faça o download do [SDK para iOS do Mobile Engagement].
+1. Faça o download do [SKD do Mobile Engagement iOS].
 2. Extraia o arquivo .tar.gz para uma pasta no seu computador.
 3. Clique com o botão direito do mouse no projeto e selecione **Adicionar arquivos a**.
 
@@ -177,7 +177,7 @@ O Mobile Engagement permite interagir com seus usuários e o REACH com notifica�
 
 <!-- URLs. -->
 [SDK do Mobile Engagement iOS]: http://aka.ms/qk2rnj
-[SDK para iOS do Mobile Engagement]: http://aka.ms/qk2rnj
+[SKD do Mobile Engagement iOS]: http://aka.ms/qk2rnj
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-ios-get-started/xcode-add-files.png
@@ -185,4 +185,4 @@ O Mobile Engagement permite interagir com seus usuários e o REACH com notifica�
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [4]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

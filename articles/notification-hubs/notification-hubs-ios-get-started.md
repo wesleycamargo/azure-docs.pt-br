@@ -324,7 +324,7 @@ Se você quiser enviar notificações em um aplicativo. Esta seção fornece um 
 		}
 
 
-8. Ctrl+arraste do botão **Enviar Notificação** para o ViewController.m para adicionar uma ação chamada **SendNotificationMessage** para **Tocar**. Atualize o método com o código a seguir para enviar a notificação usando a API REST.
+8. Ctrl+arraste do botão **Enviar Notificação** para ViewController.m para adicionar uma ação chamada **SendNotificationMessage** para o evento **Touch Down**. Atualize o método com o código a seguir para enviar a notificação usando a API REST.
 
 		- (IBAction)SendNotificationMessage:(id)sender
 		{
@@ -441,7 +441,6 @@ Se você quiser enviar notificações em um aplicativo. Esta seção fornece um 
 Você encontrará todas as cargas de notificação possíveis no [Guia de programação de notificação local e por push] da Apple.
 
 
-
 ##Testar seu aplicativo
 
 Para testar as notificações por push no iOS, você deve implantar o aplicativo em um dispositivo. Não é possível enviar notificações por push da Apple com o Simulador do iOS.
@@ -467,7 +466,7 @@ Neste exemplo simples, você envia notificações para todos os seus dispositivo
 
 Se desejar segmentar os usuários por grupos de interesse, você também poderá mudar para [Usar Hubs de Notificação para enviar as últimas notícias].
 
-Para obter informações mais gerais sobre os Hubs de Notificação, veja [Diretrizes dos Hubs de Notificação].
+Para obter informações mais gerais sobre os Hubs de Notificação, consulte [Diretrizes dos Hubs de Notificação].
 
 
 
@@ -509,4 +508,4 @@ Para obter informações mais gerais sobre os Hubs de Notificação, veja [Diret
 
 [Guia de programação de notificação local e por push]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -20,15 +20,11 @@
 # Criar uma máquina virtual executando o Windows no portal do Azure#
 
 > [AZURE.SELECTOR]
-- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
-- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
-- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
-- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
-- [Azure CLI](virtual-machines-linux-tutorial.md)
-
-<br>
-
-
+- [Portal - Windows](virtual-machines-windows-tutorial.md)
+- [PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [CLI](virtual-machines-linux-tutorial.md)
 
 Este tutorial mostra como é fácil e rápido criar uma máquina virtual do Azure no portal do Azure. Usaremos uma imagem do Windows Server 2012 R2 Datacenter como exemplo para criar a máquina virtual, mas essa é apenas uma das muitas imagens oferecidas pelo Azure. Suas opções de imagem dependem de sua assinatura. Por exemplo, imagens de desktop podem estar disponíveis para assinantes do MSDN.
 
@@ -87,7 +83,7 @@ Depois de selecionar a imagem, você poderá usar as configurações padrão do 
 
 	![Captura de tela que mostra o resumo das opções de configuração feitas para a VM do Azure](./media/virtual-machines-windows-tutorial/create_vm_summary.PNG)
 
-8. Enquanto o Azure cria a máquina virtual, é possível acompanhar o andamento em **Máquinas virtuais**, no menu do hub.
+8. Enquanto o Azure cria a máquina virtual, é possível acompanhar o andamento em **Máquinas Virtuais**, no menu do hub.
 
 ## Faça logon na máquina virtual
 
@@ -116,6 +112,6 @@ Você agora pode trabalhar com a máquina virtual, como faria com qualquer outro
 ## Próximas etapas
 
 * Use o Azure PowerShell e CLI do Azure para [localizar e selecionar imagens da máquina virtual](resource-groups-vm-searching.md).
-* Automatize a máquina virtual e a implantação e o gerenciamento da carga de trabalho usando o [Gerenciador de Recursos do Azure](virtual-machines-how-to-automate-azure-resource-manager.md) e os [modelos do Gerenciador de Recursos do Azure](http://azure.microsoft.com/documentation/templates/).
+* Automatize a máquina virtual e a implantação e o gerenciamento da carga de trabalho usando os [modelos do Gerenciador de Recursos do Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->
