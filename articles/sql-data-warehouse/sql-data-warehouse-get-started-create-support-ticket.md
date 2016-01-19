@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="sahaj08"/>
+   ms.date="01/07/2016"
+   ms.author="sahajs;barbkess;sonyama"/>
 
 # Criar um tíquete de suporte para o SQL Data Warehouse
  Este artigo mostra como criar um tíquete de suporte para o SQL Data Warehouse.
@@ -84,4 +84,4 @@ Além disso, você pode se conectar com a comunidade do SQL Data Warehouse usand
 [Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw/
 [Fórum do MSDN do Azure SQL Data Warehouse]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

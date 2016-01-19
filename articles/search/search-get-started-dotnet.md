@@ -20,9 +20,7 @@
 
 Aprenda como criar um aplicativo personalizado de pesquisa .Net no Visual Studio 2013 ou posterior, que use a Pesquisa do Azure, um serviço de pesquisa hospedado na nuvem no Microsoft Azure, para sua experiência de pesquisa. Este tutorial usa o [SDK do .NET de Pesquisa do Azure](https://msdn.microsoft.com/library/azure/dn951165.aspx) para criar classes para os objetos e operações usados neste exercício, assim como a API REST do serviço de Pesquisa do Azure.
 
-Para executar esse exemplo, você deverá ter um serviço Pesquisa do Azure, no qual você pode se inscrever no [Portal Clássico do Azure](https://portal.azure.com).
-
-> [AZURE.TIP]Baixe o código-fonte deste tutorial em [Exemplos do .NET da Pesquisa do Azure](http://go.microsoft.com/fwlink/p/?LinkId=530196). Aprenda a configurar as conexões e enviar solicitações em [Como usar a Pesquisa do Azure em um aplicativo .NET](search-howto-dotnet-sdk.md).
+Para executar este exemplo, você precisará de um serviço de Pesquisa do Azure, no qual poderá se inscrever no [Portal do Azure](https://portal.azure.com). Para obter instruções passo a passo, veja [Criar um serviço de Pesquisa do Azure no portal](search-create-service-portal.md).
 
 ## Sobre os dados
 
@@ -30,44 +28,17 @@ Este exemplo de aplicativo usa dados do [Serviço Geológico dos Estados Unidos 
 
 Neste aplicativo, o programa **DataIndexer** cria e carrega o índice usando um constructo [Indexador](https://msdn.microsoft.com/library/azure/dn798918.aspx), recuperando o conjunto de dados filtrado do USGS de um Banco de Dados SQL do Azure público. As informações de credenciais e de conexão para a fonte de dados online são fornecidas no código do programa. Nenhuma configuração adicional é necessária.
 
-> [AZURE.NOTE]Aplicamos um filtro a esse conjunto de dados para permanecer abaixo do limite de 10.000 documentos da camada de preços gratuita. Se você usar a camada padrão, esse limite não se aplicará. Para obter detalhes sobre a capacidade de cada camada de preços, confira [Limites e restrições](search-limits-quotas-capacity.md).
+> [AZURE.NOTE]Aplicamos um filtro a esse conjunto de dados para permanecer abaixo do limite de 10.000 documentos da camada de preços gratuita. Se você usar um tipo de preço diferente, esse limite não se aplicará. Para obter detalhes sobre a capacidade de cada camada de preços, confira [Limites e restrições](search-limits-quotas-capacity.md).
 
-## Criar o serviço de Pesquisa do Azure
-
-1. Entre no [Portal Clássico do Azure](https://portal.azure.com).
-
-2. Na barra de navegação rápida, clique em **Novo** > **Dados + Armazenamento** > **Pesquisa**.
-
-     ![][1]
-
-3. Configure o nome do serviço, camada de preços, grupo de recursos, assinatura e local. Essas configurações são necessárias e não podem ser alteradas após o início do fornecimento do serviço.
-
-     ![][2]
-
-	- O **nome do serviço** deve ser exclusivo, com letras minúsculas, menos de 15 caracteres e sem espaços. Esse nome se torna parte do ponto de extremidade de seu serviço de Pesquisa do Azure. Confira [Regras de nomenclatura](https://msdn.microsoft.com/library/azure/dn857353.aspx) para saber mais sobre as convenções de nomenclatura.
-
-	- A **Camada de preços** determina a capacidade e a cobrança. Ambas as camadas fornecem os mesmos recursos, mas em diferentes níveis de recursos.
-
-		- Um serviço na camada **Gratuito** é executado em clusters compartilhados com outros assinantes. Essa camada oferece capacidade suficiente para testar tutoriais e escrever código de prova de conceito, mas não deve ser utilizada para aplicativos de produção. A implantação de um serviço gratuito geralmente demora apenas alguns minutos.
-		- Um serviço na camada **Padrão** é executado em recursos dedicados e é altamente escalonável. Inicialmente, um serviço padrão é configurado com uma réplica e uma partição, mas você pode ajustar a capacidade após o serviço ser criado. A implantação de um serviço padrão demora mais tempo, normalmente cerca de quinze minutos.
-
-	- **Grupos de recursos** são contêineres para serviços e contêineres usados para um fim comum. Por exemplo, se for compilar um aplicativo de pesquisa personalizado baseado na Pesquisa do Azure, Sites do Azure e armazenamento em Blob do Azure, você pode criar um grupo de recursos que mantém esses serviços juntos nas páginas de gerenciamento do portal.
-
-	- **Assinatura** permite que você escolha entre várias assinaturas, se você tiver mais de uma.
-
-	- **Local** é a região do data center. Atualmente, todos os recursos devem ser executados no mesmo data center. Não há suporte para a distribuição de recursos em vários data centers.
-
-4. Clique em **Criar** para provisionar o serviço.
-
-Observe as notificações na barra de navegação rápida. Um aviso é exibido quando o serviço fica pronto para uso.
 
 <a id="sub-2"></a>
 ## Localizar o nome do serviço e chaves de Api do serviço de Pesquisa do Azure ##
 
 Depois de criar o serviço, retorne ao portal para obter a URL ou `api-key`. Conexões com seu serviço de Pesquisa requerem que você tenha tanto uma URL quanto um `api-key` para autenticar a chamada.
 
-1. Na barra de navegação rápida, clique em **Home** e clique no Serviço de Pesquisa para abrir o painel do serviço.
-
+1. Entre no [Portal do Azure](https://portal.azure.com).
+2. Na barra de atalhos, clique em **Serviço de Pesquisa** para listar todos os serviços da Pesquisa do Azure provisionados para sua assinatura.
+3. Selecione o serviço que você deseja usar.
 2. No painel de serviço, você verá blocos com as informações essenciais e o ícone de chave para acessar as chaves de administrador.
 
   	![][3]
@@ -794,4 +765,4 @@ Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para qu
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

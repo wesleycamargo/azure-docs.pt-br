@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="12/03/2015"
+   	ms.date="01/13/2016"
    	ms.author="nitinme"/>
 
 # Tutorial de hadoop: introdução usando o Hadoop com o Hive em HDInsight no Linux
@@ -46,13 +46,13 @@ Use as seguintes etapas para criar um novo cluster:
 
     ![Criando um novo cluster no Portal do Azure](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.1.png "Criando um novo cluster no Portal do Azure")
 
-3. Insira um **Nome de Cluster**, escolha **Hadoop** para o **Tipo de Cluster** e, na lista suspensa **Sistema Operacional do Cluster**, escolha **Ubuntu**. Uma marca de seleção verde aparecerá ao lado do nome do cluster, se disponível.
+3. Insira um **Nome de Cluster**, selecione **Hadoop** para o **Tipo de Cluster** e, na lista suspensa **Sistema Operacional do Cluster**, selecione **Ubuntu**. Uma marca de seleção verde aparecerá ao lado do nome do cluster, se disponível.
 
 	![Digite o tipo e o nome do cluster](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.2.png "Digite o tipo e o nome do cluster")
 
-4. Se você tiver mais de uma assinatura, clique na entrada **Assinatura** para escolher a assinatura do Azure que será usada para o cluster.
+4. Se você tiver mais de uma assinatura, clique na entrada **Assinatura** para selecionar a assinatura do Azure que será usada para o cluster.
 
-5. Clique em **Grupo de Recursos** para ver uma lista de grupos de recursos existentes e, em seguida, escolha aquele no qual o cluster deve ser criado. Ou então, você pode clicar em **Criar novo** e, em seguida, digitar o nome do novo grupo de recursos. Uma marca de seleção verde será exibida para indicar se o novo nome de grupo estiver disponível.
+5. Clique em **Grupo de recursos** para ver uma lista de grupos de recursos existente e, em seguida, selecione um em que será criado o cluster. Ou, você pode clicar em **Criar novo** e, em seguida, digitar o nome do novo grupo de recursos. Uma marca de seleção verde será exibida para indicar se o novo nome de grupo estiver disponível.
 
 	> [AZURE.NOTE]A entrada padrão será um dos seus grupos de recursos existentes, se houver algum disponível.
 
@@ -74,9 +74,9 @@ Use as seguintes etapas para criar um novo cluster:
 
 	No momento, você pode selecionar uma Conta de Armazenamento do Azure como fonte de dados para um cluster HDInsight. Use o item a seguir para entender as entradas na folha **Fonte de Dados**.
 
-	- **Método de Seleção**: defina essa opção como **De todas as assinaturas** para habilitar a procura de contas de armazenamento de todas as suas assinaturas. Defina essa opção como **Tecla de Acesso** se você desejar inserir o **Nome de Armazenamento** e a **Tecla de Acesso** de uma conta de armazenamento existente.
+	- **Método de Seleção**: defina essa opção como **De todas as assinaturas** para habilitar a procura de contas de armazenamento em todas as suas assinaturas. Defina essa opção como **Tecla de Acesso** se você desejar inserir o **Nome de Armazenamento** e a **Tecla de Acesso** de uma conta de armazenamento existente.
 
-	- **Selecionar conta de armazenamento/Criar Nova**: clique em **Selecionar conta de armazenamento** para procurar e escolher uma conta de armazenamento existente que você deseja associar ao cluster. Ou então, clique em **Criar Nova** para criar uma nova conta de armazenamento. Use o campo exibido para inserir o nome da conta de armazenamento. Uma marca de seleção verde será exibida se o nome estiver disponível.
+	- **Selecionar conta de armazenamento/Criar Nova**: clique em **Selecionar conta de armazenamento** para procurar e escolher uma conta de armazenamento existente que deseja associar ao cluster. Ou, clique em **Criar nova** para criar uma nova conta de armazenamento. Use o campo exibido para inserir o nome da conta de armazenamento. Uma marca de seleção verde será exibida se o nome estiver disponível.
 
 	- **Escolher Contêiner Padrão**: use essa opção para inserir o nome do contêiner padrão a ser usado para o cluster. Embora você possa inserir qualquer nome aqui, é recomendável usar o mesmo nome que o cluster para que você possa reconhecer facilmente que o contêiner é usado para este cluster específico.
 
@@ -86,23 +86,23 @@ Use as seguintes etapas para criar um novo cluster:
 
 	Clique em **Selecionar** para salvar a configuração de fonte de dados.
 
-8. Clique em **Camadas de Preços do Nó** para exibir informações sobre os nós que serão criados para esse cluster. Defina o número de nós de trabalho que você precisa para o cluster. O custo estimado do cluster será mostrado na folha.
+8. Clique em **Camadas de preços do nó** para exibir informações sobre os nós que serão criados para esse cluster. Defina o número de nós de trabalho que você precisa para o cluster. O custo estimado do cluster será mostrado na folha.
 
 	![Folha de camadas de preços de nó](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.5.png "Especifique o número de nós de cluster")
     
     > [AZURE.IMPORTANT]Se você planeja ter mais de 32 nós de trabalho, seja na criação do cluster ou em seu dimensionamento após a criação, deverá selecionar um tamanho de nó de cabeçalho com pelo menos 8 núcleos e 14 GB de RAM.
     >
-    > Para saber mais sobre tamanhos de nós e os custos associados, consulte [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+    > Para saber mais sobre tamanhos de nós e custos associados, consulte [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 	Clique em **Selecionar** para salvar a configuração de preços do nó.
 
-9. Na folha **Novo Cluster HDInsight**, verifique se a opção **Fixar no Quadro Inicial** está marcada e clique em **Criar**. Isso criará o cluster e adicionará um bloco para o mesmo para o quadro inicial do seu Portal do Azure. O ícone indica que o cluster está provisionando e será alterado para exibir o ícone de HDInsight após a conclusão da configuração.
+9. Na folha **Novo Cluster HDInsight**, verifique se **Fixar no Quadro Inicial** está selecionado e clique em **Criar**. Isso criará o cluster e adicionará um bloco para o mesmo para o quadro inicial do seu Portal do Azure. O ícone indica que o cluster está provisionando e será alterado para exibir o ícone de HDInsight após a conclusão da configuração.
 
 Durante o provisionamento|Provisionamento concluído
 ------------------|---------------------
 	![Indicador de provisionamento no quadro inicial](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioning.png)|![Bloco de cluster provisionado](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioned.png)
 
-> [AZURE.NOTE]Levará algum tempo para que o cluster seja criado, geralmente, cerca de 15 minutos. Use o bloco no Quadro Inicial ou a entrada **Notificações** no lado esquerdo da página para verificar o processo de provisionamento.
+> [AZURE.NOTE]Levará algum tempo para que o cluster seja criado, geralmente, cerca de 15 minutos. Use o bloco no Quadro Inicial ou a entrada **Notificações** à esquerda da página para verificar o processo de provisionamento.
 
 Quando o provisionamento for concluído, clique no bloco para o cluster a partir do quadro inicial para iniciar a folha de cluster.
 
@@ -110,17 +110,17 @@ Quando o provisionamento for concluído, clique no bloco para o cluster a partir
 
 Os Modos de Exibição do Ambari fornecem vários utilitários usando uma página da Web. Nas seções a seguir, você usará o modo de exibição do Hive para executar consultas do Hive no cluster HDInsight.
 
-> [AZURE.NOTE]O Ambari é um utilitário de monitoramento e gerenciamento fornecido com clusters HDInsight baseados em Linux. O Ambari tem vários recursos que não serão discutidos neste documento. Para obter mais informações, consulte [Gerenciar clusters HDInsight usando a interface do usuário da Web do Ambari](hdinsight-hadoop-manage-ambari.md).
+> [AZURE.NOTE]O Ambari é um utilitário de monitoramento e gerenciamento fornecido com clusters HDInsight baseados em Linux. O Ambari tem vários recursos que não serão discutidos neste documento. Para saber mais, confira [Gerenciar clusters HDInsight usando a interface do usuário da Web do Ambari](hdinsight-hadoop-manage-ambari.md).
 
-Você pode usar Modos de Exibição do Ambari por meio do Portal do Azure. Escolha o cluster HDInsight e selecione __Modos de Exibição do Ambari__ na seção __Links Rápidos__.
+Para abrir os Modos de Exibição do Ambari do Portal do Azure, selecione seu cluster HDInsight e escolha __Modos de Exibição do Ambari__ na seção __Links Rápidos__
 
 ![seção links rápidos](./media/hdinsight-hadoop-linux-tutorial-get-started/quicklinks.png)
 
-Você também pode navegar diretamente para o Ambari indo para https://CLUSTERNAME.azurehdinsight.net em um navegador da Web (em que __NOME\_DO\_CLUSTER__ é o nome do cluster HDInsight) e escolhendo o conjunto de quadrados no menu da página (ao lado do link __Admin__ e do botão no lado esquerdo da página) para listar os modos de exibição disponíveis. Escolha o __Modo de exibição do Hive__.
+Você também pode navegar diretamente para o Ambari indo para https://CLUSTERNAME.azurehdinsight.net em um navegador da Web (em que __NOMEDOCLUSTER__ é o nome do cluster HDInsight) e escolhendo o conjunto de quadrados no menu da página (ao lado do link __Admin__ e do botão no lado esquerdo da página) para listar os modos de exibição disponíveis. Escolha o __modo de exibição do Hive__.
 
 ![Escolhendo modos de exibição do Ambari](./media/hdinsight-hadoop-linux-tutorial-get-started/selecthiveview.png).
 
-> [AZURE.NOTE]Ao acessar o Ambari, você será solicitado a se autenticar no site. Digite o nome da conta e senha de administrador (o padrão é `admin`) que você usou ao criar o cluster.
+> [AZURE.NOTE]Ao acessar o Ambari, você receberá uma solicitação para se autenticar no site. Insira o nome da conta e senha de administrador (o padrão é `admin`) que você usou ao criar o cluster.
 
 Você verá uma página semelhante à seguinte:
 
@@ -186,9 +186,9 @@ Use as etapas a seguir no modo de exibição do Hive para executar uma consulta 
     
     Os outros ícones são os seguintes:
     
-        * Settings: The gear icon allows you to change Hive settings, such as setting `hive.execution.engine` or Tez parameters.
-        * Tez: Displays the Directed Acyclic Graph (DAG) that Tez used to perform the query. If you want to view the DAG for queries you've ran in the past, use the __Tez View__ instead.
-        * Notifications: Displays notifications, such as "Query has been submitted" or if an error occurs when running a query.
+	* Configurações: o ícone de engrenagem permite que você altere as configurações do Hive, como a configuração `hive.execution.engine` ou os parâmetros do Tez.
+	* Tez: exibe o Gráfico Acíclico Dirigido (DAG) que o Tez utilizou para fazer a consulta. Se você quiser exibir o DAG de consultas executadas anteriormente, use __Modo de Exibição do Tez exibição__.
+	* Notificações: exibe notificações, como “A consulta foi enviada” ou se algum erro ocorrer ao executar uma consulta.
 
 5. Escolha o ícone __SQL__ para retornar ao Editor de Consultas. Em seguida, crie uma nova planilha e insira a seguinte consulta:
 
@@ -211,7 +211,7 @@ Neste documento, você aprendeu como criar um cluster HDInsight baseado em Linux
 
 Para saber mais sobre como trabalhar com o HDInsight, consulte:
 
-- Para saber mais sobre como usar o Hive com o HDInsight, inclusive como executar consultas de Hive do Visual Studio, consulte [Usar o Hive com o HDInsight][hdinsight-use-hive].
+- Para saber mais sobre como usar o Hive com HDInsight, inclusive como executar consultas de Hive do Visual Studio, consulte [usar o Hive com HDInsight][hdinsight-use-hive].
 
 - Para saber mais sobre o Pig, uma linguagem usada para transformar dados, consulte [Usar o Pig com o HDInsight][hdinsight-use-pig].
 
@@ -229,7 +229,7 @@ Se você quiser saber mais sobre como criar ou gerenciar um cluster HDInsight, c
 
 - Para saber mais sobre como gerenciar o cluster HDInsight baseado em Linux, consulte [Gerenciar clusters HDInsight usando o Ambari](hdinsight-hadoop-manage-ambari.md).
 
-- Para saber mais sobre as opções que você poderá escolher ao criar um cluster HDInsight, consulte [Provisionar o HDInsight no Linux usando opções personalizadas](hdinsight-hadoop-provision-linux-clusters.md).
+- Para saber mais sobre as opções que você poderá selecionar ao criar um cluster HDInsight, consulte [Provisionar o HDInsight no Linux usando opções personalizadas](hdinsight-hadoop-provision-linux-clusters.md).
 
 - Se você estiver familiarizado com o Linux e o Hadoop, mas quiser obter informações específicas sobre o Hadoop no HDInsight, consulte [Trabalhando com o HDInsight no Linux](hdinsight-hadoop-linux-information.md). Haverá informações como:
 
@@ -260,4 +260,4 @@ Se você quiser saber mais sobre como criar ou gerenciar um cluster HDInsight, c
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

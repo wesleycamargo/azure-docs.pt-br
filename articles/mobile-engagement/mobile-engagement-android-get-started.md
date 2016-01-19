@@ -2,7 +2,7 @@
 	pageTitle="Introdução ao Mobile Engagement do Azure"
 	description="Aprenda a usar o Mobile Engagement do Azure com análises e notificações por push para aplicativos Android."
 	services="mobile-engagement"
-	documentationCenter="mobile"
+	documentationCenter="android"
 	authors="piyushjo"
 	manager="dwrede"
 	editor="" />
@@ -155,7 +155,7 @@ O Mobile Engagement permite a você interagir e entrar em contato com seus usuá
 
 ### Habilitar mensagens no aplicativo
 
-1. Copie os recursos de mensagens no aplicativo a seguir para seu Manifest.xml entre as marcas `<application>` e `</application>`.
+1. Copie os recursos de mensagens no aplicativo a seguir para o Manifest.xml entre as marcas `<application>` e `</application>`.
 
 		<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light">
   			<intent-filter>
@@ -340,4 +340,4 @@ Agora criaremos uma campanha simples de notificação por push que enviará uma 
 [22]: ./media/mobile-engagement-android-get-started/campaign-content.png
 [24]: ./media/mobile-engagement-android-get-started/campaign-activate.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

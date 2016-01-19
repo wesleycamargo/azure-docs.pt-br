@@ -10,7 +10,7 @@
 <tags
    ms.service="data-lake-analytics"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="12/11/2015"
@@ -105,4 +105,4 @@ O exemplo a seguir obtém a lista de trabalho de uma determinada conta da Análi
 - [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-use-portal.md)
 - [Monitorar e solucionar problemas em trabalhos da Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

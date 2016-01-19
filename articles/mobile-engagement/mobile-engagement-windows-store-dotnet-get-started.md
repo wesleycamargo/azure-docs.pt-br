@@ -2,7 +2,7 @@
 	pageTitle="Introdução ao Mobile Engagement do Azure para aplicativos universais do Windows"
 	description="Saiba como usar o Mobile Engagement do Azure com análises e notificações por push para aplicativos universais do Windows."
 	services="mobile-engagement"
-	documentationCenter="mobile"
+	documentationCenter="windows"
 	authors="piyushjo"
 	manager="dwrede"
 	editor="" />
@@ -169,7 +169,7 @@ Você estará pronto para enviar uma notificação do sistema. Agora vamos verif
 
 	![][11]
 
-4. Na seção Notificações por push, clique no link do **site Live Services**.
+4. Na seção Notificações por push, clique no link **site Live Services**.
 
 	![][12]
 
@@ -213,4 +213,4 @@ Se o aplicativo estiver em execução, você verá uma notificação no aplicati
 [12]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_1.png
 [13]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_creds.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

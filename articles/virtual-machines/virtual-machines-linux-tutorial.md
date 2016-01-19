@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Criar uma máquina virtual que executa Linux | Microsoft Azure"
-	description="Saiba como criar uma máquina virtual do Azure que execute o Linux ou uma máquina virtual do Ubuntu do Azure usando uma imagem do Azure e a interface de linha de comando do Azure."
-	keywords="máquina virtual do linux, máquina virtual linux, Linux do Azure, ubuntu do azure" 
+	pageTitle="Criar uma máquina virtual Linux | Microsoft Azure"
+	description="Saiba como criar uma máquina virtual Linux ou uma máquina virtual Ubuntu usando uma imagem do Azure e a interface de linha de comando do Azure."
+	keywords="máquina virtual linux, linux máquina virtual, máquina virtual ubuntu" 
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
@@ -18,18 +18,16 @@
 	ms.date="10/21/2015"
 	ms.author="rasquill"/>
 
-# Criar uma máquina virtual que executa Linux
+# Criar uma máquina virtual Linux
 
 > [AZURE.SELECTOR]
-- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
-- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
-- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
-- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
-- [Azure CLI](virtual-machines-linux-tutorial.md)
+- [Portal - Windows](virtual-machines-windows-tutorial.md)
+- [PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [CLI](virtual-machines-linux-tutorial.md)
 
-<br>
-
-É fácil criar uma máquina virtual (VM) do Azure que executa Linux, a partir da linha de comando ou do portal. Este tutorial mostra como usar a interface de linha de comando do Azure (CLI) para Mac, Linux e Windows para criar rapidamente uma VM do Ubuntu Server em execução no Azure, conectar-se a ele usando **ssh** e criar e montar um novo disco. Este tópico usa uma VM do Ubuntu Server, mas é possível também criar uma máquina virtual do Linux usando [suas próprias imagens como modelos](virtual-machines-linux-create-upload-vhd.md).
+É fácil criar uma máquina virtual (VM) Linux desde a linha de comando ou do portal. Este tutorial mostra como usar a interface de linha de comando do Azure (CLI) para Mac, Linux e Windows para criar rapidamente uma VM do Ubuntu Server em execução no Azure, conectar-se a ele usando **ssh** e criar e montar um novo disco. Este tópico usa uma VM do Ubuntu Server, mas é possível também criar uma máquina virtual do Linux usando [suas próprias imagens como modelos](virtual-machines-linux-create-upload-vhd.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
 
@@ -51,7 +49,7 @@ Melhor ainda. [Faça logon com sua ID de trabalho ou escolar](../xplat-cli-conne
 
 > [AZURE.NOTE]Se você tiver uma ID de trabalho ou escolar e se souber que não tem a autenticação de dois fatores habilitada, poderá usar `azure login -u` juntamente com a ID de trabalho ou escolar para efetuar logon sem uma sessão interativa. Se você não tiver uma ID de trabalho ou escolar, poderá [criar uma ID de trabalho ou escolar de sua conta da Microsoft pessoal](resource-group-create-work-id-from-personal.md).
 
-## Criar a máquina virtual do Azure
+## Criar a máquina virtual Linux
 
 Digite `azure group create <my-group-name> westus` substituindo _&lt;my-group-name&gt;_ por um nome de grupo exclusivo para você (pode usar uma região diferente, caso prefira). Você verá algo semelhante ao que se segue:
 
@@ -170,7 +168,7 @@ Sua VM está pronta para executar e aguardando a conexão.
 
 Com as máquinas virtuais do Linux, normalmente você se conecta usando **ssh**.
 
-> [AZURE.NOTE]Este tópico se refere a uma máquina virtual usando nomes de usuário e senhas. Para usar pares de chaves públicas e privadas para se comunicar com a VM, confira [Como usar uma SSH com Linux no Azure](virtual-machines-linux-use-ssh-key.md). Você pode modificar a conectividade **SSH** de VMs criadas com o comando `azure vm quick-create` usando o comando `azure vm reset-access` para redefinir completamente o acesso **SSH**, adicionar ou remover usuários ou adicionar arquivos de chave pública para proteger o acesso. Este artigo usa um nome de usuário e uma senha com **SSH** para simplificar.
+> [AZURE.NOTE]Este tópico se refere a uma máquina virtual usando nomes de usuário e senhas. Para usar pares de chaves públicas e privadas para se comunicar com a VM, confira [Como usar uma SSH com Linux no Azure](virtual-machines-linux-use-ssh-key.md). Você pode modificar a conectividade **SSH** de VMs criadas com o comando `azure vm quick-create` usando o comando `azure vm reset-access` para redefinir completamente o acesso **SSH**, adicionar ou remover usuários ou adicionar arquivos de chave pública para proteger o acesso. Este artigo usa um nome de usuário e uma senha com **SSH** por questões de brevidade.
 
 Caso não esteja familiarizado com a conexão usando **SSH**, o comando assume a forma `ssh <username>@<publicdnsaddress> -p <the ssh port>`. Nesse caso, usamos o nome de usuário e a senha da etapa anterior e a porta 22, que é o padrão de porta **SSH**.
 
@@ -328,4 +326,4 @@ Para saber mais sobre o Linux no Azure, confira:
 
 - [A extensão de máquina virtual Docker para Linux no Azure](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

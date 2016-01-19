@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="robinsh"
 	manager="carmonm"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/04/2015" 
+	ms.date="12/04/2015"
 	ms.author="robinsh"/>
 
 
@@ -27,7 +27,7 @@ Uma conta de armazenamento do Azure fornece acesso aos serviços de Blob, Fila, 
 
 Existem dois tipos de contas de armazenamento:
 
-- Uma conta de armazenamento padrão inclui armazenamento de Blob, Tabela e Fila. 
+- Uma conta de armazenamento padrão inclui armazenamento de Blob, Tabela e Fila.
 - Atualmente, uma conta de armazenamento premium dá suporte apenas aos discos de máquina virtual do Azure. Veja [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure](storage-premium-storage-preview-portal.md) para obter uma visão geral detalhada do Armazenamento Premium.
 
 ## Cobrança de conta de armazenamento
@@ -67,7 +67,7 @@ Para obter detalhes sobre a capacidade da conta de armazenamento e as metas de d
 
 	>[AZURE.IMPORTANT]Para determinar quais locais estão disponíveis para a sua assinatura, você pode chamar a operação [Provedores de Lista](https://msdn.microsoft.com/library/azure/dn790524.aspx). Para listar provedores do PowerShell, chame [Get-AzureLocation](https://msdn.microsoft.com/library/azure/dn757693.aspx). No .NET, use o método [List](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.provideroperationsextensions.list.aspx) da classe ProviderOperationsExtensions.
 	>
-	>Além disso, confira [Regiões do Azure](https://azure.microsoft.com/regions/#services) para saber mais sobre quais serviços estão disponíveis em uma região específica.
+	>Além disso, veja [Regiões do Azure](https://azure.microsoft.com/regions/#services) para obter mais informações sobre quais serviços estão disponíveis em uma região específica.
 
 
 5. Se você tiver mais de uma assinatura do Azure, o campo **Assinatura** será exibido. Em **Assinatura**, digite a assinatura do Azure com a qual você deseja usar a conta de armazenamento.
@@ -173,4 +173,4 @@ Para remover uma conta de armazenamento que você não esteja mais usando, use *
 - Visite o [Blog da equipe do Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 - [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

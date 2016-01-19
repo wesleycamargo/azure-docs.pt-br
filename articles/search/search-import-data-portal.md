@@ -6,7 +6,7 @@
 	authors="HeidiSteen"
 	manager="mblythe"
 	editor=""
-    tags="Azure Classic Portal"/>
+    tags="Azure Portal"/>
 
 <tags
 	ms.service="search"
@@ -25,7 +25,7 @@
 - [REST API](search-import-data-rest-api.md)
 - [Indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
-O Portal Clássico do Azure inclui um comando **Importar Dados** no painel da Pesquisa do Azure que orienta você na ingestão de dados na Pesquisa do Azure. O comando depende do recurso de indexadores internos que rastreia a fonte de dados existente, criando e carregando documentos com base no conjunto de linhas encontrado na fonte de dados.
+O Portal do Azure inclui um comando **Importar Dados** no painel da Pesquisa do Azure que orienta você na ingestão de dados na Pesquisa do Azure. O comando depende do recurso de indexadores internos que rastreia a fonte de dados existente, criando e carregando documentos com base no conjunto de linhas encontrado na fonte de dados.
 
 Usando o assistente, a importação de dados é uma construção com 3 partes:
 
@@ -39,7 +39,7 @@ Você só pode importar de uma única tabela, exibição ou estrutura de dados e
 
 ##Configurar a importação de dados
 
-1. Entre no [Portal Clássico do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 
 2. Abra o painel de serviços de seu serviço de Pesquisa do Azure. Aqui estão algumas maneiras para localizar o painel.
 	- Na barra de navegação rápida, clique em **Home**. A home page conta com blocos para cada serviço em sua assinatura. Clique no bloco para abrir o painel de serviços.
@@ -74,4 +74,4 @@ A operação de importação de dados que você acabou de preencher criou um ind
 
 No painel do serviço, clique duas vezes no bloco Indexador para deslizar uma lista de todos os indexadores criados para sua assinatura. Clique duas vezes em um dos indexadores para executá-lo, editá-lo ou excluí-lo.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/10/2015"
+	ms.date="01/08/2016"
 	ms.author="cabailey"/>
 
 # Introdução ao Cofre da Chave do Azure #
@@ -24,7 +24,7 @@ Use este tutorial para ajudá-lo a começar a usar o Cofre da Chave do Azure par
 
 *Tempo estimado para conclusão:** 20 minutos
 
->[AZURE.NOTE] Este tutorial não inclui instruções sobre como escrever o aplicativo do Azure que uma das etapas inclui, ou seja, como autorizar um aplicativo para usar uma chave ou um segredo no cofre da chave.
+>[AZURE.NOTE]Este tutorial não inclui instruções sobre como escrever o aplicativo do Azure que uma das etapas inclui, ou seja, como autorizar um aplicativo para usar uma chave ou um segredo no cofre da chave.
 >
 >No momento, não é possível configurar o Cofre da Chave do Azure no portal do Azure. Em vez disso, use estas instruções do PowerShell do Azure. Ou, para obter instruções de Interface de linha de comando entre diferentes plataformas, consulte [este tutorial equivalente](key-vault-manage-with-cli.md).
 
@@ -111,7 +111,7 @@ Depois, digite o seguinte para importar a chave do arquivo .PFX, que protege a c
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd
 
 
-Agora, você pode fazer referência à chave que foi criada ou carregada no Cofre da Chave do Azure, usando seu URI. Use **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** para obter sempre a versão atual e use **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** para obter esta versão específica.
+Agora, você pode fazer referência à chave que foi criada ou carregada no Cofre da Chave do Azure, usando seu URI. Use ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** para obter sempre a versão atual e use ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** para obter esta versão específica.
 
 Para exibir o URI dessa chave, digite:
 
@@ -125,7 +125,7 @@ Em seguida, digite o seguinte:
 
 	$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword' -SecretValue $secretvalue
 
-Agora, você pode fazer referência a essa senha que foi adicionada ao Cofre da Chave do Azure usando seu URI. Use **https://ContosoVault.vault.azure.net/secrets/SQLPassword** para obter sempre a versão atual e use **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** para obter esta versão específica.
+Agora, você pode fazer referência a essa senha que foi adicionada ao Cofre da Chave do Azure usando seu URI. Use ****https://ContosoVault.vault.azure.net/secrets/SQLPassword** para obter sempre a versão atual e use ****https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** para obter esta versão específica.
 
 Para exibir o URI do segredo, digite:
 
@@ -143,7 +143,7 @@ Agora, seu cofre de chave e a chave ou o segredo estão prontos para serem usado
 Esta etapa geralmente seria feita por um desenvolvedor, em um computador separado. Ela não é específica ao Cofre da Chave do Azure, mas é incluída aqui para que as informações fiquem completas.
 
 
->[AZURE.IMPORTANT] Para concluir o tutorial, sua conta, o cofre e o aplicativo que você registrará nesta etapa devem todos estar no mesmo diretório do Azure.
+>[AZURE.IMPORTANT]Para concluir o tutorial, sua conta, o cofre e o aplicativo que você registrará nesta etapa devem todos estar no mesmo diretório do Azure.
 
 Aplicativos que usam um cofre de chave devem ser autenticados usando um token do Active Directory do Azure. Para fazer isso, o proprietário do aplicativo deve primeiro registrar o aplicativo no seu Active Directory do Azure. No final do registro, o proprietário do aplicativo obtém os seguintes valores:
 
@@ -233,9 +233,11 @@ Outros comandos que podem ser úteis para gerenciar o Cofre da Chave do Azure.
 
 Para um tutorial de acompanhamento que usa o Cofre da Chave do Azure em um aplicativo Web, confira [Usar o Cofre da Chave do Azure em um Aplicativo Web](key-vault-use-from-web-application.md).
 
+Para ver como seu cofre da chave está sendo usado, confira [Log do Cofre da Chave do Azure](key-vault-logging.md).
+
 Para obter uma lista dos cmdlets do Azure PowerShell 1.0 para o Cofre da Chave do Azure, confira [Cmdlets do Cofre da Chave do Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx).
  
 
 Para referências de programação, consulte [Guia do desenvolvedor do Cofre da Chave do Azure](key-vault-developers-guide.md).
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

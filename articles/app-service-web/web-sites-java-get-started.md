@@ -5,14 +5,14 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor=""/>
 <tags
 	ms.service="app-service-web"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="10/20/2015"
+	ms.date="01/09/2016"
 	ms.author="robmcm"/>
 
 # Criar um aplicativo Web do Java no Serviço de Aplicativo do Azure
@@ -29,7 +29,7 @@ Este tutorial mostra como criar um [Aplicativo Web Java no Serviço de Aplicativ
 
 > [AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [ativar os benefícios de assinante do Visual Studio][] ou [inscrever-se em uma avaliação gratuita][].
 >
-> Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo][]. Lá, você poderá criar imediatamente um aplicativo Web de curta duração inicial no Serviço de Aplicativo – sem exigência de cartão de crédito e sem compromissos.
+> Se você quiser ter uma introdução ao Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo][]. Lá, você poderá criar imediatamente um aplicativo Web de curta duração inicial no Serviço de Aplicativo – sem exigência de cartão de crédito e sem compromissos.
 
 ## Opções de aplicativos Java
 
@@ -88,7 +88,7 @@ Esta seção mostra como usar o Azure Marketplace para criar um aplicativo Web J
 
 9. Selecione um **Plano/Local do Serviço de Aplicativo** ou crie um novo.
 
-	Para saber mais sobre os planos do Serviço de Aplicativo, consulte [Visão geral dos planos do Serviço de Aplicativo do Azure](../azure-web-sites-web-hosting-plans-in-depth-overview.md)
+	Para saber mais sobre os planos do Serviço de Aplicativo, confira [Visão geral dos planos do Serviço de Aplicativo do Azure](../azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
 10. Clique em **Criar**.
 
@@ -122,7 +122,7 @@ Esta seção mostra como criar um aplicativo Web e como configurá-lo para Java 
 
 	![](./media/web-sites-java-get-started/newwebapp.png)
 
-4. Insira um nome para o aplicativo Web na caixa **Aplicativo Web**.
+4. Digite um nome para o aplicativo Web na caixa **aplicativo Web**.
 
 	Esse nome deve ser exclusivo no domínio azurewebsites.net porque a URL do aplicativo Web será {nome}.azurewebsites.net. Se o nome inserido não for exclusivo, um ponto de exclamação vermelho aparecerá na caixa de texto.
 
@@ -132,7 +132,7 @@ Esta seção mostra como criar um aplicativo Web e como configurá-lo para Java 
 
 6. Selecione um **Plano/Local do Serviço de Aplicativo** ou crie um novo.
 
-	Para saber mais sobre os planos do Serviço de Aplicativo, consulte [Visão geral dos planos do Serviço de Aplicativo do Azure](../azure-web-sites-web-hosting-plans-in-depth-overview.md)
+	Para saber mais sobre os planos do Serviço de Aplicativo, confira [Visão geral dos planos do Serviço de Aplicativo do Azure](../azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
 7. Clique em **Criar**.
 
@@ -176,4 +176,4 @@ Para saber mais sobre o desenvolvimento de aplicativos Java no Azure, consulte o
 
 [Experimentar o Serviço de Aplicativo]: http://go.microsoft.com/fwlink/?LinkId=523751
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="robinsh"
 	manager="carmonm"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/04/2015" 
+	ms.date="12/04/2015"
 	ms.author="robinsh"/>
 
 
@@ -27,7 +27,7 @@ Uma conta de armazenamento do Azure fornece acesso aos serviços de Blob, Fila, 
 
 Existem dois tipos de contas de armazenamento:
 
-- Uma conta de armazenamento padrão inclui armazenamento de Blob, Tabela e Fila. 
+- Uma conta de armazenamento padrão inclui armazenamento de Blob, Tabela e Fila.
 - Atualmente, uma conta de armazenamento premium dá suporte apenas aos discos de máquina virtual do Azure. Veja [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure](storage-premium-storage-preview-portal.md) para obter uma visão geral detalhada do Armazenamento Premium.
 
 ## Cobrança de conta de armazenamento
@@ -139,4 +139,4 @@ Para remover uma conta de armazenamento que você não estiver mais usando, nave
 - Visite o [Blog da equipe do Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 - [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

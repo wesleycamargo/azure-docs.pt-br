@@ -120,30 +120,31 @@ A Microsoft marcará prefixos anunciados por meio do emparelhamento público e d
 
 | **Região Geopolítica** | **Região do Microsoft Azure (o mesmo se aplica ao Office 365)** | **Valor de comunidade BGP** |
 |---|---|---|
-| **América do Norte** | | 12076:51201 |
+| **América do Norte** | | |
 | | Leste dos EUA | 12076:51004 |
 | | Leste dos EUA 2 | 12076:51005 |
 | | Oeste dos EUA | 12076:51006 |
 | | Centro-Norte dos EUA | 12076:51007 |
 | | Centro-Sul dos Estados Unidos | 12076:51008 |
 | | Centro dos EUA | 12076:51009 |
-| **América do Sul** | | 12076:51202 |
+| **América do Sul** | | |
 | | Sul do Brasil | 12076:51014 |
-| **Europa** | | 12076:51203 |
+| **Europa** | | |
 | | Norte da Europa | 12076:51003 |
 | | Europa Ocidental | 12076:51002 |
-| **Pacífico Asiático** | | 12076:51204 |
+| **Pacífico Asiático** | | |
 | | Ásia Oriental | 12076:51010 |
 | | Sudeste Asiático | 12076:51011 |
-| **Japão** | Leste do Japão | 12076:51012 |
+| **Japão** | | |
+| | Leste do Japão | 12076:51012 |
 | | Oeste do Japão | 12076:51013 |
-| **Austrália** | Leste da Austrália | 12076:51015 |
+| **Austrália** | | | 
+| | Leste da Austrália | 12076:51015 |
 | | Sudeste da Austrália | 12076:51016 |
-| **Índia** | Sul da Índia | 12076:51019 |
+| **Índia** | | |
+| | Sul da Índia | 12076:51019 |
 | | Oeste da Índia | 12076:51018 |
 | | Centro da Índia | 12076:51017 |
-| **Global** | **Só haverá suporte para ele e será publicado quando o complemento premium estiver habilitado** | 12076:51000 |
-| **Anycast** | | 12076:51250 |
 
 Todas as rotas anunciadas pela Microsoft serão marcadas com o valor de comunidade apropriado.
 
@@ -173,4 +174,4 @@ A Microsoft não adota valores de comunidade BGP que você define. É necessári
 	- [Configurar o roteamento](expressroute-howto-routing-classic.md)
 	- [Vincular uma Rede Virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0114_2016-->

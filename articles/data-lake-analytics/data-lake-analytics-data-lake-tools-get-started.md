@@ -10,7 +10,7 @@
 <tags
    ms.service="data-lake-analytics"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="01/07/2015"
@@ -60,7 +60,7 @@ Anteriormente neste tutorial, você carregou alguns dados na seção **Pré-requ
 
 Caso você queira usar seus próprios dados, estes são os procedimentos para carregar dados das Ferramentas do Data Lake.
 
-**Para carregar o arquivo na conta dependente do Azure Data Lake**
+**Para carregar arquivos na conta dependente do Azure Data Lake**
 
 1. No **Gerenciador de Servidores**, expanda **Azure**, **Análise Data Lake**, sua conta de Análise Data Lake e **Contas de Armazenamento**. Você deverá ver a conta padrão do Repositório Data Lake, as contas vinculadas do Repositório Data Lake e as contas de Armazenamento do Azure vinculadas. A conta padrão do Data Lake tem um rótulo "Conta de Armazenamento Padrão".
 2. Clique com o botão direito do mouse na conta de armazenamento padrão do Data Lake e clique em **Gerenciador**. Isso abrirá o painel Gerenciador das Ferramentas do Data Lake para Visual Studio. À esquerda, há um modo de exibição de árvore e o modo de exibição de conteúdo está à direita.
@@ -69,11 +69,11 @@ Caso você queira usar seus próprios dados, estes são os procedimentos para ca
 
 	![U-SQL do Projeto de U-SQL do Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-upload-files.png)
 
-**Para carregar o arquivo na conta de Armazenamento de Blobs do Azure**
+**Para carregar arquivos em uma conta de Armazenamento de Blobs vinculada do Azure**
 
 1. No **Gerenciador de Servidores**, expanda **Azure**, **Análise Data Lake**, sua conta de Análise Data Lake e **Contas de Armazenamento**. Você deverá ver a conta padrão do Repositório Data Lake, as contas vinculadas do Repositório Data Lake e as contas de Armazenamento do Azure vinculadas. 
 2. Expanda a conta de Armazenamento do Azure.
-3. Clique com o botão direito do mouse no contêiner onde você deseja carregar arquivos e clique em **Gerenciador**.
+3. Clique com o botão direito do mouse no contêiner onde você deseja carregar arquivos e clique em **Gerenciador**. Se você não tiver um contêiner, primeiro deverá criar um usando o portal do Azure, o Azure PowerShell ou outras ferramentas.
 4. Navegue até a pasta na qual você deseja carregar arquivos, 
 5. Clique com o botão direito do mouse em qualquer espaço em branco e clique em **Carregar**. 
 
@@ -88,8 +88,6 @@ Os trabalhos de Análise Data Lake são escritos na linguagem U-SQL. Para saber 
 
 	![novo projeto de U-SQL do Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 
-	>[AZURE.NOTE]Atualmente, as ferramentas do Data Lake não dão suporte a caminhos de projeto UNC em execução local.
-	
 3. Clique em **OK**. O Visual Studio cria uma solução com um arquivo **Script.usql**.
 4. Insira o seguinte script em **Script.usql**:
 
@@ -357,4 +355,4 @@ O script do PowerShell a seguir prepara uma conta da Análise Data Lake do Azure
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

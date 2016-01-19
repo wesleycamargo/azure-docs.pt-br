@@ -1,20 +1,20 @@
 <properties
 	pageTitle="Como usar o armazenamento de Fila do .NET | Microsoft Azure"
-	description="Saiba como usar o armazenamento de fila do Microsoft Azure para criar e excluir filas e inserir, espiar, obter e excluir mensagens de fila."
+	description="Saiba como usar o Armazenamento de Filas para criar e excluir filas e inserir, espiar, obter e excluir mensagens da fila."
 	services="storage"
 	documentationCenter=".net"
 	authors="robinsh"
 	manager="carmonm"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.date="12/04/2015"
-	ms.author="robinsh"/>
+	ms.author="gusapost"/>
 
 # Como usar o armazenamento de Fila do .NET
 
@@ -242,11 +242,11 @@ Para excluir uma fila e todas as mensagens que ela contém, chame o método **De
 Agora que você aprendeu os conceitos básicos do armazenamento de Fila, siga estes links para saber mais sobre tarefas de armazenamento mais complexas.
 
 - Consulte a documentação de referência do serviço Fila para obter detalhes completos sobre as APIs disponíveis:
-    - Referência à [Biblioteca de Cliente de Armazenamento para .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+    - [Referência à Biblioteca de Cliente de Armazenamento para .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
     - [Referência da API REST](http://msdn.microsoft.com/library/azure/dd179355)
 - Saiba como simplificar o código que você escreve para trabalhar com o Armazenamento do Azure usando o [SDK do Azure WebJobs](../websites-dotnet-webjobs-sdk/).
 - Consulte outros guias de recursos para obter informações sobre opções adicionais para armazenar dados no Azure.
-    - Usar o [Armazenamento de Tabela](storage-dotnet-how-to-use-tables.md) para armazenar dados estruturados. 
+    - Usar o [Armazenamento de Tabela](storage-dotnet-how-to-use-tables.md) para armazenar dados estruturados.
     - Usar o [Armazenamento de Blob](storage-dotnet-how-to-use-blobs.md) para armazenar dados não estruturados.
     - Usar o [Banco de Dados SQL](sql-database-dotnet-how-to-use.md) para armazenar dados relacionais.
 
@@ -259,6 +259,5 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Fila, siga es
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
- 
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

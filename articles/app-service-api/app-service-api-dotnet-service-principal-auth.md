@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/28/2015"
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Autenticação de entidade de serviço para Aplicativos de API no Serviço de Aplicativo do Azure
@@ -304,4 +304,4 @@ Este é o último tutorial da série de Introdução aos aplicativos de API. Est
 	* [Configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure](web-sites-custom-domain-name.md)
 	* [Habilitar HTTPS para um site do Azure](web-sites-configure-ssl-certificate.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

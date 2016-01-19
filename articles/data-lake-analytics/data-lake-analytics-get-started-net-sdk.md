@@ -10,7 +10,7 @@
 <tags
    ms.service="data-lake-analytics"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="10/21/2015"
@@ -251,8 +251,8 @@ Um log de pesquisa de exemplo foi copiado em um contêiner público do Blob do A
 - Para ver o mesmo tutorial usando outras ferramentas, clique nos seletores de guias na parte superior da página.
 - Para ver uma consulta mais complexa, veja [Analisar logs de site usando a Análise Azure Data Lake](data-lake-analytics-analyze-weblogs.md).
 - Para começar a desenvolver aplicativos U-SQL, veja [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-- Para aprender a usar o U-SQL, veja [Introdução à linguagem U-SQL da Análise Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
+- Para aprender a usar o U-SQL, veja [Introdução à linguagem U-SQL da Análise do Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
 - Para obter as tarefas de gerenciamento, veja [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-manage-use-portal.md).
 - Para obter uma visão geral da Análise Data Lake, veja [Visão geral da Análise Azure Data Lake](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->
