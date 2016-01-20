@@ -24,11 +24,8 @@
 - [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)  
 
-
-
-
 > [AZURE.NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
+> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
 
 ##Visão geral
 
@@ -41,7 +38,7 @@ Para obter mais informações conceituais relacionadas aos canais habilitados pa
 
 As etapas a seguir descrevem as tarefas envolvidas na criação de aplicativos comuns de streaming ao vivo.
 
->[AZURE.NOTE]Atualmente, a duração máxima recomendada de um evento ao vivo é de 8 horas. Entre em contato com amslived@microsoft.com na Microsoft se precisar executar um Canal por períodos mais longos.
+>[AZURE.NOTE] Atualmente, a duração máxima recomendada de um evento ao vivo é de 8 horas. Entre em contato com amslived@microsoft.com na Microsoft se precisar executar um Canal por períodos mais longos.
 
 1. Conecte uma câmera de vídeo a um computador. Inicie e configure um codificador ao vivo local que possa produzir um fluxo de taxa de bits única em um dos seguintes protocolos: RTMP, Smooth Streaming ou RTP (MPEG-TS). Para obter mais informações, consulte [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores ao Vivo](http://go.microsoft.com/fwlink/?LinkId=532824).
 
@@ -118,12 +115,18 @@ Obtenha e execute um exemplo [aqui](http://azure.microsoft.com/documentation/sam
 ##Conectar-se aos Serviços de Mídia
 Como prática recomendada, você deve usar um arquivo app.config para armazenar o nome e a chave de conta dos Serviços de Mídia.
 
->[AZURE.NOTE]Para localizar os valores de Nome e Chave, vá para o Portal Clássico do Azure, selecione sua conta de Serviço de Mídia e clique no ícone “GERENCIAR CHAVES” na parte inferior da janela do portal. Clicando no ícone ao lado de cada caixa de texto, o valor é copiado para a área de transferência do sistema.
+>[AZURE.NOTE] Para localizar os valores de Nome e Chave, vá para o Portal Clássico do Azure, selecione sua conta de Serviço de Mídia e clique no ícone “GERENCIAR CHAVES” na parte inferior da janela do portal. Clicando no ícone ao lado de cada caixa de texto, o valor é copiado para a área de transferência do sistema.
 
 Adicione a seção appSettings ao arquivo app.config e defina os valores do nome e da chave de sua conta dos Serviços de Mídia.
 
 
-<?xml version="1.0"?> <configuration> <appSettings> <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" /> <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" /> </appSettings> </configuration>
+<?xml version="1.0"?>
+	<configuration>
+	  <appSettings>
+	      <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" />
+	      <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" />
+	  </appSettings>
+	</configuration>
 	 
 	
 ##Exemplo de código
