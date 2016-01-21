@@ -30,6 +30,7 @@ Você pode arquivar solicitações de suporte para o Active Directory (AD) B2C d
 
     ![Suporte — alternar diretórios](./media/active-directory-b2c-support/support-switch-dir.png)
 
+    
 3. Depois de alternar os diretórios, clique em **Ajuda + suporte**.
 
     ![Suporte — suporte](./media/active-directory-b2c-support/support-support.png)
