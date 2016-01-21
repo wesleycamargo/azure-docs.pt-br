@@ -132,7 +132,12 @@ A tabela a seguir mostra cada tipo de recurso com os métodos de alocação poss
 
 A tabela abaixo mostra os limites impostos ao endereçamento IP no Azure por assinatura. Você pode [entrar em contato com o suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar os limites padrão até os limites máximos com base nas necessidades de sua empresa.
 
-||Limite padrão|Limite máximo| |---|---|---| |Endereços IP públicos (dinâmicos)|5|entre em contato com o suporte| |Endereços IP públicos reservados|20|entre em contato com o suporte| |VIP público por implantação (serviço de nuvem)|5|entre em contato com o suporte| |VIP privado (ILB) por implantação (serviço de nuvem)|1|1|
+||Limite padrão|Limite máximo|
+|---|---|---|
+|Endereços IP públicos (dinâmicos)|5|entre em contato com o suporte|
+|Endereços IP públicos reservados|20|entre em contato com o suporte|
+|VIP público por implantação (serviço de nuvem)|5|entre em contato com o suporte|
+|VIP privado (ILB) por implantação (serviço de nuvem)|1|1|
 
 Certifique-se de ler o conjunto completo de [limites de rede](azure-subscription-service-limits.md#networking-limits) do Azure.
 
@@ -143,7 +148,16 @@ Na maioria dos casos, endereços IP públicos são gratuitos. Há um custo nomin
 ## Diferenças entre as implantações do Gerenciador de recursos e clássica
 A seguir está uma comparação dos recursos de endereçamento IP no Gerenciador de Recursos com o modelo de implantação clássico.
 
-||Recurso|Clássico|Gerenciador de Recursos| |---|---|---|---| |**Endereço IP Público**|VM|Chamado de ILPIP (apenas dinâmico)|Chamado de IP público (dinâmico ou estático)| |||Atribuído a uma VM IaaS ou a uma instância de função PaaS|Associado à NIC da VM| ||Balanceador de carga voltado para a Internet|Chamado de VIP (dinâmico) ou IP reservado (estático)|Chamado de IP público (dinâmico ou estático)| |||Atribuído a um serviço de nuvem|Associado à configuração de front-end do balanceador de carga| |||| |**Endereço IP Privado**|VM|Chamado de DIP|Chamado de endereço IP Privado| |||Atribuído a uma VM IaaS ou a uma instância de função PaaS|Atribuído à NIC da VM| ||Balanceador de carga interno (ILB)|Atribuído ao ILB (dinâmico ou estático)|Atribuído à configuração de front-end do ILB (dinâmica ou estática)|
+||Recurso|Clássico|Gerenciador de Recursos|
+|---|---|---|---|
+|**Endereço IP Público**|VM|Chamado de ILPIP (apenas dinâmico)|Chamado de IP público (dinâmico ou estático)|
+|||Atribuído a uma VM IaaS ou a uma instância de função PaaS|Associado à NIC da VM|
+||Balanceador de carga voltado para a Internet|Chamado de VIP (dinâmico) ou IP reservado (estático)|Chamado de IP público (dinâmico ou estático)|
+|||Atribuído a um serviço de nuvem|Associado à configuração de front-end do balanceador de carga|
+||||
+|**Endereço IP Privado**|VM|Chamado de DIP|Chamado de endereço IP Privado|
+|||Atribuído a uma VM IaaS ou a uma instância de função PaaS|Atribuído à NIC da VM|
+||Balanceador de carga interno (ILB)|Atribuído ao ILB (dinâmico ou estático)|Atribuído à configuração de front-end do ILB (dinâmica ou estática)|
 
 ## Próximas etapas
 - [Implantar uma VM com um endereço IP público estático](virtual-network-deploy-static-pip-classic-ps.md)
@@ -153,4 +167,4 @@ A seguir está uma comparação dos recursos de endereçamento IP no Gerenciador
 - [Criar um Application Gateway usando o PowerShell](application-gateway-create-gateway.md)
 - [Criar um Application Gateway interno usando o PowerShell](application-gateway-ilb.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!-----HONumber=AcomDC_0107_2016-->
