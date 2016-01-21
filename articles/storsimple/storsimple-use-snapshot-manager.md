@@ -490,7 +490,8 @@ As tabelas a seguir mostram as combinações de teclas de atalho para cada nó n
 | V | Abre o menu **Exibição**. |
 | W | Abre um novo console do StorSimple Snapshot Manager voltado para o nó **Grupos de Volumes**.|
 | F | Atualiza o console do StorSimple Snapshot Manager.|
-| L | Abre a página **Exportar Lista **. | H | Abre a Ajuda online.|
+| L | Abre a página **Exportar Lista **.
+| H | Abre a Ajuda online.|
  
 #### Teclas de atalho do nó Catálogo de Backups
 

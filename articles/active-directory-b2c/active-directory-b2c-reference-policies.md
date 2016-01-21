@@ -74,7 +74,8 @@ Para habilitar a inscrição de seu aplicativo, você precisará criar uma polí
 4. O **Nome** determina o nome da política de inscrição usado pelo seu aplicativo. Por exemplo, insira "SiUp".
 5. Clique em **Provedores de identidade** e selecione "Endereço de email". Opcionalmente, você também pode selecionar provedores de identidade social, se já configurado. Clique em **OK**.
 
-    > [AZURE.NOTE]Para contas locais, políticas de inscrição do AD B2C do Azure usam senhas "Fortes" (elas são definidas como "nunca expirar"). Consulte [Política de senha do AD do Azure](https://msdn.microsoft.com/library/azure/jj943764.aspx) para ver outras configurações (atualmente não utilizadas AD B2C do Azure).
+    > [AZURE.NOTE]
+    Para contas locais, políticas de inscrição do AD B2C do Azure usam senhas "Fortes" (elas são definidas como "nunca expirar"). Consulte [Política de senha do AD do Azure](https://msdn.microsoft.com/library/azure/jj943764.aspx) para ver outras configurações (atualmente não utilizadas AD B2C do Azure).
 
 6. Clique em **Atributos de inscrição**. Aqui você escolhe os atributos que você deseja coletar do consumidor durante a inscrição. Por exemplo, selecione "Cidade/região", "Nome de exibição" e "CEP". Clique em **OK**.
 7. Clique em **Declarações do aplicativo**. Aqui você escolhe as declarações que deseja que sejam retornadas dos tokens enviados ao aplicativo após uma experiência de inscrição bem-sucedida. Por exemplo, selecione "Nome de exibição", "Provedor de identidade", "CEP", "Novo usuário" e "ID de objeto do usuário".
@@ -82,7 +83,8 @@ Para habilitar a inscrição de seu aplicativo, você precisará criar uma polí
 9. Abra a política clicando em "**B2C\_1\_SiUp**".
 10. Selecione "aplicativo Contoso B2C” na lista suspensa **Aplicativos** e `https://localhost:44321/` na lista suspensa **URL de Resposta/URI de redirecionamento**. Clique no botão **Executar agora**. Uma nova guia do navegador se abre e você pode executar a experiência de consumidor de inscrição para o aplicativo.
 
-    > [AZURE.NOTE]É necessário um minuto para que a criação de políticas e as atualizações entrem em vigor.
+    > [AZURE.NOTE]
+    É necessário um minuto para que a criação de políticas e as atualizações entrem em vigor.
 
 ## Como criar uma política de entrada
 
@@ -98,7 +100,8 @@ Para habilitar a entrada no aplicativo, você precisará criar uma política de 
 8. Abra a política clicando em "**B2C\_1\_SiIn**".
 9. Selecione "aplicativo Contoso B2C” na lista suspensa **Aplicativos** e `https://localhost:44321/` na lista suspensa **URL de Resposta/URI de redirecionamento**. Clique no botão **Executar agora**. Uma nova guia do navegador se abre e você pode executar a experiência de consumidor de entrada no aplicativo.
 
-    > [AZURE.NOTE]É necessário um minuto para que a criação de políticas e as atualizações entrem em vigor.
+    > [AZURE.NOTE]
+    É necessário um minuto para que a criação de políticas e as atualizações entrem em vigor.
 
 ## Como criar uma política de edição de perfil
 
@@ -115,6 +118,7 @@ Para habilitar a edição de perfil no aplicativo, você precisará criar uma po
 9. Abra a política clicando em "**B2C\_1\_SiPe**".
 10. Selecione "aplicativo Contoso B2C” na lista suspensa **Aplicativos** e `https://localhost:44321/` na lista suspensa **URL de Resposta/URI de redirecionamento**. Clique no botão **Executar agora**. Uma nova guia do navegador se abre e você pode executar a experiência de consumidor de edição de perfil em seu aplicativo.
 
-    > [AZURE.NOTE]É necessário um minuto para que a criação de políticas e as atualizações entrem em vigor.
+    > [AZURE.NOTE]
+    É necessário um minuto para que a criação de políticas e as atualizações entrem em vigor.
 
 <!---HONumber=AcomDC_0107_2016-->
