@@ -244,6 +244,3 @@ Baixar a [Biblioteca de Cliente do Armazenamento do Azure para o código-fonte d
 Baixar os pacotes Maven de [Núcleo](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Cliente](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) e [Extensões](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) do Cofre da Chave do Azure Visitar a [Documentação do Cofre da Chave do Azure](../articles/key-vault-whatis.md)  
 
 <!----HONumber=AcomDC_0107_2016-->
-
-
-
