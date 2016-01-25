@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="01/08/2016"
 	ms.author="tomfitz"/>
 
 #Como criar funções Web e de trabalho do PHP
@@ -196,7 +196,7 @@ Para parar os emuladores, execute este comando:
 
 ## Publicar seu aplicativo
 
-Para publicar seu aplicativo, você precisa primeiro importar suas configurações de publicação usando o cmdlet **Import-PublishSettingsFile**. Em seguida, você pode publicar o aplicativo usando o cmdlet [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx). Para obter informações sobre como entrar, confira [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md).
+Para publicar seu aplicativo, você precisa primeiro importar suas configurações de publicação usando o cmdlet [Import-AzurePublishSettingsFile](https://msdn.microsoft.com/library/azure/dn790370.aspx). Em seguida, você pode publicar o aplicativo usando o cmdlet [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx). Para obter informações sobre como entrar, confira [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md).
 
 ## Próximas etapas
 
@@ -211,4 +211,4 @@ Para obter mais informações, consulte o [Centro de Desenvolvimento PHP](/devel
 [sqlsrv drivers]: http://php.net/sqlsrv
 [instalador sqlncli.msi x64]: http://go.microsoft.com/fwlink/?LinkID=239648
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

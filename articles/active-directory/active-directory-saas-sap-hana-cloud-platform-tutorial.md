@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Tutorial: Integração do Active Directory do Azure com a Plataforma de Nuvem HANA SAP
@@ -57,11 +57,11 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
-6.  Na **caixa de pesquisa**, digite **SAP HANA Cloud Platform**.
+6.  Na **caixa de pesquisa**, digite **Plataforma de Nuvem HANA SAP**.
 
     ![Galeria de Aplicativos](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790796.png "Galeria de Aplicativos")
 
-7.  No painel de resultados, selecione **SAP HANA Cloud Platform** e clique em **Concluir** para adicionar o aplicativo.
+7.  No painel de resultados, selecione **Plataforma de Nuvem HANA SAP** e clique em **Concluir** para adicionar o aplicativo.
 
     ![Hana SAP](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793929.png "Hana SAP")
 ##Configurando o logon único
@@ -194,4 +194,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

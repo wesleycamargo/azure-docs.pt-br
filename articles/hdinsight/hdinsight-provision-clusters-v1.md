@@ -38,7 +38,7 @@ Antes de começar a seguir as instruções neste artigo, você deve ter o seguin
 
 	O nome do cluster é usado para identificar um cluster. O nome do cluster deve seguir as diretrizes seguintes:
 	
-	- O campo deve ser uma cadeia com 3 a 63 caracteres.
+	- O campo deve ser uma cadeia com 3 a 63 caracteres
 	- O campo pode conter apenas letras, números e hifens.
 
 - **Nome da assinatura**
@@ -52,7 +52,7 @@ Antes de começar a seguir as instruções neste artigo, você deve ter o seguin
 
 - **Versão do HDInsight**
 
-	É usada para determinar a versão do HDInsight a ser usada para este cluster. Para obter mais informações, confira [Versões e componentes do cluster Hadoop no HDInsight](https://go.microsoft.com/fwLink/?LinkID=320896&clcid=0x409)
+	É usada para determinar a versão do HDInsight a ser usada para este cluster. Para obter mais informações, veja [Versões e componentes do cluster Hadoop no HDInsight](https://go.microsoft.com/fwLink/?LinkID=320896&clcid=0x409)
 
 - **Tipo de cluster** e **tamanho do cluster (também conhecidos como nós de dados)**
 
@@ -65,7 +65,7 @@ Antes de começar a seguir as instruções neste artigo, você deve ter o seguin
 
 	![Clusters do HDInsight](./media/hdinsight-provision-clusters-v1/hdinsight.clusters.png)
  
-	> [AZURE.NOTE]O *cluster Azure HDInsight* também é chamado de *clusters Hadoop no HDInsight* ou de *cluster HDInsight*. Às vezes, ele é usado alternadamente com o *cluster Hadoop*. Todos eles denotam clusters do Hadoop hospedados no ambiente do Microsoft Azure.
+	> [AZURE.NOTE]O *cluster Azure HDInsight* também é chamado de *clusters Hadoop no HDInsight* ou *cluster HDInsight*. Às vezes, ele é usado alternadamente com o *cluster Hadoop*. Todos eles denotam clusters do Hadoop hospedados no ambiente do Microsoft Azure.
 
 	Em um determinado tipo cluster, há diferentes funções para os diferentes nós, que permitem que um cliente dimensione os nós em uma determinada função apropriada para os detalhes de sua carga de trabalho. Por exemplo, um cluster do Hadoop pode ter seus nós de trabalho configurados com uma grande quantidade de memória se o tipo de análise executada tiver um uso muito intensivo de memória.
 
@@ -104,7 +104,7 @@ Antes de começar a seguir as instruções neste artigo, você deve ter o seguin
 
 	![tamanhos de nó de vm do hdinsight](./media/hdinsight-provision-clusters-v1/hdinsight.node.sizes.png)
 
-	Selecione o tamanho da VM para os nós. Para obter mais informações, confira [Tamanhos para serviços de nuvem](cloud-services-sizes-specs.md).
+	Selecione o tamanho da VM para os nós. Para obter mais informações, confira [Tamanhos para Serviços de Nuvem](cloud-services-sizes-specs.md)
 
 	O custo pode variar de acordo com sua escolha de VMs. O HDInsight usa todas as VMs de camada padrão para nós de cluster. Para obter informações sobre como os tamanhos de VM afetam os preços, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Preços do HDInsight</a>.
 
@@ -122,20 +122,20 @@ Antes de começar a seguir as instruções neste artigo, você deve ter o seguin
 - **Conta de armazenamento do Azure**
 
 
-	O HDFS original usa um dos muitos discos locais no cluster. O HDInsight usa o armazenamento de Blob do Azure em vez do armazenamento de dados. O armazenamento de blob do Azure é uma solução de armazenamento de uso geral que se integra perfeitamente com o HDInsight. Através de uma interface HDFS (Sistema de Arquivos Distribuído Hadoop), o conjunto completo de componentes em HDInsight pode operar diretamente sobre os dados não estruturados do armazenamento de Blob. O armazenamento de dados no armazenamento de blob permite que os clusters HDInsight usados para cálculo sejam excluídos com segurança sem que ocorra perda de dados do usuário.
+	O HDFS original usa um dos muitos discos locais no cluster. O HDInsight usa o armazenamento de Blobs do Azure em vez do armazenamento de dados. O armazenamento de blobs do Azure é uma solução de armazenamento de uso geral que se integra perfeitamente com o HDInsight. Através de uma interface HDFS (Sistema de Arquivos Distribuído Hadoop), o conjunto completo de componentes em HDInsight pode operar diretamente sobre os dados não estruturados do armazenamento de Blobs. O armazenamento de dados no armazenamento de blobs permite que os clusters HDInsight usados para cálculo sejam excluídos com segurança sem que ocorra perda de dados do usuário.
 	
 	Durante a configuração, você deve especificar uma conta de armazenamento do Azure e um contêiner de armazenamento de Blob do Azure na conta de armazenamento do Azure. Alguns processos de provisionamento requerem que a conta de armazenamento do Azure e o contêiner de armazenamento de Blob sejam criados anteriormente. O contêiner de armazenamento de Blob é usado como o local de armazenamento padrão pelo cluster. Ou você pode especificar contas de armazenamento do Azure adicionais (armazenamento vinculado) que poderão ser acessadas pelo cluster. Além disso, o cluster também pode acessar qualquer contêiner de Blob configurado com acesso de leitura público completo ou acesso de leitura para blobs somente. Para obter mais informações sobre o acesso restrito, confira [Gerenciar o acesso aos recursos do Armazenamento do Azure](storage-manage-access-to-resources.md).
 
 	![Armazenamento do HDInsight](./media/hdinsight-provision-clusters-v1/HDInsight.storage.png)
 	
-	>[AZURE.NOTE]Um contêiner de armazenamento de Blob oferece o agrupamento de um conjunto de blobs, conforme mostrado na imagem:
+	>[AZURE.NOTE]Um contêiner de armazenamento de Blobs oferece o agrupamento de um conjunto de blobs, conforme mostrado na imagem:
 	
-	![Armazenamento do blob do Azure](./media/hdinsight-provision-clusters-v1/Azure.blob.storage.jpg)
+	![Armazenamento do blobs do Azure](./media/hdinsight-provision-clusters-v1/Azure.blob.storage.jpg)
 	  
 	
-	>[AZURE.WARNING]Não compartilhe um contêiner de armazenamento de Blob entre múltiplos clusters. Não há suporte para isso.
+	>[AZURE.WARNING]Não compartilhe um contêiner de armazenamento de Blobs entre múltiplos clusters. Não há suporte para isso.
 	
-	Para obter mais informações sobre o uso de repositórios de blob secundários, consulte [Usando o Armazenamento de Blob do Azure com o HDInsight](hdinsight-use-blob-storage.md).
+	Para obter mais informações sobre o uso de repositórios de blobs secundários, consulte [Usando o Armazenamento de Blobs do Azure com o HDInsight](hdinsight-use-blob-storage.md).
 
 - **Metastore do Hive/Oozie**
 
@@ -220,16 +220,7 @@ A [Rede Virtual do Azure](http://azure.microsoft.com/documentation/services/virt
 
 	![diagrama da configuração ponto a site](./media/hdinsight-provision-clusters-v1/hdinsight-vnet-point-to-site.png)
 
-Para obter mais informações sobre os recursos, benefícios e capacidades das redes virtuais, consulte a [Visão geral da rede virtual do Azure](../virtual-network/virtual-networks-overview.md).
-
-> [AZURE.NOTE]Você deve criar a Rede Virtual do Azure antes de provisionar um cluster HDInsight. Para obter mais informações, consulte [Tarefas de configuração de rede virtual](../services/virtual-machines/).
->
-> O Azure HDInsight oferece suporte somente a redes virtuais baseadas no local, e não trabalha atualmente com redes virtuais baseadas em grupos de afinidade. Use o cmdlet Get-AzureVNetConfig do Azure PowerShell para verificar se uma rede virtual do Azure existente é baseada no local. Se sua rede virtual não for baseada no local, você tem as seguintes opções:
->
-> - Exportar a configuração de rede virtual existente e criar uma nova rede virtual. Todas as novas redes virtuais são baseadas em local por padrão.
-> - Migrar para uma rede virtual baseada em local. Veja [Migrar serviços existentes para o escopo regional](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/).
->
-> É altamente recomendado designar uma única sub-rede para um cluster.
+Para obter informações sobre como usar o HDInsight com uma Rede Virtual, incluindo requisitos de configuração específicos para a Rede Virtual, consulte [Estender recursos do HDInsight usando uma Rede Virtual do Azure](hdinsight-extend-hadoop-virtual-network.md).
 
 ## Ferramentas de provisionamento
 
@@ -810,4 +801,4 @@ Neste artigo, você aprendeu várias maneiras de provisionar um cluster HDInsigh
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -8,12 +8,12 @@
    editor=""/>
 
    <tags
-      ms.service="marketplace-publishing"
+      ms.service="marketplace"
       ms.devlang="na"
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="11/30/2015"
+      ms.date="01/04/2016"
       ms.author="hascipio; avikova" />
 
 # Noções básicas sobre o esquema de nós para mapear um serviço web existente para OData por meio de CSDL
@@ -162,9 +162,8 @@ Estes são os atributos que foram adicionados à especificação do CSDL:
 |----|----|
 | **d:Regex** *(Opcional)* | Uma instrução de regex usada para validar o valor de entrada para o parâmetro. Se o valor de entrada não corresponde à instrução, o valor será rejeitado. Isso também permite especificar um conjunto de possíveis valores, por exemplo, ^[0-9]+? $ para permitir somente números. **Exemplo:** `<Parameter Name="name" Mode="In" Type="String" d:Nullable="false" d:Regex="^[a-zA-Z]*$" d:Description="A name that cannot contain any spaces or non-alpha non-English characters" d:SampleValues="George|John|Thomas|James"/>` |
 | **d:Enum** *(Opcional)* | Uma lista separada por barra vertical de valores válidos para o parâmetro. O tipo dos valores precisa coincidir com o tipo do parâmetro definido. Exemplo: `english|metric|raw`. Enum será exibido como uma lista suspensa selecionável de parâmetros na interface do usuário (gerenciador de serviço). **Exemplo:** `<Parameter Name="Duration" Type="String" Mode="In" Nullable="true" d:Enum="1year|5years|10years"/>` |
-| **d:Nullable** *(Opcional)* | Permite definir se um parâmetro pode ser nulo. O padrão é true. No entanto, os parâmetros que são expostos como parte do caminho do modelo de URI não podem ser nulos. Quando o atributo é definido como false para esses parâmetros – a entrada do usuário é substituída. Permite definir se um parâmetro pode ser nulo. O padrão é true. No entanto, os parâmetros que são expostos como parte do caminho do modelo de URI não podem ser nulos. Quando o atributo é definido como false para esses parâmetros – a entrada do usuário é substituída. **Exemplo:** `<Parameter Name="BikeType" Type="String" Mode="In" Nullable="false"/>` |
-| **d:SampleValue** *(Opcional)* | Um valor de exemplo para exibir como uma observação para o cliente na interface do usuário. Podem ser adicionados vários valores, separados com a barra vertical, "|”. **Exemplo:** `<Parameter Name="BikeOwner" Type="String" Mode="In" d:SampleValues="George|John|Thomas|James"/>` |
-| **d:UriTemplate** | |
+| **d:Nullable** *(Opcional)* | Permite definir se um parâmetro pode ser nulo. O padrão é true. No entanto, os parâmetros que são expostos como parte do caminho do modelo de URI não podem ser nulos. Quando o atributo é definido como false para esses parâmetros – a entrada do usuário é substituída. **Exemplo:** `<Parameter Name="BikeType" Type="String" Mode="In" Nullable="false"/>` |
+| **d:SampleValue** *(Opcional)* | Um valor de exemplo para exibir como uma observação para o cliente na interface do usuário. É possível adicionar vários valores usando uma lista separada por pipe, ou seja `a|b|c` **Exemplo:** `<Parameter Name="BikeOwner" Type="String" Mode="In" d:SampleValues="George|John|Thomas|James"/>` |
 
 ## Nó EntityType
 
@@ -273,4 +272,4 @@ A seguir estão os tipos compatíveis para parâmetros e propriedades. (Diferenc
 - Se estiver interessado em examinar exemplos, leia este artigo [Exemplos de mapeamento OData de Serviço de Dados](marketplace-publishing-data-service-creation-odata-mapping-examples.md) para ver um código de exemplo e compreender a sintaxe do código e o contexto.
 - Para retornar ao caminho indicado para a publicação de um Serviço de Dados no Azure Marketplace, leia este artigo [Guia de publicação de Serviço de Dados](marketplace-publishing-data-service-creation.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

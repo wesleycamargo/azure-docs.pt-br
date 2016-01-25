@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
-   manager="jhubbard"
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="barbkess;sonyama"/>
 
 # Migrar seus dados
 O principal objetivo ao migrar dados é popular o banco de dados do SQLDW. Esse processo pode ser realizado de várias maneiras. Cópia do ADF, SSIS e bcp podem ser usados para atingir esse objetivo. No entanto, à medida que o volume de dados aumenta, uma boa prática é dividir em etapas o processo de migração de dados. Isso possibilita a otimização de cada etapa quanto ao desempenho e à resiliência para garantir uma migração de dados tranquila.
@@ -194,4 +194,4 @@ Para saber mais sobre a migração, consulte [Migrar sua solução para o SQL Da
 [Adaptador de destino ADO.NET]: https://msdn.microsoft.com/library/bb934041.aspx
 [documentação do SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -431,11 +431,11 @@ Se o nome de usuário e senha forem especificados, o gateway os usará para repr
 	     } 
 	}
 
-Veja [Definir credenciais e segurança](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obter detalhes sobre como definir credenciais para uma fonte de dados do SQL Server.
+Consulte [Definir credenciais e segurança](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obter detalhes sobre como definir credenciais para uma fonte de dados do SQL Server.
 
 ## Propriedades de tipo de conjunto de dados do SQL Server
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, veja o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). Seções como estrutura, disponibilidade e política de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Server, blob do Azure, tabela do Azure, etc.).
+Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). Seções como estrutura, disponibilidade e política de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Server, blob do Azure, tabela do Azure, etc.).
 
 A seção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção **typeProperties** para o conjunto de dados do tipo **SqlServerTable** tem as propriedades a seguir.
 
@@ -481,6 +481,25 @@ O **SqlSink** dá suporte às seguintes propriedades:
 | sqlWriterStoredProcedureName | Nome do procedimento armazenado que upserts (atualiza/insere) na tabela de destino. | Nome do procedimento armazenado. | Não |
 | storedProcedureParameters | Parâmetros para o procedimento armazenado. | Pares de nome/valor. Nomes e uso de maiúsculas e minúsculas de parâmetros devem corresponder aos nomes e o uso de maiúsculas e minúsculas dos parâmetros do procedimento armazenado. | Não | 
 | sqlWriterTableType | Nome do tipo de tabela especificado pelo usuário a ser utilizado no procedimento armazenado acima. A atividade de cópia disponibiliza aqueles dados sendo movidos em uma tabela temporária com esse tipo de tabela. O código de procedimento armazenado pode mesclar os dados sendo copiados com dados existentes. | Um nome de tipo de tabela. | Não |
+
+## Solucionar problemas de conexão
+
+1. Configure seu SQL Server para aceitar conexões remotas. Inicie o **SQL Server Management Studio**, clique com botão direito do mouse em **servidor** e clique em **Propriedades**. Selecione **Conexões** na lista e marque **Permitir conexões remotas ao servidor**.
+	
+	![Habilitar conexões remotas](.\media\data-factory-sqlserver-connector\AllowRemoteConnections.png)
+
+	Veja [Configurar a Opção de Configuração do Servidor de acesso remoto](https://msdn.microsoft.com/library/ms191464.aspx) para obter as etapas detalhadas. 
+2. Inicie o **SQL Server Configuration Manager**. Expanda **Configuração de Rede do SQL Server** para a instância que você deseja e selecione **Protocolos para MSSQLSERVER**. Você deve ver os protocolos no painel à direita. Habilite TCP/TP clicando em **TCP/IP** e clicando em **Habilitar**.
+
+	![Habilitar TCP/IP](.\media\data-factory-sqlserver-connector\EnableTCPProptocol.png)
+
+	Consulte [Habilitar ou Desabilitar um Protocolo de Rede de Servidor](https://msdn.microsoft.com/library/ms191294.aspx) para obter detalhes e formas alternativas de habilitar um protocolo TCP/IP. 
+3. Na mesma janela, clique duas vezes em **TCP/IP** para iniciar a janela **Propriedades de TCP/IP**.
+4. Alterne para a guia **Endereços IP**. Role para baixo para ver a seção **IPAll**. Anote a **Porta TCP** (a padrão é **1433**).
+5. Crie uma **regra para o Firewall do Windows** no computador para permitir o tráfego de entrada por essa porta.  
+6. **Verifique a conexão**: use o SQL Server Management Studio de um computador diferente para conectar-se ao SQL Server usando um nome totalmente qualificado. Por exemplo: <machine>.<domain>.corp.<company>.com,1433.
+
+	> [AZURE.IMPORTANT]Consulte [Portas e Considerações de Segurança](data-factory-move-data-between-onprem-and-cloud.md#port-and-security-considerations) para obter informações detalhadas.
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -543,4 +562,4 @@ O mapeamento é o mesmo que o mapeamento de tipo de dados do SQL Server para o A
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

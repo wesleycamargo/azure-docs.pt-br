@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/12/2016"
 	ms.author="swkrish"/>
 
 # Visualização do Active Directory B2C do Azure: fornecer registro e conexão aos consumidores com Contas da Microsoft
@@ -41,11 +41,9 @@ Para usar a Conta da Microsoft como um provedor de identidade no AD (Active Dire
 
     ![MSA - URL de redirecionamento](./media/active-directory-b2c-setup-msa-app/msa-redirect-url.png)
 
-6. Clique em **Configurações do Aplicativo** na barra de navegação à esquerda. Copie os valores de **ID do cliente** e **Segredo do cliente**. Você precisará de ambos para configurar a Conta da Microsoft como um provedor de identidade no seu locatário.
+6. Clique em **Configurações do Aplicativo** na barra de navegação à esquerda. Copie os valores de **ID do cliente** e **Segredo do cliente**. Você precisará de ambos para configurar a Conta da Microsoft como um provedor de identidade no seu locatário. Observação: o **Segredo do cliente** é uma credencial de segurança importante.
 
-> [AZURE.NOTE]O **Segredo do cliente** é uma credencial de segurança importante.
-
-    ![MSA - Client secret](./media/active-directory-b2c-setup-msa-app/msa-client-secret.png)
+    ![MSA - Segredo do cliente](./media/active-directory-b2c-setup-msa-app/msa-client-secret.png)
 
 ## Configurar a Conta da Microsoft como um provedor de identidade no locatário
 
@@ -57,4 +55,4 @@ Para usar a Conta da Microsoft como um provedor de identidade no AD (Active Dire
 6. Clique em **Configurar este provedor de identidade** e insira a **ID do Cliente** e o **Segredo do Cliente** do aplicativo de Conta da Microsoft que você criou anteriormente.
 7. Clique em **OK** e em **Criar** para salvar sua configuração da Conta da Microsoft.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

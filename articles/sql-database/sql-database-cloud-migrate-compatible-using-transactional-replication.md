@@ -18,7 +18,7 @@
 
 # Migrar o Banco de Dados do SQL Server para o Banco de Dados SQL usando a replicação transacional
 
-Quando não houver a possibilidade de remover seu banco de dados do SQL Server da produção durante a migração, você pode usar a replicação transacional do SQL Server como sua solução de migração. Com a replicação transacional, todas as alterações feitas em seus dados ou no esquema ocorridas entre o início da migração e sua conclusão aparecerão em seu Banco de Dados SQL do Azure. Quando a migração for concluída, bastará alterar a cadeia de conexão de seus aplicativos para apontá-los para seu Banco de Dados SQL do Azure em vez de apontá-los para seu banco de dados local. Assim que a replicação transacional realizar todas as alterações restantes em seu banco de dados local, e todos os seus aplicativos apontarem para o Banco de Dados do Azure, você poderá desinstalar a replicação com segurança, deixando o Banco de Dados SQL do Azure como o sistema de produção.
+Quando não houver a possibilidade de remover seu banco de dados do SQL Server da produção durante a migração, você poderá usar a replicação transacional do SQL Server como sua solução de migração. Com a replicação transacional, todas as alterações feitas em seus dados ou no esquema ocorridas entre o início da migração e sua conclusão aparecerão em seu Banco de Dados SQL do Azure. Quando a migração for concluída, bastará alterar a cadeia de conexão de seus aplicativos para apontá-los para seu Banco de Dados SQL do Azure em vez de apontá-los para seu banco de dados local. Assim que a replicação transacional realizar todas as alterações restantes em seu banco de dados local, e todos os seus aplicativos apontarem para o Banco de Dados do Azure, você poderá desinstalar a replicação com segurança, deixando o Banco de Dados SQL do Azure como o sistema de produção.
 
  ![Diagrama do SeedCloudTR](./media/sql-database-cloud-migrate/SeedCloudTR.png)
 
@@ -33,4 +33,4 @@ A replicação transacional é uma tecnologia interna e integrada ao SQL Server 
 
 Você também pode usar a replicação transacional para migrar um subconjunto de seu banco de dados local. A publicação que você replica no Banco de Dados SQL do Azure pode ser limitada a um subconjunto de tabelas no banco de dados que está sendo replicado. Além disso, para cada tabela que estiver sendo replicada, você poderá limitar os dados a um subconjunto de linhas e/ou um subconjunto de colunas.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

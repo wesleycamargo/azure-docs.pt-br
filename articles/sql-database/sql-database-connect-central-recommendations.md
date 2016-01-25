@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/13/2015" 
+	ms.date="01/07/2016" 
 	ms.author="genemi"/>
 
 
@@ -128,7 +128,9 @@ Recomendamos que você aguarde 5 segundos antes de sua primeira tentativa. Tenta
 Uma discussão sobre o *período de bloqueio* para clientes que usam o ADO.NET está disponível em [Pool de conexão do SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 
-Para obter exemplos de código que demonstram a lógica de repetição, consulte: - [Exemplos de código do cliente de início rápido do Banco de Dados SQL](sql-database-develop-quick-start-client-code-samples.md).
+Para obter exemplos de código que ilustram a lógica de repetição, consulte:
+
+- [Exemplos de código do cliente de início rápido do Banco de Dados SQL](sql-database-develop-quick-start-client-code-samples.md)
 
 
 ### Números de erro para falhas transitórias
@@ -142,7 +144,13 @@ Quando ocorre algum erro com o Banco de Dados SQL, uma [SqlException](http://msd
  - Por exemplo, repita se o número de erro 40613 ocorrer, que informa algo semelhante a<br/>*O banco de dados 'meubancodedados' no servidor 'oservidor' não está disponível no momento.*
 
 
-Para saber mais, consulte:- [Desenvolvimento do Banco de Dados SQL do Azure: tópicos de tutoriais](http://msdn.microsoft.com/library/azure/ee621787.aspx) - [Solucionar problemas de conexão com o Banco de Dados SQL do Azure](http://support.microsoft.com/kb/2980233/)
+Para saber mais, consulte:
+
+- [Desenvolvimento do Banco de Dados SQL do Azure: tópicos sobre como fazer](http://msdn.microsoft.com/library/azure/ee621787.aspx)
+
+<!--  (per Penny Lee, 2016/01/07.  MightyPen==GeneMi)
+- [Troubleshoot connection problems to Azure SQL Database](http://support.microsoft.com/kb/2980233/)
+-->
 
 
 <a id="e-technologies" name="e-technologies"></a>
@@ -169,4 +177,4 @@ Vários exemplos de código são fornecidos para clientes que são executados no
 
 - [Bibliotecas de conexões para Banco de Dados SQL e SQL Server](sql-database-libraries.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

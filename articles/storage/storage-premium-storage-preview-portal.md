@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="12/04/2015"
-	ms.author="robinsh;selcint"/>
+	ms.author="robinsh;prkhad"/>
 
 
 # Armazenamento Premium: armazenamento de alto desempenho para as cargas de trabalho da máquina virtual do Azure
@@ -72,7 +72,7 @@ Para aproveitar os benefícios do Armazenamento Premium, crie uma conta de Armaz
 - Certifique-se de que há largura de banda suficiente disponível na sua VM para direcionar o tráfego de disco. Por exemplo, uma VM STANDARD\_DS1 tem uma banda larga dedicada de 32 MB por segundo disponível para o tráfego de discos do Armazenamento Premium. Ou seja, um disco de P10 do Armazenamento Premium conectado a essa VM pode chegar apenas atá 32 MB por segundo, mas não até os 100 MB por segundo que o disco P10 pode fornecer. Da mesma forma, uma VM STANDARD\_DS13 pode chegar a 256 MB por segundo em todos os discos. Atualmente, a maior VM na série DS é a STANDARD\_DS14, que pode fornecer até 512 MB por segundo em todos os discos. A maior VM na série GS é STANDARD\_GS5 e pode fornecer até 2.000 MB por segundo em todos os discos.
 
 	Observe que esses limites são apenas para o tráfego de disco, não incluindo acertos de cache e tráfego de rede. Há uma largura de banda separada disponível para tráfego de rede de VM, que é diferente da largura de banda dedicada aos discos do Armazenamento Premium.
-	
+
 	Para ver informações mais atualizadas sobre o máximo de taxa de transferência (largura de banda) e IOPS para VMs da série DS e série GS, consulte [Tamanhos de serviço de nuvem e máquina virtual para Azure](../virtual-machines/virtual-machines-size-specs.md). Para saber mais sobre os discos de armazenamento Premium e seus limites de IOPs e taxa de transferência, consulte a tabela na seção [Metas de desempenho e escalabilidade ao usar o Armazenamento Premium](#scalability-and-performance-targets-whpt-BRing-premium-storage) deste artigo.
 
 > [AZURE.NOTE]Os acertos de cache não são limitados pelo IOPS/Taxa de transferência alocada do disco. Ou seja, quando você usa um disco de dados com a configuração de cache ReadOnly em uma VM da série DS ou da série GS, as Leituras realizadas a partir do cache não estão sujeitas aos limites de disco do Armazenamento Premium. Assim, você pode obter uma taxa de transferência muito alta de um disco se a carga de trabalho for composta predominantemente de Leituras. Observe que o cache está sujeito a limites separados de IOPS/Taxa de transferência no nível da VM, com base no tamanho da VM. As VMs da Série DS têm aproximadamente 4000 IOPS e 33 MB/s por núcleo para IOs SSD em cache e local.
@@ -205,78 +205,20 @@ Consulte instruções importantes abaixo para configurar suas VMs do Linux no Ar
 - Para discos de Armazenamento Premium com a configuração de cache "ReadWrite", as barreiras devem ser habilitadas para durabilidade de gravações.
 - Para que os rótulos de volume persistam após a reinicialização da VM, atualize o /etc/fstab com as referências de UUID para os discos. Além disso, confira também [Como anexar um disco de dados a uma máquina virtual Linux](../virtual-machines/virtual-machines-linux-how-to-attach-disk)
 
-A seguir estão as distribuições do Linux que são validadas com o Armazenamento Premium. Recomendamos a atualização de suas VMs para pelo menos uma dessas versões (ou posterior) para obter melhor desempenho e estabilidade com o Armazenamento Premium. Além disso, algumas das versões exigem um LIS (Serviços de Integração do Linux v4.0 para Microsoft Azure) mais recente. Siga o link fornecido abaixo para download e instalação. Continuaremos a adicionar mais imagens à lista à medida que concluirmos validações adicionais. Perceba que nossas validações mostraram que o desempenho varia para essas imagens, e também depende de características da carga de trabalho e das configurações nas imagens. Imagens diferentes são ajustadas para tipos diferentes de carga de trabalho.
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-<tbody>
-<tr>
-	<td><strong>Distribuição</strong></td>
-	<td><strong>Versão</strong></td>
-	<td><strong>Kernel com suporte</strong></td>
-	<td><strong>Imagem com suporte</strong></td>
-</tr>
-<tr>
-	<td rowspan="4"><strong>Ubuntu</strong></td>
-	<td>12.04</td>
-	<td>3.2.0-75.110</td>
-	<td>Ubuntu-12\_04\_5-LTS-amd64-server-20150119-pt-BR-30GB</td>
-</tr>
-<tr>
-	<td>14.04</td>
-	<td>3.13.0-44.73</td>
-	<td>Ubuntu-14\_04\_1-LTS-amd64-server-20150123-pt-BR-30GB</td>
-</tr>
-<tr>
-	<td>14.10</td>
-	<td>3.16.0-29.39</td>
-	<td>Ubuntu-14\_10-amd64-server-20150202-pt-BR-30GB</td>
-</tr>
-<tr>
-	<td>15.04</td>
-	<td>3.19.0-15</td>
-	<td>Ubuntu-15\_04-amd64-server-20150422-pt-BR-30GB</td>
-</tr>
-<tr>
-	<td><strong>SUSE</strong></td>
-	<td>SLES 12</td>
-	<td>3.12.36-38.1</td>
-	<td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td>
-</tr>
-<tr>
-	<td><strong>CoreOS</strong></td>
-	<td>584.0.0</td>
-	<td>3.18.4</td>
-	<td>CoreOS 584.0.0</td>
-</tr>
-<tr>
-	<td rowspan="2"><strong>CentOS</strong></td>
-	<td>6.5, 6.6, 6.7, 7.0</td>
-	<td></td>
-	<td>
-		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 obrigatório </a></br> *Consulte a nota abaixo
-	</td>
-</tr>
-<tr>
-	<td>7.1</td>
-	<td>3.10.0-229.1.2.el7</td>
-	<td>
-		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 recomendado </a> <br/>
-		*Consulte a nota abaixo
-	</td>
-</tr>
+A seguir estão as distribuições do Linux que são validadas com o Armazenamento Premium. Recomendamos a atualização de suas VMs para pelo menos uma dessas versões (ou posterior) para obter melhor desempenho e estabilidade com o Armazenamento Premium. Além disso, algumas das versões exigem um LIS (Serviços de Integração do Linux v4.0 para Microsoft Azure) mais recente. Siga o link fornecido abaixo para download e instalação. Continuaremos a adicionar mais imagens à lista à medida que concluirmos validações adicionais. Perceba que nossas validações mostraram que o desempenho varia para essas imagens, e também depende de características da carga de trabalho e das configurações nas imagens. Imagens diferentes são ajustadas para tipos diferentes de carga de trabalho. <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;"> <tbody> <tr> <td><strong>Distribuição</strong></td> <td><strong>Versão</strong></td> <td><strong>Kernel com suporte</strong></td> <td><strong>Imagem com suporte</strong></td> </tr> <tr> <td rowspan="4"><strong>Ubuntu</strong></td> <td>12.04</td> <td>3.2.0-75.110</td> <td>Ubuntu-12\_04\_5-LTS-amd64-server-20150119-pt-BR-30GB</td> </tr> <tr> <td>14.04</td> <td>3.13.0-44.73</td> <td>Ubuntu-14\_04\_1-LTS-amd64-server-20150123-pt-BR-30GB</td> </tr> <tr> <td>14.10</td> <td>3.16.0-29.39</td> <td>Ubuntu-14\_10-amd64-server-20150202-pt-BR-30GB</td> </tr> <tr> <td>15.04</td> <td>3.19.0-15</td> <td>Ubuntu-15\_04-amd64-server-20150422-pt-BR-30GB</td> </tr> <tr> <td><strong>SUSE</strong></td> <td>SLES 12</td> <td>3.12.36-38.1</td> <td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td> </tr> <tr> <td><strong>CoreOS</strong></td> <td>584.0.0</td> <td>3.18.4</td> <td>CoreOS 584.0.0</td> </tr> <tr> <td rowspan="2"><strong>CentOS</strong></td> <td>6.5, 6.6, 6.7, 7.0</td> <td></td> <td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 obrigatório </a></br> *Consulte a nota abaixo </td> </tr> <tr>7.1<td> </td>3.10.0-229.1.2.el7<td> </td><td> LIS 4.0 recomendado <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"></a> <br/> *Consulte a nota abaixo </td> </tr>
 
 <tr>
 	<td rowspan="2"><strong>Oracle</strong></td>
 	<td>6.4</td>
 	<td></td>
-	<td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 obrigatório </a></td>
+	<td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 obrigatório</a></td>
 </tr>
 <tr>
 	<td>7.0</td>
 	<td></td>
 	<td>Entre em contato com o suporte para obter detalhes</td>
 </tr>
-</tbody>
-</table>
+</tbody> </table>
 
 
 ### Drivers LIS para Openlogic CentOS
@@ -393,6 +335,5 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 - [Documentação de armazenamento](http://azure.microsoft.com/documentation/services/storage/)
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
- 
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

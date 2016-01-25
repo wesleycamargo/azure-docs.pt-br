@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="big-compute"
-   ms.date="09/29/2015"
+   ms.date="01/08/2016"
    ms.author="danlep"/>
 
 # Criar um cluster HPC (computação de alto desempenho) em VMs do Azure com o script de implantação do Pacote HPC IaaS
@@ -36,7 +36,7 @@ Para obter informações detalhadas sobre o planejamento de um cluster Pacote HP
 * **Assinatura do Azure**: você pode usar a assinatura no serviço Azure Global ou no Azure China. Seus limites de assinatura afetarão o número e o tipo de nós de cluster que você pode implantar. Para obter informações, consulte [Limites, cotas e restrições de serviço e assinatura do Azure](../azure-subscription-service-limits.md).
 
 
-* **Computador com Windows Client com o Azure PowerShell 0.8.7 ou posterior instalado e configurado**: consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md). O script é executado no gerenciamento de serviço do Azure.
+* **Computador com Windows Client com o Azure PowerShell 0.8.7 ou posterior instalado e configurado**: consulte [Instalar e configurar o Azure PowerShell](../powershell-install-configure.md). O script é executado no gerenciamento de serviço do Azure.
 
 
 * **Script de implantação do Pacote HPC IaaS**: baixe e descompacte a versão mais recente do script no [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Verifique a versão do script executando `New-HPCIaaSCluster.ps1 –Version`. Este artigo se baseia na versão 4.4.0 do script.
@@ -55,7 +55,7 @@ New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminP
 
 * **ConfigFile**: especifica o caminho do arquivo de configuração para descrever o cluster HPC. Para saber mais, consulte [Arquivo de configuração](#Configuration-file) neste tópico ou o arquivo Manual.rtf na pasta que contém o script.
 
-* **AdminUserName**: especifica o nome de usuário. Se a floresta de domínio for criada pelo script, isso se tornará o nome de usuário de administrador local para todas as VMs, bem como o nome do administrador do domínio. Se já existir a floresta de domínio, o usuário de domínio é especificado como o nome de usuário de administrador local para instalar o Pacote HPC.
+* **AdminUserName** - especifica o nome de usuário. Se a floresta de domínio for criada pelo script, isso se tornará o nome de usuário de administrador local para todas as VMs, bem como o nome do administrador do domínio. Se já existir a floresta de domínio, o usuário de domínio é especificado como o nome de usuário de administrador local para instalar o Pacote HPC.
 
 * **AdminPassword**: especifica a senha do administrador. Se não estiver especificado na linha de comando, o script solicitará que você digite a senha.
 
@@ -69,13 +69,13 @@ New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminP
 
 * **NoCleanOnFailure** (opcional): especifica que as VMs do Azure que não forem implantadas com êxito não serão removidas. Você deve remover essas VMs manualmente antes de executar novamente o script para continuar a implantação ou esta poderá falhar.
 
-* **PSSessionSkipCACheck** (opcional): para cada serviço de nuvem com VMs implantadas por esse script, um certificado autoassinado é automaticamente gerado pelo Azure e todas as VMs no serviço de nuvem usam esse certificado como o certificado do Windows Remote Management (WinRM) padrão. Para implantar os recursos de HPC nessas VMs do Azure, o script por padrão instala temporariamente esses certificados no repositório de Autoridades de certificação raiz/Computador local do computador cliente para suprimir o erro de segurança "autoridade de certificação não confiável" durante a execução do script; os certificados são removidos quando o script termina. Se esse parâmetro for especificado, os certificados não serão instalados no computador cliente e o aviso de segurança será suprimido.
+* **PSSessionSkipCACheck** (opcional) - para cada serviço de nuvem com VMs implantadas por esse script, um certificado autoassinado é automaticamente gerado pelo Azure e todas as VMs no serviço de nuvem usam esse certificado como o certificado do Windows Remote Management (WinRM) padrão. Para implantar os recursos de HPC nessas VMs do Azure, o script por padrão instala temporariamente esses certificados no repositório de Autoridades de certificação confiáveis/Computador local do computador cliente para suprimir o erro de segurança "AC não confiável" durante a execução do script; os certificados são removidos quando o script termina. Se esse parâmetro for especificado, os certificados não serão instalados no computador cliente e o aviso de segurança será suprimido.
 
     >[AZURE.IMPORTANT]Esse parâmetro não é recomendado para implantações de produção.
 
 ### Exemplo
 
-O exemplo a seguir cria um novo cluster Pacote HPC usando o arquivo de configuração MyConfigFile.xml e especifica as credenciais administrativas para instalar o cluster.
+O exemplo a seguir cria um novo cluster Pacote HPC usando o arquivo de configuração *MyConfigFile.xml* e especifica as credenciais administrativas para instalar o cluster.
 
 ```
 New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> –AdminPassword <password>
@@ -83,10 +83,9 @@ New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> 
 
 ### Considerações adicionais
 
-* O script usa a imagem de VM do Pacote HPC no Azure Marketplace para criar o nó principal do cluster. A imagem atual se baseia no Windows Server 2012 R2 Datacenter com Pacote HPC 2012 R2 Atualização 3 instalado.
+* O script usa a imagem de VM do Pacote HPC no Azure Marketplace para criar o nó principal do cluster. A imagem mais recente se baseia no Windows Server 2012 R2 Datacenter com Pacote HPC 2012 R2 Atualização 3 instalado.
 
 * O script opcionalmente pode habilitar o envio de trabalho por meio do portal da Web Pacote HPC ou da API REST do Pacote HPC.
-
 
 * O script pode opcionalmente executar scripts de pré e pós-configuração personalizados no nó principal se você quiser instalar o software adicional ou definir outras configurações.
 
@@ -99,7 +98,7 @@ O arquivo de configuração para o script de implantação é um arquivo XML. O 
 
 ### Exemplo 1
 
-O arquivo de configuração a seguir implanta um cluster Pacote HPC em uma floresta de domínio existente. O cluster tem um nó principal com bancos de dados locais e 12 nós de computação com a extensão de VM BGInfo aplicada. A instalação automática de atualizações do Windows está desabilitada para todas as VMs na floresta de domínio. Todos os serviços de nuvem são criados diretamente no local na Ásia Oriental. Os nós de computação são criados em 3 serviços em nuvem e em 3 contas de armazenamento (ou seja, MyHPCCN-0001 para MyHPCCN-0005 em MyHPCCNService01 e mycnstorage01; MyHPCCN-0006 para MyHPCCN0010 em MyHPCCNService02 e mycnstorage02; e MyHPCCN-0011 para MyHPCCN-0012 em MyHPCCNService03 e mycnstorage03). Os nós de computação são criados de uma imagem privada existente capturada de um nó de computação. O serviço de aumento e encolhimento automático está habilitado com intervalos padrão de aumentar e encolher.
+O arquivo de configuração a seguir implanta um cluster Pacote HPC em uma floresta de domínio existente. O cluster tem um nó principal com bancos de dados locais e 12 nós de computação com a extensão de VM BGInfo aplicada. A instalação automática de atualizações do Windows está desabilitada para todas as VMs na floresta de domínio. Todos os serviços de nuvem são criados diretamente no local na Ásia Oriental. Os nós de computação são criados em 3 serviços de nuvem e em 3 contas de armazenamento (ou seja, _MyHPCCN-0001_ para _MyHPCCN-0005_ em _MyHPCCNService01_ e _mycnstorage01_; _MyHPCCN-0006_ para _MyHPCCN0010_ em _MyHPCCNService02_ e _mycnstorage02_; e _MyHPCCN-0011_ para _MyHPCCN-0012_ em _MyHPCCNService03_ e _mycnstorage03_). Os nós de computação são criados de uma imagem privada existente capturada de um nó de computação. O serviço de aumento e encolhimento automático está habilitado com intervalos padrão de aumentar e encolher.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -163,7 +162,7 @@ O arquivo de configuração a seguir implanta um cluster Pacote HPC em uma flore
 
 ### Exemplo 2
 
-O arquivo de configuração a seguir implanta um cluster Pacote HPC em uma floresta de domínio existente. O cluster contém um nó principal, um servidor de banco de dados com um disco de dados de 500GB, dois nós agentes executando o sistema operacional Windows Server 2012 R2 e cinco nós de computação executando o sistema operacional Windows Server 2012 R2. O serviço de nuvem MyHPCCNService é criado no grupo de afinidades MyIBAffinityGroup e todos os outros serviços de nuvem são criados no grupo de afinidades MyAffinityGroup. A API REST do Agendador de trabalho do HPC e o portal da Web do HPC estão habilitados no nó principal.
+O arquivo de configuração a seguir implanta um cluster Pacote HPC em uma floresta de domínio existente. O cluster contém um nó principal, um servidor de banco de dados com um disco de dados de 500GB, dois nós agentes executando o sistema operacional Windows Server 2012 R2 e cinco nós de computação executando o sistema operacional Windows Server 2012 R2. O serviço de nuvem MyHPCCNService é criado no grupo de afinidade *MyIBAffinityGroup* e todos os outros serviços de nuvem são criados no grupo de afinidade *MyAffinityGroup*. A API REST do Agendador de trabalho do HPC e o portal da Web do HPC estão habilitados no nó principal.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -217,7 +216,7 @@ O arquivo de configuração a seguir implanta um cluster Pacote HPC em uma flore
 
 ### Exemplo 3
 
-O arquivo de configuração a seguir cria uma nova floresta de domínio e implanta um cluster Pacote HPC que tem um nó principal com bancos de dados locais e 20 nós de computação Linux. Todos os serviços de nuvem são criados diretamente no local na Ásia Oriental. Os nós de computação Linux são criados em 4 serviços de nuvem e em 4 contas de armazenamento (ou seja, MyLnxCN-0001 para MyHPCCN-0005 em MyLnxCNService01 e mylnxstorage01, MyLnxCN-0006 para MyLnxCN-0010 em MyLnxCNService02 e mylnxstorage02, MyLnxCN-0011 MyLnxCN-0015 em MyLnxCNService03 e mylnxstorage03 e MyLnxCN-0016 para MyLnxCN-0020 em MyLnxCNService04 e mylnxstorage04). Os nós de computação são criados de uma imagem do Linux OpenLogic CentOS versão 7.0.
+O arquivo de configuração a seguir cria uma nova floresta de domínio e implanta um cluster Pacote HPC que tem um nó principal com bancos de dados locais e 20 nós de computação Linux. Todos os serviços de nuvem são criados diretamente no local na Ásia Oriental. Os nós de computação Linux são criados em 4 serviços de nuvem e em 4 contas de armazenamento (ou seja, _MyLnxCN-0001_ para _MyLnxCN-0005_ em _MyLnxCNService01_ e _mylnxstorage01_, _MyLnxCN-0006_ para _MyLnxCN-0010_ em _MyLnxCNService02_ e _mylnxstorage02_, _MyLnxCN-0011_ para _MyLnxCN-0015_ em _MyLnxCNService03_ e _mylnxstorage03_ e _MyLnxCN-0016_ para _MyLnxCN-0020_ em _MyLnxCNService04_ e _mylnxstorage04_). Os nós de computação são criados de uma imagem do Linux OpenLogic CentOS versão 7.0.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -305,7 +304,7 @@ O arquivo de configuração a seguir implanta um cluster Pacote HPC que tem um n
 
 ### Exemplo 5
 
-O arquivo de configuração a seguir implanta um cluster Pacote HPC em uma floresta de domínio existente. O cluster tem um nó principal com bancos de dados locais, dois modelos de nós do Azure são criados e três nós médios do Azure são criados para o modelo de nó do Azure AzureTemplate1. Um arquivo de script será executado no nó principal depois que este for configurado.
+O arquivo de configuração a seguir implanta um cluster Pacote HPC em uma floresta de domínio existente. O cluster tem um nó principal com bancos de dados locais, dois modelos de nós do Azure são criados e três nós médios do Azure são criados para o modelo de nó do Azure _AzureTemplate1_. Um arquivo de script será executado no nó principal depois que este for configurado.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -392,4 +391,4 @@ O arquivo de configuração a seguir implanta um cluster Pacote HPC em uma flore
 
 * Experimente as ferramentas do Pacote HPC para iniciar, parar, adicionar e remover nós de computação de um cluster que você queira criar. Consulte [Gerenciar nós de computação em um cluster Pacote HPC no Azure](virtual-machines-hpcpack-cluster-node-manage.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

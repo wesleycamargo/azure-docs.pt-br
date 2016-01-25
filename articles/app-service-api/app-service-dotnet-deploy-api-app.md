@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Implantar um Aplicativo de API no Serviço de Aplicativo do Azure 
@@ -129,4 +129,4 @@ Aplicativos de API são aplicativos Web com recursos adicionais para hospedar AP
 
 Para obter informações sobre recursos de aplicativos de API, consulte [O que são aplicativos de API?](app-service-api-apps-why-best-platform.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

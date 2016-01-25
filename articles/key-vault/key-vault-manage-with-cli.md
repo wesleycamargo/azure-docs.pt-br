@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/08/2016"
 	ms.author="bruceper"/>
 
 # Gerenciar Cofre da Chave usando a CLI #
@@ -256,4 +256,4 @@ Aqui está um exemplo de como remover um segredo específica:
 
 Para referências de programação, consulte [Guia do desenvolvedor do Cofre da Chave do Azure](key-vault-developers-guide.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

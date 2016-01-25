@@ -20,12 +20,8 @@
 # Implantar e gerenciar máquinas virtuais usando modelos do Gerenciador de Recursos do Azure e a CLI do Azure
 
 > [AZURE.SELECTOR]
-- [Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
-- [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
-
-<br>
-
-
+- [PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
+- [CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
 Este artigo mostra como usar modelos do Gerenciador de Recursos do Azure e a CLI do Azure para automatizar as tarefas comuns de implantação e gerenciamento de máquinas virtuais do Azure a seguir. Para obter mais modelos que você pode usar, confira [Modelos de início rápido do Azure](http://azure.microsoft.com/documentation/templates/) e [Estruturas de aplicativos usando modelos](virtual-machines-app-frameworks.md).
 
@@ -235,7 +231,7 @@ Basta criar sua VM inserindo o comando `azure vm quick-create` e preparando-se p
 
 E, assim, você obtém sua nova VM.
 
-## <a id="deploy-a-vm-in-azure-from-a-template"></a>Tarefa: Implantar uma VM no Azure de um modelo
+## <a id="deploy-a-vm-in-azure-from-a-template"></a>Tarefa: implantar uma VM no Azure a partir de um modelo
 
 Use as instruções nestas seções para implantar uma nova VM do Azure usando um modelo com a CLI do Azure. O modelo cria uma única máquina virtual em uma nova rede virtual com uma única sub-rede e, diferentemente de `azure vm quick-create`, permite descrever o que você deseja com precisão e repeti-lo sem erros. Aqui está o que o modelo cria:
 
@@ -765,7 +761,7 @@ A saída será semelhante a:
     info:    group deployment create command OK
 
 
-## <a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>Tarefa: Implantar um aplicativo com várias VMs que usa uma rede virtual e um balanceador externo de carga
+## <a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>Tarefa: implantar um aplicativo com várias VMs que usa uma rede virtual e um balanceador externo de carga
 
 Esse modelo permite que você crie duas máquinas virtuais sob um balanceador de carga e configure uma regra de balanceamento de carga na porta 80. Esse modelo também implanta uma Conta de Armazenamento, Rede Virtual, Endereço IP Público, Conjunto de Disponibilidade e Interfaces de Rede.
 
@@ -1189,7 +1185,7 @@ Lembre-se que você pode reimplantar em um grupo de recursos, mas se terminar de
 
 ## <a id="show-the-log-for-a-resource-group-deployment"></a>Tarefa: Mostrar o log para uma implantação do grupo de recursos
 
-Essa é uma tarefa comum ao se criar ou usar modelos. A chamada para exibir os logs de implantação de um grupo é `azure group log show <groupname>`, que exibe várias informações úteis para entender por que algo aconteceu ou não. (Para obter mais informações sobre como solucionar problemas em suas implantações, bem como outras informações sobre problemas, confira [Solucionando problemas de implantações do grupo de recursos no Azure](resource-group-deploy-debug.md).)
+Essa é uma tarefa comum ao se criar ou usar modelos. A chamada para exibir os logs de implantação de um grupo é `azure group log show <groupname>`, que exibe várias informações úteis para entender por que algo aconteceu ou não. (Para obter mais informações sobre como solucionar problemas em suas implantações, bem como outras informações sobre problemas, confira [Solucionando problemas das implantações do grupo de recursos no Azure](resource-group-deploy-debug.md).)
 
 Para lidar com falhas específicas, por exemplo, você pode usar ferramentas como **jq** para consultar itens de forma um pouco mais precisa, por exemplo, quais falhas individuais precisam ser corrigidas. O exemplo a seguir usa **jq** para analisar um log de implantação para **lbgroup**, procurando falhas.
 
@@ -1268,11 +1264,11 @@ E, em seguida, procurar por myVM1:
     info:    vm show command OK
 
 
-> [AZURE.NOTE]Se quiser armazenar e manipular de forma programática a saída dos seus comandos de console, poderá usar uma ferramenta de análise JSON, como **[jq](https://github.com/stedolan/jq)** ou **[jsawk](https://github.com/micha/jsawk)**, ou bibliotecas de linguagem adequadas à tarefa.
+> [AZURE.NOTE]Se desejar armazenar e manipular de forma programática a saída dos seus comandos de console, convém usar uma ferramenta de análise JSON, como **[jq](https://github.com/stedolan/jq)** ou **[jsawk](https://github.com/micha/jsawk)**, ou bibliotecas de idiomas que sejam adequadas à tarefa.
 
 ## <a id="log-on-to-a-linux-based-virtual-machine"></a>Tarefa: Fazer logon em uma máquina virtual baseada no Linux
 
-Normalmente, as máquinas Linux são conectadas por meio de SSH. Para obter mais informações, confira [Como usar o SSH com o Linux no Azure](virtual-machines-linux-use-ssh-key.md).
+Normalmente, as máquinas Linux são conectadas por meio de SSH. Para obter mais informações, veja [Como usar o SSH com o Linux no Azure](virtual-machines-linux-use-ssh-key.md).
 
 ## <a id="stop-a-virtual-machine"></a>Tarefa: Parar uma VM
 
@@ -1282,7 +1278,7 @@ Execute este comando:
 
 >[AZURE.IMPORTANT]Use esse parâmetro para manter o VIP (IP virtual) da rede virtual, caso essa seja a última VM nessa rede virtual. <br><br> Se você usar o parâmetro `StayProvisioned`, ainda será cobrado pela VM.
 
-## <a id="start-a-virtual-machine"></a>Tarefa: Iniciar uma VM
+## <a id="start-a-virtual-machine"></a>Tarefa: iniciar uma VM
 
 Execute este comando:
 
@@ -1309,4 +1305,4 @@ Para obter mais exemplos de uso da CLI do Azure com o modo **arm**, confira [Usa
 
 Para obter mais modelos que você pode usar, confira [Modelos de início rápido do Azure](http://azure.microsoft.com/documentation/templates/) e [Estruturas de aplicativos usando modelos](virtual-machines-app-frameworks.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

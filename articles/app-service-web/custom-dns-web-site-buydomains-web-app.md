@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/20/2015"
+	ms.date="01/09/2016"
 	ms.author="robmcm"/>
 
 # Comprar e configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure.
@@ -98,4 +98,4 @@ Depois que a configuração estiver concluída, o nome do domínio personalizado
 Nesse ponto, você deve poder inserir o nome de domínio personalizado no navegador e ver se ele te leva com êxito ao aplicativo Web.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

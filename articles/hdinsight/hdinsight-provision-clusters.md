@@ -51,9 +51,7 @@ Veja a seguir as opções de configuração básica para criar um cluster HDInsi
 	
 - **Sistema operacional**
 
-	Você pode criar clusters HDInsight em um dos dois seguintes sistemas operacionais:
-	- **HDInsight no Windows (Windows Server 2012 R2 Datacenter)**:
-	- **HDInsight no Linux (Ubuntu 12.04 LTS para Linux)**: o HDInsight oferece a opção de configurar clusters Linux no Azure. Configure um cluster do Linux, se você estiver familiarizado com o Linux ou Unix, migre de uma solução Hadoop baseada em Linux existente ou deseja fácil integração com componentes do ecossistema do Hadoop criados para o Linux. Para obter mais informações, consulte [Introdução ao Hadoop no Linux em HDInsight](hdinsight-hadoop-linux-get-started.md).
+	Você pode criar clusters HDInsight em um dos dois seguintes sistemas operacionais: - **HDInsight no Windows (Windows Server 2012 R2 Datacenter)**: - **HDInsight no Linux (Ubuntu 12.04 LTS para Linux)**: o HDInsight oferece a opção de configurar clusters Linux no Azure. Configure um cluster do Linux, se você estiver familiarizado com o Linux ou Unix, migre de uma solução Hadoop baseada em Linux existente ou deseja fácil integração com componentes do ecossistema do Hadoop criados para o Linux. Para obter mais informações, consulte [Introdução ao Hadoop no Linux em HDInsight](hdinsight-hadoop-linux-get-started.md).
 
 - **Tipo do cluster** e **tamanho do cluster (ou seja, nós de dados)**
 
@@ -66,7 +64,7 @@ Veja a seguir as opções de configuração básica para criar um cluster HDInsi
 
 	![Clusters do HDInsight](./media/hdinsight-provision-clusters/hdinsight.clusters.png)
 
-	> [AZURE.NOTE] O *cluster Azure HDInsight* também é chamado de *clusters Hadoop no HDInsight* ou *cluster HDInsight*. Às vezes, ele é usado alternadamente com o *cluster Hadoop*. Todos eles denotam clusters do Hadoop hospedados no ambiente do Microsoft Azure.
+	> [AZURE.NOTE]O *cluster Azure HDInsight* também é chamado de *clusters Hadoop no HDInsight* ou *cluster HDInsight*. Às vezes, ele é usado alternadamente com o *cluster Hadoop*. Todos eles denotam clusters do Hadoop hospedados no ambiente do Microsoft Azure.
 
 	Em um determinado tipo cluster, há diferentes funções para os diferentes nós, que permitem que um cliente dimensione os nós em uma determinada função apropriada para os detalhes de sua carga de trabalho. Por exemplo, um cluster do Hadoop pode ter seus nós de trabalho criados com uma grande quantidade de memória se o tipo de análise executada tiver um uso intensivo de memória.
 
@@ -79,25 +77,16 @@ Veja a seguir as opções de configuração básica para criar um cluster HDInsi
 
 	![Funções de cluster Hadoop do HDInsight](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png)
 
-	Clusters do HBase para HDInsight são implantados com três funções:
-	- Servidores principais (2 nós)
-	- Servidores de região (pelo menos 1 nó)
-	- Nós mestre/zookeeper (3 nós)
+	Clusters do HBase para HDInsight são implantados com três funções: - Servidores principais (2 nós) - Servidores de região (pelo menos 1 nó) - Nós mestre/zookeeper (3 nós)
 
 	![Funções de cluster Hadoop do HDInsight](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)
 
-	Clusters do Storm para HDInsight são implantados com três funções: 
-	- Nós Nimbus (2 nós) 
-	- Servidores de supervisão (pelo menos 1 nó) 
-	- Nós zookeeper (3 nós)
+	Clusters do Storm para HDInsight são implantados com três funções: - Nós Nimbus (2 nós) - Servidores de supervisão (pelo menos 1 nó) - Nós zookeeper (3 nós)
 
 
 	![Funções de cluster Hadoop do HDInsight](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)
 
-	Clusters do Spark para HDInsight são implantados com três funções:
-	- Nó principal (2 nós)
-	- Nó de trabalho (pelo menos 1 nó)
-	- Nós zookeeper (3 nós) (gratuito para Zookeepers A1)
+	Clusters do Spark para HDInsight são implantados com três funções: - Nó principal (2 nós) - Nó de trabalho (pelo menos 1 nó) - Nós zookeeper (3 nós) (gratuito para Zookeepers A1)
 
 	Os clientes são cobrados pelo uso desses nós pela duração da vida útil do cluster. A cobrança é iniciada quando um cluster é criado e para quando o cluster é excluído (clusters não podem ser desalocados ou colocados em espera). O tamanho do cluster afeta seu preço. Para fins de aprendizado, é recomendável usar 1 nó de dados. Para obter mais informações sobre os preços do HDInsight, confira [Preços do HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
@@ -144,12 +133,12 @@ Veja a seguir as opções de configuração básica para criar um cluster HDInsi
 
 	![Armazenamento do HDInsight](./media/hdinsight-provision-clusters/HDInsight.storage.png)
 
-	>[AZURE.NOTE] Um contêiner de armazenamento de Blobs oferece o agrupamento de um conjunto de blobs, conforme mostrado na imagem:
+	>[AZURE.NOTE]Um contêiner de armazenamento de Blobs oferece o agrupamento de um conjunto de blobs, conforme mostrado na imagem:
 
 	![Armazenamento do blobs do Azure](./media/hdinsight-provision-clusters/Azure.blob.storage.jpg)
 
 
-	>[AZURE.WARNING] Não compartilhe um contêiner de armazenamento de Blobs entre múltiplos clusters. Não há suporte para isso.
+	>[AZURE.WARNING]Não compartilhe um contêiner de armazenamento de Blobs entre múltiplos clusters. Não há suporte para isso.
 
 	Para obter mais informações sobre o uso de repositórios de blobs secundários, consulte [Usando o Armazenamento de Blobs do Azure com o HDInsight](hdinsight-use-blob-storage.md).
 
@@ -197,16 +186,7 @@ A [Rede Virtual do Azure](http://azure.microsoft.com/documentation/services/virt
 
 	![diagrama da configuração ponto a site](./media/hdinsight-provision-clusters/hdinsight-vnet-point-to-site.png)
 
-Para obter mais informações sobre os recursos, benefícios e capacidades das redes virtuais, consulte a [Visão geral da rede virtual do Azure](../virtual-network/virtual-networks-overview.md).
-
-> [AZURE.NOTE]Você deve criar a Rede Virtual do Azure antes de provisionar um cluster HDInsight. Para obter mais informações, veja [Criar um cluster Hadoop em uma rede virtual](hdinsight-hbase-provision-vnet.md#provision-an-hbase-cluster-into-a-virtual-network).
->
-> O Azure HDInsight oferece suporte somente a redes virtuais baseadas no local, e não trabalha atualmente com redes virtuais baseadas em grupos de afinidade. Use o cmdlet Get-AzureVNetConfig do Azure PowerShell para verificar se uma rede virtual do Azure existente é baseada no local. Se sua rede virtual não for baseada no local, você tem as seguintes opções:
->
-> - Exportar a configuração de rede virtual existente e criar uma nova rede virtual. Todas as novas redes virtuais são baseadas em local por padrão.
-> - Migrar para uma rede virtual baseada em local. Veja [Migrar serviços existentes para o escopo regional](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/).
->
-> É altamente recomendado designar uma única sub-rede para um cluster.
+Para obter informações sobre como usar o HDInsight com uma Rede Virtual, incluindo requisitos de configuração específicos para a Rede Virtual, consulte [Estender recursos do HDInsight usando uma Rede Virtual do Azure](hdinsight-extend-hadoop-virtual-network.md).
 
 ## Métodos de criação de cluster
 
@@ -221,4 +201,4 @@ Neste artigo, você aprendeu as informações básicas sobre como criar um clust
 | [SDK .NET](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Modelos de ARM](hdinsight-hadoop-create-windows-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

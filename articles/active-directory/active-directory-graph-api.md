@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/17/2015"
+   ms.date="01/08/2016"
    ms.author="mbaldwin" />
 
 # Graph API do Active Directory do Azure
@@ -48,7 +48,7 @@ A Graph API fornece os seguintes recursos:
 
 - **Consulta diferencial**: se quiser verificar alterações em um diretório em dois períodos de tempo sem precisar fazer consultas frequentes à Graph API, você pode fazer uma solicitação de consulta diferencial. Este tipo de solicitação retornará apenas as alterações feitas entre a solicitação de consulta diferencial anterior e a solicitação atual. Para saber mais, leia [Consulta diferencial da Graph API do AD do Azure](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query).
 
-- **Extensões de diretório**: se estiver desenvolvendo um aplicativo que precisa ler ou gravar propriedades exclusivas para objetos de diretório, você pode registrar e usar valores de extensão usando a Graph API. Por exemplo, se seu aplicativo requer uma propriedade Skype ID para cada usuário, você pode registrar a nova propriedade no diretório e ela estará disponível para todos os objetos de usuário. Para saber mais, consulte [Extensões de esquema do diretório da Graph API do AD do Azure](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
+- **Extensões de diretório**: se estiver desenvolvendo um aplicativo que precisa ler ou gravar propriedades exclusivas para objetos de diretório, você pode registrar e usar valores de extensão usando a Graph API. Por exemplo, se seu aplicativo requer uma propriedade Skype ID para cada usuário, você pode registrar a nova propriedade no diretório e ela estará disponível para todos os objetos de usuário. Para obter mais informações, veja [Extensões de esquema do diretório da Graph API do AD do Azure](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
 
 ## Cenários
 
@@ -66,4 +66,4 @@ A Graph API habilita muitos cenários de aplicativos. A seguir, os cenários mai
 
 [Guia do desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

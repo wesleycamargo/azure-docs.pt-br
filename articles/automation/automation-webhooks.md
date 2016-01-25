@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Webhooks da Automação do Azure"
+   pageTitle="Webhooks da Automação do Azure | Microsoft Azure"
    description="Um webhook que permite que um cliente inicie um runbook na Automação do Azure a partir de uma chamada HTTP. Este artigo descreve como criar um webhook e como chamar um para iniciar um runbook."
    services="automation"
    documentationCenter=""
@@ -125,8 +125,10 @@ O runbook está esperando uma lista de máquinas virtuais formatadas em JSON no 
 	$uri = "https://s1events.azure-automation.net/webhooks?token=8ud0dSrSo%2fvHWpYbklW%3c8s0GrOKJZ9Nr7zqcS%2bIQr4c%3d"
 	$headers = @{"From"="user@contoso.com";"Date"="05/28/2015 15:47:00"}
     
-    $vms  = @([pscustomobject]@{Name="vm01";ServiceName="vm01"})
-    $vms += @([pscustomobject]@{Name="vm02";ServiceName="vm02"})
+    $vms  = @(
+    			@{ Name="vm01";ServiceName="vm01"},
+    			@{ Name="vm02";ServiceName="vm02"}
+    		)
 	$body = ConvertTo-Json -InputObject $vms 
 
 	$response = Invoke-RestMethod -Method Post -Uri $uri -Headers $headers -Body $body
@@ -186,7 +188,7 @@ O seguinte exemplo de runbook aceita a solicitação do exemplo anterior e inici
 
 ## Iniciar runbooks em resposta a um alerta do Azure
 
-Runbooks habilitados para Webhook podem ser usados para reagir a [alertas do Azure](Azure-portal/insights-receive-alert-notifications.md). Recursos no Azure podem ser monitorados por meio da coleta de estatísticas, como desempenho, disponibilidade e uso, com a ajuda dos alertas do Azure. Você pode receber um alerta com base em métricas de monitoramento ou em eventos para seus recursos do Azure. No momento, as Contas de Automação oferecem suporte apenas para métricas. Quando o valor de uma métrica especificada exceder o limite atribuído ou se o evento configurado for disparado e uma notificação for enviada ao administrador ou aos coadministradores do serviço para resolver o alerta, veja [Alertas do Azure](Azure-portal/insights-receive-alert-notifications.md) para obter mais informações sobre eventos e métricas.
+Runbooks habilitados para Webhook podem ser usados para reagir a [alertas do Azure](Azure-portal/insights-receive-alert-notifications.md). Recursos no Azure podem ser monitorados por meio da coleta de estatísticas, como desempenho, disponibilidade e uso, com a ajuda dos alertas do Azure. Você pode receber um alerta com base em métricas de monitoramento ou em eventos para seus recursos do Azure. No momento, as Contas de Automação oferecem suporte apenas para métricas. Quando o valor de uma métrica especificada ultrapassar o limite atribuído ou se o evento configurado for disparado e uma notificação for enviada ao administrador ou coadministradores do serviço para resolver o alerta, consulte [alertas do Azure](Azure-portal/insights-receive-alert-notifications.md) para obter mais informações sobre eventos e métricas.
 
 Além de usar alertas do Azure como um sistema de notificação, você também pode disparar runbooks em resposta a alertas. A Automação do Azure fornece a capacidade de executar runbooks habilitados para webhook com alertas do Azure. Quando uma métrica excede o valor do limite configurado, a regra do alerta fica ativa e dispara o webhook de automação, que por sua vez executa o runbook.
 
@@ -266,10 +268,10 @@ O seguinte exemplo de runbook é acionado quando a regra de alerta é ativada e 
 
  
 
-## Artigos relacionados
+## Próximas etapas
 
-- [Iniciando um runbook](automation-starting-a-runbook.md)
-- [Exibindo o status de um trabalho de runbook](automation-viewing-the-status-of-a-runbook-job.md)
+- Para obter detalhes sobre diferentes maneiras de iniciar um runbook, veja [Iniciando um runbook](automation-starting-a-runbook.md)
+- Para obter informações sobre como exibir o Status de um Trabalho de Runbook, consulte [Execução de Runbook na Automação do Azure](automation-runbook-execution.md)
 - [Usando a Automação do Azure para executar ações mediante Alertas do Azure](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

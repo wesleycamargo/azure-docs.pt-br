@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="01/07/2016"
    ms.author="v-sharos" />
 
 # Implantar o snap-in do MMC StorSimple Snapshot Manager
@@ -23,11 +23,15 @@ O StorSimple Snapshot Manager é um snap-in do Console de Gerenciamento Microsof
 
 Este tutorial descreve os requisitos de configuração, bem como os procedimentos para instalar, remover e atualizar o StorSimple Snapshot Manager.
 
+>[AZURE.NOTE]
+>
+>- Você não pode usar o StorSimple Snapshot Manager para gerenciar as Matrizes Virtuais do Microsoft Azure StorSimple (também conhecido como dispositivos virtuais locais StorSimple).
+>
+>- Se você planeja instalar a Atualização 2 do StorSimple em seu dispositivo StorSimple, não se esqueça de baixar a versão mais recente do StorSimple Snapshot Manager e instalá-lo **antes de instalar a Atualização 2 do StorSimple**. A versão mais recente do StorSimple Snapshot Manager é compatível com versões anteriores e funciona com todas as versões do Microsoft Azure StorSimple. Se você está usando a versão anterior do StorSimple Snapshot Manager, você precisa atualizá-lo (não é necessário desinstalar a versão anterior antes de instalar a nova versão).
+
 ## Instalação do StorSimple Snapshot Manager
 
-O StorSimple Snapshot Manager pode ser instalado em computadores que executam os sistemas operacionais Windows Server® 2008 R2 SP1, Windows Server 2012 ou Windows Server 2012 R2.
-
->[AZURE.NOTE]Em servidores que executam o Windows 2008 R2, instale também o Windows Server 2008 SP1 e o Windows Management Framework 3.0.
+O StorSimple Snapshot Manager pode ser instalado em computadores que executam o sistema operacional Windows Server 2008 R2 SP1, Windows Server 2012 ou Windows Server 2012 R2. Em servidores que executam o Windows 2008 R2, instale também o Windows Server 2008 SP1 e o Windows Management Framework 3.0.
 
 Antes de instalar ou atualizar o snap-in StorSimple Snapshot Manager para o Console de Gerenciamento Microsoft (MMC), verifique se o servidor de host e o dispositivo do Microsoft Azure StorSimple estão configurados corretamente.
 
@@ -47,7 +51,7 @@ As etapas a seguir oferecem uma visão geral de alto nível das tarefas de confi
     - Windows Server 2012
     - Windows Server 2012 R2
  
-    >[AZURE.NOTE]Para um dispositivo virtual StorSimple, o host deve ser uma Máquina Virtual do Microsoft Azure.
+    Para um dispositivo virtual StorSimple, o host deve ser uma Máquina Virtual do Microsoft Azure.
 
 3. Certifique-se de atender a todos os requisitos de configuração do Microsoft Azure StorSimple. Para obter detalhes, acesse [Pré-requisitos de implantação](storsimple-deployment-walkthrough.md#deployment-prerequisites).
 
@@ -195,9 +199,9 @@ Use as etapas a seguir para criar e salvar uma cópia do banco de dados do StorS
 
    2. No Painel do Gerenciador do Servidor, no menu **Ferramentas**, selecione **Serviços**.
 
-   3. Na página **Serviços**, selecione **Microsoft StorSimple Management Service**.
+   3. Na página **Serviços**, selecione **Serviço de Gerenciamento do Microsoft StorSimple**.
 
-   4. No painel direito, em **Microsoft StorSimple Management Service**, clique em **Parar o serviço**.
+   4. No painel direito, em **Serviço de Gerenciamento Microsoft StorSimple**, clique em **Parar o serviço**.
 
         ![Stop the StorSimple Manager service](./media/storsimple-snapshot-manager-deployment/HCS_SSM_stop_service.png)
 
@@ -215,7 +219,7 @@ Use as etapas a seguir para criar e salvar uma cópia do banco de dados do StorS
 
     2. Na página **Serviços**, selecione o **Microsoft StorSimple Management Service**.
 
-    3. No painel direito, em **Microsoft StorSimple Management Service**, clique em **Reiniciar o serviço**.
+    3. No painel direito, em **Serviço de Gerenciamento do Microsoft StorSimple**, clique em **Reiniciar o serviço**.
 
 ### Etapa 3: Reinstalar o StorSimple Snapshot Manager e restaurar o banco de dados
 
@@ -229,9 +233,9 @@ Para reinstalar o StorSimple Snapshot Manager, siga as etapas em [Instalar um no
 
     2. No Painel do Gerenciador do Servidor, no menu **Ferramentas**, selecione **Serviços**.
 
-    3. Na página **Serviços**, selecione **Microsoft StorSimple Management Service**.
+    3. Na página **Serviços**, selecione **Serviço de Gerenciamento do Microsoft StorSimple**.
 
-    4. No painel direito, em **Microsoft StorSimple Management Service**, clique em **Parar o serviço**.
+    4. No painel direito, em **Serviço de Gerenciamento Microsoft StorSimple**, clique em **Parar o serviço**.
 
 2. Navegue para C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog.
 
@@ -255,4 +259,4 @@ Para reinstalar o StorSimple Snapshot Manager, siga as etapas em [Instalar um no
 
 - Para saber mais sobre como usar o StorSimple Snapshot Manager, acesse [Usar o StorSimple Snapshot Manager para administrar sua solução de StorSimple](storsimple-snapshot-manager-admin.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

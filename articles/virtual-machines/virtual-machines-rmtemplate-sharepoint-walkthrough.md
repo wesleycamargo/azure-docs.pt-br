@@ -3,7 +3,7 @@
 	description="Percorra a estrutura do modelo do Gerenciador de Recursos do Azure para o farm do SharePoint de três servidores."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="davidmu1"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/28/2015"
-	ms.author="josephd"/>
+	ms.author="davidmu"/>
 
 # O modelo do Gerenciador de Recursos de farm do SharePoint de três servidores
 
@@ -366,14 +366,8 @@ Seu próprio modelo JSON para criar uma infraestrutura de várias camadas no Azu
 1.	Crie os elementos comuns (conta de armazenamento, rede virtual), específicos da camada (conjuntos de disponibilidade) e específicos da máquina virtual (endereços IP públicos, conjuntos de disponibilidade, interfaces de rede, instâncias do balanceador de carga) da infraestrutura do Azure que são necessários para sua implantação.
 2.	Para cada camada em seu aplicativo (por exemplo, autenticação, banco de dados, Web), crie e configure os servidores nessa camada usando os elementos comuns (conta de armazenamento, rede virtual), específicos da camada (conjunto de disponibilidade) e específicos da máquina virtual (endereços IP públicos, interfaces de rede, instâncias do balanceador de carga).
 
-Para obter mais informações, consulte [Linguagem de modelo do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
+## Próxima etapa
 
-## Recursos adicionais
+- Saiba mais sobre o [idioma do modelo do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md) e compilação os seus próprios.
 
-[Computação do Azure, provedores de rede e armazenamento no Gerenciador de Recursos do Azure](virtual-machines-azurerm-versus-azuresm.md) [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md)
-
-[Criando modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md)
-
-[Documentação de máquinas virtuais](http://azure.microsoft.com/documentation/services/virtual-machines/)
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0114_2016-->

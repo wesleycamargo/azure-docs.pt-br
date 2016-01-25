@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/03/2015"
+   ms.date="01/11/2016"
    ms.author="chackdan"/>
 
 # Escalar ou reduzir verticalmente um cluster do Service Fabric adicionando ou removendo Máquinas Virtuais (VMs) dele.
@@ -25,51 +25,96 @@ Você pode escalar ou reduzir verticalmente os clusters do Service Fabric para a
 
 ## Dimensionar manualmente um cluster do Service Fabric
 
-### Escolher o tipo de nó a dimensionar
+Se o cluster tiver vários tipos de Nó, será necessário adicionar ou remover as VMs dos tipos específicos de nó. Você pode adicionar VMs a um tipo de nó e remover VMs dos outros, na mesma implantação.
 
-Se o cluster tiver vários tipos de nó, você então precisará adicionar ou remover as VMs dos tipos específicos de nó.
+### Atualizar um cluster que você já implantou usando o portal
 
-1. Faça logon no Portal do Azure [http://aka.ms/servicefabricportal](http://aka.ms/servicefabricportal).
+Como esse é um processo complicado, temos um módulo do PowerShell carregado em um Repositório Git que faz isso para você.
 
-2. Navegue até os Clusters do Service Fabric ![BrowseServiceFabricClusterResource][BrowseServiceFabricClusterResource]
+**Etapa 1**: copiar esta pasta para o computador desde este [repositório Git](https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers).
 
-3. Selecione o cluster que você deseja escalar ou reduzir verticalmente
+**Etapa 2**: verificar se o SDK do Azure 1.0 ou superior está instalado em seu computador.
 
-4. Navegue até a folha de configurações no painel do cluster. Se você não vir a folha de configurações, então clique em "Todas as Configurações" na parte essencial do painel do cluster.
+**Etapa 3**: abrir uma janela do Powershell e importar o ServiceFabricRPHelpers.psm
 
-5. Clique em NodeTypes, que abrirá a folha de lista NodeTypes.
+```
+Remove-Module ServiceFabricRPHelpers
+```
 
-7. Clique no tipo de nó que você deseja escalar ou reduzir verticalmente. Ele abrirá em seguida a folha de detalhes Tipo de Nó.
+Importe o módulo do PowerShell que você acabou de copiar. Basta copiar o seguinte cmd e alterar o caminho para o .psm1 de modo que seja o que está em sua máquina.
 
-### Escalar verticalmente adicionando nós.
+```
+Import-Module "C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
+```
 
-Aumente o número de VMs até o desejado e salve. Os nós/as VMs serão então adicionados assim que a implantação for concluída.
+ **Etapa 4**: fazer logon em sua conta do Azure
 
-### Reduzir verticalmente removendo nós
+```
+Login-AzureRmAccount
+```
 
-A remoção de nós é um processo em duas etapas:
+Execute o comando Invoke-ServiceFabricRPClusterScaleUpgrade e verifique se o nome do grupo de recursos e a assinatura estão corretos.
 
-1. Ajuste o número de VMs até o desejado e salve. A extremidade inferior do controle deslizante indicará o requisito mínimo de VM para esse NodeType.
+```
+Invoke-ServiceFabricRPClusterScaleUpgrade -ResourceGroupName <string> -SubscriptionId <string>
+```
 
-  >[AZURE.NOTE]Você deve manter um mínimo de 5 VMs para o tipo de nó principal.
+Veja um exemplo preenchido do mesmo comando PS
 
-	Once that deployment is complete, you will get notified of the VM names that can now be deleted. You now need to navigate to the VM resource and delete it.
+```
+Invoke-ServiceFabricRPClusterScaleUpgrade -ResourceGroupName chackod02 -SubscriptionId 18ad2z84-84fa-4798-ad71-e70c07af879f
+```
 
-2. Retorne ao painel do cluster e clique no grupo de recursos. Isso abrirá a folha Grupo de Recursos.
+  **Etapa 5**: agora, o comando recuperará as informações do cluster e percorrerá com você todos os tipos de nó, informando primeiro a contagem atual de VM/Nó para esse tipo de nó e, em seguida, perguntando qual deveria ser a nova contagem de VM/Nó.
 
-3. Procure em Resumo ou abra a lista de recursos clicando em "..."
+ **Para ampliar esse tipo de nó**, especifique um número maior do que a contagem atual de VMs.
 
-4. Clique no nome da VM que o sistema tinha indicado que poderia ser excluída.
+**Para reduzir esse tipo de nó**, especifique um número menor do que a contagem atual de VMs.
 
-5. Clique no ícone Excluir para excluir a VM.
+Agora, esses prompt percorrerá todos os tipos de nó. Se o cluster tiver apenas um tipo de nó, você receberá apenas uma solicitação.
+ 
+  **Etapa 6**: se você estiver adicionando novas VMs, receberá um prompt para fornecer a identificação do usuário e senha da área de trabalho remota das VMs que você está adicionando.
+ 
+**Etapa 7**: na janela de saída, você verá mensagens informando o andamento da implantação. Após a conclusão da implantação, o cluster deverá ter o número de nós especificado na Etapa 5.
+
+
+![ScaleupDownPSOut][ScaleupDownPSOut]
+
+
+**Etapa 8**: se essa foi uma solicitação de redução, ainda restará uma etapa de exclusão das VMs. O script desativa todas as VMs das quais você solicitou a remoção, ou seja, nesses nós/VMs não há réplicas do aplicativo ou do sistema. Portanto, agora é seguro excluir essas VMs.
+
+**OBSERVAÇÃO**: embora os nós desativados não sejam mais usados pelo seu cluster SF, você deve excluir as VMs desativadas para que não seja cobrado por elas.
+
+**Etapa 8.1**: faça logon no Portal do Azure [http://aka.ms/servicefabricportal](http://aka.ms/servicefabricportal).
+
+**Etapa 8.2**: navegue até o recurso de Cluster que você estava reduzindo e clique em "Todas as Configurações" na web part Essentials.
+
+**Etapa 8.3**: clique nos Tipos de Nó e você verá uma lista com os nós desativados. Nesta foto, chackodnt15, chackodnt24, chackodnt25 e chackodnt26 são as VMs que eu preciso excluir agora.
+
+![DeactivatedNodeList][DeactivatedNodeList]
+
+**Etapa 8.4**: exclua as VMs por meio do Portal ou PS. Após a exclusão, você terá concluído a redução de seu cluster.
+
+```
+Remove-AzureRmResource -ResourceName <Deactivated Node name without the understore> -ResourceType Microsoft.Compute/virtualMachines -ResourceGroupName <Resource Group name> -ApiVersion <Api version>
+```
+Veja um exemplo preenchido do mesmo comando
+
+```
+Remove-AzureRmResource -ResourceName chackodnt26 -ResourceType Microsoft.Compute/virtualMachines -ResourceGroupName chackod02 -ApiVersion 2015-05-01-preview
+```
+
+### Atualizar um cluster que você já implantou usando o PowerShell/CLI do ARM
+
+Se você já implantou inicialmente o cluster usando um modelo de ARM, será necessário modificar a contagem das VMs de um tipo de nó específico e todos os recursos que oferecem suporte à VM. O número mínimo permitido de VMs para o tipo de nó primário é cinco (para clusters que não são de teste), para clusters de teste o mínimo é de três.
+
+Quando você tiver o novo modelo, poderá implantá-lo por meio do ARM usando o mesmo grupo de recursos do que o cluster que está atualizando.
+
 
 ## Dimensionamento automático do cluster do Service Fabric
 
 Neste momento, os clusters do Service Fabric não são compatíveis com dimensionamento automático. Em breve, os clusters serão construídos sobre conjuntos de escala de máquina virtual (VMSS). Nesse momento, o dimensionamento automático se tornará possível e se comportará de maneira semelhante ao comportamento do dimensionamento automático disponível nos Serviços de Nuvem.
 
-## Dimensionamento usando PowerShell/CLI
-
-Este artigo abordou o dimensionamento de clusters usando o portal. No entanto, você pode executar as mesmas ações na linha de comando usando os comandos do ARM no recurso do cluster. A resposta GET do ClusterResource fornecerá a lista dos nós que foram desativados.
 
 ## Próximas etapas
 
@@ -78,6 +123,7 @@ Este artigo abordou o dimensionamento de clusters usando o portal. No entanto, v
 
 
 <!--Image references-->
-[BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-up-down/BrowseServiceFabricClusterResource.png
+[ScaleupDownPSOut]: ./media/service-fabric-cluster-scale-up-down/ScaleupDownPSOut.png
+[DeactivatedNodeList]: ./media/service-fabric-cluster-scale-up-down/DeactivatedNodeList.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

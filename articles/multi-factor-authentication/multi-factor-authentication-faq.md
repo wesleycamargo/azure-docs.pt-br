@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/20/2015" 
+	ms.date="01/11/2016" 
 	ms.author="billmath"/>
 
 # Perguntas frequentes sobre o Azure Multi-Factor Authentication
 
 
-Essas Perguntas Frequentes respondem a perguntas sobre o Azure Multi-Factor Authentication. Essas Perguntas Frequentes abordam dúvidas sobre como usar o serviço, incluindo o modelo de cobrança e a usabilidade.
+Essas Perguntas frequentes respondem a perguntas sobre o Azure Multi-Factor Authentication. Essas Perguntas frequentes abordam dúvidas sobre como usar o serviço, incluindo o modelo de cobrança e a usabilidade.
 
 ## Geral
 
@@ -27,7 +27,7 @@ Essas Perguntas Frequentes respondem a perguntas sobre o Azure Multi-Factor Auth
 
 [Pesquise a Base de Dados de Conhecimento (KB) Microsoft](http://search.microsoft.com/supportresults.aspx?form=mssupport&q=phonefactor)
 
-- Pesquise a Base de Dados de Conhecimento (KB) Microsoft em busca de soluções técnicas para problemas comuns de conserto sobre Suporte para o Servidor Microsoft Azure Multi-Factor Authentication (Phone Factor).
+- Pesquise a Base de Dados de Conhecimento (KB) Microsoft em busca de soluções técnicas para problemas comuns de conserto sobre Suporte para o Servidor Microsoft Azure Multi-Factor Authentication (PhoneFactor).
 
 [Fóruns do Active Directory do Microsoft Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD)
 
@@ -37,13 +37,9 @@ Essas Perguntas Frequentes respondem a perguntas sobre o Azure Multi-Factor Auth
 
 - Clientes herdados do Phonefactor que tenham consultas sobre redefinir sua senha ou obter ajuda obter a redefinição da senha, usem o link abaixo para abrir um caso de suporte.
 
-[Atendimento ao cliente para o Servidor Microsoft Azure Multi-Factor Authentication (Phone Factor)](https://support.microsoft.com/oas/default.aspx?prid=14947)
+[Suporte ao cliente para o Servidor Microsoft Azure Multi-Factor Authentication (PhoneFactor)](https://support.microsoft.com/oas/default.aspx?prid=14947)
 
-- Use este link para contatar um profissional do suporte da Microsoft. Faremos a você algumas perguntas que nos ajudarão a determinar quais são suas opções de suporte. As opções de suporte podem incluir email, envio online ou suporte por telefone. 
-
-[Consultas gerais sobre o Servidor Microsoft Azure Multi-Factor Authentication (Phone Factor)](http://azure.microsoft.com/services/multi-factor-authentication)
-
-- Para saber mais sobre o Servidor Microsoft Azure Multi-Factor Authentication (Phone Factor) ou se você tem perguntas sobre como comprar o produto e as diferentes opções de suporte disponíveis, visite ou envie um email para [pfsales@microsoft.com](mailto:pfsales@microsoft.com). 
+- Use este link para contatar um profissional do suporte da Microsoft. Faremos a você algumas perguntas que nos ajudarão a determinar quais são suas opções de suporte. As opções de suporte podem incluir email, envio online ou suporte por telefone.
 
 
 
@@ -75,28 +71,53 @@ Além dos campos acima, o resultado da autenticação (êxito/negação) e o mot
 
 Todos os custos são distribuídos no custo por usuário ou por autenticação do serviço. As organizações não são cobradas pelas ligações individuais feitas ou mensagens de texto enviadas ao usuários finais ao usar o Azure Multi-Factor Authentication. Os proprietários do telefone podem incorrer em custos relacionados ao roaming ou outros custos das respectivas operadoras para receber as ligações ou as mensagens de texto.
 
-**”P: como a organização é cobrada pelo Multi-Factor Authentication?”**
+**P: como a organização é cobrada pelo Multi-Factor Authentication?**
 
-O modelo de cobrança/uso ‘por usuário’ ou ‘por autenticação’ é escolhido durante a criação de um Provedor do Multi-Factor Auth no Portal de Gerenciamento do Azure. É um recurso baseado em consumo que é cobrado de acordo com a assinatura do Azure escolhida pela organização, assim como máquinas virtuais, sites, etc., são cobrados com base na assinatura.
+O Azure Multi-Factor Authentication está disponível como um serviço autônomo com opções de cobrança por usuário e por autenticação, ou em conjunto com o Active Directory Premium do Azure e o Enterprise Mobility Suite. O serviço independente está disponível com base no consumo e é cobrado mensalmente no compromisso monetário do Azure, ou como uma licença anual por usuário disponível por meio de um Microsoft Enterprise Agreement, do Programa de Licença de Volume Aberto, do programa de Fornecedores de Soluções na Nuvem e Diretamente.
+
+>[AZURE.IMPORTANT]As regiões da Austrália estão disponíveis a clientes com presença comercial na Austrália ou na Nova Zelândia.
+
+Modelos de cobrança | Preço
+------------- | ------------- |
+Consumo por usuário (compromisso monetário do Azure)| US$ 1,40 por mês (autenticações ilimitadas)
+Consumo por autenticação (compromisso monetário do Azure)|$1,40 por 10 autenticações
+Licença anual por usuário (Direto)|US$ 1,40 por mês (autenticações ilimitadas)
+Licença anual por usuário (Licenciamento por Volume)|Entre em contato com seu representante do [Enterprise Agreement.](https://www.microsoft.com/licensing/licensing-programs/enterprise.aspx)
 
 **P: o modelo de cobrança ‘por usuário’ se baseia no número de usuários habilitados para o Multi-Factor Authentication ou no número de usuários que executam as verificações?**
 
 A cobrança é baseada no número de usuários habilitados para o Multi-Factor Authentication.
+
+**P: Como funciona a cobrança da Multi-Factor Authentication?**
+
+Ao usar o modelo de uso/cobrança de consumo por usuário ou por autenticação, os administradores escolhem o tipo de uso ao criar um Provedor de autenticação multifator no Portal Clássico do Microsoft Azure. Trata-se de um recurso cobrado da assinatura do Azure da organização, assim como as máquinas virtuais, sites etc. Ao usar o modelo de licença, as licenças do Azure Multi-Factor Authentication são compradas e então atribuídas aos usuários, assim como o Office 365 e outros produtos de assinatura.
+
+**P: Existe uma versão gratuita do Azure Multi-Factor Authentication para administradores?**
+
+Um subconjunto de recursos do Azure Multi-Factor Authentication conhecido como “MFA para Administradores do Azure” é oferecido sem custos aos Administradores Globais do Azure quando um Provedor de Azure Multi-Factor Authentication baseado em consumo não tiver sido associado ao Active Directory do Azure correspondente. O uso do Provedor de Multi-Factor Authentication atualiza todos os administradores e usuários no diretório que são habilitados para MFA para a versão completa do Azure Multi-Factor Authentication.
+
+**P: Existe uma versão gratuita do Azure Multi-Factor Authentication para usuários do Office 365?**
+
+Um subconjunto de recursos do Azure Multi-Factor Authentication conhecido como “MFA para o Office 365” é oferecido sem custos aos usuários que possuem uma licença do Office 365 atribuída quando um Provedor de Azure Multi-Factor Authentication baseado em consumo não tiver sido associado ao Active Directory do Azure correspondente. O uso do Provedor de Multi-Factor Authentication atualiza todos os administradores e usuários no diretório que são habilitados para MFA para a versão completa do Azure Multi-Factor Authentication.
+
+**P: Posso alternar entre os modelos de cobrança de consumo por usuário e por autenticação a qualquer momento?**
+
+O modelo de cobrança é selecionado durante a criação do recurso e não pode ser alterado após o provisionamento do recurso. No entanto, é possível criar um novo recurso de Multi-Factor Authentication para substituir o original. Observe que as opções de configuração e definições do usuário não podem ser transferidas para o novo recurso.
+
+**P: Posso alternar entre a cobrança de consumo e os modelos de licença a qualquer momento?**
+
+Você pode adquirir o Azure Multi-Factor Authentication, o Active Directory Premium do Azure, o Enterprise Mobility Suite e licenças do Enterprise Cloud Suite a qualquer momento. Quando as licenças são adicionadas a um diretório que já tem um provedor do Azure Multi-Factor Auth por usuário, a cobrança com base no consumo é subtraída pelo número de licenças possuídas. Se todos os usuários habilitados para MFA tiverem licenças atribuídas, o administrador poderá excluir o Provedor de Autenticação Multifator. As organizações não podem misturar cobrança de consumo por autenticação com o modelo de licença. Quando um Provedor de Autenticação Multifator for vinculado a um diretório, a organização será cobrada por todas as solicitações de verificação de MFA, independentemente das licenças possuídas.
+
+**P: Minha organização precisa usar e sincronizar identidades para usar a Multi-Factor Authentication?**
+
+Ao usar os modelos de cobranças com base no consumo, o Active Directory do Azure não é necessário. A vinculação de um Provedor de Autenticação Multifator a um diretório é opcional. Quando ele não for vinculado a um diretório, as organizações poderão usar o servidor do Azure Multi-Factor Authentication ou o SDK no local. Quando você usar o modelo de licença, o Active Directory do Azure será necessário, pois as licenças são adicionadas ao diretório quando adquiridas e atribuídas aos usuários no diretório.
+
 
 ## Facilidade de uso
 
 **P: o que devo fazer se eu não receber uma resposta no meu telefone ou se esquecer do meu telefone?**
 
 Se, anteriormente, você configurou um telefone de backup, tente novamente selecionando esse telefone quando solicitado na página de entrada. Se você não tiver outro método configurado, contate seu administrador e peça a ele para atualizar o número atribuído ao seu telefone principal – celular ou comercial.
-
-**P: removi um usuário de uma função administrativa, mas esqueci de desabilitar a autenticação multifator. Agora, ela não está aparecendo na lista. Como removo esse recurso?**
-
-- De acordo com o portal você está usando, no painel esquerdo, clique em Usuários ou Usuários e Grupos.
-- Marque a caixa de seleção ao lado do usuário que deseja editar e clique em Editar ou no ícone Editar.
-- Clique em Configurações, em Atribuir função, selecione Sim e adicione o usuário de volta à função administrativa anterior.
-- Acesse a página da autenticação multifator. Agora, a conta deve ser mostrada na lista exibida na página. 
-- Siga as etapas acima para desabilitar a autenticação multifator de uma conta. 
-- Nesse momento, você pode remover a conta da função administrativa.
 
 
 **P: o que fazer se um usuário contatar você, o administrador, com uma conta que foi bloqueada?**
@@ -131,6 +152,13 @@ Se você estiver usando o Servidor do Azure MFA, tokens OATH TOTP de terceiros p
 
 Portanto, se os tokens de ActiveIdentity forem tokens OATH TOTP e você conseguir obter o arquivo de chave secreta em um arquivo CSV que pode ser importado para o Servidor do Azure MFA, você poderá usá-los. Os tokens OATH podem ser usados com o AD FS, com o RADIUS quando o sistema de cliente pode processar as respostas do Access Challenge e com a autenticação baseada em Formulários do IIS.
 
+**P: Posso usar o servidor Azure MFA para proteger os Serviços de Terminal**
+
+Sim, mas se você estiver usando o Windows Server 2012 R2 ou posterior, isso só poderá ser feito usando um Gateway de Área de Trabalho Remota.
+
+A maneira como o servidor Azure MFA conectava-se ao pacote de segurança LSA no Windows Server 2012 e em versões anteriores não funciona mais no Windows Server 2012 R2 devido a algumas alterações de segurança. Portanto, para versões dos Serviços de Terminal no Windows 2012 ou versões anteriores, basta seguir [Para proteger um aplicativo com a Autenticação do Windows](multi-factor-authentication-get-started-server-windows.md#to-secure-an-application-with-windows-authentication-use-the-following-procedure)
+
+No entanto, se você estiver usando o Windows Server 2012 R2, você precisará de um Gateway de Área de Trabalho Remota.
 
 ## Erros
 
@@ -151,4 +179,4 @@ Atualmente, a verificação de segurança adicional pode ser usada somente com a
 
 Uma solução alternativa para isso é ter uma conta de usuário para as operações administrativas e outra para as operações não administrativas. Posteriormente, você pode vincular caixas de correio entre a conta administrativa e a conta não administrativa para que seja possível entrar no Outlook usando a conta não administrativa. Para obter mais detalhes sobre isso, veja [Fornecer a um administrador a capacidade de abrir e exibir o conteúdo da caixa de correio de um usuário] (http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1)).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

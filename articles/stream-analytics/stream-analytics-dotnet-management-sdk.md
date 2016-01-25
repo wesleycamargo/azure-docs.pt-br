@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="11/23/2015"
+	ms.date="01/11/2016"
 	ms.author="jeffstok"/>
 
 
@@ -150,6 +150,8 @@ Adicione o seguinte código ao início do método **Main**:
 	StreamAnalyticsManagementClient client = new StreamAnalyticsManagementClient(aadTokenCredentials);
 
 O valor da variável **resourceGroupName** deve ser igual ao nome do grupo de recursos que você criou ou escolheu nas etapas de pré-requisito.
+
+Para automatizar o aspecto de apresentação de credencial da criação do trabalho, consulte [Autenticação de uma entidade de serviço com o Gerenciador de Recursos do Azure](./articles/resource-group-authenticate-service-principal.md).
 
 As seções restantes deste artigo pressupõem que esse código esteja no início do método **Main**.
 
@@ -364,4 +366,4 @@ Você tem de aprender as Noções básicas do uso de um SDK do .NET para criar e
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

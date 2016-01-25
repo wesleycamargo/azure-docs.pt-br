@@ -43,7 +43,7 @@ Nesta seção, você modificará o aplicativo do console **SendCloudtoDevice** c
             return blob.Uri + sasBlobToken;
         }
 
-    Esse método cria uma nova referência de blob e gera um URI de assinatura de acesso compartilhado, como descrito em [Criar e usar uma SAS com o serviço Blob](https://azure.microsoft.com/pt-BR/documentation/articles/storage-dotnet-shared-access-signature-part-2/). Vale lembrar que o método acima gera um URI de assinatura que é válido por 24 horas. Se o dispositivo de destino precisar de mais tempo para carregar o arquivo (por exemplo, ele se conecta com pouca frequência ou ele tem uma conectividade não confiável para carregar um arquivo grande), você pode considerar tempos de expiração mais longos para as assinaturas.
+    Esse método cria uma nova referência de blob e gera um URI de assinatura de acesso compartilhado, como descrito em [Criar e usar uma SAS com o Armazenamento de Blobs](https://azure.microsoft.com/pt-BR/documentation/articles/storage-dotnet-shared-access-signature-part-2/). Vale lembrar que o método acima gera um URI de assinatura que é válido por 24 horas. Se o dispositivo de destino precisar de mais tempo para carregar o arquivo (por exemplo, ele se conecta com pouca frequência ou ele tem uma conectividade não confiável para carregar um arquivo grande), você pode considerar tempos de expiração mais longos para as assinaturas.
 
 5. Modifique **SendCloudToDeviceMessageAsync** da seguinte maneira:
 
@@ -70,4 +70,4 @@ Nesta seção, você modificará o aplicativo do console **SendCloudtoDevice** c
 
 <!-- Images -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

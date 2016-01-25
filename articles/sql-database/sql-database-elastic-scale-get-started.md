@@ -61,7 +61,7 @@ Parabéns – você criou e executou com sucesso seu primeiro aplicativo fragmen
 ### Outras operações da escala elástica
 
 1. **Divisão de um fragmento existente:**: A capacidade de dividir fragmentos é fornecida por meio da **Ferramenta da Divisão de Mesclagem**. Você pode encontrar mais informações sobre essa ferramenta aqui: [Visão geral da ferramenta da Divisão de Mesclagem](sql-database-elastic-scale-overview-split-and-merge.md).
-2. **Mesclagem de fragmentos existentes**: a mesclagem de fragmentos também é realizada usando-se a **ferramenta de mesclagem de divisão**. Para obter mais informações, consulte: [Visão geral da ferramenta de divisão de mesclagem](sql-database-elastic-scale-overview-split-and-merge).   
+2. **Mesclagem de fragmentos existentes**: a mesclagem de fragmentos também é realizada usando-se a **ferramenta de mesclagem de divisão**. Para obter mais informações, consulte: [Visão geral da ferramenta de divisão de mesclagem](sql-database-elastic-scale-overview-split-and-merge.md).   
 
 
 ## Custo
@@ -98,4 +98,4 @@ Para saber mais, confira o Mapa de tópicos sobre ferramentas de banco de dados 
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0114_2016-->

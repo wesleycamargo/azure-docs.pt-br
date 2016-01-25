@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Tutorial: Integração do Diretório do Azure ao TOPdesk - Público
@@ -52,7 +52,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar aplicativo](./media/active-directory-saas-topdesk-public-tutorial/IC749321.png "Adicionar aplicativo")
 
-5.  No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-topdesk-public-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
@@ -100,17 +100,17 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-topdesk-public-tutorial/IC790620.png "Configurar o logon único")
 
-8.  Na página **Como você deseja que os usuários façam logon no TOPdesk - Public**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
+8.  Na página **Como você deseja que os usuários façam logon no TOPdesk - Público**, selecione **Logon único do AD do Microsoft Azure** e clique em **Avançar**.
 
     ![Configurar o logon único](./media/active-directory-saas-topdesk-public-tutorial/IC790621.png "Configurar o logon único")
 
-9.  Na página **Configurar URL do Aplicativo**, realize as seguintes etapas:
+9.  Na página **Configurar URL do Aplicativo**, execute as seguintes etapas:
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-topdesk-public-tutorial/IC790622.png "Configurar a URL do Aplicativo")
 
-    1.  Na caixa de texto **URL de Logon do TOPdesk - Público**, digite a URL usada pelos usuários para entrar no aplicativo do TOPdesk - Público (por exemplo, "*https://qssolutions.topdesk.net*").
-    2.  Na caixa de texto **URL de Resposta do TOPdesk – Público**, cole a **URL AssertionConsumerService do TOPdesk - Público** (por exemplo, "*https://qssolutions.topdesk.net/tas/public/login/saml*")
-    3.  Clique em **Próximo**.
+    1.  Na caixa de texto **URL de Logon do TOPdesk - Public**, digite a URL usada pelos usuários para entrar no aplicativo TOPdesk - Public (por exemplo: "**https://qssolutions.topdesk.net*")).
+2.  Na caixa de texto **URL de Resposta do TOPdesk – Public**, cole a **URL de AssertionConsumerService do TOPdesk - Public** (por exemplo: "**https://qssolutions.topdesk.net/tas/public/login/saml*")
+3.  Clique em **Próximo**.
 
 10. Na página **Configurar logon único no TOPdesk - Public**, para baixar o arquivo de metadados, clique em **Baixar metadados** e salve o arquivo localmente no computador.
 
@@ -197,4 +197,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

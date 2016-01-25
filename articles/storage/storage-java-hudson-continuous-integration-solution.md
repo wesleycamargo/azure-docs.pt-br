@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Como usar o Hudson com o serviço Blob do Azure | Microsoft Azure"
+	pageTitle="Como usar o Hudson com o Armazenamento de Blobs | Microsoft Azure"
 	description="Descreve como usar o Hudson com o armazenamento de Blob do Azure como um repositório para artefatos de compilação."
 	services="storage"
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="01/05/2016" 
+	ms.date="01/09/2016" 
 	ms.author="robmcm"/>
 
 # Usando o Armazenamento do Azure com uma solução Hudson Continuous Integration
 
 ## Visão geral
 
-As informações a seguir mostram como usar o serviço Blob do Azure como um repositório de artefatos de compilação criado por uma solução Hudson Continuous Integration (CI), ou como uma fonte de arquivos baixáveis a serem usados em um processo de compilação. Um dos cenários em que isso poderia ser útil é quando você está codificando em um ambiente de desenvolvimento ágil (usando Java ou outras linguagens), as compilações estão sendo executadas com base na integração contínua e você precisa de um repositório para seus artefatos de compilação, para que possa, por exemplo, compartilhá-los com outros membros da organização, com seus clientes ou mantê-los em um arquivo. Outro cenário é quando o seu próprio trabalho de compilação requer outros arquivos, por exemplo, dependências a serem baixadas como parte da entrada da compilação.
+As informações a seguir mostram como usar o Armazenamento de Blobs como um repositório de artefatos de compilação criado por uma solução de CI (Integração Contínua) Hudson, ou como uma fonte de arquivos baixáveis a serem usados em um processo de compilação. Um dos cenários em que isso poderia ser útil é quando você está codificando em um ambiente de desenvolvimento ágil (usando Java ou outras linguagens), as compilações estão sendo executadas com base na integração contínua e você precisa de um repositório para seus artefatos de compilação, para que possa, por exemplo, compartilhá-los com outros membros da organização, com seus clientes ou mantê-los em um arquivo. Outro cenário é quando o seu próprio trabalho de compilação requer outros arquivos, por exemplo, dependências a serem baixadas como parte da entrada da compilação.
 
 Neste tutorial, você usará o plug-in do Armazenamento do Azure para o Hudson CI disponibilizado pela Microsoft.
 
@@ -177,4 +177,4 @@ Segue abaixo uma visão geral dos componentes do serviço Blob.
   [Como criar uma conta de armazenamento (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkId=279823
   [Conheça o Hudson (a página pode estar em inglês)]: http://wiki.eclipse.org/Hudson-ci/Meet_Hudson
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

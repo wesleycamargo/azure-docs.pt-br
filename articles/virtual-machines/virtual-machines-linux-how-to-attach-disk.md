@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="01/07/2016"
 	ms.author="dkshir"/>
 
 # Como anexar um disco de dados na máquina virtual Linux
@@ -22,13 +22,15 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
 
 
-Você pode anexar tanto discos vazios como discos que contenham dados. Em ambos os casos, os discos são arquivos .vhd que ficam em uma conta de armazenamento Azure. Em ambos os casos também, após anexar o disco, será necessário reiniciá-lo para usá-lo. Este artigo se refere a máquinas virtuais criadas usando o modelo de implantação clássica.
+Você pode anexar tanto discos vazios como discos que contenham dados. Em ambos os casos, os discos são arquivos .vhd que ficam em uma conta de armazenamento Azure. Em ambos os casos também, após anexar o disco, será necessário reiniciá-lo para usá-lo.
 
 > [AZURE.NOTE]É uma prática recomendada usar um ou mais discos separados para armazenar dados de uma máquina virtual. Quando você cria uma máquina virtual Azure, há um disco do sistema operacional e um disco temporário. **Não use o disco temporário para armazenar dados.** Como seu nome quer dizer, ele oferece armazenamento apenas temporariamente. Não oferece redundância nem backup porque eles não residem no armazenamento do Azure. O disco temporário é normalmente gerenciado pelo agente Linux do Azure e montado automaticamente em **/mnt/resource** (ou **/mnt** nas imagens do Ubuntu). Por outro lado, um disco de dados pode ser chamado pelo kernel Linux como `/dev/sdc`, e você precisará fazer a partição, formatar e montar esse recurso. Consulte o [Guia do Usuário do Azure Linux Agent][Agent] para obter detalhes.
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-linux.md)]
 
 ## Como: inicializar um novo disco de dados no Linux
+
+Você pode usar as mesmas instruções para inicializar vários discos de dados, usando o identificador de dispositivo correto, conforme mostrado abaixo.
 
 1. Conectar-se à máquina virtual. Para obter instruções, consulte [Como fazer logon em uma máquina virtual que executa o Linux][Logon].
 
@@ -48,7 +50,7 @@ Você pode anexar tanto discos vazios como discos que contenham dados. Em ambos 
 
 	OU
 
-	b) Use o comando `lsscsi` para descobrir a ID do dispositivo. `lsscsi` pode ser instalado por um `yum install lsscsi` (no Red Hat com base em distribuições) ou `apt-get install lsscsi` (no Debian com base em distribuições). É possível encontrar o disco que está procurando pelo seu _lun_ ou **número de unidade lógica**. Por exemplo, o _lun_ dos discos que você anexou pode ser facilmente visto por meio do `azure vm disk list <virtual-machine>` como:
+	b) Use o comando `lsscsi` para descobrir a ID do dispositivo. O `lsscsi` pode ser instalado pelo `yum install lsscsi` (distribuições baseadas no Red Hat) ou pelo `apt-get install lsscsi` (distribuições baseadas no Debian). Você pode encontrar o disco que está procurando pelo seu _lun_ ou **número de unidade lógica**. Por exemplo, o _lun_ dos discos que você anexou pode ser facilmente visto por meio do `azure vm disk list <virtual-machine>` como:
 
 			~$ azure vm disk list ubuntuVMasm
 			info:    Executing command vm disk list
@@ -86,7 +88,7 @@ Você pode anexar tanto discos vazios como discos que contenham dados. Em ambos 
 
 	![Criar novo dispositivo](./media/virtual-machines-linux-how-to-attach-disk/DiskPartition.png)
 
-5. Quando solicitado, digite **p** para definir a partição como a partição primária, digite **1** para torná-la a primeira partição e digite Enter para aceitar o valor padrão para o cilindro.
+5. Quando solicitado, digite **p** para definir a partição como a partição primária, digite **1** para torná-la a primeira partição e digite Enter para aceitar o valor padrão para o cilindro. Em alguns sistemas, ele pode mostrar os valores padrão do primeiro e último setores, em vez do cilindro. Você pode optar por aceitar esses padrões.
 
 
 	![Criar partição](./media/virtual-machines-linux-how-to-attach-disk/DiskCylinder.png)
@@ -105,7 +107,7 @@ Você pode anexar tanto discos vazios como discos que contenham dados. Em ambos 
 
 	![Gravar as alterações de disco](./media/virtual-machines-linux-how-to-attach-disk/DiskWrite.png)
 
-8. Crie o sistema de arquivos na nova partição. Como exemplo, digite o seguinte comando e, em seguida, insira a senha da conta:
+8. Crie o sistema de arquivos na nova partição. Acrescente o número da partição (1) à ID do dispositivo. Por exemplo, digite o comando a seguir e, em seguida, digite a senha da conta:
 
 		# sudo mkfs -t ext4 /dev/sdc1
 
@@ -160,7 +162,9 @@ Você pode anexar tanto discos vazios como discos que contenham dados. Em ambos 
 
 	Se o comando `mount` produzir um erro, verifique se o arquivo /etc/fstab tem a sintaxe correta. Se as partições ou unidades de dados adicionais forem criadas será necessário inseri-las separadamente em/etc/fstab também.
 
-	Você precisará tornar a unidade gravável usando esses comandos: # cd /datadrive # sudo chmod go+w /datadrive
+	Você precisará tornar a unidade gravável usando esse comando:
+
+		# sudo chmod go+w /datadrive
 
 >[AZURE.NOTE]Remover subsequentemente um disco de dados sem editar fstab pode fazer com que a VM falhe ao ser inicializada. Se esta for uma ocorrência comum, a maioria das distribuições fornecerá as opções fstab `nofail` e/ou `nobootwait`, que permitirão que o sistema se inicialize mesmo se a montagem do disco falhar no momento da inicialização. Consulte a documentação da distribuição para obter mais informações sobre esses parâmetros.
 
@@ -175,4 +179,4 @@ Você pode anexar tanto discos vazios como discos que contenham dados. Em ambos 
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-how-to-log-on.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

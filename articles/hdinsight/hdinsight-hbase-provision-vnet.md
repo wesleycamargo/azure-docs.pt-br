@@ -94,6 +94,8 @@ Antes de provisionar um cluster HBase, você precisa ter uma rede virtual do Azu
 	- **Local** - o local deve ser o mesmo que o do cluster do HBase que você criará.
     
         > [AZURE.NOTE]O Azure HDInsight dá suporte apenas a redes virtuais baseadas em local e atualmente não funciona com redes virtuais baseadas em grupo de afinidade.
+        
+    Para obter informações sobre como usar o HDInsight com uma Rede Virtual, incluindo requisitos de configuração específicos para a Rede Virtual, consulte [Estender recursos do HDInsight usando uma Rede Virtual do Azure](hdinsight-extend-hadoop-virtual-network.md).
 
 5. Clique em **Criar**.
 
@@ -116,7 +118,7 @@ Um servidor DNS é opcional, mas necessário em alguns casos. O procedimento foi
 **Para criar um cluster HDInsight**
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Clique em **NOVO**, clique em **Análises de dados**, e, em seguida, clique em **HDInsight**.
+2. Clique em **NOVO**, em **Análises de Dados** e em **HDInsight**.
 
     ![Criando um novo cluster no Portal do Azure](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Criando um novo cluster no Portal do Azure")
 
@@ -131,8 +133,8 @@ Um servidor DNS é opcional, mas necessário em alguns casos. O procedimento foi
   - **Fonte de dados**: selecione uma existente ou crie uma nova conta de armazenamento do Azure que será usada como o sistema de arquivos padrão para o cluster. O nome padrão para o contêiner padrão é o nome do cluster. O local da conta de armazenamento também determina o local do cluster.
   - **Tipo de preço de nó**: para fins de aprendizado ou avaliação, selecione 1 nó de região para minimizar o custo.
 
-  	- **Método de seleção**: defina essa opção para **De todas as assinaturas** para habilitar a procura de contas de armazenamento de todas as suas assinaturas. Defina essa opção para **Tecla de Acesso** se você deseja inserir o **Nome de armazenamento** e **Tecla de Acesso** de uma conta de armazenamento existente.
-  	- **Selecionar conta de armazenamento / Criar nova**: clique em **Selecionar conta de armazenamento** para procurar e selecionar uma conta de armazenamento existente que você deseja associar com o cluster. Ou, clique em **Criar nova** para criar uma nova conta de armazenamento. Use o campo exibido para inserir o nome da conta de armazenamento. Uma marca de seleção verde será exibida se o nome estiver disponível.
+  	- **Método de seleção**: defina essa opção para **De todas as assinaturas** para habilitar a procura de contas de armazenamento de todas as suas assinaturas. Defina essa opção como **Tecla de Acesso** se você desejar inserir o **Nome de Armazenamento** e a **Tecla de Acesso** de uma conta de armazenamento existente.
+  	- **Selecionar conta de armazenamento/Criar Nova**: clique em **Selecionar conta de armazenamento** para procurar e escolher uma conta de armazenamento existente que deseja associar ao cluster. Ou, clique em **Criar nova** para criar uma nova conta de armazenamento. Use o campo exibido para inserir o nome da conta de armazenamento. Uma marca de seleção verde será exibida se o nome estiver disponível.
     - **Escolher Contêiner Padrão**: use essa opção para inserir o nome do contêiner padrão a ser usado para o cluster. Embora você possa inserir qualquer nome aqui, é recomendável usar o mesmo nome que o cluster para que você possa reconhecer facilmente que o contêiner é usado para este cluster específico.
   	- **Local**: a região geográfica na qual a conta de armazenamento está ou será criada. Esse local determinará o local do cluster. O cluster e sua conta de armazenamento padrão devem estar localizados no mesmo data center do Azure.
 
@@ -389,4 +391,4 @@ Neste tutorial, você aprendeu como provisionar um cluster do HBase. Para obter 
 
 [azure-preview-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

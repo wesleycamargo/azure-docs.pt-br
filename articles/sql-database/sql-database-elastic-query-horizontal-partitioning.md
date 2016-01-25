@@ -21,7 +21,7 @@ Este documento explica como configurar consultas de banco de dados elástico par
 
 ![Consultar em fragmentos][1]
 
-A funcionalidade faz parte do [conjunto de recursos do Banco de Dados Elástico do Banco de Dados](sql-database-elastic-scale.md) SQL do Azure.
+A funcionalidade faz parte do [conjunto de recursos do Banco de Dados Elástico do Banco de Dados](sql-database-elastic-scale-introduction.md) SQL do Azure.
  
 ## Criando objetos de banco de dados
 
@@ -241,4 +241,4 @@ Use cadeias de conexão regulares do SQL Server para conectar seu aplicativo e s
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

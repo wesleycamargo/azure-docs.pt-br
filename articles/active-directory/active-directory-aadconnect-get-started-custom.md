@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="01/08/2016"
 	ms.author="billmath;andkjell"/>
 
 # Instalação personalizada do Azure AD Connect
@@ -43,11 +43,11 @@ Quando você instala os serviços de sincronização, pode deixar a seção de c
 ![Componentes necessários](./media/active-directory-aadconnect-get-started-custom/requiredcomponents.png)
 
 
-Configuração opcional | Descrição
-------------- | ------------- |
-Nome do SQL Server | Permite que você especifique o nome do SQL Server e o nome da instância. Escolha essa opção se já tiver um servidor de banco de dados que você quer usar.
-Conta de serviço | Por padrão, o Azure AD Connect criará uma conta de serviço local para uso dos serviços de sincronização. A senha é gerada automaticamente e desconhecida para a pessoa que está instalando o Azure AD Connect. Se você usa um SQL Server remoto, precisa de uma conta de serviço no domínio e precisa saber a senha. Nesses casos, insira a conta de serviço a ser usada. Verifique se o usuário que está executando a instalação é um SA no SQL para que um logon para a conta de serviço possa ser criado. Veja [Contas e permissões do Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation) |
-Permissões | Por padrão o Azure Connect AD criará quatro grupos locais para o servidor quando os serviços de sincronização estiverem instalados. Esses grupos são: grupo de administradores, grupo de operadores, grupo de navegação e grupo de redefinição de senha. Se quiser especificar seus próprios grupos, você pode fazê-lo aqui. Os grupos devem ser locais no servidor e não podem ser localizados no domínio. |
+| Configuração opcional | Descrição |
+| ------------- | ------------- |
+| Usar um SQL Server existente | Permite que você especifique o nome do SQL Server e o nome da instância. Escolha essa opção se já tiver um servidor de banco de dados que você quer usar. Se o SQL Server não tem a navegação habilitada e você deve especificar um número de porta, insira na caixa de diálogo **Nome da Instância** o nome de instância, seguido por uma vírgula e pelo número da porta. |
+| Usar uma conta de serviço existente | Por padrão, o Azure AD Connect criará uma conta de serviço local para uso dos serviços de sincronização. A senha é gerada automaticamente e desconhecida para a pessoa que está instalando o Azure AD Connect. Se você usa um SQL Server remoto, precisa de uma conta de serviço no domínio e precisa saber a senha. Nesses casos, insira a conta de serviço a ser usada. Verifique se o usuário que está executando a instalação é um SA no SQL para que um logon para a conta de serviço possa ser criado. Veja [Contas e permissões do Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation) |
+| Especificar grupos de sincronização personalizados | Por padrão o Azure Connect AD criará quatro grupos locais para o servidor quando os serviços de sincronização estiverem instalados. Esses grupos são: grupo de administradores, grupo de operadores, grupo de navegação e grupo de redefinição de senha. Se quiser especificar seus próprios grupos, você pode fazê-lo aqui. Os grupos devem ser locais no servidor e não podem ser localizados no domínio. |
 
 
 ## Entrada do usuário
@@ -103,11 +103,13 @@ Meu próprio atributo|Essa opção permite que você selecione seu próprio atri
 
 
 ### Filtragem de sincronização com base em grupos
-O recurso de filtragem em grupos permite executar um piloto pequeno em que somente um pequeno subconjunto de objetos deve ser criado no AD do Azure e no Office 365. Para usar esse recurso, crie um grupo no Active Directory e adicione os usuários e grupos que devem ser sincronizados com o AD do Azure como membros diretos. Posteriormente, você pode adicionar e remover usuários nesse grupo para manter a lista de objetos que devem estar presentes no AD do Azure. Para usar esse recurso, no caminho personalizado, você verá esta página:
+O recurso de filtragem em grupos permite executar um piloto pequeno em que somente um pequeno subconjunto de objetos deve ser criado no AD do Azure e no Office 365. Para usar esse recurso, crie um grupo no Active Directory e adicione os usuários e grupos que devem ser sincronizados com o AD do Azure como membros diretos. Posteriormente, você pode adicionar e remover usuários nesse grupo para manter a lista de objetos que devem estar presentes no AD do Azure. Todos os objetos que você deseja sincronizar devem ser membros diretos do grupo. Isso incluirá os usuários, grupos, contatos e computadores/dispositivos. Associação de grupo aninhado não será resolvida; um membro do grupo incluirá apenas o grupo em si e não a seus membros.
 
-![Filtragem de sincronização](./media/active-directory-aadconnect-get-started-custom/filter2.png)
+Para usar esse recurso, no caminho personalizado, você verá esta página: ![Filtragem de sincronização](./media/active-directory-aadconnect-get-started-custom/filter2.png)
 
 >[AZURE.WARNING]Esse recurso destina-se somente a oferecer suporte a uma implantação piloto e não deve ser usado em uma implantação de produção completa.
+
+Em uma implantação de produção completa, será ser difícil manter um único grupo com todos os objetos a sincronizar. Em vez disso, você deve usar um dos métodos em [Configurar filtragem](active-directory-aadconnectsync-configure-filtering.md).
 
 ### Recursos opcionais
 
@@ -248,4 +250,4 @@ Agora que você tem o Azure AD Connect instalado, é possível [verificar a inst
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

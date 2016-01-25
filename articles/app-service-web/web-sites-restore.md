@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/11/2015" 
+	ms.date="01/07/2015" 
 	ms.author="cephalin"/>
 
 # Restaurar um aplicativo no Serviço de Aplicativo do Azure
@@ -81,7 +81,11 @@ O recurso de Restauração do Serviço de Aplicativo, disponível na folha **Bac
 A folha de detalhes exibirá as informações disponíveis relacionadas à operação.
 	
 >[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
-	
+
+## Próximas etapas
+
+Você também pode usar a API REST para fazer backup e restaurar aplicativos do Serviço de Aplicativo (consulte [Usar REST para fazer backup e restaurar aplicativos do Serviço de Aplicativo](websites-csm-backup.md)).
+
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
@@ -102,4 +106,4 @@ A folha de detalhes exibirá as informações disponíveis relacionadas à opera
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/15/2015"
-	ms.author="trinadhk;aashishr;jimpark"/>
+	ms.date="01/09/2016"
+	ms.author="trinadhk;jimpark;aashishr"/>
 
 
 # Solucionar problemas de backup de máquinas virtuais do Azure
@@ -42,21 +42,21 @@ Você pode solucionar os erros encontrados enquanto usa o Backup do Azure com as
 | Operação de backup | Detalhes do erro | Solução alternativa |
 | -------- | -------- | -------|
 | Backup | A cópia de VHDs do Cofre de backup atingiu o tempo limite - tente a operação novamente dentro de alguns minutos. Se o problema persistir, contate o Suporte da Microsoft. | Isso ocorre quando há muitos dados a serem copiados. Verifique se você tem menos de 16 discos de dados. |
-| Backup | Não pôde se comunicar com o agente VM para status do instantâneo. A subtarefa VM instantâneo VM atingiu o tempo limite. - Consulte o guia de solução de problemas sobre como resolver esse problema. | Esse erro é gerado se há um problema com o agente de VM ou se o acesso à rede para a infraestrutura do Azure está bloqueado de alguma forma. <ul><li>Saiba mais sobre a [depuração de problemas do Agente de VM](#vm-agent) <li>Saiba mais sobre a [depuração de problemas de rede](#networking) </ul><br>Se o agente de VM não está causando problemas, reinicie a VM. Às vezes um estado incorreto de VM pode causar problemas e reiniciar a VM redefine esse "estado inválido" |
+| Backup | Não pôde se comunicar com o agente VM para status do instantâneo. A subtarefa VM instantâneo VM atingiu o tempo limite. - Consulte o guia de solução de problemas sobre como resolver esse problema. | Esse erro é gerado se há um problema com o agente de VM ou se o acesso à rede para a infraestrutura do Azure está bloqueado de alguma forma. <ul> <li>Aprenda sobre [depuração de problemas no Agente de VM](#vm-agent) <li>Aprenda sobre [depuração de problemas de rede](#networking) <li>Se o agente de VM está funcionando bem, Aprenda sobre [solução de problemas de Instantâneo de VM](#Troubleshoot-VM-Snapshot-Issues)</ul><br>Se o agente de VM não está causando nenhum problema, reinicie a VM. Às vezes um estado incorreto de VM pode causar problemas e reiniciar a VM redefine esse "estado inválido" |
 | Backup | Falha no backup com um erro interno - tente novamente a operação dentro de alguns minutos. Se o problema persistir, contate o Suporte da Microsoft | Você pode obter esse erro por duas razões: <ol><li> há muitos dados a serem copiados. <li>A máquina virtual original foi excluída e, portanto, o backup não pode ser feito. Para manter os dados de backup de uma VM excluída, mas parar os erros de backup, desproteja a VM e escolha a opção para manter os dados. Isso interromperá o agendamento de backup e também as mensagens de erro recorrentes. |
 | Backup | Falha ao instalar a extensão dos Serviços de Recuperação do Azure no item selecionado - o agente de VM é um pré-requisito para a extensão de Serviços de Recuperação do Azure. Instale o agente de VM do Azure e reinicie a operação de registro | <ol> <li>Verifique se o agente de VM foi instalado corretamente. <li>Certifique-se de que o sinalizador de configuração da VM esteja definido corretamente.</ol> [Leia mais](#validating-vm-agent-installation) sobre a instalação do agente de VM e como validar a instalação do agente de VM. |
 | Backup | A execução do comando falhou - outra operação está em andamento neste item. Aguarde até que a operação anterior seja concluída e tente novamente | Está em execução um backup existente ou um trabalho de restauração para a máquina virtual e não é possível iniciar um novo trabalho enquanto o trabalho existente estiver sendo executado. |
 | Backup | Falha na instalação da extensão. Erro "COM+ não pôde se comunicar com o Coordenador de transações distribuídas da Microsoft | Isso geralmente significa que o serviço COM+ não está em execução. Entre em contato com o suporte da Microsoft para obter ajuda sobre como corrigir esse problema. |
 | Backup | Falha na operação de instantâneo. Erro de operação do VSS "Esta unidade está bloqueada pela Criptografia de Unidade de Disco BitLocker. Você deve desbloquear esta unidade no Painel de Controle. | Desative o BitLocker para todas as unidades na VM e observe se o problema VSS é resolvido |
 | Backup | Não há suporte para máquinas virtuais com discos rígidos virtuais no armazenamento Premium para backup | Nenhum |
-| Backup | Máquina Virtual do Azure não encontrada. | Isso acontece quando a VM primária é excluída, mas a política de backup continua a procurar por uma VM para fazer backup. Para corrigir esse erro: <ol><li>Recrie a máquina virtual com o mesmo nome e o mesmo nome de grupo de recursos [nome do serviço de nuvem], <br>(OU) <li> Desabilite a proteção para esta VM, para que os trabalhos de backup não sejam criados </ol> |
+| Backup | Máquina Virtual do Azure não encontrada. | Isso acontece quando a VM primária é excluída, mas a política de backup continua a procurar por uma VM para fazer backup. Para corrigir esse erro: <ol><li>Recrie a máquina virtual com o mesmo nome e o mesmo nome de grupo de recursos [nome do serviço de nuvem], <br>(OU) <li> Desabilite a proteção para esta VM para que os trabalhos de backup não sejam criados </ol> |
 | Backup | O agente de máquina virtual não está presente na máquina virtual - instale o pré-requisito necessário, agente de VM e reinicie a operação. | [Leia mais](#vm-agent) sobre a instalação do agente de VM e como validar a instalação do agente de VM. |
 
 ## Trabalhos
 | Operação | Detalhes do erro | Solução alternativa |
 | -------- | -------- | -------|
 | Cancelar trabalho | Não há suporte para cancelamento deste tipo de trabalho - Aguarde até que o trabalho seja concluído. | Nenhum |
-| Cancelar trabalho | O trabalho não está em um estado cancelável - Aguarde até que o trabalho seja concluído. <br>OU<br> O trabalho selecionado não está em um estado cancelável – Aguarde até que o trabalho seja concluído.| Muito provavelmente o trabalho está quase concluído; Aguarde até que o trabalho seja concluído |
+| Cancelar trabalho | O trabalho não está em um estado cancelável - Aguarde até que o trabalho seja concluído. <br>OU<br> o trabalho selecionado não está em um estado cancelável — Aguarde até que o trabalho seja concluído.| Muito provavelmente o trabalho está quase concluído; Aguarde até que o trabalho seja concluído |
 | Cancelar trabalho | Não é possível cancelar o trabalho porque ele não está em andamento - há suporte para cancelamento apenas de trabalhos que estão em andamento. Tente cancelar um trabalho em andamento. | Isso ocorre devido a um estado transitório. Aguarde um minuto e repita a operação de cancelamento |
 | Cancelar trabalho | Falha ao cancelar o trabalho - Aguarde até que o trabalho seja concluído. | Nenhum |
 
@@ -94,7 +94,7 @@ Para VMs do Windows:
 
 Para VMs do Linux:
 
-- Instale o [agente do Linux](https://github.com/Azure/WALinuxAgent) mais recente no GitHub.
+- Instale o [agente Linux](https://github.com/Azure/WALinuxAgent) mais recente do github.
 - [Atualizar a propriedade de VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que o agente está instalado.
 
 
@@ -113,6 +113,22 @@ Como verificar a versão do Agente de VM em VMs do Windows:
 
 1. Faça logon na máquina virtual do Azure e navegue até a pasta *C:\\WindowsAzure\\Packages*. Você deve encontrar o arquivo WaAppAgent.exe presente.
 2. Clique com o botão direito do mouse no arquivo, vá para **Propriedades** e selecione a guia **Detalhes**. O campo Versão do produto deve ser 2.6.1198.718 ou mais recente
+
+## Solucionar Problemas de Instantâneo de VM
+O backup de VM depende da emissão do comando de instantâneo para o armazenamento subjacente. Não ter acesso a armazenamento ou atraso na execução da tarefa do instantâneo pode resultar em falha no backup. O descrito a seguir pode causar falha na tarefa do instantâneo.
+
+1. O acesso à rede para o Armazenamento é bloqueado usando NSG<br> Aprenda mais sobre como [habilitar o acesso à rede](backup-azure-vms-prepare.md#2-network-connectivity) para Armazenamento usando WhiteListing de IPs ou por meio do servidor proxy. 
+2.  Máquinas virtuais com o backup do SQL Server configurado podem causar atraso na tarefa do instantâneo <br> Por padrão, o backup de VM emite backup completo de VSS em VMs do Windows. Em máquinas virtuais que estão executando SQL Servers e nas quais o SQL Server backup está configurado, isso pode causar atraso na execução do instantâneo. Defina a chave do Registro a seguir se houver falhas de backup devido a problemas de instantâneo. 
+
+	```
+	[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
+	"USEVSSCOPYBACKUP"="TRUE"
+	```
+3.  Status da VM informado incorretamente porque a VM está desligada em RDP. <br> Se você desligou a máquina virtual em RDP, verifique no portal que o status da VM esteja refletido corretamente. Se não estiver, desligue a máquina virtual no portal usando a opção 'Desligar' no painel da VM. 
+4.  Várias VMs do mesmo serviço de nuvem são configuradas para backup simultaneamente.<br> É a melhor prática distribuir as VMs do mesmo serviço de nuvem que tem diferentes agendamentos de backup. 
+5.  A VM está executando com alta utilização de CPU/memória.<br> Se a máquina virtual está em execução com alta utilização de CPU (>90%) ou memória, a tarefa de instantâneo é enfileirada, atrasada e eventualmente atingirá o tempo limite. Tente o backup sob demanda em tais situações.
+
+<br>
 
 ## Rede
 Como todas as extensões, a extensão de Backup precisa acessar a Internet pública para trabalhar. A falta de acesso à Internet pública pode se manifestar de inúmeras formas:
@@ -133,4 +149,4 @@ Após a resolução de nomes ser feita corretamente, o acesso às IPs Azure tamb
     - Se você tiver alguma restrição de rede no local (um Grupo de Segurança de Rede, por exemplo), implante um servidor proxy HTTP para encaminhar o tráfego. As etapas para implantar um servidor proxy HTTP podem ser encontradas [aqui](backup-azure-vms-prepare.md#2-network-connectivity).
     - Adicione regras ao NSG (se você tiver uma em vigor) para permitir o acesso à INTERNET do Proxy HTTP.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

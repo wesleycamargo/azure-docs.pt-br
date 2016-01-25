@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="11/20/2015" 
+    ms.date="01/09/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694271.aspx -->
@@ -67,11 +67,11 @@ Os artigos a seguir demonstram o uso do Kit de ferramentas do Azure para Eclipse
 
 [Novidades no Kit de Ferramentas do Azure para Eclipse][]
 
-Para saber mais sobre como usar o Azure com Java, confira a [Central de Desenvolvimento Java do Azure][].
+Para obter mais informações sobre como usar o Azure com o Java, confira a [Central de desenvolvimento Java do Azure][].
 
 <!-- URL List -->
 
-[Central de Desenvolvimento Java do Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Central de desenvolvimento Java do Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Propriedades do Projeto do Azure]: http://go.microsoft.com/fwlink/?LinkID=699524
 [Propriedades da função do Azure]: http://go.microsoft.com/fwlink/?LinkID=699525
 [Pontos de extremidade do Azure]: http://go.microsoft.com/fwlink/?LinkID=699526
@@ -93,4 +93,4 @@ Para saber mais sobre como usar o Azure com Java, confira a [Central de Desenvol
 [Usando a biblioteca de tempo de execução de serviços do Azure no JSP]: http://go.microsoft.com/fwlink/?LinkID=699551
 [Novidades no Kit de Ferramentas do Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

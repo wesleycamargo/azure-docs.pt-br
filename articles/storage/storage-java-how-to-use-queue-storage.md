@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Como usar o Armazenamento de Fila do Java | Microsoft Azure" 
-	description="Saiba como usar o serviço Fila do Azure para criar e excluir filas, bem como para inserir, obter e excluir mensagens. Amostras escritas em Java." 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+<properties
+	pageTitle="Como usar o Armazenamento de Fila do Java | Microsoft Azure"
+	description="Saiba como usar o serviço Fila do Azure para criar e excluir filas, bem como para inserir, obter e excluir mensagens. Amostras escritas em Java."
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="robmcm"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="12/01/2015"
+	ms.author="micurd"/>
 
 # Como usar o Armazenamento de Fila no Java
 
@@ -49,15 +49,15 @@ Adicione as seguintes instruções de importação na parte superior do arquivo 
 Um cliente de armazenamento do Azure usa uma cadeia de conexão para armazenar pontos de extremidade e credenciais para acessar serviços de gerenciamento de dados. Ao ser executado em um aplicativo cliente, é necessário fornecer a cadeia de conexão de armazenamento no formato a seguir, usando o nome da sua conta de armazenamento e a chave de Acesso primário da conta de armazenamento listada no [Portal do Azure](portal.azure.com) para os valores *AccountName* e *AccountKey*. Este exemplo mostra como você pode declarar um campo estático para armazenar a cadeia de conexão:
 
     // Define the connection-string with your values.
-    public static final String storageConnectionString = 
-        "DefaultEndpointsProtocol=http;" + 
-        "AccountName=your_storage_account;" + 
+    public static final String storageConnectionString =
+        "DefaultEndpointsProtocol=http;" +
+        "AccountName=your_storage_account;" +
         "AccountKey=your_storage_account_key";
 
 Em um aplicativo que esteja sendo executado em uma função no Microsoft Azure, essa cadeia pode ser armazenada no arquivo de configuração do serviço, *ServiceConfiguration.cscfg*, podendo ser acessada com uma chamada para o método **RoleEnvironment.getConfigurationSettings**. Segue um exemplo de como obter a cadeia de conexão de um elemento **Setting** denominado *StorageConnectionString* no arquivo de configuração de serviço:
 
     // Retrieve storage account from connection-string.
-    String storageConnectionString = 
+    String storageConnectionString =
         RoleEnvironment.getConfigurationSettings().get("StorageConnectionString");
 
 Os exemplos abaixo pressupõem que você usou um desses dois métodos para obter a cadeia de conexão do armazenamento.
@@ -71,7 +71,7 @@ Use o objeto **CloudQueueClient** para obter uma referência à fila que deseja 
     try
     {
     	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount = 
+    	CloudStorageAccount storageAccount =
 	       CloudStorageAccount.parse(storageConnectionString);
 
 	   // Create the queue client.
@@ -96,7 +96,7 @@ Para inserir uma mensagem em uma fila existente, primeiro crie uma nova **CloudQ
     try
     {
     	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount = 
+    	CloudStorageAccount storageAccount =
 	       CloudStorageAccount.parse(storageConnectionString);
 
     	// Create the queue client.
@@ -125,7 +125,7 @@ Você pode inspecionar a mensagem na frente de uma fila sem removê-la da fila c
     try
     {
     	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount = 
+    	CloudStorageAccount storageAccount =
 	       CloudStorageAccount.parse(storageConnectionString);
 
     	// Create the queue client.
@@ -133,10 +133,10 @@ Você pode inspecionar a mensagem na frente de uma fila sem removê-la da fila c
 
     	// Retrieve a reference to a queue.
     	CloudQueue queue = queueClient.getQueueReference("myqueue");
-			
+
     	// Peek at the next message.
     	CloudQueueMessage peekedMessage = queue.peekMessage();
-			
+
     	// Output the message value.
     	if (peekedMessage != null)
     	{
@@ -158,7 +158,7 @@ O exemplo de código a seguir pesquisa através da fila de mensagens, localiza a
     try
     {
         // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount = 
+        CloudStorageAccount storageAccount =
             CloudStorageAccount.parse(storageConnectionString);
 
     	// Create the queue client.
@@ -167,7 +167,7 @@ O exemplo de código a seguir pesquisa através da fila de mensagens, localiza a
     	// Retrieve a reference to a queue.
     	CloudQueue queue = queueClient.getQueueReference("myqueue");
 
-        // The maximum number of messages that can be retrieved is 32. 
+        // The maximum number of messages that can be retrieved is 32.
         final int MAX_NUMBER_OF_MESSAGES_TO_PEEK = 32;
 
         // Loop through the messages in the queue.
@@ -179,7 +179,7 @@ O exemplo de código a seguir pesquisa através da fila de mensagens, localiza a
                 // Modify the content of the first matching message.
                 message.setMessageContent("Updated contents.");
                 // Set it to be visible in 30 seconds.
-                EnumSet<MessageUpdateFields> updateFields = 
+                EnumSet<MessageUpdateFields> updateFields =
                     EnumSet.of(MessageUpdateFields.CONTENT,
                     MessageUpdateFields.VISIBILITY);
                 // Update the message.
@@ -199,7 +199,7 @@ Como alternativa, o seguinte exemplo de código atualiza apenas a primeira mensa
     try
     {
     	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount = 
+    	CloudStorageAccount storageAccount =
 	       CloudStorageAccount.parse(storageConnectionString);
 
     	// Create the queue client.
@@ -210,13 +210,13 @@ Como alternativa, o seguinte exemplo de código atualiza apenas a primeira mensa
 
     	// Retrieve the first visible message in the queue.
     	CloudQueueMessage message = queue.retrieveMessage();
-			
+
     	if (message != null)
     	{
             // Modify the message content.
             message.setMessageContent("Updated contents.");
             // Set it to be visible in 60 seconds.
-            EnumSet<MessageUpdateFields> updateFields = 
+            EnumSet<MessageUpdateFields> updateFields =
                 EnumSet.of(MessageUpdateFields.CONTENT,
                 MessageUpdateFields.VISIBILITY);
             // Update the message.
@@ -236,7 +236,7 @@ Você pode obter uma estimativa do número de mensagens em uma fila. O método *
     try
     {
     	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount = 
+    	CloudStorageAccount storageAccount =
 	       CloudStorageAccount.parse(storageConnectionString);
 
     	// Create the queue client.
@@ -250,7 +250,7 @@ Você pode obter uma estimativa do número de mensagens em uma fila. O método *
 
     	// Retrieve the newly cached approximate message count.
     	long cachedMessageCount = queue.getApproximateMessageCount();
-			
+
     	// Display the queue length.
     	System.out.println(String.format("Queue length: %d", cachedMessageCount));
     }
@@ -267,7 +267,7 @@ Seu código remove uma mensagem de um fila em duas etapas. Quando você chama **
     try
     {
     	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount = 
+    	CloudStorageAccount storageAccount =
     	    CloudStorageAccount.parse(storageConnectionString);
 
     	// Create the queue client.
@@ -278,7 +278,7 @@ Seu código remove uma mensagem de um fila em duas etapas. Quando você chama **
 
     	// Retrieve the first visible message in the queue.
     	CloudQueueMessage retrievedMessage = queue.retrieveMessage();
-			
+
     	if (retrievedMessage != null)
     	{
     		// Process the message in less than 30 seconds, and then delete the message.
@@ -301,7 +301,7 @@ O exemplo de código a seguir usa o método **retrieveMessages** para obter 20 m
     try
     {
         // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount = 
+        CloudStorageAccount storageAccount =
             CloudStorageAccount.parse(storageConnectionString);
 
         // Create the queue client.
@@ -312,7 +312,7 @@ O exemplo de código a seguir usa o método **retrieveMessages** para obter 20 m
 
         // Retrieve 20 messages from the queue with a visibility timeout of 300 seconds.
         for (CloudQueueMessage message : queue.retrieveMessages(20, 300, null, null)) {
-            // Do processing for all messages in less than 5 minutes, 
+            // Do processing for all messages in less than 5 minutes,
             // deleting each message after processing.
             queue.deleteMessage(message);
         }
@@ -357,7 +357,7 @@ Para excluir uma fila e todas as mensagens contidas nela, chame o método **dele
     try
     {
         // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount = 
+        CloudStorageAccount storageAccount =
             CloudStorageAccount.parse(storageConnectionString);
 
         // Create the queue client.
@@ -391,4 +391,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga es
 [API REST de Armazenamento do Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

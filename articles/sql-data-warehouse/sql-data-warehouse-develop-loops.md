@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Executar loops no SQL Data Warehouse
 O SQL Data Warehouse oferece suporte a loop [WHILE][] para executar repetidamente blocos de instrução. Isso continuará enquanto as condições especificadas forem verdadeiras ou até que o código especificamente encerre o loop usando a palavra-chave `BREAK`. A execução de loops é particularmente útil para a substituição de cursores definidos no código SQL. Felizmente, quase todos os cursores que são escritos em código SQL são do tipo somente leitura de avanço rápido. Portanto, a execução de loops [WHILE] é uma ótima alternativa se você precisar substituir um.
@@ -82,4 +82,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/30/2015" 
+	ms.date="01/08/2016" 
 	ms.author="bradyg"/>
 
 # Consumir um aplicativo de API interna no Serviço de Aplicativo do Azure por meio de um cliente .NET 
@@ -267,4 +267,4 @@ Para obter exemplos adicionais de um código que chame um aplicativo de API de c
 Para saber mais sobre a autenticação no Serviço de Aplicativo, veja [Autenticação para aplicativos de API e aplicativos móveis](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

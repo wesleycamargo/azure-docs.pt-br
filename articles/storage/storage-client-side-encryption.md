@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Criptografia do lado do cliente com .NET para o Armazenamento do Microsoft Azure | Microsoft Azure" 
-	description="A Biblioteca de Clientes do Armazenamento do Azure para .NET oferece suporte à criptografia do lado do cliente e à integração com o Cofre da Chave do Azure para segurança máxima para seus aplicativos do Armazenamento do Azure." 
-	services="storage" 
-	documentationCenter=".net" 
-	authors="tamram" 
-	manager="carolz" 
-	editor=""/>
+<properties
+	pageTitle="Criptografia do lado do cliente com .NET para o Armazenamento do Microsoft Azure | Microsoft Azure"
+	description="A Biblioteca de Clientes do Armazenamento do Azure para .NET oferece suporte à criptografia do lado do cliente e à integração com o Cofre da Chave do Azure para segurança máxima para seus aplicativos do Armazenamento do Azure."
+	services="storage"
+	documentationCenter=".net"
+	authors="tamram"
+	manager="carmonm"
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/05/2016" 
-	ms.author="tamram"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/05/2016"
+	ms.author="lakasa"/>
 
 
 # Criptografia do lado do cliente e o Cofre da Chave do Azure para o Armazenamento do Microsoft Azure
@@ -37,8 +37,8 @@ A criptografia com a técnica de envelope funciona da seguinte maneira:
 
 1. A biblioteca do cliente do Armazenamento do Azure gera um CEK (Chave de Criptografia de Conteúdo) que é uma chave simétrica de uso único.
 2. Os dados do usuário são criptografados usando esse CEK.
-3. O CEK é empacotada (criptografada) usando o KEK (Chave de Criptografia de Chave). O KEK é identificado por um identificador de chave e pode ser um par de chaves assimétricas ou uma chave simétrica e pode ser gerenciada localmente ou armazenada no Cofre da Chave do Azure. 
-	
+3. O CEK é empacotada (criptografada) usando o KEK (Chave de Criptografia de Chave). O KEK é identificado por um identificador de chave e pode ser um par de chaves assimétricas ou uma chave simétrica e pode ser gerenciada localmente ou armazenada no Cofre da Chave do Azure.
+
 	A biblioteca de cliente de armazenamento em si nunca tem acesso ao KEK. Ela simplesmente invoca o algoritmo de disposição de chave fornecido pelo Cofre da Chave. Os usuários podem escolher usar provedores personalizados para desempacotamento/quebra da chave, se desejado.
 
 4. Os dados criptografados, em seguida, são carregados para o serviço de Armazenamento do Azure. A chave empacotada junto com alguns metadados adicionais de criptografia está armazenada como metadados (em um blob) ou interpolada com os dados criptografados (fila de mensagens e entidades de tabela).
@@ -62,7 +62,7 @@ Atualmente, a biblioteca de cliente dá suporte à criptografia somente de blobs
 
 Durante a criptografia, a biblioteca de cliente gerará um vetor de inicialização aleatório (IV) de 16 bytes, juntamente com uma chave de criptografia aleatória de conteúdo (CEK) de 32 bytes e executará a criptografia de envelope dos dados blob usando essas informações. O CEK encapsulado e alguns metadados adicionais de criptografia são armazenadas como metadados com o blob criptografado no serviço de blob.
 
-> [AZURE.WARNING] Se você estiver editando ou carregando seus próprios metadados para o blob, deverá garantir que esses metadados sejam preservado. Se você carregar novos metadados sem esses metadados, o CEK encapsulado, IV e outros metadados serão perdidos e o conteúdo do blob nunca mais poderá ser recuperado.
+> [AZURE.WARNING]Se você estiver editando ou carregando seus próprios metadados para o blob, deverá garantir que esses metadados sejam preservado. Se você carregar novos metadados sem esses metadados, o CEK encapsulado, IV e outros metadados serão perdidos e o conteúdo do blob nunca mais poderá ser recuperado.
 
 Baixar um blob criptografado envolve a recuperação do conteúdo do blob inteiro usando os métodos de conveniência **DownloadTo***/**BlobReadStream**. O CEK encapsulado é desempacotado e usado em conjunto com o IV (armazenado como metadados de blob neste caso) para retornar os dados descriptografados para os usuários.
 
@@ -84,7 +84,7 @@ Durante a descriptografia, a chave encapsulada é extraída da mensagem da fila 
 
 A biblioteca de cliente dá suporte à criptografia de propriedades de entidade para as operações de inserção e substituição.
 
->[AZURE.NOTE] Atualmente não há suporte para a mesclagem. Como um subconjunto de propriedades pode ter sido criptografado anteriormente usando uma chave diferente, simplesmente mesclar as novas propriedades e atualizar os metadados resultará em perda de dados. Mesclar requer fazer chamadas de serviço extra para ler a entidade já existente no serviço ou usar uma nova chave por propriedade, os quais não são ambos adequados por motivos de desempenho.
+>[AZURE.NOTE]Atualmente não há suporte para a mesclagem. Como um subconjunto de propriedades pode ter sido criptografado anteriormente usando uma chave diferente, simplesmente mesclar as novas propriedades e atualizar os metadados resultará em perda de dados. Mesclar requer fazer chamadas de serviço extra para ler a entidade já existente no serviço ou usar uma nova chave por propriedade, os quais não são ambos adequados por motivos de desempenho.
 
 Criptografia de dados de tabela funciona da seguinte maneira:
 
@@ -95,7 +95,7 @@ Criptografia de dados de tabela funciona da seguinte maneira:
 
 Observe que somente as propriedades de cadeia de caracteres podem ser criptografadas. Se outros tipos de propriedades precisarem ser criptografados, elas devem ser convertidas em cadeias de caracteres. As cadeias de caracteres criptografadas são armazenadas no serviço como propriedades binárias, e são convertidas novamente em cadeias de caracteres após a descriptografia.
 
-Para tabelas, além da política de criptografia, os usuários devem especificar as propriedades que devem ser criptografadas. Isso pode ser feito especificando o atributo [EncryptProperty] \(para entidades POCO que derivam de TableEntity) ou um resolvedor de criptografia nas opções de solicitação. Um resolvedor de criptografia é um delegado que usa uma chave de partição, a chave de linha e o nome da propriedade e retorna um valor booliano que indica se essa propriedade deve ser criptografada. Durante a criptografia, a biblioteca de cliente usará essas informações para decidir se uma propriedade deve ser criptografada durante a gravação para a transmissão. O representante também oferece a possibilidade de lógica em torno de como as propriedades são criptografadas. (Por exemplo, se X, então criptografar a propriedade A; caso contrário, criptografar as propriedades A e B.) Observe que não é necessário fornecer essas informações durante a leitura ou ap consultar entidades.
+Para tabelas, além da política de criptografia, os usuários devem especificar as propriedades que devem ser criptografadas. Isso pode ser feito especificando o atributo [EncryptProperty] (para entidades POCO que derivam de TableEntity) ou um resolvedor de criptografia nas opções de solicitação. Um resolvedor de criptografia é um delegado que usa uma chave de partição, a chave de linha e o nome da propriedade e retorna um valor booliano que indica se essa propriedade deve ser criptografada. Durante a criptografia, a biblioteca de cliente usará essas informações para decidir se uma propriedade deve ser criptografada durante a gravação para a transmissão. O representante também oferece a possibilidade de lógica em torno de como as propriedades são criptografadas. (Por exemplo, se X, então criptografar a propriedade A; caso contrário, criptografar as propriedades A e B.) Observe que não é necessário fornecer essas informações durante a leitura ou ap consultar entidades.
 
 ### Operações em lote
 
@@ -160,16 +160,16 @@ Crie um objeto **BlobEncryptionPolicy** e o defina nas opções de solicitação
 
 	// Create the IKey used for encryption.
  	RsaKey key = new RsaKey("private:key1" /* key identifier */);
-  
+
  	// Create the encryption policy to be used for upload and download.
  	BlobEncryptionPolicy policy = new BlobEncryptionPolicy(key, null);
-  
+
  	// Set the encryption policy on the request options.
  	BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
-  
+
  	// Upload the encrypted contents to the blob.
  	blob.UploadFromStream(stream, size, null, options, null);
-  
+
  	// Download and decrypt the encrypted contents from the blob.
  	MemoryStream outputStream = new MemoryStream();
  	blob.DownloadToStream(outputStream, null, options, null);
@@ -181,14 +181,14 @@ Crie um objeto **QueueEncryptionPolicy** e o defina nas opções de solicitaçã
 
 	// Create the IKey used for encryption.
  	RsaKey key = new RsaKey("private:key1" /* key identifier */);
-  
+
  	// Create the encryption policy to be used for upload and download.
  	QueueEncryptionPolicy policy = new QueueEncryptionPolicy(key, null);
-  
+
  	// Add message
  	QueueRequestOptions options = new QueueRequestOptions() { EncryptionPolicy = policy };
  	queue.AddMessage(message, null, null, options, null);
-  
+
  	// Retrieve message
  	CloudQueueMessage retrMessage = queue.GetMessage(null, options, null);
 
@@ -201,12 +201,12 @@ Além de criar uma política de criptografia e defini-la nas opções de solicit
 
 	// Create the IKey used for encryption.
  	RsaKey key = new RsaKey("private:key1" /* key identifier */);
-  
+
  	// Create the encryption policy to be used for upload and download.
  	TableEncryptionPolicy policy = new TableEncryptionPolicy(key, null);
-  
- 	TableRequestOptions options = new TableRequestOptions() 
- 	{ 
+
+ 	TableRequestOptions options = new TableRequestOptions()
+ 	{
     	EncryptionResolver = (pk, rk, propName) =>
      	{
         	if (propName == "foo")
@@ -217,17 +217,17 @@ Além de criar uma política de criptografia e defini-la nas opções de solicit
      	},
      	EncryptionPolicy = policy
  	};
-  
+
  	// Insert Entity
  	currentTable.Execute(TableOperation.Insert(ent), options, null);
-  
+
  	// Retrieve Entity
  	// No need to specify an encryption resolver for retrieve
- 	TableRequestOptions retrieveOptions = new TableRequestOptions() 
+ 	TableRequestOptions retrieveOptions = new TableRequestOptions()
  	{
     	EncryptionPolicy = policy
  	};
-  
+
  	TableOperation operation = TableOperation.Retrieve(ent.PartitionKey, ent.RowKey);
  	TableResult result = currentTable.Execute(operation, retrieveOptions, null);
 
@@ -244,9 +244,6 @@ Observe que criptografar seu armazenamento de dados resulta em uma sobrecarga ad
 
 ## Próximas etapas
 
-Baixar a [Biblioteca de Cliente do Armazenamento do Azure para o pacote .NET NuGet](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0)
-Baixar a [Biblioteca de Cliente do Armazenamento do Azure para o código-fonte .NET](https://github.com/Azure/azure-storage-net) no GitHub 
-Baixar os pacotes NuGet de [Núcleo](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Cliente](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) e [Extensões](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) do Cofre da Chave do Azure
-Visite a [Documentação do Cofre da Chave do Azure](../articles/key-vault-whatis.md)
+Baixar a [Biblioteca de Cliente do Armazenamento do Azure para o pacote .NET NuGet](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0) Baixar a [Biblioteca de Cliente do Armazenamento do Azure para o código-fonte .NET](https://github.com/Azure/azure-storage-net) no GitHub Baixar os pacotes NuGet de [Núcleo](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Cliente](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) e [Extensões](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) do Cofre da Chave do Azure Visite a [Documentação do Cofre da Chave do Azure](../articles/key-vault-whatis.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

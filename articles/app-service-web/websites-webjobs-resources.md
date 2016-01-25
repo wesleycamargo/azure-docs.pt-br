@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Recursos de documentação do Azure Webjobs
@@ -139,4 +139,4 @@ Consulte também as seguintes seções sobre [Implantação de Trabalhos Web](#d
 * [Twitter](http://twitter.com/). Use a hashtag #AzureWebJobs.
 * [Relatar um problema ou bug do WebJobs](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

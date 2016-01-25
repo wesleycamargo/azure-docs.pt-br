@@ -1,40 +1,40 @@
-<properties 
-   pageTitle="Configurar um Application Gateway para o descarregamento SSL usando a implantação clássica | Microsoft Azure"
-   description="Este artigo fornece instruções para criar um application gateway com descarregamento SSL usando o modelo de implantação clássica do Azure."
+<properties
+   pageTitle="Configurar um Application Gateway para o descarregamento de SSL usando a implantação clássica | Microsoft Azure"
+   description="Este artigo fornece instruções para criar um Application Gateway com descarregamento de protocolo SSL usando o modelo de implantação clássica do Azure."
    documentationCenter="na"
    services="application-gateway"
    authors="joaoma"
    manager="jdial"
    editor="tysonn"/>
-<tags 
+<tags
    ms.service="application-gateway"
    ms.devlang="na"
-   ms.topic="article" 
+   ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
+   ms.workload="infrastructure-services"
    ms.date="10/28/2015"
    ms.author="joaoma"/>
 
-# Configurar um Application Gateway para o descarregamento SSL usando o modelo implantação clássico 
+# Configurar um Application Gateway para o descarregamento SSL usando o modelo implantação clássico
 
 > [AZURE.SELECTOR]
--[Azure Classic Powershell](application-gateway-ssl.md)
--[Azure Resource Manager Powershell](application-gateway-ssl-arm.md)
+-[Azure Classic PowerShell](application-gateway-ssl.md)
+-[Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
 
-O Application Gateway pode ser configurado para encerrar a sessão SSL no gateway para evitar que a onerosa tarefa de descriptografia de SSL aconteça no web farm. O descarregamento SSL também simplifica a configuração do servidor front-end e o gerenciamento do aplicativo Web.
+O Azure Application Gateway pode ser configurado para encerrar a sessão de protocolo SSL no gateway para evitar que a onerosa tarefa de descriptografia de SSL aconteça no Web farm. O descarregamento SSL também simplifica a configuração do servidor front-end e o gerenciamento do aplicativo Web.
 
 
 
 ## Antes de começar
 
-1. Instale a versão mais recente dos cmdlets do Azure PowerShell usando o Web Platform Installer. Você pode baixar e instalar a versão mais recente na seção **Windows PowerShell** da [página Download](http://azure.microsoft.com/downloads/).
+1. Instale a versão mais recente dos cmdlets do Azure PowerShell usando o Web Platform Installer. Você pode baixar e instalar a versão mais recente na seção **Windows PowerShell** da [página Downloads](http://azure.microsoft.com/downloads/).
 2. Verifique se você tem uma rede virtual em funcionamento com uma sub-rede válida.
 3. Verifique se você tem servidores back-end na rede virtual ou com um IP/VIP público atribuído.
 
-Para configurar o descarregamento SSL em um application gateway, execute as seguintes etapas na ordem listada.
+Para configurar o descarregamento de SSL em um Application Gateway, execute as seguintes etapas na ordem listada:
 
 1. [Criar um novo gateway de aplicativo](#create-a-new-application-gateway)
-2. [Carregar certificados SSL](#upload-ssl-certificates) 
+2. [Carregar certificados SSL](#upload-ssl-certificates)
 3. [Configurar o gateway](#configure-the-gateway)
 4. [Definir a configuração do gateway](#set-the-gateway-configuration)
 5. [Iniciar o gateway](#start-the-gateway)
@@ -43,66 +43,66 @@ Para configurar o descarregamento SSL em um application gateway, execute as segu
 
 ## Criar um novo gateway de aplicativo
 
-**Para criar o gateway**, use o cmdlet `New-AzureApplicationGateway`, substituindo os valores pelos seus próprios. Observe que a cobrança pelo gateway não se inicia neste momento. A cobrança é iniciada em uma etapa posterior, quando o gateway é iniciado com êxito.
+Para criar o gateway, use o cmdlet **New-AzureApplicationGateway**, substituindo os valores pelos seus próprios. Observe que a cobrança pelo gateway não se inicia neste momento. A cobrança é iniciada em uma etapa posterior, quando o gateway é iniciado com êxito.
 
 Este exemplo mostra o cmdlet na primeira linha, seguido pela saída.
 
 	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
-	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway 
+	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway
 	VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error 
+	Name       HTTP Status Code     Operation ID                             Error
 	----       ----------------     ------------                             ----
 	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 
-**Para validar** que esse gateway foi criado, você pode usar o cmdlet `Get-AzureApplicationGateway`.
+Para validar que esse gateway foi criado, você poderá usar o cmdlet **Get-AzureApplicationGateway**.
 
 
-No exemplo, *Description*, *InstanceCount* e *GatewaySize* são parâmetros opcionais. O valor padrão para *InstanceCount* é 2, com um valor máximo de 10. O valor padrão para *GatewaySize* é Medium. Small e Large são outros valore disponíveis. *Vip* e *DnsName* são mostrados em branco porque o gateway ainda não foi iniciado. Eles serão criados depois que o gateway estiver em estado de execução.
+No exemplo, *Description*, *InstanceCount* e *GatewaySize* são parâmetros opcionais. O valor padrão para *InstanceCount* é 2, com um valor máximo de 10. O valor padrão para *GatewaySize* é Medium. Small e Large são outros valore disponíveis. *VirtualIPs* e *DnsName* são mostrados em branco porque o gateway ainda não foi iniciado. Eles serão criados depois que o gateway estiver em estado de execução.
 
 Este exemplo mostra o cmdlet na primeira linha, seguido pela saída.
 
 	PS C:\> Get-AzureApplicationGateway AppGwTest
 
 	VERBOSE: 4:39:39 PM - Begin Operation:
-	Get-AzureApplicationGateway VERBOSE: 4:39:40 PM - Completed 
+	Get-AzureApplicationGateway VERBOSE: 4:39:40 PM - Completed
 	Operation: Get-AzureApplicationGateway
-	Name: AppGwTest	
-	Description: 
-	VnetName: testvnet1 
-	Subnets: {Subnet-1} 
-	InstanceCount: 2 
-	GatewaySize: Medium 
-	State: Stopped 
-	VirtualIPs: 
+	Name: AppGwTest
+	Description:
+	VnetName: testvnet1
+	Subnets: {Subnet-1}
+	InstanceCount: 2
+	GatewaySize: Medium
+	State: Stopped
+	VirtualIPs:
 	DnsName:
 
 
-## Carregar certificados SSL 
+## Carregar certificados SSL
 
-Use `Add-AzureApplicationGatewaySslCertificate` para carregar o certificado do servidor no formato *pfx* no Application Gateway. O nome do certificado é um nome escolhido pelo usuário e deve ser exclusivo dentro do gateway de aplicativo. Esse certificado é conhecido por esse nome em todas as operações de gerenciamento de certificado no gateway de aplicativo.
+Use **Add-AzureApplicationGatewaySslCertificate** para carregar o certificado do servidor no formato *pfx* no Application Gateway. O nome do certificado é um nome escolhido pelo usuário e deve ser exclusivo dentro do gateway de aplicativo. Esse certificado é conhecido por esse nome em todas as operações de gerenciamento de certificado no gateway de aplicativo.
 
 Este exemplo mostra o cmdlet na primeira linha, seguido pela saída. Substitua os valores no exemplo pelos seus próprios.
 
-	PS C:\> Add-AzureApplicationGatewaySslCertificate  -Name AppGwTest -CertificateName GWCert -Password <password> -CertificateFile <full path to pfx file> 
-	
-	VERBOSE: 5:05:23 PM - Begin Operation: Get-AzureApplicationGatewaySslCertificate 
+	PS C:\> Add-AzureApplicationGatewaySslCertificate  -Name AppGwTest -CertificateName GWCert -Password <password> -CertificateFile <full path to pfx file>
+
+	VERBOSE: 5:05:23 PM - Begin Operation: Get-AzureApplicationGatewaySslCertificate
 	VERBOSE: 5:06:29 PM - Completed Operation: Get-AzureApplicationGatewaySslCertificate
-	Name       HTTP Status Code     Operation ID                             Error 
+	Name       HTTP Status Code     Operation ID                             Error
 	----       ----------------     ------------                             ----
 	Successful OK                   21fdc5a0-3bf7-2c12-ad98-192e0dd078ef
 
-Em seguida, valide o carregamento do certificado. Use o `Get-AzureApplicationGatewayCertificate`.
+Em seguida, valide o carregamento do certificado. Use o cmdlet **Get-AzureApplicationGatewayCertificate**.
 
 Este exemplo mostra o cmdlet na primeira linha, seguido pela saída.
 
-	PS C:\> Get-AzureApplicationGatewaySslCertificate AppGwTest 
+	PS C:\> Get-AzureApplicationGatewaySslCertificate AppGwTest
 
-	VERBOSE: 5:07:54 PM - Begin Operation: Get-AzureApplicationGatewaySslCertificate 
+	VERBOSE: 5:07:54 PM - Begin Operation: Get-AzureApplicationGatewaySslCertificate
 	VERBOSE: 5:07:55 PM - Completed Operation: Get-AzureApplicationGatewaySslCertificate
-	Name           : SslCert 
-	SubjectName    : CN=gwcert.app.test.contoso.com 
-	Thumbprint     : AF5ADD77E160A01A6......EE48D1A 
+	Name           : SslCert
+	SubjectName    : CN=gwcert.app.test.contoso.com
+	Thumbprint     : AF5ADD77E160A01A6......EE48D1A
 	ThumbprintAlgo : sha1RSA
 	State..........: Provisioned
 
@@ -112,18 +112,18 @@ Este exemplo mostra o cmdlet na primeira linha, seguido pela saída.
 Uma configuração de gateway de aplicativo consiste em vários valores. Os valores podem ser vinculados para construir a configuração.
 
 Os valores são:
- 
-- **Pool de servidores back-end:** a lista de endereços IP dos servidores back-end. Os endereços IP listados ou devem pertencer à sub-rede da VNet, ou devem ser um IP/VIP público. 
+
+- **Pool de servidores back-end:** a lista de endereços IP dos servidores back-end. Os endereços IP listados devem pertencer à sub-rede da rede virtual ou devem ser um IP/VIP público.
 - **Configurações do pool de servidores back-end:** cada pool tem configurações como porta, protocolo e afinidade baseada em cookie. Essas configurações são vinculadas a um pool e aplicadas a todos os servidores no pool.
 - **Porta front-end:** essa porta é a porta pública aberta no Application Gateway. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end.
-- **Ouvinte:** o ouvinte tem uma porta front-end, um protocolo (HTTP ou HTTPS, que diferencia maiúsculas de minúsculas) e o nome do certificado SSL (se estiver configurando o descarregamento SSL). 
-- **Regra:** a regra vincula o ouvinte e o pool de servidores back-end e define à qual pool de servidores back-end o tráfego deve ser direcionado quando atinge um ouvinte específico. Atualmente, há suporte apenas para a regra *básica*. A regra *basic* é a distribuição de carga round robin.
+- **Ouvinte:** o ouvinte tem uma porta front-end, um protocolo (HTTP ou HTTPS, que diferencia maiúsculas de minúsculas) e o nome do certificado SSL (se estiver configurando o descarregamento de protocolo SSL).
+- **Regra:** a regra vincula o ouvinte e o pool de servidores back-end e define à qual pool de servidores back-end o tráfego deve ser direcionado quando atinge um ouvinte específico. Atualmente, há suporte apenas para a regra *basic*. A regra *basic* é a distribuição de carga round robin.
 
-**Observações adicionais sobre a configuração:**
+**Observações adicionais sobre a configuração**
 
-Para a configuração de certificados SSL, o protocolo em **HttpListener** deve ser alterado para *Https* (com distinção entre maiúsculas e minúsculas). O elemento **SslCert** precisa ser adicionado ao **HttpListener** com o valor definido como o mesmo nome que foi usado no upload de certificados SSL acima. A porta front-end deve ser atualizada para 443.
+Para a configuração de certificados SSL, o protocolo em **HttpListener** deve ser alterado para *Https* (diferencia maiúsculas de minúsculas). O elemento **SslCert** precisa ser adicionado ao **HttpListener** com o valor definido como o mesmo nome que foi usado no upload de certificados SSL acima. A porta front-end deve ser atualizada para 443.
 
-**Para habilitar a afinidade baseada em cookie**: um gateway de aplicativo pode ser configurado para garantir que a solicitação de uma sessão de cliente sempre seja direcionada para a mesma VM no web farm. Isso é feito pela injeção de um cookie de sessão que permite que o gatewy redirecione o tráfego corretamente. Para habilitar a afinidade baseada em cookie, defina **CookieBasedAffinity** como *Habilitado* no elemento **BackendHttpSettings**.
+**Para habilitar a afinidade baseada em cookie**: um Application Gateway pode ser configurado para garantir que uma solicitação de uma sessão de cliente sempre seja direcionada para a mesma VM no Web farm. Isso é feito pela injeção de um cookie de sessão que permite que o gateway redirecione o tráfego corretamente. Para habilitar a afinidade baseada em cookie, defina **CookieBasedAffinity** como *Habilitado* no elemento **BackendHttpSettings**.
 
 
 
@@ -180,44 +180,44 @@ Você pode construir sua configuração criando um objeto de configuração ou u
 
 ## Definir a configuração do gateway
 
-Em seguida, você vai configurar o gateway de aplicativo. É possível usar o cmdlet `Set-AzureApplicationGatewayConfig` com um objeto de configuração ou com um arquivo XML de configuração.
+Em seguida, você vai configurar o gateway de aplicativo. É possível usar o cmdlet **Set-AzureApplicationGatewayConfig** com um objeto de configuração ou com um arquivo XML de configuração.
 
 
 	PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
 
-	VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig 
+	VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig
 	VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
-	Name       HTTP Status Code     Operation ID                             Error 
+	Name       HTTP Status Code     Operation ID                             Error
 	----       ----------------     ------------                             ----
 	Successful OK                   9b995a09-66fe-2944-8b67-9bb04fcccb9d
 
 ## Iniciar o gateway
 
-Depois que o gateway tiver sido configurado, use o cmdlet `Start-AzureApplicationGateway` para iniciá-lo. A cobrança por um gateway de aplicativo começa depois que o gateway tiver sido iniciado com êxito.
+Depois que o gateway tiver sido configurado, use o cmdlet **Start-AzureApplicationGateway** para iniciá-lo. A cobrança por um gateway de aplicativo começa depois que o gateway tiver sido iniciado com êxito.
 
 
-**Observação:** o cmdlet `Start-AzureApplicationGateway` pode levar de 15 a 20 minutos para ser concluído.
+**Observação:** o cmdlet **Start-AzureApplicationGateway** pode demorar de 15 a 20 minutos para ser concluído.
 
-   
-	PS C:\> Start-AzureApplicationGateway AppGwTest 
 
-	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway 
+	PS C:\> Start-AzureApplicationGateway AppGwTest
+
+	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway
 	VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error 
+	Name       HTTP Status Code     Operation ID                             Error
 	----       ----------------     ------------                             ----
 	Successful OK                   fc592db8-4c58-2c8e-9a1d-1c97880f0b9b
 
 
 ## Verificar o status do gateway
 
-Use o cmdlet `Get-AzureApplicationGateway` para verificar o status do gateway. Se *Start-AzureApplicationGateway* foi bem-sucedido na etapa anterior, o item State deverá ser *Running*, e Vip e DnsName deverão ter entradas válidas.
+Use o cmdlet **Get-AzureApplicationGateway** para verificar o status do gateway. Se **Start-AzureApplicationGateway** tiver sido bem-sucedido na etapa anterior, o item *Estado* deverá ser Em execução e *VirtualIPs* e *DnsName* deverão ter entradas válidas.
 
-Este exemplo mostra um gateway de aplicativo que está ativo, em execução e pronto para assumir o tráfego
+Este exemplo mostra um Application Gateway que está ativo, em execução e pronto para receber tráfego.
 
-	PS C:\> Get-AzureApplicationGateway AppGwTest 
+	PS C:\> Get-AzureApplicationGateway AppGwTest
 
 	Name          : AppGwTest2
-	Description   : 
+	Description   :
 	VnetName      : testvnet1
 	Subnets       : {Subnet-1}
 	InstanceCount : 2
@@ -235,4 +235,4 @@ Se deseja obter mais informações sobre as opções de balanceamento de carga n
 - [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

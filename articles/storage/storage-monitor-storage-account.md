@@ -4,8 +4,8 @@
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
-	manager="adinah"
-	editor="cgronlun"/>
+	manager="carmonm"
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -157,4 +157,4 @@ Para cada um dos serviços de armazenamento disponíveis com sua conta de armaze
 
 Os logs de diagnóstico são salvos em um contêiner de blob denominado $logs em sua conta de armazenamento. Para obter informações sobre como acessar o contêiner $logs, consulte [Sobre o Log de Analítica do Armazenamento](http://msdn.microsoft.com/library/azure/hh343262.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -21,7 +21,7 @@
 
 Os conjuntos de dimensionamento de máquina virtual são um recurso de Computação do Azure que você pode usar para implantar e gerenciar um conjunto de VMs idênticas. Com todas as VMs configuradas igualmente, os conjuntos de dimensionamento de VM foram desenvolvidos para oferecer suporte ao verdadeiro dimensionamento automático — não é necessário o pré-provisionamento das VMs — e, desse modo, facilitar a criação de serviços em grande escala visando big compute, big data e cargas de trabalho contidas.
 
-[AZURE.INCLUDE [virtual-machines-vmss-preview](../../includes/virtual-machines-vmss-preview-include.md)]
+[AZURE.INCLUDE [virtual-machines-vmss-preview](../../includes/virtual-machines-vmss-preview-ps-include.md)]
 
 Para aplicativos que necessitam dimensionar os recursos de computação, as operações de dimensionamento são balanceadas implicitamente entre domínios de falha e atualização. Para ver uma introdução aos conjuntos de dimensionamento de VM, confira o recente [Comunicado no blog do Azure](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview).
 
@@ -153,4 +153,4 @@ Esta seção lista alguns cenários típicos de conjunto de dimensionamento de V
 
 **A.** Sim. Um conjunto de dimensionamento de VM é um conjunto de disponibilidade implícito com 3 FDs e 5 UDs. Não é preciso configurar nada em virtualMachineProfile. Em versões futuras, os conjuntos de dimensionamento de VM provavelmente incluirão vários locatários, mas, por enquanto, um conjunto de dimensionamento é um único conjunto de disponibilidade.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

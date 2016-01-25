@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/06/2015"
+   ms.date="01/08/2016"
    ms.author="larryfr"/>
 
 # Usar o MapReduce no Hadoop do HDInsight
@@ -193,4 +193,4 @@ Embora o MapReduce forneça recursos avançados para diagnóstico, ele pode ser 
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

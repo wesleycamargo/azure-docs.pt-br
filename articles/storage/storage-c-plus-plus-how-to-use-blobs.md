@@ -1,20 +1,20 @@
-<properties 
-    pageTitle="Como usar o armazenamento de blobs (C++) | Microsoft Azure" 
-    description="Saiba como usar o serviço de armazenamento de blobs no Azure. As amostras são escritas em C++." 
-    services="storage" 
-    documentationCenter=".net" 
-    authors="tamram" 
-    manager="adinah" 
-    editor=""/>
+<properties
+    pageTitle="Como usar o armazenamento de blobs (C++) | Microsoft Azure"
+    description="Saiba como usar o serviço de armazenamento de blobs no Azure. As amostras são escritas em C++."
+    services="storage"
+    documentationCenter=".net"
+    authors="tamram"
+    manager="carmonm"
+    editor="tysonn"/>
 
-<tags 
-    ms.service="storage" 
-    ms.workload="storage" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="01/05/2016" 
-    ms.author="tamram"/>
+<tags
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/05/2016"
+    ms.author="dineshm"/>
 
 # Como usar o Armazenamento de Blob em C++  
 
@@ -78,7 +78,7 @@ Em seguida, obtenha uma referência para uma classe **cloud\_blob\_client** que 
 
 Este exemplo mostra como criar um contêiner se ele ainda não existir:
 
-	try 
+	try
 	{
 		// Retrieve storage account from connection string.
 		azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -189,7 +189,7 @@ Para baixar blobs, primeiro recupere uma referência do blob, em seguida, chame 
 
 	std::ofstream outfile("DownloadBlobFile.txt", std::ofstream::binary);
 	std::vector<unsigned char>& data = buffer.collection();
-		
+
 	outfile.write((char *)&data[0], buffer.size());
 	outfile.close();  
 
@@ -238,8 +238,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de blobs, siga e
 -	[Documentação do Armazenamento do Azure](http://azure.microsoft.com/documentation/services/storage/)
 - [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy)
 
-
-
- 
-
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

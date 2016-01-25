@@ -4,8 +4,8 @@
 	services="storage" 
 	documentationCenter="" 
 	authors="tamram" 
-	manager="adinah" 
-	editor=""/>
+	manager="carmonm" 
+	editor="tysonn"/>
 <tags 
 	ms.service="storage" 
 	ms.workload="storage" 
@@ -232,4 +232,4 @@ Não existem diferenças específicas para o armazenamento de fila no emulador.
 
 - A versão 2013-08-15 dos serviços de armazenamento do Azure agora tem total suporte. (Anteriormente nesta versão só tinha suporte do emulador de armazenamento versão 2.2.1 Preview.)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter="python" 
 	authors="emgerner-msft" 
 	manager="wpickett" 
-	editor=""/>
+	editor="tysonn"/>
 
 <tags 
 	ms.service="storage" 
@@ -29,7 +29,7 @@ Este guia mostra como executar cenários comuns usando o serviço de armazenamen
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 
-> [AZURE.NOTE] Se você precisar instalar o Python ou o [pacote do Python Azure][], consulte o [Guia de instalação do Python](../python-how-to-install.md).
+> [AZURE.NOTE]Se você precisar instalar o Python ou o [pacote do Python Azure][], consulte o [Guia de instalação do Python](../python-how-to-install.md).
 
 ## Como criar uma fila
 
@@ -113,4 +113,4 @@ Para obter mais informações, consulte também o [Python Developer Center](/dev
 [pacote de armazenamento do Python Azure]: https://pypi.python.org/pypi/azure-storage
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -1,10 +1,12 @@
-1. In the portal, go to **New**, then **Browse**. Select **Virtual network gateways** from the list.
-2. Click **Add**.
-3. Name your gateway. This is not the same as naming a gateway subnet. This is the name of the gateway object. 
-4. In **Virtual network**, select the VNet that you want to connect to this gateway.
-5. In the settings for the VNet, for the **Public IP address** value, create a name your public IP address. Note that this is not asking for an IP address. The IP address will be assigned dynamically. Rather, this is the name of the IP address object that the address will be assigned to. 
-6. For **VPN type**, the choices are policy-based and route-based. Be sure to select the VPN gateway type that is both supported by the configuration scenario, and, if required for your configuration, supported by the VPN gateway device you plan to use.
-7. For **Resource Group**, choose **select existing** and choose the resource group that your VNet resides in, unless your configuration requires a different choice.
-8. For **Location**, make sure it's showing the location that both your Resource Group and VNet exist in.
-9. Click **Create**. You'll see the *Deploying Virtual network gateway* tile on the dashboard. Creating a gateway takes some time. There is a lot going on in the background. Plan for 15 minutes or more. You may need to refresh your portal page in order to see the completed status.
-10. After the gateway is created, you can view the IP address that has been assigned to it by looking at the Virtual Network in the portal. The gateway will appear as a connected device. You can view the name and the IP address assigned to the gateway.
+1. No portal, vá para **Novo** e, em seguida, **Procurar**. Selecione **Gateways de rede virtual** da lista.
+2. Clique em **Adicionar**.
+3. Nomeie o seu gateway. Isso não é igual a nomear uma sub-rede de gateway. Esse é o nome do objeto de gateway. 
+4. Em **Rede virtual**, selecione a rede virtual que você deseja conectar a esse gateway.
+5. Nas configurações da Rede Virtual, para o valor **Endereço IP público**, crie um nome para seu endereço IP público. Observe que isso não é o mesmo que pedir por um endereço IP. O endereço IP será atribuído dinamicamente. Em vez disso, esse é o nome do objeto de endereço IP ao qual o endereço será atribuído. 
+6. Para **Tipo de VPN**, as opções são baseadas em política e baseadas em rota. Certifique-se de selecionar o tipo de gateway de VPN que tem suporte tanto pelo cenário de configuração quanto, se necessário para sua configuração, pelo dispositivo de gateway de VPN que você planeja usar.
+7. Para **Grupo de Recursos**, escolha **selecionar existente** e escolha o grupo de recursos em que reside sua rede virtual, a menos que sua configuração exija uma opção diferente.
+8. Para **Local**, verifique se ele está mostrando o local em que existem ambos o seu Grupo de Recursos e sua Rede Virtual.
+9. Clique em **Criar**. Você verá o bloco *Implantando gateway de rede virtual* no painel. Criar um gateway leva algum tempo. Há muitas coisas acontecendo em segundo plano. Planeje que isso leve 15 minutos ou mais. Talvez seja necessário atualizar a página do portal para ver o status concluído.
+10. Depois de criar o gateway você pode exibir, observando a Rede Virtual no portal, o endereço IP que foi atribuído a esse gateway. O gateway será exibido como um dispositivo conectado. Você pode exibir o nome e o endereço IP atribuído ao gateway.
+
+<!---HONumber=AcomDC_0114_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configurar pontos de extremidade em uma máquina virtual no Azure"
+	pageTitle="Configurar pontos de extremidade em uma máquina virtual clássica | Microsoft Azure"
 	description="Saiba como configurar pontos de extremidade no portal clássico do Azure para permitir a comunicação com uma máquina virtual no Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -11,29 +11,21 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/28/2015"
+	ms.date="01/06/2016"
 	ms.author="cynthn"/>
 
-#Como instalar pontos de extremidade em uma máquina virtual
+# Como configurar pontos de extremidade em uma máquina virtual clássica do Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos. Para uma implantação do Gerenciador de Recursos, consulte [Introdução à configuração de um balanceador de carga para a Internet usando o Gerenciador de Recursos do Azure](../load-balancer/load-balancer-arm-powershell.md) e [Sobre grupos de segurança de rede](virtual-networks-nsg.md).
 
-Todas as máquinas virtuais criadas no Azure podem se comunicar automaticamente com outras máquinas virtuais no mesmo serviço de nuvem ou rede virtual usando um canal de rede privada. No entanto, os computadores na Internet ou outras redes virtuais requerem pontos de extremidade para direcionar o tráfego de rede de entrada para uma máquina virtual.
+Todas as máquinas virtuais criadas no Azure usando o modelo de implantação clássico podem se comunicar automaticamente com outras máquinas virtuais no mesmo serviço de nuvem ou rede virtual por um canal de rede privada. No entanto, os computadores na Internet ou outras redes virtuais requerem pontos de extremidade para direcionar o tráfego de rede de entrada para uma máquina virtual.
 
-Quando você cria uma máquina virtual no portal clássico do Azure, pontos de extremidade para a Área de Trabalho Remota, Comunicação Remota do Windows PowerShell e SSH (Secure Shell) são criados automaticamente. Você pode configurar pontos de extremidade adicionais criando a máquina virtual ou posteriormente, conforme a necessidade.
+Quando você cria uma máquina virtual no portal clássico do Azure, pontos de extremidade comuns como aqueles para a Área de Trabalho Remota, Comunicação Remota do Windows PowerShell e SSH (Secure Shell) normalmente são criados para você automaticamente, dependendo do sistema operacional que você escolher. Você pode configurar pontos de extremidade adicionais criando a máquina virtual ou posteriormente, conforme a necessidade.
 
-[AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
-
-- [Sobre grupos de segurança de rede](virtual-networks-nsg.md)
-
-É importante lembrar que os grupos de segurança de rede controlam o acesso à máquina virtual, mas não fornecem recursos de encaminhamento de porta. Para realizar o encaminhamento de porta, confira o seguinte artigo:
-
-- [Introdução à configuração de um balanceador de carga para a Internet usando o Gerenciador de Recursos do Azure](../load-balancer/load-balancer-arm-powershell.md)
-
-Cada ponto de extremidade tem uma porta pública e uma privada:
+Cada ponto de extremidade tem uma *porta pública* e uma *privada*:
 
 - A porta pública é usada pelo balanceador de carga do Azure para ouvir o tráfego de entrada da Internet com destino à máquina virtual.
 - A porta privada é usada pela máquina virtual para ouvir o tráfego de entrada normalmente com destino a um aplicativo ou serviço em execução na máquina virtual.
@@ -44,7 +36,7 @@ Depois de criar um ponto de extremidade, você pode usar uma lista de controle d
 
 > [AZURE.NOTE]\: a configuração do firewall para máquinas virtuais do Azure é feita automaticamente para as portas associadas com a Área de Trabalho Remota e SSH (Secure Shell), e, na maioria dos casos, para Comunicação Remota do Windows PowerShell. Para portas especificadas para todos os outros pontos de extremidade, nenhuma configuração é feita automaticamente para o firewall da máquina virtual. Ao criar um ponto de extremidade para a máquina virtual, você precisará garantir que o firewall da máquina virtual também permita tráfego para o protocolo e a porta privada correspondente à configuração do ponto de extremidade.
 
-##Criar um ponto de extremidade
+## Criar um ponto de extremidade
 
 1.	Se você ainda não fez isso, entre no portal clássico do Azure.
 2.	Clique em **Máquinas Virtuais** e, em seguida, clique no nome da máquina virtual que você deseja configurar.
@@ -68,9 +60,9 @@ O novo ponto de extremidade será listado na página **Pontos de extremidade**.
 
 ![Criação de ponto de extremidade com êxito](./media/virtual-machines-set-up-endpoints/endpointwindowsnew.png)
 
-Para usar um cmdlet do PowerShell do Azure e configurar isso, confira [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx).
+Para usar um cmdlet do PowerShell do Azure e configurar isso, confira [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx). Se você estiver usando a CLI do Azure no modo de Gerenciamento de Serviços, use o comando **azure vm endpoint create**.
 
-##Gerenciar a ACL em um ponto de extremidade
+## Gerenciar a ACL em um ponto de extremidade
 
 Para definir o conjunto de computadores que pode enviar tráfego, a ACL em um ponto de extremidade pode restringir o tráfego com base no endereço IP de origem. Siga estas etapas para adicionar, modificar ou remover uma ACL em uma empresa.
 
@@ -100,4 +92,4 @@ Para usar um cmdlet do Azure PowerShell para configurar isso, consulte [Gerencia
 
 [Balanceamento de carga para serviços de infraestrutura do Azure](virtual-machines-load-balance.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

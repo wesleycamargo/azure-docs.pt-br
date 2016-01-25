@@ -5,7 +5,7 @@
     documentationCenter="na"
     authors="ms-prkhad"
     manager=""
-    editor=""/>
+    editor="tysonn"/>
 
 <tags
     ms.service="storage"
@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="12/04/2015"
-    ms.author="robinsh"/>
+    ms.author="prkhad"/>
 
 
 # Migrando para o Armazenamento do Azure Premium
@@ -170,7 +170,7 @@ Se você estiver migrando o VHD do Armazenamento em Nuvem não do Azure, primeir
 
 	![][2]
 
-2. Baixe o arquivo VHD do depósito S3. Selecione o arquivo VHD e, em seguida, **Ações** > **Baixar**.
+2. Baixe o arquivo VHD do depósito S3. Selecione o arquivo VHD, em seguida **Ações** > **Baixar**.
 
 	![][3]|
 
@@ -677,4 +677,4 @@ Consulte também as fontes a seguir para saber mais sobre o Armazenamento do Azu
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

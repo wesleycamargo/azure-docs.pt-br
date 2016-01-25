@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="01/08/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -417,7 +417,7 @@ Esses atributos para o usuário são além dos outros aplicativos que você sele
 
 | Nome do atributo| Usuário| Contato| Agrupar| Comentário |
 | --- | :-: | :-: | :-: | --- |
-| msDS-ExternalDirectoryObject| X| | | Derivado de cloudAnchor no AD do Azure.|
+| msDS-ExternalDirectoryObjectID| X| | | Derivado de cloudAnchor no AD do Azure. Isso é novo no Exchange 2016.|
 | msExchArchiveStatus| X| | | Arquivo online: permite que os clientes arquivem emails.|
 | msExchBlockedSendersHash| X| | | Filtragem: faz write-back de dados de remetentes bloqueados e seguros de filtragem local e online por meio de clientes.|
 | msExchSafeRecipientsHash| X| | | Filtragem: faz write-back de dados de remetentes bloqueados e seguros de filtragem local e online por meio de clientes.|
@@ -435,4 +435,4 @@ Saiba mais sobre a configuração de [sincronização do Azure AD Connect](activ
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

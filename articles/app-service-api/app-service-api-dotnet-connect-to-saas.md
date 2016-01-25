@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Conectar-se a uma plataforma SaaS de um aplicativo de API ASP.NET no Serviço de Aplicativo do Azure
@@ -22,7 +22,7 @@
 
 ## Visão geral
 
-Este tutorial mostra como escrever código e configurar em um [aplicativo de API](app-service-api-apps-why-best-platform.md) que se conecta a uma [Plataforma de Software como um serviço (SaaS)](../app-service/app-service-authentication-overview.md#obotosaas) usando o [SDK do Aplicativo de API do Serviço de Aplicativo para .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/). O tutorial também mostra como chamar o aplicativo de API de um cliente .NET usando o [SDK do Serviço de Aplicativo para .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService). Ao final do tutorial, você terá um cliente de aplicativo do console .NET que chama um aplicativo de API .NET em execução no Serviço de Aplicativo do Azure. O aplicativo de API chama a API do Dropbox e retorna uma lista de arquivos e pastas em na conta de Dropbox do usuário.
+Este tutorial mostra como codificar e configurar um [aplicativo de API](app-service-api-apps-why-best-platform.md) que se conecta a uma [plataforma SaaS (Software como serviço)](../app-service/app-service-authentication-overview.md#obotosaas) usando o [SDK de aplicativo de API do Serviço de Aplicativo para .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/). O tutorial também mostra como chamar o aplicativo de API de um cliente .NET usando o [SDK do Serviço de Aplicativo para .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService). Ao final do tutorial, você terá um cliente de aplicativo do console .NET que chama um aplicativo de API .NET em execução no Serviço de Aplicativo do Azure. O aplicativo de API chama a API do Dropbox e retorna uma lista de arquivos e pastas em na conta de Dropbox do usuário.
 
 Como alternativa para escrever código que chama uma API de SaaS diretamente de um aplicativo de API personalizado, você pode chamar um [aplicativo de API de conector](../app-service-logic/app-service-logic-what-are-biztalk-api-apps.md) pré-empacotado. Para obter informações sobre como fazer isso, consulte [Implantar e configurar um aplicativo de API de conector SaaS](app-service-api-connnect-your-app-to-saas-connector.md).
 
@@ -378,12 +378,7 @@ Observações adicionais:
 
 		browser.Navigate(string.Format(@"{0}/login/aad", GATEWAY_URL));
 
-	Veja os valores a serem usados com outros provedores:
-	* "microsoftaccount"
-	* "facebook"
-	* "twitter"
-	* "google"
-<br/><br/>
+	Veja os valores a serem usados com outros provedores: * "microsoftaccount" * "facebook" * "twitter" * "google" <br/><br/>
 
 * O segundo parâmetro do método `GetConsentLinkAsync()` é a URL de retorno de chamada para a qual o servidor de consentimento redireciona depois que o usuário faz logon no Dropbox e concede consentimento para acessar a conta do usuário.
 
@@ -433,7 +428,7 @@ O erro 405 de método não permitido é emitido porque o cliente tenta fazer uma
 
 Certifique-se de que você tem o **ID de cliente** correto na folha **Autenticação** do aplicativo de API e certifique-se de que não haja espaços à esquerda ou à direita.
 
-### <a id="403"></a>Erro HTTP 403 ao chamar o aplicativo de API
+### <a id="403"></a> Erro HTTP 403 ao chamar o aplicativo de API
 
 * Verifique se o **nível de acesso** do aplicativo de API está configurado como **Público (autenticado)**, e não **Interno**.
 
@@ -454,4 +449,4 @@ Você aprender a codificar e configurar um aplicativo de API que se conecta a um
 [Azure preview portal]: https://portal.azure.com/
 [Azure portal]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

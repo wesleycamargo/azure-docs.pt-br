@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Como usar o Armazenamento de Blob no Xamarin (visualização) | Microsoft Azure" 
-	description="A visualização da biblioteca de cliente do Armazenamento do Azure para Xamarin permite que os desenvolvedores criem aplicativos iOS, Android e da Windows Store com suas interfaces de usuário nativo. Este tutorial mostra como usar o Xamarin para criar um aplicativo Android que usa o Armazenamento de Blob do Azure." 
-	services="storage" 
-	documentationCenter="xamarin" 
-	authors="micurd" 
-	manager="" 
-	editor=""/>
+<properties
+	pageTitle="Como usar o Armazenamento de Blob no Xamarin (visualização) | Microsoft Azure"
+	description="A visualização da biblioteca de cliente do Armazenamento do Azure para Xamarin permite que os desenvolvedores criem aplicativos iOS, Android e da Windows Store com suas interfaces de usuário nativo. Este tutorial mostra como usar o Xamarin para criar um aplicativo Android que usa o Armazenamento de Blob do Azure."
+	services="storage"
+	documentationCenter="xamarin"
+	authors="micurd"
+	manager=""
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/01/2015"
+	ms.author="micurd"/>
 
 # Como usar o Armazenamento de Blob no Xamarin (visualização)
 
@@ -173,10 +173,6 @@ Neste tutorial, você aprendeu a usar o armazenamento de Blob do Azure e SAS com
 
 Saiba mais sobre blobs, tabelas e filas consultando os links a seguir:
 
-[Introdução ao Armazenamento do Microsoft Azure](storage-introduction.md)
-[Como usar o Armazenamento de Blobs no .NET](storage-dotnet-how-to-use-blobs.md)
-[Como usar o Armazenamento de Tabelas no .NET](storage-dotnet-how-to-use-tables.md)
-[Como usar o Armazenamento de Filas no .NET](storage-dotnet-how-to-use-queues.md)
-[Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md)
+[Introdução ao Armazenamento do Microsoft Azure](storage-introduction.md) [Como usar o Armazenamento de Blobs no .NET](storage-dotnet-how-to-use-blobs.md) [Como usar o Armazenamento de Tabelas no .NET](storage-dotnet-how-to-use-tables.md) [Como usar o Armazenamento de Filas no .NET](storage-dotnet-how-to-use-queues.md) [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

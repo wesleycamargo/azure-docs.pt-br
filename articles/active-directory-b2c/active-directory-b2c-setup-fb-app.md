@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/12/2016"
 	ms.author="swkrish"/>
 
 # Visualização do Active Directory B2C do Azure: permitir a conexão e a inscrição de clientes com contas do Facebook
@@ -46,17 +46,15 @@ Para usar o Facebook como provedor de identidade no Active Directory (AD) B2C do
     ![FB - Configurações](./media/active-directory-b2c-setup-fb-app/fb-website.png)
 
 7. Digite [https://login.microsoftonline.com/](https://login.microsoftonline.com/) no campo **URL do Site** e clique em **Salvar Alterações**.
-8. Copie o valor de **ID do aplicativo**. Clique em **Mostrar** e copie o valor de **Segredo do Aplicativo**. Você precisará de ambos para configurar o Facebook como um provedor de identidade em seu locatário.
+8. Copie o valor de **ID do aplicativo**. Clique em **Mostrar** e copie o valor de **Segredo do Aplicativo**. Você precisará de ambos para configurar o Facebook como um provedor de identidade em seu locatário. Observação: o **Segredo do Aplicativo** é uma credencial de segurança importante.
 
-> [AZURE.NOTE]O **Segredo do Aplicativo** é uma credencial de segurança importante.
-
-    ![FB - Site URL](./media/active-directory-b2c-setup-fb-app/fb-site-url.png)
+    ![FB - URL do site](./media/active-directory-b2c-setup-fb-app/fb-site-url.png)
 
 9. Clique na guia **Avançado** na parte superior e digite `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` no campo **URIs de Redirecionamento válido do OAuth** (na seção **Segurança**), em que **{tenant}** deve ser substituído pelo nome do locatário (por exemplo, contosob2c.onmicrosoft.com). Clique em **Salvar Alterações** na parte inferior da página.
 
     ![FB - URI de redirecionamento de OAuth](./media/active-directory-b2c-setup-fb-app/fb-oauth-redirect-uri.png)
 
-10. Para tornar seu aplicativo do Facebook utilizável pelo Azure AD B2C, você precisa torná-lo público. Você pode fazer isso clicando em **Status & Análise** no painel de navegação esquerdo e enviando o aplicativo para análise (clique no botão **Iniciar um envio**). Quando seu aplicativo tiver sido aprovado pelo Facebook, você pode torná-lo público, mudando a opção na parte superior da página para **SIM**. E clicando em **Confirmar**.
+10. Para tornar seu aplicativo do Facebook utilizável pelo Azure AD B2C, você precisa torná-lo público. Você pode fazer isso clicando em **Status & Análise** no painel de navegação esquerdo e enviando o aplicativo para análise (clique no botão **Iniciar um Envio**). Quando seu aplicativo tiver sido aprovado pelo Facebook, você pode torná-lo público, mudando a opção na parte superior da página para **SIM**. E clicando em **Confirmar**.
 
     ![FB - Envio do aplicativo](./media/active-directory-b2c-setup-fb-app/fb-app-submission.png)
 
@@ -72,4 +70,4 @@ Para usar o Facebook como provedor de identidade no Active Directory (AD) B2C do
 6. Clique em **Configurar este provedor de identidade** e insira a **ID do aplicativo** e o **Segredo de Aplicativo** do aplicativo do Facebook que você criou anteriormente nos campos **ID do cliente** e **Segredo do cliente**, respectivamente.
 7. Clique em **OK** e em **Criar** para salvar sua configuração do Facebook.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

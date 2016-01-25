@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="01/08/2016"
 	ms.author="larryfr"/>
 
 #Disponibilidade e confiabilidade dos clusters Hadoop em HDInsight
@@ -136,7 +136,7 @@ Na IU da Ambari Web, selecione o serviço que você deseja para ver os logs (por
 
 ## Como configurar o tamanho do nó principal ##
 
-O tamanho do nó principal só pode ser selecionado durante a criação do cluster. O tamanho padrão dos nós principais é **A3**, que fornece 4 núcleos, 7GB de memória e 285GB de armazenamento local. Você pode encontrar uma lista de diferentes tamanhos de VM disponíveis para o HDInsight, incluindo o núcleo, memória e armazenamento local para cada um, na [página de preços do HDInsight](http://azure.microsoft.com/pricing/details/hdinsight/).
+O tamanho do nó principal só pode ser selecionado durante a criação do cluster. Você pode encontrar uma lista de diferentes tamanhos de VM disponíveis para o HDInsight, incluindo o núcleo, memória e armazenamento local para cada um, na [página de preços do HDInsight](http://azure.microsoft.com/pricing/details/hdinsight/).
 
 Ao criar um novo cluster, você pode especificar o tamanho dos nós. A seguir, apresentamos informações sobre como especificar o tamanho usando o [Portal do Azure][preview-portal], o [Azure PowerShell][azure-powershell] e a [CLI do Azure][azure-cli]\:
 
@@ -154,7 +154,7 @@ Neste documento, você aprendeu como o Azure HDInsight fornece alta disponibilid
 
 - [Referência REST do Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 
-- [Instalar e configurar a CLI do Azure](../xplat-cli-install.md).
+- [Instalar e configurar a CLI do Azure.](../xplat-cli-install.md)
 
 - [Instalar e configurar o PowerShell do Azure](../powershell-install-configure.md)
 
@@ -166,4 +166,4 @@ Neste documento, você aprendeu como o Azure HDInsight fornece alta disponibilid
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

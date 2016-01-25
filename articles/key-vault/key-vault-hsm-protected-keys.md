@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="09/18/2015"
+	ms.topic="article"
+	ms.date="01/08/2016"
 	ms.author="cabailey"/>
 #Como gerar e transferir chaves de HSM protegido para o Cofre da Chave do Azure
 
@@ -194,7 +194,7 @@ Para validar o pacote baixado:
 			python verifykeypackage.py -k BYOK-KEK-pkg-AUS-1 -w BYOK-SecurityWorld-pkg-AUS-1
 
 	>[AZURE.TIP]O software Thales inclui python em %NFAST\_HOME%\\python\\bin
-	
+
 2.	Confirme que você vê o seguinte, que indica a validação bem-sucedida: **Resultado: SUCCESS**
 
 Este script valida a cadeia do signatário até a chave-raiz da Thales. O hash dessa chave raiz é inserido no script e o seu valor deve ser **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. Você também pode confirmar esse valor separadamente visitando o [site da Thales](http://www.thalesesec.com/).
@@ -295,13 +295,13 @@ Quando você executar esse comando, use estas instruções:
 
 - Substitua *contosokey* pelo identificador usado para gerar a chave na **Etapa 3.3: Criar uma nova chave** na etapa [Gerar a sua chave](#step-3-generate-your-key).
 
-- Substitua *SubscriptionID* pela ID da assinatura do Azure que contém o seu cofre da chave. Esse valor foi recuperado anteriormente, na **Etapa 1.2: obter a sua ID da assinatura do Azure** na etapa [Preparar a sua estação de trabalho conectada à Internet](#step-1-prepare-your-internet-connected-workstation).
+- Substitua *SubscriptionID* pela ID da assinatura do Azure que contém o seu Cofre da Chave. Esse valor foi recuperado anteriormente, na **Etapa 1.2: Obter a sua ID da assinatura do Azure** na etapa [Preparar a sua estação de trabalho conectada à Internet](#step-1-prepare-your-internet-connected-workstation).
 
 - Substitua *ContosoFirstHSMKey* por um rótulo que será usado para o nome do arquivo de saída.
 
 Quando ele for concluído com êxito, será exibido **Resultado: SUCCESS** e haverá um novo arquivo na pasta atual que tem o seguinte nome: TransferPackage-*ContosoFirstHSMkey*.byok
 
-###Etapa 4.4: Copie o pacote de transferência de chave para a estação de trabalho conectada à Internet 
+###Etapa 4.4: Copie o pacote de transferência de chave para a estação de trabalho conectada à Internet
 
 Use uma unidade USB ou outro armazenamento portátil para copiar o arquivo de saída da etapa anterior (KeyTransferPackage-ContosoFirstHSMkey.byok) para sua estação de trabalho conectada à Internet.
 
@@ -317,4 +317,4 @@ Se o upload for bem-sucedido, você verá exibidas as propriedades da chave que 
 
 Agora você pode usar essa chave de HSM protegido no Cofre da Chave. Para saber mais, consulte a seção **Se você deseja usar um módulo de segurança de hardware (HSM)** no tutorial [Introdução ao cofre da chave do Azure](key-vault-get-started.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

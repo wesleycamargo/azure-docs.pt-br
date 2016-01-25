@@ -1,4 +1,3 @@
-
 <properties
 	pageTitle="Criar uma máquina virtual do Azure executando o Linux no portal clássico do Azure | Microsoft Azure"
 	description="Use o portal clássico do Azure para criar uma máquina virtual (VM) do Azure executando o Linux com os grupos de recursos do Azure."
@@ -21,11 +20,11 @@
 # Criar uma Máquina Virtual executando o Linux usando o portal do Azure
 
 > [AZURE.SELECTOR]
-- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
-- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
-- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
-- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
-- [Azure CLI](virtual-machines-linux-tutorial.md)
+- [Portal - Windows](virtual-machines-windows-tutorial.md)
+- [PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [CLI](virtual-machines-linux-tutorial.md)
 
 <br>
 
@@ -35,8 +34,6 @@
 É fácil criar uma VM (Virtual Machine - Máquina Virtual) que executa o Linux. Este tutorial mostra como usar o portal do Azure para criar uma VM rapidamente e usa o `~/.ssh/id_rsa.pub`arquivo de chave pública para proteger a sua conexão **SSH** com a VM. Você também pode criar VMs do Linux usando [suas próprias imagens como modelos](virtual-machines-linux-create-upload-vhd.md).
 
 > [AZURE.NOTE]Este tutorial cria uma máquina virtual do Azure gerenciada pela API do grupo de recursos do Azure. Para obter detalhes, consulte [Visão geral do grupo de recursos do Azure](resource-group-overview.md).
-
-</br>
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
@@ -76,7 +73,7 @@ Depois de selecionar a imagem, você poderá usar as configurações padrão do 
 
 	![](media/virtual-machines-linux-tutorial-portal-rm/step-3-settings.png)
 
-6. Clique em **Resumo** para examinar suas opções de configuração. Quando você terminar a revisão ou a atualização das configurações, clique em ![Botão OK](media/virtual-machines-linux-tutorial-portal-rm/createbutton.png).
+6. Clique em **Resumo** para revisar suas opções de configuração. Quando você terminar a revisão ou a atualização das configurações, clique em ![Botão OK](media/virtual-machines-linux-tutorial-portal-rm/createbutton.png).
 
 	![resumo da criação](media/virtual-machines-linux-tutorial-portal-rm/summarybeforecreation.png)
 
@@ -139,4 +136,4 @@ Para saber mais sobre o Linux no Azure, confira:
 
 - [A extensão de máquina virtual Docker para Linux no Azure](virtual-machines-docker-vm-extension.md)
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

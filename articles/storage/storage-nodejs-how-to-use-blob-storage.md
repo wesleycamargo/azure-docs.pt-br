@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Como usar o armazenamento de Blob do Node.js | Microsoft Azure"
-	description="Saiba como usar o serviço Blob do Azure para carregar, baixar, listar e excluir o conteúdo de blob. Os exemplos estão escritos no arquivo Node.js."
+	description="Saiba como usar o Armazenamento de Blobs do Azure para carregar, baixar, listar e excluir conteúdo de blob. Os exemplos estão escritos no arquivo Node.js."
 	services="storage"
 	documentationCenter="nodejs"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="nodejs"
 	ms.topic="article"
 	ms.date="12/01/2015"
-	ms.author="robmcm"/>
+	ms.author="micurd"/>
 
 
 
@@ -24,7 +24,7 @@
 
 ## Visão geral
 
-Este artigo mostra como executar cenários comuns usando o serviço Blob do Azure. Os exemplos são escritos usando a API do Node.js. Os cenários abordados incluem como carregar, listar, baixar e excluir blobs.
+Este artigo mostra como executar cenários comuns usando o Armazenamento de Blobs. Os exemplos são escritos usando a API do Node.js. Os cenários abordados incluem como carregar, listar, baixar e excluir blobs.
 
 [AZURE.INCLUDE [armazenamento-blob-conceitos-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -40,7 +40,7 @@ Para usar o armazenamento do Azure, você precisa do SDK de Armazenamento do Azu
 
 ### Usar o NPM (gerenciador de pacotes de nós) para obter o pacote
 
-1.  Use uma interface de linha de comando, como o **PowerShell** (Windows), o **Terminal** (Mac) ou o **Bash** (Unix), para navegar até a pasta onde você criou o aplicativo de exemplo.
+1.  Use uma interface de linha de comando, como **PowerShell** (Windows), **Terminal** (Mac) ou **Bash** (Unix), para navegar até a pasta onde você criou o aplicativo de exemplo.
 
 2.  Digite **npm install azure-storage** na janela de comando. A saída do comando é semelhante ao exemplo de código a seguir.
 
@@ -99,7 +99,7 @@ Por padrão, novos contêineres são privados e não podem ser acessados ​​a
 
 * **contêiner** – permite o acesso anônimo de leitura ao conteúdo e aos metadados do blob e também aos metadados do contêiner
 
-O exemplo de código a seguir demonstra a configuração do nível de acesso para o **blob**:
+O exemplo de código a seguir demonstra a configuração do nível de acesso para **blob**:
 
     blobSvc.createContainerIfNotExists('mycontainer', {publicAccessLevel : 'blob'}, function(error, result, response){
       if(!error){
@@ -186,7 +186,7 @@ O exemplo de código a seguir carrega o conteúdo do arquivo **test.txt** em **m
 
 ## Listar os blobs em um contêiner
 
-Para listar os blobs em um contêiner, use o método **listBlobsSegmented**. Se prefere retornar blobs com um prefixo específico, use **listBlobsSegmentedWithPrefix**.
+Para listar os blobs em um contêiner, use o método **listBlobsSegmented**. Se você quiser retornar blobs com um prefixo específico, use **listBlobsSegmentedWithPrefix**.
 
     blobSvc.listBlobsSegmented('mycontainer', null, function(error, result, response){
       if(!error){
@@ -377,4 +377,4 @@ Para saber mais, consulte os recursos a seguir.
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Referência do SDK do Armazenamento do Azure para APIs de nó]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

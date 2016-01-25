@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="lodipalm"/>
+   ms.date="01/07/2016"
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 
 #Utilitário de Migração do Data Warehouse (visualização)
@@ -57,4 +57,4 @@ Agora que você já migrou alguns dados, confira como [desenvolvê-los][].
 [desenvolvê-los]: https://azure.microsoft.com/pt-BR/documentation/articles/sql-data-warehouse-overview-develop/
 [aqui]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

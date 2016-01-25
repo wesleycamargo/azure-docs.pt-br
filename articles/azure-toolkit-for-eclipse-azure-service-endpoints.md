@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="11/19/2015" 
+    ms.date="01/09/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn268600.aspx -->
@@ -45,21 +45,21 @@ Na caixa de diálogo **Pontos de Extremidade de Serviço**, execute uma das segu
 
 [Kit de ferramentas do Azure para Eclipse][]
 
-[Instalação do Kit de Ferramentas do Azure para Eclipse][]
+[Instalação do Kit de Ferramentas do Azure para o Eclipse][]
 
-[Criar um aplicativo Hello World do Azure no Eclipse][]
+[Criação de um aplicativo Hello World do Azure no Eclipse][]
 
-Para saber mais sobre como usar o Azure com Java, confira a [Central de Desenvolvimento Java do Azure][].
+Para obter mais informações sobre como usar o Azure com o Java, confira a [Central de desenvolvimento Java do Azure][].
 
 <!-- URL List -->
 
-[Central de Desenvolvimento Java do Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Central de desenvolvimento Java do Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Kit de ferramentas do Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Criar um aplicativo Hello World do Azure no Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Instalação do Kit de Ferramentas do Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Criação de um aplicativo Hello World do Azure no Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Instalação do Kit de Ferramentas do Azure para o Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 
 [ic719493]: ./media/azure-toolkit-for-eclipse-azure-service-endpoints/ic719493.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="Assinaturas de acesso compartilhado: noções básicas sobre o Modelo SAS | Microsoft Azure" 
-	description="Saiba mais sobre como delegar acesso a recursos de Armazenamento do Azure, incluindo blobs, filas, tabelas e arquivos, usando SAS (assinaturas de acesso compartilhado). Com as assinaturas de acesso compartilhado, você pode proteger sua chave de conta de armazenamento enquanto concede acesso a recursos em sua conta a outros usuários. Você pode controlar as permissões concedidas e o intervalo no qual a SAS é válida. Se você também estabelecer uma política de acesso armazenada, pode revogar a SAS caso tema que a segurança da sua conta esteja comprometida." 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
-	editor=""/>
+<properties
+	pageTitle="Assinaturas de acesso compartilhado: noções básicas sobre o Modelo SAS | Microsoft Azure"
+	description="Saiba mais sobre como delegar acesso a recursos de Armazenamento do Azure, incluindo blobs, filas, tabelas e arquivos, usando SAS (assinaturas de acesso compartilhado). Assinaturas de acesso compartilhado protegem sua chave de conta de armazenamento enquanto concedem acesso a recursos em sua conta a outros usuários. Você pode controlar as permissões concedidas e o intervalo no qual a SAS é válida. Se você também estabelecer uma política de acesso armazenada, pode revogar a SAS caso tema que a segurança da sua conta esteja comprometida."
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="carmonm"
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/16/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="11/16/2015"
 	ms.author="tamram"/>
 
 
 
-# Assinaturas de acesso compartilhado, Parte 1: Noções básicas sobre o modelo SAS
+# Assinaturas de Acesso Compartilhado, Parte 1: noções básicas sobre o modelo SAS
 
 ## Visão geral
 
@@ -51,13 +51,11 @@ Além disso, você precisará usar uma SAS para autenticar o objeto de origem em
 - Quando você copia um arquivo para outro que reside em uma conta de armazenamento diferente, deve usar uma SAS para autenticar o arquivo de origem. Com a versão de 05/04/2015, você pode usar uma SAS para autenticar também o arquivo de destino.
 - Quando você estiver copiando um blob em um arquivo, ou um arquivo em um blob, use uma SAS para autenticar o objeto de origem, mesmo se os objetos de origem e destino residirem dentro da mesma conta de armazenamento.
 
->[AZURE.NOTE]Atualmente, há suporte à SAS de conta apenas para os serviços Blob e Arquivo. Ele terá suporte para os serviços Tabela e Fila em um futuro próximo.
-
 ## Tipos de assinaturas de Acesso compartilhado.
 
 A versão de 05-04-2015 do armazenamento do Azure apresenta um novo tipo de assinatura de acesso compartilhado, a SAS de conta. Agora você pode criar qualquer um dos dois tipos de assinaturas de acesso compartilhado:
 
-- **SAS de Conta.** A SAS de conta delega acesso a recursos em um ou mais dos serviços de armazenamento. Todas as operações disponíveis através de um serviço SAS também estão disponíveis por meio de uma SAS de conta. Além disso, com a SAS de conta, você pode delegar acesso a operações que se aplicam a um determinado serviço, como **Obter/Definir Propriedades do Serviço** e **Obter Estatísticas do Serviço**. Você também pode delegar acesso para operações de leitura, gravação e exclusão em filas, tabelas e contêineres de blob, além de compartilhamentos de arquivos que não são permitidos com uma SAS de serviço. Veja [Construindo uma SAS de conta](https://msdn.microsoft.com/library/mt584140.aspx) para obter informações detalhadas sobre como construir o token SAS de conta.
+- **SAS de Conta.** A SAS de conta delega acesso a recursos em um ou mais dos serviços de armazenamento. Todas as operações disponíveis através de um serviço SAS também estão disponíveis por meio de uma SAS de conta. Além disso, com a SAS de conta, você pode delegar acesso a operações que se aplicam a um determinado serviço, como **Obter/Definir propriedades de serviço** e **Obter status do serviço**. Você também pode delegar acesso para operações de leitura, gravação e exclusão em filas, tabelas e contêineres de blob, além de compartilhamentos de arquivos que não são permitidos com uma SAS de serviço. Veja [Construindo uma SAS de conta](https://msdn.microsoft.com/library/mt584140.aspx) para obter informações detalhadas sobre como construir o token SAS de conta.
 
 - **SAS de Serviço.** A SAS de serviço delega acesso a um recurso em apenas um dos serviços de armazenamento: o serviço Blob, Fila, Tabela ou Arquivo. Veja [Construindo uma SAS de serviço](https://msdn.microsoft.com/library/dn140255.aspx) e [Exemplos de SAS de serviço](https://msdn.microsoft.com/library/dn140256.aspx) para obter informações detalhadas sobre como construir o token SAS de serviço.
 
@@ -69,12 +67,12 @@ A SAS de conta e os tokens SAS de serviço incluem alguns parâmetros comuns e t
 
 ### Parâmetros comuns a tokens SAS de conta e SAS de serviço
 
-- **Versão da API** Um parâmetro opcional que especifica a versão do serviço de armazenamento a ser usada para executar a solicitação. 
+- **Versão da API** Um parâmetro opcional que especifica a versão do serviço de armazenamento a ser usada para executar a solicitação.
 - **Versão do serviço** Um parâmetro obrigatório que especifica a versão do serviço de armazenamento a ser usada para executar a solicitação.
-- **Hora de início.** É a hora em que a SAS torna-se válida. A hora de início para uma assinatura de acesso compartilhado é opcional; se estiver omitida, a SAS entrará em vigor imediatamente. 
+- **Hora de início.** É a hora em que a SAS torna-se válida. A hora de início para uma assinatura de acesso compartilhado é opcional; se estiver omitida, a SAS entrará em vigor imediatamente.
 - **Hora de expiração.** É a hora após a qual a SAS não é mais válida. As práticas recomendadas sugerem que você especifique uma hora de expiração para uma SAS ou associe-a a uma política de acesso armazenada (veja mais abaixo).
 - **Permissões.** As permissões especificadas nas SAS indicam quais operações o cliente pode executar com o recurso de armazenamento usando a SAS. As permissões disponíveis são diferentes entre SAS de conta e de serviço.
-- **IP.** Um parâmetro opcional que especifica um endereço IP ou um intervalo de endereços IP fora do Azure (veja a seção [Estado de configuração da sessão de roteamento](../expressroute/expressroute-workflows.md#routing-session-configuration-state) da Rota Expressa) do qual as solicitações serão aceitas. 
+- **IP.** Um parâmetro opcional que especifica um endereço IP ou um intervalo de endereços IP fora do Azure (veja a seção [Estado de configuração da sessão de roteamento](../expressroute/expressroute-workflows.md#routing-session-configuration-state) da Rota Expressa) do qual as solicitações serão aceitas.
 - **Protocolo.** Um parâmetro opcional que especifica o protocolo permitido para uma solicitação. Os valores possíveis são HTTPS e HTTP (http, https), que é o valor padrão, ou somente HTTPS (https). Observe que somente HTTP não é um valor permitido.
 - **Assinatura.** A assinatura é construída com os parâmetros especificados como parte do token e depois criptografada. Ela é usada para autenticar a SAS.
 
@@ -123,15 +121,15 @@ Serviços|ss=bf|A SAS se aplica a serviços de arquivo e Blob
 Tipos de recurso|srt=s|A SAS se aplica a operações de nível de serviço.
 Permissões|sp=rw|As permissões concedem acesso a operações de leitura e gravação.  
 
-Considerando que as permissões são restritas ao nível de serviço, as operações acessíveis com essa SAS são **Obter Propriedades do Serviço Blob** (leitura) e **Definir Propriedades do Serviço Blob** (gravação). Contudo, com um URI de recurso diferente, o mesmo token SAS também pode ser usado para delegar acesso a **Obter Estatísticas do Serviço Blob** (leitura).
+Considerando que as permissões são restritas ao nível de serviço, as operações acessíveis com essa SAS são **Obter Propriedades do Serviço Blob** (leitura) e **Definir Propriedades do Serviço Blob** (gravação). Contudo, com um URI de recurso diferente, o mesmo token SAS pode também ser usado para delegar acesso a **Obter status do serviço Blob** (leitura).
 
 ## Controlando uma SAS com uma política de acesso armazenada ##
 
 Uma assinatura de acesso compartilhado pode assumir uma destas duas formas:
 
-- **SAS ad hoc:** quando você cria uma SAS ad hoc, a hora de início, a hora de vencimento e as permissões para a SAS são todas especificadas no URI SAS (ou implícitas, quando a hora de início é omitida). Esse tipo de SAS pode ser criado como uma SAS de conta ou uma SAS de serviço. 
+- **SAS ad hoc:** quando você cria uma SAS ad hoc, a hora de início, a hora de vencimento e as permissões para a SAS são todas especificadas no URI SAS (ou implícitas, quando a hora de início é omitida). Esse tipo de SAS pode ser criado como uma SAS de conta ou uma SAS de serviço.
 
-- **SAS com política de acesso armazenado:** uma política de acesso armazenado é definida em um contêiner de recurso - um contêiner de blob, tabela, fila ou compartilhamento de arquivos - e pode ser usada para gerenciar as restrições de uma ou mais assinaturas de acesso compartilhado. Quando você associa uma SAS a uma política de acesso armazenada, a SAS herda as restrições - a hora de início, a hora de expiração e as permissões - definidas para a política de acesso armazenada.
+- **SAS com política de acesso armazenada:** uma política de acesso armazenada é definida em um contêiner de recurso - um contêiner de blob, uma tabela, uma fila ou um compartilhamento de arquivos - e pode ser usada para gerenciar as restrições de uma ou mais assinaturas de acesso compartilhado. Quando você associa uma SAS a uma política de acesso armazenada, a SAS herda as restrições - a hora de início, a hora de expiração e as permissões - definidas para a política de acesso armazenada.
 
 >[AZURE.NOTE]Atualmente, uma SAS de conta deve ser uma SAS ad hoc. As SAS de conta ainda não dão suporte a políticas de acesso armazenadas.
 
@@ -151,7 +149,7 @@ Abaixo estão alguns exemplos de ambos os tipos de assinatura de acesso comparti
 Para executar esses exemplos, você precisará baixar e referenciar esses pacotes:
 
 - [Biblioteca de cliente de armazenamento do Azure para .NET](http://www.nuget.org/packages/WindowsAzure.Storage), versão 6. x ou posterior (para usar a conta SAS).
-- [Azure Configuration Manager](http://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) 
+- [Azure Configuration Manager](http://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
 
 ### Exemplo: SAS de conta
 
@@ -230,23 +228,23 @@ O exemplo de código a seguir cria uma política de acesso armazenada em um cont
     // Parse the connection string for the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
-    
+
     // Create the storage account with the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
-       
+
     // Create the blob client object.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-    
+
     // Get a reference to the container for which shared access signature will be created.
     CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
     container.CreateIfNotExists();
-    
+
     // Get the current permissions for the blob container.
     BlobContainerPermissions blobPermissions = container.GetPermissions();
 
     // Clear the container's shared access policies to avoid naming conflicts.
     blobPermissions.SharedAccessPolicies.Clear();
-    
+
     // The new shared access policy provides read/write access to the container for 24 hours.
     blobPermissions.SharedAccessPolicies.Add("mypolicy", new SharedAccessBlobPolicy()
     {
@@ -255,14 +253,14 @@ O exemplo de código a seguir cria uma política de acesso armazenada em um cont
        SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
        Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Create | SharedAccessBlobPermissions.Add
     });
-    
-    // The public access setting explicitly specifies that 
+
+    // The public access setting explicitly specifies that
     // the container is private, so that it can't be accessed anonymously.
     blobPermissions.PublicAccess = BlobContainerPublicAccessType.Off;
-    
+
     // Set the new stored access policy on the container.
     container.SetPermissions(blobPermissions);
-    
+
     // Get the shared access signature token to share with users.
     string sasToken =
        container.GetSharedAccessSignature(new SharedAccessBlobPolicy(), "mypolicy");
@@ -270,15 +268,15 @@ O exemplo de código a seguir cria uma política de acesso armazenada em um cont
 Um cliente em posse da SAS de serviço pode usá-la no seu código para autenticar uma solicitação para ler ou gravar em um blob no contêiner. Por exemplo, o código a seguir usa o token SAS para criar um novo blob de blocos no contêiner. Altere o código para usar seu próprio nome de conta:
 
     Uri blobUri = new Uri("https://<myaccount>.blob.core.windows.net/mycontainer/myblob.txt");
-    
+
     // Create credentials with the SAS token. The SAS token was created in previous example.
     StorageCredentials credentials = new StorageCredentials(sasToken);
-    
+
     // Create a new blob.
     CloudBlockBlob blob = new CloudBlockBlob(blobUri, credentials);
-    
-    // Upload the blob. 
-    // If the blob does not yet exist, it will be created. 
+
+    // Upload the blob.
+    // If the blob does not yet exist, it will be created.
     // If the blob does exist, its existing content will be overwritten.
     using (var fileStream = System.IO.File.OpenRead(@"c:\Temp\myblob.txt"))
     {
@@ -312,15 +310,10 @@ As assinaturas de acesso compartilhado são úteis para fornecer permissões lim
 
 ## Próximas etapas ##
 
-- [Assinaturas de acesso compartilhado, Parte 2: criar e usar uma SAS com o serviço Blob](storage-dotnet-shared-access-signature-part-2.md)
+- [Assinaturas de Acesso Compartilhado, Parte 2: criar e usar uma SAS com o Armazenamento de Blobs](storage-dotnet-shared-access-signature-part-2.md)
 - [Como usar o armazenamento de arquivo do Azure com o Windows](storage-dotnet-how-to-use-files.md)
 - [Gerenciar o acesso aos recursos de Armazenamento do Azure](storage-manage-access-to-resources.md)
 - [Delegando acesso com uma assinatura de acesso compartilhado](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-- [Introdução ao SAS de Fila e Tabela](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
-[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
-[sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
+- [Introdução ao SAS de Fila e Tabela](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx) [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
-
- 
-
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

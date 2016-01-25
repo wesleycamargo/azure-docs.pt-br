@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="01/12/2016"
 	ms.author="cephalin"/>
 
 # Configurar ambientes de preparo para aplicativos Web no Serviço de Aplicativo do Azure
@@ -45,7 +45,7 @@ Cada modo de plano do Serviço de Aplicativo dá suporte a um número diferente 
 O aplicativo Web deve estar em execução no modo **Padrão** ou **Premium** para que você habilite vários slots de implantação.
 
 1. No [Portal do Azure](https://portal.azure.com/), abra a folha de seu aplicativo Web.
-2. Clique em **Slots de implantação**. Em seguida, na folha **Slots de implantação**, clique em **Adicionar Slot**.
+2. Clique em **Configurações** e então em **Slots de implantação**. Em seguida, na folha **Slots de implantação**, clique em **Adicionar Slot**.
 
 	![Adicionar um novo slot de implantação][QGAddNewDeploymentSlot]
 
@@ -233,7 +233,7 @@ Para excluir um slot de implantação que não seja mais necessário, use o coma
 
 ----------
 
->[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## Próximas etapas ##
 [Aplicativo Web do Serviço de Aplicativo do Azure – bloquear o acesso Web a slots de implantação não sejam de produção](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
@@ -241,7 +241,7 @@ Para excluir um slot de implantação que não seja mais necessário, use o coma
 [Avaliação gratuita do Microsoft Azure](/pricing/free-trial/)
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- IMAGES -->
 [QGAddNewDeploymentSlot]: ./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png
@@ -259,4 +259,4 @@ Para excluir um slot de implantação que não seja mais necessário, use o coma
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/06/2016"
+   ms.date="01/12/2016"
    ms.author="tomfitz"/>
 
 # Provedores, regiões, versões de API e esquemas do Gerenciador de Recursos
@@ -35,11 +35,11 @@ As tabelas a seguir listam quais serviços suportam a implantação e o gerencia
 | Batch | Sim | Sim | [REST do Lote](https://msdn.microsoft.com/library/azure/dn820158.aspx) | | [Microsoft.Batch](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Batch%22&type=Code) |
 | Serviços de ciclo de vida do Dynamics | Sim | | | | [Microsoft.DynamicsLcs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DynamicsLcs%22&type=Code)
 | Service Fabric (visualização) | Sim | | [Service Fabric Rest](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
-| Máquinas virtuais (clássico) | Limitado | Parcial (veja abaixo) | - | - | 
-| Aplicativo remoto | Não | - | - | - | 
-| Serviços de Nuvem (clássico) | Não | Parcial (veja abaixo) | - | - | - |
+| Máquinas virtuais (clássico) | Limitado | Parcial (veja abaixo) | - | - | | Aplicativo remoto | Não | - | - | - | | Serviços de Nuvem (clássico) | Sim (veja abaixo) | Parcial (veja abaixo) | - | - | - |
 
 Máquinas virtuais (clássico) refere-se aos recursos que foram implantados por meio do modelo de implantação clássico, não por meio do modelo de implantação do Gerenciador de Recursos. Em geral, esses recursos não oferecem suporte a operações do Gerenciador de Recursos, mas existem algumas operações que foram habilitadas. Para saber mais sobre esses modelos de implantação, confira [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](resource-manager-deployment-model.md).
+
+O Gerenciador de Recursos está habilitado para Serviços de Nuvem para uso com outros recursos clássicos; no entanto, os recursos clássicos não tiram proveito de todos os recursos do Gerenciador de recursos e não são uma boa opção para soluções futuras. Em vez disso, considere alterar a infraestrutura de aplicativos para usar os recursos dos namespaces Microsoft.Compute, Microsoft.Storage e Microsoft.Network.
 
 Máquinas virtuais (clássico) e Serviços de Nuvem podem ser movidos para um novo grupo de recursos, mas não uma nova assinatura.
 
@@ -66,8 +66,7 @@ Redes virtuais podem ser movidas para um novo grupo de recursos, mas não uma no
 | Banco de Dados SQL | Sim | Sim | [REST do Banco de Dados SQL](https://msdn.microsoft.com/library/azure/mt163571.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) | [Microsoft.Sql](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Sql%22&type=Code) |
 | Pesquisar | Sim | Sim | [REST de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) | | [Microsoft.Search](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Search%22&type=Code) |
 | SQL Data Warehouse | Sim | | | |
-| StorSimple | Não | - | - | - |
-| Cache gerenciado | Não | - | - | - |
+| StorSimple | Não | - | - | - | - |
 
 ## Web e serviços móveis
 
@@ -76,6 +75,7 @@ Redes virtuais podem ser movidas para um novo grupo de recursos, mas não uma no
 | Gerenciamento da API | Sim | Sim | [REST de gerenciamento de API](https://msdn.microsoft.com/library/azure/dn776326.aspx) | | [Microsoft.ApiManagement](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ApiManagement%22&type=Code) | 
 | Aplicativos de API | Sim | | | [2015-03-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-03-01-preview/Microsoft.AppService.json) | [Aplicativos de API](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22kind%22%3A+%22apiApp%22&type=Code) |
 | Aplicativos Web | Sim | Sim, com limitações (veja abaixo) | | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) | [Microsoft.Web](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Web%22&type=Code) |
+| Aplicativos Móveis | Sim | | | | |
 | Hubs de Notificação | Sim | Sim | [REST do Hub de notificação](https://msdn.microsoft.com/library/azure/dn495827.aspx) | [2015-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-01/Microsoft.NotificationHubs.json) | [Microsoft.NotificationHubs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.NotificationHubs%22&type=Code) |
 | Aplicativos Lógicos | Sim | Sim | | | [Microsoft.Logic](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Logic%22&type=Code) |
 | Compromisso de mobilidade | Sim | Sim | | | [Microsoft.MobileEngagements](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.MobileEngagement%22&type=Code) |
@@ -93,8 +93,7 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 | Análise de fluxo | Sim | | [Análise de fluxo REST](https://msdn.microsoft.com/library/azure/dn835031.aspx) | | [Microsoft.StreamAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.StreamAnalytics%22&type=Code) |
 | HDInsights | Sim | Sim | [REST do HDInsights](https://msdn.microsoft.com/library/azure/mt622197.aspx) | | [Microsoft.HDInsight](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.HDInsight%22&type=Code) |
 | Data Factory | Sim | Sim | [REST do Data Factory](https://msdn.microsoft.com/library/azure/dn906738.aspx) | | [Microsoft.DataFactory](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataFactory%22&type=Code) |
-| Aprendizado de Máquina | Não | - | - | - | 
-| Catálogo de Dados | Não | - | - | - |
+| Aprendizado de Máquina | Não | - | - | - | | Catálogo de Dados | Não | - | - | - |
 
 ## Mídia e CDN
 
@@ -109,17 +108,12 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 | O Barramento de | Gerenciador de Recursos habilitado | Mover recursos | API REST | Esquema | Modelos de Início Rápido |
 | ------- | ------- | -------------- | -------- | ------ | ------ |
 | Serviços do BizTalk | Sim | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) | [Microsoft.BizTalkServices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.BizTalkServices%22&type=Code) |
-| Barramento de Serviço | Sim | | [REST do Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh780717.aspx) | | [Microsoft.ServiceBus](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
-| Backup | Não | - | - | - |
-| Recuperação de Site | Não | - | - | - |
+| Barramento de Serviço | Sim | | | | [Microsoft.ServiceBus](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
+| Backup | Não | - | - | - | | Recuperação de Site | Não | - | - | - |
 
 ## Gerenciamento de acesso e identidade 
 
-| O Barramento de | Gerenciador de Recursos habilitado | Mover recursos | API REST | Esquema | Modelos de Início Rápido |
-| ------- | ------- | -------------- | -------- | ------ | ------ |
-| Active Directory do Azure | Não | - | - | - |
-| Actice Directory B2C do Azure | Não | - | - | - |
-| Multi-Factor Authentication | Não | - | - | - |
+O Active Directory do Azure funciona com o Gerenciador de Recursos para habilitar o controle de acesso baseado em função para sua assinatura. Para obter mais informações sobre o controle de acesso baseado em função e Active Directory, consulte [Controle de Acesso Baseado em Função do Azure](./active-directory/role-based-access-control-configure.md).
 
 ## Serviços para Desenvolvedores 
 
@@ -279,4 +273,4 @@ Você pode abrir o arquivo e localizar o elemento **apiVersions**
 - Para saber mais sobre a criação de modelos do Gerenciador de Recursos, confira [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 - Para saber mais sobre como implantar recursos, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

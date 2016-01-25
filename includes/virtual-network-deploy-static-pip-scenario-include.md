@@ -1,9 +1,11 @@
-## Scenario
+## Cenário
 
-This document will walk through a deployment that uses a static public IP address allocated to a virtual machine (VM). In this scenario, you have a single VM with its own static public IP address. The VM is part of a subnet named **FrontEnd** and also has a static private IP address (**192.168.1.101**) in that subnet.
+Este documento explica uma implantação que usa um endereço IP público estático atribuído a uma VM (máquina virtual). Nesse cenário, você tem uma única VM com seu próprio endereço IP estático. A VM é parte de uma sub-rede chamada **FrontEnd** e também tem um endereço IP privado estático (**192.168.1.101**) nessa sub-rede.
 
-You may need a static IP address for web servers that require SSL connections in which the SSL certificate is linked to an IP address. 
+Talvez seja necessário um endereço IP estático para servidores Web que exigem conexões SSL no qual o certificado SSL está vinculado a um endereço IP.
 
-![IMAGE DESCRIPTION](./media/virtual-network-deploy-static-pip-scenario-include/figure1.png)
+![DESCRIÇÃO DA IMAGEM](./media/virtual-network-deploy-static-pip-scenario-include/figure1.png)
 
-You can follow the steps below to deploy the environment shown in the figure above.
+Você pode seguir as etapas abaixo para implantar o ambiente mostrado na figura acima.
+
+<!---HONumber=AcomDC_0114_2016-->

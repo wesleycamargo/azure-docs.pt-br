@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/12/2016"
 	ms.author="swkrish"/>
 
 # Visualização do Active Directory B2C do Azure: fornecer registro e conexão aos consumidores com contas do Google+
@@ -48,17 +48,13 @@ Para usar o Google+ como um provedor de identidade no AD (Active Directory) B2C 
 
     ![G + — Tela de consentimento do OAuth](./media/active-directory-b2c-setup-goog-app/google-web-app.png)
 
-8. Forneça um **Nome** para o aplicativo, insira [https://login.microsoftonline.com](https://login.microsoftonline.com) no campo **Origens de JavaScript autorizadas** e `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` no campo **URIs de redirecionamento autorizados**, em que **{tenant}** deve ser substituído pelo nome do seu locatário (por exemplo, contosob2c.onmicrosoft.com). Clique em **Criar**.
+8. Forneça um **Nome** para o aplicativo, insira [https://login.microsoftonline.com](https://login.microsoftonline.com) no campo **Origens de JavaScript autorizadas** e `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` no campo **URIs de redirecionamento autorizados**, em que **{tenant}** deve ser substituído pelo nome do seu locatário (por exemplo, contosob2c.onmicrosoft.com). Clique em **Criar**. Observação: o valor **{tenant}** diferencia letras maiúsculas de minúsculas.
 
-> [AZURE.NOTE]O valor **{tenant}** diferencia letras maiúsculas de minúsculas.
+    ![G+ — Criar ID de cliente](./media/active-directory-b2c-setup-goog-app/google-create-client-id.png)
 
-    ![G+ - Create client ID](./media/active-directory-b2c-setup-goog-app/google-create-client-id.png)
+9. Copie os valores de **ID do cliente** e **Segredo do cliente**. Você precisará de ambos para configurar o Google+ como um provedor de identidade no seu locatário. Observação: o **Segredo do cliente** é uma credencial de segurança importante.
 
-9. Copie os valores de **ID do cliente** e **Segredo do cliente**. Você precisará de ambos para configurar o Google+ como um provedor de identidade no seu locatário.
-
-> [AZURE.NOTE]O **Segredo do cliente** é uma credencial de segurança importante.
-
-    ![G+ - Client secret](./media/active-directory-b2c-setup-goog-app/google-client-secret.png)
+    ![G+ — Segredo do cliente](./media/active-directory-b2c-setup-goog-app/google-client-secret.png)
 
 ## Configurar o Google+ como um provedor de identidade no locatário
 
@@ -70,4 +66,4 @@ Para usar o Google+ como um provedor de identidade no AD (Active Directory) B2C 
 6. Clique em **Configurar este provedor de identidade** e insira a **ID do cliente** e o **Segredo do cliente** do aplicativo do Google+ que você criou anteriormente.
 7. Clique em **OK** e em **Create** (Criar) para salvar sua configuração do Google+.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

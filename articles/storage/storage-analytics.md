@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Análise de Armazenamento | Microsoft Azure"
-	description="Como gerenciar a simultaneidade para os serviços Blob, Fila, Tabela e Arquivo"
+	pageTitle="Usar Análise de Armazenamento para coletar dados de logs e métricas| Microsoft Azure"
+	description="A Análise de Armazenamento permite que você para acompanhe dados de métricas de todos os serviços de armazenamento e para coletar logs para o armazenamento de Tabelas, Blobs e Filas."
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
-	manager="adinah"
-	editor=""/>
+	manager="carmonm"
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="01/07/2016"
 	ms.author="tamram"/>
 
 # Análise de Armazenamento
@@ -62,7 +62,7 @@ Os seguintes tipos de solicitações anônimas são registrados:
 
 - Solicitações GET com falha com o código de erro 304 (não modificado).
 
-Todas as outras solicitações anônimas com falha não estão conectadas. Uma lista completa dos dados registrados está documentada nos tópicos [Mensagens de operações e status registradas de análise de armazenamento](https://msdn.microsoft.com/library/hh343260.aspx) e [Formato do log de análise de armazenamento](https://msdn.microsoft.com/library/hh343259.aspx).
+Todas as outras solicitações anônimas com falha não estão conectadas. Uma lista completa dos dados registrados está documentada nos tópicos [Mensagens de operações e status registradas de análise de armazenamento](https://msdn.microsoft.com/library/hh343260.aspx) e Formato do log de análise de armazenamento](](https://msdn.microsoft.com/library/hh343259.aspx)).
 
 ### Como os logs são armazenados
 Todos os logs são armazenados em blobs de bloco em um contêiner denominado $logs, que é criado automaticamente quando a análise de armazenamento é habilitada para uma conta de armazenamento. O contêiner $logs está localizado no namespace de blob da conta de armazenamento, por exemplo: `http://<accountname>.blob.core.windows.net/$logs`. Este contêiner não pode ser excluído quando a análise de armazenamento tiver sido habilitada, embora seu conteúdo possa ser excluído.
@@ -206,4 +206,4 @@ Ao analisar os dados de análise de armazenamento, você pode usar as tabelas no
 - [Esquema da tabela de métricas da análise de armazenamento](https://msdn.microsoft.com/library/hh343264.aspx)
 - [Mensagens de operações e status registradas de análise de armazenamento](https://msdn.microsoft.com/library/hh343260.aspx)  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

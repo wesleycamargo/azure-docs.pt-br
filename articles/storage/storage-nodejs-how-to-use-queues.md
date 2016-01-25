@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Como usar o Armazenamento de Fila do Node.js | Microsoft Azure" 
-	description="Saiba como usar o serviço Fila do Azure para criar e excluir filas, bem como para inserir, obter e excluir mensagens. Amostras escritas em Node.js." 
-	services="storage" 
-	documentationCenter="nodejs" 
-	authors="rmcmurray" 
-	manager="wpickett" 
-	editor=""/>
+<properties
+	pageTitle="Como usar o Armazenamento de Fila do Node.js | Microsoft Azure"
+	description="Saiba como usar o serviço Fila do Azure para criar e excluir filas, bem como para inserir, obter e excluir mensagens. Amostras escritas em Node.js."
+	services="storage"
+	documentationCenter="nodejs"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="robmcm"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="12/01/2015"
+	ms.author="micurd"/>
 
 
 # Como usar o Armazenamento de Fila do Node.js
@@ -237,7 +237,7 @@ O exemplo a seguir gera uma nova política de acesso compartilhado que permitir�
 	var expiryDate = new Date(startDate);
 	expiryDate.setMinutes(startDate.getMinutes() + 100);
 	startDate.setMinutes(startDate.getMinutes() - 100);
-	
+
 	var sharedAccessPolicy = {
 	  AccessPolicy: {
 	    Permissions: azure.QueueUtilities.SharedAccessPermissions.ADD,
@@ -319,16 +319,15 @@ Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga es
   [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
   [Aplicativo Web do Node.js com armazenamento]: ../storage-nodejs-use-table-storage-web-site.md
 
-  
+
   [Queue1]: ./media/storage-nodejs-how-to-use-queues/queue1.png
   [plus-new]: ./media/storage-nodejs-how-to-use-queues/plus-new.png
   [quick-create-storage]: ./media/storage-nodejs-how-to-use-queues/quick-storage.png
-  
-  
-  
+
+
+
   [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
   [Blog da equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Site com o WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
- 
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->
