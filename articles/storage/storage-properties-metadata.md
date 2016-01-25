@@ -5,8 +5,8 @@
   services="storage" 
   documentationCenter="" 
   authors="tamram" 
-  manager="adinah" 
-  editor=""/>
+  manager="carmonm" 
+  editor="tysonn"/>
 
 <tags 
   ms.service="storage" 
@@ -99,4 +99,4 @@ Para recuperar os metadados, chame o método **FetchAttributes** no blob ou no c
 - [Biblioteca do Cliente de Armazenamento do Azure para a referência do .NET](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 - [Biblioteca do Cliente de Armazenamento do Azure para o pacote do .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) 
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

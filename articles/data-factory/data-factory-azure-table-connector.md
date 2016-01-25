@@ -369,7 +369,19 @@ As propriedades disponíveis na seção typeProperties da atividade, por outro l
 
 Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | Utiliza a consulta personalizada para ler os dados. | <p>Cadeia de consulta de tabela do Azure.</p>* * Exemplos: * ***<br/> "azureTableSourceQuery": "eq PartitionKey 'DefaultPartitionKey'" <br/><br/>"azureTableSourceQuery": "$$Text.Format ('PartitionKey ge \\'{0:yyyyMMddHH00\_0000}\\ 'e PartitionKey le \\'{0:yyyyMMddHH00\_9999}\\')', SliceStart)" | Nenhum azureTableSourceIgnoreTableNotFound | Indique se assimilar a exceção da tabela não existe. | TRUE<br/>FALSE | Não |
+azureTableSourceQuery | Utiliza a consulta personalizada para ler os dados. | <p>Cadeia de caracteres de consulta de tabela do Azure. Veja os exemplos abaixo. | Não
+azureTableSourceIgnoreTableNotFound | Indique se assimilar a exceção da tabela não existe. | TRUE<br/>FALSE | Não |
+
+### Exemplos do azureTableSourceQuery
+
+Se a coluna Tabela do Azure é do tipo cadeia de caracteres:
+
+	azureTableSourceQuery": "$$Text.Format('PartitionKey ge \\'{0:yyyyMMddHH00_0000}\\' and PartitionKey le \\'{0:yyyyMMddHH00_9999}\\'', SliceStart)"
+
+Se a coluna Tabela do Azure é do tipo datetime:
+
+	"azureTableSourceQuery": "$$Text.Format('DeploymentEndTime gt datetime\\'{0:yyyy-MM-ddTHH:mm:ssZ}\\' and DeploymentEndTime le datetime\\'{1:yyyy-MM-ddTHH:mm:ssZ}\\'', SliceStart, SliceEnd)"
+
 
 **AzureTableSink** dá suporte às seguintes propriedades na seção typeProperties:
 
@@ -503,4 +515,4 @@ Nesse caso, a fábrica dados fará automaticamente as conversões de tipo, inclu
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

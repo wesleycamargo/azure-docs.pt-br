@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="10/22/2015"
+   ms.date="01/12/2016"
    ms.author="sameerch"/>
 
 
@@ -89,22 +89,22 @@ Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho 
 
 >[AZURE.NOTE]Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
 
-Exibir a referência da API REST do Swagger em [Conectores e referência dos Aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar Aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
 
 <!--Image references-->
-[1]: ./media/app-service-logic-connector-hdinsight/Create.jpg
-[2]: ./media/app-service-logic-connector-hdinsight/CertNotConfigured.jpg
-[3]: ./media/app-service-logic-connector-hdinsight/CertConfigured.jpg
-[5]: ./media/app-service-logic-connector-hdinsight/LogicApp1.jpg
-[6]: ./media/app-service-logic-connector-hdinsight/LogicApp2.jpg
-[7]: ./media/app-service-logic-connector-hdinsight/LogicApp3.jpg
-[8]: ./media/app-service-logic-connector-hdinsight/LogicApp4.jpg
-[9]: ./media/app-service-logic-connector-hdinsight/LogicApp5.jpg
-[10]: ./media/app-service-logic-connector-hdinsight/LogicApp6.jpg
-[11]: ./media/app-service-logic-connector-hdinsight/LogicApp7.jpg
+[1]: ./media/app-service-logic-connector-hdinsight/Create.png
+[2]: ./media/app-service-logic-connector-hdinsight/CertNotConfigured.png
+[3]: ./media/app-service-logic-connector-hdinsight/CertConfigured.png
+[5]: ./media/app-service-logic-connector-hdinsight/LogicApp1.png
+[6]: ./media/app-service-logic-connector-hdinsight/LogicApp2.png
+[7]: ./media/app-service-logic-connector-hdinsight/LogicApp3.png
+[8]: ./media/app-service-logic-connector-hdinsight/LogicApp4.png
+[9]: ./media/app-service-logic-connector-hdinsight/LogicApp5.png
+[10]: ./media/app-service-logic-connector-hdinsight/LogicApp6.png
+[11]: ./media/app-service-logic-connector-hdinsight/LogicApp7.png
 [12]: ./media/app-service-logic-connector-hdinsight/LogicApp8.PNG
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

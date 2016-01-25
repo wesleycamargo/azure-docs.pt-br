@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Conectar-se ao SQL Server local por meio de um aplicativo de API no Serviço de Aplicativo do Azure usando Conexões Híbridas
@@ -75,7 +75,7 @@ Se você já tiver o SQL Server instalado em uma configuração e em um ambiente
 <a name="InstallSQL"></a>
 ## Instalar o SQL Server Express, habilitar TCP/IP e criar um banco de dados SQL Server local
 
-Esta seção mostra como instalar o SQL Server Express, habilitar o TCP/IP e criar um banco de dados, de modo que seu aplicativo de API funcionará com o [Portal de Visualização do Azure](https://portal.azure.com).
+Esta seção mostra a você como instalar o SQL Server Express, habilitar o TCP/IP e criar um banco de dados, de modo que seu aplicativo de API funcionará com o [Portal de Visualização do Azure](https://portal.azure.com).
 
 <a name="InstallSQLDB"></a>
 ### Instalar SQL Server Express
@@ -118,7 +118,7 @@ Para habilitar TCP/IP, você utilizará o SQL Server Configuration Manager, que 
 
 	![Conectar-se ao servidor](./media/app-service-api-hybrid-on-premises-sql-server/connect-to-server.png)
 	
-	Se a caixa de diálogo **Conectar ao Servidor** não for exibida automaticamente, navegue para o **Gerenciador de Objetos** no painel esquerdo, clique em **Conectar** e, depois, clique em **Mecanismo de Banco de Dados**.
+	Se a caixa de diálogo **Conectar ao Servidor** não aparecer automaticamente, vá até **Pesquisador de Objetos** no painel à esquerda, clique em **Conectar** e em **Mecanismo de Banco de Dados**.
 	
 2. Para criar um novo banco de dados utilizando o SQL Server Management Studio, clique com o botão direito em **Bancos de Dados** no Pesquisador de Objetos, e clique em **Novo Bancos de Dados**.
 	
@@ -192,7 +192,7 @@ Esta seção orienta você pela criação do aplicativo de API de demonstração
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/new-controller.png)
 
-8. Na caixa de diálogo **Adicionar Scaffold**, selecione a opção **Controlador de API da Web 2 - Vazio** e clique em **Adicionar**.
+8. Na caixa de diálogo **Adicionar Scaffold**, selecione a opção **Controlador de API Web 2 - Vazio** e clique em **Adicionar**.
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/add-scaffold.png)
 
@@ -432,4 +432,4 @@ Agora que a infraestrutura de conexão híbrida está concluída, é o momento d
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

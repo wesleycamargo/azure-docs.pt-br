@@ -70,11 +70,11 @@ Assim como acontece com as credenciais de administrador, não use valores no for
 ## Consulte também
 [Gerenciamento de bancos de dados e logons no Banco de Dados SQL do Azure](sql-database-manage-logins.md)
 
-[Como adicionar usuários a um pool de bancos de dados elásticos](sql-database-elastic-jobs-add-logins-to-dbs.md)
+[Protegendo o Banco de Dados SQL](sql-database-security.md)
 
 [Introdução a trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-getting-started.md)
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

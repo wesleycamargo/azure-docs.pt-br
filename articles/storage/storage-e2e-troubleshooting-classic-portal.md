@@ -4,7 +4,7 @@
 	services="storage" 
 	documentationCenter="dotnet" 
 	authors="tamram" 
-	manager="adinah"/>
+	manager="carmonm"/>
 
 <tags 
 	ms.service="storage" 
@@ -354,7 +354,7 @@ Agora que você está familiarizado com o uso do Analisador de Mensagem para ana
 | Mensagens HTTP 403 (Proibido) | HTTP.Response.StatusCode == 403 | Rede |
 | Mensagens HTTP 404 (Não encontrado) | HTTP.Response.StatusCode == 404 | Rede |
 | 404 (todos) | *StatusCode == 404 | Todos |
-| Problema de autorização da Assinatura de Acesso Compartilhado (SAS) | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Rede |
+| Problema de autorização da SAS (Assinatura de Acesso Compartilhado) | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Rede | 
 | Mensagens HTTP 409 (Conflito) | HTTP.Response.StatusCode == 409 |Rede |
 | 409 (todos) | *StatusCode == 409 | Todos |
 |O PercentSuccess Baixo ou as entradas do log de análise têm operações com o status de transação ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Servidor |
@@ -375,4 +375,4 @@ Para obter mais informações sobre cenários de ponta a ponta para solução de
  
  
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

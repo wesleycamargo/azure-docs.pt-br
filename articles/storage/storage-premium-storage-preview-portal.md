@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="12/04/2015"
-	ms.author="robinsh;selcint"/>
+	ms.author="robinsh;prkhad"/>
 
 
 # Armazenamento Premium: armazenamento de alto desempenho para as cargas de trabalho da máquina virtual do Azure
@@ -51,7 +51,7 @@ A seguir está uma lista de pontos importantes a considerar antes ou quando usar
 
 - Uma conta de Armazenamento Premium não pode ser mapeada para um nome de domínio personalizado.
 
-- Não há suporte atualmente para a análise de armazenamento para Armazenamento Premium. Para analisar as métricas de desempenho de VMs usando discos em contas de Armazenamento Premium, use as ferramentas baseados no sistema operacional, por exemplo, [Monitor de Desempenho do Windows](https://technet.microsoft.com/library/cc749249.aspx) para VMs do Windows e [IOSTAT](http://linux.die.net/man/1/iostat) para VMs do Linux. Você também pode habilitar o diagnóstico de VM do Azure no Portal de visualização do Azure. Confira [Microsoft Azure Virtual Machine Monitoring with Azure Diagnostics Extension](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/) para obter detalhes.
+- Não há suporte atualmente para a análise de armazenamento para Armazenamento Premium. Para analisar as métricas de desempenho de VMs usando discos em contas de Armazenamento Premium, use as ferramentas baseados no sistema operacional, por exemplo, [Monitor de Desempenho do Windows](https://technet.microsoft.com/library/cc749249.aspx) para VMs do Windows e [IOSTAT](http://linux.die.net/man/1/iostat) para VMs do Linux. Você também pode habilitar o diagnóstico de VM do Azure no Portal de visualização do Azure. Consulte o [Monitoramento de máquina virtual do Microsoft Azure com extensão de diagnóstico do Azure](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/) para obter detalhes.
 
 ## Usando o Armazenamento Premium para discos
 Você pode usar o Armazenamento Premium para discos de uma das seguintes maneiras:
@@ -393,6 +393,5 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 - [Documentação de armazenamento](http://azure.microsoft.com/documentation/services/storage/)
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
- 
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

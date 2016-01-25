@@ -13,12 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="01/11/2016" 
 	ms.author="billmath"/>
 
 # Configurando o Azure Multi-Factor Authentication
 
 O artigo a seguir lhe ajudará a gerenciar o Azure Multi-Factor Authentication, agora que você já o conhece bem. Ele cobre uma variedade de tópicos que lhe permitirão aproveitar ao máximo o Azure Multi-Factor Authentication. Esteja ciente de que nem todos estes recursos estão disponíveis em todas as versões do Azure Multi-Factor Authentication.
+
+A configuração de alguns dos recursos a seguir pode ser encontrada no Portal de Gerenciamento do Azure Multi-Factor Authentication. Há duas maneiras diferentes de acessar esse portal, ambas pelo portal do Azure. A primeira é gerenciando um Provedor de Autenticação Multifator, se estiver usando um MFA baseado em consumo. A segunda é por configurações do serviço MFA. A segunda opção exige um Provedor de Autenticação Multifator ou uma licença do Azure MFA, do Azure AD Premium ou do Enterprise Mobility Suite.
+
+Para acessar o Portal de Gerenciamento de MFA por meio de um Provedor do Azure Multi-Factor Auth, entre no portal do Azure como administrador e selecione a opção Active Directory. Clique na guia **Provedores de Autenticação Multifator**, selecione o diretório e clique no botão **Gerenciar** na parte inferior.
+
+Para acessar o Portal de Gerenciamento de MFA por meio da página Configurações de Serviço de MFA, entre no Portal do Azure como administrador e selecione a opção Active Directory. Clique em seu diretório e depois na guia **Configurar**. Na seção da autenticação multifator, escolha **Gerenciar configurações de serviço**. Na parte inferior da página Configurações do Serviço do MFA, clique no link **Ir para o portal**.
+
 
 Recurso| Descrição| O que é coberto
 :------------- | :------------- | :------------- | 
@@ -38,16 +45,16 @@ O alerta de fraude pode ser instalado e configurado para que os usuários possam
 
 ### Para instalar e configurar o alerta de fraude
 
+1.	Faça logon no http://azure.microsoft.com
+2.	Navegue até o Portal de Gerenciamento do MFA de acordo com as instruções na parte superior desta página.
+3.	No Portal de Gerenciamento do Azure Multi-Factor Authentication, clique em Configurações na seção Configurar.
+4.	Na seção Alerta de Fraude da página Configurações, maque a caixa de seleção Permitir que os usuários enviem alertas de fraudes.
+5.	Se você quiser que os usuários sejam bloqueados quando a fraude for relatada, marque Bloquear usuário quando fraude for relatada.
+6.	Na caixa de texto **Código para relatar fraude durante a saudação inicial**, digite um código numérico que possa ser usado durante a verificação de chamada. Se um usuário digitar esse código mais #, em vez de apenas o sinal #, um alerta de fraude será relatado. 
+7.	Na parte inferior, clique em Salvar.
 
-1. Faça logon em [http://azure.microsoft.com](http://azure.microsoft.com)
-2. Selecione Active Directory à esquerda.
-3. Na parte superior, selecione os Provedores de autenticação multifator. Isso trará uma lista de seus provedores de autenticação multifator.
-4. Se você tiver mais de um provedor de autenticação multifator, selecione aquele em que você deseja ativar alertas de fraude e clique em Gerenciar na parte inferior da página. Se você tiver apenas um, clique em Gerenciar. Isso abrirá o Portal de Gerenciamento do Azure Multi-Factor Authentication.
-5. No Portal de Gerenciamento do Azure Multi-Factor Authentication, à esquerda, clique em Configurações.
-6. Na seção de Alerta de Fraude, marque Permitir que os usuários enviem alertas de fraudes.
-7. Se você quiser que os usuários sejam bloqueados quando a fraude for relatada, marque Bloquear usuário quando fraude for relatada.
-8. Na caixa Código para relatar fraude durante a saudação inicial, digite um código numérico que possa ser usado durante a verificação de chamada. Se um usuário digitar esse código, em vez do sinal #, um alerta de fraude será relatado.
-9. Na parte inferior, clique em Salvar.
+>[AZURE.NOTE]As saudações de voz padrão da Microsoft instruem os usuários a pressionar 0# para enviar um alerta de fraude. Se você usar um código diferente de 0, será necessário gravar e carregar suas próprias saudações de voz personalizadas com instruções apropriadas.
+
 
 <center>![Cloud](./media/multi-factor-authentication-whats-next/fraud.png)</center>
 
@@ -55,18 +62,21 @@ O alerta de fraude pode ser instalado e configurado para que os usuários possam
 O alerta de fraude pode ser informado de duas maneiras. Seja por meio do aplicativo móvel ou telefone.
 
 ### Para relatar o alerta de fraude com o aplicativo móvel
-<ol>
-<li>Quando uma verificação for enviada ao seu telefone, clique nela e o aplicativo Multi-Factor Authentication será iniciado.</li>
-<li>Para relatar fraudes, clique em Cancelar e Relatar fraude. Isso abrirá uma caixa informando sobre a TI das suas organizações</li> A equipe de suporte será notificada. Clique em Relatar fraude.
-<li>No aplicativo, clique em Fechar.</li></ol>
+
+
+
+1. Quando uma verificação for enviada ao seu telefone, clique nela e o aplicativo Multi-Factor Authentication será iniciado.
+2. Para relatar fraudes, clique em Cancelar e Relatar fraude. Isso abrirá uma caixa informando que a equipe de Suporte de TI de suas organizações será notificada. 
+3. Clique em Relatar fraude.
+4. No aplicativo, clique em Fechar.
 
 <center>![Cloud](./media/multi-factor-authentication-whats-next/report1.png)</center>
 
 ### Para relatar o alerta de fraude com o telefone
-<ol>
-<li>Atenda a chamada de verificação quando for feita ao seu telefone.</li>
-<li>Para relatar fraudes, digite o código que foi configurado para corresponder ao relato de fraude pelo telefone e o sinal #. Você será notificado de que um alerta de fraude foi enviado.</li>
-<li>Encerre a chamada.</li></ol>
+
+1. Ao receber uma chamada de verificação em seu telefone, atenda-a.</li>
+2. Para relatar fraudes, digite o código que foi configurado para corresponder ao relato de fraude pelo telefone e o sinal #. Você será notificado de que um alerta de fraude foi enviado.
+3. Encerre a chamada.
 
 ### Para exibir o relatório de fraude
 
@@ -84,21 +94,15 @@ Um desvio único permite que um usuário se autentique uma única vez ao "desvia
 
 ### Para criar um desvio único
 
-<ol>
-<li>Faça logon em [http://azure.microsoft.com](http://azure.microsoft.com)</li>
-<li>Selecione Active Directory à esquerda.</li>
-<li>Na parte superior, selecione os Provedores de autenticação multifator. Isso trará uma lista de seus provedores de autenticação multifator.</li>
-<li>Se você tiver mais de um Provedor de autenticação multifator, selecione aquele que está associado com o diretório do usuário para o qual você deseja criar um desvio único para e clique em Gerenciar na parte inferior da página. Se você tiver apenas um, clique em Gerenciar. Isso abrirá o Portal de Gerenciamento do Azure Multi-Factor Authentication.</li>
-<li>No Portal de Gerenciamento do Azure Multi-Factor Authentication, à esquerda, em Administração do usuário, clique em Configurações.</li>
+1.	Faça logon no http://azure.microsoft.com
+2.	Navegue até o Portal de Gerenciamento do MFA de acordo com as instruções na parte superior desta página.
+3.	No Portal de Gerenciamento de Azure Multi-Factor Authentication, se você vir o nome do locatário ou Provedor de Azure MFA à esquerda com um + ao lado dele, clique no + para ver grupos diferentes de replicação do Servidor MFA e o grupo Padrão do Azure. Clique no grupo apropriado.
+4.	Em Administração de Usuário, clique em **Bypass Avulso**. ![Nuvem](./media/multi-factor-authentication-whats-next/create1.png)
+5.	Na página de Bypass Avulso, clique em **Novo Bypass Avulso**.
+6.	Digite o nome do usuário, o número de segundos durante os quais o bypass vai existir, o motivo do bypass e clique em **Bypass**.![Nuvem](./media/multi-factor-authentication-whats-next/create2.png)
+7.	Neste ponto, o usuário deve se conectar antes que o desvio único expire.
 
-<center>![Cloud](./media/multi-factor-authentication-whats-next/create1.png)</center>
 
-<li>Na página de Desvio único, clique em Novo desvio único.</li>
-<li>Digite o nome do usuário, o número de segundos durante os quais o desvio vai existir, o motivo para o desvio e clique em Desvio.</li>
-
-<center>![Cloud](./media/multi-factor-authentication-whats-next/create2.png)</center>
-
-<li>Neste ponto, o usuário deve se conectar antes que o desvio único expire.</li>
 
 ### Para exibir o relatório de desvio único
 
@@ -125,59 +129,38 @@ Antes de começar, esteja ciente das seguintes informações:
 
 
 ### Para configurar mensagens de voz personalizadas no Azure Multi-Factor Authentication
-<ol>
-<li>Crie uma mensagem de voz personalizada usando um dos formatos de arquivo compatíveis. Consulte as Recomendações de mensagem de voz personalizada abaixo.</li>
-<li>Faça logon em [http://azure.microsoft.com](http://azure.microsoft.com)</li>
-<li>Selecione Active Directory à esquerda.</li>
-<li>Na parte superior, selecione os Provedores de autenticação multifator. Isso trará uma lista de seus provedores de autenticação multifator.</li>
-<li>Se você tiver mais de um Provedor de autenticação multifator, selecione aquele em que você deseja configurar mensagens de voz personalizadas e clique em Gerenciar na parte inferior da página. Se você tiver apenas um, clique em Gerenciar. Isso abrirá o Portal de Gerenciamento do Azure Multi-Factor Authentication.</li>
-<li>No Portal de Gerenciamento do Azure Multi-Factor Authentication, à esquerda, clique em Mensagens de voz.</li>
+1.	Crie uma mensagem de voz personalizada usando um dos formatos de arquivo compatíveis.
+2.	Faça logon no http://azure.microsoft.com
+3.	Navegue até o Portal de Gerenciamento do MFA de acordo com as instruções na parte superior desta página.
+4.	No Portal de Gerenciamento do Azure Multi-Factor Authentication, clique em Mensagens de Voz na seção Configurar.
+5.	Na seção Mensagens de Voz, clique em **Nova Mensagem de Voz**.![Nuvem](./media/multi-factor-authentication-whats-next/custom1.png)
+6.	Na página Configurar: Novas Mensagens de Voz, clique em **Gerenciar Arquivos de Som**.![Nuvem](./media/multi-factor-authentication-whats-next/custom2.png)
+7.	Na página Configurar: Arquivos de Som, clique em **Carregar Arquivo de Som**.![Nuvem](./media/multi-factor-authentication-whats-next/custom3.png)
+8.	Na página Configurar: Carregar Arquivo de Som, clique em **Procurar** e navegue até a mensagem de voz e clique em **Abrir**.![Nuvem](./media/multi-factor-authentication-whats-next/custom4.png)
+9.	Adicione uma Descrição e clique em Carregar.
+10.	Quando isso for concluído, você verá uma mensagem de que carregou com êxito o arquivo.
+11.	À esquerda, clique em Mensagens de voz.
+12.	Na seção Mensagens de voz, clique em Nova mensagem de voz.
+13.	No menu suspenso Idioma, selecione um idioma.
+14.	Se esta mensagem for para um aplicativo específico, especifique-o na caixa de Aplicativo.
+15.	No Tipo de mensagem, selecione o tipo de mensagem que será substituído pela nossa nova mensagem personalizada.
+16.	No menu suspenso Arquivo de som, selecione seu arquivo de som.
+17.	Clique em **Criar**. Você verá uma mensagem que diz que você criou com êxito uma mensagem de voz.![Nuvem](./media/multi-factor-authentication-whats-next/custom5.png)</center>
 
-<center>![Cloud](./media/multi-factor-authentication-whats-next/custom1.png)</center>
-
-<li>Na seção Mensagens de voz, clique em Nova mensagem de voz.</li>
-
-<center>![Cloud](./media/multi-factor-authentication-whats-next/custom2.png)</center>
-
-<li>Na página Configurar: novas mensagens de voz, clique em Gerenciar arquivos de som.</li>
-
-<center>![Cloud](./media/multi-factor-authentication-whats-next/custom3.png)</center>
-
-<li>Na página Configurar: arquivos de som, clique em Carregar arquivo de som.</li>
-
-<center>![Cloud](./media/multi-factor-authentication-whats-next/custom4.png)</center>
-
-<li>Na página Configurar: carregar arquivos de som, clique em Procurar e navegue até a mensagem de voz e clique em Abrir.</li>
-<li>Adicione uma Descrição e clique em Carregar.</li>
-<li>Quando isso for concluído, você verá uma mensagem de que carregou com êxito o arquivo.</li>
-<li>À esquerda, clique em Mensagens de voz.</li>
-<li>Na seção Mensagens de voz, clique em Nova mensagem de voz.</li>
-<li>No menu suspenso Idioma, selecione um idioma.</li>
-<li>Se esta mensagem for para um aplicativo específico, especifique-o na caixa de Aplicativo.</li>
-<li>No Tipo de mensagem, selecione o tipo de mensagem que será substituído pela nossa nova mensagem personalizada.</li>
-<li>No menu suspenso Arquivo de som, selecione seu arquivo de som.</li>
-<li>Clique em Criar. Você verá uma mensagem que diz que você criou com êxito uma mensagem de voz.</li>
-
-<center>![Cloud](./media/multi-factor-authentication-whats-next/custom5.png)</center>
 
 
 ## Cache no Azure Multi-Factor Authentication
 
-O cache permite que você defina um momento específico período para que tentativas de autenticação subsequentes tenham êxito automaticamente. Isso permite que seus usuários evitem ter de aguardar chamadas telefônicas ou texto se eles se autenticarem dentro desse período.
-
+O cache permite que você defina um momento específico período para que tentativas de autenticação subsequentes tenham êxito automaticamente. Isso é usado principalmente quando os sistemas locais, como VPN, enviam várias solicitações de verificação enquanto a primeira solicitação ainda está em andamento. Isso permite que as solicitações subsequentes tenham êxito automaticamente após a conclusão bem-sucedida da verificação em andamento. Observe que o cache não deve ser usado para entradas
 
 
 ### Para instalar um cache no Azure Multi-Factor Authentication
-<ol>
 
-1. Faça logon em [http://azure.microsoft.com](http://azure.microsoft.com)
-2. Selecione Active Directory à esquerda.
-3. Na parte superior, selecione os Provedores de autenticação multifator. Isso trará uma lista de seus provedores de autenticação multifator.
-4. Se você tiver mais de um provedor de autenticação multifator, selecione aquele em que você deseja ativar alertas de fraude e clique em Gerenciar na parte inferior da página. Se você tiver apenas um, clique em Gerenciar. Isso abrirá o Portal de Gerenciamento do Azure Multi-Factor Authentication.
-5. No Portal de Gerenciamento do Azure Multi-Factor Authentication, à esquerda, clique em Cache.
-6. Na página Configurar cache, clique em Novo cache
-7. Selecione o tipo de Cache e os segundos de cache. Clique em Criar.
-
+1.	Faça logon no http://azure.microsoft.com
+2.	Navegue até o Portal de Gerenciamento do MFA de acordo com as instruções na parte superior desta página.
+3.	No Portal de Gerenciamento do Azure Multi-Factor Authentication, clique em Cache na seção Configurar.
+4.	Na página Configurar cache, clique em Novo cache
+5.	Selecione o tipo de Cache e os segundos de cache. Clique em Criar.
 
 <center>![Cloud](./media/multi-factor-authentication-whats-next/cache.png)</center>
 
@@ -203,30 +186,33 @@ Fora da rede corporativa|Para fluxos de navegador, a autenticação multifator �
 
 ### Para habilitar IPs confiáveis
 
+1. Entre no Portal de Gerenciamento do Azure.
+2. À esquerda, clique no Active Directory.
+3. Em Diretório, clique no diretório em que deseja habilitar IPs confiáveis.
+4. No Diretório que você selecionou, clique em Configurar.
+5. Na seção autenticação multifator, clique em Gerenciar configurações de serviço.
+6. Na página Configurações do Serviço, em IPs Confiáveis, selecione:
+
+	- Para solicitações de usuários federados provenientes da minha intranet – todos os usuários federados que estiverem entrando pela rede corporativa ignorarão a autenticação multifator usando uma declaração emitida pelo AD FS. 
+	- Para solicitações de um intervalo específico de IPs públicos – insira os endereços IP nas caixas fornecidas usando a notação CIDR. Por exemplo: xxx.xxx.xxx.0/24 para endereços IP no intervalo xxx.xxx.xxx.1 – xxx.xxx.xxx.254, ou xxx.xxx.xxx.xxx/32 para um único endereço IP. Você pode inserir até 12 intervalos de endereços IP.
+
+7. Clique em Salvar.
+8. Depois que as atualizações forem aplicadas, clique em Fechar.
+
+
+
+![Nuvem](./media/multi-factor-authentication-whats-next/trustedips2.png)
+
+
+
  
-<ol>
-<li>Entre no Portal de Gerenciamento do Azure.</li>
-<li>À esquerda, clique no Active Directory.</li>
-<li>Em Diretório, clique no diretório em que deseja habilitar IPs confiáveis.</li>
-<li>No Diretório que você selecionou, clique em Configurar.</li>
-<li>Na seção autenticação multifator, clique em Gerenciar configurações de serviço.</li>
-<li>Na página Configurações de serviço, em IPs confiáveis, selecione: <ul> <li>para solicitações de usuários federados provenientes da minha intranet – todos os usuários federados que estiverem entrando pela rede corporativa se desviarão da autenticação multifator usando uma declaração emitida pelo AD FS.
-
-<li>Para solicitações de um intervalo específico de IPs públicos – insira os endereços IP nas caixas fornecidas usando a notação CIDR. Por exemplo: xxx.xxx.xxx.0/24 para endereços IP no intervalo xxx.xxx.xxx.1 – xxx.xxx.xxx.254, ou xxx.xxx.xxx.xxx/32 para um único endereço IP. Você pode inserir até 12 intervalos de endereços IP.</li></ul>
-
-
-<center>![Cloud](./media/multi-factor-authentication-whats-next/trustedips.png)</center>
-
-
-<li>Clique em Salvar.</li>
-<li>Depois que as atualizações forem aplicadas, clique em Fechar.</li>
 ## Senhas de aplicativo
 
 Em alguns aplicativos, como o Office 2010 ou mais antigo e o Apple Mail, você não pode usar autenticação multifator. Para usar esses aplicativos, você precisará usar as "senhas de aplicativo" no lugar de sua senha tradicional. A senha de aplicativo permite que um aplicativo se desvie da autenticação multifator e continue funcionando.
 
 >[AZURE.NOTE]Autenticação moderna para os clientes do Office 2013
 >
-> Os clientes do Office 2013 (incluindo o Outlook) agora têm suporte a novos protocolos de autenticação e podem ser habilitados para oferecer suporte ao Multi-Factor Authentication. Isso significa que, uma vez habilitadas, as senhas de aplicativo não são necessárias para usar com os clientes do Office 2013. Para obter mais informações, consulte [Anúncio da visualização pública da autenticação moderna do Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+> Os clientes do Office 2013 (incluindo o Outlook) agora têm suporte a novos protocolos de autenticação e podem ser habilitados para oferecer suporte ao Multi-Factor Authentication. Isso significa que, uma vez habilitadas, as senhas de aplicativo não são necessárias para usar com os clientes do Office 2013. Para saber mais, confira [Anúncio da visualização pública da autenticação moderna do Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
 
 
@@ -365,4 +351,4 @@ Para garantir que as contas de usuário sejam protegidas, você deve restaurar a
 <li>Na página Configurações de serviço, em Gerenciar configurações de usuário do dispositivo, marque/desmarque elar seleção de **Permite aos usuários suspender o Multi-Factor Authentication, fazendo com que um dispositivo seja lembrado**.</li>
 ![Suspender dispositivos](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>Defina o número de dias que você deseja permitir a suspensão. O padrão é 14 dias.</li> <li>Clique em Salvar.</li> <li>Clique em Fechar.</li>
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

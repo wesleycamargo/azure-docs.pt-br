@@ -1,18 +1,19 @@
 <properties
 	pageTitle="Usar o Armazenamento do Azure em aplicativos da Windows Store | Microsoft Azure"
-	description="Saiba como usar blobs, filas e tabelas do Azure para armazenar dados de aplicativos da Windows Store."
+	description="Saiba como criar um aplicativo da Windows Store que usa o Armazenamento de Arquivos, Tabela, Fila ou Blobs do Azure."
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
-	manager="adinah" />
+	manager="carmonm" />
 <tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="01/07/2016"
 	ms.author="tamram"/>
+	
 # Como usar o Armazenamento do Azure em aplicativos da Windows Store
 
 ## Visão geral
@@ -86,4 +87,4 @@ Você também pode adicionar uma referência à Microsoft.WindowsAzure.Storage.T
 [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

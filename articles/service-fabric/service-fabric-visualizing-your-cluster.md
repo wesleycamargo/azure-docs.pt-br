@@ -16,15 +16,15 @@
    ms.date="10/30/2015"
    ms.author="jesseb"/>
 
-# Visualizando o cluster usando o Explorador do Service Fabric
+# Visualizar o cluster usando o Explorador do Service Fabric
 
-O Explorador do Service Fabric é uma ferramenta baseada na Web para inspecionar e gerenciar aplicativos e nós em um cluster do Service Fabric. O Explorador do Service Fabric é hospedado diretamente dentro do cluster para que esteja sempre disponível, independentemente de onde o cluster esteja sendo executado.
+O Explorador do Service Fabric é uma ferramenta baseada na Web para inspecionar e gerenciar aplicativos e nós em um cluster do Service Fabric do Azure. O Explorador do Service Fabric é hospedado diretamente dentro do cluster para estar sempre disponível, independentemente de onde o cluster estiver sendo executado.
 
 ## Conectar ao Explorador do Service Fabric
 
 Se você seguiu as instruções para [preparar o seu ambiente de desenvolvimento](service-fabric-get-started.md), pode iniciar o Explorador do Service Fabric no cluster local navegando para http://localhost:19080/Explorer.
 
->[AZURE.NOTE]Se estiver usando o Internet Explorer (IE) com o Explorador do Service Fabric para gerenciar um cluster remoto, você precisará definir algumas configurações do IE. Vá para **Ferramentas -> Configurações de Exibição de Compatibilidade** e desmarque **Exibir sites da intranet na Exibição de Compatibilidade** para garantir que todas as informações são carregadas corretamente.
+>[AZURE.NOTE]Se estiver usando o Internet Explorer com o Explorador do Service Fabric para gerenciar um cluster remoto, você precisará definir algumas configurações do Internet Explorer. Vá para **Ferramentas** -> **Configurações de Exibição de Compatibilidade** e desmarque **Exibir sites da intranet na Exibição de Compatibilidade** para garantir que todas as informações sejam carregadas corretamente.
 
 ## Entender o layout do Explorador do Service Fabric
 
@@ -32,19 +32,19 @@ Você pode navegar pelo Explorador do Service Fabric usando a árvore à esquerd
 
 ![Painel de clusters do Explorador do Service Fabric][sfx-cluster-dashboard]
 
-### O mapa de clusters
+### Exibir o layout do cluster
 
-Nós em um cluster do Service Fabric são colocados em uma grade de dimensão 2 de domínios de falha e domínios de atualização para garantir que seus aplicativos permaneçam disponíveis na presença de falhas de hardware e atualizações de aplicativos. Você pode exibir o layout do cluster atual usando o Mapa de Clusters.
+Nós em um cluster do Service Fabric são colocados em uma grade bidimensional de domínios de falha e domínios de atualização. Esse posicionamento garante que seus aplicativos permaneçam disponíveis na presença de falhas de hardware e atualizações de aplicativos. Você pode exibir o layout do cluster atual usando o mapa de clusters.
 
 ![Mapa de clusters do Explorador do Service Fabric][sfx-cluster-map]
 
-### Exibindo seus aplicativos e serviços
+### Exibir aplicativos e serviços
 
 O cluster contém duas subárvores: uma para aplicativos e outra para nós.
 
-A exibição de aplicativos permite navegar pela hierarquia lógica do Service Fabric: aplicativos, serviços, partições e réplicas.
+Você pode usar a exibição de aplicativos para navegar pela hierarquia lógica do Service Fabric: aplicativos, serviços, partições e réplicas.
 
-No exemplo abaixo, o aplicativo **MyApp** é composto de dois serviços, **MyStatefulService** e **WebService**. Como o **MyStatefulService** tem monitoração de estado, ele inclui uma partição com uma réplica principal e duas secundárias. Por outro lado, o WebSvcService não tem monitoração de estado e contém uma única instância.
+No exemplo abaixo, o aplicativo **MyApp** é composto de dois serviços, **MyStatefulService** e **WebService**. Como o **MyStatefulService** tem monitoração de estado, ele inclui uma partição com uma réplica principal e duas secundárias. Por outro lado, o WebSvcService é sem monitoração de estado e contém uma única instância.
 
 ![Exibição do aplicativo do Explorador do Service Fabric][sfx-application-tree]
 
@@ -54,27 +54,27 @@ Em cada nível da árvore, o painel principal mostra informações pertinentes s
 
 ### Exibir os nós do cluster
 
-A exibição de Nós mostra o layout físico do cluster. Em cada nó, você pode inspecionar quais aplicativos têm código implantado nele e, mais especificamente, que réplicas estão sendo executadas atualmente no nó.
+A exibição de nós mostra o layout físico do cluster. Para um nó específico, você pode inspecionar quais aplicativos têm código implantado naquele nó. Mais especificamente, você pode ver quais réplicas estão sendo executadas lá atualmente.
 
 ## Executar ações usando o Explorador do Service Fabric
 
 O Explorador do Service Fabric oferece uma maneira rápida de invocar ações em nós, aplicativos e serviços no cluster.
 
-Por exemplo, para excluir uma instância do aplicativo, basta escolher o aplicativo na árvore à esquerda e escolher Ações > Excluir o Aplicativo.
+Por exemplo, para excluir uma instância do aplicativo, basta escolher o aplicativo na árvore à esquerda e escolher **Ações** > **Excluir Aplicativo**.
 
 ![Excluir um aplicativo no Explorador do Service Fabric][sfx-delete-application]
 
 Como muitas ações são destrutivas, você será solicitado a confirmar a sua intenção antes que a ação seja concluída.
 
->[AZURE.NOTE]Todas as ações que podem ser executadas usando o Explorador do Service Fabric também podem ser executadas usando o PowerShell ou uma API REST e habilitando a automação.
+>[AZURE.NOTE]Todas as ações que podem ser executadas usando o Explorador do Service Fabric também podem ser executadas usando o PowerShell ou uma API REST para habilitar a automação.
 
 
 
-## Conectando-se a um cluster remoto do Service Fabric
+## Conectar a um cluster remoto do Service Fabric
 
 Como o Explorador do Service Fabric é baseado na Web e executado dentro do cluster, ele é acessível em qualquer navegador desde que você conheça o ponto de extremidade do cluster e tenha permissões suficientes para acessá-lo.
 
-### Descobrir o ponto de extremidade do Explorador do Service Fabric para um Cluster remoto
+### Descobrir o ponto de extremidade do Explorador do Service Fabric para um cluster remoto
 
 Para acessar o Explorador do Service Fabric para um determinado cluster, basta apontar seu navegador para:
 
@@ -90,8 +90,8 @@ Se você tentar conectar ao Explorador do Service Fabric em um cluster seguro, o
 
 ## Próximas etapas
 
-- [Visão geral da capacidade de teste](service-fabric-testability-overview.md).
-- [Gerenciando seus aplicativos de Malha do Serviço no Visual Studio](service-fabric-manage-application-in-visual-studio.md).
+- [Visão geral da Possibilidade de Teste](service-fabric-testability-overview.md)
+- [Gerenciando aplicativos da Malha do Serviço no Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 - [Implantação de aplicativos de Malha do Serviço usando o PowerShell](service-fabric-deploy-remove-applications.md)
 
 <!--Image references-->
@@ -101,4 +101,4 @@ Se você tentar conectar ao Explorador do Service Fabric em um cluster seguro, o
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

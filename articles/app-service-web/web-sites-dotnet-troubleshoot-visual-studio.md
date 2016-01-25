@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Solucionar problemas de um aplicativo Web no Serviço de Aplicativo do Azure usando o Visual Studio
@@ -567,8 +567,7 @@ As contas de armazenamento oferecem mais armazenamento e retenção por mais tem
 
 1. Na janela **Aplicativo Web do Azure** do Visual Studio, clique na guia **Logs** e depois em **Configurar registro em log no portal de gerenciamento**.
 
-    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
-	![Configurar o registro em log](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
+    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->![Configurar o registro em log](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
 	Isso abre a guia **Configurar** no portal clássico para seu aplicativo Web.
 
@@ -741,7 +740,7 @@ Além disso, observe que você não precisa usar o rastreamento do ASP.NET ou do
 
 Para obter mais informações sobre como analisar logs de servidor web, consulte os seguintes recursos:
 
-* [LogParser](http://www.microsoft.com/download/details.aspx?id=24659)<br/> Uma ferramenta para exibir dados em logs de servidor Web (arquivos *.log*).
+* [LogParser](http://www.microsoft.com/download/details.aspx?id=24659)<br/> Uma ferramenta para exibir dados em logs de servidor web (arquivos *.log*).
 * [Solucionando problemas de desempenho do IIS ou erros de aplicativo usando o LogParser](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/> Uma introdução à ferramenta LogParser que pode ser usada para analisar logs de servidor web.
 * [Postagens no blog por Robert McMurray sobre como usar o LogParser](http://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [O código de status HTTP no IIS 7.0, IIS 7.5 e IIS 8.0](http://support.microsoft.com/kb/943891)
@@ -755,11 +754,11 @@ O site do Microsoft TechNet inclui uma seção [Usando rastreamento de solicita�
 Se você quiser depurar um serviço de nuvem do Azure em vez de um aplicativo Web, confira [Depurando serviços de nuvem](http://msdn.microsoft.com/library/windowsazure/ee405479.aspx).
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obter um guia para a alteração do portal do Azure para o portal de visualização do Azure, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [GetStarted]: web-sites-dotnet-get-started.md
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!-----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -1,12 +1,12 @@
-<properties 
+<properties
    pageTitle="Metas de desempenho e escalabilidade do Armazenamento do Azure | Microsoft Azure"
    description="Saiba mais sobre as metas de desempenho e escalabilidade para Armazenamento do Azure, incluindo a capacidade, taxa de solicitação e largura de banda de entrada e saída, tanto para contas de armazenamento standard quanto premium. Entender as metas de desempenho para partições em de cada um dos serviços do Armazenamento do Azure."
    services="storage"
    documentationCenter="na"
    authors="robinsh"
    manager="carmonm"
-   editor="na" />
-<tags 
+   editor="tysonn" />
+<tags
    ms.service="storage"
    ms.devlang="na"
    ms.topic="article"
@@ -36,7 +36,7 @@ Se as necessidades de seu aplicativo excederem as metas de escalabilidade de uma
 
 [AZURE.INCLUDE [azure-storage-limits](../../includes/azure-storage-limits.md)]
 
-## Metas de escalabilidade para discos de máquina virtual 
+## Metas de escalabilidade para discos de máquina virtual
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
@@ -85,4 +85,4 @@ As partições afetam o balanceamento de carga e a escalabilidade de cada um dos
 - [Lista de verificação de desempenho e escalabilidade do Armazenamento do Microsoft Azure](storage-performance-checklist.md)
 - [Armazenamento do Microsoft Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

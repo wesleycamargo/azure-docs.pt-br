@@ -30,7 +30,7 @@ A lista a seguir fornece os objetivos e requisitos mais significativos de uma pe
 
 Um aplicativo multilocatário implementado adequadamente oferece os seguintes benefícios aos usuários.
 
-- **Isolamento**: as atividades de locatários individuais não afetam o uso do aplicativo por outros locatários. Os locatários não podem acessar os dados uns dos outros. Ao locatário parece que o aplicativo é de seu uso exclusivo.
+- **Isolamento**: as atividades de locatários individuais não afetam o uso do aplicativo por outros locatários. Os locatários não podem acessar os dados uns dos outros. Ao locatário, parece que o aplicativo é de seu uso exclusivo.
 - **Disponibilidade**: locatários individuais querem que o aplicativo esteja constantemente disponível, talvez com garantias definidas em um Contrato de Nível de Serviço. Novamente, as atividades de outros locatários não devem afetar a disponibilidade do aplicativo.
 - **Escalabilidade**: o aplicativo é dimensionado para atender à demanda de locatários individuais. A presença e as ações de outros locatários não devem afetar o desempenho do aplicativo.
 - **Custos**: os custos são menores do que a execução de um aplicativo dedicado de único locatário, porque a multilocação permite o compartilhamento de recursos.
@@ -95,4 +95,4 @@ O Azure fornece várias maneiras de provisionar novos locatários para o aplicat
 [Hospedando um aplicativo multilocatário no Azure]: http://msdn.microsoft.com/library/hh534480.aspx
 [Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="11/19/2015" 
+    ms.date="01/09/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690944.aspx -->
@@ -165,7 +165,7 @@ Selecione a assinatura e o serviço de nuvem que contém sua implantação, esco
 
 [Novidades no Kit de Ferramentas do Azure para o Eclipse][]
 
-Para saber mais sobre como usar o Azure com Java, confira a [Central de Desenvolvimento Java do Azure][].
+Para obter mais informações sobre como usar o Azure com o Java, confira a [Central de desenvolvimento Java do Azure][].
 
 <!-- URL List -->
 
@@ -196,4 +196,4 @@ Para saber mais sobre como usar o Azure com Java, confira a [Central de Desenvol
 [ic719491]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic719491.png
 [ic789598]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic789598.png
 
-<!-----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

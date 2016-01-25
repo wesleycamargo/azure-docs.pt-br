@@ -53,7 +53,7 @@ Os **trabalhos de Banco de Dados Elástico** atualmente são um serviço de nuve
 ## Trabalhos de Banco de Dados Elástico: ponta a ponta 
 1.	Instalar os componentes de **trabalhos de banco de dados elástico**. Para saber mais informações, consulte [Instalando trabalhos de banco de dados elástico](sql-database-elastic-jobs-service-installation.md). Se a instalação falhar, confira [como desinstalar](sql-database-elastic-jobs-uninstall.md).
 2.	Use as APIs do PowerShell para acessar mais funcionalidades, por exemplo, criando coleções de bancos de dados personalizadas, adicionando agendas e/ou coletando conjuntos de resultados. Usar o Portal para instalação simples e criação/monitoramento de trabalhos limitado para execução com um **Pool de banco de dados elástico**. 
-3.	Criar credenciais criptografadas para execução do trabalho e [adicionar o usuário (ou função) para cada banco de dados no grupo](sql-database-elastic-jobs-add-logins-to-dbs.md).
+3.	Criar credenciais criptografadas para execução do trabalho e [adicionar o usuário (ou função) para cada banco de dados no grupo](sql-database-security.md).
 4.	Criar um script T-SQL idempotente que pode ser executado em cada banco de dados no grupo. 
 5.	Siga estas etapas para criar trabalhos usando o portal do Azure: [Criando e gerenciando trabalhos do Banco de Dados Elástico](sql-database-elastic-jobs-create-and-manage.md). 
 6.	Ou use scripts do PowerShell: [Criar e gerenciar trabalhos de banco de dados elástico de Banco de Dados SQL usando o PowerShell (visualização)](sql-database-elastic-jobs-powershell.md).
@@ -116,7 +116,7 @@ Há vários tipos de tarefas de trabalho que realizarão a execução de trabalh
 4.	Depois de concluir todas as tarefas de trabalho, o controlador atualiza os trabalhos para um estado concluído. A qualquer momento durante a execução do trabalho, a API do PowerShell pode ser usada para exibir o estado atual dessa execução. Todos os tempos retornados pelas APIs do PowerShell são representados em formato UTC. Se desejado, uma solicitação de cancelamento pode ser iniciada para interromper um trabalho. 
 
 ## Próximas etapas
-[Instalar os componentes](sql-database-elastic-jobs-service-installation.md) e, em seguida, [criar e adicionar um log a cada banco de dados no grupo de bancos de dados](sql-database-elastic-jobs-add-logins-to-dbs.md). Para entender mais a criação de trabalho e o gerenciamento, consulte [criar e gerenciar trabalhos do banco de dados elástico](sql-database-elastic-jobs-create-and-manage.md).
+[Instalar os componentes](sql-database-elastic-jobs-service-installation.md) e, em seguida, [criar e adicionar um log a cada banco de dados no grupo de bancos de dados](sql-database-security.md). Para entender mais a criação de trabalho e o gerenciamento, consulte [criar e gerenciar trabalhos do banco de dados elástico](sql-database-elastic-jobs-create-and-manage.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -124,4 +124,4 @@ Há vários tipos de tarefas de trabalho que realizarão a execução de trabalh
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0114_2016-->

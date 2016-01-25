@@ -57,7 +57,7 @@ Este artigo mostra como usar o [portal do Azure](https://portal.azure.com) para 
 ## Gerenciar chaves de acesso e configurações de conta
 Depois que a conta é criada, você pode encontrá-la no portal para gerenciar chaves de acesso, usuários autorizados e outras configurações.
 
-A URL da conta do Lote aparece em **Noções Básicas**. É uma URL do formulário `https://<account_name>.<region>.batch.azure.com`.
+A conta do Lote URL aparece em **Informações Gerais**. É uma URL do formulário `https://<account_name>.<region>.batch.azure.com`.
 
 Para ver e gerenciar as chaves de acesso, clique no ícone da chave.
 
@@ -72,7 +72,7 @@ Para ver e gerenciar as chaves de acesso, clique no ícone da chave.
 
 * Você pode executar várias cargas de trabalho do Lote em uma única conta do Lote ou distribuir suas cargas de trabalho entre contas do Lote em diferentes regiões do Azure.
 
-* Se estiver executando várias cargas de trabalho do Lote em larga escala, lembre-se das [cotas de serviço e limites específicos do Lote](batch-quota-limit.md) que se aplicam à sua assinatura do Azure e a cada conta do Lote. As cotas atuais da conta do Lote aparecem no portal de visualização nas propriedades da conta.
+* Se estiver executando várias cargas de trabalho do Lote em larga escala, lembre-se das [cotas de serviço e limites específicos do Lote](batch-quota-limit.md) que se aplicam à sua assinatura do Azure e a cada conta do Lote. As cotas atuais em uma conta do Lote aparecem no portal nas propriedades da conta.
 
 ## Próximas etapas
 
@@ -84,4 +84,4 @@ Para ver e gerenciar as chaves de acesso, clique no ícone da chave.
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

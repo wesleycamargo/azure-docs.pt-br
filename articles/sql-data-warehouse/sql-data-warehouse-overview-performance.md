@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="barbkess;JRJ@BigBangData.co.uk;mausher;nicw"/>
+   ms.date="01/08/2016"
+   ms.author="mausher;barbkess;jrj;nicw;sonyama"/>
 
 # Visão geral de desempenho e escala
 Ao colocar o Data Warehouse na nuvem, você não precisa mais lidar com problemas de nível baixo de hardware. Já se foram os dias em que você precisava pesquisar o tipo de processador, a quantidade de memória ou o tipo de armazenamento que são necessários para obter excelente desempenho no seu data warehouse. Em vez disso, o SQL Data Warehouse faz essa pergunta: com que rapidez você deseja analisar seus dados?
@@ -69,7 +69,7 @@ Consulte o artigo [visão geral de desenvolvimento][] para obter algumas diretri
 [desempenho e escala]: sql-data-warehouse-performance-scale.md
 [modelo de simultaneidade]: sql-data-warehouse-develop-concurrency.md
 [criando tabelas]: sql-data-warehouse-develop-table-design.md
-[escolher uma chave de distribuição de hash para sua tabela]: sql-data-warehouse-develop-hash-distribution-key
+[escolher uma chave de distribuição de hash para sua tabela]: sql-data-warehouse-develop-hash-distribution-key.md
 [estatísticas para melhorar o desempenho]: sql-data-warehouse-develop-statistics.md
 [visão geral de desenvolvimento]: sql-data-warehouse-overview-develop.md
 
@@ -77,4 +77,4 @@ Consulte o artigo [visão geral de desenvolvimento][] para obter algumas diretri
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

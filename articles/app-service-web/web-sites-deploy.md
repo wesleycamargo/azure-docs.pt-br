@@ -31,7 +31,7 @@ Como você não precisa se preocupar com a estrutura do servidor Web ou do aplic
     - sempre que **git push** for executado a partir de um repositório Git configurado,
 	- sempre que **hg push** for executado a partir de um repositório Mercurial configurado, ou 
     - sempre que um armazenamento em nuvem vinculado, como o Dropbox ou o OneDrive, for sincronizado com o Serviço de Aplicativo. 
-- [Implantação da Web](http://www.iis.net/learn/publish/using-web-deploy/introduction-to-web-deploy): as mesmas ferramentas que automatizam a implantação em servidores IIS. Implante o código no Serviço de Aplicativo diretamente de suas ferramentas favoritas da Microsoft, como o Visual Studio, WebMatrix e o Visual Studio Team Services. Essa ferramenta oferece suporte à implantação apenas da diferença, criação de banco de dados, transformações de cadeias de conexão, etc. A Implantação da Web é diferente do Kudu no sentido de que os binários de aplicativo são criados antes de serem implantados no Azure. Como acontece com o FTP, nenhum serviço adicional é fornecido pelo Serviço de Aplicativo.
+- [Implantação da Web](http://www.iis.net/learn/publish/using-web-deploy/introduction-to-web-deploy): as mesmas ferramentas que automatizam a implantação em servidores IIS. Implante o código no Serviço de Aplicativo diretamente de suas ferramentas favoritas da Microsoft, como o Visual Studio, o WebMatrix e o Visual Studio Team Services. Essa ferramenta oferece suporte à implantação apenas da diferença, criação de banco de dados, transformações de cadeias de conexão, etc. A Implantação da Web é diferente do Kudu no sentido de que os binários de aplicativo são criados antes de serem implantados no Azure. Como acontece com o FTP, nenhum serviço adicional é fornecido pelo Serviço de Aplicativo.
 
 Populares ferramentas de desenvolvimento da Web oferecem suporte a um ou mais desses processos de implantação. Embora sua ferramenta escolhida determine os processos de implantação que podem ser aproveitados, a funcionalidade real do DevOps à sua disposição depende da combinação do processo de implantação e de ferramentas específicas escolhidas por você. Por exemplo, se você executar a Implantação da Web do [Visual Studio com o SDK do Azure](#vspros), apesar de não contar com a automação do Kudu, você obtém a restauração do pacote e a automação do MSBuild no Visual Studio. O SDK do Azure também fornece um assistente simples para ajudar você a criar os recursos necessários do Azure diretamente da interface do Visual Studio.
 
@@ -60,7 +60,7 @@ A cópia de arquivos para o Azure envolve algumas etapas simples:
 
 1. Criar credenciais de implantação para seu aplicativo no [Portal do Azure](https://portal.azure.com). Para fazer isso, na folha de seu aplicativo, clique em **Configurações** > **Credenciais de Implantação**.
 2. Depois de configurar as credenciais de implantação, obtenha as informações de conexão do FTP acessando **Configurações** > **Propriedades** e, em seguida, copie os valores de **FTP/Usuário de Desenvolvimento**, **Nome do Host FTP** e **Nome do Host FTPS**.
-3. Em seu cliente de FTP, use as informações de conexão coletadas para conectar-se ao seu aplicativo.
+3. De seu cliente FTP, use as informações de conexão coletadas para conectar-se ao seu aplicativo.
 4. Copie seus arquivos e a respectiva estrutura de diretórios para o diretório [**/site/wwwroot** no Azure](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) (ou o diretório **/Data/Jobs** para Trabalhos Web).
 5. Navegue até a URL do aplicativo para verificar se ele está sendo executado corretamente. 
 
@@ -70,7 +70,7 @@ Para obter mais informações, consulte os recursos a seguir:
 * [Usando scripts em lotes FTP](http://support.microsoft.com/kb/96269).
 
 ## <a name="dropbox"></a>Implantar sincronizando com uma pasta de nuvem
-Uma boa alternativa à [cópia manual dos arquivos](#ftp) é sincronizar os arquivos e pastas no Serviço de Aplicativo a partir de um serviço de armazenamento em nuvem, como o OneDrive e o Dropbox. No [Portal do Azure](https://portal.azure.com), você pode configurar uma pasta especial em seu armazenamento em nuvem, trabalhar com o código e o conteúdo do aplicativo nessa pasta e sincronizar com o Serviço de Aplicativo com apenas um clique.
+Uma boa alternativa à [cópia manual dos arquivos](#ftp) é sincronizar os arquivos e pastas no Serviço de Aplicativo de um serviço de armazenamento em nuvem, como o OneDrive e o Dropbox. No [Portal do Azure](https://portal.azure.com), você pode configurar uma pasta especial em seu armazenamento em nuvem, trabalhar com o código e o conteúdo do aplicativo nessa pasta e sincronizar com o Serviço de Aplicativo com apenas um clique.
 
 A sincronização com uma pasta de nuvem utiliza o processo Kudu para implantação (confira [Visão geral dos processos de implantação](#overview)).
 
@@ -120,7 +120,7 @@ Os contras da implantação usando um IDE são:
 * [Implantar um aplicativo ASP.NET MVC 5 Seguro com Associação, OAuth e Banco de Dados SQL em Aplicativos Web](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md). Como criar e implantar um projeto da web ASP.NET MVC com um banco de dados SQL, usando o Visual Studio, a Implantação da Web e as Migrações do Entity Framework Code First.
 * [Visão geral sobre a implantação da Web para o Visual Studio e o ASP.NET](http://msdn.microsoft.com/library/dd394698.aspx). Uma introdução básica à implantação da web usando o Visual Studio. Desatualizado, mas inclui informações que ainda são relevantes, incluindo uma visão geral das opções para a implantação de um banco de dados junto com o aplicativo da web e uma lista de tarefas de implantação adicionais que você talvez tenha que executar ou configurar o Visual Studio manualmente para executá-las para você. Este tópico é sobre implantação em geral, e não apenas sobre a implantação em aplicativos Web.
 * [Implantação da Web do ASP.NET usando o Visual Studio](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction). Uma série de tutoriais de 12 partes que abrange uma gama mais completa de tarefas de implantação do que os outros nessa lista. Alguns recursos de implantação do Azure foram adicionados desde que o tutorial foi escrito, mas anotações adicionadas posteriormente explicam o que está faltando.
-* [Implantação direta de um site do ASP.NET no Azure no Visual Studio 2012 a partir de um repositório Git](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881). Explica como implantar um projeto da web ASP.NET no Visual Studio, usando o plug-in do Git para confirmar o código para o Git e conectar o Azure ao repositório Git. A partir do Visual Studio 2013, o suporte ao Git é integrado não requer a instalação de um plug-in.
+* [Implantação direta de um site do ASP.NET no Azure no Visual Studio 2012 a partir de um repositório Git](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881). Explica como implantar um projeto da web ASP.NET no Visual Studio, usando o plug-in do Git para confirmar o código para o Git e conectar o Azure ao repositório Git. A partir do Visual Studio 2013, o suporte ao Git é integrado e não requer a instalação de um plug-in.
 
 ###<a name="webmatrix"></a>Como implantar diretamente do WebMatrix
 
@@ -284,4 +284,4 @@ Para obter mais informações sobre outros tópicos de implantação, consulte a
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

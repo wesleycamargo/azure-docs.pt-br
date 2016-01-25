@@ -21,7 +21,7 @@ A classe [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.az
 
 O GSM e o LSM rastreiam o mapeamento de cada banco de dados em um ambiente fragmentado. Ocasionalmente, ocorre uma interrupção entre o GSM e o LSM. Nesse caso, use a classe RecoveryManager para detectar e reparar a interrupção.
 
-A classe RecoveryManager faz parte da [biblioteca de cliente do Banco de Dados Elástico](sql-database-elastic-database-client-library).
+A classe RecoveryManager faz parte da [biblioteca de cliente do Banco de Dados Elástico](sql-database-elastic-database-client-library.md).
 
 
 ![Mapa de fragmentos][1]
@@ -157,4 +157,4 @@ Este exemplo executa as seguintes etapas: 1. Remove os fragmentos do Mapa de Fra
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

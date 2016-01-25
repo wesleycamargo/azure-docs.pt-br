@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/17/2015"
+   ms.date="01/08/2016"
    ms.author="mbaldwin"/>
 
 # Protocolos de autenticação do Azure Active Directory
@@ -55,4 +55,4 @@ O Azure Active Directory (AD do Azure) oferece suporte a vários dos protocolos 
 
 [Exemplos de código do Active Directory](active-directory-code-samples.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

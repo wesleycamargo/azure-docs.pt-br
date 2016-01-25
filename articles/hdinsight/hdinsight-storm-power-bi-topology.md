@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="01/06/2015"
+ ms.date="01/08/2016"
  ms.author="larryfr"/>
 
 # Usar o Power BI (visualização) para visualizar dados de uma topologia do Apache Storm
@@ -139,4 +139,4 @@ Neste documento, você aprendeu como enviar dados de uma topologia Storm no Powe
 
 * [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

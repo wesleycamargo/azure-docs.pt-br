@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/04/2015" 
+	ms.date="01/11/2016" 
 	ms.author="jeffstok"/>
 	
 # Azure Stream Analytics e Power BI: um painel de análise em tempo real para visibilidade em tempo real dos dados de streaming
@@ -27,13 +27,13 @@ Neste artigo, saiba como criar suas próprias ferramentas de inteligência de ne
 
 > [AZURE.NOTE]A Saída de da Power BI é um recurso de visualização da Stream Analytics do Azure. No momento, não há suporte para a criação e configuração das saídas do Power BI no Portal de Visualização do Azure.
 
-## Pré-requisitos ##
+## Pré-requisitos
 
 * Conta do Microsoft Azure
 * Uma entrada para o trabalho da Stream Analytics de onde serão consumidos dados de streaming. A Stream Analytics aceita a entrada do armazenamento do Hubs de eventos do Azure ou Armazenamento do blob do Azure.  
 * Conta corporativa ou de estudante para Power BI
 
-## Criar Trabalho do Azure Stream Analytics ##
+## Criar trabalho do Azure Stream Analytics
 
 No [Portal do Azure](https://manage.windowsazure.com), clique em **Novo, Serviços de Dados, Stream Analytics, Criação Rápida**.
 
@@ -49,7 +49,7 @@ Clique em **Stream Analytics** no painel esquerdo para listar os trabalhos do St
 
 > [AZURE.TIP]O novo trabalho será listado com um status **Não Iniciado**. Observe que o botão **Iniciar** na parte inferior da página está desabilitado. Esse é o comportamento esperado, já que você deve configurar a entrada do trabalho, a saída, a consulta e assim por diante antes de poder iniciar o trabalho.
 
-## Especificar entrada de trabalho ##
+## Especificar entrada de trabalho
 
 Para este tutorial, estamos supondo que você esteja usando o Hub de Eventos como uma entrada com serialização JSON e codificação UTF-8.
 
@@ -74,7 +74,7 @@ Para este tutorial, estamos supondo que você esteja usando o Hub de Eventos com
   *	**Codificação** - UTF8
 *	Clique no botão de seleção para adicionar essa fonte e verificar se a Análise de fluxo pode se conectar com êxito ao Hub de eventos.
 
-## Adicionar saída do Power BI ##
+## Adicionar saída do Power BI
 
 1.  Clique em **Saída** na parte superior da página e então clique em **Adicionar Saída**. Você verá o Power BI listado como uma opção de saída.
 
@@ -106,7 +106,7 @@ Forneça valores como a seguir:
 >	[AZURE.WARNING] Tenha em mente também que se o Power BI já tiver um conjunto de dados e uma tabela com o mesmo nome fornecido no trabalho do Stream Analytics, os dados existentes serão substituídos.
 
 
-## Gravar Consultas ##
+## Gravar consulta
 
 Vá para a guia **Consulta** do seu trabalho. Escreva sua consulta, a saída da qual você deseja em seu Power BI. Por exemplo, ela poderia ser algo como a seguinte consulta SQL:
 
@@ -127,7 +127,7 @@ Vá para a guia **Consulta** do seu trabalho. Escreva sua consulta, a saída da 
     
 Inicie o trabalho. Valide se o seu hub de eventos está recebendo eventos e se sua consulta gera os resultados esperados. Se a sua consulta tiver como saída 0 linhas, o conjunto de dados e as tabelas do Power BI não serão criados automaticamente.
 
-## Criar o Painel no Power BI ##
+## Criar o painel no Power BI
 
 Acesse [Powerbi.com](https://powerbi.com) e faça logon com a sua conta corporativa ou de estudante. Se a consulta do trabalho do Stream Analytics tiver como saída resultados, você verá seu conjunto de dados já criado:
 
@@ -163,13 +163,18 @@ Observe que este tutorial demonstrou como criar um tipo de gráfico para um conj
 
 Para obter mais informações sobre como configurar uma saída do Power BI e utilizar grupos do Power BI, analise a [seção Power BI](stream-analytics-define-outputs.md#power-bi) de [Noções básicas sobre saídas do Stream Analytics](stream-analytics-define-outputs.md "Noções básicas sobre saídas do Stream Analytics"). Outro recurso útil para saber mais sobre como criar Painéis com o Power BI é [Painéis no Power BI Preview](http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview).
 
-## Limitações e práticas recomendadas ##
+## Limitações e práticas recomendadas
+
 O Power BI emprega restrições de simultaneidade e taxa de transferência conforme descrito aqui: [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Preço do Power BI")
 
-Por causa dessas restrições, o Power BI se ajusta bem mais naturalmente nos casos em que a Stream Analytics do Azure faz uma significativa redução de carga de dados. É recomendável usar a TumblingWindow ou a HoppingWindow para garantir que o push de dados seja no máximo 1 push/segundo e que sua consulta esteja dentro dos requisitos de taxa de transferência – pode ser usada a seguinte equação para calcular o valor da sua janela em segundos: ![equação1](./media/stream-analytics-power-bi-dashboard/equation1.png).
-
-Exemplo – se você tiver 1.000 dispositivos que enviam dados a cada segundo, você está no Power BI Pro SKU que dá suporte a 1.000.000 linhas por hora e deseja obter a média de dados por dispositivo no Power BI, você pode fazer no máximo um push a cada quatro segundos por dispositivo (como mostrado abaixo): ![eequação2](./media/stream-analytics-power-bi-dashboard/equation2.png)
-
+Por causa dessas restrições, o Power BI se ajusta bem mais naturalmente nos casos em que a Stream Analytics do Azure faz uma significativa redução de carga de dados. É recomendável usar a TumblingWindow ou a HoppingWindow para garantir que o push de dados seja no máximo 1 push/segundo e que sua consulta esteja dentro dos requisitos de taxa de transferência – pode ser usada a seguinte equação para calcular o valor da sua janela em segundos:
+  
+![equação1](./media/stream-analytics-power-bi-dashboard/equation1.png)
+  
+Exemplo – se você tiver 1.000 dispositivos que enviam dados a cada segundo, você está no Power BI Pro SKU que dá suporte a 1.000.000 linhas por hora e deseja obter a média de dados por dispositivo no Power BI, você pode fazer no máximo um push a cada quatro segundos por dispositivo (como mostrado abaixo):
+  
+![eequação2](./media/stream-analytics-power-bi-dashboard/equation2.png)
+  
 Isso significa que mudaríamos a consulta original para:
 
     SELECT
@@ -185,7 +190,13 @@ Isso significa que mudaríamos a consulta original para:
     	TUMBLINGWINDOW(ss,4),
     	dspl
 
-## Renovar Autorização
+### Atualização de exibição do PowerBI
+
+Uma pergunta comum é "Por que o painel não se atualiza automaticamente no PowerBI?".
+
+Para fazer isso, no PowerBI utiliza P e R, faz uma pergunta como "Valor máximo por arquivo temporário cujo carimbo de data/hora indica hoje" e fixa esse bloco ao painel.
+
+### Renovar autorização
 
 Há uma limitação temporária em que o token de autenticação deve ser atualizado manualmente a cada 90 dias para todos os trabalhos com saída do Power BI. Você também precisará autenticar novamente sua conta do Power BI caso sua senha tenha sido alterada depois que seu trabalho tenha sido criado ou autenticado pela última vez. Um sintoma desse problema é nenhuma saída de trabalho e um "erro de Autenticar usuário" nos Logs de Operações:
 
@@ -195,10 +206,10 @@ Para resolver esse problema, pare seu trabalho em execução e vá para a saída
 
 ![elementográfico13][graphic13]
 
-## Obter ajuda ##
+## Obter ajuda
 Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureStreamAnalytics)
 
-## Próximas etapas ##
+## Próximas etapas
 
 - [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 - [Introdução ao uso do Stream Analytics do Azure](stream-analytics-get-started.md)
@@ -221,4 +232,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

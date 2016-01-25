@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Tutorial: Integração do Active Directory do Azure com o Zendesk
@@ -52,7 +52,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar aplicativo](./media/active-directory-saas-zendesk-tutorial/IC749321.png "Adicionar aplicativo")
 
-5.  No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-zendesk-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
@@ -74,7 +74,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Logon único](./media/active-directory-saas-zendesk-tutorial/IC773086.png "Logon único")
 
-2.  Na página **Como você deseja que os usuários façam logon no Zendesk**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
+2.  Na página **Como você deseja que os usuários façam logon no Zendesk**, selecione **Logon único do AD do Microsoft Azure** e clique em **Avançar**.
 
     ![Configurar logon único](./media/active-directory-saas-zendesk-tutorial/IC773087.png "Configurar logon único")
 
@@ -152,4 +152,4 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

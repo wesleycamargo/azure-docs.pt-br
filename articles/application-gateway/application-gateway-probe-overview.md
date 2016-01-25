@@ -1,6 +1,6 @@
 
 
-<properties 
+<properties
    pageTitle="Visão geral do monitoramento de integridade do Application Gateway do Azure | Microsoft Azure"
    description="Saiba mais sobre os recursos de monitoramento do Application Gateway do Azure"
    services="application-gateway"
@@ -19,12 +19,12 @@
    ms.date="12/17/2015"
    ms.author="joaoma" />
 
-# Visão geral do monitoramento de integridade do Application Gateway 
+# Visão geral do monitoramento de integridade do Application Gateway
 
 
 Por padrão, o Application Gateway do Azure monitora a integridade de todos os recursos em seu pool de back-end e remove automaticamente qualquer recurso do pool que não for considerado íntegro. O Application Gateway continua monitorando as instâncias não íntegras e as adiciona de volta ao pool de back-end íntegro depois que elas se tornarem disponíveis e responderem a investigações de integridade.
 
-Além do monitoramento da investigação de integridade padrão, você também pode personalizar a investigação de integridade para atender às necessidades do seu aplicativo. Neste artigo, abordaremos as investigações de integridade padrão e personalizadas.
+Além de usar o monitoramento da investigação de integridade padrão, você também pode personalizar a investigação de integridade para atender às necessidades do seu aplicativo. Neste artigo, abordaremos as investigações de integridade padrão e personalizadas.
 
 ## Investigação de integridade padrão
 
@@ -41,12 +41,12 @@ A investigação padrão só examina http://127.0.0.1:<port> para determinar o s
 |Propriedades da investigação | Valor | Descrição|
 |---|---|---|
 | URL de investigação| http://127.0.0.1/ | Caminho da URL |
-| Intervalo | 30 | intervalo da investigação em segundos |
-| Tempo limite | 30 | tempo limite da investigação em segundos |
-| Limite não íntegro | 3 | Contagem de repetições da investigação. O servidor de back-end é marcado após a contagem de falhas de investigação consecutivas atingir um limite não íntegro |
+| Intervalo | 30 | Intervalo da investigação em segundos |
+| Tempo limite | 30 | Tempo limite da investigação em segundos |
+| Limite não íntegro | 3 | Contagem de repetições da investigação. O servidor de back-end é marcado após a contagem de falhas de investigação consecutivas atingir o limite de não íntegro. |
 
 
-## Investigação de integridade personalizada 
+## Investigação de integridade personalizada
 
 Investigações personalizadas permitem que você tenha um controle mais granular sobre o monitoramento de integridade. Ao usar investigações personalizadas, você pode configurar o intervalo de investigação, a URL e o caminho a testar e quantas respostas com falha devem ser aceitas antes de marcar a instância do pool de back-end como não íntegra.
 
@@ -55,16 +55,16 @@ Investigações personalizadas permitem que você tenha um controle mais granula
 
 |Propriedades da investigação| Descrição|
 |---|---|
-| Nome | Nome da investigação. Este é o nome usado para se referir à investigação nas configurações de Http do back-end |
-| Protocolo | Protocolo usado para enviar a investigação. HTTP é o único protocolo válido |
-| Host | Nome do host para enviar a investigação |
-| Caminho | Caminho relativo da investigação. Um caminho válido começa com "/". A investigação é enviada para <protocol>://<host>:<port><path> |
-| Intervalo | Intervalo de investigação em segundos. Este é o intervalo de tempo entre duas investigações consecutivas| 
-| Tempo limite | Tempo limite da investigação em segundos. A investigação é marcada como com falha se não for recebida uma resposta válida dentro desse período de tempo limite |
-| Limite não íntegro | Contagem de repetições da investigação. O servidor de back-end é marcado após a contagem de falhas de investigação consecutivas atingir um limite não íntegro |
+| Nome | O nome da investigação. Este é o nome usado para se referir à investigação nas configurações de HTTP de back-end. |
+| Protocolo | O protocolo usado para enviar a investigação. HTTP é o único protocolo válido. |
+| Host | O nome do host para enviar a investigação. |
+| Caminho | O caminho relativo da investigação. Um caminho válido começa com '/'. A investigação é enviada para <protocol>://<host>:<port><path> |
+| Intervalo | Intervalo de investigação em segundos. Este é o intervalo de tempo entre duas investigações consecutivas.|
+| Tempo limite | Tempo limite da investigação em segundos. A investigação é marcada como com falha se não for recebida uma resposta válida dentro desse período de tempo limite. |
+| Limite não íntegro | Contagem de repetições da investigação. O servidor de back-end é marcado após a contagem de falhas de investigação consecutivas atingir o limite de não íntegro. |
 
 ## Próximas etapas
 
 Depois de aprender sobre o monitoramento de integridade do Application Gateway, você pode configurar uma [investigação de integridade personalizada](application-gateway-create-probe-ps.md) para o Gerenciador de Recursos do Azure ou uma [investigação de integridade personalizada](application-gateway-create-probe-classic-ps.md) para o modelo de implantação clássico do Azure.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

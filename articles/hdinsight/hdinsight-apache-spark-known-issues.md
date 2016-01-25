@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/22/2015" 
+	ms.date="01/13/2016" 
 	ms.author="jgao"/>
 
 # Problemas conhecidos do Apache Spark no Azure HDInsight (Linux)
 
-Este documento mantém o registro de todos os problemas conhecidos para a visualização pública do Spark.
+Este documento mantém o registro de todos os problemas conhecidos para a visualização pública do Spark no HDInsight.
 
 ##Sessão interativa de vazamentos do Livy
  
@@ -139,4 +139,4 @@ Quando hdiuser envia um trabalho com spark-submit, há um erro java.io.FileNotFo
 - [Visão geral: Apache Spark no Azure HDInsight (Linux)](hdinsight-apache-spark-overview.md)
 - [Introdução: provisionar o Apache Spark no Azure HDInsight (Linux) e executar consultas interativas usando o Spark SQL](hdinsight-apache-spark-jupyter-spark-sql.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/16/2015"
+   ms.date="01/05/2016"
    ms.author="yurid"/>
 
-#Configuração de políticas de segurança na Central de segurança do Azure
+# Configuração de políticas de segurança na Central de segurança do Azure
 Este documento ajuda você a configurar políticas de segurança na Central de Segurança do Azure, guiando você pelas etapas necessárias para executar essa tarefa.
 
 > [AZURE.NOTE]As informações neste documento se aplicam à versão de visualização da Central de Segurança do Azure.
@@ -24,17 +24,17 @@ Este documento ajuda você a configurar políticas de segurança na Central de S
 ## O que é a Central de Segurança do Azure?
 A Central de Segurança do Azure ajuda você a impedir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Azure Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
 
-##Quais são políticas de segurança?
+## Quais são políticas de segurança?
 Uma política de segurança define o conjunto de controles que são recomendados para os recursos na assinatura especificada. Na Central de segurança do Azure, você define as políticas para as assinaturas do Azure de acordo com as necessidades de segurança de sua empresa e os tipos de aplicativos ou a confidencialidade dos dados de cada assinatura.
- 
+
 Por exemplo, os recursos usados para desenvolvimento ou teste podem ter requisitos de segurança diferentes daqueles usados para aplicativos de produção. Da mesma forma, os aplicativos com dados regulamentados, como PII (informações de identificação pessoal), podem exigir um nível mais alto de segurança. As políticas de segurança habilitadas na Central de segurança do Azure determinarão as recomendações de segurança e o monitoramento para ajudá-lo a identificar vulnerabilidades potenciais e atenuar as ameaças.
 
-##Configurando políticas de segurança
+## Configurando políticas de segurança
 
 As políticas de segurança são configuradas para cada assinatura. Para modificar uma política de segurança, você deve ser um proprietário ou colaborador daquela assinatura. Siga as etapas abaixo para configurar as políticas de segurança na Central de segurança do Azure:
 
 1. Clique no bloco **Política de segurança** no painel Central de segurança do Azure.
- 
+
 2. Na folha **Política de segurança - definir política por assinatura** que aparece no lado direito, selecione a assinatura que você deseja para habilitar a política de segurança.
 
     ![Habilitar coleta de dados](./media/security-center-policies/security-center-policies-fig0.png)
@@ -43,8 +43,9 @@ As políticas de segurança são configuradas para cada assinatura. Para modific
 
     ![Habilitar coleta de dados](./media/security-center-policies/security-center-policies-fig1.png)
 
-    
 4. Certifique-se de que a opções **Coletar dados de máquinas virtuais** esteja **Ativa**. Essa opção habilita a coleta de log automático para recursos novos e existentes.
+
+    >[AZURE.NOTE]É altamente recomendável que você ative a coleta de dados para cada uma das suas assinaturas porque isso garantirá que o monitoramento de segurança esteja disponível para todas as máquinas virtuais novas e existentes. Habilitar a coleta de dados instala o agente de monitoramento. Se não desejar ativar a coleta de dados agora desse local, você pode fazer isso posteriormente dos modos de exibição integridade e recomendações. Você também pode habilitá-la para a assinatura ou para selecionar VMs. Consulte as [Perguntas frequentes sobre o Centro de segurança do Azure](security-center-faq.md) para saber mais sobre as VMs com suporte.
 
 5. Se sua conta de armazenamento ainda não estiver configurada, você poderá ver um aviso semelhante mostrado na figura a seguir quando você abre a **Política de segurança**:
 
@@ -58,11 +59,11 @@ As políticas de segurança são configuradas para cada assinatura. Para modific
 
 8. Na folha **Escolher contas de armazenamento**, clique em **OK**.
 
-    > [AZURE.NOTE]Se preferir, você pode agregar dados de máquinas virtuais em várias regiões em uma conta de armazenamento central. Consulte as [Perguntas frequentes sobre o Centro de segurança do Azure](security-center-faq.md) para obter mais informações
+    > [AZURE.NOTE]Se preferir, você pode agregar dados de máquinas virtuais em várias regiões em uma conta de armazenamento central. Consulte as [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) para obter mais informações.
 
 9. Na folha **Política de segurança**, clique em **Ativar** para habilitar as recomendações de segurança que você deseja usar nesta assinatura. Use a tabela a seguir como uma referência para entender o que cada opção fará:
 
-    | Política | Estado Ligado |
+| Política | Estado Ligado |
 |----- |-----|
 | Atualizações do Sistema | Recupera uma lista de atualizações disponíveis do Windows Update ou WSUS, dependendo de qual serviço está configurado para a máquina virtual, a cada 12 horas, e recomenda que as atualizações ausentes sejam instaladas nas máquinas virtuais do Windows. |
 | Regras de linha de base | Analisa todas as máquinas virtuais com suporte a cada 12 horas para identificar quaisquer configurações de sistema operacional que podem tornar a máquina virtual mais vulnerável a ataques e recomenda as alterações de configuração para tratar essas vulnerabilidades. Consulte a [lista de linhas de base recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) para obter mais informações sobre as configurações específicas que estão sendo monitoradas. |
@@ -73,11 +74,10 @@ As políticas de segurança são configuradas para cada assinatura. Para modific
 | Auditoria SQL | Recomenda que a auditoria de acesso a Servidores SQL do Azure e bancos de dados esteja habilitada para conformidade, detecção avançada e fins de investigação. |
 | Transparent Data Encryption do SQL | Recomenda que a criptografia em repouso seja habilitada para arquivos de log de bancos de dados SQL do Azure, backups associados e transação para que mesmo se os seus dados forem violados, eles não possam ser lidos. |
 
-10. Ao terminar de configurar todas as opções, clique em **Salvar** para confirmar as alterações.
-
-> [AZURE.NOTE]Habilitar a coleta de dados instala o agente de monitoramento. Se não desejar ativar a coleta de dados agora desse local, você pode fazer isso posteriormente dos modos de exibição integridade e recomendações. Você também pode habilitá-la para a assinatura ou apenas para selecionar uma VM. Consulte as [Perguntas frequentes sobre o Centro de segurança do Azure](security-center-faq.md) para saber mais sobre as VMs com suporte.
+Ao terminar de configurar todas as opções, clique em **Salvar** para confirmar as alterações.
 
 ## Próximas etapas
+
 Neste documento, você aprendeu como configurar políticas de segurança na Central de segurança do Azure. Para saber mais sobre a Central de Segurança do Azure, veja o seguinte:
 
 - [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) – saiba como monitorar a integridade dos recursos do Azure
@@ -85,4 +85,4 @@ Neste documento, você aprendeu como configurar políticas de segurança na Cent
 - [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre perguntas frequentes sobre como usar o serviço
 - [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

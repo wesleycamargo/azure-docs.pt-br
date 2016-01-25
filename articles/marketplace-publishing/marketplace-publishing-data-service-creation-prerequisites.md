@@ -8,12 +8,12 @@
    editor=""/>
 
 <tags
-   ms.service="marketplace-publishing"
+   ms.service="marketplace"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/30/2015"
+   ms.date="01/04/2016"
    ms.author="hascipio; avikova" />
 
 # Pré-requisitos técnicos para criar uma oferta do Serviço de Dados para o Azure Marketplace
@@ -66,4 +66,4 @@ Ou então, se quiser examinar o processo geral e os respectivos artigos de cada 
 
 [link-acct]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

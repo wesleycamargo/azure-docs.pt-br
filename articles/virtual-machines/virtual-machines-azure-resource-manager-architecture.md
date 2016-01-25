@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/07/2016"
 	ms.author="davidmu"/>
 
 # Arquitetura do Gerenciador de Recursos do Azure
@@ -73,14 +73,6 @@ Você também pode ver a componentização e os relacionamentos dependentes entr
 
 ## Próximas etapas
 
-[Implantar e gerenciar Máquinas Virtuais usando modelos de Gerenciador de Recursos do Azure e a CLI do Azure](virtual-machines-deploy-rmtemplates-azure-cli.md)
+Saiba mais sobre os recursos que podem ser implantados com o modelo de implantação do Gerenciador de Recursos, examinando [Computação do Azure, Provedores de Rede e Armazenamento no Gerenciador de Recursos do Azure](virtual-machines-azurerm-versus-azuresm.md).
 
-[Implantar e gerenciar máquinas virtuais do Azure usando modelos de Gerenciador de Recursos e o PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
-
-## Recursos adicionais
-
-[Computação do Azure, Provedores de Rede e Armazenamento no Gerenciador de Recursos do Azure](virtual-machines-azurerm-versus-azuresm.md)
-
-[Visão Geral do Gerenciador de Recursos do Azure](resource-group-overview.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

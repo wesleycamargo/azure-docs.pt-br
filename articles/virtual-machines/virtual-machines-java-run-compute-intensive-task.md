@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"
+	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="01/09/2016"
 	ms.author="robmcm"/>
 
 # Como executar uma tarefa com uso intenso de computação no Java em uma máquina virtual
@@ -100,7 +100,7 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 1.  No painel de navegação esquerdo, clique no nó **Barramento de Serviço** para exibir a lista de namespaces disponíveis.![Captura de tela de namespaces disponíveis][avail_namespaces]
 2.  Selecione o namespace que você acabou de criar na lista abaixo.![Captura de tela da lista de namespaces][namespace_list]
 3.  O painel direito **Propriedades** listará as propriedades do novo namespace.![Captura de tela do painel Propriedades][properties_pane]
-4.  A **Chave padrão** está oculta. Clique no botão **Exibir** para exibir as credenciais de segurança.![Captura de tela da chave padrão][default_key]
+4.  A **Chave padrão** está oculta. Clique no botão **Exibir** para exibir as credenciais de segurança. ![Captura de tela da chave padrão][default_key]
 5.  Anote o **Emissor Padrão** e a **Chave Padrão**, pois você usará essas informações abaixo para executar operações com o namespace.
 
 ## Como criar um aplicativo Java que executa uma tarefa de computação intensiva
@@ -520,4 +520,4 @@ Para os aplicativos solver e de cliente, é possível pressionar **Ctrl+C** para
 [default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

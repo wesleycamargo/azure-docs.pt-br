@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="01/11/2015"
 	ms.author="wesmc"/>
 
 # Sincronização de dados offline em Aplicativos Móveis do Azure
@@ -36,10 +36,11 @@ A sincronização offline tem vários benefícios:
 
 Os tutoriais a seguir mostram como adicionar sincronização offline para os clientes móveis usando aplicativos móveis do Azure:
 
+* [Android: Habilitar a sincronização offline]
 * [iOS: Habilitar a sincronização offline]			
 * [Xamarin iOS: Habilitar a sincronização offline]	
 * [Xamarin Android: Habilitar a sincronização offline]
-* [Windows 8.1: Habilitar a sincronização offline]	
+* [Windows 8.1: Habilitar a sincronização offline]
 
 ## O que é uma tabela de sincronização?
 
@@ -121,9 +122,10 @@ Ao usar tabelas de sincronização, o código do cliente controla quando as alte
 
 <!-- Links -->
 
+[Android: Habilitar a sincronização offline]: ../app-service-mobile-android-get-started-offline-data.md
 [iOS: Habilitar a sincronização offline]: ../app-service-mobile-ios-get-started-offline-data.md
 [Xamarin iOS: Habilitar a sincronização offline]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Xamarin Android: Habilitar a sincronização offline]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Windows 8.1: Habilitar a sincronização offline]: ../app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

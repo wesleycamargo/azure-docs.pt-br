@@ -8,7 +8,7 @@
 | Número máximo de agendas por modelo de largura de banda | 168 | Uma agenda para cada hora, cada dia da semana (24x7). |
 | Tamanho máximo de um volume em camadas em dispositivos físicos | 64 TB para 8100 e 8600 | 8100 e 8600 são dispositivos físicos. |
 | Tamanho máximo de um volume em camadas em dispositivos virtuais no Azure | 30 TB para 8010 <br></br> 64 TB para 8020 | 8010 e 8020 são dispositivos virtuais no Azure que usam armazenamento Standard e Premium, respectivamente. |
-| Tamanho máximo de um volume localmente afixado em dispositivos físicos | 10 TB para 8100 <br></br> 25 TB para 8600 | 8100 e 8600 são dispositivos físicos. |
+| Tamanho máximo de um volume localmente afixado em dispositivos físicos | 9 TB para 8100 <br></br> 24 TB para 8600 | 8100 e 8600 são dispositivos físicos. |
 | Número máximo de conexões iSCSI | 512 | |
 | Número máximo de conexões iSCSI dos iniciadores | 512 | |
 | Número máximo de registros de controle de acesso por dispositivo | 64 | |
@@ -27,4 +27,4 @@
 
 &#42; A taxa de transferência máxima por tipo de E/S foi medida com cenários 100% de gravação e 100% de leitura. A taxa de transferência real pode ser menor e depende da combinação de E/S e das condições da rede.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

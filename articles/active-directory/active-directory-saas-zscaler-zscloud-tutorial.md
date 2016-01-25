@@ -10,7 +10,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 
@@ -115,7 +115,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     3.  Para carregar seu certificado baixado, clique em **Zscaler pem**.
     4.  Selecione **Habilitar Provisionamento Automático do SAML**.
 
-10. Na página do diálogo **Configurar Autenticação de Usuário**, realize as seguintes etapas:
+10. Na página de caixa de diálogo **Configurar Autenticação de Usuário**, execute as seguintes etapas:
 
     ![Administração](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800210.png "Administração")
 
@@ -160,7 +160,7 @@ Para permitir que os usuários do AD do Azure façam logon no Zscaler ZSCloud, e
 
 ###Para configurar o provisionamento de usuários, execute as seguintes etapas:
 
-1.  Faça logon em seu locatário do **Zscaler**.
+1.  Faça login no seu locatário do **Zscaler**.
 
 2.  Clique em **Administração**.
 
@@ -201,4 +201,4 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

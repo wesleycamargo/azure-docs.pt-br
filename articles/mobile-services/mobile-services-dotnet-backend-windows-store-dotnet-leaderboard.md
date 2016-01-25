@@ -4,7 +4,7 @@
 	documentationCenter="windows"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"
+	editor=""
 	services="mobile-services"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="01/09/2016"
 	ms.author="glenga"/>
 
 # Criando um aplicativo de Placas de Líderes com o back-end .NET de Serviços Móveis do Azure
@@ -315,7 +315,7 @@ Em seguida, adicione o seguinte código a `PlayerRankController`:
 
 O método `PostPlayerScore` recebe uma instância `PlayerScore` como entrada. (O cliente enviará o `PlayerScore` em uma solicitação HTTP POST.) O método faz o seguinte:
 
-1.	Adiciona um novo `PlayerRank` para o jogador se ainda não houver um no banco de dados.
+1.	Adiciona um novo `PlayerRank` para o jogador, se ainda não houver um no banco de dados.
 2.	Atualiza a pontuação do jogador.
 3.	Executa uma consulta SQL que atualiza em lote todas as classificações de jogador.
 
@@ -765,4 +765,4 @@ Agora, quando executar o aplicativo, ele se comunicará com o serviço real.
 [Adicionar notificações por push]: ../notification-hubs-windows-store-dotnet-get-started.md
 [Introdução à autenticação]: /develop/mobile/tutorials/get-started-with-users-dotnet
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

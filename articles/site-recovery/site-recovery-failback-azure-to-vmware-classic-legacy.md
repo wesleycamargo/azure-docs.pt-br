@@ -16,7 +16,12 @@
    ms.date="12/14/2015"
    ms.author="ruturajd@microsoft.com"/>
 
-# Executar o failback de máquinas virtuais VMware e servidores físicos do Azure para o VMware com o Azure Site Recovery
+# Executar o failback de máquinas virtuais VMware e servidores físicos do Azure para o VMware com o Azure Site Recovery (herdado)
+
+> [AZURE.SELECTOR]
+- [Enhanced](site-recovery-failback-azure-to-vmware-classic.md)
+- [Legacy](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+
 
 ## Visão geral
 
@@ -401,8 +406,8 @@ Após a conclusão do failback, convém provavelmente proteger mais uma vez as m
  
 ## Próximas etapas
 
-[Leia sobre](site-recovery-vmware-to-azure.md) replicação das máquinas virtuais VMware no Azure
+[Leia sobre](site-recovery-vmware-to-azure-classic-legacy.md) replicação das máquinas virtuais VMware no Azure
 
  
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016--->

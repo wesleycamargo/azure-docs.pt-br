@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/31/2015"
+   ms.date="01/08/2016"
    ms.author="v-sharos" />
 
 # Usar o serviço StorSimple Manager para gerenciar contêineres de volume do StorSimple
@@ -43,7 +43,7 @@ Estes procedimentos a seguir explicam como usar a página **Contêineres de volu
 
 ## Adicionar um contêiner de volume
 
-Execute as etapas a seguir para criar um contêiner de volume.
+Execute as etapas a seguir para adicionar um contêiner de volume.
 
 [AZURE.INCLUDE [storsimple-add-volume-container](../../includes/storsimple-add-volume-container.md)]
 
@@ -66,4 +66,4 @@ Um contêiner de volume possui volumes dentro dele. Ele poderá ser excluído so
 - Saiba mais sobre [como gerenciar volumes do StorSimple](storsimple-manage-volumes.md). 
 - Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

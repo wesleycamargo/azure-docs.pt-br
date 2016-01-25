@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Gerenciar estatísticas no SQL Data Warehouse
  O SQL Data Warehouse usa estatísticas para avaliar o custo de diferentes maneiras de executar uma consulta distribuída. Quando as estatísticas são precisas, o otimizador de consulta pode gerar planos de consulta de alta qualidade que melhoram o desempenho da consulta.
@@ -459,4 +459,4 @@ Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvol
 [sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [Atualizar estatísticas]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

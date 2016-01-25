@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="mausher;nicw;barbkess;JRJ@BigBangData.co.uk;"/>
+   ms.date="01/07/2016"
+   ms.author="mausher;nicw;barbkess;jrj;sonyama;"/>
 
 # Ferramentas de gerenciamento para o SQL Data Warehouse
 Este tópico explora e compara as ferramentas e opções de gerenciamento do SQL Data Warehouse para que você possa escolher a ferramenta certa de acordo com suas necessidades. Escolher a ferramenta certa depende de quantos bancos de dados você gerencia, da tarefa e da frequência de execução de uma tarefa.
@@ -48,4 +48,4 @@ Para começar a usar essas ferramentas, vá até o tópico [conexão][].
 <!--Other web references-->
 [Portal Clássico do Azure]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

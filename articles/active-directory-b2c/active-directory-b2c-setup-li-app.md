@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/12/2016"
 	ms.author="swkrish"/>
 
-# Visualização do AD (Active Directory) B2C do Azure: fornecer registro e conexão aos consumidores com contas do LinkedIn
+# Visualização do Active Directory B2C do Azure: fornecer Registro e Entrada aos Consumidores com Contas do LinkedIn
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
@@ -34,9 +34,7 @@ Para usar o LinkedIn como um provedor de identidade no AD (Active Directory) B2C
 
     ![LinkedIn — Registrar aplicativo](./media/active-directory-b2c-setup-li-app/linkedin-register-app.png)
 
-5. Copie os valores de **Client ID (ID do Cliente)** e **Client Secret (Segredo do Cliente)** (você pode encontrá-los na seção **Authentication Keys (Chaves de Autenticação)**). Você precisará de ambos para configurar o LinkedIn como um provedor de identidade no seu locatário.
-
-> [AZURE.NOTE]O **Segredo do cliente** é uma credencial de segurança importante.
+5. Copie os valores de **Client ID (ID do Cliente)** e **Client Secret (Segredo do Cliente)** (você pode encontrá-los na seção **Authentication Keys (Chaves de Autenticação)**). Você precisará de ambos para configurar o LinkedIn como um provedor de identidade no seu locatário. Observação: o **Segredo do Cliente** é uma credencial de segurança importante.
 
 6. Insira `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` no campo **Authorized Redirect URLs** (na seção **OAuth 2.0**), em que **{tenant}** deve ser substituído pelo nome do locatário (por exemplo, contoso.onmicrosoft.com) e clique em **Adicionar**. Em seguida, clique em **Update (Atualizar)**.
 
@@ -52,4 +50,4 @@ Para usar o LinkedIn como um provedor de identidade no AD (Active Directory) B2C
 6. Clique em **Configurar este provedor de identidade** e insira a **ID do Cliente** e o **Segredo do Cliente** do aplicativo do LinkedIn que você criou anteriormente.
 7. Clique em **OK** e em **Criar** para salvar sua configuração do LinkedIn.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

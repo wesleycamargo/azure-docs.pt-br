@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Depurar um aplicativo de API no Serviço de Aplicativo do Azure
@@ -138,4 +138,4 @@ Neste tutorial, você viu como depurar aplicativos de API.
 
 Para obter mais informações sobre solução de problemas, consulte [Solucionar problemas de um aplicativo Web no Serviço de Aplicativo do Azure usando o Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md). Como os aplicativos de API são aplicativos Web com recursos adicionais para hospedagem de serviços Web, você pode usar as mesmas ferramentas de depuração e solução de problemas para aplicativos de API que você usa em aplicativos Web.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

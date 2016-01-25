@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="robinsh"
 	manager="carmonm"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -200,7 +200,7 @@ As bibliotecas cliente sabem quais erros admitem novas tentativas ou não. No en
 Para obter mais informações sobre os códigos de erro de armazenamento, confira [Status e códigos de erro](http://msdn.microsoft.com/library/azure/dd179382.aspx) no site do Microsoft Azure.
 
 ##Blobs
-Além das práticas comprovadas para [todos os serviços](#allservices) descritos, as práticas comprovadas a seguir aplicam-se especificamente ao serviço de blob.
+Além das práticas comprovadas para [todos os serviços](#allservices) descritos, as práticas comprovadas a seguir aplicam-se especificamente ao serviço blob.
 
 ###Metas de escalabilidade específicas do blob
 ####<a name="subheading16"></a>Largura de banda e operações por blob
@@ -385,4 +385,4 @@ Você deve usar filas para que a arquitetura do aplicativo seja escalonável. A 
 Este artigo falou sobre algumas das práticas comprovadas mais comuns para otimizar o desempenho com o uso do armazenamento do Azure. Nós recomendamos que cada desenvolvedor avalie seu aplicativo com base nas práticas descritas acima e considere seguir as recomendações para obter desempenho excelente para seus aplicativos que usam o Armazenamento do Azure.
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

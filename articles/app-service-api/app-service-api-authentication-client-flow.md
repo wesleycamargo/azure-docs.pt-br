@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Chamar um aplicativo de API do Azure de um cliente de aplicativo Web autenticado pelo Active Directory do Azure
@@ -153,7 +153,7 @@ Nesta seção, você adiciona o código gerado automaticamente para uma interfac
 		    return appServiceClient;
 		}
 
-	Nesse código, `ConfigHelper.Authority` é resolvido para "https://login.microsoftonline.com/{seu locatário}", por exemplo: "https://login.microsoftonline.com/contoso.onmicrosoft.com".
+	Nesse código, `ConfigHelper.Authority` é resolvido para "https://login.microsoftonline.com/{your tenant}", por exemplo: "https://login.microsoftonline.com/contoso.onmicrosoft.com".
 
 2.	Adicione o código imediatamente antes da instrução `return View()` no fim do método `About` para chamar o aplicativo de API. (Na etapa seguinte, você adicionará o código à exibição `About` para exibir os dados retornados).
 
@@ -223,9 +223,9 @@ Agradeço a Govind S. Yadav ([@govindsyadav](https://twitter.com/govindsyadav)) 
 
 ## Próximas etapas
 
-Você viu como fazer a autenticação do fluxo de cliente para aplicativos de API do Serviço de Aplicativo. Para saber mais sobre outros modos de lidar com a autenticação em aplicativos de API, confira [Autenticação para aplicativos de API e aplicativos móveis](../app-service/app-service-authentication-overview.md).
+Você viu como fazer a autenticação do fluxo de cliente para aplicativos de API do Serviço de Aplicativo. Para obter informações sobre outros modos de lidar com a autenticação em aplicativos de API, consulte [Autenticação para aplicativos de API e aplicativos móveis](../app-service/app-service-authentication-overview.md).
 
 [portal do Azure]: https://manage.windowsazure.com/
 [Portal de Visualização do Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

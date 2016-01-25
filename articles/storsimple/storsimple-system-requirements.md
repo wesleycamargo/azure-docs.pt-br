@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="12/18/2015"
+   ms.date="01/08/2016"
    ms.author="alkohli"/>
 
 # Software StorSimple, alta disponibilidade e requisitos de rede
@@ -118,7 +118,7 @@ A Atualização 2 contém vários aprimoramentos relacionados à rede; além dis
 
 - A ordem na qual o tráfego da nuvem será roteado pelas interfaces de rede é:
 	 
-	*Data 0 > Data 1 > Date 2 > Data 4 > Data 5*
+	*Data 0 > Data 1 > Data 2 > Data 3 > Data 4 > Data 5*
 
 	Isso pode ser explicado pelo exemplo a seguir.
 
@@ -153,7 +153,7 @@ Além dos requisitos de rede acima, para obter o desempenho ideal de sua soluç�
 
 - Verifique a conectividade de rede com a Internet está disponível sempre. Conexões de Internet esporádicas ou não confiáveis com os dispositivos, sem incluir qualquer conectividade com a Internet, resultarão em uma configuração sem suporte.
 
-- Isole o tráfego iSCSI e o tráfego de nuvem com interfaces de rede dedicadas em seu dispositivo para acesso iSCSI e à nuvem. Para obter mais informações, veja como [modificar as interfaces de rede](storsimple-modify-device-config.md#modify-network-interfaces) em seu dispositivo do StorSimple.
+- Isole o tráfego iSCSI e o tráfego de nuvem com interfaces de rede dedicadas em seu dispositivo para acesso iSCSI e à nuvem. Para obter mais informações, veja como [modificar as interfaces de rede](storsimple-modify-device-config.md#modify-network-interfaces) em seu dispositivo StorSimple.
 
 - Não use uma configuração do LACP (Protocolo de Agregação de Link) para as suas interfaces de rede. Essa é uma configuração sem suporte.
 
@@ -211,7 +211,7 @@ Cada módulo de controlador do dispositivo StorSimple tem quatro interfaces de r
 
 - Quando possível, use o MPIO em servidores para garantir que os servidores possam tolerar um link, rede ou falha de interface.
 
-Para saber mais sobre como colocar o dispositivo em rede para ter uma alta disponibilidade e desempenho, acesse [Instalar o dispositivo do StorSimple 8100](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) ou [Instalar o dispositivo do StorSimple 8600](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
+Para saber mais sobre como colocar o dispositivo em rede para proporcionar alta disponibilidade e desempenho, acesse [Instalar o dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) ou [Instalar o dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
 
 #### SSDs e HDDs
 
@@ -256,9 +256,9 @@ Leia com atenção essas práticas recomendadas para garantir a alta disponibili
 ## Próximas etapas
 
 - [Saiba mais sobre os limites do sistema StorSimple](storsimple-limits.md).
-- [Saiba como implantar sua solução do StorSimple](storsimple-deployment-walkthrough.md).
+- [Saiba como implantar sua solução StorSimple](storsimple-deployment-walkthrough.md).
  
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="01/07/2015" 
 	ms.author="cephalin"/>
 
 # Fazer backup de um aplicativo Web no Serviço de Aplicativo do Azure
@@ -167,7 +167,7 @@ O backup do banco de dados para o aplicativo Web é armazenado na raiz do arquiv
 
 <a name="nextsteps"></a>
 ## Próximas etapas
-Para obter informações sobre como restaurar o aplicativo Web do backup, veja [Restaurar um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-restore.md).
+Para obter informações sobre como restaurar o aplicativo Web do backup, veja [Restaurar um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-restore.md). Você também pode usar a API REST para fazer backup e restaurar aplicativos do Serviço de Aplicativo (consulte [Usar REST para fazer backup e restaurar aplicativos do Serviço de Aplicativo](websites-csm-backup.md)).
 
 Para começar a usar o Azure, consulte [Avaliação Gratuita do Microsoft Azure](/pricing/free-trial/).
 
@@ -190,4 +190,4 @@ Para começar a usar o Azure, consulte [Avaliação Gratuita do Microsoft Azure]
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

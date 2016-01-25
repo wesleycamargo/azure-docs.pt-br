@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="Suporte a compartilhamento de recursos entre origens (CORS) | Microsoft Azure" 
-	description="Saiba como habilitar o suporte de CORS para os serviços de armazenamento do Microsoft Azure." 
-	services="storage" 
-	documentationCenter=".net" 
-	authors="tamram" 
-	manager="carolz" 
-	editor=""/>
+<properties
+	pageTitle="Suporte a compartilhamento de recursos entre origens (CORS) | Microsoft Azure"
+	description="Saiba como habilitar o suporte de CORS para os serviços de armazenamento do Microsoft Azure."
+	services="storage"
+	documentationCenter=".net"
+	authors="tamram"
+	manager="carmonm"
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/03/2015" 
-	ms.author="tamram;andtyler"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="01/07/2016"
+	ms.author="tamram"/>
 
 # Suporte para o compartilhamento de recursos entre origens (CORS) para os serviços de armazenamento do Azure
 
-Os serviços de armazenamento do Azure a partir da versão 2013-08-15, suportam a compartilhamento de recursos entre origens (CORS) para os serviços Blob, tabela e fila. O CORS é um recurso HTTP que permite que um aplicativo web em execução em um domínio acesse recursos em outro domínio. Navegadores da Web implementam uma restrição de segurança, conhecida como [política de mesma origem](http://www.w3.org/Security/wiki/Same_Origin_Policy), que impede uma página da Web de chamada APIs em um domínio diferente. O CORS fornece uma maneira segura para permitir que um domínio (o domínio de origem) chame APIs em outro domínio. Consulte a [especificação CORS](http://www.w3.org/TR/cors/) para obter detalhes sobre o CORS.
+Os serviços de armazenamento do Azure, da versão 2013-08-15 em diante, dão suporte a CORS (compartilhamento de recursos entre origens) para os serviços de Blob, Tabela e Fila. O CORS é um recurso HTTP que permite que um aplicativo web em execução em um domínio acesse recursos em outro domínio. Navegadores da Web implementam uma restrição de segurança, conhecida como [política de mesma origem](http://www.w3.org/Security/wiki/Same_Origin_Policy), que impede uma página da Web de chamada APIs em um domínio diferente. O CORS fornece uma maneira segura para permitir que um domínio (o domínio de origem) chame APIs em outro domínio. Consulte a [especificação CORS](http://www.w3.org/TR/cors/) para obter detalhes sobre o CORS.
 
 Você pode definir regras de CORS individualmente para cada um dos serviços de armazenamento, chamando [Definir propriedades do serviço Blob](https://msdn.microsoft.com/library/hh452235.aspx), [Definir propriedades do serviço Fila](https://msdn.microsoft.com/library/hh452232.aspx) e [Definir propriedades do serviço Tabela](https://msdn.microsoft.com/library/hh452240.aspx). Depois de definir as regras CORS para o serviço, uma solicitação autenticada corretamente feita no serviço de um domínio diferente será avaliada para determinar se é permitida de acordo com as regras que você especificou.
 
@@ -194,6 +194,5 @@ Solicitações de simulação malsucedidas não serão cobradas.
 [Definir propriedades do serviço Tabela](https://msdn.microsoft.com/library/hh452240.aspx)
 
 [Especificação de compartilhamento de recursos entre origens W3C](http://www.w3.org/TR/cors/)
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

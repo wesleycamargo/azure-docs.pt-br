@@ -41,41 +41,42 @@ A API de Recomendações do Aprendizado de Máquina do Azure pode ser dividida n
 - <ins>Dados de usuário</ins> - APIs que permitem que você busque informações sobre os dados de uso do usuário.
 - <ins>Notificações</ins> – APIs que permitem receber notificações sobre problemas relacionados às suas operações de API. (Por exemplo, você está reportando dados de uso por meio da aquisição de dados e a maioria dos eventos de processamento está com falha. Uma notificação de erro será gerada.)
 
-##2\. Limitações
+##2. Limitações
 
 - O número máximo de modelos por assinatura é 10.
+- O número máximo de builds por modelo é 20.
 - O número máximo de itens que um catálogo pode conter é 100.000.
 - O número máximo de pontos de uso mantidos é cerca de 5.000.000. Os mais antigos serão excluídos se novos forem carregados ou relatados.
 - O volume máximo dos dados que podem ser enviado no POST (por exemplo, importar dados de catálogo e importar dados de uso) é de 200 MB.
 - O número de transações por segundo para uma compilação de modelo de recomendação que não está ativa é cerca de 2 TPS. Uma compilação de modelo de recomendação ativo pode conter até 20 TPS.
 
-##3\. APIs – Informações Gerais
+##3. APIs – Informações Gerais
 
-###3\.1. Autenticação
+###3.1. Autenticação
 Siga as diretrizes do Microsoft Azure Marketplace referentes à autenticação. O Marketplace dá suporte aos métodos de autenticação Básico e OAuth.
 
-###3\.2. URI de serviço
+###3.2. URI de serviço
 O URI da raiz de serviço para as APIs de Recomendações do Aprendizado de Máquina do Azure está [aqui.](https://api.datamarket.azure.com/amla/recommendations/v3/)
 
 O URI do serviço completo é expresso usando elementos da especificação de OData.
 
-###3\.3. Versão da API
+###3.3. Versão da API
 Cada chamada à API terá, por fim, um parâmetro de consulta chamado apiVersion que deve ser definido como 1.0.
 
-###3\.4. IDs diferenciam minúsculas e maiúsculas
+###3.4. IDs diferenciam minúsculas e maiúsculas
 IDs, retornados por qualquer uma das APIS, diferenciam minúsculas de maiúsculas e devem ser usados desta maneira quando passados como parâmetros nas chamadas de API subsequentes. Por exemplo, IDS d modelo e de catálogo diferenciam maiúsculas de minúsculas.
 
-##4\. Qualidade das recomendações e itens frios
+##4. Qualidade das recomendações e itens frios
 
-###4\.1. Qualidade da recomendação
+###4.1. Qualidade da recomendação
 
 Criar um modelo de recomendação geralmente é suficiente para permitir que o sistema forneça recomendações. No entanto, a qualidade da recomendação varia de acordo com o uso processado e a abrangência do catálogo. Por exemplo se você tiver muitos itens sem interesse (sem uso significativo), o sistema terá dificuldade para fornecer uma recomendação para um item ou para usar um item como aquele recomendado. Para solucionar o problema de item sem interesse, o sistema permite o uso de metadados dos itens para aprimorar as recomendações. Esses metadados são conhecidos como recursos. Os recursos mais comuns são o autor de um livro ou um ator de um filme. Recursos são fornecidos pelo catálogo na forma de cadeias de caracteres de chave/valor. Para o formato completo do arquivo de catálogo, consulte a [seção de importação de catálogo](#81-import-catalog-data).
 
-###4\.2. Compilação de classificação
+###4.2. Compilação de classificação
 
 Recursos podem aperfeiçoar o modelo de recomendação, mas isso requer o uso de recursos significativos. Uma nova compilação foi apresentada para essa finalidade: uma compilação de classificação. Esta compilação classifica a utilidade dos recursos. Um recurso significativo é um recurso com uma pontuação de classificação 2 ou maior. Depois de se entender quais recursos são significativos, dispare uma compilação de recomendação com a lista (ou sublista) de recursos significativos. É possível usar esses recursos para o aprimoramento de itens com e sem interesse. Para usá-los em itens com interesse, o parâmetro de compilação `UseFeatureInModel` deve ser configurado. Para usá-los em itens sem interesse, o parâmetro de compilação `AllowColdItemPlacement` deve ser habilitado. Observação: não é possível habilitar `AllowColdItemPlacement` sem habilitar `UseFeatureInModel`.
 
-###4\.3. Raciocínio de recomendação
+###4.3. Raciocínio de recomendação
 
 O raciocínio de recomendação é outro aspecto do uso de recursos. De fato, o mecanismo de Recomendações do Aprendizado de Máquina do Azure pode usar recursos para fornecer explicações de recomendação (também conhecido como raciocínio), resultando em maior confiança no item recomendado por parte do consumidor da recomendação. Para habilitar o raciocínio, os parâmetros `AllowFeatureCorrelation` e `ReasoningFeatureList` devem ser configurado antes de solicitar uma compilação de recomendação.
 
@@ -91,7 +92,7 @@ Cria uma solicitação "criar modelo".
 
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
-|	modelName |	Somente letras (A-Z, a-z), números (0-9), hifens (-) e o sublinhado (\_) são permitidos.<br>Comprimento máximo: 20 | 
+|	modelName |	Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (\_).<br>Comprimento máximo: 20 | 
 | apiVersion | 1.0 | 
 ||| 
 | Corpo da Solicitação | NENHUM |
@@ -266,9 +267,7 @@ XML de OData
 
 ###5\.4. Atualizar modelo
 
-Você pode atualizar a descrição do modelo ou a ID de compilação ativa.<br>
-<ins>ID de compilação ativa</ins> – Cada compilação de cada modelo possui uma ID da compilação. A ID de compilação ativa é a primeira compilação executada com êxito de cada novo modelo. Depois que tiver uma ID de compilação ativa e criar compilações adicionais para o mesmo modelo, você precisará defini-lo explicitamente como a ID de compilação padrão, se desejar. Ao consumir recomendações, se você não especificar a ID de compilação que deseja usar, o padrão será usado automaticamente.<br>
-Esse mecanismo permite, depois de ter um modelo de recomendação em produção, compilar e testar novos modelos antes de promovê-los para produção.
+Você pode atualizar a descrição do modelo ou a ID de compilação ativa.<br> <ins>ID de compilação ativa</ins> – Cada compilação de cada modelo possui uma ID da compilação. A ID de compilação ativa é a primeira compilação executada com êxito de cada novo modelo. Depois que tiver uma ID de compilação ativa e criar compilações adicionais para o mesmo modelo, você precisará defini-lo explicitamente como a ID de compilação padrão, se desejar. Ao consumir recomendações, se você não especificar a ID de compilação que deseja usar, o padrão será usado automaticamente.<br> Esse mecanismo permite, depois de ter um modelo de recomendação em produção, compilar e testar novos modelos antes de promovê-los para produção.
 
 
 | Método HTTP | URI |
@@ -799,16 +798,23 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 </pre>
 
 
-
-
 ##7\. Regras de negócio do modelo
-Estes são os tipos de regras com suporte:
-- <strong>BlockList</strong> - BlockList permite que você forneça uma lista de itens que você não queira retornar nos resultados da recomendação.
+Esses são os quatro tipos de regras para os quais há suporte:
+- <strong>BlockList</strong> - BlockList permite fornecer uma lista de itens cujos resultados não devem ser retornados nos resultados de recomendação.
+
 - <strong>FeatureBlockList</strong> - Feature BlockList permite que você bloqueie itens com base nos valores de seus recursos.
-- <strong>Upsale</strong> - Upsale permite que você imponha itens a serem retornados nos resultados da recomendação.
-- <strong>WhiteList</strong> - White List permite que você só sugira recomendações de uma lista de itens.
-- <strong>FeatureWhiteList</strong> - Feature White List permite que você só recomende itens com valores de recurso específicos.
-- <strong>PerSeedBlockList</strong> - Per Seed Block List permite que você forneça por item uma lista de itens que não podem ser retornados como resultados da recomendação.
+
+*Não envie mais de 1.000 itens em uma única regra de lista de bloqueios ou sua chamada pode expirar. Se você precisa bloquear mais de 1.000 itens, você pode fazer várias chamadas de lista de bloqueios.*
+
+- <strong>Upsale</strong> - Upsale permite reforçar os itens a serem retornados nos resultados de recomendação.
+
+- <strong>WhiteList</strong> - White List permite a você sugerir recomendações apenas de uma lista de itens.
+
+- <strong>FeatureWhiteList</strong> - Feature White List permite que você recomende somente itens que têm valores de recurso específicos.
+
+- <strong>PerSeedBlockList</strong> - Per Seed Block List permite fornecer por itens uma lista dos itens que não podem ser retornados como resultados de recomendação.
+
+
 
 
 ###7\.1. Obter regras de modelo
@@ -879,16 +885,20 @@ XML de OData
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
 |	apiVersion | 1\.0 |
-|||
-| Corpo da solicitação |
-
-<ins>Sempre que você fornecer IDs de Item para regras de negócio, use a ID externa do item ( a mesma ID que você usou no arquivo de catálogo)</ins><br> <ins>Para adicionar uma regra BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins> <ins>Para adicionar uma regra FeatureBlockList:</ins><br> 
+||| 
+| Corpo da Solicitação | 
+<ins>Sempre que você fornecer IDs de Item para regras de negócio, use a ID externa do item ( a mesma ID que você usou no arquivo de catálogo)</ins><br> 
+<ins>Para adicionar uma regra BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins> 
+<ins>Para adicionar uma regra FeatureBlockList:</ins><br>
 <br>
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br>
-<ins> Para adicionar uma regra Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br>
-<ins>Para adicionar uma regra WhiteList:</ins><br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>
-<ins>Para adicionar uma regra FeatureWhiteList:</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br>
-<ins> Para adicionar uma regra PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins>
+Para adicionar uma regra Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br> 
+<ins>Para adicionar uma regra WhiteList:</ins><br> 
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>
+<ins>Para adicionar uma regra FeatureWhiteList:</ins><br>
+<br>
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins>
+Para adicionar uma regra PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 
 **Resposta**:
@@ -978,10 +988,10 @@ Observação: o tamanho máximo do arquivo é de 200 MB.
 
 | Nome | Obrigatório | Tipo | Descrição |
 |:---|:---|:---|:---|
-| Id do item |Sim | [A-z], [a-z], [0-9], [\_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Comprimento máximo: 50 | Identificador único de um item. |
-| Nome do item| Sim | Quaisquer caracteres alfanuméricos<br> Comprimento máximo: 255 | Nome do item |
-|Categoria do item | Sim | Quaisquer caracteres alfanuméricos <br> Comprimento máximo: 255 | Categoria à qual esse item pertence (por exemplo, Livros de culinária, drama…); pode estar vazio. |
-| Descrição | Não, a menos que haja recursos presentes (mas pode estar vazio) | Quaisquer caracteres alfanuméricos <br> Comprimento máximo: 4000; Número máx. de recursos: 20 | Descrição desse item. |
+| Id do item |Sim | [A-z], [a-z], [0-9], [\_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Comprimento máximo: 50 | Identificador único de um item. | 
+| Nome do item| Sim | Quaisquer caracteres alfanuméricos<br> Comprimento máximo: 255 | Nome do item | 
+|Categoria do item | Sim | Quaisquer caracteres alfanuméricos <br> Comprimento máximo: 255 | Categoria à qual esse item pertence (por exemplo, Livros de culinária, drama…); pode estar vazio. | 
+| Descrição | Não, a menos que haja recursos presentes (mas pode estar vazio) | Quaisquer caracteres alfanuméricos <br> Comprimento máximo: 4000; Número máx. de recursos: 20 | Descrição desse item. | 
 | Lista de recursos | Não | Quaisquer caracteres alfanuméricos <br> Comprimento máximo: 4000 | Lista separada por vírgulas do valor de recurso name=feature pode ser usado para otimizar a recomendação do modelo; veja a seção [Tópicos avançados](#2-advanced-topics). |
 
 
@@ -993,10 +1003,11 @@ Observação: o tamanho máximo do arquivo é de 200 MB.
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
 |	modelId |	Identificador exclusivo do modelo |
-| nome do arquivo | Identificador textual do catálogo.<br>Somente letras (A-Z, a-z), números (0-9), hifens (-) e o sublinhado (\_) são permitidos.<br>Comprimento máximo: 50 | 
+| nome do arquivo | Identificador textual do catálogo.<br>Somente letras (A-Z, a-z), números (0-9), hifens (-) e sublinhado (\_) são permitidos.<br>Comprimento máximo: 50 |
 | apiVersion | 1.0 | 
 ||| 
-| Corpo da Solicitação | Exemplo (com recursos):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Livro,descrição do livro,autor=Richard Wright,editora=Harper Flamingo Canada,ano=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Livro,,autor=Nick Bantock,editora=Harpercollins,ano=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Livro,,autor=Timothy Findley, editora=HarperFlamingo Canada, ano=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Bestas encurraladas,Livro,descrição do livro,autor=Magnus Mills, editora=Arcade Publishing, ano=1998</pre> |
+| Corpo da solicitação | Exemplo (com recursos):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
+ 
 
 
 **Resposta**:
@@ -1891,7 +1902,7 @@ A tabela a seguir descreve os parâmetros de compilação para uma compilação 
 | Método HTTP | URI |
 |:--------|:--------|
 |POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27`|
-|HEADER |`"Content-Type", "text/xml"` (Se estiver enviando o Corpo da Solicitação)|
+|HEADER |`"Content-Type", "text/xml"` (Se estiver enviando o Corpo da solicitação)|
 
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
@@ -2065,7 +2076,7 @@ A resposta inclui uma entrada por compilação. Cada entrada tem os seguintes da
 - `feed/entry/content/properties/ModelId` – Identificador exclusivo do modelo.
 - `feed/entry/content/properties/IsDeployed` – Se a compilação é implantada (ou seja, uma compilação ativa).
 - `feed/entry/content/properties/BuildId` – Identificador exclusivo da compilação.
-- `feed/entry/content/properties/BuildType` – Tipo de compilação.
+- `feed/entry/content/properties/BuildType` - Tipo de compilação.
 - `feed/entry/content/properties/Status` – Status da compilação. Este pode ser uma das seguintes opções: Erro, Criando, Na fila, Cancelando, Cancelado e Êxito.
 - `feed/entry/content/properties/StatusMessage` – Mensagem de status detalhada (aplica-se somente a estados específicos).
 - `feed/entry/content/properties/Progress` – Andamento da compilação (%).
@@ -2074,8 +2085,8 @@ A resposta inclui uma entrada por compilação. Cada entrada tem os seguintes da
 - `feed/entry/content/properties/ExecutionTime` – Duração da compilação.
 - `feed/entry/content/properties/ProgressStep` – Detalhes sobre o estágio atual de uma compilação em andamento.
 
-Status válidos da compilação: 
-- Criada - A entrada da solicitação de compilação foi criada. 
+Status válidos da compilação:
+- Criada - A entrada da solicitação de compilação foi criada.
 - Na fila – A solicitação de compilação foi disparada e está na fila.
 - Criando – A compilação está em andamento.
 - Êxito – Compilação concluída com êxito.
@@ -2149,7 +2160,7 @@ A resposta inclui uma entrada por compilação. Cada entrada tem os seguintes da
 - `feed/entry/content/properties/ModelId` – Identificador exclusivo do modelo.
 - `feed/entry/content/properties/IsDeployed` – Se a compilação é implantada.
 - `feed/entry/content/properties/BuildId` – Identificador exclusivo da compilação.
-- `feed/entry/content/properties/BuildType` – Tipo de compilação.
+- `feed/entry/content/properties/BuildType` - Tipo de compilação.
 - `feed/entry/content/properties/Status` – Status da compilação. Este pode ser uma das seguintes opções: Erro, Criando, Na fila, Cancelado, Cancelando e Êxito.
 - `feed/entry/content/properties/StatusMessage` – Mensagem de status detalhada (aplica-se somente a estados específicos).
 - `feed/entry/content/properties/Progress` – Andamento da compilação (%).
@@ -2169,8 +2180,8 @@ Status válidos da compilação:
 
 
 Valores válidos para o tipo de compilação:
- - Classificação - Compilação de classificação. 
- - Recomendação - Compilação de recomendação.
+- Classificação - Compilação de classificação.
+- Recomendação - Compilação de recomendação.
 
 
 XML de OData
@@ -2212,7 +2223,7 @@ XML de OData
 ###11\.6. Excluir compilação
 Exclui uma compilação.
 
-OBSERVAÇÃO: <br>Não é possível excluir uma compilação ativa. O modelo deve ser atualizado para uma compilação ativa diferente antes de excluí-la.<br>Não é possível excluir uma compilação em andamento. Você deve cancelar a compilação antes chamando <strong>Cancelar Compilação</strong>.
+OBSERVAÇÃO: <br>Não é possível excluir uma compilação ativa. O modelo deve ser atualizado para uma compilação ativa diferente antes de excluí-lo.<br>Não é possível excluir uma compilação em andamento. Você deve cancelar a compilação antes chamando <strong>Cancelar Compilação</strong>.
 
 | Método HTTP | URI |
 |:--------|:--------|
@@ -3087,11 +3098,11 @@ Código de status HTTP: 200
 
 
 
-##15\. Legal
+##15. Legal
 Este documento é fornecido "no estado em que se encontra". Informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio.<br><br>
 Alguns exemplos aqui representados são fornecidos somente para fins de ilustração e são fictícios. Nenhuma associação ou conexão real é intencional ou deve ser inferida.<br><br>
 Este documento não fornece a você nenhum direito legal a qualquer propriedade intelectual de qualquer produto da Microsoft. Você pode copiar e usar este documento para fins de consulta interna.<br><br>
 © 2015 Microsoft. Todos os direitos reservados.
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

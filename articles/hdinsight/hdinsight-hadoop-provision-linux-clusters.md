@@ -148,7 +148,7 @@ O HDInsight também criará um _contêiner de armazenamento padrão_ na conta de
 
 Por padrão, esse contêiner tem o mesmo nome do cluster. Para saber mais sobre como o HDInsight funciona com o armazenamento de Blob do Azure, consulte [Usar armazenamento de Blob do Azure compatível com HDFS com o Hadoop no HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
->[AZURE.WARNING]Não compartilhe um contêiner entre vários clusters. Não há suporte para isso.
+>[AZURE.WARNING] Não compartilhe um contêiner entre vários clusters. Não há suporte para isso.
 
 ###Tamanho do nó
 
@@ -160,7 +160,7 @@ Diferentes tipos de cluster têm diferentes tipos de nó, números de nós e tam
 
 Ao usar o portal de visualização do Azure para configurar o cluster, o tamanho do nó é exposto por meio da folha __Camada de preços do nó__ e também exibirá o custo associado aos diferentes tamanhos de nó.
 
-> [AZURE.IMPORTANT]A cobrança é iniciada quando um cluster é criado e só para quando o cluster é excluído. Para obter mais informações sobre preços, consulte [Detalhes de preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+> [AZURE.IMPORTANT] A cobrança é iniciada quando um cluster é criado e só para quando o cluster é excluído. Para obter mais informações sobre preços, consulte [Detalhes de preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ##<a id="optionalconfiguration"></a>Configuração opcional
 
@@ -184,22 +184,7 @@ Uma [Rede virtual do Azure](http://azure.microsoft.com/documentation/services/vi
     | -------------------------- | --------------------------- |
     | A configuração site a site permite conectar vários recursos de seu datacenter à rede virtual do Azure usando uma VPN de hardware ou o Serviço de roteamento e acesso remoto.<br />![diagrama da configuração site a site](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-site-to-site.png) | A configuração ponto a site permite que você conecte um recurso específico à rede virtual do Azure usando uma VPN do software.<br />![diagrama da configuração ponto a site](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-point-to-site.png) |
 
-Para obter mais informações sobre os recursos, benefícios e capacidades das redes virtuais, consulte a [Visão geral da rede virtual do Azure](http://msdn.microsoft.com/library/azure/jj156007.aspx).
-
-> [AZURE.NOTE] Você deve criar a rede virtual do Azure antes de criar um cluster. Para obter mais informações, consulte [Como criar uma rede virtual](virtual-networks-create-vnet.md).
->
-> O Azure HDInsight oferece suporte somente a redes virtuais baseadas no local, e não trabalha atualmente com redes virtuais baseadas em grupos de afinidade. Use o cmdlet Get-AzureVNetConfig do Azure PowerShell para verificar se uma rede virtual do Azure existente é baseada no local. Se sua rede virtual não for baseada no local, você tem as seguintes opções:
->
-> - Exportar a configuração de rede virtual existente e criar uma nova rede virtual. Todas as novas redes virtuais são baseadas em local por padrão.
-> - Migrar para uma rede virtual baseada em local. Veja [Migrar serviços existentes para o escopo regional](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/).
->
-> É altamente recomendado designar uma única sub-rede para um cluster.
->
-> No momento (25/8/2015), você só pode criar um cluster baseado em Linux em uma Rede Virtual do Azure.
->
-> Não é possível usar uma Rede Virtual v1 (Clássica) do Azure com o HDInsight baseado em Linux. A Rede Virtual deve ser v2 (Gerenciador de Recursos do Azure) para que seja listada como uma opção durante o processo de criação de cluster HDInsight no portal de visualização do Azure ou para poder ser usada durante a criação de um cluster por meio da CLI do Azure ou do Azure PowerShell.
->
-> Se você tiver recursos em uma rede v1 e quiser disponibilizar o HDInsight diretamente para esses recursos por meio de uma rede virtual, veja [Conectando VNets clássicas a novas VNets](../virtual-network/virtual-networks-arm-asm-s2s.md) para obter informações sobre como conectar uma rede virtual v2 a uma rede virtual v1. Quando essa conexão for estabelecida, você poderá criar o cluster HDInsight na Rede Virtual v2.
+Para obter mais informações sobre como usar HDInsight com uma Rede Virtual, incluindo requisitos de configuração específicos para a Rede Virtual, consulte [Estender recursos do HDInsight usando uma Rede Virtual do Azure](hdinsight-extend-hadoop-virtual-network.md).
 
 ### Metastore
 
@@ -282,4 +267,4 @@ Neste artigo, você aprendeu as informações básicas sobre como criar um clust
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Use o Sqoop com o HDInsight"
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

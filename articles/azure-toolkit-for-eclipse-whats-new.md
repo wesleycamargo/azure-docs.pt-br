@@ -1,20 +1,20 @@
 <properties
-    pageTitle="Novidades no Kit de Ferramentas do Azure para Eclipse"
-    description="Saiba mais sobre os recursos mais recentes do Kit de Ferramentas do Azure para Eclipse."
-    services=""
-    documentationCenter="java"
-    authors="rmcmurray"
-    manager="wpickett"
-    editor=""/>
+	pageTitle="Novidades no Kit de Ferramentas do Azure para Eclipse"
+	description="Saiba mais sobre os recursos mais recentes do Kit de Ferramentas do Azure para Eclipse."
+	services=""
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""/>
 
 <tags
-    ms.service="multiple"
-    ms.workload="na"
-    ms.tgt_pltfrm="multiple"
-    ms.devlang="Java"
-    ms.topic="article"
-    ms.date="11/19/2015" 
-    ms.author="robmcm"/>
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="multiple"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="01/09/2016" 
+	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694270.aspx -->
 
@@ -23,6 +23,14 @@
 ## Versões do Kit de Ferramentas do Azure para Eclipse ##
 
 Este artigo contém informações sobre as várias versões e atualizações mais recentes do Kit de Ferramentas do Azure para Eclipse.
+
+### 4 de janeiro de 2015 ###
+
+O Kit de Ferramentas do Azure para Eclipse, versão de janeiro de 2016, inclui os seguintes aprimoramentos:
+
+* **Suporte para as atualizações do Zulu OpenJDK**. Para saber mais, consulte a [página da Web do Azul Systems para o Zulu OpenJDK][].
+* **Distribuições do Tomcat e Jetty atualizadas**. As distribuições do Jetty e Tomcat, disponíveis no Microsoft Azure para uso com o Kit de Ferramentas do Azure para Eclipse, foram atualizadas.
+* **Recurso de Paridade entre os Kits de Ferramentas Eclipse e IntelliJ para o Azure**. O Kit de ferramentas do Azure para Eclipse e o [Kit de Ferramentas do Azure para IntelliJ][] agora dão suporte ao mesmo conjunto de recursos.
 
 ### 1º de setembro de 2015 ###
 
@@ -96,8 +104,8 @@ O Kit de Ferramentas do Azure para Eclipse, versão de outubro de 2014, inclui o
 
 O Kit de Ferramentas do Azure para Eclipse, versão de agosto de 2014, inclui os seguintes aprimoramentos
 
-* **Suporte para o SDK do Azure 2.4**. Versões mais antigas do Kit de Ferramentas do Eclipse não funcionarão com esse SDK recém-lançado.
-* **Versões atualizadas dos pacotes Zulu OpenJDK v1.6, 1.7 e v1.8.**. Para saber mais, consulte a [página da Web do Azul Systems para o Zulu OpenJDK][].
+* **Suporte para o SDK do Azure 2.4.** Versões mais antigas do Kit de Ferramentas do Eclipse não funcionarão com esse SDK recém-lançado.
+* **Versões atualizadas dos pacotes Zulu OpenJDK v1.6, 1.7 e v1.8..** Para saber mais, consulte a [página da Web do Azul Systems para o Zulu OpenJDK][].
 * **Versão atualizada do pacote de Bibliotecas do Azure para a biblioteca de APIs de cliente Java.** Para saber mais, confira a [API de cliente do Microsoft Azure][].
 * **Suporte para o formato de arquivo de configurações de publicação mais recente.** Adição do suporte para a versão 2.0 do formato do arquivo de Configurações de publicação.
 * **Alterações de arquitetura por trás do recurso Publicar na nuvem.** Agora, o Kit de Ferramentas está usando a recém-lançada API de cliente do Microsoft Azure para Java para seu suporte de publicação na nuvem.
@@ -108,7 +116,7 @@ O Kit de Ferramentas do Azure para Eclipse, versão de agosto de 2014, inclui os
 O Kit de Ferramentas do Azure para Eclipse, versão de junho de 2014, é uma pequena atualização de serviço que fornece os seguintes aprimoramentos:
 
 * **Suporte para o pacote do Zulu OpenJDK v1.8.** Para saber mais, consulte a [página da Web do Azul Systems para o Zulu OpenJDK][].
-* **Versões atualizadas dos pacotes Zulu OpenJDK v1.6 e 1.7.**. Para saber mais, consulte a [página da Web do Azul Systems para o Zulu OpenJDK][].
+* **Versões atualizadas dos pacotes Zulu OpenJDK v1.6 e 1.7..** Para saber mais, consulte a [página da Web do Azul Systems para o Zulu OpenJDK][].
 * **Versão atualizada do pacote de Bibliotecas do Azure para a biblioteca de APIs de cliente Java.** Para saber mais, confira a [API de cliente do Microsoft Azure][].
 * **Correções de bug.** Esta versão contém várias correções de bugs solicitadas pelo usuário.
 
@@ -279,15 +287,16 @@ O plug-in do Azure para Eclipse, CTP de dezembro de 2011 foi lançado. Os novos 
 
 [Criação de um aplicativo Hello World do Azure no Eclipse][]
 
-Para saber mais sobre como usar o Azure com Java, confira a [Central de Desenvolvimento Java do Azure][].
+Para obter mais informações sobre como usar o Azure com o Java, confira a [Central de desenvolvimento Java do Azure][].
 
 <!-- URL List -->
 
 [página da Web do Azul Systems para o Zulu OpenJDK]: http://go.microsoft.com/fwlink/?LinkId=402457
-[Central de Desenvolvimento Java do Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Central de desenvolvimento Java do Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Ponto de extremidade de serviço do Azure]: http://go.microsoft.com/fwlink/?LinkID=699526
 [Lista de contas de armazenamento do Azure]: http://go.microsoft.com/fwlink/?LinkID=699528
 [Kit de ferramentas do Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Kit de Ferramentas do Azure para IntelliJ]: https://plugins.jetbrains.com/plugin/8053
 [Propriedades dos componentes]: http://go.microsoft.com/fwlink/?LinkID=699525#components_properties
 [Criação de um aplicativo Hello World do Azure no Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Debugging Azure Applications in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699535
@@ -318,4 +327,4 @@ Para saber mais sobre como usar o Azure com Java, confira a [Central de Desenvol
 [ic710882]: ./media/azure-toolkit-for-eclipse-whats-new/ic710882.png
 [ic710883]: ./media/azure-toolkit-for-eclipse-whats-new/ic710883.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

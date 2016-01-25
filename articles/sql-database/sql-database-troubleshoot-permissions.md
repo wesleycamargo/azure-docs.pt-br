@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="01/11/2016"
 	ms.author="v-shysun"/>
 
 #Solucionar problemas comuns de permissões e acesso ao Banco de Dados SQL do Azure
 Use este tópico para conhecer as etapas rápidas de concessão e remoção do acesso de um Banco de Dados SQL do Azure. Para obter informações mais completas, confira:
 
 - [Gerenciamento de bancos de dados e logons no Banco de Dados SQL do Azure](sql-database-manage-logins.md)
-- [Proteção do Banco de Dados SQL](sql-database-security)
+- [Proteção do Banco de Dados SQL](sql-database-security.md)
 - [Central de segurança do mecanismo de banco de dados do SQL Server e banco de dados SQL do Azure](https://msdn.microsoft.com/library/bb510589)
 
 ##Para alterar a senha de administrador de um servidor lógico
@@ -37,4 +37,4 @@ Use este tópico para conhecer as etapas rápidas de concessão e remoção do a
 ## Para criar logons adicionais para usuários com privilégios elevados no banco de dados mestre virtual
 -Use a instrução [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) e confira a seção Gerenciamento de Logons de [Gerenciamento de bancos de dados e logons no Banco de Dados SQL do Azure](sql-database-manage-logins.md) para obter mais detalhes.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

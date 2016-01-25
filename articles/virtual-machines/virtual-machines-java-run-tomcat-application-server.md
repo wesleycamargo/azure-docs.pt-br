@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"
+	editor=""
     tags="azure-service-management" />
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="01/09/2016"
 	ms.author="robmcm"/>
 
 # Como executar um servidor de aplicativos do Java em uma máquina virtual criada com o modelo de implantação clássico
@@ -53,7 +53,7 @@ Neste tutorial, um servidor de aplicativos Apache Tomcat será instalado em uma 
 6. Na próxima caixa de diálogo **Configuração da máquina virtual**:
     1. Para **Serviço de Nuvem**, use o padrão **Criar um novo serviço de nuvem**.
     2. O valor de **Nome DNS do Serviço de Nuvem** deve ser exclusivo no cloudapp.net. Se necessário, modifique esse valor para que o Azure indique que ele é exclusivo.
-    2. Especifique uma região, um grupo de afinidade ou uma rede virtual. Para o objetivo deste tutorial, especifique uma região, como **Oeste dos EUA**.
+    2. Especifique uma região, um grupo de afinidade ou uma rede virtual. Neste tutorial, especifique uma região, como **Oeste dos Estados Unidos**.
     2. Para **Conta de Armazenamento**, selecione **Usar uma conta de armazenamento gerada automaticamente**.
     3. Para **Conjunto de Disponibilidade**, selecione **(Nenhuma)**.
     4. Clique em **Próximo**.
@@ -79,7 +79,7 @@ Para o objetivo deste tutorial, o Tomcat será instalado.
 1. Depois de se conectar à máquina virtual, abra uma sessão do navegador para [Apache Tomcat](http://tomcat.apache.org/download-70.cgi).
 2. Clique duas vezes no link **Instalador de serviço do Windows de 32 bits/64 bits**. Usando essa técnica, o Tomcat será instalado como um serviço do Windows.
 3. Quando solicitado, opte por executar o instalador.
-4. No assistente de **Configuração do Apache Tomcat**, siga os prompts para instalar o Tomcat. Para o objetivo deste tutorial, aceitar os padrões será o suficiente. Ao chegar na caixa de diálogo **Concluindo o Assistente de Instalação do Apache Tomcat**, é possível marcar opcionalmente **Executar o Apache Tomcat** para que o Tomcat seja iniciado agora. Clique em **Concluir** para concluir o processo de configuração do Tomcat.
+4. No assistente de **Configuração do Apache Tomcat**, siga os prompts para instalar o Tomcat. Para o objetivo deste tutorial, aceitar os padrões será o suficiente. Quando você chegar à caixa de diálogo **Concluindo o Assistente de Instalação do Apache Tomcat**, poderá marcar opcionalmente **Executar o Apache Tomcat** para que o Tomcat inicie agora. Clique em **Concluir** para concluir o processo de configuração do Tomcat.
 
 ## Para iniciar o Tomcat
 Se você não optou por executar o Tomcat na caixa de diálogo **Concluindo o Assistente de Instalação do Apache Tomcat**, inicie-o abrindo um prompt de comando em sua máquina virtual e executando **net start Tomcat7**.
@@ -114,10 +114,10 @@ Para ver o Tomcat em execução em máquinas externas, você precisará criar um
 9. Na tela **Perfil**, verifique se **Domínio**, **Privado** e **Público** estão marcados e clique em **Próximo**.![Novo perfil de regra de entrada][NewRuleProfile]
 10. Na tela **Nome**, especifique um nome para a regra, como **HttpIn** (no entanto, o nome da regra não precisa corresponder ao nome do ponto de extremidade) e clique em **Concluir**.![Nome da nova regra de entrada][NewRuleName]
 
-Neste ponto, o site do Tomcat deverá ser visto de um navegador externo usando uma URL no formato ****http://*your\_DNS\_name*.cloudapp.net**, em que ***your\_DNS\_name*** é o nome DNS que você especificou ao criar a máquina virtual.
+Neste ponto, o site do Tomcat deverá ser visto de um navegador externo usando uma URL no formato **http://*your\_DNS\_name*.cloudapp.net**, em que ***your\_DNS\_name*** é o nome DNS que você especificou ao criar a máquina virtual.
 
 ## Considerações sobre o ciclo de vida do aplicativo
-* Você pode criar seu próprio arquivo do aplicativo Web (WAR) e adicioná-lo à pasta **webapps**. Por exemplo, crie um projeto Web dinâmico JSP (página de serviço Java) básico e o exporte como um arquivo WAR, copie o WAR para a pasta **webapps** do Apache Tomcat na máquina virtual e o execute em um navegador.
+* Você pode criar o próprio arquivo web do aplicativo (WAR) e adicioná-lo à pasta **webapps**. Por exemplo, crie um projeto Web dinâmico JSP (página de serviço Java) básico e o exporte como um arquivo WAR, copie o WAR para a pasta **webapps** do Apache Tomcat na máquina virtual e o execute em um navegador.
 * Por padrão, quando o serviço Tomcat for instalado, ele será definido para iniciar manualmente. Você pode mudá-lo para iniciar automaticamente, usando o snap-in Serviços. Inicie o snap-in Serviços clicando em **Iniciar do Windows**, **Ferramentas Administrativas** e em **Serviços**. Clique duas vezes no serviço **Apache Tomcat** e defina o **Tipo de inicialização** como **Automático**.
 
     ![Configurando um serviço para iniciar automaticamente][service_automatic_startup]
@@ -146,4 +146,4 @@ Saiba mais sobre outros serviços (como o Armazenamento do Azure, o barramento d
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

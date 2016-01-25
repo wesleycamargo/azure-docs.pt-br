@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="01/11/2016" 
 	ms.author="billmath"/>
 
 # Criando uma autenticação multifator em aplicativos personalizados (SDK)
@@ -33,7 +33,7 @@ Como as APIs não têm acesso aos usuários registrados no Active Directory do A
 
 ## Baixar o SDK do Azure Multi-Factor Authentication 
 
-Há duas maneiras diferentes de baixar o SDK do Azure Multi-Factor Authentication. Ambas são feitas por meio do portal do Azure. A primeira é por meio do gerenciamento do Provedor de Autenticação Multifator diretamente. A segunda é através de configurações de serviço. A segunda opção requer um Provedor de Autenticação Multifator ou uma licença do Azure AD Premium.
+Há duas maneiras diferentes de baixar o SDK do Azure Multi-Factor Authentication. Ambas são feitas por meio do portal do Azure. A primeira é por meio do gerenciamento do Provedor de Autenticação Multifator diretamente. A segunda é através de configurações de serviço. A segunda opção requer um Provedor do Multi-Factor Authentication ou uma licença do Azure MFA, do Azure AD Premium ou do Enterprise Mobility Suite.
 
 
 ### Para baixar o SDK do Azure Multi-Factor Authentication no Portal do Azure
@@ -58,7 +58,7 @@ Há duas maneiras diferentes de baixar o SDK do Azure Multi-Factor Authenticatio
 3. Clique duas vezes em sua instância do AD do Azure.
 4. Na parte superior, clique em **Configurar**.
 5. Em autenticação multifator, selecione **Gerenciar configurações de serviço**![Baixar](./media/multi-factor-authentication-sdk/download2.png)
-6. Na página das configurações de serviços, na parte inferior da tela, clique em **Ir para o portal**.![Baixar](./media/multi-factor-authentication-sdk/download3.png)
+6. Na página das configurações de serviços, na parte inferior da tela, clique em **Ir para o portal**.![Baixar](./media/multi-factor-authentication-sdk/download3a.png)
 7. Isso abrirá uma nova página. À esquerda, na parte inferior, clique em SDK.
 8. Selecione o idioma desejado e clique em um dos links de download associados.
 9. Salve o download.
@@ -191,4 +191,4 @@ No código de servidor a seguir, o Multi-Factor Authentication é configurado e 
 	    }
 	}
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

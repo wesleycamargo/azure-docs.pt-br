@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="nicw;JRJ@BigBangData.co.uk;mausher"/>
+   ms.date="01/07/2016"
+   ms.author="nicw;jrj;mausher;barbkess;sonyama"/>
 
 # Desempenho e escala elásticos com o SQL Data Warehouse
 Para aumentar ou diminuir o poder da computação, tudo o que você precisa fazer é ajustar o número de DWUs (Unidades de Data Warehouse) alocadas para seu SQL Data Warehouse. As Unidades de Data Warehouse são um novo conceito fornecido pelo SQL Data Warehouse que permitem o gerenciamento simples e eficiente. Este tópico é como uma introdução às unidades de Data Warehouse, que explica como você pode usá-las para ajustar a escala do poder da computação de modo elástico. O artigo também fornece algumas diretrizes iniciais sobre como definir um valor de DWU razoável para seu ambiente.
@@ -93,4 +93,4 @@ Para obter uma visão geral do desempenho, consulte [visão geral de desempenho]
 
 [Portal Clássico do Azure]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

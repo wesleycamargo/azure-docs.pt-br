@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="11/30/2015"
+   ms.date="12/08/2015"
    ms.author="hascipio"/>
 
 # Concluir a criação de oferta com conteúdo de marketing
@@ -146,7 +146,7 @@ Agora que o conteúdo do Marketplace está carregado, seguiremos para a testar s
 
 || Imagem de máquina virtual | Serviço do desenvolvedor | Serviço de dados | Modelo de solução |
 |---|---|---|---|---|
-| **Etapa 3. Enviar por push sua oferta para preparo** | [Testar sua oferta de VM no preparo](marketplace-publishing-vm-image-test-in-staging.md) | Testar sua oferta de serviço do desenvolvedor no preparo| [Testar seu modelo de solução no preparo](marketplace-publishing-data-service-test-in-staging.md) | [Testar seu modelo de solução no preparo](marketplace-publishing-solution-template-test-in-staging.md) |
+| **Etapa 3. Enviar por push sua oferta para preparo** | [Testar sua oferta de VM de preparo](marketplace-publishing-vm-image-test-in-staging.md) | [Testar sua oferta de serviço do desenvolvedor de preparo](marketplace-publishing-dev-service-test-in-staging.md)| [Testar sua oferta de serviço de preparo](marketplace-publishing-data-service-test-in-staging.md) | [Testar seu modelo de solução de preparo](marketplace-publishing-solution-template-test-in-staging.md) |
 
 ## Consulte também
 - [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -160,4 +160,4 @@ Agora que o conteúdo do Marketplace está carregado, seguiremos para a testar s
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

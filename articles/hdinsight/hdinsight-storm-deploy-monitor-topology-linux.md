@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/16/2015"
+   ms.date="01/12/2016"
    ms.author="larryfr"/>
 
 # Implantar e gerenciar topologias Apache Storm no HDInsight baseado nem Linux
@@ -50,7 +50,7 @@ Neste documento, conheça as noções básicas de gerenciamento e topologias Sto
 
     Isso iniciará a topologia de WordCount de exemplo no cluster. Ele gerar sentenças e conta a ocorrência de cada palavra nas sentenças aleatoriamente.
 
-    > [AZURE.NOTE]Ao enviar a topologia para o cluster, é necessário primeiro copiar o arquivo jar que contém o cluster antes de usar o `storm` comando. Isso pode ser feito usando o `scp` comando do cliente em que o arquivo existe. Por exemplo, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
+    > [AZURE.NOTE]Ao enviar a topologia para o cluster, primeiro você deverá copiar o arquivo jar com o cluster antes de usar o comando `storm`. Isso pode ser feito usando o comando `scp` do cliente em que o arquivo existe. Por exemplo, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
     >
     > O exemplo de WordCount e outros exemplos de storm starter, já estão incluídos no cluster em `/usr/hdp/current/storm-client/contrib/storm-starter/`.
 
@@ -94,23 +94,10 @@ Rebalancear uma topologia permite que o sistema revise o paralelismo da topologi
 
 ##Monitorar e gerenciar usando a IU do Storm
 
-A IU do Storm fornece uma interface Web para trabalhar com as topologias em funcionamento, e é incluída no seu cluster HDInsight.
+A IU do Storm fornece uma interface Web para trabalhar com as topologias em funcionamento, e é incluída no seu cluster HDInsight. Para exibir a interface do usuário do Storm, use um navegador da Web para abrir \_\___https://CLUSTERNAME.azurehdinsight.net/stormui__, em que __CLUSTERNAME__ é o nome do seu cluster.
 
-> [AZURE.IMPORTANT]A IU do Storm não está disponível publicamente pela Internet e devem ser acessada através de um túnel SSH para o nó principal do cluster HDInsight. Para obter informações sobre como criar e usar um túnel SSH, consulte [Usar um túnel SSH para acessar a interface do usuário da Web Ambari, ResourceManager, JobHistory, NameNode, Oozie e outras interfaces do usuário da Web](hdinsight-linux-ambari-ssh-tunnel.md).
+> [AZURE.NOTE]Se solicitado a forneça um nome de usuário e senha, insira o administrador de cluster (admin) e a senha que você usou ao criar o cluster.
 
-Execute as etapas a seguir para exibir a IU do Storm:
-
-1. Abra um navegador da Web para a Ambari Web para seu cluster HDInsight. A URL da Ambari Web é https://CLUSTERNAME.azurehdinsight.net, em que __CLUSTERNAME__ é o nome do cluster.
-
-2. Na lista de serviços à esquerda da página, selecione __Storm__. Então, selecione __Interface do Usuário do Storm__ em __Links Rápidos__.
-
-    ![Entrada de interface do usuário do Storm em links rápidos](./media/hdinsight-storm-deploy-monitor-topology-linux/ambari-storm.png)
-
-    Isso exibirá a interface do usuário do Storm:
-
-    ![a interface do usuário do storm](./media/hdinsight-storm-deploy-monitor-topology-linux/storm-ui.png)
-
-> [AZURE.NOTE]Ao trabalhar com a IU Storme, você pode observar que algumas versões do Internet Explorer não atualizam corretamente a interface do usuário depois que você o visitou pela primeira vez. Por exemplo, ela pode não mostrar as novas topologias enviadas ou pode mostrar uma topologia como ativa quando na verdade ela foi desativada anteriormente. A Microsoft está ciente desse problema e está trabalhando em uma solução.
 
 ### Página principal
 
@@ -168,4 +155,4 @@ Agora que você aprendeu a implantar e monitorar topologias usando o Painel do S
 
 Para obter mais topologias de exemplo, consulte [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

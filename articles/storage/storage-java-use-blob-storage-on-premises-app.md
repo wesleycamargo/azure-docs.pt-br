@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="12/01/2015" 
-	ms.author="robmcm"/>
+	ms.date="12/01/2015"
+	ms.author="micurd"/>
 
 # Aplicativo local com armazenamento de blob
 
@@ -358,7 +358,7 @@ Siga estes links para saber mais sobre as tarefas mais complexas de armazenament
 - [API REST de Armazenamento do Azure][]
 - [Blog da equipe de Armazenamento do Azure][]
 
-  [Download the Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
+  [Baixar o SDK do Azure para Java]: http://go.microsoft.com/fwlink/?LinkID=525671
   [Como criar uma conta de armazenamento]: storage-create-storage-account.md#create-a-storage-account
   [Como gerenciar contas de armazenamento]: storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys
   [Como usar o serviço de armazenamento de blobs no Java]: storage-java-how-to-use-blob-storage.md
@@ -366,4 +366,4 @@ Siga estes links para saber mais sobre as tarefas mais complexas de armazenament
   [Referência de SDK do Cliente de Armazenamento do Azure]: http://dl.windowsazure.com/storage/javadoc/
   [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

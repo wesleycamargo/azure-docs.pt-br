@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/04/2015"
+   ms.date="01/12/2016"
    ms.author="cherylmc"/>
 
 # Criar e modificar um circuito da Rota Expressa usando o Gerenciador de recursos do Azure e PowerShell
@@ -63,7 +63,7 @@ Este artigo fornece uma orientação pelas etapas de criação de um circuito da
 
 	Antes de criar um circuito da Rota Expressa você precisará de uma lista de provedores de conectividade, dos locais com suporte e de opções de largura de banda. O cmdlet *Get-AzureRmExpressRouteServiceProvider* do PowerShell retorna essas informações, que serão usadas em etapas posteriores.
 
-		PS C:\> Get-AzureRmExpressRouteServiceProvider
+		Get-AzureRmExpressRouteServiceProvider
 
 	Verifique se o provedor de conectividade está listado. Anote o seguinte, pois essas informações serão necessárias para criar circuitos.
 	
@@ -93,13 +93,13 @@ Este artigo fornece uma orientação pelas etapas de criação de um circuito da
 
 	A resposta conterá a chave de serviço. Você pode obter descrições detalhadas de todos os parâmetros executando o seguinte:
 
-		get-help New-AzureRmExpressRouteCircuit -detailed 
+		Get-Help New-AzureRmExpressRouteCircuit -detailed 
 
 4. **Lista com todos os circuitos de Rota Expressa.**
 
 	Você pode executar o comando *Get-AzureDedicatedCircuit* para obter uma lista de todos os circuitos da Rota Expressa criados.
 
-		#Getting service key
+		
 		Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
 	A resposta será algo semelhante ao exemplo a seguir:
@@ -159,7 +159,7 @@ Este artigo fornece uma orientação pelas etapas de criação de um circuito da
 
 	Você pode obter descrições detalhadas de todos os parâmetros executando o seguinte:
 
-		get-help Get-AzureRmExpressRouteCircuit -detailed 
+		Get-Help Get-AzureRmExpressRouteCircuit -detailed 
 
 5. **Envie a Chave de Serviço ao seu provedor de conectividade para obter o provisionamento.**
 
@@ -215,17 +215,22 @@ Este artigo fornece uma orientação pelas etapas de criação de um circuito da
 
 6. **Crie sua configuração de roteamento.**
 	
-	Consulte a página [Configuração de roteamento do circuito da Rota Expressa (criar e modificar emparelhamentos de circuito)](expressroute-howto-routing-arm.md) para obter instruções detalhadas.
+	Consulte [Criar e modificar o roteamento para um circuito de Rota Expressa](expressroute-howto-routing-arm.md) para obter instruções passo a passo.
 
-7. **Vincule uma Rede Virtual a um circuito da Rota Expressa.**
+>[AZURE.IMPORTANT]Estas instruções se aplicam apenas a circuitos criados com provedores de serviço que oferecem serviços de conectividade de Camada 2. Se você estiver usando um provedor de serviços que oferece serviços gerenciados de Camada 3 (normalmente um IPVPN, como MPLS), seu provedor de conectividade configurará e gerenciará o roteamento para você. Nesses casos, não será possível criar ou gerenciar emparelhamentos.
 
-	Em seguia, vincule uma Rede Virtual ao seu circuito da Rota Expressa. Você pode usar [esse modelo](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection) ao trabalhar com o modo de implantação do Gerenciador de Recursos do Azure. Atualmente estamos trabalhando em etapas do PowerShell.
+
+7. **Vincule uma Rede Virtual a um circuito da Rota Expressa.** 
+
+	Em seguia, vincule uma Rede Virtual ao seu circuito da Rota Expressa. Consulte [Vinculando redes virtuais a circuitos de Rota Expressa](expressroute-howto-linkvnet-arm.md) para obter instruções passo a passo.
 
 ##  Obter o status de um circuito da Rota Expressa
 
 Você pode recuperar essas informações a qualquer momento usando o cmdlet *Get-AzureRmExpressRouteCircuit*. Fazer a chamada sem nenhum parâmetro listará todos os circuitos.
 
 		Get-AzureRmExpressRouteCircuit
+
+A resposta será semelhante ao exemplo abaixo:
 
 		Name                             : ExpressRouteARMCircuit
 		ResourceGroupName                : ExpressRouteResourceGroup
@@ -253,7 +258,8 @@ Você pode obter informações sobre um circuito da Rota Expressa específico pa
 
 		Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-	The response will be something similar to the example below:
+
+A resposta será algo semelhante ao exemplo a seguir:
 
 		Name                             : ExpressRouteARMCircuit
 		ResourceGroupName                : ExpressRouteResourceGroup
@@ -279,7 +285,7 @@ Você pode obter informações sobre um circuito da Rota Expressa específico pa
 
 Você pode obter descrições detalhadas de todos os parâmetros executando o seguinte:
 
-		get-help get-azurededicatedcircuit -detailed 
+		Get-Help Get-azurededicatedcircuit -detailed 
 
 ## Modificar um circuito da Rota Expressa
 
@@ -357,4 +363,4 @@ Se o provedor de serviços tiver desprovisionado o circuito (o estado de provisi
 
 - [Configurar o roteamento](expressroute-howto-routing-arm.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter=".net" 
 	authors="tamram" 
 	manager="carmonm" 
-	editor=""/>
+	editor="tysonn"/>
 
 <tags 
 	ms.service="storage" 
@@ -98,7 +98,7 @@ Em seguida, execute o aplicativo de exemplo no Emulador de Armazenamento do Azur
 Consulte estes recursos para saber mais sobre o Armazenamento do Azure:
 
 * [Introdução ao Armazenamento do Microsoft Azure](storage-introduction.md)
-* [Como usar o Armazenamento de Blobs no .NET](storage-dotnet-how-to-use-blobs.md)
+* [Como usar o Armazenamento de Blob no .NET](storage-dotnet-how-to-use-blobs.md)
 * [Como usar o Armazenamento de Tabela no .NET](storage-dotnet-how-to-use-tables.md)
 * [Como usar o Armazenamento de Fila no .NET](storage-dotnet-how-to-use-queues.md)
 * [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy)
@@ -109,4 +109,4 @@ Consulte estes recursos para saber mais sobre o Armazenamento do Azure:
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

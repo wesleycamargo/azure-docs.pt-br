@@ -67,7 +67,7 @@ Os artigos a seguir o ajudarão a começar a usar bancos de dados elásticos e t
 | [Criar e gerenciar um Banco de Dados SQL com a Biblioteca de Banco de Dados SQL do Azure para .NET](sql-database-elastic-pool-powershell.md) | Como criar e gerenciar um pool de banco de dados elástico usando C# |
 | [Visão geral de trabalhos de bancos de dados elásticos](sql-database-elastic-jobs-overview.md) | Uma visão geral do serviço de trabalhos elásticos que permite a execução de scripts T-SQL em todos os bancos de dados elásticos de um pool |
 | [Instalando o componente de trabalho de banco de dados elástico](sql-database-elastic-jobs-service-installation.md) | Como instalar o serviço de trabalhos de bancos de dados elásticos |
-| [Criando o usuário necessário para o serviço de trabalhos elásticos](sql-database-elastic-jobs-add-logins-to-dbs.md) | Para executar um script de trabalho de banco de dados elástico, um usuário com as permissões apropriadas deverá ser adicionado a todos os bancos de dados no pool. |
+| [Protegendo o Banco de Dados SQL](sql-database-security.md) | Para executar um script de trabalho de banco de dados elástico, um usuário com as permissões apropriadas deverá ser adicionado a todos os bancos de dados no pool. |
 | [Como desinstalar os componentes de trabalho do banco de dados elástico](sql-database-elastic-jobs-uninstall.md) | Recuperar de falhas ao tentar instalar o serviço de trabalho de banco de dados elástico |
 
 
@@ -105,7 +105,7 @@ O limite de armazenamento do pool é determinado pela quantidade de eDTUs do poo
 | dtu | **100**, 200, 400, 800, 1200 | **100**, 200, 400, 800, 1200 | **125**, 250, 500, 1000, 1500 |
 | databaseDtuMax | **5** | 10, 20, 50, **100** | **125**, 250, 500, 1000 |
 | databaseDtuMin | **0**, 5 | **0**, 10, 20, 50, 100 | **0**, 125, 250, 500, 1000 |
-| storageMB* | **10.000 MB**, 20.000 MB, 40.000 MB, 80.000 MB, 120.000 MB | **100 GB**, 200 GB, 400 GB, 800 GB, 1200 GB | **62,5 GB**, 125 GB, 250 GB, 500 GB, 750 GB |
+| storageMB* | **10.000 MB**, 20.000 MB, 40.000 MB, 80.000 MB, 120.000 MB | **100 GB**, 200 GB, 400 GB, 800 GB, 1.200 GB | **62,5 GB**, 125 GB, 250 GB, 500 GB, 750 GB |
 | armazenamento por DTU | 100 MB | 1 GB | 0,5 GB |
 | número máximo de bancos de dados por pool | 200 | 200 | 50 |
 
@@ -211,4 +211,4 @@ O preço unitário por eDTU de um pool elástico é maior que o preço unitário
 | 40891 | EX_USER | O DTU mínimo por banco de dados (%d) não pode exceder o DTU máximo por banco de dados (%d). | DTU mínimo por banco de dados; DTU máximo por banco de dados. | Tentativa de definir o DTU mínimo por banco de dados superior ao DTU máximo por banco de dados. | Certifique-se de que o DTU mínimo por banco de dados não exceda o DTU máximo por banco de dados. |
 | TBD | EX_USER | O tamanho do armazenamento para um banco de dados individual em um pool elástico não pode exceder o tamanho máximo permitido pelo pool elástico da camada de serviço '%.*ls'. | camada de serviço do pool elástico | O tamanho máximo do banco de dados excede o tamanho máximo permitido pela camada de serviço do pool elástico. | Defina o tamanho máximo do banco de dados dentro dos limites do tamanho máximo permitido pela camada de serviço do pool elástico. |
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

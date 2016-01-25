@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/09/2015"
+   ms.date="01/07/2015"
    ms.author="ganesr" />
 
 # Vinculando Redes Virtuais a circuitos da Rota Expressa
@@ -23,7 +23,7 @@
 - [PowerShell - Resource Manager] (expressroute-howto-linkvnet-arm.md)
 - [Template - Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)
 
-Este artigo apresenta uma visão geral de como vincular redes virtuais a circuitos da Rota Expressa. As redes virtuais podem estar na mesma assinatura ou fazerem parte de outra assinatura. Este artigo aplica-se a Redes Virtuais implantadas com o modelo de implantação clássica. Se desejar vincular uma rede virtual implantada com o método de implantação do Gerenciador de Recursos do Azure, você poderá fazer isso usando um modelo. Veja a guia acima para navegar até o modelo.
+Este artigo apresenta uma visão geral de como vincular redes virtuais a circuitos da Rota Expressa. As redes virtuais podem estar na mesma assinatura ou fazerem parte de outra assinatura. Este artigo aplica-se a Redes Virtuais implantadas com o modelo de implantação do Gerenciador de Recursos. Se você quiser vincular uma rede virtual que foi implantada usando o modelo de implantação clássico, consulte [Vincular uma rede virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-classic.md).
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
@@ -137,4 +137,4 @@ O usuário de circuito pode executar o cmdlet a seguir para resgatar uma autoriz
 
 Para obter mais informações sobre a Rota Expressa, consulte [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

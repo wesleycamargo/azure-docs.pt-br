@@ -94,13 +94,11 @@ O Azure oferece uma [variedade de tamanhos](../virtual-machines/virtual-machines
 
 ## Plano gráfico da arquitetura
 
-* [Computação de grande escala - Serviços financeiros](http://go.microsoft.com/fwlink/?LinkId=536378) (PDF) mostra como colocar em operação e gerenciar a análise de dados e a computação de larga escala na nuvem para gerenciamento de riscos, relatórios e simulações.
+* O Lote do Microsoft Azure e Azure Data Factory: Arquitetura para processamento de dados em grande escala ([PDF](http://go.microsoft.com/fwlink/?linkid=717686) e [artigo](../data-factory/data-factory-data-processing-using-batch.md)) ilustra como o Data Factory orquestra processamento e movimentação de dados e como o Lote do Azure processa os dados de modo paralelo.
 
 ## Exemplos e scripts
 
 * [Exemplos de código do Lote do Azure](https://github.com/Azure/azure-batch-samples)
-
-* [Exemplo de misturador de aplicativos do Lote](https://github.com/Azure/azure-batch-apps-blender) e [postagem de blog](http://azure.microsoft.com/blog/2015/01/26/blender-on-azure-batch/)
 
 ## Serviços do Azure relacionados
 
@@ -123,4 +121,4 @@ O Azure oferece uma [variedade de tamanhos](../virtual-machines/virtual-machines
 * Para os anúncios mais recentes, consulte o [blog da equipe do Microsoft HPC e Lote](http://blogs.technet.com/b/windowshpc/) e o [blog do Azure](http://azure.microsoft.com/blog/tag/hpc/).
 * Consulte também [o que há de novo no Lote](http://azure.microsoft.com/updates/?service=batch) ou assine o [RSS feed](http://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

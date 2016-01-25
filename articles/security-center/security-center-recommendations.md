@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/10/2015"
+   ms.date="01/05/2016"
    ms.author="terrylan"/>
 
 # Gerenciando recomendações de segurança na Central de Segurança do Azure
@@ -70,7 +70,7 @@ Use a tabela a seguir como referência para entender as recomendações disponí
 
 | Recomendações | Descrição |
 |----- |-----|
-| Habilitar Coleta de Dados para máquinas virtuais/assinaturas | Recomenda que você habilite a coleta de dados na política de segurança para as VMs selecionadas. |
+| Habilitar Coleta de Dados para máquinas virtuais/assinaturas | Recomenda que você habilite a Coleta de Dados na política de segurança para cada uma de suas assinaturas ou para as VMs selecionadas. |
 | Resolver regras de linha de base incompatíveis | Recomenda que você alinhe as configurações do sistema operacional com as linhas de base recomendadas, por exemplo, não permitir o armazenamento de senhas. |
 | Aplicar atualizações do sistema | Recomenda que você implante as atualizações de sistema ausentes nas máquinas virtuais (somente VMs do Windows). |
 | Configurar ACLs para pontos de extremidade | Recomenda que você configure uma lista de controle de acesso para restringir o acesso de entrada nas máquinas virtuais (somente VMs clássicas). |
@@ -135,4 +135,4 @@ Neste documento, você foi apresentado às recomendações de segurança da Cent
 [9]: ./media/security-center-recommendations/finalize-waf.png
 [10]: ./media/security-center-recommendations/restrict-traffic.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

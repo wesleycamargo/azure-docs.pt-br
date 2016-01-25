@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="01/12/2016"
 	ms.author="josephd"/>
 
 # Ambiente de teste de configuração básica
@@ -51,9 +51,9 @@ Há quatro fases para configurar a sub-rede Corpnet do ambiente de teste de Conf
 3.	Configurar o APP1.
 4.	Configurar o CLIENT1.
 
-Se ainda não tiver uma conta do Azure, inscreva-se para obter uma avaliação gratuita em [Avaliação gratuita de um mês](http://azure.microsoft.com/pricing/free-trial/). Se tiver uma assinatura do MSDN, consulte [Benefício do Azure para assinantes do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Se ainda não tiver uma conta do Azure, inscreva-se para obter uma avaliação gratuita em [Avaliação gratuita de um mês](http://azure.microsoft.com/pricing/free-trial/). Se tiver uma assinatura das Plataformas MSDN, consulte [Benefício do Azure para assinantes de Plataformas MSDN](https://azure.microsoft.com/offers/ms-azr-0062p/).
 
-> [AZURE.NOTE]As máquinas virtuais no Azure incorrem em um custo monetário contínuo quando estão em execução. Esse custo é cobrado em sua avaliação gratuita, assinatura do MSDN ou assinatura paga. Para obter mais informações sobre os custos da execução de máquinas virtuais do Azure, consulte [Detalhes de preços de máquinas virtuais](http://azure.microsoft.com/pricing/details/virtual-machines/) e [Calculadora de preços do Azure](http://azure.microsoft.com/pricing/calculator/). Para reduzir os custos, consulte [Minimizando os custos de máquinas de virtuais do ambiente de teste no Azure](#costs).
+> [AZURE.NOTE]As máquinas virtuais no Azure incorrem em um custo monetário contínuo quando estão em execução. Esse custo é cobrado em sua avaliação gratuita, assinatura de Plataformas MSDN ou assinatura paga. Para obter mais informações sobre os custos da execução de máquinas virtuais do Azure, consulte [Detalhes de preços de máquinas virtuais](http://azure.microsoft.com/pricing/details/virtual-machines/) e [Calculadora de preços do Azure](http://azure.microsoft.com/pricing/calculator/). Para reduzir os custos, consulte [Minimizando os custos de máquinas de virtuais do ambiente de teste no Azure](#costs).
 
 ## Fase 1: Criar a rede virtual
 
@@ -250,15 +250,11 @@ Essa é a configuração final.
 
 ![](./media/virtual-machines-base-configuration-test-environment/BC_TLG04.png)
 
-A configuração básica no Azure agora está pronta para desenvolvimento e teste de aplicativos ou para ambientes de teste adicionais, como o [ambiente simulado de nuvem híbrida](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
+A configuração básica no Azure agora está pronta para desenvolvimento e teste de aplicativos ou para ambientes de teste adicionais.
 
-## Recursos adicionais
+## Próxima etapa
 
-[Laboratório de teste do Azure](http://social.technet.microsoft.com/wiki/contents/articles/24092.azure-test-lab.aspx)
-
-[Ambientes de teste de nuvem híbrida](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md)
-
-[Ambiente de teste Configuração de Base com o Gerenciador de Recursos do Azure](virtual-machines-base-configuration-test-environment-resource-manager.md)
+- Configure o [ambiente de nuvem híbrida simulada](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md) para testar configurações híbridas.
 
 ## <a id="costs"></a>Minimizando os custos de máquinas virtuais do ambiente de teste no Azure
 
@@ -288,4 +284,4 @@ Para iniciar as máquinas virtuais em ordem com o PowerShell do Azure, preencha 
 	Start-AzureVM -ServiceName $serviceName -Name "APP1"
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

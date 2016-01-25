@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Configurar uma Cadeia de Conexão para o Armazenamento do Azure | Microsoft Azure" 
-	description="Saiba como configurar uma cadeia de conexão para uma conta de armazenamento do Azure. Uma cadeia de conexão inclui as informações necessárias para autenticar o acesso programático a recursos em uma conta de armazenamento. A cadeia de conexão pode encapsular sua chave de acesso da conta para uma conta que você possui, ou pode incluir uma assinatura de acesso compartilhado para acessar recursos em uma conta sem a chave de acesso." 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
-	editor="cgronlun"/>
+	pageTitle="Configurar uma Cadeia de Conexão para o Armazenamento do Azure | Microsoft Azure"
+	description="Saiba como configurar uma cadeia de conexão para uma conta de armazenamento do Azure. Uma cadeia de conexão inclui as informações necessárias para autenticar o acesso programático a recursos em uma conta de armazenamento. A cadeia de conexão pode encapsular sua chave de acesso da conta para uma conta que você possui, ou pode incluir uma assinatura de acesso compartilhado para acessar recursos em uma conta sem a chave de acesso."
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="carmonm"
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/05/2016" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/05/2016"
 	ms.author="tamram"/>
 
 # Configurar cadeias de conexão do Armazenamento do Azure
@@ -52,13 +52,13 @@ Para criar uma cadeia de conexão para sua conta de armazenamento do Azure, use 
     DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey
 
 Por exemplo, a cadeia de conexão será semelhante à seguinte cadeia de conexão de amostra:
- 
+
 	DefaultEndpointsProtocol=https;
 	AccountName=storagesample;
 	AccountKey=<account-key>
 
 > [AZURE.NOTE]O Armazenamento do Azure dá suporte a HTTP e HTTPS em uma cadeia de conexão; no entanto, usar HTTPS é altamente recomendável.
-    
+
 ## Criando uma cadeia de conexão para um ponto de extremidade explícito do armazenamento
 
 Você pode para especificar explicitamente os pontos de extremidade do serviço em sua cadeia de conexão se:
@@ -79,10 +79,10 @@ Você deve especificar pelo menos um ponto de extremidade de serviço, mas não 
 
 Quando você especifica explicitamente pontos de extremidade de serviço na cadeia de conexão, há duas opções para especificar `credentials` na cadeia de caracteres acima:
 
-- Você pode especificar o nome da conta e a chave: `AccountName=myAccountName;AccountKey=myAccountKey` 
+- Você pode especificar o nome da conta e a chave: `AccountName=myAccountName;AccountKey=myAccountKey`
 - Você pode especificar uma assinatura de acesso compartilhado: `SharedAccessSignature=base64Signature`
 
-### Especificando um ponto de extremidade de blob com um nome de domínio personalizado 
+### Especificando um ponto de extremidade de blob com um nome de domínio personalizado
 
 Se você registrou o nome de domínio personalizado para uso com o serviço Blob, convém configurar explicitamente o ponto de extremidade de blob em sua cadeia de conexão. O valor de ponto de extremidade que está listado na cadeia de conexão é usado para construir os URIs de solicitação ao serviço Blob e ele determina a forma que os URIs são retornados ao seu código.
 
@@ -91,10 +91,10 @@ Por exemplo, uma cadeia de conexão para um ponto de extremidade de Blob em um d
 	DefaultEndpointsProtocol=https;
 	BlobEndpoint=www.mydomain.com;
 	AccountName=storagesample;
-	AccountKey=<account-key> 
+	AccountKey=<account-key>
 
 
-### Especificando um ponto de extremidade de Blob com uma assinatura de acesso compartilhado 
+### Especificando um ponto de extremidade de Blob com uma assinatura de acesso compartilhado
 
 Você pode criar uma cadeia de conexão com pontos de extremidade explícitos para acessar recursos de armazenamento por meio de uma assinatura de acesso compartilhado. Nesse caso, você pode especificar a assinatura de acesso compartilhado como parte da cadeia de conexão, em vez do nome da conta e credenciais de chave. O token de assinatura de acesso compartilhado encapsula informações sobre o recurso a ser acessado, o período de tempo em que está disponível e as permissões concedidas. Para obter mais informações sobre assinaturas de acesso compartilhado, consulte [Delegando acesso com uma assinatura de acesso compartilhado](https://msdn.microsoft.com/library/ee395415.aspx).
 
@@ -119,7 +119,4 @@ Por exemplo, a cadeia de conexão deve ser semelhante ao seguinte exemplo de cad
 	AccountKey=<account-key>;
 	EndpointSuffix=core.chinacloudapi.cn;
 
-
- 
-
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

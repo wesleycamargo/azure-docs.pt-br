@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/23/2015"
+   ms.date="01/12/2015"
    ms.author="telmos" />
 
 # Endereços IP no Azure
@@ -23,7 +23,7 @@ Endereços IP públicos são usados para comunicação com a Internet, incluindo
 
 Endereços IP privados são usados para comunicação em uma VNet (rede virtual) do Azure e na sua rede local quando você usa um gateway de VPN ou circuito de Rota Expressa para estender sua rede para o Azure.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-network-ip-addresses-overview-classic.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [modelo de implantação clássico](virtual-network-ip-addresses-overview-classic.md).
 
 Se você estiver familiarizado com o modelo de implantação clássico, verifique as [diferenças de endereçamento IP entre o clássico e o Gerenciador de Recursos](virtual-network-ip-addresses-overview-classic.md#Differences-between-Resource-Manager-and-classic-deployments).
 
@@ -152,12 +152,8 @@ Em resumo, a estrutura de preços a seguir se aplica a recursos IP públicos:
 	- O uso é calculado com base no número total de IPs públicos estáticos na assinatura.
 
 ## Próximas etapas
-- [Implantar uma VM com um endereço IP público estático](virtual-network-deploy-static-pip-arm-template.md)
-- [Criar um endereço IP público para a um balanceador de carga de Internet usando a CLI do Azure](load-balancer-get-started-internet-arm-cli.md#create-a-virtual-network-and-a-public-ip-address-for-the-front-end-ip-pool)
-- [Criar um endereço IP público para um application gateway usando PowerShell](application-gateway-create-gateway-arm.md#create-public-ip-address-for-front-end-configuration)
-- [Criar um endereço IP público para um gateway de VPN usando PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md#4-request-a-public-ip-address-for-the-gateway)
-- [Implantar uma VM com um endereço IP privado estático](virtual-networks-static-private-ip-arm-pportal.md)
-- [Criar um front-end privado endereço IP estático para um balanceador de carga interno usando PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-front-end-ip-pool-and-backend-address-pool)
-- [Criar um pool de back-end com endereços IP estáticos privados para um application gateway usando o PowerShell](application-gateway-create-gateway-arm.md#create-an-application-gateway-configuration-object)
+- [Implante uma VM com um IP público estático](virtual-network-deploy-static-pip-arm-portal.md) usando o Portal do Azure.
+- Saiba como [implantar uma VM com um IP público estático usando um modelo](virtual-network-deploy-static-pip-arm-template.md).
+- [Implante uma VM com um endereço IP privado estático](virtual-networks-static-private-ip-arm-pportal.md) usando o Portal do Azure.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

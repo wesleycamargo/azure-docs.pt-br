@@ -48,7 +48,7 @@ A tabela a seguir fornece as descrições das propriedades usadas na definição
 
 Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------
-Tipo | A propriedade type deve ser definida como: **AzureDataLakeAnalytics**. | Sim
+Tipo | A propriedade de tipo deve ser definida como: **AzureDataLakeAnalytics**. | Sim
 accountName | Nome da conta da Análise Azure Data Lake. | Sim
 dataLakeAnalyticsUri | URI da Análise Azure Data Lake. | Não 
 autorização | O código de autorização é recuperado automaticamente depois de clicar no botão **Autorizar** no Editor do Data Factory e concluir o logon OAuth. | Sim 
@@ -125,6 +125,7 @@ degreeOfParallelism | O número máximo de nós que serão usados simultaneament
 prioridade | Determina quais trabalhos de todos os que estão na fila devem ser selecionados para serem executados primeiro. Quanto menor o número, maior a prioridade. | Não 
 parameters | Parâmetros do script U-SQL | Não 
 
+Consulte [Definição do Script SearchLogProcessing.txt](#script-definition) para a definição do script.
 
 ### Conjuntos de dados de entrada e saída de exemplo
 
@@ -187,4 +188,35 @@ Veja a definição de exemplo de serviço vinculado do Repositório Azure Data L
 
 Veja [Mover dados para e do Repositório Azure Data Lake](data-factory-azure-datalake-connector.md) para obter descrições das propriedades JSON no serviço vinculado do Repositório Azure Data Lake acima e trechos de código JSON de conjunto de dados.
 
-<!---HONumber=Nov15_HO2-->
+### Definição do Script
+
+	@searchlog =
+	    EXTRACT UserId          int,
+	            Start           DateTime,
+	            Region          string,
+	            Query           string,
+	            Duration        int?,
+	            Urls            string,
+	            ClickedUrls     string
+	    FROM @in
+	    USING Extractors.Tsv(nullEscape:"#NULL#");
+	
+	@rs1 =
+	    SELECT Start, Region, Duration
+	    FROM @searchlog
+	WHERE Region == "en-gb";
+	
+	@rs1 =
+	    SELECT Start, Region, Duration
+	    FROM @rs1
+	    WHERE Start <= DateTime.Parse("2012/02/19");
+	
+	OUTPUT @rs1   
+	    TO @out
+	      USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
+
+Os valores para os parâmetros **@in** e **@out** no script U-SQL acima são passados dinamicamente por ADF usando a seção ‘parâmetros’. Veja a seção "parâmetros" acima na definição do pipeline.
+
+Você pode especificar outras propriedades viz. degreeOfParallelism, prioridade, etc., bem como em sua definição de pipeline para os trabalhos executados no serviço de Análise Azure Data Lake.
+
+<!---HONumber=AcomDC_0114_2016-->

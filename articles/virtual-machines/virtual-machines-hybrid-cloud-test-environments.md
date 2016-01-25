@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="09/16/2015"
+	ms.date="01/12/2016"
 	ms.author="josephd"/>
 
 # Ambientes de teste de nuvem híbrida do Azure
@@ -49,14 +49,8 @@ O [servidor DirSync do Office 365 em um ambiente de teste de nuvem híbrida](../
 Para organizações e indivíduos para os quais uma conexão direta com a Internet e um endereço IP público não estão prontamente disponíveis, o [ambiente de teste de nuvem híbrida simulado](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md) cria a rede local simplificada em uma Rede Virtual do Azure separada e, então, conecta as duas redes virtuais a uma conexão VPN de VNet a VNet.
 
 
-## Recursos adicionais
+## Próxima etapa
 
-[Farms do SharePoint hospedados nos serviços de infraestrutura do Azure](virtual-machines-sharepoint-infrastructure-services.md)
+- Saiba mais sobre [diretrizes de implementação](virtual-machines-infrastructure-services-implementation-guidelines.md) para criar uma implantação personalizada de teste/desenvolvimento ou produção nos serviços de infraestrutura do Azure.
 
-[Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-workload-high-availability-LOB-application.md)
-
-[Implantar DirSync (Sincronização de Diretório) do Office 365 no Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
-
-[Diretrizes de implementação dos Serviços de Infraestrutura do Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

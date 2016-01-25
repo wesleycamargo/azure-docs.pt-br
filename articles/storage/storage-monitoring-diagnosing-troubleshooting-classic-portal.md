@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="jasonnewyork"
 	manager="tadb"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -226,7 +226,7 @@ A biblioteca do cliente de armazenamento para .NET habilita você a coletar dado
 Você pode capturar o tráfego entre o cliente e o servidor para dar informações detalhadas sobre os dados que o cliente e o servidor estão trocando e as condições subjacentes de rede. Ferramentas úteis de log de rede incluem:
 
 - Fiddler (<a href="http://www.telerik.com/fiddler" target="_blank">http://www.telerik.com/fiddler</a>) é um proxy de depuração Web gratuito que permite que você examine os cabeçalhos e dados de carga das solicitações HTTP e HTTPS e as mensagens de resposta. Para saber mais, consulte "[Anexo 1: usando o Fiddler para capturar o tráfego HTTP e HTTPS]".
-- Microsoft Network Monitor (Netmon) (<a href="http://www.microsoft.com/download/details.aspx?id=4865" target="_blank">http://www.microsoft.com/download/details.aspx?id=4865</a>) e Wireshark (<a href="http://www.wireshark.org/" target="_blank">http://www.wireshark.org/</a>) são analisadores de protocolo de rede gratuitos que permitem que você exiba informações detalhadas de pacote de uma vasta gama de protocolos de rede. Para saber mais sobre o Wireshark, consulte "[Apêndice 2: usando o Wireshark para capturar o tráfego de rede]".
+- Microsoft Network Monitor (Netmon) (<a href="http://www.microsoft.com/download/details.aspx?id=4865" target="_blank">http://www.microsoft.com/download/details.aspx?id=4865</a>) e Wireshark (<a href="http://www.wireshark.org/" target="_blank">http://www.wireshark.org/</a>) são analisadores de protocolo de rede gratuitos que permitem que você exiba informações detalhadas de pacote de uma vasta gama de protocolos de rede. Para obter mais informações sobre o Wireshark, consulte "[Apêndice 2: Usando o Wireshark para capturar o tráfego de rede]".
 - O Microsoft Message Analyzer é uma ferramenta da Microsoft que substitui o Netmon e que além de capturar os dados de pacote de rede, a ajuda a exibir e analisar os dados de log capturados das outras ferramentas. Para saber mais, consulte "[Anexo 3: usando o Microsoft Message Analyzer para capturar o tráfego de rede]".
 - Se você quer realizar um teste de conectividade básico para verificar que a máquina do cliente pode se conectar ao serviço de armazenamento do Azure pela rede, você não pode fazer isso usando a ferramenta padrão **ping** no cliente. Entretanto, você pode usar a ferramenta **tcping** para verificar a conectividade. O **Tcping** está disponível para download em <a href="http://www.elifulkerson.com/projects/tcping.php" target="_blank">http://www.elifulkerson.com/projects/tcping.php</a>.
 
@@ -369,7 +369,7 @@ Observe que o serviço de armazenamento calcula apenas a métrica **AverageE2ELa
 
 As possíveis razões para a lentidão de resposta do cliente incluem ter um número limitado de conexões disponíveis ou threads. Você pode ser capaz de resolver os problemas ao modificar o código do cliente para ser mais eficiente (por exemplo ao usar chamadas assíncronas para o serviço de armazenamento) ou usar uma máquina virtual maior (com mais cores e mais memória).
 
-Para os serviços Tabela e Fila, o algoritmo Nagle também pode causar alta **AverageE2ELatency** em comparação com **AverageServerLatency**: para saber mais, consulte a postagem <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx" target="_blank">Algoritmo do Nagle não é amigável em direção a pequenas solicitações</a> no Blog da equipe de Armazenamento do Microsoft Azure. Você pode desabilitar o algoritmo de Nagle em código ao usar a classe **ServicePointManager** no namespace **System.Net**. Faça isso antes de fazer qualquer chamada para os serviços de tabela ou fila no seu aplicativo já que isso não afeta as conexões que já estão abertas. O exemplo a seguir vem do método **Application\_Start** na função de trabalho.
+Para os serviços Tabela e Fila, o algoritmo Nagle também pode causar alto **AverageE2ELatency** em comparação com **AverageServerLatency**: para saber mais, consulte a postagem <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx" target="_blank">Algoritmo do Nagle não é amigável em direção a pequenas solicitações</a> no Blog da equipe de Armazenamento do Microsoft Azure. Você pode desabilitar o algoritmo de Nagle em código ao usar a classe **ServicePointManager** no namespace **System.Net**. Faça isso antes de fazer qualquer chamada para os serviços de tabela ou fila no seu aplicativo já que isso não afeta as conexões que já estão abertas. O exemplo a seguir vem do método **Application\_Start** na função de trabalho.
 
     var storageAccount = CloudStorageAccount.Parse(connStr);
     ServicePoint tableServicePoint = ServicePointManager.FindServicePoint(storageAccount.TableEndpoint);
@@ -401,7 +401,7 @@ Para saber mais sobre o uso do Microsoft Message Analyzer para a solução de pr
 
 ### <a name="metrics-show-high-AverageServerLatency"></a>As métricas mostram alta AverageServerLatency
 
-No caso de alta **AverageServerLatency** para as solicitações de download de blob, você deve usar os registros de log de armazenamento para ver se há solicitações repetidas para o mesmo blob (ou para grupos de blobs). Para solicitações de carregamento de blob, você deve investigar que tamanho de bloco o cliente está usando (por exemplo, blocos inferiores a 64k em tamanho podem resultar em sobrecargas ao menos que leituras também sejam inferiores a 64k partes) e se múltiplos clientes estiverem carregando blocos no mesmo blob em paralelo. Você também deve verificar as métricas por minuto para ver picos no número de solicitações que resultam em ultrapassagem das metas de escalabilidade por segundo: consulte também "[As métricas mostram um aumento em PercentTimeoutError]".
+No caso de alta **AverageServerLatency** para as solicitações de download de blob, você deve usar os registros de log de armazenamento para ver se há solicitações repetidas para o mesmo blob (ou para grupos de blobs). Para solicitações de carregamento de blob, você deve investigar que tamanho de bloco o cliente está usando (por exemplo, blocos inferiores a 64k em tamanho podem resultar em sobrecargas ao menos que leituras também sejam inferiores a 64k partes) e se múltiplos clientes estiverem carregando blocos no mesmo blob em paralelo. Você também deve verificar as métricas por minuto para ver se há picos no número de solicitações que excedem as metas de escalabilidade por segundo: veja também “[As métricas mostram um aumento em PercentTimeoutError]”.
 
 No caso de alta **AverageServerLatency** para as solicitações de download de blob, você deve usar os registros de log de armazenamento para ver se há solicitações repetidas para o mesmo blob (ou para grupos de blobs). Para solicitações de carregamento, você pode aprimorar a produtividade usando um tamanho maior de bloco. Para consultas às tabelas, também é possível para implementar o cache no lado do cliente nos clientes que realizam as mesmas operações de consulta e onde os dados não mudam com frequência.
 
@@ -433,7 +433,7 @@ Um aumento em **PercentThrottlingError** frequentemente acontece ao mesmo tempo 
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>Aumento transitório em PercentThrottlingError
 
-Se você estiver vendo picos no valor do **PercentThrottlingError** que coincidam com períodos de alta atividade para o aplicativo, você deve implementar uma retirada estratégia exponencial (não linear) para novas tentativas em seu cliente: isso reduzirá a carga imediata na partição e ajudará seu aplicativo a suavizar picos no tráfego. Para saber mais sobre como implementar as políticas de repetição usando a Biblioteca do Cliente de Armazenamento, consulte o <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx" target="_blank">Namespace Microsoft.WindowsAzure.Storage.RetryPolicies</a> no MSDN.
+Se você estiver vendo picos no valor do **PercentThrottlingError** que coincidam com períodos de alta atividade para o aplicativo, você deve implementar uma retirada estratégia exponencial (não linear) para novas tentativas em seu cliente: isso reduzirá a carga imediata na partição e ajudará seu aplicativo a suavizar picos no tráfego. Para saber mais sobre como implementar políticas de repetição usando a Biblioteca do Cliente de Armazenamento, veja o <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx" target="_blank">Namespace Microsoft.WindowsAzure.Storage.RetryPolicies</a> no MSDN.
 
 > [AZURE.NOTE]Você também pode ver os picos no valor de **PercentThrottlingError** que não coincidem com períodos de alta atividade para o aplicativo: a causa mais provável aqui é o serviço de armazenamento estar movendo partições para melhorar o balanceamento de carga.
 
@@ -510,7 +510,7 @@ O seguinte log do lado do cliente gerado pela biblioteca do cliente de armazenam
 ID de solicitação|Operação
 ---|---
 07b26a5d-...|Método **DeleteIfExists** para excluir o contêiner do blob. Observe que essa operação inclui uma solicitação **HEAD** para verificar a existência do contêiner.
-e2d06d78…|Método **CreateIfNotExists** para criar o contêiner do blob. Observe que essa operação inclui uma solicitação **HEAD** que verifica a existência do contêiner. A **HEAD** retorna uma mensagem 404, porém continua.
+e2d06d78…|Método **CreateIfNotExists** para criar o contêiner do blob. Observe que essa operação inclui uma solicitação **HEAD** que verifica a existência do contêiner. **HEAD** retorna uma mensagem 404, porém continua.
 de8b1c3c-...|Método **UploadFromStream** para criar um blob. A solicitação **PUT** falha com uma mensagem 404
 
 Entradas de log:
@@ -617,7 +617,7 @@ Se você estiver usando um cliente JavaScript e um serviço de armazenamento est
 
 Esses erros acontecem porque o navegador da Web implementa a restrição de segurança de <a href="http://www.w3.org/Security/wiki/Same_Origin_Policy" target="_blank">política de mesma origem</a>, que impede uma página da Web de chamar uma API em um domínio diferente do domínio de onde a página vem.
 
-Para resolver o problema JavaScript, configure o compartilhamento de recursos entre origens (CORS) para o serviço de armazenamento que o cliente está acessando. Para saber mais, consulte <a href="http://msdn.microsoft.com/library/azure/dn535601.aspx" target="_blank">Suporte de Compartilhamento de Recursos de Origens Cruzadas (CORS) para os serviços de armazenamento do Azure</a> no MSDN.
+Para resolver o problema JavaScript, configure o compartilhamento de recursos entre origens (CORS) para o serviço de armazenamento que o cliente está acessando. Para saber mais, veja <a href="http://msdn.microsoft.com/library/azure/dn535601.aspx" target="_blank">Suporte de CORS (Compartilhamento de Recursos entre Origens) para os Serviços de Armazenamento do Azure</a> no MSDN.
 
 O código a seguir mostra como configurar seu serviço blob para permitir que o JavaScript execute o domínio Contoso para acessar um blob no seu serviço de armazenamento de blob:
 
@@ -639,7 +639,7 @@ O código a seguir mostra como configurar seu serviço blob para permitir que o 
 
 Em algumas circunstâncias, os pacotes de rede perdidos podem levar o serviço de armazenamento a retornar mensagens HTTP 404 para o cliente. Por exemplo, quando o seu aplicativo do cliente está excluindo uma entidade do serviço de tabela, você pode ver o cliente emitir uma exceção de armazenamento relatando uma mensagem de status "HTTP 404 (Não encontrado)" do serviço de tabela. Quando você investiga a tabela no serviço de armazenamento da tabela, é possível ver que o serviço excluiu a entidade como solicitado.
 
-Os detalhes da exceção no cliente incluem a ID da solicitação (7e84f12d...) atribuída pelo serviço Tabela para a solicitação: você pode usar essas informações para localizar os detalhes da solicitação nos logs de armazenamento no servidor pesquisando na coluna **request-id-header** no arquivo de log. Você pode também usar as métricas para identificar quando falhas como essa ocorrem e pesquisar os arquivos de log com base no horário que as métricas registraram esse erro. Essa entrada de log mostram a falha excluída com uma mensagem de status "HTTP (404) Outro Erro do Cliente". A mesma entrada de log também inclui a ID de solicitação gerada pelo cliente na coluna **client-request-id** (813ea74f…).
+Os detalhes da exceção no cliente incluem a ID da solicitação (7e84f12d...) atribuída pelo serviço Tabela para a solicitação: você pode usar essas informações para localizar os detalhes da solicitação nos logs de armazenamento no lado do servidor pesquisando na coluna **request-id-header** no arquivo de log. Você pode também usar as métricas para identificar quando falhas como essa ocorrem e pesquisar os arquivos de log com base no horário que as métricas registraram esse erro. Essa entrada de log mostram a falha excluída com uma mensagem de status "HTTP (404) Outro Erro do Cliente". A mesma entrada de log também inclui a ID de solicitação gerada pelo cliente na coluna **client-request-id** (813ea74f…).
 
 O log do lado do servidor inclui também uma outra entrada com o mesmo valor **client-request-id** (813ea74f…) para uma operação de exclusão com sucesso para a mesma entidade e do mesmo cliente. A operação de exclusão com êxito aconteceu um pouco antes da solicitação de exclusão falhar.
 
@@ -649,7 +649,7 @@ Se esse problema ocorre com frequência, investigue porque o cliente não está 
 
 ### <a name="the-client-is-receiving-409-messages"></a>O cliente está recebendo mensagens HTTP 409 (Conflito)
 
-A tabela a seguir mostra um extrato do log do servidor para duas operações de cliente: **DeleteIfExists** seguida imediatamente por **CreateIfNotExists**, ambas usando o mesmo nome de contêiner de blob. Observe que a operação do cliente resulta em duas solicitações enviadas para o servidor, primeiro uma solicitação **GetContainerProperties** para verificar se o contêiner existe, seguida por uma solicitação de**DeleteContainer** ou de**CreateContainer**.
+A tabela a seguir mostra um trecho do log do lado do servidor para duas operações de cliente: **DeleteIfExists** seguida imediatamente de **CreateIfNotExists**, ambas usando o mesmo nome de contêiner de blob. Observe que a operação do cliente resulta em duas solicitações enviadas para o servidor, primeiro uma solicitação **GetContainerProperties** para verificar se o contêiner existe, seguida por uma solicitação de**DeleteContainer** ou de**CreateContainer**.
 
 Timestamp|Operação|Resultado|Nome do contêiner|ID de solicitação do cliente
 ---|---|---|---|---
@@ -658,7 +658,7 @@ Timestamp|Operação|Resultado|Nome do contêiner|ID de solicitação do cliente
 05:10:13.8987407|GetContainerProperties|404|mmcont|bc881924-…
 05:10:14.2147723|CreateContainer|409|mmcont|bc881924-…
 
-O código no aplicativo cliente exclui e, em seguida, recria imediatamente um contêiner de blob usando o mesmo nome: o método **CreateIfNotExists** (solicitação de cliente ID bc881924-...), eventualmente, falha com o erro de HTTP 409 (Conflito). Quando um cliente exclui contêineres de blob, tabelas ou filas há um breve período antes do nome ficar disponível novamente.
+O código no aplicativo cliente exclui e, em seguida, recria imediatamente um contêiner de blob usando o mesmo nome: o método **CreateIfNotExists** (ID de solicitação de cliente bc881924-...), eventualmente, falha com o erro de HTTP 409 (Conflito). Quando um cliente exclui contêineres de blob, tabelas ou filas há um breve período antes do nome ficar disponível novamente.
 
 O aplicativo do cliente deve usar nomes de contêiner exclusivos sempre que criar novos contêineres caso o padrão excluir/recriar for comum.
 
@@ -666,11 +666,11 @@ O aplicativo do cliente deve usar nomes de contêiner exclusivos sempre que cria
 
 As métricas de **PercentSuccess** capturam a porcentagem das operações que tiveram êxito com base nos códigos de status HTTP. As operações com códigos de status 2XX contam como bem sucedidas, enquanto as operações com código de status de intervalos 3XX, 4XX e 5XX são contadas como sem sucesso e inferiores aos valores de métricas **PercentSucess**. Nos arquivos de log do lado do servidor, essas operações são registradas com um status de transação de **ClientOtherErrors**.
 
-É importante observar que essas operações foram concluídas com sucesso e por isso não afetam as outras métricas como a de disponibilidade. Alguns exemplos de operações que executam com sucesso, mas que podem resultar em códigos de status HTTP sem sucesso incluem: - **ResourceNotFound** (Não encontrado 404), por exemplo, de uma solicitação GET para o blob que não existe. - **ResouceAlreadyExists** (Conflito 409), por exemplo, de uma operação **CreateIfNotExist** em que o recurso já existe. - **ConditionNotMet** (Não Modificado 304), por exemplo, de uma operação condicional tal como quando o cliente envia um valor **ETag** e um cabeçalho HTTP **If-None-Match** para solicitar uma imagem apenas se ela tiver sido atualizada desde a última operação.
+É importante observar que essas operações foram concluídas com sucesso e por isso não afetam as outras métricas como a de disponibilidade. Alguns exemplos de operações que são executadas com sucesso, mas que podem resultar em códigos de status HTTP sem êxito incluem: - **ResourceNotFound** (Não encontrado 404), por exemplo, de uma solicitação GET para o blob que não existe. - **ResouceAlreadyExists** (Conflito 409), por exemplo, de uma operação **CreateIfNotExist** em que o recurso já existe. - **ConditionNotMet** (Não Modificado 304), por exemplo, de uma operação condicional tal como quando o cliente envia um valor **ETag** e um cabeçalho HTTP **If-None-Match** para solicitar uma imagem apenas se ela tiver sido atualizada desde a última operação.
 
 Você pode encontrar uma lista de códigos de erro comuns da API REST que os serviços de armazenamento retornam na página <a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">Códigos de erro comuns da API REST</a>.
 
-### <a name="capacity-metrics-show-an-unexpected-increase"></a>As métricas de capacidade mostram um aumento inesperado no uso de capacidade de armazenamento
+### <a name="capacity-metrics-show-an-unexpected-increase"></a>As métricas de capacidade mostram um aumento inesperado em uso de capacidade de armazenamento
 
 
 Se você ver mudanças repentinas, inesperadas na capacidade de uso na sua conta de armazenamento, você pode investigar as razões, primeiramente, olhando suas métricas de disponibilidade; por exemplo, um aumento no número de falhas de solicitações de exclusão pode levar a um aumento na quantidade de armazenamento de blob que você está usando como aplicativo específico de operações de limpeza, o qual você esperava estar liberando espaço, pode não estar funcionando como esperado (por exemplo, porque os tokens de SAS usados para liberação de espaço expiraram).
@@ -689,13 +689,13 @@ Você normalmente usa o emulador de armazenamento durante o desenvolvimento e te
 - [Erro "O valor de um dos cabeçalhos HTTP não está no formato correto" ao usar o emulador de armazenamento]
 - [A execução do emulador de armazenamento requer privilégios administrativos]
 
-#### <a name="feature-X-is-not-working"></a>O recurso "X" não está funcionando no emulador de armazenamento
+#### <a name="feature-X-is-not-working"></a>O recurso "X” não está funcionando no emulador de armazenamento
 
-O emulador de armazenamento não é compatível com todos os recursos dos serviços de armazenamento do Azure, como o serviço de arquivo. Para saber mais, consulte <a href="http://msdn.microsoft.com/library/azure/gg433135.aspx" target="_blank">Diferenças entre o emulador de armazenamento e os serviços de armazenamento do Azure</a> no MSDN.
+O emulador de armazenamento não é compatível com todos os recursos dos serviços de armazenamento do Azure, como o serviço de arquivo. Para saber mais, veja <a href="http://msdn.microsoft.com/library/azure/gg433135.aspx" target="_blank">Diferenças entre o emulador de armazenamento e os Serviços de Armazenamento do Azure</a> no MSDN.
 
 Para os recursos que não são compatíveis com o emulador de armazenamento, use o serviço de armazenamento do Azure em nuvem.
 
-#### <a name="error-HTTP-header-not-correct-format"></a>Erro "O valor de um dos cabeçalhos HTTP não está no formato correto" ao usar o emulador de armazenamento
+#### <a name="error-HTTP-header-not-correct-format"></a>Erro “O valor de um dos cabeçalhos HTTP não está no formato correto” ao usar o emulador de armazenamento
 
 Você está testando o seu aplicativo que usa a biblioteca de cliente de armazenamento em relação ao emulador de armazenamento local e o método chama **CreateIfNotExists** falha com uma mensagem de erro "O valor para um dos cabeçalhos HTTP não está no formato correto”. Isso indica que a versão do emulador de armazenamento que você está usando não é compatível com a versão da biblioteca do cliente de armazenamento que você está usando. A biblioteca do cliente de armazenamento adiciona um cabeçalho **x-ms-version** em todas as solicitações que ela faz. Se o emulador de armazenamento não reconhecer o valor no cabeçalho **x-ms-version**, ele rejeita a solicitação.
 
@@ -707,7 +707,7 @@ Esse cenário normalmente acontece se você instalar e usar a versão mais recen
 
 Você pode solicitar credenciais para o administrador quando você executar o emulador de armazenamento. Isso acontece apenas quando você inicializar o emulador de armazenamento pela primeira vez. Após você ter inicializado o emulador de armazenamento, você não precisa de privilégios de administrador para executá-lo novamente.
 
-Para saber mais, consulte <a href="http://msdn.microsoft.com/library/azure/gg433132.aspx" target="_blank">Inicializar o emulador de armazenamento usando a ferramenta de linha de comando</a> no MSDN (você também pode inicializar o emulador de armazenamento no Visual Studio, o que também requer privilégios de administrador).
+Para saber mais, veja <a href="http://msdn.microsoft.com/library/azure/gg433132.aspx" target="_blank">Inicializar o emulador de armazenamento usando a Ferramenta de Linha de Comando</a> no MSDN (você também pode inicializar o emulador de armazenamento no Visual Studio, o que também exige privilégios de administrador).
 
 ### <a name="you-are-encountering-problems-installing-the-Windows-Azure-SDK"></a>Você encontrou problemas ao instalar o SDK do Azure para .NET
 
@@ -735,17 +735,17 @@ Se as seções anteriores de solução de problemas não incluem os problemas qu
 
 Para saber mais sobre como usar o Fiddler, consulte "[Anexo 1: usando o Fiddler para capturar o tráfego HTTP e HTTPS]".
 
-Para saber mais sobre usar o Wireshark, consulte "[Apêndice 2: Usando o Wireshark para capturar o tráfego de rede]".
+Para saber mais sobre usar o Wireshark, veja “[Apêndice 2: usando o Wireshark para capturar o tráfego de rede]”.
 
 Para saber mais sobre como usar o Microsoft Message Analyzer, consulte o "[Anexo 3: Usando o Microsoft Message Analyzer para capturar o tráfego de rede]".
 
-## <a name="appendices"></a>Anexos
+## <a name="appendices"></a>Apêndices
 
 Os anexos descrevem várias ferramentas que você pode achar úteis ao diagnosticar ou solucionar os problemas com o armazenamento do Azure (e outros serviços). Essas ferramentas não são parte do armazenamento do Azure e alguns são produtos de terceiros. Como tal, as ferramentas discutidas nesses anexos não são cobertas por nenhum contrato de suporte que você possa ter com o Microsoft Azure ou Armazenamento do Azure e, portanto, como parte de seu processo de avaliação examine as opções de licença e de suporte disponíveis pelos fornecedores dessas ferramentas.
 
-### <a name="appendix-1"></a>Anexo 1: Usando o Fiddler para capturar o tráfego HTTP e HTTPS
+### <a name="appendix-1"></a>Apêndice 1: usando o Fiddler para capturar o tráfego HTTP e HTTPS
 
-O Fiddler é uma ferramenta útil para analisar o tráfego HTTP e HTTPS entre o aplicativo do cliente e o serviço de armazenamento do Azure que você está usando. É possível baixar o Fiddler do site <a href="http://www.telerik.com/fiddler" target="_blank">http://www.telerik.com/fiddler</a>.
+O Fiddler é uma ferramenta útil para analisar o tráfego HTTP e HTTPS entre o aplicativo do cliente e o serviço de armazenamento do Azure que você está usando. É possível baixar o Fiddler no site <a href="http://www.telerik.com/fiddler" target="_blank">http://www.telerik.com/fiddler</a>.
 
 > [AZURE.NOTE]O Fiddler pode decodificar o tráfego HTTPS; leia a documentação do Fiddler cuidadosamente para entender como ele faz isso e para entender as implicações de segurança.
 
@@ -760,7 +760,7 @@ Para limitar o valor de tráfego que o Fiddler captura, você pode usar filtros 
 
 ![][5]
 
-### <a name="appendix-2"></a>Anexo 2: Usando o Wireshark para capturar o tráfego de rede
+### <a name="appendix-2"></a>Apêndice 2: usando o Wireshark para capturar o tráfego de rede
 
 O Wireshark é um analisar de protocolo de rede que permite que você exiba informações detalhadas de pacote de uma vasta gama de protocolos de rede. É possível baixar o Wireshark no site <a href="http://www.wireshark.org/" target="_blank">http://www.wireshark.org/</a>.
 
@@ -769,7 +769,7 @@ O procedimento a seguir mostra como capturar informações detalhadas de pacote 
 1.	Habilite o Wireshark no seu computador local.
 2.	Na seção **Iniciar**, selecione a interface de rede local ou as interfaces que estão conectadas à Internet.
 3.	Clique em **Opções de Captura**.
-4.	Adicione um filtro à caixa de texto **Filtro de Captura**. Por exemplo, o **host contosoemaildist.table.core.windows.net** configurará o Wireshark para capturar apenas os pacotes enviados para ou a partir do ponto de extremidade do serviço de tabela na conta de armazenamento **contosoemaildist**. Para obter uma lista completa de Filtros de Captura, consulte <a href="http://wiki.wireshark.org/CaptureFilters" target="_blank">http://wiki.wireshark.org/CaptureFilters</a>.
+4.	Adicione um filtro à caixa de texto **Filtro de Captura**. Por exemplo, o **host contosoemaildist.table.core.windows.net** configurará o Wireshark para capturar apenas os pacotes enviados para ou a partir do ponto de extremidade do serviço de tabela na conta de armazenamento **contosoemaildist**. Para obter uma lista completa de Filtros de Captura, veja <a href="http://wiki.wireshark.org/CaptureFilters" target="_blank">http://wiki.wireshark.org/CaptureFilters</a>.
 
     ![][6]
 
@@ -785,9 +785,9 @@ Você também pode escolher para exibir os dados de TCP enquanto a camada do apl
 
 ![][8]
 
-> [AZURE.NOTE]Para saber mais sobre como usar o Wireshark, consulte o <a href="http://www.wireshark.org/docs/wsug_html_chunked/" target="_blank">Guia de Usuários do Wireshark</a>.
+> [AZURE.NOTE]Para saber mais sobre como usar o Wireshark, veja o <a href="http://www.wireshark.org/docs/wsug_html_chunked/" target="_blank">Guia de Usuários do Wireshark</a>.
 
-### <a name="appendix-3"></a>Anexo 3: Usando o Microsoft Message Analyzer para capturar o tráfego de rede
+### <a name="appendix-3"></a>Apêndice 3: usando o Microsoft Message Analyzer para capturar o tráfego de rede
 
 Você pode usar o Microsoft Message Analyzer para capturar o tráfego HTTP e HTTPS de uma forma similar ao Fiddler e capturar o tráfego de rede de uma forma similar ao Wireshark.
 
@@ -817,9 +817,9 @@ Quando você cria uma sessão de rastreamento no Microsoft Message Analyzer, é 
 
 ![][10]
 
-Para saber mais sobre o rastreamento de Camada de Link Local do Microsoft Message Analyzer, consulte Provedor do <a href="http://technet.microsoft.com/library/jj659264.aspx" target="_blank">PEF-NDIS-PacketCapture</a> no TechNet.
+Para obter mais informações sobre o rastreamento de Camada de Link Local do Microsoft Message Analyzer, consulte Provedor do <a href="http://technet.microsoft.com/library/jj659264.aspx" target="_blank">PEF-NDIS-PacketCapture</a> no TechNet.
 
-### <a name="appendix-4"></a>Anexo 4: Usando o Excel para exibir as métricas e os dados de log
+### <a name="appendix-4"></a>Anexo 4: usando o Excel para exibir as métricas e os dados de log
 
 Muitas ferramentas permitem que você baixe os dados de métricas de armazenamento a partir do armazenamento de tabela do Azure em um formato delimitado que o torna fácil para se carregado no Excel para exibição e análise. Os dados de log de armazenamento do armazenamento de blob do Azure já estão em um formato delimitado que pode ser carregado no Excel. Entretanto, você precisará adicionar cabeçalhos apropriados às colunas com base na informação no <a href="http://msdn.microsoft.com/library/azure/hh343259.aspx" target="_blank">Formato de Log Analítico de Armazenamento</a> e no <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Esquema de Tabela de Métricas Analíticas de Armazenamento</a>.
 
@@ -831,7 +831,7 @@ Para importar os dados de log de armazenamento para o Excel após ter baixado do
 
 Na etapa 1 do **Assistente de Importação de Texto**, selecione **Ponto e vírgula** como o o único delimitador e escolha aspas duplas como **Qualificador de texto**. Clique em **Concluir** e escolha onde colocar os dados na sua pasta de trabalho.
 
-### <a name="appendix-5"></a>Anexo 5: Monitoramento com o Application Insights no Visual Studio Team Services
+### <a name="appendix-5"></a>Apêndice 5: monitoramento com o Application Insights para Visual Studio Team Services
 
 Você pode também usar o recurso Application Insights no Visual Studio Team Services como parte do seu monitoramento de desempenho e disponibilidade. Essa ferramenta pode:
 
@@ -901,7 +901,7 @@ Na hora da gravação o Application Insights está em visualização. Você pode
 [Anexos]: #appendices
 [Anexo 1: Usando o Fiddler para capturar o tráfego HTTP e HTTPS]: #appendix-1
 [Anexo 2: Usando o Wireshark para capturar o tráfego de rede]: #appendix-2
-[Apêndice 2: usando o Wireshark para capturar o tráfego de rede]: #appendix-2
+[Apêndice 2: Usando o Wireshark para capturar o tráfego de rede]: #appendix-2
 [Anexo 3: Usando o Microsoft Message Analyzer para capturar o tráfego de rede]: #appendix-3
 [Anexo 4: Usando o Excel para exibir as métricas e os dados de log]: #appendix-4
 [Anexo 5: Monitoramento com o Application Insights no Visual Studio Team Services]: #appendix-5
@@ -918,4 +918,4 @@ Na hora da gravação o Application Insights está em visualização. Você pode
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-2.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

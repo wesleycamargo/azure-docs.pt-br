@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tomfitz"/>
 
 # Provisionar um aplicativo de API com um gateway existente
@@ -191,4 +191,4 @@ Observe que os nomes do aplicativo Web responsável pela hospedagem e do gateway
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0114_2016-->

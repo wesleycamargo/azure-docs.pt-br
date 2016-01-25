@@ -14,31 +14,24 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="01/07/2016"
 	ms.author="davidmu"/>
 
 # Gerenciar máquinas virtuais usando o PowerShell e o Gerenciador de Recursos do Azure
 
 > [AZURE.SELECTOR]
-- [Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
-- [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
+- [PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
+- [CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
 <br>
 
 
-Usar modelos do Azure PowerShell e do Gerenciador de Recursos fornece muita eficiência e flexibilidade ao gerenciar recursos no Microsoft Azure. Você pode usar as tarefas neste artigo para criar e gerenciar recursos de máquina virtual.
+Usar modelos do Azure PowerShell e do Gerenciador de Recursos fornece muita eficiência e flexibilidade ao gerenciar recursos no Microsoft Azure. Você pode usar as tarefas neste artigo para gerenciar recursos de máquina virtual.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-tutorial-classic-portal.md).
-
-Essas tarefas usam um modelo do Gerenciador de Recursos e o PowerShell:
-
-- [Criar uma máquina virtual](#windowsvm)
-- [Criar uma máquina virtual com um disco especializado](#customvm)
-- [Criar várias máquinas virtuais em uma rede virtual com um balanceador externo de carga](#multivm)
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
 
 Essas tarefas usam somente o PowerShell:
 
-- [Remover um grupo de recursos](#removerg)
 - [Exibir informações sobre uma máquina virtual](#displayvm)
 - [Iniciar uma máquina virtual](#start)
 - [Parar uma máquina virtual](#stop)
@@ -47,160 +40,7 @@ Essas tarefas usam somente o PowerShell:
 
 [AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
-## Modelos e grupos de recursos do Gerenciador de Recursos do Azure
-
-Algumas das tarefas nesse artigo mostram a você como usar modelos do Gerenciador de Recursos do Azure e do PowerShell para implantar e gerenciar máquinas virtuais do Azure automaticamente.
-
-A maioria dos aplicativos em execução no Microsoft Azure é criada por meio de uma combinação de diferentes tipos de recursos de nuvem, como uma ou mais máquinas virtuais e contas de armazenamento, um banco de dados SQL ou uma rede virtual. Com os modelos do Gerenciador de Recursos do Azure, é possível gerenciar esses recursos diferentes em conjunto usando uma descrição JSON dos recursos e parâmetros associados de configuração e implantação.
-
-Depois de definir um modelo de recurso com base em JSON, você pode usá-lo com um comando do PowerShell para implantar os recursos definidos no Azure. Você pode executar esses comandos separadamente no shell de comando do PowerShell ou integrá-los a um script que contenha lógica de automação adicional.
-
-Os recursos que você criar usando os modelos do Gerenciador de Recursos do Azure são implantados em um *Grupo de recursos do Azure* novo ou existente. Um grupo de recursos permite que você gerencie vários recursos implantados juntos como um grupo lógico. Isso significa que você pode gerenciar o ciclo de vida total do grupo/aplicativo.
-
-Se você estiver interessado na criação de modelos, confira [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
-
-### Criar um grupos de recursos
-
-Para tarefas que criam um recurso, será necessário um grupo de recursos se você ainda não tiver um.
-
-No comando a seguir, substitua *nome do grupo de recursos* pelo nome do novo grupo de recursos e *local do Azure* pelo local do datacenter do Azure no qual deseja que o recurso esteja localizado e execute-o:
-
-	New-AzureRmResourceGroup -Name "resource group name" -Location "Azure location"
-
-## <a id="windowsvm"></a>TAREFA: Criar uma máquina virtual
-
-Essa tarefa usa um modelo da galeria de modelos. Para saber mais sobre o modelo, consulte [Implantar uma VM simples do Windows no Oeste dos EUA](https://azure.microsoft.com/documentation/templates/101-simple-windows-vm/).
-
-![](./media/virtual-machines-deploy-rmtemplates-powershell/windowsvm.png)
-
-No comando a seguir, substitua *nome da implantação* pelo nome que deseja usar para a implantação e *nome do grupo de recursos* pelo nome do grupo de recursos existente e execute-o:
-
-	New-AzureRmResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
-
-Aqui está um exemplo:
-
-	New-AzureRmResourceGroupDeployment -Name "TestDeployment" -ResourceGroupName "TestRG" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
-
-Será solicitado que você forneça os valores de parâmetros na seção **parâmetros** do arquivo JSON:
-
-	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
-	Supply values for the following parameters:
-	(Type !? for Help.)
-	newStorageAccountName: saacct
-	adminUsername: WinAdmin1
-	adminPassword: *********
-	dnsNameForPublicIP: contoso
-
-Ele retorna algo semelhante a:
-
-	VERBOSE: 10:56:59 AM - Template is valid.
-	VERBOSE: 10:56:59 AM - Create template deployment 'TestDeployment'.
-	VERBOSE: 10:57:08 AM - Resource Microsoft.Network/virtualNetworks 'MyVNET' provisioning status is succeeded
-	VERBOSE: 10:57:11 AM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is running
-	VERBOSE: 10:57:11 AM - Resource Microsoft.Storage/storageAccounts 'newsaacct' provisioning status is running
-	VERBOSE: 10:57:38 AM - Resource Microsoft.Storage/storageAccounts 'newsaacct' provisioning status is succeeded
-	VERBOSE: 10:57:40 AM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is succeeded
-	VERBOSE: 10:57:45 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is running
-	VERBOSE: 10:57:45 AM - Resource Microsoft.Network/networkInterfaces 'myVMNic' provisioning status is succeeded
-	VERBOSE: 11:01:59 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is succeeded
-
-
-	DeploymentName    : TestDeployment
-	ResourceGroupName : TestRG
-	ProvisioningState : Succeeded
-	Timestamp         : 4/28/2015 6:02:13 PM
-	Mode              : Incremental
-	TemplateLink      :
-	Parameters        :
-                    	Name             Type                       Value
-	                    ===============  =========================  ==========
-	                    newStorageAccountName  String                     saacct
-	                    adminUsername    String                     WinAdmin1
-	                    adminPassword    SecureString
-	                    dnsNameForPublicIP  String                     contoso9875
-	                    windowsOSVersion  String                     2012-R2-Datacenter
-
-	Outputs           :
-
-Se você gostaria de ver um vídeo desta tarefa sendo realizada, dê uma olhada nisso:
-
-[AZURE.VIDEO deploy-a-windows-virtual-machine-with-azure-resource-manager-templates-and-powershell]
-
-## <a id="customvm"></a>TAREFA: Criar uma máquina virtual com um disco especializado
-
-Essa tarefa usa um modelo da galeria de modelos. Para saber mais sobre o modelo, consulte [Criar uma VM de um disco VHD especializado](https://azure.microsoft.com/documentation/templates/201-vm-from-specialized-vhd/).
-
-No comando a seguir, substitua *nome da implantação* pelo nome que deseja usar para a implantação e *nome do grupo de recursos* pelo nome do grupo de recursos existente e execute-o:
-
-	New-AzureRmResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
-
-Aqui está um exemplo:
-
-	New-AzureRmResourceGroupDeployment -Name "TestDeployment" -ResourceGroupName "TestRG" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
-
-Será solicitado que você forneça os valores de parâmetros na seção **parâmetros** do arquivo JSON:
-
-	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
-	Supply values for the following parameters:
-	(Type !? for Help.)
-	osDiskVhdUri: http://saacct.blob.core.windows.net/vhds/osdiskforwindows.vhd
-	osType: windows
-	location: West US
-	vmSize: Standard_A3
-	...
-
-> [AZURE.NOTE]O exemplo acima usa um arquivo vhd existente na conta de armazenamento saacct. O nome do disco foi fornecido como um parâmetro para o modelo.
-
-Se você gostaria de ver um vídeo desta tarefa sendo realizada, dê uma olhada nisso:
-
-[AZURE.VIDEO create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell]
-
-## <a id="multivm"></a>TAREFA: Criar várias máquinas virtuais em uma rede virtual com um balanceador externo de carga
-
-Essa tarefa usa um modelo da galeria de modelos. Para saber mais sobre o modelo, consulte [Criar uma VM de um disco VHD especializado](https://azure.microsoft.com/documentation/templates/201-2-vms-loadbalancer-lbrules/).
-
-![](./media/virtual-machines-deploy-rmtemplates-powershell/multivmextlb.png)
-
-No comando a seguir, substitua *nome da implantação* pelo nome que deseja usar para a implantação e *nome do grupo de recursos* pelo nome do grupo de recursos existente e execute-o:
-
-	New-AzureRmResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json"
-
-Será solicitado que você forneça os valores de parâmetros na seção **parâmetros** do arquivo JSON:
-
-	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
-	Supply values for the following parameters:
-	(Type !? for Help.)
-	newStorageAccountName: saTest
-	adminUserName: WebAdmin1
-	adminPassword: *******
-	dnsNameforLBIP: web07
-	backendPort: 80
-	vmNamePrefix: WEBFARM
-	...
-
-Se você gostaria de ver um vídeo desta tarefa sendo realizada, dê uma olhada nisso:
-
-[AZURE.VIDEO deploy-multi-vm-app-with-a-virtual-network-and-load-balancer-in-azure-resource-manager]
-
-## <a id="removerg"></a>TAREFA: Remover um grupo de recursos
-
-No comando a seguir, substitua *nome do grupo de recursos* pelo nome do grupo de recursos que deseja remover e execute-o:
-
-	Remove-AzureRmResourceGroup  -Name "resource group name"
-
-> [AZURE.NOTE]Use o parâmetro **-Force** para ignorar o prompt de confirmação.
-
-É solicitado que você confirme se você usou ou não o parâmetro -Force:
-
-	Confirm
-	Are you sure you want to remove resource group 'BuildRG'
-	[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
-
-Se você gostaria de ver um vídeo desta tarefa sendo realizada, dê uma olhada nisso:
-
-[AZURE.VIDEO removing-a-resource-group-in-azure]
-
-## <a id="displayvm"></a>TAREFA: Exibir informações sobre uma máquina virtual
+## <a id="displayvm"></a>Exibir informações sobre uma máquina virtual
 
 No comando a seguir, substitua *nome do grupo de recursos* pelo nome do grupo de recursos que contém a máquina virtual e *nome da VM* pelo nome da máquina e execute-o:
 
@@ -208,70 +48,76 @@ No comando a seguir, substitua *nome do grupo de recursos* pelo nome do grupo de
 
 Ele retorna algo semelhante a:
 
+
+	ResourceGroupName        : rg1
+	Id                       : /subscriptions/{subscription-id}/resourceGroups/
+															rg1/providers/Microsoft.Compute/virtualMachines/vm1
+	Name                     : vm1
+	Type                     : Microsoft.Azure.Management.Compute.Models.VirtualMachineGetResponse
+	Location                 : westus
+	Tags                     : {}
 	AvailabilitySetReference : null
 	Extensions               : []
-	HardwareProfile          : {
-	                             "VirtualMachineSize": "Standard_D1"
-	                           }
-	Id                       : /subscriptions/{subscription-id}/resourceGroups/BuildRG/providers/Microso
-	                           ft.Compute/virtualMachines/MyWindowsVM
+	HardwareProfile          :  {
+																"VirtualMachineSize": "Standard_D1"
+															}
 	InstanceView             : null
 	Location                 : westus
-	Name                     : MyWindowsVM
-	NetworkProfile           : {
-	                             "NetworkInterfaces": [
-	                               {
-	                                 "Primary": null,
-	                                 "ReferenceUri": "/subscriptions/{subscription-id}/resourceGroups/Bu
-	                           ildRG/providers/Microsoft.Network/networkInterfaces/myVMNic"
-	                               }
-	                             ]
-	                           }
-	OSProfile                : {
-	                             "AdminPassword": null,
-	                             "AdminUsername": "WinAdmin1",
-	                             "ComputerName": "MyWindowsVM",
-	                             "CustomData": null,
-	                             "LinuxConfiguration": null,
-	                             "Secrets": [],
-	                             "WindowsConfiguration": {
-	                               "AdditionalUnattendContents": [],
-	                               "EnableAutomaticUpdates": true,
-	                               "ProvisionVMAgent": true,
-	                               "TimeZone": null,
-	                               "WinRMConfiguration": null
-	                             }
-	                           }
+	Name                     : vm1
+	NetworkProfile           :  {
+																"NetworkInterfaces": [
+																	{
+																		"Primary": null,
+																		"ReferenceUri": "/subscriptions/{subscription-id}/resourceGroups/
+																		rg1/providers/Microsoft.Network/networkInterfaces/nc1"
+																	}
+																]
+															}
+	OSProfile                :  {
+																"AdminPassword": null,
+																"AdminUsername": "WinAdmin1",
+																"ComputerName": "vm1",
+																"CustomData": null,
+																"LinuxConfiguration": null,
+																"Secrets": [],
+																"WindowsConfiguration": {
+																	"AdditionalUnattendContents": [],
+																	"EnableAutomaticUpdates": true,
+																	"ProvisionVMAgent": true,
+																	"TimeZone": null,
+																	"WinRMConfiguration": null
+																}
+															}
 	Plan                     : null
 	ProvisioningState        : Succeeded
-	StorageProfile           : {
-	                             "DataDisks": [],
-	                             "ImageReference": {
-	                               "Offer": "WindowsServer",
-	                               "Publisher": "MicrosoftWindowsServer",
-	                               "Sku": "2012-R2-Datacenter",
-	                               "Version": "latest"
-	                             },
-	                             "OSDisk": {
-	                               "OperatingSystemType": "Windows",
-	                               "Caching": "ReadWrite",
-	                               "CreateOption": "FromImage",
-	                               "Name": "osdisk",
-	                               "SourceImage": null,
-	                               "VirtualHardDisk": {
-	                                 "Uri": "http://saacct.blob.core.windows.net/vhds/osdiskforwindowssimple.vhd"
-	                               }
-	                             },
-	                             "SourceImage": null
-	                           }
-	Tags                     : {}
-	Type                     : Microsoft.Compute/virtualMachines
+	StorageProfile           : 	{
+																"DataDisks": [],
+																"ImageReference": {
+																	"Offer": "WindowsServer",
+																	"Publisher": "MicrosoftWindowsServer",
+																	"Sku": "2012-R2-Datacenter",
+																	"Version": "latest"
+																},
+																"OSDisk": {
+																	"OperatingSystemType": "Windows",
+																	"Caching": "ReadWrite",
+																	"CreateOption": "FromImage",
+																	"Name": "osdisk",
+																	"SourceImage": null,
+																	"VirtualHardDisk": {
+																		"Uri": "http://sa1.blob.core.windows.net/vhds/osdisk1.vhd"
+																	}
+																}
+															}
+	DataDiskNames            :  {}
+	NetworkInterfaceIDs      : { /subscriptions/{subscription-id}/resourceGroups/
+																rg1/providers/Microsoft.Network/networkInterfaces/nc1}
 
 Se você gostaria de ver um vídeo desta tarefa sendo realizada, dê uma olhada nisso:
 
 [AZURE.VIDEO displaying-information-about-a-virtual-machine-in-microsoft-azure-with-powershell]
 
-## <a id="start"></a>TAREFA: Iniciar uma máquina virtual
+## <a id="start"></a>Iniciar uma máquina virtual
 
 No comando a seguir, substitua *nome do grupo de recursos* pelo nome do grupo de recursos que contém a máquina virtual e *nome da VM* pelo nome da máquina e execute-o:
 
@@ -279,20 +125,20 @@ No comando a seguir, substitua *nome do grupo de recursos* pelo nome do grupo de
 
 Ele retorna algo semelhante a:
 
-	EndTime             : 4/28/2015 11:11:41 AM -07:00
-	Error               :
-	Output              :
-	StartTime           : 4/28/2015 11:10:35 AM -07:00
 	Status              : Succeeded
-	TrackingOperationId : e1705973-d266-467e-8655-920016145347
-	RequestId           : aac41de1-b85d-4429-9a3d-040b922d2e6d
 	StatusCode          : OK
+	RequestId           : 06935ddf-6e89-48d2-b46a-229493e3e9d1
+	Output              :
+	Error               :
+	StartTime           : 4/28/2015 11:10:35 AM -07:00
+	EndTime             : 4/28/2015 11:11:41 AM -07:00
+	TrackingOperationId : c1aa0a70-4f4f-4d6c-a8ac-7ea35c004ce0
 
 Se você gostaria de ver um vídeo desta tarefa sendo realizada, dê uma olhada nisso:
 
 [AZURE.VIDEO start-stop-restart-and-delete-vms-in-microsoft-azure-with-powershell]
 
-## <a id="stop"></a>TAREFA: Parar uma máquina virtual
+## <a id="stop"></a>Parar uma máquina virtual
 
 No comando a seguir, substitua *nome do grupo de recursos* pelo nome do grupo de recursos que contém a máquina virtual e *nome da VM* pelo nome da máquina e execute-o:
 
@@ -306,20 +152,20 @@ No comando a seguir, substitua *nome do grupo de recursos* pelo nome do grupo de
 
 Ele retorna algo semelhante a:
 
-	EndTime             : 4/28/2015 11:09:08 AM -07:00
-	Error               :
-	Output              :
-	StartTime           : 4/28/2015 11:06:55 AM -07:00
 	Status              : Succeeded
-	TrackingOperationId : 0c94dc74-c553-412c-a187-108bdb29657e
-	RequestId           : 5cc9ddba-0643-4b5e-82b6-287b321394ee
 	StatusCode          : OK
+	RequestId           : aac41de1-b85d-4429-9a3d-040b922d2e6d
+	Output              :
+	Error               :
+	StartTime           : 4/28/2015 11:10:35 AM -07:00
+	EndTime             : 4/28/2015 11:11:41 AM -07:00
+	TrackingOperationId : e1705973-d266-467e-8655-920016145347
 
 Se você gostaria de ver um vídeo desta tarefa sendo realizada, dê uma olhada nisso:
 
 [AZURE.VIDEO start-stop-restart-and-delete-vms-in-microsoft-azure-with-powershell]
 
-## <a id="restart"></a>TAREFA: Reiniciar uma máquina virtual
+## <a id="restart"></a>Reiniciar uma máquina virtual
 
 No comando a seguir, substitua *nome do grupo de recursos* pelo nome do grupo de recursos que contém a máquina virtual e *nome da VM* pelo nome da máquina e execute-o:
 
@@ -327,20 +173,21 @@ No comando a seguir, substitua *nome do grupo de recursos* pelo nome do grupo de
 
 Ele retorna algo semelhante a:
 
-	EndTime             : 4/28/2015 11:16:26 AM -07:00
-	Error               :
-	Output              :
-	StartTime           : 4/28/2015 11:16:25 AM -07:00
 	Status              : Succeeded
-	TrackingOperationId : 390571e0-c804-43ce-88c5-f98e0feb588e
-	RequestId           : 7dac33e3-0164-4a08-be33-96205284cb0b
 	StatusCode          : OK
+	RequestId           : 4b05891c-fdff-4c9a-89ca-e4f1d7691aed
+	Output              :
+	Error               :
+	StartTime           : 1/5/2016 12:06:53 PM -08:00
+	EndTime             : 1/5/2016 12:06:54 PM -08:00
+	TrackingOperationId : 5aeeab89-45ab-41b9-84ef-9e9a7e732207
+
 
 Se você gostaria de ver um vídeo desta tarefa sendo realizada, dê uma olhada nisso:
 
 [AZURE.VIDEO start-stop-restart-and-delete-vms-in-microsoft-azure-with-powershell]
 
-## <a id="delete"></a>TAREFA: Excluir uma máquina virtual
+## <a id="delete"></a>Excluir uma máquina virtual
 
 No comando a seguir, substitua *nome do grupo de recursos* pelo nome do grupo de recursos que contém a máquina virtual e *nome da VM* pelo nome da máquina e execute-o:
 
@@ -356,26 +203,17 @@ No comando a seguir, substitua *nome do grupo de recursos* pelo nome do grupo de
 
 Ele retorna algo semelhante a:
 
-	EndTime             : 4/28/2015 11:21:55 AM -07:00
-	Error               :
-	Output              :
-	StartTime           : 4/28/2015 11:20:13 AM -07:00
 	Status              : Succeeded
-	TrackingOperationId : f74fad9e-f6bc-46ae-82b1-bfad3952aa44
-	RequestId           : 6a30d2e0-63ca-43cf-975b-058631e048e7
 	StatusCode          : OK
+	RequestId           : 2d723b40-ce1f-4b11-a603-dc659a13b6f0
+	Output              :
+	Error               :
+	StartTime           : 1/5/2016 12:10:28 PM -08:00
+	EndTime             : 1/5/2016 12:12:12 PM -08:00
+	TrackingOperationId : d138ab29-83bf-4948-9d13-dab87db1a639
 
 Se você gostaria de ver um vídeo desta tarefa sendo realizada, dê uma olhada nisso:
 
 [AZURE.VIDEO start-stop-restart-and-delete-vms-in-microsoft-azure-with-powershell]
 
-## Recursos adicionais
-[Modelos de Início Rápido do Azure](http://azure.microsoft.com/documentation/templates/) e [Estruturas do aplicativo](virtual-machines-app-frameworks.md)
-
-[Computação do Azure, provedores de rede e armazenamento no Gerenciador de Recursos do Azure](virtual-machines-azurerm-versus-azuresm.md)
-
-[Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md)
-
-[Documentação de máquinas virtuais](http://azure.microsoft.com/documentation/services/virtual-machines/)
-
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

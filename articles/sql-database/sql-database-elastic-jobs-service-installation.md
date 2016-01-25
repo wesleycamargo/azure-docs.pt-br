@@ -17,6 +17,7 @@
 	ms.author="ddove;sidneyh"/>
 
 # Visão geral de Instalando trabalhos de Banco de Dados Elástico
+
 Os [**trabalhos de Banco de Dados Elástico**](sql-database-elastic-jobs-overview.md) podem ser instalados por meio do PowerShell ou pelo portal clássico do Azure. Você pode obter acesso para criar e gerenciar trabalhos usando a API do PowerShell apenas se você instalar o pacote do PowerShell. Além disso, as APIs do PowerShell fornecem muito mais funcionalidade do que o portal neste momento.
 
 Se você já tiver instalado **trabalhos de Banco de Dados Elástico** por meio do Portal de um **pool de Banco de Dados Elástico** existente, a visualização mais recente do Powershell incluirá scripts para atualizar sua instalação existente. É altamente recomendável atualizar sua instalação para a versão mais recente dos componentes dos **trabalhos de Banco de Dados Elástico** para aproveitar a nova funcionalidade exposta por meio das APIs do PowerShell.
@@ -29,7 +30,7 @@ Se você já tiver instalado **trabalhos de Banco de Dados Elástico** por meio 
 ## Baixar e importar o pacote do PowerShell de trabalhos de Banco de Dados Elástico
 1. Inicie a janela de comando do Microsoft Azure PowerShell e navegue até o diretório onde você baixou o utilitário de linha de comando do NuGet (nuget.exe).
 
-2. Baixe e importe o pacote **trabalhos de Banco de Dados Elástico** no diretório atual com o seguinte comando:
+2. Baixar e importar o pacote **trabalhos de Banco de Dados Elástico** para o diretório atual com o seguinte comando:
 
 		PS C:\>.\nuget install Microsoft.Azure.SqlDatabase.Jobs -prerelease
 
@@ -178,13 +179,13 @@ Se a desinstalação for necessária, exclua o grupo de recursos. Veja [Como des
 
 ## Próximas etapas
 
-Certifique-se de que uma credencial com os direitos apropriados para a execução do script é criada em cada banco de dados no grupo; para obter mais informações, veja [Como adicionar usuários a todos os bancos de dados no meu grupo de bancos de dados](sql-database-elastic-jobs-add-logins-to-dbs.md). Veja [Criando e gerenciando trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-create-and-manage.md) para começar.
+Certifique-se de que uma credencial com os direitos apropriados para a execução do script é criada em cada banco de dados no grupo; para obter mais informações, veja [Protegendo seu Banco de Dados SQL](sql-database-security.md). Veja [Criando e gerenciando trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-create-and-manage.md) para começar.
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-jobs-service-installation/screen-1.png
 [2]: ./media/sql-database-elastic-jobs-service-installation/credentials.png
 [3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
-[4]: ./media/sql-database-elastic-jobs-service-installation/incomplete.png
+[4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->
