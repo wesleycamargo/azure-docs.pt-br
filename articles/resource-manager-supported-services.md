@@ -35,7 +35,9 @@ As tabelas a seguir listam quais serviços suportam a implantação e o gerencia
 | Batch | Sim | Sim | [REST do Lote](https://msdn.microsoft.com/library/azure/dn820158.aspx) | | [Microsoft.Batch](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Batch%22&type=Code) |
 | Serviços de ciclo de vida do Dynamics | Sim | | | | [Microsoft.DynamicsLcs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DynamicsLcs%22&type=Code)
 | Service Fabric (visualização) | Sim | | [Service Fabric Rest](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
-| Máquinas virtuais (clássico) | Limitado | Parcial (veja abaixo) | - | - | | Aplicativo remoto | Não | - | - | - | | Serviços de Nuvem (clássico) | Sim (veja abaixo) | Parcial (veja abaixo) | - | - | - |
+| Máquinas virtuais (clássico) | Limitado | Parcial (veja abaixo) | - | - |
+| Aplicativo remoto | Não | - | - | - |
+| Serviços de Nuvem (clássico) | Sim (veja abaixo) | Parcial (veja abaixo) | - | - | - |
 
 Máquinas virtuais (clássico) refere-se aos recursos que foram implantados por meio do modelo de implantação clássico, não por meio do modelo de implantação do Gerenciador de Recursos. Em geral, esses recursos não oferecem suporte a operações do Gerenciador de Recursos, mas existem algumas operações que foram habilitadas. Para saber mais sobre esses modelos de implantação, confira [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](resource-manager-deployment-model.md).
 
@@ -93,7 +95,8 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 | Análise de fluxo | Sim | | [Análise de fluxo REST](https://msdn.microsoft.com/library/azure/dn835031.aspx) | | [Microsoft.StreamAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.StreamAnalytics%22&type=Code) |
 | HDInsights | Sim | Sim | [REST do HDInsights](https://msdn.microsoft.com/library/azure/mt622197.aspx) | | [Microsoft.HDInsight](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.HDInsight%22&type=Code) |
 | Data Factory | Sim | Sim | [REST do Data Factory](https://msdn.microsoft.com/library/azure/dn906738.aspx) | | [Microsoft.DataFactory](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataFactory%22&type=Code) |
-| Aprendizado de Máquina | Não | - | - | - | | Catálogo de Dados | Não | - | - | - |
+| Aprendizado de Máquina | Não | - | - | - | 
+| Catálogo de Dados | Não | - | - | - |
 
 ## Mídia e CDN
 
@@ -109,7 +112,8 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 | ------- | ------- | -------------- | -------- | ------ | ------ |
 | Serviços do BizTalk | Sim | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) | [Microsoft.BizTalkServices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.BizTalkServices%22&type=Code) |
 | Barramento de Serviço | Sim | | | | [Microsoft.ServiceBus](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
-| Backup | Não | - | - | - | | Recuperação de Site | Não | - | - | - |
+| Backup | Não | - | - | - |
+| Recuperação de Site | Não | - | - | - |
 
 ## Gerenciamento de acesso e identidade 
 

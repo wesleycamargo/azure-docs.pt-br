@@ -25,7 +25,7 @@ O Proxy de Aplicativo funciona com a instalação de um serviço leve do Windows
 
 Este artigo percorre a habilitação do o Proxy de aplicativo do Microsoft Azure AD para seu diretório de nuvem no Azure AD, a instalação do conector do Proxy de aplicativo na sua rede privada e o registro do conector com sua assinatura de locatário do AD do Microsoft Azure.
 
-## Pré-requisitos de Proxy de aplicativo
+##Pré-requisitos de Proxy de aplicativo
 Antes de habilitar e usar os serviços de Proxy de aplicativo, você precisa ter:
 
 - Uma [assinatura premium ou básica](active-directory-editions.md) do AD do Azure e um diretório do AD do Azure do qual seja um administrador global.
@@ -46,7 +46,7 @@ Número da porta | Descrição
 Se o firewall reforça o tráfego de acordo com os usuários de origem, abra essas portas para o tráfego proveniente de serviços do Windows em execução como um serviço de rede. Além disso, certifique-se de habilitar a porta 8080 para Autoridade NT\\Sistema.
 
 
-## Etapa 1: habilite o Proxy de aplicativo no AD do Azure
+##Etapa 1: habilite o Proxy de aplicativo no AD do Azure
 1. Entre como administrador no portal clássico do Azure.
 2. Vá para o Active Directory e selecione o diretório no qual você deseja habilitar o Proxy de aplicativo.
 3. Clique em **Configurar**, role para baixo até o Proxy de Aplicativo e alterne a opção Habilitar serviços de Proxy de Aplicativo para este Diretório para **Habilitado**.
@@ -55,7 +55,7 @@ Se o firewall reforça o tráfego de acordo com os usuários de origem, abra ess
 
 4. Clique em **Baixar agora** na parte inferior da tela. Você será levado à página de download. Leia e aceite os termos de licença e clique em **Download** para salvar o arquivo do Windows Installer (.exe) do Conector de Proxy de Aplicativo.
 
-## Etapa 2: Instalar e registrar o conector
+##Etapa 2: Instalar e registrar o conector
 1. Execute `AADApplicationProxyConnectorInstaller.exe` no servidor que você preparou (confira os pré-requisitos do Proxy de Aplicativo acima).
 2. Siga as instruções no Assistente para instalar.
 3. Durante a instalação, você será solicitado a registrar o Conector com o Proxy de Aplicativo do seu locatário do AD do Azure.

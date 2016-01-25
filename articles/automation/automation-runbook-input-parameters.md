@@ -49,7 +49,7 @@ Uma definição de parâmetro nos runbooks de Fluxo de Trabalho do PowerShell te
      )
 ```
 
->[AZURE.NOTE]Ao definir parâmetros, se você não especificar o atributo **Mandatory**, por padrão, o parâmetro será considerado opcional. Além disso, se você definir um valor padrão para um parâmetro em runbooks de Fluxo de Trabalho do PowerShell, ele será tratado pelo PowerShell como um parâmetro opcional, independentemente do valor do atributo **Mandatory**.
+>[AZURE.NOTE] Ao definir parâmetros, se você não especificar o atributo **Obrigatório**, por padrão, o parâmetro será considerado opcional. Além disso, se você definir um valor padrão para um parâmetro em runbooks de Fluxo de Trabalho do PowerShell, ele será tratado pelo PowerShell como um parâmetro opcional, independentemente do valor do atributo **Mandatory**.
 
 Por exemplo, vamos configurar os parâmetros de entrada para um runbook do Fluxo de Trabalho do PowerShell que gera detalhes sobre máquinas virtuais, seja uma única VM ou todas as VMs em um serviço. Esse runbook tem dois parâmetros, conforme mostrado na captura de tela a seguir: o nome da máquina virtual e o nome do serviço.
 
@@ -123,7 +123,7 @@ No rótulo abaixo da caixa de entrada, você pode ver os atributos que foram def
 ![Balão de ajuda](media/automation-runbook-input-parameters/automation_05_HelpBaloon.png)
 
 
->[AZURE.NOTE]Parâmetros do tipo String dão suporte a valores de Cadeia de Caracteres **Vazia**. Se você inserir **[EmptyString]** na caixa do parâmetro de entrada, uma cadeia de caracteres vazia será passada para o parâmetro. Além disso, parâmetros do tipo de cadeia de caracteres não dão suporte à passagem de valores **Nulos**. Se você não passar um valor para o parâmetro de Cadeia de Caracteres, o PowerShell o interpretará como nulo.
+>[AZURE.NOTE] Parâmetros do tipo String dão suporte a valores de Cadeia de Caracteres **Vazia**. Se você inserir **[EmptyString]** na caixa do parâmetro de entrada, uma cadeia de caracteres vazia será passada para o parâmetro. Além disso, parâmetros do tipo de cadeia de caracteres não dão suporte à passagem de valores **Nulos**. Se você não passar um valor para o parâmetro de Cadeia de Caracteres, o PowerShell o interpretará como nulo.
 
 - **Como iniciar um runbook publicado usando cmdlets do PowerShell e atribuir parâmetros**
 
@@ -131,7 +131,8 @@ No rótulo abaixo da caixa de entrada, você pode ver os atributos que foram def
 
     **Exemplo:**
 
-      ``` $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
+      ```
+        $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
 
         Start-AzureAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” -Parameters $params
       ```
@@ -141,12 +142,13 @@ No rótulo abaixo da caixa de entrada, você pode ver os atributos que foram def
 
     **Exemplo:**
 
-      ``` $params = @{“VMName”=”WSVMClassic”;”ServiceName”=”WSVMClassicSG”}
+      ```
+        $params = @{“VMName”=”WSVMClassic”;”ServiceName”=”WSVMClassicSG”}
 
         Start-AzureRMAutomationRunbook -AutomationAccountName “TestAutomationRG” -Name “Get-AzureVMGraphical” –ResourceGroupName “RG1” -Parameters $params
       ```
 
->[AZURE.NOTE]Quando você inicia um runbook usando cmdlets do PowerShell, um parâmetro padrão, **MicrosoftApplicationManagementStartedBy**, é criado com o valor **PowerShell**. Você pode exibir esse parâmetro na folha **Detalhes do trabalho**.
+>[AZURE.NOTE] Quando você inicia um runbook usando cmdlets do PowerShell, um parâmetro padrão, **MicrosoftApplicationManagementStartedBy**, é criado com o valor **PowerShell**. Você pode exibir esse parâmetro na folha **Detalhes do trabalho**.
 
 - **Como uniciar um runbook usando o SDK e atribuir parâmetros**
 

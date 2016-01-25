@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/08/2016"
-	ms.author="trinadhk;jimpark"/>
+	ms.author="trinadhk"; "jimpark"/>
 
 # O que é o Backup do Azure?
 O Backup do Azure é o serviço que você usa para fazer backup e restaurar os dados na nuvem da Microsoft. Ele substitui a solução de backup local ou externa existente por uma solução baseada em nuvem confiável, segura e econômica. Ele também protege os ativos em execução na nuvem. O Backup do Azure fornece serviços de recuperação criados em uma infraestrutura de classe mundial que é escalonável, durável e altamente disponível.

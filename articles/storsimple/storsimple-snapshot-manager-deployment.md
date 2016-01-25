@@ -39,7 +39,8 @@ Antes de instalar ou atualizar o snap-in StorSimple Snapshot Manager para o Cons
 
 As etapas a seguir oferecem uma visão geral de alto nível das tarefas de configuração que você deve concluir antes de instalar o StorSimple Snapshot Manager. Para obter informações de instalação e configuração completas do Microsoft Azure StorSimple, incluindo requisitos de sistema e instruções passo a passo, consulte [Implantar seu dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
 
->[AZURE.IMPORTANT]Antes de começar, releia a [Lista de verificação de implantação](storsimple-deployment-walkthrough.md#deployment-configuration-checklist) e os [Pré-requisitos de implantação](storsimple-deployment-walkthrough.md#deployment-prerequisites) em [Implantar seu dispositivo StorSimple local](storsimple-deployment-walkthrough.md).<br>
+>[AZURE.IMPORTANT] Antes de começar, releia a [Lista de verificação de implantação](storsimple-deployment-walkthrough.md#deployment-configuration-checklist)
+> e os [Pré-requisitos de implantação](storsimple-deployment-walkthrough.md#deployment-prerequisites) em [Implantar seu dispositivo StorSimple local](storsimple-deployment-walkthrough.md).<br>
  
 ### Antes de instalar o StorSimple Snapshot Manager
 
@@ -97,7 +98,7 @@ Use as etapas a seguir para instalar o StorSimple Snapshot Manager.
 
 3. Na janela **Extrair pastas compactadas (zipadas)**, na caixa **Selecione um destino e extraia os arquivos**, digite ou procure o caminho onde você gostaria de extrair o arquivo.
 
-       >[AZURE.IMPORTANT]Você deve instalar o StorSimple Snapshot Manager na unidade C:.
+      >[AZURE.IMPORTANT]Você deve instalar o StorSimple Snapshot Manager na unidade C:.
  
 4. Marque a caixa de seleção **Mostrar arquivos extraído ao concluir** e clique em **Extrair**.
 
@@ -105,7 +106,7 @@ Use as etapas a seguir para instalar o StorSimple Snapshot Manager.
 
 4. Quando a extração estiver concluída, a pasta de destino será aberta. Clique duas vezes no ícone de instalação do aplicativo que aparece na pasta de destino.
 
-5. Quando a mensagem **Configuração Concluída com Êxito** aparecer, clique em **Fechar**. Você deve ver o ícone do StorSimple Snapshot Manager na área de trabalho.
+5. Quando a mensagem **Configuração concluída com êxito** aparecer, clique em **Fechar**. Você deve ver o ícone do StorSimple Snapshot Manager na área de trabalho.
 
     ![Ícone da área de trabalho](./media/storsimple-snapshot-manager-deployment/HCS_SSM_desktop_icon.png)
 
@@ -125,7 +126,7 @@ Use as seguintes etapas para conectar o StorSimple Snapshot Manager a um disposi
 
     - O painel **Ações** lista as operações que podem ser executadas no nó, exibição ou dados que você selecionou no painel **Escopo**.
 
-    Para obter uma descrição completa da interface do usuário do StorSimple Snapshot Manager, consulte a [Interface de usuário do StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md).
+    Para obter uma descrição completa da interface do usuário do StorSimple Snapshot Manager, consulte a [interface de usuário do StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md).
 
 2. No painel **Escopo**, clique com o botão direito do mouse no nó **Dispositivos** e clique em **Configurar um dispositivo**. A caixa de diálogo **Configurar um Dispositivo** é exibida.
 
@@ -181,7 +182,7 @@ Use as etapas a seguir para desinstalar o StorSimple Snapshot Manager.
 
 3. Clique com o botão direito do mouse em **StorSimple Snapshot Manager** e clique em **Desinstalar**.
 
-4. Isso abre o programa de instalação do StorSimple Snapshot Manager. Clique em **Modificar Configuração** e clique em **Desinstalar**.
+4. Isso abre o programa de instalação do StorSimple Snapshot Manager. Clique em **Modificar configuração** e clique em **Desinstalar**.
 
     >[AZURE.NOTE]Se houver algum processo do MMC em execução em segundo plano, como o StorSimple Snapshot Manager ou o Gerenciamento de Disco, a desinstalação falhará e você receberá uma mensagem para fechar todas as instâncias do MMC antes de tentar desinstalar o programa. Selecione **Fechar aplicativos automaticamente e tentar reiniciá-los após a conclusão da instalação** e clique em **OK**.
  
@@ -217,7 +218,7 @@ Use as etapas a seguir para criar e salvar uma cópia do banco de dados do StorS
 
     1. No Painel do Gerenciador do Servidor, no menu **Ferramentas**, selecione **Serviços**.
 
-    2. Na página **Serviços**, selecione o **Microsoft StorSimple Management Service**.
+    2. Na página **Serviços**, selecione o **Serviço de Gerenciamento do Microsoft StorSimple**.
 
     3. No painel direito, em **Serviço de Gerenciamento do Microsoft StorSimple**, clique em **Reiniciar o serviço**.
 
@@ -247,9 +248,9 @@ Para reinstalar o StorSimple Snapshot Manager, siga as etapas em [Instalar um no
 
     1. No Painel do Gerenciador do Servidor, no menu **Ferramentas**, selecione **Serviços**.
 
-    2. Na página **Serviços**, selecione **Microsoft StorSimple Management Service**.
+    2. Na página **Serviços**, selecione **Serviço de Gerenciamento do Microsoft StorSimple**.
 
-    3. No painel direito, em **Microsoft StorSimple Management Service**, clique em **Reiniciar o serviço**.
+    3. No painel direito, em **Serviço de Gerenciamento do Microsoft StorSimple**, clique em **Reiniciar o serviço**.
 
 ## Próximas etapas
 

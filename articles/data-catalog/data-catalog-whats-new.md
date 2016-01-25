@@ -44,7 +44,7 @@ Na semana de 4 de setembro de 2015, os seguintes recursos foram adicionados ao C
 - Suporte às fontes de dados do repositório Azure Data Lake. Agora os usuários podem registrar e descobrir fontes de dados do repositório Azure Data Lake usando o Catálogo de Dados do Azure.
 - Suporte para especificar manualmente configurações de proxy de rede na ferramenta de registro de fonte de dados Catálogo de Dados do Azure. Os usuários podem escolher "Modificar configurações de proxy" na página inicial da ferramenta e especificar o endereço do proxy e a porta a serem usados pela ferramenta.
 
-> [AZURE.NOTE]A opção "Abrir no Power BI Desktop" requer a instalação de uma versão atual do aplicativo Power BI Desktop. Se encontrar problemas ou erros ao usar esse recurso, verifique se você tem a versão mais recente do Power BI Desktop em [PowerBI.com](https://powerbi.com/).
+> [AZURE.NOTE] A opção "Abrir no Power BI Desktop" requer a instalação de uma versão atual do aplicativo Power BI Desktop. Se encontrar problemas ou erros ao usar esse recurso, verifique se você tem a versão mais recente do Power BI Desktop em [PowerBI.com](https://powerbi.com/).
 
 
 ## Novidades da versão da semana de 20 de novembro de 2015

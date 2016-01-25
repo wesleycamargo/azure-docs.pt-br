@@ -58,7 +58,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 6.  Na **caixa de pesquisa**, digite **TimeOffManager**.
 
-    ![Galeria de Aplicativos](./media/active-directory-saas-timeoffmanager-tutorial/IC795910.png "Galeria de aplicativos")
+    ![Galeria de aplicativos](./media/active-directory-saas-timeoffmanager-tutorial/IC795910.png "Galeria de aplicativos")
 
 7.  No painel de resultados, selecione **TimeOffManager** e clique em **Concluir** para adicionar o aplicativo.
 
@@ -92,7 +92,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 5.  Em outra janela do navegador da Web, faça logon em seu site de empresa TimeOffManager como um administrador.
 
-6.  Vá para **Conta > Opções da Conta > Configurações de Logon Único**.
+6.  Vá para **Conta > Opções da conta > Configurações de logon único**.
 
     ![Configurações de logon único](./media/active-directory-saas-timeoffmanager-tutorial/IC795917.png "Configurações de logon único")
 

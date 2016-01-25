@@ -24,7 +24,7 @@
 
 Neste documento, você aprenderá sobre as diferentes maneiras de criar um cluster HDInsight baseado em Linux no Azure, bem como configurações opcionais que podem ser usadas com o cluster. O HDInsight fornece Apache Hadoop, Apache Storm e Apache HBase como serviços na plataforma de nuvem do Azure.
 
-> [AZURE.NOTE]Este documento fornece instruções sobre as diferentes maneiras de criar um cluster. Se você procura uma abordagem de início rápido para criar um cluster, consulte [Introdução ao Azure HDInsight no Linux](../hdinsight-hadoop-linux-get-started.md).
+> [AZURE.NOTE] Este documento fornece instruções sobre as diferentes maneiras de criar um cluster. Se você procura uma abordagem de início rápido para criar um cluster, consulte [Introdução ao Azure HDInsight no Linux](../hdinsight-hadoop-linux-get-started.md).
 
 ## O que é um cluster HDInsight?
 
@@ -45,7 +45,7 @@ Durante a configuração, você selecionará um desses tipos para o cluster. Voc
 
 Cada tipo de cluster tem sua própria terminologia para nós no cluster, bem como o número de nós e o tamanho da VM padrão para cada tipo de nó:
 
-> [AZURE.IMPORTANT]Se você planeja ter mais de 32 nós de trabalho, seja na criação do cluster ou em seu dimensionamento após a criação, deverá selecionar um tamanho de nó de cabeçalho com pelo menos 8 núcleos e 14 GB de RAM.
+> [AZURE.IMPORTANT] Se você planeja ter mais de 32 nós de trabalho, seja na criação do cluster ou em seu dimensionamento após a criação, deverá selecionar um tamanho de nó de cabeçalho com pelo menos 8 núcleos e 14 GB de RAM.
 
 ![Nós de cluster Hadoop do HDInsight](./media/hdinsight-provision-clusters/HDInsight.Hadoop.roles.png)
 
@@ -105,7 +105,7 @@ Você pode provisionar clusters HDInsight em um dos dois sistemas operacionais a
 
 - **HDInsight em Linux (Ubuntu 12.04 LTS para Linux)**: selecione essa opção se estiver familiarizado com Linux ou Unix, migrando de uma solução Hadoop existente baseada no Linux ou se quiser fácil integração com componentes do ecossistema do Hadoop criados para Linux. Para obter mais informações, consulte [Introdução ao Hadoop no Linux em HDInsight](hdinsight-hadoop-linux-get-started.md).
 
-> [AZURE.NOTE]As informações neste documento pressupõem que você está usando um cluster HDInsight baseado em Linux. Para obter informações específicas de clusters baseados no Windows, consulte [Criar clusters Hadoop baseados no Windows no HDInsight](hdinsight-provision-clusters.md).
+> [AZURE.NOTE] As informações neste documento pressupõem que você está usando um cluster HDInsight baseado em Linux. Para obter informações específicas de clusters baseados no Windows, consulte [Criar clusters Hadoop baseados no Windows no HDInsight](hdinsight-provision-clusters.md).
 
 ###Nome da assinatura
 
@@ -138,7 +138,7 @@ O HDInsight usa o Armazenamento de Blobs do Azure como o armazenamento subjacent
 
 Ao criar um novo cluster, você deve criar uma nova Conta de Armazenamento do Azure ou usar uma já existente.
 
-> [AZURE.IMPORTANT]A localização geográfica selecionada para a conta de armazenamento determinará o local do cluster HDInsight, como o cluster deve estar no mesmo data center da conta de armazenamento padrão.
+> [AZURE.IMPORTANT] A localização geográfica selecionada para a conta de armazenamento determinará o local do cluster HDInsight, como o cluster deve estar no mesmo data center da conta de armazenamento padrão.
 >
 > Para ver uma lista das regiões com suporte, clique na lista suspensa **Região** em [Preços do HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
@@ -148,7 +148,7 @@ O HDInsight também criará um _contêiner de armazenamento padrão_ na conta de
 
 Por padrão, esse contêiner tem o mesmo nome do cluster. Para saber mais sobre como o HDInsight funciona com o armazenamento de Blob do Azure, consulte [Usar armazenamento de Blob do Azure compatível com HDFS com o Hadoop no HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
->[AZURE.WARNING]Não compartilhe um contêiner entre vários clusters. Não há suporte para isso.
+>[AZURE.WARNING] Não compartilhe um contêiner entre vários clusters. Não há suporte para isso.
 
 ###Tamanho do nó
 
@@ -156,11 +156,11 @@ Você pode selecionar o tamanho dos recursos de computação usados pelo cluster
 
 Diferentes tipos de cluster têm diferentes tipos de nó, números de nós e tamanhos de nós. Por exemplo, um tipo de cluster Hadoop tem dois _nós principais_ e um padrão de quatro _nós de dados_, enquanto um tipo de cluster Storm tem dois _nós nimbus_, três _nós zookeeper_ e um padrão de quatro _nós supervisores_.
 
-> [AZURE.IMPORTANT]Se você planeja ter mais de 32 nós de trabalho, seja na criação do cluster ou em seu dimensionamento após a criação, deverá selecionar um tamanho de nó de cabeçalho com pelo menos 8 núcleos e 14 GB de RAM.
+> [AZURE.IMPORTANT] Se você planeja ter mais de 32 nós de trabalho, seja na criação do cluster ou em seu dimensionamento após a criação, deverá selecionar um tamanho de nó de cabeçalho com pelo menos 8 núcleos e 14 GB de RAM.
 
 Ao usar o portal de visualização do Azure para configurar o cluster, o tamanho do nó é exposto por meio da folha __Camada de preços do nó__ e também exibirá o custo associado aos diferentes tamanhos de nó.
 
-> [AZURE.IMPORTANT]A cobrança é iniciada quando um cluster é criado e só para quando o cluster é excluído. Para obter mais informações sobre preços, consulte [Detalhes de preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+> [AZURE.IMPORTANT] A cobrança é iniciada quando um cluster é criado e só para quando o cluster é excluído. Para obter mais informações sobre preços, consulte [Detalhes de preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ##<a id="optionalconfiguration"></a>Configuração opcional
 
@@ -192,13 +192,13 @@ O metastore contém metadados Hive e Oozie, como informações sobre tabelas Hiv
 
 Usar a opção de configuração Metastore permite especificar um metastore externo usando o Banco de Dados SQL. Isso permite que as informações de metadados sejam preservadas quando você excluir um cluster, já que elas são armazenadas externamente no banco de dados. Para obter instruções sobre como criar um banco de dados SQL do Azure, consulte [Criar seu primeiro banco de dados SQL do Azure](sql-database-get-started.md).
 
-> [AZURE.NOTE]A configuração de Metastore não está disponível para tipos de cluster HBase.
+> [AZURE.NOTE] A configuração de Metastore não está disponível para tipos de cluster HBase.
 
 ###<a id="scriptaction"></a>Ação de script
 
 Você pode instalar componentes adicionais ou personalizar a configuração de cluster por meio de scripts durante o provisionamento de cluster. Esses scripts são invocados por meio da **Ação de Script**. Para obter mais informações, consulte [Personalizar cluster HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md).
 
-> [AZURE.IMPORTANT]Não há suporte para a adição de componentes após a criação de um cluster, pois esses componentes não estarão disponíveis após a recriação de um nó de cluster. Os componentes instalados por meio de ações de script são reinstalados como parte do processo de recriação de imagens.
+> [AZURE.IMPORTANT] Não há suporte para a adição de componentes após a criação de um cluster, pois esses componentes não estarão disponíveis após a recriação de um nó de cluster. Os componentes instalados por meio de ações de script são reinstalados como parte do processo de recriação de imagens.
 
 ### Armazenamento adicional
 

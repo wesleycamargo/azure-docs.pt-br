@@ -23,7 +23,7 @@ Endereços IP públicos são usados para comunicação com a Internet, incluindo
 
 Endereços IP privados são usados para comunicação em uma VNet (rede virtual) do Azure e na sua rede local quando você usa um gateway de VPN ou circuito de Rota Expressa para estender sua rede para o Azure.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-network-ip-addresses-overview-classic.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [modelo de implantação clássico](virtual-network-ip-addresses-overview-classic.md).
 
 Se você estiver familiarizado com o modelo de implantação clássico, verifique as [diferenças de endereçamento IP entre o clássico e o Gerenciador de Recursos](virtual-network-ip-addresses-overview-classic.md#Differences-between-Resource-Manager-and-classic-deployments).
 
@@ -128,7 +128,12 @@ A tabela a seguir mostra cada tipo de recurso com os métodos de alocação poss
 
 A tabela abaixo mostra os limites impostos ao endereçamento IP no Azure por região, por assinatura. Você pode [entrar em contato com o suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar os limites padrão até os limites máximos com base nas necessidades de sua empresa.
 
-||Limite padrão|Limite máximo| |---|---|---| |Endereços IP públicos (dinâmicos)|60|entrar em contato com o suporte| |Endereços IP públicos (estáticos)|20|entrar em contato com o suporte| |IP de front-end público por balanceador de carga|5|entrar em contato com o suporte| |IP de front-end privado por balanceador de carga|1|entrar em contato com o suporte|
+||Limite padrão|Limite máximo|
+|---|---|---|
+|Endereços IP públicos (dinâmicos)|60|entrar em contato com o suporte|
+|Endereços IP públicos (estáticos)|20|entrar em contato com o suporte|
+|IP de front-end público por balanceador de carga|5|entrar em contato com o suporte|
+|IP de front-end privado por balanceador de carga|1|entrar em contato com o suporte|
 
 Certifique-se de ler o conjunto completo de [limites de rede](azure-subscription-service-limits.md#networking-limits) do Azure.
 

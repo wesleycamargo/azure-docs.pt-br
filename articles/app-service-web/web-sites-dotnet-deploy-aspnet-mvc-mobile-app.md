@@ -110,7 +110,7 @@ Os projetos do Visual Studio com o código-fonte em C# estão disponíveis para 
 
 	![][AllTags]
 
->[AZURE.TIP]Enquanto depura o aplicativo MVC 5 no Visual Studio, você pode publicar seu aplicativo Web no Azure novamente para verificar o aplicativo Web online, diretamente no navegador móvel ou um emulador de navegador.
+>[AZURE.TIP] Enquanto depura o aplicativo MVC 5 no Visual Studio, você pode publicar seu aplicativo Web no Azure novamente para verificar o aplicativo Web online, diretamente no navegador móvel ou um emulador de navegador.
 
 A exibição é muito legível em um dispositivo móvel. Você também já pode ver alguns dos efeitos visuais aplicados pelo framework de Bootstrap CSS. Clique no link **ASP.NET**.
 

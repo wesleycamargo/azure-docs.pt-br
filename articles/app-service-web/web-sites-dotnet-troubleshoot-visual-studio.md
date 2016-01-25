@@ -740,7 +740,7 @@ Além disso, observe que você não precisa usar o rastreamento do ASP.NET ou do
 
 Para obter mais informações sobre como analisar logs de servidor web, consulte os seguintes recursos:
 
-* [LogParser](http://www.microsoft.com/download/details.aspx?id=24659)<br/> Uma ferramenta para exibir dados em logs de servidor Web (arquivos *.log*).
+* [LogParser](http://www.microsoft.com/download/details.aspx?id=24659)<br/> Uma ferramenta para exibir dados em logs de servidor web (arquivos *.log*).
 * [Solucionando problemas de desempenho do IIS ou erros de aplicativo usando o LogParser](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/> Uma introdução à ferramenta LogParser que pode ser usada para analisar logs de servidor web.
 * [Postagens no blog por Robert McMurray sobre como usar o LogParser](http://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [O código de status HTTP no IIS 7.0, IIS 7.5 e IIS 8.0](http://support.microsoft.com/kb/943891)

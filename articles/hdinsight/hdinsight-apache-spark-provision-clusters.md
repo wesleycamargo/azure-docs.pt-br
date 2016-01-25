@@ -19,7 +19,7 @@
 
 # Criar clusters do Apache Spark no HDInsight usando opções personalizadas (Windows)
 
-> [AZURE.NOTE]O HDInsight agora fornece clusters Spark no Linux. Para obter informações sobre a criação personalizada de um cluster Spark no HDInsight Linux, confira [Criar clusters baseados em Linux no HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+> [AZURE.NOTE] O HDInsight agora fornece clusters Spark no Linux. Para obter informações sobre a criação personalizada de um cluster Spark no HDInsight Linux, confira [Criar clusters baseados em Linux no HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 Na maioria dos cenários, você pode criar um cluster Spark usando o método de criação rápida, conforme descrito em [Introdução ao Apache Spark no HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md). Em determinados cenários, você talvez queira criar um cluster personalizado. Por exemplo, você talvez queira anexar um repositório de metadados externos para manter os metadados de Hive persistentes além do tempo de vida de um cluster, ou você talvez queira usar armazenamento adicional com o cluster.
 
@@ -36,7 +36,7 @@ Antes de começar a seguir as instruções neste artigo, você deve ter uma assi
 
 Durante a configuração, você deve especificar uma conta de Armazenamento do Blobs do Azure e um contêiner padrão. Eles são usados como o local de armazenamento padrão pelo cluster. Opcionalmente, você pode especificar uma conta de armazenamento do Azure adicional que também será associada ao cluster.
 
->[AZURE.NOTE]Não compartilhe um contêiner de armazenamento de Blobs entre múltiplos clusters. Não há suporte para isso.
+>[AZURE.NOTE] Não compartilhe um contêiner de armazenamento de Blobs entre múltiplos clusters. Não há suporte para isso.
 
 Para obter mais informações sobre o uso de repositórios de blob secundários, consulte [Usando o Armazenamento de Blob do Azure com o HDInsight](hdinsight-use-blob-storage.md).
 
@@ -154,7 +154,7 @@ Os clusters do Spark no HDInsight usam um contêiner de armazenamento de blobs d
 	| ------------------ | --------------------- |
 	| ![Criando um indicador no quadro inicial](./media/hdinsight-apache-spark-provision-clusters/provisioning.png) | ![Bloco de cluster criado](./media/hdinsight-apache-spark-provision-clusters/provisioned.png) |
 
-	> [AZURE.NOTE]Levará algum tempo para que o cluster seja criado, geralmente, cerca de 15 minutos. Use o bloco no Quadro Inicial ou a entrada **Notificações** à esquerda da página para verificar o processo de criação.
+	> [AZURE.NOTE] Levará algum tempo para que o cluster seja criado, geralmente, cerca de 15 minutos. Use o bloco no Quadro Inicial ou a entrada **Notificações** à esquerda da página para verificar o processo de criação.
 
 11. Quando a criação for concluída, clique no bloco para o cluster no quadro inicial para iniciar a folha de cluster. A folha de cluster fornece informações essenciais sobre o cluster como o nome, o grupo de recursos ao qual ele pertence, o local, o sistema operacional, a URL para o painel do cluster, etc.
 
@@ -176,7 +176,7 @@ Os clusters do Spark no HDInsight usam um contêiner de armazenamento de blobs d
 
 	* **Usuários** (![ícone de usuários](./media/hdinsight-apache-spark-provision-clusters/users.png)): permite definir permissões para o _gerenciamento do portal_ deste cluster para outros usuários em sua assinatura do Azure.
 
-		> [AZURE.IMPORTANT]Isso afeta _apenas_ o acesso e as permissões para o cluster no Portal de Visualização do Azure e não quem pode se conectar ao cluster HDInsight ou enviar trabalhos a ele.
+		> [AZURE.IMPORTANT] Isso afeta _apenas_ o acesso e as permissões para o cluster no Portal de Visualização do Azure e não quem pode se conectar ao cluster HDInsight ou enviar trabalhos a ele.
 
 	* **Marcas** (![ícone de marca](./media/hdinsight-apache-spark-provision-clusters/tags.png)): as marcas permitem estabelecer pares de chave/valor para definir uma taxonomia personalizada dos serviços de nuvem. Por exemplo, você pode criar uma chave chamada __projeto__ e usar um valor comum para todos os serviços associados a um projeto específico.
 

@@ -164,11 +164,11 @@ Para instalar o Azure PowerShell, execute as etapas da seção anterior, **Insta
 2. Clique com o botão direito no nó `HKEY_Users\.Default\Environment` e selecione **Novo > Valor de Cadeia de Caracteres Expansível**.
 3. Digite `PSModulePath` para o nome e `%PROGRAMFILES%\WindowsPowerShell\Modules` para o valor.
 
->[AZURE.NOTE]Faça isso *antes* de iniciar o agente de compilação, caso contrário ele não utilizará a nova variável de ambiente.
+>[AZURE.NOTE] Faça isso *antes* de iniciar o agente de compilação, caso contrário ele não utilizará a nova variável de ambiente.
 
 ### Importar o certificado de automação
 
-1. Importe o certificado em sua máquina de build. Para fazer isso:
+1.	Importe o certificado em sua máquina de build. Para fazer isso:
     1. Copie o arquivo PFX criado pelo script CreateAndUpload-Certificate.ps1 à sua máquina de build.
     2. Abra a conta de administração do PowerShell e execute os comandos a seguir, usando a senha que você passou para GenerateCertificate.ps1 anteriormente:
 
@@ -196,14 +196,14 @@ Para instalar o Azure PowerShell, execute as etapas da seção anterior, **Insta
 ### Registrar o agente de build
 
 1.	Baixe o agent.zip. Para fazer isso:
-    1.	Entre em seu projeto de equipe, como ****https://[your-Team-Services-account-name].visualstudio.com**.
-1.	Escolha o ícone de “engrenagem” no canto superior direito da tela.
+    1.	Entre em seu projeto de equipe, como **https://[your-Team-Services-account-name].visualstudio.com**.
+	1.	Escolha o ícone de “engrenagem” no canto superior direito da tela.
     1.	No painel de controle, escolha a guia **Pools de agente**.
     1.	Escolha **Baixar agente** para baixar o arquivo agent.zip.
     1.	Copie agent.zip no computador de compilação que você criou anteriormente.
     1.	Descompacte agent.zip em `C:\agent` (ou em qualquer local com um caminho curto) em sua máquina de build.
 
-        >[AZURE.NOTE]Se você planeja compilar serviços Web do ASP.NET 5, é recomendável que você escolha o nome mais curto possível para essa pasta, a fim de evitar erros de **PathTooLongExceptions** durante a implantação.
+        >[AZURE.NOTE] Se você planeja compilar serviços Web do ASP.NET 5, é recomendável que você escolha o nome mais curto possível para essa pasta, a fim de evitar erros de **PathTooLongExceptions** durante a implantação.
 
 2.	Em um prompt de comando de administração do PowerShell, execute `C:\agent\ConfigureAgent.ps1`. O script solicitará os seguintes parâmetros:
 

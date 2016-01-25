@@ -88,7 +88,7 @@ Na guia **Legal**, forneça um link para as políticas/termos de uso. Insira ou 
 5.	Será aberto um assistente de preço. Continue para preencher os preços, incluindo preços de outros países, se você optar por permitir compras de fora do seu mercado específico.
 6.	Alguns países são países de remessa de ISV. Para vender em um país de remessa de ISV, você deve ser capaz de cobrar e recolher imposto sobre suas SKUs, e calcular e pagar imposto ao governo do país. A Microsoft não está em posição de prestar orientação jurídica ou fiscal. Consulte a seção "Países de destino de venda da oferta" na introdução deste documento para obter mais informações sobre os países de destino de venda.
 
-### 2\.2. Definir seus Preços de serviço do desenvolvedor
+### 2\.2. Definir seus preços de serviço do desenvolvedor
 Os planos podem ser qualquer combinação de base + consumo, em que a base é o preço mensal e o excedente é o preço de pagamento por uso. (Consulte a seguir para obter mais detalhes.)
 
 **Exemplo:** oferta de serviço do desenvolvedor da Contoso
@@ -144,7 +144,9 @@ Abaixo está uma visão detalhada de como a oferta de informações de marketing
 ## Próximas etapas
 Agora que o conteúdo do Marketplace está carregado, seguiremos para a testar sua oferta no preparo. No entanto, você deve selecionar o tipo de oferta apropriado na lista abaixo já que as etapas variam por tipo de oferta.
 
-|| Imagem de máquina virtual | Serviço do desenvolvedor | Serviço de dados | Modelo de solução | |---|---|---|---|---| | **Etapa 3. Enviar por push sua oferta para preparo** | [Testar sua oferta de VM de preparo](marketplace-publishing-vm-image-test-in-staging.md) | [Testar sua oferta de serviço do desenvolvedor de preparo](marketplace-publishing-dev-service-test-in-staging.md)| [Testar sua oferta de serviço de preparo](marketplace-publishing-data-service-test-in-staging.md) | [Testar seu modelo de solução de preparo](marketplace-publishing-solution-template-test-in-staging.md) |
+|| Imagem de máquina virtual | Serviço do desenvolvedor | Serviço de dados | Modelo de solução |
+|---|---|---|---|---|
+| **Etapa 3. Enviar por push sua oferta para preparo** | [Testar sua oferta de VM de preparo](marketplace-publishing-vm-image-test-in-staging.md) | [Testar sua oferta de serviço do desenvolvedor de preparo](marketplace-publishing-dev-service-test-in-staging.md)| [Testar sua oferta de serviço de preparo](marketplace-publishing-data-service-test-in-staging.md) | [Testar seu modelo de solução de preparo](marketplace-publishing-solution-template-test-in-staging.md) |
 
 ## Consulte também
 - [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)

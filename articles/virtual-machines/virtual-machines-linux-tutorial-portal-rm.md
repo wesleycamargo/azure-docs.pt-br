@@ -35,6 +35,8 @@
 
 > [AZURE.NOTE]Este tutorial cria uma máquina virtual do Azure gerenciada pela API do grupo de recursos do Azure. Para obter detalhes, consulte [Visão geral do grupo de recursos do Azure](resource-group-overview.md).
 
+</br>
+
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
 ## Selecionar a imagem
