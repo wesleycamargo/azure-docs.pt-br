@@ -14,7 +14,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="12/01/2015"
+    ms.date="01/20/2016"
     ms.author="sstein"/>
 
 # Criar um novo banco de dados SQL e executar tarefas comuns de instalação de banco de dados com cmdlets do PowerShell 
@@ -135,11 +135,11 @@ Os detalhes do banco de dados são exibidos após a criação bem-sucedida do ba
 ## Próximas etapas
 Depois de criar um novo banco de dados SQL e de realizar tarefas básicas de configuração de banco de dados, você estará pronto para o seguinte:
 
-- [Conectar-se ao SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+- [Conectar-se ao Banco de Dados SQL com o SQL Server Management Studio e executar um exemplo de consulta T-SQL](sql-database-connect-query-ssms.md)
 
 
 ## Recursos adicionais
 
 - [Banco de Dados SQL do Azure](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

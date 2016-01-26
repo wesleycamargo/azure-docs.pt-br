@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/17/2015"
-	ms.author="trinadhk; aashishr; jimpark; markgal"/>
+	ms.date="01/19/2016"
+	ms.author="trinadhk; jimpark; markgal;"/>
 
 
 # Fazer backup de máquinas virtuais do Azure
@@ -40,7 +40,8 @@ O processo de descoberta sempre deve ser executado como a primeira etapa para ga
 
     ![Selecionar carga de trabalho](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Clique em **DESCOBRIR** na parte inferior da página. ![Botão Descobrir](./media/backup-azure-vms/discover-button-only.png)
+3. Clique em **DESCOBRIR** na parte inferior da página. 
+	![Botão Descobrir](./media/backup-azure-vms/discover-button-only.png)
 
     O processo de descoberta pode ser executado por alguns minutos, enquanto as máquinas virtuais estão sendo tabuladas. Há uma notificação na parte inferior da tela que informa você de que o processo está sendo executado.
 
@@ -59,7 +60,8 @@ Você registra uma máquina virtual do Azure para associá-la ao serviço Backup
 
     ![Selecionar carga de trabalho](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Clique em **REGISTRAR** na parte inferior da página. ![Botão Registrar](./media/backup-azure-vms/register-button-only.png)
+3. Clique em **REGISTRAR** na parte inferior da página.
+ 	![Botão Registrar](./media/backup-azure-vms/register-button-only.png)
 
 4. No menu de atalho **Registrar Itens**, selecione as máquinas virtuais que você deseja registrar. Se houver duas ou mais máquinas virtuais com o mesmo nome, use o serviço de nuvem para fazer a distinção entre elas.
 
@@ -162,4 +164,4 @@ Se você tiver problemas durante o backup da sua máquina virtual, dê uma olhad
 - [Gerenciar e monitorar suas máquinas virtuais](backup-azure-manage-vms.md)
 - [Restaurar máquinas virtuais](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

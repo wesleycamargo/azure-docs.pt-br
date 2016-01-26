@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/06/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # Requisitos de QoS para Rota Expressa
@@ -50,4 +50,4 @@ A tabela a seguir fornece uma lista de marcações DSCP usadas pelo Skype for Bu
 	- [Configurar o roteamento](expressroute-howto-routing-classic.md)
 	- [Vincular uma Rede Virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

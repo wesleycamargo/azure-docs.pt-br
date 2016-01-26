@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/08/2016"
+	ms.date="01/19/2016"
 	ms.author="cabailey"/>
 
 # Introdução ao Cofre da Chave do Azure #
@@ -35,7 +35,7 @@ Para obter informações gerais sobre o Cofre da Chave do Azure, consulte [O que
 Para concluir este tutorial, você precisará do seguinte:
 
 - Uma assinatura do Microsoft Azure. Se não tiver uma assinatura, você pode se inscrever para uma [avaliação gratuita](../../../../pricing/free-trial).
-- Azure PowerShell, **versão mínima: 1.0**. Para instalar o Azure PowerShell e associá-lo à sua assinatura do Azure, consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md). Se você já tiver instalado o Azure PowerShell e não souber a versão, no console do Azure PowerShell, digite `(Get-Module azure -ListAvailable).Version`. Quando você tiver o Azure PowerShell versão 0.9.1 até 0.9.8 instalado, ainda poderá usar este tutorial com algumas pequenas alterações. Por exemplo, você deverá usar o comando `Switch-AzureMode AzureResourceManager`; alguns dos comandos do Cofre da Chave do Azure foram alterados. Para obter uma lista dos cmdlets do Cofre da Chave para as versões 0.9.1 a 0.9.8, confira [Cmdlets do Cofre da Chave do Azure](https://msdn.microsoft.com/library/azure/dn868052(v=azure.98).aspx). 
+- Azure PowerShell, **versão mínima: 1.1.0**. Para instalar o Azure PowerShell e associá-lo à sua assinatura do Azure, consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md). Se você já tiver instalado o Azure PowerShell e não souber a versão, no console do Azure PowerShell, digite `(Get-Module azure -ListAvailable).Version`. Quando você tiver o Azure PowerShell versão 0.9.1 até 0.9.8 instalado, ainda poderá usar este tutorial com algumas pequenas alterações. Por exemplo, você deverá usar o comando `Switch-AzureMode AzureResourceManager`; alguns dos comandos do Cofre da Chave do Azure foram alterados. Para obter uma lista dos cmdlets do Cofre da Chave para as versões 0.9.1 a 0.9.8, confira [Cmdlets do Cofre da Chave do Azure](https://msdn.microsoft.com/library/azure/dn868052(v=azure.98).aspx). 
 - Um aplicativo que será configurado para usar a chave ou senha que você criará neste tutorial. Um aplicativo de exemplo está disponível na [Centro de Download da Microsoft](http://www.microsoft.com/pt-BR/download/details.aspx?id=45343). Para obter instruções, consulte o arquivo Leiame.
 
 
@@ -45,9 +45,9 @@ Para obter ajuda detalhada sobre qualquer cmdlet que você vir neste tutorial, u
 
 	Get-Help <cmdlet-name> -Detailed
 
-Por exemplo, para obter ajuda sobre o cmdlet **Add-AzureAccount**, digite:
+Por exemplo, para obter ajuda para o cmdlet **AzureRmAccount Login**, digite:
 
-	Get-Help Add-AzureAccount -Detailed
+	Get-Help Login-AzureRmAccount -Detailed
 
 Leia também os tutoriais a seguir para se familiarizar com o Gerenciador de Recursos do Azure no Azure PowerShell:
 
@@ -60,6 +60,8 @@ Leia também os tutoriais a seguir para se familiarizar com o Gerenciador de Rec
 Inicie uma sessão do PowerShell do Azure e entre em sua conta do Azure com o seguinte comando:
 
     Login-AzureRmAccount 
+
+Observe que, se você estiver usando uma instância específica do Azure, por exemplo, o Azure Governamental, deve usar o parâmetro -Environment com o comando. Por exemplo: `Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)`
 
 Na janela pop-up do navegador, insira o nome de usuário e a senha da sua conta do Azure. O Azure PowerShell obtém todas as assinaturas que estão associadas a essa conta e, por padrão, usa a primeira.
 
@@ -91,7 +93,7 @@ Por exemplo, se você usar o nome de cofre **ContosoKeyVault**, o nome de grupo 
 
 A saída deste cmdlet mostra as propriedades do cofre de chave que você acabou de criar. As duas propriedades mais importantes são:
 
-- **Name do Cofre**: no exemplo, é **ContosoKeyVault**. Você usará esse nome para outros cmdlets do Cofre da Chave.
+- **Nome do Cofre**: no exemplo, é **ContosoKeyVault**. Você usará esse nome para outros cmdlets do Cofre da Chave.
 - **URI do Cofre**: no exemplo, é https://contosokeyvault.vault.azure.net/. Aplicativos que usam seu cofre via API REST devem usar esse URI.
 
 Sua conta do Azure agora está autorizada a executar qualquer operação neste cofre de chave. Até o momento, ninguém mais está.
@@ -182,7 +184,7 @@ Se você deseja autorizar que o mesmo aplicativo leia segredos em seu cofre, exe
 
 Para garantia extra, você pode importar ou gerar chaves em HSMs (módulos de segurança de hardware) que nunca deixam os limites do HSM. Os HSMs têm certificação FIPS 140-2 Nível 2. Se esse requisito não se aplicar a você, ignore esta seção e vá para [Excluir o cofre de chave e chaves e segredos associados](#delete).
 
-Para criar essas chaves protegidas por HSM, você deve ter uma [assinatura de cofre que dê suporte a chaves protegidas por HSM](../../../pricing/free-trial).
+Para criar essas chaves protegidas por HSM, você deve ter uma [assinatura de cofre que dê suporte a chaves protegidas por HSM](../../../pricing/free-trial). Além disso, essa funcionalidade não está disponível para o Azure China.
 
 
 Quando criar o cofre, adicione o parâmetro **-SKU**:
@@ -209,7 +211,7 @@ Para obter instruções detalhadas sobre como gerar esse pacote BYOK, confira [C
 
 ## <a id="delete"></a>Excluir o cofre de chave e as chaves e segredos associados ##
 
-Se não precisar mais do cofre de chave e da chave ou segredo contido nele, você poderá excluir o cofre de chave usando o cmdlet [Remove-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt619485.aspx):
+Se não precisar mais do cofre da chave e da chave ou do segredo contido nele, você poderá excluir o cofre da chave usando o cmdlet [Remove-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt619485.aspx):
 
 	Remove-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
@@ -233,11 +235,11 @@ Outros comandos que podem ser úteis para gerenciar o Cofre da Chave do Azure.
 
 Para um tutorial de acompanhamento que usa o Cofre da Chave do Azure em um aplicativo Web, confira [Usar o Cofre da Chave do Azure em um Aplicativo Web](key-vault-use-from-web-application.md).
 
-Para ver como seu cofre da chave está sendo usado, confira [Log do Cofre da Chave do Azure](key-vault-logging.md).
+Para ver como o cofre da chave está sendo usado, confira [Log do Cofre da Chave do Azure](key-vault-logging.md).
 
-Para obter uma lista dos cmdlets do Azure PowerShell 1.0 para o Cofre da Chave do Azure, confira [Cmdlets do Cofre da Chave do Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx).
+Para obter uma lista dos últimos cmdlets do Azure PowerShell para o Cofre da Chave do Azure, consulte [Cmdlets do Cofre da Chave do Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx).
  
 
 Para referências de programação, consulte [Guia do desenvolvedor do Cofre da Chave do Azure](key-vault-developers-guide.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->
