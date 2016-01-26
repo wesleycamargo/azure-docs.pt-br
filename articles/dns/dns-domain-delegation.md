@@ -71,8 +71,8 @@ Para configurar a delegação, você precisa saber os nomes de servidor de nomes
 
 Usando o Azure PowerShell, os registros NS autoritativos podem ser obtidos conforme descrito a seguir (o nome do Registro “@” é usado para fazer referência a registros no ápice da zona).
 
-	PS C:\> $zone = Get-AzureRmDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
-	PS C:\> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
+	PS C:> $zone = Get-AzureRmDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
+	PS C:> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
 	Name              : @
 	ZoneName          : contoso.com

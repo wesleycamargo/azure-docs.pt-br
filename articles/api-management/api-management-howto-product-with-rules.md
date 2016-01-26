@@ -46,7 +46,8 @@ Clique em **Adicionar Produto** para exibir a caixa de diálogo **Adicionar novo
 
 Na caixa **Título**, digite **Avaliação gratuita**.
 
-Na caixa **Descrição**, digite o seguinte texto: **Assinantes poderão fazer 10 chamadas/minuto, até no máximo 200 chamadas/semana e após isso o acesso será negado.**
+Na caixa **Descrição**, digite o seguinte texto: 
+**Assinantes poderão fazer 10 chamadas/minuto, até no máximo 200 chamadas/semana e após isso o acesso será negado.**
 
 Os produtos de Gerenciamento de API podem ser protegidos ou abertos. Os produtos protegidos devem ser assinados antes que possam ser usados. Os produtos abertos podem ser usados sem uma assinatura. Certifique-se de que **Exigir assinatura** esteja marcado para criar um produto protegido que requer uma assinatura. Esta é a configuração padrão.
 
