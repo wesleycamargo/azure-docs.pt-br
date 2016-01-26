@@ -34,7 +34,7 @@ Este tutorial apresenta as etapas necessárias para fazer seu primeiro data fact
 ## Pré-requisitos
 Antes de iniciar este tutorial, você deverá ter os seguintes pré-requisitos:
 
-1.	**Uma assinatura do Azure** - se você não tiver uma, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Veja o artigo [Avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/) para ver como você pode obter uma conta de avaliação gratuita.
+1.	**Uma assinatura do Azure** - se você não tiver uma, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Consulte o artigo [Avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/) para ver como você pode obter uma conta de avaliação gratuita.
 
 2.	**Armazenamento do Azure** – você usará uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account). Depois de criar a conta de armazenamento, você precisará obter a chave de conta usada para acessar o armazenamento. Consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 
@@ -193,7 +193,7 @@ Você pode usar qualquer ferramenta que desejar (por exemplo: Azure Storage Expl
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
 
-	3. Navegue até a pasta c:\adfgettingstarted e execute o seguinte comando para carregar o arquivo **input.log** na conta de armazenamento (o contêiner **adfgetstarted** e a pasta **inputdata**). Substitua **StorageAccountName** pelo nome da sua conta de armazenamento e **Storage Key** pela chave de armazenamento da conta.
+	3. Navegue até a pasta c:\\adfgettingstarted e execute o seguinte comando para carregar o arquivo **input.log** na conta de armazenamento (o contêiner **adfgetstarted** e a pasta **inputdata**). Substitua **StorageAccountName** pelo nome da sua conta de armazenamento e **Storage Key** pela chave de armazenamento da conta.
 
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/inputdata /DestKey:<storagekey>  /Pattern:input.log
 
@@ -209,7 +209,7 @@ Você pode usar qualquer ferramenta que desejar (por exemplo: Azure Storage Expl
 			Transfer skipped:        0
 			Transfer failed:         0
 			Elapsed time:            00.00:00:01
-	1. Repita as duas etapas anteriores para carregar o arquivo partitionweblogs.hql na pasta de scripts do contêiner adfgetstarted. Veja o código: 
+	1. Execute o comando a seguir para carregar o arquivo **partitionweblogs. HQL** para a pasta **script** do contêiner **adfgetstarted**. Veja o código: 
 	
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/script /DestKey:<storagekey>  /Pattern:partitionweblogs.hql
 
@@ -222,4 +222,4 @@ Agora você está pronto para começar o tutorial. Clique em uma das guias na pa
 - Visual Studio
 - Modelos do Gerenciador de Recursos do Azure 
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

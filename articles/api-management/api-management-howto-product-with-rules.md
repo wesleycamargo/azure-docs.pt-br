@@ -13,20 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/07/2015"
+	ms.date="01/15/2016"
 	ms.author="sdanie"/>
 
 # Proteja sua API com limites de taxa usando o Gerenciamento de API do Azure
 
 Este guia mostra como é fácil adicionar proteção à API de back-end configurando políticas de cota e limite de taxa com o Gerenciamento de API do Azure.
 
-Neste tutorial, você criará um produto de API “Avaliação gratuita” que permite aos desenvolvedores fazer até 10 chamadas por minuto e um máximo de 200 chamadas por semana para sua API. Depois você publicará a API e testará a política de limite de taxa.
+Neste tutorial, você criará um produto de API de "Avaliação Gratuita" que permite aos desenvolvedores fazer até 10 chamadas por minuto e no máximo 200 chamadas por semana para sua API usando [Limitar taxa de chamadas por assinatura](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) e [Definir cota de uso por assinatura](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). Depois você publicará a API e testará a política de limite de taxa.
 
->[AZURE.NOTE]Se já tiver um produto configurado e desejar usá-lo para este tutorial, você pode pular para [Configurar políticas de cota e de limite de taxa de chamada][] e seguir o tutorial a partir daí, usando seu produto em vez do produto Avaliação Gratuita.
+Para cenários de limitação mais avançados usando as políticas [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) e [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey), confira [Solicitação avançada de limitação com o Gerenciamento de API do Azure](api-management-sample-flexible-throttling.md).
 
 ## <a name="create-product"> </a>Para criar um produto
 
 Nesta etapa você criará um produto de avaliação gratuita que não requer aprovação de assinatura.
+
+>[AZURE.NOTE]Se já tiver um produto configurado e desejar usá-lo para este tutorial, você pode pular para [Configurar políticas de cota e de limite de taxa de chamada][] e seguir o tutorial a partir daí, usando seu produto em vez do produto Avaliação Gratuita.
 
 Para começar, clique em **Gerenciar** no Portal Clássico do Azure para acessar o serviço de Gerenciamento de API. Isso levará você ao portal do editor de Gerenciamento de API.
 
@@ -189,7 +191,7 @@ Clique em **Adicionar assinatura**.
 
 ![Adicionar assinatura][api-management-add-subscription-menu]
 
-Selecione **Avaliação gratuita**, e, em seguida, clique em **Assinar**.
+Selecione **Avaliação Gratuita** e clique em **Assinar**.
 
 ![Adicionar assinatura][api-management-add-subscription]
 
@@ -211,7 +213,7 @@ Clique em **APIs** no menu superior e depois clique em **API de Eco**.
 
 ![Portal do desenvolvedor][api-management-developer-portal-api-menu]
 
-Clique em **Recurso GET** e depois clique em **Abrir Console**.
+Clique em **Recurso GET** e em **Experimentar**.
 
 ![Abrir console][api-management-open-console]
 
@@ -221,17 +223,17 @@ Mantenha os valores de parâmetros padrão e selecione a chave de assinatura par
 
 >[AZURE.NOTE]Se você tem várias inscrições certifique-se de selecionar a chave de **Avaliação Gratuita** ou as políticas que foram configuradas nas etapas anteriores não entrarão em vigor.
 
-Clique em **HTTP Get** e a resposta é exibida. Observe o **Status de resposta** de **200 OK**.
+Clique em **Enviar** e exiba a resposta. Observe o **Status de resposta** de **200 OK**.
 
 ![Resultados da operação][api-management-http-get-results]
 
-Clique em **HTTP Get** a uma taxa maior que a política de limite de taxa de 10 chamadas por minuto. Uma vez excedida a política de limite de taxa, um status de resposta de **429 muitas solicitações** será retornado.
+Clique em **Enviar** a uma taxa maior do que a política de limite de taxa de dez chamadas por minuto. Uma vez excedida a política de limite de taxa, um status de resposta de **429 muitas solicitações** será retornado.
 
 ![Resultados da operação][api-management-http-get-429]
 
-As áreas **Cabeçalhos de resposta** e **Conteúdo da resposta** indicam o intervalo restante antes que as recuperações obtenham êxito.
+O **Conteúdo de resposta** indica o intervalo restante antes que as tentativas sejam bem-sucedidas.
 
-Quando a política de limite de taxa de 10 chamadas por minuto estiver em vigor, as chamadas subsequentes falharão até que 60 segundos tenham se passado a partir da primeira das 10 chamadas com êxito para o produto, antes que o limite de taxa tenha sido excedido. Neste exemplo, o intervalo restante é de 43 segundos.
+Quando a política de limite de taxa de 10 chamadas por minuto estiver em vigor, as chamadas subsequentes falharão até que 60 segundos tenham se passado a partir da primeira das 10 chamadas com êxito para o produto, antes que o limite de taxa tenha sido excedido. Neste exemplo, o intervalo restante é de 54 segundos.
 
 ## <a name="next-steps"> </a>Próximas etapas
 
@@ -291,4 +293,4 @@ Quando a política de limite de taxa de 10 chamadas por minuto estiver em vigor,
 [Limitar taxa de chamada]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Definir cota de uso]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

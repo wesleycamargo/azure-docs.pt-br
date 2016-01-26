@@ -26,7 +26,7 @@
 
 [Criar uma máquina virtual executando o Windows no portal clássico do Azure](virtual-machines-windows-tutorial-classic-portal.md)
 
-[Criar uma máquina virtual personalizada que executa o Windows no Azure](virtual-machines-windows-create-custom.md)
+[Criar uma máquina virtual personalizada que executa o Windows no Azure](virtual-machines-create-custom.md)
 
 [Criar uma máquina virtual personalizada que executa Linux no Azure](virtual-machines-linux-create-custom.md)
 
@@ -152,4 +152,4 @@
 
 [Referência da API REST de Gerenciamento de Serviços](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

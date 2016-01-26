@@ -30,6 +30,10 @@ Este tutorial mostra como é fácil e rápido criar uma máquina virtual do Azur
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
 
+<br>
+
+>[AZURE.TIP]Ao usar o portal, se quiser que sua VM faça parte de um conjunto de disponibilidade, você precisará criar o conjunto de disponibilidade antes ou durante a criação da primeira VM no conjunto de disponibilidade. Para obter mais informações sobre como criar e usar conjuntos de disponibilidade, consulte [Gerenciar a disponibilidade de máquinas virtuais](virtual-machines-manage-availability.md).
+
 Você também pode criar máquinas virtuais usando suas próprias imagens, com modelos do Gerenciador de Recursos ou com ferramentas de automação. Para saber mais sobre esse e outros métodos, consulte [Diferentes maneiras de criar uma máquina virtual do Windows](virtual-machines-windows-choices-create-vm.md).
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
@@ -62,7 +66,7 @@ Depois de selecionar a imagem, você poderá usar as configurações padrão do 
 
 2. Insira um **Nome** para a máquina virtual. O nome não pode conter caracteres especiais.
 
-3. Insira um **Nome de usuário** administrativo e uma **Senha** forte. A senha deve ter entre 8 e 123 caracteres e ter pelo menos 3 dos seguintes: um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial. **Você precisará do nome do usuário e da senha para fazer logon na máquina virtual**
+3. Insira um **Nome de usuário** administrativo e uma **Senha** forte. A senha deve ter entre 8 e 123 caracteres e ter pelo menos 3 dos seguintes: um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial. **Você precisará do nome do usuário e da senha para fazer logon na máquina virtual**.
 
 4. Se você tiver mais de uma assinatura, especifique a assinatura certa para a nova máquina virtual, bem como um **Grupo de recursos** novo ou existente e um **Local** para o data center do Azure.
 
@@ -83,7 +87,7 @@ Depois de selecionar a imagem, você poderá usar as configurações padrão do 
 
 	![Captura de tela que mostra o resumo das opções de configuração feitas para a VM do Azure](./media/virtual-machines-windows-tutorial/create_vm_summary.PNG)
 
-8. Enquanto o Azure cria a máquina virtual, é possível acompanhar o andamento em **Máquinas Virtuais**, no menu do hub.
+8. Enquanto o Azure cria a máquina virtual, você pode acompanhar o andamento em **Máquinas Virtuais**, no menu do hub.
 
 ## Faça logon na máquina virtual
 
@@ -112,6 +116,6 @@ Você agora pode trabalhar com a máquina virtual, como faria com qualquer outro
 ## Próximas etapas
 
 * Use o Azure PowerShell e CLI do Azure para [localizar e selecionar imagens da máquina virtual](resource-groups-vm-searching.md).
-* Automatize a máquina virtual e a implantação e o gerenciamento da carga de trabalho usando os [modelos do Gerenciador de Recursos do Azure](http://azure.microsoft.com/documentation/templates/).
+* Automatize a máquina virtual e a implantação, bem como o gerenciamento da carga de trabalho, usando os [modelos do Gerenciador de Recursos do Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

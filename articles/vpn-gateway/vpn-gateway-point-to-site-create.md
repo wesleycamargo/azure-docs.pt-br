@@ -21,11 +21,11 @@
 
 > [AZURE.SELECTOR]
 - [PowerShell - Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
-- [PowerShell - Classic](vpn-gateway-point-to-site-create.md)
+- [Portal - Classic](vpn-gateway-point-to-site-create.md)
 
 Uma configuração Ponto a Site permite que você crie uma conexão segura com sua rede virtual em um computador cliente, individualmente. Uma conexão VPN é estabelecida por meio do início da conexão do computador cliente. Essa é uma excelente solução quando você deseja se conectar à sua rede virtual de um local remoto, como de casa ou de uma conferência, ou quando você tiver apenas alguns clientes que precisam se conectar a uma rede virtual. As conexões Ponto a Site não exigem um dispositivo VPN ou um endereço IP voltado para o público para funcionar. Para saber mais sobre as conexões Ponto a Site, confira as [Perguntas frequentes sobre o Gateway de VPN](vpn-gateway-vpn-faq.md#point-to-site-connections) e [Sobre conexões entre locais](vpn-gateway-cross-premises-options.md).
 
-Este artigo se aplica a conexões de Gateway de VPN Ponto a Site para uma rede virtual criada usando o **modelo clássico de implantação** (Gerenciamento de Serviços). Se você quiser configurar uma conexão Ponto a Site para uma Rede Virtual criada usando o Gerenciador de Recursos, confira [este artigo](vpn-gateway-howto-point-to-site-rm-ps.md).
+Este artigo se aplica a conexões de Gateway de VPN Ponto a Site para uma rede virtual criada usando o **modelo clássico de implantação** (Gerenciamento de Serviços). Se você quiser configurar uma conexão Ponto a Site para uma Rede Virtual criada usando o Gerenciador de Recursos, confira [Configurar uma conexão Ponto a Site para uma rede virtual usando o PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md).
 
 [AZURE.INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
@@ -57,7 +57,7 @@ Etapa 2 - Criar um gateway de roteamento dinâmico.
 1. Na página **Conectividade ponto a site**, especifique o intervalo de endereços IP do qual os seus clientes VPN receberão um endereço IP quando conectados. Há algumas regras sobre os intervalos de endereços que você pode especificar. É muito importante verificar se o intervalo especificado não coincide com nenhum dos intervalos existentes na rede local.
 1. Digite as informações a seguir e, em seguida, clique na seta de avanço.
  - **Espaço de endereço**: inclua o IP Inicial e a Contagem de Endereços (CIDR).
- - **Adicionar espaço de endereço**: adicione somente se necessário para seu design de rede.
+ - **Adicionar espaço de endereço**: adicione o espaço de endereço somente se necessário para seu design de rede.
 1. Na página **Espaços de Endereço de Rede Virtual**, especifique o intervalo de endereços que você deseja usar para sua rede virtual. Esses são os DIPS (endereços IP dinâmicos) que serão atribuídos às VMs e a outras instâncias de função que você implantar nessa rede virtual. É particularmente importante selecionar um intervalo que não se sobreponha a nenhum dos intervalos usados para sua rede local. Você precisará realizar a coordenação com o administrador da rede, que pode precisar reservar um intervalo de endereços IP de seu espaço de endereço de rede local para que você possa usar para sua rede virtual.
 1. Insira as informações a seguir e clique na marca de seleção para iniciar a criação da sua rede virtual.
  - **Espaço de endereço**: adicione o intervalo de endereços IP internos que você deseja usar para essa rede virtual, incluindo IP Inicial e Contagem. É importante selecionar um intervalo que não se sobreponha a qualquer um dos intervalos usados para sua rede local. Você precisará realizar a coordenação com o administrador da rede, que pode precisar reservar um intervalo de endereços IP de seu espaço de endereço de rede local para que você possa usar para sua rede virtual.
@@ -74,7 +74,7 @@ O tipo de gateway deve ser configurado como dinâmico. Os gateways de roteamento
 
 ## Seção 2 - Gerar e carregar certificados
 
-Os certificados são usados para autenticar clientes VPN para VPNs ponto a site. Anteriormente, era necessário gerar seu próprio certificado autoassinado. Agora você agora pode usar certificados gerados usando uma solução corporativa. É possível carregar até 20 certificados raiz no Azure.
+Os certificados são usados para autenticar clientes VPN para VPNs ponto a site. Você pode usar certificados gerados por uma solução de certificado corporativo, bem como certificados autoassinados. É possível carregar até 20 certificados raiz no Azure.
 
 Se você quiser usar um certificado autoassinado, as etapas a seguir o guiarão pelo processo. Se você estiver planejando usar uma solução de certificado corporativo, as etapas em cada seção serão diferentes, mas você ainda precisará fazer o seguinte:
 
@@ -90,12 +90,12 @@ Etapa 4 - Exportar e instalar o certificado de cliente.
 
 ### Identificar ou gerar um certificado raiz
 
-Se você não estiver usando uma solução de certificado corporativo, será preciso gerar um certificado raiz autoassinado. As etapas abaixo funcionam no Windows 8. Estamos em processo de atualização com novas etapas para o Windows 10.
+Se você não estiver usando uma solução de certificado corporativo, será preciso gerar um certificado raiz autoassinado. As etapas nesta seção foram escritas para o Windows 8. Para obter as etapas para o Windows 10, você pode consultar [Trabalhando com certificados raiz autoassinados para configurações de Ponto a Site](vpn-gateway-certificates-point-to-site.md).
 
 Uma maneira de criar um certificado X.509 é usando a Ferramenta de Criação de Certificado (makecert.exe). Para usar a ferramenta makecert, baixe e instale o [Microsoft Visual Studio Express](https://www.visualstudio.com/products/visual-studio-express-vs.aspx), que é gratuito.
 
 2. Navegue até a pasta Ferramentas do Visual Studio e inicie o prompt de comando como administrador.
-3. O comando no exemplo a seguir cria e instala um certificado raiz no repositório de certificados Pessoais do seu computador e também cria um arquivo *.cer* correspondente, que você posteriormente carregará no portal clássico do Azure.
+3. O comando no exemplo a seguir cria e instala um certificado raiz no repositório de certificados Pessoais de seu computador e também cria um arquivo *.cer* correspondente, que você posteriormente carregará no portal clássico do Azure.
 4. Vá para o diretório no qual deseja colocar o arquivo .cer e execute o comando a seguir, em que *RootCertificateName* é o nome que você deseja usar para o certificado. Se você executar o exemplo a seguir sem alterações, o resultado será um certificado raiz e o arquivo *RootCertificateName.cer* correspondente.
 
 >[AZURE.NOTE]Como você criou um certificado raiz do qual serão gerados certificados de cliente, você pode querer exportar o certificado juntamente com a sua chave privada e salvá-lo em um local seguro onde possa ser recuperado.
@@ -107,12 +107,12 @@ Uma maneira de criar um certificado X.509 é usando a Ferramenta de Criação de
 Você precisará carregar o arquivo. cer correspondente para cada certificado raiz no Azure. É possível carregar até 20 certificados.
 
 1. Quando você gerou um certificado raiz no procedimento anterior, criou também um arquivo *.cer*. Agora você carregará esse arquivo no portal clássico do Azure. Observe que o arquivo.cer não contém a chave privada do certificado raiz. É possível carregar até 20 certificados raiz.
-1. No portal clássico do Azure, na página **Certificados** da sua rede virtual, clique em **Carregar um certificado raiz**.
+1. No portal clássico do Azure, na página **Certificados** de sua rede virtual, clique em **Carregar um certificado raiz**.
 1. Na página **Carregar certificado**, procure o certificado raiz .cer e clique na marca de seleção.
 
 ### Gerar um certificado de cliente
 
-As etapas a seguir visam gerar um certificado do cliente a partir do certificado raiz autoassinado. Se você estiver usando uma solução de certificado corporativo, siga as diretrizes para a solução que está usando.
+As etapas a seguir visam gerar um certificado do cliente a partir do certificado raiz autoassinado. As etapas nesta seção foram escritas para o Windows 8. Para obter as etapas para o Windows 10, você pode consultar [Trabalhando com certificados raiz autoassinados para configurações de Ponto a Site](vpn-gateway-certificates-point-to-site.md). Se você estiver usando uma solução de certificado corporativo, siga as diretrizes para a solução que está usando.
 
 1. No mesmo computador que você usou para criar o certificado raiz autoassinado, abra uma janela de Prompt de comando do Visual Studio como administrador.
 2. Altere o diretório para o local onde você deseja salvar arquivo de certificado de cliente. *RootCertificateName* refere-se ao certificado raiz autoassinado que você gerou. Se você executar o exemplo a seguir (alterando o RootCertificateName para o nome do seu certificado raiz), o resultado será um certificado de cliente chamado "ClientCertificateName" no seu repositório de certificados Pessoais.
@@ -144,7 +144,7 @@ Etapa 3 - Verificar a conexão.
 
 ### Criar o pacote de configuração de cliente VPN
 
-1. No portal clássico do Azure, na página **Painel** da sua rede virtual, navegue até o menu de visualização rápida no canto direito e clique no pacote VPN que pertence ao cliente que você deseja conectar à sua rede virtual.
+1. No portal clássico do Azure, na página **Painel** de sua rede virtual, navegue até o menu de visão rápida no canto direito e clique no pacote VPN que pertence ao cliente que você deseja conectar à sua rede virtual.
 2. 
 Há suporte para os seguintes sistemas operacionais clientes:
  - Windows 7 (32 bits e 64 bits)
@@ -196,4 +196,4 @@ Você pode adicionar máquinas virtuais à sua rede virtual. Veja [Como criar um
 
 Se quiser saber mais sobre Redes Virtuais, consulte a página [Documentação da Rede Virtual](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

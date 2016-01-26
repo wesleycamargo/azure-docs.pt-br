@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="12/01/2015"
+   ms.date="01/20/2016"
    ms.author="sstein"/>
 
 # Experimentar o Banco de Dados SQL: Usar o C&#x23; para criar um banco de dados SQL com a Biblioteca do Banco de Dados SQL para .NET 
@@ -67,11 +67,11 @@ Para autenticar seu aplicativo cliente com base no usuário atual, primeiro voc�
 
 Para criar um novo aplicativo e registrá-lo no active directory correto, faça o seguinte:
 
-1. Role o menu à esquerda para localizar o serviço do **Active Directory** e abri-lo.
+1. Role o menu à esquerda para localizar e abrir o serviço do **Active Directory**.
 
     ![Experimentar o Banco de Dados SQL: Configurar o Active Directory do Azure (AAD).][1]
 
-2. Selecione o diretório para autenticar seu aplicativo e clique em seu **Nome**.
+2. Selecione o diretório para autenticar o aplicativo e clique no respectivo **Nome**.
 
     ![Selecione o diretório para autenticar seu aplicativo C# SQL.][4]
 
@@ -83,7 +83,7 @@ Para criar um novo aplicativo e registrá-lo no active directory correto, faça 
 
     ![Adicione o aplicativo C# SQL.][6]
 
-5. Selecione **Adicionar um aplicativo que minha organização esteja desenvolvendo**.
+5. Escolha **Adicionar um aplicativo que minha organização está desenvolvendo**.
 
 5. Forneça um **NOME** para o aplicativo e selecione **APLICATIVO CLIENTE NATIVO**.
 
@@ -93,7 +93,7 @@ Para criar um novo aplicativo e registrá-lo no active directory correto, faça 
 
     ![Adicione uma URL de redirecionamento ao seu aplicativo C# SQL.][8]
 
-7. Conclua a criação do aplicativo, clique em **CONFIGURAR** e copie a **ID DO CLIENTE** (você precisará da ID do cliente em seu código).
+7. Conclua a criação do aplicativo, clique em **CONFIGURAR** e copie a **ID DO CLIENTE** (você vai precisar da ID do cliente no código).
 
     ![Obtenha a ID de cliente do aplicativo C# SQL.][9]
 
@@ -101,7 +101,7 @@ Para criar um novo aplicativo e registrá-lo no active directory correto, faça 
 1. Na parte inferior da página, clique em **Adicionar aplicativo**.
 1. Selecione **Aplicativos da Microsoft**.
 1. Selecione **API de Gerenciamento de Serviços do Azure** e conclua o assistente.
-2. Com a API selecionada, você precisa conceder as permissões específicas necessárias para acessar essa API selecionando **Acessar o Gerenciamento de Serviços do Azure (visualização)**.
+2. Com a API selecionada, você deve conceder as permissões específicas necessárias para acessar essa API; para isso, selecione **Acessar o Gerenciamento de Serviços do Azure (visualização)**.
 
     ![Defina permissões.][2]
 
@@ -124,7 +124,7 @@ O nome de domínio é necessário para seu código. Uma maneira fácil de identi
 
 **Recursos adicionais de AAD**
 
-Encontre informações adicionais sobre como usar o Active Directory do Azure para autenticação [nesta postagem útil do blog](http://www.cloudidentity.com/blog/2013/09/12/active-directory-authentication-library-adal-v1-for-net-general-availability/).
+Saiba mais sobre como usar o Active Directory do Azure para autenticação [nesta postagem de blog](http://www.cloudidentity.com/blog/2013/09/12/active-directory-authentication-library-adal-v1-for-net-general-availability/).
 
 
 ### Recuperar o token de acesso para o usuário atual 
@@ -414,8 +414,7 @@ O comando C# a seguir criará um novo banco de dados SQL Basic se ainda não exi
 ## Próximas etapas
 Agora que você já experimentou o Banco de Dados SQL e configurou um banco de dados com o C#, está pronto para os seguintes artigos:
 
-- [Conectar-se e consultar o Banco de Dados SQL com C#](sql-database-connect-query.md)
-- [Conectar-se ao SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+- [Conectar-se ao Banco de Dados SQL com o SQL Server Management Studio e executar um exemplo de consulta T-SQL](sql-database-connect-query-ssms.md)
 
 ## Recursos adicionais
 
@@ -436,4 +435,4 @@ Agora que você já experimentou o Banco de Dados SQL e configurou um banco de d
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

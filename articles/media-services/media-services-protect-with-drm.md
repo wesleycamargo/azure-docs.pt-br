@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="01/10/2016" 
+	ms.date="01/20/2016" 
 	ms.author="juliako"/>
 
 
@@ -627,8 +627,10 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida na versão 3.5
 
 ##Consulte também
 
+[CENC com DRM múltiplo e controle de acesso](media-services-cenc-with-multidrm-access-control.md)
+
 [Configurar o empacotamento Widevine com AMS](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
 
 [Anunciando a visualização pública de serviços de entrega de licenças do Google Widevine nos Serviços de Mídia do Azure](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->
