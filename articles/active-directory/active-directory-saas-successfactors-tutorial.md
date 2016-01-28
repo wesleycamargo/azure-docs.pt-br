@@ -85,7 +85,7 @@ Para obter logon único configurado, você precisará entrar em contato com sua 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-successfactors-tutorial/IC791140.png "Configurar a URL do Aplicativo")
 
     1.  Na caixa de texto **URL de Logon Único do SuccessFactors**, digite a URL usada pelos usuários para fazer logon em seu aplicativo do SuccessFactors (por exemplo: "**https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*")).
-2.  Na caixa de texto **URL de Resposta do SuccessFactors**, digite ****https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**.
+    2.  Na caixa de texto **URL de Resposta do SuccessFactors**, digite **https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**.
 
         >[AZURE.NOTE]Esse valor é apenas um espaço reservado temporário. Você obterá o valor real com a equipe de suporte do SuccessFactors. Mais tarde neste tutorial, você encontrará instruções sobre como entrar em contato com a equipe de suporte do SuccessFactors. No contexto desta conversa, você receberá a URL de Resposta do SuccessFactors real.
 
@@ -131,4 +131,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->
