@@ -88,9 +88,9 @@ Como é o armazenamento padrão para o HDInsight, você normalmente não precisa
 
 	hadoop fs -ls /example/data
 
-Alguns comandos podem exigir que você especifique o uso do armazenamento de Blob. Nesses casos, você poderá prefixar o comando com ****WASB://**.
+Alguns comandos podem exigir que você especifique o uso do armazenamento de Blob. Nesses casos, você poderá prefixar o comando com **WASB://**.
 
-O HDInsight também permite que você associe várias contas de armazenamento de Blob a um cluster. Para acessar dados em uma conta de armazenamento de Blob não padrão, você pode usar o formato **WASB://&lt;container-name>@&lt;account-name>.blob.core.windows.net/**. Por exemplo, o comando a seguir listará o conteúdo do diretório **/example/data** para o contêiner e a conta de armazenamento de Blob especificados:
+O HDInsight também permite que você associe várias contas de armazenamento de Blob a um cluster. Para acessar dados em uma conta de armazenamento de Blob não padrão, você pode usar o formato **WASB://&lt;nome do contêiner-name>@&lt;nome da conta>.blob.core.windows.net/**. Por exemplo, o comando a seguir listará o conteúdo do diretório **/example/data** para o contêiner e a conta de armazenamento de Blob especificados:
 
 	hadoop fs -ls wasb://mycontainer@mystorage.blob.core.windows.net/example/data
 
@@ -196,7 +196,7 @@ Os diferentes tipos de cluster são afetados pelo dimensionamento da seguinte ma
 
 	* __Interface do usuário do Storm__: use as etapas a seguir para rebalancear uma topologia usando a interface do usuário do Storm.
 
-		1. Abra \_\___https://CLUSTERNAME.azurehdinsight.net/stormui__ no navegador da Web, em que NOMEDOCLUSTER é o nome do seu cluster Storm. Se solicitado, insira o nome de administrador (admin) do cluster HDInsight e a senha que você especificou ao criar o cluster.
+		1. Abra __https://CLUSTERNAME.azurehdinsight.net/stormui__ no navegador da Web, em que NOMEDOCLUSTER é o nome do seu cluster Storm. Se solicitado, insira o nome de administrador (admin) do cluster HDInsight e a senha que você especificou ao criar o cluster.
 
 		3. Selecione a topologia que você quer rebalancear e, em seguida, selecione o botão __Rebalancear__. Insira o atraso antes de a operação de rebalanceamento ser executada.
 
@@ -248,3 +248,5 @@ Se o cluster já fornece uma versão de um componente como um arquivo jar indepe
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
 <!---HONumber=AcomDC_0114_2016-->
+
+
