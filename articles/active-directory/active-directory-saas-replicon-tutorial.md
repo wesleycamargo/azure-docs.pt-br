@@ -81,7 +81,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     ![Configurar a URL do aplicativo](./media/active-directory-saas-replicon-tutorial/IC777803.png "Configurar a URL do aplicativo")
 
     1.  Na caixa de texto **URL de Logon do Replicon**, digite a URL de locatário do Replicon (por exemplo: **https://na2.replicon.com/company/saml2/sp-sso/post*)).
-2.  Na caixa de texto **URL de Resposta do Replicon**, digite a URL de **AssertionConsumerService** do Replicon (por exemplo: **https://global.replicon.com/!/saml2/company/sso/post*)).
+    2.  Na caixa de texto **URL de Resposta do Replicon**, digite a URL de **AssertionConsumerService** do Replicon (por exemplo: **https://global.replicon.com/!/saml2/company/sso/post*)).
 
         >[AZURE.NOTE]Você pode obter a URL dos metadados do Replicon em: **https://global.replicon.com/!/saml2/\<ChaveSuaEmpresa>**.
 
@@ -151,4 +151,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->
