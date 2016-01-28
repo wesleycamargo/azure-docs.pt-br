@@ -26,11 +26,11 @@ O uso de SAS (assinatura de acesso compartilhado) é uma maneira eficiente de co
 
 ## O que é uma assinatura de acesso compartilhado?
 
-Uma assinatura de acesso compartilhado fornece acesso delegado aos recursos da sua conta de armazenamento. Isso significa que você pode conceder a um cliente permissões limitadas a objetos na sua conta de armazenamento por um período especificado e com um conjunto determinado de permissões, sem precisar compartilhar suas chaves de acesso de conta. A SAS é um URI que engloba em seus parâmetros de consulta todas as informações necessárias para o acesso autenticado a um recurso de armazenamento. Para acessar recursos de armazenamento com a SAS, o cliente só precisa passar a SAS ao construtor apropriado ou ao método apropriado.
+Uma assinatura de acesso compartilhado fornece acesso delegado aos recursos da sua conta de armazenamento. Isso significa que você pode conceder a um cliente permissões limitadas a objetos na sua conta de armazenamento por um período especificado e com um conjunto determinado de permissões, sem precisar compartilhar suas chaves de acesso de conta. A SAS é um URI que engloba em seus parâmetros de consulta todas as informações necessárias para o acesso autenticado a um recurso de armazenamento. Para acessar recursos de armazenamento com a SAS, o cliente só precisa passar a SAS ao construtor ou método apropriado.
 
 ## Quando você deve usar uma assinatura de acesso compartilhado?
 
-Você pode usar uma SAS quando desejar fornecer acesso aos recursos de sua conta de armazenamento a um cliente não confiável com a chave de conta. As chaves de conta de armazenamento incluem uma chave primária e uma chave secundária, que concedem acesso administrativo à sua conta e a todos os recursos que ela contém. A exposição de qualquer uma de suas chaves de conta torna sua conta vulnerável a um possível uso mal-intencionado ou negligente. As assinaturas de acesso compartilhado são uma alternativa segura que permite que outros clientes leiam, gravem e excluam dados da sua conta de armazenamento de acordo com as permissões que você tiver concedido a eles e sem que eles precisem da chave de conta.
+Você pode usar uma SAS quando desejar fornecer acesso aos recursos de sua conta de armazenamento a um cliente não confiável com a chave de conta. As chaves de conta de armazenamento incluem uma chave primária e uma chave secundária, ambas concedem acesso administrativo à sua conta e a todos os recursos que ela contém. A exposição de qualquer uma de suas chaves de conta torna sua conta vulnerável a um possível uso mal-intencionado ou negligente. As assinaturas de acesso compartilhado são uma alternativa segura que permite que outros clientes leiam, gravem e excluam dados da sua conta de armazenamento de acordo com as permissões que você tiver concedido a eles e sem que eles precisem da chave de conta.
 
 Um cenário comum em que uma SAS é útil é um serviço onde os usuários leem e gravam seus próprios dados na sua conta de armazenamento. Em um cenário em que uma conta de armazenamento armazena dados do usuário, há dois padrões de design comuns:
 
@@ -43,7 +43,7 @@ Um cenário comum em que uma SAS é útil é um serviço onde os usuários leem 
 
 ![sas-storage-provider-service][sas-storage-provider-service]
 
-Vários serviços reais podem usar uma mistura híbrida dessas duas abordagens, dependendo do cenário envolvido, com alguns dados processados e validados por meio do proxy front-end, enquanto outros dados são salvos e/ou lidos diretamente com a SAS.
+Vários serviços reais podem usar uma combinação dessas duas abordagens, dependendo do cenário envolvido, com alguns dados processados e validados por meio do proxy front-end, enquanto outros dados são salvos e/ou lidos diretamente com a SAS.
 
 Além disso, você precisará usar uma SAS para autenticar o objeto de origem em uma operação de cópia em determinados cenários:
 
@@ -118,7 +118,7 @@ E aqui está um exemplo de uma SAS de conta que usa os mesmos parâmetros comuns
 
 Nome|Parte SAS|Descrição
 ---|---|---
-URI de recurso|https://myaccount.blob.core.windows.net/?restype=service&comp=properties|The Ponto de extremidade de serviço Blob, com parâmetros para obter as propriedades do serviço (quando chamado com GET) ou definir as propriedades do serviço (quando chamado com SET).
+URI de recurso|https://myaccount.blob.core.windows.net/?restype=service&comp=properties|O Ponto de extremidade de serviço Blob, com parâmetros para obter as propriedades do serviço (quando chamado com GET) ou definir as propriedades do serviço (quando chamado com SET).
 Serviços|ss=bf|A SAS se aplica a serviços de arquivo e Blob
 Tipos de recurso|srt=s|A SAS se aplica a operações de nível de serviço.
 Permissões|sp=rw|As permissões concedem acesso a operações de leitura e gravação.  
