@@ -132,7 +132,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     2.  No portal do Azure, na página do diálogo **Configurar logon único no Work.com**, copie o valor da **URL do Emissor** e cole-o na caixa de texto **Emissor**.
     3.  Para carregar o certificado baixado, clique em **Procurar**.
     4.  Na caixa de texto **ID de Entidade**, digite ****https://salesforce-work.com**.
-5.  Para o **Tipo de Identidade do SAML**, selecione **A declaração contém a ID de Federação do objeto User**.
+    5.  Para o **Tipo de Identidade do SAML**, selecione **A declaração contém a ID de Federação do objeto User**.
     6.  Para **Local de Identidade do SAML**, selecione **A identidade está contida no elemento NameIdentifier da instrução Subject**.
     7.  No portal do Azure, na página do diálogo **Configurar logon único no Work.com**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL do Logon do Provedor de Identidade**.
     8.  No portal do Azure, na página do diálogo **Configurar logon único no Work.com**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL do Logoff do Provedor de Identidade**.
@@ -207,4 +207,4 @@ Agora, você deveria aguardar 10 minutos e verificar se a conta foi sincronizada
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->

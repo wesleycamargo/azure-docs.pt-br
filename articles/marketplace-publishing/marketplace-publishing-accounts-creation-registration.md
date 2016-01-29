@@ -164,8 +164,8 @@ Agora que sua conta foi criada e registrada, clique no tipo de artefato (máquin
 || Imagem de máquina virtual| Serviço do desenvolvedor | Serviço de dados | Modelo da solução | 
 |----|-----|-----|-----|-----| 
 |**Etapa 2: Criar sua oferta** |[Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| 
-|| [Pré-requisitos técnicos da imagem de VM][link-single-vm-prereq] | [Pré-requisitos técnicos do serviço do desenvolvedor](marketplace-publishing-dev-service-creation-prerequisites.md) | [Pré-requisitos técnicos do serviço de dados](marketplace-publishing-data-service-creation-prerequisites.md) | 
-|| [Pré-requisitos técnicos do modelo da solução](marketplace-publishing-solution-template-creation-prerequisites.md) | || [Guia de publicação da imagem de VM][link-single-vm] | [Guia de publicação do serviço do desenvolvedor](marketplace-publishing-dev-creation.md) | [Guia de publicação do serviço de dados](marketplace-publishing-data-service-creation.md) | [Guia de publicação do modelo da solução](marketplace-publishing-solution-template-creation.md) | 
+|| [Pré-requisitos técnicos da imagem de VM][link-single-vm-prereq] | [Pré-requisitos técnicos do serviço do desenvolvedor](marketplace-publishing-dev-service-creation-prerequisites.md) | [Pré-requisitos técnicos do serviço de dados](marketplace-publishing-data-service-creation-prerequisites.md) | [Pré-requisitos técnicos do modelo da solução](marketplace-publishing-solution-template-creation-prerequisites.md) |
+|| [Guia de publicação da imagem de VM][link-single-vm] | [Guia de publicação do serviço do desenvolvedor](marketplace-publishing-dev-creation.md) | [Guia de publicação do serviço de dados](marketplace-publishing-data-service-creation.md) | [Guia de publicação do modelo da solução](marketplace-publishing-solution-template-creation.md) | 
 || [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] |
 
 ## Consulte também
@@ -198,4 +198,4 @@ Agora que sua conta foi criada e registrada, clique no tipo de artefato (máquin
 [link-devsvc-prereq]: marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->

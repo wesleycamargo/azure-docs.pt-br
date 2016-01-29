@@ -61,7 +61,8 @@ Como o Backup do Azure é uma solução de backup híbrida, ele consiste em vár
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md)</p> |
-| VMs de IaaS do Azure (Windows)| - | [Backup do Azure (extensão de VM)](backup-azure-vms-introduction.md) | | VMs de IaaS do Azure (Linux) | - | [Backup do Azure (extensão de VM)](backup-azure-vms-introduction.md) |
+| VMs de IaaS do Azure (Windows)| - | [Backup do Azure (extensão de VM)](backup-azure-vms-introduction.md) |
+| VMs de IaaS do Azure (Linux) | - | [Backup do Azure (extensão de VM)](backup-azure-vms-introduction.md) |
 
 ## Funcionalidade
 Estas tabelas resumem como a funcionalidade do Backup do Azure é tratada em cada componente:
@@ -164,4 +165,4 @@ Para tomar decisões sobre backup e recuperação de desastre, é importante com
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->

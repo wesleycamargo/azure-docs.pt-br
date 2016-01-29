@@ -108,8 +108,8 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-topdesk-secure-tutorial/IC790604.png "Configurar a URL do Aplicativo")
 
     1.  Na caixa de texto **URL de Logon do TOPdesk - Secure**, digite a URL usada pelos usuários para entrar no aplicativo TOPdesk - Secure (por exemplo: "**https://qssolutions.topdesk.net*")).
-2.  Na caixa de texto **URL de Resposta do TOPdesk – Secure**, cole a **URL AssertionConsumerService do TOPdesk - Secure** (por exemplo: "**https://qssolutions.topdesk.net/tas/public/login/saml*")
-3.  Clique em **Próximo**.
+    2.  Na caixa de texto **URL de Resposta do TOPdesk – Secure**, cole a **URL AssertionConsumerService do TOPdesk - Secure** (por exemplo: "**https://qssolutions.topdesk.net/tas/public/login/saml*")
+    3.  Clique em **Próximo**.
 
 10. Na página **Configurar logon único no TOPdesk - Secure**, para baixar o arquivo de metadados, clique em **Baixar metadados** e salve o arquivo localmente no computador.
 
@@ -197,4 +197,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->

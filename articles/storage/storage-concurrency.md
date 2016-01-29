@@ -93,7 +93,10 @@ Get Container Properties|	Sim|	Não|
 Get Container Metadata|	Sim|	Não|
 Set Container Metadata|	Sim|	Sim|
 Get Container ACL|	Sim|	Não|
-Set Container ACL|	Sim|	Sim (*)| Delete Container| Não| Sim| Lease Container| Sim| Sim| List Blobs| Não| Não 
+Set Container ACL|	Sim|	Sim (*)|
+Delete Container| Não| Sim|
+Lease Container| Sim| Sim|
+List Blobs| Não| Não 
 
 (*) As permissões definidas por SetContainerACL são armazenadas em cache e as atualizações dessas permissões levam 30 segundos para serem propagadas, período durante o qual não há garantia de que as atualizações são consistentes.
 
@@ -107,7 +110,16 @@ Get Blob Properties|	Sim|	Sim|
 Set Blob Properties|	Sim|	Sim|
 Get Blob Metadata|	Sim|	Sim|
 Set Blob Metadata|	Sim|	Sim|
-Lease Blob (*)| Sim| Sim| Snapshot Blob| Sim| Sim| Copy Blob| Sim| Sim (para blob de origem e destino)| Abort Copy Blob| Não| Não| Delete Blob| Não| Sim| Put Block| Não| Não| Put Block List| Sim| Sim| Get Block List| Sim| Não| Put Page| Sim| Sim| Get Page Ranges| Sim| Sim
+Lease Blob (*)| Sim| Sim|
+Snapshot Blob| Sim| Sim|
+Copy Blob| Sim| Sim (para blob de origem e destino)|
+Abort Copy Blob| Não| Não|
+Delete Blob| Não| Sim|
+Put Block| Não| Não|
+Put Block List| Sim| Sim|
+Get Block List| Sim| Não|
+Put Page| Sim| Sim|
+Get Page Ranges| Sim| Sim
 
 (*) Lease Blob não altera a ETag em um blob.
 
@@ -271,4 +283,4 @@ Para obter mais informações sobre Armazenamento do Azure, consulte:
 - Introdução ao Armazenamento para [Blob](storage-dotnet-how-to-use-blobs.md), [Tabela](storage-dotnet-how-to-use-tables.md) e [Filas](storage-dotnet-how-to-use-queues.md)
 - Arquitetura de Armazenamento – [Armazenamento do Microsoft Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->
