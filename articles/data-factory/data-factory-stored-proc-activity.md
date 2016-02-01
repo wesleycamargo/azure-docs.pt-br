@@ -72,7 +72,8 @@ storedProcedureParameters | Especificar valores para parâmetros de procedimento
 		CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable(Id);
 		GO
 
-	ID é a única identificada e a coluna datetimestamp é a data e a hora em que a ID correspondente é gerada. ![Dados de amostra](./media/data-factory-stored-proc-activity/sample-data.png)
+	ID é a única identificada e a coluna datetimestamp é a data e a hora em que a ID correspondente é gerada.
+	![Dados de amostra](./media/data-factory-stored-proc-activity/sample-data.png)
 
 2. Crie o seguinte **procedimento armazenado** que insere dados no **sampletable**.
 
@@ -106,7 +107,7 @@ Depois de criar a data factory, você deve criar um serviço do SQL Azure vincul
 
 7.	Clique em **Criar e implantar** na folha **DATA FACTORY** para **SProcDF**. Isso inicia o Data Factory Editor. 
 2.	Clique em **Novo armazenamento de dados** no comando barra e escolha **SQL Azure**. Você deve ver o script JSON para criar um serviço vinculado do SQL Azure no editor. 
-4. Substitua o **servername** com o nome do seu servidor de banco de dados SQL, **databasename** com o banco de dados em que você criou a tabela e o procedimento armazenado, * ***username@servername** com a conta de usuário que tenha acesso ao banco de dados, e **senha** com a senha da conta de usuário.
+4. Substitua o **servername** com o nome do seu servidor de banco de dados SQL, **databasename** com o banco de dados em que você criou a tabela e o procedimento armazenado, **username@servername** com a conta de usuário que tenha acesso ao banco de dados, e **senha** com a senha da conta de usuário.
 5. Clique em **Implantar** na barra de comandos para implantar o serviço vinculado.
 
 ### Criar um conjunto de dados de saída

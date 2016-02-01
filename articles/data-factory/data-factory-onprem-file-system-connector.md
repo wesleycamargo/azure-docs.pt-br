@@ -437,7 +437,7 @@ Senha | Especifique a senha para o usuário (userid) | Não (se você escolher e
 encryptedCredential | Especifique as credenciais criptografadas que você pode obter executando o cmdlet New-AzureRmDataFactoryEncryptValue<p>**Observação:** você deve usar o Azure PowerShell de versão 0.8.14 ou superior para usar cmdlets como New-AzureRmDataFactoryEncryptValue com parâmetro type definido como OnPremisesFileSystemLinkedService</p> | Não (se você optar por especificar userid e password em texto sem formatação)
 gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar ao servidor de arquivos local | Sim
 
-Consulte [Definir credenciais e segurança](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obter detalhes sobre como definir credenciais para uma fonte de dados do Sistema de Arquivos local.
+Consulte [Definir credenciais e segurança](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obter detalhes sobre como definir credenciais para uma fonte de dados do sistema de arquivos local.
 
 **Exemplo: usando username e password em texto sem formatação**
 	
@@ -517,7 +517,7 @@ No exemplo acima, ano, mês, dia e hora do SliceStart são extraídos em variáv
 
 ### Especificando TextFormat
 
-Se o formato for definido como **TextFormat**, você poderá especificar as seguintes propriedades **optional** na seção **Format** dentro da seção **typeProperties**.
+Se o formato for definido como **TextFormat**, você pode especificar as seguintes propriedades **opcionais** na seção **Format** dentro da seção **typeProperties**.
 
 Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------

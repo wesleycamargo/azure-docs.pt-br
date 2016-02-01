@@ -107,12 +107,13 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     3.  Para carregar seu arquivo de metadados baixado, clique em **Escolher arquivo**.
     4.  Clique em **Definir Provedor de Identidade**.
 
-10. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
+10. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-arcgis-tutorial/IC784746.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
 
-Para permitir que os usuários do AD do Azure façam logon no ArcGIS, eles devem ser provisionados no ArcGIS. No caso do ArcGIS, o provisionamento é uma tarefa manual.
+Para permitir que os usuários do AD do Azure façam logon no ArcGIS, eles devem ser provisionados no ArcGIS.  
+No caso do ArcGIS, o provisionamento é uma tarefa manual.
 
 ###Para configurar o provisionamento de usuários, execute as seguintes etapas:
 

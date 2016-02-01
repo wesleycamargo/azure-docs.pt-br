@@ -79,7 +79,7 @@ O Centro de Desenvolvimento da Microsoft é usada para registrar as informaçõe
 
 6. Selecione o "Tipo de conta", **Individual** ou **Empresa**.
 
-    > [AZURE.IMPORTANT]Para entender melhor os tipos de conta e qual é a melhor para você, veja a página [Tipos de conta, locais e tarifas](https://msdn.microsoft.com/library/windows/apps/jj863494.aspx)
+    > [AZURE.IMPORTANT] Para entender melhor os tipos de conta e qual é a melhor para você, veja a página [Tipos de conta, locais e tarifas](https://msdn.microsoft.com/library/windows/apps/jj863494.aspx)
 
 7. Insira o **Nome de exibição do publicador**, normalmente o nome de sua empresa.
 
@@ -147,7 +147,11 @@ O portal de publicação do Azure é usado para publicar e gerenciar suas oferta
 
   >[AZURE.TIP]As políticas de participação são descritas no [site do Azure](http://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
-  > Se você tiver problemas com o registro no Centro de Desenvolvimento, registre um tíquete de suporte, conforme explicado abaixo: 1. Contate o [Suporte](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=pt-BR&pesid=15635&ccsid=635847950577064286). 2. Escolha **Centro de Desenvolvedores**. 3. Escolha **Perfil**. 4. Escolha um método de contato.
+  > Se você tiver problemas com o registro no Centro de Desenvolvimento, registre um tíquete de suporte, conforme explicado abaixo: 
+  1. Contate o [Suporte](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=pt-BR&pesid=15635&ccsid=635847950577064286). 
+  2. Escolha **Centro de Desenvolvedores**. 
+  3. Escolha **Perfil**. 
+  4. Escolha um método de contato.
 
 
 

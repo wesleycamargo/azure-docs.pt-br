@@ -76,7 +76,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-bluejeans-tutorial/IC785864.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do BlueJeans**, digite a URL usando o padrão "**https://company.BlueJeans.com*" e clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do BlueJeans**, digite a URL usando o padrão "**https://company.BlueJeans.com**" e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-bluejeans-tutorial/IC785865.png "Configurar a URL do Aplicativo")
 
@@ -86,7 +86,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 5.  Em outra janela do navegador da Web, faça logon em seu site de empresa do **BlueJeans** como administrador.
 
-6.  Vá para **ADMINISTRADOR > Configurações de Grupo > Segurança**.
+6.  Vá para **ADMINISTRAÇÃO > Configurações de Grupo > Segurança**.
 
     ![Administrador](./media/active-directory-saas-bluejeans-tutorial/IC785868.png "Administrador")
 
@@ -110,11 +110,11 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Salvar Alterações](./media/active-directory-saas-bluejeans-tutorial/IC785874.png "Salvar Alterações")
 
-    1.  Na caixa de texto **ID do usuário**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
-2.  Na caixa de texto **Email**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
+    1.  Na caixa de texto **ID do usuário**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
+2.  Na caixa de texto **Email**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
 3.  Clique em **Salvar Alterações**.
 
-10. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
+10. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-bluejeans-tutorial/IC785876.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -125,7 +125,7 @@ Para permitir que os usuários do AD do Azure façam logon no BlueJeans, eles de
 
 1.  Faça logon em seu site de empresa do **BlueJeans** como administrador.
 
-2.  Vá para **ADMINISTRADOR > Gerenciar Usuários > Adicionar Usuário**.
+2.  Vá para **ADMINISTRAÇÃO > Gerenciar Usuários > Adicionar Usuário**.
 
     ![Administrador](./media/active-directory-saas-bluejeans-tutorial/IC785877.png "Administrador")
 

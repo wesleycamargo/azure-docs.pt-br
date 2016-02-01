@@ -80,8 +80,8 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Definir configurações de aplicativo](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807728.png "Definir configurações de aplicativo")
 
-    1.  Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no aplicativo Aba Sainsburys Connect (por exemplo: **https://myaba.co.uk/client-access/sainsburys/saml.php*)).
-2.  Clique em **Próximo**.
+    1.  Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no aplicativo Aba Sainsburys Connect (por ex.: **https://myaba.co.uk/client-access/sainsburys/saml.php*).
+    2.  Clique em **Próximo**.
 
 4.  Na página **Configurar logon único no Aba Sainsburys Connect**, para baixar seus metadados, clique em **Baixar metadados** e salve o arquivo de metadados no computador.
 

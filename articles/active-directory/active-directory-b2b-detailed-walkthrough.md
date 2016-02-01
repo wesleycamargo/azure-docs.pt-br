@@ -3,6 +3,7 @@
    description="A B2B do e diretório ativo do Active Directory do Azure suporta as relações entre empresas, permitindo que os parceiros de negócios acessem seletivamente seus aplicativos corporativos"
    services="active-directory"
    authors="viv-liu"
+   documentationCenter="na"
    manager="cliffdi"
    editor=""
    tags=""/>
@@ -79,4 +80,4 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 - [Alterações de atributo do objeto de usuário externo](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Limitações de visualização atuais](active-directory-b2b-current-preview-limitations.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!-----HONumber=AcomDC_0121_2016-->

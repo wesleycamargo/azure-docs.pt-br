@@ -44,8 +44,8 @@ Algumas etapas são compartilhadas entre os diferentes tipos de soluções. Este
 | **Etapa 4: implantar a oferta no Marketplace** | [Implantar a oferta no Marketplace][link-pushprod] | [Implantar a oferta no Marketplace][link-pushprod] | [Implantar a oferta no Marketplace][link-pushprod] | [Implantar a oferta no Marketplace][link-pushprod] |
 
 ## Suporte
-- [Obtenha suporte como um editor][suppt-general]
-- [Entendendo o relatório de percepções do vendedor][suppt-rpt-insights]
+- [Obtenha suporte como um Editor][suppt-general]
+- [Entendendo o relatório de Percepções do Vendedor][suppt-rpt-insights]
 - [Entendendo os relatórios de pagamento][suppt-rpt-payouts]
 - [Solução de problemas comuns de publicação no Marketplace][suppt-common]
 

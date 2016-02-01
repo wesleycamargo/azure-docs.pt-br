@@ -18,8 +18,8 @@
 # Implantar e gerenciar um dispositivo virtual do StorSimple no Azure (Atualização 2)
 
 > [AZURE.SELECTOR]
-- [Update 2](../articles/storsimple/storsimple-virtual-device-u2.md)
-- [Update 1](../articles/storsimple/storsimple-virtual-device-u1.md)
+- [Atualização 2](../articles/storsimple/storsimple-virtual-device-u2.md)
+- [Atualização 1](../articles/storsimple/storsimple-virtual-device-u1.md)
 - [GA Release](../articles/storsimple/storsimple-virtual-device.md)
 
 ##Visão geral
@@ -125,7 +125,8 @@ Execute as seguintes etapas para criar o dispositivo virtual StorSimple.
 
 Antes de iniciar este procedimento, verifique se você tem uma cópia da chave de criptografia de dados de serviço. A chave de criptografia de dados do serviço foi criada quando você configurou o primeiro dispositivo StorSimple e foi orientado a salvá-la em um local seguro. Se você não tiver uma cópia da chave de criptografia dos dados de serviço, deverá contatar o Suporte da Microsoft para obter assistência.
 
-Execute as seguintes etapas para configurar e registrar o dispositivo virtual StorSimple[AZURE.INCLUDE [Configurar e registrar um dispositivo virtual](../../includes/storsimple-configure-register-virtual-device.md)]
+Execute as seguintes etapas para configurar e registrar o dispositivo virtual StorSimple
+[AZURE.INCLUDE [Configurar e registrar um dispositivo virtual](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### Etapa 3: (opcional) Modificar as definições de configuração do dispositivo
 
@@ -143,7 +144,7 @@ Esse parâmetro contém as credenciais usadas pelo dispositivo virtual quando um
 
 O software Gerenciador de Instantâneos StorSimple software reside no host Windows e permite que os administradores gerenciem backups do seu dispositivo StorSimple na forma de instantâneos locais e de nuvem.
 
->[AZURE.NOTE]Para o dispositivo virtual, seu host do Windows é uma máquina virtual do Azure.
+>[AZURE.NOTE] Para o dispositivo virtual, seu host do Windows é uma máquina virtual do Azure.
 
 Ao configurar um dispositivo no Gerenciador de Instantâneos StorSimple, você deverá fornecer o endereço IP do dispositivo StorSimple e a senha para autenticar o dispositivo de armazenamento. Para obter etapas detalhadas, vá para [Configurar senha do StorSimple Snapshot Manager](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password).
 
@@ -166,7 +167,7 @@ Execute as etapas a seguir para configurar o gerenciamento remoto para seu dispo
 
 Depois de habilitar o gerenciamento remoto na página de configuração do dispositivo do StorSimple, você poderá usar a comunicação remota do Windows PowerShell para se conectar ao dispositivo virtual de outra máquina virtual na mesma rede virtual; por exemplo, é possível se conectar da VM host configurada e usada para conectar o iSCSI. Na maioria das implantações, você irá já terá aberto um ponto de extremidade público para acessar sua VM host que poderá ser usada para acessar o dispositivo virtual.
 
->[AZURE.WARNING]**Para maior segurança, é altamente recomendável que você use HTTPS durante a conexão com os pontos de extremidade e, em seguida, exclua os pontos de extremidade depois de concluir sua sessão remota do PowerShell.**
+>[AZURE.WARNING] **Para maior segurança, é altamente recomendável que você use HTTPS durante a conexão com os pontos de extremidade e, em seguida, exclua os pontos de extremidade depois de concluir sua sessão remota do PowerShell.**
 
 Você deve seguir os procedimentos em [Conectar-se remotamente ao seu dispositivo do StorSimple](storsimple-remote-connect.md) para configurar a comunicação remota de seu dispositivo virtual.
 
