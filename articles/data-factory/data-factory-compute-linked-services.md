@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="01/19/2016"
 	ms.author="spelluru"/>
 
 # Serviços vinculados de computação
@@ -178,7 +178,7 @@ Você pode criar um serviço vinculado Azure HDInsight para registrar seu própr
 
 Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------
-type | A propriedade de tipo deve ser definida como **HDInsight**. | Sim
+type | A propriedade de tipo deve ser configurada como **HDInsight**. | Sim
 clusterUri | A URI do cluster HDInsight. | Sim
 Nome de Usuário | Especifique o nome do usuário a ser usado para se conectar a um cluster HDInsight existente. | Sim
 Senha | Especifique a senha para a conta de usuário. | Sim
@@ -211,7 +211,7 @@ Veja os tópicos a seguir se você for novo no serviço de Lote do Azure:
 	  }
 	}
 
-Acrescente “**.<region name**” ao nome de sua conta do lote para a propriedade **accountName**. Exemplo:
+Acrescente "**.<region name**" ao nome da sua conta do Lote para a propriedade **accountName**. Exemplo:
 
 			"accountName": "mybatchaccount.eastus"
 
@@ -252,7 +252,7 @@ Criar um serviço vinculado de Aprendizado de Máquina do Azure para registrar u
 
 Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------
-Tipo | A propriedade de tipo deve ser definida como **AzureML**. | Sim
+Tipo | A propriedade de tipo deve ser configurada como **AzureML**. | Sim
 mlEndpoint | A URL de pontuação do lote. | Sim
 apiKey | A API do modelo de espaço de trabalho publicada. | Sim
 
@@ -290,9 +290,48 @@ subscriptionId | ID de assinatura do Azure | Não (se não for especificado, a a
 resourceGroupName | Nome do grupo de recursos do Azure | Não (se não for especificado, o grupo de recursos do Data Factory é usado).
 sessionId | ID da sessão de autorização OAuth. Cada ID da sessão é exclusiva e pode ser usado somente uma vez. Isso é gerado automaticamente no Editor Data Factory. | Sim
 
+O código de autorização gerado usando o botão **Autorizar** expira após algum tempo. Confira a tabela a seguir para ver os tempos de expiração para os diferentes tipos de contas de usuário. Talvez você veja a mensagem de erro a seguir quando o **token de autenticação expirar**: erro na operação da credencial: invalid\_grant - AADSTS70002: erro ao validar as credenciais. AADSTS70008: a concessão de acesso fornecida expirou ou foi revogada. ID do Rastreamento: d18629e8-af88-43c5-88e3-d8419eb1fca1 ID da Correlação: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Carimbo de data/hora: 2015-12-15 21:09:31Z
+
+ 
+| Tipo de usuário | Expira após |
+| :-------- | :----------- | 
+| Usuário não AAD (@hotmail.com, @live.com, etc.) | 12 horas |
+| O usuário do AAD e a fonte baseada no OAuth estão em um [locatário](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) diferente, como o locatário do Data Factory do usuário. | 12 horas |
+| O usuário do AAD e a fonte baseada no OAuth estão no mesmo locatário, como o locatário do Data Factory do usuário. | <p> O máximo é de 90 dias se o usuário executar fatias com base na origem do serviço vinculado baseado no OAuth pelo menos uma vez a cada 14 dias. </p><p>Durante os 90 dias esperados, se o usuário não executar nenhuma fatia com base nessa fonte por 14 dias, as credenciais expirarão imediatamente em 14 dias após sua última fatia.</p> | 
+
+Para evitar/resolver o erro, você precisará autorizar novamente usando o botão **Autorizar** quando o **token expirar** e reimplantar o serviço vinculado. Você também pode gerar valores para as propriedades sessionId e authorization programaticamente usando o código na seção a seguir.
+
+### Para gerar valores sessionId e authorization programaticamente 
+O código a seguir gera os valores **sessionId** e **authorization** programaticamente.
+
+    if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
+        linkedService.Properties.TypeProperties is AzureDataLakeAnalyticsLinkedService)
+    {
+        AuthorizationSessionGetResponse authorizationSession = this.Client.OAuth.Get(this.ResourceGroupName, this.DataFactoryName, linkedService.Properties.Type);
+
+        WindowsFormsWebAuthenticationDialog authenticationDialog = new WindowsFormsWebAuthenticationDialog(null);
+        string authorization = authenticationDialog.AuthenticateAAD(authorizationSession.AuthorizationSession.Endpoint, new Uri("urn:ietf:wg:oauth:2.0:oob"));
+
+        AzureDataLakeStoreLinkedService azureDataLakeStoreProperties = linkedService.Properties.TypeProperties as AzureDataLakeStoreLinkedService;
+        if (azureDataLakeStoreProperties != null)
+        {
+            azureDataLakeStoreProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
+            azureDataLakeStoreProperties.Authorization = authorization;
+        }
+
+        AzureDataLakeAnalyticsLinkedService azureDataLakeAnalyticsProperties = linkedService.Properties.TypeProperties as AzureDataLakeAnalyticsLinkedService;
+        if (azureDataLakeAnalyticsProperties != null)
+        {
+            azureDataLakeAnalyticsProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
+            azureDataLakeAnalyticsProperties.Authorization = authorization;
+        }
+    }
+
+Confira os tópicos [Classe AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Classe AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) e [Classe AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) para obter detalhes sobre as classes do Data Factory usadas no código. Você precisa adicionar uma referência a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para a classe WindowsFormsWebAuthenticationDialog.
+ 
 
 ## Serviço Vinculado do SQL do Azure
 
-Você cria um serviço vinculado do Azure SQL e o usa com a [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md) para invocar um procedimento armazenado de um pipeline do Data Factory. Confira o artigo [Conector SQL do Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) para saber mais sobre esse serviço vinculado.
+Você pode criar um serviço vinculado SQL do Azure e usá-lo com a [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md) para invocar um procedimento armazenado de um pipeline do Data Factory. Confira o artigo [Conector SQL do Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) para saber mais sobre esse serviço vinculado.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

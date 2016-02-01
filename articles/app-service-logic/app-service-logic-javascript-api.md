@@ -1,6 +1,6 @@
 <properties
-   pageTitle="API de JavaScript"
-   description="API de JavaScript"
+   pageTitle="Usando o aplicativo de API de JavaScript em um aplicativo lógico | Microsoft Azure"
+   description="Conector ou aplicativo de API de JavaScript"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="stepsic-microsoft-com"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="10/29/2015"
+   ms.date="01/19/2016"
    ms.author="stepsic"/>
 
 #Aplicativo de API de JavaScript
@@ -24,7 +24,7 @@ O cenário principal para esse aplicativo de API é quando você deseja que o ci
 
 Por outro lado, se você quiser um trecho de código reutilizável que tem um ciclo de vida independente do aplicativo lógico, você deve usar o aplicativo de API WebJobs para criar expressões de código simples e chamá-las por meio de seu aplicativo lógico.
 
-Por fim, se quiser incluir algum pacote adicional, você também precisará usar o aplicativo de API do WebJobs, uma vez que não pode adicionar bibliotecas usando o aplicativo de API de JavaScript.
+Por fim, se quiser incluir algum pacote adicional, você também precisará usar o aplicativo de API do WebJobs, já que não pode adicionar bibliotecas usando o aplicativo de API de JavaScript.
 
 Use o [aplicativo de API de C#](app-service-logic-cs-api.md) se você preferir escrever as expressões em C#.
 
@@ -33,11 +33,11 @@ Para usar o aplicativo de API de JavaScript, você precisa primeiro criar uma in
 
 ##Usando o aplicativo de API de JavaScript na superfície do designer de aplicativos lógicos
 ###Gatilho
-Você pode criar um gatilho que o serviço de aplicativo lógico vai sondar (em um intervalo que você definir) e, se ele retornar qualquer conteúdo, o aplicativo lógico será executado, caso contrário, ele aguardará até o próximo intervalo de sondagem para verificar novamente.
+Você pode criar um gatilho que o serviço de aplicativo lógico vai sondar (em um intervalo que você definir) e, se ele retornar algum conteúdo, o aplicativo lógico será executado; caso contrário, ele aguardará até o próximo intervalo de sondagem para verificar novamente.
 
-As entradas para o gatilho são: -**expressão JavaScript** - uma expressão que será avaliada. Ele será invocado dentro de uma função e deve retornar `false` quando você não quiser que o aplicativo lógico seja executado e pode retornar qualquer outra coisa quando você quiser que o aplicativo lógico seja executado. Você poderá usar o conteúdo da resposta nas ações do aplicativo lógico. -**Objeto de contexto** - um objeto opcional que pode ser transmitido para o gatilho. Você pode definir quantas propriedades quiser, mas a entidade de nível superior deve ser um objeto, por exemplo, `{ "bar" : 0}`.
+As entradas para o gatilho são: -**Expressão JavaScript** - Uma expressão que será avaliada. Ele é invocado dentro de uma função e deverá retornar `false` quando você não quiser que o aplicativo Lógico seja executado, poderá retornar qualquer outra coisa quando quiser que o aplicativo lógico seja executado. Você poderá usar o conteúdo da resposta nas ações do aplicativo lógico. -**Objeto de contexto** - Um objeto opcional que pode ser transmitido para o gatilho. Você pode definir quantas propriedades quiser, mas a entidade de nível superior deve ser um objeto, por exemplo, `{ "bar" : 0}`.
 
-Por exemplo, você pode ter um gatilho simples que só executará seu aplicativo lógico entre os minutos 15 e 30 da hora:
+Você pode ter um gatilho simples que somente executa seu aplicativo lógico entre os minutos 15 e 30 da hora:
 
 ```
 var d = new Date(); return (d.getMinutes() > 15) && (d.getMinutes() < 30);
@@ -47,7 +47,7 @@ var d = new Date(); return (d.getMinutes() > 15) && (d.getMinutes() < 30);
 
 Da mesma forma, você pode fornecer uma ação a ser executada.
 
-As entradas para a ação são: - **expressão JavaScript** - uma expressão que será avaliada. Você deve incluir a instrução `return` para obter qualquer conteúdo. - **Objeto de contexto** - um objeto opcional que pode ser transmitido ao gatilho. Você pode definir quantas propriedades quiser, mas a entidade de nível superior deve ser um objeto, por exemplo, `{ "bar" : 0}`.
+As entradas para a ação são: - **Expressão JavaScript** - Uma expressão que será avaliada. Você deve incluir a instrução `return` para obter qualquer conteúdo. - **Objeto de contexto** - um objeto opcional que pode ser transmitido ao gatilho. Você pode definir quantas propriedades quiser, mas a entidade de nível superior deve ser um objeto, por exemplo, `{ "bar" : 0}`.
 
 Por exemplo, imagine que você está usando o gatilho do Office 365 **Novo Email**. Isso retorna o seguinte objeto: ```
 {
@@ -91,4 +91,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0121_2016-->

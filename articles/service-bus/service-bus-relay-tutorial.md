@@ -17,7 +17,7 @@
 
 # Tutorial de sistema de mensagens de retransmissão do Barramento de Serviço
 
-Este tutorial descreve como compilar um serviço e aplicativo simples de cliente do Barramento de Serviço usando as funcionalidades de "retransmissão" do barramento de serviço. Para obter um tutorial correspondente que descreve como compilar um aplicativo que usa funcionalidades de sistemas de mensagens assíncronos ou "agenciados" do Barramento de Serviço, consulte o [Tutorial do Sistema de Mensagens Agenciado .NET do Barramento de Serviço](https://msdn.microsoft.com/library/hh367512.aspx). Para obter um tutorial semelhante que usa o barramento de serviço [sistema de mensagens agenciado](service-bus-messaging-overview.md/#Brokered-messaging), consulte o [Tutorial do Sistema de Mensagens Agenciado .NET do Barramento de Serviço](https://msdn.microsoft.com/library/hh367512.aspx).
+Este tutorial descreve como compilar um serviço e aplicativo simples de cliente do Barramento de Serviço usando as funcionalidades de "retransmissão" do barramento de serviço. Para obter um tutorial semelhante que use o [sistema de mensagens agenciado](service-bus-messaging-overview.md#Brokered-messaging) do Barramento de Serviço, confira o [Tutorial do Sistema de Mensagens Agenciado .NET do Barramento de Serviço](service-bus-brokered-tutorial-dotnet.md).
 
 Trabalhar com este tutorial fornece uma compreensão das etapas necessárias para criar um aplicativo de serviço e cliente do Barramento de Serviço. Assim como suas contrapartes WCF, um serviço é um constructo que expõe um ou mais pontos de extremidade, cada um dos quais expõe uma ou mais operações de serviço. O ponto de extremidade de serviço especifica um endereço em que o serviço pode ser encontrado, uma associação que contém as informações que um cliente deve comunicar com o serviço e um contrato que define a funcionalidade fornecida pelo serviço a seus clientes. A principal diferença entre um WCF e um serviço de Barramento de Serviço é que o ponto de extremidade é exposto na nuvem, em vez de localmente em seu computador.
 
@@ -31,9 +31,9 @@ Todos os tópicos desta seção supõem que você está usando o Visual Studio c
 
 A primeira etapa é criar um namespace de serviço do Barramento de Serviço e obter uma chave de SAS (Assinatura de Acesso Compartilhado). Um namespace de serviço fornece um limite de aplicativo para cada aplicativo exposto por meio do Barramento de Serviço. A combinação do namespace de serviço e a chave SAS fornece uma credencial para o Barramento de Serviço autenticar o acesso a um aplicativo.
 
-Para criar um namespace, execute as etapas descritas em [Como: Criar ou Modificar um Namespace de Serviço do Barramento de Serviço](https://msdn.microsoft.com/library/hh690931.aspx).
+1. Para criar um namespace de serviço, acesse o [portal clássico do Azure][]. Clique em **Barramento de Serviço** no lado esquerdo e clique em **Criar**. Digite um nome para o namespace e clique na marca de seleção.
 
->[AZURE.NOTE]Você não precisa usar o mesmo namespace para aplicativos cliente e de serviço.
+	>[AZURE.NOTE]Você não precisa usar o mesmo namespace para aplicativos cliente e de serviço.
 
 1. Na janela principal do [portal clássico do Azure][], clique no nome do namespace de serviço que você criou na etapa anterior.
 
@@ -49,7 +49,7 @@ O contrato de serviço especifica a quais operações (a terminologia do serviç
 
 1. Abra o Visual Studio como administrador clicando com o botão direito no programa no menu **Iniciar** e, em seguida, selecionando **Executar como administrador**.
 
-1. Crie um novo projeto de aplicativo de console. Clique no menu **Arquivo** e selecione **Novo**, então, clique em **Projeto**. Na caixa de diálogo **Novo Projeto**, clique em **Visual C#** (se **Visual C#** não aparecer, procure em **Outras Linguagens**). Clique no modelo **Aplicativo de Console** e nomeie-o **EchoService**. Use o **Local** padrão. Clique em **OK** para criar o projeto.
+1. Crie um novo projeto de aplicativo de console. Clique no menu **Arquivo**, selecione **Novo** e, em seguida, clique em **Projeto**. Na caixa de diálogo **Novo Projeto**, clique em **Visual C#** (se **Visual C#** não aparecer, procure em **Outras Linguagens**). Clique no modelo **Aplicativo de Console** e nomeie-o **EchoService**. Use o **Local** padrão. Clique em **OK** para criar o projeto.
 
 1. Adicione uma referência a `System.ServiceModel.dll` ao projeto: no Gerenciador de Soluções, clique com o botão direito do mouse na pasta **Referências**, na pasta do projeto e clique em **Adicionar Referência**. Selecione a guia **.NET** na caixa de diálogo **Adicionar Referência** e role para baixo até ver **System.ServiceModel**. Selecione-o e, em seguida, clique em **OK**.
 
@@ -833,7 +833,7 @@ Certifique-se de que o serviço está em execução antes de iniciar o cliente.
 
 ## Próximas etapas
 
-Este tutorial mostrou como compilar um serviço e um aplicativo cliente simples do Barramento de Serviço usando os recursos de “retransmissão” do Barramento de Serviços. Para obter um tutorial semelhante que usa o barramento de serviço [sistema de mensagens agenciado](service-bus-messaging-overview.md/#Brokered-messaging), consulte o [Tutorial do Sistema de Mensagens Agenciado .NET do Barramento de Serviço](https://msdn.microsoft.com/library/hh367512.aspx).
+Este tutorial mostrou como compilar um serviço e um aplicativo cliente simples do Barramento de Serviço usando os recursos de “retransmissão” do Barramento de Serviços. Para obter um tutorial semelhante que usa o barramento de serviço [sistema de mensagens agenciado](service-bus-messaging-overview.md#Brokered-messaging), consulte o [Tutorial do Sistema de Mensagens Agenciado .NET do Barramento de Serviço](service-bus-brokered-tutorial-dotnet.md).
 
 Para saber mais sobre o Barramento de Serviço, consulte os tópicos a seguir.
 
@@ -843,4 +843,4 @@ Para saber mais sobre o Barramento de Serviço, consulte os tópicos a seguir.
 
 [portal clássico do Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

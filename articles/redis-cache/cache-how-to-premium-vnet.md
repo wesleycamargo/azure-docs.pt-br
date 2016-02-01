@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
+	ms.date="01/19/2016" 
 	ms.author="sdanie"/>
 
 # Como configurar o suporte de Rede Virtual para um Cache Redis do Azure Premium
@@ -31,7 +31,7 @@ O suporte da VNET (Rede Virtual) é configurado na folha **Novo Cache Redis** du
 
 ![Criar um Cache Redis][redis-cache-new-cache-menu]
 
-Para configurar o suporte da VNET, primeiro selecione um dos caches **Premium** na folha **Escolha o Tipo de preço**.
+Para configurar o suporte de VNET, primeiro selecione um dos caches **Premium** na folha **Escolha o Tipo de preço**.
 
 ![Escolha sua camada de preço][redis-cache-premium-pricing-tier]
 
@@ -78,15 +78,23 @@ A lista a seguir contém respostas para perguntas frequentes sobre a escala do C
 
 ## Quais são alguns problemas comuns de configuração incorreta no Cache Redis do Azure e nas VNETs?
 
-A lista a seguir contém alguns erros comuns de configuração que podem impedir que o Cache Redis do Azure funcione corretamente.
+Quando o Cache Redis do Azure estiver hospedado em uma Rede Virtual, as portas mostradas na tabela a seguir serão usadas. Se essas portas estiverem bloqueadas, é possível que o cache não funcione corretamente. A existência de uma ou mais dessas portas bloqueadas é o problema mais comum de configuração incorreta no uso do Cache Redis do Azure em uma Rede Virtual.
 
--	Falta de acesso no DNS. As instâncias do Cache Redis do Azure em uma rede virtual exigem acesso ao DNS para partes do sistema de monitoramento e o tempo de execução do cache. Se a instância de cache não tiver acesso ao DNS, o monitoramento não será feito e o cache não funcionará corretamente.
--	Bloqueio das portas TCP usadas pelos clientes para conexão ao Redis, ou seja, 6379 ou 6380.
--	Bloqueio ou interceptação do tráfego HTTPS de saída da rede virtual. O Cache Redis do Azure usa o tráfego HTTPS de saída para os serviços do Azure, especialmente Armazenamento.
--	Bloqueio da comunicação mútua das VMs de instância de função do Redis na sub-rede. As instâncias de função do Redis devem ter permissão para se comunicar entre si usando TCP em qualquer uma das portas usadas, que podem estar sujeitas à alteração, mas, no mínimo, pode-se considerar como todas as portas usadas no arquivo CSDEF do Redis.
--	Conexão bloqueada do Balanceador de Carga do Azure com as VMs do Redis na porta TCP/HTTP 16001. O Cache Redis do Azure depende da investigação do balanceador de carga padrão do Azure para determinar quais instâncias de função estão ativas. A investigação padrão do balanceador de carga funciona com a execução de ping do Agente Convidado do Azure na porta 16001. Somente as instâncias de função que respondem ao ping serão colocadas em rotação para receber o tráfego encaminhado pelo ILB. Quando nenhuma instância estiver em rotação devido à falha do ping pelo bloqueio das portas, o ILB não aceitará conexões TCP de entrada.
--	Bloqueio do tráfego da Web do aplicativo cliente usado para a validação da chave pública do SSL. Os clientes do Redis (na rede virtual) devem conseguir realizar o tráfego HTTP para a Internet pública para baixar certificados da AC e listas de certificados revogados, a fim de realizar a validação do certificado SSL ao usar a porta 6380 para se conectar ao Redis e fazer autenticação do servidor SSL.
--	Conexão bloqueada do Balanceador de Carga do Azure com as VMs do Redis em um cluster por meio de TCP na porta 1300x (13000, 13001, etc.) ou 1500x (15000, 15001, etc.). As VNets são configuradas no arquivo csdef com uma investigação do balanceador de carga para abrir essas portas. O balanceador de carga do Azure precisa ser permitido pelos NSGs, e os NSGs padrão fazem isso com a marca AZURE\_LOADBALANCER. O balanceador de carga do Azure tem um único endereço IP estático 168.63.126.16. Para saber mais, confira [O que é um NSG (Grupo de Segurança de Rede)?](../virtual-network/virtual-networks-nsg.md).
+| Porta(s) | Direção | Protocolo de Transporte | Finalidade | IP Remoto |
+|-------------|------------------|--------------------|-----------------------------------------------------------------------------------|-------------------------------------|
+| 80, 443 | Saída | TCP | Dependências de Redis no Armazenamento do Azure/PKI (Internet) | * |
+| 53 | Saída | TCP/UDP | Dependências Redis no DNS (Internet/Rede Virtual) | * |
+| 6379, 6380 | Entrada | TCP | Comunicação do cliente com o Redis, Balanceamento de Carga do Azure | REDE\_VIRTUAL, BALANCEADORDECARGA\_AZURE |
+| 8443 | Entrada/Saída | TCP | Detalhe de implementação para Redis | REDE\_VIRTUAL |
+| 8500 | Entrada | TCP/UDP | Balanceamento de Carga do Azure | BALANCEADORDECARGA\_AZURE |
+| 10221-10231 | Entrada/Saída | TCP | Detalhe de implementação para Redis (pode restringir o ponto de extremidade remoto para REDE\_VIRTUAL) | REDE\_VIRTUAL, BALANCEADORDECARGA\_AZURE |
+| 13000-13999 | Entrada | TCP | Comunicação do cliente com Clusters Redis, Balanceamento de Carga do Azure | REDE\_VIRTUAL, BALANCEADORDECARGA\_AZURE |
+| 15000-15999 | Entrada | TCP | Comunicação do cliente com Clusters Redis, Balanceamento de Carga do Azure | REDE\_VIRTUAL, BALANCEADORDECARGA\_AZURE |
+| 16001 | Entrada | TCP/UDP | Balanceamento de Carga do Azure | BALANCEADORDECARGA\_AZURE |
+| 20226 | Entrada + Saída | TCP | Detalhe de implementação para Clusters Redis | REDE\_VIRTUAL |
+
+
+
 
 ## Posso usar VNETs com um cache básico ou standard?
 
@@ -117,4 +125,4 @@ Aprenda a usar mais recursos de cache premium.
 
 [redis-cache-vnet-subnet]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-subnet.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

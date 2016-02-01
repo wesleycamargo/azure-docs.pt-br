@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/10/2015"    
+	ms.date="01/14/2016"    
 	ms.author="juliako"/>
 
 
@@ -218,6 +218,9 @@ O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para execut
 
 Essa seção mostra como personalizar uma predefinição que gera miniaturas. A predefinição definida abaixo contém informações sobre como você deseja codificar seu arquivo, bem como as informações necessárias para gerar miniaturas. Você pode pegar qualquer uma das predefinições MES documentadas [aqui](https://msdn.microsoft.com/library/mt269960.aspx) e adicionar o código que gera miniaturas.
 
+>[AZURE.NOTE]A configuração **SceneChangeDetection** na predefinição a seguir só poderá ser definida como verdadeira se você estiver codificando um vídeo com taxa de bits única. Se você estiver codificando para um vídeo de várias taxas de bits e se definir **SceneChangeDetection** como verdadeiro, o codificador retornará um erro.
+
+
 Para obter informações sobre o esquema, consulte [este](https://msdn.microsoft.com/library/mt269962.aspx) tópico.
 
 Certifique-se de examinar a seção [Considerações](media-services-custom-mes-presets-with-dotnet.md#considerations).
@@ -230,7 +233,7 @@ Certifique-se de examinar a seção [Considerações](media-services-custom-mes-
 	  "Codecs": [
 	    {
 	      "KeyFrameInterval": "00:00:02",
-		  "SceneChangeDetection": "true",
+	      "SceneChangeDetection": "true",
 	      "H264Layers": [
 	        {
 	          "Profile": "Auto",
@@ -409,7 +412,7 @@ As seguintes considerações se aplicam:
 
 	- Número de quadro se eles forem números inteiros não negativos, por exemplo: "Start": "120",
 	- Relativos à duração da origem se expressos com sufixo %, por exemplo: "Start": "15%" OU
-	- Carimbo de data/hora se expressos no formato HH:MM:SS… Por exemplo, "Start": "00:01:00"
+	- Carimbo de data/hora se expresso no formato HH:MM:SS… Por exemplo, "Start": "00:01:00"
 
 	Você pode combinar as notações como desejar.
 	
@@ -420,9 +423,9 @@ As seguintes considerações se aplicam:
 
 ##<a id="trim_video"></a>Cortar um vídeo (recorte)
 
-Essa seção fala sobre como modificar as predefinições do codificador para recortar ou cortar o vídeo de entrada no qual a entrada é um arquivo de mezanino ou arquivo sob demanda. O codificador também pode ser usado para recortar ou cortar um ativo que é capturado ou arquivado de um fluxo ativo – os detalhes para isso estão disponíveis [neste blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+Essa seção fala sobre como modificar as predefinições do codificador para recortar ou cortar o vídeo de entrada no qual a entrada é um arquivo de mezanino ou arquivo sob demanda. O codificador também pode ser usado para recortar ou cortar um ativo que é capturado ou arquivado de um fluxo ativo. Os detalhes sobre isso estão disponíveis [neste blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
-Para cortar seus vídeos, você pode pegar qualquer uma das predefinições MES documentadas [aqui](https://msdn.microsoft.com/library/mt269960.aspx) e modificar o elemento **Fontes** (conforme mostrado abaixo). Observe que **Fontes** deve ser colocado na parte superior do esquema.
+Para cortar seus vídeos, use qualquer uma das predefinições MES documentadas [aqui](https://msdn.microsoft.com/library/mt269960.aspx) e modifique o elemento **Fontes** (como mostrado abaixo). Observe que **Fontes** deve ser colocado na parte superior do esquema.
 
 ###<a id="json"></a>Predefinição JSON
 	
@@ -546,7 +549,7 @@ Para cortar seus vídeos, você pode pegar qualquer uma das predefinições MES 
 
 ###Predefinição XML
 	
-Para cortar seus vídeos, você pode pegar qualquer uma das predefinições MES documentadas [aqui](https://msdn.microsoft.com/library/mt269960.aspx) e modificar o elemento **Fontes** (conforme mostrado abaixo).
+Para cortar seus vídeos, use qualquer uma das predefinições MES documentadas [aqui](https://msdn.microsoft.com/library/mt269960.aspx) e modifique o elemento **Fontes** (como mostrado abaixo).
 
 	<?xml version="1.0" encoding="utf-16"?>
 	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -841,7 +844,7 @@ Você pode pegar qualquer uma das predefinições MES documentadas [aqui](https:
       <Bitrate>96</Bitrate>
     </AACAudio>
 
-##<a id="deinterlacing"></a>Desabilitar desentrelaçamento automático
+##<a id="deinterlacing"></a>Desabilitar o desentrelaçamento automático
 
 Os clientes não precisam fazer nada se desejarem que o conteúdo de entrelaçamento seja automaticamente desentrelaçado. Quando o desentrelaçamento automático está ativado (padrão), o MES faz a detecção automática de quadros entrelaçados e apenas desentrelaça quadros marcados como entrelaçados.
 
@@ -886,4 +889,4 @@ Você pode desativar o desentrelaçamento automático. No entanto, isso não é 
 
 [Visão geral da codificação de serviços de mídia](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

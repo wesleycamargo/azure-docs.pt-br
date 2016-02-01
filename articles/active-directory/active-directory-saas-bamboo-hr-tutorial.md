@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Integração do Active Directory do Azure ao BambooHR | Microsoft Azure" 
     description="Saiba como usar o BambooHR com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure ao Bamboo HR
 
@@ -52,7 +52,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar aplicativo](./media/active-directory-saas-bamboo-hr-tutorial/IC749321.png "Adicionar aplicativo")
 
-5.  No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-bamboo-hr-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
@@ -67,7 +67,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 O objetivo desta seção é descrever como permitir que os usuários se autentiquem no BambooHR com a respectiva conta do AD do Azure usando federação baseada no protocolo SAML.  
 Como parte deste procedimento, é necessário criar um arquivo de certificado codificado em base 64.  
-Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+Se você não estiver familiarizado com esse procedimento, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
@@ -102,9 +102,9 @@ Se você não estiver familiarizado com este procedimento, consulte [Como conver
     ![Logon Único do SAML](./media/active-directory-saas-bamboo-hr-tutorial/IC796692.png "Logon Único do SAML")
 
     1.  No portal do Azure, na página do diálogo **Configurar logon único no BambooHR**, copie o valor da **URL do Serviço de Logon Único** e cole-o na caixa de texto **URL de Logon de SSO**.
-2.  Crie um arquivo **codificado em base 64** usando o certificado baixado.  
+    2.  Crie um arquivo **codificado em base 64** usando o certificado baixado.  
 
-        >[AZURE.TIP]Para obter mais detalhes, confira [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP] Para obter mais detalhes, confira [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
     3.  Abra seu certificado codificado em base 64 no bloco de notas, copie o conteúdo dele para sua área de transferência e cole-o na caixa de texto **Certificado X.509**
     4.  Clique em **Salvar**.
@@ -125,7 +125,7 @@ No caso do BambooHR, o provisionamento é uma tarefa manual.
 
     ![Configuração](./media/active-directory-saas-bamboo-hr-tutorial/IC796694.png "Configuração")
 
-3.  Clique em **Visão Geral**.
+3.  Clique em **Visão geral**.
 
 4.  No painel de navegação à esquerda, vá para **Segurança > Usuários**.
 
@@ -153,4 +153,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

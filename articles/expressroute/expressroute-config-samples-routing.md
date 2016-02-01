@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/07/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # Exemplos de configuração do roteador para configurar e gerenciar o roteamento
@@ -210,4 +210,4 @@ Você pode usar mapas de rotas e listas de prefixo para prefixos de filtro propa
 
 Consulte as [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md) para obter mais detalhes.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

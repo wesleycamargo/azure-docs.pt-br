@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Configurando o Workday para sincronização de entrada | Microsoft Azure" 
     description="Saiba como usar o Inbound Synchronization com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Configurando o Workday para sincronização de entrada
 >[AZURE.NOTE]O Azure Active Directory (AD) Premium está disponível para clientes na China usando a instância mundial do AD do Azure. O Azure AD Premium não tem suporte atualmente no serviço Microsoft Azure operado pela 21Vianet na China.
@@ -181,4 +181,4 @@ O objetivo desta seção é descrever como configurar o AD do Microsoft Azure pa
 
 Agora, você pode ir para a seção **Usuários** e verificar se o usuário do Workday foi importado.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

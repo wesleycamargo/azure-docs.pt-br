@@ -262,9 +262,9 @@ Lembre-se disso no caso de alta disponibilidade e desempenho:
 
 - Quando for possível, configure um par de interfaces de rede para acesso à nuvem (1 GbE) e outro par para iSCSI (10 GbE recomendados) em cada controlador. 
 
-- Quando for possível, conecte as interfaces de rede de cada controlador a pelo menos dois comutadores diferentes para garantir disponibilidade no caso de falha do comutador. A figura ilustra duas interfaces de rede de 10 GbE, DATA 2 e DATA 3, de cada controlador conectado a dois comutadores diferentes. Para saber mais, consulte **Interfaces de rede** em [Requisitos de alta disponibilidade para seu dispositivo StorSimple](storsimple-system-requirements/#high-availability-requirements-for-storsimple.md).
+- Quando for possível, conecte as interfaces de rede de cada controlador a pelo menos dois comutadores diferentes para garantir disponibilidade no caso de falha do comutador. A figura ilustra duas interfaces de rede de 10 GbE, DATA 2 e DATA 3, de cada controlador conectado a dois comutadores diferentes. Para saber mais, consulte **Interfaces de rede** em [Requisitos de alta disponibilidade para seu dispositivo StorSimple](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
 
->[AZURE.NOTE]Se você usar transceptores SFP+ com suas interfaces de rede 10 GbE, use os adaptadores QSFP-SFP+ fornecidos. Saiba mais em [Suporte para hardware de interfaces de rede de 10 GbE em seu dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
+>[AZURE.NOTE]Se você usar transceptores SFP+ com suas interfaces de rede 10 GbE, use os adaptadores QSFP-SFP+ fornecidos. Para obter mais informações, acesse [Suporte para hardware de interfaces de rede de 10 GbE em seu dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 
 ### Cabeamento de porta serial
 
@@ -295,7 +295,7 @@ Você concluiu o cabeamento do dispositivo para conexão serial, de energia e ac
 
 ## Próximas etapas
 
-Agora você está pronto para [implantar e configurar seu dispositivo StorSimple no local](storsimple-deployment-walkthrough.md)
+Você já está pronto para [implantar e configurar seu dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

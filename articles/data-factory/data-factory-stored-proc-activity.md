@@ -13,12 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="01/19/2016" 
 	ms.author="spelluru"/>
 
 # Atividade de procedimento armazenado do SQL Server
 
-Você pode usar o Procedimento Armazenado do SQL Server em um [pipeline](data-factory-create-pipelines.md) de Data Factory para invocar um procedimento armazenado em um **Banco de Dados SQL do Azure** ou um **SQL Data Warehouse do Azure**. Este artigo se baseia no artigo [atividades de transformação de dados](data-factory-data-transformation-activities.md) que apresenta uma visão geral de transformação de dados e as atividades de transformação para as quais há suporte.
+Você pode usar a atividade Procedimento Armazenado do SQL Server em um [pipeline](data-factory-create-pipelines.md) do Data Factory para invocar um procedimento armazenado em um dos armazenamentos de dados a seguir.
+
+
+- Banco de Dados SQL do Azure 
+- SQL Data Warehouse do Azure  
+- Banco de dados do SQL Server em sua empresa ou em uma VM do Azure. Você precisa instalar o Gateway de Gerenciamento de Dados no mesmo computador que hospeda o banco de dados ou em um computador separado para evitar a concorrência por recursos com o banco de dados. O Gateway de Gerenciamento de Dados é um software que conecta fontes de dados local/fontes de dados hospedadas em VMs do Azure para serviços de nuvem de maneira segura e gerenciada. Consulte o artigo [Mover dados entre local e nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter detalhes sobre o Gateway de Gerenciamento de Dados. 
+
+Este artigo se baseia no artigo [atividades de transformação de dados](data-factory-data-transformation-activities.md) que apresenta uma visão geral de transformação de dados e as atividades de transformação para as quais há suporte.
 
 ## Sintaxe
 	{
@@ -100,7 +107,7 @@ Depois de criar a data factory, você deve criar um serviço do SQL Azure vincul
 
 7.	Clique em **Criar e implantar** na folha **DATA FACTORY** para **SProcDF**. Isso inicia o Data Factory Editor. 
 2.	Clique em **Novo armazenamento de dados** no comando barra e escolha **SQL Azure**. Você deve ver o script JSON para criar um serviço vinculado do SQL Azure no editor. 
-4. Substitua o **servername** com o nome do seu servidor de banco de dados SQL, **databasename** com o banco de dados em que você criou a tabela e o procedimento armazenado, * ***username@servername** com a conta de usuário que tenha acesso ao banco de dados, e **senha** com a senha da conta de usuário.
+4. Substitua o **servername** com o nome do seu servidor de banco de dados SQL, **databasename** com o banco de dados em que você criou a tabela e o procedimento armazenado, **username@servername** com a conta de usuário que tenha acesso ao banco de dados, e **senha** com a senha da conta de usuário.
 5. Clique em **Implantar** na barra de comandos para implantar o serviço vinculado.
 
 ### Criar um conjunto de dados de saída
@@ -199,4 +206,4 @@ Para fazer isso, passe o parâmetro Cenário e o valor da atividade de procedime
 		}
 	}
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

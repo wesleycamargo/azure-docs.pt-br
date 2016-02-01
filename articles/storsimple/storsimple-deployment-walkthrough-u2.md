@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.date="01/14/2016"
    ms.author="alkohli" />
 
 # Implantar o dispositivo StorSimple local (Atualização 2)
@@ -239,9 +239,9 @@ Execute as seguintes etapas no Portal de Gerenciamento para criar um backup manu
 
 ## Próximas etapas
 
-Configurar um [dispositivo virtual](storsimple-virtual-device.md).
+- Configurar um [dispositivo virtual](storsimple-virtual-device.md).
 
-Use o [Serviço StorSimple Manager](storsimple-manager-service-administration.md) para gerenciar o seu dispositivo StorSimple.
+- Use o [Serviço StorSimple Manager](storsimple-manager-service-administration.md) para gerenciar o seu dispositivo StorSimple.
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

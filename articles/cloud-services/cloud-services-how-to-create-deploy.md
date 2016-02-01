@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 
@@ -22,8 +22,8 @@
 # Como criar e implantar um serviço de nuvem
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-how-to-create-deploy.md)
 - [Azure portal](cloud-services-how-to-create-deploy-portal.md)
+- [Azure classic portal](cloud-services-how-to-create-deploy.md)
 
 O portal clássico do Azure oferece duas maneiras de criar e de implantar um serviço de nuvem: **Criação Rápida** e **Criação Personalizada**.
 
@@ -40,7 +40,7 @@ Três componentes são necessários para implantar um aplicativo como um serviç
 
 - **Pacote de serviço** O pacote de serviço (.cspkg) contém o código do aplicativo, as configurações e o arquivo de definição de serviço.
   
-Você pode aprender mais sobre eles e como criar um pacote [aqui](cloud-services-model-and-package.md).
+Você pode saber mais sobre eles e sobre como criar um pacote [aqui](cloud-services-model-and-package.md).
 
 ## Preparação do aplicativo
 Antes de poder implantar um serviço de nuvem, você deve criar o pacote do serviço de nuvem (arquivo .cspkg) do seu código do aplicativo e um arquivo de configuração do serviço de nuvem (.cscfg). O SDK do Azure fornece as ferramentas para preparar os arquivos exigidos para a implantação. Você pode instalar o SDK da página de [downloads de Azure](http://azure.microsoft.com/downloads/) no idioma em que você preferir desenvolver seu código do aplicativo.
@@ -150,4 +150,4 @@ Para criar um serviço de nuvem com implantações de funções Web ou de Trabal
 * [Gerenciar seu serviço de nuvem](cloud-services-how-to-manage.md).
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

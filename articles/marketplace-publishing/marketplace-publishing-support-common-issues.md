@@ -14,7 +14,7 @@
       ms.tgt_pltfrm="na"
       ms.workload="na"
       ms.date="12/06/2015"
-      ms.author="v-jeana; hascipio"/>
+      ms.author="v-jeana; hascipio; v-dabosl"/>
 
 # Como solucionar problemas comuns de editora do Azure Marketplace
 Este artigo explica como resolver ou obter suporte para alguns cenários comuns do Marketplace.
@@ -56,19 +56,19 @@ Em algumas circunstâncias, talvez seja necessário validar os detalhes da assin
 
 - Um cliente pode entrar em contato com você solicitando suporte.
 - Talvez você não saiba como validar se um cliente é um cliente real dessa oferta.
-- Você pode registrar uma solicitação de suporte para obter a validação da assinatura do cliente
+- Você pode registrar uma solicitação de suporte para obter a validação da assinatura do cliente.
 - Será necessário fornecer uma ID de assinatura de cliente e o endereço de cobrança.
 - A Microsoft entrará em contato com você para confirmar que o endereço de cobrança e a ID de assinatura são conhecidos.
 
 
 ## Como faço para atualizar meu perfil de editora?
 
-Se você quiser atualizar seu perfil do editor, faça isso por meio do Centro do Desenvolvedor da Microsoft:
+Se você quiser atualizar seu perfil de editor, faça isso usando o Centro de Desenvolvimento da Microsoft:
 
-**1. Entre no Centro do Desenvolvedor da Microsoft**.
+**1. Entre no Centro de Desenvolvimento do Windows**.
 
 - Abra uma nova sessão de Janela anônima do Chrome ou navegação InPrivate do Internet Explorer para garantir que você não esteja conectado a uma conta pessoal.
-- Vá para [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)
+- Acesse [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)
 
 ![InPrivate][4]
 
@@ -82,7 +82,7 @@ Se você quiser atualizar seu perfil do editor, faça isso por meio do Centro do
 
 ![protectacct][6]
 
-**4. Navegue até Detalhes da Conta e Detalhes da Empresa**.
+**4. Navegue até Detalhes da Conta e Informações de contato**.
 
 ![acctdetails][7]
 
@@ -120,4 +120,4 @@ Para os problemas a seguir, crie uma solicitação de suporte em [http://go.micr
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

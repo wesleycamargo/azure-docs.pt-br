@@ -16,20 +16,24 @@
    ms.date="11/13/2015"
    ms.author="vturecek"/>
 
-# Padrão de design de Atores Confiáveis: cache inteligente
+# Padrão de design de Reliable Actors: cache inteligente
 
-A combinação de uma camada da Web, camada de cache, camada de armazenamento e, ocasionalmente, uma camada de trabalho, é quase uma parte padrão dos aplicativos de hoje. A camada de cache geralmente é essencial para o desempenho e pode, na verdade, ser composta por várias camadas em si. Muitos caches são pares simples de chave-valor, enquanto outros sistemas, como o [Redis](http://redis.io), são usados como caches que oferecem semântica mais rica. Ainda assim, qualquer camada de cache especial será limitada em semântica e, o mais importante, ainda é outra camada a ser gerenciada. E se, em vez disso, os objetos apenas mantivessem o estado em variáveis locais e esses objetos pudessem ser colocados em instantâneos ou persistidos em um repositório durável automaticamente? Além disso, as coleções avançadas, como listas, conjuntos classificados, filas e outros tipos personalizados para esse fim são simplesmente modelados como métodos e variáveis de membro.
+A combinação de uma camada da Web, uma camada de cache, uma camada de armazenamento e (ocasionalmente) uma camada de trabalho compõe as partes padrão dos aplicativos atuais. A camada de cache geralmente é essencial para o desempenho e pode, em si, ser composta por várias camadas. Muitos caches são pares simples de chave/valor. Outros sistemas, como o [Redis](http://redis.io), são usados como cache, mas eles também oferecem semântica mais rica. De qualquer forma, qualquer camada de cache especial terá semântica limitada. E o que é mais importante, ainda é outra camada a ser gerenciada.
 
-![][1]
+Já os objetos podem manter o estado em variáveis locais e podem ser colocados em instantâneos ou mantidos em um repositório durável automaticamente. Além disso, as coleções avançadas, como listas, conjuntos classificados, filas e outros tipos personalizados, podem ser modelados simplesmente como métodos e variáveis de membro.
 
-## O exemplo de placar de líderes
+![Atores e cache][1]
 
-Tome como exemplo o placar de líderes — um objeto Leaderboard precisa manter uma lista de jogadores classificados e suas pontuações para que possamos consultá-lo. Por exemplo, para os “100 principais jogadores” ou para localizar a posição de um jogador no placar de líderes em relação a +- N jogadores acima e abaixo dele. Uma solução típica com ferramentas tradicionais exigiria obter (‘GET’) o objeto Leaderboard (coleção que oferece suporte à inserção de uma nova tupla<Player  Points> chamada Score), classificá-lo e, por fim, colocá-lo (‘PUT’) de volta no cache. Provavelmente, nós BLOQUEARÍAMOS (GETLOCK, PUTLOCK) o objeto Leaderboard para consistência. Vamos observar uma solução baseada em ator, em que o estado e o comportamento estão juntos. Há duas opções:
+## Explorar o exemplo de placar de líderes
 
-* Implementar a Coleção Leaderboard como parte do ator
-* Ou usar o ator como uma interface para a coleção que podemos manter em uma variável de membro. Primeiramente, vamos observar que aparência a interface pode ter:
+Vamos observar os placares de líderes como um exemplo. Um objeto placar de líderes precisa manter uma lista de jogadores classificados e suas pontuações para que ela possa ser consultada. Uma consulta pode localizar os 100 principais jogadores. Ela também pode encontrar a posição de um jogador no placar de líderes em relação a um determinado número de jogadores acima e abaixo dele. Uma solução tradicional exigiria a obtenção do objeto placar de líderes (uma coleção que oferece suporte à inserção de uma nova tupla `<Player, Points>` chamada **Score**) usando GET, classificando-o e colocando-o de volta no cache usando PUT. Provavelmente, você bloquearia (GETLOCK, PUTLOCK) o objeto placar de líderes para consistência. Vamos observar uma solução baseada em atores, em que o estado e o comportamento estão juntos. Há duas opções:
 
-## Exemplo de código de Cache Inteligente – interface Leaderboard
+* Implementar a coleção placar de líderes como parte do ator.
+* Usar o ator como uma interface para a coleção que podemos manter em uma variável de membro.
+
+O exemplo de código a seguir mostra como poderia ser a interface.
+
+### Exemplo de código de cache inteligente: interface placar de líderes
 
 ```
 public interface ILeaderboard : IActor
@@ -46,9 +50,9 @@ public interface ILeaderboard : IActor
 
 ```
 
-Em seguida, implementamos essa interface, usamos a última opção e encapsulamos o comportamento dessa coleção no ator:
+Em seguida, você pode implementar essa interface usando a última opção e encapsulando o comportamento da coleção no ator:
 
-## Exemplo de código de Cache Inteligente — ator Leaderboard
+### Exemplo de código de cache inteligente: ator placar de líderes
 
 ```
 public class Leaderboard : StatefulActor<LeaderboardCollection>, ILeaderboard
@@ -75,9 +79,9 @@ public class Leaderboard : StatefulActor<LeaderboardCollection>, ILeaderboard
 
 ```
 
-O membro do estado da classe fornece o estado do ator, no exemplo de código acima, ele também fornece métodos de leitura/gravação de dados.
+O membro de estado da classe fornece o estado do ator. No código de exemplo acima, ele também fornece métodos para ler e gravar dados.
 
-## Exemplo de código de Cache Inteligente — coleção Leaderboard
+### Exemplo de código de cache inteligente: LeaderboardCollection
 
 ```
 [DataContract]
@@ -105,9 +109,9 @@ public class LeaderboardCollection
 
 ```
 
-Nenhum envio de dados, nenhum bloqueio, apenas manipulação de objetos remotos em um tempo de execução distribuído, atendendo a vários clientes como se fossem objetos únicos em um único aplicativo atendendo a apenas um cliente. Veja o cliente de exemplo:
+Não existem bloqueios nem envio de dados nessa abordagem. Ela apenas manipula objetos remotos em um tempo de execução distribuído, o que atende a vários clientes como se fossem objetos únicos em um único aplicativo atendendo a apenas um cliente. O exemplo de código a seguir concentra-se no cliente de exemplo.
 
-## Exemplo de código de Cache Inteligente — chamando o ator Leaderboard
+### Exemplo de código de cache inteligente: chamando o ator placar de líderes
 
 ```
 // Get reference to Leaderboard
@@ -131,10 +135,12 @@ Player = 1 Points = 500
 Player = 2 Points = 100
 ```
 
-## Escalando a arquitetura
-Pode parecer que o exemplo acima criaria um afunilamento na instância Leaderboard. E se, por exemplo, estivéssemos planejando oferecer suporte a centenas de milhares de jogadores? Uma maneira de lidar com isso seria introduzir agregadores sem estado que atuariam como um buffer — manteria as pontuações parciais (subtotais) e as enviaria periodicamente ao ator Leaderboard, que pode manter o Leaderboard final. Discutiremos essa técnica de "agregação" em mais detalhes posteriormente. Além disso, não precisamos considerar exclusões mútuas, semáforos ou outras construções simultâneas tradicionalmente exigidas pelos programas simultâneos de comportamento correto. Veja a seguir outro exemplo de cache que demonstra a semântica avançada que pode ser implementada com atores. Dessa vez, implementamos a lógica da Fila de Prioridade (quanto mais baixo o número, mais alta a prioridade) como parte da implementação do Ator. A interface para IJobQueue se parece com esta abaixo:
+## Escalar a arquitetura
+Pode parecer que o exemplo acima criaria um afunilamento na instância de placar de líderes. Por exemplo, se você planejasse oferecer suporte a milhares de jogadores? Uma maneira de lidar com isso seria introduzir agregadores sem estado que agissem como buffers. Esses agregadores manteriam pontuações parciais (subtotais) e, periodicamente, as enviariam ao ator placar de líderes, que manteria o placar de líderes final. Discutiremos essa técnica em mais detalhes posteriormente. Além disso, não precisamos considerar exclusões mútuas, semáforos ou outras construções simultâneas que tradicionalmente são exigidas pelos programas simultâneos que se comportam corretamente.
 
-## Exemplo de código de Cache Inteligente – interface da fila de trabalhos
+Veja a seguir outro exemplo de cache que demonstra a semântica avançada que pode ser implementada com atores. Dessa vez, implementamos a lógica de uma fila de prioridade (quanto mais baixo o número, mais alta a prioridade) como parte da implementação do ator. O exemplo de código a seguir fornece uma interface para **IJobQueue**.
+
+### Exemplo de código de cache inteligente: interface da fila de trabalhos
 
 ```
 public interface IJobQueue : IActor
@@ -146,9 +152,9 @@ public interface IJobQueue : IActor
 }
 ```
 
-Também precisamos definir o item de trabalho:
+Também precisamos definir o item **Trabalho**:
 
-## Exemplo de código de Cache Inteligente – trabalho
+### Exemplo de código de cache inteligente: trabalho
 
 ```
 public class Job : IComparable<Job>
@@ -168,9 +174,9 @@ public class Job : IComparable<Job>
 }
 ```
 
-Por fim, implementamos a interface IJobQueue no ator. Observe que, aqui, omitimos os detalhes da implementação da fila de prioridade para clareza: Uma implementação de exemplo pode ser encontrada nos exemplos que acompanha este artigo.
+Por fim, implementamos a interface IJobQueue no ator. Observe que, aqui, omitimos os detalhes da implementação da fila de prioridade para clareza: Uma ilustração da implementação é fornecida nos exemplos complementares.
 
-## Exemplo de código de Cache Inteligente – fila de trabalhos
+### Exemplo de código de cache inteligente: fila de trabalhos
 
 ```
 public class JobQueue : StatefulActor<List<Jobs>>, IJobQueue
@@ -233,16 +239,20 @@ Job = 6 Priority = 0.962653734238191
 Job = 1 Priority = 0.97444181375878
 ```
 
-## Atores fornecem flexibilidade
-Nos exemplos acima, Leaderboard e JobQueue, usamos para diferentes técnicas:
+## Usar atores para fornecer flexibilidade
+Nos exemplos de placar de líderes e de fila de trabalhos acima, usamos duas técnicas diferentes:
 
-* No exemplo de Leaderboard, encapsulamos um objeto Leaderboard como uma variável de membro privada no ator e simplesmente fornecemos uma interface para esse objeto — para seu estado e funcionalidade.
+* No exemplo de placar de líderes, encapsulamos um objeto placar de líderes como uma variável de membro privado no ator. Em seguida, simplesmente fornecemos uma interface para esse objeto, tanto para seu estado, quanto para sua funcionalidade.
 
-* Por outro lado, no exemplo JobQueue, implementamos o ator como uma fila de prioridade, em vez de fazer referência a outro objeto definido em outro lugar.
+* No exemplo de fila de trabalhos, implementamos o ator como uma fila de prioridade em si, em vez de fazer referência a outro objeto definido em algum outro lugar.
 
-Os atores fornecem flexibilidade ao desenvolvedor para definir estruturas de objeto avançadas como parte dos atores ou gráficos de objeto de referência fora dos atores. Em termos de cache, os atores podem write-behind ou write-through, ou podemos usar diferentes técnicas na granularidade da variável de um membro. Em outras palavras, temos total controle sobre o que persistir e quando persistir. Não é necessário persistir o estado transitório ou o estado que podemos criar a partir do estado salvo. E quanto a popular esses atores caches de ator? Há várias maneiras de se fazer isso. Os atores fornecem métodos virtuais chamados OnActivateAsync() e OnDeactivateAsync() para que saibamos quando uma instância do ator é ativada e desativada. Observe que o ator é ativado sob demanda quando uma primeira solicitação é enviada a ele. Podemos usar OnActivateAsync() para popular o estado sob demanda como em read-through, talvez em um repositório estável externo. Ou podemos popular o estado em um temporizador, por exemplo, um ator Exchange Rate que forneça a função de conversão com base nas últimas taxas de câmbio. Esse ator pode popular seu estado de um serviço externo periodicamente, por exemplo, a cada 5 segundos, e usar o estado para a função de conversão. Veja o exemplo abaixo:
+Os atores fornecem flexibilidade ao desenvolvedor para definir estruturas de objeto avançadas como parte dos atores ou gráficos de objeto de referência fora dos atores. Em termos de cache, os atores podem executar write-behind ou write-through, ou podemos usar diferentes técnicas na granularidade das variáveis de membro. Você tem total controle sobre o que persistir e quando persistir. Não é necessário persistir o estado transitório ou o estado que você pode criar do estado salvo.
 
-## Exemplo de código de Cache Inteligente – conversor de taxas
+Como são os caches desses atores populados? Há várias maneiras de se fazer isso. Os atores fornecem os métodos virtuais **OnActivateAsync()** e **OnDeactivateAsync()** para que você saiba quando uma instância do ator é ativada e desativada. Observe que o ator é ativado sob demanda quando uma solicitação é enviada a ele pela primeira vez.
+
+É possível usar OnActivateAsync() para popular o estado sob demanda, como em read-through, tal como em um repositório estável externo. Você também pode popular o estado em um temporizador, por exemplo, usando um ator de taxa de câmbio que forneça uma função de conversão baseada nas taxas de câmbio mais atuais. Esse ator pode popular seu estado de um serviço externo periodicamente (por exemplo, a cada cinco segundos) e usar o estado para a função de conversão. O exemplo de código a seguir mostra como isso pode ser feito.
+
+### Exemplo de código de cache inteligente: conversor de taxas
 
 ```
 ...
@@ -271,13 +281,13 @@ public Task RefreshRates()
 
 ```
 
-Basicamente, o Cache Inteligente fornece:
+Basicamente, a abordagem de cache inteligente fornece:
 
 * Alta taxa de transferência/baixa latência por solicitações de serviço da memória.
-* Roteamento de instância única e serialização single-threaded das solicitações para um item sem nenhuma contenção no repositório persistente.
-* Operações semânticas, por exemplo, Enqueue (item de trabalho).
-* Facilidade de implementação de write-through ou write-behind.
-* Remoção automática de itens LRU (Menos Utilizado Recentemente) (gerenciamento de recursos).
+* Roteamento de instância única e serialização single-thread das solicitações para um item sem nenhuma contenção em um repositório persistente.
+* Operações semânticas, por exemplo, **Enqueue(item Trabalho)**.
+* Facilidade de implementação de write-through e de write-behind.
+* Remoção automática de itens LRU (menos utilizado recentemente) (gerenciamento de recursos).
 * Elasticidade e confiabilidade automáticas.
 
 
@@ -285,7 +295,7 @@ Basicamente, o Cache Inteligente fornece:
 
 [Padrão: redes e gráficos distribuídos](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
 
-[Padrão: controle de recursos](service-fabric-reliable-actors-pattern-resource-governance.md)
+[Padrão: governança de recursos](service-fabric-reliable-actors-pattern-resource-governance.md)
 
 [Padrão: composição de serviço com estado](service-fabric-reliable-actors-pattern-stateful-service-composition.md)
 
@@ -295,10 +305,10 @@ Basicamente, o Cache Inteligente fornece:
 
 [Alguns antipadrões](service-fabric-reliable-actors-anti-patterns.md)
 
-[Introdução aos Atores da Malha do Serviço](service-fabric-reliable-actors-introduction.md)
+[Introdução aos Reliable Actors do Service Fabric](service-fabric-reliable-actors-introduction.md)
 
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-smart-cache/smartcache-arch.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

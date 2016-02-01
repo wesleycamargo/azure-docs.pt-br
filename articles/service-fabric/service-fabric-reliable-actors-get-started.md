@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introdução aos Atores Confiáveis | Microsoft Azure"
-   description="Este tutorial orienta você pelas etapas de criação, depuração e implantação de um serviço canônico HelloWorld usando os Atores Confiáveis da Malha de Serviços."
+   pageTitle="Introdução ao Reliable Actors | Microsoft Azure"
+   description="Este tutorial orienta você pelas etapas de criação, depuração e implantação de um serviço canônico HelloWorld usando os Reliable Actors da Malha de Serviços."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -16,45 +16,45 @@
    ms.date="11/13/2015"
    ms.author="vturecek"/>
 
-# Atores Confiáveis: o cenário canônico HelloWorld passo a passo
-Este artigo explica os conceitos básicos dos Atores Confiáveis da Malha de Serviços e orienta você durante a criação, depuração e implantação de um aplicativo simples HelloWorld no Visual Studio.
+# Reliable Actors: o cenário canônico HelloWorld passo a passo
+Este artigo explica os conceitos básicos dos Reliable Actors do Service Fabric e orienta você durante a criação, a depuração e a implantação de um aplicativo simples HelloWorld no Visual Studio.
 
 ## Instalação e configuração
-Antes de começar, verifique se há um ambiente de desenvolvimento da Malha do Serviço configurado no seu computador. Instruções detalhadas sobre como configurar o ambiente de desenvolvimento podem ser encontradas [aqui](service-fabric-get-started.md).
+Antes de começar, verifique se há um ambiente de desenvolvimento do Service Fabric configurado no seu computador. Se você precisa configurá-lo, confira as instruções detalhadas em [Como configurar o ambiente de desenvolvimento](service-fabric-get-started.md).
 
 ## Conceitos básicos
-Para começar a usar os Atores Confiáveis, você só precisa entender quatro conceitos básicos:
+Para começar a usar os Reliable Actors, você só precisa entender quatro conceitos básicos:
 
-* **Serviço do Ator**. Os Atores Confiáveis são empacotados em Serviços que podem ser implantados na infraestrutura da Malha do Serviço. Um serviço pode hospedar um ou mais atores. Posteriormente, examinaremos mais detalhadamente as vantagens e desvantagens de ter um ator ou vários atores por serviço. Por enquanto, vamos supor que precisamos implementar apenas um ator.
-* **Interface do Ator**. A interface do ator é usada para definir a interface pública de um ator. Na terminologia do modelo de ator, ela define o tipo de mensagem que o ator é capaz de entender e processar. A interface do ator é usada por outros atores ou aplicativos cliente para ‘enviar’ (de modo assíncrono) mensagens ao ator. Os Atores Confiáveis podem implementar várias interfaces, como veremos, um Ator de HelloWorld pode implementar a interface IHelloWorld, mas também uma interface ILogging que define diferentes mensagens/funcionalidades.
-* **Registro do Ator**. No Serviço do Ator, o Tipo de Ator precisa ser registrado para que a Malha do Serviço esteja ciente do novo tipo e possa usá-lo para criar novos atores.
+* **Serviço do ator**. Os Reliable Actors são empacotados em Serviços que podem ser implantados na infraestrutura do Service Fabric. Um serviço pode hospedar um ou mais atores. Examinaremos mais detalhadamente as vantagens e desvantagens de ter um ator ou vários atores por serviço abaixo. Por enquanto, vamos supor que precisamos implementar apenas um ator.
+* **Interface do Ator**. A interface do ator é usada para definir a interface pública de um ator. Na terminologia do modelo de Reliable Actor, a interface do ator define os tipos de mensagem que o ator pode entender e processar. A interface do ator é usada por outros atores ou aplicativos cliente para “enviar” (de modo assíncrono) mensagens ao ator. Os Reliable Actors pode implantar várias interfaces. Como veremos, um ator de HelloWorld pode implantar a interface IHelloWorld, mas também pode implantar uma interface ILogging que define mensagens e/ou funcionalidades diferentes.
+* **Registro do ator**. No serviço Reliable Actors, o tipo de ator precisa ser registrado. Dessa forma, o Service Fabric está ciente do novo tipo e pode usá-lo para criar novos atores.
 * **Classe ActorProxy**. A classe ActorProxy é usada para associar um Ator e invocar os métodos expostos por meio de suas interfaces. A classe ActorProxy apresenta duas funcionalidades importantes:
-	* Resolução de nome: é capaz de localizar o Ator no cluster (encontrar em qual nó do cluster ele está hospedado).
-	* Tratamento de falhas: pode repetir as invocações do método e determinar novamente o local do Ator, por exemplo, depois que uma falha exige que o ator seja relocado para outro nó no cluster.
+	* Ela resolve nomes. Ela consegue localizar o ator no cluster (localizar o nó do cluster no qual ele está hospedado).
+	* Ela lida com falhas. Ela pode repetir as invocações do método e determinar novamente o local do ator, por exemplo, depois que uma falha exige que ele seja relocado para outro nó no cluster.
 
 ## Criar um novo projeto no Visual Studio
-Depois de instalar as Ferramentas para Visual Studio da Malha do Serviço, você pode criar novos tipos de projeto. Os novos tipos de projeto estão na categoria ‘Nuvem’ da caixa de diálogo Novo Projeto
+Depois de instalar as ferramentas do Service Fabric para Visual Studio, você poderá criar novos tipos de projeto. Os novos tipos de projeto estão na categoria **Nuvem** da caixa de diálogo **Novo Projeto**.
 
 
-![Ferramentas de Malha de Serviço para VS - Novo projeto][1]
+![Ferramentas do Service Fabric para Visual Studio – novo projeto][1]
 
 Na próxima caixa de diálogo, você pode escolher o tipo de projeto que deseja criar.
 
-![Modelos de projeto de Malha de Serviço][5]
+![Modelos de projeto do Service Fabric][5]
 
-Para o projeto HelloWorld, vamos usar o Serviço do Ator da Malha do Serviço.
+Para o projeto HelloWorld, vamos usar o serviço Reliable Actors do Service Fabric.
 
-Depois que a solução é criada, você deve ver a seguinte estrutura:
+Depois de criar a solução, você verá a seguinte estrutura:
 
-![Estrutura de projeto de Malha de Serviço][2]
+![Estrutura de projeto do Service Fabric][2]
 
-## Blocos de construção básicos de Atores Confiáveis
+## Blocos de construção básicos de Reliable Actors
 
-Uma solução comum de Atores Confiáveis é composta por 3 projetos:
+Uma solução comum do Reliable Actors é composta por três projetos:
 
-* O projeto Aplicativo (HelloWorldApplication). Esse é o projeto que empacota todos os serviços juntos para implantação. Ele contém os scripts do PowerShell e o ApplicationManifest.xml para gerenciamento do aplicativo.
+* **O projeto Aplicativo (HelloWorldApplication)**. Esse é o projeto que empacota todos os serviços juntos para implantação. Ele contém os scripts do PowerShell e o **ApplicationManifest.xml** para gerenciamento do aplicativo.
 
-* O projeto Interface (HelloWorld.Interfaces). Esse é o projeto que contém a definição de interface para o ator. No projeto Interfaces, você pode definir as interfaces que serão usadas pelos atores na solução.
+* **O projeto de interface (HelloWorld.Interfaces)**. Esse é o projeto que contém a definição de interface para o ator. No projeto HelloWorld.Interfaces, você pode definir as interfaces que serão usadas pelos atores na solução.
 
 ```csharp
 
@@ -71,7 +71,7 @@ namespace MyActor.Interfaces
 
 ```
 
-* O projeto Serviço (HelloWorld). Esse é o projeto usado para definir o serviço da Malha do Serviço que hospedará o ator. Ele contém parte de um código clichê que não precisa ser editado na maioria dos casos (ServiceHost.cs) e a implementação do Ator. A implementação do ator envolve a implementação de uma classe que deriva de um tipo básico (Ator) e implementa as interfaces definidas no projeto .Interfaces.
+* **O projeto de serviço (HelloWorld)**. Esse é o projeto usado para definir o serviço da Malha do Serviço que hospedará o ator. Ele contém parte de um código clichê que não precisa ser editado na maioria dos casos (ServiceHost.cs), bem como a implantação do ator. A implantação do ator envolve a implantação de uma classe que deriva de um tipo básico (Ator). Ele também implanta as interfaces que são definidas no projeto HelloWorld.Interfaces.
 
 ```csharp
 
@@ -93,7 +93,7 @@ namespace MyActor
 
 ```
 
-O projeto Serviço do Ator contém o código para criar um serviço da Malha do Serviço, na definição do serviço, e tipos de Ator são registrados para que possam ser usados para criar instâncias de novos atores.
+O projeto de serviço Reliable Actors contém o código para criar um serviço do Service Fabric. Na definição do serviço, os tipos de ator são registrados, para que possam ser usados ao instanciar novos atores.
 
 ```csharp
 
@@ -128,7 +128,7 @@ namespace MyActor
 
 ```
 
-Se você iniciar um novo projeto no Visual Studio e tiver apenas uma definição de Ator, o registro será incluído por padrão no código gerado pelo Visual Studio. Se você definir outros atores no serviço, será preciso adicionar o registro do Ator usando:
+Se você iniciar um novo projeto no Visual Studio e tiver apenas uma definição de ator, o registro será incluído por padrão no código gerado pelo Visual Studio. Se você definir outros atores no serviço, será preciso adicionar o registro do ator usando:
 
 ```csharp
 
@@ -139,14 +139,16 @@ fabricRuntime.RegisterActor<MyActor>();
 
 ## Depurando
 
-As ferramentas para Visual Studio da Malha do Serviço oferecem suporte à depuração no computador local. Você pode iniciar uma sessão de depuração pressionando F5. O Visual Studio cria (se necessário), empacota e implanta o aplicativo no cluster local da Malha do Serviço e anexa o depurador. A experiência é semelhante à depuração de um aplicativo ASP.NET. Durante o processo de implantação, você pode ver o andamento na janela Saída.
+As ferramentas para Visual Studio do Service Fabric dão suporte à depuração no computador local. Você pode iniciar uma sessão de depuração pressionando a tecla F5. O Visual Studio cria (se necessário) pacotes. Ele também implanta o aplicativo no cluster do Service Fabric local e anexa o depurador. A experiência é semelhante à depuração de um aplicativo ASP.NET.
 
-![Janela de saída de Depuração de Malha de Serviço][3]
+Durante o processo de implantação, você pode ver o andamento na janela **Saída**.
+
+![Janela de saída de depuração do Service Fabric][3]
 
 
 ## Próximas etapas
 
-- [Introdução aos Atores Confiáveis do Service Fabric](service-fabric-reliable-actors-introduction.md)
+- [Introdução aos Reliable Actors do Service Fabric](service-fabric-reliable-actors-introduction.md)
 - [Documentação de referência sobre as APIs de Atores](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 - [Exemplo de código](https://github.com/Azure/servicefabric-samples)
 
@@ -158,4 +160,4 @@ As ferramentas para Visual Studio da Malha do Serviço oferecem suporte à depur
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

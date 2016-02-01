@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
+	ms.date="01/19/2016" 
 	ms.author="tdykstra"/>
 
 # Como usar o armazenamento de blob do Azure com o SDK de Trabalhos Web
@@ -30,7 +30,7 @@ Com esse guia, pressupomos que você saiba [como criar um projeto do Trabalho We
 
 Esta seção mostra como usar o atributo `BlobTrigger`.
 
-> **Observação:** o SDK dos trabalhos Web verifica os arquivos de log para observar blobs novos ou alterados. Esse processo é inerentemente lento; uma função não poderá ser disparada até vários minutos ou mais depois que o blob for criado. Se seu aplicativo precisar processar blobs imediatamente, o método recomendado será criar uma mensagem da fila ao criar o blob e usar o atributo [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger), em vez do atributo `BlobTrigger` na função que processa o blob.
+> [AZURE.NOTE]O SDK dos Trabalhos Web verifica os arquivos de log para observar blobs novos ou alterados. Esse processo não ocorre em tempo real; uma função não poderá ser disparada até vários minutos ou mais depois que o blob for criado. Além disso, os [logs de armazenamento são criados com base nos "melhores esforços"](https://msdn.microsoft.com/library/azure/hh343262.aspx); não há nenhuma garantia de que todos os eventos serão capturados. Sob algumas condições, logs poderão ser perdidos. Se as limitações de velocidade e de confiabilidade de gatilhos de blob não forem aceitáveis para o seu aplicativo, o método recomendado será criar uma mensagem de fila ao criar o blob e usar o atributo [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) em vez do atributo `BlobTrigger` na função que processa o blob.
 
 ### Espaço reservado único para nome de blob com extensão  
 
@@ -97,7 +97,7 @@ Você pode usar o atributo `BlobTrigger` nos seguintes tipos:
 
 Para trabalhar diretamente com a conta de Armazenamento do Azure, você também pode adicionar um parâmetro `CloudStorageAccount` à assinatura do método.
 
-Para obter exemplos, consulte o [código de associação de blob no repositório azure-webjobs-sdk no GitHub.com](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/BlobBindingEndToEndTests.cs).
+Para obter exemplos, veja o [código de associação de blob no repositório azure-webjobs-sdk no GitHub.com](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/BlobBindingEndToEndTests.cs).
 
 ## <a id="string"></a> Obtendo o conteúdo do blob de texto associando à cadeia de caracteres
 
@@ -238,4 +238,4 @@ Os tópicos relacionados abordados neste artigo incluem o seguinte:
 Este guia forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com blobs do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure – Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

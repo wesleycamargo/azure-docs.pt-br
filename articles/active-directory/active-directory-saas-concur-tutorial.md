@@ -2,7 +2,7 @@
     pageTitle="Tutorial: integração do Active Directory do Azure ao Concur | Microsoft Azure" 
     description="Saiba como usar o Concur com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: integração do Active Directory do Azure ao Concur  
 
@@ -147,7 +147,7 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
 
     ![Atribuir usuários](./media/active-directory-saas-concur-tutorial/IC769771.png "Atribuir usuários")
 
-3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar a atribuição.
+3.  Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
 
     ![Sim](./media/active-directory-saas-concur-tutorial/IC767830.png "Sim")
 
@@ -155,4 +155,4 @@ Agora, você deve aguardar 10 minutos e verificar se a conta foi sincronizada co
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Integração do Active Directory do Azure com o Jitbit Helpdesk | Microsoft Azure" 
     description="Saiba como usar o Jitbit Helpdesk com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
     services="active-directory" 
-    authors="MarkusVi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o Jitbit Helpdesk
   
@@ -51,7 +51,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar aplicativo](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC749321.png "Adicionar aplicativo")
 
-5.  No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
@@ -74,7 +74,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777678.png "Configurar logon único")
 
-2.  Na página **Como você deseja que os usuários façam logon no Jitbit Helpdesk**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
+2.  Na página **Como você deseja que os usuários façam logon no Jitbit Helpdesk**, selecione **Logon único do AD do Microsoft Azure** e clique em **Avançar**.
 
     ![Configurar logon único](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777679.png "Configurar logon único")
 
@@ -100,7 +100,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurações da autenticação](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777683.png "Configurações da autenticação")
 
-    1.  Selecione **Habilitar entrada com logon único SAML 2.0** usando SSO (Logon Único) com **OneLogin**.
+    1.  Selecione **Habilitar logon único SAML 2.0** usando SSO (logon único) com **OneLogin**.
     2.  No portal do Azure, na página do diálogo **Configurar logon único no Jitbit Helpdesk**, copie o valor do **Ponto de extremidade iniciado pelo SP (Provedor de Serviços)** e cole-o na caixa de texto **URL de Ponto de Extremidade**.
     3.  Crie um arquivo **codificado em Base 64** por meio do certificado baixado.
         
@@ -109,7 +109,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     4.  Abra seu certificado codificado em Base 64, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado X.509**
     5.  Clique em **Salvar alterações**.
 
-9.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar o diálogo **Configurar Logon Único**.
+9.  No portal do Azure AD, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777684.png "Configurar logon único")
 ##Configurando o provisionamento de usuários
@@ -152,10 +152,10 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
 
     ![Atribuir usuários](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777687.png "Atribuir usuários")
 
-3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar sua atribuição.
+3.  Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
 
     ![Sim](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC767830.png "Sim")
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="01/15/2016" 
 	ms.author="nitinme"/>
 
 
 # Usar blocos de anotações do Zeppelin com cluster Spark no HDInsight (Linux)
 
 Saiba como instalar blocos de anotações do Zeppelin em clusters Spark e como usar esses blocos de anotações.
+
+> [AZURE.IMPORTANT]O bloco de anotações do Zeppelin para o cluster HDInsight Spark é uma oferta para demonstrar como usar o Zeppelin em um ambiente do Azure HDInsight Spark. Se você quiser usar blocos de anotações para trabalhar com o HDInsight Spark, recomendamos que você use os blocos de anotações do Jupyter. Os blocos de anotações do Jupyter também oferecem opções diferentes de kernel, como o Scala, e continuarão a ter melhorias de recursos. Para obter instruções sobre como usar os blocos de anotações do Jupyter com o HDInsight Spark, veja [Executar consultas SQL do Spark usando um bloco de anotações do Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md#jupyter).
 
 **Pré-requisitos:**
 
@@ -37,7 +39,7 @@ Saiba como instalar blocos de anotações do Zeppelin em clusters Spark e como u
 
 ## Instalar o Zeppelin como parte da criação do cluster
 
-Você pode instalar o Zeppelin em um cluster Spark usando ação de script. A ação de script usa scripts personalizados para instalar componentes no cluster que não estão disponíveis por padrão. O script personalizado para instalar o Zeppelin em um cluster Spark está disponível em ****https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
+Você pode instalar o Zeppelin em um cluster Spark usando ação de script. A ação de script usa scripts personalizados para instalar componentes no cluster que não estão disponíveis por padrão. O script personalizado para instalar o Zeppelin em um cluster do Spark está disponível em ****https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
 
 ### Usando o Portal do Azure
 
@@ -328,4 +330,4 @@ Depois de configurar o túnel SSH, você poderá acessar o bloco de anotações 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

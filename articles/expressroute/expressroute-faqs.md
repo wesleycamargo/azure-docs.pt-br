@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/20/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # Perguntas Frequentes sobre Rota Expressa
@@ -116,7 +116,7 @@ Sim. Você pode vincular até 10 redes virtuais a um circuito de Rota Expressa.
 ### Tenho várias assinaturas do Azure que contêm redes virtuais. Posso conectar redes virtuais pertencentes a assinaturas separadas a um circuito da Rota Expressa?
 Sim. Você pode autorizar até 10 outras assinaturas do Azure para usar um único circuito de Rota Expressa. Esse limite pode ser aumentado habilitando o recurso premium da Rota Expressa.
 
-Para obter mais detalhes, consulte [Compartilhando um circuito de Rota Expressa entre várias assinaturas](expressroute-share-circuit.md).
+Para obter mais detalhes, consulte [Compartilhando um circuito de Rota Expressa entre várias assinaturas](expressroute-howto-linkvnet-arm.md).
 
 ### As redes virtuais estão conectadas ao mesmo circuito e isoladas umas das outras?
 Não. Todas as redes virtuais vinculadas ao mesmo circuito de Rota Expressa fazem parte do mesmo domínio de roteamento e não estão isoladas entre si, segundo uma perspectiva de roteamento. Se você precisar de isolamento de rota, você precisará criar um circuito de Rota Expressa separado.
@@ -258,4 +258,4 @@ Consulte [Locais e parceiros da Rota Expressa](expressroute-locations.md) para o
 Sim. Pontos de extremidade do serviço do Office 365 estão acessíveis pela Internet, embora a Rota Expressa tenha sido configurada para sua rede. Se você estiver em um local configurado para se conectar a serviços do Office 365 por meio de Rota Expressa, você se conectará por meio de Rota Expressa.
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

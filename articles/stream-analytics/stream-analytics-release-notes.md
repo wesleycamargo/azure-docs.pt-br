@@ -16,7 +16,7 @@
 	ms.date="01/13/2015" 
 	ms.author="jeffstok"/>
 
-#Notas de versão do Stream Analytic da Microsoft
+#Notas de versão do Stream Analytics
 
 ## Notas de versão de 10/12/2015 do Stream Analytics ##
 
@@ -133,4 +133,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

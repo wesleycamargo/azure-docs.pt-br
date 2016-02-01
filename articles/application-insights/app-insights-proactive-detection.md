@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/08/2016" 
+	ms.date="01/15/2016" 
 	ms.author="awills"/>
 
 #  Application Insights: detecção proativa
@@ -37,12 +37,12 @@ Atualmente, nossos algoritmos Examinam os tempos de carregamento de página, tem
 
 Você não precisa definir nenhum limite nem configurar regras. Aprendizado de máquina e algoritmos de mineração de dados são usados para detectar padrões anormais.
 
-A Detecção Proativa está em visualização e ainda não está disponível para todos os usuários do Application Insights. Se você quiser experimentar, entre em contato com AppInsightsML@microsoft.com e trabalharemos com você para configurá-lo.
+Estamos ansiosos para receber seus comentários. Diga-nos como ele te ajuda, como podemos aprimorar a detecção proativa e quais recursos adicionais você deseja ver adicionados. Você pode fornecer comentários em Enviar um Smiley/Rosto Triste no portal ou enviar um email para AppInsightsML@microsoft.com.
 
 ## Sobre o alerta proativo
 
 * *Por que eu recebei esse email?*
- * A detecção proativa analisou a telemetria que seu aplicativo enviou ao Application Insights e detectou um problema de desempenho em seu aplicativo.
+ * A detecção proativa analisou a telemetria que seu aplicativo enviou ao Application Insights e detectou um problema de desempenho em seu aplicativo. 
 * *A notificação significa que, definitivamente, tenho um problema?*
  * Não. É simplesmente uma sugestão sobre algo que talvez você queira examinar mais detalhadamente. 
 * *O que devo fazer?*
@@ -56,7 +56,7 @@ A Detecção Proativa está em visualização e ainda não está disponível par
 * *Quais tipos de anomalias são detectadas?*
  * Padrões que você acharia demorado verificar por conta própria. Por exemplo, um baixo desempenho em uma combinação específica de local, hora do dia e plataforma.
 * *Todos os dados coletados pelo Application Insights são analisados?*
- * Não no momento. Atualmente, analisamos o tempo de resposta de solicitação e o tempo de carregamento da página. As análises de métricas adicionais estarão disponíveis em breve. 
+ * Não no momento. Atualmente, analisamos o tempo de resposta de solicitação, o tempo de resposta da dependência e o tempo de carregamento da página. As análises de métricas adicionais estarão disponíveis em breve. 
 * *Posso criar minhas próprias regras de detecção de anomalias?*
  * Ainda não. Mas você pode:
  * [Configurar alertas](app-insights-alerts.md) que informam quando uma métrica excede um limite).
@@ -124,13 +124,13 @@ Há muitos conselhos na Web sobre como melhorar os tempos de resposta de seu ser
  
     No momento, elas são enviadas para aqueles com [acesso de gravação ao recurso Application Insights](app-insights-resources-roles-access-control.md).
 
-    Você também pode editar a lista de destinatários na folha de Detecção Proativa.
+    Você também pode editar as configurações da lista de destinatários na folha de Detecção Proativa.
 * *Não quero ser inundado com essas mensagens.*
- * Elas são limitadas a uma por dia. Você não receberá nenhuma mensagem repetida.
+ * Elas são limitadas a uma por dia com o problema mais relevante que ainda não relatamos. Você não receberá nenhuma mensagem repetida.
 * *Se eu não fizer nada, posso receber um lembrete?*
- * Não, você receberá uma mensagem sobre cada problema apenas uma vez.
+ * Não, você receberá uma mensagem sobre cada problema apenas uma vez. 
 * *Perdi o email. Onde posso encontrar as notificações no portal?*
- * Na visão geral do Application Insights do seu aplicativo, clique no bloco **Detecção Proativa**. 
+ * Na visão geral do Application Insights do seu aplicativo, clique no bloco **Detecção Proativa**. Lá, você poderá encontrar todas as notificações de backup de até sete dias anteriores.
 
 
 ## Artigos relacionados
@@ -141,4 +141,4 @@ Há muitos conselhos na Web sobre como melhorar os tempos de resposta de seu ser
 * [Gerenciador de pesquisas](app-insights-diagnostic-search.md)
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

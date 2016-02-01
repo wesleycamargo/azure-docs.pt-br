@@ -37,7 +37,9 @@ O monitor de dependência pronto para uso atualmente relata chamadas para esses 
  * Chamadas HTTP locais ou remotas
  * Banco de Dados de Documentos, tabela, o armazenamento de blob e fila do Azure
 * Java
- * Chamada para um banco de dados por meio de um driver [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), como MySQL, SQL Server, PostgreSQL ou SQLite.
+ * Chamadas para um banco de dados por meio de um driver [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), como MySQL, SQL Server, PostgreSQL ou SQLite.
+* Páginas da Web
+ * Chamadas AJAX
 
 Novamente, você pode escrever suas próprias chamadas de SDK para monitorar outras dependências.
 
@@ -107,7 +109,7 @@ O módulo padrão de acompanhamento de dependência descobre automaticamente dep
 
 Você pode escrever código que envia informações de dependência usando a mesma [API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency) usada pelos módulos padrão.
 
-Por exemplo, se você criar seu código com um assembly que não escreveu, poderá determinar o tempo de todas as chamadas nele, para descobrir qual sua contribuição aos tempos de resposta. Para que esses dados sejam exibidos nos gráficos de dependência do Application Insights, envie-os usando `TrackDependency`.
+Por exemplo, se você criar seu código com um assembly que não escreveu, poderá determinar o tempo de todas as chamadas nele, para descobrir qual sua contribuição aos tempos de resposta. Para que esses dados sejam exibidos nos gráficos de dependência no Application Insights, envie-os usando `TrackDependency`.
 
 ```C#
 
@@ -129,4 +131,4 @@ Se quiser desativar o módulo padrão de acompanhamento de dependência, remova 
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

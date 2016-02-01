@@ -153,7 +153,12 @@ Agora você pode preencher os membros de um grupo com base no atributo gerenciad
 Para configurar um grupo como "Gerenciador"
 --------------------------------------------------------------------------------
 1. No portal do administrador, clique na guia **Configurar** e selecione **REGRA AVANÇADA**.
-2. Digite a regra com a seguinte sintaxe: Relatórios diretos para *Relatórios diretos para {UserID\_of\_manager}*
+2. Digite a regra com a seguinte sintaxe: relatórios diretos para *Relatórios diretos para {UserID\_of\_manager}*. Um exemplo de regra válida para os Relatórios diretos é 
+
+Relatórios diretos para 62e19b97-8b3d-4d4a-a106-4ce66896a863”
+
+onde “62e19b97-8b3d-4d4a-a106-4ce66896a863” é a objectID do gerente. A ID de objeto pode ser encontrada no portal de administração AAD na guia perfil da página de usuário do usuário que é o gerenciador.
+
 3. Ao salvar essa regra, todos os usuários que atendem à regra serão adicionados como membros do grupo. Observe que pode levar alguns minutos para o preenchimento inicial do grupo.
 
 
@@ -168,4 +173,4 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

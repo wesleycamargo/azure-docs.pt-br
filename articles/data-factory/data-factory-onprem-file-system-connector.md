@@ -376,7 +376,7 @@ Os dados são copiados para um novo arquivo a cada hora com o caminho do blob re
 	  }
 	}
 
-**Pipeline com uma atividade de Cópia:** o pipeline contém uma atividade de cópia que está configurada para usar os conjuntos de dados de entrada e saída acima e agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo de **source** está definido como **SqlSource** e o tipo de **sink** está definido como **FileSystemSink**. A consulta SQL especificada para a propriedade **SqlReaderQuery** seleciona os dados da última hora a serem copiados.
+**Pipeline com uma atividade de cópia:** o pipeline contém uma atividade de cópia que está configurada para usar os conjuntos de dados de entrada e saída acima e agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo de **source** está definido como **SqlSource** e o tipo de **sink** está definido como **FileSystemSink**. A consulta SQL especificada para a propriedade **SqlReaderQuery** seleciona os dados da última hora a serem copiados.
 
 	
 	{  
@@ -472,7 +472,7 @@ Consulte [Definir credenciais e segurança](data-factory-move-data-between-onpre
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). Seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL do Azure, Blob do Azure, tabela do Azure, sistema de arquivos local etc.).
 
-A seção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre o local, formato etc. de dados no armazenamento de dados. A seção typeProperties para o conjunto de dados do tipo **FileShare** tem as propriedades a seguir.
+A seção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre o local, formato etc. de dados no armazenamento de dados. A seção typeProperties para o conjunto de dados do tipo **FileShare** tem as seguintes propriedades.
 
 Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------
@@ -481,7 +481,7 @@ fileName | Especifique o nome do arquivo no **folderPath** se quiser que a tabel
 partitionedBy | partitionedBy pode utilizado para especificar um filename, folderPath dinâmico para dados de série temporal. Por exemplo, folderPathparametrizado para cada hora dos dados. | Não
 Formatar | Há suporte para dois tipos de formatos: **TextFormat**, **AvroFormat**. Você precisa definir a propriedade type no formato para qualquer um desses valores. Quando o forAvroFormatmat é TextFormat, você pode especificar as propriedades opcionais adicionais para o formato. Consulte a seção abaixo para obter mais detalhes. **A propriedade Format não tem suporte atualmente para sistemas de arquivos locais. Ele deve ser habilitado em breve, conforme documentado aqui.** | Não
 fileFilter | Especifique um filtro a ser usado para selecionar um subconjunto de arquivos no folderPath em vez de todos os arquivos. <p>Os valores permitidos são: * (vários caracteres) e ? (um único caractere).</p><p>Exemplo 1: "fileFilter": "*.log"</p>Exemplo 2: "fileFilter": 2014-1-?.txt"</p><p>**Observação: fileFilter é aplicável a um conjunto de dados FileShare de entrada</p> | Não
-| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: GZip, Deflate e BZip2. Os níveis com suporte são: Melhor e Mais rápido. Confira a seção [Suporte à compactação](#compression-support) para obter mais detalhes. | Não |
+| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: GZip, Deflate e BZip2. Os níveis com suporte são: Melhor e Mais rápido. Consulte a seção [Suporte à compactação](#compression-support) para obter mais detalhes. | Não |
 
 > [AZURE.NOTE]filename e fileFilter não podem ser usados simultaneamente.
 
@@ -517,16 +517,16 @@ No exemplo acima, ano, mês, dia e hora do SliceStart são extraídos em variáv
 
 ### Especificando TextFormat
 
-Se o formato for definido como **TextFormat**, você poderá especificar as seguintes propriedades **optional** na seção **Format** dentro da seção **typeProperties**.
+Se o formato for definido como **TextFormat**, você pode especificar as seguintes propriedades **opcionais** na seção **Format** dentro da seção **typeProperties**.
 
 Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------
 columnDelimiter | Os caracteres usados como um separador de coluna em um arquivo. O valor padrão é vírgula (,). | Não
 rowDelimiter | Os caracteres usados como um separador bruto no arquivo. O valor padrão é qualquer um dos seguintes: [“\\r\\n”, “\\r”,” \\n”]. | Não
-escapeChar | O caractere especial usado como escape do delimitador de coluna mostrado no conteúdo. Nenhum valor padrão. Você deve especificar não mais de um caractere para essa propriedade.<p>Por exemplo, se você tiver a vírgula (,) como o delimitador de coluna, mas desejar ter o caractere de vírgula no texto (exemplo: "Hello, world"), poderá definir '$' como o caractere de escape e usar a cadeia de caracteres "Hello$, world" na origem</p><p>.Observe que não é possível especificar escapeChar e quoteChar para uma tabela.</p> | Não
-quoteChar | O caractere especial é usado como o caractere no qual colocar o valor de cadeia de caracteres. Os delimitadores de linha e coluna dos caracteres de aspas seriam tratados como parte do valor de cadeia de caracteres. Nenhum valor padrão. Você deve especificar não mais de um caractere para essa propriedade.<p>Por exemplo, se você tiver a vírgula (,) como o delimitador de coluna, mas desejar ter caractere de vírgula no texto (exemplo: <Hello  world>), poderá definir ‘"’ como o caractere de citação e usar a cadeia de caracteres <"Hello, world"> na origem. Essa propriedade é aplicável às tabelas de entrada e saída.</p><p>Observe que você não pode especificar escapeChar e quoteChar para uma tabela.</p> | Não
+escapeChar | O caractere especial usado como escape do delimitador de coluna mostrado no conteúdo. Nenhum valor padrão. Você deve especificar não mais de um caractere para essa propriedade.<p>Por exemplo, se você tiver a vírgula (,) como o delimitador de coluna, mas desejar ter o caractere de vírgula no texto (exemplo: "Hello, world"), você pode definir '$' como o caractere de escape e usar a cadeia de caracteres "Hello$, world" na fonte.</p><p>Observe que não é possível especificar escapeChar e quoteChar para uma tabela.</p> | Não
+quoteChar | O caractere especial é usado como o caractere no qual colocar o valor de cadeia de caracteres. Os delimitadores de linha e coluna dos caracteres de aspas seriam tratados como parte do valor de cadeia de caracteres. Nenhum valor padrão. Você deve especificar não mais de um caractere para essa propriedade.<p>Por exemplo, se você tiver a vírgula (,) como o delimitador de coluna, mas desejar ter caractere de vírgula no texto (exemplo: <Hello  world>), poderá definir ‘"’ como o caractere de citação e usar a cadeia de caracteres <"Hello, world"> na origem. Essa propriedade é aplicável às tabelas de entrada e saída.</p><p>Observe que não é possível especificar escapeChar e quoteChar para uma tabela.</p> | Não
 nullValue | Os caracteres usados para representar um valor nulo no conteúdo do arquivo de blob. O valor padrão é “\\N”.> | Não
-encodingName | Especifique o nome de codificação. Para obter a lista de nomes de codificação válidos, consulte: Propriedade Encoding.EncodingName. <p>Por exemplo: windows-1250 ou shift\_jis. O valor padrão é UTF-8.</p> | Não
+encodingName | Especifique o nome de codificação. Para obter a lista de nomes de codificação válidos, consulte: Propriedade Encoding.EncodingName. <p>Por exemplo: windows-1250 ou shift\_jis. O valor padrão é: UTF-8.</p> | Não
 
 #### Exemplos:
 
@@ -565,7 +565,7 @@ Para usar o formato Avro em uma tabela de Hive seguinte, consulte o [Tutorial do
 
 ## Propriedades de tipo da atividade de cópia do compartilhamento de arquivos
 
-**FileSystemSource** dá suporte às seguintes propriedades:
+**FileSystemSource** suporta as seguintes propriedades:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | -------- | ----------- | -------------- | -------- |
@@ -575,7 +575,7 @@ Para usar o formato Avro em uma tabela de Hive seguinte, consulte o [Tutorial do
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | Define o comportamento de cópia quando a origem é BlobSource ou FileSystem. | <p>Há três valores possíveis para a propriedade copyBehavior. </p><ul><li>**PreserveHierarchy: ** preserva a hierarquia de arquivos na pasta de destino, ou seja, o caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.</li><li>**FlattenHierarchy:** todos os arquivos da pasta de origem estarão no primeiro nível da pasta de destino. Os arquivos de destino terão o nome gerado automaticamente. </li><li>**MergeFiles:** mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo/blob for especificado, o nome do arquivo mesclado será o nome especificado; caso contrário, será o nome de arquivo gerado automaticamente.</li></ul> | Não |
+| copyBehavior | Define o comportamento de cópia quando a origem é BlobSource ou FileSystem. | <p>Há três valores possíveis para a propriedade copyBehavior. </p><ul><li>**PreserveHierarchy: ** preserva a hierarquia de arquivos na pasta de destino, ou seja, o caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.</li><li>**FlattenHierarchy:** todos os arquivos da pasta de origem estarão no primeiro nível da pasta de destino. Os arquivos de destino terão o nome gerado automaticamente. </li></ul> | Não |
 
 ### exemplos de recursive e copyBehavior
 Esta seção descreve o comportamento resultante da operação de cópia para diferentes combinações de valores recursive e copyBehavior.
@@ -584,7 +584,7 @@ recursive | copyBehavior | Comportamento resultante
 --------- | ------------ | --------
 verdadeiro | preserveHierarchy | <p>Para uma pasta de origem Pasta1 com a seguinte estrutura:</p> <p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5</p>a pasta de destino Pasta1 terá a mesma estrutura de acordo com a origem<p>asta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5</p>.  
 verdadeiro | flattenHierarchy | <p>Para uma pasta de origem Pasta1 com a seguinte estrutura:</p> <p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5</p>a Pasta1 de destino terá a seguinte estrutura: <p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome automaticamente gerado para Arquivo5</p>
-verdadeiro | mergeFiles | <p>Para uma pasta de origem Pasta1 com a seguinte estrutura:</p> <p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5</p>a pasta de destino Pasta1 terá a seguinte estrutura: <p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1 + Arquivo2 + Arquivo3 + Arquivo4 + Arquivo5, os conteúdos serão mesclados em um nome do arquivo autogerado</p>
+verdadeiro | mergeFiles | <p>Para uma pasta de origem Pasta1 com a seguinte estrutura:</p> <p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5</p>a pasta de destino Pasta1 terá a seguinte estrutura: <p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1 + Arquivo2 + Arquivo3 + Arquivo4 + Arquivo5 os conteúdos serão mesclados em um nome do arquivo autogerado</p>
 false | preserveHierarchy | <p>Para uma pasta de origem Pasta 1 com a seguinte estrutura:</p> <p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5</p>a pasta de destino Pasta1 terá a seguinte estrutura<p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/></p><p>Subpasta1 com Arquivo3, Arquivo4 e Arquivo5 não são selecionados.</p>.
 false | flattenHierarchy | <p>Para uma pasta de origem Pasta1 com a seguinte estrutura:</p> <p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5</p>a pasta de destino Pasta1 terá a seguinte estrutura<p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para Arquivo2<br/></p><p>Subpasta1 com Arquivo3, Arquivo4 e Arquivo5 não são selecionados.</p>.
 false | mergeFiles | <p>Para uma pasta de origem Pasta 1 com a seguinte estrutura:</p> <p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5</p>a pasta de destino Pasta1 terá a seguinte estrutura<p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Os conteúdos do Arquivo1 + Arquivo2 serão mesclados em um arquivo com o nome do arquivo autogerado. nome autogerado para Arquivo1</p><p>Subpasta1 com Arquivo3, Arquivo4 e Arquivo5 não são selecionados.</p>.
@@ -603,4 +603,4 @@ false | mergeFiles | <p>Para uma pasta de origem Pasta 1 com a seguinte estrutur
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

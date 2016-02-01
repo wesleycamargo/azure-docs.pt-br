@@ -12,19 +12,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="01/15/2016"
    ms.author="alkohli" />
 
 # Modificar as configurações de interface de rede DADOS 0 em seu dispositivo StorSimple
 
 ## Visão geral
 
-O dispositivo Microsoft Azure StorSimple tem seis interfaces de rede de DADOS 0 a DADOS 5. A interface de DADOS 0 é sempre configurada por meio da interface do Windows PowerShell ou do console serial e é habilitada para a nuvem automaticamente. A interface de DADOS 0 é configurada primeiro por meio do assistente de instalação durante a implantação inicial do dispositivo StorSimple. Quando o dispositivo está em modo operacional, talvez você precise redefinir as configurações de DADOS 0. Este tutorial fornece dois métodos para modificar as configurações de rede de DATA 0; os dois por meio do Windows PowerShell para StorSimple.
+O dispositivo Microsoft Azure StorSimple tem seis interfaces de rede de DADOS 0 a DADOS 5. A interface de DADOS 0 é sempre configurada por meio da interface do Windows PowerShell ou do console serial e é habilitada para a nuvem automaticamente. A interface de DADOS 0 é configurada primeiramente por meio do assistente de instalação durante a implantação inicial do dispositivo StorSimple. Quando o dispositivo está em modo operacional, talvez você precise redefinir as configurações de DADOS 0. Este tutorial fornece dois métodos para modificar as configurações de rede de DATA 0; os dois por meio do Windows PowerShell para StorSimple.
 
 Depois de ler este tutorial, você poderá:
 
 - Modificar a configuração de rede de DADOS 0 por meio do assistente de instalação
-- Modificar as configurações de rede de DADOS 0 por meio do cmdlet`Set-HcsNetInterface`
+- Modificar as configurações de rede de DADOS 0 por meio do cmdlet `Set-HcsNetInterface`
 
 
 ## Modificar as configurações de rede de DADOS 0 por meio do assistente de instalação
@@ -35,7 +35,6 @@ Você pode reconfigurar as definições de rede de DADOS 0 conectando-se à inte
 1. No menu do console serial, escolha a opção 1, **Efetuar login com acesso total**. Quando solicitado, forneça a **senha de administrador do dispositivo**. A senha padrão é `Password1`.
 
 2. No prompt de comando, digite:
-
 
 	`Invoke-HcsSetupWizard`
 
@@ -70,6 +69,7 @@ Uma maneira alternativa de reconfigurar a interface de rede DADOS 0 é através 
 ## Próximas etapas
 
 - Para configurar as interfaces de rede que não sejam DATA 0, você pode usar a [página Configurar no Portal clássico do Azure](storsimple-modify-device-config.md). 
+
 - Se você tiver problemas ao configurar suas interfaces de rede, consulte [Solucionar problemas de implantação](storsimple-troubleshoot-deployment.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

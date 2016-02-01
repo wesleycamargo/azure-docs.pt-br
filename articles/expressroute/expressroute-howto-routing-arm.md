@@ -3,8 +3,8 @@
    description="Este artigo fornece uma orientação sobre as etapas de criação e de provisionamento do emparelhamento público, privado e da Microsoft de um circuito de Rota Expressa. Este artigo também mostra como verificar o status, atualizar ou excluir emparelhamentos de seu circuito."
    documentationCenter="na"
    services="expressroute"
-   authors="ganesr"
-   manager="rossort"
+   authors="cherylmc"
+   manager="carolz"
    editor=""
    tags="azure-resource-manager"/>
 <tags
@@ -13,24 +13,23 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/04/2015"
-   ms.author="ganesr"/>
+   ms.date="01/16/2016"
+   ms.author="cherylmc"/>
 
-# Criar e modificar a configuração de roteamento da Rota Expressa
+# Criar e modificar o roteamento de um circuito da Rota Expressa usando o Gerenciador de Recursos do Azure e o PowerShell
 
 > [AZURE.SELECTOR]
-[PowerShell Classic](expressroute-howto-routing-classic.md)
-[PowerShell Resource Manager](expressroute-howto-routing-arm.md)
+[PowerShell - Classic](expressroute-howto-routing-classic.md)
+[PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
 
-Este artigo explica as etapas para criar e gerenciar a configuração de roteamento de um circuito da Rota Expressa usando cmdlets do PowerShell e o modelo de implantação ARM. As etapas a seguir também mostrarão a você como verificar o status, atualizar ou excluir e desprovisionar emparelhamentos de um circuito da Rota Expressa.
+Esse artigo explica as etapas para criar e gerenciar a configuração de roteamento de um circuito da Rota Expressa usando cmdlets do PowerShell e o modelo de implantação do Gerenciador de Recursos do Azure. As etapas a seguir também mostrarão a você como verificar o status, atualizar ou excluir e desprovisionar emparelhamentos de um circuito da Rota Expressa.
 
-[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)] 
-
+[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
 ## Pré-requisitos de configuração
 
-- Você precisará da versão mais recente dos módulos do Azure PowerShell, versão 1.0 ou posterior.
-- Leia as páginas [pré-requisitos](expressroute-prerequisites.md), [requisitos de roteamento](expressroute-routing.md) e [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
+- Você precisará da versão mais recente dos módulos do Azure PowerShell, versão 1.0 ou posterior. 
+- Assegure-se de que você leu a página de [pré-requisitos](expressroute-prerequisites.md), a página de [requisitos de roteamento](expressroute-routing.md) e a página de [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 - Você deve ter um circuito da Rota Expressa ativo. Antes de continuar, siga as instruções para [criar um circuito da Rota Expressa](expressroute-howto-circuit-classic.md) e para que o circuito seja habilitado pelo provedor de conectividade. O circuito da Rota Expressa deve estar em um estado provisionado e habilitado e para que você possa executar os cmdlets descritos abaixo.
 
 >[AZURE.IMPORTANT]Estas instruções se aplicam apenas a circuitos criados com provedores de serviço que oferecem serviços de conectividade de Camada 2. Se você estiver usando um provedor de serviços que oferece serviços gerenciados de Camada 3 (normalmente um IPVPN, como MPLS), seu provedor de conectividade configurará e gerenciará o roteamento para você. Nesses casos, não será possível criar ou gerenciar emparelhamentos.
@@ -45,7 +44,7 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
 
 1. **Importe o módulo do PowerShell para Rota Expressa.**
 	
- 	Você deve instalar o instalador do Powershell mais recente da [Galeria do PowerShell](http://www.powershellgallery.com/) e importar os módulos do Gerenciador de Recursos do Azure na sessão do PowerShell para começar a usar os cmdlets da Rota Expressa. Você precisará executar o PowerShell como Administrador.
+ 	Instale o instalador do PowerShell mais recente da [Galeria do PowerShell](http://www.powershellgallery.com/) e importe os módulos do Gerenciador de Recursos do Azure na sessão do PowerShell para começar a usar os cmdlets da Rota Expressa. Você precisará executar o PowerShell como Administrador.
 
 	    Install-Module AzureRM
 
@@ -69,7 +68,9 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
 
 2. **Criar um circuito da Rota Expressa.**
 	
-	Siga as instruções para criar um [circuito da Rota Expressa](expressroute-howto-circuit-arm.md) e para que o circuito seja provisionado pelo provedor de conectividade. Caso seu provedor de conectividade ofereça serviços gerenciados de Camada 3, peça que ele habilite o emparelhamento privado do Azure para você. Nesse caso, não será necessário seguir as instruções listadas nas seções a seguir. No entanto, se o seu provedor de conectividade não gerenciar o roteamento, após a criação do circuito, siga as instruções abaixo.
+	Siga as instruções para criar um [circuito da Rota Expressa](expressroute-howto-circuit-arm.md) e para que o circuito seja provisionado pelo provedor de conectividade.
+
+	Caso seu provedor de conectividade ofereça serviços gerenciados de camada 3, solicite a ele a habilitação do emparelhamento privado do Azure. Nesse caso, não será necessário seguir as instruções listadas nas seções a seguir. No entanto, se o seu provedor de conectividade não gerenciar o roteamento, após a criação do circuito, siga as instruções abaixo.
 
 3. **Verifique se o circuito da Rota Expressa foi provisionado.**
 
@@ -132,7 +133,7 @@ Você pode obter detalhes de configuração usando o seguinte cmdlet
 
 		$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-		Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt	
+		Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt	
 
 
 ### Atualizar a configuração de emparelhamento privado do Azure
@@ -145,7 +146,6 @@ Você pode atualizar qualquer parte da configuração usando o cmdlet a seguir. 
 
 
 ### Excluir um emparelhamento privado do Azure
-
 
 Você pode remover a configuração de emparelhamento executando o seguinte cmdlet.
 
@@ -164,7 +164,7 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
 
 1. **Importe o módulo do PowerShell para Rota Expressa.**
 	
- 	Você deve instalar o instalador do Powershell mais recente da [Galeria do PowerShell](http://www.powershellgallery.com/) e importar os módulos do Gerenciador de Recursos do Azure na sessão do PowerShell para começar a usar os cmdlets da Rota Expressa. Você precisará executar o PowerShell como Administrador.
+ 	Instale o instalador do PowerShell mais recente da [Galeria do PowerShell](http://www.powershellgallery.com/) e importe os módulos do Gerenciador de Recursos do Azure na sessão do PowerShell para começar a usar os cmdlets da Rota Expressa. Você precisará executar o PowerShell como Administrador.
 
 	    Install-Module AzureRM
 
@@ -188,7 +188,9 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
 
 2. **Criar um circuito da Rota Expressa**
 	
-	Siga as instruções para criar um [circuito da Rota Expressa](expressroute-howto-circuit-arm.md) e para que o circuito seja provisionado pelo provedor de conectividade. Caso seu provedor de conectividade ofereça serviços gerenciados de Camada 3, peça que ele habilite o emparelhamento privado do Azure para você. Nesse caso, não será necessário seguir as instruções listadas nas seções a seguir. No entanto, se o seu provedor de conectividade não gerenciar o roteamento, após a criação do circuito, siga as instruções abaixo.
+	Siga as instruções para criar um [circuito da Rota Expressa](expressroute-howto-circuit-arm.md) e para que o circuito seja provisionado pelo provedor de conectividade.
+
+	Caso seu provedor de conectividade ofereça serviços gerenciados de camada 3, solicite a ele a habilitação do emparelhamento privado do Azure. Nesse caso, não será necessário seguir as instruções listadas nas seções a seguir. No entanto, se o seu provedor de conectividade não gerenciar o roteamento, após a criação do circuito, siga as instruções abaixo.
 
 3. **Verifique se o circuito da Rota Expressa foi provisionado**
 
@@ -279,7 +281,7 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
 
 1. **Importe o módulo do PowerShell para Rota Expressa.**
 	
- 	Você deve instalar o instalador do Powershell mais recente da [Galeria do PowerShell](http://www.powershellgallery.com/) e importar os módulos do Gerenciador de Recursos do Azure na sessão do PowerShell para começar a usar os cmdlets da Rota Expressa. Você precisará executar o PowerShell como Administrador.
+ 	Instale o instalador do PowerShell mais recente da [Galeria do PowerShell](http://www.powershellgallery.com/) e importe os módulos do Gerenciador de Recursos do Azure na sessão do PowerShell para começar a usar os cmdlets da Rota Expressa. Você precisará executar o PowerShell como Administrador.
 
 	    Install-Module AzureRM
 
@@ -303,7 +305,9 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
 
 2. **Criar um circuito da Rota Expressa**
 	
-	Siga as instruções para criar um [circuito da Rota Expressa](expressroute-howto-circuit-arm.md) e para que o circuito seja provisionado pelo provedor de conectividade. Caso seu provedor de conectividade ofereça serviços gerenciados de Camada 3, peça que ele habilite o emparelhamento privado do Azure para você. Nesse caso, não será necessário seguir as instruções listadas nas seções a seguir. No entanto, se o seu provedor de conectividade não gerenciar o roteamento, após a criação do circuito, siga as instruções abaixo.
+	Siga as instruções para criar um [circuito da Rota Expressa](expressroute-howto-circuit-arm.md) e para que o circuito seja provisionado pelo provedor de conectividade.
+
+	Caso seu provedor de conectividade ofereça serviços gerenciados de camada 3, solicite a ele a habilitação do emparelhamento privado do Azure. Nesse caso, não será necessário seguir as instruções listadas nas seções a seguir. No entanto, se o seu provedor de conectividade não gerenciar o roteamento, após a criação do circuito, siga as instruções abaixo.
 
 3. **Verifique se o circuito da Rota Expressa foi provisionado**
 
@@ -347,7 +351,7 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
 	- Nome do registro de roteamento: você pode especificar o RIR/IRR com base no qual o número de AS e os prefixos estão registrados.
 	- Um Hash MD5, se você optar por usar um. **Isso é opcional.**
 	
-	Execute o cmdlet a seguir para configurar o emparelhamento da Microsoft para seu circuito
+	Executar o cmdlet a seguir para configurar o emparelhamento da Microsoft para seu circuito
 
 		Add-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -Circuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MircosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MircosoftConfigCustomerAsn 23 -MircosoftConfigRoutingRegistryName "ARIN"
 
@@ -382,13 +386,13 @@ Você pode remover a configuração de emparelhamento executando o seguinte cmdl
 
 ## Próximas etapas
 
-Depois, Vincular uma Rede Virtual a um circuito da Rota Expressa. Você pode usar [esse modelo](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection) ao trabalhar com o modo de implantação do Gerenciador de recursos do Azure. Atualmente estamos trabalhando em etapas do PowerShell.
+A próxima etapa será vincular é uma Rede Virtual a um circuito da Rota Expressa. Você pode usar [esse modelo](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection) ao trabalhar com o modo de implantação do Gerenciador de recursos do Azure. Atualmente estamos trabalhando em etapas do PowerShell.
 
 
--  Em seguida, [Vincular uma Rede Virtual a um circuito da Rota Expressa](expressroute-howto-linkvnet-arm.md).
-
--  Para obter mais informações sobre fluxos de trabalho, veja [Fluxos de trabalho da Rota Expressa](expressroute-workflows.md).
+-  Para saber mais sobre fluxos de trabalho, veja [Fluxos de trabalho da Rota Expressa](expressroute-workflows.md).
 
 -  Para obter mais informações sobre o emparelhamento de circuito, veja [Circuitos e domínios de roteamento da Rota Expressa](expressroute-circuit-peerings.md).
 
-<!------HONumber=Nov15_HO4-->
+-  Para saber mais sobre redes virtuais, veja [Visão geral da rede virtual](../virtual-network/virtual-networks-overview.md).
+
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/06/2016"
+   ms.date="01/20/2016"
    ms.author="nitinme"/>
 
 # Criar um cluster HDInsight com o Repositório Data Lake usando o Portal do Azure
@@ -25,7 +25,9 @@
 
 Aprenda a usar o Portal do Azure para criar um cluster HDInsight (Hadoop, HBase ou Storm) com acesso ao Repositório Azure Data Lake. Algumas considerações importantes para esta versão:
 
-* **Para clusters Hadoop e Storm (Windows e Linux)**, o Repositório Data Lake só pode ser usado como uma conta de armazenamento adicional. A conta de armazenamento padrão para esses clusters ainda será o WASB (Blobs de Armazenamento do Azure).
+* **Para clusters Hadoop (Windows e Linux)**, o Repositório Data Lake só pode ser usado como uma conta de armazenamento adicional. A conta de armazenamento padrão para esses clusters ainda será o WASB (Blobs de Armazenamento do Azure).
+
+* **Para clusters Storm (Windows e Linux)**, o Repositório Data Lake pode ser usado para gravar dados de uma topologia do Storm. O Repositório Data Lake também pode ser usado para armazenar dados de referência que podem ser lidos por uma topologia do Storm.
 
 * **Para clusters HBase (Windows e Linux)**, o Repositório Data Lake pode ser usado como um armazenamento padrão ou armazenamento adicional.
 
@@ -128,6 +130,47 @@ Nesta seção, você cria um cluster HDInsight Hadoop que usa o Repositório Dat
 
 Após a configuração de um cluster HDInsight, você poderá executar trabalhos de teste no cluster a fim de testar se o cluster HDInsight pode acessar dados no Repositório Data Lake do Azure. Para fazer isso, vamos executar algumas consultas de hive que visam o Repositório Data Lake.
 
+### Para um cluster do Linux
+
+1. Abra a folha de cluster para o cluster que você acabou de provisionar e, em seguida, clique em **Painel**. Isso abre o Ambari para o cluster do Linux. Ao acessar o Ambari, você receberá uma solicitação para se autenticar no site. Insira o nome da conta e a senha de administrador (o administrador padrão) que você usou ao criar o cluster.
+
+	![Iniciar painel do cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdiadlcluster1.png "Iniciar painel do cluster")
+
+	Você também pode navegar diretamente até o Ambari indo para https://CLUSTERNAME.azurehdinsight.net em um navegador da Web (onde **CLUSTERNAME** é o nome do seu cluster HDInsight).
+
+2. Abra o modo de exibição do Hive Selecione o conjunto de quadrados no menu da página (ao lado do link e botão **Admin** à direita da página) para listar os modos de exibição disponíveis. Selecione o modo de exibição do **Hive**.
+
+	![Escolhendo modos de exibição do Ambari](./media/data-lake-store-hdinsight-hadoop-use-portal/selecthiveview.png)
+
+3. Você verá uma página semelhante à seguinte:
+
+	![Imagem da página de modo de exibição do Hive, que contém uma seção de editor de consultas](./media/data-lake-store-hdinsight-hadoop-use-portal/hiveview.png)
+
+4. Na seção **Editor de Consultas** da página, cole a seguinte instrução HiveQL na planilha:
+
+		CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder'
+
+5. Use o botão **Executar** na parte inferior do **Editor de Consultas** para iniciar a consulta. Uma seção **Resultados do Processo de Consulta** deve aparecer abaixo do **Editor de Consultas** e exibir informações sobre o trabalho.
+
+6. Após a conclusão da consulta, a seção **Resultados do Processo de Consulta** exibirá os resultados da operação. A guia **Resultados** deve conter as seguintes informações:
+
+7. Execute a consulta a seguir para verificar se a tabela foi criada.
+
+		SHOW TABLES;
+
+	A guia **Resultados** deve mostrar o seguinte:
+
+		hivesampletable
+		vehicles
+
+	**veículos** é a tabela que você criou anteriormente. **hivesampletable** é uma tabela de exemplo disponível em todos os clusters de HDInsight por padrão.
+
+8. Você também pode executar uma consulta para recuperar dados da tabela **vehicles**.
+
+		SELECT * FROM vehicles LIMIT 5;
+
+### Para um cluster do Windows
+
 1. Abra a folha de cluster para o cluster que você acabou de provisionar e, em seguida, clique em **Painel**.
 
 	![Iniciar painel do cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdiadlcluster1.png "Iniciar painel do cluster")
@@ -152,20 +195,42 @@ Após a configuração de um cluster HDInsight, você poderá executar trabalhos
 
 		SHOW TABLES;
 
-	Clique em Exibir detalhes correspondente a essa consulta e a saída deve mostrar o seguinte:
+	Clique em **Exibir Detalhes** correspondente a essa consulta e a saída deverá mostrar o seguinte:
 
 		hivesampletable
 		vehicles
 
 	**veículos** é a tabela que você criou anteriormente. **hivesampletable** é uma tabela de exemplo disponível em todos os clusters de HDInsight por padrão.
 
-5. Você também pode executar uma consulta para recuperar dados de **veículos**.
+5. Você também pode executar uma consulta para recuperar dados da tabela **vehicles**.
 
 		SELECT * FROM vehicles LIMIT 5;
+
 
 ## Repositório Data Lake usando comandos do HDFS
 
 Após a configuração do cluster HDInsight para usar o Repositório Data Lake, você poderá usar os comandos do shell HDFS para acessar o armazenamento.
+
+### Para um cluster do Linux
+
+Nesta seção, você acessará o cluster por SSH e executará os comandos HDFS. O Windows não fornece um cliente SSH integrado. É recomendável usar o **PuTTY**, que pode ser baixado de [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+
+Para saber mais sobre o uso do PuTTY, veja [Usar SSH com o Hadoop baseado em Linux no HDInsight do Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+
+Uma vez conectado, use o comando do sistema de arquivos HDFS a seguir para listar os arquivos no Repositório Data Lake.
+
+	hdfs dfs -ls adl://<Data Lake Store account name>.azuredatalakestore.net:443/
+
+Isso deve listar o arquivo carregado anteriormente no Repositório Data Lake.
+
+	15/09/17 21:41:15 INFO web.CaboWebHdfsFileSystem: Replacing original urlConnectionFactory with org.apache.hadoop.hdfs.web.URLConnectionFactory@21a728d6
+	Found 1 items
+	-rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder
+
+Você também pode usar o comando `hdfs dfs -put` para carregar alguns arquivos no Repositório Data Lake e usar `hdfs dfs -ls` para verificar se os arquivos foram carregados com êxito.
+
+
+### Para um cluster do Windows
 
 1. Entre no novo [Portal do Azure](https://portal.azure.com).
 
@@ -198,13 +263,15 @@ Para clusters de HBase, você pode usar contas do Repositório Data Lake como ar
 
 Para obter instruções sobre como adicionar uma entidade de serviço a um sistema de arquivos do Repositório Data Lake, consulte [Configurar a entidade de serviço para acessar o sistema de arquivos do Repositório Data Lake](#acl).
 
+## Usar o Repositório Data Lake em uma topologia do Storm
 
+Você pode usar o Repositório Data Lake para gravar os dados de uma topologia do Storm. Para obter instruções sobre como reproduzir esse cenário, veja [Usar o Repositório Azure Data Lake com o Apache Storm com HDInsight](../hdinsight/hdinsight-storm-write-data-lake-store.md).
 
-## Veja também
+## Consulte também
 
 * [PowerShell: Criar um cluster HDInsight para usar o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

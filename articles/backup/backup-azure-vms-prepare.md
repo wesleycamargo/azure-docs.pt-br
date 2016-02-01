@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
-	ms.author="trinadhk; aashishr; jimpark; markgal"/>
+	ms.date="01/19/2016"
+	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Preparar o seu ambiente para o backup das máquinas virtuais do Azure
 Antes de fazer o backup de uma VM (máquina virtual do Azure), você precisa concluir alguns pré-requisitos para preparar seu ambiente. Se você já fez isso, pode iniciar o [backup das suas VMs](backup-azure-vms.md). Caso contrário, prossiga com as etapas abaixo para verificar se seu ambiente está preparado.
@@ -26,7 +26,7 @@ Antes de fazer o backup de uma VM (máquina virtual do Azure), você precisa con
 
 Para iniciar o backup de suas máquinas virtuais do Azure, você precisa primeiro criar um cofre de backup. O cofre é uma entidade que armazena todos os backups e pontos de recuperação que foram criados ao longo do tempo. O cofre também contém as políticas de backup que serão aplicadas às máquinas virtuais que passarão por backup.
 
-A imagem acima mostra os relacionamentos entre as várias entidades do Backup do Azure: ![Relação e entidades do Backup do Azure](./media/backup-azure-vms-prepare/vault-policy-vm.png)
+Esta imagem mostra os relacionamentos entre as várias entidades do Backup do Azure: ![Relação e entidades do Backup do Azure](./media/backup-azure-vms-prepare/vault-policy-vm.png)
 
 Para criar um cofre de backup:
 
@@ -48,7 +48,7 @@ Para criar um cofre de backup:
 
     ![Lista de cofres de backup](./media/backup-azure-vms-prepare/backup_vaultslist.png)
 
-7. Clique no cofre de backup para abrir a página **Início Rápido**, na qual são mostradas as instruções para fazer o backup de máquinas virtuais do Azure.
+7. Clique no cofre de backup para abrir a página de **Início Rápido** na qual são exibidas as instruções para fazer o backup de máquinas virtuais do Azure.
 
     ![Instruções de backup de máquina virtual na página Painel](./media/backup-azure-vms-prepare/vmbackup-instructions.png)
 
@@ -178,7 +178,7 @@ A extensão de backup será instalada se a VM estiver em execução. Uma VM em e
 - Não há suporte para backup e restauração entre regiões.
 - O backup de máquinas virtuais usando o serviço Backup do Azure tem suporte em todas as regiões públicas do Azure (confira a [lista de verificação](http://azure.microsoft.com/regions/#services) de regiões com suporte). Se a região que você procura ainda não tem suporte, ela não aparecerá na lista suspensa durante a criação de cofre.
 - O backup de máquinas virtuais usando o serviço Backup do Azure tem suporte somente para determinadas versões de sistema operacional:
-  - **Linux**: confira [a lista de distribuições endossadas pelo Azure](../virtual-machines-linux-endorsed-distributions.md). Outras distribuições personalizadas do Linux também devem funcionar, contanto que o agente de VM esteja disponível na máquina virtual.
+  - **Linux**: confira [a lista de distribuições endossadas pelo Azure](../virtual-machines/virtual-machines-linux-endorsed-distributions.md). Outras distribuições personalizadas do Linux também devem funcionar, contanto que o agente de VM esteja disponível na máquina virtual.
   - **Windows Server**: não há suporte para versões anteriores ao Windows Server 2008 R2.
 - A restauração de uma VM DC (controladora de domínio) que é parte de uma configuração multi-DC tem suporte somente usando o PowerShell. Leia mais sobre [como restaurar um controlador de domínio com vários DCs](backup-azure-restore-vms.md#restoring-domain-controller-vms)
 - Apenas há suporte para a restauração de máquinas virtuais que têm as seguintes configurações de rede especial por meio do PowerShell. Máquinas virtuais que você criar usando o fluxo de trabalho de restauração na interface do usuário não terão essas configurações de rede depois que a operação de restauração for concluída. Para saber mais, confira [Restaurando VMs com configurações de rede especiais](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations).
@@ -187,7 +187,7 @@ A extensão de backup será instalada se a VM estiver em execução. Uma VM em e
 	- Máquinas virtuais com vários adaptadores de rede
 
 ## Perguntas?
-Se você tem dúvidas ou gostaria de ver algum recurso incluído, [envie-nos seus comentários](http://aka.ms/azurebackup_feedback).
+Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos seus comentários](http://aka.ms/azurebackup_feedback).
 
 ## Próximas etapas
 
@@ -195,4 +195,4 @@ Se você tem dúvidas ou gostaria de ver algum recurso incluído, [envie-nos seu
 - [Backup de máquinas virtuais](backup-azure-vms.md)
 - [Gerenciar backups de máquinas virtuais](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

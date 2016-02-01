@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2015" 
+	ms.date="01/19/2016" 
 	ms.author="awills"/>
  
 # Notas de versão do SDK ‒ Application Insights
@@ -29,8 +29,9 @@ Aqui estão as notas de versão detalhadas e instruções de atualização para 
 * [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/commits/master)
 * [Windows Phone e Store C#|VB](app-insights-release-notes-windows.md)
 * [Windows Phone e Store C++](https://github.com/Microsoft/ApplicationInsights-CPP/releases)
+* [Ferramentas do Visual Studio](app-insights-release-notes-vsix.md)
 * [Outras plataformas](https://github.com/Microsoft/ApplicationInsights-Home)
 
 Leia também nossas [atualizações de serviço](http://azure.microsoft.com/updates/?service=application-insights) que resumem as principais melhorias no serviço Application Insights como um todo.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

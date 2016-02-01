@@ -91,7 +91,8 @@ Execute as etapas a seguir para excluir um registro de controle de acesso.
 ## Próximas etapas
 
 - Saiba mais sobre [como gerenciar volumes do StorSimple](storsimple-manage-volumes.md).
+
 - Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -17,7 +17,7 @@
 	ms.date="12/16/2015"
 	ms.author="jeffstok"/>
 
-# Dimensionar trabalhos do Stream Analytics do Azure para aumentar a produtividade do processamento de dados do fluxo #
+# Dimensionar trabalhos do Stream Analytics para aumentar a produtividade do processamento de dados #
 
 Aprenda a ajustar trabalhos de análise e calcular *unidades de streaming* para o Stream Analytics e como dimensionar esses trabalhos configurando partições de entrada, ajustando a definição de consulta de análise e definindo unidades de streaming de trabalho.
 
@@ -265,4 +265,4 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

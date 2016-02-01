@@ -29,28 +29,7 @@ Para registrar uma fonte de dados, basta iniciar a ferramenta de registro de fon
 Depois que a fonte de dados tiver sido registrada, o catálogo rastreia o local e classifica os metadados para que os usuários possam pesquisar, navegar, descobrir a fonte de dados e usar seu local para se conectar a ele usando o aplicativo ou a ferramenta de sua preferência.
 
 ## Fontes com suporte
-Na visualização atual, o **Catálogo de Dados do Azure** dá suporte ao registro dessas fontes de dados e tipos de objeto:
-
-* Exibições e tabelas do mecanismo do banco de dados do SQL Server
-* Exibições e tabelas de banco de dados Oracle
-* KPIs, medidas e dimensões multidimensionais do SQL Server Analysis Services
-* Tabelas tabulares do SQL Server Analysis Services
-* Relatórios do SQL Server Reporting Services
-* Diretórios e Blobs do Armazenamento do Azure
-* Repositório Azure Data Lake
-* Arquivos e diretórios HDFS
-* Tabelas do Apache Hive
-* Tabelas e exibições do Teradata
-* Diretórios e Arquivos de Armazenamento do Azure Data Lake
-* Tabelas e Modos de Exibição do MySQL
-
-> [AZURE.NOTE]O suporte do SQL Server também inclui o Banco de Dados SQL do Microsoft Azure e o Microsoft Azure SQL Data Warehouse
-
-<br/>
-
-> [AZURE.NOTE]O suporte do SQL Server Reporting Services destina-se somente a servidores de modo nativo – o modo do SharePoint ainda não tem suporte
-
-<br/>
+Consulte o [DSR do Catálogo de Dados](data-catalog-dsr.md) para obter a lista de fontes de dados com suporte no momento. <br/>
 
 
 ## Metadados estruturais
@@ -67,7 +46,7 @@ Além dos metadados descritivos extraídos da fonte de dados, os usuários tamb�
 
 Por padrão, somente os metadados são extraídos das fontes de dados e copiados no serviço do **Catálogo de Dados do Azure**, mas para compreender com mais facilidade uma fonte de dados, veja um exemplo dos dados que ela contém.
 
-A ferramenta de registro de fonte de dados do **Catálogo de Dados do Azure** permite que os usuários incluam uma visualização de instantâneo dos dados em cada tabela e exibição registrada. Se o usuário aceitar incluir visualizações durante o registro, a ferramenta de registro incluirá até 20 registros de cada tabela e exibição. Esse instantâneo é, então, copiado para o catálogo junto com os metadados estruturais e descritivos.
+A ferramenta de registro de fonte de dados do **Catálogo de Dados do Azure** permite que os usuários incluam uma visualização de instantâneo dos dados em cada tabela e do modo de exibição registrado. Se o usuário aceitar incluir visualizações durante o registro, a ferramenta de registro incluirá até 20 registros de cada tabela e exibição. Esse instantâneo é, então, copiado para o catálogo junto com os metadados estruturais e descritivos.
 
 
 > [AZURE.NOTE]Tabelas largas com um grande número de colunas podem ter menos de 20 registros incluídos na sua visualização.
@@ -97,4 +76,4 @@ O novo registro de uma fonte de dados já registrada executa uma operação de m
 ## Resumo
 Registrar uma fonte de dados no **Catálogo de Dados do Azure** facilita a descoberta e a compreensão desta fonte de dados ao copiar os metadados estruturais e descritivos da fonte de dados no serviço do catálogo. Depois que uma fonte de dados tiver sido registrada, ela poderá ser anotada, gerenciada e descoberta usando o portal do **Catálogo de Dados do Azure**.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

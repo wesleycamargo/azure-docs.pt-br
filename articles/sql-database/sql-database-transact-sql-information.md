@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="12/14/2015"
+   ms.date="01/15/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Diferenças de Transact-SQL de Banco de Dados SQL do Azure
@@ -58,7 +58,6 @@ O Banco de Dados SQL V12 dá suporte a alguns, mas não todos os argumentos exis
 - Diagramas de banco de dados
 - Database Mail
 - DATABASEPROPERTY (em vez disso, use DATABASEPROPERTYEX)
-- Transações distribuídas
 - Logons de EXECUTE AS
 - Criptografia: gerenciamento extensível de chaves
 - Eventos: eventos, notificações de eventos, notificações de consulta
@@ -107,4 +106,4 @@ A referência do Transact-SQL inclui tópicos relacionados a versões do SQL Ser
 
 Em alguns casos, o assunto geral de um tópico pode ser usado em um produto, mas há pequenas diferenças entre produtos. As diferenças são indicadas em pontos médios no tópico, conforme apropriado.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

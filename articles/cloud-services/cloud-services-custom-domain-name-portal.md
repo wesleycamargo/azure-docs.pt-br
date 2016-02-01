@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 # Configurando um nome de domínio personalizado para um serviço de nuvem do Azure
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-custom-domain-name.md)
 - [Azure portal](cloud-services-custom-domain-name-portal.md)
+- [Azure classic portal](cloud-services-custom-domain-name.md)
 
 Quando você cria um Serviço de Nuvem, o Azure o atribui a um subdomínio do **cloudapp.net**. Por exemplo, se o Serviço de Nuvem for chamado "contoso", os usuários poderão acessar seu aplicativo em uma URL como http://contoso.cloudapp.net. O Azure também fornece um endereço IP virtual.
 
@@ -29,7 +29,7 @@ No entanto, você também pode expor seu aplicativo em seu próprio nome de dom�
 Você já entendeu o que são os registros CNAME e A? [Pule a explicação](#add-a-cname-record-for-your-custom-domain).
 
 > [AZURE.NOTE]
-> Os procedimentos nesta tarefa se aplicam aos Serviços de Nuvem do Azure. Para sites, consulte [Configurando um nome de domínio personalizado para um aplicativo Web do Serviço de Aplicativo do Azure](../app-service-web/web-sites-custom-domain-name.md). Para contas de armazenamento, consulte [Configurando um nome de domínio personalizado para uma conta de armazenamento do Azure](../storage/storage-custom-domain-name.md).
+> Os procedimentos nesta tarefa se aplicam aos Serviços de Nuvem do Azure. Para os Serviços de Aplicativos, consulte [isto](../app-service-web/web-sites-custom-domain-name.md). Para as contas de armazenamento, consulte [isto](../storage/storage-custom-domain-name.md).
 
 <p/>
 
@@ -81,7 +81,7 @@ Para criar um registro CNAME, você deve adicionar uma nova entrada na tabela DN
 
 2.  Agora, encontre onde você pode selecionar ou inserir registros CNAME. Você pode ter que selecionar o tipo de registro de uma lista suspensa ou acessar uma página de configurações avançadas. Você deve procurar as palavras **CNAME**, **Alias**, ou **Subdomínios**.
 
-3.  Você também deverá fornecer o alias do domínio ou do subdomínio para o CNAME, como **www**, se desejar criar um alias para **www.customdomain.com**. Se quiser criar um alias para o domínio raiz, ele poderá ser listado como o símbolo ‘**@**’ nas ferramentas de DNS do seu registrador.
+3.  Você também deverá fornecer o alias do domínio ou do subdomínio para o CNAME, como **www**, se desejar criar um alias para **www.customdomain.com**. Se você deseja criar um alias para o domínio raiz, ele pode estar listado como o símbolo **'@**' nas ferramentas de DNS do registrador.
 
 4. Em seguida, você deve fornecer um nome do host canônico, que, neste caso, é o domínio **cloudapp.net** do seu aplicativo.
 
@@ -121,7 +121,7 @@ Para criar um registro, primeiro você deve encontrar o endereço IP do seu serv
 
 2.  Agora, encontre onde você pode selecionar ou inserir registros A. Você pode ter que selecionar o tipo de registro de uma lista suspensa ou acessar uma página de configurações avançadas.
 
-3. Selecione ou digite o domínio ou subdomínio que usará este registro A. Por exemplo, selecione **www** se você deseja criar um alias para **www.customdomain.com**. Se você desejar criar uma entrada curinga para todos os subdomínios, digite '\_\_*\_\_'. Ele abrange todos os subdomínios como **mail.customdomain.com**, **login.customdomain.com** e **www.customdomain.com**.
+3. Selecione ou digite o domínio ou subdomínio que usará este registro A. Por exemplo, selecione **www** se você deseja criar um alias para **www.customdomain.com**. Se você desejar criar uma entrada curinga para todos os subdomínios, digite '__*__'. Ele abrange todos os subdomínios como **mail.customdomain.com**, **login.customdomain.com** e **www.customdomain.com**.
 
     Se você deseja criar um registro A para o domínio raiz, ele poderá estar listado como o símbolo '**@**' nas ferramentas de DNS do registrador.
 
@@ -134,15 +134,15 @@ Por exemplo, o seguinte registro A encaminha todo o tráfego de **contoso.com** 
 | @ | 137\.135.70.239 |
 
 
-Este exemplo demonstra como criar um registro A para o domínio raiz. Se você desejar criar uma entrada curinga para abranger todos os subdomínios, você digitaria '\_\_*\_\_' como o subdomínio.
+Este exemplo demonstra como criar um registro A para o domínio raiz. Se você desejar criar uma entrada curinga para abranger todos os subdomínios, você digitaria '__*__' como o subdomínio.
 
 >[AZURE.WARNING]
->Endereços IP no Azure são dinâmicos por padrão. Provavelmente, você desejará usar um [endereço IP reservado](..\virtual-network\virtual-networks-reserved-public-ip.md) para garantir que seu endereço IP não seja alterado.
+> Endereços IP no Azure são dinâmicos por padrão. Você provavelmente desejará usar um [endereço IP reservado](../virtual-network/virtual-networks-reserved-public-ip.md) para garantir que seu endereço IP não seja alterado.
 
 ## Próximas etapas
 
 * [Como gerenciar serviços de nuvem](cloud-services-how-to-manage.md)
-* [Como mapear o conteúdo da CDN para um domínio personalizado](cdn-map-content-to-custom-domain.md)
+* [Como mapear o conteúdo da CDN para um domínio personalizado](../cdn/cdn-map-content-to-custom-domain.md)
 * [Configuração geral do serviço de nuvem](cloud-services-how-to-configure-portal.md).
 * Saiba como [implantar um serviço de nuvem](cloud-services-how-to-create-deploy-portal.md).
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate-portal.md).
@@ -150,11 +150,11 @@ Este exemplo demonstra como criar um registro A para o domínio raiz. Se você d
 [Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname
 [Expose Your Data on a Custom Domain]: #access-data
-[VIP swaps]: http://msdn.microsoft.com/library/ee517253.aspx
+[VIP swaps]: cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 [Create a CNAME record that associates the subdomain with the storage account]: #create-cname
 [portal do Azure]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

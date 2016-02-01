@@ -100,7 +100,7 @@ Na autenticação bidirecional, o destino autentica o iniciador e, em seguida, o
 
     ![Destino do CHAP](./media/storsimple-configure-chap/IC740948.png)
 
-2. Role para baixo nesta página e, na seção **Destino de CHAP**:
+2. Role para baixo nessa página e, na seção **Destino do CHAP**:
 													
 	1. Forneça um **Nome de usuário de CHAP reverso** para seu dispositivo.
 
@@ -189,6 +189,7 @@ Você pode verificar se o CHAP está sendo usado executando as etapas a seguir.
 ## Próximas etapas
 
 - Saiba mais sobre a [segurança do StorSimple](storsimple-security.md).
+
 - Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="01/11/2016"
 	ms.author="billmath;andkjell"/>
 
 # Instalação personalizada do Azure AD Connect
@@ -70,6 +70,7 @@ Na tela Conectar ao AD do Azure, digite uma senha e uma conta de administrador g
 
 ![Entrada do usuário](./media/active-directory-aadconnect-get-started-custom/connectaad.png)
 
+Se você receber um erro e tiver problemas de conectividade, confira [Solucionar problemas de conectividade](active-directory-aadconnect-troubleshoot-connectivity.md).
 
 ## Páginas na seção Sincronização
 
@@ -121,7 +122,7 @@ Essa tela permite que você selecione os recursos opcionais para seus cenários 
 
 Recursos opcionais | Descrição
 -------------------    | ------------- |
-Implantação híbrida do Exchange |O recurso Implantação Híbrida do Exchange permite a coexistência de caixas de correio do Exchange localmente e no Azure, sincronizando um conjunto específico de [atributos](active-directory-aadconnectsync-attributes-synchronzied.md#exchange-hybrid-writeback) do AD do Azure de volta ao diretório local.
+Implantação híbrida do Exchange |O recurso Implantação Híbrida do Exchange permite a coexistência de caixas de correio do Exchange localmente e no Azure, sincronizando um conjunto específico de [atributos](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) do AD do Azure de volta ao diretório local.
 Aplicativo AD do Azure e filtragem de atributos|Ao habilitar o aplicativo AD do Azure e filtragem de atributo, o conjunto de atributos sincronizados pode ser adaptado para um conjunto específico em uma página subsequente do assistente. Isso abre duas páginas de configuração adicionais no assistente.  
 Sincronização de senha | Você pode habilitar essa opção se selecionou a federação como a solução de logon. Em seguida, a sincronização de senha pode ser usada como uma opção de backup. Para obter mais informações, veja [Sincronização de senha](active-directory-aadconnectsync-implement-password-synchronization.md).
 Write-back de senha|Ao habilitar o write-back de senha, as alterações de senha que se originam com o AD do Azure serão gravadas no diretório local. Para obter mais informações, veja [Introdução ao gerenciamento de senhas](active-directory-passwords-getting-started.md).
@@ -250,4 +251,4 @@ Agora que você tem o Azure AD Connect instalado, é possível [verificar a inst
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

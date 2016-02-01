@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="01/19/2016"
 	ms.author="spelluru"/>
 
 # Mover dados para e do Repositório Data Lake do Azure usando o Azure Data Factory
-Este artigo descreve como você pode usar a Atividade de Cópia em uma Azure Data Factory para mover dados para o Repositório Data Lake do Azure de outro repositório de dados e mover dados de outro repositório de dados de armazenamento do Azure Data Lake para outro repositório de dados. Este artigo se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral de movimentação de dados com a atividade de cópia e combinações de armazenamento de dados para as quais há suporte.
+Este artigo descreve como você pode usar a Atividade de Cópia em um Azure Data Factory para mover os dados para o Repositório Azure Data Lake a partir de outro repositório de dados e mover os dados do Repositório Azure Data Lake para outro repositório de dados. Este artigo se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral de movimentação de dados com a atividade de cópia e combinações de armazenamento de dados para as quais há suporte.
 
 > [AZURE.NOTE]Você deve criar uma conta do Repositório Data Lake do Azure antes de criar um pipeline com uma Atividade de Cópia para mover dados de ou para um repositório do Azure Data Lake. Para saber mais sobre o Repositório Data Lake do Azure, consulte [Introdução ao Repositório Data Lake do Azure](../data-lake-store/data-lake-store-get-started-portal.md).
 >  
@@ -69,9 +69,13 @@ O procedimento a seguir lista as etapas para criar um serviço vinculado do Repo
 3. Clique no botão **Autorizar** na barra de comandos. Você deverá ver uma janela pop-up.
 
 	![Botão Autorizar](./media/data-factory-azure-data-lake-connector/authorize-button.png)
+
 4. Use as suas credenciais para entrar. Agora, a propriedade **authorization** no JSON deve ser atribuída a um valor.
 5. (opcional) Especifique valores para parâmetros opcionais, como **accountName**, **subscriptionID** e **resourceGroupName** no JSON (ou) exclua essas propriedades do JSON.
 6. Clique em **Implantar** na barra de comandos para implantar o serviço vinculado.
+
+> [AZURE.IMPORTANT]O código de autorização gerado usando o botão **Autorizar** expira após algum tempo. Você precisará **autorizar novamente** usando o botão **Autorizar** quando o **token expirar** e reimplantar o serviço vinculado. Confira a seção [Serviço vinculado do repositório Azure Data Lake](#azure-data-lake-store-linked-service-properties) para obter detalhes.
+
 
 
 **Conjunto de dados de entrada de Blob do Azure:**
@@ -402,8 +406,46 @@ Você pode vincular uma conta de armazenamento do Azure a uma Azure Data Factory
 | sessionId | A ID de sessão OAuth da sessão de autorização OAuth. Cada ID de sessão é exclusiva e pode ser usada somente uma vez. Ela é gerada automaticamente quando você usa o Editor do Data Factory. | Sim |  
 | accountName | Nome de conta do Data Lake | Não |
 | subscriptionId | ID de assinatura do Azure. | Não (se não for especificado, a assinatura da data factory será usada). |
-| resourceGroupName | Nome do grupo de recursos do Azure | Não (se não for especificado, o grupo de recursos da data factory será usado). |
+| resourceGroupName | Nome do grupo de recursos do Azure | Não (se não for especificado, o grupo de recursos do Data Factory é usado). |
 
+O código de autorização gerado usando o botão **Autorizar** expira após algum tempo. Confira a tabela a seguir para ver os tempos de expiração para os diferentes tipos de contas de usuário. Você pode ver a seguinte mensagem de erro quando a autenticação **token expira**: "Erro na operação da credencial: invalid\_grant - AADSTS70002: erro ao validar as credenciais. AADSTS70008: a concessão de acesso fornecida expirou ou foi revogada. ID do rastreamento: d18629e8-af88-43c5-88e3-d8419eb1fca1 ID da correlação: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Carimbo de data/hora: 2015-12-15 21-09-31Z".
+
+
+| Tipo de usuário | Expira após |
+| :-------- | :----------- | 
+| Usuário não AAD (@hotmail.com, @live.com, etc.) | 12 horas |
+| O usuário do AAD e a fonte baseada no OAuth estão em um [locatário](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) diferente, como o locatário do Data Factory do usuário. | 12 horas |
+| O usuário do AAD e a fonte baseada no OAuth estão no mesmo locatário, como o locatário do Data Factory do usuário. | <p> O máximo é de 90 dias se o usuário executar fatias com base na origem do serviço vinculado baseado no OAuth pelo menos uma vez a cada 14 dias. </p><p>Durante os 90 dias esperados, se o usuário não executar nenhuma fatia com base nessa fonte por 14 dias, as credenciais expirarão imediatamente em 14 dias após sua última fatia.</p> |
+
+Para evitar/resolver o erro, você precisará autorizar novamente usando o botão **Autorizar** quando o **token expirar** e reimplantar o serviço vinculado. Você também pode gerar valores para as propriedades **sessionId** e **authorization** programaticamente usando o código na seção a seguir.
+
+### Para gerar valores sessionId e authorization programaticamente 
+
+    if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
+        linkedService.Properties.TypeProperties is AzureDataLakeAnalyticsLinkedService)
+    {
+        AuthorizationSessionGetResponse authorizationSession = this.Client.OAuth.Get(this.ResourceGroupName, this.DataFactoryName, linkedService.Properties.Type);
+
+        WindowsFormsWebAuthenticationDialog authenticationDialog = new WindowsFormsWebAuthenticationDialog(null);
+        string authorization = authenticationDialog.AuthenticateAAD(authorizationSession.AuthorizationSession.Endpoint, new Uri("urn:ietf:wg:oauth:2.0:oob"));
+
+        AzureDataLakeStoreLinkedService azureDataLakeStoreProperties = linkedService.Properties.TypeProperties as AzureDataLakeStoreLinkedService;
+        if (azureDataLakeStoreProperties != null)
+        {
+            azureDataLakeStoreProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
+            azureDataLakeStoreProperties.Authorization = authorization;
+        }
+
+        AzureDataLakeAnalyticsLinkedService azureDataLakeAnalyticsProperties = linkedService.Properties.TypeProperties as AzureDataLakeAnalyticsLinkedService;
+        if (azureDataLakeAnalyticsProperties != null)
+        {
+            azureDataLakeAnalyticsProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
+            azureDataLakeAnalyticsProperties.Authorization = authorization;
+        }
+    }
+
+Confira os tópicos [Classe AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Classe AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) e [Classe AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) para obter detalhes sobre as classes do Data Factory usadas no código. Você precisa adicionar uma referência a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para a classe WindowsFormsWebAuthenticationDialog.
+ 
 
 ## Propriedades de tipo de Conjunto de Dados do Azure Data Lake
 
@@ -454,8 +496,8 @@ Se o formato é definido como **TextFormat**você pode especificar as seguintes 
 
 | Propriedade | Descrição | Obrigatório |
 | -------- | ----------- | -------- |
-| columnDelimiter | Os caracteres usados como um separador de coluna em um arquivo. Essa marca é opcional. O valor padrão é vírgula (,). | Não |
-| rowDelimiter | Os caracteres usados como um separador bruto no arquivo. Essa marca é opcional. O valor padrão é qualquer um dos seguintes: [“\\r\\n”, “\\r”,” \\n”]. | Não |
+| columnDelimiter | O caractere usado como um separador de coluna em um arquivo. Somente um caractere é permitido nesse momento. Essa marca é opcional. O valor padrão é vírgula (,). | Não |
+| rowDelimiter | O caractere usado como um separador bruto no arquivo. Somente um caractere é permitido nesse momento. Essa marca é opcional. O valor padrão é qualquer um dos seguintes: ["\\r\\n", "\\r"," \\n"]. | Não |
 | escapeChar | <p>O caractere especial usado como escape do delimitador de coluna mostrado no conteúdo. Essa marca é opcional. Nenhum valor padrão. Você deve especificar não mais de um caractere para essa propriedade.</p><p>Por exemplo, se você tiver a vírgula (,) como o delimitador de coluna, mas desejar ter o caractere de vírgula no texto (exemplo: "Hello, world"), você pode definir '$' como o caractere de escape e usar a cadeia de caracteres "Hello$, world" na fonte.</p><p>Observe que não é possível especificar escapeChar e quoteChar para uma tabela.</p> | Não | 
 | quoteChar | <p>O caractere especial é usado como o caractere no qual colocar o valor de cadeia de caracteres. Os delimitadores de linha e coluna dos caracteres de aspas seriam tratados como parte do valor de cadeia de caracteres. Essa marca é opcional. Nenhum valor padrão. Você deve especificar não mais de um caractere para essa propriedade.</p><p>Por exemplo, se você tiver a vírgula (,) como o delimitador de coluna, mas deseja ter caractere de vírgula no texto (exemplo: <Hello  world>), você pode definir ‘"’ como o caractere de citação e usar a cadeia de caracteres <"Hello, world"> na fonte. Essa propriedade é aplicável às tabelas de entrada e saída.</p><p>Observe que não é possível especificar escapeChar e quoteChar para uma tabela.</p> | Não |
 | nullValue | <p>Os caracteres usados para representar um valor nulo no conteúdo do arquivo de blob. Essa marca é opcional. O valor padrão é "\\N".</p><p>Por exemplo, com base no exemplo acima, "NaN" no blob será convertido como valor nulo, enquanto for copiado no, por exemplo, SQL Server.</p> | Não |
@@ -553,7 +595,7 @@ Propriedades disponíveis na seção typeProperties da atividade, por outro lado
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | Especifica o comportamento da cópia. | <p>**PreserveHierarchy:** preserva a hierarquia de arquivos na pasta de destino, ou seja, o caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.</p><p>**FlattenHierarchy:** todos os arquivos da pasta de origem estarão no primeiro nível da pasta de destino. Os arquivos de destino terão o nome gerado automaticamente. </p><p>**MergeFiles: (essa capacidade estará disponível em breve)** mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo/blob for especificado, o nome de arquivo mesclado seria o nome especificado. Caso contrário, seria o nome de arquivo gerado automaticamente.</p> | Não |
+| copyBehavior | Especifica o comportamento da cópia. | <p>**PreserveHierarchy:** preserva a hierarquia de arquivos na pasta de destino, ou seja, o caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.</p><p>**FlattenHierarchy:** todos os arquivos da pasta de origem estarão no primeiro nível da pasta de destino. Os arquivos de destino terão o nome gerado automaticamente.</p><p>**MergeFiles:** mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo/blob for especificado, o nome de arquivo mesclado seria o nome especificado. Caso contrário, seria o nome de arquivo gerado automaticamente.</p> | Não |
 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
@@ -562,4 +604,4 @@ Propriedades disponíveis na seção typeProperties da atividade, por outro lado
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

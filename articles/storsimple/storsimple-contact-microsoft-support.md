@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="01/14/2016"
    ms.author="alkohli" />
 
 # Contatar o Suporte da Microsoft
@@ -30,7 +30,7 @@ Execute as seguintes etapas para criar uma solicitação de suporte:
 
 #### Para criar uma solicitação de suporte
 
-1. Uma solicitação de suporte pode ser criada por meio do [portal clássico do Azure](http://manage.windowsazure.com/). No [Portal](http://manage.windowsazure.com/), clique em seu **Nome de Conta** e clique em **Contatar o Suporte da Microsoft**.
+1. Uma solicitação de suporte pode ser criada por meio do [portal clássico do Azure](https://manage.windowsazure.com/). No [portal clássico](https://manage.windowsazure.com/), clique em seu **Nome de conta** e em **Contatar o suporte da Microsoft**.
 
 	![Contate o Suporte da MS por meio do Portal de Gerenciamento](./media/storsimple-contact-microsoft-support/IC777286.png)
 
@@ -76,4 +76,4 @@ Execute as seguintes etapas para iniciar uma sessão de suporte:
 
 > [AZURE.IMPORTANT]Você pode desabilitar o acesso ao suporte executando `Disable-HcsSupportAccess`. O dispositivo StorSimple também tentará desabilitar o acesso ao suporte oito horas após a sessão ser iniciada. É uma prática recomendada alterar as credenciais de seu dispositivo StorSimple após iniciar uma sessão de suporte.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

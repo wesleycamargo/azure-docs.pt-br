@@ -479,7 +479,7 @@ Se for mais conveniente, você poderá coletar os parâmetros de um evento em um
 
     telemetry.TrackEvent(event);
 
-
+> [AZURE.WARNING]Não reutilize a mesma instância de item de telemetria (`event` neste exemplo) para chamar Track*() várias vezes. Isso pode fazer com que a telemetria seja enviada com a configuração incorreta.
 
 #### <a name="timed"></a> Eventos de tempo
 
@@ -736,4 +736,4 @@ Há alguns limites no número de métricas e eventos por aplicativo (isto é, po
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

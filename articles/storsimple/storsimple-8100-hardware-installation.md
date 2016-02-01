@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="01/15/2016"
    ms.author="alkohli" />
 
 # Desembalar, montar em rack e cabear o dispositivo StorSimple 8100.
@@ -192,7 +192,7 @@ Antes de começar o cabeamento do dispositivo, você precisará dos seguintes it
 
 - Conversor USB serial com o driver apropriado instalado em seu computador (se necessário)
 
-- Quatro adaptadores QSFP para SFP+ fornecidos para serem usados com interfaces de rede de 10 GbE
+- Quatro adaptadores QSFP para SFP+ para serem usados com interfaces de rede de 10 GbE
 
 - [Suporte para hardware de interfaces de rede de 10 GbE em seu dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
@@ -259,9 +259,9 @@ Lembre-se disso no caso de alta disponibilidade e desempenho:
 
 - Quando for possível, conecte as interfaces de rede de cada controlador a pelo menos dois comutadores diferentes para garantir disponibilidade no caso de falha do comutador. A figura ilustra duas interfaces de rede de 10 GbE, DATA 2 e DATA 3, de cada controlador conectado a dois comutadores diferentes.
 
-Para saber mais, consulte **Interfaces de rede** em [Requisitos de alta disponibilidade para seu dispositivo StorSimple](storsimple-system-requirements/#high-availability-requirements-for-storsimple.md).
+Para saber mais, consulte **Interfaces de rede** em [Requisitos de alta disponibilidade para seu dispositivo StorSimple](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
 
->[AZURE.NOTE]Se você usar transceptores SFP+ com suas interfaces de rede 10 GbE, use os adaptadores QSFP-SFP+ fornecidos. Saiba mais em [Suporte para hardware de interfaces de rede de 10 GbE em seu dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
+>[AZURE.NOTE]Se você estiver usando transceptores SFP+ com suas interfaces de rede 10 GbE, use os adaptadores QSFP-SFP+ fornecidos. Para obter mais informações, acesse [Suporte para hardware de interfaces de rede de 10 GbE em seu dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
     
 
    
@@ -289,6 +289,6 @@ Agora o dispositivo está cabeado para energia, acesso à rede e conectividade s
 
 ## Próximas etapas
 
-Saiba como [implantar e configurar seu dispositivo StorSimple no local](storsimple-deployment-walkthrough.md)
+Saiba como [implantar e configurar seu dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

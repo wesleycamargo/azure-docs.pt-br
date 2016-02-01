@@ -31,7 +31,7 @@ Este artigo descreve como usar o Windows PowerShell® juntamente com o ARM na im
 
 > [AZURE.NOTE]Atualmente, os cmdlets do PowerShell para o Azure Site Recovery permitem que você configure o site do VMM para site do VMM, o site do VMM para o Azure e o site do Hyper-V para cenários do Azure. O suporte para outros cenários de ASR será adicionado em breve.
 
-Não é preciso ser um especialista no PowerShell para usar este artigo, mas é pressuposto que você entenda os conceitos básicos, como módulos, cmdlets e sessões. Para obter mais informações sobre o Windows PowerShell, veja [Introdução ao Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx). Saiba mais sobre como [Usar o Azure PowerShell com o Gerenciador de Recursos do Azure](powershell-azure-resource-manager.md).
+Não é preciso ser um especialista no PowerShell para usar este artigo, mas é pressuposto que você entenda os conceitos básicos, como módulos, cmdlets e sessões. Para obter mais informações sobre o Windows PowerShell, veja [Introdução ao Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx). Saiba mais sobre como [Usar o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md).
 
 
 ## Principais recursos
@@ -43,7 +43,7 @@ Não é preciso ser um especialista no PowerShell para usar este artigo, mas é 
 
 Verifique se estes pré-requisitos estão em vigor:
 
-- Você precisará de uma conta do [Microsoft Azure](http://azure.microsoft.com/). Você precisará de uma conta do [Microsoft Azure](http://azure.microsoft.com/). Você pode começar com uma [avaliação gratuita](pricing/free-trial/). Além disso, leia sobre os [preços do Gerenciador do Azure Site Recovery](http://azure.microsoft.com/pricing/details/site-recovery/).
+- Você precisará de uma conta do [Microsoft Azure](http://azure.microsoft.com/). Você pode começar com uma [avaliação gratuita](pricing/free-trial/). Além disso, você pode ler sobre [preços do Azure Site Recovery Manager](http://azure.microsoft.com/pricing/details/site-recovery/).
 - Você precisará do Azure PowerShell 1.0. Para obter informações sobre essa versão e como instalá-la, confira [Azure PowerShell 1.0](http://azure.microsoft.com/).
 - Você precisará ter os módulos [AzureRM.SiteRecovery](https://www.powershellgallery.com/packages/AzureRM.SiteRecovery/) e [AzureRM.RecoveryServices](https://www.powershellgallery.com/packages/AzureRM.RecoveryServices/) instalados. É possível obter as versões mais recentes desses módulos na [Galeria do PowerShell](https://www.powershellgallery.com/)
 
@@ -261,4 +261,4 @@ Este artigo ilustra como usar o Azure PowerShell com ARM para configurar e geren
 
     	$TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

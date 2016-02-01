@@ -4,7 +4,7 @@
    services="cloud-services"
    documentationCenter=""
    authors="dalechen"
-   manager="msmets"
+   manager="felixwu"
    editor=""
    tags="top-support-issue"/>
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="01/07/2016"
+   ms.date="01/20/2016"
    ms.author="daleche" />
 
 # Como solucionar possíveis problemas de implantação do Serviço de Nuvem
@@ -70,7 +70,7 @@ Para descobrir se uma atualização automática está impedindo que você faça 
 
 Essa condição pode indicar um problema com o código do aplicativo, pacote ou arquivo de configuração. Se for true, você deverá ver o Status sendo alterado em intervalos de alguns minutos e o portal do Azure poderá indicar algo como **Reciclando**, **Ocupado** ou **Inicializando**. Isso indica que há algo errado com o aplicativo que está impedindo a execução da instância de função.
 
-Para obter mais informações sobre como solucionar esse problema, veja a postagem no blog [Dados de diagnóstico de computação de PaaS do Azure] e [Problemas comuns que causam a reciclagem de funções](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md)
+Para obter mais informações sobre como solucionar esse problema, veja a postagem do blog [Dados de Diagnóstico de Computação do Azure PaaS] e [Problemas Comuns que Fazem as Funções Reciclarem](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md)
 
 ## Problema: meu aplicativo parou de funcionar
 
@@ -78,7 +78,7 @@ Para obter mais informações sobre como solucionar esse problema, veja a postag
 2. No painel **Propriedades** do portal do Azure, considere as seguintes condições para resolver o problema:
    * Se a instância de função tiver sido interrompida recentemente (é possível verificar o valor de **Anular contagem**), a implantação pode estar sendo atualizada. Aguarde para ver se a instância de função retoma o funcionamento por conta própria.
    * Se a instância de função estiver Ocupada, verifique o código do aplicativo para ver se o evento [StatusCheck](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.statuscheck) foi manipulado. Talvez seja necessário adicionar ou corrigir algum código que manipula esse evento.
-   * Examine os dados de diagnóstico e os cenários de solução de problemas na postagem no blog [Dados de diagnóstico de computação de PaaS do Azure].
+   * Examine os dados de diagnóstico e os cenários de solução de problemas na postagem do blog [Dados de Diagnóstico de Computação do Azure PaaS].
 
 >[AZURE.WARNING]Se você reiniciar o serviço de nuvem, redefina as propriedades da implantação apagando de maneira efetiva as informações do problema original.
 
@@ -86,7 +86,6 @@ Para obter mais informações sobre como solucionar esse problema, veja a postag
 
 Confira mais [artigos sobre solução de problemas](..\?tag=top-support-issue&service=cloud-services) para serviços de nuvem.
 
+Para saber como solucionar problemas das funções do Serviço de Nuvem usando os dados de diagnóstico do computador Azure PaaS, veja a [série de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
-[Dados de diagnóstico de computação de PaaS do Azure]: http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx
-
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

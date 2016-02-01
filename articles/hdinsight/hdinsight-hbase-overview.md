@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/17/2015"
+	ms.date="01/14/2016"
 	ms.author="jgao"/>
 
 
@@ -94,4 +94,4 @@ O caso de uso canônico para o qual o BigTable (e, por extensão, o HBase) foi c
 
 [apache-hadoop]: http://hadoop.apache.org/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

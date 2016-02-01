@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Expressões do modelo do Gerenciador de Recursos | Microsoft Azure"
+   pageTitle="Funções do modelo do Gerenciador de Recursos | Microsoft Azure"
    description="Descreve as funções a serem usadas no modelo do Gerenciador de Recursos do Azure para recuperar valores, trabalhar com cadeias de caracteres e numéricos e recuperar informações de implantação."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/31/2015"
+   ms.date="01/15/2016"
    ms.author="tomfitz"/>
 
-# Expressões de modelo do Gerenciador de Recursos do Azure
+# Funções do modelo do Gerenciador de Recursos do Azure
 
-Este tópico descreve todas as expressões que você pode usar em um modelo do Gerenciador de Recursos do Azure.
+Este tópico descreve todas as funções que você pode usar em um modelo do Gerenciador de Recursos do Azure.
 
-As expressões do modelo e seus parâmetros não diferenciam maiúsculas de minúsculas. Por exemplo, o Gerenciador de Recursos resolve **variables('var1')** e **VARIABLES('VAR1')** da mesma forma. Quando avaliada, a menos que a expressão modifique nitidamente as maiúsculas e minúsculas (como toUpper ou toLower), a expressão preservará a capitalização. Determinados tipos de recursos podem ter requisitos de maiúsculas e minúsculas independentemente de como as expressões são avaliadas.
+As funções do modelo e seus parâmetros não diferenciam maiúsculas de minúsculas. Por exemplo, o Gerenciador de Recursos resolve **variables('var1')** e **VARIABLES('VAR1')** da mesma forma. Quando avaliada, a função preservará as maiúsculas e minúsculas, a menos que a função modifique-as expressamente (como toUpper ou toLower). Determinados tipos de recursos podem ter requisitos de maiúsculas e minúsculas independentemente de como as funções são avaliadas.
 
-## Expressões numéricas
+## Funções numéricas
 
-O Gerenciador de Recursos fornece as seguintes expressões para trabalhar com números inteiros:
+O Gerenciador de Recursos fornece as seguintes funções para trabalhar com números inteiros:
 
 - [adicionar](#add)
 - [copyIndex](#copyindex)
@@ -56,7 +56,7 @@ Retorna a soma dos dois inteiros fornecidos.
 
 Retorna o índice atual de um loop de iteração.
 
-Esta expressão é sempre usada com um objeto **copy**. Para obter exemplos de como usar **copyIndex**, confira [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
+Essa função é sempre usada com um objeto **copy**. Para obter exemplos de como usar **copyIndex**, confira [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
 
 
 <a id="div" />
@@ -157,9 +157,9 @@ Retorna a subtração dos dois inteiros fornecidos.
 | operand2 | Sim | Número a ser subtraído.
 
 
-## Expressões de cadeia de caracteres
+## Funções de cadeia de caracteres
 
-O Gerenciador de Recursos fornece as seguintes expressões para trabalhar com cadeias de caracteres:
+O Gerenciador de Recursos fornece as seguintes funções para trabalhar com cadeias de caracteres:
 
 - [base64](#base64)
 - [concat](#concat)
@@ -199,16 +199,31 @@ O exemplo a seguir mostra como usar a função base64.
 
 **concat (arg1, arg2, arg3, ...)**
 
-Combina vários valores de cadeia de caracteres e retorna o valor de cadeia de caracteres resultante. Essa função pode conter qualquer número de argumentos.
+Combina vários valores e retorna o resultado concatenado. Essa função pode conter qualquer número de argumentos e pode aceitar cadeias de caracteres ou matrizes como parâmetros.
 
-O exemplo a seguir mostra como combinar diversos valores para retornar um valor.
+O exemplo a seguir mostra como combinar diversos valores de cadeia de caracteres para retornar uma cadeia de caracteres concatenada.
 
     "outputs": {
         "siteUri": {
           "type": "string",
-          "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
+          "value": "[concat('http://', reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
         }
     }
+
+O próximo exemplo mostra como combinar duas matrizes.
+
+    "parameters": {
+        "firstarray": {
+            type: "array"
+        }
+        "secondarray": {
+            type: "array"
+        }
+     },
+     "variables": {
+         "combinedarray": "[concat(parameters('firstarray'), parameters('secondarray'))]
+     }
+        
 
 <a id="padleft" />
 ### padLeft
@@ -430,17 +445,25 @@ O exemplo a seguir mostra como criar um link para um modelo aninhado com base no
 
     "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
 
+## Funções de matriz
 
+O Gerenciador de Recursos fornece diversas funções para trabalhar com valores de matriz.
 
-## Expressões de valor de implantação
+Para combinar várias matrizes em uma única matriz, use [concat](#concat).
 
-O Gerenciador de Recursos fornece as seguintes expressões para obter valores de seções do modelo e valores relacionados à implantação:
+Para obter o número de elementos em uma matriz, use [length](#length).
+
+Para dividir um valor de cadeia de caracteres em uma matriz de valores de cadeia de caracteres, use [split](#split).
+
+## Funções de valor de implantação
+
+O Gerenciador de Recursos fornece as seguintes funções para obter os valores de seções do modelo e os valores relacionados à implantação:
 
 - [implantação](#deployment)
 - [parâmetros](#parameters)
 - [variáveis](#variables)
 
-Para obter valores de recursos, grupos de recursos ou assinaturas, consulte [Expressões de recurso](#resource-expressions).
+Para obter valores de recursos, de grupos de recursos ou de assinaturas, veja [Funções de recurso](#resource-functions).
 
 <a id="deployment" />
 ### implantação
@@ -449,7 +472,7 @@ Para obter valores de recursos, grupos de recursos ou assinaturas, consulte [Exp
 
 Retorna informações sobre a operação de implantação atual.
 
-Essa expressão retorna o objeto que é transmitido durante a implantação. As propriedades no objeto retornado vão variar dependendo se o objeto de implantação for transmitido como um link ou como um objeto na linha. Quando o objeto de implantação é passado na linha, como ao usar o parâmetro **- TemplateFile** no PowerShell do Azure para apontar para um arquivo local, o objeto retornado fica no seguinte formato:
+Essa função retorna o objeto que é passado durante a implantação. As propriedades no objeto retornado vão variar dependendo se o objeto de implantação for transmitido como um link ou como um objeto na linha. Quando o objeto de implantação é passado na linha, como ao usar o parâmetro **- TemplateFile** no PowerShell do Azure para apontar para um arquivo local, o objeto retornado fica no seguinte formato:
 
     {
         "name": "",
@@ -528,9 +551,9 @@ Retorna o valor da variável. O nome do parâmetro especificado deve ser definid
 
 
 
-## Expressões de recurso
+## Funções de recurso
 
-O Gerenciador de Recursos fornece as seguintes expressões para obtenção de valores de recurso:
+O Gerenciador de Recursos fornece as seguintes funções para obter valores de recurso:
 
 - [listkeys](#listkeys)
 - [providers](#providers)
@@ -539,7 +562,7 @@ O Gerenciador de Recursos fornece as seguintes expressões para obtenção de va
 - [resourceId](#resourceid)
 - [assinatura](#subscription)
 
-Para obter valores de parâmetros, variáveis ou a implantação atual, confira [Expressões de valor de implantação](#deployment-value-expressions).
+Para obter valores de parâmetros, de variáveis ou da implantação atual, veja [Funções de valor de implantação](#deployment-value-functions).
 
 <a id="listkeys" />
 ### listKeys
@@ -605,7 +628,7 @@ Habilita uma expressão a derivar seu valor do estado de tempo de execução do 
 
 A função **referência** deriva seu valor de um estado de tempo de execução e, portanto, não pode ser usada na seção de variáveis. Ela pode ser usada na seção de saídas de um modelo.
 
-Usando a expressão de referência, você declara implicitamente que um recurso depende de outro recurso se o recurso referenciado é provisionado no mesmo modelo. Você não precisa usar a propriedade **dependsOn** também. A expressão não é avaliada até que o recurso referenciado conclua a implantação.
+Usando a função de referência, você declara implicitamente que um recurso depende de outro recurso se o recurso referenciado é provisionado no mesmo modelo. Você não precisa usar a propriedade **dependsOn** também. A função não é avaliada até que o recurso referenciado conclua a implantação.
 
 O exemplo a seguir faz referência a uma conta de armazenamento implantada no mesmo modelo.
 
@@ -634,7 +657,7 @@ Você pode recuperar um valor específico do objeto retornado, como o URI do pon
 		}
 	}
 
-Se agora você quiser especificar diretamente a versão da API no modelo, use a expressão **providers** e recupere um dos valores, como a versão mais recente mostrada abaixo.
+Se agora você quiser especificar diretamente a versão da API no modelo, use a função [providers](#providers) e recupere um dos valores, como a versão mais recente mostrada abaixo.
 
     "outputs": {
 		"BlobUri": {
@@ -769,4 +792,4 @@ O exemplo a seguir mostra a função de assinatura chamada na seção de saídas
 - Para iterar um número de vezes especificado ao criar um tipo de recurso, confira [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
 - Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o Modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

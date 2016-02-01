@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="01/19/2016"
     ms.author="awills"/>
 
 # Anotações de versão no Application Insights
@@ -28,9 +28,9 @@ As anotações de versão são um recurso de compilação baseado em nuvem e ser
 Para poder criar anotações de versão, você precisará instalar uma das muitas extensões de Team Service disponíveis no Visual Studio Marketplace.
 
 1. Entre no seu projeto do [Visual Studio Team Services](https://www.visualstudio.com/pt-BR/get-started/setup/sign-up-for-visual-studio-online).
-2. Abra o Visual Studio Marketplace, localize a extensão Application Insights Annotations e adicione-a à sua conta de Team Services.
+2. No Visual Studio Marketplace, [obtenha a extensão Anotações de Versão](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations) e adicione-a à sua conta do Team Services.
 
-![Na parte superior direita da página da Web do Team Services, abra o Marketplace. Pesquise e instale o Application Insights Annotations em sua conta.](./media/app-insights-annotations/10.png)
+![Na parte superior direita da página da Web do Team Services, abra o Marketplace. Selecione Visual Team Services e, em Compilação e Versão, escolha Ver mais.](./media/app-insights-annotations/10.png)
 
 Você só precisa fazer isso uma vez em sua conta de serviços de equipe do Visual Studio. As anotações de versão agora podem ser configuradas para qualquer projeto na sua conta.
 
@@ -48,11 +48,11 @@ Você precisa fazer isso para cada modelo de versão que você deseja criar anot
 
     Adicione uma tarefa e selecione a tarefa de anotação de versão do Application Insights do menu.
 
-    Cole a **ID do Application Insights** que você copiou da folha de Acesso à API.
+    Cole a **ID do Application** que você copiou da folha Acesso à API.
 
     ![No Visual Studio Team Services, abra Versão, selecione uma definição de versão e escolha Editar. Clique em Adicionar Tarefa e selecione Anotação de Versão do Application Insights. Cole a ID do Application Insights.](./media/app-insights-annotations/30.png)
 
-3. Defina o campo **APIKey** para uma variável `$(ApiKey)`.
+3. Defina o campo **APIKey** como uma variável `$(ApiKey)`.
 
 4. De volta à folha de Acesso à API, crie uma nova chave de API e faça uma cópia dela.
 
@@ -67,10 +67,10 @@ Você precisa fazer isso para cada modelo de versão que você deseja criar anot
     ![Na janela Team Services, selecione a guia Configuração e clique em Adicionar Variável. Defina o nome para ApiKey e no Valor, cole a chave que você acabou de gerar.](./media/app-insights-annotations/50.png)
 
 
-5. Por fim, **Salve** a definição de versão.
+5. Por fim, **Salve** a definição da versão.
 
 ## Anotações de implantação
 
 Agora, sempre que você usar o modelo de versão para implantar uma nova versão, uma anotação será enviada ao Application Insights. As anotações aparecerão em gráficos no Metrics Explorer.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

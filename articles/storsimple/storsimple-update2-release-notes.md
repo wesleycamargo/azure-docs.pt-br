@@ -68,7 +68,7 @@ A tabela a seguir fornece um resumo dos problemas que foram corrigidos nas Atual
 | Não. | Recurso | Problema | Aplica-se ao dispositivo físico | Aplica-se ao dispositivo virtual |
 |-----|---------|-------|--------------------------------|--------------------------------|
 | 1 | Interfaces de rede | Após uma atualização para a Atualização 1, o serviço do StorSimple Manager relatou que as portas Data2 e Data3 falharam em um controlador. Esse problema foi corrigido. | Sim | Não |
-| 2 | Atualizações | Após uma atualização para a Atualização 1, ocorreram alertas de alarme audível no portal do Azure em vários dispositivos. Esse problema foi corrigido. | Sim | Não |
+| 2 | Atualizações | Após atualizar para a Atualização 1, ocorreram alertas de alarme audível no portal clássico do Azure em vários dispositivos. Esse problema foi corrigido. | Sim | Não |
 | 3 | Autenticação Openstack | Ao usar o Openstack como seu provedor de serviços de nuvem, você poderá receber um erro informando que sua cadeia de caracteres de autenticação de nuvem é muito longa. Esse problema foi corrigido. | Sim | Não |
 
 
@@ -113,4 +113,4 @@ Essa versão atualiza o driver e o firmware de disco no dispositivo.
 
 Esta atualização não pode ser aplicada ao dispositivo virtual. Novos dispositivos virtuais precisarão ser criados.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

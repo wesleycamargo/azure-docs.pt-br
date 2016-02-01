@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="01/19/2016"
 	ms.author="tarcher"/>
 # Habilitar a depuração remota ao utilizar a entrega contínua para publicar no Azure
 
@@ -41,7 +41,7 @@ Você pode habilitar a depuração remota no Azure, para os serviços de nuvem o
 4. Instale e configure o Azure PowerShell (versão 0.7.4 ou posterior) conforme descrito em [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md)
 5. Execute o script a seguir para habilitar a extensão RemoteDebug. Substitua os caminhos e dados pessoais pelos seus dados, como seu nome de inscrição, nome de serviço e impressão digital.
 
-	>[AZURE.NOTE]Esse script é configurado para o Visual Studio 2015. Se você estiver usando o Visual Studio 2013, use "RemoteDebugVS2013" para ReferenceName e ExtensionName.
+	>[AZURE.NOTE] Esse script é configurado para o Visual Studio 2015. Se você estiver usando o Visual Studio 2013, modifique as atribuições `$referenceName` e `$extensionName` abaixo para usar `RemoteDebugVS2013` (em vez de `RemoteDebugVS2015`).
 
 	<pre>
     Add-AzureAccount
@@ -90,4 +90,4 @@ Você pode habilitar a depuração remota no Azure, para os serviços de nuvem o
 
 6. Importe o certificado (.pfx) para a máquina que tem o Visual Studio com o SDK do Azure para .NET instalado.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

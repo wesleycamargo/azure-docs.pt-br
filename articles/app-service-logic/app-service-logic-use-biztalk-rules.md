@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Regras do BizTalk"
-   description="Este tópico aborda os recursos de regras do BizTalk e fornece instruções sobre o uso"
+   pageTitle="Saiba mais e crie um aplicativo de API de regras do BizTalk no seu aplicativo lógico | Microsoft Azure"
+   description="Esse tópico aborda os recursos das Regras do BizTalk e fornece instruções sobre o seu uso"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="10/28/2015"
+   ms.date="01/19/2016"
    ms.author="andalmia"/>
 
 #Regras do BizTalk
@@ -94,7 +94,8 @@ Agora, vamos usar use Regras de Negócio para implementar a lógica de negócios
 1. Fazer logon no Portal do Azure
 2. Selecione Novo -> Marketplace e procure por *Regras do BizTalk*
 3. Selecione Regras do BizTalk na lista de resultados. A folha Regras do BizTalk é aberta
-4. Selecione o botão *Criar* ![Alt text][3]
+4. Selecione o botão *Criar* 
+![Alt text][3]
 1. Na nova lâmina que será aberta, insira as seguintes informações:  
 	1. Nome – dê um nome para seu Aplicativo de API de Regras
 	1. Plano do Serviço de Aplicativo – selecione ou crie um novo Plano do Serviço de Aplicativo
@@ -112,7 +113,7 @@ Após criar um Aplicativo de API de Regras do BizTalk, a próxima etapa seria cr
 
    ![Alt text][4]
 
-2.Em seguida, clique em "Definições de vocabulário". Isso exibe a tela de Criação de Vocabulário. Clique em "Adicionar" para começar a adicionar novas definições de vocabulário. Dois tipos de definições de vocabulário têm suporte – Literal e XML.
+2.Selecione “Definições de vocabulário”. Isso mostraria a Tela de Criação de Vocabulário 3. Selecione “Adicionar” para começar a adicionar novas definições de vocabulário. Dois tipos de definições de vocabulário têm suporte – Literal e XML.
 
 ##Definição literal
 1.	Após você clicar em "Adicionar", uma nova lâmina "Adicionar Definição" abrirá. Insira os valores a seguir
@@ -120,10 +121,10 @@ Após criar um Aplicativo de API de Regras do BizTalk, a próxima etapa seria cr
   2.	Descrição – campo opcional.
   3.	Tipo de Definição – há suporte para dois tipos. Neste exemplo, escolha Literal
   4.	Tipo de dados – permite aos usuários selecionar o tipo de dados da definição. Atualmente, há suporte para quatro tipos de dados: 
-     i. Cadeia de caracteres – esses valores devem ser inseridos entre aspas duplas (“Exemplo de cadeia de caracteres") 
-     ii. Booliano – pode ser verdadeiro ou falso 
-     iii. Número – pode ser qualquer número decimal 
-     iv. DateTime – significa que a definição é do tipo data. Os dados devem ser inseridos usando este formato – mm/dd/aaaa hh:mm:ss AM\\PM  
+  	i. Cadeia de caracteres – esses valores devem ser inseridos entre aspas duplas (“Exemplo de cadeia de caracteres") 
+	ii. Booliano – pode ser verdadeiro ou falso 
+	iii. Número – pode ser qualquer número decimal 
+	iv. DateTime – significa que a definição é do tipo data. Os dados devem ser inseridos usando este formato – mm/dd/aaaa hh:mm:ss AM\PM  
   5. Entrada – é onde você insere o valor da sua definição. Os valores inseridos aqui devem estar de acordo com o tipo de dados escolhido. Você pode digitar um valor único, um conjunto de valores separados por vírgulas ou um intervalo de valores usando a palavra-chave do *to*. Por exemplo, é possível inserir um valor exclusivo 1, um conjunto de 1, 2, 3 ou um intervalo de 1 a 5. É importante lembrar que o intervalo dá suporte apenas para números.
   6. Selecione *OK*.
 
@@ -132,24 +133,24 @@ Após criar um Aplicativo de API de Regras do BizTalk, a próxima etapa seria cr
 Se o tipo de vocabulário escolhido for XML, as entradas a seguir deverão ser especificadas  
   a.	Esquema – Clicar abrirá uma nova lâmina que permite que o usuário escolha dentre uma lista de esquemas já carregados ou carregue um novo esquema.   
   b.	XPATH – essa entrada é desbloqueada somente após a seleção de um esquema na etapa anterior. Clicar exibirá o esquema que foi selecionado e permite que o usuário selecione o nó para o qual uma definição de vocabulário precisa ser criada.  
-  c.	FACT– esta entrada identifica qual objeto de dados deve ser fornecido ao mecanismo de regras para processamento. Esta é uma propriedade avançada e por padrão é definida como pai do XPATH selecionado. FACT se torna especialmente importante em cenários de coleta e encadeamento.
+	FACT– esta entrada identifica qual objeto de dados deve ser fornecido ao mecanismo de regras para processamento. Esta é uma propriedade avançada e por padrão é definida como pai do XPATH selecionado. FACT se torna especialmente importante em cenários de coleta e encadeamento.
 
 ![Alt text][6]
 
 ### Adicionar em massa
-As etapas acima capturaram a experiência para criar definições de vocabulário. Após serem criadas, as definições de vocabulário aparecerão em formato de lista. Há requisitos para poder gerar várias definições por meio do mesmo esquema em vez de repetir as etapas acima toda vez. E é aqui que a funcionalidade Adicionar em massa se torna muito útil.
-Clicar em "Adicionar em massa" levará você para uma nova lâmina. A primeira etapa é selecionar o esquema para o qual as definições serão criados. Clicar abrirá uma nova lâmina que permite que o usuário escolha dentre uma lista de esquemas já carregados ou carregue um novo esquema. Agora, a propriedade XPATHS é desbloqueada. Clicar nessa opção abrirá o Visualizador de esquema, em que vários nós podem ser selecionados.
+As etapas acima capturaram a experiência para criar definições de vocabulário. Após serem criadas, as definições de vocabulário aparecerão em formato de lista. Há requisitos para poder gerar várias definições por meio do mesmo esquema em vez de repetir as etapas acima toda vez. E é aqui que a funcionalidade Adicionar em massa se torna muito útil. 
+Selecionar “Adicionar em Massa” o levará para uma nova folha. A primeira etapa é selecionar o esquema para o qual as definições serão criados. Selecionar esta opção abrirá uma nova folha que permite ao usuário escolher em uma lista esquemas já carregados ou carregar um novo. Agora, a propriedade XPATHS é desbloqueada. Selecionar esta opção abrirá o Visualizador de Esquema, em que vários nós podem ser selecionados. 
 Os nomes de várias definições criadas assumirão como padrão o nome do nó selecionado. Eles podem ser modificados após a criação.
 
 ![Alt text][7]
 
 ##Criação de política
-Após o desenvolvedor ter criado os vocabulários necessários, a expectativa é de que o Analista de negócios crie as Políticas comerciais por meio do Portal do Azure.  
-	1.	No Aplicativo de Regras criado, há uma lente de Política. Clicando nela, o usuário é levado à página de criação de políticas.  
-	2.	Essa página mostrará a lista de políticas que esse Aplicativo de Regras específico tem. O usuário pode adicionar uma nova Política simplesmente digitando o nome da política e pressionando a tecla tab. Várias políticas podem residir em um único Aplicativo de API de Regras.  
-	3.	Clicar na política criada levará o usuário à página de detalhes da política, em que é possível ver as regras que estão na política.  
+Após o desenvolvedor ter criado os vocabulários necessários, a expectativa é de que o Analista de negócios crie as Políticas comerciais por meio do Portal do Azure. 
+	1. No Aplicativo de Regras criado, há uma lente de Política. Clicando nela, o usuário é levado à página de criação de políticas. 
+	2. Essa página mostrará a lista de políticas contidas neste Aplicativo de Regras específico. O analista pode adicionar uma nova Política simplesmente digitando o nome da política e pressionando a tecla Tab duas vezes. Várias políticas podem residir em um único Aplicativo de API de Regras. 
+	3. Selecionar a Política criada levará o usuário à página de detalhes da Política, em que é possível ver as regras contidas na política. 
 	![Alt text][8] 
-	4.	Clique em "Adicionar Novo" para adicionar uma nova regra. Isso levará você a uma nova lâmina.
+	4. Selecione “Adicionar” para adicionar uma nova regra. Isso levará você a uma nova lâmina.
 
 ##Criação de regra
 Uma regra é um conjunto de condições e instruções de ação. As ações são executadas se a condição for avaliada como verdadeira. Na lâmina Criar Regra, dê um nome de regra exclusivo (para essa política) e uma descrição (opcional). A caixa de Condição pode ser usada para criar instruções condicionais complexas. A seguir, estão as palavras-chave com suporte:  
@@ -169,7 +170,7 @@ Uma regra é um conjunto de condições e instruções de ação. As ações sã
 14. mod  
 15. true 
 
-A caixa de Ação (Then) pode conter várias instruções, um por linha, para criar as ações que serão executadas. A seguir, estão as palavras-chave com suporte:  
+A caixa de Ação (THEN) pode conter várias instruções, uma por linha, para criar as ações que serão executadas. A seguir, estão as palavras-chave com suporte: 
 1.	igual a  
 2.	falso  
 3.	verdadeiro  
@@ -178,13 +179,13 @@ A caixa de Ação (Then) pode conter várias instruções, um por linha, para cr
 6.	nulo  
 7.	atualizar  
 
-As caixas de condição e ação fornecem IntelliSense para ajudar o usuário a criar uma regra rapidamente. Isso pode ser disparado pressionando ctrl+espaço ou simplesmente começando a digitar. Palavras-chave correspondentes aos caracteres digitados serão filtradas e mostradas automaticamente. A janela de IntelliSense exibirá todas as palavras-chave e definições de vocabulário. 
+As caixas de condição e de ação provisionam o IntelliSense para ajudá-lo a criar uma regra rapidamente. Isso pode ser disparado pressionando ctrl+espaço ou simplesmente começando a digitar. Palavras-chave correspondentes aos caracteres digitados serão filtradas e mostradas automaticamente. A janela de IntelliSense exibirá todas as palavras-chave e definições de vocabulário. 
 ![Alt text][9]
 
 ##Encadeamento de encaminhamento explícito
-As Regras do BizTalk dão suporte ao encadeamento de encaminhamento explícito. Isso significa que, se os usuários quiserem reavaliar as regras em resposta a determinadas ações, eles podem fazer isso usando palavras-chave. A seguir estão as palavras-chave com suporte:  
-   1.	atualizar <vocabulary definition> – essa palavra-chave reavalia todas as regras que usam a definição de vocabulário especificada em sua condição.  
-   2.	Halt – esta palavra-chave interrompe todas as execuções de regra
+As Regras do BizTalk dão suporte ao encadeamento de encaminhamento explícito, para que, se os usuários desejarem avaliar novamente as regras em resposta a determinadas ações, eles possam disparar isso usando palavras-chave específicas. A seguir estão as palavras-chave com suporte: 
+1. atualizar <vocabulary definition> – essa palavra-chave reavalia todas as regras que usam a definição de vocabulário especificada em sua condição. 
+2. Halt – esta palavra-chave interrompe todas as execuções de regra
 
 ##Habilitar\\desabilitar regras
 Cada regra da política pode ser habilitada ou desabilitada. Por padrão, todas as regras ficam habilitadas. Regras desabilitadas não são executadas durante a execução da política. Você pode habilitar\\desabilitar as regras diretamente na lâmina da regra – os comandos estão disponíveis na barra de comandos na parte superior da lâmina. Além disso, na política, o menu de contexto (clique com o botão direito do mouse em uma regra) tem a opção de habilitar\\desabilitar.
@@ -250,4 +251,4 @@ Uma das principais vantagens do uso de Regras Comerciais é que alterações fei
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

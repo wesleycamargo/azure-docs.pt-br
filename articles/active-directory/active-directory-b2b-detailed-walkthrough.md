@@ -3,6 +3,7 @@
    description="A B2B do e diretório ativo do Active Directory do Azure suporta as relações entre empresas, permitindo que os parceiros de negócios acessem seletivamente seus aplicativos corporativos"
    services="active-directory"
    authors="viv-liu"
+   documentationCenter="na"
    manager="cliffdi"
    editor=""
    tags=""/>
@@ -34,7 +35,7 @@ Após o envio de convites a usuários de parceiros, podemos configurá-los no AD
 
 4. Do ponto de vista de Alice, ela receberá o email a seguir. ![Email de convite para Alice](./media/active-directory-b2b-detailed-walkthrough/AliceEmail.png)
 
-5. Alice clica no link e deverá aceitar o convite e fazer logon usando suas credenciais corporativas. Se Alice não estiver no diretório do AD do Azure, ela precisará se inscrever. ![Inscrição após o convite para Alice](./media/active-directory-b2b-detailed-walkthrough/AliceSignUp.png)
+5. Alice clica no link e é solicitada a aceitar o convite e fazer logon usando suas credenciais corporativas. Se Alice não estiver no diretório do AD do Azure, ela precisará se inscrever. ![Inscrição após o convite para Alice](./media/active-directory-b2b-detailed-walkthrough/AliceSignUp.png)
 
 6. Alice é redirecionada para o Painel de Acesso do Aplicativo, vazio até que ela tenha acesso aos aplicativos. ![Painel de acesso para Alice](./media/active-directory-b2b-detailed-walkthrough/AliceAccessPanel.png)
 
@@ -79,4 +80,4 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 - [Alterações de atributo do objeto de usuário externo](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Limitações de visualização atuais](active-directory-b2b-current-preview-limitations.md)
 
-<!---HONumber=Nov15_HO1-->
+<!-----HONumber=AcomDC_0121_2016-->

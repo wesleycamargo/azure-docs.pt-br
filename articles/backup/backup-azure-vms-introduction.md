@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
-	ms.author="trinadhk; aashishr; jimpark; markgal"/>
+	ms.date="01/19/2016"
+	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Planejar sua infraestrutura de backup da VM no Azure
 Este artigo aborda as principais considerações que você deve ter em mente ao planejar sua infraestrutura de backup da VM (máquina virtual). Se você [preparou seu ambiente](backup-azure-vms-prepare.md), esta é a próxima etapa antes de começar [a fazer backup de suas VMs](backup-azure-vms.md). Se você precisa de mais informações sobre máquinas virtuais do Azure, confira a [documentação da Máquina Virtual](https://azure.microsoft.com/documentation/services/virtual-machines/)
@@ -111,7 +111,7 @@ A cobrança não é iniciada até que o primeiro backup bem-sucedido seja conclu
 A cobrança para uma máquina virtual especificada será descontinuada somente se a proteção for interrompida *e* os dados de backup forem excluídos. Quando não há nenhum trabalho de backup ativo (quando a proteção tiver sido interrompida), o tamanho da máquina virtual no momento do último backup bem-sucedido torna-se o tamanho da instância protegida em que a fatura mensal se baseia.
 
 ## Perguntas?
-Se você tem dúvidas ou gostaria de ver algum recurso incluído, [envie-nos seus comentários](http://aka.ms/azurebackup_feedback).
+Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos seus comentários](http://aka.ms/azurebackup_feedback).
 
 ## Próximas etapas
 
@@ -120,4 +120,4 @@ Se você tem dúvidas ou gostaria de ver algum recurso incluído, [envie-nos seu
 - [Restaurar máquinas virtuais](backup-azure-restore-vms.md)
 - [Solucionar problemas de backup da VM](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->
