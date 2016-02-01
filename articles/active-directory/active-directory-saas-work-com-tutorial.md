@@ -16,7 +16,8 @@
 
 #Tutorial: Integração do Active Directory do Azure com o Work.com
   
-O objetivo deste tutorial é mostrar a integração do Azure com o Work.com. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+O objetivo deste tutorial é mostrar a integração do Azure com o Work.com.  
+O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Uma assinatura do Work.com com logon único habilitado
@@ -66,7 +67,8 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Work.com com sua conta do AD do Azure usando federação baseada em protocolo de SAML. Como parte desse procedimento, é necessário carregar um certificado para o Work.com.
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Work.com com sua conta do AD do Azure usando federação baseada em protocolo de SAML.  
+Como parte desse procedimento, é necessário carregar um certificado para o Work.com.
 
 >[AZURE.NOTE]Para configurar o logon único, você ainda precisa definir um nome de domínio personalizado Work.com. Você precisa definir pelo menos um nome de domínio, testá-lo e implantá-lo em toda a sua organização.
 
@@ -96,7 +98,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-work-com-tutorial/IC794110.png "Configurar o logon único")
 
-8.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do Work.com**, digite a URL usada pelos usuários para fazer logon em seu aplicativo Work.com (por exemplo: “ **http://company.my.salesforce.com*”)) e clique em **Avançar**:
+8.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do Work.com**, digite a URL usada pelos usuários para fazer logon em seu aplicativo Work.com (por exemplo: “ *http://company.my.salesforce.com*”) e clique em **Avançar**:
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-work-com-tutorial/IC794111.png "Configurar a URL do Aplicativo")
 
@@ -131,7 +133,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     2.  No portal do Azure, na página do diálogo **Configurar logon único no Work.com**, copie o valor da **URL do Emissor** e cole-o na caixa de texto **Emissor**.
     3.  Para carregar o certificado baixado, clique em **Procurar**.
-    4.  Na caixa de texto **ID de Entidade**, digite ****https://salesforce-work.com**.
+    4.  Na caixa de texto **ID de Entidade**, digite **https://salesforce-work.com**.
     5.  Para o **Tipo de Identidade do SAML**, selecione **A declaração contém a ID de Federação do objeto User**.
     6.  Para **Local de Identidade do SAML**, selecione **A identidade está contida no elemento NameIdentifier da instrução Subject**.
     7.  No portal do Azure, na página do diálogo **Configurar logon único no Work.com**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL do Logon do Provedor de Identidade**.
@@ -157,7 +159,8 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ##Configurando o provisionamento de usuários
   
-Para que os usuários do Active Directory do Azure possam entrar, eles devem ser provisionados para Work.com. No caso do Work.com, o provisionamento é uma tarefa manual.
+Para que os usuários do Active Directory do Azure possam entrar, eles devem ser provisionados para Work.com.  
+No caso do Work.com, o provisionamento é uma tarefa manual.
 
 ###Para configurar o provisionamento de usuários, execute as seguintes etapas:
 
@@ -207,4 +210,4 @@ Agora, você deveria aguardar 10 minutos e verificar se a conta foi sincronizada
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0114_2016-->
