@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="01/13/2016"
+   ms.date="01/18/2016"
    ms.author="yuemlu"/>
 
 # Matriz de compatibilidade de versões de SOs Convidados e do SDK do Azure
@@ -29,6 +29,9 @@ Fornece a você informações atualizadas sobre as versões mais recentes do SO 
 
 
 ## Notícias atualizadas
+
+###### **18 de janeiro de 2015**
+A distribuição do SO Convidado de janeiro começa em 18 de janeiro de 2016 e deve ser lançada em 12 de fevereiro de 2016.
 
 ###### **4 de janeiro de 2016**
 O SO convidado 201511-02 de novembro foi lançado em 4 de janeiro de 2016 para implantação. Esta versão do SO não está definida como o SO padrão para a atualização automática. Sendo assim, o tempo de provisionamento da implantação do SO convidado para a versão 201511-02 de novembro seria um pouco maior.
@@ -179,6 +182,7 @@ Dá suporte a .NET 4.0, 4.5, 4.5.1, 4.5.2 (Observação 2)
 
 | Versão do SO convidado | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 4\.28 | WA-GUEST-OS-4.28\_201601-01 | Previsão: 12 de fevereiro de 2016 | Será atualizada quando a versão 4.30 for lançada | TBD |
 | 4\.27 | WA-GUEST-OS-4.27\_201512-01 | 12 de janeiro de 2016 | Será atualizada quando a versão 4.29 for lançada | TBD |
 | 4\.26 | WA-GUEST-OS-4.26\_201511-02 | 4 de janeiro de 2016 | Será atualizada quando a 4.28 for lançada | TBD |
 | 4\.26 | WA-GUEST-OS-4.26\_201511-01 | 10 de dezembro de 2015 | Será atualizada quando a 4.28 for lançada | TBD |
@@ -209,6 +213,7 @@ Dá suporte a .NET 4.0, 4.5
 
 | Versão do SO convidado | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 3\.35 | WA-GUEST-OS-3.35\_201601-01 | Previsão: 12 de fevereiro de 2016 | Será atualizada quando a versão 3.37 for lançada | TBD |
 | 3\.34 | WA-GUEST-OS-3.34\_201512-01 | 12 de janeiro de 2016 | Será atualizada quando a versão 3.36 for lançada | TBD |
 | 3\.33 | WA-GUEST-OS-3.33\_201511-02 | 4 de janeiro de 2016 | Será atualizada quando a 3.35 for lançada | TBD |
 | 3\.33 | WA-GUEST-OS-3.33\_201511-01 | 10 de dezembro de 2015 | Será atualizada quando a 3.35 for lançada | TBD |
@@ -240,6 +245,7 @@ Dá suporte a .NET 3.5, 4.0
 
 | Versão do SO convidado | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 2\.47 | WA-GUEST-OS-2.47\_201601-01 | 12 de fevereiro de 2016 | Será atualizada quando a versão 2.49 for lançada | TBD |
 | 2\.46 | WA-GUEST-OS-2.46\_201512-01 | 12 de janeiro de 2016 | Será atualizada quando a versão 2.48 for lançada | TBD |
 | 2\.45 | WA-GUEST-OS-2.45\_201511-02 | 4 de janeiro de 2016 | Será atualizada quando a 2.47 for lançada | TBD |
 | 2\.45 | WA-GUEST-OS-2.45\_201511-01 | 10 de dezembro de 2015 | Será atualizada quando a 2.47 for lançada | TBD |
@@ -408,4 +414,4 @@ Devido à liberação parcial dos duas últimos lançamentos, as pessoas utiliza
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

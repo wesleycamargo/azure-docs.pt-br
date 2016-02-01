@@ -117,15 +117,15 @@ Como verificar a versão do Agente de VM em VMs do Windows:
 ## Solucionar Problemas de Instantâneo de VM
 O backup de VM depende da emissão do comando de instantâneo para o armazenamento subjacente. Não ter acesso a armazenamento ou atraso na execução da tarefa do instantâneo pode resultar em falha no backup. O descrito a seguir pode causar falha na tarefa do instantâneo.
 
-1. O acesso à rede para o Armazenamento é bloqueado usando NSG<br> Aprenda mais sobre como [habilitar o acesso à rede](backup-azure-vms-prepare.md#2-network-connectivity) para Armazenamento usando WhiteListing de IPs ou por meio do servidor proxy. 
-2.  Máquinas virtuais com o backup do SQL Server configurado podem causar atraso na tarefa do instantâneo <br> Por padrão, o backup de VM emite backup completo de VSS em VMs do Windows. Em máquinas virtuais que estão executando SQL Servers e nas quais o SQL Server backup está configurado, isso pode causar atraso na execução do instantâneo. Defina a chave do Registro a seguir se houver falhas de backup devido a problemas de instantâneo. 
+1. O acesso à rede para o Armazenamento é bloqueado usando NSG<br> Aprenda mais sobre como [habilitar o acesso à rede](backup-azure-vms-prepare.md#2-network-connectivity) para Armazenamento usando WhiteListing de IPs ou por meio do servidor proxy.
+2.  Máquinas virtuais com o backup do SQL Server configurado podem causar atraso na tarefa do instantâneo <br> Por padrão, o backup de VM emite backup completo de VSS em VMs do Windows. Em máquinas virtuais que estão executando SQL Servers e nas quais o SQL Server backup está configurado, isso pode causar atraso na execução do instantâneo. Defina a chave do Registro a seguir se houver falhas de backup devido a problemas de instantâneo.
 
 	```
 	[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
 	"USEVSSCOPYBACKUP"="TRUE"
 	```
-3.  Status da VM informado incorretamente porque a VM está desligada em RDP. <br> Se você desligou a máquina virtual em RDP, verifique no portal que o status da VM esteja refletido corretamente. Se não estiver, desligue a máquina virtual no portal usando a opção 'Desligar' no painel da VM. 
-4.  Várias VMs do mesmo serviço de nuvem são configuradas para backup simultaneamente.<br> É a melhor prática distribuir as VMs do mesmo serviço de nuvem que tem diferentes agendamentos de backup. 
+3.  Status da VM informado incorretamente porque a VM está desligada em RDP. <br> Se você desligou a máquina virtual em RDP, verifique no portal que o status da VM esteja refletido corretamente. Se não estiver, desligue a máquina virtual no portal usando a opção 'Desligar' no painel da VM.
+4.  Várias VMs do mesmo serviço de nuvem são configuradas para backup simultaneamente.<br> É a melhor prática distribuir as VMs do mesmo serviço de nuvem que tem diferentes agendamentos de backup.
 5.  A VM está executando com alta utilização de CPU/memória.<br> Se a máquina virtual está em execução com alta utilização de CPU (>90%) ou memória, a tarefa de instantâneo é enfileirada, atrasada e eventualmente atingirá o tempo limite. Tente o backup sob demanda em tais situações.
 
 <br>
@@ -149,4 +149,6 @@ Após a resolução de nomes ser feita corretamente, o acesso às IPs Azure tamb
     - Se você tiver alguma restrição de rede no local (um Grupo de Segurança de Rede, por exemplo), implante um servidor proxy HTTP para encaminhar o tráfego. As etapas para implantar um servidor proxy HTTP podem ser encontradas [aqui](backup-azure-vms-prepare.md#2-network-connectivity).
     - Adicione regras ao NSG (se você tiver uma em vigor) para permitir o acesso à INTERNET do Proxy HTTP.
 
-<!---HONumber=AcomDC_0114_2016-->
+>[AZURE.NOTE]O DHCP deve estar habilitado no convidado para que o Backup da VM IaaS funcione. Se você precisar de um endereço IP privado estático, deverá configurá-lo usando a plataforma. A opção DHCP na VM deve ser ativada. Você pode saber mais sobre como configurar um IP interno estático privado [aqui](virtual-networks-reserved-private-ip.md).
+
+<!---HONumber=AcomDC_0121_2016-->

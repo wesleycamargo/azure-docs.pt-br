@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/22/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # Circuitos da Rota Expressa e domínios de roteamento
@@ -33,7 +33,7 @@ Cada circuito tem uma largura de banda fixa (50 Mbps, 100 Mbps, 200 Mbps, 500 Mb
 
 ### Cotas, limites e limitações
 
-Cotas e limites padrão aplicam-se a todos os circuitos da Rota Expressa. Consulte a página [Limites, cotas e restrições de serviço e assinatura do Azure](../articles/azure-subscription-service-limits.md) para obter informações atualizadas sobre cotas.
+Cotas e limites padrão aplicam-se a todos os circuitos da Rota Expressa. Consulte a página [Limites, cotas e restrições de serviço e assinatura do Azure](../../includes/expressroute-limits.md) para obter informações atualizadas sobre cotas.
 
 ## Domínios de roteamento da Rota Expressa
 
@@ -47,11 +47,11 @@ Um circuito da Rota Expressa tem vários domínios de roteamento associados a el
 
 Os serviços de computação do Azure, isto é, máquinas virtuais (IaaS) e serviços de nuvem (PaaS), implantados em uma rede virtual podem ser conectados por meio do domínio de emparelhamento privado. O domínio de emparelhamento privado é considerado uma extensão confiável de sua rede principal para o Microsoft Azure. Você pode configurar a conectividade bidirecional entre sua rede principal e as redes virtuais (VNets) do Azure. Isso permitirá a você se conectar a máquinas virtuais e serviços de nuvem diretamente em seus endereços IP privados.
 
-Você pode conectar mais de uma rede virtual ao domínio de emparelhamento privado. Examine a [Página de perguntas Frequentes](expressroute-faqs.md) para obter informações sobre limites e limitações. Você pode visitar a página [Limites, cotas e restrições de serviço e assinatura do Azure](../articles/azure-subscription-service-limits.md) para obter informações atualizadas sobre limites. Consulte a página [Roteamento](expressroute-routing.md) para obter informações detalhadas sobre a configuração de roteamento.
+Você pode conectar mais de uma rede virtual ao domínio de emparelhamento privado. Examine a [Página de perguntas Frequentes](expressroute-faqs.md) para obter informações sobre limites e limitações. Você pode visitar a página [Limites, cotas e restrições de serviço e assinatura do Azure](../../includes/expressroute-limits.md) para obter informações atualizadas sobre limites. Consulte a página [Roteamento](expressroute-routing.md) para obter informações detalhadas sobre a configuração de roteamento.
 
 ### Emparelhamento público
 
-Serviços como o Armazenamento do Azure, Sites e Bancos de dados SQL são oferecidos em endereços IP públicos. Você pode se conectar de modo privado a serviços hospedados em endereços IP públicos (incluindo VIPs de seus serviços de nuvem) por meio do domínio de roteamento de emparelhamento público. É possível conectar o domínio de emparelhamento público à sua rede de perímetro e a todos os serviços do Azure em seus endereços IP públicos de sua WAN sem precisar se conectar pela Internet.
+Serviços como o Armazenamento do Azure, Sites e Bancos de dados SQL são oferecidos em endereços IP públicos. Você pode se conectar de modo privado a serviços hospedados em endereços IP públicos (incluindo VIPs de seus serviços de nuvem) por meio do domínio de roteamento de emparelhamento público. É possível conectar o domínio de emparelhamento público à sua DMZ e a todos os serviços do Azure em seus endereços IP públicos de sua WAN sem precisar se conectar pela Internet.
 
 A conectividade é sempre iniciada por meio de sua WAN para serviços do Microsoft Azure. Os serviços do Microsoft Azure não poderão iniciar conexões a sua rede por meio desse domínio de roteamento. Após o emparelhamento público ser habilitado, você poderá se conectar a todos os serviços do Azure. Não permitimos que você escolha seletivamente os serviços para os quais podemos anunciar rotas. Você pode examinar a lista de prefixos que anunciamos por meio desse emparelhamento na página [Intervalos de IPs do datacenter do Microsoft Azure](http://www.microsoft.com/download/details.aspx?id=41653). A página é atualizada semanalmente.
 
@@ -71,13 +71,13 @@ A tabela abaixo compara os três domínios de roteamento.
 
 ||**Emparelhamento privado**|**Emparelhamento público**|**Emparelhamento da Microsoft**|
 |---|---|---|---|
-|**Nº máx. de prefixos com suporte por compartilhamento**|4.000 por padrão, 10.000 com a Rota Expressa Premium|200|200|
-|**Intervalos de endereços IP com suporte**|Qualquer endereço IPv4 válido na sua WAN.|Endereços IPv4 públicos que pertençam a você ou ao seu provedor de conectividade.|Endereços IPv4 públicos que pertençam a você ou ao seu provedor de conectividade.|
-|**Requisitos de número de AS**|Números de AS privados e públicos. Cliente deve possuir número AS público. | Números AS públicos e privados. Cliente deve possuir número AS público. | Somente números AS públicos. O número de AS deve ser validado em relação a registros de roteamento para validar a propriedade.|
-|**Endereços IP de Interface de Roteamento**|Endereços IP públicos e RFC1918|Endereços IP públicos registrados para clientes nos registros de roteamento.| Endereços IP públicos registrados para clientes nos registros de roteamento.|
-|**Suporte a hash do MD5**| Sim|Sim|Sim|
+|**Número máximo de prefixos com suporte por emparelhamento**|4000 por padrão, 10.000 com a Rota Expressa Premium|200|200|
+|**Intervalos de endereços IP com suporte**|Todos os endereços IPv4 válidos em sua WAN.|Os endereços IPv4 públicos pertencentes a você ou ao seu provedor de conectividade.|Os endereços IPv4 públicos pertencentes a você ou ao seu provedor de conectividade.|
+|**Requisitos do número do AS**|Números públicos e privados do AS. O cliente deve possuir um número público do AS. | Números públicos e privados do AS. O cliente deve possuir um número público do AS.| Somente números públicos do AS. O número do AS deve ser validado em relação a registros de roteamento para validar a propriedade.|
+|**Roteando endereços IP de interface**|RFC1918 e endereços IP públicos|Endereços IP públicos registrados para clientes em registros de roteamento.| Endereços IP públicos registrados para clientes em registros de roteamento.|
+|**Suporte a Hash MD5**| Sim|Sim|Sim|
 
-Você pode optar por habilitar um ou mais domínios de roteamento como parte do respectivo circuito da Rota Expressa. Também é possível optar por ter todos os domínios de roteamento na mesma VPN se você desejar combiná-los em um único domínio de roteamento. Você também pode colocá-los em diferentes domínios de roteamento, da mesma forma que no diagrama. A configuração recomendada é conectar o emparelhamento privado diretamente à rede principal, enquanto os vínculos de emparelhamento público e da Microsoft são conectados à sua rede de perímetro.
+Você pode optar por habilitar um ou mais domínios de roteamento como parte do respectivo circuito da Rota Expressa. Também é possível optar por ter todos os domínios de roteamento na mesma VPN se você desejar combiná-los em um único domínio de roteamento. Você também pode colocá-los em diferentes domínios de roteamento, da mesma forma que no diagrama. A configuração recomendada é conectar o emparelhamento privado diretamente à rede principal, enquanto os vínculos de emparelhamento público e da Microsoft são conectados à sua DMZ.
  
 Se você optar por ter todas as três sessões de emparelhamento, você deve ter três pares de sessões BGP (um par para cada tipo de emparelhamento). Os pares de sessões BGP fornecem um link altamente disponível. Se estiver conectando por meio de provedores de conectividade da camada 2, você será responsável por configurar e gerenciar o roteamento. Saiba mais analisando os [fluxos de trabalho](expressroute-workflows.md) para configurar a Rota Expressa.
 
@@ -90,4 +90,4 @@ Se você optar por ter todas as três sessões de emparelhamento, você deve ter
 	- [Configurar roteamento (emparelhamentos de circuito)](expressroute-howto-routing-classic.md)
 	- [Vincular uma rede virtual a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

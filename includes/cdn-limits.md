@@ -1,9 +1,10 @@
 
-| Recurso | Limite flexível 
---- | ---
-| Pontos de extremidade CDN | 50
-| Domínios personalizados por um cliente| 16
+Recurso | Limite flexível
+---------|-----------
+Perfis CDN | 4
+Pontos de extremidade CDN por perfil | 10
+Domínios personalizados por ponto de extremidade | 10 
 
-Você pode solicitar para atualizar os limites flexíveis abrindo um tíquete de suporte.
+Solicite uma atualização para os limites flexíveis da sua assinatura abrindo um tíquete de suporte.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

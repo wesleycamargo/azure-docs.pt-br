@@ -25,7 +25,7 @@ A primeira etapa é criar um namespace de serviço e obter uma chave de SAS [(As
 
 ### Criar um namespace e obter uma chave secreta compartilhada
 
-1. Para obter informações completas sobre como criar um namespace de serviço, consulte o tópico [Como criar ou modificar um Namespace do barramento de serviço](https://msdn.microsoft.com/library/azure/hh690931.aspx) na seção [Gerenciar Namespaces de Serviço do Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh690928.aspx).
+1. Para criar um namespace de serviço, acesse o [portal clássico do Azure][]. Clique em **Barramento de Serviço** no lado esquerdo e clique em **Criar**. Digite um nome para o namespace e clique na marca de seleção.
 
 1. Na janela principal do [portal clássico do Azure][], clique no nome do namespace de serviço criado na etapa anterior.
 
@@ -628,9 +628,9 @@ namespace Microsoft.ServiceBus.Samples
 Para saber mais, consulte os seguintes artigos:
 
 - [Visão geral de mensagens do Barramento de Serviço](service-bus-messaging-overview.md)
-- [Conceitos básicos do Barramento de Serviço do Azure](fundamentals-service-bus-hybrid-solutions.md)
+- [Conceitos básicos do Barramento de Serviço do Azure](service-bus-fundamentals-hybrid-solutions.md)
 - [Tutorial do REST para retransmissão do Barramento de Serviço](service-bus-relay-rest-tutorial.md)
 
 [portal clássico do Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

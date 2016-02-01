@@ -1,11 +1,4 @@
-<properties 
-	pageTitle="Conectar-se ao Banco de Dados SQL usando o SQL Server Management Studio no Azure RemoteApp | Microsoft Azure" 
-	description="Use este tutorial para saber como usar o SQL Server Management Studio no Azure RemoteApp para segurança e desempenho ao conectar-se ao Banco de Dados SQL" 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="adhurwit" 
-	manager=""
-	tags=""//>
+<properties pageTitle="Conectar-se ao Banco de Dados SQL usando o SQL Server Management Studio no Azure RemoteApp | Microsoft Azure" descrição="Use este tutorial para saber como usar o SQL Server Management Studio no Azure RemoteApp para segurança e desempenho ao conectar-se ao Banco de Dados SQL" serviços="sql-database" documentationCenter="" autores="adhurwit" manager="" tags=""//>
 
 <tags 
 	ms.service="sql-database" 
@@ -13,7 +6,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/20/2015" 
+	ms.date="01/20/2016" 
 	ms.author="adhurwit"/>
 
 # Usar o SQL Server Management Studio no Azure RemoteApp para conectar-se ao Banco de dados SQL
@@ -144,7 +137,7 @@ Quando você acessa um usuário no Active Directory do Azure, é possível acess
 
 Depois de concluir todas as etapas acima, você será capaz de executar o cliente do Azure RemoteApp e fazer logon com um usuário atribuído. Você receberá o SSMS como um de seus aplicativos e poderá executá-lo da mesma forma que se estivesse instalado em seu computador com acesso ao Azure SQL Server.
 
-Para saber mais sobre como fazer a conexão com o Banco de Dados SQL, confira [Conectar-se ao SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+Para saber mais sobre como fazer a conexão com o Banco de Dados SQL, confira [Conectar-se ao Banco de Dados SQL com o SQL Server Management Studio e executar uma consulta T-SQL de exemplo](sql-database-connect-query-ssms.md).
 
 
 Isso é tudo por enquanto. Aproveite!
@@ -159,4 +152,4 @@ Isso é tudo por enquanto. Aproveite!
 [5]: ./media/sql-database-ssms-remoteapp/publish.png
 [6]: ./media/sql-database-ssms-remoteapp/user.png
 
-<!----HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

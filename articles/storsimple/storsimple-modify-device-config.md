@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="12/02/2015"
+   ms.date="01/15/2016"
    ms.author="v-sharos"/>
 
 # Usar o serviço StorSimple Manager para modificar a configuração do dispositivo StorSimple
@@ -98,7 +98,7 @@ Para cada interface de rede, os parâmetros a seguir são exibidos:
 
 - **Sub-rede** – Refere-se à máscara de sub-rede e é configurada por meio da interface do Windows PowerShell.
 
-- **Gateway** – Este é o gateway padrão que deve ser usado por esta interface durante tentativas de comunicação com nós que não estão no mesmo espaço do endereço IP (sub-rede). O gateway padrão deve estar no mesmo espaço do endereço (sub-rede) que a interface do endereço IP, conforme determinado pela máscara de sub-rede.
+- **Gateway** – Este é o gateway padrão que deve ser usado por esta interface quando ele tenta se comunicar com nós que não estão no mesmo espaço do endereço IP (sub-rede). O gateway padrão deve estar no mesmo espaço do endereço (sub-rede) que a interface do endereço IP, conforme determinado pela máscara de sub-rede.
 
 - **Endereço IP fixo** – Este campo está disponível apenas enquanto você configura a interface DATA 0. Para operações como atualizações ou solução de problemas do dispositivo, talvez seja necessário conectar diretamente ao controlador do dispositivo. O endereço IP fixo pode ser usado para acessar o controlador ativo e passivo no dispositivo.
 
@@ -129,4 +129,4 @@ Realize as etapas a seguir para alternar ou reatribuir os VIPs para qualquer uma
 - Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
      
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

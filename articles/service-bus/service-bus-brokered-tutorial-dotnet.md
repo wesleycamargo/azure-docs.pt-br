@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Tutorial .NET do sistema de mensagens agenciado do Barramento de Serviço | Microsoft Azure"
-   description="Tutorial .NET do sistema de mensagens agenciado"
+   description="Tutorial .NET do sistema de mensagens agenciado."
    services="service-bus"
    documentationCenter="na"
    authors="sethmanheim"
@@ -31,13 +31,13 @@ A seguir, algumas etapas administrativas e de pré-requisito que você deve segu
 
 ### Criar um namespace de serviço e obter uma chave SAS
 
-1. Para criar um namespace de serviço, execute as etapas descritas em [Como criar ou modificar um namespace de serviço do Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh690931.aspx).
+1. Para criar um namespace de serviço, acesse o [portal clássico do Azure][]. Clique em **Barramento de Serviço** no lado esquerdo e clique em **Criar**. Digite um nome para o namespace e clique na marca de seleção.
 
 1. Na janela principal do [portal clássico do Azure][], clique no nome do namespace de serviço criado na etapa anterior.
 
 1. Clique em **Configurar**.
 
-1. Na seção **gerador de assinatura de acesso compartilhado**, anote a chave primária associada à política **RootManagerSharedAccessKey** ou copie-a para a área de transferência. Você usará esse valor posteriormente neste tutorial.
+1. Na seção **gerador de assinatura de acesso compartilhado**, anote a chave primária associada à política **RootManagerSharedAccessKey** ou copie-a para a área de transferência. Você usará este valor posteriormente neste tutorial.
 
 A próxima etapa será criar um projeto do Visual Studio e escrever duas funções auxiliares que carreguem uma lista delimitada por vírgulas de mensagens em um objeto [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) .NET [lista](https://msdn.microsoft.com/library/6sh2ey19.aspx) fortemente tipado.
 
@@ -642,7 +642,7 @@ No Visual Studio, no menu **Compilar**, clique em **Compilar Solução** ou pres
 
 ## Próximas etapas
 
-Este tutorial mostrou como compilar um serviço e um aplicativo cliente simples do Barramento de Serviço usando os recursos de sistema de mensagens agenciado do Barramento de Serviços. Para obter um tutorial semelhante que use o [sistema de mensagens de retransmissão](service-bus-messaging-overview.md/#Relayed-messaging) do Barramento de Serviço, consulte o [tutorial do sistema de mensagens de transmissão do Barramento de Serviço](service-bus-relay-tutorial.md).
+Este tutorial mostrou como compilar um serviço e um aplicativo cliente simples do Barramento de Serviço usando os recursos de sistema de mensagens agenciado do Barramento de Serviços. Para obter um tutorial semelhante que use o [sistema de mensagens de retransmissão](service-bus-messaging-overview.md#Relayed-messaging) do Barramento de Serviço, consulte o [tutorial do sistema de mensagens de transmissão do Barramento de Serviço](service-bus-relay-tutorial.md).
 
 Para saber mais sobre o [Barramento de Serviço](https://azure.microsoft.com/services/service-bus/), consulte os tópicos a seguir.
 
@@ -652,4 +652,4 @@ Para saber mais sobre o [Barramento de Serviço](https://azure.microsoft.com/ser
 
 [portal clássico do Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

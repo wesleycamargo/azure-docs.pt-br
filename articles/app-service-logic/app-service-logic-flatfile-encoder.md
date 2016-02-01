@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Codificador de Arquivo Simples do BizTalk" 
-   description="Codificador de Arquivo Simples do BizTalk" 
+   pageTitle="Usando o codificador de arquivo simples do BizTalk em um aplicativo lógico| Microsoft Azure" 
+   description="Conector ou aplicativo de API do codificador de arquivo simples do BizTalk" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="10/29/2015"
+   ms.date="01/19/2016"
    ms.author="rajram"/>
 
 # Codificador de Arquivo Simples do BizTalk
@@ -69,4 +69,4 @@ A ação retorna a saída como uma cadeia de caracteres ‒ Arquivo Simples. A s
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0121_2016-->

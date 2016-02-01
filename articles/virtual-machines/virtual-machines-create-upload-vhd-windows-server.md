@@ -188,7 +188,7 @@ Para obter mais informações sobre os cmdlets do Add-AzureVhd, consulte [Add-Az
 
 	![imagem personalizada](./media/virtual-machines-create-upload-vhd-windows-server/vm_custom_image.png)
 
-	Essa nova imagem agora está disponível em **Minhas Imagens** quando você cria uma máquina virtual. Para obter instruções, confira [Como criar uma máquina virtual personalizada executando o Windows](virtual-machines-windows-create-custom.md).
+	Essa nova imagem agora está disponível em **Minhas Imagens** quando você cria uma máquina virtual. Para obter instruções, consulte [Criar uma máquina virtual personalizada](virtual-machines-create-custom.md).
 
 	![crie uma VM da imagem personalizada](./media/virtual-machines-create-upload-vhd-windows-server/create_vm_custom_image.png)
 
@@ -203,4 +203,4 @@ Após criar uma máquina virtual, tente criar uma máquina virtual do SQL Server
 [Step 3: Prepare the connection to Azure]: #prepAzure
 [Step 4: Upload the .vhd file]: #upload
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

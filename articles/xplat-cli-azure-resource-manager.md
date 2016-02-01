@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="01/19/2016"
 	ms.author="danlep"/>
 
 # Usar a CLI do Azure para Mac, Linux e Windows com o Gerenciador de Recursos do Azure
@@ -35,9 +35,9 @@ Use o Gerenciador de Recursos do Azure para criar e gerenciar um grupo de _recur
 
 Uma vantagem do Gerenciador de Recursos do Azure é que você pode criar seus recursos do Azure de maneira _declarativa_: descrevendo a estrutura e as relações de um grupo implantável de recursos em *modelos* JSON. O modelo identifica os parâmetros que podem ser preenchidos ou embutidos durante a execução de um comando, ou armazenados em arquivo JSON azuredeploy-parameters.json separado. Isso permite criar facilmente novos recursos usando-se o mesmo modelo simplesmente fornecendo parâmetros diferentes. Por exemplo, um modelo que cria um site terá parâmetros para o nome do site, a região do site em que estará localizado e outros configurações comuns.
 
-Quando um modelo é usado para modificar ou criar um grupo, uma _implantação_ é criada e, então, aplicada ao grupo. Para saber mais sobre o Gerenciador de Recursos do Azure, visite a [Visão Geral do Gerenciador de Recursos do Azure](../resource-group-overview.md).
+Quando um modelo é usado para modificar ou criar um grupo, uma _implantação_ é criada e, então, aplicada ao grupo. Para saber mais sobre o Gerenciador de Recursos do Azure, visite a [Visão Geral do Gerenciador de Recursos do Azure](resource-group-overview.md).
 
-Depois de criar uma implantação, você pode gerenciar os recursos individuais imperativamente na linha de comando, assim como no modelo de implantação clássico (Gerenciamento de Serviço). Por exemplo, use comandos de CLI do Gerenciador de Recursos do Azure para iniciar, parar ou excluir recursos como [máquinas virtuais do Gerenciador de Recursos do Azure](../virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md).
+Depois de criar uma implantação, você pode gerenciar os recursos individuais imperativamente na linha de comando, assim como no modelo de implantação clássico (Gerenciamento de Serviço). Por exemplo, use comandos de CLI do Gerenciador de Recursos do Azure para iniciar, parar ou excluir recursos como [máquinas virtuais do Gerenciador de Recursos do Azure](virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md).
 
 ## Autenticação
 
@@ -78,20 +78,19 @@ Você implantará a esse grupo de recursos "testRG" posteriormente quando usar u
 
 Ao trabalhar com modelos, você poderá [criar o seu próprio modelo](resource-group-authoring-templates.md) ou usar um dos modelos da [Galeria de Modelos](https://azure.microsoft.com/documentation/templates/) que estão disponíveis também no [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
-Criar um novo modelo está além do escopo deste artigo. Então, para começar, vamos usar o modelo _101-simple-vm-from-image_ disponível no [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm). Por padrão, isso cria uma única máquina virtual do Ubuntu 14.04.2-LTS em uma nova rede virtual com uma única sub-rede na região Oeste dos EUA. Você só precisa especificar os seguintes parâmetros para usar este modelo:
+A criação de um novo modelo está além do escopo deste artigo e, portanto, para começarmos usaremos o modelo _101-simple-vm-from-image_ disponível na [Galeria de Modelos](https://azure.microsoft.com/documentation/templates/101-vm-simple-linux/). Por padrão, isso cria uma única máquina virtual do Ubuntu 14.04.2-LTS em uma nova rede virtual com uma única sub-rede na região Oeste dos EUA. Você só precisa especificar os seguintes parâmetros para usar este modelo:
 
 * Um nome de usuário de administrador para a VM = `adminUsername`
 * Uma senha = `adminPassword`
 * Um nome de domínio para a VM = `dnsLabelPrefix`
 
->[AZURE.TIP]Estas etapas mostram apenas uma maneira de usar um modelo de VM com a CLI do Azure. Para obter outros exemplos, consulte [Implantar e gerenciar máquinas virtuais usando modelos do Gerenciador de Recursos do Azure e a CLI do Azure](../virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md)
+>[AZURE.TIP]Estas etapas mostram apenas uma maneira de usar um modelo de VM com a CLI do Azure. Para obter outros exemplos, consulte [Implantar e gerenciar máquinas virtuais usando modelos do Gerenciador de Recursos do Azure e a CLI do Azure](virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md)
 
-1. Baixe os arquivos azuredeploy.json e azuredeploy.parameters.json de [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux) para uma pasta de trabalho no computador local.
+1. Siga o link "Saiba mais com o GitHub" para baixar os arquivos azuredeploy.json e azuredeploy.parameters.json do GitHub para uma pasta de trabalho no computador local. (Selecione o formato _não processado_ de cada arquivo no GitHub).
 
 2. Abra o arquivo azuredeploy.parameters.json em um editor de texto e insira valores de parâmetro adequados para seu ambiente (deixando o valor **ubuntuOSVersion** inalterado).
 
-
-```
+	```
 			{
 			  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
 			  "contentVersion": "1.0.0.0",
@@ -111,19 +110,22 @@ Criar um novo modelo está além do escopo deste artigo. Então, para começar, 
 			  }
 			}
 
-```
+	```
+3.  Agora que os parâmetros de implantação foram sido modificados, você implantará a VM do Ubuntu no grupo de recursos criado anteriormente. Escolha um nome para a implantação e, em seguida, use o seguinte comando para iniciá-lo.
 
-3.  Agora que os parâmetros de implantação foram modificados, você implantará a VM do Ubuntu para o grupo de recursos criado anteriormente. Escolha um nome para a implantação e, em seguida, use o seguinte comando para iniciá-lo.
+	```
+	azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json testRG testRGdeploy
+	```
 
-		azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json testRG testRGdeploy
-
-	Este exemplo cria uma implantação chamada _testRGDeploy_ que é implantada no grupo de recursos _testRG_. A opção `-e` especifica o arquivo azuredeploy.parameters.json que você modificou na etapa anterior. A opção `-f` especifica o arquivo de modelo azuredeploy.json.
+	Esse exemplo cria uma implantação chamada _testRGDeploy_, que é implantada no grupo de recursos _testRG_. A opção `-e` especifica o arquivo azuredeploy.parameters.json que você modificou na etapa anterior. A opção `-f` especifica o arquivo de modelo azuredeploy.json.
 
 	Esse comando retornará OK assim que a implantação for carregada, mas antes da implantação ser aplicada aos recursos do grupo.
 
 4. Para verificar o status da implantação, use o comando a seguir.
 
-		azure group deployment show "testRG" "testRGDeploy"
+	```
+	azure group deployment show "testRG" "testRGDeploy"
+	```
 
 	O **ProvisioningState** mostra o status da implantação.
 
@@ -163,7 +165,7 @@ Criar um novo modelo está além do escopo deste artigo. Então, para começar, 
 
 Você também pode usar um modelo diretamente do [GitHub](https://github.com/Azure/azure-quickstart-templates) em vez de baixar um no computador. Para isso, transmita a URL para o arquivo azuredeploy.json do modelo em seu comando usando a opção **--template-url**. Para obter a URL, abra azuredeploy.json no GitHub no modo _bruto_ e copie a URL que aparece na barra de endereços do navegador. Você pode usar essa URL diretamente para criar uma implantação usando um comando semelhante ao exemplo a seguir.
 
-	azure group deployment create "testDeploy" -g "testResourceGroup" --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json
+	azure group deployment create "testDeploy" testResourceGroup --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json
 Você precisará inserir os parâmetros de modelo necessários.
 
 > [AZURE.NOTE]É importante abrir o modelo JSON no modo _bruto_. A URL que aparece na barra de endereços do navegador é diferente daquela que aparece no modo normal. Para abrir o arquivo no modo _raw_ ao exibir o arquivo no GitHub, no canto superior direito, clique em **Raw**.
@@ -206,11 +208,11 @@ Para exibir informações registradas em log sobre operações realizadas em um 
 
 ## Próximas etapas
 
-* Para obter informações sobre como trabalhar com o Gerenciador de Recursos do Azure usando o Azure PowerShell, veja [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md).
+* Para obter informações sobre como trabalhar com o Gerenciador de Recursos do Azure usando o Azure PowerShell, veja [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](powershell-azure-resource-manager.md).
 * Para obter informações sobre como trabalhar com o Gerenciador de Recursos do Azure no Portal do Azure, confira [Usando grupos de recursos para gerenciar os recursos do Azure][psrm].
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

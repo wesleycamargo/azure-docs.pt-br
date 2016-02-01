@@ -1,17 +1,19 @@
-* [What is an App Service Environment?](../app-service-web/app-service-app-service-environment-intro.md)
-  * [Setting Up a Geo-Distributed App Footprint](../app-service-web/app-service-app-service-environment-geo-distributed-scale.md)
-  * [Implementing a Layered Security Architecture](../app-service-web/app-service-app-service-environment-layered-security.md)
-  * [Configuring a Web Application Firewall with an App Service Environment](../app-service-web/app-service-app-service-environment-web-application-firewall.md)
-* [Creating an App Service Environment](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
-* [Creating Apps in an App Service Environment](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md)
-* [Configuring an App Service Environment](../app-service-web/app-service-web-configure-an-app-service-environment.md) 
-* [Scaling Apps in an App Service Environment](../app-service-web/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
-  * [Using Auto-Scale with an App Service Environment](app-service-environment-auto-scale.md)
-* [Network Security and Architecture](../app-service-web/app-service-app-service-environment-network-architecture-overview.md)
-  * [Securing Inbound Traffic](../app-service-web/app-service-app-service-environment-control-inbound-traffic.md)
-  * [Connecting to Backend Resources](../app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md)
-  * [ExpressRoute and App Service Environments](../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md)
+* [O que é um Ambiente do Serviço de Aplicativo?](../app-service-web/app-service-app-service-environment-intro.md)
+  * [Configurando uma Superfície de Aplicativo Distribuída Geograficamente](../app-service-web/app-service-app-service-environment-geo-distributed-scale.md)
+  * [Implementando uma Arquitetura em Camadas de Segurança](../app-service-web/app-service-app-service-environment-layered-security.md)
+  * [Configurando um Firewall do Aplicativo Web com um Ambiente do Serviço de Aplicativo](../app-service-web/app-service-app-service-environment-web-application-firewall.md)
+* [Criando um Ambiente do Serviço de Aplicativo](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
+* [Criando Aplicativos em um Ambiente do Serviço de Aplicativo](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md)
+* [Configurando um Ambiente do Serviço de Aplicativo](../app-service-web/app-service-web-configure-an-app-service-environment.md) 
+* [Dimensionando aplicativos em um Ambiente do Serviço de Aplicativo](../app-service-web/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
+  * [Usando o Dimensionamento Automático com um Ambiente de Serviço de Aplicativo](app-service-environment-auto-scale.md)
+* [Arquitetura e Segurança de Rede](../app-service-web/app-service-app-service-environment-network-architecture-overview.md)
+  * [Protegendo o Tráfego de Entrada](../app-service-web/app-service-app-service-environment-control-inbound-traffic.md)
+  * [Conectando-se a Recursos de Back-end](../app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md)
+  * [Ambientes da Rota Expressa e Serviço de Aplicativo](../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md)
 
-## Videos
+## Vídeos
 
-* [AzureCon 2015:  Deploying Highly Secure and Scalable Apps](/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/)
+* [AzureCon 2015: Implantando Aplicativos Altamente Seguros e Escalonáveis](/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/)
+
+<!---HONumber=AcomDC_0121_2016-->

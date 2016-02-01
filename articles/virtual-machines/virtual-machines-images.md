@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/13/2015"
+	ms.date="01/15/2016"
 	ms.author="cynthn"/>
 
 # Sobre imagens de máquinas virtuais
@@ -53,10 +53,11 @@ Para obter exemplos de como usar as ferramentas em uma implantação clássica:
 >[Azure.Tip]O parâmetro OSState é obrigatório se você quiser criar uma imagem VM, que inclui discos de dados e o disco do sistema operacional. Se você não usar o parâmetro, o cmdlet criará uma imagem do SO. O valor do parâmetro indica se a imagem é generalizada ou especializada, com base em se o disco do sistema operacional foi preparado para reutilização.
 -	**Excluir uma imagem**: `Remove-AzureVMImage –ImageName "MyOldVmImage"`
 
+
 ## Recursos adicionais
 
 [Diferentes maneiras de criar uma Máquina Virtual Linux](virtual-machines-linux-choices-create-vm.md)
 
 [Diferentes maneiras de criar uma máquina virtual Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

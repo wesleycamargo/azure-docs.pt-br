@@ -16,24 +16,24 @@
    ms.date="11/14/2015"
    ms.author="vturecek"/>
 
-# Padrão de design de Atores Confiáveis: computação distribuída
-Devemos isso, em parte, ao fato de termos observado um cliente real produzir rapidamente um cálculo financeiro nos Atores Confiáveis do Service Fabric em um tempo absurdamente pequeno, para ser mais exato, o cálculo de risco de uma simulação de Monte Carlo.
+# Padrão de design dos Reliable Actors: computação distribuída
+Em parte, podemos dizer que isso se deve a um cliente real que criou um cálculo financeiro nos Reliable Actors do Service Fabric do Azure em um tempo ridiculamente curto. Foi uma simulação de Monte Carlo para calcular riscos.
 
-A princípio, especialmente para aqueles que não possuem conhecimento específico do domínio, a manipulação da Malha de Serviço do Azure desse tipo de carga de trabalho, em contraposição às abordagens mais tradicionais, como o Mapear/Reduzir ou MPI, talvez não seja óbvia.
+Se você não tiver conhecimento específico do domínio, os benefícios do uso do Service Fabric para lidar com esse tipo de carga de trabalho em vez de uma abordagem mais tradicional (como MapReduce ou Message Passing Interface) poderão não ser imediatamente óbvios.
 
-Mas acontece que a Malha de Serviços do Azure é uma boa opção com mensagens assíncronas paralelas, estado distribuído facilmente gerenciado e computação paralela, como mostra o diagrama a seguir:
+No entanto, o Service Fabric do Azure é uma boa opção com mensagens assíncronas paralelas, estado distribuído facilmente gerenciado e computação paralela, como mostra o diagrama a abaixo:
 
-![][1]
+![Mensagens assíncronas paralelas, estado distribuído e computação paralela do Service Fabric][1]
 
-No exemplo a seguir, simplesmente calculamos Pi usando uma simulação de Monte Carlo. Temos os seguintes atores:
+No exemplo a seguir, simplesmente calculamos Pi usando uma simulação de Monte Carlo. Podemos empregar os seguintes atores:
 
-* Processador responsável por calcular Pi usando os atores do PoolTask.
+* Um processador responsável por calcular Pi usando os atores da tarefa em pool.
 
-* PoolTask responsável pela simulação de Monte Carlo e por enviar os resultados em agregador.
+* A tarefa em pool responsável pela simulação de Monte Carlo e por enviar os resultados a um agregador.
 
-* Agregador responsável por agregar resultados e enviá-los ao Finaliser.
+* Um agregador responsável por agregar resultados e enviá-los a um finalizador.
 
-* O Finaliser é responsável por calcular o resultado final e exibir na tela.
+* O finalizador é responsável por calcular o resultado final e exibi-lo na tela.
 
 ## Exemplo de código de computação distribuída – simulação de Monte Carlo
 
@@ -91,7 +91,9 @@ public class PooledTask : StatelessActor, IPooledTask
 }
 ```
 
-Uma maneira comum de resultados de agregação na Malha de Serviço do Azure é usar temporizadores. Estamos usando atores sem monitoração de estado por dois motivos principais: o tempo de execução decidirá quantos agregadores são necessários dinamicamente, fornecendo-nos a escala sob demanda, portanto; e ele instanciará esses atores "localmente" – em outras palavras, no mesmo silo de ator da chamada, reduzindo saltos de rede. Apresentamos aqui a aparência do Agregador e do Finaliser:
+Uma maneira comum de agregar resultados no Service Fabric do Azure é usar temporizadores. Estamos usando atores sem estado por dois motivos principais: o tempo de execução decidirá quantos agregadores são necessários dinamicamente, dando a escala sob demanda, e ele instanciará esses atores "localmente". Em outras palavras, isso ocorrerá no mesmo silo do ator da chamada, reduzindo saltos de rede.
+
+Apresentamos aqui a aparência do agregador e do finalizador:
 
 ## Exemplo de código de computação distribuída – agregador
 
@@ -183,16 +185,16 @@ public class Finaliser : StatefulActor<FinalizerState>, IFinaliser
 }
 ```
 
-Neste ponto, deve estar claro como podemos aprimorar potencialmente o exemplo de placar de líderes com um agregador para dimensionamento e desempenho.
+Neste ponto, deve estar claro como você pode aprimorar o exemplo de placar de líderes com um agregador para dimensionamento e desempenho.
 
-Não estamos de forma alguma afirmando que a Malha de Serviço do Azure seja uma substituição para outra computação distribuída de estruturas de big data ou de computação de alto desempenho. Existem algumas coisas que somente são criadas para oferecer melhor manipulação melhor do que outras. No entanto, é possível modelar fluxos de trabalho e computação paralela distribuída na Malha de Serviço do Azure e ainda ter a simplicidade de benefícios que ela oferece.
+Não estamos de forma alguma afirmando que o Service Fabric do Azure seja uma substituição de outra computação distribuída de estruturas de big data ou de computação de alto desempenho. Ele foi criado para lidar melhor com algumas coisas do que com outras. No entanto, é possível modelar fluxos de trabalho e computação paralela distribuída no Service Fabric do Azure e ainda usufruir da simplicidade que ela oferece.
 
 ## Próximas etapas
 [Padrão: cache inteligente](service-fabric-reliable-actors-pattern-smart-cache.md)
 
 [Padrão: redes e gráficos distribuídos](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
 
-[Padrão: controle de recursos](service-fabric-reliable-actors-pattern-resource-governance.md)
+[Padrão: governança de recursos](service-fabric-reliable-actors-pattern-resource-governance.md)
 
 [Padrão: composição de serviço com estado](service-fabric-reliable-actors-pattern-stateful-service-composition.md)
 
@@ -200,10 +202,10 @@ Não estamos de forma alguma afirmando que a Malha de Serviço do Azure seja uma
 
 [Alguns antipadrões](service-fabric-reliable-actors-anti-patterns.md)
 
-[Introdução aos Atores da Malha do Serviço](service-fabric-reliable-actors-introduction.md)
+[Introdução aos Reliable Actors do Service Fabric](service-fabric-reliable-actors-introduction.md)
 
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-computation/distributed-computation-1.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

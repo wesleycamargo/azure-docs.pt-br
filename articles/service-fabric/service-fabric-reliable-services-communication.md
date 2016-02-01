@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Visão geral de comunicação do Reliable Service | Microsoft Azure"
-   description="Visão geral do modelo de comunicação do Reliable Service, incluindo a abertura de ouvintes nos serviços, solução de pontos de extremidade e comunicação entre serviços."
+   pageTitle="Visão geral da comunicação dos Reliable Services | Microsoft Azure"
+   description="Visão geral do modelo de comunicação dos Reliable Services, incluindo a abertura de ouvintes, a resolução de pontos de extremidade e a comunicação entre serviços."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -16,13 +16,13 @@
    ms.date="11/17/2015"
    ms.author="vturecek@microsoft.com"/>
 
-# O modelo de comunicação Reliable Service
+# O modelo de comunicação dos Reliable Services
 
-O Service Fabric como uma plataforma é totalmente independente para comunicações entre serviços. Os protocolos e pilhas são bastante equilibrados, de UDP a HTTP. Cabe ao desenvolvedor determinar a forma de comunicação entre os serviços. A estrutura do aplicativo Reliable Services fornece algumas pilhas de comunicação predefinidas, bem como ferramentas para implantar uma pilha de comunicação personalizada, como abstrações que os clientes podem usar para descobrir e se comunicar com os Pontos de Extremidade de Serviço.
+O Service Fabric do Azure como uma plataforma é totalmente independente quanto às comunicações entre serviços. Todos os protocolos e pilhas são aceitáveis, de UDP a HTTP. Cabe ao desenvolvedor determinar a forma de comunicação entre os serviços. A estrutura de aplicativo dos Reliable Services fornece algumas pilhas e ferramentas de comunicação predefinidas que você pode usar para produzir sua pilha de comunicação personalizada. Isso inclui abstrações que os clientes podem usar para descobrir e se comunicar com pontos de extremidade de serviço.
 
-## Configurando a comunicação de serviço
+## Configurar a comunicação de serviço
 
-A API do Reliable Services usa uma interface simples para comunicação de serviço. Para abrir um ponto de extremidade para o serviço, basta implementar essa interface:
+A API do Reliable Services usa uma interface simples para comunicação de serviço. Para abrir um ponto de extremidade para o serviço, basta implementar esta interface:
 
 ```csharp
 
@@ -37,25 +37,25 @@ public interface ICommunicationListener
 
 ```
 
-Em seguida, adicione a implementação do ouvinte de comunicação, retornando-a em uma substituição do método de classe base do serviço.
+Você pode adicionar a implementação do ouvinte de comunicação, retornando-a em uma substituição do método de classe com base no serviço.
 
-Sem monitoração de estado:
+Para serviços sem estado:
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
 ```
 
-Com monitoração de estado:
+Para serviços com estado:
 
 ```csharp
 protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
 ```
 
-Em ambos os casos,você retorna uma coleção de ouvintes, permitindo que o serviço use facilmente vários ouvintes; por exemplo, você pode ter um ouvinte HTTP e um ouvinte WebSocket separado. Cada ouvinte recebe um nome e a coleção resultante do nome: os pares de endereços são representados como um objeto JSON quando um cliente solicita os endereços de ouvintes para uma instância ou partição de serviço.
+Em ambos os casos, você deve retornar uma coleção de ouvintes. Isso permite que seu serviço use facilmente vários ouvintes. Por exemplo, você pode ter um ouvinte HTTP e um ouvinte WebSocket separado. Cada ouvinte recebe um nome e a coleção resultante dos pares *nome : endereço* é representada como um objeto JSON quando um cliente solicita os endereços de escuta para uma instância ou uma partição de serviço.
 
-Em um serviço sem estado, a substituição retorna uma coleção de ServiceInstanceListeners. Um ServiceInstanceListener contém apenas uma função para criar e nomear um ICommunicationListener. Para os serviços com monitoração de estado, a substituição retorna uma coleção de ServiceReplicaListeners. Esse serviço é um pouco diferente do equivalente sem estado, pois o ServiceReplicaListener tem uma opção para abrir um ICommunicationListener em réplicas secundárias. Isso lhe permite usar vários ouvintes de comunicação em um serviço, além de determinar aqueles que aceitam solicitações em réplicas secundárias e os que ouvem apenas em réplicas primárias.
+Em um serviço sem estado, a substituição retorna uma coleção de ServiceInstanceListeners. Um ServiceInstanceListener contém uma função para criar um ICommunicationListener e dar um nome a ele. Para os serviços com monitoração de estado, a substituição retorna uma coleção de ServiceReplicaListeners. Esse serviço é um pouco diferente do equivalente sem estado, pois um ServiceReplicaListener tem uma opção para abrir um ICommunicationListener em réplicas secundárias. Você pode usar vários ouvintes de comunicação em um serviço, além de especificar aqueles que aceitem solicitações em réplicas secundárias e os que escutam apenas em réplicas primárias.
 
-Por exemplo, temos um ServiceRemotingListener para fazer chamadas RPC apenas em réplicas primárias e um ouvinte personalizado que faz solicitações de leitura em réplicas secundárias:
+Por exemplo, você pode ter um ServiceRemotingListener que faz chamadas RPC apenas em réplicas primárias e um ouvinte personalizado que faz solicitações de leitura em réplicas secundárias:
 
 ```csharp
 protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -75,7 +75,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 }
 ```
 
-Por fim, descreva os pontos de extremidade necessários para o serviço no [manifesto do serviço](service-fabric-application-model.md), na seção Pontos de extremidade.
+Por fim, você pode descrever os pontos de extremidade necessários para o serviço no [manifesto do serviço](service-fabric-application-model.md), na seção sobre pontos de extremidade.
 
 ```xml
 
@@ -87,7 +87,7 @@ Por fim, descreva os pontos de extremidade necessários para o serviço no [mani
 
 ```
 
-O ouvinte de comunicação pode acessar os recursos do ponto de extremidade alocados para ele no `CodePackageActivationContext`, no `ServiceInitializationParameters`, e começar a escutar solicitações quando ele é aberto.
+O ouvinte de comunicação pode acessar os recursos do ponto de extremidade alocados para ele no `CodePackageActivationContext`, no `ServiceInitializationParameters`. O ouvinte pode então começar a escutar solicitações quando é aberto.
 
 ```csharp
 
@@ -96,7 +96,7 @@ var port = codePackageActivationContext.GetEndpoint("ServiceEndpoint").Port;
 
 ```
 
-> [AZURE.NOTE]Os recursos dos pontos de extremidade são comuns a todo o pacote de serviço e são alocados pela Service Fabric quando o pacote de serviço é ativado. Assim, todas as réplicas hospedadas no mesmo ServiceHost compartilham a mesma porta. Isso significa que o ouvinte de comunicação deve oferecer suporte ao compartilhamento de porta. A maneira recomendada de fazer isso é que o ouvinte de comunicação use a ID da partição e a ID de réplica/instância ao gerar o endereço de escuta.
+> [AZURE.NOTE]Os recursos do ponto de extremidade são comuns a todo o pacote de serviço e são alocados pelo Service Fabric quando o pacote de serviço é ativado. Todas as réplicas hospedadas no mesmo ServiceHost compartilham a mesma porta. Isso significa que o ouvinte de comunicação deve oferecer suporte ao compartilhamento de porta. A maneira recomendada de fazer isso é que o ouvinte de comunicação use a ID da partição e a ID de réplica/instância ao gerar o endereço de escuta.
 
 ```csharp
 
@@ -126,13 +126,13 @@ var listenAddress = new Uri(
 
 ```
 
-Para obter uma explicação mais completa sobre a criação de um `ICommunicationListener`, confira [Introdução aos serviços da API Web do Service Fabric do Microsoft Azure com host automático OWIN](service-fabric-reliable-services-communication-webapi.md)
+Para uma explicação completa de como escrever um `ICommunicationListener`, confira [Serviços de API Web do Service Fabric com auto-hospedagem OWIN](service-fabric-reliable-services-communication-webapi.md)
 
-## Comunicação do cliente com o serviço
-A API do Reliable Services fornece as abstrações a seguir, que facilitam a criação de clientes para comunicação com serviços.
+### Comunicação do cliente com o serviço
+A API dos Reliable Services fornece as abstrações a seguir, que facilitam a criação de clientes que se comunicam com serviços.
 
-### ServicePartitionResolver
-Essa classe do utilitário ajuda o cliente a determinar o ponto de extremidade de um serviço Service Fabric no tempo de execução. O processo de determinar o ponto de extremidade de um serviço é chamado de Resolução do Ponto de Extremidade de Serviço na terminologia da Malha do Serviço.
+#### ServicePartitionResolver
+Essa classe do utilitário ajuda o cliente a determinar o ponto de extremidade de um serviço Service Fabric no tempo de execução. Na terminologia do Service Fabric, o processo de determinar o ponto de extremidade de um serviço é conhecido como *resolução do ponto de extremidade de serviço*.
 
 ```csharp
 
@@ -151,12 +151,12 @@ Task<ResolvedServicePartition> ResolveAsync(ResolvedServicePartition previousRsp
 
 
 ```
-> [AZURE.NOTE]FabricClient é o objeto usado para se comunicar com o cluster da Malha do Serviço em várias operações de gerenciamento no cluster da Malha do Serviço.
+> [AZURE.NOTE]O FabricClient é o objeto usado para se comunicar com o cluster do Service Fabric em várias operações de gerenciamento no cluster.
 
-Normalmente, o código do cliente não precisa trabalhar com `ServicePartitionResolver` diretamente. Ele é criado e passado para outras classes auxiliares na API do Reliable Services, que usam o resolvedor internamente e ajudam o cliente a se comunicar com o serviço.
+Normalmente, o código cliente não precisa trabalhar diretamente com o `ServicePartitionResolver`. Ele é criado e passado para outras classes auxiliares na API dos Reliable Services. Essas classes usam o resolvedor internamente e ajudam o cliente a se comunicar com o serviço.
 
-### CommunicationClientFactory
-`ICommunicationClientFactory` define a interface base implementada por uma fábrica de cliente de comunicação que produz clientes que podem se comunicar com um serviço ServiceFabric. A implementação de CommunicationClientFactory dependerá da pilha de comunicação usada pelo serviço da Malha do Serviço com o qual o cliente deseja se comunicar. A API do Reliable Services fornece um CommunicationClientFactoryBase<TCommunicationClient> que fornece uma implementação básica dessa interface `ICommunicationClientFactory` e executa tarefas que são comuns a todas as pilhas de comunicação (como usar um `ServicePartitionResolver` para determinar o ponto de extremidade de serviço). Os clientes geralmente implementam a classe abstrata CommunicationClientFactoryBase para lidar com lógica específica da pilha de comunicação.
+#### CommunicationClientFactory
+`ICommunicationClientFactory` define a interface base implementada por uma fábrica de clientes de comunicação que produz clientes que podem se comunicar com um serviço do Service Fabric. A implementação de CommunicationClientFactory dependerá da pilha de comunicação usada pelo serviço do Service Fabric em que o cliente quer se comunicar. A API dos Reliable Services fornece um `CommunicationClientFactoryBase<TCommunicationClient>`, que, por sua vez, fornece uma implementação básica da interface `ICommunicationClientFactory` e executa as tarefas comuns a todas as pilhas de comunicação. (Essas tarefas incluem o uso de um `ServicePartitionResolver` para determinar o ponto de extremidade de serviço). Os clientes geralmente implementam a classe abstrata CommunicationClientFactoryBase para tratar da lógica específica da pilha de comunicação.
 
 ```csharp
 
@@ -201,8 +201,8 @@ public class MyCommunicationClientFactory : CommunicationClientFactoryBase<MyCom
 
 ```
 
-### ServicePartitionClient
-`ServicePartitionClient` usa CommunicationClientFactory (e internamente o ServicePartitionResolver) e ajuda na comunicação com o serviço ao lidar com repetições para exceções transitórias da Malha do Serviço e comunicação comum.
+#### ServicePartitionClient
+`ServicePartitionClient` usa a CommunicationClientFactory (e o ServicePartitionResolver internamente). Ele também ajuda na comunicação com o serviço tratando das repetições para exceções transitórias do Service Fabric e da comunicação comum.
 
 ```csharp
 
@@ -218,7 +218,7 @@ public async Task<TResult> InvokeWithRetryAsync<TResult>(
 
 ```
 
-Um padrão de uso típico seria assim:
+Um padrão de uso típico se parece com este:
 
 ```csharp
 
@@ -248,12 +248,10 @@ var result = await myServicePartitionClient.InvokeWithRetryAsync(
 ```
 
 ## Próximas etapas
-* [Chamada de procedimento remoto com Reliable Services remoto](service-fabric-reliable-services-communication-remoting.md)
+* [Comunicação remota de serviço com os Reliable Services](service-fabric-reliable-services-communication-remoting.md)
 
-* [API Web com OWIN no Reliable Services](service-fabric-reliable-services-communication-webapi.md)
+* [API Web que usa o OWIN nos Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 
-* [Comunicação WCF com o Reliable Services](service-fabric-reliable-services-communication-wcf.md)
+* [Comunicação WCF usando os Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 
- 
-
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="01/20/2016" 
 	ms.author="casoper"/>
 
 # Visão geral da CDN (Rede de Distribuição de Conteúdo) do Azure
@@ -49,6 +49,7 @@ A camada CDN Standard inclui os seguintes recursos:
 - Balanceamento de carga
 - Proteção DDOS
 - [Limpeza rápida](cdn-purge-endpoint.md)
+- [Pré-carregamento de ativos](cdn-preload-endpoint.md)
 - [Gerenciamento por meio da API REST](https://msdn.microsoft.com/library/mt634456.aspx)
 
 
@@ -58,6 +59,6 @@ A camada CDN Premium inclui todos os recursos da camada Standard, além desses r
 
 - [Mecanismo de distribuição de conteúdo personalizável e baseado em regras](cdn-rules-engine.md)
 - [Relatórios avançados de HTTP](cdn-advanced-http-reports.md)
-- [Estatísticas em tempo real](cdn-read-time-stats.md)
+- [Estatísticas em tempo real](cdn-real-time-stats.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

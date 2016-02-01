@@ -1,9 +1,9 @@
 <properties
    pageTitle="Visualizar o seu cluster usando o Explorador do Service Fabric | Microsoft Azure"
-   description="O Gerenciador do Service Fabric é uma ferramenta de GUI útil para inspecionar e gerenciar aplicativos em nuvem e nós em um cluster do Service Fabric do Microsoft Azure."
+   description="O Explorador do Service Fabric é uma ferramenta baseada na Web para inspecionar e gerenciar aplicativos em nuvem e nós em um cluster do Service Fabric do Microsoft Azure."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="seanmck"
    manager="timlt"
    editor=""/>
 
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/30/2015"
-   ms.author="jesseb"/>
+   ms.date="01/13/2016"
+   ms.author="seanmck"/>
 
-# Visualizar o cluster usando o Explorador do Service Fabric
+# Visualizando o cluster com o Explorador do Service Fabric
 
 O Explorador do Service Fabric é uma ferramenta baseada na Web para inspecionar e gerenciar aplicativos e nós em um cluster do Service Fabric do Azure. O Explorador do Service Fabric é hospedado diretamente dentro do cluster para estar sempre disponível, independentemente de onde o cluster estiver sendo executado.
 
@@ -56,7 +56,7 @@ Em cada nível da árvore, o painel principal mostra informações pertinentes s
 
 A exibição de nós mostra o layout físico do cluster. Para um nó específico, você pode inspecionar quais aplicativos têm código implantado naquele nó. Mais especificamente, você pode ver quais réplicas estão sendo executadas lá atualmente.
 
-## Executar ações usando o Explorador do Service Fabric
+## Ações
 
 O Explorador do Service Fabric oferece uma maneira rápida de invocar ações em nós, aplicativos e serviços no cluster.
 
@@ -64,9 +64,22 @@ Por exemplo, para excluir uma instância do aplicativo, basta escolher o aplicat
 
 ![Excluir um aplicativo no Explorador do Service Fabric][sfx-delete-application]
 
-Como muitas ações são destrutivas, você será solicitado a confirmar a sua intenção antes que a ação seja concluída.
+A tabela a seguir lista as ações disponíveis para cada entidade:
 
->[AZURE.NOTE]Todas as ações que podem ser executadas usando o Explorador do Service Fabric também podem ser executadas usando o PowerShell ou uma API REST para habilitar a automação.
+| **Entidade** | **Ação** | **Descrição** |
+| ------ | ------ | ----------- |
+| Tipo de aplicativo | Remover o provisionamento de tipo | Remover o pacote de aplicativos do repositório de imagens do cluster. Requer que todos os aplicativos desse tipo sejam removidos em primeiro lugar. |
+| Aplicativo | Excluir aplicativo | Exclua o aplicativo, incluindo todos os seus serviços e o estado (se houver). |
+| O Barramento de | Excluir serviço | Exclua o serviço e seu estado (se houver). |
+| Nó | Ativar | Ative o nó. |
+|| Desativar (pausa) | Pause o nó em seu estado atual. Os serviços continuarão sendo executados, mas o Service Fabric não moverá nada dele ou para ele proativamente, exceto se for necessário para impedir uma interrupção ou inconsistência de dados. Essa ação normalmente é usada para habilitar serviços de depuração em um nó específico a fim de garantir que não sejam movidos durante a inspeção. |
+|| Desativar (reiniciar) | Mova todos os serviços na memória de um nó com segurança e feche os serviços persistentes. Normalmente usado quando os processos de host ou o computador precisam ser reiniciados. |
+|| Desativar (remover dados) | Feche com segurança todos os serviços em execução no nó após a criação de réplicas de reposição suficientes. Normalmente usado quando um nó (ou pelo menos seu armazenamento) é desabilitado permanentemente. |
+|| Remover o estado do nó | Remova o conhecimento das réplicas do nó do cluster. Normalmente usado quando um nó com falha já é considerado irrecuperável. |
+
+Como muitas ações são destrutivas, talvez seja necessário confirmar sua intenção antes que a ação seja concluída.
+
+>[AZURE.TIP]Todas as ações que podem ser executadas usando o Explorador do Service Fabric também podem ser executadas usando o PowerShell ou uma API REST para habilitar a automação.
 
 
 
@@ -101,4 +114,4 @@ Se você tentar conectar ao Explorador do Service Fabric em um cluster seguro, o
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

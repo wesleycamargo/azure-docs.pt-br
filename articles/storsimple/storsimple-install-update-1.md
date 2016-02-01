@@ -47,7 +47,6 @@ Dependendo de qual versão seu dispositivo está executando, você pode determin
 ## Preparar para atualizações
 Você precisará executar as seguintes etapas antes de examinar e aplicar a atualização:
 
-
 1. Tirar um instantâneo dos dados do dispositivo na nuvem.
 
 2. Verifique se os IPs fixos do controlador são roteáveis e podem se conectar à Internet. Esses IPs fixo serão usado para atender às atualizações para o seu dispositivo. Você pode testar isso executando o seguinte cmdlet em cada controlador de interface do Windows PowerShell do dispositivo:
@@ -152,4 +151,4 @@ Se você verificou que há conectividade e o problema continuar, contate o Supor
 
 Saiba mais sobre a [versão da Atualização 1.2](storsimple-update1-release-notes.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

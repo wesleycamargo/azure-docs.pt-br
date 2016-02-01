@@ -138,7 +138,7 @@ Divisões diárias que iniciam às 6h, em vez da meia-noite do padrão.
 
 Nesse caso, SliceStart é deslocado por seis horas e será 6h.
 
-Para uma agenda de 12 meses (frequência = mês; intervalo = 12), o deslocamento: 60.00:00:00 significa cada ano em 2 ou 3 de março (60 dias desde o início do ano se estilo = StartOfInterval), dependendo do ano ser ano bissexto ou não.
+Para uma agenda de 12 meses (frequência = mês; intervalo = 12), o deslocamento: 60.00:00:00 significa cada ano em 1º ou 2 de março (60 dias desde o início do ano se estilo = StartOfInterval), dependendo do ano ser ano bissexto ou não.
 
 
 
@@ -183,7 +183,7 @@ Conjuntos de dados externos são aqueles que não são produzidos por um pipelin
 | Nome | Descrição | Obrigatório | Valor Padrão |
 | ---- | ----------- | -------- | -------------- |
 | dataDelay | <p>Tempo para esperar a verificação na disponibilidade dos dados externos de uma determinada fatia. Por exemplo, se os dados tiverem que estar disponíveis por hora, para verificar se os dados externos estão realmente disponíveis e se a fatia correspondente Pronta pode ser atrasada por dataDelay.</p><p>Só se aplica a hora atual. Por exemplo, se for 13h agora e esse valor for 10 minutos, a validação será iniciada em 13h10.</p><p>Essa configuração não afeta fatias no passado (fatias com a hora de término da fatia + dataDelay < agora serão processadas sem atraso).</p> <p>Um período de tempo maior que 23h59 precisa ser especificado usando o formato dia.horas:minutos:segundos. Por exemplo, para especificar 24 horas, não use 24:00:00; em vez disso, use 1.00:00:00. Se você usar 24:00:00, esse valor será tratado como 24 dias (24.00:00:00). Para 1 dia e 4 horas, especifique 1:04:00:00. </p>| Não | 0 |
-| retryInterval | O tempo de espera entre uma falha e a próxima tentativa de repetição. Aplica-se a hora atual. Se o anterior falhou, podemos esperar muito tempo após a última tentativa. <p>Se forem 13h agora, começaremos a primeira tentativa. Se a duração para concluir a primeira verificação de validação for 1 minuto e a operação falhou, a próxima repetição será 1:00 + 1 min (duração) + 1min (intervalo de repetição) = 13h02. </p><p>Para divisões no passado, não haverá nenhum atraso. A repetição acontecerá imediatamente.</p> | Não | 00:01:00 (1 minuto) | 
+| retryInterval | O tempo de espera entre uma falha e a próxima tentativa de repetição. Aplica-se a hora atual. Se o anterior falhou, podemos esperar muito tempo após a última tentativa. <p>Se forem 13h agora, começaremos a primeira tentativa. Se a duração para concluir a primeira verificação de validação for 1 minuto e a operação falhou, a próxima repetição será 1:00 + 1 min (duração) + 1min (intervalo de repetição) = 13h02. </p><p>Para fatias no passado, não haverá nenhum atraso. A repetição acontecerá imediatamente.</p> | Não | 00:01:00 (1 minuto) | 
 | retryTimeout | O tempo limite para cada tentativa de repetição.<p>Se for definido como 10 minutos, a validação deve ser concluída em 10 minutos. Se demorar mais de 10 minutos para executar a validação, a repetição atingirá o tempo limite.</p><p>Se todas as tentativas para a validação excederem o tempo limite, a fatia será marcada como TimedOut.</p> | Não | 00:10:00 (10 minutos) |
 | maximumRetry | Número de vezes para verificar a disponibilidade dos dados externos. O valor máximo permitido é 10. | Não | 3 | 
 
@@ -208,4 +208,4 @@ Se precisar executar um pipeline mensalmente em uma data e hora específicas (di
 	  }
 	}
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

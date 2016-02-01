@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Causas comuns de reciclagem de funções do Serviço de Nuvem | Microsoft Azure"
    description="Uma função de serviço de nuvem que é reciclada repentinamente pode causar um tempo de inatividade significativo. Veja alguns problemas comuns que causam a reciclagem de funções, que podem ajudar a melhorar o tempo de inatividade."
    services="cloud-services"
    documentationCenter=""
    authors="dalechen"
-   manager="msmets"
+   manager="felixwu"
    editor=""
    tags="top-support-issue"/>
-<tags 
+<tags
    ms.service="cloud-services"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="10/14/2015"
+   ms.date="01/20/2016"
    ms.author="daleche" />
 
 # Problemas comuns que causam a reciclagem de funções
@@ -22,7 +22,7 @@ Foram fornecidas algumas das causas comuns de problemas de implantação e dicas
 
 ## Contate o Suporte ao Cliente do Azure
 
-Se precisar de mais ajuda em qualquer momento neste artigo, você pode entrar em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](http://azure.microsoft.com/support/forums/).
+Se você precisar de mais ajuda em qualquer momento neste artigo, você pode contatar os especialistas do Azure nos [fóruns do Azure MSDN e Excedente de Pilha](http://azure.microsoft.com/support/forums/).
 
 Como alternativa, você também pode registrar um incidente de suporte do Azure. Acesse o [site de Suporte do Azure](http://azure.microsoft.com/support/options/) e clique em **Obter Suporte**. Para obter informações sobre como usar o Suporte do Azure, leia as [Perguntas Frequentes de Suporte do Microsoft Azure](http://azure.microsoft.com/support/faq/).
 
@@ -36,7 +36,7 @@ Antes de compilar e empacotar seu aplicativo, verifique o seguinte:
 - Se estiver usando o Visual Studio, verifique se a propriedade de **Copy Local** está definida como **True** para cada assembly referenciado em seu projeto que não faça parte do SDK do Azure ou do .NET Framework.
 
 - Certifique-se de que o arquivo **web.config** não faz referência a nenhum assembly não usado no elemento **compilation**.
- 
+
 - A **Ação de Compilação** de cada arquivo .cshtml é definida como **Conteúdo**. Isso garante que os arquivos sejam exibidos corretamente no pacote e permite que outros arquivos referenciados apareçam nele.
 
 
@@ -66,8 +66,8 @@ Se o aplicativo usar o Diagnóstico do Azure, o arquivo de configuração de ser
 Para garantir que a configuração `DiagnosticsConnectionString` esteja correta antes de implantar seu pacote de aplicativos no Azure, verifique o seguinte:
 
 - A configuração `DiagnosticsConnectionString` aponta para uma conta de armazenamento válida no Azure. Por padrão, essa configuração aponta para a conta de armazenamento emulada, portanto você deve alterar explicitamente essa configuração antes de implantar o pacote de aplicativos. Se você não alterar essa configuração, uma exceção será gerada quando a instância de função tentar iniciar o monitor de diagnóstico. Isso poderá fazer com que a instância de função seja reciclada por tempo indeterminado.
-  
-- A cadeia de conexão é especificada no seguinte [formato](storage-configure-connection-string.md) (o protocolo deve ser especificado como HTTPS). Substitua *MyAccountName* pelo nome da sua conta de armazenamento, e *MyAccountKey* pela sua chave de acesso:
+
+- A cadeia de conexão é especificada no seguinte [formato](../storage/storage-configure-connection-string.md) (o protocolo deve ser especificado como HTTPS). Substitua *MyAccountName* pelo nome da sua conta de armazenamento, e *MyAccountKey* pela sua chave de acesso:
 
         DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 
@@ -85,6 +85,8 @@ Para executar uma função web por meio do SSL, você deve garantir que seu cert
 
 Confira mais [artigos sobre solução de problemas](..\?tag=top-support-issue&service=cloud-services) para serviços de nuvem.
 
+Exibir mais cenários de reciclagem da função, consultar [Série de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+
 
 
 
@@ -94,4 +96,4 @@ Confira mais [artigos sobre solução de problemas](..\?tag=top-support-issue&se
 [Run]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
 [Execute]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

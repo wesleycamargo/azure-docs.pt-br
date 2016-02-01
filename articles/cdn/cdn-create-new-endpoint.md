@@ -12,7 +12,7 @@
 	 ms.tgt_pltfrm="na" 
 	 ms.devlang="na" 
 	 ms.topic="article" 
-	 ms.date="12/02/2015" 
+	 ms.date="01/20/2016" 
 	 ms.author="casoper"/>
 
 
@@ -25,7 +25,7 @@ A CDN pode ser habilitada para a origem por meio do Portal de Gerenciamento. Há
 
 Um perfil CDN é um conjunto de pontos de extremidade CDN. Cada perfil contém um ou mais pontos de extremidade CDN. Você pode usar vários perfis para organizar seus pontos de extremidade CDN por domínio de Internet, aplicativo Web ou algum outro critério.
 
-> [AZURE.NOTE]Uma única assinatura do Azure está limitada a quatro perfis CDN. Cada perfil CDN está limitado a quatro pontos de extremidade CDN.
+> [AZURE.NOTE]Por padrão, uma única assinatura do Azure é limitada a quatro perfis da CDN. Cada perfil da CDN é limitado a 10 pontos de extremidade da CDN.
 >
 > Os preços da CDN são aplicados no nível de perfil CDN. Se você quiser usar uma combinação de recursos CDN Standard e Premium, precisará de vários perfis CDN.
 
@@ -54,7 +54,7 @@ Um perfil CDN é um conjunto de pontos de extremidade CDN. Cada perfil contém u
 
 **Para criar um novo ponto de extremidade CDN para sua conta de armazenamento**
 
-1. No [Portal de Gerenciamento do Azure](https://portal.azure.com), navegue até o seu perfil CDN. Você pode ter fixado ao painel na etapa anterior. Se não, poderá encontrá-lo clicando em **Procurar**, em **perfis CDN** e clicando no perfil ao qual pretende adicionar o ponto de extremidade.
+1. No [Portal de Gerenciamento do Azure](https://portal.azure.com), navegue até o seu perfil CDN. Você pode ter fixado ao painel na etapa anterior. Se não, você poderá encontrá-lo clicando em **Procurar**, em **perfis CDN** e clicando no perfil ao qual você pretende adicionar o ponto de extremidade.
 
     A folha do perfil CDN é exibida.
     
@@ -101,4 +101,4 @@ Um perfil CDN é um conjunto de pontos de extremidade CDN. Cada perfil contém u
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

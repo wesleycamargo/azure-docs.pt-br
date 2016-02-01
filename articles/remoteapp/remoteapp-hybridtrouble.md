@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="11/04/2015"
+    ms.date="01/13/2016"
     ms.author="elizapo" />
 
 
@@ -29,12 +29,7 @@ Se estiver enfrentando problemas para criar sua coleção, ou se a coleção nã
 ## A imagem é inválida ##
 Se você receber uma mensagem como “GoldImageInvalid” quando estiver aguardando enquanto o Azure provisiona sua coleção, isso significa que a sua imagem de modelo não atende aos [requisitos de imagem definidos](remoteapp-imagereqs.md). Portanto, leia esses [requisitos](remoteapp-imagereqs.md), corrija sua imagem e tente criar novamente sua coleção.
 
-## A sua VNET usa túnel forçado? ##
-O RemoteApp atualmente não dá suporte ao uso de VNETs que tem habilitada a opção de túnel forçado. Se precisar dessa função, entre em contato com a [equipe do RemoteApp](mailto:remoteappforum@microsoft.com) para solicitar ajuda.
 
-Depois que a solicitação for aprovada, verifique se as portas a seguir estão abertas na sub-rede que você escolheu para o RemoteApp do Azure e para as VMs na sub-rede. As VMs em suas sub-redes também devem ser capazes de acessar as URLs mencionadas na seção sobre grupos de segurança de rede.
-
-Saída: TCP: 443, TCP: 10101-10175
 
 ## A sua VNET tem grupos de segurança de rede definidos? ##
 Se você tiver grupos de segurança de rede definidos na sub-rede que você está usando para sua coleção, verifique se as seguintes URLs estão acessíveis de dentro da sub-rede:
@@ -84,4 +79,4 @@ Verifique se os detalhes do domínio fornecidos são válidos e se o controlador
 
 O nome de domínio criado ou adicionado deve ser um nome de domínio interno (não o seu nome de domínio do Azure AD) e deve estar no formato DNS resolvível (contoso. local). Por exemplo, você tem um nome interno do Active Directory (Contoso) e um UPN do Active Directory (contoso.com): deve, então, usar o nome interno ao criar sua coleção.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

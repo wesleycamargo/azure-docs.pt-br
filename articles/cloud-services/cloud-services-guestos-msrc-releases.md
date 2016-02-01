@@ -20,6 +20,20 @@
 
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] em particular na qual foram introduzidas.
 
+## SO Convidado de Janeiro
+
+| ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-001 | [3124903] | Atualização de segurança cumulativa do Internet Explorer | 4\.28, 3.35, 2.47 | 12 de janeiro de 2015 |
+| MS16-003 | [3125540] | Atualização de Segurança Cumulativa do JScript e VBScript | 2\.47 | 12 de janeiro de 2015 |
+| MS16-005 | [3124584] | Atualização de Segurança para os Drivers do Modo Kernel do Windows para Endereçar a Execução de Código Remota | 4\.28, 3.35, 2.47 | 12 de janeiro de 2015 |
+| MS16-007 | [3124901] | Atualização de segurança para o Microsoft Windows para solucionar a execução remota de código | 4\.28, 3.35, 2.47 | 12 de janeiro de 2015 |
+| MS16-008 | [3124605] | Atualização de Segurança do Kernel para Endereçar a Elevação de Privilégio | 4\.28, 3.35, 2.47 | 12 de janeiro de 2015 |
+| Revisão da Consultoria de Segurança da Microsoft | [2755801] | Atualizar para as Vulnerabilidades no Adobe Flash Player no Internet Explorer (Pacote KB: TBD) - Espaço Reservado da Consultoria | 4\.28, 3.35 | 12 de janeiro de 2015 |
+| Comunicado de Segurança da Microsoft | [3109853] | Atualizar para Melhorar a Interoperabilidade TLS | 4\.28, 3.35 | 12 de janeiro de 2015 |
+| Comunicado de Segurança da Microsoft | [3123479] | Substituição do Algoritmo de Hash SHA-1 para o Microsoft Root Certificate Program | 4\.28, 3.35, 2.47 | 12 de janeiro de 2015 |
+| Comunicado de Segurança da Microsoft | [2736233] | Atualizações para os ActiveX Kill Bits | 4\.28, 3.35, 2.47 | 12 de janeiro de 2015 |
+
 ## SO convidado de dezembro
 
 | ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -211,6 +225,15 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | N/D | [2999802][2999802] | Linhas sólidas, em vez de linhas pontilhadas, são impressas no Windows | 4\.15, 3.22, 2.34 | 13 de janeiro de 2015 |
 | N/D | [2896881][2896881] | Longo tempo de logon quando você usa o comando VBScript AddPrinterConnection para mapear impressoras para usuários durante o processo de logon do Windows | 4\.15, 3.22, 2.34 | 13 de janeiro de 2015 |
 
+[3124903]: http://support.microsoft.com/kb/3124903
+[3125540]: http://support.microsoft.com/kb/3125540
+[3124584]: http://support.microsoft.com/kb/3124584
+[3124901]: http://support.microsoft.com/kb/3124901
+[3124605]: http://support.microsoft.com/kb/3124605
+[2755801]: http://support.microsoft.com/kb/2755399
+[3109853]: http://support.microsoft.com/kb/3109853
+[3123479]: http://support.microsoft.com/kb/3123479
+[2736233]: http://support.microsoft.com/kb/2736233
 
 [3116180]: http://support.microsoft.com/kb/3116180
 [3116178]: http://support.microsoft.com/kb/3116178
@@ -354,4 +377,4 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

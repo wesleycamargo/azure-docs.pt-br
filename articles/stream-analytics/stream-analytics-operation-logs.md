@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilizar logs de operação e serviço no Stream Analytics | Microsoft Azure" 
+	pageTitle="Depurar usando logs de operação e serviço no Stream Analytics | Microsoft Azure" 
 	description="Como usar logs de operação do Stream Analytics" 
 	keywords="logs de serviço"
 	services="stream-analytics" 
@@ -17,7 +17,7 @@
 	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
-# Compreender os logs de operação e serviço do Stream Analytics
+# depurar os trabalhos do Stream Analytics usando logs de serviço e operação
 
 Todos os serviços do Azure fornecem mensagens em log operacionais aos usuários para registrar detalhes relacionados às operações de gerenciamento. No Stream Analytics, essas informações podem ser usadas para fins de depuração, como exibir o status do trabalho, o progresso do trabalho e as mensagens de falha para rastrear o andamento de um trabalho ao longo do tempo, do início do processamento até a saída.
 
@@ -96,4 +96,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

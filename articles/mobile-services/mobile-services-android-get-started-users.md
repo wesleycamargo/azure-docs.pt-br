@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="01/20/2016"
 	ms.author="ricksal"/>
 
 # Adicionar uma autenticação ao seu aplicativo do Android dos Serviços Móveis (back-end do JavaScript)
@@ -106,4 +106,4 @@ No próximo tutorial, [Autorizar usuários com scripts], você irá obter o valo
 [Introdução aos Serviços Móveis]: mobile-services-android-get-started.md
 [Autorizar usuários com scripts]: mobile-services-javascript-backend-service-side-authorization.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

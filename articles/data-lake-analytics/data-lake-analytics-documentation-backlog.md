@@ -39,6 +39,7 @@ O Barramento de | Protegendo trabalhos, dados e tabelas na Análise Data Lake |1
 O Barramento de | Movendo a saída do trabalho para o SQL Data Warehouse usando o Data Factory |1 | em andamento | [@mumian](https://github.com/mumian) | 
 Ferramentas | Usando as ferramentas de diagnóstico | 1 | Pendente | [@mumian](https://github.com/mumian) | 
 U-SQL | Explicar as técnicas para executar JOINs baseados em intervalo | 1 | Pendente | [@MikeRys](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
+U-SQL | Opções de autenticação do ADLS | 1 | Pendente | [@ArindamC](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 
 
 
@@ -56,4 +57,4 @@ Há algumas opções para fornecer comentários sobre a lista de pendências:
 * Enviar uma solicitação pull sobre este documento no [Repositório de Conteúdo do Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Enviar um email para [adlafeedback@microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

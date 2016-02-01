@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Melhore a continuidade de negócios com pares da região do Azure"
-	description="Use pares regionais para manter aplicativos resilientes durante falhas de data centers."
-	services="multiple"
+	pageTitle="Continuidade dos negócios e recuperação de desastres (BCDR): Regiões Emparelhadas do Azure | Microsoft Azure"
+	description="Os pares regionais do Azure garantem que os aplicativos sejam resilientes durante as falhas dos data centers."
+	services="site-recovery"
 	documentationCenter=""
-	authors="rboucher"
+	authors="rayne-wiselman"
 	manager="jwhit"
-	editor="tysonn"/>
+	editor=""/>
 
 <tags
     ms.service="backup"
@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/16/2015"
-    ms.author="robb"/>
+    ms.date="01/12/2016"
+    ms.author="raynew"/>
 
-# Melhorar a disponibilidade usando Pares da Região do Azure
+# Continuidade dos negócios e recuperação de desastres (BCDR): Regiões Emparelhadas do Azure
 
-## As regiões em pares do Azure explicadas
+## O que são regiões emparelhadas?
 
 O Azure opera em várias regiões geográficas em todo o mundo. Uma região geográfica do Azure é uma área definida do mundo que contém pelo menos uma região do Azure. Uma região do Azure é uma área dentro de uma região geográfica que contém um ou mais data centers.
 
@@ -43,6 +43,7 @@ Figura 1 – Diagrama do par da região do Azure
 | Brasil | Sul do Brasil (1) | Centro-Sul dos Estados Unidos |
 | Austrália | Leste da Austrália | Sudeste da Austrália|
 | Governo dos EUA | Gov do Iowa nos EUA | Gov da Virgínia nos EUA |
+| Índia | Índia Central | Sul da Índia |
 
 Tabela 1 - Mapeamento de pares regionais do Azure
 
@@ -50,7 +51,7 @@ Tabela 1 - Mapeamento de pares regionais do Azure
 
 É recomendável que você replique as cargas de trabalho entre os pares regionais para se beneficiar das políticas de isolamento e a disponibilidade do Azure. Por exemplo, as atualizações do sistema Azure planejadas são implantadas em sequência (não ao mesmo tempo) em regiões emparelhadas. Isso significa que, mesmo no caso de uma atualização falhar, ambas as regiões não serão afetadas simultaneamente. Além disso, no caso improvável de uma interrupção ampla, a recuperação de pelo menos uma região de cada par é priorizada.
 
-## Exemplo de par regional
+## Um exemplo de regiões emparelhadas
 A Figura 2 a seguir mostra um aplicativo hipotético, que usa o par regional para recuperação de desastre. Os números verdes realçam as atividades entre regiões dos três serviços do Azure (computação do Azure, armazenamento e banco de dados) e como eles são configurados para replicar entre regiões. As vantagens exclusivas de implantação entre regiões emparelhadas são realçadas pelos números laranja.
 
 
@@ -84,4 +85,4 @@ Como mencionado na Figura 2.
 
 ![9Laranja](./media/best-practices-availability-paired-regions/9Orange.png) **Residência dados** – Uma região reside na mesma região geográfica que seu par (com exceção do Sul do Brasil) para atender aos requisitos de residência de dados para fins de jurisdição de vigência fiscal e legal.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

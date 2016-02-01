@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Integração do Active Directory do Azure ao Chromeriver | Microsoft Azure" 
     description="Saiba como usar o Chromeriver com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 
 #Tutorial: Integração do Active Directory do Azure ao Chromeriver
@@ -52,7 +52,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar aplicativo](./media/active-directory-saas-chromeriver-tutorial/IC749321.png "Adicionar aplicativo")
 
-5.  No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-chromeriver-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
@@ -75,7 +75,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-chromeriver-tutorial/IC802758.png "Configurar o logon único")
 
-3.  Na página **Definir Configurações do Aplicativo**, realize as seguintes etapas:
+3.  Na página **Definir Configurações do Aplicativo**, execute as seguintes etapas:
 
     ![Definir configurações de aplicativo](./media/active-directory-saas-chromeriver-tutorial/IC802759.png "Definir configurações de aplicativo")
 
@@ -93,7 +93,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     >[AZURE.NOTE]A equipe de suporte do Chromeriver precisa fazer a configuração real do SSO. Você receberá uma notificação quando o SSO tiver sido habilitado para sua assinatura.
 
-6.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar o diálogo **Configurar Logon Único**.
+6.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-chromeriver-tutorial/IC802761.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -120,4 +120,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

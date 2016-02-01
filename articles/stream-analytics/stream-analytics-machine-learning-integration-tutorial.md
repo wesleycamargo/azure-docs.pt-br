@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Tutorial: Integração do Azure Stream Analytics e do Aprendizado de Máquina do Azure | Microsoft Azure" 
+	pageTitle="Tutorial: Análise de sentimento usando o Azure Stream Analytics e o Aprendizado de Máquina do Azure | Microsoft Azure" 
 	description="Como aproveitar o UDF e o aprendizado de máquina em trabalhos do stream analytics"
 	keywords=""
 	documentationCenter=""
@@ -19,7 +19,7 @@
 	ms.author="jeffstok"
 />
 
-# Tutorial: Introdução ao Stream Analytics e à integração do Aprendizado de Máquina #
+# Tutorial: Executar análise de sentimento usando o Stream Analytics e o Aprendizado de Máquina #
 
 Este tutorial é projetado para ajudá-lo a configurar rapidamente um trabalho de Stream Analytics simples com a integração do Aprendizado de Máquina. Vamos aproveitar um Modelo do Aprendizado de Máquina da Análise de Sentimento da Galeria da Análise da Cortana para analisar dados de texto de streaming e determinar a pontuação de sentimento em tempo real. Este é um bom tutorial para entender cenários como análise de sentimento em tempo real do fluxo de dados do Twitter, análise de registro do chat do cliente com a equipe de suporte, comentários em fóruns/blogs/vídeos e muitos outros cenários preditivos com pontuação em tempo real.
   
@@ -150,4 +150,4 @@ A métrica relativa à função de Aprendizado de Máquina do Azure também pode
 
     ![tutorial stream analytics aprendizado de máquina exibição no monitor am](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

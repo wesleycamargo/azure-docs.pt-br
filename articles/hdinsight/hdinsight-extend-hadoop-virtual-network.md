@@ -74,14 +74,22 @@ Para obter mais informações sobre os recursos, benefícios e capacidades das r
 
 * Não há suporte para o HDInsight em Redes Virtuais do Azure que restringem explicitamente o acesso de/para a Internet. Por exemplo, usando Grupos de Segurança de Rede ou rota expressa para bloquear o tráfego de Internet a recursos na Rede Virtual. O serviço HDInsight é um serviço gerenciado e requer acesso à Internet durante o provisionamento e durante a execução para que o Azure possa monitorar a integridade do cluster, iniciar failover dos recursos de cluster e outras tarefas de gerenciamento automatizadas.
 
-    Se você quiser usar o HDInsight em uma Rede Virtual que bloqueia o tráfego de Internet, você pode fazer o seguinte:
+    Se você quiser usar o HDInsight em uma Rede Virtual que bloqueia o tráfego de Internet, poderá usar as seguintes etapas:
 
-    1.	Crie uma nova sub-rede dentro da rede Virtual. Essa sub-rede será usada pelo HDInsight.
-
-    2.	Definir uma tabela de roteamento e criar uma UDR (Rota Definida Pelo Usuário) para a sub-rede que possibilita a conectividade de Internet de entrada e saída. Você pode fazer isso usando rotas *. Isso habilitará a conectividade com a Internet somente para recursos localizados na sub-rede. Para obter mais informações sobre como trabalhar com UDR, consulte https://azure.microsoft.com/pt-BR/documentation/articles/virtual-networks-udr-overview/ e https://azure.microsoft.com/pt-BR/documentation/articles/virtual-networks-udr-how-to/.
+    1. Crie uma nova sub-rede dentro da rede Virtual. Por padrão, a nova sub-rede será capaz de se comunicar com a Internet. Isso permite que o HDInsight seja instalado nessa sub-rede. Já que a nova sub-rede está na mesma rede virtual que as sub-redes protegidas, ela também poderá se comunicar com os recursos instalados lá.
     
-    3.	Quando você cria o cluster do HDInsight, selecione a sub-rede criada na etapa 1. Isso implantará o cluster na sub-rede que tem acesso à Internet.
+    2. Você pode confirmar que não há nenhum Grupo de Segurança de Rede ou tabela de rotas anexados à sub-rede usando as seguintes instruções do PowerShell. Substitua __VIRTUALNETWORKNAME__ pelo nome da rede virtual, substitua __GROUPNAME__ pelo nome do grupo de recursos que contém a rede virtual e substitua __SUBNET__ pelo nome da sub-rede.
+        
+            $vnet = Get-AzureRmVirtualNetwork -Name VIRTUALNETWORKNAME -ResourceGroupName GROUPNAME
+            $vnet.Subnets | Where-Object Name -eq "SUBNET"
+            
+        Nos resultados, observe que __NetworkSecurityGroup__ e __RouteTable__ são ambos `null`.
+    
+    2. Crie o cluster HDInsight. Ao definir as configurações da Rede Virtual para o cluster, selecione a sub-rede criada na etapa 1.
 
+    > [AZURE.NOTE]As etapas acima supõem que você não restringiu as comunicações aos endereços IP _do intervalo de endereços IP da Rede Virtual_. Caso tenha feito isso, talvez seja necessário modificar essas restrições para permitir a comunicação com a nova sub-rede.
+
+    Para saber mais sobre os Grupos de Segurança de Rede, veja [Visão geral de Grupos de Segurança de Rede](../virtual-network/virtual-networks-nsg.md). Para saber mais sobre como controlar o roteamento em uma Rede Virtual do Azure, veja [Rotas e encaminhamento de IP definidos pelo usuário](../virtual-network/virtual-networks-udr-overview.md).
 
 Para obter mais informações sobre como provisionar um cluster HDInsight em uma rede virtual, consulte [Provisionando clusters Hadoop no HDInsight](hdinsight-provision-clusters.md).
 
@@ -191,4 +199,4 @@ Os exemplos a seguir demonstram como usar o HDInsight com a Rede Virtual do Azur
 
 Para saber mais sobre redes virtuais do Azure, consulte [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -59,7 +59,7 @@ Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linu
 		# sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
 		# sudo apt-get update
 
-4. As imagens do Ubuntu Azure estão seguindo o kernel de *Habilitação de HardWare* (HWE). Atualize o sistema operacional para o kernel mais recente, executando os seguintes comandos:
+4. As imagens do Ubuntu Azure estão seguindo o kernel *Habilitação de HardWare* (HWE). Atualize o sistema operacional para o kernel mais recente, executando os seguintes comandos:
 
 	Ubuntu 12,04:
 
@@ -112,6 +112,9 @@ Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linu
 
 11. Clique em **Ação -> Desligar** no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
 
+## Próximas etapas
+Agora você está pronto para usar o .vhd Ubuntu Linux para criar novas Máquinas Virtuais do Azure no Azure. Se estiver usando o Azure pela primeira vez e carregar o arquivo .vhd para o Azure, poderia seguir as etapas 2 e 3 [nestas diretrizes](virtual-machines-linux-create-upload-vhd.md).
+
 ## Referências ##
 
 Kernel de Habilitação de HardWare do Ubuntu (HWE)
@@ -119,4 +122,4 @@ Kernel de Habilitação de HardWare do Ubuntu (HWE)
 - [http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html](http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html)
 - [http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html](http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

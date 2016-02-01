@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/14/2015"
+   ms.date="01/20/2016"
    ms.author="alkohli" />
 
 # Failover e recuperação de desastres para o seu dispositivo StorSimple
@@ -77,9 +77,13 @@ Execute as seguintes etapas para restaurar seu dispositivo para um dispositivo f
 
 	1. Na lista de contêineres de volume, selecione os contêineres de volume para failover.
 
-		>[AZURE.NOTE]**São exibidos apenas os contêineres de volume com instantâneos de nuvem e volumes offline associados.** 1. Em **Escolher um dispositivo de destino** para os volumes nos contêineres selecionados, selecione um dispositivo de destino na lista suspensa de dispositivos disponíveis. Apenas os dispositivos que têm a capacidade disponível são exibidos na lista suspensa. 1. Finalmente, revise as configurações de failover em **Confirmar failover**. Clique no ícone de verificação ![Ícone de verificação](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
+		>[AZURE.NOTE]**São exibidos apenas os contêineres de volume com instantâneos de nuvem e volumes offline associados.**
 
-1. Após a conclusão do failover, vá para a página **Dispositivos**.
+	1. Em **Escolher um dispositivo de destino** para os volumes nos contêineres selecionados, selecione um dispositivo de destino na lista suspensa de dispositivos disponíveis. Apenas os dispositivos que têm a capacidade disponível são exibidos na lista suspensa.
+
+	1. Finalmente, revise as configurações de failover em **Confirmar failover**. Clique no ícone de verificação ![Ícone de verificação](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
+
+1. É criado um trabalho de failover que pode ser monitorado por meio da página **Trabalhos**. Se o contêiner de volume em que você fez failover tiver volumes locais, verá os trabalhos de restauração individuais para cada volume local (não para volumes em camadas) no contêiner. Esses trabalhos de restauração podem levar algum tempo para ser concluídos. É provável que o trabalho de failover possa ser concluído anteriormente. Observe que esses volumes terão garantias locais somente depois que os trabalhos de restauração forem concluídos. Após a conclusão do failover, vá para a página **Dispositivos**.
 
 	1. Selecione o dispositivo que foi usado como o dispositivo de destino para o processo de failover.
 
@@ -153,12 +157,9 @@ Se houver dispositivos StorSimple que foram registrados antes da ocorrência de 
 
 ## Próximas etapas
 
-Depois de realizar o failover, talvez você precise:
+- Depois de realizar um failover, talvez seja necessário [desativar ou excluir seu dispositivo StorSimple](storsimple-deactivate-and-delete-device.md).
 
-- [Desativar o dispositivo StorSimple](storsimple-deactivate-and-delete-device.md#deactivate-a-device)
-- [Excluir seu dispositivo StorSimple](storsimple-deactivate-and-delete-device.md#delete-a-device)
-
-Para obter informações sobre como usar o serviço StorSimple Manager, acesse [Usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
+- Para obter informações sobre como usar o serviço StorSimple Manager, acesse [Usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_1217_2015--->
+<!---HONumber=AcomDC_0121_2016-->

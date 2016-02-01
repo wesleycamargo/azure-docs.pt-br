@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="01/15/2016" 
 	ms.author="awills"/>
 
 # Gerenciar cotas e preços do Application Insights
@@ -67,7 +67,7 @@ A qualquer momento, você pode alternar para a avaliação Premium gratuita de 3
 * Também é possível inspecionar os pontos de dados individuais na origem durante a depuração:
  * Caso execute seu aplicativo no modo de depuração no Visual Studio, os pontos de dados são registrados na janela de saída. 
  * Para exibir os pontos de dados do cliente, abra o painel de depuração do navegador (geralmente F12) e abra a guia de rede.
-
+* A taxa de dados é (por padrão) reduzida por [amostragem adaptável](app-insights-sampling). Isso significa que, conforme o uso de seu aplicativo aumenta, a taxa de telemetria não aumentará tanto quanto você poderia esperar.
 
 ### Excedente
 
@@ -85,6 +85,8 @@ O gráfico na parte inferior da folha de preços mostra o volume de ponto de dad
 ![Na parte inferior da folha de preços](./media/app-insights-pricing/03-allocation.png)
 
 Clique no gráfico para obter mais detalhes ou arraste sobre ele e clique em (+) para obter detalhes de um intervalo de tempo.
+
+O gráfico mostra o volume de dados que chegam no serviço Application Insights após a [amostragem](app-insights-sampling).
 
 
 ## Taxa de dados
@@ -114,7 +116,7 @@ Caso ocorra uma limitação, será exibido um aviso de notificação que isso ac
 
 *Como posso reduzir a quantidade de dados que meu aplicativo envia?*
 
-* Use a [amostragem](app-insights-sampling.md). Essa tecnologia reduz a taxa de dados sem distorcer suas métricas e sem afetar a capacidade de navegar entre itens relacionados na Pesquisa. No SDK do ASP.NET 2.0.0-beta3, a amostragem adaptável é habilitada por padrão.
+* Use a [amostragem](app-insights-sampling.md). Essa tecnologia reduz a taxa de dados sem distorcer suas métricas e sem afetar a capacidade de navegar entre itens relacionados na Pesquisa. A amostragem adaptável é habilitada por padrão a partir da versão 2.0.0-beta3 do SDK do Application Insights para ASP.NET
 * [Desative coletores de telemetria](app-insights-configuration-with-applicationinsights-config.md) que você não precisa.
 
 
@@ -164,4 +166,4 @@ Encargos do Application Insights são adicionados à sua conta do Azure. Você p
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

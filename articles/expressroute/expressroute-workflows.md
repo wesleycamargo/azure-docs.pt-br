@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/12/2015"
+   ms.date="01/21/2016"
    ms.author="cherylmc"/>
 
 # Fluxos de trabalho da Rota Expressa para provisionamento e estados do circuito
@@ -39,7 +39,7 @@ A figura e as etapas correspondentes abaixo mostram as tarefas que você deve ex
 
 	![](./media/expressroute-workflows/expressroute-routing-workflow.png)
 
-5. Vinculando redes virtuais aos circuitos da Rota Expressa - Você pode vincular redes virtuais ao circuito da Rota Expressa. Siga as instruções [para vincular redes virtuais](expressroute-howto-linkvnets-classic.md) ao seu circuito. Essas redes virtuais podem estar na mesma assinatura do Azure que o circuito da Rota Expressa ou podem estar em uma assinatura diferente.
+5. Vinculando redes virtuais aos circuitos da Rota Expressa - Você pode vincular redes virtuais ao circuito da Rota Expressa. Siga as instruções [para vincular redes virtuais](expressroute-howto-linkvnet-arm.md) ao seu circuito. Essas redes virtuais podem estar na mesma assinatura do Azure que o circuito da Rota Expressa ou podem estar em uma assinatura diferente.
 
 
 ## Estados de provisionamento de circuito da Rota Expressa
@@ -117,8 +117,8 @@ Se o estado de prefixo público anunciado for definido como *validação necess�
 
 - Configurar sua conexão da Rota Expressa.
 
-	- [Criar um circuito da Rota Expressa](expressroute-howto-circuit-classic.md)
-	- [Configurar o roteamento](expressroute-howto-routing-classic.md)
-	- [Vincular uma Rede Virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-classic.md)
+	- [Criar um circuito da Rota Expressa](expressroute-howto-circuit-arm.md)
+	- [Configurar o roteamento](expressroute-howto-routing-arm.md)
+	- [Vincular uma Rede Virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="11/16/2015"
+   ms.date="01/15/2016"
    ms.author="jroth" />
 
 # Diretrizes e limitações gerais do Banco de Dados SQL do Azure
@@ -32,12 +32,6 @@ Este tópico fornece as diretrizes e limitações gerais do Banco de Dados SQL d
 ## SQL Server Agent/trabalhos
 
 O Banco de Dados SQL do Microsoft Azure não dá suporte ao SQL Server Agent ou a trabalhos. No entanto, você pode executar o SQL Server Agent em seu SQL Server local e se conectar ao Banco de Dados SQL do Microsoft Azure.
-
-## Transações
-
-O Banco de Dados SQL do Azure não dá suporte a transações distribuídas, que são transações que afetam vários recursos. Para obter mais informações, consulte [Transações distribuídas (ADO.NET)](https://msdn.microsoft.com/library/ms254973.aspx). O Banco de Dados SQL pode não preservar os valores de carimbo de hora não confirmados do banco de dados atual (DBTS) entre failovers.
-
-> [AZURE.NOTE]Em determinadas situações, uma transação pode ser promovida automaticamente a transação distribuída. Para obter mais informações, consulte [Integração de System.Transactions com o SQL Server](https://msdn.microsoft.com/library/ms172070.aspx).
 
 ## Suporte ao agrupamento do SQL Server
 
@@ -69,4 +63,4 @@ Além disso, os nomes de usuário e logon não podem conter o caractere \\ (não
 
 - Para obter informações sobre a disponibilidade de drivers e o suporte ao Banco de Dados SQL, veja [Bibliotecas de conexões para Banco de Dados SQL e SQL Server](sql-database-libraries.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

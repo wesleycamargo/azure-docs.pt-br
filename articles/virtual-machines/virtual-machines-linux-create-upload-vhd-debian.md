@@ -78,6 +78,6 @@ Se houver qualquer problema para usar esse script, apenas informe o problema par
 
 ## Próximas etapas
 
-Agora você está pronto para usar o .vhd do Debian para criar novas Máquinas Virtuais do Azure.
+Agora você está pronto para usar o .vhd do Debian para criar novas Máquinas Virtuais do Azure. Se estiver usando o Azure pela primeira vez e carregar o arquivo .vhd para o Azure, poderia seguir as etapas 2 e 3 [nestas diretrizes](virtual-machines-linux-create-upload-vhd.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->
