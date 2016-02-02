@@ -41,11 +41,11 @@ Depois de concluir o tutorial do Node.js, use os botões de votação na parte s
 
 Agora vamos começar!
 
-## Pré-requisitos
+## Pré-requisitos para o tutorial do Node.js
 
 Certifique-se que você tem o seguinte:
 
-- Uma conta ativa do Azure. Se não tiver uma, você poderá se inscrever em uma [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
+- Uma conta ativa do Azure. Se não tiver uma, você poderá se inscrever em uma [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 - [Node.js](https://nodejs.org/) versão v0.10.29 ou superior.
 
 ## Etapa 1: Criar uma conta do Banco de Dados de Documentos
@@ -76,7 +76,7 @@ Abra ```config.js``` no editor de texto de sua preferência.
 
 Em seguida, crie um objeto vazio chamado ```config``` e defina as propriedades ```config.endpoint``` e ```config.authKey``` para o ponto de extremidade e a chave de autorização do Banco de Dados de Documentos. Ambas as configurações podem ser encontradas no [Portal do Azure](https://portal.azure.com).
 
-![Captura de tela do Portal do Azure mostrando uma conta do Banco de Dados de Documentos com o hub ATIVO realçado, o botão CHAVES realçado na folha da conta do Banco de Dados de Documentos e os valores de URI, de CHAVE PRIMÁRIA e de CHAVE SECUNDÁRIA realçados na folha Chaves][keys]
+![Tutorial do Node.js ‒ captura de tela do Portal do Azure mostrando uma conta do Banco de Dados de Documentos com o hub ATIVO realçado, o botão CHAVES realçado na folha da conta do Banco de Dados de Documentos e os valores de URI, de CHAVE PRIMÁRIA e de CHAVE SECUNDÁRIA realçados na folha Chaves ‒ banco de dados do Nó][keys]
 
     var config = {}
 
@@ -182,7 +182,7 @@ Em seguida, usaremos o ```config.endpoint``` e a ```config.authKey``` salvos ant
 
 Agora que você se conectou a uma conta do Banco de Dados de Documentos, vamos conferir o trabalho com recursos do Banco de Dados de Documentos.
 
-## Etapa 5: Criar um banco de dados do nó
+## Etapa 5: criar um banco de dados do Nó
 Um [banco de dados](documentdb-resources.md#databases) pode ser criado usando a função [createDatabase](https://azure.github.io/azure-documentdb-node/DocumentClient.html) da classe **DocumentClient**. Um banco de dados é o contêiner lógico de armazenamento de documentos particionado em coleções. Adicione uma função para criar um novo banco de dados no arquivo app.js com a ```id``` especificada no objeto ```config```. Primeiro, vamos verificar a existência de um banco de dados com a mesma ID ```FamilyRegistry```. Se existir, vamos retornar esse banco de dados, em vez de criar um novo.
 
     var getOrCreateDatabase = function(callback) {
@@ -212,7 +212,7 @@ Um [banco de dados](documentdb-resources.md#databases) pode ser criado usando a 
 
 ##<a id="CreateColl"></a>Etapa 6: Criar uma coleção  
 
-> [AZURE.WARNING]**CreateDocumentCollectionAsync** criará uma nova coleção de S1, que tem implicações de preços. Para obter mais detalhes, visite a nossa [página de preços](https://azure.microsoft.com/pricing/details/documentdb/).
+> [AZURE.WARNING] **CreateDocumentCollectionAsync** criará uma nova coleção de S1, que tem implicações de preços. Para obter mais detalhes, visite a nossa [página de preços](https://azure.microsoft.com/pricing/details/documentdb/).
 
 Uma [coleção](documentdb-resources.md#collections) pode ser criada usando a função [createCollection](https://azure.github.io/azure-documentdb-node/DocumentClient.html) da classe **DocumentClient**. Uma coleção é um contêiner de documentos JSON e uma lógica de aplicativo JavaScript associada. A coleção recém-criada será mapeada para um [nível de desempenho S1](documentdb-performance-levels.md). Adicione uma função para criar uma nova coleção no arquivo app.js com a ```id``` especificada no objeto ```config```. Novamente, verificaremos a existência de uma coleção com a mesma ID ```FamilyCollection```. Se existir, vamos retornar essa coleção, em vez de criar uma nova.
 
@@ -276,7 +276,7 @@ Em seguida, adicione uma função a app.js para a criação de documentos conten
 
 Parabéns! Agora você tem funções para criar um banco de dados, uma coleção e o documento no Banco de Dados de Documentos!
 
-![Diagrama que ilustra a relação hierárquica entre a conta, o banco de dados, a coleção e os documentos](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
+![Tutorial do Node.js ‒ diagrama que ilustra a relação hierárquica entre a conta, o banco de dados, a coleção e os documentos ‒ banco de dados do Nó](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
 
 ##<a id="Query"></a>Etapa 8: consultar recursos do Banco de Dados de Documentos
 
@@ -302,11 +302,11 @@ O Banco de Dados de Documentos tem suporte para [consultas](documentdb-sql-query
 
 O diagrama a seguir ilustra como a sintaxe de consulta do SQL do Banco de Dados de Documentos é chamada em relação à coleção que você criou.
 
-![Diagrama que ilustra o escopo e o significado da consulta](./media/documentdb-nodejs-get-started/node-js-tutorial-collection-documents.png)
+![Tutorial do Node.js ‒ Diagrama que ilustra o escopo e o significado da consulta ‒ banco de dados do Nó](./media/documentdb-nodejs-get-started/node-js-tutorial-collection-documents.png)
 
 A palavra-chave [FROM](documentdb-sql-query.md/#from-clause) é opcional na consulta, pois as consultas do Banco de Dados de Documentos já têm o escopo para uma única coleção. Portanto, "FROM Families f" pode ser trocado por "FROM root r" ou qualquer outra variável de nome que você escolher. O Banco de Dados de Documentos fará com que Families, root ou o nome de variável escolhido por você faça referência à coleção atual, por padrão.
 
-##<a id="DeleteDatabase"></a>Etapa 9: Excluir o banco de dados do nó
+##<a id="DeleteDatabase"></a>Etapa 9: excluir o banco de dados do Nó
 
 Excluir o banco de dados criado removerá o banco de dados e todos os recursos filhos (coleções, documentos, etc.). Você pode excluir o banco de dados adicionando o trecho de código a seguir.
 
@@ -419,7 +419,7 @@ Você deverá ver a saída do aplicativo iniciado. A saída deve corresponder ao
 
 Parabéns! Você concluiu o tutorial do Node.js e tem seu primeiro aplicativo de console do Banco de Dados de Documentos!
 
-##<a id="GetSolution"></a> Obter a solução completa
+##<a id="GetSolution"></a> Obter a solução do tutorial do Node.js completa
 Para criar a solução de Introdução que contém todos os exemplos neste artigo, você precisará do seguinte:
 
 -   [Conta de Banco de Dados de Documentos][documentdb-create-account].
@@ -442,4 +442,4 @@ Em seguida, no arquivo ```config.js```, atualize os valores de config.endpoint e
 
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

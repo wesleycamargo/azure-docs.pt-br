@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Configurar o Backup do Azure para prepará-lo para o backup do Windows Server | Microsoft Azure"
-	description="Use este tutorial para aprender a usar o serviço de backup na oferta de nuvem do Microsoft Azure para fazer o backup do Windows Server na nuvem."
+	pageTitle="Preparar o ambiente para fazer backup do Servidor Windows ou do Cliente Windows | Microsoft Azure"
+	description="Prepare o ambiente para fazer backup do Windows criando um cofre de backup, baixando credenciais e instalando o agente de backup."
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
 	manager="jwhit"
-	editor=""/>
+	editor=""
+	keywords="cofre de backup; agente de backup; backup do Windows;"/>
 
 <tags
 	ms.service="backup"
@@ -13,14 +14,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/26/2015"
-	ms.author="jimpark"; "aashishr"/>
+	ms.date="01/22/2016"
+	ms.author="trinadhk; jimpark; markgal"/>
+
 
 # Preparar o seu ambiente para o backup de computadores com o Windows
+Este artigo o ajudará a se preparar para fazer backup de um Servidor Windows ou de um Cliente Windows no Azure. Para fazer isso, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-Este artigo guiará você pelas etapas preparatórias para o uso do Backup do Azure com Windows Servers. Para fazer backup do Windows Server ou do Windows Client para o Azure, você precisará de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+Se você já fez isso, pode iniciar o [backup das máquinas Windows](backup-azure-backup-windows-server.md). Caso contrário, prossiga com as etapas abaixo para verificar se seu ambiente está preparado.
 
->[AZURE.NOTE]Anteriormente, você precisaria criar ou adquirir um certificado X.509 v3, a fim de registrar seu servidor de backup. Os certificados ainda têm suporte, mas agora para facilitar o registro do cofre do Azure em um servidor você pode gerar uma credencial diretamente da página Início Rápido.
+>[AZURE.NOTE] Anteriormente, você precisaria criar ou adquirir um certificado X.509 v3, a fim de registrar seu servidor de backup. Os certificados ainda têm suporte, mas agora para facilitar o registro do cofre do Azure em um servidor você pode gerar uma credencial diretamente da página Início Rápido.
 
 ## Antes de começar
 Para fazer backup de arquivos e de dados do seu Windows Server no Azure, primeiro você deve:
@@ -42,4 +45,4 @@ Para fazer backup de arquivos e de dados do seu Windows Server no Azure, primeir
 - [Backup do Azure - Perguntas frequentes](backup-azure-backup-faq.md)
 - [Fórum de Backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

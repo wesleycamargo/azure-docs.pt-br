@@ -19,6 +19,7 @@
 # Usar o Fiddler para avaliar e testar as APIs REST de Pesquisa do Azure
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
+- [Search Explorer](search-explorer.md)
 - [Fiddler](search-fiddler.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
@@ -238,4 +239,4 @@ Consulte [Gerenciar seu serviço de Pesquisa no Azure](search-manage.md) para ob
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

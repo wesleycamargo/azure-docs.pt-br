@@ -129,7 +129,7 @@ Na guia **Escala**, você pode alterar as configurações e a camada de serviço
 
 #### Geral
 
-Isso indica se você está no plano **Gratuito** ou **Standard**.
+Isso indica se você está no plano **Gratuito** ou **Padrão**.
 
 #### Cotas
 
@@ -229,7 +229,7 @@ Por fim, para todos os tipos de ação, você pode alterar o agendamento em si e
 
  [Como criar agendas complexas e recorrência avançada com o Agendador do Azure](scheduler-advanced-complexity.md)
 
- [Referência da API REST do Agendador](https://msdn.microsoft.com/library/dn528946)
+ [Referência da API REST do Agendador](https://msdn.microsoft.com/library/mt629143)
 
  [Referência de cmdlets do PowerShell do Agendador](scheduler-powershell-reference.md)
 
@@ -257,4 +257,4 @@ Por fim, para todos os tipos de ação, você pode alterar o agendamento em si e
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

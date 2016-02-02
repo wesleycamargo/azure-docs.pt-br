@@ -23,7 +23,7 @@
 4. Na página **Interfaces de Rede**, forneça endereços IP fixos para os Controladores 0 e 1. Se a interface DADOS 0 foi configurada para o IPv4, os endereços IP fixos precisam ser fornecidos no formato IPv4. Se você forneceu um prefixo para a configuração do IPv6, os endereços IP fixos serão preenchidos automaticamente nesses campos.
 
 
-	> [AZURE.NOTE]
+	> [AZURE.NOTE] 
  	> 
  	> - Os endereços IP fixos do controlador precisam ser IPs gratuitos dentro da sub-rede acessível pelo endereço IP do dispositivo.
  	> - Os endereços IP fixos do controlador são usados para atender às atualizações para o dispositivo, portanto, os IPs fixos devem ser roteáveis e conseguir conectar-se à Internet.
@@ -32,10 +32,10 @@
 
 5. Clique no ícone de verificação ![Ícone de verificação do StorSimple](./media/storsimple-complete-minimum-device-setup/HCS_CheckIcon-include.png). Você será retornado para a página **Início Rápido** do dispositivo.
 
- >[AZURE.NOTE]Você pode modificar todas as outras configurações do dispositivo a qualquer momento acessando a página **Configurar**.
+ >[AZURE.NOTE] Você pode modificar todas as outras configurações do dispositivo a qualquer momento acessando a página **Configurar**.
 
 ![Vídeo disponível](./media/storsimple-complete-minimum-device-setup/Video_icon.png) **Vídeo disponível**
 
-Para assistir a um vídeo que demonstra como concluir a configuração mínima do dispositivo, clique [aqui](http://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/).
+Para assistir a um vídeo que demonstra como concluir a configuração mínima do dispositivo, clique [aqui](https://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

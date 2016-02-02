@@ -89,7 +89,7 @@ Você pode encontrar informações de cliente válidas, incluindo etapas para in
 
 
 - **O que é o plano de suporte para o RemoteApp?** O suporte para gerenciamento de assinaturas e cobrança é fornecido sem custo adicional. O suporte técnico está disponível por meio de [planos de serviço do Azure](../../../support/plans/). Você também pode obter suporte gratuito para a comunidade por meio do nosso [Fórum de discussão do Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp). 
-- **Como posso enviar comentários?** Visite o [Fórum de comentários](http://feedback.azure.com/forums/247748-azure-remoteapp).
+- **Como posso enviar comentários?** Visite o [Fórum de comentários](https://feedback.azure.com/forums/247748-azure-remoteapp/).
 - **Com quem eu posso falar para saber mais sobre o Azure RemoteApp?** Além do nosso [Fórum de discussão](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp), que é um ótimo lugar para publicar perguntas, você pode se associar ao webinar semanal [Pergunte aos especialistas](https://azureinfo.microsoft.com/US-Azure-WBNR-FY15-11Nov-AzureRemoteAppAskTheExperts-Registration-Page.html), onde podemos falar sobre tudo acerca do RemoteApp.
 - **E a documentação do RemoteApp?** Estamos felizes com a pergunta. Além do conteúdo da Ajuda na gaveta de Ajuda do portal (basta clicar no **?** em qualquer página do portal), os artigos a seguir estão disponíveis para ensinar a você tudo sobre o RemoteApp:
 	- **Introdução:**
@@ -108,10 +108,10 @@ Você pode encontrar informações de cliente válidas, incluindo etapas para in
 		- [Adicionar usuários](remoteapp-user.md)
 		- [Práticas recomendadas para configurar e usar o RemoteApp](remoteapp-bestpractices.md)	
 
-	Vídeos! Também temos inúmeros vídeos sobre o RemoteApp. Alguns fornecem a Introdução ([Introdução ao RemoteApp do Azure](http://azure.microsoft.com/documentation/videos/cloud-cover-ep-150-azure-remote-app-with-thomas-willingham-and-nihar-namjoshi/)) enquanto outros o orientam por meio da implantação ([implantação de nuvem](https://www.youtube.com/watch?v=3NAv2iwZtGc&feature=youtu.be) e [implantação híbrida](https://www.youtube.com/watch?v=GCIMxPUvg0c&feature=youtu.be)). Experimente-os!
+	Vídeos! Também temos inúmeros vídeos sobre o RemoteApp. Alguns fornecem a Introdução ([Introdução ao RemoteApp do Azure](https://azure.microsoft.com/documentation/videos/cloud-cover-ep-150-azure-remote-app-with-thomas-willingham-and-nihar-namjoshi/)) enquanto outros o orientam por meio da implantação ([implantação de nuvem](https://www.youtube.com/watch?v=3NAv2iwZtGc&feature=youtu.be) e [implantação híbrida](https://www.youtube.com/watch?v=GCIMxPUvg0c&feature=youtu.be)). Experimente-os!
 
  
 ### Ajude-nos a ajudar você 
-Você sabia que, além de classificar este artigo e de fazer comentários a seguir, você pode fazer alterações no próprio artigo? Falta alguma coisa? Há algo errado? Eu escrevi algo que não ficou muito claro? Role para cima e clique em **Editar no GitHub** para fazer alterações - elas serão enviadas para que as examinemos e, assim que elas forem desconectadas, você verá suas alterações e aprimoramentos bem aqui.
+Você sabia que, além de classificar este artigo e fazer comentários, você pode alterar o próprio artigo? Falta alguma coisa? Há algo errado? Escrevi algo que não ficou muito claro? Role para cima e clique em **Editar no GitHub** para fazer alterações - elas serão enviadas para que as examinemos e, assim que elas forem desconectadas, você verá suas alterações e aprimoramentos bem aqui.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

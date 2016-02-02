@@ -40,7 +40,7 @@ Este tutorial demonstra o cenário de transmissão simples usando Hubs de Notifi
 
 Lembre-se de seguir os tutoriais na seção “Próximas etapas” para saber como usar os hubs de notificação para abordar usuários e grupos de dispositivos específicos.
 
->[AZURE.NOTE] Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F).
+>[AZURE.NOTE] Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F).
 
 ##<a id="register"></a>Habilitar as mensagens em nuvem do Google
 
@@ -408,7 +408,7 @@ Você deverá ver a seguinte exibição para a sua pasta ao final desta configur
 
 Neste tutorial, você envia as notificações com um aplicativo de console .NET. No entanto, você pode enviar notificações usando os Hubs de Notificação de qualquer back-end por meio da <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">interface REST</a>.
 
-Para ver um exemplo de como enviar notificações de um back-end dos Serviços Móveis do Azure integrado aos Hubs de Notificação, veja “Introdução às notificações por push nos Serviços Móveis” ([back-end do .NET](../mobile-services-javascript-backend-android-get-started-push.md) | [back-end do JavaScript](../mobile-services-javascript-backend-android-get-started-push.md)). Para ver um exemplo de como enviar notificações usando as APIs REST, veja “Como usar os Hubs de Notificação por meio do Java/PHP/Python” ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md) | [Python](notification-hubs-python-backend-how-to.md)).
+Para ver um exemplo de como enviar notificações de um Back-end dos Serviços Móveis do Azure integrado aos Hubs de Notificação, veja “Introdução às notificações por push nos Serviços Móveis” ([back-end do .NET](../mobile-services-javascript-backend-android-get-started-push.md) | [back-end do JavaScript](../mobile-services-javascript-backend-android-get-started-push.md)). Para ver um exemplo de como enviar notificações usando as APIs REST, veja “Como usar os Hubs de Notificação por meio do Java/PHP/Python” ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md) | [Python](notification-hubs-python-backend-how-to.md)).
 
 1. No Visual Studio, no menu **Arquivo**, selecione **Novo** e **Projeto**. Em **Visual C#**, clique em **Windows** e **Aplicativo do Console** e depois clique em **OK**. Isso cria um novo projeto de aplicativo de console.
 
@@ -495,4 +495,4 @@ Para ter como alvo usuários específicos, consulte o tutorial [Notificação de
 [Notificação de usuários nos Hubs de Notificação do Azure]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Notícias mais recentes dos Hubs de Notificação do Azure]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

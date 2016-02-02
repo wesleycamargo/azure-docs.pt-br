@@ -28,7 +28,7 @@ Este artigo pressupõe que você tenha um conhecimento prático do C# e do Visua
 
 ### Contas
 
-- **Conta do azure** -se você ainda não tiver uma assinatura do Azure, poderá criar uma conta de avaliação gratuita em minutos em [Avaliação Gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
+- **Conta do azure** ‒ se você ainda não tiver uma assinatura do Azure, poderá criar uma conta de avaliação gratuita em minutos em [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Conta do Lote** - quando você tiver uma assinatura do Azure, poderá [Criar e gerenciar uma conta do Lote do Azure](batch-account-create-portal.md).
 - **Conta de armazenamento** - veja a seção *Criar uma conta de armazenamento* em [Sobre as contas de armazenamento do Azure](../storage-create-storage-account.md).
 
@@ -88,7 +88,7 @@ Você pode encontrar suas credenciais de conta do Lote e do Armazenamento na fol
 
 Agora que você atualizou o projeto com suas credenciais, clique com botão direito do mouse na solução no *Gerenciador de Soluções* e clique em **Compilar Solução**. Confirme a restauração de qualquer pacote NuGet, se solicitado.
 
-> [AZURE.TIP]Se os pacotes NuGet não forem automaticamente restaurados ou se você encontrar erros em relação a uma falha ao restaurar os pacotes, verifique se você tem o [Gerenciador de Pacotes NuGet][nuget_packagemgr] instalado e habilite o download de pacotes ausentes. Confira [Habilitando a Restauração de Pacotes Durante a Compilação][nuget_restore] para habilitar o download de pacotes.
+> [AZURE.TIP] Se os pacotes NuGet não forem automaticamente restaurados ou se você encontrar erros em relação a uma falha ao restaurar os pacotes, verifique se você tem o [Gerenciador de Pacotes NuGet][nuget_packagemgr] instalado e habilite o download de pacotes ausentes. Confira [Habilitando a Restauração de Pacotes Durante a Compilação][nuget_restore] para habilitar o download de pacotes.
 
 Nas seções a seguir, separamos o aplicativo de exemplo nas etapas executadas para processar uma carga de trabalho no serviço Lote e discutimos essas etapas detalhadamente. Você é incentivado a fazer referência à solução aberta no Visual Studio enquanto estiver trabalhando até o restante deste artigo já que nem todas as linhas de código do exemplo serão discutidas.
 
@@ -234,7 +234,7 @@ As assinaturas de acesso compartilhado são cadeias de caracteres que, quando in
 
 - **SAS do contêiner** - como cada tarefa conclui seu trabalho em nós de computação, ele carrega o arquivo de saída para o contêiner *output* no Armazenamento do Azure. Para fazer isso, o TaskApplication usa um SAS de contêiner que fornece acesso de gravação ao contêiner como parte do caminho ao carregar o arquivo. A obtenção da SAS do contêiner é feita de maneira semelhante, como ao obter a SAS do blob e, no DotNetTutorial, você verá que o método auxiliar `GetContainerSasUrl` chama [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] para fazer isso. Leia mais sobre como o TaskApplication usa a SAS do contêiner na Etapa 6 abaixo, "Monitorar Tarefas".
 
-> [AZURE.TIP]Confira a série de duas partes sobre as assinaturas de acesso compartilhado, [Parte 1: Noções Básicas sobre o Modelo SAS](./../storage/storage-dotnet-shared-access-signature-part-1.md) e [Parte 2: Criar e Usar uma SAS com o Serviço Blob](./../storage/storage-dotnet-shared-access-signature-part-2.md), para saber mais sobre como fornecer acesso seguro aos dados em sua conta de Armazenamento.
+> [AZURE.TIP] Confira a série de duas partes sobre as assinaturas de acesso compartilhado, [Parte 1: Noções Básicas sobre o Modelo SAS](./../storage/storage-dotnet-shared-access-signature-part-1.md) e [Parte 2: Criar e Usar uma SAS com o Serviço Blob](./../storage/storage-dotnet-shared-access-signature-part-2.md), para saber mais sobre como fornecer acesso seguro aos dados em sua conta de Armazenamento.
 
 ## Etapa 3: Criar pool do Lote
 
@@ -288,7 +288,7 @@ private static async Task CreatePoolAsync(BatchClient batchClient, string poolId
 
 Ao criar um pool com [CreatePool][net_pool_create], você especificará um número de parâmetros como o número de nós de computação, o [tamanho dos nós](./../cloud-services/cloud-services-sizes-specs.md) e o [sistema operacional](./../cloud-services/cloud-services-guestos-update-matrix.md) dos nós.
 
-> [AZURE.IMPORTANT]Você é cobrado pelos recursos de computação no Lote. Para minimizar o custo, você poderá diminuir `targetDedicated` para 1 antes de executar o exemplo.
+> [AZURE.IMPORTANT] Você é cobrado pelos recursos de computação no Lote. Para minimizar o custo, você poderá diminuir `targetDedicated` para 1 antes de executar o exemplo.
 
 Junto com essas propriedades de nó físico, você também poderá especificar uma [StartTask][net_pool_starttask] para o pool. A StartTask será executada em cada nó quando o nó ingressar no pool e sempre que um nó for reiniciado. A StartTask é especialmente útil para instalar aplicativos em nós de computação antes da execução de tarefas. Por exemplo, se suas tarefas processassem dados usando scripts Python, você poderia usar uma StartTask para instalar o Python nos nós de computação.
 
@@ -296,7 +296,7 @@ Neste aplicativo de exemplo, a StartTask copia os arquivos baixados do Armazenam
 
 Também podemos notar no trecho de código acima o uso de duas variáveis de ambiente na propriedade *CommandLine* da StartTask: `%AZ_BATCH_TASK_WORKING_DIR%` e `%AZ_BATCH_NODE_SHARED_DIR%`. Cada nó de computação em um pool do Lote é configurado automaticamente com um número de variáveis de ambiente específicas do Lote e todos os processos executados por uma tarefa terão acesso a essas variáveis de ambiente.
 
-> [AZURE.TIP]Para saber mais sobre as variáveis de ambiente disponíveis em nós de computação em um pool do Lote, além de informações sobre os diretórios de trabalho da tarefa, confira as seções **Configurações de ambiente para tarefas** e **Arquivos e diretórios** na [Visão geral dos recursos do Lote do Azure](batch-api-basics.md).
+> [AZURE.TIP] Para saber mais sobre as variáveis de ambiente disponíveis em nós de computação em um pool do Lote, além de informações sobre os diretórios de trabalho da tarefa, confira as seções **Configurações de ambiente para tarefas** e **Arquivos e diretórios** na [Visão geral dos recursos do Lote do Azure](batch-api-basics.md).
 
 ## Etapa 4: Criar o trabalho do Lote
 
@@ -356,7 +356,7 @@ private static async Task<List<CloudTask>> AddTasksAsync(BatchClient batchClient
 }
 ```
 
-> [AZURE.IMPORTANT]Ao acessar variáveis de ambiente, como `%AZ_BATCH_NODE_SHARED_DIR%` ou ao executar um aplicativo não encontrado no `PATH` do nó, as linhas de comando da tarefa devem ser prefixadas com `cmd /c` para executar explicitamente o interpretador de comandos e para instruí-lo a terminar após a execução do comando. Esse requisito será desnecessário se suas tarefas executarem um aplicativo no CAMINHO do nó (como *robocopy.exe* ou *powershell.exe*) e nenhuma variável de ambiente será usada.
+> [AZURE.IMPORTANT] Ao acessar variáveis de ambiente, como `%AZ_BATCH_NODE_SHARED_DIR%` ou ao executar um aplicativo não encontrado no `PATH` do nó, as linhas de comando da tarefa devem ser prefixadas com `cmd /c` para executar explicitamente o interpretador de comandos e para instruí-lo a terminar após a execução do comando. Esse requisito será desnecessário se suas tarefas executarem um aplicativo no CAMINHO do nó (como *robocopy.exe* ou *powershell.exe*) e nenhuma variável de ambiente será usada.
 
 No loop `foreach` no trecho de código acima, você verá que a linha de comando da tarefa é construída de forma que três argumentos de linha de comando sejam passados para *TaskApplication.exe*:
 
@@ -521,7 +521,7 @@ private static async Task DownloadBlobsFromContainerAsync(CloudBlobClient blobCl
 }
 ```
 
-> [AZURE.NOTE]A chamada a `DownloadBlobsFromContainerAsync` no aplicativo *DotNetTutorial* especifica que os arquivos devem ser baixados para a pasta `%TEMP%`. Fique à vontade para modificar esse local de saída.
+> [AZURE.NOTE] A chamada a `DownloadBlobsFromContainerAsync` no aplicativo *DotNetTutorial* especifica que os arquivos devem ser baixados para a pasta `%TEMP%`. Fique à vontade para modificar esse local de saída.
 
 ## Etapa 8: Excluir contêineres
 
@@ -576,7 +576,7 @@ if (response != "n" && response != "no")
 }
 ```
 
-> [AZURE.IMPORTANT]Tenha em mente que você será cobrado pelos recursos de computação e a exclusão dos pools não utilizados reduzirá o custo. Lembre-se de que a exclusão de um pool exclui todos os nós de computação no pool e que os dados em nós não poderão ser recuperados depois que o pool for excluído.
+> [AZURE.IMPORTANT] Tenha em mente que você será cobrado pelos recursos de computação e a exclusão dos pools não utilizados reduzirá o custo. Lembre-se de que a exclusão de um pool exclui todos os nós de computação no pool e que os dados em nós não poderão ser recuperados depois que o pool for excluído.
 
 ## Executar o exemplo *DotNetTutorial*
 
@@ -680,4 +680,4 @@ Agora que você está familiarizado com o fluxo de trabalho básico de uma solu�
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "Credenciais do Armazenamento no Portal"
 [11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "Fluxo de trabalho da solução do Lote (diagrama mínimo)"
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -38,7 +38,7 @@ Você pode usar endereços IP privados ou endereços IP públicos para configura
  - Se uma sub-rede /29 for usada, será dividida em duas sub-redes /30. 
 	 - A primeira sub-rede /30 será usada para o link principal e a segunda sub-rede /30 será usada para o link secundário.
 	 - Para cada uma das sub-redes /30, é necessário o primeiro endereço IP da sub-rede /30 em seu roteador. A Microsoft usará o segundo endereço IP da sub-rede /30 para configurar uma sessão BGP.
-	 - Você deve instalar ambas as sessões BGP para que nosso [SLA de disponibilidade](http://azure.microsoft.com/support/legal/sla/) seja válido.  
+	 - Você deve instalar ambas as sessões BGP para que nosso [SLA de disponibilidade](https://azure.microsoft.com/support/legal/sla/) seja válido.  
 
 #### Exemplo para emparelhamento privado
 
@@ -48,8 +48,8 @@ a.b.c.d/29 será dividida em a.b.c.d/30 e a.b.c.d+4/30 e passada à Microsoft po
 
 Considere um caso em que você seleciona 192.168.100.128/29 para configurar o emparelhamento privado. 192.168.100.128/29 inclui os endereços de 192.168.100.128 a 192.168.100.135, entre os quais:
 
-- 192.168.100.128/30 será atribuído ao link1, com o provedor usando 192.168.100.129 e a Microsoft usando 192.168.100.130.
-- 192.168.100.132/30 será atribuído ao link2, com o provedor usando 192.168.100.133 e a Microsoft usando 192.168.100.134.
+- 192\.168.100.128/30 será atribuído ao link1, com o provedor usando 192.168.100.129 e a Microsoft usando 192.168.100.130.
+- 192\.168.100.132/30 será atribuído ao link2, com o provedor usando 192.168.100.133 e a Microsoft usando 192.168.100.134.
 
 ### Endereços IP para o emparelhamento público do Azure e o emparelhamento da Microsoft
 
@@ -59,7 +59,7 @@ Você deve usar endereços IP públicos que possui para configurar as sessões B
 - Se uma sub-rede /29 for usada, será dividida em duas sub-redes /30. 
 	- A primeira sub-rede /30 será usada para o link principal e a segunda sub-rede /30 será usada para o link secundário.
 	- Para cada uma das sub-redes /30, é necessário usar o primeiro endereço IP da sub-rede /30 em seu roteador. A Microsoft usará o segundo endereço IP da sub-rede /30 para configurar uma sessão BGP.
-	- Você deve instalar ambas as sessões BGP para que nosso [SLA de disponibilidade](http://azure.microsoft.com/support/legal/sla/) seja válido.
+	- Você deve instalar ambas as sessões BGP para que nosso [SLA de disponibilidade](https://azure.microsoft.com/support/legal/sla/) seja válido.
 
 Verifique se o endereço IP e o número de AS estão registrados em um dos registros listados abaixo.
 
@@ -147,7 +147,7 @@ A Microsoft marcará prefixos anunciados por meio do emparelhamento público e d
 
 Todas as rotas anunciadas pela Microsoft serão marcadas com o valor de comunidade apropriado.
 
->[AZURE.IMPORTANT]Os prefixos globais serão marcados com um valor apropriado de comunidade e serão anunciados somente quando o complemento premium da Rota Expressa estiver habilitado.
+>[AZURE.IMPORTANT] Os prefixos globais serão marcados com um valor apropriado de comunidade e serão anunciados somente quando o complemento premium da Rota Expressa estiver habilitado.
 
 
 Além disso, a Microsoft também marcará prefixos com base no serviço ao qual eles pertencem. Isso se aplica somente ao emparelhamento da Microsoft. A tabela a seguir fornece um mapeamento de serviço para o valor de comunidade BGP.
@@ -163,7 +163,7 @@ Além disso, a Microsoft também marcará prefixos com base no serviço ao qual 
 
 ### Manipulando preferências de roteamento
 
-A Microsoft não adota valores de comunidade BGP que você define. É necessário configurar um par de sessões BGP por emparelhamento para garantir que os requisitos para o [SLA de disponibilidade](http://azure.microsoft.com/support/legal/sla/) sejam atendidos. No entanto, você pode configurar sua rede para preferir um link a outro usando técnicas padrão de manipulação de rota BGP. Você pode aplicar diferentes preferências locais de BGP a cada link para favorecer um caminho em vez de outro em sua rede para a Microsoft. Você pode preceder o caminho as nos anúncios de rota para influenciar o fluxo do tráfego da Microsoft em sua rede.
+A Microsoft não adota valores de comunidade BGP que você define. É necessário configurar um par de sessões BGP por emparelhamento para garantir que os requisitos para o [SLA de disponibilidade](https://azure.microsoft.com/support/legal/sla/) sejam atendidos. No entanto, você pode configurar sua rede para preferir um link a outro usando técnicas padrão de manipulação de rota BGP. Você pode aplicar diferentes preferências locais de BGP a cada link para favorecer um caminho em vez de outro em sua rede para a Microsoft. Você pode preceder o caminho as nos anúncios de rota para influenciar o fluxo do tráfego da Microsoft em sua rede.
 
 ## Próximas etapas
 
@@ -173,4 +173,4 @@ A Microsoft não adota valores de comunidade BGP que você define. É necessári
 	- [Configurar o roteamento](expressroute-howto-routing-classic.md)
 	- [Vincular uma Rede Virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

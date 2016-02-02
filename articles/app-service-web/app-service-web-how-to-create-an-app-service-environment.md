@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="10/26/2015" 
+	ms.date="01/14/2016" 
 	ms.author="ccompy"/>
 
 # Como Criar um Ambiente do Serviço de Aplicativo #
@@ -47,7 +47,7 @@ A experiência de criação para um ASE não tem um conjunto de padrões para ha
 - Pool de trabalho com dois recursos de computação P1
 - endereço IP único a ser usado para SSL de IP
 
-Esse é o tamanho mínimo para um ASE. Os pools do Front End exigem P2 ou maior. Selecione a assinatura em que você deseja que o ASE esteja. As únicas contas que podem usar o ASE para hospedar o conteúdo devem estar na assinatura usada para criá-lo.
+Os pools do Front End exigem P2 ou maior. Tenha cuidado ao selecionar a assinatura em que você deseja que ASE esteja. As únicas contas que podem usar o ASE para hospedar o conteúdo devem estar na assinatura usada para criá-lo.
 
 ![][1]
 
@@ -155,4 +155,4 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

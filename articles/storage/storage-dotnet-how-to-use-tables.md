@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Como usar o Armazenamento de Tabela do .NET | Microsoft Azure"
-	description="Use o Armazenamento de Tabelas para armazenar dados não estruturados e sem esquema. O Armazenamento de Tabelas é um repositório de chave/atributo NoSQL. A biblioteca de clientes de armazenamento para .NET fornece APIs para criar e excluir tabelas, bem como para inserir, atualizar, excluir e consultar dados."
+	pageTitle="Introdução ao armazenamento de Tabelas do Azure usando o .NET | Microsoft Azure"
+	description="Armazene dados não estruturados na nuvem usando o armazenamento de Tabelas do Azure, o repositório de dados NoSQL da Microsoft. Obtenha uma introdução a operações de armazenamento de Tabelas simples, como a criação e a exclusão de tabelas e a inserção, a atualização, a exclusão e a consulta de dados."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,17 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="01/07/2016"
+	ms.date="01/24/2016"
 	ms.author="tamram"/>
 
 
-# Como usar o Armazenamento de Tabela do .NET
+# Introdução ao armazenamento de Tabelas do Azure usando o .NET
 
 [AZURE.INCLUDE [armazenamento-seletor-tabela-include](../../includes/storage-selector-table-include.md)]
 
 ## Visão geral
 
-Este artigo mostra como executar cenários comuns usando o serviço Armazenamento de Tabelas do Azure. Os exemplos são escritos em C# e usam a biblioteca do cliente de armazenamento do Azure para .NET. Os cenários abrangidos incluem a criação e a exclusão de uma tabela e o trabalho com entidades de tabela.
+O armazenamento de Tabelas do Azure é um serviço que armazena dados NoSQL não estruturados na nuvem. O armazenamento de Tabelas é um repositório de chaves/atributos com um design sem esquema. Como o armazenamento de Tabelas não tem um esquema, é fácil adaptar seus dados à medida que as necessidades de seu aplicativo evoluem. O acesso aos dados é rápido e econômico para todos os tipos de aplicativos. O armazenamento de tabela normalmente tem um custo significativamente mais baixo do que o SQL tradicional para volumes de dados semelhantes.
+
+Você pode usar o armazenamento de tabela para armazenar conjuntos de dados flexíveis, como dados de usuário para aplicativos web, catálogos de endereços, informações sobre dispositivos e qualquer outro tipo de metadados que o serviço requeira. Você pode armazenar qualquer número de entidades em uma tabela e uma conta de armazenamento pode conter um número ilimitado de tabelas, até o limite de capacidade da conta de armazenamento.
+
+Este tutorial mostra como gravar código .NET para alguns cenários comuns usando o armazenamento de Tabelas do Azure, incluindo a criação e a exclusão de uma tabela e a inserção, a atualização, a exclusão e a consulta de dados de tabela.
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -440,4 +444,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Tabela, siga 
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

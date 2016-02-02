@@ -52,7 +52,7 @@ Consulte [Visão geral do recurso Lote do Azure](batch-api-basics.md) para saber
 
 ### Contas necessárias
 
-+ [Conta e assinatura do Azure](http://azure.microsoft.com/pricing/free-trial/) - Se não tiver uma conta, você poderá ativar os **benefícios de assinante MSDN** ou inscrever-se para uma [avaliação gratuita](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
++ [Conta e assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/) - Se não tiver uma conta, você poderá ativar os **benefícios de assinante MSDN** ou inscrever-se para uma [avaliação gratuita](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 + **Conta do Lote** -Use o nome e a URL de uma conta do Lote e uma chave de acesso como credenciais quando fizer chamadas de API do Lote. Todos os recursos do Lote, como nós de computação, pools, trabalhos e tarefas estão associados a uma conta do Lote. Uma maneira de criar uma conta do Lote e de gerenciar chaves de acesso para a conta é usar o [portal do Azure](batch-account-create-portal.md).
 
@@ -103,4 +103,4 @@ A Figura 2 mostra um fluxo de trabalho que usa um aplicativo cliente .NET do Lot
 [parallel]: ./media/batch-technical-overview/parallel.png
 [work_item_workflow]: ./media/batch-technical-overview/work_item_workflow.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

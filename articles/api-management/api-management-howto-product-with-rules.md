@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/15/2016"
+	ms.date="01/27/2016"
 	ms.author="sdanie"/>
 
 # Proteja sua API com limites de taxa usando o Gerenciamento de API do Azure
 
 Este guia mostra como é fácil adicionar proteção à API de back-end configurando políticas de cota e limite de taxa com o Gerenciamento de API do Azure.
 
-Neste tutorial, você criará um produto de API de "Avaliação Gratuita" que permite aos desenvolvedores fazer até 10 chamadas por minuto e no máximo 200 chamadas por semana para sua API usando [Limitar taxa de chamadas por assinatura](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) e [Definir cota de uso por assinatura](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). Depois você publicará a API e testará a política de limite de taxa.
+Neste tutorial, você criará um produto de API de "Avaliação Gratuita" que permite aos desenvolvedores fazer até 10 chamadas por minuto e no máximo 200 chamadas por semana para sua API usando as políticas [Limitar taxa de chamadas por assinatura](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) e [Definir cota de uso por assinatura](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). Depois você publicará a API e testará a política de limite de taxa.
 
 Para cenários de limitação mais avançados usando as políticas [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) e [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey), confira [Solicitação avançada de limitação com o Gerenciamento de API do Azure](api-management-sample-flexible-throttling.md).
 
@@ -28,7 +28,7 @@ Para cenários de limitação mais avançados usando as políticas [rate-limit-b
 
 Nesta etapa você criará um produto de avaliação gratuita que não requer aprovação de assinatura.
 
->[AZURE.NOTE]Se já tiver um produto configurado e desejar usá-lo para este tutorial, você pode pular para [Configurar políticas de cota e de limite de taxa de chamada][] e seguir o tutorial a partir daí, usando seu produto em vez do produto Avaliação Gratuita.
+>[AZURE.NOTE] Se já tiver um produto configurado e desejar usá-lo para este tutorial, você pode pular para [Configurar políticas de cota e de limite de taxa de chamada][] e seguir o tutorial a partir daí, usando seu produto em vez do produto Avaliação Gratuita.
 
 Para começar, clique em **Gerenciar** no Portal Clássico do Azure para acessar o serviço de Gerenciamento de API. Isso levará você ao portal do editor de Gerenciamento de API.
 
@@ -46,8 +46,7 @@ Clique em **Adicionar Produto** para exibir a caixa de diálogo **Adicionar novo
 
 Na caixa **Título**, digite **Avaliação gratuita**.
 
-Na caixa **Descrição**, digite o seguinte texto: 
-**Assinantes poderão fazer 10 chamadas/minuto, até no máximo 200 chamadas/semana e após isso o acesso será negado.**
+Na caixa **Descrição**, digite o seguinte texto: **Assinantes poderão fazer 10 chamadas/minuto, até no máximo 200 chamadas/semana e após isso o acesso será negado.**
 
 Os produtos de Gerenciamento de API podem ser protegidos ou abertos. Os produtos protegidos devem ser assinados antes que possam ser usados. Os produtos abertos podem ser usados sem uma assinatura. Certifique-se de que **Exigir assinatura** esteja marcado para criar um produto protegido que requer uma assinatura. Esta é a configuração padrão.
 
@@ -196,7 +195,7 @@ Selecione **Avaliação Gratuita** e clique em **Assinar**.
 
 ![Adicionar assinatura][api-management-add-subscription]
 
->[AZURE.NOTE]Neste tutorial, várias inscrições simultâneas não estão habilitadas para o produto Avaliação Gratuita. Se elas estivessem, você seria solicitado a nomear a assinatura, conforme mostrado no exemplo a seguir.
+>[AZURE.NOTE] Neste tutorial, várias inscrições simultâneas não estão habilitadas para o produto Avaliação Gratuita. Se elas estivessem, você seria solicitado a nomear a assinatura, conforme mostrado no exemplo a seguir.
 
 ![Adicionar assinatura][api-management-add-subscription-multiple]
 
@@ -222,7 +221,7 @@ Mantenha os valores de parâmetros padrão e selecione a chave de assinatura par
 
 ![Chave de assinatura][api-management-select-key]
 
->[AZURE.NOTE]Se você tem várias inscrições certifique-se de selecionar a chave de **Avaliação Gratuita** ou as políticas que foram configuradas nas etapas anteriores não entrarão em vigor.
+>[AZURE.NOTE] Se você tem várias inscrições certifique-se de selecionar a chave de **Avaliação Gratuita** ou as políticas que foram configuradas nas etapas anteriores não entrarão em vigor.
 
 Clique em **Enviar** e exiba a resposta. Observe o **Status de resposta** de **200 OK**.
 
@@ -294,4 +293,4 @@ Quando a política de limite de taxa de 10 chamadas por minuto estiver em vigor,
 [Limitar taxa de chamada]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Definir cota de uso]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

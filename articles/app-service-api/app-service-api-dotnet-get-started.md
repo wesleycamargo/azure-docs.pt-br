@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/05/2016"
+	ms.date="01/26/2016"
 	ms.author="tdykstra"/>
 
 # Introdução aos aplicativos de API e ao ASP.NET no Serviço de Aplicativo do Azure
@@ -22,33 +22,31 @@
 
 ## Visão geral
 
-Neste tutorial, você criará um [aplicativo de API do Serviço de Aplicativo](app-service-api-apps-why-best-platform.md), implantará uma API Web ASP.NET no aplicativo de API e consumirá o aplicativo de API de um cliente MVC ASP.NET. O tutorial presume que você está familiarizado com o ASP.NET, mas não tem experiência anterior com o Microsoft Azure. Ao concluir o tutorial, você terá uma API Web e um aplicativo cliente em funcionamento na nuvem.
-
-O aplicativo de exemplo é uma lista de contatos simples. A ilustração a seguir mostra como o aplicativo MVC exibe os dados recebidos da API.
-
-![](./media/app-service-api-dotnet-get-started/mvccontacts.png)
-
-## O que você aprenderá
-
-Três recursos do serviço de Aplicativo do Azure são particularmente úteis para desenvolver e hospedar APIs:
+Este é o primeiro de uma série de tutoriais que mostram como usar recursos do Serviço de Aplicativo do Azure que são úteis para desenvolver e hospedar APIs:
 
 * Suporte integrado para metadados de API
 * Suporte a CORS
 * Suporte a autenticação e autorização
- 
-Este é o primeiro tutorial de uma série que apresenta esses recursos. Este tutorial se concentra nos metadados de API, o segundo se concentra em CORS e os tutoriais restantes se concentram na autenticação e na autorização.
 
-Nos tutoriais, você aprenderá o seguinte:
+Você implantará um aplicativo de exemplo para dois [aplicativos de API](app-service-api-apps-why-best-platform.md) e um aplicativo Web no Serviço de Aplicativo do Azure. O aplicativo de exemplo é uma lista de tarefas pendentes que tem um front-end SPA (aplicativo de página única) do AngularJS, uma camada intermediária de API Web do ASP.NET e uma camada de dados de API Web do ASP.NET, conforme mostrado no diagrama.
+
+![](./media/app-service-api-dotnet-get-started/noauthdiagram.png)
+
+Aqui está uma captura de tela do front-end SPA.
+
+![](./media/app-service-api-dotnet-get-started/todospa.png)
+
+Ao concluir este tutorial, você terá as duas APIs Web em execução em aplicativos de API do Serviço de Aplicativo. Depois de concluir o tutorial a seguir, você terá o aplicativo inteiro em execução na nuvem, com o SPA em um aplicativo Web do Serviço de Aplicativo. Nos tutoriais subsequentes, você adicionará a autenticação e a autorização.
+
+## O que você aprenderá
+
+Neste tutorial, você aprenderá:
 
 * Como preparar seu computador para desenvolvimento do Azure instalando o SDK do Azure para .NET.
 * Como trabalhar com aplicativos de API e aplicativos Web no Serviço de Aplicativo do Azure usando ferramentas incorporadas ao Visual Studio 2015.
 * Como automatizar a descoberta de API usando o pacote NuGet do Swashbuckle para gerar dinamicamente a definição de API do Swagger JSON.
 * Como usar código cliente gerado automaticamente para consumir um aplicativo de API de um cliente .NET.
 * Como usar o portal do Azure para configurar o ponto de extremidade de metadados do aplicativo de API.
-* Como usar o CORS para chamar um aplicativo de API de um cliente JavaScript quando o cliente é de um domínio diferente da API.
-* Como usar o Active Directory do Azure (AD do Azure) para proteger uma API de acesso não autenticado.
-* Como consumir uma API protegida para usuários registrados no AD do Azure.
-* Como consumir uma API protegida usando uma entidade de serviço do AD do Azure.
 
 ## Pré-requisitos
 
@@ -56,54 +54,86 @@ Nos tutoriais, você aprenderá o seguinte:
 
 [AZURE.INCLUDE [set-up-dev-environment](../../includes/install-sdk-2015-2013.md)]
 
-Este tutorial requer a versão 2.8.1 ou posterior do SDK do Azure para .NET.
-
-## Visão geral do aplicativo de exemplo
-
-O código que você implantará em um aplicativo de API e em um aplicativo Web neste tutorial está no repositório GitHub [Azure-Samples/app-service-api-dotnet-contact-list](https://github.com/Azure-Samples/app-service-api-dotnet-contact-list). A solução ContactsList do Visual Studio inclui os seguintes projetos usados neste tutorial:
-
-* **ContactsList.API** – projeto de uma API Web ASP.NET que retorna uma lista de nomes e endereços de email. A chamada inicial para o método Get retorna três contatos embutidos em código e as chamadas seguintes para os métodos Put, Post e Delete salvam alterações em um arquivo JSON local.
-* **ContactsList.MVC** - cliente MVC ASP.NET para a API ContactsList.
-
-Os tutoriais posteriores usam outros projetos na mesma solução:
-
-* **ContactsList.Angular** - um cliente AngularJS para demonstrar o suporte a CORS.
-* **ContactsList.Angular.AAD** - um cliente AngularJS, para demonstrar a autenticação de usuário.
-* **CompanyContacts.API** - um projeto de API Web ASP.NET para demonstrar a autenticação da conta de serviço.  
+Este tutorial requer a versão 2.8.2 ou posterior do SDK do Azure para .NET.
 
 ## Baixar o aplicativo de exemplo 
 
-1. Baixe o repositório [Azure-Samples/app-service-api-dotnet-contact-list](https://github.com/Azure-Samples/app-service-api-dotnet-contact-list).
+1. Baixe o repositório [Azure-Samples/app-service-api-dotnet-to-do-list](https://github.com/Azure-Samples/app-service-api-dotnet-todo-list).
 
-	Você pode [baixar um arquivo .zip](https://github.com/Azure-Samples/app-service-api-dotnet-contact-list/archive/master.zip) ou clonar o repositório em seu computador local.
+	Você pode clicar no botão **Baixar ZIP** ou clonar o repositório para seu computador local.
 
-2. Abra a solução ContactsList no Visual Studio 2015 ou 2013.
+2. Abra a solução ToDoList no Visual Studio 2015 ou 2013.
+
+	A solução do Visual Studio é um aplicativo de exemplo que funciona com itens pendentes simples que consistem em uma descrição e um proprietário.
+
+		public class ToDoItem 
+		{ 
+		    public int ID { get; set; } 
+		    public string Description { get; set; } 
+		    public string Owner { get; set; } 
+		} 
+ 
+	A solução inclui três projetos:
+
+	![](./media/app-service-api-dotnet-get-started/projectsinse.png)
+
+	* **ToDoListAngular** ‒ O front-end: um SPA do AngularJS que chama a camada intermediária. 
+
+	* **ToDoListAPI** ‒ A camada intermediária: um projeto de API Web do ASP.NET que chama a camada de dados para executar operações CRUD em itens pendentes.
+
+	* **ToDoListDataAPI** ‒ a camada de dados: um projeto de API Web do ASP.NET que executa operações CRUD nos itens pendentes. Os itens pendentes são armazenados na memória, o que significa que, sempre que o aplicativo é reiniciado, todas as alterações são perdidas.
+
+	A camada intermediária fornece a ID de usuário no campo `Owner` quando chama a camada de dados. No código que você baixa, a ID de usuário é sempre "*". Quando você adicionar a autenticação nos tutoriais posteriores, a camada intermediária fornecerá a ID de usuário real para a camada de dados.
 
 2. Compile o projeto para restaurar os pacotes NuGet.
 
+### Opcional: executar o aplicativo localmente
+
+Nesta seção, você verificará se pode executar o cliente localmente e chamar a API enquanto ela também estiver sendo executada localmente.
+
+**Observação:** essas instruções funcionam para o Internet Explorer e o Edge porque esses navegadores permitem chamadas JavaScript entre origens de e para URLs `http://localhost`. Se você estiver usando o Chrome, inicie o navegador com a opção `--disable-web-security`. Se você estiver usando o Firefox, ignore esta seção.
+
+1. Defina todos os três projetos como projetos de inicialização, primeiro iniciando ToDoListDataAPI e, em seguida, ToDoListAPI e ToDoListAngular. (Clique com o botão direito do mouse na solução, clique em **Propriedades**, selecione **Vários projetos de inicialização**, coloque os projetos na ordem correta e defina **Ação** como **Iniciar** para cada um deles.)  
+
+2. Pressione F5 para iniciar os projetos.
+
+	Duas janelas de navegador são abertas com páginas de erro HTTP 403, o que é normal para projetos de API Web, e a terceira janela do navegador mostra a interface do usuário do AngularJS.
+
+3. Na janela do navegador que mostra a interface do usuário do AngularJS, clique na guia **Lista de Tarefas Pendentes**.
+
+	A interface do usuário mostra dois itens pendentes padrão.
+
+	![](./media/app-service-api-dotnet-get-started/todospa.png)
+
+4. Adicione, edite e exclua itens pendentes para ver como o aplicativo funciona.
+
+	As alterações feitas são armazenadas na memória e são perdidas quando você reinicia o aplicativo.
+
+3. Feche as janelas do navegador.
+
 ## Usar a interface do usuário e metadados Swagger
 
-O suporte a metadados da API 2.0 do [Swagger](http://swagger.io/) é integrado ao Serviço de Aplicativo do Azure. Cada aplicativo de API pode definir um ponto de extremidade de URL que retorna metadados para a API no formato JSON Swagger. Os metadados retornados do ponto de extremidade podem ser usados para gerar código de cliente.
+O suporte a metadados da API 2.0 do [Swagger](http://swagger.io/) é integrado ao Serviço de Aplicativo do Azure. Cada aplicativo de API especifica um ponto de extremidade de URL que retorna metadados para a API no formato JSON Swagger. Os metadados retornados do ponto de extremidade podem ser usados para gerar código de cliente.
 
-Para fornecer metadados do Swagger 2.0 para um projeto de API Web ASP.NET, você poderá instalar o pacote NuGet [Swashbuckle](https://www.nuget.org/packages/Swashbuckle). O Swashbuckle usa a Reflexão para gerar os metadados dinamicamente. O pacote NuGet Swashbuckle já está instalado no projeto ContactsList.API que você baixou e já estará instalado quando você criar um novo projeto usando o modelo de projeto **Aplicativo de API do Azure**. (No Visual Studio: **Arquivo > Novo > Projeto > Aplicativo Web ASP.NET > Aplicativo de API do Azure**.)
+O pacote [Swashbuckle](https://www.nuget.org/packages/Swashbuckle) do NuGet fornece metadados Swagger 2.0 para um projeto de API Web do ASP.NET. O Swashbuckle usa a Reflexão para gerar os metadados dinamicamente.
+
+O pacote NuGet Swashbuckle já está instalado nos projetos ToDoListDataAPI e ToDoListAPI que você baixou e já estará instalado quando você criar um novo projeto usando o modelo de projeto **Aplicativo de API do Azure**. (No Visual Studio: **Arquivo > Novo > Projeto > Aplicativo Web ASP.NET > Aplicativo de API do Azure**.)
 
 Nesta seção do tutorial, você verá os metadados do Swagger 2.0 gerados e experimentará uma interface do usuário de teste baseada nos metadados do Swagger.
 
-2. Defina o projeto ContactsList.API como projeto de inicialização. (Não o projeto CompanyContacts.API. Esse projeto é usado em um dos tutoriais posteriores.) 
+2. Defina o projeto ToDoListDataAPI como projeto de inicialização. 
  
 4. Pressione F5 para executar o projeto no modo de depuração.
 
-	O navegador abre mostrando a página 403 Proibido.
+	O navegador é aberto e mostra a página de erro HTTP 403.
 
-	![](./media/app-service-api-dotnet-get-started/403.png)
+12. Na barra de endereços do navegador, adicione `swagger/docs/v1` no fim da linha e pressione Return. (A URL será `http://localhost:45914/swagger/docs/v1`.)
 
-12. Na barra de endereços do navegador, adicione `swagger/docs/v1` no fim da linha e pressione Return. (A URL será `http://localhost:51864/swagger/docs/v1`.)
-
-	Essa é a URL padrão usada pelo Swashbuckle para retornar metadados JSON do Swagger 2.0 para a API. Se você estiver usando o Internet Explorer, o navegador solicitará que baixe um arquivo v1.json.
+	Essa é a URL padrão usada pelo Swashbuckle para retornar metadados JSON do Swagger 2.0 para a API. Se você estiver usando o Internet Explorer, o navegador solicitará que baixe um arquivo *v1.json*.
 
 	![](./media/app-service-api-dotnet-get-started/iev1json.png)
 
-	Se você estiver usando o Chrome ou o Edge, o navegador exibirá o JSON em sua janela.
+	Se você estiver usando o Chrome, o Firefox ou o Edge, o navegador exibirá o JSON em sua janela.
 
 	![](./media/app-service-api-dotnet-get-started/chromev1json.png)
 
@@ -113,23 +143,31 @@ Nesta seção do tutorial, você verá os metadados do Swagger 2.0 gerados e exp
 		  "swagger": "2.0",
 		  "info": {
 		    "version": "v1",
-		    "title": "ContactsList.API"
+		    "title": "ToDoListDataAPI"
 		  },
-		  "host": "localhost:51864",
+		  "host": "localhost:45914",
 		  "schemes": [ "http" ],
 		  "paths": {
-		    "/api/Contacts": {
+		    "/api/ToDoList": {
 		      "get": {
-		        "tags": [ "Contacts" ],
-		        "operationId": "Contacts_Get",
+		        "tags": [ "ToDoList" ],
+		        "operationId": "ToDoList_GetByOwner",
 		        "consumes": [ ],
 		        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+		        "parameters": [
+		          {
+		            "name": "owner",
+		            "in": "query",
+		            "required": true,
+		            "type": "string"
+		          }
+		        ],
 		        "responses": {
 		          "200": {
 		            "description": "OK",
 		            "schema": {
 		              "type": "array",
-		              "items": { "$ref": "#/definitions/Contact" }
+		              "items": { "$ref": "#/definitions/ToDoItem" }
 		            }
 		          }
 		        },
@@ -138,7 +176,7 @@ Nesta seção do tutorial, você verá os metadados do Swagger 2.0 gerados e exp
 
 1. Feche o navegador.
 
-3. No projeto ContactsList.API no **Gerenciador de Soluções**, abra o arquivo *App\_Start\\SwaggerConfig.cs*, role para baixo até o código a seguir e remova as marcas de comentário dele.
+3. No projeto ToDoListDataAPI no **Gerenciador de Soluções**, abra o arquivo *App\_Start\\SwaggerConfig.cs*, role para baixo até o código a seguir e remova as marcas de comentário dele.
 
 		/*
 		    })
@@ -146,62 +184,63 @@ Nesta seção do tutorial, você verá os metadados do Swagger 2.0 gerados e exp
 		    {
 		*/
 
-	O arquivo SwaggerConfig.cs é criado quando você instala o pacote do Swashbuckle em um projeto. O arquivo fornece várias maneiras de se configurar o Swashbuckle.
+	O arquivo *SwaggerConfig.cs* é criado quando você instala o pacote do Swashbuckle em um projeto. O arquivo fornece várias maneiras de se configurar o Swashbuckle.
 
 	O código que você removeu habilita a interface do usuário do Swagger que será usada nas etapas a seguir. Quando você cria um projeto de API Web usando o modelo de projeto de aplicativo de API, o código é comentado por padrão como medida de segurança.
 
 5. Execute o projeto novamente.
 
-3. Na barra de endereços do navegador, adicione `swagger` no fim da linha e pressione Return. (A URL será `http://localhost:51864/swagger`).
+3. Na barra de endereços do navegador, adicione `swagger` no fim da linha e pressione Return. (A URL será `http://localhost:45914/swagger`.)
 
-4. Quando for exibida a página de interface do usuário do Swagger, clique em **Contatos** para ver os métodos disponíveis.
+4. Quando for exibida a página de interface do usuário do Swagger, clique em **ToDoList** para ver os métodos disponíveis.
 
-	![](./media/app-service-api-dotnet-get-started/contactsmethods.png)
+	![](./media/app-service-api-dotnet-get-started/methods.png)
 
-5. Clique em **Obter > Experimentar**.
+5. Clique em **Obter**.
 
-	A interface do usuário do Swagger chama o método ContactsList e exibe os resultados JSON.
+6. Digite um asterisco como o valor do parâmetro `owner` e clique em **Experimentar**.
+
+	![](./media/app-service-api-dotnet-get-started/gettryitout1.png)
+
+	A interface do usuário do Swagger chama o método Get ToDoList e exibe os resultados JSON.
 
 	![](./media/app-service-api-dotnet-get-started/gettryitout.png)
 
 6. Clique em **Postar** e marque a caixa em **Esquema de Modelo**.
 
-	Clicar no esquema de modelo preencherá previamente a caixa de entrada onde é possível especificar o valor do parâmetro para o método Post.
+	Clicar no esquema de modelo preencherá previamente a caixa de entrada onde é possível especificar o valor do parâmetro para o método Post. (Se isso não funcionar no Internet Explorer, use um navegador diferente ou insira o valor do parâmetro manualmente na próxima etapa.
 
 	![](./media/app-service-api-dotnet-get-started/post.png)
 
-7. Altere o JSON na caixa de entrada do parâmetro `contact` para que ele seja semelhante ao exemplo a seguir ou substitua-o por seu próprio nome e endereço de email:
+7. Altere o JSON na caixa de entrada do parâmetro `contact` para que ele seja semelhante ao exemplo a seguir ou substitua-o por seu próprio texto de descrição:
 
 		{
-		  "CreatedBy": "",
-		  "EmailAddress": "carson@contoso.com",
-		  "Id": 4,
-		  "Name": "Alexander Carson"
-		} 
+		  "ID": 2,
+		  "Description": "buy the dog a toy",
+		  "Owner": "*"
+		}
 
 10. Clique em **Experimentar**.
 
-	A API ContactsList retorna um HTTP 200 e um corpo de resposta que confirma a adição.
+	A API de ToDoList retorna um código de resposta HTTP 204 que indica êxito.
 
 11. Clique em **Obter > Experimentar**.
 
-	A resposta do método Get agora inclui o novo contato.
+	A resposta do método Get agora inclui o novo item pendente.
 
 12. Experimente também os métodos Put, Delete e Get by ID e feche o navegador.
 
-O Swashbuckle funciona com qualquer projeto de API Web ASP.NET. Se você deseja adicionar a geração de metadados de Swagger a um projeto existente, instale o pacote Swashbuckle. Para criar um novo projeto, use o modelo de projeto ASP.NET para o **Aplicativo de API do Azure**, mostrado na ilustração a seguir.
+O Swashbuckle funciona com qualquer projeto de API Web ASP.NET. Se você deseja adicionar a geração de metadados de Swagger a um projeto existente, instale o pacote Swashbuckle. Para criar um novo projeto, use o modelo de projeto ASP.NET para o **Aplicativo de API do Azure**, mostrado na ilustração a seguir. Esse modelo cria um projeto de API Web com o Swashbuckle instalado.
 
 ![](./media/app-service-api-dotnet-get-started/apiapptemplate.png)
 
-Esse modelo cria um projeto de API Web com o Swashbuckle instalado.
-
 **Observação:** por padrão, o Swashbuckle pode gerar IDs de operação do Swagger duplicadas para os métodos do controlador. Isso acontecerá se o controlador tiver métodos HTTP sobrecarregados, por exemplo: `Get()` e `Get(id)`. Para obter informações sobre como lidar com sobrecargas, consulte [Personalizar definições de API geradas pelo Swashbuckle](app-service-api-dotnet-swashbuckle-customize.md). Se você criar um projeto de API Web no Visual Studio usando o modelo de Aplicativo de API do Azure, o código que gera IDs de operação exclusivas será adicionado automaticamente ao arquivo *SwaggerConfig.cs*.
 
-## Criar um aplicativo de API no Azure e implantar o projeto ContactsList.API nele
+## Criar um aplicativo de API no Azure e implantar o projeto ToDoListAPI nele
 
-Nesta seção, use as ferramentas do Azure integradas ao assistente **Publicar Web** do Visual Studio para criar um novo aplicativo de API no Azure. Em seguida, implante o projeto ContactsList.API no novo aplicativo de API e chame a API executando a interface do usuário do Swagger novamente, desta vez enquanto ele estiver sendo executado na nuvem.
+Nesta seção, use as ferramentas do Azure integradas ao assistente **Publicar Web** do Visual Studio para criar um novo aplicativo de API no Azure. Em seguida, implante o projeto ToDoListDataAPI no novo aplicativo de API e chame a API executando a interface do usuário do Swagger novamente, desta vez enquanto ele estiver sendo executado na nuvem.
 
-1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto ContactsList.API e clique em **Publicar**.
+1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto ToDoListDataAPI e clique em **Publicar**.
 
 3.  Na etapa **Perfil** do assistente **Publicar Web**, clique em **Serviço de Aplicativo do Microsoft Azure**.
 
@@ -217,21 +256,21 @@ Nesta seção, use as ferramentas do Azure integradas ao assistente **Publicar W
 
 	![](./media/app-service-api-dotnet-get-started/apptype.png)
 
-	A alteração do tipo para **Aplicativo de API** não determina os recursos que estarão disponíveis para o novo aplicativo. A URL da definição de API (que você verá posteriormente neste tutorial), o suporte a CORS (que você verá no próximo tutorial) e a autenticação (que você verá nos três últimos tutoriais desta série) estão disponíveis para aplicativos Web e aplicativos móveis, bem como aplicativos de API. A criação de um aplicativo como um aplicativo de API tem apenas estes efeitos:
+	A definição do tipo como **Aplicativo de API** não determina os recursos que estarão disponíveis para o novo aplicativo. A URL da definição de API (que você verá posteriormente neste tutorial), o suporte a CORS (que você verá no próximo tutorial) e a autenticação (que você verá nos três últimos tutoriais desta série) estão disponíveis para aplicativos Web e aplicativos móveis, bem como aplicativos de API. A criação de um aplicativo como um aplicativo de API tem apenas estes efeitos:
 
-	a. No portal do Azure, o ícone do tipo de aplicativo ou o texto aparecerá em títulos de folha e listas de aplicativos. Além disso, na folha **Configurações**, a seção API aparece anteriormente na lista para um aplicativo de API em comparação a outros tipos de aplicativos.
+	a. No portal do Azure, o ícone do tipo de aplicativo ou o texto aparecerá em títulos de folha e listas de aplicativos. Além disso, na folha **Configurações**, a seção API aparece anteriormente na lista para um aplicativo de API, em comparação com outros tipos de aplicativos.
 
 	b. No Visual Studio com o SDK do Azure para .NET 2.8.1, o Visual Studio define a URL de definição de API durante a criação de um novo aplicativo de API ASP.NET, mas não para outros tipos de aplicativos.
 
-4. Insira um **Nome de Aplicativo de API** que seja exclusivo no domínio *azurewebsites.net*.
+4. Insira um **Nome do aplicativo de API** que seja exclusivo no domínio *azurewebsites.net*, como ToDoListDataAPI mais um número para torná-lo exclusivo.
 
 	O Visual Studio sugere um nome exclusivo acrescentando uma cadeia de caracteres de data e hora ao nome do projeto. Se preferir, você poderá aceitar esse nome.
 
 	Se você inserir um nome usado por outra pessoa, verá um ponto de exclamação vermelho à direita em vez de uma marca de verificação verde e precisará inserir outro nome de site.
 
-	O Azure usará esse nome como o prefixo para a URL do aplicativo. A URL completa consistirá nesse nome mais *.azurewebsites.net*. Por exemplo, se o nome for `ContactsListAPI`, a URL será `contactslistapi.azurewebsites.net`.
+	O Azure usará esse nome como o prefixo para a URL do aplicativo. A URL completa consistirá nesse nome mais *.azurewebsites.net*. Por exemplo, se o nome for `ToDoListDataAPI`, a URL será `todolistdataapi.azurewebsites.net`.
 
-6. Na lista suspensa **Grupo de Recursos**, insira "ContactsListGroup" ou outro nome, se preferir.
+6. Na lista suspensa **Grupo de Recursos**, insira "ToDoListGroup" ou outro nome, se preferir.
 
 	Essa caixa permite que você selecione um [grupo de recursos](../azure-preview-portal-using-resource-groups.md) existente ou crie um novo digitando um nome diferente de qualquer grupo de recursos existente na assinatura.
 
@@ -243,7 +282,7 @@ Nesta seção, use as ferramentas do Azure integradas ao assistente **Publicar W
 
 	Para saber mais sobre os planos do Serviço de Aplicativo, consulte a [Visão geral dos planos do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
-5. Na caixa de diálogo **Configurar o Plano de Serviço de Aplicativo**, insira "ContactsListPlan" ou outro nome, se preferir.
+5. Na caixa de diálogo **Configurar o Plano de Serviço de Aplicativo**, insira "ToDoListPlan" ou outro nome, se preferir.
 
 5. Na lista suspensa **Local**, escolha o local mais próximo de você.
 
@@ -267,13 +306,13 @@ Nesta seção, use as ferramentas do Azure integradas ao assistente **Publicar W
 
 	![](./media/app-service-api-dotnet-get-started/clickpublish.png)
 
-	O Visual Studio implanta o projeto ContactsList.API no novo aplicativo de API e abre um navegador para a URL do aplicativo de API. Uma página "criado com êxito" será exibida no navegador.
+	O Visual Studio implanta o projeto ToDoListDataAPI no novo aplicativo de API e abre um navegador para a URL do aplicativo de API. Uma página "criado com êxito" será exibida no navegador.
 
 	![](./media/app-service-api-dotnet-get-started/appcreated.png)
 
 11. Adicione "swagger" à URL na barra de endereço do navegador e pressione Enter. (A URL será `http://{apiappname}.azurewebsites.net/swagger`).
 
-	O navegador exibe a mesma interface do usuário do Swagger que você viu anteriormente, mas agora ela está em execução na nuvem. Experimente o método Get e você verá que voltará aos três contatos padrão, pois as alterações feitas anteriormente foram salvas em um arquivo local. Qualquer alteração feita agora será salva no sistema de arquivos do aplicativo de API do Azure.
+	O navegador exibe a mesma interface do usuário do Swagger que você viu anteriormente, mas agora ela está em execução na nuvem. Experimente o método Get e você verá que retornou aos dois itens pendentes padrão, pois as alterações feitas anteriormente foram salvas na memória no computador local.
 
 12. Abra o [Portal do Azure](https://portal.azure.com/).
  
@@ -295,45 +334,45 @@ Nesta seção, use as ferramentas do Azure integradas ao assistente **Publicar W
 
 Você também pode configurar a URL de definição de API para um aplicativo de API usando ferramentas do Gerenciador de Recursos do Azure, como o Azure PowerShell, a CLI ou o [Gerenciador de Recursos](https://resources.azure.com/).
 
-Defina a propriedade `apiDefinition` no tipo de recurso `Microsoft.Web/sites/config` para o recurso `<site name>/web`. Por exemplo, no **Gerenciador de Recursos**, vá para **assinaturas > {sua assinatura} > resourceGroups > {seu grupo de recursos} > provedores > Microsoft.Web > sites > {seu site} > configuração > web** e você verá a propriedade `apiDefinition`:
+Para fazer isso, defina a propriedade `apiDefinition` no tipo de recurso `Microsoft.Web/sites/config` para o recurso `<site name>/web`. Por exemplo, no **Gerenciador de Recursos**, vá para **assinaturas > {sua assinatura} > resourceGroups > {seu grupo de recursos} > provedores > Microsoft.Web > sites > {seu site} > configuração > Web** e você verá a propriedade `apiDefinition`:
 
 		"apiDefinition": {
-		  "url": "https://contactslistapi.azurewebsites.net/swagger/docs/v1"
+		  "url": "https://todolistdataapi.azurewebsites.net/swagger/docs/v1"
 		}
 
 ## <a id="codegen"></a> Consumir de um cliente .NET usando código de cliente gerado
 
 Uma das vantagens da integração do Swagger a aplicativos de API do Azure é a geração automática de código. As classes de cliente geradas tornam mais fácil escrever código para chamar um aplicativo de API.
 
-Nesta seção, você verá como consumir um aplicativo de API de um aplicativo Web MVC ASP.NET. Você executará o cliente MVC e a API Web localmente primeiro, implantará o cliente em um novo aplicativo Web no Serviço de Aplicativo do Azure e o executará na nuvem.
+Nesta seção, você verá como consumir um aplicativo de API do código de API Web do ASP.NET.
 
 ### Gerar código de cliente
 
 Você pode gerar o código cliente para um aplicativo de API usando o Visual Studio ou a linha de comando. Para este tutorial, você usará o Visual Studio. Para saber mais sobre como fazer isso na linha de comando, confira o arquivo Leiame do repositório [Azure/autorest](https://github.com/azure/autorest) no GitHub.com.
 
-O projeto ContactsList.MVC já tem o código cliente gerado, mas você o excluirá e o regenerará, o que redefinirá a URL de destino padrão para seu próprio aplicativo de API.
+O projeto ToDoListAPI já tem o código cliente gerado, mas você o excluirá e o regenerará, o que redefinirá a URL de destino padrão para seu próprio aplicativo de API.
 
-1. No **Gerenciador de Soluções** do Visual Studio, no projeto ContactsList.MVC, exclua a pasta *ContactsList.API*.
+1. No **Gerenciador de Soluções** do Visual Studio, no projeto ToDoListAPI, exclua a pasta *ToDoListDataAPI*.
 
 	Essa pasta foi criada usando o processo de geração de código que você está prestes a seguir.
 
 	![](./media/app-service-api-dotnet-get-started/deletecodegen.png)
 
-2. Clique com o botão direito do mouse no projeto ContactsList.MVC e clique em **Adicionar > Cliente da API REST**.
+2. Clique com o botão direito do mouse no projeto ToDoListAPI e clique em **Adicionar > Cliente da API REST**.
 
 	![](./media/app-service-api-dotnet-get-started/codegenmenu.png)
 
-3. Na caixa de diálogo **Adicionar Cliente da API REST**, clique em **Baixar do Aplicativo de API do Microsoft Azure** e em **Procurar**.
+3. Na caixa de diálogo **Adicionar Cliente da API REST**, clique em **URL do Swagger** e em **Selecionar Ativo do Azure**.
 
 	![](./media/app-service-api-dotnet-get-started/codegenbrowse.png)
 
-8. Na caixa de diálogo **Serviço de Aplicativo**, expanda o grupo de recursos **ContactsListGroup**, selecione o aplicativo de API e clique em **OK**.
+8. Na caixa de diálogo **Serviço de Aplicativo**, expanda o grupo de recursos que você está usando neste tutorial, selecione o aplicativo de API e clique em **OK**.
 
 	Essa caixa de diálogo permite mais de uma forma de organização de aplicativos de API na lista, caso você tenha muito muitos para percorrer. Ele também permite inserir uma cadeia de caracteres de pesquisa para filtrar os aplicativos de API pelo nome.
 
 	![](./media/app-service-api-dotnet-get-started/codegenselect.png)
 
-	Se você não encontrar o aplicativo de API na lista, é possível que, ao criar o aplicativo de API, você tenha omitido acidentalmente a etapa que alterava o tipo de aplicativo Web para aplicativo de API. Nesse caso, você pode criar um novo aplicativo de API repetindo as etapas que realizou anteriormente. Você precisará escolher um nome diferente para o aplicativo de API, a menos que acesse o portal e exclua o aplicativo Web primeiro.
+	Se você não encontrar o aplicativo de API na lista, é possível que, ao criar o aplicativo de API, você tenha omitido acidentalmente a etapa que alterava o tipo de aplicativo Web para aplicativo de API. Nesse caso, você pode criar um novo aplicativo de API repetindo as etapas que realizou anteriormente. Você precisará escolher um nome diferente para o aplicativo de API.
 
 	Observe que, quando você retornar à caixa de diálogo **Adicionar Cliente da API REST**, a caixa de texto terá sido preenchida com o valor de URL de definição de API visto anteriormente no portal.
 
@@ -341,7 +380,7 @@ O projeto ContactsList.MVC já tem o código cliente gerado, mas você o excluir
 
 	Uma maneira alternativa de obter metadados para a geração de código é inserir a URL diretamente em vez de passar pelo diálogo Procurar. Por exemplo, se você tiver implantado sua API em um aplicativo Web e ele não apareceu na caixa de diálogo Procurar, poderá inserir manualmente a URL que retorna metadados Swagger aqui.
 
-	Outra maneira alternativa de obter metadados é usar a opção **Escolher um arquivo de metadados do Swagger existente**. Por exemplo, se você quiser gerar código cliente antes de implantar no Azure, poderá executar localmente, baixar o arquivo JSON do Swagger e selecioná-lo aqui.
+	Outra maneira alternativa de obter metadados é usar a opção **Selecionar um arquivo de metadados do Swagger existente**. Por exemplo, se você quiser gerar código cliente antes de implantar no Azure, poderá executar localmente, baixar o arquivo JSON do Swagger e selecioná-lo aqui.
 
 9. Na caixa de diálogo **Adicionar Cliente da API REST**, clique em **OK**.
 
@@ -349,76 +388,41 @@ O projeto ContactsList.MVC já tem o código cliente gerado, mas você o excluir
 
 	![](./media/app-service-api-dotnet-get-started/codegenfiles.png)
 
-5. Abra *Controllers\\ContactsController.cs* para ver o código que chama a API usando o cliente gerado.
+5. No projeto ToDoListAPI, abra *Controllers\\ToDoListController.cs* para ver o código que chama a API usando o cliente gerado.
 
-	O trecho a seguir mostra como instanciar o objeto de cliente e chamar o método Get.
+	O trecho a seguir mostra como o código instancia o objeto de cliente e chama o método Get.
 
-		private ContactsListAPI db = new ContactsListAPI(new Uri("http://localhost:51864"));
+		private ToDoListDataAPI db = new ToDoListDataAPI(new Uri("http://localhost:45914"));
 		
 		public ActionResult Index()
 		{
 		    return View(db.Contacts.Get());
 		}
 
-	Esse código passa para a URL do IIS Express local do projeto da API e para o construtor de classe de cliente a fim de que você possa executar o projeto Web do MVC e o projeto de API localmente. Se você omitir o parâmetro do construtor, o ponto de extremidade padrão será a URL da qual você gerou o código.
+	Esse código passa a URL do IIS Express local do projeto da API para o construtor de classe de cliente de modo que você possa executar o aplicativo localmente. Se você omitir o parâmetro do construtor, o ponto de extremidade padrão será a URL da qual você gerou o código.
 
-6. A classe de cliente será gerada com um nome diferente baseado no nome de seu aplicativo de API. Altere o código para que o nome do tipo corresponda ao que foi gerado em seu projeto. Por exemplo, se você desse ao Aplicativo de API o nome ContactsListAPIContoso, o código seria semelhante ao exemplo a seguir:
+6. A classe de cliente será gerada com um nome diferente baseado no nome de seu aplicativo de API. Altere o código para que o nome do tipo corresponda ao que foi gerado em seu projeto e remova a URL. Por exemplo, se você desse ao Aplicativo de API o nome ToDoListDataAPI0121, o código seria semelhante ao seguinte exemplo:
 
-		private ContactsListAPIContoso db = new ContactsListAPIContoso(new Uri("http://localhost:51864"));
+		private ToDoListDataAPI0121 db = new ToDoListDataAPI0121();
 		
 		public ActionResult Index()
 		{
 		    return View(db.Contacts.Get());
 		}
 
-7. Compilar a solução.
+	A URL de destino padrão é o seu aplicativo de API ToDoListDataAPI porque o código é gerado com base nele. Se você tiver usado um método diferente para gerar o código, talvez tenha de especificar a URL do aplicativo de API do Azure da mesma maneira que especificou a URL local.
 
-O controlador e os modos de exibição de projeto MVC são parecidos com o controlador e os modos de exibição com scaffolding para o Entity Framework porque é como eles foram criados, realizando o scaffolding de um modelo de dados do Entity Framework e fazendo alterações secundárias para usar o cliente da API REST em vez de um contexto de banco de dados do Entity Framework.
+#### Criar um aplicativo de API para hospedar a camada intermediária
 
-### Executar localmente
-
-1. Defina os projetos ContactsList.API e ContactsList.MVC como projetos de inicialização, com ContactsList.API iniciando antes de ContactsList.MVC. (Clique com o botão direito do mouse na solução, clique em **Propriedades** e em **Vários projetos de inicialização** e defina cada projeto como **Iniciar**. Use os ícones de seta para cima/para baixo a fim de colocar ContactsList.API como o primeiro da lista). 
-
-2. Pressione F5 para iniciar os projetos.
-
-	Um navegador exibe a página 403 para a API e outro exibe a home page do aplicativo MVC.
-
-3. Clique em **Contatos** na barra de menus do navegador que exibe a home page do aplicativo MVC.
-
-	A interface do usuário do MVC exibe os contatos armazenados localmente; você pode usá-la para adicionar e excluir contatos.
-
-	![](./media/app-service-api-dotnet-get-started/mvccontacts.png)
-
-### Criar um aplicativo Web no Azure e implantar o projeto ContactsList.MVC nele
-
-Nesta seção, você usa o mesmo método para criar um aplicativo Web usado anteriormente para criar um aplicativo de API, e o mesmo método para implantar um projeto Web no aplicativo Web do Azure.
-
-#### Alterar o projeto MVC para apontar para o aplicativo de API do Azure 
-
-Antes de implantar no Azure, altere o ponto de extremidade de API no projeto MVC para que, quando o código for implantado, chame o aplicativo de API do Azure que você criou anteriormente em vez do localhost.
-
-1. No projeto ContactsList.MVC, abra *Controllers\\ContactsController.cs*.
-
-2. Comente a linha que define a URL base da API como a URL de localhost, remova o comentário da linha que não tem parâmetros de construtor. O código é agora semelhante ao exemplo a seguir, com a diferença que, em ambas as linhas, o nome de classe reflete o nome do aplicativo de API.
-
-		private ContactsListAPI db = new ContactsListAPI();
-		//private ContactsListAPI db = new ContactsListAPI(new Uri("http://localhost:51864"));
-
-	A URL de destino padrão é o seu aplicativo de API do Azure porque o código é gerado a partir dele; se você tiver usado um método diferente para gerar o código, talvez tenha de especificar a URL do aplicativo de API do Azure da mesma maneira que especificou a URL local.
-
-#### Criar um aplicativo Web para hospedar o site do MVC
-
-1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto ContactsList.MVC e clique em **Publicar**.
-
-2. No assistente **Publicar Web**, clique na guia **Perfil**.
+1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto ToDoListAPI e clique em **Publicar**.
 
 3.  Na guia **Perfil** do assistente **Publicar Web**, clique em **Serviço de Aplicativo do Microsoft Azure**.
 
 5. Na caixa de diálogo **Serviço de Aplicativo**, clique em **Novo**.
 
-3. Na guia **Hospedagem** da caixa de diálogo **Criar Serviço de Aplicativo**, clique em **Alterar Tipo** e verifique se o tipo é **Aplicativo Web**.
+3. Na guia **Hospedagem** da caixa de diálogo **Criar Serviço de Aplicativo**, clique em **Alterar Tipo** e altere o tipo para **Aplicativo de API**.
 
-4. Insira um **Nome de Aplicativo Web** que seja exclusivo no domínio *azurewebsites.net*.
+4. Insira um **Nome de Aplicativo de API** que seja exclusivo no domínio *azurewebsites.net*.
 
 5. Escolha a **Assinatura** do Azure com a qual você deseja trabalhar.
 
@@ -428,18 +432,26 @@ Antes de implantar no Azure, altere o ponto de extremidade de API no projeto MVC
 
 7. Clique em **Criar**.
 
-	O Visual Studio cria o aplicativo Web, cria um perfil de publicação para ele e exibe a etapa **Conexão** do assistente **Publicar Web**.
+	O Visual Studio cria o aplicativo de API, cria um perfil de publicação para ele e exibe a etapa **Conexão** do assistente **Publicar Web**.
 
-### Implantar o projeto ContactsList.Web no novo aplicativo Web
+### Implantar o projeto ToDoListAPI para o novo aplicativo de API
 
 3.  Na etapa **Conexão** do assistente **Publicar Web**, clique em **Publicar**.
 
-	O Visual Studio implanta o projeto ContactsList.MVC no novo aplicativo Web e abre um navegador para a URL do aplicativo Web. Será mostrada a mesma interface do usuário do MVC que você viu em execução localmente, mas agora ela mostra os contatos armazenados no sistema de arquivos do aplicativo de API do Azure.
+	O Visual Studio implanta o projeto ToDoListAPI no novo aplicativo de API e abre um navegador para a URL do aplicativo de API. A página "Criado com êxito" é exibida.
 
-	![](./media/app-service-api-dotnet-get-started/codegencontacts.png)
+### Teste para verificar se ToDoListAPI chama ToDoListDataAPI
+
+11. Adicione "swagger" à URL na barra de endereço do navegador e pressione Enter. (A URL será `http://{apiappname}.azurewebsites.net/swagger`).
+
+	O navegador exibe a mesma interface do usuário do Swagger que você viu anteriormente para ToDoListDataAPI, mas agora `owner` não é um campo obrigatório, pois o aplicativo de API de camada intermediária está enviando esse valor ao aplicativo de API de camada de dados para você.
+
+12. Experimente o método Get e os outros métodos para validar se o aplicativo de API de camada intermediária está chamando o aplicativo de API de camada de dados com êxito.
+
+	![](./media/app-service-api-dotnet-get-started/midtierget.png)
 
 ## Próximas etapas
 
 Neste tutorial, você viu como criar aplicativos de API, implantar código neles, gerar código cliente para eles e consumi-los usando clientes .NET. O próximo tutorial na série de introdução aos Aplicativos de API mostra como [consumir aplicativos de API de clientes JavaScript usando CORS](app-service-api-cors-consume-javascript.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

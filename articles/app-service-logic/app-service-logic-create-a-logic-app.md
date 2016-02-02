@@ -40,7 +40,7 @@ Primeiro, você precisa criar os dois conectores que usará: [Conector do Dropbo
 
 1. Entre no Portal do Azure.
 
-2. Clique em [Marketplace](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps) na tela inicial e pesquise por Twitter (ou [clique aqui](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2)).
+2. Clique em [Marketplace](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps/) na tela inicial e pesquise por Twitter (ou [clique aqui](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2/)).
 
 3. Selecione o **Conector do Twitter** e clique em **Criar**. Você obterá uma exibição com todas as suas configurações. Você pode deixar o nome como **Conector do Twitter**.
 4. Selecione as **Configurações do pacote**: aqui, você terá de inserir as informações de seu aplicativo Twitter. Você pode configurar um aplicativo gratuito com estas etapas:
@@ -70,7 +70,7 @@ Primeiro, você precisa criar os dois conectores que usará: [Conector do Dropbo
 
 10. Clique em **Criar**. A etapa de provisionamento pode levar um ou dois minutos.
 
-11. Agora, repita o processo com o [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2).
+11. Agora, repita o processo com o [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2/).
 
 ## Inicie o aplicativo lógico
 
@@ -122,7 +122,7 @@ As ações são o que seu fluxo de trabalho faz. Você pode ter qualquer quantid
 
 	![Ações](./media/app-service-logic-create-a-logic-app/actions.png)
 
-	> [AZURE.NOTE]O botão **Autorizar** usa a segurança OAUTH para se conectar aos serviços SaaS, como o Twitter. Mais informações sobre OAUTH em [Segurança OAUTH](app-service-logic-oauth-security.md).
+	> [AZURE.NOTE] O botão **Autorizar** usa a segurança OAUTH para se conectar aos serviços SaaS, como o Twitter. Mais informações sobre OAUTH em [Segurança OAUTH](app-service-logic-oauth-security.md).
 
 3. Clique em **Pesquisar tweets**, e em **Especificar uma consulta**, digite algo como `#MicrosoftAzure` e clique na marca de seleção verde.
 
@@ -188,4 +188,4 @@ Em menos de 5 minutos, você configurou um aplicativo lógico simples e o coloco
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [Usar os recursos de aplicativos lógicos]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

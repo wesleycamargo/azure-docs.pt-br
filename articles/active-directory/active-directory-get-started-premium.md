@@ -13,14 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/30/2015"
+	ms.date="01/26/2016"
 	ms.author="markvi"/>
 
 # Introdução ao Active Directory Premium do Azure
 
 O Active Directory do Azure é oferecido em três edições: Gratuito, Basic e Premium. A edição gratuita é fornecida com uma assinatura do Azure ou do Office 365. As edições Basic e Premium estão disponíveis por meio de um programa [Microsoft Enterprise Agreement](https://www.microsoft.com/pt-BR/licensing/licensing-programs/enterprise.aspx) ou de [Licenciamento por volume aberto](https://www.microsoft.com/pt-BR/licensing/licensing-programs/open-license.aspx). Os assinantes do Azure e o Office 365 também podem adquirir o Active Directory Premium online. [Entre aqui](https://portal.office.com/Commerce/Catalog.aspx) para comprá-lo.
 
-> [AZURE.NOTE]As edições Premium e Basic do Active Directory do Azure estão disponíveis para clientes na China usando a instância mundial do Active Directory do Azure. As edições Azure Active Directory Premium e Basic não têm suporte atualmente no serviço Microsoft Azure operado pela 21Vianet na China. Para obter mais informações, entre em contato conosco no [Fórum do Active Directory do Azure](http://feedback.azure.com/forums/169401-azure-active-directory).
+> [AZURE.NOTE]
+As edições Premium e Basic do Active Directory do Azure estão disponíveis para clientes na China usando a instância mundial do Active Directory do Azure. As edições Azure Active Directory Premium e Basic não têm suporte atualmente no serviço Microsoft Azure operado pela 21Vianet na China. Para obter mais informações, entre em contato conosco no [Fórum do Active Directory do Azure](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 O Azure Active Directory Premium também está incluído na **Enterprise Mobility Suite**. A Enterprise Mobility Suite é um modo econômico para as organizações usarem o Microsoft Intune, o Azure Rights Management e o Active Directory Premium juntos em um único plano de licenciamento. Para obter mais informações, consulte o site [Enterprise Mobility Suite](https://www.microsoft.com/pt-BR/server-cloud/enterprise-mobility/overview.aspx).
 
@@ -121,4 +122,4 @@ A disponibilidade dos serviços e recursos de um serviço de nuvem da Microsoft 
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Como usar o armazenamento de Fila do .NET | Microsoft Azure"
-	description="Saiba como usar o Armazenamento de Filas para criar e excluir filas e inserir, espiar, obter e excluir mensagens da fila."
+	pageTitle="Introdução ao armazenamento de Fila do Azure usando o .NET | Microsoft Azure"
+	description="Envie e receba mensagens de forma assíncrona entre componentes de aplicativos usando o armazenamento de Fila do Azure. Obtenha uma introdução a operações simples de armazenamento de Fila, incluindo a criação e exclusão de filas e a adição, a leitura e a exclusão de mensagens da fila."
 	services="storage"
 	documentationCenter=".net"
 	authors="robinsh"
@@ -13,16 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="12/04/2015"
+	ms.date="01/24/2016"
 	ms.author="gusapost"/>
 
-# Como usar o armazenamento de Fila do .NET
+# Introdução ao armazenamento de Fila do Azure usando o .NET
 
 [AZURE.INCLUDE [armazenamento-seletor-fila-include](../../includes/storage-selector-queue-include.md)]
 
 ## Visão geral
 
-Este guia lhe mostrará como executar cenários comuns usando o serviço de Armazenamento de Fila do Azure. Os exemplos são escritos em C# e usam o Cliente de Armazenamento do Azure para .NET. Os cenários abrangidos incluem **inserir**, **exibir**, **obter** e **excluir** mensagens da fila, bem como **criar e excluir filas**.
+O armazenamento de Fila do Azure é um serviço que fornece filas de mensagens na nuvem. Na criação de aplicativos para escala, os componentes do aplicativo geralmente são desassociados, para que possam ser redimensionados independentemente. O Armazenamento de fila fornece uma solução de mensagens confiáveis para comunicação assíncrona entre os componentes do aplicativo, quer estejam em execução na nuvem, na área de trabalho, em um servidor local ou em um dispositivo móvel. O armazenamento de Fila também dá suporte ao gerenciamento de tarefas assíncronas e à criação de fluxos de trabalho do processo.
+
+Este tutorial mostra como gravar código .NET para alguns cenários comuns usando o armazenamento de Fila do Azure. Os cenários abordados incluem a criação e a exclusão de filas e a adição, a leitura e a exclusão de mensagens da fila.
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -260,4 +262,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Fila, siga es
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

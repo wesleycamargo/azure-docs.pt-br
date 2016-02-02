@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Opções e desempenho do Banco de Dados SQL: camadas de serviço | Microsoft Azure"
 	description="Compare os recursos de continuidade dos negócios e o desempenho do Banco de Dados SQL das camadas de serviço para equilibrar o custo e o recurso à medida que você dimensiona."
-	keywords="opções de banco de dados, desempenho do banco de dados, eDTU"
+	keywords="opções de banco de dados, desempenho do banco de dados"
 	services="sql-database"
 	documentationCenter=""
 	authors="rothja"
@@ -18,7 +18,7 @@
 	ms.author="jroth"/>
 
 # Opções e desempenho de Banco de Dados SQL: compreender o que está disponível em cada camada de serviço
- 
+
 
 O [Banco de Dados SQL do Azure](sql-database-technical-overview.md) fornece várias camadas de serviço para lidar com diferentes tipos de cargas de trabalho. Você pode [criar um banco de dados individual](sql-database-get-started.md) com características e preços definidos. Ou você pode gerenciar vários bancos de dados [criando um pool de banco de dados elástico](sql-database-elastic-pool-portal.md). Em ambos os casos, as camadas incluem **Básica**, **Standard** e **Premium**. Mas as opções de banco de dados dessas camadas variam conforme você cria um banco de dados individual ou um pool de bancos de dados elásticos. Este artigo fornece uma visão geral das camadas de serviço em ambos os contextos.
 
@@ -31,7 +31,7 @@ Todas as camadas de serviço, Basic, Standard e Premium têm um SLA de tempo de 
 | **Standard** | A opção ideal para a maioria dos aplicativos em nuvem, permitindo várias consultas simultâneas. Os exemplos incluem aplicativos da web ou de grupo de trabalho. |
 | **Premium** | Projetado para alto volume transacional, permitindo um grande número de usuários simultâneos e exigindo o mais alto nível de recursos de continuidade de negócios. Os exemplos são bancos de dados com suporte a aplicativos de missão críticos. |
 
->[AZURE.NOTE]As edições Web e Business estão sendo desativadas. Descubra como [atualizar as edições Web e Business](sql-database-upgrade-new-service-tiers.md). Leia [Perguntas frequentes sobre a descontinuação](http://azure.microsoft.com/pricing/details/sql-database/web-business/) se planeja continuar usando as edições Web e Business.
+>[AZURE.NOTE] As edições Web e Business estão sendo desativadas. Descubra como [atualizar as edições Web e Business](sql-database-upgrade-new-service-tiers.md). Leia [Perguntas frequentes sobre a descontinuação](https://azure.microsoft.com/pricing/details/sql-database/web-business/) se planeja continuar usando as edições Web e Business.
 
 ### Camadas de serviço e níveis de desempenho de banco de dados individual
 Para bancos de dados individuais existem vários níveis de desempenho em cada camada de serviço, você tem a flexibilidade de escolher o nível que melhor atende às suas demandas de carga de trabalho. Se precisar expandir ou reduzir, você poderá alterar as camadas do banco de dados com facilidade no Portal Clássico do Azure, sem tempo de inatividade dos aplicativos. Consulte [Alterando camadas de serviços e níveis de desempenho do banco de dados](sql-database-scale-up.md) para obter detalhes.
@@ -43,7 +43,7 @@ As características de desempenho listadas aqui se aplicam a bancos de dados cri
 
 Para entender melhor as DTUs, consulte o [seção sobre DTUs](#understanding-dtus) neste tópico.
 
->[AZURE.NOTE]Para obter uma explicação detalhada de todas as outras linhas nesta tabela de camadas de serviço, consulte [Limites e recursos da camada de serviço](sql-database-performance-guidance.md#service-tier-capabilities-and-limits).
+>[AZURE.NOTE] Para obter uma explicação detalhada de todas as outras linhas nesta tabela de camadas de serviço, consulte [Limites e recursos da camada de serviço](sql-database-performance-guidance.md#service-tier-capabilities-and-limits).
 
 ### Camadas de serviço e níveis de desempenho em eDTUs de pool de bancos de dados elásticos
 Além de criar e escalar um banco de dados individual, você também tem a opção de gerenciar vários bancos de dados dentro de um [pool de banco de dados elástico](sql-database-elastic-pool.md). Todos os bancos de dados em um pool de banco de dados elástico compartilham um conjunto comum de recursos. As características de desempenho são medidas pelas *Unidades de Transação de Banco de Dados Elástico* (eDTUs). Da mesma forma que ocorre com os bancos de dados individuais, os pools de banco de dados elástico são fornecidos em três camadas de desempenho: **Basic**, **Standard** e **Premium**. Para bancos de dados elásticos essas três camadas de serviço ainda definem os limites de desempenho geral e vários outros recursos.
@@ -89,11 +89,10 @@ As mesmas métricas que são expostas no portal também estão disponíveis por 
 Para pools de banco de dados elástico, você pode monitorar bancos de dados individuais no pool com as técnicas descritas nesta seção. Mas você também pode monitorar o pool como um todo. Para obter informações, veja [Monitorar e gerenciar um pool de banco de dados elástico](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool).
 
 ## Próximas etapas
-Saiba mais sobre os preços para essas camadas em [Preços de Banco de Dados SQL](http://azure.microsoft.com/pricing/details/sql-database/).
+Saiba mais sobre os preços para essas camadas em [Preços de Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 Se estiver interessado em gerenciar vários bancos de dados como um grupo, considere usar [pools de banco de dados elástico](sql-database-elastic-pool-guidance.md), juntamente com as [considerações sobre preço e desempenho para pools de banco de dados elástico](sql-database-elastic-pool-guidance.md) associadas.
 
-Agora que você conhece as camadas do Banco de Dados SQL, teste-as usando uma versão de [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/) e [aprenda a criar seu primeiro banco de dados SQL](sql-database-get-started.md)!
- 
+Agora que você conhece as camadas do Banco de Dados SQL, teste-as usando uma versão de [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) e [aprenda a criar seu primeiro banco de dados SQL](sql-database-get-started.md)!
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->
