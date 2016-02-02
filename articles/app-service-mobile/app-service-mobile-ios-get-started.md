@@ -18,9 +18,7 @@
 
 #Criar um aplicativo do iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Visão geral
 
@@ -30,13 +28,13 @@ Este tutorial mostra como adicionar um serviço de back-end baseado em nuvem ([A
 
 Para concluir este tutorial, você precisará do seguinte:
 
-* Uma [conta ativa do Azure](http://azure.microsoft.com/pricing/free-trial/).
+* Uma [conta ativa do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * Um computador com o [Visual Studio Community 2013] ou mais recente
 
 * Um Mac com Xcode v7.0 ou mais recente
 
-* [Estrutura do Azure Mobile iOS](https://go.microsoft.com/fwLink/?LinkID=529823), que é automaticamente incluído como parte do projeto de início rápido baixado
+* [Estrutura do iOS do Azure Mobile](https://go.microsoft.com/fwLink/?LinkID=529823), que é automaticamente incluído como parte do projeto de início rápido baixado por você
 
 ## Criar um novo back-end de aplicativo móvel do Azure
 
@@ -69,4 +67,4 @@ Você acabou de provisionar um back-end do aplicativo móvel do Azure que pode s
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0128_2016-->

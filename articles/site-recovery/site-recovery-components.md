@@ -155,4 +155,4 @@ Nesse cenário, as alterações de replicação delta são enviadas do Agente Un
 
 [Preparar-se para a implantação](site-recovery-best-practices.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

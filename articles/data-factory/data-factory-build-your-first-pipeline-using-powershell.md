@@ -61,7 +61,7 @@ Nesta etapa, é possível usar o Azure PowerShell para criar um Azure Data Facto
 
 		New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH –Location "West US"
 
-	> [AZURE.IMPORTANT]O nome do Azure Data Factory deve ser globalmente exclusivo. Se você receber o erro: **O nome da data factory "FirstDataFactoryPSH" não está disponível**, altere o nome (por exemplo, seunomeFirstDataFactoryPSH). Use esse nome em vez de ADFTutorialFactoryPSH ao executar as etapas neste tutorial. Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.
+	> [AZURE.IMPORTANT] O nome do Azure Data Factory deve ser globalmente exclusivo. Se você receber o erro: **O nome da data factory "FirstDataFactoryPSH" não está disponível**, altere o nome (por exemplo, seunomeFirstDataFactoryPSH). Use esse nome em vez de ADFTutorialFactoryPSH ao executar as etapas neste tutorial. Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.
 	> 
 	> O nome do data factory pode ser registrado futuramente como um nome DNS e tornar-se publicamente visível.
 
@@ -86,7 +86,7 @@ Nesta etapa, você vinculará a conta do Armazenamento do Azure ao data factory.
 	    	}
 		}
 
-	Substitua o **nome da conta** pelo nome da conta de armazenamento do Azure e a **chave de conta** pela chave de acesso da sua conta do armazenamento do Azure. Para saber como obter sua chave de acesso de armazenamento, confira [Exibir, copiar e regenerar chaves de acesso de armazenamento](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys).
+	Substitua o **nome da conta** pelo nome da conta de armazenamento do Azure e a **chave de conta** pela chave de acesso da sua conta do armazenamento do Azure. Para saber como obter sua chave de acesso de armazenamento, confira [Exibir, copiar e regenerar chaves de acesso de armazenamento](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys).
 
 2. No Azure PowerShell, alterne para a pasta ADFGetStarted.
 3. Você pode usar o cmdlet **New-AzureDataFactoryLinkedService** para criar um serviço vinculado. Esse cmdlet e outros cmdlets de Data Factory que você usa neste tutorial exigem que os valores sejam passados aos parâmetros *ResourceGroupName* e *DataFactoryName*. Como alternativa, é possível usar **Get-AzureRmDataFactory** para obter um objeto **DataFactory** e passar o objeto sem digitar *ResourceGroupName* e *DataFactoryName* sempre que você executar um cmdlet. Execute o comando a seguir para atribuir a saída do cmdlet **Get-AzureDataFactory** a uma variável **$df**.
@@ -130,6 +130,15 @@ Nesta etapa, você vinculará um cluster do HDInsight sob demanda ao seu data fa
 	| TimeToLive | Especifica tempo ocioso de cluster HDInsight antes de ser excluído. |
 	| linkedServiceName | Especifica a conta de armazenamento que será usada para armazenar os logs gerados pelo HDInsight |
 
+	Observe o seguinte:
+	
+	- O Data Factory cria um cluster HDInsight **baseado no Windows** para você com o JSON acima. Você também pode fazer com que ele crie um cluster HDInsight **baseado em Linux**. Consulte [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes. 
+	- Você pode usar **seu próprio cluster do HDInsight** em vez de usar um cluster do HDInsight sob demanda. Consulte [Serviço vinculado do HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) para obter detalhes.
+	- O cluster HDInsight cria um **contêiner padrão** no armazenamento de blobs especificado em JSON (**linkedServiceName**). O HDInsight não exclui esse contêiner quando o cluster é excluído. Isso ocorre por design. Com o serviço vinculado do HDInsight sob demanda, um cluster HDInsight é criado sempre que uma fatia precisa ser processada, a menos que haja um cluster ativo existente (**timeToLive**) e ele seja excluído quando o processamento for concluído.
+	
+		À medida que mais e mais fatias forem processadas, você verá muitos contêineres no armazenamento de blobs do Azure. Se você não precisa deles para solução de problemas dos trabalhos, convém excluí-los para reduzir o custo de armazenamento. O nome desses contêineres segue um padrão: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Use ferramentas como [Gerenciador de Armazenamento da Microsoft](http://storageexplorer.com/) para excluir contêineres do armazenamento de blobs do Azure.
+
+	Consulte [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes. 
 2. Execute o cmdlet **New-AzureRmDataFactoryLinkedService** para criar o serviço vinculado denominado HDInsightOnDemandLinkedService.
 
 		New-AzureRmDataFactoryLinkedService $df -File .\HDInsightOnDemandLinkedService.json
@@ -217,7 +226,7 @@ Nesta etapa, você criará seu primeiro pipeline com a atividade **HDInsightHive
 
 1. Crie um arquivo JSON denominado MyFirstPipelinePSH.json na pasta C:\\ADFGetStarted com o conteúdo a seguir:
 
-	> [AZURE.IMPORTANT]Substitua **storageaccountname** pelo nome da sua conta de armazenamento no JSON.
+	> [AZURE.IMPORTANT] Substitua **storageaccountname** pelo nome da sua conta de armazenamento no JSON.
 		
 		{
 		    "name": "MyFirstPipeline",
@@ -342,4 +351,4 @@ Neste artigo, você criou um pipeline com uma atividade de transformação (ativ
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

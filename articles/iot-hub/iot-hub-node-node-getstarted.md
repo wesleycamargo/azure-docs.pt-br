@@ -1,22 +1,22 @@
 <properties
-	pageTitle="Introdução ao Hub IoT do Azure para Java | Microsoft Azure"
-	description="Siga este tutorial para começar a usar o Hub IoT do Azure com Java."
+	pageTitle="Introdução ao Hub IoT do Azure para Node.js | Microsoft Azure"
+	description="Siga este tutorial para começar a usar o Hub IoT do Azure com Node.js."
 	services="iot-hub"
-	documentationCenter="java"
+	documentationCenter="nodejs"
 	authors="dominicbetts"
 	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="java"
+     ms.devlang="javascript"
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="12/21/2015"
+     ms.date="01/19/2016"
      ms.author="dobett"/>
 
-# Introdução ao Hub IoT do Azure para Java
+# Introdução ao Hub IoT do Azure para Node.js
 
 [AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
@@ -34,19 +34,17 @@ Este tutorial mostra como:
 - Crie uma identidade de dispositivo em seu hub IoT.
 - Crie um dispositivo simulado que envia a telemetria para o back-end de nuvem.
 
-Ao fim deste tutorial, você terá três aplicativos de console do Java:
+No fim deste tutorial, você terá três aplicativos de console do Node.js:
 
-* **create-device-identity**, que cria uma identidade do dispositivo e uma chave de segurança associada para conectar o dispositivo simulado.
-* **read-d2c-messages**, que exibe a telemetria enviada pelo dispositivo simulado.
-* **simulated-device**, que se conecta ao hub IoT com a identidade do dispositivo criada anteriormente e envia uma mensagem de telemetria a cada segundo.
+* **CreateDeviceIdentity.js**, que cria uma identidade do dispositivo e uma chave de segurança associada para conectar o dispositivo simulado.
+* **ReadDeviceToCloudMessages.js**, que exibe a telemetria enviada pelo dispositivo simulado.
+* **SimulatedDevice.js**, que se conecta ao hub IoT com a identidade do dispositivo criada anteriormente e envia uma mensagem de telemetria a cada segundo.
 
 > [AZURE.NOTE] O artigo [SDKs do hub IoT][lnk-hub-sdks] fornece informações sobre vários SDKs que você pode usar para criar aplicativos executados em dispositivos e no back-end da solução.
 
 Para concluir este tutorial, você precisará do seguinte:
 
-+ Java SE 8. <br/> [Preparar o ambiente de desenvolvimento][lnk-dev-setup] descreve como instalar o Java para este tutorial no Windows ou no Linux.
-
-+ Maven 3. <br/> [Preparar o ambiente de desenvolvimento][lnk-dev-setup] descreve como instalar o Maven para este tutorial no Windows ou no Linux.
++ Node.js versão 0.12.x ou posterior. <br/> [Preparar o ambiente de desenvolvimento][lnk-dev-setup] descreve como instalar o Node.js para este tutorial no Windows ou no Linux.
 
 + Uma conta ativa do Azure. <br/>Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos Para obter detalhes, consulte [Avaliação gratuita do Azure][lnk-free-trial].
 
@@ -85,29 +83,29 @@ Você precisa criar um hub IoT ao qual o dispositivo simulado se conectará. As 
 
     ![][6]
 
-Você criou seu hub IoT e tem o nome de host do Hub IoT, a cadeia de conexão do Hub IoT, o nome compatível com o Hub de Eventos e o ponto de extremidade compatível com o Hub de Eventos necessário para concluir o restante deste tutorial.
+Você criou seu hub IoT e tem o nome de host do Hub IoT, a cadeia de conexão do Hub IoT, o nome compatível com o Hub de Eventos e os valores de ponto de extremidade compatíveis com o Hub de Eventos necessário para concluir o restante deste tutorial.
 
-[AZURE.INCLUDE [iot-hub-get-started-cloud-java](../../includes/iot-hub-get-started-cloud-java.md)]
+[AZURE.INCLUDE [iot-hub-get-started-cloud-node](../../includes/iot-hub-get-started-cloud-node.md)]
 
 
-[AZURE.INCLUDE [iot-hub-get-started-device-java](../../includes/iot-hub-get-started-device-java.md)]
+[AZURE.INCLUDE [iot-hub-get-started-device-node](../../includes/iot-hub-get-started-device-node.md)]
 
 ## Executar os aplicativos
 
 Agora você está pronto para executar os aplicativos.
 
-1. Em um prompt de comando na pasta read-d2c, execute o seguinte comando para iniciar o monitoramento de seu hub IoT:
+1. Em um prompt de comando na pasta **readdevicetocloudmessages**, execute o seguinte comando para iniciar o monitoramento de seu hub IoT:
 
     ```
-    mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
+    node ReadDeviceToCloudMessages.js 
     ```
 
     ![][7]
 
-2. Em um prompt de comando na pasta simulated-device, execute o seguinte comando para iniciar o envio de dados de telemetria para seu hub IoT:
+2. Em um prompt de comando na pasta **simulateddevice**, execute o seguinte comando para iniciar o envio de dados de telemetria para seu hub IoT:
 
     ```
-    mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
+    node SimulatedDevice.js
     ```
 
     ![][8]
@@ -121,17 +119,17 @@ Neste tutorial, você configurou um novo hub IoT no portal e depois criou uma id
 - [Carregando arquivos de dispositivos][lnk-upload-tutorial] descreve um padrão que usa mensagens da nuvem para o dispositivo para facilitar o carregamento de arquivo dos dispositivos.
 
 <!-- Images. -->
-[1]: ./media/iot-hub-java-java-getstarted/create-iot-hub1.png
-[2]: ./media/iot-hub-java-java-getstarted/create-iot-hub2.png
-[3]: ./media/iot-hub-java-java-getstarted/create-iot-hub3.png
-[4]: ./media/iot-hub-java-java-getstarted/create-iot-hub4.png
-[5]: ./media/iot-hub-java-java-getstarted/create-iot-hub5.png
-[6]: ./media/iot-hub-java-java-getstarted/create-iot-hub6.png
-[7]: ./media/iot-hub-java-java-getstarted/runapp1.png
-[8]: ./media/iot-hub-java-java-getstarted/runapp2.png
+[1]: ./media/iot-hub-node-node-getstarted/create-iot-hub1.png
+[2]: ./media/iot-hub-node-node-getstarted/create-iot-hub2.png
+[3]: ./media/iot-hub-node-node-getstarted/create-iot-hub3.png
+[4]: ./media/iot-hub-node-node-getstarted/create-iot-hub4.png
+[5]: ./media/iot-hub-node-node-getstarted/create-iot-hub5.png
+[6]: ./media/iot-hub-node-node-getstarted/create-iot-hub6.png
+[7]: ./media/iot-hub-node-node-getstarted/runapp1.png
+[8]: ./media/iot-hub-node-node-getstarted/runapp2.png
 
 <!-- Links -->
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/java/device/doc/devbox_setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/node/device/doc/devbox_setup.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md

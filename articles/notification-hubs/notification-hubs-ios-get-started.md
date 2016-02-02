@@ -42,11 +42,11 @@ Este tutorial exige o seguinte:
 + Um dispositivo compatível com o iOS 8 (ou versão posterior)
 + Associação no Programa de Desenvolvedores de iOS
 
-   >[AZURE.NOTE]Devido aos requisitos de configuração das notificações por push, você deve implantar e testá-las em um dispositivo compatível com o iOS (iPhone ou iPad), em vez de usar o Simulador de iOS.
+   >[AZURE.NOTE] Devido aos requisitos de configuração das notificações por push, você deve implantar e testá-las em um dispositivo compatível com o iOS (iPhone ou iPad), em vez de usar o Simulador de iOS.
 
 A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais sobre os Hubs de Notificação para aplicativos do iOS.
 
-> [AZURE.NOTE]Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started).
+> [AZURE.NOTE] Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started).
 
 [AZURE.INCLUDE [Hubs de notificação habilitam notificações por push da Apple](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
@@ -68,7 +68,7 @@ Esta seção mostra a criação de um novo hub de notificação e a configuraç�
 
 
 
-Seu hub de notificação agora está configurado para funcionar com o APNs e você tem as cadeias de conexão para registrar seu aplicativo e enviar notificações.
+Seu hub de notificação agora está configurado para funcionar com o APNS e você tem as cadeias de conexão para registrar seu aplicativo e enviar notificações.
 
 ##Conectar seu aplicativo ao hub de notificação
 
@@ -88,7 +88,7 @@ Seu hub de notificação agora está configurado para funcionar com o APNs e voc
 
 4. Baixe a [versão 1.2.4 do SDK do iOS dos Serviços Móveis] e descompacte o arquivo. No Xcode, clique com o botão direito do mouse no projeto e clique na opção **Adicionar Arquivos a** para adicionar a pasta **WindowsAzureMessaging.framework** ao seu projeto do Xcode. Selecione **Copiar itens se necessário** e depois clique em **Adicionar**.
 
-	>[AZURE.NOTE]No momento, o SDK de hubs de notificação não oferece suporte a bitcode em Xcode 7. Você deve definir **Habilitar Bitcode** como **Não** nas **Opções de compilação** para seu projeto.
+	>[AZURE.NOTE] No momento, o SDK de hubs de notificação não oferece suporte a bitcode em Xcode 7. Você deve definir **Habilitar Bitcode** como **Não** nas **Opções de compilação** para seu projeto.
 
    	![][10]
 
@@ -436,7 +436,7 @@ Se você quiser enviar notificações em um aplicativo. Esta seção fornece um 
 11. Compile o projeto e verifique se não há erros.
 
 
-> [AZURE.NOTE]Se você encontrar um erro de compilação em Xcode7 sobre o suporte de bitcode, deverá alterar as "Configurações de Compilação" -> "Habilitar Bitcode"(ENABLE\_BITCODE) como ‘NO’ no Xcode. No momento, o SDK de Hubs de Notificação não oferece suporte a bitcode.
+> [AZURE.NOTE] Se você encontrar um erro de compilação em Xcode7 sobre o suporte de bitcode, deverá alterar as "Configurações de Compilação" -> "Habilitar Bitcode"(ENABLE\_BITCODE) como ‘NO’ no Xcode. No momento, o SDK de Hubs de Notificação não oferece suporte a bitcode.
 
 Você encontrará todas as cargas de notificação possíveis no [Guia de programação de notificação local e por push] da Apple.
 
@@ -508,4 +508,4 @@ Para obter informações mais gerais sobre os Hubs de Notificação, consulte [D
 
 [Guia de programação de notificação local e por push]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

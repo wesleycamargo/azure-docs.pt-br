@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Como criar, gerenciar ou excluir uma conta de armazenamento | Microsoft Azure"
-	description="Crie uma nova conta de armazenamento, gerencie suas chaves de acesso ou exclua uma conta de armazenamento no Portal do Azure."
+	pageTitle="Como criar, gerenciar ou excluir uma conta de armazenamento no Portal do Azure | Microsoft Azure"
+	description="Crie uma nova conta de armazenamento, gerencie as chaves de acesso de sua conta ou exclua uma conta de armazenamento no Portal do Azure. Saiba mais sobre contas de armazenamento standard e premium."
 	services="storage"
 	documentationCenter=""
 	authors="robinsh"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/04/2015"
+	ms.date="01/26/2016"
 	ms.author="robinsh"/>
 
 
@@ -39,11 +39,11 @@ Você é cobrado pelo uso do Armazenamento do Azure com base na sua conta de arm
 - As transações referem-se a todas as operações de leitura e gravação no Armazenamento do Azure.
 - A saída de dados refere-se a dados transferidos para fora de uma região do Azure. Quando os dados de sua conta de armazenamento são acessados por um aplicativo que não está sendo executado na mesma região, quer esse aplicativo seja um serviço de nuvem ou algum outro tipo de aplicativo, você é cobrado pela saída de dados. (Nos serviços do Azure, você pode tomar medidas para agrupar seus dados e serviços nos mesmos data centers para reduzir ou eliminar encargos de saída de dados.)  
 
-A página [Preços do Azure](http://azure.microsoft.com/pricing/details/#storage) fornece informações detalhadas de preços para capacidade de armazenamento, replicação e transações. A página [Detalhes de preços de transferências de dados](http://azure.microsoft.com/pricing/details/data-transfers/) fornece informações detalhadas de preços para a saída de dados.
+A página [Preços do Azure](https://azure.microsoft.com/pricing/details/#storage) fornece informações detalhadas de preços para capacidade de armazenamento, replicação e transações. A página [Detalhes de preços de transferências de dados](https://azure.microsoft.com/pricing/details/data-transfers/) fornece informações detalhadas de preços para a saída de dados.
 
 Para obter detalhes sobre a capacidade da conta de armazenamento e as metas de desempenho, confira [Escalabilidade e metas de desempenho do Armazenamento do Azure](http://msdn.microsoft.com/library/azure/dn249410.aspx).
 
-> [AZURE.NOTE]Ao criar uma máquina virtual do Azure, uma conta de armazenamento será criada automaticamente no local da implantação se você ainda não tiver uma conta de armazenamento nesse local. Assim, não é necessário seguir as etapas abaixo para criar uma conta de armazenamento para seus discos da máquina virtual. O nome da conta de armazenamento será baseado no nome da máquina virtual. Confira a [Documentação de máquinas virtuais do Azure](http://azure.microsoft.com/documentation/services/virtual-machines/) para obter mais detalhes.
+> [AZURE.NOTE] Ao criar uma máquina virtual do Azure, uma conta de armazenamento será criada automaticamente no local da implantação se você ainda não tiver uma conta de armazenamento nesse local. Assim, não é necessário seguir as etapas abaixo para criar uma conta de armazenamento para seus discos da máquina virtual. O nome da conta de armazenamento será baseado no nome da máquina virtual. Confira a [Documentação de máquinas virtuais do Azure](https://azure.microsoft.com/documentation/services/virtual-machines/) para obter mais detalhes.
 
 ## Pontos de extremidade da conta de armazenamento
 
@@ -73,7 +73,7 @@ Também é possível configurar um nome de domínio para usar com a conta de arm
 
 4. Insira um nome para a conta de armazenamento.
 
-	> [AZURE.NOTE]Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas.
+	> [AZURE.NOTE] Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas.
 	>  
 	> O nome da sua conta de armazenamento deve ser exclusivo no Azure. O Portal do Azure indicará se o nome de conta de armazenamento que você selecionar já é usado.
 
@@ -89,7 +89,7 @@ Também é possível configurar um nome de domínio para usar com a conta de arm
 
 7. Se você tiver mais de uma assinatura do Azure, o campo **Assinatura** será exibido. Selecione a assinatura na qual você deseja criar a nova conta de armazenamento.
 
-8. Especifique um novo grupo de recursos ou selecione um grupo de recursos existente. Para saber mais sobre grupos de recursos, veja [Usando o Portal do Azure para gerenciar os recursos do Azure](../resource-group-portal.md).
+8. Especifique um novo grupo de recursos ou selecione um grupo de recursos existente. Para saber mais sobre grupos de recursos, veja [Usando o Portal do Azure para gerenciar os recursos do Azure](../azure-portal/resource-group-portal.md).
 
 9. Selecione a região geográfica para sua conta de armazenamento.
 
@@ -99,7 +99,7 @@ Também é possível configurar um nome de domínio para usar com a conta de arm
 
 Quando você cria uma conta de armazenamento, o Azure gera duas chaves de acesso de armazenamento de 512 bits, que são usadas para autenticação quando a conta de armazenamento é acessada. Ao fornecer as duas chaves de acesso de armazenamento, o Azure permite que você regenere as chaves sem interrupção para o serviço de armazenamento ou o acesso a esse serviço.
 
-> [AZURE.NOTE]Recomendamos que você evite compartilhar suas chaves de acesso de armazenamento com outras pessoas. Para permitir o acesso a recursos de armazenamento sem dar as suas chaves de acesso, você pode usar uma *assinatura de acesso compartilhado*. Uma assinatura de acesso compartilhado fornece acesso a um recurso na sua conta para um intervalo que você definir e com as permissões que você especificar. Consulte o [Tutorial de assinatura de acesso compartilhado](storage-dotnet-shared-access-signature-part-1.md) para obter mais informações.
+> [AZURE.NOTE] Recomendamos que você evite compartilhar suas chaves de acesso de armazenamento com outras pessoas. Para permitir o acesso a recursos de armazenamento sem dar as suas chaves de acesso, você pode usar uma *assinatura de acesso compartilhado*. Uma assinatura de acesso compartilhado fornece acesso a um recurso na sua conta para um intervalo que você definir e com as permissões que você especificar. Consulte o [Tutorial de assinatura de acesso compartilhado](storage-dotnet-shared-access-signature-part-1.md) para obter mais informações.
 
 ### Exibir e copiar as chaves de acesso de armazenamento
 
@@ -109,7 +109,7 @@ No [Portal do Azure](https://portal.azure.com), navegue até a conta de armazena
 
 Você deve alterar as chaves de acesso de sua conta de armazenamento periodicamente para ajudar a manter as conexões de armazenamento seguras. Duas chaves de acesso são atribuídas para que você possa manter conexões com a conta de armazenamento usando uma chave de acesso enquanto regenera a outra.
 
-> [AZURE.WARNING]Regenerar suas chaves de acesso afeta as máquinas virtuais, os serviços de mídia e quaisquer aplicativos que dependam da conta de armazenamento. Todos os clientes que usam a chave de acesso para acessar a conta de armazenamento precisam ser atualizados para usar a nova chave.
+> [AZURE.WARNING] Regenerar suas chaves de acesso afeta as máquinas virtuais, os serviços de mídia e quaisquer aplicativos que dependam da conta de armazenamento. Todos os clientes que usam a chave de acesso para acessar a conta de armazenamento precisam ser atualizados para usar a nova chave.
 
 **Máquinas virtuais** - Se sua conta de armazenamento contiver máquinas virtuais em execução, será necessário reimplantar todas as máquinas virtuais após regenerar as chaves de acesso. Para evitar a reimplantação, desligue as máquinas virtuais antes de regenerar as chaves de acesso.
 
@@ -131,12 +131,27 @@ Veja o processo para trocar suas chaves de acesso de armazenamento:
 
 Para remover uma conta de armazenamento que você não estiver mais usando, navegue até a conta de armazenamento do [Portal do Azure](https://portal.azure.com) e clique em **Excluir**. A exclusão de uma conta de armazenamento exclui a conta inteira, incluindo todos os dados na conta.
 
-> [AZURE.WARNING]Não é possível restaurar uma conta de armazenamento excluída nem recuperar nenhuma parte de seu conteúdo antes da exclusão. Não se esqueça de fazer backup de todas as informações que você deseja salvar antes de excluir a conta. Isso também é verdadeiro para todos os recursos na conta – depois que você excluir um blob, tabela, fila ou arquivo, ele será excluído permanentemente.
+> [AZURE.WARNING] Não é possível restaurar uma conta de armazenamento excluída nem recuperar nenhuma parte de seu conteúdo antes da exclusão. Não se esqueça de fazer backup de todas as informações que você deseja salvar antes de excluir a conta. Isso também é verdadeiro para todos os recursos na conta – depois que você excluir um blob, tabela, fila ou arquivo, ele será excluído permanentemente.
+
+Para excluir uma conta de armazenamento que está associada a uma máquina virtual do Azure, primeiro você deve verificar se quaisquer discos de máquina virtual foram excluídos. Se você não excluir os discos de máquina virtual primeiro, durante a tentativa de excluir sua conta de armazenamento, você verá uma mensagem de erro semelhante a:
+
+    Failed to delete storage account <vm-storage-account-name>. Unable to delete storage account <vm-storage-account-name>: 'Storage account <vm-storage-account-name> has some active image(s) and/or disk(s). Ensure these image(s) and/or disk(s) are removed before deleting this storage account.'.
+
+Para remover o disco da máquina virtual, siga estas etapas no Portal Clássico do Azure:
+
+1. Navegue até o [Portal Clássico do Azure](https://manage.windowsazure.com).
+2. Navegue até a guia Máquinas Virtuais.
+3. Clique na guia Discos.
+4. Selecione o disco de dados e clique em Excluir o Disco.
+5. Para excluir imagens de disco, navegue até a guia Imagens e exclua todas as imagens armazenadas na conta.
+
+Para obter mais informações, consulte a [Documentação de Máquina Virtual do Azure](http://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## Próximas etapas
 
-- Para saber mais sobre o Armazenamento do Azure, consulte a documentação do Armazenamento do Azure em [Azure.com](http://azure.microsoft.com/documentation/services/storage/).
+- [Replicação de Armazenamento do Azure](storage-redundancy.md)
+- [Configurar uma cadeia de conexão para o Armazenamento do Azure](storage-configure-connection-string.md)
+- [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md)
 - Visite o [Blog da equipe do Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/).
-- [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

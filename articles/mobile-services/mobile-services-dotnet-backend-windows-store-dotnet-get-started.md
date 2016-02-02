@@ -26,13 +26,13 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
->[AZURE.TIP]Se você for iniciante no desenvolvimento para dispositivos móveis usando o Microsoft Azure, leia [introdução aos Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md) para usá-los em vez dos Serviços Móveis do Azure; isso dará a você [vantagens adicionais](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
+>[AZURE.TIP] Se você for iniciante no desenvolvimento para dispositivos móveis usando o Microsoft Azure, leia [introdução aos Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md) para usá-los em vez dos Serviços Móveis do Azure; isso dará a você [vantagens adicionais](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
 
 Este tutorial mostra como adicionar um serviço de back-end baseado na nuvem a um aplicativo universal do Windows usando os Serviços Móveis do Azure. Soluções de aplicativos universais do Windows incluem projetos para a Windows Store 8.1 e a Loja do Windows Phone 8.1, e um projeto compartilhado comum. Para obter mais informações, consulte [Criar aplicativos universais do Windows voltados para Windows e Windows Phone](http://msdn.microsoft.com/library/windows/apps/xaml/dn609832.aspx).
 
 Neste tutorial, você criará um novo serviço móvel e um aplicativo simples *To do list* que armazena dados do aplicativo no novo serviço móvel. O serviço móvel que você criará usa as linguagens do .NET com suporte usando o Visual Studio para a lógica de negócios do lado do servidor e para gerenciar o serviço móvel. Para criar um serviço móvel que permita que você escreva a lógica de negócios do lado do servidor em JavaScript, consulte Versão de back-end do JavaScript neste tópico.
 
->[AZURE.NOTE]Este tópico mostra como criar um novo projeto de serviço móvel e o aplicativo universal do Windows usando o portal clássico do Azure. Usando o Visual Studio 2013 Update 3, você também pode adicionar um novo projeto de serviço móvel em uma solução existente do Visual Studio. Para saber mais, veja [Adicionar Serviços Móveis a um aplicativo existente](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md).
+>[AZURE.NOTE]Este tópico mostra como criar um novo projeto de serviço móvel e o aplicativo universal do Windows usando o portal clássico do Azure. Usando o Visual Studio 2013 Update 3, você também pode adicionar um novo projeto de serviço móvel em uma solução existente do Visual Studio. Para saber mais, consulte [Adicionar Serviços Móveis a um aplicativo existente](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md).
 
 >Para adicionar um serviço móvel a um projeto de aplicativo para Windows Phone 8.0 ou Windows Phone Silverlight 8.1, veja [Adicionar Serviços Móveis a um aplicativo do Windows Phone existente](mobile-services-dotnet-backend-windows-phone-get-started-data.md).
 
@@ -40,7 +40,7 @@ Neste tutorial, você criará um novo serviço móvel e um aplicativo simples *T
 
 Para concluir este tutorial, você precisará do seguinte:
 
-* Uma conta ativa do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started%2F).
+* Uma conta ativa do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started%2F).
 * [Visual Studio 2013].
 
 ## Criar um novo serviço móvel
@@ -99,7 +99,7 @@ Agora que o serviço móvel está publicado e o cliente está conectado a um ser
 ## Próximas etapas
 Agora que você concluiu o início rápido, aprenda a executar tarefas adicionais importantes nos Serviços Móveis:
 
-* [Adicionar os Serviços Móveis a um aplicativo existente][Get started with data] <br/>Saiba mais sobre como armazenar e consultar dados usando os Serviços Móveis.
+* [Adicionar Serviços Móveis a um aplicativo existente][Get started with data] <br/>Saiba mais sobre como armazenar e consultar dados usando os Serviços Móveis.
 
 * [Introdução à sincronização de dados offline] <br/>Saiba como usar a sincronização de dados offline para tornar o seu aplicativo responsivo e robusto.
 
@@ -132,4 +132,4 @@ Para obter mais informações sobre os aplicativos universais do Windows, consul
 [portal clássico do Azure]: https://manage.windowsazure.com/
 [Solucionar problemas de back-end do .NET dos Serviços Móveis]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -26,7 +26,7 @@ Quando você deseja criar um experimento, procure exemplos nos experimentos de e
 2. Procure também acessando **Experimentos Mais Populares** ou **Exemplos da Microsoft**.
 3. Use a pesquisa e os filtros para restringir os resultados: ![](./media/machine-learning-sample-experiments/image1.png) 
 4. Clique em um experimento para saber mais sobre ele. Para executar e/ou modificam o experimento, clique em **Abrir no Studio**. ![](./media/machine-learning-sample-experiments/image2.png) 
-5.  Entrar com suas credenciais de conta da Microsoft. Se você ainda não tiver um espaço de trabalho de Aprendizado de Máquina, é criado um espaço de trabalho de avaliação gratuito. [Saiba o que está incluído na avaliação gratuita de Aprendizado de Máquina](http://azure.microsoft.com/pricing/details/machine-learning/) ![](./media/machine-learning-sample-experiments/image3.png) 
+5.  Entrar com suas credenciais de conta da Microsoft. Se você ainda não tiver um espaço de trabalho de Aprendizado de Máquina, é criado um espaço de trabalho de avaliação gratuito. [Saiba o que está incluído na avaliação gratuita de Aprendizado de Máquina](https://azure.microsoft.com/pricing/details/machine-learning/) ![](./media/machine-learning-sample-experiments/image3.png) 
 
 ## Usar como modelo no Studio
 1. Entre com suas credenciais de conta da Microsoft para o [Studio](https://studio.azureml.net), e, em seguida, clique em **Novo*** para criar um novo experimento
@@ -39,4 +39,4 @@ Quando você deseja criar um experimento, procure exemplos nos experimentos de e
 - [Criar uma API do serviço Web](machine-learning-publish-a-machine-learning-web-service.md)
 - [Procurar aplicativos prontos para uso](https://datamarket.azure.com/browse?query=machine+learning)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

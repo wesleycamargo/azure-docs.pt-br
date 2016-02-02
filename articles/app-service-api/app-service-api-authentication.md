@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/07/2016"
+	ms.date="01/21/2016"
 	ms.author="tdykstra"/>
 
 # Autenticação e autorização para aplicativos de API no Serviço de Aplicativo do Azure
@@ -74,6 +74,8 @@ No [portal do Azure](https://portal.azure.com/), selecione a opção desejada na
 Para as opções 1 e 2, ative a **Autenticação do Serviço de Aplicativo** e, na lista suspensa **Ação a ser tomada quando a solicitação não for autenticada**, escolha **Fazer logon** ou **Permitir a solicitação (nenhuma ação)**. Se escolher **Logon**, você precisará escolher um provedor de autenticação e configurá-lo.
 
 ![](./media/app-service-api-authentication/actiontotake.png)
+
+Para obter informações detalhadas sobre como configurar a autenticação, consulte [Como configurar seu aplicativo do Serviço de Aplicativo para usar o logon do Active Directory do Azure](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md). O artigo se aplica a aplicativos de API, bem como a aplicativos móveis, e fornece links de outros artigos para os outros provedores de autenticação.
  
 ## <a id="internal"></a> Autenticação da conta de serviço
 
@@ -91,7 +93,10 @@ Para saber mais sobre como lidar com a autenticação de clientes móveis, confi
   
 ## Mais informações
 
-Para saber mais sobre os serviços de autenticação e a autorização no Serviço de Aplicativo do Azure, veja [Expandindo a autenticação/autorização do Serviço de Aplicativo](/blog/announcing-app-service-authentication-authorization/).
+Para saber mais sobre autenticação e autorização no Serviço de Aplicativo do Azure, consulte os seguintes recursos:
+
+* [Como expandir a autenticação/autorização do Serviço de Aplicativo](/blog/announcing-app-service-authentication-authorization/)
+* [Como configurar seu aplicativo do Serviço de Aplicativo para usar o logon do Active Directory do Azure](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md) (Inclui links para outros provedores de autenticação na parte superior da página.) 
 
 Para saber mais sobre o OAuth 2.0, o OpenID Connect e os Tokens da Web JSON (JWT), confira os recursos a seguir.
 
@@ -113,4 +118,4 @@ Se você estiver seguindo a sequência dos tutoriais de introdução ao ASP.NET 
 
 Para saber mais sobre como usar Node e Java no Serviço de Aplicativo do Azure, veja a [Central de Desenvolvedores do Node.js](/develop/nodejs/) e a [Central de Desenvolvedores do Java](/develop/java/).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

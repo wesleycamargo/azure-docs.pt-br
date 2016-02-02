@@ -41,7 +41,7 @@ Uma captura de tela do aplicativo completo está disponível abaixo:
 
 A conclusão deste tutorial requer o XCode e o [Xamarin Studio] para OS X ou o plug-in Xamarin Visual Studio para Visual Studio no Windows. A amostra será executada no iOS 5.0 e mais recentes.
 
-> [AZURE.IMPORTANT]Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.IMPORTANT] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-new-service"> </a>Criar um novo serviço móvel
 
@@ -89,7 +89,7 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
 	Isso envia uma solicitação de POST para o novo serviço móvel hospedado no Azure. Os dados da solicitação são inseridos na tabela TodoItem. Os itens armazenados na tabela são retornados pelo serviço móvel, e os dados são exibidos na lista.
 
-	> [AZURE.NOTE]Você pode examinar o código que acessa o serviço móvel para consultar e inserir dados que estão localizados no arquivo TodoService.cs C#.
+	> [AZURE.NOTE] Você pode examinar o código que acessa o serviço móvel para consultar e inserir dados que estão localizados no arquivo TodoService.cs C#.
 
 4. Novamente no [portal clássico do Azure], clique na guia **Dados** e clique na tabela **TodoItems**.
 
@@ -141,4 +141,4 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 
 [portal clássico do Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

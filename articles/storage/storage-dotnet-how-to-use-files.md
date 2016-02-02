@@ -1,6 +1,6 @@
 <properties
-			pageTitle="Como usar os Arquivos do Azure com o Windows | Microsoft Azure"
-    		description="Crie um compartilhamento de arquivos do Azure na nuvem com este tutorial passo a passo. Gerencie o conteúdo do compartilhamento de arquivos e monte um compartilhamento de arquivos de uma máquina virtual do Azure (VM) ou de um aplicativo local."
+			pageTitle="Introdução ao Armazenamento de Arquivos do Azure no Windows | Microsoft Azure"
+    		description="Armazene dados de arquivos na nuvem com o armazenamento de Arquivos do Azure e monte seu compartilhamento de arquivos na nuvem de uma VM (máquina virtual) do Azure ou de um aplicativo local que executa o Windows."
             services="storage"
             documentationCenter=".net"
             authors="robinsh"
@@ -12,22 +12,20 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="01/12/2015"
+      ms.date="01/24/2015"
       ms.author="robinsh" />
 
-# Como usar o armazenamento de arquivo do Azure com o Windows
+# Introdução ao Armazenamento de Arquivos do Azure no Windows
 
 [AZURE.INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
 
 ## Visão geral
 
-O armazenamento de arquivos do Azure oferece compartilhamentos de arquivos na nuvem usando o [Protocolo SMB](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) padrão. Ele agora tem disponibilidade geral e dá suporte a SMB 2.1 e a SMB 3.0.
+O armazenamento de Arquivos do Azure é um serviço que oferece compartilhamentos de arquivos na nuvem usando o [Protocolo SMB](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) padrão. Há suporte ao SMB 2.1 e ao 3.0 SMB. Com o armazenamento de Arquivos do Azure, você pode migrar aplicativos herdados que dependem de compartilhamentos de arquivos para o Azure rapidamente e sem regravações caras. Os aplicativos executados em máquinas virtuais do Azure ou serviços de nuvem ou em clientes locais podem montar um compartilhamento de arquivos na nuvem, exatamente como um aplicativo de desktop monta um compartilhamento SMB típico. Qualquer quantidade de componentes de aplicativos pode montar e acessar o compartilhamento de armazenamento de arquivos simultaneamente.
 
-Você pode criar compartilhamentos de arquivos do Azure usando o [Portal do Azure](portal.azure.com), os cmdlets do PowerShell do Armazenamento do Azure, as bibliotecas de cliente do Armazenamento do Azure ou a API REST do Armazenamento do Azure. Além disso, como esses compartilhamentos de arquivos são compartilhamentos do SMB, você pode acessá-los por meio de APIs padrão e familiares do sistema de arquivos.
+Já que um compartilhamento do Armazenamento de arquivos é um compartilhamento de arquivos SMB padrão, os aplicativos executados no Azure podem acessar dados no compartilhamento por meio de APIs de E/S do sistema de arquivos. Os desenvolvedores podem, portanto, utilizar seus códigos e habilidades existentes para migrar aplicativos existentes. Profissionais de TI podem usar cmdlets do PowerShell para criar, montar e gerenciar compartilhamentos de armazenamento de Arquivo como parte da administração de aplicativos Azure.
 
-Os aplicativos em execução no Azure podem facilmente montar compartilhamentos de arquivos a partir das máquinas virtuais do Azure. E, com a disponibilidade geral do Armazenamento de Arquivos, você também pode montar um compartilhamento de arquivos de um cliente local que dê suporte a SMB 3.0 (por exemplo, um laptop, um computador desktop e um servidor locais).
-
-O armazenamento de arquivos baseia-se na mesma tecnologia que o armazenamento de Blobs, Tabelas e Filas, o que significa que ele pode aproveitar a disponibilidade, a durabilidade, a escalabilidade e a redundância geográfica existentes e incorporadas à plataforma de armazenamento do Azure.
+Você pode criar compartilhamentos de arquivos do Azure usando o [Portal do Azure](https://portal.azure.com), os cmdlets do PowerShell do Armazenamento do Azure, as bibliotecas de cliente do Armazenamento do Azure ou a API REST do Armazenamento do Azure. Além disso, como esses compartilhamentos de arquivos são compartilhamentos do SMB, você pode acessá-los por meio de APIs padrão e familiares do sistema de arquivos.
 
 Para saber mais sobre como usar o Armazenamento de Arquivos com o Linux, confira [Como usar o Armazenamento de Arquivos do Azure com o Linux](storage-how-to-use-files-linux.md).
 
@@ -61,7 +59,7 @@ Agora há suporte de armazenamento de arquivos para todas as contas de armazenam
 
 ## Usar o Portal do Azure para gerenciar um compartilhamento de arquivos
 
-O [Portal do Azure](portal.azure.com) fornece uma interface do usuário para que os clientes gerenciem compartilhamentos de arquivos. No portal, você pode:
+O [Portal do Azure](https://portal.azure.com) fornece uma interface do usuário para que os clientes gerenciem compartilhamentos de arquivos. No portal, você pode:
 
 - Criar o compartilhamento de arquivos
 - Carregar e baixar arquivos de e para o compartilhamento de arquivos
@@ -119,7 +117,7 @@ O [Portal do Azure](portal.azure.com) fornece uma interface do usuário para que
 
 	![Captura de tela que mostra como montar o compartilhamento de arquivos](./media/storage-dotnet-how-to-use-files/files-manage-3.png)
 
-	>[AZURE.TIP]Para localizar a chave de acesso da conta de armazenamento para a montagem, clique em **Configurações** de sua conta de armazenamento e clique em **Chaves de acesso**.
+	>[AZURE.TIP] Para localizar a chave de acesso da conta de armazenamento para a montagem, clique em **Configurações** de sua conta de armazenamento e clique em **Chaves de acesso**.
 
 	![Captura de tela que mostra como localizar a chave de acesso da conta de armazenamento](./media/storage-dotnet-how-to-use-files/files-manage-4.png)
 
@@ -134,13 +132,13 @@ Como alternativa, você pode usar o Azure PowerShell para criar e gerenciar comp
 
 Para se preparar para usar o PowerShell, baixe e instale os cmdlets do PowerShell do Azure. Consulte [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md) para obter o ponto e as instruções de instalação.
 
-> [AZURE.NOTE]É recomendável baixar e instalar ou atualizar para o módulo mais recente do PowerShell do Azure.
+> [AZURE.NOTE] É recomendável baixar e instalar ou atualizar para o módulo mais recente do PowerShell do Azure.
 
 Abra uma janela do PowerShell do Azure clicando em **Iniciar** e digitando **PowerShell do Azure**. A janela do PowerShell do Azure carrega do módulo do PowerShell do Azure para você.
 
 ### Criar um contexto para sua conta e chave de armazenamento
 
-Agora, crie o contexto da conta de armazenamento. O contexto encapsula a conta de armazenamento e a chave da conta. Para obter instruções sobre como copiar a chave da conta no [Portal do Azure](portal.azure.com), consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+Agora, crie o contexto da conta de armazenamento. O contexto encapsula a conta de armazenamento e a chave da conta. Para obter instruções sobre como copiar a chave da conta no [Portal do Azure](https://portal.azure.com), consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 
 Substitua `storage-account-name` e `storage-account-key` pelo nome e chave da sua conta de armazenamento no exemplo a seguir.
 
@@ -156,7 +154,7 @@ Em seguida, crie o novo compartilhamento, denominado `logs`.
 
 Agora você tem um compartilhamento de arquivo no armazenamento de arquivos. Em seguida, adicionaremos um diretório e um arquivo.
 
-> [AZURE.IMPORTANT]O nome do seu compartilhamento de arquivo deve estar em minúsculas. Para obter detalhes completos sobre como nomear arquivos e compartilhamentos de arquivos, confira [Nomenclatura e referência de compartilhamentos, diretórios, arquivos e metadados](https://msdn.microsoft.com/library/azure/dn167011.aspx).
+> [AZURE.IMPORTANT] O nome do seu compartilhamento de arquivo deve estar em minúsculas. Para obter detalhes completos sobre como nomear arquivos e compartilhamentos de arquivos, confira [Nomenclatura e referência de compartilhamentos, diretórios, arquivos e metadados](https://msdn.microsoft.com/library/azure/dn167011.aspx).
 
 ### Criar um diretório no compartilhamento de arquivos
 
@@ -253,7 +251,7 @@ Para montar o compartilhamento de arquivos de um cliente local, siga estas etapa
 - Instale uma versão do Windows que dê suporte a SMB 3.0. O Windows aproveitará a criptografia SMB 3.0 para transferir dados com segurança entre o cliente local e o compartilhamento de arquivo do Azure na nuvem. 
 - Abra o acesso à Internet para a porta 445 (TCP de saída) em sua rede local, conforme exigido pelo protocolo SMB. 
 
-> [AZURE.NOTE]Alguns provedores de serviços de Internet podem bloquear a porta 445; portanto, é necessário verificar com seu provedor de serviços.
+> [AZURE.NOTE] Alguns provedores de serviços de Internet podem bloquear a porta 445; portanto, é necessário verificar com seu provedor de serviços.
 
 ## Desenvolver com o armazenamento de arquivo
 
@@ -281,7 +279,7 @@ Em seguida, salve suas credenciais no arquivo app.config do projeto. Edite o arq
 	    </appSettings>
 	</configuration>
 
-> [AZURE.NOTE]A versão mais recente do emulador de armazenamento do Azure não dá suporte ao armazenamento de arquivos. Sua cadeia de conexão deve ter como destino uma conta de armazenamento do Azure na nuvem para funcionar com o Armazenamento de arquivo.
+> [AZURE.NOTE] A versão mais recente do emulador de armazenamento do Azure não dá suporte ao armazenamento de arquivos. Sua cadeia de conexão deve ter como destino uma conta de armazenamento do Azure na nuvem para funcionar com o Armazenamento de arquivo.
 
 ### Adicionar declarações do namespace
 
@@ -429,7 +427,7 @@ A partir da versão 5.x da Biblioteca de Cliente do Armazenamento do Azure, voc�
 
 Você também pode usar o AzCopy para copiar um arquivo para outro, ou para copiar um blob em um arquivo ou vice-versa. Para obter detalhes sobre como copiar arquivos com o AzCopy, consulte [Como usar o AzCopy com o Armazenamento do Microsoft Azure](storage-use-azcopy.md#copy-files-in-azure-file-storage-with-azcopy-preview-version-only).
 
-> [AZURE.NOTE]Se você estiver copiando um blob em um arquivo, ou um arquivo em um blob, use uma assinatura de acesso compartilhado (SAS) para autenticar o objeto de origem, mesmo se você estiver copiando dentro da mesma conta de armazenamento.
+> [AZURE.NOTE] Se você estiver copiando um blob em um arquivo, ou um arquivo em um blob, use uma assinatura de acesso compartilhado (SAS) para autenticar o objeto de origem, mesmo se você estiver copiando dentro da mesma conta de armazenamento.
 
 **Copiar um arquivo para outro arquivo**
 
@@ -528,7 +526,7 @@ Você pode copiar um blob em um arquivo da mesma maneira. Se o objeto de origem 
 
 A análise de armazenamento do Azure agora dá suporte a métricas para armazenamento de arquivos. Com dados de métricas, você pode rastrear solicitações e diagnosticar problemas.
 
-Você pode habilitar métricas para o Armazenamento de Arquivos no [Portal do Azure](portal.azure.com). Você também pode habilitar métricas programaticamente ao chamar a operação Definir Propriedades de Serviço do Arquivo pela API REST ou uma operação semelhante na biblioteca de cliente de armazenamento.
+Você pode habilitar métricas para o Armazenamento de Arquivos no [Portal do Azure](https://portal.azure.com). Você também pode habilitar métricas programaticamente ao chamar a operação Definir Propriedades de Serviço do Arquivo pela API REST ou uma operação semelhante na biblioteca de cliente de armazenamento.
 
 ## Perguntas frequentes sobre armazenamento de arquivo
 
@@ -611,4 +609,4 @@ Consulte estes links para obter mais informações sobre o armazenamento de arqu
 - [Persistindo conexões para arquivos do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 - [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

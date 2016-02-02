@@ -42,7 +42,6 @@
 
 [Como criar uma VM personalizada executando Linux usando a interface de linha de comando do Azure (CLI do Azure)](virtual-machines-linux-create-custom.md)
 
-[Criar uma implantação de várias VMs usando a CLI do Azure](virtual-machines-create-multi-vm-deployment-xplat-cli-install.md)
 
 ## Plano
 
@@ -152,4 +151,4 @@
 
 [Referência da API REST de Gerenciamento de Serviços](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

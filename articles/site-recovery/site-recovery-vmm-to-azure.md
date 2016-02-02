@@ -33,7 +33,7 @@ Se você enfrentar problemas ao configurar esse cenário, publique suas pergunta
 Verifique se estes pré-requisitos estão em vigor:
 ### Pré-requisitos do Azure
 
-- Você precisará de uma conta do [Microsoft Azure](http://azure.microsoft.com/). Se você não tiver uma, comece com uma [avaliação gratuita](http://aka.ms/try-azure). Além disso, você pode ler sobre [preços do Azure Site Recovery Manager](http://go.microsoft.com/fwlink/?LinkId=378268).
+- Você precisará de uma conta do [Microsoft Azure](https://azure.microsoft.com/). Se você não tiver uma, comece com uma [avaliação gratuita](http://aka.ms/try-azure). Além disso, você pode ler sobre [preços do Azure Site Recovery Manager](http://go.microsoft.com/fwlink/?LinkId=378268).
 - Você precisará de uma conta de armazenamento do Azure para armazenar os dados replicados no Azure. A conta precisa estar com a replicação geográfica habilitada. Ela deve estar localizada na mesma região que o serviço de Recuperação de Site do Azure e ser associada à mesma assinatura. Para aprender mais sobre configuração do armazenamento do Azure, consulte [Introdução ao Armazenamento do Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=398704).
 - Você precisará verificar se as máquinas virtuais que deseja proteger atendem aos requisitos do Azure. Confira [Suporte da máquina virtual](https://msdn.microsoft.com/library/azure/dn469078.aspx#BKMK_E2A) para obter detalhes.
 
@@ -52,7 +52,7 @@ Verifique se estes pré-requisitos estão em vigor:
 ### Pré-requisitos do Hyper-V
 
 - Os servidores host Hyper-V devem estar executando pelo menos o Windows Server 2012 R2 com a função Hyper-V e ter as últimas atualizações instaladas.
-- Se você estiver executando o Hyper-V em um cluster, observe que o agente de cluster não será criado automaticamente se você tiver um cluster de baseados em endereços IP estáticos. Você precisará configurar o agente de cluster manualmente. Para obter instruções, confira [Configurar o Agente de Réplica do Hyper-V](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx).
+- Se você estiver executando o Hyper-V em um cluster, observe que o agente de cluster não será criado automaticamente se você tiver um cluster de baseados em endereços IP estáticos. Você precisará configurar o agente de cluster manualmente. Para obter instruções, confira [Configurar o agente de réplica do Hyper-V](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx).
 - Qualquer cluster ou servidor host Hyper-V para o qual você desejar gerenciar a proteção deverá ser incluído em uma nuvem VMM.
 
 A figura abaixo mostra os canais de comunicação e as portas diferentes usados pelo Azure Site Recovery para coordenação e a replicação
@@ -152,7 +152,7 @@ Gere uma chave de registro no cofre. Após baixar o Provedor do Azure Site Recov
 
 8. Clique em *Avançar* para concluir o processo. Após o registro, os metadados do servidor VMM é recuperado pela Recuperação de Site do Azure. O servidor é exibido na guia *Servidores VMM* da página **Servidores** no cofre.
 
->[AZURE.NOTE]O Provedor do Azure Site Recovery também pode ser instalado usando a linha de comando a seguir. Esse método pode ser usado para instalar o provedor em um NÚCLEO de Servidor para o Windows Server 2012 R2
+>[AZURE.NOTE] O Provedor do Azure Site Recovery também pode ser instalado usando a linha de comando a seguir. Esse método pode ser usado para instalar o provedor em um NÚCLEO de Servidor para o Windows Server 2012 R2
 
 1. Baixar o arquivo de instalação do Provedor e a chave de registro em uma pasta, por exemplo, C:\\ASR
 1. Parar o Serviço System Center Virtual Machine Manager
@@ -205,7 +205,7 @@ Instale o Agente de Serviços de Recuperação do Azure em cada servidor de host
 	
 	![Registrar o Agente MARS](./media/site-recovery-vmm-to-azure/MarsAgentRegister.png)
 
->[AZURE.NOTE]Você pode instalar o Agente de Serviços de Recuperação do Microsoft Azure por meio da linha de comando usando o comando a seguir
+>[AZURE.NOTE] Você pode instalar o Agente de Serviços de Recuperação do Microsoft Azure por meio da linha de comando usando o comando a seguir
 >
 	marsagentinstaller.exe /q /nu
 
@@ -295,7 +295,7 @@ Depois de redes, servidores e nuvens estarem configurados corretamente, você po
 
 		![Modificar propriedades de rede](./media/site-recovery-vmm-to-azure/MultiNic.png)
 
->[AZURE.NOTE]As máquinas virtuais Linux que usam IP estático não têm suporte.
+>[AZURE.NOTE] As máquinas virtuais Linux que usam IP estático não têm suporte.
 
 ## Testar a implantação
 Para testar sua implantação, você pode executar um failover de teste para uma única máquina virtual, ou criar um plano de recuperação consistente de várias máquinas virtuais e executar um failover de teste para o plano. O failover de teste simula o mecanismo de failover e recuperação em uma rede isolada. Observe que:
@@ -367,4 +367,4 @@ Para executar um failover de teste, faça o seguinte:
 
 <LI>Em caso de dúvidas, visite o <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Fórum dos Serviços de Recuperação do Azure</a>.</LI> </UL>
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

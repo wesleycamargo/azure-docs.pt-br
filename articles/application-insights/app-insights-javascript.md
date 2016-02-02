@@ -33,7 +33,7 @@ Se você não tem uma assinatura do Azure e deseja experimentar o Application In
 
 O recurso Application Insights é onde os dados sobre o desempenho e o uso da página são exibidos. (Se você já criou um recurso, talvez para coletar dados de seu servidor Web, ignore essa etapa.)
 
-Entre no [portal do Azure](http://portal.azure.com).
+Entre no [portal do Azure](https://portal.azure.com).
 
 Se tiver configurado o monitoramento do lado do servidor de seu aplicativo, você já terá um recurso:
 
@@ -125,7 +125,7 @@ Clique em um gráfico para ver outras medidas que você pode exibir, ou adiciona
 
 ![](./media/app-insights-javascript/appinsights-63usermetrics.png)
 
-> [AZURE.NOTE]As métricas só podem ser exibidas em algumas combinações. Quando você seleciona uma métrica, aquelas incompatíveis são desabilitadas.
+> [AZURE.NOTE] As métricas só podem ser exibidas em algumas combinações. Quando você seleciona uma métrica, aquelas incompatíveis são desabilitadas.
 
 
 
@@ -150,7 +150,7 @@ Na folha de Pesquisa de Diagnóstico, defina Filtros para Exibição da Página.
 
 Selecione qualquer evento para ver mais detalhes. Na página de detalhes, clique em "..." para ver mais detalhes.
 
-> [AZURE.NOTE]Se você usar [Pesquisar](app-insights-diagnostic-search.md), observe que precisa fazer a correspondência de palavras inteiras: "Sobr" e "obre" não correspondem a "Sobre", mas "Sobr*" corresponde a ela. E você não pode iniciar um termo de pesquisa com um curinga. Por exemplo, pesquisar por "*obr" não corresponde a "Sobre".
+> [AZURE.NOTE] Se você usar [Pesquisar](app-insights-diagnostic-search.md), observe que precisa fazer a correspondência de palavras inteiras: "Sobr" e "obre" não correspondem a "Sobre", mas "Sobr*" corresponde a ela. E você não pode iniciar um termo de pesquisa com um curinga. Por exemplo, pesquisar por "*obr" não corresponde a "Sobre".
 
 > [Saiba mais sobre pesquisa de diagnóstico](app-insights-diagnostic-search.md)
 
@@ -187,4 +187,4 @@ Ou, se seu aplicativo Web já estiver ativo, você ainda poderá adicionar telem
 * [Eventos e métricas personalizados](app-insights-api-custom-events-metrics.md)
 * [Build-measure-learn](app-insights-overview-usage.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

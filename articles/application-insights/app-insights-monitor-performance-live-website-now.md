@@ -24,7 +24,7 @@ O Status do Monitor do Application Insights para Visual Studio permite diagnosti
 
 ![gráficos de exemplo](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
-> [AZURE.TIP]Há artigos sobre como instrumentar [aplicativos Web J2EE online](app-insights-java-live.md) e [Serviços de Nuvem do Azure](app-insights-cloudservices.md).
+> [AZURE.TIP] Há artigos sobre como instrumentar [aplicativos Web J2EE online](app-insights-java-live.md) e [Serviços de Nuvem do Azure](app-insights-cloudservices.md).
 
 
 Você tem três maneiras de aplicar o Application Insights em seus aplicativos Web do IIS:
@@ -99,7 +99,7 @@ No painel de controle do Aplicativo Web do Azure, adicione a extensão do Applic
 
 ## Exibir desempenho de telemetria
 
-Entre no [portal do Azure](http://portal.azure.com), procure o Application Insights e abra o recurso que você criou.
+Entre no [portal do Azure](https://portal.azure.com), procure o Application Insights e abra o recurso que você criou.
 
 ![Selecione Navegar, Application Insights e selecione seu aplicativo.](./media/app-insights-monitor-performance-live-website-now/appinsights-08openApp.png)
 
@@ -136,7 +136,7 @@ Você pode fazer busca detalhada até exceções específicas (dos últimos sete
 
 ## Amostragem
 
-Se o aplicativo envia muitos dados, e se você estiver usando o SDK do Application Insights para o ASP.NET versão 2.0.0-beta3 ou posterior, o recurso de amostragem adaptável poderá operar e enviar apenas uma porcentagem de sua telemetria. [Saiba mais sobre amostragem.](app-insights-sampling.md)
+Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Application Insights para o ASP.NET versão 2.0.0-beta3 ou posterior, o recurso de amostragem adaptável poderá operar e enviar apenas uma porcentagem de sua telemetria. [Saiba mais sobre amostragem.](app-insights-sampling.md)
 
 
 ## Solucionar problemas
@@ -220,4 +220,4 @@ Suporte ao IIS: IIS 7, 7,5, 8 e 8.5 (o IIS é obrigatório)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

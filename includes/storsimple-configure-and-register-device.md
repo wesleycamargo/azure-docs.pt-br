@@ -30,12 +30,12 @@
    - Endereço IP do servidor DNS Primário
    - Endereço IP do servidor NTP Primário
    
-      >[AZURE.NOTE]Você terá que aguardar alguns minutos para que a máscara da sub-rede e as configurações de DNS sejam aplicadas. Se você vir a mensagem de erro “O dispositivo não está pronto”, verifique a conexão física da rede na interface de rede DADOS 0 de seu controlador ativo.
+      >[AZURE.NOTE] Você terá que aguardar alguns minutos para que a máscara da sub-rede e as configurações de DNS sejam aplicadas. Se você vir a mensagem de erro “O dispositivo não está pronto”, verifique a conexão física da rede na interface de rede DADOS 0 de seu controlador ativo.
 
 8. (Opcional) configure seu servidor proxy da Web. Embora a configuração do proxy da Web seja opcional, **saiba que se você usar um proxy da Web, poderá apenas configurá-lo aqui**. Para obter mais informações, visite [Configurar proxy da Web para seu dispositivo](storsimple-configure-web-proxy.md). Se você tiver algum problema durante esta etapa, consulte a guia de solução de problemas para [Erros durante a configuração do proxy da web](storsimple-troubleshoot-deployment.md#errors-during-the-optional-web-proxy-settings).
  
 
-      >[AZURE.NOTE]Você pode pressionar Ctrl + C a qualquer momento para sair do assistente de instalação. As configurações aplicadas antes de você dar esse comando serão mantidas.
+      >[AZURE.NOTE] Você pode pressionar Ctrl + C a qualquer momento para sair do assistente de instalação. As configurações aplicadas antes de você dar esse comando serão mantidas.
 
 9. Por motivos de segurança, a senha de administrador do dispositivo expira após a primeira sessão e você precisará alterá-la nas sessões subsequentes. Quando solicitado, forneça uma senha de administrador do dispositivo. Uma senha de administrador do dispositivo válida deve ter entre 8 e 15 caracteres. A senha deve conter uma combinação de caracteres com letras maiúsculas e minúsculas, números e caracteres especiais.
 
@@ -53,7 +53,7 @@
 
 12. Depois do dispositivo ser registrado, uma chave de Criptografia de Dados do Serviço será exibida. Copie essa chave e salve-a em um local seguro.
 	
-	> [AZURE.WARNING]Essa chave será necessária com a chave de registro do serviço para registrar dispositivos adicionais no serviço Gerenciador StorSimple. Consulte a [segurança do StorSimple](../articles/storsimple/storsimple-security.md) para obter mais informações sobre essa chave.
+	> [AZURE.WARNING] Essa chave será necessária com a chave de registro do serviço para registrar dispositivos adicionais no serviço Gerenciador StorSimple. Consulte a [segurança do StorSimple](../articles/storsimple/storsimple-security.md) para obter mais informações sobre essa chave.
 
      ![Dispositivo de registro do StorSimple 6](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice6-include.png)
 
@@ -61,19 +61,19 @@
 
 13. Saia do console serial.
 
-14. Volte para o portal clássico do Azure e conclua as seguintes etapas:
+14. Volte para o portal clássico do Azure e realize as seguintes etapas:
   1. Clique duas vezes no serviço Gerenciador StorSimple para acessar a página**Início Rápido**.
   2. Clique em **Exibir dispositivos conectados**.
   3. Na página **Dispositivos**, verifique se o dispositivo conectou com êxito o serviço pesquisando o status. O status do dispositivo deve ser **Online**. Se o status do dispositivo for **Offline**, aguarde alguns minutos para o dispositivo ficar online.
    
     ![Página dos Dispositivos StorSimple](./media/storsimple-configure-and-register-device/HCS_DevicesPageM-include.png)
   
-      >[AZURE.IMPORTANT]Depois que o dispositivo estiver online, conecte os cabos de rede que você tinha desconectado no início desta etapa.
+      >[AZURE.IMPORTANT] Depois que o dispositivo estiver online, conecte os cabos de rede que você tinha desconectado no início desta etapa.
 
 Após o registro bem-sucedido do dispositivo, se ele não ficar online, você poderá executar o `Test-HcsmConnection -Verbose` para garantir que a conectividade de rede esteja íntegra. Para consultar o uso detalhado desse cmdlet, acesse [referência do cmdlet para Test-HcsmConnection](https://technet.microsoft.com/library/dn715782.aspx).
 
 ![Vídeo disponível](./media/storsimple-configure-and-register-device/Video_icon.png) **Vídeo disponível**
 
-Para assistir a um vídeo que demonstra como configurar e registrar seu dispositivo por meio do Windows PowerShell para StorSimple, clique [aqui](http://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).
+Para assistir a um vídeo que demonstra como configurar e registrar seu dispositivo por meio do Windows PowerShell para StorSimple, clique [aqui](https://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

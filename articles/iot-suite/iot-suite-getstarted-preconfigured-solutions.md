@@ -2,13 +2,14 @@
 	pageTitle="Introdução às soluções pré-configuradas | Microsoft Azure"
 	description="Siga este tutorial para aprender a implantar uma solução pré-configurada do Azure IoT Suite."
 	services=""
+    suite="iot-suite"
 	documentationCenter=""
 	authors="dominicbetts"
 	manager="timlt"
 	editor=""/>
 
 <tags
-     ms.service="na"
+     ms.service="iot-suite"
      ms.devlang="na"
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
@@ -26,7 +27,7 @@ Este tutorial mostra como provisionar a solução pré-configurada de *monitoram
 
 Para concluir este tutorial, você precisará de uma assinatura ativa do Azure.
 
-> [AZURE.NOTE]Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][lnk_free_trial].
+> [AZURE.NOTE]  Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][lnk_free_trial].
 
 ## Provisionamento de uma solução pré-configurada de monitoramento remoto
 
@@ -159,4 +160,4 @@ Agora que você criou uma solução de trabalho pré-configurada, você pode pas
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-predictive]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

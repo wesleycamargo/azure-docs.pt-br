@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="10/20/2015" 
+	ms.date="01/26/2015" 
 	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175"></a>Criar um aplicativo Web Node.js usando o Banco de Dados de Documentos
@@ -44,7 +44,7 @@ Não há tempo para concluir o tutorial e deseja apenas a solução completa? N�
 
 ## <a name="_Toc395783176"></a>Pré-requisitos
 
-> [AZURE.TIP]Este tutorial do Node.js presume que você tenha alguma experiência anterior com o Node.js e sites do Azure.
+> [AZURE.TIP] Este tutorial do Node.js presume que você tenha alguma experiência anterior com o Node.js e sites do Azure.
 
 Antes de seguir as instruções deste artigo, verifique se você possui o seguinte:
 
@@ -183,8 +183,7 @@ Isso cuida de toda a instalação e configuração inicial. Agora vamos ao motiv
 				
 		module.exports = DocDBUtils;
 
-> [AZURE.TIP]createCollection aceita um parâmetro de requestOptions opcional que pode ser usado para especificar o Tipo de Oferta para a Coleção. Se nenhum valor de requestOptions.offerType for fornecido, a coleção será criada usando o Tipo de Oferta padrão. 
-> Para obter mais informações sobre os Tipos de Oferta do Banco de Dados de Documentos, consulte [Níveis de Desempenho no Banco de Dados de Documentos](documentdb-performance-levels.md)
+> [AZURE.TIP] createCollection aceita um parâmetro de requestOptions opcional que pode ser usado para especificar o Tipo de Oferta para a Coleção. Se nenhum valor de requestOptions.offerType for fornecido, a coleção será criada usando o Tipo de Oferta padrão. Para obter mais informações sobre os Tipos de Oferta do Banco de Dados de Documentos, consulte [Níveis de Desempenho no Banco de Dados de Documentos](documentdb-performance-levels.md)
 		
 3. Salve e feche o arquivo **docdbUtils.js**.
 
@@ -397,7 +396,7 @@ Isso cuida de toda a instalação e configuração inicial. Agora vamos ao motiv
 		
 		module.exports = config;
 
-3. No arquivo **config.js**, atualize os valores de HOST e de AUTH_KEY usando os valores encontrados na folha Chaves de sua conta do Banco de Dados de Documentos no [Portal do Microsoft Azure](http://portal.azure.com):
+3. No arquivo **config.js**, atualize os valores de HOST e de AUTH\_KEY usando os valores encontrados na folha Chaves de sua conta do Banco de Dados de Documentos no [Portal do Microsoft Azure](https://portal.azure.com):
 
 4. Salve e feche o arquivo **config.js**.
  
@@ -458,8 +457,7 @@ Agora vamos voltar a atenção para criar a interface do usuário, desse modo, u
 
 
 
-	Isso instrui o mecanismo **Jade** a renderizar um HTML para nosso aplicativo e cria um **bloco** chamado **content**, em que podemos fornecer o layout para nossas páginas de conteúdo. 
-	Salve e feche o arquivo **layout.jade**.
+	Isso instrui o mecanismo **Jade** a renderizar um HTML para nosso aplicativo e cria um **bloco** chamado **content**, em que podemos fornecer o layout para nossas páginas de conteúdo. Salve e feche o arquivo **layout.jade**.
 
 4. Agora, abra o arquivo **index.jade**, o modo de exibição que será usado pelo nosso aplicativo, e substitua o conteúdo do arquivo pelo seguinte:
 
@@ -503,13 +501,11 @@ Agora vamos voltar a atenção para criar a interface do usuário, desse modo, u
 
 	Isso estende o layout e fornece conteúdo para o espaço reservado **content** que vimos no arquivo **layout.jade** anteriormente.
 	
-	Nesse layout criamos dois formulários HTML. 
-	O primeiro formulário contém uma tabela para nossos dados e um botão que permite atualizar itens pelo lançamento do método **/completetask** de nosso controlador. 
-	O segundo formulário contém dois campos de entrada e um botão que nos permite criar um novo item ao ser lançado o método **/addtask** do nosso controlador.
+	Nesse layout criamos dois formulários HTML. O primeiro formulário contém uma tabela para nossos dados e um botão que permite atualizar itens pelo lançamento do método **/completetask** de nosso controlador. O segundo formulário contém dois campos de entrada e um botão que nos permite criar um novo item ao ser lançado o método **/addtask** do nosso controlador.
 	
 	Isso deve ser tudo o que precisamos para que nosso aplicativo funcione.
 
-5. Abra o arquivo **style.css** no diretório **public\stylesheets** e substitua o código pelo seguinte:
+5. Abra o arquivo **style.css** no diretório **public\\stylesheets** e substitua o código pelo seguinte:
 
 		body {
 		  padding: 50px;
@@ -573,4 +569,4 @@ Para saber mais, consulte o [Centro de desenvolvedores do Node.js](https://azure
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Azure AD Connect: Integrando suas identidades locais ao Active Directory do Azure. | Microsoft Azure"
-	description="Este é o Azure AD Connect que descreve o que ele é e por que usá-lo."
+	description="O Azure AD Connect é a ferramenta para integrar seu sistema de identidade local como o Active Directory do Windows Server com o Active Directory do Azure e conectar seus usuários ao Office 365, ao Azure e a milhares de aplicativos SaaS. Este tópico explica os recursos do Azure AD Connect e fornece informações sobre como ele funciona, como instalá-lo, configurá-lo e personalizá-lo."
+    keywords="introdução ao Azure AD Connect, visão geral do Azure AD Connect, o que é o Azure AD Connect, instalar o active directory"
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/08/2016"
+	ms.date="01/25/2016"
 	ms.author="andkjell;billmath"/>
 
 # Integração de suas identidades locais com o Active Directory do Azure
@@ -140,4 +141,4 @@ Apresentação Ignite 2015 sobre como expandir seus diretórios locais para a nu
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

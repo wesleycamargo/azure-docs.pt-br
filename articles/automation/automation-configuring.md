@@ -25,7 +25,7 @@ Ao iniciar a Automação do Azure pela primeira vez, você deve criar pelo menos
 
 Os recursos de Automação para cada conta de Automação estão associados a uma única região do Azure, mas as contas de Automação podem gerenciar os serviços do Azure em qualquer região. O principal motivo para criar contas de Automação em regiões diferentes seria se você tiver políticas que exijam que dados e recursos sejam isolados em uma região específica.
 
->[AZURE.NOTE]As contas de automação e os recursos que eles contêm, que são criados com o Portal de Visualização do Azure, não podem ser acessados no Portal do Azure. Se quiser gerenciar essas contas ou os recursos com o Windows PowerShell, você deve usar os módulos do Gerenciador de Recursos do Azure.
+>[AZURE.NOTE] As contas de automação e os recursos que eles contêm, que são criados com o Portal de Visualização do Azure, não podem ser acessados no Portal do Azure. Se quiser gerenciar essas contas ou os recursos com o Windows PowerShell, você deve usar os módulos do Gerenciador de Recursos do Azure.
 >
 >As contas de automação criadas com o Portal do Azure podem ser gerenciadas pelo portal e pelo conjunto de cmdlets. Depois que a conta é criada, não faz diferença como você cria e gerencia recursos dentro da conta. Se planeja continuar a usar o portal do Azure, você deve usá-lo em vez do Portal de Visualização do Azure para criar qualquer conta de automação.
 
@@ -37,7 +37,7 @@ Uma conta de Automação poderá ser suspensa se houver um problema com sua cont
 
 Ao acessar recursos do Azure usando [cmdlets do Azure](http://msdn.microsoft.com/library/azure/jj554330.aspx), você precisa fornecer autenticação para sua assinatura do Azure. Na Automação do Azure, isso é feito com uma conta organizacional no Active Directory do Azure que você configura como um administrador para sua assinatura. Você pode então criar um [credencial](http://msdn.microsoft.com/library/dn940015.aspx) para essa conta de usuário e usá-la com [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) em seu runbook.
 
->[AZURE.NOTE]As contas da Microsoft, anteriormente conhecidas como LiveIDs, não podem ser usadas com a Automação do Azure.
+>[AZURE.NOTE] As contas da Microsoft, anteriormente conhecidas como LiveIDs, não podem ser usadas com a Automação do Azure.
 
 ## Criar um novo usuário do Active Directory do Azure para gerenciar uma assinatura do Azure
 
@@ -62,7 +62,7 @@ Uma conta de automação é um contêiner para os seus recursos de Automação d
 
 3. Na folha **Adicionar Conta de Automação**, configurar os detalhes da Conta de Automação.
 
->[AZURE.NOTE]Quando uma conta de Automação for criada usando o portal de visualização do Azure, a conta e todos os recursos associados a ela não serão trazidos de volta para o portal de gerenciamento clássico.
+>[AZURE.NOTE] Quando uma conta de Automação for criada usando o portal de visualização do Azure, a conta e todos os recursos associados a ela não serão trazidos de volta para o portal de gerenciamento clássico.
 
 A seguir, a lista de parâmetros a serem configurados:
 
@@ -76,7 +76,7 @@ A seguir, a lista de parâmetros a serem configurados:
 
 ![Criar conta](media/automation-configuration/automation-01-create-automation-account.png)
 
->[AZURE.NOTE]Quando uma Conta de Automação criada usando o portal de gerenciamento clássico for [movida para outro grupo de recursos](../resource-group-move-resources.md) usando o portal de visualização do Azure, a Conta de Automação não estará mais disponível no portal clássico do Azure, já que as contas do gerenciador de recursos do Azure não têm suporte no portal de gerenciamento clássico.
+>[AZURE.NOTE] Quando uma Conta de Automação criada usando o portal de gerenciamento clássico for [movida para outro grupo de recursos](../resource-group-move-resources.md) usando o portal de visualização do Azure, a Conta de Automação não estará mais disponível no portal clássico do Azure, já que as contas do gerenciador de recursos do Azure não têm suporte no portal de gerenciamento clássico.
 
 
 
@@ -91,7 +91,7 @@ Você pode recuperar a credencial em um runbook usando a atividade [Get-Automati
 Repita essas linhas após qualquer [ponto de verificação](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints) em seu runbook. Se o runbook for suspenso e reiniciado em outro trabalho, será necessário executar novamente a autenticação.
 
 ## Artigos relacionados
-- [Autenticação do Azure: autenticando no Azure usando o Active Directory do Azure](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
+- [Autenticação do Azure: autenticando no Azure usando o Active Directory do Azure](https://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

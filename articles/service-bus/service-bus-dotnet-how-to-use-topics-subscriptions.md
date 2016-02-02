@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="10/15/2015"
+    ms.date="01/26/2016"
     ms.author="sethm"/>
 
 # Como usar os tópicos e assinaturas do Barramento de Serviço
@@ -32,7 +32,7 @@ Quando você cria um aplicativo que usa o Barramento de Serviço, você deve adi
 
 ## Obtenha o pacote do NuGet do Barramento de Serviço
 
-O pacote NuGet de Barramento de serviço é a maneira mais fácil de obter a API do Barramento de serviço e configurar seu aplicativo com todas as dependências de Barramento de serviço. A extensão do Visual Studio do NuGet facilita a instalação e a atualização de bibliotecas e ferramentas no Visual Studio e no Visual Studio Express. O pacote NuGet de Barramento de serviço é a maneira mais fácil de obter a API do Barramento de serviço e configurar seu aplicativo com todas as dependências de Barramento de serviço.
+O [pacote NuGet de Barramento de Serviço](https://www.nuget.org/packages/WindowsAzure.ServiceBus) é a maneira mais fácil de obter a API do Barramento de serviço e configurar seu aplicativo com todas as dependências de Barramento de serviço. A extensão do Visual Studio do NuGet facilita a instalação e a atualização de bibliotecas e ferramentas no Visual Studio e no Visual Studio Express.
 
 Para instalar o pacote do NuGet em seu aplicativo, proceda da seguinte maneira:
 
@@ -83,7 +83,7 @@ Em seguida, especifique valores no arquivo de configuração do serviço (.cscfg
 </ServiceConfiguration>
 ```
 
-Use o nome da chave da SAS (Assinatura de Acesso Compartilhado) e os valores de chave recuperados do portal clássico do Azure, como descrito na seção anterior.
+Use o nome da chave da SAS (Assinatura de Acesso Compartilhado) e os valores de chave recuperados do portal, conforme descrito na seção anterior.
 
 ### Configurar a cadeia de conexão ao usar sites ou Máquinas Virtuais do Azure
 
@@ -98,13 +98,13 @@ Ao usar sites ou Máquinas Virtuais, é recomendável usar o sistema de configur
 </configuration>
 ```
 
-Use o nome da SAS e os valores de chave recuperados no portal clássico do Azure, como descrito na seção anterior.
+Use o nome da SAS e os valores de chave recuperados no [portal clássico do Azure][], como descrito na seção anterior.
 
 ## Criar um tópico
 
 Você pode executar operações de gerenciamento de tópicos e assinaturas do Barramento de Serviço usando a classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Essa classe fornece métodos para criar, enumerar e excluir tópicos.
 
-O exemplo a seguir constrói um objeto `NamespaceManager` usando a classe `CloudConfigurationManager` do Azure com uma cadeia de conexão que consiste no endereço básico de um namespace de serviço do Barramento de Serviço e nas credenciais apropriadas da SAS com permissões para gerenciá-lo. Essa cadeia de conexão está na forma a seguir.
+O exemplo a seguir constrói um objeto `NamespaceManager` usando a classe `CloudConfigurationManager` do Azure com uma cadeia de conexão que consiste no endereço básico de um namespace do Barramento de Serviço e nas credenciais apropriadas da SAS com permissões para gerenciá-lo. Essa cadeia de conexão está na forma a seguir.
 
 ```
 Endpoint=sb://<yourServiceNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey
@@ -147,7 +147,7 @@ if (!namespaceManager.TopicExists("TestTopic"))
 }
 ```
 
-> [AZURE.NOTE]Você pode usar o método [TopicExists](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.topicexists.aspx) em objetos [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) para verificar se uma fila com um nome especificado já existe no namespace.
+> [AZURE.NOTE] Você pode usar o método [TopicExists](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.topicexists.aspx) em objetos [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) para verificar se uma fila com um nome especificado já existe no namespace.
 
 ## Criar uma assinatura
 
@@ -236,11 +236,11 @@ for (int i=0; i<5; i++)
 }
 ```
 
-Os tópicos do Barramento de Serviço oferecem suporte a um [tamanho máximo de mensagem de 256 KB](service-bus-quotas.md) (o cabeçalho, que inclui as propriedades do aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB). Não há nenhum limite no número de mensagens mantidas em um tópico mas há uma capacidade do tamanho total das mensagens mantidas por um tópico. O tamanho do tópico é definido no momento da criação, com um limite máximo de 5 GB. Se o particionamento estiver habilitado, o limite superior será maior. Para obter mais informações, consulte [Particionando entidades de mensagens](https://msdn.microsoft.com/library/azure/dn520246.aspx).
+Os tópicos do Barramento de Serviço oferecem suporte a um [tamanho máximo de mensagem de 256 KB](service-bus-quotas.md) (o cabeçalho, que inclui as propriedades do aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB). Não há nenhum limite no número de mensagens mantidas em um tópico mas há uma capacidade do tamanho total das mensagens mantidas por um tópico. O tamanho do tópico é definido no momento da criação, com um limite máximo de 5 GB. Se o particionamento estiver habilitado, o limite superior será maior. Para saber mais, consulte [Entidades de mensagens particionadas](service-bus-partitioning.md).
 
 ## Como receber mensagens de uma assinatura
 
-A maneira recomendada de receber mensagens de uma assinatura é usar um objeto [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx). Os objetos [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx) podem funcionar em dois modos diferentes: [ReceiveAndDelete e PeekLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx).
+A maneira recomendada de receber mensagens de uma assinatura é usar um objeto [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx). Os objetos [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx) podem funcionar em dois modos diferentes: [*ReceiveAndDelete* e *PeekLock*](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx).
 
 Quando o modo **ReceiveAndDelete** for usado, o recebimento será uma operação única, isto é, quando o Barramento de Serviço receber uma solicitação de leitura de uma mensagem em uma assinatura, ele marcará a mensagem como sendo consumida e a retornará ao aplicativo. O modo **ReceiveAndDelete** é o modelo mais simples e funciona melhor em cenários nos quais um aplicativo pode tolerar o não processamento de uma mensagem em caso de falha. Para compreender isso, considere um cenário no qual o consumidor emite a solicitação de recebimento e então falha antes de processá-la. Como o Barramento de Serviço terá marcado a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
 
@@ -312,9 +312,9 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 
 Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, acesse estes links para saber mais.
 
--   Consulte [Filas, tópicos e assinaturas][].
+-   [Filas, tópicos e assinaturas][].
 -   Referência da API para [SqlFilter][].
--   Compile um aplicativo de trabalho que envia e recebe mensagens de e para uma fila do Barramento de Serviço: [Tutorial do .NET do sistema de mensagens agenciado do Barramento do Serviço][].
+-   Compile um aplicativo de trabalho que envia e recebe mensagens de e para uma fila do Barramento de Serviço: [Tutorial do .NET do sistema de mensagens agenciado do Barramento de Serviço][].
 -   Exemplos do Barramento de Serviço: baixe em [Exemplos do Azure][] ou consulte a [visão geral](service-bus-samples.md).
 
   [portal clássico do Azure]: http://manage.windowsazure.com
@@ -324,7 +324,7 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
   [Filas, tópicos e assinaturas]: service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-  [Tutorial do .NET do sistema de mensagens agenciado do Barramento do Serviço]: service-bus-brokered-tutorial-dotnet.md
+  [Tutorial do .NET do sistema de mensagens agenciado do Barramento de Serviço]: service-bus-brokered-tutorial-dotnet.md
   [Exemplos do Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

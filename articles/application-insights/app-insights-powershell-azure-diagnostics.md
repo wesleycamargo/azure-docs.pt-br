@@ -111,9 +111,10 @@ Para remover a extensão de diagnóstico de cada função individual:
 ```
 
 
-## Tópicos relacionados
+## Consulte também
 
 * [Monitorar aplicativos dos Serviços de Nuvem do Azure com o Application Insights](app-insights-cloudservices.md)
 * [Enviar o Diagnóstico do Azure para o Application Insights](app-insights-azure-diagnostics.md)
+* [Automatizar a configuração de alertas](app-insights-powershell-alerts.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

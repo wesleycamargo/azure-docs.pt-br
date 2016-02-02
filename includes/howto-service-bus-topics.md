@@ -16,7 +16,7 @@ Para começar a usar as assinaturas e os tópicos do Barramento de Serviço no A
 
 Para criar um namespace de serviço:
 
-1.  Faça logon no [Portal do Azure][].
+1.  Faça logon no [portal clássico do Azure][].
 
 2.  No painel de navegação esquerdo do portal, clique em **Barramento de Serviço**.
 
@@ -26,7 +26,7 @@ Para criar um namespace de serviço:
 
 5.  Depois de verificar se o nome do namespace está disponível, escolha o país ou a região em que o namespace deve ser hospedado (certifique-se de usar o mesmo país/região em que você está implantando seus recursos de computação).
 
-	> [AZURE.IMPORTANT]Selecione a **mesma região** que você pretende escolher paraimplantar seu aplicativo. Isso lhe dará o melhor desempenho.
+	> [AZURE.IMPORTANT] Selecione a **mesma região** que você pretende escolher paraimplantar seu aplicativo. Isso lhe dará o melhor desempenho.
 
 6. 	Deixe os outros campos na caixa de diálogo com seus valores padrão (**Mensagens** e **Camada padrão**), em seguida, clique na marca de seleção. Agora, o sistema cria o seu namespace de serviço e o habilita. Talvez você precise aguardar vários minutos, conforme o sistema fornece recursos para sua conta.
 
@@ -47,7 +47,7 @@ A fim de executar operações de gerenciamento, como a criação de um tópico o
 4.  Na caixa de diálogo **Acessar as informações de conexão**, encontre a cadeia de conexão que contém a chave SAS e o nome da chave. Anote esses valores, pois você usará essas informações posteriormente para executar operações com o namespace.
 
 
-  [Portal do Azure]: http://manage.windowsazure.com
+  [portal clássico do Azure]: http://manage.windowsazure.com
   [0]: ./media/howto-service-bus-topics/sb-queues-13.png
   [2]: ./media/howto-service-bus-topics/sb-queues-04.png
   [3]: ./media/howto-service-bus-topics/sb-queues-09.png
@@ -55,4 +55,4 @@ A fim de executar operações de gerenciamento, como a criação de um tópico o
   
   [6]: ./media/howto-service-bus-topics/getting-started-multi-tier-27.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

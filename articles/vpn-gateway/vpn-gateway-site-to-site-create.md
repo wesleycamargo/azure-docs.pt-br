@@ -23,7 +23,7 @@
 - [Azure Classic Portal](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
-Este artigo o orientará pela criação de uma rede virtual e de uma conexão VPN site a site com sua rede local. Este artigo se aplica ao modelo de implantação clássico. Se você estiver procurando por um modelo de implantação diferente para esta configuração, use as guias acima para selecionar o artigo desejado. Se você quiser conectar Redes Virtuais, mas não estiver criando uma conexão com uma instalação local, confira [Configurar uma conexão de rede virtual para rede virtual](virtual-networks-configure-vnet-to-vnet-connection.md).
+Este artigo o orientará pela criação de uma rede virtual e de uma conexão VPN site a site com sua rede local. Este artigo se aplica ao modelo de implantação clássico. Se você estiver procurando por um modelo de implantação diferente para esta configuração, use as guias acima para selecionar o artigo desejado. Se você quiser conectar Redes Virtuais, mas não estiver criando uma conexão com uma instalação local, confira [Configurar uma conexão de Rede Virtual para Rede Virtual](virtual-networks-configure-vnet-to-vnet-connection.md).
 
 **Sobre os modelos de implantação do Azure**
 
@@ -37,7 +37,7 @@ Verifique se você tem os itens a seguir antes de iniciar a configuração.
 
 -  Um endereço IP público voltado para o exterior para seu dispositivo VPN. Esse endereço IP não pode estar localizado atrás de um NAT.
 
-- Uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [benefícios de assinante do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
+- Uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## Criar sua rede virtual
@@ -96,8 +96,8 @@ Em seguida, você configurará o gateway de rede virtual para criar uma conexão
 
 ## Próximas etapas
 
-Você pode adicionar máquinas virtuais à sua rede virtual. Veja [Como criar uma máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md).
+Você pode adicionar máquinas virtuais à sua rede virtual. Confira [Como criar uma máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md).
 
 Se você quiser configurar uma conexão entre sua rede virtual clássica e uma rede virtual criada usando o modo do Gerenciador de Recursos do Azure, consulte [Como conectar Redes Virtuais clássicas a Redes Virtuais do Gerenciador de Recursos do Azure](../virtual-network/virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

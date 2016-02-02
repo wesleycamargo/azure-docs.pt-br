@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Conectar-se ao banco de dados SQL usando SSMS | Microsoft Azure"
-	description="Saiba como se conectar a um banco de dados SQL do Azure usando o SQL Server Management Studio (SSMS). Em seguida, execute uma consulta de exemplo usando o Transact-SQL (T-SQL)."
+	pageTitle="Conectar-se ao banco de dados SQL ‒ SQL Server Management Studio | Microsoft Azure"
+	description="Saiba como se conectar a um banco de dados SQL no Azure usando o SSMS (SQL Server Management Studio). Em seguida, execute uma consulta de exemplo usando o Transact-SQL (T-SQL)."
 	metaCanonical=""
 	keywords="conectar-se ao banco de dados sql, sql server management studio"
 	services="sql-database"
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/09/2015"
+	ms.date="01/21/2016"
 	ms.author="sstein" />
 
 # Conectar-se ao Banco de Dados SQL com o SQL Server Management Studio e executar um exemplo de consulta T-SQL
@@ -25,7 +25,7 @@
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
-Este artigo mostra como conectar-se a um banco de dados SQL do Azure usando o SQL Server Management Studio (SSMS) e executar uma consulta simples usando instruções Transact-SQL.
+Este artigo mostra como conectar-se a um banco de dados SQL do Azure usando o SQL Server Management Studio (SSMS) e executar uma consulta simples com instruções Transact-SQL.
 
 Em primeiro lugar, você precisará de um banco de dados SQL no Azure. Você pode criar um rapidamente com as instruções em [Introdução ao Banco de Dados SQL do Microsoft Azure](sql-database-get-started.md). Os exemplos aqui são baseados no banco de dados de exemplo AdventureWorks, que você cria nesse artigo, mas as mesmas etapas se aplicam a qualquer banco de dados SQL, até a execução da consulta.
 
@@ -42,20 +42,18 @@ Ao trabalhar com o Banco de Dados SQL, você deverá usar a versão mais recente
 
 	![SQL Server Manager Studio: conectar-se a um servidor de Banco de Dados SQL](./media/sql-database-connect-query-ssms/1-connect.png)
 
-### Se a conexão ao Banco de Dados SQL falhar
+### Se a conexão falhar
 
-O motivo mais comum das falhas de conexão são os erros no nome do servidor, nome de usuário ou senha, bem como o fato de o servidor não permitir conexões por motivos de segurança. Verifique se as configurações de firewall do servidor permitem conexões do endereço IP do seu computador local e o endereço IP usado pelo cliente do SSMS. Às vezes, eles são diferentes.
-
-Se a conexão falhar devido a configurações de firewall, a versão mais recente do SSMS criará a regra de firewall para você depois de perguntar se pode fazer isso. Para obtê-la, consulte [Baixar SSMS](https://msdn.microsoft.com/library/mt238290.aspx). Se você estiver usando uma versão anterior, o endereço IP será informado em uma mensagem de erro e você precisará adicionar esse endereço IP à regra de firewall do servidor. Para saber mais, consulte [Como definir configurações de firewall (Banco de Dados SQL do Azure)](sql-database-configure-firewall-settings.md).
+O motivo mais comum das falhas de conexão são os erros no nome do servidor (lembre-se, *&lt;;servername>* é o nome do servidor lógico, não do banco de dados), nome de usuário ou senha, bem como o fato de o servidor não permitir conexões por motivos de segurança. Se você estiver se conectando pela primeira vez ou se a conexão falhar devido a uma configuração de IP alterada, a [versão mais recente do SSMS](https://msdn.microsoft.com/library/mt238290.aspx) solicitará seu logon do Azure e criará a regra de firewall no Azure para você. Se você estiver usando uma versão anterior, o endereço IP será informado em uma mensagem de erro e você precisará adicionar esse endereço IP à regra de firewall do servidor no Azure. Verifique se as configurações de firewall do servidor permitem conexões do endereço IP do seu computador local e o endereço IP usado pelo cliente do SSMS. Às vezes, eles são diferentes. Para saber mais, consulte [Como definir configurações de firewall (Banco de Dados SQL do Azure)](sql-database-configure-firewall-settings.md).
 
 ## Executar consultas de exemplo
 
-Depois de se conectar ao Banco de Dados SQL, você poderá executar uma consulta de exemplo. Se você não tiver criado o banco de dados usando o exemplo da AdventureWorks em [Introdução ao Banco de Dados SQL do Microsoft Azure](sql-database-get-started.md), essa consulta não funcionará. Vá direto para as Próximas Etapas para saber mais.
+Depois que se conectar ao servidor lógico, você pode se conectar a um banco de dados e executar uma consulta de exemplo. Se você não tiver criado o banco de dados usando o exemplo da AdventureWorks em [Introdução ao Banco de Dados SQL do Microsoft Azure](sql-database-get-started.md), essa consulta não funcionará. Vá direto para as Próximas Etapas para saber mais.
 
 1. No **Pesquisador de Objetos**, navegue até o banco de dados **AdventureWorks**.
-2. Clique com o botão direito do mouse no banco de dados e selecione **Nova Consulta**.
+2. Clique com o botão direito do mouse no banco de dados e selecione **Nova consulta**.
 
-	![Nova consulta](./media/sql-database-connect-query-ssms/4-run-query.png)
+	![Nova consulta. Conectar-se ao servidor de Banco de Dados SQL: SQL Server Management Studio](./media/sql-database-connect-query-ssms/4-run-query.png)
 
 3. Na janela de consulta, copie e cole o código a seguir.
 
@@ -69,7 +67,7 @@ Depois de se conectar ao Banco de Dados SQL, você poderá executar uma consulta
 
 4. Clique no botão **Executar**. A captura de tela a seguir mostra uma consulta bem-sucedida.
 
-	![Sucesso](./media/sql-database-connect-query-ssms/5-success.png)
+	![Êxito. Conectar-se ao servidor de Banco de Dados SQL: SQL Server Management Studio](./media/sql-database-connect-query-ssms/5-success.png)
 
 ## Próximas etapas
 
@@ -77,4 +75,4 @@ Você pode usar instruções T-SQL para criar e gerenciar bancos de dados no Azu
 
 Se não tiver experiência com o T-SQL, consulte [Tutorial: Escrevendo instruções Transact-SQL](https://msdn.microsoft.com/library/ms365303.aspx) e a [Referência do Transact-SQL (mecanismo de banco de dados)](https://msdn.microsoft.com/library/bb510741.aspx).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

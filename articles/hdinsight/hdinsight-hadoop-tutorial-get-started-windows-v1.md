@@ -45,14 +45,14 @@ Assista a um vídeo de demonstração deste tutorial para aprender sobre o Hadoo
 
 Em conjunto com a disponibilidade geral do Azure HDInsight, a Microsoft também oferece o Emulador do HDInsight para o Azure, anteriormente conhecido como *Microsoft HDInsight Developer Preview*. O Emulador tem como alvo os cenários de desenvolvedor e só dá suporte a implantações de um único nó. Para obter informações sobre como usar o Emulador do HDInsight, consulte [Introdução ao Emulador do HDInsight][hdinsight-emulator].
 
-> [AZURE.NOTE]Para obter instruções sobre como provisionar um cluster HBase, consulte [Provision HBase cluster in HDInsight (Provisionar um cluster HBase no HDInsight)][hdinsight-hbase-custom-provision]. Consulte <a href="http://go.microsoft.com/fwlink/?LinkId=510237">Qual é a diferença entre Hadoop e HBase?</a> para entender por que optar por um ou outro banco de dados.
+> [AZURE.NOTE] Para obter instruções sobre como provisionar um cluster HBase, consulte [Provision HBase cluster in HDInsight (Provisionar um cluster HBase no HDInsight)][hdinsight-hbase-custom-provision]. Consulte <a href="http://go.microsoft.com/fwlink/?LinkId=510237">Qual é a diferença entre Hadoop e HBase?</a> para entender por que optar por um ou outro banco de dados.
 
 ## Pré-requisitos
 
 Antes de começar este tutorial para Hadoop no Windows, você deve ter o seguinte:
 
 
-- **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **Um computador estação de trabalho** com Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone ou Office 2010 Professional Plus.
 
 **Tempo estimado para concluir este tutorial:** 30 minutos
@@ -63,7 +63,7 @@ Antes de começar este tutorial para Hadoop no Windows, você deve ter o seguint
 
 Ao provisionar um cluster Hadoop no HDInsight, você especifica uma conta de armazenamento do Azure. Um contêiner de armazenamento de blob específico dessa conta é designado como sistema de arquivos padrão, como no sistema de arquivos distribuído Hadoop (HDFS). Por padrão, o cluster HDInsight é provisionado no mesmo datacenter da conta de armazenamento especificada por você. Para obter mais informações, consulte [Usar o Armazenamento de Blob do Azure com o HDInsight][hdinsight-storage].
 
->[AZURE.NOTE]Não compartilhe um contêiner de armazenamento de blob padrão com vários clusters Hadoop.
+>[AZURE.NOTE] Não compartilhe um contêiner de armazenamento de blob padrão com vários clusters Hadoop.
 
 Além dessa conta de armazenamento, você pode adicionar mais contas de armazenamento ao configurar um cluster de modo personalizado. Essa conta de armazenamento adicional pode ser da mesma assinatura ou de assinaturas diferentes do Azure. Para obter instruções, consulte [Provisionar clusters HDInsight usando opções personalizadas][hdinsight-provision].
 
@@ -76,7 +76,7 @@ Este tutorial usa apenas o blob padrão e a conta de armazenamento padrão.
 
 	![Portal Clássico do Azure, onde você pode usar a Criação Rápida para configurar uma nova conta de armazenamento.][image-hdi-storageaccount-quickcreate]
 
->[AZURE.NOTE]Certifique-se de criar sua conta de armazenamento em um local compatível com o cluster. São eles: **Ásia Oriental**, **Sudeste da Ásia**, **Norte da Europa**, **Europa Ocidental**, **Leste dos EUA**, **Oeste dos EUA**, **Centro-Norte dos EUA**, **Centro-Sul dos EUA**.
+>[AZURE.NOTE]  Certifique-se de criar sua conta de armazenamento em um local compatível com o cluster. São eles: **Ásia Oriental**, **Sudeste da Ásia**, **Norte da Europa**, **Europa Ocidental**, **Leste dos EUA**, **Oeste dos EUA**, **Centro-Norte dos EUA**, **Centro-Sul dos EUA**.
 
 Selecione a nova conta de armazenamento na lista e clique em **GERENCIAR CHAVES DE ACESSO** na parte inferior da página. Anote a **CHAVE DE ACESSO PRIMÁRIA** (ou a **CHAVE DE ACESSO SECUNDÁRIA** – qualquer uma das chaves funciona). Você precisará delas mais tarde no tutorial. Para obter mais informações, consulte [Como criar contas de armazenamento][azure-create-storageaccount].
 
@@ -120,7 +120,7 @@ Ao provisionar um cluster, você provisiona recursos de computação do Azure qu
 
 -- COMMENTED OUT TEXT ENDS -->
 
->[AZURE.NOTE]Essas etapas provisionam um cluster HDInsight com a versão 3.1. Para criar um cluster com outras versões, use o método **Criação Personalizada** do portal ou use o PowerShell do Azure. Para obter informações sobre as diferenças entre cada versão, consulte [O que há de novo nas versões de cluster fornecidas pelo HDInsight?][hdinsight-versions] Para obter informações sobre como usar a opção **CRIAÇÃO PERSONALIZADA**, consulte [Provisionar clusters HDInsight usando opções personalizadas][hdinsight-provision].
+>[AZURE.NOTE] Essas etapas provisionam um cluster HDInsight com a versão 3.1. Para criar um cluster com outras versões, use o método **Criação Personalizada** do portal ou use o PowerShell do Azure. Para obter informações sobre as diferenças entre cada versão, consulte [O que há de novo nas versões de cluster fornecidas pelo HDInsight?][hdinsight-versions] Para obter informações sobre como usar a opção **CRIAÇÃO PERSONALIZADA**, consulte [Provisionar clusters HDInsight usando opções personalizadas][hdinsight-provision].
 
 
 ##<a name="sample"></a>Executar dados de exemplos do portal
@@ -140,7 +140,7 @@ Amostra | O que ela faz?
 ##<a name="hivequery"></a>Executar uma consulta de Hive do portal
 Agora que você provisionou um cluster HDInsight, a próxima etapa é executar um trabalho do Hive para consultar uma tabela Hive de exemplo. Vamos usar *hivesampletable*, que vem com o HDInsight. A tabela contém dados sobre fabricantes, plataformas e modelos de dispositivos móveis. Uma consulta de Hive nessa tabela recupera dados para dispositivos móveis de um fabricante específico.
 
-> [AZURE.NOTE]As Ferramentas do HDInsight para Visual Studio vem com o SDK do Azure para .NET versão 2.5 ou posterior. Usando as ferramentas no Visual Studio, você pode se conectar ao cluster HDInsight, criar tabelas Hive e executar consultas Hive. Para obter mais informações, consulte [Introdução ao uso das ferramentas do HDInsight Hadoop para Visual Studio][1].
+> [AZURE.NOTE] As Ferramentas do HDInsight para Visual Studio vem com o SDK do Azure para .NET versão 2.5 ou posterior. Usando as ferramentas no Visual Studio, você pode se conectar ao cluster HDInsight, criar tabelas Hive e executar consultas Hive. Para obter mais informações, consulte [Introdução ao uso das ferramentas do HDInsight Hadoop para Visual Studio][1].
 
 **Para executar um trabalho do Hive pelo painel do cluster**
 
@@ -153,7 +153,7 @@ Agora que você provisionou um cluster HDInsight, a próxima etapa é executar u
 
 	Há várias guias na parte superior da página. A guia padrão é **Editor do Hive** e as outras guias são **Histórico de Trabalhos** e **Navegador de Arquivos**. Usando o painel, você pode enviar consultas Hive, conferir os logs de trabalho do Hadoop e procurar arquivos no armazenamento.
 
-	> [AZURE.NOTE]Observe que a URL da página da Web é *&lt;NomeDoCluster&gt;.azurehdinsight.net*. Então, em vez de abrir o painel pelo portal, você pode usar a URL para abrir o painel em um navegador da Web.
+	> [AZURE.NOTE] Observe que a URL da página da Web é *&lt;NomeDoCluster&gt;.azurehdinsight.net*. Então, em vez de abrir o painel pelo portal, você pode usar a URL para abrir o painel em um navegador da Web.
 
 6. Na guia **Editor do Hive**, de **Nome da Consulta**, insira **HTC20**. O nome da consulta é o cargo. No painel de consulta, insira a consulta de Hive, conforme mostrado na imagem:
 
@@ -280,4 +280,4 @@ Neste tutorial do Hadoop, você aprendeu a provisionar um cluster Hadoop no Wind
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows-v1/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

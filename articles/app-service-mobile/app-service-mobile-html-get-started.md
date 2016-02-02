@@ -19,11 +19,9 @@
 
 #Criar um aplicativo HTML
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)] 
-&nbsp;  
-<!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp; <!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
 
->[AZURE.IMPORTANT]Este tópico não tem suporte dos Aplicativos Móveis porque o início rápido para aplicativos HTML/JavaScript foi temporariamente removido do portal do Azure. Planejamos trazê-lo de volta em breve. Agradecemos sua paciência.
+>[AZURE.IMPORTANT] Este tópico não tem suporte dos Aplicativos Móveis porque o início rápido para aplicativos HTML/JavaScript foi temporariamente removido do portal do Azure. Planejamos trazê-lo de volta em breve. Agradecemos sua paciência.
 
 ##Visão geral
 
@@ -39,11 +37,11 @@ A conclusão desse tutorial é um pré-requisito para todos os outros tutoriais 
 
 Para concluir este tutorial, você precisará do seguinte:
 
-* Uma conta ativa do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 aplicativos móveis gratuitos que você pode continuar a usar mesmo após o fim do seu período de avaliação. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
+* Uma conta ativa do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 aplicativos móveis gratuitos que você pode continuar a usar mesmo após o fim do seu período de avaliação. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * [Visual Studio Community 2013] ou uma versão posterior.
 
->[AZURE.NOTE]Se você desejar uma introdução ao Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](https://tryappservice.azure.com/?appServiceName=mobile), onde poderá criar imediatamente um Aplicativo Móvel inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se você desejar uma introdução ao Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](https://tryappservice.azure.com/?appServiceName=mobile), onde poderá criar imediatamente um Aplicativo Móvel inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ##Criar um novo back-end de Aplicativo móvel
 
@@ -103,7 +101,7 @@ Em seguida, você implantará o projeto habilitado por CORS no Azure.
 	+ ** launch-mac.command** (computadores com Mac OS X)
 	+ ** launch-linux.sh** (computadores com Linux)
 
-	> [AZURE.NOTE]Em um computador Windows, digite `R` quando o PowerShell solicitar que você confirme se deseja executar o script. Seu navegador da web poderá avisá-lo para não executar o script por ele ter sido baixado da internet. Quando isso acontecer, você deverá solicitar que o navegador continue para carregar o script.
+	> [AZURE.NOTE] Em um computador Windows, digite `R` quando o PowerShell solicitar que você confirme se deseja executar o script. Seu navegador da web poderá avisá-lo para não executar o script por ele ter sido baixado da internet. Quando isso acontecer, você deverá solicitar que o navegador continue para carregar o script.
 
 	Isso iniciará um servidor web no computador local para hospedar o novo aplicativo.
 
@@ -115,7 +113,7 @@ Em seguida, você implantará o projeto habilitado por CORS no Azure.
 
    	Isso envia uma solicitação de POST para o novo back-end de Aplicativo móvel hospedado no Azure. Os dados da solicitação são inseridos na tabela TodoItem no esquema Aplicativo móvel. Os itens armazenados na tabela são retornados pelo serviço, e os dados são exibidos na segunda coluna do aplicativo.
 
-	> [AZURE.TIP]Você poderá examinar o código que acessa o seu serviço móvel para consultar e inserir dados, que estão localizados no arquivo app.js.
+	> [AZURE.TIP] Você poderá examinar o código que acessa o seu serviço móvel para consultar e inserir dados, que estão localizados no arquivo app.js.
 
 <!-- Anchors. -->
 <!-- Images. -->
@@ -127,4 +125,4 @@ Em seguida, você implantará o projeto habilitado por CORS no Azure.
 [Visual Studio Community 2013]: https://www.visualstudio.com/downloads
  
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0128_2016-->

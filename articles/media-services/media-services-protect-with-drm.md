@@ -30,7 +30,7 @@ Os Serviços de Mídia fornecem um serviço de distribuição de licenças do Mi
 
 A partir da versão 3.5.2 do SDK do .NET dos Serviços de Mídia, os Serviços de Mídia também permitem que você configure um modelo de licença do Widevine e obtenha licenças do Widevine.
 
->[AZURE.NOTE]Os serviços de entrega de licenças do Widevine fornecidos pelos Serviços de Mídia do Azure estão em versão de visualização. Para saber mais, confira [este blog](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
+>[AZURE.NOTE]Os serviços de entrega de licenças do Widevine fornecidos pelos Serviços de Mídia do Azure estão em versão de visualização. Para saber mais, confira [este blog](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
 
 Você também pode usar os seguintes parceiros do AMS para ajudá-lo a fornecer licenças do Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) e [castLabs](http://castlabs.com/company/partners/azure/). Para saber mais, consulte: integração com [Axinom](media-services-axinom-integration.md) e [castLabs](media-services-castlabs-integration.md).
 
@@ -631,6 +631,6 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida na versão 3.5
 
 [Configurar o empacotamento Widevine com AMS](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
 
-[Anunciando a visualização pública de serviços de entrega de licenças do Google Widevine nos Serviços de Mídia do Azure](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)
+[Anunciando a visualização pública de serviços de entrega de licenças do Google Widevine nos Serviços de Mídia do Azure](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -2,13 +2,14 @@
   pageTitle="Pacote IoT do Azure e Active Directory do Azure | Microsoft Azure"
   description="Descreve como o Pacote IoT do Azure usa o Active Directory do Azure para gerenciar permissões."
   services=""
+  suite="iot-suite"
   documentationCenter=""
   authors="aguilaaj"
   manager="timlt"
   editor=""/>
 
 <tags
-  ms.service="na"
+  ms.service="iot-suite"
   ms.devlang="na"
   ms.topic="hero-article"
   ms.tgt_pltfrm="na"
@@ -145,4 +146,4 @@ Se você tiver certeza de que tem uma assinatura do Azure, valide o mapeamento d
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
 [lnk-wiki-clouddeployment]: https://github.com/Azure/azure-iot-remote-monitoring/wiki/Cloud-deployment
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

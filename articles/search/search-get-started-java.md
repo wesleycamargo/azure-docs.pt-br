@@ -36,7 +36,7 @@ Este exemplo de aplicativo usa dados do [Serviço Geológico dos Estados Unidos 
 
 Neste aplicativo, o programa **SearchServlet.java** cria e carrega o índice usando uma construção [Indexador](https://msdn.microsoft.com/library/azure/dn798918.aspx), recuperando o conjunto de dados filtrado do USGS por meio de um Banco de dados SQL do Azure público. Credenciais predefinidas e informações de conexão para a fonte de dados online são fornecidas no código do programa. Em termos de acesso a dados, nenhuma configuração adicional é necessária.
 
-> [AZURE.NOTE]Aplicamos um filtro a esse conjunto de dados para permanecer abaixo do limite de 10.000 documentos da camada de preços gratuita. Se você usar a camada padrão, esse limite não se aplica e você pode modificar este código para usar um conjunto de dados maior. Para obter detalhes sobre a capacidade de cada camada de preços, consulte [Limites e restrições](search-limits-quotas-capacity.md).
+> [AZURE.NOTE] Aplicamos um filtro a esse conjunto de dados para permanecer abaixo do limite de 10.000 documentos da camada de preços gratuita. Se você usar a camada padrão, esse limite não se aplica e você pode modificar este código para usar um conjunto de dados maior. Para obter detalhes sobre a capacidade de cada camada de preços, consulte [Limites e restrições](search-limits-quotas-capacity.md).
 
 ## Sobre os arquivos de programa
 
@@ -158,7 +158,7 @@ Se você ainda não especificou um ambiente de tempo de execução do servidor n
 
 5. Clique com o botão direito do mouse em **Search.jsp** > **Executar como** > **Executar no Servidor**. Selecione o servidor Apache Tomcat e, em seguida, clique em **Executar**.
 
-> [AZURE.TIP]Se você tiver usado um espaço de trabalho não padrão para armazenar seu projeto, precisará modificar a **Configuração de Execução** para indicar o local do projeto para evitar um erro de inicialização do servidor. No Gerenciador de Projetos, clique com o botão direito do mouse em **Search.jsp** > **Executar como** > **Configurações de Execução**. Selecione o servidor Apache Tomcat. Clique em **Argumentos**. Clique em **Espaço de Trabalho** ou **Sistema de Arquivos** para definir a pasta que contém o projeto.
+> [AZURE.TIP] Se você tiver usado um espaço de trabalho não padrão para armazenar seu projeto, precisará modificar a **Configuração de Execução** para indicar o local do projeto para evitar um erro de inicialização do servidor. No Gerenciador de Projetos, clique com o botão direito do mouse em **Search.jsp** > **Executar como** > **Configurações de Execução**. Selecione o servidor Apache Tomcat. Clique em **Argumentos**. Clique em **Espaço de Trabalho** ou **Sistema de Arquivos** para definir a pasta que contém o projeto.
 
 Quando você executar o aplicativo, verá uma janela do navegador, fornecendo uma caixa de pesquisa para inserir termos.
 
@@ -184,7 +184,7 @@ Este é o primeiro tutorial da Pesquisa do Azure com base em Java e no conjunto 
 
 Se você já tiver um plano de fundo na Pesquisa do Azure, você pode usar este exemplo como um trampolim para experimentos adicionais, talvez aumentando a [página de pesquisa](search-pagination.md) ou implementando [navegação facetada](search-faceted-navigation.md). Você também pode melhorar a página de resultados da pesquisa adicionando contagens e documentos em lote para que os usuários possam percorrer os resultados.
 
-Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para que você compreenda o que pode criar. Visite nossa [página de documentação](http://azure.microsoft.com/documentation/services/search/) para encontrar mais recursos. Você também pode exibir os links em nossa [Lista de vídeos e Tutorial](search-video-demo-tutorial-list.md) para acessar mais informações.
+Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para que você compreenda o que pode criar. Visite nossa [página de documentação](https://azure.microsoft.com/documentation/services/search/) para encontrar mais recursos. Você também pode exibir os links em nossa [Lista de vídeos e Tutorial](search-video-demo-tutorial-list.md) para acessar mais informações.
 
 <!--Image references-->
 [1]: ./media/search-get-started-java/create-search-portal-1.PNG
@@ -200,4 +200,4 @@ Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para qu
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -17,7 +17,7 @@
 	ms.date="11/18/2015"
 	ms.author="anhoh"/>
 
-# Tutorial do NoSQL: aplicativo de console em C# do Banco de Dados de Documentos 
+# Tutorial do NoSQL: criar um aplicativo de console em C# do Banco de Dados de Documentos 
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-get-started.md)
@@ -45,7 +45,7 @@ Agora vamos começar!
 
 Certifique-se que você tem o seguinte:
 
-- Uma conta ativa do Azure. Se não tiver uma, você poderá se inscrever em uma [Avaliação Gratuita](http://azure.microsoft.com/pricing/free-trial/).
+- Uma conta ativa do Azure. Se não tiver uma, você poderá se inscrever em uma [Avaliação Gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - [Visual Studio 2013/Visual Studio 2015](http://www.visualstudio.com/).
 
 ## Etapa 1: Criar uma conta do Banco de Dados de Documentos
@@ -63,8 +63,7 @@ Vamos criar uma conta de Banco de Dados de Documentos. Se você já tem uma cont
 5. Sem sair do menu, clique em **Gerenciar Pacotes NuGet...**
 6. No canto esquerdo do painel, na janela **Gerenciar Pacotes NuGet**, clique em **Online** / **nuget.org**.
 7. Na caixa de entrada **Pesquisar Online**, procure a **Biblioteca do cliente do Banco de Dados de Documentos**.
-8. Nos resultados, encontre **Biblioteca do cliente do Banco de Dados de Documentos do Microsoft Azure** e clique em **Instalar**.
-     A ID do pacote da Biblioteca de cliente do Banco de Dados de Documentos é [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB)
+8. Nos resultados, encontre **Biblioteca do cliente do Banco de Dados de Documentos do Microsoft Azure** e clique em **Instalar**. A ID do pacote da Biblioteca de cliente do Banco de Dados de Documentos é [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB)
 
 Ótimo! Agora que a instalação está concluída, vamos começar a escrever algum código.
 
@@ -77,11 +76,11 @@ Primeiro, adicione essas referências para o início de seu aplicativo C#, no ar
     using Microsoft.Azure.Documents.Linq;
     using Newtonsoft.Json;
 
-> [AZURE.IMPORTANT]Para concluir este tutorial do NoSQL, adicione as dependências acima.
+> [AZURE.IMPORTANT] Para concluir este tutorial do NoSQL, adicione as dependências acima.
 
 Em seguida, salve o ponto de extremidade de conta do Banco de Dados de Documentos e uma das duas chaves de acesso, a primária ou a secundária, que pode ser encontrada no [Portal do Azure](https://portal.azure.com).
 
-![Captura de tela do Portal do Azure mostrando uma conta do Banco de Dados de Documentos com o hub ATIVO realçado, o botão CHAVES realçado na folha da conta do Banco de Dados de Documentos e os valores de URI, de CHAVE PRIMÁRIA e de CHAVE SECUNDÁRIA realçados na folha Chaves][keys]
+![Captura de tela do Portal do Azure usado pelo tutorial do NoSQL para criar um aplicativo de console em C#. Mostra uma conta do Banco de Dados de Documentos com o hub ATIVO realçado, o botão CHAVES realçado na folha da conta do Banco de Dados de Documentos e os valores de URI, de CHAVE PRIMÁRIA e de CHAVE SECUNDÁRIA realçados na folha Chaves][keys]
 
     private const string EndpointUrl = "<your endpoint URI>";
     private const string AuthorizationKey = "<your key>";
@@ -109,7 +108,7 @@ Chame a tarefa assíncrona por meio do seu método **Main**, semelhante ao códi
 		}
 	}
 
-> [AZURE.WARNING]Nunca armazene credenciais no código-fonte. Para simplificar este exemplo, as credenciais são mostradas no código-fonte. Consulte os [Sites do Azure: Como as cadeias de caracteres de Aplicativo e as cadeias de caracteres de Conexão funcionam](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/) para obter informações sobre como armazenar credenciais em um ambiente de produção. Veja o nosso aplicativo de exemplo em [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs) para obter um exemplo de como armazenar credenciais fora do código-fonte.
+> [AZURE.WARNING] Nunca armazene credenciais no código-fonte. Para simplificar este exemplo, as credenciais são mostradas no código-fonte. Consulte os [Sites do Azure: Como as cadeias de caracteres de Aplicativo e as cadeias de caracteres de Conexão funcionam](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/) para obter informações sobre como armazenar credenciais em um ambiente de produção. Veja o nosso aplicativo de exemplo em [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs) para obter um exemplo de como armazenar credenciais fora do código-fonte.
 
 Agora que você sabe como conectar uma conta do Banco de Dados de Documentos e criar uma instância da classe **DocumentClient**, vejamos como trabalhar com os recursos do Banco de Dados de Documentos.
 
@@ -137,7 +136,7 @@ Seu [banco de dados](documentdb-resources.md#databases) do Banco de Dados de Doc
 
 ##<a id="CreateColl"></a>Etapa 5: Criar uma coleção  
 
-> [AZURE.WARNING]**CreateDocumentCollectionAsync** criará uma nova coleção de S1, que tem implicações de preços. Para obter mais detalhes, visite a nossa [página de preços](https://azure.microsoft.com/pricing/details/documentdb/).
+> [AZURE.WARNING] **CreateDocumentCollectionAsync** criará uma nova coleção de S1, que tem implicações de preços. Para obter mais detalhes, visite a nossa [página de preços](https://azure.microsoft.com/pricing/details/documentdb/).
 
 É possível criar uma [coleção](documentdb-resources.md#collections) usando o método [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) da classe **DocumentClient**. Uma coleção é um contêiner de documentos JSON e uma lógica de aplicativo JavaScript associada. A coleção recém-criada será mapeada para um [nível de desempenho S1](documentdb-performance-levels.md). Crie uma nova coleção chamada **FamilyCollection** após a criação de seu banco de dados no método **GetStartedDemo**.
 
@@ -280,7 +279,7 @@ Em seguida, crie os documentos dentro de seu método assíncrono **GetStartedDem
 
 Agora, você criou o seguinte banco de dados, a coleta e os documentos em sua conta do Banco de Dados de Documentos.
 
-![Diagrama que ilustra a relação hierárquica entre a conta, o banco de dados, a coleção e os documentos](./media/documentdb-get-started/nosql-tutorial-account-database.png)
+![Diagrama que ilustra a relação hierárquica entre a conta, o banco de dados online, a coleção e os documentos usados pelo tutorial do NoSQL para criar um aplicativo de console em C#](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
 ##<a id="Query"></a>Etapa 7: Recursos de consulta do Banco de Dados de Documentos
 
@@ -290,7 +289,7 @@ O Banco de Dados de Documentos tem suporte para [consultas](documentdb-sql-query
     var families = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id,
         "SELECT * " +
         "FROM Families f " +
-        "WHERE f.id = \"AndersenFamily\"");
+        "WHERE f.id = "AndersenFamily"");
 
     foreach (var family in families)
     {
@@ -320,11 +319,11 @@ O Banco de Dados de Documentos tem suporte para [consultas](documentdb-sql-query
 
 O diagrama a seguir ilustra como a sintaxe de consulta do SQL do Banco de Dados de Documentos é chamada em relação à coleção que você criou e a mesma lógica se aplica à consulta LINQ.
 
-![Diagrama que ilustra o escopo e o significado da consulta](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
+![Diagrama que ilustra o escopo e o significado da consulta usada pelo tutorial do NoSQL para criar um aplicativo de console em C#](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
 
 A palavra-chave [FROM](documentdb-sql-query.md#from-clause) é opcional na consulta, pois as consultas do Banco de Dados de Documentos já têm o escopo para uma única coleção. Portanto, "FROM Families f" pode ser trocado por "FROM root r" ou qualquer outra variável de nome que você escolher. O Banco de Dados de Documentos fará com que Families, root ou o nome de variável escolhido por você faça referência à coleção atual, por padrão.
 
-##<a id="DeleteDatabase"></a>Etapa 8: Excluir o banco de dados
+##<a id="DeleteDatabase"></a>Etapa 8: excluir o banco de dados online
 
 Excluir o banco de dados criado removerá o banco de dados e todos os recursos filhos (coleções, documentos, etc.). Você pode excluir o banco de dados e o cliente do documento, adicionando o seguinte trecho de código ao final do seu método assíncrono **GetStartedDemo**.
 
@@ -377,7 +376,7 @@ Agora você verá a saída do aplicativo iniciado. A saída mostrará os resulta
 	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
 	  "_ts": 1428372205,
 	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
-	  "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
+	  "_etag": ""0000400c-0000-0000-0000-55233aed0000"",
 	  "_attachments": "attachments/"
 	} from SQL
 	Read {
@@ -415,7 +414,7 @@ Agora você verá a saída do aplicativo iniciado. A saída mostrará os resulta
 	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
 	  "_ts": 1428372205,
 	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
-	  "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
+	  "_etag": ""0000400c-0000-0000-0000-55233aed0000"",
 	  "_attachments": "attachments/"
 	} from LINQ
 	Read {
@@ -453,13 +452,13 @@ Agora você verá a saída do aplicativo iniciado. A saída mostrará os resulta
 	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
 	  "_ts": 1428372205,
 	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
-	  "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
+	  "_etag": ""0000400c-0000-0000-0000-55233aed0000"",
 	  "_attachments": "attachments/"
 	} from LINQ query
 
-Parabéns! Você concluiu este tutorial do NoSQL!
+Parabéns! Você concluiu este tutorial do NoSQL e tem um aplicativo de console em C# funcional!
 
-##<a id="GetSolution"></a> Obter a solução completa
+##<a id="GetSolution"></a> Obter a solução do tutorial do NoSQL completa
 Para criar a solução de Introdução que contém todos os exemplos neste artigo, você precisará do seguinte:
 
 -   [Conta de Banco de Dados de Documentos][documentdb-create-account].
@@ -479,4 +478,4 @@ Para restaurar as referências do Banco de Dados de Documentos do SDK do .NET no
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

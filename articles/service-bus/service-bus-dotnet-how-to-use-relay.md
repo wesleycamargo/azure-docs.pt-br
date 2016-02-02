@@ -9,17 +9,17 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="10/07/2015"
+	ms.date="01/26/2016"
 	ms.author="sethm"/>
 
 
 # Como usar o serviço de retransmissão do Barramento de Serviço do Azure
 
-Este artigo descreve como usar o serviço de Retransmissão do Barramento de Serviço. Os exemplos são escritos em C# e usam a API da Windows Communication Foundation (WCF) com extensões contidas no assembly do Barramento de Serviço que fazem parte do SDK do .NET do Microsoft Azure. Para saber mais sobre a retransmissão do Barramento de Serviço, confira a seção [Sistema de mensagens de retransmissão do Barramento de Serviço](service-bus-relay-overview.md).
+Este artigo descreve como usar o serviço de Retransmissão do Barramento de Serviço. Os exemplos são escritos em C# e usam a API da WCF (Windows Communication Foundation) com extensões contidas no assembly do Barramento de Serviço. Para saber mais sobre a retransmissão do Barramento de Serviço, confira a seção [Sistema de mensagens de retransmissão do Barramento de Serviço](service-bus-relay-overview.md).
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -53,7 +53,7 @@ Para criar um namespace de serviço:
 
 5.  Depois de verificar se o nome do namespace está disponível, escolha o país ou a região em que o namespace deve ser hospedado (certifique-se de usar o mesmo país/região em que você está implantando seus recursos de computação).
 
-	> [AZURE.IMPORTANT]Selecione a *mesma região* que você pretende escolher paraimplantar seu aplicativo. Isso lhe dará o melhor desempenho.
+	> [AZURE.IMPORTANT] Selecione a *mesma região* que você pretende escolher paraimplantar seu aplicativo. Isso lhe dará o melhor desempenho.
 
 6.	Deixe os outros campos na caixa de diálogo com seus valores padrão (camada **Mensagens** e **Padrão**) e clique na marca de seleção. Agora, o sistema cria o seu namespace e o habilita. Talvez você precise aguardar vários minutos, enquanto o sistema provisiona recursos para sua conta.
 
@@ -75,12 +75,12 @@ Para realizar operações de gerenciamento, como a criação de uma conexão de 
 
 ## Obtenha o pacote do NuGet do Barramento de Serviço
 
-O pacote NuGet de Barramento de serviço é a maneira mais fácil de obter a API do Barramento de serviço e configurar seu aplicativo com todas as dependências de Barramento de serviço. A extensão do Visual Studio do NuGet facilita a instalação e a atualização de bibliotecas e ferramentas no Visual Studio e no Visual Studio Express. O pacote NuGet de Barramento de serviço é a maneira mais fácil de obter a API do Barramento de serviço e configurar seu aplicativo com todas as dependências de Barramento de serviço.
+O [pacote NuGet de Barramento de Serviço](https://www.nuget.org/packages/WindowsAzure.ServiceBus) é a maneira mais fácil de obter a API do Barramento de serviço e configurar seu aplicativo com todas as dependências de Barramento de serviço. A extensão do Visual Studio do NuGet facilita a instalação e a atualização de bibliotecas e ferramentas no Visual Studio e no Visual Studio Express. O pacote NuGet de Barramento de serviço é a maneira mais fácil de obter a API do Barramento de serviço e configurar seu aplicativo com todas as dependências de Barramento de serviço.
 
 Para instalar o pacote do NuGet em seu aplicativo, proceda da seguinte maneira:
 
 1.  No Gerenciador de Soluções, clique com o botão direito do mouse em **Referências** e clique em **Gerenciar Pacotes NuGet**.
-2.  Procure "Barramento de Serviço" e selecione o item **Barramento de Serviço do Microsoft Azure**. Clique em **Instalar** para concluir a instalação e, em seguida, feche essa caixa de diálogo a seguir.
+2.  Procure "Barramento de Serviço" e selecione o item **Barramento de Serviço do Microsoft Azure**. Clique em **Instalar** para concluir a instalação e feche essa caixa de diálogo a seguir.
 
 	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-13.png)
 
@@ -265,17 +265,13 @@ As definições de ponto de extremidade são movidas para o arquivo App.config. 
 
 Agora que você já aprendeu os conceitos básicos do serviço de retransmissão do Barramento de Serviço, siga estes links para saber mais.
 
-- [Visão geral da arquitetura de Barramento de Serviço do Azure](fundamentals-service-bus-hybrid-solutions.md)
+- [Visão geral da arquitetura de Barramento de Serviço do Azure](service-bus-fundamentals-hybrid-solutions.md)
 - [Como usar o serviço de Retransmissão do Barramento de Serviço](service-bus-dotnet-how-to-use-relay.md)
 - Baixe exemplos de Barramento de Serviço dos [exemplos do Azure][] ou consulte a [visão geral dos exemplos de Barramento de Serviço][].
 
-  [Create a Service Namespace]: #create_namespace
-  [Obtain the Default Management Credentials for the Namespace]: #obtain_credentials
-  [Get the Service Bus NuGet Package]: #get_nuget_package
-  [How to: Use Service Bus to Expose and Consume a SOAP Web Service  with TCP]: #how_soap
   [portal clássico do Azure]: http://manage.windowsazure.com
   [Autenticação de assinatura de acesso compartilhado com o Barramento de serviço]: service-bus-shared-access-signature-authentication.md
   [exemplos do Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [visão geral dos exemplos de Barramento de Serviço]: service-bus-samples.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

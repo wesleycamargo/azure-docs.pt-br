@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/17/2015"
+	ms.date="01/18/2016"
 	ms.author="bwren"/>
 
 
@@ -30,7 +30,7 @@ Este tutorial orienta você durante a criação de um [runbook gráfico](automat
 
 Para concluir este tutorial, você precisará do seguinte.
 
-- do Microsoft Azure. Se ainda não tiver uma, você poderá [ativar os benefícios de assinante do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou <a href="/pricing/free-trial/" target="_blank">[inscrever-se para uma avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
+- do Microsoft Azure. Se ainda não tiver uma, você poderá [ativar os benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou <a href="/pricing/free-trial/" target="_blank">[inscrever-se para uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - [Conta de Automação](automation-configuring.md) para manter o runbook.
 - Uma máquina virtual do Azure. Vamos parar e iniciar esse computador, portanto ele não deve ser de produção.
 - [Usuário e ativo de credencial de automação do Active Directory do Azure](automation-configuring.md) para autenticar nos recursos do Azure. Esse usuário deve ter permissão para iniciar e parar a máquina virtual.
@@ -170,4 +170,4 @@ Agora modificaremos o runbook para que ele tente iniciar o runbook apenas se ele
 - [Meu primeiro runbook do PowerShell](automation-first-runbook-textual-PowerShell.md)
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

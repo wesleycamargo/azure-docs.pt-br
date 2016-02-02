@@ -9,11 +9,11 @@
 
 <tags
     ms.service="service-bus"
-    ms.workload="tbd"
+    ms.workload="na"
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="10/07/2015"
+    ms.date="01/26/2016"
     ms.author="sethm"/>
 
 # Como usar filas do Barramento de Serviço
@@ -26,13 +26,9 @@ Este artigo descreve como usar as filas do Barramento de Serviço. Os exemplos s
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-## Configurar o aplicativo para usar o Barramento de Serviço
-
-Quando você cria um aplicativo que usa o Barramento de Serviço, você deve adicionar uma referência ao assembly do Barramento de Serviço e incluir os espaços para nome correspondentes.
-
 ## Adicionar o pacote NuGet do Barramento de Serviço
 
-O pacote **NuGet** de Barramento de Serviço é a maneira mais fácil de obter a API do Barramento de Serviço e configurar seu aplicativo com todas as dependências do Barramento de Serviço. A extensão do Visual Studio do NuGet facilita a instalação e a atualização de bibliotecas e ferramentas no Visual Studio e no Visual Studio Express. O pacote NuGet de Barramento de serviço é a maneira mais fácil de obter a API do Barramento de serviço e configurar seu aplicativo com todas as dependências de Barramento de serviço.
+O [pacote **NuGet** de Barramento de Serviço](https://www.nuget.org/packages/WindowsAzure.ServiceBus) é a maneira mais fácil de obter a API do Barramento de serviço e configurar seu aplicativo com todas as dependências de Barramento de serviço. A extensão do Visual Studio do NuGet facilita a instalação e a atualização de bibliotecas e ferramentas no Visual Studio e no Visual Studio Express. O pacote NuGet de Barramento de serviço é a maneira mais fácil de obter a API do Barramento de serviço e configurar seu aplicativo com todas as dependências de Barramento de serviço.
 
 Para instalar o pacote do NuGet em seu aplicativo, proceda da seguinte maneira:
 
@@ -146,7 +142,7 @@ if (!namespaceManager.QueueExists("TestQueue"))
 }
 ```
 
-> [AZURE.NOTE]Você pode usar o método [QueueExists](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.queueexists.aspx) em objetos [NamespaceManager][] para verificar se uma fila com um nome especificado já existe dentro de um namespace de serviço.
+> [AZURE.NOTE] Você pode usar o método [QueueExists](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.queueexists.aspx) em objetos [NamespaceManager][] para verificar se uma fila com um nome especificado já existe dentro de um namespace de serviço.
 
 ## Enviar mensagens a uma fila
 
@@ -183,7 +179,7 @@ for (int i=0; i<5; i++)
 }
 ```
 
-As filas do Barramento de Serviço são compatíveis com um [tamanho máximo de mensagem de 256 Kb](service-bus-quotas.md) (o cabeçalho, que inclui as propriedades padrão e personalizadas do aplicativo, podem ter um tamanho máximo de 64 KB). Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB. Se o particionamento estiver habilitado, o limite superior será maior. Para saber mais, confira [Particionando entidades de mensagens](service-bus-partitioning.md).
+As filas do Barramento de Serviço são compatíveis com um [tamanho máximo de mensagem de 256 Kb](service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas) (o cabeçalho, que inclui as propriedades padrão e personalizadas do aplicativo, podem ter um tamanho máximo de 64 KB). Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB. Se o particionamento estiver habilitado, o limite superior será maior. Para saber mais, consulte [Entidades de mensagens particionadas](service-bus-partitioning.md).
 
 ## Como receber mensagens de uma fila
 
@@ -259,4 +255,4 @@ Agora que você já sabe as noções básicas das filas de Barramento de Serviç
   [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
   [Complete]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->
