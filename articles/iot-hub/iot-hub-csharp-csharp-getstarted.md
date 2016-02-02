@@ -117,7 +117,7 @@ Neste tutorial, você configurou um novo hub IoT no portal e depois criou uma id
 
 <!-- Links -->
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
-[lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[Processar mensagens do dispositivo para a nuvem]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md
 
 [lnk-hub-sdks]: iot-hub-sdks-summary.md

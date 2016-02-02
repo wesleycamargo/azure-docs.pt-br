@@ -22,9 +22,11 @@ Para criar um namespace de serviço:
 
 2.  No painel de navegação esquerdo do portal, clique em **Barramento de Serviço**.
 
-3.  No painel inferior do portal, clique em **Criar**. ![](./media/howto-service-bus-queues/sb-queues-03.png)
+3.  No painel inferior do portal, clique em **Criar**. 
+	![](./media/howto-service-bus-queues/sb-queues-03.png)
 
-4.  No diálogo **Adicionar um novo namespace**, digite um nome de namespace. O sistema imediatamente verifica para ver se o nome está disponível. ![](./media/howto-service-bus-queues/sb-queues-04.png)
+4.  No diálogo **Adicionar um novo namespace**, digite um nome de namespace. O sistema imediatamente verifica para ver se o nome está disponível. 
+	![](./media/howto-service-bus-queues/sb-queues-04.png)
 
 5.  Depois de verificar se o nome do namespace está disponível, escolha o país ou a região em que o namespace deve ser hospedado (certifique-se de usar o mesmo país/região em que você está implantando seus recursos de computação).
 
@@ -42,11 +44,14 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 
 ###Para obter as credenciais de gerenciamento do portal
 
-1.  No painel de navegação esquerdo, clique no nó **Barramento de Serviço** para exibir a lista de namespaces disponíveis: ![](./media/howto-service-bus-queues/sb-queues-13.png)
+1.  No painel de navegação esquerdo, clique no nó **Barramento de Serviço** para exibir a lista de namespaces disponíveis: 
+	![](./media/howto-service-bus-queues/sb-queues-13.png)
 
-2.  Selecione o namespace que você acabou de criar na lista abaixo: ![](./media/howto-service-bus-queues/sb-queues-09.png)
+2.  Selecione o namespace que você acabou de criar na lista abaixo: 
+	![](./media/howto-service-bus-queues/sb-queues-09.png)
 
-3.  Clique em **Informações de Conexão**. ![](./media/howto-service-bus-queues/sb-queues-06.png)
+3.  Clique em **Informações de Conexão**. 
+	![](./media/howto-service-bus-queues/sb-queues-06.png)
 
 4.  No painel **Acessar as informações de conexão**, encontre a cadeia de conexão que contém a chave SAS e o nome da chave.
 
