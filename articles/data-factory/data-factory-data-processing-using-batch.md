@@ -761,11 +761,11 @@ Nesta etapa, você criará um pipeline com uma atividade, a atividade personaliz
 
 	-   **AssemblyName** é definido para o nome da DLL: **MyDotNetActivity.dll**.
 
-	-   **EntryPoint** é definido como **MyDotNetActivityNS.MyDotNetActivity**. Ele é basicamente <namespace>.<classname> em seu código.
+	-   **EntryPoint** é definido como **MyDotNetActivityNS.MyDotNetActivity**. Ele é basicamente \<namespace\>.\<classname\> em seu código.
 
 	-   **PackageLinkedService** é definido como **StorageLinkedService**, que aponta para o armazenamento de blobs que contém o arquivo zip da atividade personalizada. Se você estiver usando diferentes contas de armazenamento do Azure para arquivos de entrada/saída e o arquivo zip da atividade personalizada, terá de criar outro serviço vinculado do armazenamento do Azure. Este artigo pressupõe que você está usando a mesma conta de armazenamento do Azure.
 
-	-   **PackageFile** é definido como **customactivitycontainer/MyDotNetActivity.zip**. Ele está no formato: <contêinerdozip>/<nomedozip.zip>.
+	-   **PackageFile** é definido como **customactivitycontainer/MyDotNetActivity.zip**. Ele está no formato: \<contêinerdozip\>/\<nomedozip.zip\>.
 
 	-   A atividade personalizada usa **InputDataset** como entrada e **OutputDataset** como saída.
 
@@ -929,4 +929,4 @@ Depois de processar dados, é possível consumi-lo com ferramentas online como o
 
     -   [Introdução ao .NET da Biblioteca de Lote do Azure](../batch/batch-dotnet-get-started.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!----HONumber=AcomDC_0121_2016-->
