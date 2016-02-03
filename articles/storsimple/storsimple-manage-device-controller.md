@@ -84,7 +84,7 @@ Para gerenciar os controladores de dispositivo no Portal Clássico do Azure, exe
 Isso irá reiniciar ou desligar o controlador. A tabela a seguir resume os detalhes do que acontece dependendo das seleções feitas na caixa de diálogo **Alterar Configurações do Controlador**.
 													
 
-|Seleção n°|Se você optar por...|Acontecerá isso.|
+|Seleção #|Se você optar por...|Acontecerá isso.|
 |---|---|---|
 |1\.|Reinicie o controlador passivo.|Um trabalho será criado para reiniciar o controlador e você será notificado depois que o trabalho tiver sido criado com êxito. Isso iniciará a reinicialização do controlador. Você pode monitorar o processo de reinicialização acessando **Serviço > Painel de controle > Exibir logs de operação** e filtrando por parâmetros específicos do seu serviço.|
 |2\.|Reinicie o controlador ativo.|Você verá o seguinte aviso: "Se você reiniciar o controlador ativo, o dispositivo realizará failover para o controlador passivo. Deseja continuar?" </br>Se você optar por continuar com essa operação, as etapas seguintes serão idênticas àquelas usadas para reiniciar o controlador passivo (confira a seleção 1).|
@@ -221,4 +221,4 @@ Nesta seção, resumimos algumas das perguntas frequentes sobre o gerenciamento 
 
 - Para saber mais sobre como usar o serviço StorSimple Manager, acesse [Usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!----HONumber=AcomDC_0121_2016-->

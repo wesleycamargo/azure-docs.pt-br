@@ -98,7 +98,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     ![SSO](./media/active-directory-saas-kudos-tutorial/IC787807.png "SSO")
 
     1.  No portal do Azure, na página do diálogo **Configurar logon único no Kudos**, copie o valor da **URL do Serviço de Logon Único** e cole-o na caixa de texto **URL de Logon**.
-2.  Crie um arquivo **codificado em Base 64** por meio do certificado baixado.  
+	2.  Crie um arquivo **codificado em Base 64** por meio do certificado baixado.  
 
         >[AZURE.TIP]Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
@@ -155,4 +155,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!----HONumber=AcomDC_0121_2016-->
