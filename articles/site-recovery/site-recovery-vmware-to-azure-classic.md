@@ -260,11 +260,12 @@ Se você quiser replicar máquinas virtuais VMware, instale os seguintes compone
 
 6. Verifique se que essas URLs podem ser acessadas a partir do servidor de gerenciamento:
 
-	- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **. store.core.windows.net Se você tiver regras de firewall baseadas em endereço IP no servidor, verifique se as regras permitem a comunicação com o Azure. Será necessário permitir os [Intervalos de IP do Datacenter do Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) e o protocolo HTTPS (433). Você também precisará colocar intervalos de endereços IP para a região de sua assinatura do Azure e para o Oeste dos EUA na lista branca. Além disso, essa URL para o download do MySQL também deve estar na lista branca: http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi.
+	- *.hypervrecoverymanager.windowsazure.com
+	- *.accesscontrol.windows.net
+	- *.backup.windowsazure.com
+	- *.blob.core.windows.net
+	- *. store.core.windows.net
+	Se você tiver regras de firewall baseadas em endereço IP no servidor, verifique se as regras permitem a comunicação com o Azure. Será necessário permitir os [Intervalos de IP do Datacenter do Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) e o protocolo HTTPS (433). Você também precisará colocar intervalos de endereços IP para a região de sua assinatura do Azure e para o Oeste dos EUA na lista branca. Além disso, essa URL para o download do MySQL também deve estar na lista branca: http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi.
 
 
 7. Em **Verificação de pré-requisitos**, a configuração executa uma verificação de pré-requisitos no servidor.

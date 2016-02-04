@@ -81,7 +81,7 @@ Se você não estiver familiarizado com esse procedimento, veja [Como converter 
 3.  Na página **Configurar URL do Aplicativo**, realize as etapas a seguir e clique em **Avançar**:
 
     -   Na caixa de texto **URL de Logon do Central Desktop**, digite a URL do seu locatário do Central Desktop (por exemplo: *http://contoso.centraldesktop.com*).
--   Na caixa de texto URL de Resposta do Central Desktop, digite a URL AssertionConsumerService do Central Desktop (por exemplo: https://contoso.centraldesktop.com/saml2-assertion.php)).
+    -   Na caixa de texto URL de Resposta do Central Desktop, digite a URL AssertionConsumerService do Central Desktop (por exemplo: https://contoso.centraldesktop.com/saml2-assertion.php).
 
     >[AZURE.NOTE]Você pode obter o valor nos metadados do Central Desktop (por exemplo: *http://contoso.centraldesktop.com*).
 

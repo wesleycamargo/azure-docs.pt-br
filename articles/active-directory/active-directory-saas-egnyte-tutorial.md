@@ -16,7 +16,7 @@
 
 #Tutorial: integração do Active Directory do Azure ao Egnyte
   
-O objetivo deste tutorial é mostrar a integração do Azure ao Egnyte.
+O objetivo deste tutorial é mostrar a integração do Azure ao Egnyte.  
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
@@ -79,7 +79,7 @@ Se você não estiver familiarizado com esse procedimento, veja [Como converter 
 
     ![Configurar o logon único](./media/active-directory-saas-egnyte-tutorial/IC787816.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do Egnyte**, digite a URL usando o padrão "**https://company.egnyte.com*" e clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do Egnyte**, digite a URL usando o padrão "*https://company.egnyte.com*" e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-egnyte-tutorial/IC787817.png "Configurar a URL do Aplicativo")
 
@@ -108,7 +108,7 @@ Se você não estiver familiarizado com esse procedimento, veja [Como converter 
     1.  Para **Autenticação de logon único**, selecione **SAML 2.0**.
     2.  Para **Provedor de identidade**, selecione **AzureAD**.
     3.  No portal do Azure, na página do diálogo **Configurar logon único no Egnyte**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de logon do provedor de identidade**.
-4.  No portal do Azure, na página do diálogo **Configurar logon único no Egnyte**, copie o valor da **ID de Entidade** e cole-o na caixa de texto **ID de entidade do provedor de identidade**.
+    4.  No portal do Azure, na página do diálogo **Configurar logon único no Egnyte**, copie o valor da **ID de Entidade** e cole-o na caixa de texto **ID de entidade do provedor de identidade**.
     5.  Crie um arquivo **codificado em base 64** de seu certificado baixado.  
 
         >[AZURE.TIP]Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
@@ -123,7 +123,8 @@ Se você não estiver familiarizado com esse procedimento, veja [Como converter 
     ![Configurar o logon único](./media/active-directory-saas-egnyte-tutorial/IC787823.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
   
-Para permitir que os usuários do Azure AD façam logon no Egnyte, eles deverão ser provisionados no Egnyte. No caso do Egnyte, o provisionamento é uma tarefa manual.
+Para permitir que os usuários do Azure AD façam logon no Egnyte, eles deverão ser provisionados no Egnyte.  
+No caso do Egnyte, o provisionamento é uma tarefa manual.
 
 ###Para provisionar contas de usuário, execute as seguintes etapas:
 

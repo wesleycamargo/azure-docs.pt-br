@@ -16,7 +16,8 @@
 
 #Tutorial: Integração do Active Directory do Azure ao Brightspace by Desire2Learn
 
-O objetivo deste tutorial é mostrar a integração do Azure ao Brightspace by Desire2Learn. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+O objetivo deste tutorial é mostrar a integração do Azure ao Brightspace by Desire2Learn.  
+O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Uma assinatura habilitada para logon único do Brightspace by Desire2Learn
@@ -80,8 +81,8 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798961.png "Configurar a URL do Aplicativo")
 
-    1.  Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no **Brightspace by Desire2Learn** (por exemplo: **https://partnershowcase.desire2learn.com/Shibboleth.sso/Login?entityID=https://sts.windows-ppe.net/5caf9349-fd93-4a74-b064-0070f65bfb49/&target=https%3A%2F%2Fpartnershowcase.desire2learn.com%2Fd2l%2FshibbolethSSO%2Faspinfo.asp*)).
-2.  Clique em **Próximo**.
+    1.  Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no **Brightspace by Desire2Learn** (por exemplo: *https://partnershowcase.desire2learn.com/Shibboleth.sso/Login?entityID=https://sts.windows-ppe.net/5caf9349-fd93-4a74-b064-0070f65bfb49/&target=https%3A%2F%2Fpartnershowcase.desire2learn.com%2Fd2l%2FshibbolethSSO%2Faspinfo.asp*).
+    2.  Clique em **Próximo**.
 
 4.  Na página **Configurar logon único no Brightspace by Desire2Learn**, para baixar os metadados, clique em **Baixar metadados** e salve os metadados no computador.
 
@@ -89,14 +90,16 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 5.  Envie o arquivo de metadados baixado para a equipe de suporte do Brightspace by Desire2Learn.
 
-    >[AZURE.NOTE]A equipe de suporte do Brightspace by Desire2Learn precisa fazer a configuração real do SSO. Você receberá uma notificação quando o SSO tiver sido habilitado para sua assinatura.
+    >[AZURE.NOTE]A equipe de suporte do Brightspace by Desire2Learn precisa fazer a configuração real do SSO.
+    Você receberá uma notificação quando o SSO tiver sido habilitado para sua assinatura.
 
 6.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798963.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
 
-Para permitir que os usuários do AD do Azure façam logon no Brightspace by Desire2Learn, eles devem ser provisionados no Brightspace by Desire2Learn. No caso do Brightspace by Desire2Learn, as contas de usuário precisam ser criadas pela equipe de suporte do Brightspace by Desire2Learn.
+Para permitir que os usuários do AD do Azure façam logon no Brightspace by Desire2Learn, eles devem ser provisionados no Brightspace by Desire2Learn.  
+No caso do Brightspace by Desire2Learn, as contas de usuário precisam ser criadas pela equipe de suporte do Brightspace by Desire2Learn.
 
 >[AZURE.NOTE]Você pode usar qualquer outra ferramenta de criação da conta de usuário do Brightspace by Desire2Learn ou as APIs fornecidas pelo Brightspace by Desire2Learn para provisionar as contas de usuário do Active Directory do Azure.
 
