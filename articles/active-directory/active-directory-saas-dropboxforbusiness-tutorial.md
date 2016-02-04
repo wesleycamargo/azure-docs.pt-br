@@ -108,7 +108,8 @@ Como parte deste procedimento, será necessário carregar um certificado codific
      5\.2. No portal do Azure, na página do diálogo **Configurar logon único no Dropbox for Business**, copie o valor da **URL da página de entrada** e cole-o na caixa de texto **URL de Entrada**.
 
 
-     5\.3. Crie um arquivo **codificado em base-64** usando o certificado baixado.
+     5\.3. Crie um arquivo **codificado em base-64** usando o certificado baixado.  
+
      >[AZURE.TIP]Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 
