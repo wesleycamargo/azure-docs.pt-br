@@ -16,7 +16,8 @@
 
 #Tutorial: Integração do Active Directory do Azure com o Jobscience
   
-O objetivo deste tutorial é mostrar a integração do Azure com o Jobscience. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+O objetivo deste tutorial é mostrar a integração do Azure com o Jobscience.  
+O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Uma assinatura do Jobscience com logon único habilitado
@@ -64,8 +65,8 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
     ![Jobscience](./media/active-directory-saas-jobscience-tutorial/IC784357.png "Jobscience")
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Jobscience com sua conta do AD do Azure usando federação baseada em protocolo SAML.
-Configurar o logon único para Jobscience exige que você recupere um valor de impressão digital de um certificado.
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Jobscience com sua conta do AD do Azure usando federação baseada em protocolo SAML.  
+Configurar o logon único para Jobscience exige que você recupere um valor de impressão digital de um certificado.  
 Se você não estiver familiarizado com esse procedimento, veja [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI).
 
 ###Para configurar o logon único, execute as seguintes etapas:
@@ -94,7 +95,7 @@ Se você não estiver familiarizado com esse procedimento, veja [Como recuperar 
 
     ![Configurar o logon único](./media/active-directory-saas-jobscience-tutorial/IC784361.png "Configurar o logon único")
 
-8.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon no Jobscience**, digite a URL usando o padrão "**http://company.my.salesforce.com*" e clique em **Avançar**.
+8.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon no Jobscience**, digite a URL usando o padrão "*http://company.my.salesforce.com*" e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-jobscience-tutorial/IC784362.png "Configurar a URL do Aplicativo")
 
@@ -119,8 +120,8 @@ Se você não estiver familiarizado com esse procedimento, veja [Como recuperar 
 
     1.  Na caixa de texto **Nome**, digite um nome para a sua configuração.
     2.  No portal do Azure, na página do diálogo **Configurar logon único no Jobscience**, copie o valor da **URL do Emissor** e cole-o na caixa de texto **Emissor**.
-    3.  Na caixa de texto **ID de Entidade**, digite ****https://salesforce-jobscience.com**
-4.  Clique em **Procurar** para carregar o certificado do Azure AD.
+    3.  Na caixa de texto **ID de Entidade**, digite **https://salesforce-jobscience.com**
+    4.  Clique em **Procurar** para carregar o certificado do Azure AD.
     5.  Para o **Tipo de Identidade do SAML**, selecione **A declaração contém a ID de Federação do objeto User**.
     6.  Para **Local de Identidade do SAML**, selecione **A identidade está contida no elemento NameIdentifier da instrução Subject**.
     7.  No portal do Azure, na página do diálogo **Configurar logon único no Jobscience**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon do Provedor de Identidade**.
@@ -147,10 +148,12 @@ Para obter a URL de Logon Único iniciada pelo SP, clique em **Configurações d
 
 ![Controles de segurança](./media/active-directory-saas-jobscience-tutorial/IC784368.png "Controles de segurança")
   
-Clique no perfil SSO que você criou na etapa anterior. Esta página mostra o Logon Único na URL para a sua empresa (por exemplo, **https://companyname.my.salesforce.com?so=companyid*)).
+Clique no perfil SSO que você criou na etapa anterior.  
+Esta página mostra o Logon Único na URL para a sua empresa (por exemplo, *https://companyname.my.salesforce.com?so=companyid*).
 ##Configurando o provisionamento de usuários
   
-Para permitir que os usuários do AD do Azure façam logon no Jobscience, eles devem ser provisionados no Jobscience. No caso do Jobscience, o provisionamento é uma tarefa manual.
+Para permitir que os usuários do AD do Azure façam logon no Jobscience, eles devem ser provisionados no Jobscience.  
+No caso do Jobscience, o provisionamento é uma tarefa manual.
 
 ###Para configurar o provisionamento de usuários, execute as seguintes etapas:
 
@@ -198,3 +201,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
 <!---HONumber=AcomDC_0121_2016-->
+

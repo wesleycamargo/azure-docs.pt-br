@@ -36,7 +36,8 @@ Para alcançar uma continuidade dos negócios real, a adição de redundância e
 ## Recursos da replicação geográfica ativa
 O recurso de Replicação Geográfica Ativa fornece os seguintes recursos essenciais:
 
-- **Replicação Assíncrona Automática**: depois que um banco de dados secundário online é propagado, as atualizações ao banco de dados primário são copiadas de forma assíncrona no banco de dados secundário online automaticamente. Isso significa que as transações são confirmadas no banco de dados primário antes de serem copiadas para o banco de dados secundário online. No entanto, após a propagação, o banco de dados secundário online é transacionalmente consistente em qualquer momento.
+- **Replicação Assíncrona Automática**: depois que um banco de dados secundário online é propagado, as atualizações ao banco de dados primário são copiadas de forma assíncrona no banco de dados secundário online automaticamente. Isso significa que as transações são confirmadas no banco de dados primário antes de serem copiadas para o banco de dados secundário online. No entanto, após a propagação, o banco de dados secundário online é transacionalmente consistente em qualquer momento. 
+
 	>[AZURE.NOTE]A replicação assíncrona acomoda a latência que tipifica as redes de longa distância pelas quais os datacenters remotos são conectados.
 
 - **Vários bancos de dados secundários online**: dois ou mais bancos de dados secundários online aumentam a redundância e proteção para o banco de dados primário e o aplicativo. Se existirem vários bancos de dados secundários online, o aplicativo permanecerá protegido mesmo se houver uma falha em um dos bancos de dados secundários online. Se houver apenas um banco de dados secundário online e ele falhar, o aplicativo será exposto a um risco maior até que um novo banco de dados secundário online seja criado.

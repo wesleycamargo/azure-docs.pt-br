@@ -16,7 +16,8 @@
 
 #Tutorial: integração do Active Directory do Azure ao Dropbox for Business
   
-O objetivo deste tutorial é mostrar a integração do Azure ao Dropbox for Business. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+O objetivo deste tutorial é mostrar a integração do Azure ao Dropbox for Business.  
+O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Um locatário de teste no Dropbox for Business
@@ -107,7 +108,8 @@ Como parte deste procedimento, será necessário carregar um certificado codific
      5\.2. No portal do Azure, na página do diálogo **Configurar logon único no Dropbox for Business**, copie o valor da **URL da página de entrada** e cole-o na caixa de texto **URL de Entrada**.
 
 
-     5\.3. Crie um arquivo **codificado em base-64** usando o certificado baixado. >[AZURE.TIP]Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+     5\.3. Crie um arquivo **codificado em base-64** usando o certificado baixado.
+     >[AZURE.TIP]Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 
      5\.4. Clique em **Escolher certificado** e navegue até seu **arquivo de certificado codificado em Base 64**.
@@ -176,7 +178,8 @@ Um ciclo de provisionamento de usuário concluído com êxito é indicado por um
 <br><br> ![Atribuir usuários](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769523.png "Atribuir usuários")
 
 
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso.
+Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
 
 

@@ -16,7 +16,8 @@
 
 #Tutorial: integração do Active Directory do Azure ao Cisco Webex
 
-O objetivo deste tutorial é mostrar a integração do Azure ao Cisco Webex. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+O objetivo deste tutorial é mostrar a integração do Azure ao Cisco Webex.  
+O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Um locatário do Cisco Webex
@@ -82,8 +83,8 @@ Se você não estiver familiarizado com esse procedimento, veja [Como converter 
 
     ![Configurar a URL do aplicativo](./media/active-directory-saas-cisco-webex-tutorial/IC777619.png "Configurar a URL do aplicativo")
 
-    1.  Na caixa de texto **URL de Logon**, digite a URL de locatário do Cisco Webex (por exemplo: **http://contoso.webex.com*).
-2.  Na caixa de texto **URL de Resposta do Cisco Webex**, digite a **URL de AssertionConsumerService do Cisco Webex** (por exemplo: **https://company.webex.com/dispatcher/SAML2AuthService?siteurl=company*).
+    1.  Na caixa de texto **URL de Logon**, digite a URL de locatário do Cisco Webex (por exemplo: *http://contoso.webex.com*).
+	2.  Na caixa de texto **URL de Resposta do Cisco Webex**, digite a **URL de AssertionConsumerService do Cisco Webex** (por exemplo: *https://company.webex.com/dispatcher/SAML2AuthService?siteurl=company*).
 
 4.  Na página **Configurar logon único no Cisco Webex**, para baixar seu certificado, clique em **Baixar certificado** e salve o arquivo de certificado no computador.
 
