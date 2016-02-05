@@ -116,4 +116,4 @@ Seu aplicativo Active Directory do Azure foi atualizado para incluir a permissã
 
 [Saiba mais sobre o Active Directory do Azure](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!----HONumber=AcomDC_1223_2015-->
