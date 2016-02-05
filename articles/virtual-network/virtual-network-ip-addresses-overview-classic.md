@@ -143,9 +143,18 @@ Na maioria dos casos, endereços IP públicos são gratuitos. Há um custo nomin
 ## Diferenças entre as implantações do Gerenciador de recursos e clássica
 A seguir está uma comparação dos recursos de endereçamento IP no Gerenciador de Recursos com o modelo de implantação clássico.
 
-||Recurso|Clássico|Gerenciador de Recursos| |---|---|---|---| |**Endereço IP Público**|VM|Chamado de ILPIP (apenas dinâmico)|Chamado de IP público (dinâmico ou estático)| |||Atribuído a uma VM IaaS ou a uma instância de função PaaS|Associado à NIC da VM| ||Balanceador de carga voltado para a Internet|Chamado de VIP (dinâmico) ou IP reservado (estático)|Chamado de IP público (dinâmico ou estático)| |||Atribuído a um serviço de nuvem|Associado à configuração de front-end do balanceador de carga| |||| |**Endereço IP Privado**|VM|Chamado de DIP|Chamado de endereço IP Privado| |||Atribuído a uma VM IaaS ou a uma instância de função PaaS|Atribuído à NIC da VM| ||Balanceador de carga interno (ILB)|Atribuído ao ILB (dinâmico ou estático)|Atribuído à configuração de front-end do ILB (dinâmica ou estática)|
+||Recurso|Clássico|Gerenciador de Recursos|
+|---|---|---|---|
+|**Endereço IP Público**|VM|Chamado de ILPIP (apenas dinâmico)|Chamado de IP público (dinâmico ou estático)|
+|||Atribuído a uma VM IaaS ou a uma instância de função PaaS|Associado à NIC da VM|
+||Balanceador de carga voltado para a Internet|Chamado de VIP (dinâmico) ou IP reservado (estático)|Chamado de IP público (dinâmico ou estático)|
+|||Atribuído a um serviço de nuvem|Associado à configuração de front-end do balanceador de carga|
+||||
+|**Endereço IP Privado**|VM|Chamado de DIP|Chamado de endereço IP Privado|
+|||Atribuído a uma VM IaaS ou a uma instância de função PaaS|Atribuído à NIC da VM|
+||Balanceador de carga interno (ILB)|Atribuído ao ILB (dinâmico ou estático)|Atribuído à configuração de front-end do ILB (dinâmica ou estática)|
 
 ## Próximas etapas
 - [Implante uma VM com um endereço IP privado estático](virtual-networks-static-private-ip-classic-pportal.md) usando o portal clássico.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->
