@@ -59,7 +59,8 @@ Se você já tiver uma classe de Inicialização em seu projeto, o método **Con
 
 ###Seu arquivo app.config ou web.config possui novos valores de configuração.
 
-As entradas de configuração a seguir foram adicionadas. ```
+As entradas de configuração a seguir foram adicionadas. 
+```
 	`<appSettings>
     		<add key="ida:ClientId" value="ClientId from the new Azure AD App" />
     		<add key="ida:Tenant" value="Your selected Azure AD Tenant" />
@@ -116,4 +117,4 @@ Seu aplicativo Active Directory do Azure foi atualizado para incluir a permissã
 
 [Saiba mais sobre o Active Directory do Azure](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_1223_2015---->
