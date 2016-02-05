@@ -238,10 +238,11 @@ Como mencionado acima, se a entidade implementar TableEntity, as propriedades Ge
 Observe que criptografar seu armazenamento de dados resulta em uma sobrecarga adicional no desempenho. O IV e a chave de conteúdo devem ser gerados, o próprio conteúdo deve ser criptografado e os metadados adicionais devem ser formatados e carregados. Essa sobrecarga poderá variar dependendo da quantidade de dados que está sendo criptografada. Recomendamos que os clientes sempre testem seus aplicativos a fim de verificar o desempenho durante o desenvolvimento.
 
 ## Próximas etapas  
-Baixar a [Biblioteca de Cliente do Armazenamento do Azure para o pacote Java Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/4.0.0) 
-Baixar a [Biblioteca de Cliente do Armazenamento do Azure para o código-fonte do Java no GitHub](https://github.com/Azure/azure-storage-java) 
+Baixar a [Biblioteca de Cliente do Armazenamento do Azure para o pacote Java Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/4.0.0)  
+
+Baixar a [Biblioteca de Cliente do Armazenamento do Azure para o código-fonte do Java no GitHub](https://github.com/Azure/azure-storage-java)   
 Baixar os pacotes Maven de [Núcleo](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Cliente](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) e [Extensões](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) do Cofre da Chave do Azure
 
 Visitar a [Documentação do Cofre da Chave](../articles/key-vault-whatis.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->
