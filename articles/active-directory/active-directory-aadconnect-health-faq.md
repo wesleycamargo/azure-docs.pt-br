@@ -43,7 +43,7 @@ Os números a seguir são uma aproximação.
 - Consumo de memória: 10% da memória total do sistema
 - Uso de largura de banda de rede: ~ 1 MB / 1000 das solicitações de ADFS
 
->[AZURE.NOTE]Caso o agente não possa se comunicar com o Azure, ele armazenará os dados localmente, até o limite máximo definido. Quando o agente atingir o limite, se ele não puder carregar os dados no serviço, as novas transações do ADFS vão substituir quaisquer transações "em cache" em uma base "menos atendido recentemente".
+>[AZURE.NOTE] Caso o agente não possa se comunicar com o Azure, ele armazenará os dados localmente, até o limite máximo definido. Quando o agente atingir o limite, se ele não puder carregar os dados no serviço, as novas transações do ADFS vão substituir quaisquer transações "em cache" em uma base "menos atendido recentemente".
 
 - Armazenamento de buffer local para o agente de integridade do AD: ~ 20 MB
 - Armazenamento de dados necessário para o canal de auditoria

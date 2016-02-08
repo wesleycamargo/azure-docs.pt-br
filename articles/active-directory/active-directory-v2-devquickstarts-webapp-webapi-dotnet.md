@@ -46,7 +46,7 @@ Como alternativa, você pode [baixar o aplicativo concluído como. zip](https://
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
-## 1\. Registrar um aplicativo
+## 1. Registrar um aplicativo
 Crie um novo aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.com) ou siga estas [etapas detalhadas](active-directory-v2-app-registration.md). Não se esqueça de:
 
 - Copiar a **ID do Aplicativo** designada ao seu aplicativo, você precisará dela logo.
@@ -114,12 +114,14 @@ public void ConfigureAuth(IAppBuilder app)
 ...
 ```
 
-## 3\. Usar o ADAL para obter um token de acesso quando o usuário se conecta
+## 3. Usar o ADAL para obter um token de acesso quando o usuário se conecta
 Na notificação `AuthorizationCodeReceived`, queremos usar [OAuth 2.0 em conjunto com o OpenID Connect](active-directory-v2-protocols.md#openid-connect-with-oauth-code-flow) para resgatar o authorization\_code de um token de acesso para o Serviço Lista de Tarefas Pendentes. O ADAL pode facilitar esse processo para você:
 
 - Primeiramente, instale a versão de visualização do ADAL:
 
-```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease``` - E adicione outra instrução `using` para o arquivo `App_Start\Startup.Auth.cs` para ADAL. - Agora, adicione um novo método, o manipulador de eventos `OnAuthorizationCodeReceived`. Esse manipulador usará o ADAL para adquirir um token de acesso para a API Lista de Tarefas Pendentes e armazenará o token no cache do token do ADAL para depois:
+```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease``` 
+- E adicione outra instrução `using` para o arquivo `App_Start\Startup.Auth.cs` para ADAL.
+- Agora, adicione um novo método, o manipulador de eventos `OnAuthorizationCodeReceived`. Esse manipulador usará o ADAL para adquirir um token de acesso para a API Lista de Tarefas Pendentes e armazenará o token no cache do token do ADAL para depois:
 
 ```C#
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
@@ -141,7 +143,7 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 <!-- TODO: Token Cache article -->
 
 
-## 4\. Chamar a API Web da Lista de Tarefas
+## 4. Chamar a API Web da Lista de Tarefas
 Agora é hora de usar de fato o access\_token que você acabou de adquirir na etapa 3. Abra o arquivo `Controllers\TodoListController.cs` do aplicativo Web, que faz todas as solicitações CRUD à API da Lista de Tarefas Pendentes.
 
 - Aqui, você pode usar o ADAL novamente para buscar access\_tokens no cache do ADAL. Primeiramente, adicione uma instrução `using` para ADAL a este arquivo.
@@ -201,6 +203,8 @@ Para referência, o exemplo concluído (sem seus valores de configuração) [é 
 
 ## Próximas etapas
 
-Para obter recursos adicionais, confira: - [A visualização do modelo de aplicativo v2.0 >>](active-directory-appmodel-v2-overview.md) - [Tag StackOverflow "adal" >>](http://stackoverflow.com/questions/tagged/adal)
+Para obter recursos adicionais, confira: 
+- [A visualização do modelo de aplicativo v2.0 >>](active-directory-appmodel-v2-overview.md) 
+- [Tag StackOverflow "adal" >>](http://stackoverflow.com/questions/tagged/adal)
 
 <!---HONumber=AcomDC_0128_2016-->

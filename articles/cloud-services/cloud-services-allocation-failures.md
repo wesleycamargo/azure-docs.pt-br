@@ -81,11 +81,11 @@ Estes são os cenários comuns de alocação que causam a fixação de uma solic
 
 4. Remover o grupo de afinidade para novas implantações: grupos de afinidade não são mais recomendados. Execute as etapas para o nº 1 acima a fim de implantar um novo serviço de nuvem. Certifique-se de que o serviço de nuvem não esteja em um grupo de afinidade.
 
-5. Converter para uma rede virtual regional: confira [Como migrar de grupos de afinidades para uma rede virtual regional (VNet)](https://azure.microsoft.com/documentation/articles/virtual-networks-migrate-to-regional-vnet/).
+5. Converter para uma rede virtual regional: confira [Como migrar de grupos de afinidades para uma rede virtual regional (VNet)]( https://azure.microsoft.com/documentation/articles/virtual-networks-migrate-to-regional-vnet/).
 
 ## Recursos adicionais
 ### Contate o Suporte ao Cliente do Azure
 
 Caso este artigo não ajude a resolver o problema do Microsoft Azure, navegue pelos fóruns do Azure em [MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Você pode também registrar uma ocorrência de suporte do Microsoft Azure sobre o problema. Acesse o site [Suporte do Microsoft Azure](https://azure.microsoft.com/support/options/) e clique em Obter suporte. Para saber mais sobre como usar o Suporte do Azure, leia as [ Perguntas frequentes de suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0128_2016--->

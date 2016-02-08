@@ -16,7 +16,8 @@
 
 #Tutorial: Integração do Active Directory do Azure com o ServiceNow
   
-O objetivo deste tutorial é mostrar a integração do Azure ao ServiceNow. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+O objetivo deste tutorial é mostrar a integração do Azure ao ServiceNow.
+ O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Um locatário no ServiceNow
@@ -229,19 +230,19 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
 2. Na página **Inserir suas credenciais do ServiceNow para habilitar o provisionamento automático de usuário**, forneça as seguintes configurações: Configurar Provisionamento de Usuário
 
-     2\.1. Na caixa de texto **Nome de Instância do ServiceNow**, digite o nome da instância do ServiceNow.
+     2.1. Na caixa de texto **Nome de Instância do ServiceNow**, digite o nome da instância do ServiceNow.
 
-     2\.2. Na caixa de texto **Nome de Usuário Administrador do ServiceNow**, digite o nome da conta de administrador do ServiceNow.
+     2.2. Na caixa de texto **Nome de Usuário Administrador do ServiceNow**, digite o nome da conta de administrador do ServiceNow.
 
-     2\.3. Na caixa de texto **Senha de Administrador do ServiceNow**, digite a senha desta conta.
+     2.3. Na caixa de texto **Senha de Administrador do ServiceNow**, digite a senha desta conta.
 
-     2\.4. Clique em **validar** para verificar sua configuração.
+     2.4. Clique em **validar** para verificar sua configuração.
 
-     2\.5. Clique no botão **Avançar** para abrir a página **Próximas etapas**.
+     2.5. Clique no botão **Avançar** para abrir a página **Próximas etapas**.
 
-     2\.6. Se você deseja provisionar todos os usuários neste aplicativo, selecione “**Provisionar automaticamente todas as contas de usuário no diretório neste aplicativo**”. <br><br> ![Próximas etapas](./media/active-directory-saas-servicenow-tutorial/IC698804.png "Próximas etapas")
+     2.6. Se você deseja provisionar todos os usuários neste aplicativo, selecione “**Provisionar automaticamente todas as contas de usuário no diretório neste aplicativo**”. <br><br> ![Próximas etapas](./media/active-directory-saas-servicenow-tutorial/IC698804.png "Próximas etapas")
 
-     2\.7. Na página **Próximas etapas**, clique em **Concluir** para salvar sua configuração.
+     2.7. Na página **Próximas etapas**, clique em **Concluir** para salvar sua configuração.
 
 
 

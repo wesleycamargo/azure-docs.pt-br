@@ -67,8 +67,8 @@ A lista a seguir mostra exemplos do tempo médio para primeiro byte de vários l
 |&Tóquio, JP | 163 | 48 | 204 % |
 |Seul, Coreia do Sul| 190 | 190 | 0% |
 
-
-Tem um nó CDN do Azure na mesma cidade. ** Tem um nó do CDN do Azure em uma cidade vizinha.
+*Tem um nó CDN do Azure na mesma cidade. 
+** Tem um nó do CDN do Azure em uma cidade vizinha.
 
 ## Desafios  
 
@@ -205,7 +205,13 @@ Incluem o CDN como parte da sua estratégia para detectar e medir as falhas de m
 
 Habilitar o registro em log para o CDN e monitorar esse log como parte das operações diárias.
 
-Considere analisar o tráfego do CDN quanto a padrões de uso. O portal do Azure fornece ferramentas que permitem monitorar: + largura de banda, + dados transferido, + ocorrências (códigos de status), + status do cache, + taxa de ocorrências do cache e + taxa de solicitações de IPV4/IPV6.
+Considere analisar o tráfego do CDN quanto a padrões de uso. O portal do Azure fornece ferramentas que permitem monitorar: 
++ largura de banda,
++ dados transferido,
++ ocorrências (códigos de status),
++ status do cache,
++ taxa de ocorrências do cache e
++ taxa de solicitações de IPV4/IPV6.
 
 Para obter mais informações, consulte [Analisar padrões de uso do CDN do Azure](cdn/cdn-analyze-usage-patterns.md/).
 

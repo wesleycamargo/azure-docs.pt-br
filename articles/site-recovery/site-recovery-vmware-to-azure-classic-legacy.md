@@ -1,4 +1,11 @@
-<properties pageTitle="Replicar as máquinas virtuais VMware e os servidores físicos no Azure com o Azure Site Recovery (herdado) | Microsoft Azure" description="Descreve uma implantação herdada para a configuração do Azure Site Recovery a fim de administrar a replicação, o failover e a recuperação de máquinas virtuais VMware locais e de servidores físicos com o Windows/Linux no Azure." " services="site-recovery" documentationCenter="" authors="rayne-wiselman" manager="jwhit" editor=""/>
+<properties
+	pageTitle="Replicar as máquinas virtuais VMware e os servidores físicos no Azure com o Azure Site Recovery (herdado) | Microsoft Azure" 
+	description="Descreve uma implantação herdada para a configuração do Azure Site Recovery a fim de administrar a replicação, o failover e a recuperação de máquinas virtuais VMware locais e de servidores físicos com o Windows/Linux no Azure."
+	services="site-recovery"
+	documentationCenter=""
+	authors="rayne-wiselman"
+	manager="jwhit"
+	editor=""/>
 
 <tags
 	ms.service="site-recovery"
@@ -806,4 +813,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0128_2016---->

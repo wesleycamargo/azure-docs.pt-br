@@ -159,7 +159,9 @@ Para obter acesso ao ambiente de serviço de aplicativo, criar APIs, conexões e
 
 1. Selecione o ambiente de serviço de aplicativo que você acabou de criar.
 2. No Essentials, selecione a propriedade **Grupo de recursos**. Isso abre o grupo de recursos que contém o ambiente do serviço de aplicativo: ![][7]
-3. Escolha o ícone RBAC para gerenciar as permissões: ![][8]Adicionar usuários e atribuir funções é o mesmo que usar o [ Controle de acesso baseado em função](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) do Azure.
+3. Escolha o ícone RBAC para gerenciar as permissões:
+![][8]  
+	Adicionar usuários e atribuir funções é o mesmo que usar o [Controle de acesso baseado em função]( https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) do Azure.
 
 > [AZURE.NOTE] No momento, você não pode conceder permissões de RBAC para o ambiente de serviço de aplicativo. Você pode conceder permissões de RBAC no nível do grupo de recursos pai.
 
@@ -181,4 +183,4 @@ Agora sua empresa está inscrita no PowerApps e tem um ambiente de serviço de a
 [7]: ./media/powerapps-get-started-azure-portal/aseessentials.png
 [8]: ./media/powerapps-get-started-azure-portal/resourcegrouprbac.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0128_2016--->

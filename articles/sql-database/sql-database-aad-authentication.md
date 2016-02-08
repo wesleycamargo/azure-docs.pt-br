@@ -199,7 +199,8 @@ O exemplo a seguir retorna informações sobre o administrador atual do AD do Az
 Get-AzureRmSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" –ServerName "demo_server" | Format-List
 ```
 
-O seguinte exemplo remove um administrador do Azure AD: ```
+O seguinte exemplo remove um administrador do Azure AD: 
+```
 Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" –ServerName "demo_server"
 ```
 
@@ -243,7 +244,7 @@ Use esse método ao se conectar com um nome de entidade do AD do Azure usando o 
 Use este método se você estiver conectado no Windows usando as credenciais de um domínio que não está federado com o Azure, ou quando usar a autenticação do AD do Azure usando o Azure AD baseado no domínio de cliente ou inicial.
 
 1. Inicie o Management Studio e, na caixa de diálogo **Conectar ao Mecanismo de Banco de Dados** (ou **Conectar ao Servidor**), na caixa **Autenticação**, selecione **Autenticação de Senha do Active Directory**.
-2. Na caixa **Nome de usuário**, digite seu nome de usuário do Active Directory do Azure no formato ****username@domain.com**. Essa deve ser uma conta do Active Directory do Azure ou uma conta de um domínio federado com o Active Directory do Azure.
+2. Na caixa **Nome de usuário**, digite seu nome de usuário do Active Directory do Azure no formato **username@domain.com**. Essa deve ser uma conta do Active Directory do Azure ou uma conta de um domínio federado com o Active Directory do Azure.
 3. Na caixa **Senha**, digite sua senha de usuário para a conta do Active Directory do Azure ou conta de domínio federado.
 4. Clique no botão **Opções** e, na página **Propriedades de Conexão**, na caixa **Conectar ao banco de dados**, digite o nome do banco de dados de usuário ao qual deseja se conectar.
 

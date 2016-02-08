@@ -102,7 +102,10 @@ Se seu aplicativo estiver lidando com metas de escalabilidade de uma única cont
 -	Se seu aplicativo alcançar as metas de escalabilidade, você deve usar a retirada exponencial para novas tentativas (confira [Novas tentativas](#subheading14)). O mais recomendado é nunca alcançar as metas de escalabilidade, o que é possível garantir por meio de um dos métodos acima. Porém, isso garante que o aplicativo não faça novas tentativas rapidamente, piorando o problema de restrição.  
 
 ####Recursos úteis
-Os links a seguir fornecem detalhes adicionais sobre metas de escalabilidade: - consulte [Metas de desempenho e escalabilidade do Armazenamento do Azure](storage-scalability-targets.md) para obter informações sobre metas de escalabilidade. - Consulte [Replicação de Armazenamento do Azure](storage-redundancy.md) e a postagem no blog [Opções de redundância de Armazenamento do Azure e armazenamento com redundância geográfica com acesso de leitura](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) para obter informações sobre opções de redundância de armazenamento. - Para obter informações atuais sobre o preço de serviços do Azure, consulte [Preços do Azure](https://azure.microsoft.com/pricing/overview/).
+Os links a seguir fornecem detalhes adicionais sobre metas de escalabilidade:
+- consulte [Metas de desempenho e escalabilidade do Armazenamento do Azure](storage-scalability-targets.md) para obter informações sobre metas de escalabilidade.
+- Consulte [Replicação de Armazenamento do Azure](storage-redundancy.md) e a postagem no blog [Opções de redundância de Armazenamento do Azure e armazenamento com redundância geográfica com acesso de leitura](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) para obter informações sobre opções de redundância de armazenamento.
+- Para obter informações atuais sobre o preço de serviços do Azure, consulte [Preços do Azure](https://azure.microsoft.com/pricing/overview/).
 
 ###Rede
 Embora as chamadas de API sejam importantes, muitas vezes as limitações físicas da rede do aplicativo têm impacto considerável no desempenho. A seção a seguir descreve algumas das limitações que os usuários podem enfrentar.
